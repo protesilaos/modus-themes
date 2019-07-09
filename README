@@ -1,0 +1,24 @@
+Modus Themes
+============
+
+EARLY DAYS!!!
+
+Highly accessible themes for GNU Emacs.  The contrast ratio between
+foreground and background values should always be >= 7:1, which
+conforms with the WCAG AAA standard.
+
+Modus Vivendi: light theme.
+Modus Operandi: dark theme.
+
+TODO
+----
+
+* Screenshots.
+* Expand face coverage, especially for common Emacs interfaces.
+* Implement Lisp functions/variables.
+* Continue testing colour combinations.
+
+License
+-------
+
+GNU General Public License version 3 or later.
