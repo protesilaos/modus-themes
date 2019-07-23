@@ -20,7 +20,7 @@
 ;;; Commentary:
 ;;
 ;; Early prototype.  Tested on Emacs 26.1 (Debian 10).  The purpose of
-;; this theme is to provide a consistent _minimum contrast ratio_
+;; this theme is to provide a consistent minimum contrast ratio
 ;; between background and foreground values of 7:1.  This meets the
 ;; highest such accessibility criterion per the guidelines of the
 ;; Worldwide Web Consortium's Working Group on Accessibility.
