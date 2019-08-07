@@ -1,8 +1,6 @@
 Modus Themes
 ============
 
-EARLY DAYS!!!
-
 Highly accessible themes for GNU Emacs.  The contrast ratio between
 foreground and background values should always be >= 7:1, which
 conforms with the WCAG AAA standard.
@@ -14,9 +12,7 @@ TODO
 ----
 
 * Screenshots.
-* Expand face coverage, especially for common Emacs interfaces.
-* Implement Lisp functions/variables.
-* Continue testing colour combinations.
+* Expand face coverage.
 
 License
 -------
