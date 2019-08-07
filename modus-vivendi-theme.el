@@ -1,4 +1,4 @@
-;; modus-vivendi-theme.el --- very accessible light theme (WCAG AAA)
+;; modus-vivendi-theme.el --- very accessible dark theme (WCAG AAA)
 ;;
 ;; This file is not part of GNU Emacs.
 ;;
@@ -42,7 +42,7 @@
   standard for colour contrast between background and
   foreground elements (WCAG AAA).")
 
-;; These faces will be inhered by actual constructs.  They are meant
+;; These faces will be inherited by actual constructs.  They are meant
 ;; for those cases where a face needs to distinguish its output from
 ;; the rest of the text, such as `isearch' and `occur'…  We define
 ;; these separately in order to combine each colour with its

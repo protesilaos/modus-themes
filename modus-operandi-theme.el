@@ -42,7 +42,7 @@
   standard for colour contrast between background and
   foreground elements (WCAG AAA).")
 
-;; These faces will be inhered by actual constructs.  They are meant
+;; These faces will be inherited by actual constructs.  They are meant
 ;; for those cases where a face needs to distinguish its output from
 ;; the rest of the text, such as `isearch' and `occur'…  We define
 ;; these separately in order to combine each colour with its
@@ -87,7 +87,7 @@
 	  (yellow-alt-other "#904200") (blue-alt-other "#003399")
 	  (magenta-alt-other "#7733bb") (cyan-alt-other "#005a68")
 	  ;; styles for elements that should draw attention to themselves
-	  ;; must be combined with: bg-main, bg-alt, bg-dim
+	  ;; must be combined with: bg-main
 	  (red-intense "#b60000") (green-intense "#90ff90")
 	  (yellow-intense "#ffff00") (blue-intense "#0000ff")
 	  (magenta-intense "#7000f0") (cyan-intense "#33ddff")
