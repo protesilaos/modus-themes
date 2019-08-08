@@ -236,6 +236,8 @@
    `(magit-branch-current ((t (:inherit (font-lock-type-face)))))
    `(magit-branch-remote ((t (:inherit (font-lock-function-name-face)))))
    `(magit-hash ((t (:inherit (shadow)))))
+   `(magit-process-ok ((t (:inherit (hi-green-b)))))
+   `(magit-process-ng ((t (:inherit (error)))))
    ;;;; elfeed
    `(elfeed-search-date-face ((t (:inherit (default)))))
    `(elfeed-search-date-face ((t (:inherit (default) :weight bold))))
