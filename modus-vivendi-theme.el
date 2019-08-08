@@ -124,6 +124,7 @@
    `(cursor ((,class (:background ,fg-main))))
    `(italic ((,class (:foreground ,yellow :slant italic))))
    `(warning ((,class (:foreground ,red :weight bold))))
+   `(error ((t (:inherit (modus-theme-intense-bg-red)))))
    `(escape-glyph ((,class (:weight bold :foreground ,yellow-alt))))
    `(homoglyph ((,class (:foreground ,yellow-alt-other))))
    `(minibuffer-prompt ((,class (:foreground ,blue-intense))))
