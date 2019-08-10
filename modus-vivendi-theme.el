@@ -277,6 +277,9 @@
    `(whitespace-tab ((t (:inherit (whitespace-space)))))
    `(whitespace-trailing ((t (:inherit (modus-theme-intense-bg-red)))))
    `(whitespace-big-indent ((t (:inherit (modus-theme-intense-bg-red)))))
+   ;;;; emms
+   `(emms-playlist-track-face ((,class (:foreground ,blue))))
+   `(emms-playlist-selected-face ((,class (:foreground ,magenta :weight bold))))
    ))
 
 ;;;###autoload
