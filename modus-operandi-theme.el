@@ -288,7 +288,14 @@
    `(swiper-match-face-2 ((t (:inherit (modus-theme-intense-bg-magenta)))))
    `(swiper-match-face-3 ((t (:inherit (modus-theme-intense-bg-yellow)))))
    `(swiper-match-face-4 ((t (:inherit (modus-theme-intense-bg-green)))))
-    ;;;; whitespace-mode
+   ;;;; visual-regexp
+   `(vr/group-0 ((t (:inherit (modus-theme-intense-bg-cyan) :weight bold))))
+   `(vr/group-1 ((t (:inherit (modus-theme-intense-bg-magenta) :weight bold))))
+   `(vr/group-2 ((t (:inherit (modus-theme-intense-bg-blue) :weight bold))))
+   `(vr/match-0 ((t (:inherit (modus-theme-subtle-bg-green)))))
+   `(vr/match-1 ((t (:inherit (modus-theme-subtle-bg-yellow)))))
+   `(vr/match-separator-face ((t (:inherit (modus-theme-intense-bg-red)))))
+   ;;;; whitespace-mode
    `(whitespace-space ((,class (:background ,bg-alt :foreground ,fg-alt))))
    `(whitespace-empty ((t (:inherit (modus-theme-intense-bg-magenta)))))
    `(whitespace-hspace ((t (whitespace-space))))
