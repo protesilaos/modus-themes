@@ -288,7 +288,6 @@
    `(swiper-match-face-2 ((t (:inherit (modus-theme-intense-bg-magenta)))))
    `(swiper-match-face-3 ((t (:inherit (modus-theme-intense-bg-yellow)))))
    `(swiper-match-face-4 ((t (:inherit (modus-theme-intense-bg-green)))))
-   `(swiper-line-face ((t (:inherit (isearch)))))
     ;;;; whitespace-mode
    `(whitespace-space ((,class (:background ,bg-alt :foreground ,fg-alt))))
    `(whitespace-empty ((t (:inherit (modus-theme-intense-bg-magenta)))))
