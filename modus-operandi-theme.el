@@ -70,7 +70,7 @@
 	  (fg-dim "#282828") (bg-dim "#f8f8f8")
 	  ;; specifically for the mode line and contexts where an on/off
 	  ;; state is necessary
-	  (fg-inactive "#505050") (bg-inactive "#efefef")
+	  (fg-inactive "#504352") (bg-inactive "#e2e0e5")
 	  ;; styles for the main constructs
 	  ;; must be combined with: bg-main, bg-alt, bg-dim
 	  (red "#a80000") (green "#006800")
