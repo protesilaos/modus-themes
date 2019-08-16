@@ -316,6 +316,14 @@
    `(whitespace-tab ((t (:inherit (whitespace-space)))))
    `(whitespace-trailing ((t (:inherit (modus-theme-intense-bg-red)))))
    `(whitespace-big-indent ((t (:inherit (modus-theme-intense-bg-red)))))
+   ;;;; which-key
+   `(which-key-key-face ((,class (:foreground ,blue-alt :weight bold))))
+   `(which-key-separator-face ((,class (:foreground ,fg-dim))))
+   `(which-key-note-face ((,class (:foreground ,fg-alt))))
+   `(which-key-special-key-face ((,class (:foreground ,green-alt))))
+   `(which-key-group-description-face ((,class (:foreground ,magenta-alt))))
+   `(which-key-command-description-face ((,class (:foreground ,cyan-alt))))
+   `(which-key-local-map-description-face ((,class (:foreground ,cyan-alt))))
    ;;;; emms
    `(emms-playlist-track-face ((,class (:foreground ,blue))))
    `(emms-playlist-selected-face ((,class (:foreground ,magenta :weight bold))))
