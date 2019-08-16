@@ -4,7 +4,7 @@
 ;;
 ;; Copyright (c) 2019 Protesilaos Stavrou <info@protesilaos.com>
 ;;
-;; This program is free software; you can redistribute it and/or 
+;; This program is free software; you can redistribute it and/or
 ;; it under the terms of the GNU General Public License as published by
 ;; the Free Software Foundation, either version 3 of the License, or
 ;; (at your option) any later version.
@@ -213,7 +213,7 @@
    `(sh-quoted-exec ((t (:inherit (font-lock-builtin-face)))))
    ;;;; diff-mode
    `(diff-added ((t (:inherit (modus-theme-subtle-bg-green)))))
-   `(diff-indicator-added ((t (:inherit (diff-added))))) 
+   `(diff-indicator-added ((t (:inherit (diff-added)))))
    `(diff-changed ((t (:inherit (diff-added) :weight bold))))
    `(diff-indicator-changed ((t (:inherit (diff-changed)))))
    `(diff-removed ((t (:inherit (modus-theme-subtle-bg-red)))))
