@@ -8,11 +8,14 @@ conforms with the WCAG AAA standard.
 Modus Operandi: light theme.
 Modus Vivendi: dark theme.
 
+I live demo them in my Emacs-related screen casts:
+https://protesilaos.com/code-casts
+
 TODO
 ----
 
-* Screenshots.
 * Expand face coverage.
+* Create MELPA package.
 
 License
 -------
