@@ -309,7 +309,7 @@
    `(org-todo ((t (:inherit (warning)))))
    `(org-emphasis ((t (:inherit (italic)))))
    `(org-block ((,class (:background ,bg-dim :foreground ,fg-main))))
-   `(org-block-begin-line ((,class (:background ,bg-alt :foreground ,fg-main))))
+   `(org-block-begin-line ((,class (:background ,bg-dim :foreground ,fg-dim))))
    `(org-block-end-line ((t (:inherit (org-block-begin-line)))))
    `(org-verbatim ((t (:inherit (font-lock-constant-face)))))
    ;;;; ivy
