@@ -73,7 +73,7 @@
 	  (fg-inactive "#504352") (bg-inactive "#e2e0e5")
 	  ;; styles for the main constructs
 	  ;; must be combined with: bg-main, bg-alt, bg-dim
-	  (red "#a80000") (green "#006800")
+	  (red "#a80000") (green "#2c650c")
 	  (yellow "#8b3800") (blue "#2d48b0")
 	  (magenta "#b30042") (cyan "#005589")
 	  ;; styles for common, but still specialised constructs
@@ -83,14 +83,14 @@
 	  (magenta-alt "#800090") (cyan-alt "#185870")
 	  ;; same purpose as above, just slight differences
 	  ;; must be combined with: bg-main, bg-alt, bg-dim
-	  (red-alt-other "#880000") (green-alt-other "#005f26")
-	  (yellow-alt-other "#904200") (blue-alt-other "#003399")
-	  (magenta-alt-other "#7733bb") (cyan-alt-other "#005a68")
+	  (red-alt-other "#880000") (green-alt-other "#145a00")
+	  (yellow-alt-other "#804000") (blue-alt-other "#003399")
+	  (magenta-alt-other "#7022bb") (cyan-alt-other "#005a68")
 	  ;; styles for elements that should draw attention to themselves
 	  ;; must be combined with: bg-main
-	  (red-intense "#b60000") (green-intense "#90ff90")
-	  (yellow-intense "#ffff00") (blue-intense "#0000ff")
-	  (magenta-intense "#7000f0") (cyan-intense "#33ddff")
+	  (red-intense "#b60000") (green-intense "#006800")
+	  (yellow-intense "#904200") (blue-intense "#1111ee")
+	  (magenta-intense "#7000e0") (cyan-intense "#205b93")
 	  ;; styles for background elements that should be visible yet subtle
 	  ;; must be combined with: fg-dim
 	  (red-subtle-bg "#ffb0aa") (green-subtle-bg "#ddeecc")
