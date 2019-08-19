@@ -85,7 +85,7 @@
 	  (magenta-alt "#800090") (cyan-alt "#185870")
 	  ;; same purpose as above, just slight differences
 	  ;; must be combined with: bg-main, bg-alt, bg-dim
-	  (red-alt-other "#880000") (green-alt-other "#145a00")
+	  (red-alt-other "#9d2020") (green-alt-other "#145a00")
 	  (yellow-alt-other "#804000") (blue-alt-other "#003399")
 	  (magenta-alt-other "#7022bb") (cyan-alt-other "#005a68")
 	  ;; styles for elements that should draw attention to themselves
