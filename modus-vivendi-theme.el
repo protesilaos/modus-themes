@@ -113,7 +113,7 @@
    `(modus-theme-subtle-bg-blue ((,class (:background ,blue-subtle-bg :foreground ,fg-dim))))
    `(modus-theme-subtle-bg-magenta ((,class (:background ,magenta-subtle-bg :foreground ,fg-dim))))
    `(modus-theme-subtle-bg-cyan ((,class (:background ,cyan-subtle-bg :foreground ,fg-dim))))
-   `(modus-theme-subtle-bg-neutral ((,class (:background ,bg-inactive :foreground ,fg-inactive))))
+   `(modus-theme-subtle-bg-neutral ((,class (:background ,bg-alt :foreground ,fg-alt))))
    ;;; intense coloured backgrounds
    `(modus-theme-intense-bg-red ((,class (:background ,red-intense-bg :foreground ,fg-main))))
    `(modus-theme-intense-bg-green ((,class (:background ,green-intense-bg :foreground ,fg-main))))
@@ -121,7 +121,7 @@
    `(modus-theme-intense-bg-blue ((,class (:background ,blue-intense-bg :foreground ,fg-main))))
    `(modus-theme-intense-bg-magenta ((,class (:background ,magenta-intense-bg :foreground ,fg-main))))
    `(modus-theme-intense-bg-cyan ((,class (:background ,cyan-intense-bg :foreground ,fg-main))))
-   `(modus-theme-intense-bg-neutral ((,class (:background ,bg-alt :foreground ,fg-main))))
+   `(modus-theme-intense-bg-neutral ((,class (:background ,bg-dim :foreground ,fg-main))))
    ;; actual styles
    `(default ((,class (:background ,bg-main :foreground ,fg-main))))
    `(fringe ((t (:inherit (default)))))
