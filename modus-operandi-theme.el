@@ -238,6 +238,8 @@
    `(diff-header ((t (:inherit (diff-function)))))
    `(diff-hunk-header ((t (:inherit (diff-function)))))
    `(diff-index-header ((t (:inherit (diff-function)))))
+   ;;;; git
+   `(git-commit-overlong-summary ((t (:inherit (modus-theme-subtle-bg-yellow)))))
    ;;;; magit
    `(magit-section ((,class (:background ,bg-dim :foreground ,fg-main))))
    `(magit-section-heading ((t (:inherit font-lock-variable-name-face))))
