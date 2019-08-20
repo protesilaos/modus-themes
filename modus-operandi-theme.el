@@ -100,7 +100,7 @@
 	  (magenta-subtle-bg "#ffcef5") (cyan-subtle-bg "#b3efef")
 	  ;; styles for background elements that should be visible and distinguishable
 	  ;; must be combined with: fg-main
-	  (red-intense-bg "#ff947a") (green-intense-bg "#7deaa6")
+	  (red-intense-bg "#ff947a") (green-intense-bg "#4add66")
 	  (yellow-intense-bg "#f5f77c") (blue-intense-bg "#a0c5ff")
 	  (magenta-intense-bg "#e5c0ff") (cyan-intense-bg "#aaffee"))
   (custom-theme-set-faces
