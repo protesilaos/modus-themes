@@ -96,13 +96,13 @@
 	  ;; styles for background elements that should be visible yet subtle
 	  ;; must be combined with: fg-dim
 	  (red-subtle-bg "#ffb0aa") (green-subtle-bg "#cde8bc")
-	  (yellow-subtle-bg "#f0e0a0") (blue-subtle-bg "#afd4ff")
-	  (magenta-subtle-bg "#ffcef5") (cyan-subtle-bg "#b3efef")
+	  (yellow-subtle-bg "#f0e0a0") (blue-subtle-bg "#b5d4ff")
+	  (magenta-subtle-bg "#ffcef5") (cyan-subtle-bg "#c0efff")
 	  ;; styles for background elements that should be visible and distinguishable
 	  ;; must be combined with: fg-main
-	  (red-intense-bg "#ff947a") (green-intense-bg "#4add66")
+	  (red-intense-bg "#ffa28a") (green-intense-bg "#72da86")
 	  (yellow-intense-bg "#f5f77c") (blue-intense-bg "#a0c5ff")
-	  (magenta-intense-bg "#e5c0ff") (cyan-intense-bg "#aaffee"))
+	  (magenta-intense-bg "#e5c0ff") (cyan-intense-bg "#a5f8f2"))
   (custom-theme-set-faces
    'modus-operandi
    ;; custom faces that are inherited by other constructs below
