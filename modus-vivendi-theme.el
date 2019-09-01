@@ -376,6 +376,22 @@
    ;;;; eww
    `(eww-invalid-certificate ((t (:inherit (error)))))
    `(eww-valid-certificate ((t (:inherit (success)))))
+   ;;;; company-mode
+   `(company-preview ((t (:inherit (modus-theme-intense-bg-neutral)))))
+   `(company-tooltip ((,class (:background ,bg-alt))))
+   `(company-scrollbar-bg ((,class (:background ,bg-inactive))))
+   `(company-scrollbar-fg ((,class (:background ,fg-inactive))))
+   `(company-echo-common ((,class (:foreground ,magenta-alt-other))))
+   `(company-preview-common ((,class (:foreground ,magenta-alt-other))))
+   `(company-tooltip-common ((,class (:foreground ,magenta-alt-other))))
+   `(company-tooltip-annotation ((,class (:foreground ,magenta-alt-other))))
+   `(company-tooltip-selection ((t (:inherit (modus-theme-intense-bg-cyan)))))
+   `(company-tooltip-mouse ((t (:inherit (modus-theme-intense-bg-blue)))))
+   `(company-tooltip-search ((t (:inherit (modus-theme-subtle-bg-green)))))
+   `(company-template-field ((t (:inherit (modus-theme-intense-bg-magenta)))))
+   `(company-tooltip-search-selection ((t (:inherit (modus-theme-intense-bg-green)))))
+   `(company-tooltip-common-selection ((,class (:foreground ,fg-main :weight bold))))
+   `(company-tooltip-annotation-selection ((,class (:foreground ,fg-main :weight bold))))
    ))
 
 ;;;###autoload
