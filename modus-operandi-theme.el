@@ -134,6 +134,8 @@
    `(homoglyph ((,class (:foreground ,yellow-alt-other))))
    `(minibuffer-prompt ((,class (:foreground ,blue-intense))))
    `(highlight ((t (:inherit (modus-theme-subtle-bg-blue)))))
+   `(highlight-changes ((,class (:foreground ,yellow-alt-other))))
+   `(highlight-changes-delete ((,class (:foreground ,red-alt-other :underline t))))
    `(hl-line ((,class (:background ,bg-alt))))
    `(hi-black-b ((t ((:background ,fg-main :foreground ,bg-main)))))
    `(hi-green-b ((t (:inherit (modus-theme-intense-bg-green)))))
