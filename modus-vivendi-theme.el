@@ -182,7 +182,7 @@
    `(next-error ((t (:inherit (modus-theme-intense-bg-red))))) ;; check
    `(query-replace ((t (:inherit (isearch)))))
    `(show-paren-match ((t (:inherit (modus-theme-intense-bg-magenta) :weight bold))))
-   `(show-paren-match-expression ((t (:inherit (show-paren-match)))))
+   `(show-paren-match-expression ((t (:inherit (modus-theme-subtle-bg-neutral)))))
    `(show-paren-mismatch ((t (:inherit (modus-theme-intense-bg-red)))))
    `(completions-annotations ((t (:inherit (italic)))))
    `(completions-common-part ((t nil)))
