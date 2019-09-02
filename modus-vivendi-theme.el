@@ -176,6 +176,7 @@
    `(mode-line-emphasis ((t (:weight bold :inherit (highlight)))))
    `(mode-line-highlight ((,class (:box (:line-width 1 :color ,fg-main) :background ,bg-main))))
    `(mode-line-inactive ((,class (:box (:line-width 1 :color ,bg-inactive) :background ,bg-inactive :foreground ,fg-inactive))))
+   `(which-func ((,class (:foreground ,fg-main))))
    `(isearch ((t (:weight bold :inherit (modus-theme-intense-bg-green)))))
    `(isearch-fail ((t (:inherit (modus-theme-subtle-bg-red)))))
    `(lazy-highlight ((t (:inherit (modus-theme-subtle-bg-green)))))
