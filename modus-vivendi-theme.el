@@ -320,7 +320,7 @@
    `(org-block ((,class (:background ,bg-main :foreground ,fg-main))))
    `(org-block-begin-line ((,class (:background ,bg-dim :foreground ,fg-alt))))
    `(org-block-end-line ((t (:inherit (org-block-begin-line)))))
-   `(org-verbatim ((t (:inherit (font-lock-constant-face)))))
+   `(org-verbatim ((,class (:background ,bg-dim :foreground ,green))))
    ;;;; ivy
    `(ivy-cursor ((t (:inherit (cursor)))))
    `(ivy-grep-info ((t (:inherit (modus-theme-intense-bg-green)))))
