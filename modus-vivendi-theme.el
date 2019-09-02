@@ -70,9 +70,10 @@
 	  (fg-main "#ffffff") (bg-main "#000000")
 	  (fg-alt "#d8cdcf") (bg-alt "#201626")
 	  (fg-dim "#e0e6f0") (bg-dim "#14091c")
-	  ;; specifically for the mode line and contexts where an on/off
-	  ;; state is necessary
-	  (fg-inactive "#b9b2b4") (bg-inactive "#282828")
+	  ;; specifically for on/off states (e.g. mode-line)
+	  ;; must be combined with themselves
+	  (fg-active "#f5f5f5") (bg-active "#303030")
+	  (fg-inactive "#a3a3a3") (bg-inactive "#181818")
 	  ;; styles for the main constructs
 	  ;; must be combined with: bg-main, bg-alt, bg-dim
 	  (red "#ff9566") (green "#44bc44")
