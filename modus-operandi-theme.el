@@ -352,6 +352,12 @@
    `(vr/match-0 ((t (:inherit (modus-theme-subtle-bg-green)))))
    `(vr/match-1 ((t (:inherit (modus-theme-subtle-bg-yellow)))))
    `(vr/match-separator-face ((t (:inherit (modus-theme-intense-bg-red)))))
+   ;;;; undo-tree
+   `(undo-tree-visualizer-active-branch-face ((,class (:foreground ,fg-main :weight bold))))
+   `(undo-tree-visualizer-current-face ((,class (:foreground ,blue-intense))))
+   `(undo-tree-visualizer-default-face ((,class (:foreground ,fg-alt))))
+   `(undo-tree-visualizer-register-face ((,class (:foreground ,magenta-intense))))
+   `(undo-tree-visualizer-unmodified-face ((,class (:foreground ,green-intense))))
    ;;;; whitespace-mode
    `(whitespace-space ((,class (:background ,bg-alt :foreground ,fg-alt))))
    `(whitespace-empty ((t (:inherit (modus-theme-intense-bg-magenta)))))
