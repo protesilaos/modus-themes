@@ -380,8 +380,8 @@
    ;;;; company-mode
    `(company-preview ((t (:inherit (modus-theme-intense-bg-neutral)))))
    `(company-tooltip ((,class (:background ,bg-alt))))
-   `(company-scrollbar-bg ((,class (:background ,bg-inactive))))
-   `(company-scrollbar-fg ((,class (:background ,fg-inactive))))
+   `(company-scrollbar-bg ((,class (:background ,bg-active))))
+   `(company-scrollbar-fg ((,class (:background ,fg-active))))
    `(company-echo-common ((,class (:foreground ,magenta-alt-other))))
    `(company-preview-common ((,class (:foreground ,magenta-alt-other))))
    `(company-tooltip-common ((,class (:foreground ,magenta-alt-other))))
