@@ -317,7 +317,7 @@
    `(org-level-8 ((,class (:weight bold :foreground ,red-alt-other))))
    `(org-todo ((t (:inherit (warning)))))
    `(org-emphasis ((t (:inherit (italic)))))
-   `(org-block ((,class (:background ,bg-dim :foreground ,fg-main))))
+   `(org-block ((,class (:background ,bg-main :foreground ,fg-main))))
    `(org-block-begin-line ((,class (:background ,bg-dim :foreground ,fg-alt))))
    `(org-block-end-line ((t (:inherit (org-block-begin-line)))))
    `(org-verbatim ((t (:inherit (font-lock-constant-face)))))
