@@ -214,7 +214,7 @@
    `(dired-subtree-depth-5-face ((,class (:background ,bg-alt))))
    `(dired-subtree-depth-6-face ((,class (:background ,bg-main))))
    `(dired-async-failures ((t (:inherit (modus-theme-intense-bg-red)))))
-   `(dired-async-message ((t (:inherit (modus-theme-intense-bg-yellow)))))
+   `(dired-async-message ((t (:inherit (modus-theme-intense-bg-green)))))
    `(dired-async-mode-message ((t (:inherit (modus-theme-intense-bg-magenta)))))
    ;;;; info pages (help pages)
    `(info-node ((t ((:weight bold)))))
