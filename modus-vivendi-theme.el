@@ -295,9 +295,10 @@
    `(magit-signature-expired-key ((,class (:foreground ,yellow-intense))))
    ;;;; elfeed
    `(elfeed-search-date-face ((t (:inherit (default)))))
-   `(elfeed-search-date-face ((t (:inherit (default) :weight bold))))
-   `(elfeed-search-feed-face ((t (:inherit (default)))))
-   `(elfeed-search-tag-face ((t (:inherit (default)))))
+   `(elfeed-search-title-face ((t (:inherit (default) :weight normal))))
+   `(elfeed-search-unread-title-face ((t (:inherit (default) :weight bold))))
+   `(elfeed-search-feed-face ((,class (:foreground ,blue))))
+   `(elfeed-search-tag-face ((,class (:foreground ,cyan))))
    `(elfeed-log-debug-level-face ((t (:inherit (modus-theme-intense-bg-magenta)))))
    `(elfeed-log-error-level-face ((t (:inherit (modus-theme-intense-bg-red)))))
    `(elfeed-log-warn-level-face ((t (:inherit (modus-theme-subtle-bg-yellow)))))
