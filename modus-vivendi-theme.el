@@ -379,7 +379,7 @@
    `(mu4e-footer-face ((,class (:foreground ,fg-alt))))
    `(mu4e-forwarded-face ((,class (:foreground ,cyan))))
    `(mu4e-header-face ((,class (:foreground ,fg-main))))
-   `(mu4e-header-highlight-face ((t (:inherit (modus-theme-intense-bg-blue) :weight bold))))
+   `(mu4e-header-highlight-face ((t (:inherit (hl-line)))))
    `(mu4e-header-key-face ((,class (:foreground ,fg-dim :weight bold))))
    `(mu4e-header-marks-face ((,class (:foreground ,magenta))))
    `(mu4e-header-title-face ((,class (:foreground ,magenta-alt))))
