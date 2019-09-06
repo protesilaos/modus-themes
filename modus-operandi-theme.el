@@ -169,6 +169,7 @@
    `(link ((,class (:underline (:color foreground-color :style line) :foreground ,blue-alt-other))))
    `(link-visited ((,class (:foreground ,magenta-alt-other))))
    `(button ((t (:inherit (link)))))
+   `(widget-button ((t (:inherit (link)))))
    `(header-line ((,class (:background ,bg-alt :foreground ,fg-alt))))
    `(tooltip ((t (:inherit (modus-theme-subtle-bg-yellow)))))
    `(mode-line ((,class (:box (:line-width 1 :color ,bg-active) :background ,bg-active :foreground ,fg-active))))
