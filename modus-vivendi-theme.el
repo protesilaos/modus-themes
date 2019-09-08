@@ -198,11 +198,12 @@
    `(compilation-warning ((t (:inherit (modus-theme-subtle-bg-yellow)))))
    ;;;; ido-mode
    `(ido-first-match ((t (:weight bold))))
-   `(ido-only-match ((,class (:foreground ,cyan-alt-other))))
+   `(ido-only-match ((,class (:foreground ,green-intense :weight bold))))
    `(ido-incomplete-regexp ((t (:inherit (font-lock-warning-face)))))
-   `(ido-subdir ((,class (:foreground ,cyan))))
-   `(ido-indicator ((,class (:background ,cyan-intense :foreground ,bg-main)))) ;; check
+   `(ido-subdir ((,class (:foreground ,cyan-intense))))
+   `(ido-indicator ((t (:inherit (modus-theme-subtle-bg-magenta)))))
    `(ido-virtual ((t (:inherit (font-lock-builtin-face)))))
+   `(flx-highlight-face ((t (:inherit (lazy-highlight)))))
    ;;;; dired
    `(dired-header ((t (:foreground ,fg-main :weight bold))))
    `(dired-directory ((t (:foreground ,blue :weight bold))))
