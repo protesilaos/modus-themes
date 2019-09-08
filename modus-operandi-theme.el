@@ -200,7 +200,7 @@
    `(ido-first-match ((t (:weight bold))))
    `(ido-only-match ((,class (:foreground ,green-intense :weight bold))))
    `(ido-incomplete-regexp ((t (:inherit (font-lock-warning-face)))))
-   `(ido-subdir ((,class (:foreground ,cyan-intense))))
+   `(ido-subdir ((,class (:foreground ,blue-alt-other))))
    `(ido-indicator ((t (:inherit (modus-theme-subtle-bg-magenta)))))
    `(ido-virtual ((t (:inherit (font-lock-builtin-face)))))
    `(flx-highlight-face ((t (:inherit (lazy-highlight)))))
