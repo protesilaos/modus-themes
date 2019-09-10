@@ -82,17 +82,17 @@
 	  ;; styles for common, but still specialised constructs
 	  ;; must be combined with: bg-main, bg-alt, bg-dim
 	  (red-alt "#f0a500") (green-alt "#58dd13")
-	  (yellow-alt "#f0ce33") (blue-alt "#68b4ff")
+	  (yellow-alt "#f0ce33") (blue-alt "#7fa1ff")
 	  (magenta-alt "#ba94fa") (cyan-alt "#4ae8fc")
 	  ;; same purpose as above, just slight differences
 	  ;; must be combined with: bg-main, bg-alt, bg-dim
-	  (red-alt-other "#ffaa99") (green-alt-other "#9afd00")
-	  (yellow-alt-other "#e0dd00") (blue-alt-other "#00aeff")
+	  (red-alt-other "#ffaa99") (green-alt-other "#9af200")
+	  (yellow-alt-other "#e0dd00") (blue-alt-other "#00b8ef")
 	  (magenta-alt-other "#fe85e0") (cyan-alt-other "#69eacf")
 	  ;; styles for elements that should draw attention to themselves
 	  ;; must be combined with: bg-main
 	  (red-intense "#ff6230") (green-intense "#00fc50")
-	  (yellow-intense "#ffdd00") (blue-intense "#9dafff")
+	  (yellow-intense "#ffdd00") (blue-intense "#00a2ff")
 	  (magenta-intense "#ff70cf") (cyan-intense "#30ffc0")
 	  ;; styles for background elements that should be visible yet subtle
 	  ;; must be combined with: fg-dim
