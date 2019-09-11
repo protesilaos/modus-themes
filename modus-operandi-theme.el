@@ -133,7 +133,7 @@
    `(success ((t (:inherit (modus-theme-intense-bg-green) :weight bold))))
    `(escape-glyph ((,class (:weight bold :foreground ,yellow-alt))))
    `(homoglyph ((,class (:foreground ,yellow-alt-other))))
-   `(minibuffer-prompt ((,class (:foreground ,blue-intense))))
+   `(minibuffer-prompt ((,class (:foreground ,cyan-intense))))
    `(highlight ((t (:inherit (modus-theme-subtle-bg-blue)))))
    `(highlight-changes ((,class (:foreground ,yellow-alt-other))))
    `(highlight-changes-delete ((,class (:foreground ,red-alt-other :underline t))))
