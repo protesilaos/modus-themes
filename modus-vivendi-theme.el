@@ -524,6 +524,19 @@
    `(company-tooltip-search-selection ((t (:inherit (modus-theme-intense-bg-green)))))
    `(company-tooltip-common-selection ((,class (:foreground ,fg-main :weight bold))))
    `(company-tooltip-annotation-selection ((,class (:foreground ,fg-main :weight bold))))
+   ;;;; rainbow-delimiters
+   `(rainbow-delimiters-base-face ((,class (:foreground ,fg-main))))
+   `(rainbow-delimiters-depth-1-face ((,class (:foreground ,green-alt-other))))
+   `(rainbow-delimiters-depth-2-face ((,class (:foreground ,magenta-alt-other))))
+   `(rainbow-delimiters-depth-3-face ((,class (:foreground ,cyan-alt-other))))
+   `(rainbow-delimiters-depth-4-face ((,class (:foreground ,yellow-alt-other))))
+   `(rainbow-delimiters-depth-5-face ((,class (:foreground ,blue-alt-other))))
+   `(rainbow-delimiters-depth-6-face ((,class (:foreground ,green-alt))))
+   `(rainbow-delimiters-depth-7-face ((,class (:foreground ,magenta-alt))))
+   `(rainbow-delimiters-depth-8-face ((,class (:foreground ,cyan-alt))))
+   `(rainbow-delimiters-depth-9-face ((,class (:foreground ,yellow-alt))))
+   `(rainbow-delimiters-mismatched-face ((,class (:foreground ,red-alt :weight bold))))
+   `(rainbow-delimiters-unmatched-face ((,class (:foreground ,red :weight bold))))
    ))
 
 ;;;###autoload
