@@ -400,6 +400,17 @@
    `(mu4e-url-number-face ((,class (:foreground ,blue-alt-other :weight bold))))
    `(mu4e-view-body-face ((t (:inherit (default)))))
    `(mu4e-warning-face ((t (:inherit (warning)))))
+   ;;;; generic message
+   `(message-cited-text ((,class (:foreground ,red-alt))))
+   `(message-header-cc ((,class (:foreground ,green-alt :weight bold))))
+   `(message-header-name ((,class (:foreground ,green-alt :weight bold))))
+   `(message-header-newsgroups ((,class (:foreground ,yellow-alt :weight bold))))
+   `(message-header-other ((,class (:foreground ,green-alt :weight bold))))
+   `(message-header-subject ((,class (:foreground ,green-alt :weight bold))))
+   `(message-header-to ((,class (:foreground ,green-alt :weight bold))))
+   `(message-header-xheader ((,class (:foreground ,yellow-alt :weight bold))))
+   `(message-mml ((,class (:foreground ,cyan))))
+   `(message-separator ((,class (:background ,bg-alt :foreground ,fg-alt))))
    ;;;; elfeed
    `(elfeed-search-date-face ((t (:inherit (default)))))
    `(elfeed-search-title-face ((t (:inherit (default) :weight normal))))
@@ -410,11 +421,6 @@
    `(elfeed-log-error-level-face ((t (:inherit (modus-theme-intense-bg-red)))))
    `(elfeed-log-warn-level-face ((t (:inherit (modus-theme-subtle-bg-yellow)))))
    `(elfeed-log-info-level-face ((t (:inherit (modus-theme-subtle-bg-cyan)))))
-   ;;;; found in elfeed, should apply elsewhere check
-   `(message-header-name ((t (:inherit (default) :weight bold))))
-   `(message-header-to ((t (:inherit (default) :weight bold))))
-   `(message-header-subject ((t (:inherit (default) :weight bold))))
-   `(message-header-other ((t (:inherit (default)))))
    ;;;; org-mode
    `(org-level-1 ((,class (:weight bold :foreground ,fg-main))))
    `(org-level-2 ((,class (:weight bold :foreground ,cyan-alt-other))))
