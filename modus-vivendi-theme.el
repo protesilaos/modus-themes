@@ -78,17 +78,17 @@
 	  ;; must be combined with: bg-main, bg-alt, bg-dim
 	  (red "#ff8059") (green "#44bc44")
 	  (yellow "#eecc00") (blue "#33beff")
-	  (magenta "#faa5cf") (cyan "#00d3d0")
+	  (magenta "#feacd0") (cyan "#00d3d0")
 	  ;; styles for common, but still specialised constructs
 	  ;; must be combined with: bg-main, bg-alt, bg-dim
 	  (red-alt "#f68a4b") (green-alt "#58dd13")
-	  (yellow-alt "#f0ce43") (blue-alt "#7fa1ff")
-	  (magenta-alt "#e096ed") (cyan-alt "#4ae8fc")
+	  (yellow-alt "#f0ce43") (blue-alt "#62aaff")
+	  (magenta-alt "#ed98f4") (cyan-alt "#4ae8fc")
 	  ;; same purpose as above, just slight differences
 	  ;; must be combined with: bg-main, bg-alt, bg-dim
 	  (red-alt-other "#ff9977") (green-alt-other "#90d800")
-	  (yellow-alt-other "#e0e040") (blue-alt-other "#00c2ef")
-	  (magenta-alt-other "#aca2f8") (cyan-alt-other "#6ae4b9")
+	  (yellow-alt-other "#e0e040") (blue-alt-other "#08baf0")
+	  (magenta-alt-other "#bba3ff") (cyan-alt-other "#6ae4b9")
 	  ;; styles for elements that should draw attention to themselves
 	  ;; must be combined with: bg-main
 	  (red-intense "#fb6859") (green-intense "#00fc50")
