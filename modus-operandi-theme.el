@@ -403,7 +403,7 @@
    ;;;; generic message
    `(message-cited-text ((,class (:foreground ,red-alt))))
    `(message-header-cc ((,class (:foreground ,green-alt :weight bold))))
-   `(message-header-name ((,class (:foreground ,green-alt :weight bold))))
+   `(message-header-name ((,class (:foreground ,fg-dim :weight bold))))
    `(message-header-newsgroups ((,class (:foreground ,yellow-alt :weight bold))))
    `(message-header-other ((,class (:foreground ,green-alt :weight bold))))
    `(message-header-subject ((,class (:foreground ,green-alt :weight bold))))
