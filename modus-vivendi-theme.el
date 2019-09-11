@@ -81,7 +81,7 @@
 	  (magenta "#feacd0") (cyan "#00d3d0")
 	  ;; styles for common, but still specialised constructs
 	  ;; must be combined with: bg-main, bg-alt, bg-dim
-	  (red-alt "#f68a4b") (green-alt "#58dd13")
+	  (red-alt "#f4923b") (green-alt "#58dd13")
 	  (yellow-alt "#f0ce43") (blue-alt "#62aaff")
 	  (magenta-alt "#ed98f4") (cyan-alt "#4ae8fc")
 	  ;; same purpose as above, just slight differences
