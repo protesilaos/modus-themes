@@ -511,6 +511,12 @@
    ;;;; eww
    `(eww-invalid-certificate ((t (:inherit (error)))))
    `(eww-valid-certificate ((t (:inherit (success)))))
+   `(eww-form-checkbox ((,class (:box (:line-width 1 :color ,fg-inactive :style released-button) :background ,bg-inactive :foreground ,fg-main))))
+   `(eww-form-file ((,class (:box (:line-width 1 :color ,fg-inactive :style released-button) :background ,bg-active :foreground ,fg-main))))
+   `(eww-form-select ((t (:inherit (eww-form-checkbox)))))
+   `(eww-form-submit ((t (:inherit (eww-form-file)))))
+   `(eww-form-text ((,class (:box (:line-width 1 :color ,fg-inactive :style none) :background ,bg-active :foreground ,fg-active))))
+   `(eww-form-textarea ((,class (:background ,bg-alt :foreground ,fg-main))))
    ;;;; company-mode
    `(company-preview ((t (:inherit (modus-theme-intense-bg-neutral)))))
    `(company-tooltip ((,class (:background ,bg-alt))))
