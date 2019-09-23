@@ -533,6 +533,10 @@
    `(company-tooltip-search-selection ((t (:inherit (modus-theme-intense-bg-green)))))
    `(company-tooltip-common-selection ((,class (:foreground ,fg-main :weight bold))))
    `(company-tooltip-annotation-selection ((,class (:foreground ,fg-main :weight bold))))
+   ;;;; fancy-dabbrev
+   `(fancy-dabbrev-menu-face ((,class (:background ,bg-alt :foreground ,fg-alt))))
+   `(fancy-dabbrev-preview-face ((,class (:underline (:color foreground-color :style line) :foreground ,fg-alt))))
+   `(fancy-dabbrev-selection-face ((t (:inherit (modus-theme-intense-bg-cyan) :weight bold))))
    ;;;; rainbow-delimiters
    `(rainbow-delimiters-base-face ((,class (:foreground ,fg-main))))
    `(rainbow-delimiters-depth-1-face ((,class (:foreground ,green-alt-other))))
