@@ -248,11 +248,14 @@
    `(diff-indicator-changed ((t (:inherit (diff-changed)))))
    `(diff-removed ((t (:inherit (modus-theme-subtle-bg-red)))))
    `(diff-indicator-removed ((t (:inherit (diff-removed)))))
-   `(diff-file-header ((,class (:background ,bg-alt :weight bold :foreground ,fg-main))))
+   `(diff-file-header ((,class (:background ,bg-alt :foreground ,fg-main :weight bold))))
    `(diff-function ((t (:inherit (diff-file-header) :weight normal))))
    `(diff-header ((t (:inherit (diff-function)))))
    `(diff-hunk-header ((t (:inherit (diff-function)))))
    `(diff-index-header ((t (:inherit (diff-function)))))
+   `(diff-refine-added ((,class (:background ,bg-main :foreground ,green-intense :weight bold))))
+   `(diff-refine-changed ((,class (:background ,bg-main :foreground ,yellow-intense :weight bold))))
+   `(diff-refine-removed ((,class (:background ,bg-main :foreground ,red-intense :weight bold))))
    ;;;; git
    `(git-commit-overlong-summary ((t (:inherit (modus-theme-subtle-bg-yellow)))))
    ;;;; magit
