@@ -62,6 +62,12 @@
 (defface modus-theme-intense-bg-magenta nil t)
 (defface modus-theme-intense-bg-cyan nil t)
 (defface modus-theme-intense-bg-neutral nil t)
+(defface modus-theme-refine-red nil t)
+(defface modus-theme-refine-green nil t)
+(defface modus-theme-refine-yellow nil t)
+(defface modus-theme-refine-blue nil t)
+(defface modus-theme-refine-magenta nil t)
+(defface modus-theme-refine-cyan nil t)
 
 ;; Define colour palette.  Each colour must have a >= 7:1 contrast
 ;; ratio relative to the foreground/background colour it is rendered
@@ -103,7 +109,17 @@
 	  ;; must be combined with: fg-main
 	  (red-intense-bg "#ffa28a") (green-intense-bg "#72da86")
 	  (yellow-intense-bg "#f5f77c") (blue-intense-bg "#a0c5ff")
-	  (magenta-intense-bg "#e5c0ff") (cyan-intense-bg "#a5f8f2"))
+	  (magenta-intense-bg "#e5c0ff") (cyan-intense-bg "#a5f8f2")
+	  ;; styles for refined git diffs and other contexts where both
+	  ;; the foreground and the background need to have the
+	  ;; same/similar hue
+	  ;; must be combined with themselves
+	  (red-refine-bg "#ffcccc") (green-refine-bg "#bcffbc")
+	  (yellow-refine-bg "#ffffcc") (blue-refine-bg "#ddddff")
+	  (magenta-refine-bg "#ffccff") (cyan-refine-bg "#ccffff")
+	  (red-refine-fg "#780000") (green-refine-fg "#004c00")
+	  (yellow-refine-fg "#755000") (blue-refine-fg "#0000bb")
+	  (magenta-refine-fg "#770077") (cyan-refine-fg "#005597"))
   (custom-theme-set-faces
    'modus-operandi
    ;; custom faces that are inherited by other constructs below
@@ -123,6 +139,13 @@
    `(modus-theme-intense-bg-magenta ((,class (:background ,magenta-intense-bg :foreground ,fg-main))))
    `(modus-theme-intense-bg-cyan ((,class (:background ,cyan-intense-bg :foreground ,fg-main))))
    `(modus-theme-intense-bg-neutral ((,class (:background ,bg-dim :foreground ,fg-main))))
+   ;;; refined background and foreground combinations (for git diff and the like)
+   `(modus-theme-refine-red ((,class (:background ,red-refine-bg :foreground ,red-refine-fg))))
+   `(modus-theme-refine-green ((,class (:background ,green-refine-bg :foreground ,green-refine-fg))))
+   `(modus-theme-refine-yellow ((,class (:background ,yellow-refine-bg :foreground ,yellow-refine-fg))))
+   `(modus-theme-refine-blue ((,class (:background ,blue-refine-bg :foreground ,blue-refine-fg))))
+   `(modus-theme-refine-magenta ((,class (:background ,magenta-refine-bg :foreground ,magenta-refine-fg))))
+   `(modus-theme-refine-cyan ((,class (:background ,cyan-refine-bg :foreground ,cyan-refine-fg))))
    ;; actual styles
    `(default ((,class (:background ,bg-main :foreground ,fg-main))))
    `(fringe ((t (:inherit (default)))))
@@ -253,9 +276,9 @@
    `(diff-header ((t (:inherit (diff-function)))))
    `(diff-hunk-header ((t (:inherit (diff-function)))))
    `(diff-index-header ((t (:inherit (diff-function)))))
-   `(diff-refine-added ((,class (:background ,bg-main :foreground ,green-intense :weight bold))))
-   `(diff-refine-changed ((,class (:background ,bg-main :foreground ,yellow-intense :weight bold))))
-   `(diff-refine-removed ((,class (:background ,bg-main :foreground ,red-intense :weight bold))))
+   `(diff-refine-added ((t (:inherit (modus-theme-refine-green) :weight bold))))
+   `(diff-refine-changed ((t (:inherit (modus-theme-refine-yellow) :weight bold))))
+   `(diff-refine-removed ((t (:inherit (modus-theme-refine-red) :weight bold))))
    ;;;; git
    `(git-commit-overlong-summary ((t (:inherit (modus-theme-subtle-bg-yellow)))))
    ;;;; magit
