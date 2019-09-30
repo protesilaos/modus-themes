@@ -96,7 +96,7 @@
 	  (magenta-intense "#ff8bd4") (cyan-intense "#30ffc0")
 	  ;; styles for background elements that should be visible yet subtle
 	  ;; must be combined with: fg-dim
-	  (red-subtle-bg "#990000") (green-subtle-bg "#3f5100")
+	  (red-subtle-bg "#951122") (green-subtle-bg "#3f5100")
 	  (yellow-subtle-bg "#654230") (blue-subtle-bg "#2c3fa8")
 	  (magenta-subtle-bg "#720a4f") (cyan-subtle-bg "#00425f")
 	  ;; styles for background elements that should be visible and distinguishable
