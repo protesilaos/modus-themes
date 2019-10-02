@@ -107,7 +107,7 @@
 	  (magenta-subtle-bg "#ffcef5") (cyan-subtle-bg "#c0efff")
 	  ;; styles for background elements that should be visible and distinguishable
 	  ;; must be combined with: fg-main
-	  (red-intense-bg "#ffa28a") (green-intense-bg "#72da86")
+	  (red-intense-bg "#ffa496") (green-intense-bg "#82da96")
 	  (yellow-intense-bg "#f5f77c") (blue-intense-bg "#a0c5ff")
 	  (magenta-intense-bg "#e5c0ff") (cyan-intense-bg "#a5f8f2")
 	  ;; styles for refined git diffs and other contexts where both
