@@ -230,7 +230,7 @@
    `(ido-incomplete-regexp ((t (:inherit (error)))))
    `(ido-subdir ((,class (:foreground ,blue-alt-other))))
    `(ido-indicator ((t (:inherit (modus-theme-subtle-bg-yellow)))))
-   `(ido-virtual ((,class (:foreground ,fg-alt))))
+   `(ido-virtual ((,class (:foreground ,yellow-alt-other))))
    `(flx-highlight-face ((t (:inherit (modus-theme-intense-bg-magenta)))))
    ;;;; dired
    `(dired-header ((t (:foreground ,fg-main :weight bold))))
