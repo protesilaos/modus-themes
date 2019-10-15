@@ -631,6 +631,12 @@
    `(avy-lead-face-0 ((,class (:background ,blue-intense :foreground ,bg-main))))
    `(avy-lead-face-1 ((,class (:background ,red-intense :foreground ,bg-main))))
    `(avy-lead-face-2 ((,class (:background ,green-intense :foreground ,bg-main))))
+   ;;;; aw
+   `(aw-background-face ((,class (:background ,bg-dim :foreground ,fg-dim))))
+   `(aw-key-face ((,class (:background ,bg-main :foreground ,magenta-intense :weight bold))))
+   `(aw-leading-char-face ((,class (:background ,bg-main :foreground ,red-intense :weight bold))))
+   `(aw-minibuffer-leading-char-face ((,class (:background ,bg-main :foreground ,red-intense))))
+   `(aw-mode-line-face ((t (:weight bold))))
    ))
 
 ;;;###autoload
