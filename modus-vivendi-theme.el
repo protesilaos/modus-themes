@@ -624,6 +624,13 @@
    `(rainbow-delimiters-depth-9-face ((,class (:foreground ,yellow-alt))))
    `(rainbow-delimiters-mismatched-face ((,class (:foreground ,red-alt :weight bold))))
    `(rainbow-delimiters-unmatched-face ((,class (:foreground ,red :weight bold))))
+   ;;;; avy
+   `(avy-background-face ((,class (:background ,bg-dim :foreground ,fg-dim))))
+   `(avy-goto-char-timer-face ((,class (:background ,magenta-intense :foreground ,bg-main))))
+   `(avy-lead-face ((,class (:background ,yellow-intense :foreground ,bg-main))))
+   `(avy-lead-face-0 ((,class (:background ,blue-intense :foreground ,bg-main))))
+   `(avy-lead-face-1 ((,class (:background ,red-intense :foreground ,bg-main))))
+   `(avy-lead-face-2 ((,class (:background ,green-intense :foreground ,bg-main))))
    ))
 
 ;;;###autoload
