@@ -80,6 +80,10 @@
 	  ;; must be combined with themselves
 	  (fg-active "#f5f5f5") (bg-active "#303030")
 	  (fg-inactive "#a3a3a3") (bg-inactive "#181818")
+	  ;; special foreground values, used only for cases where the above
+	  ;; fg-* cannot or should not be used (to avoid confusion)
+	  ;; must be combined with: bg-main, bg-alt, bg-dim
+	  (fg-special-warm "#faddd0") (fg-special-cold "#cce0ff")
 	  ;; styles for the main constructs
 	  ;; must be combined with: bg-main, bg-alt, bg-dim
 	  (red "#ff8059") (green "#44bc44")
