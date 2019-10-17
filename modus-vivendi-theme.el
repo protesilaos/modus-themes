@@ -314,7 +314,7 @@
    `(font-lock-comment-delimiter-face ((t (:inherit (font-lock-comment-face)))))
    `(font-lock-comment-face ((t (:foreground ,fg-alt))))
    `(font-lock-constant-face ((,class (:foreground ,blue-alt-other))))
-   `(font-lock-doc-face ((,class (:foreground ,cyan-alt-other))))
+   `(font-lock-doc-face ((,class (:foreground ,fg-special-warm))))
    `(font-lock-function-name-face ((,class (:foreground ,magenta :weight normal))))
    `(font-lock-keyword-face ((,class (:foreground ,magenta-alt-other))))
    `(font-lock-negation-char-face ((t nil)))
