@@ -88,7 +88,7 @@
 	  ;; must be combined with: bg-main, bg-alt, bg-dim
 	  (red "#a80000") (green "#005200")
 	  (yellow "#8b3800") (blue "#0030a6")
-	  (magenta "#92205f") (cyan "#005589")
+	  (magenta "#8f0075") (cyan "#005589")
 	  ;; styles for common, but still specialised constructs
 	  ;; must be combined with: bg-main, bg-alt, bg-dim
 	  (red-alt "#880000") (green-alt "#4a5700")
