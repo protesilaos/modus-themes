@@ -1,23 +1,192 @@
-Modus Themes
-============
+Protesilaos Stavrou
 
-Highly accessible themes for GNU Emacs.  The contrast ratio between
-foreground and background values should always be >= 7:1, which
-conforms with the WCAG AAA standard.
 
-Modus Operandi: light theme.
-Modus Vivendi: dark theme.
+Table of Contents
+─────────────────
 
-I live demo them in my Emacs-related screen casts:
-https://protesilaos.com/code-casts
+1 Modus Themes for GNU Emacs
+.. 1.1 Overview
+.. 1.2 Face coverage
+..... 1.2.1 Full support
+..... 1.2.2 Partially supported
+..... 1.2.3 Help needed
+..... 1.2.4 Covered but not styled explicitly
+.. 1.3 Contributing
+.. 1.4 Development notes and objectives
+.. 1.5 COPYING
 
-TODO
-----
 
-* Expand face coverage.
-* Create MELPA package.
+1 Modus Themes for GNU Emacs
+════════════════════════════
 
-License
--------
+  A package for MELPA will be available either towards the end of
+  October or early November 2019.
 
-GNU General Public License version 3 or later.
+
+1.1 Overview
+────────────
+
+  Accessible themes for GNU Emacs.  The contrast ratio between
+  foreground and background values should always be >= 7:1, which
+  conforms with the WCAG AAA accessibility standard.  This is the
+  highest standard of this sort.
+
+  /Modus/ consists of two themes, one where dark text is cast on a light
+  backdrop (Modus Operandi), and another where light text is displayed
+  against a dark background (Modus Vivendi).
+
+  I live demo these themes in [my Emacs-related screen casts].
+
+
+[my Emacs-related screen casts] https://protesilaos.com/code-casts
+
+
+1.2 Face coverage
+─────────────────
+
+  This list will be updated to reflect the current state of the project.
+  The idea is to offer an overview of the /known status/ of all affected
+  face groups.
+
+
+1.2.1 Full support
+╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+
+  ⁃ avy
+  ⁃ aw
+  ⁃ company-mode
+  ⁃ dired-async
+  ⁃ dired-subtree
+  ⁃ diredfl
+  ⁃ elfeed
+  ⁃ emms
+  ⁃ eww
+  ⁃ fancy-dabbrev
+  ⁃ flyspell
+  ⁃ git/magit
+  ⁃ gnus
+  ⁃ ido-mode
+  ⁃ info pages
+  ⁃ isearch, occur, etc.
+  ⁃ ivy
+  ⁃ markdown-mode
+  ⁃ matching parentheses
+  ⁃ messages
+  ⁃ modeline
+  ⁃ mu4e
+  ⁃ outline-mode
+  ⁃ rainbow-delimiters
+  ⁃ swiper
+  ⁃ treemacs
+  ⁃ undo-tree
+  ⁃ visual-regexp
+  ⁃ which-key
+  ⁃ whitespace-mode
+
+
+1.2.2 Partially supported
+╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+
+  ⁃ org-mode
+  ⁃ shell script syntax (please confirm)
+
+
+1.2.3 Help needed
+╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+
+  These are face groups that I am aware of but do not know how to access
+  or do not use.  I generally need to see how a face looks in its
+  context before assessing its aesthetics.
+
+  Use `M-x list-faces-display' to get these.
+
+  ⁃ diary
+  ⁃ epa
+  ⁃ org-mode (agenda, drawer, document info, formula, latex, schedules…)
+  ⁃ nobreak-{hyphen,space}
+  ⁃ smerge
+  ⁃ speedbar
+  ⁃ transient-{argument,key,value}…
+  ⁃ tty-menu
+  ⁃ vc-{conflict-state,state-base}…
+
+  Note that I am not much into `org-mode', so even though I have taken
+  care of the base styles, I would need help from Org users.
+
+
+1.2.4 Covered but not styled explicitly
+╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+
+  These do not require any extra styles because they are configured to
+  inherit from some basic faces.  Please confirm.
+
+  ⁃ calendar
+  ⁃ change-log
+  ⁃ comint
+  ⁃ bongo
+  ⁃ log-edit
+  ⁃ package menu
+  ⁃ rmail
+
+
+1.3 Contributing
+────────────────
+
+  A few tasks you can help me with, sorted from the most probable to the
+  least likely:
+
+  ⁃ Suggest refinements to packages that are covered.
+  ⁃ Report packages not covered thus far.
+  ⁃ Report bugs, inconsistencies, shortcomings.
+  ⁃ Help expand the documentation of covered-but-not-styled packages.
+  ⁃ Suggest refinements to the colour palette.
+  ⁃ Help expand this document or any other piece of documentation.
+  ⁃ Help with development (see next section).
+
+  It would be great if your feedback also includes some screenshots,
+  GIFs, or short videos.  Though this is not a requirement.
+
+  Whatever you do, always bear in mind the overarching objective of the
+  Modus themes: to keep a contrast ratio that is greater or equal to 7:1
+  between background and foreground colours.
+
+
+1.4 Development notes and objectives
+────────────────────────────────────
+
+  To test the contrast ratio between two colour values in hexadecimal
+  RGB notation (of the style `#ffffff'), you can use the online tool
+  provided [by WebAim], or [my own `clr' shell script] that implements
+  the same formula (I always use the latter, but am 100% sure that the
+  results are the same).
+
+  Now on to some under-the-hood objectives for the longer term
+  maintainability of the project:
+
+  ⁃ All faces should be defined in a single file, *the template*, since
+    the themes use the exact same mappings.  The template will avoid the
+    duplication of face coverage/definition across both themes.
+  ⁃ *The theme files*, Modus Operandi and Modus Vivendi, should only
+    define their colour palette.  That is the only group that
+    differentiates them.
+  ⁃ Theme files would thus inherit/source/require the template and pass
+    the value of their variables to the relevant constructs.
+
+  The design notwithstanding, I would also be interested to improve the
+  quality of the code, in any way that may be.
+
+
+[by WebAim] https://webaim.org/resources/contrastchecker/
+
+[my own `clr' shell script] https://gitlab.com/protesilaos/scripts
+
+
+1.5 COPYING
+───────────
+
+  The Modus Themes are distributed under the terms of the GNU General
+  Public License version 3 or, at your choice, any later version.  See
+  the COPYING file distributed in the [project's Git repository].
+
+
+[project's Git repository] https://gitlab.com/protesilaos/modus-themes
