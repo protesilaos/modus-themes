@@ -97,7 +97,7 @@
 	  ;; same purpose as above, just slight differences
 	  ;; must be combined with: bg-main, bg-alt, bg-dim
 	  (red-alt-other "#9d2020") (green-alt-other "#145a00")
-	  (yellow-alt-other "#804000") (blue-alt-other "#0044c0")
+	  (yellow-alt-other "#804000") (blue-alt-other "#0000bb")
 	  (magenta-alt-other "#5317ac") (cyan-alt-other "#005a68")
 	  ;; styles for elements that should draw attention to themselves
 	  ;; must be combined with: bg-main
