@@ -512,7 +512,7 @@
    `(ivy-remote ((t (:inherit (font-lock-function-name-face)))))
    ;;;; line numbers (display-line-numbers-mode and global variant)
    `(line-number ((,class (:background ,bg-alt :foreground ,fg-alt))))
-   `(line-number-current-line ((,class (:background ,bg-dim :foreground ,fg-dim :weight bold))))
+   `(line-number-current-line ((,class (:background ,bg-active :foreground ,fg-active :weight bold))))
    ;;;; markdown format
    `(markdown-blockquote-face ((,class (:background ,bg-alt))))
    `(markdown-header-face ((t (:weight bold))))
