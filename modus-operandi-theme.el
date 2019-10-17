@@ -169,7 +169,7 @@
    `(header-line ((,class (:background ,bg-alt :foreground ,fg-alt))))
    `(homoglyph ((,class (:foreground ,yellow-alt-other))))
    `(ibuffer-locked-buffer ((,class (:foreground ,yellow-alt-other))))
-   `(italic ((,class (:foreground ,yellow :slant italic)))) ; add colour because some fonts do not provide italics
+   `(italic ((,class (:foreground ,fg-special-warm :slant italic)))) ; add colour because some fonts do not provide italics
    `(minibuffer-prompt ((,class (:foreground ,cyan-intense))))
    `(mm-command-output ((,class (:foreground ,red-alt-other))))
    `(next-error ((t (:inherit (modus-theme-subtle-bg-red)))))
