@@ -169,7 +169,7 @@
    `(header-line ((,class (:background ,bg-alt :foreground ,fg-alt))))
    `(homoglyph ((,class (:foreground ,yellow-alt-other))))
    `(ibuffer-locked-buffer ((,class (:foreground ,yellow-alt-other))))
-   `(italic ((,class (:foreground ,fg-special-warm :slant italic)))) ; add colour because some fonts do not provide italics
+   `(italic ((,class (:foreground ,fg-special-cold :slant italic)))) ; add colour because some fonts do not provide italics
    `(minibuffer-prompt ((,class (:foreground ,cyan-intense))))
    `(mm-command-output ((,class (:foreground ,red-alt-other))))
    `(next-error ((t (:inherit (modus-theme-subtle-bg-red)))))
@@ -314,7 +314,7 @@
    `(font-lock-comment-delimiter-face ((t (:inherit (font-lock-comment-face)))))
    `(font-lock-comment-face ((t (:foreground ,fg-alt))))
    `(font-lock-constant-face ((,class (:foreground ,blue-alt-other))))
-   `(font-lock-doc-face ((,class (:foreground ,fg-special-warm))))
+   `(font-lock-doc-face ((,class (:foreground ,fg-special-cold))))
    `(font-lock-function-name-face ((,class (:foreground ,magenta :weight normal))))
    `(font-lock-keyword-face ((,class (:foreground ,magenta-alt-other))))
    `(font-lock-negation-char-face ((t nil)))
@@ -590,7 +590,7 @@
    `(org-level-8 ((,class (:foreground ,yellow-alt-other :weight normal))))
    `(org-table ((,class (:foreground ,fg-special-cold))))
    `(org-todo ((t (:background ,bg-alt :foreground ,yellow))))
-   `(org-verbatim ((,class (:background ,bg-dim :foreground ,fg-special-cold))))
+   `(org-verbatim ((,class (:background ,bg-dim :foreground ,fg-special-warm))))
    ;;;; outline-mode
    `(outline-1 ((t (:inherit (org-level-1)))))
    `(outline-2 ((t (:inherit (org-level-2)))))
