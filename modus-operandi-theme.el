@@ -83,7 +83,7 @@
 	  ;; special foreground values, used only for cases where the above
 	  ;; fg-* cannot or should not be used (to avoid confusion)
 	  ;; must be combined with: bg-main, bg-alt, bg-dim
-	  (fg-special-warm "#5d4026") (fg-special-cold "#294260")
+	  (fg-special-warm "#5d4026") (fg-special-cold "#093060")
 	  ;; styles for the main constructs
 	  ;; must be combined with: bg-main, bg-alt, bg-dim
 	  (red "#a80000") (green "#005200")
