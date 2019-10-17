@@ -473,8 +473,8 @@
    `(highlight-changes ((,class (:foreground ,yellow-alt-other))))
    `(highlight-changes-delete ((,class (:foreground ,red-alt-other :underline t))))
    `(hl-line ((,class (:background ,bg-alt))))
-   `(region ((,class (:inherit (modus-theme-intense-bg-cyan)))))
-   `(secondary-selection ((t (:inherit (modus-theme-subtle-bg-magenta)))))
+   `(region ((,class (:background ,bg-active :foreground ,fg-active))))
+   `(secondary-selection ((,class (:background ,bg-inactive :foreground ,fg-inactive))))
    ;;;; ido-mode
    `(flx-highlight-face ((t (:inherit (modus-theme-intense-bg-magenta)))))
    `(ido-first-match ((,class (:foreground ,magenta :weight bold))))
