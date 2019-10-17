@@ -530,10 +530,10 @@
    `(message-mml ((,class (:foreground ,cyan))))
    `(message-separator ((,class (:background ,bg-alt :foreground ,fg-alt))))
    ;;;; modeline
-   `(mode-line ((,class (:box (:line-width 1 :color ,bg-active) :background ,bg-active :foreground ,fg-active))))
+   `(mode-line ((,class (:box (:line-width 1 :color ,fg-inactive) :background ,bg-active :foreground ,fg-active))))
    `(mode-line-buffer-id ((t (:weight bold))))
    `(mode-line-emphasis ((t (:inherit (highlight) :weight bold))))
-   `(mode-line-highlight ((t (:inherit (modus-theme-subtle-bg-magenta)))))
+   `(mode-line-highlight ((,class (:box (:line-width 1 :color ,fg-main) :inherit (modus-theme-subtle-bg-magenta)))))
    `(mode-line-inactive ((,class (:box (:line-width 1 :color ,bg-inactive) :background ,bg-inactive :foreground ,fg-inactive))))
    `(which-func ((,class (:foreground ,fg-main))))
    ;;;; mu4e
