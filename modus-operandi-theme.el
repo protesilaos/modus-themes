@@ -74,7 +74,7 @@
 ;; against.
 (let ((class '((class color) (min-colors 89)))
 	  (fg-main "#000000") (bg-main "#ffffff")
-	  (fg-alt "#5f4d4f") (bg-alt "#f3f1f3")
+	  (fg-alt "#505050") (bg-alt "#f3f1f3")
 	  (fg-dim "#282828") (bg-dim "#f8f8f8")
 	  ;; specifically for on/off states (e.g. mode-line)
 	  ;; must be combined with themselves
