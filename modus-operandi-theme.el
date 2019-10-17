@@ -92,13 +92,13 @@
 	  ;; styles for common, but still specialised constructs
 	  ;; must be combined with: bg-main, bg-alt, bg-dim
 	  (red-alt "#880000") (green-alt "#4a5700")
-	  (yellow-alt "#714900") (blue-alt "#3020a8")
-	  (magenta-alt "#800090") (cyan-alt "#185870")
+	  (yellow-alt "#714900") (blue-alt "#223fbf")
+	  (magenta-alt "#6f007f") (cyan-alt "#185870")
 	  ;; same purpose as above, just slight differences
 	  ;; must be combined with: bg-main, bg-alt, bg-dim
 	  (red-alt-other "#9d2020") (green-alt-other "#145a00")
-	  (yellow-alt-other "#804000") (blue-alt-other "#0d38d0")
-	  (magenta-alt-other "#7022bb") (cyan-alt-other "#005a68")
+	  (yellow-alt-other "#804000") (blue-alt-other "#0044c0")
+	  (magenta-alt-other "#5317ac") (cyan-alt-other "#005a68")
 	  ;; styles for elements that should draw attention to themselves
 	  ;; must be combined with: bg-main
 	  (red-intense "#b60000") (green-intense "#006800")
