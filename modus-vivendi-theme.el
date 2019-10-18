@@ -177,6 +177,14 @@
    `(success ((t (:inherit (modus-theme-intense-bg-green) :weight bold))))
    `(trailing-whitespace ((,class (:background ,red-alt))))
    `(warning ((,class (:foreground ,red :weight bold))))
+   ;;;; anzu
+   `(anzu-match-1 ((t (:inherit (modus-theme-intense-bg-cyan)))))
+   `(anzu-match-2 ((t (:inherit (modus-theme-intense-bg-green)))))
+   `(anzu-match-3 ((t (:inherit (modus-theme-intense-bg-yellow)))))
+   `(anzu-mode-line ((,class (:background ,bg-main :foreground ,green-intense :weight bold))))
+   `(anzu-mode-line-no-match ((,class (:background ,bg-main :foreground ,red-intense :weight bold))))
+   `(anzu-replace-highlight ((t (:inherit (modus-theme-intense-bg-green) :weight bold))))
+   `(anzu-replace-to ((t (:inherit (modus-theme-intense-bg-magenta)))))
    ;;;; avy
    `(avy-background-face ((,class (:background ,bg-dim :foreground ,fg-dim))))
    `(avy-goto-char-timer-face ((,class (:background ,magenta-intense :foreground ,bg-main))))
