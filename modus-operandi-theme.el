@@ -83,17 +83,17 @@
 	  ;; special foreground values, used only for cases where the above
 	  ;; fg-* cannot or should not be used (to avoid confusion)
 	  ;; must be combined with: bg-main, bg-alt, bg-dim
-	  (fg-special-warm "#5d4026") (fg-special-cold "#093060")
+	  (fg-special-warm "#5d3026") (fg-special-cold "#093060")
 	  ;; styles for the main constructs
 	  ;; must be combined with: bg-main, bg-alt, bg-dim
 	  (red "#a80000") (green "#005200")
 	  (yellow "#8b3800") (blue "#0030a6")
-	  (magenta "#8f0075") (cyan "#005589")
+	  (magenta "#721045") (cyan "#005589")
 	  ;; styles for common, but still specialised constructs
 	  ;; must be combined with: bg-main, bg-alt, bg-dim
 	  (red-alt "#880000") (green-alt "#4a5700")
 	  (yellow-alt "#714900") (blue-alt "#223fbf")
-	  (magenta-alt "#6f007f") (cyan-alt "#185870")
+	  (magenta-alt "#8f0075") (cyan-alt "#185870")
 	  ;; same purpose as above, just slight differences
 	  ;; must be combined with: bg-main, bg-alt, bg-dim
 	  (red-alt-other "#9d2020") (green-alt-other "#145a00")
