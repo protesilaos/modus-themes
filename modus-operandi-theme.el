@@ -73,57 +73,57 @@
 ;; ratio relative to the foreground/background colour it is rendered
 ;; against.
 (let ((class '((class color) (min-colors 89)))
-	  (fg-main "#000000") (bg-main "#ffffff")
-	  (fg-alt "#505050") (bg-alt "#f3f1f3")
-	  (fg-dim "#282828") (bg-dim "#f8f8f8")
-	  ;; specifically for on/off states (e.g. mode-line)
-	  ;; must be combined with themselves
-	  (fg-active "#0b0b0b") (bg-active "#e3e6ef")
-	  (fg-inactive "#50545c") (bg-inactive "#f4f7fa")
-	  ;; special foreground values, used only for cases where the above
-	  ;; fg-* cannot or should not be used (to avoid confusion)
-	  ;; must be combined with: bg-main, bg-alt, bg-dim
-	  (fg-special-warm "#5d3026") (fg-special-cold "#093060")
-	  ;; styles for the main constructs
-	  ;; must be combined with: bg-main, bg-alt, bg-dim
-	  (red "#a80000") (green "#005200")
-	  (yellow "#8b3800") (blue "#0030a6")
-	  (magenta "#721045") (cyan "#005589")
-	  ;; styles for common, but still specialised constructs
-	  ;; must be combined with: bg-main, bg-alt, bg-dim
-	  (red-alt "#880000") (green-alt "#4a5700")
-	  (yellow-alt "#714900") (blue-alt "#223fbf")
-	  (magenta-alt "#8f0075") (cyan-alt "#185870")
-	  ;; same purpose as above, just slight differences
-	  ;; must be combined with: bg-main, bg-alt, bg-dim
-	  (red-alt-other "#9d2020") (green-alt-other "#145a00")
-	  (yellow-alt-other "#804000") (blue-alt-other "#0000bb")
-	  (magenta-alt-other "#5317ac") (cyan-alt-other "#005a68")
-	  ;; styles for elements that should draw attention to themselves
-	  ;; must be combined with: bg-main
-	  (red-intense "#b60000") (green-intense "#006800")
-	  (yellow-intense "#904200") (blue-intense "#1111ee")
-	  (magenta-intense "#7000e0") (cyan-intense "#205b93")
-	  ;; styles for background elements that should be visible yet subtle
-	  ;; must be combined with: fg-dim
-	  (red-subtle-bg "#ffb0aa") (green-subtle-bg "#cde8bc")
-	  (yellow-subtle-bg "#f0e0a0") (blue-subtle-bg "#b5d0ff")
-	  (magenta-subtle-bg "#ffcef5") (cyan-subtle-bg "#c0efff")
-	  ;; styles for background elements that should be visible and distinguishable
-	  ;; must be combined with: fg-main
-	  (red-intense-bg "#ffa496") (green-intense-bg "#82da96")
-	  (yellow-intense-bg "#f5f77c") (blue-intense-bg "#90c0ff")
-	  (magenta-intense-bg "#e5c0ff") (cyan-intense-bg "#90f5f0")
-	  ;; styles for refined git diffs and other contexts where both
-	  ;; the foreground and the background need to have the
-	  ;; same/similar hue
-	  ;; must be combined with themselves
-	  (red-refine-bg "#ffcccc") (green-refine-bg "#bcffbc")
-	  (yellow-refine-bg "#ffffcc") (blue-refine-bg "#ddddff")
-	  (magenta-refine-bg "#ffccff") (cyan-refine-bg "#ccffff")
-	  (red-refine-fg "#780000") (green-refine-fg "#004c00")
-	  (yellow-refine-fg "#755000") (blue-refine-fg "#0000bb")
-	  (magenta-refine-fg "#770077") (cyan-refine-fg "#005597"))
+      (fg-main "#000000") (bg-main "#ffffff")
+      (fg-alt "#505050") (bg-alt "#f3f1f3")
+      (fg-dim "#282828") (bg-dim "#f8f8f8")
+      ;; specifically for on/off states (e.g. mode-line)
+      ;; must be combined with themselves
+      (fg-active "#0b0b0b") (bg-active "#e3e6ef")
+      (fg-inactive "#50545c") (bg-inactive "#f4f7fa")
+      ;; special foreground values, used only for cases where the above
+      ;; fg-* cannot or should not be used (to avoid confusion)
+      ;; must be combined with: bg-main, bg-alt, bg-dim
+      (fg-special-warm "#5d3026") (fg-special-cold "#093060")
+      ;; styles for the main constructs
+      ;; must be combined with: bg-main, bg-alt, bg-dim
+      (red "#a80000") (green "#005200")
+      (yellow "#8b3800") (blue "#0030a6")
+      (magenta "#721045") (cyan "#005589")
+      ;; styles for common, but still specialised constructs
+      ;; must be combined with: bg-main, bg-alt, bg-dim
+      (red-alt "#880000") (green-alt "#4a5700")
+      (yellow-alt "#714900") (blue-alt "#223fbf")
+      (magenta-alt "#8f0075") (cyan-alt "#185870")
+      ;; same purpose as above, just slight differences
+      ;; must be combined with: bg-main, bg-alt, bg-dim
+      (red-alt-other "#9d2020") (green-alt-other "#145a00")
+      (yellow-alt-other "#804000") (blue-alt-other "#0000bb")
+      (magenta-alt-other "#5317ac") (cyan-alt-other "#005a68")
+      ;; styles for elements that should draw attention to themselves
+      ;; must be combined with: bg-main
+      (red-intense "#b60000") (green-intense "#006800")
+      (yellow-intense "#904200") (blue-intense "#1111ee")
+      (magenta-intense "#7000e0") (cyan-intense "#205b93")
+      ;; styles for background elements that should be visible yet subtle
+      ;; must be combined with: fg-dim
+      (red-subtle-bg "#ffb0aa") (green-subtle-bg "#cde8bc")
+      (yellow-subtle-bg "#f0e0a0") (blue-subtle-bg "#b5d0ff")
+      (magenta-subtle-bg "#ffcef5") (cyan-subtle-bg "#c0efff")
+      ;; styles for background elements that should be visible and distinguishable
+      ;; must be combined with: fg-main
+      (red-intense-bg "#ffa496") (green-intense-bg "#82da96")
+      (yellow-intense-bg "#f5f77c") (blue-intense-bg "#90c0ff")
+      (magenta-intense-bg "#e5c0ff") (cyan-intense-bg "#90f5f0")
+      ;; styles for refined git diffs and other contexts where both
+      ;; the foreground and the background need to have the
+      ;; same/similar hue
+      ;; must be combined with themselves
+      (red-refine-bg "#ffcccc") (green-refine-bg "#bcffbc")
+      (yellow-refine-bg "#ffffcc") (blue-refine-bg "#ddddff")
+      (magenta-refine-bg "#ffccff") (cyan-refine-bg "#ccffff")
+      (red-refine-fg "#780000") (green-refine-fg "#004c00")
+      (yellow-refine-fg "#755000") (blue-refine-fg "#0000bb")
+      (magenta-refine-fg "#770077") (cyan-refine-fg "#005597"))
   (custom-theme-set-faces
    'modus-operandi
    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -177,7 +177,6 @@
    `(success ((t (:inherit (modus-theme-intense-bg-green) :weight bold))))
    `(trailing-whitespace ((,class (:background ,red-alt))))
    `(warning ((,class (:foreground ,red :weight bold))))
-   `(whitespace-tab ((,class (:foreground ,fg-alt))))
    ;;;; avy
    `(avy-background-face ((,class (:background ,bg-dim :foreground ,fg-dim))))
    `(avy-goto-char-timer-face ((,class (:background ,magenta-intense :foreground ,bg-main))))
