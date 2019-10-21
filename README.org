@@ -3,8 +3,9 @@
   :CUSTOM_ID: h:33bb3c69-f24e-4ca7-a986-06ca8057c63a
   :END:
 
-A package for MELPA will be available either towards the end of October
-or early November 2019.
+A pull request for adding a package to the MELPA repository will be
+submitted either towards the end of October or early November 2019.  The
+actual submission process might take some time, so please stay tuned.
 
 ** Overview
    :PROPERTIES:
