@@ -331,7 +331,7 @@
    `(font-lock-string-face ((,class (:foreground ,blue-alt))))
    `(font-lock-type-face ((,class (:foreground ,magenta-alt :weight normal))))
    `(font-lock-variable-name-face ((,class (:foreground ,cyan :weight normal))))
-   `(font-lock-warning-face ((,class (:foreground ,yellow-alt-other :weight bold))))
+   `(font-lock-warning-face ((,class (:background ,bg-alt :foreground ,yellow-alt-other :weight bold))))
    ;;;; flyspell
    `(flyspell-duplicate ((t (:inherit (modus-theme-subtle-bg-yellow) :underline (:color foreground-color :style line)))))
    `(flyspell-incorrect ((t (:inherit (modus-theme-subtle-bg-red) :underline (:color foreground-color :style line)))))
