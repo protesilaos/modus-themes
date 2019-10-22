@@ -107,24 +107,24 @@
       (magenta-intense "#ff8bd4") (cyan-intense "#30ffc0")
       ;; styles for background elements that should be visible yet subtle
       ;; must be combined with: fg-dim
-      (red-subtle-bg "#8f1d2e") (green-subtle-bg "#1e5000")
-      (yellow-subtle-bg "#654230") (blue-subtle-bg "#262aad")
-      (magenta-subtle-bg "#5d0a8f") (cyan-subtle-bg "#00425f")
+      (red-subtle-bg "#721d12") (green-subtle-bg "#1e5000")
+      (yellow-subtle-bg "#654230") (blue-subtle-bg "#2a2f90")
+      (magenta-subtle-bg "#5d2975") (cyan-subtle-bg "#00415e")
       ;; styles for background elements that should be visible and distinguishable
       ;; must be combined with: fg-main
-      (red-intense-bg "#a2252a") (green-intense-bg "#00681a")
-      (yellow-intense-bg "#625a00") (blue-intense-bg "#1140cd")
-      (magenta-intense-bg "#7f2dba") (cyan-intense-bg "#105b87")
+      (red-intense-bg "#a0313a") (green-intense-bg "#006800")
+      (yellow-intense-bg "#625a00") (blue-intense-bg "#2844b8")
+      (magenta-intense-bg "#7042a2") (cyan-intense-bg "#005f88")
       ;; styles for refined git diffs and other contexts where both
       ;; the foreground and the background need to have the
       ;; same/similar hue
       ;; must be combined with themselves
       (red-refine-bg "#780000") (green-refine-bg "#004c00")
-      (yellow-refine-bg "#755000") (blue-refine-bg "#0000bb")
-      (magenta-refine-bg "#770077") (cyan-refine-bg "#005597")
+      (yellow-refine-bg "#755000") (blue-refine-bg "#2222aa")
+      (magenta-refine-bg "#572f77") (cyan-refine-bg "#004f80")
       (red-refine-fg "#ffcccc") (green-refine-fg "#bcffbc")
-      (yellow-refine-fg "#ffffcc") (blue-refine-fg "#ddddff")
-      (magenta-refine-fg "#ffccff") (cyan-refine-fg "#ccffff"))
+      (yellow-refine-fg "#ffffcc") (blue-refine-fg "#adddff")
+      (magenta-refine-fg "#ffccff") (cyan-refine-fg "#afffff"))
   (custom-theme-set-faces
    'modus-vivendi
    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
