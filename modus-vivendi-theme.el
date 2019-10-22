@@ -360,7 +360,7 @@
    `(magit-diff-hunk-heading ((,class (:background ,bg-special-warm :foreground ,fg-special-warm :weight bold))))
    `(magit-diff-hunk-heading-highlight ((,class (:background ,bg-active :foreground ,fg-active))))
    `(magit-diff-hunk-heading-selection ((t (:inherit (magit-diff-file-heading-selection)))))
-   `(magit-diff-lines-heading ((t (:inherit (modus-theme-subtle-bg-magenta)))))
+   `(magit-diff-lines-heading ((t (:inherit (modus-theme-refine-magenta)))))
    `(magit-diff-removed ((t (:inherit (modus-theme-subtle-bg-red)))))
    `(magit-diff-removed-highlight ((t (:inherit (modus-theme-intense-bg-red)))))
    `(magit-diffstat-added ((t (:inherit (magit-diff-added)))))
