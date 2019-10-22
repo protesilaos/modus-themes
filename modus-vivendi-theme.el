@@ -107,7 +107,7 @@
       (magenta-intense "#ff8bd4") (cyan-intense "#30ffc0")
       ;; styles for background elements that should be visible yet subtle
       ;; must be combined with: fg-dim
-      (red-subtle-bg "#721d12") (green-subtle-bg "#194600")
+      (red-subtle-bg "#6f191f") (green-subtle-bg "#194600")
       (yellow-subtle-bg "#654230") (blue-subtle-bg "#2a2f90")
       (magenta-subtle-bg "#5d2975") (cyan-subtle-bg "#00415e")
       ;; styles for background elements that should be visible and distinguishable
@@ -119,7 +119,7 @@
       ;; the foreground and the background need to have the
       ;; same/similar hue
       ;; must be combined with themselves
-      (red-refine-bg "#780000") (green-refine-bg "#00522a")
+      (red-refine-bg "#8a0000") (green-refine-bg "#00522a")
       (yellow-refine-bg "#755000") (blue-refine-bg "#2222aa")
       (magenta-refine-bg "#572f77") (cyan-refine-bg "#004f80")
       (red-refine-fg "#ffcccc") (green-refine-fg "#bcffbc")
