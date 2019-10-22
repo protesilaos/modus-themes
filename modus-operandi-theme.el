@@ -113,8 +113,8 @@
       ;; styles for background elements that should be visible and distinguishable
       ;; must be combined with: fg-main
       (red-intense-bg "#ffa496") (green-intense-bg "#82da96")
-      (yellow-intense-bg "#f5f77c") (blue-intense-bg "#90c0ff")
-      (magenta-intense-bg "#e5c0ff") (cyan-intense-bg "#90f5f0")
+      (yellow-intense-bg "#f0f27c") (blue-intense-bg "#90c0ff")
+      (magenta-intense-bg "#e5c0ff") (cyan-intense-bg "#90e5f0")
       ;; styles for refined git diffs and other contexts where both
       ;; the foreground and the background need to have the
       ;; same/similar hue
