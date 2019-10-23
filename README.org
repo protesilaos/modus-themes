@@ -37,6 +37,7 @@ face groups.
 	:CUSTOM_ID: h:b6170300-446e-48d0-8660-a5946b057998
 	:END:
 
++ all-the-icons
 + anzu
 + avy
 + aw
