@@ -83,8 +83,8 @@
       ;; special base values, used only for cases where the above
       ;; fg-* or bg-* cannot or should not be used (to avoid confusion)
       ;; must be combined with: {fg,bg}-{main,alt,dim}
-      (fg-special-warm "#f9dbd0") (bg-special-warm "#231c15")
-      (fg-special-cold "#cce0ff") (bg-special-cold "#141e2b")
+      (fg-special-warm "#f9dbd0") (bg-special-warm "#2d221d")
+      (fg-special-cold "#c0e0ff") (bg-special-cold "#122030")
       ;; styles for the main constructs
       ;; must be combined with: bg-main, bg-alt, bg-dim
       (red "#ff8059") (green "#44bc44")
