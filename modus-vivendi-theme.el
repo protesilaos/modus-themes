@@ -549,6 +549,7 @@
    `(mode-line-inactive ((,class (:box (:line-width 1 :color ,bg-inactive) :background ,bg-inactive :foreground ,fg-inactive))))
    `(which-func ((,class (:foreground ,fg-main))))
    ;;;; mu4e
+   `(mu4e-cited-1-face ((,class (:foreground ,blue-alt))))
    `(mu4e-cited-2-face ((,class (:foreground ,red-alt))))
    `(mu4e-cited-3-face ((,class (:foreground ,green-alt))))
    `(mu4e-cited-4-face ((,class (:foreground ,magenta-alt))))
@@ -582,7 +583,6 @@
    `(mu4e-url-number-face ((,class (:foreground ,blue-alt-other :weight bold))))
    `(mu4e-view-body-face ((t (:inherit (default)))))
    `(mu4e-warning-face ((t (:inherit (warning)))))
-   `(mu4e-cited-1-face ((,class (:foreground ,blue-alt))))
    ;;;; org-mode
    `(org-block ((,class (:background ,bg-main :foreground ,fg-main))))
    `(org-block-begin-line ((,class (:background ,bg-dim :foreground ,fg-alt))))
