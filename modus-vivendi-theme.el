@@ -275,6 +275,12 @@
    `(completions-annotations ((t (:inherit (italic)))))
    `(completions-common-part ((t nil)))
    `(completions-first-difference ((t (:inherit (bold)))))
+   ;;;; deadgrep
+   `(deadgrep-filename-face ((,class (:foreground ,cyan :weight bold))))
+   `(deadgrep-match-face ((t (:inherit (modus-theme-subtle-blue)))))
+   `(deadgrep-meta-face ((,class (:foreground ,fg-alt))))
+   `(deadgrep-regexp-metachar-face ((,class (:foreground ,yellow-intense :weight bold))))
+   `(deadgrep-search-term-face ((,class (:foreground ,green-intense :weight bold))))
    ;;;; diff-mode
    `(diff-added ((t (:inherit (modus-theme-subtle-green)))))
    `(diff-indicator-added ((t (:inherit (diff-added)))))

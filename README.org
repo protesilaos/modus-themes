@@ -42,6 +42,7 @@ face groups.
 + avy
 + aw
 + company-mode
++ deadgrep
 + dired-async
 + dired-subtree
 + diredfl
