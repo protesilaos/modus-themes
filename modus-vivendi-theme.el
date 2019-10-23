@@ -123,10 +123,10 @@
       ;; must be combined with themselves OR the foregrounds can be
       ;; combined with any of the base backgrounds where subtle shades
       ;; are needed
-      (red-refine-bg "#8a0000") (green-refine-bg "#00522a")
+      (red-refine-bg "#700707") (green-refine-bg "#00441a")
       (yellow-refine-bg "#755000") (blue-refine-bg "#2222aa")
       (magenta-refine-bg "#572f77") (cyan-refine-bg "#004f80")
-      (red-refine-fg "#ffcccc") (green-refine-fg "#bcffbc")
+      (red-refine-fg "#ffb0b0") (green-refine-fg "#b0ffb0")
       (yellow-refine-fg "#ffffcc") (blue-refine-fg "#adddff")
       (magenta-refine-fg "#ffccff") (cyan-refine-fg "#afffff"))
   (custom-theme-set-faces
