@@ -166,7 +166,7 @@
    `(fringe ((t (:inherit (default)))))
    ;;;; basic and/or ungrouped styles
    `(error ((t (:inherit (modus-theme-intense-bg-red) :weight bold))))
-   `(escape-glyph ((,class (:foreground ,yellow-alt :weight bold))))
+   `(escape-glyph ((t (:inherit (modus-theme-refine-blue) :weight bold))))
    `(header-line ((,class (:background ,bg-alt :foreground ,fg-alt))))
    `(homoglyph ((,class (:foreground ,yellow-alt-other))))
    `(ibuffer-locked-buffer ((,class (:foreground ,yellow-alt-other))))
