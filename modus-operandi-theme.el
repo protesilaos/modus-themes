@@ -144,8 +144,7 @@
    `(modus-theme-subtle-magenta ((,class (:background ,magenta-subtle-bg :foreground ,fg-dim))))
    `(modus-theme-subtle-cyan ((,class (:background ,cyan-subtle-bg :foreground ,fg-dim))))
    `(modus-theme-subtle-neutral ((,class (:background ,bg-alt :foreground ,fg-alt))))
-   ;;; intense coloured backgrounds (to draw attention to an item
-   ;;; covered by the above, e.g. current `isearch' match)
+   ;;; intense coloured backgrounds
    `(modus-theme-intense-red ((,class (:background ,red-intense-bg :foreground ,fg-main))))
    `(modus-theme-intense-green ((,class (:background ,green-intense-bg :foreground ,fg-main))))
    `(modus-theme-intense-yellow ((,class (:background ,yellow-intense-bg :foreground ,fg-main))))
@@ -153,8 +152,7 @@
    `(modus-theme-intense-magenta ((,class (:background ,magenta-intense-bg :foreground ,fg-main))))
    `(modus-theme-intense-cyan ((,class (:background ,cyan-intense-bg :foreground ,fg-main))))
    `(modus-theme-intense-neutral ((,class (:background ,bg-dim :foreground ,fg-main))))
-   ;;; refined background and foreground combinations (for highligting
-   ;;; per-character changes in a git diff and the like)
+   ;;; refined background and foreground combinations
    `(modus-theme-refine-red ((,class (:background ,red-refine-bg :foreground ,red-refine-fg))))
    `(modus-theme-refine-green ((,class (:background ,green-refine-bg :foreground ,green-refine-fg))))
    `(modus-theme-refine-yellow ((,class (:background ,yellow-refine-bg :foreground ,yellow-refine-fg))))
