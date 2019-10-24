@@ -62,6 +62,7 @@ face groups.
 + messages
 + modeline
 + mu4e
++ org-mode
 + outline-mode
 + rainbow-delimiters
 + swiper
@@ -76,7 +77,6 @@ face groups.
 	:CUSTOM_ID: h:867999e4-b1e8-4457-a030-c52250a88876
 	:END:
 
-+ org-mode
 + shell script syntax (please confirm)
 
 *** Help needed
@@ -85,14 +85,13 @@ face groups.
 	:END:
 
 These are face groups that I am aware of but do not know how to access
-or do not use.  I generally need to see how a face looks in its context
-before assessing its aesthetics.
+or do not actively use.  I generally need to see how a face looks in its
+context before assessing its aesthetics or specific requirements.
 
 Use =M-x list-faces-display= to get these.
 
 + diary
 + epa
-+ org-mode (agenda, drawer, document info, formula, latex, schedules…)
 + nobreak-{hyphen,space}
 + smerge
 + speedbar
@@ -100,8 +99,9 @@ Use =M-x list-faces-display= to get these.
 + tty-menu
 + vc-{conflict-state,state-base}…
 
-Note that I am not much into =org-mode=, so even though I have taken
-care of the base styles, I would need help from Org users.
+Note that the themes do provide support for =org-mode=, but some of
+these interfaces have been decided based on indirect experience.  If you
+encounter anything that does not "feel right", please let me know.
 
 *** Covered but not styled explicitly
 	:PROPERTIES:
