@@ -714,7 +714,7 @@
    `(org-upcoming-deadline ((,class (:foreground ,red-alt-other))))
    `(org-verbatim ((,class (:background ,bg-dim :foreground ,fg-special-warm))))
    `(org-verse ((t (:inherit (org-quote)))))
-   `(org-warning ((t (:inherit (modus-theme-intense-yellow) :weight bold))))
+   `(org-warning ((t (:inherit (modus-theme-intense-red) :weight bold))))
    ;;;; outline-mode
    `(outline-1 ((t (:inherit (org-level-1)))))
    `(outline-2 ((t (:inherit (org-level-2)))))
