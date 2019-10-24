@@ -68,6 +68,8 @@
 (defface modus-theme-refine-blue nil t)
 (defface modus-theme-refine-magenta nil t)
 (defface modus-theme-refine-cyan nil t)
+(defface modus-theme-cold-bg-fg nil t)
+(defface modus-theme-warm-bg-fg nil t)
 
 ;; Define colour palette.  Each colour must have a >= 7:1 contrast
 ;; ratio relative to the foreground/background colour it is rendered
@@ -159,6 +161,10 @@
    `(modus-theme-refine-blue ((,class (:background ,blue-refine-bg :foreground ,blue-refine-fg))))
    `(modus-theme-refine-magenta ((,class (:background ,magenta-refine-bg :foreground ,magenta-refine-fg))))
    `(modus-theme-refine-cyan ((,class (:background ,cyan-refine-bg :foreground ,cyan-refine-fg))))
+   ;;; special warm/cold base values that are closer the grayscale than
+   ;;; the accents defined above
+   `(modus-theme-cold-bg-fg ((,class (:background ,bg-special-cold :foreground ,fg-special-cold))))
+   `(modus-theme-warm-bg-fg ((,class (:background ,bg-special-warm :foreground ,fg-special-warm))))
    ;;;;;;;;;;;;;;;;;;;
    ;; actual styles ;;
    ;;;;;;;;;;;;;;;;;;;
@@ -290,9 +296,9 @@
    `(diff-indicator-changed ((t (:inherit (diff-changed)))))
    `(diff-removed ((t (:inherit (modus-theme-subtle-red)))))
    `(diff-indicator-removed ((t (:inherit (diff-removed)))))
-   `(diff-file-header ((,class (:background ,bg-special-cold :foreground ,fg-special-cold :weight bold))))
-   `(diff-function ((,class (:background ,bg-special-warm :foreground ,fg-special-warm :weight bold))))
-   `(diff-header ((,class (:background ,bg-special-cold :foreground ,fg-special-cold :weight bold))))
+   `(diff-file-header ((,class (:inherit (modus-theme-cold-bg-fg) :weight bold))))
+   `(diff-function ((,class (:inherit (modus-theme-cold-bg-fg) :weight bold))))
+   `(diff-header ((,class (:inherit (modus-theme-cold-bg-fg) :weight bold))))
    `(diff-hunk-header ((t (:inherit (diff-function)))))
    `(diff-index-header ((t (:inherit (diff-function)))))
    `(diff-refine-added ((t (:inherit (modus-theme-intense-green)))))
@@ -402,10 +408,10 @@
    `(magit-diff-context ((,class (:background ,bg-main :foreground ,fg-alt))))
    `(magit-diff-context-highlight ((,class (:background ,bg-alt :foreground ,fg-alt))))
    `(magit-diff-file-heading ((,class (:background ,bg-main :foreground ,fg-special-cold :weight bold))))
-   `(magit-diff-file-heading-highlight ((,class (:background ,bg-special-cold :foreground ,fg-special-cold :weight bold))))
+   `(magit-diff-file-heading-highlight ((,class (:inherit (modus-theme-cold-bg-fg) :weight bold))))
    `(magit-diff-file-heading-selection ((,class (:background ,bg-alt :foreground ,cyan))))
    `(magit-diff-hunk-heading ((,class (:background ,bg-main :foreground ,fg-special-warm :weight bold))))
-   `(magit-diff-hunk-heading-highlight ((,class (:background ,bg-special-warm :foreground ,fg-special-warm :weight bold))))
+   `(magit-diff-hunk-heading-highlight ((,class (:inherit (modus-theme-cold-bg-fg) :weight bold))))
    `(magit-diff-hunk-heading-selection ((t (:inherit (magit-diff-file-heading-selection)))))
    `(magit-diff-hunk-region ((t (:weight bold)))) ; has no effect?
    `(magit-diff-lines-boundary ((,class (:background ,fg-main))))
