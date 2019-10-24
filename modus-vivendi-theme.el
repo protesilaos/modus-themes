@@ -134,8 +134,7 @@
    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
    ;; custom faces that are inherited by other constructs below ;;
    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-   ;;; subtle coloured backgrounds (to denote the consequences of
-   ;;; certain actions, e.g. lazy highlight `isearch')
+   ;;; subtle coloured backgrounds
    `(modus-theme-subtle-red ((,class (:background ,red-subtle-bg :foreground ,fg-dim))))
    `(modus-theme-subtle-green ((,class (:background ,green-subtle-bg :foreground ,fg-dim))))
    `(modus-theme-subtle-yellow ((,class (:background ,yellow-subtle-bg :foreground ,fg-dim))))
