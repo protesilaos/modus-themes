@@ -238,14 +238,17 @@
    `(aw-leading-char-face ((,class (:background ,bg-main :foreground ,red-intense :weight bold))))
    `(aw-minibuffer-leading-char-face ((,class (:background ,bg-main :foreground ,red-intense))))
    `(aw-mode-line-face ((t (:weight bold))))
-   ;;;; buttons, links
+   ;;;; buttons, links, widgets
    `(button ((,class (:underline (:color foreground-color :style line) :foreground ,blue-alt-other))))
    `(link ((t (:inherit button))))
    `(link-visited ((,class (:inherit (button) :foreground ,magenta-alt-other))))
    `(tooltip ((t (:inherit (modus-theme-subtle-yellow)))))
    `(widget-button ((t (:inherit (button)))))
-   `(widget-button-documentation ((t (:inherit (button) :foreground ,green))))
    `(widget-button-pressed ((t (:inherit (button) :foreground ,magenta))))
+   `(widget-documentation ((,class (:foreground ,green))))
+   `(widget-field ((,class (:background ,bg-alt :foreground ,fg-dim))))
+   `(widget-inactive ((,class (:background ,bg-inactive :foreground ,fg-inactive))))
+   `(widget-single-line-field ((t (:inherit (widget-field)))))
    ;;;; company-mode
    `(company-echo-common ((,class (:foreground ,magenta-alt-other))))
    `(company-preview ((t (:inherit (modus-theme-intense-neutral)))))
