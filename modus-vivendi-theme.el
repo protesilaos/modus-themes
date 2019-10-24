@@ -172,7 +172,7 @@
    `(cursor ((,class (:background ,fg-main))))
    `(fringe ((t (:inherit (default)))))
    ;;;; basic and/or ungrouped styles
-   `(error ((t (:inherit (modus-theme-intense-red) :weight bold))))
+   `(error ((,class (:background ,bg-main :foreground ,red-intense :weight bold))))
    `(escape-glyph ((t (:inherit (modus-theme-refine-blue) :weight bold))))
    `(header-line ((,class (:background ,bg-alt :foreground ,fg-alt))))
    `(homoglyph ((,class (:foreground ,yellow-alt-other))))
