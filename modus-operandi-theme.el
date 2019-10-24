@@ -595,7 +595,7 @@
    ;;;; modeline
    `(mode-line ((,class (:box (:line-width 1 :color ,fg-inactive) :background ,bg-active :foreground ,fg-active))))
    `(mode-line-buffer-id ((t (:weight bold))))
-   `(mode-line-emphasis ((t (:inherit (highlight) :weight bold))))
+   `(mode-line-emphasis ((,class (:background ,bg-main :foreground ,blue-intense :weight bold))))
    `(mode-line-highlight ((,class (:box (:line-width 1 :color ,fg-main) :inherit (modus-theme-subtle-magenta)))))
    `(mode-line-inactive ((,class (:box (:line-width 1 :color ,bg-inactive) :background ,bg-inactive :foreground ,fg-inactive))))
    `(which-func ((,class (:foreground ,fg-main))))
