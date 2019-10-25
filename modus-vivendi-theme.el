@@ -318,6 +318,7 @@
    `(dired-async-failures ((t (:inherit (modus-theme-intense-red)))))
    `(dired-async-message ((t (:inherit (modus-theme-intense-green)))))
    `(dired-async-mode-message ((t (:inherit (modus-theme-intense-magenta)))))
+   `(dgi-commit-message-face ((,class (:foreground ,fg-special-warm)))) ; dired-git-info
    ;;;; diredfl
    `(diredfl-autofile-name ((t (:inherit (modus-theme-refine-yellow)))))
    `(diredfl-compressed-file-name ((,class (:foreground ,red-alt :weight bold))))
