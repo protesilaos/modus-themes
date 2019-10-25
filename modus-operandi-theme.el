@@ -309,6 +309,7 @@
    `(dired-directory ((t (:foreground ,blue :weight bold))))
    `(dired-flagged ((t (:inherit (modus-theme-intense-red)))))
    `(dired-marked ((t (:inherit (modus-theme-intense-magenta)))))
+   `(dired-narrow-blink ((,class (:inherit (modus-theme-subtle-cyan) :weight bold))))
    `(dired-subtree-depth-1-face ((,class (:background ,bg-dim))))
    `(dired-subtree-depth-2-face ((,class (:background ,bg-alt))))
    `(dired-subtree-depth-3-face ((,class (:background ,bg-main))))
