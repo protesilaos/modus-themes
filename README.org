@@ -72,12 +72,28 @@ face groups.
 + which-key
 + whitespace-mode
 
-*** Partially supported
+*** Partially supported (need manual intervention)
 	:PROPERTIES:
 	:CUSTOM_ID: h:867999e4-b1e8-4457-a030-c52250a88876
 	:END:
 
-+ shell script syntax (please confirm)
+This section documents known cases where the Modus themes will not be
+used to their maximum potential.  Solutions are suggested in context.
+
+**** Ibuffer
+     :PROPERTIES:
+     :CUSTOM_ID: h:1c7b8111-2994-4ffa-9a04-33198cc98eef
+     :END:
+
+The default =ibuffer= configurations for denoting the mark and delete
+flags are not good enough.  My recommended tweak for those is to let
+them inherit the styles of Dired.  Place something like this in your
+initialisation file.
+
+#+BEGIN_SRC emacs-lisp
+(setq ibuffer-deletion-face 'dired-flagged)
+(setq ibuffer-marked-face 'dired-marked)
+#+END_SRC
 
 *** Help needed
 	:PROPERTIES:
