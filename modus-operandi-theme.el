@@ -305,9 +305,13 @@
    `(diff-refine-removed ((t (:inherit (modus-theme-intense-red)))))
    `(diff-removed ((t (:inherit (modus-theme-subtle-red)))))
    ;;;; dired (and extensions)
-   `(dired-header ((t (:foreground ,fg-main :weight bold))))
+   `(dgi-commit-message-face ((,class (:foreground ,fg-special-warm)))) ; dired-git-info
+   `(dired-async-failures ((t (:inherit (modus-theme-intense-red)))))
+   `(dired-async-message ((t (:inherit (modus-theme-intense-green)))))
+   `(dired-async-mode-message ((t (:inherit (modus-theme-intense-magenta)))))
    `(dired-directory ((t (:foreground ,blue :weight bold))))
    `(dired-flagged ((t (:inherit (modus-theme-intense-red)))))
+   `(dired-header ((t (:foreground ,fg-main :weight bold))))
    `(dired-marked ((t (:inherit (modus-theme-intense-magenta)))))
    `(dired-narrow-blink ((,class (:inherit (modus-theme-subtle-cyan) :weight bold))))
    `(dired-subtree-depth-1-face ((,class (:background ,bg-dim))))
@@ -316,10 +320,6 @@
    `(dired-subtree-depth-4-face ((,class (:background ,bg-dim))))
    `(dired-subtree-depth-5-face ((,class (:background ,bg-alt))))
    `(dired-subtree-depth-6-face ((,class (:background ,bg-main))))
-   `(dired-async-failures ((t (:inherit (modus-theme-intense-red)))))
-   `(dired-async-message ((t (:inherit (modus-theme-intense-green)))))
-   `(dired-async-mode-message ((t (:inherit (modus-theme-intense-magenta)))))
-   `(dgi-commit-message-face ((,class (:foreground ,fg-special-warm)))) ; dired-git-info
    ;;;; diredfl
    `(diredfl-autofile-name ((t (:inherit (modus-theme-refine-yellow)))))
    `(diredfl-compressed-file-name ((,class (:foreground ,red-alt :weight bold))))
