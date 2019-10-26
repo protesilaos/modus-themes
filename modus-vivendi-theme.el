@@ -69,6 +69,7 @@
 (defface modus-theme-refine-magenta nil t)
 (defface modus-theme-refine-cyan nil t)
 (defface modus-theme-cold-bg-fg nil t)
+(defface modus-theme-mild-bg-fg nil t)
 (defface modus-theme-warm-bg-fg nil t)
 
 ;; Define colour palette.  Each colour must have a >= 7:1 contrast
@@ -85,8 +86,9 @@
       ;; special base values, used only for cases where the above
       ;; fg-* or bg-* cannot or should not be used (to avoid confusion)
       ;; must be combined with: {fg,bg}-{main,alt,dim}
-      (fg-special-warm "#f8dec0") (bg-special-warm "#362420")
       (fg-special-cold "#c0e0ff") (bg-special-cold "#1e283a")
+      (fg-special-mild "#e0ffeb") (bg-special-mild "#2f5a4e")
+      (fg-special-warm "#f8dec0") (bg-special-warm "#382f27")
       ;; styles for the main constructs
       ;; must be combined with: bg-main, bg-alt, bg-dim
       (red "#ff8059") (green "#44bc44")
@@ -159,9 +161,10 @@
    `(modus-theme-refine-blue ((,class (:background ,blue-refine-bg :foreground ,blue-refine-fg))))
    `(modus-theme-refine-magenta ((,class (:background ,magenta-refine-bg :foreground ,magenta-refine-fg))))
    `(modus-theme-refine-cyan ((,class (:background ,cyan-refine-bg :foreground ,cyan-refine-fg))))
-   ;;; special warm/cold base values that are closer the grayscale than
+   ;;; special base values that are closer the grayscale than
    ;;; the accents defined above
    `(modus-theme-cold-bg-fg ((,class (:background ,bg-special-cold :foreground ,fg-special-cold))))
+   `(modus-theme-mild-bg-fg ((,class (:background ,bg-special-mild :foreground ,fg-special-mild))))
    `(modus-theme-warm-bg-fg ((,class (:background ,bg-special-warm :foreground ,fg-special-warm))))
    ;;;;;;;;;;;;;;;;;;;
    ;; actual styles ;;
