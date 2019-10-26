@@ -184,7 +184,7 @@
    `(shadow ((,class (:foreground ,fg-alt))))
    `(success ((t (:inherit (modus-theme-intense-green) :weight bold))))
    `(trailing-whitespace ((,class (:background ,red-alt))))
-   `(warning ((,class (:foreground ,red :weight bold))))
+   `(warning ((,class (:background ,bg-main :foreground ,yellow-intense :weight bold))))
    ;;;; all-the-icons
    `(all-the-icons-blue ((,class (:foreground ,blue))))
    `(all-the-icons-blue-alt ((,class (:foreground ,blue-alt))))
