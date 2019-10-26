@@ -428,7 +428,7 @@
    `(magit-dimmed ((,class (:foreground ,fg-alt))))
    `(magit-filename ((,class (:foreground ,fg-special-cold))))
    `(magit-hash ((,class (:foreground ,fg-special-warm))))
-   `(magit-log-author ((,class (:foreground ,green-alt-other))))
+   `(magit-log-author ((,class (:foreground ,fg-special-mild))))
    `(magit-log-date ((,class (:foreground ,fg-dim))))
    `(magit-log-graph ((,class (:foreground ,fg-dim))))
    `(magit-process-ng ((t (:inherit (error)))))
