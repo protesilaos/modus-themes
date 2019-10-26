@@ -742,6 +742,14 @@
    ;;;; shell scripts
    `(sh-heredoc ((t (:inherit (font-lock-string-face)))))
    `(sh-quoted-exec ((t (:inherit (font-lock-builtin-face)))))
+   ;;;; speedbar
+   `(speedbar-button-face ((t (:inherit (link)))))
+   `(speedbar-directory-face ((t (:inherit (dired-directory)))))
+   `(speedbar-file-face ((t (:inherit (default)))))
+   `(speedbar-highlight-face ((t (:inherit (highlight)))))
+   `(speedbar-selected-face ((,class (:foreground ,cyan :weight bold))))
+   `(speedbar-separator-face ((t (:inherit (modus-theme-intense-neutral)))))
+   `(speedbar-tag-face ((,class (:foreground ,yellow-alt-other))))
    ;;;; swiper
    `(swiper-background-match-face-1 ((t (:inherit (modus-theme-subtle-neutral)))))
    `(swiper-background-match-face-2 ((t (:inherit (modus-theme-subtle-magenta)))))

@@ -65,6 +65,7 @@ face groups.
 + org-mode
 + outline-mode
 + rainbow-delimiters
++ speedbar
 + swiper
 + treemacs
 + undo-tree
@@ -110,7 +111,6 @@ Use =M-x list-faces-display= to get these.
 + epa
 + nobreak-{hyphen,space}
 + smerge
-+ speedbar
 + transient-{argument,key,value}…
 + tty-menu
 + vc-{conflict-state,state-base}…
