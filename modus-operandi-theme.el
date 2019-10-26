@@ -80,8 +80,8 @@
       (fg-dim "#282828") (bg-dim "#f8f8f8")
       ;; specifically for on/off states (e.g. mode-line)
       ;; must be combined with themselves
-      (fg-active "#0b0b0b") (bg-active "#e3e6ef")
-      (fg-inactive "#50545c") (bg-inactive "#f4f7fa")
+      (fg-active "#0b0b0b") (bg-active "#d8d8d8")
+      (fg-inactive "#424242") (bg-inactive "#e7e6e4")
       ;; special base values, used only for cases where the above
       ;; fg-* or bg-* cannot or should not be used (to avoid confusion)
       ;; must be combined with: {fg,bg}-{main,alt,dim}
