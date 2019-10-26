@@ -68,9 +68,9 @@
 (defface modus-theme-refine-blue nil t)
 (defface modus-theme-refine-magenta nil t)
 (defface modus-theme-refine-cyan nil t)
-(defface modus-theme-cold-bg-fg nil t)
-(defface modus-theme-mild-bg-fg nil t)
-(defface modus-theme-warm-bg-fg nil t)
+(defface modus-theme-special-cold nil t)
+(defface modus-theme-special-mild nil t)
+(defface modus-theme-special-warm nil t)
 
 ;; Define colour palette.  Each colour must have a >= 7:1 contrast
 ;; ratio relative to the foreground/background colour it is rendered
@@ -163,9 +163,9 @@
    `(modus-theme-refine-cyan ((,class (:background ,cyan-refine-bg :foreground ,cyan-refine-fg))))
    ;;; special base values that are closer the grayscale than
    ;;; the accents defined above
-   `(modus-theme-cold-bg-fg ((,class (:background ,bg-special-cold :foreground ,fg-special-cold))))
-   `(modus-theme-mild-bg-fg ((,class (:background ,bg-special-mild :foreground ,fg-special-mild))))
-   `(modus-theme-warm-bg-fg ((,class (:background ,bg-special-warm :foreground ,fg-special-warm))))
+   `(modus-theme-special-cold ((,class (:background ,bg-special-cold :foreground ,fg-special-cold))))
+   `(modus-theme-special-mild ((,class (:background ,bg-special-mild :foreground ,fg-special-mild))))
+   `(modus-theme-special-warm ((,class (:background ,bg-special-warm :foreground ,fg-special-warm))))
    ;;;;;;;;;;;;;;;;;;;
    ;; actual styles ;;
    ;;;;;;;;;;;;;;;;;;;
@@ -294,10 +294,10 @@
    `(diff-added ((t (:inherit (modus-theme-subtle-green)))))
    `(diff-changed ((t (:inherit (modus-theme-subtle-yellow)))))
    `(diff-context ((,class (:background ,bg-dim :foreground ,fg-alt))))
-   `(diff-file-header ((,class (:inherit (modus-theme-cold-bg-fg) :weight bold))))
-   `(diff-function ((,class (:inherit (modus-theme-cold-bg-fg) :weight bold))))
-   `(diff-header ((,class (:inherit (modus-theme-cold-bg-fg) :weight bold))))
-   `(diff-hunk-header ((t (:inherit (modus-theme-warm-bg-fg) :weight bold))))
+   `(diff-file-header ((,class (:inherit (modus-theme-special-cold) :weight bold))))
+   `(diff-function ((,class (:inherit (modus-theme-special-cold) :weight bold))))
+   `(diff-header ((,class (:inherit (modus-theme-special-cold) :weight bold))))
+   `(diff-hunk-header ((t (:inherit (modus-theme-special-warm) :weight bold))))
    `(diff-index-header ((t (:inherit (diff-function)))))
    `(diff-indicator-added ((t (:inherit (diff-added)))))
    `(diff-indicator-changed ((t (:inherit (diff-changed)))))
@@ -413,10 +413,10 @@
    `(magit-diff-context ((,class (:background ,bg-main :foreground ,fg-alt))))
    `(magit-diff-context-highlight ((,class (:background ,bg-alt :foreground ,fg-alt))))
    `(magit-diff-file-heading ((,class (:background ,bg-main :foreground ,fg-special-cold :weight bold))))
-   `(magit-diff-file-heading-highlight ((,class (:inherit (modus-theme-cold-bg-fg) :weight bold))))
+   `(magit-diff-file-heading-highlight ((,class (:inherit (modus-theme-special-cold) :weight bold))))
    `(magit-diff-file-heading-selection ((,class (:background ,bg-alt :foreground ,cyan))))
    `(magit-diff-hunk-heading ((,class (:background ,bg-main :foreground ,fg-special-warm :weight bold))))
-   `(magit-diff-hunk-heading-highlight ((,class (:inherit (modus-theme-cold-bg-fg) :weight bold))))
+   `(magit-diff-hunk-heading-highlight ((,class (:inherit (modus-theme-special-cold) :weight bold))))
    `(magit-diff-hunk-heading-selection ((t (:inherit (magit-diff-file-heading-selection)))))
    `(magit-diff-hunk-region ((t (:weight bold)))) ; has no effect?
    `(magit-diff-lines-boundary ((,class (:background ,fg-main))))
@@ -650,12 +650,12 @@
    ;;;; org-mode
    `(org-agenda-calendar-event ((t (:inherit (default)))))
    `(org-agenda-calendar-sexp ((t (:inherit (default)))))
-   `(org-agenda-calendar-clocking ((t (:inherit (modus-theme-cold-bg-fg)))))
+   `(org-agenda-calendar-clocking ((t (:inherit (modus-theme-special-cold)))))
    `(org-agenda-column-dateline ((t (:inherit (modus-theme-subtle-neutral)))))
    `(org-agenda-current-time ((t (:inherit (modus-theme-refine-cyan)))))
    `(org-agenda-date ((,class (:foreground ,fg-main))))
    `(org-agenda-date-today ((t (:inherit (modus-theme-refine-cyan)))))
-   `(org-agenda-date-weekend ((t (:inherit (modus-theme-warm-bg-fg)))))
+   `(org-agenda-date-weekend ((t (:inherit (modus-theme-special-warm)))))
    `(org-agenda-diary ((t (:inherit (default)))))
    `(org-agenda-dimmed-todo-face ((t (:inherit modus-theme-subtle-neutral))))
    `(org-agenda-done ((,class (:foreground ,green))))
@@ -672,7 +672,7 @@
    `(org-checkbox ((t (:weight bold))))
    `(org-checkbox-statistics-done ((t (:foreground ,green :weight bold))))
    `(org-checkbox-statistics-todo ((t (:foreground ,yellow :weight bold))))
-   `(org-clock-overlay ((t (:inherit (modus-theme-cold-bg-fg)))))
+   `(org-clock-overlay ((t (:inherit (modus-theme-special-cold)))))
    `(org-code ((,class (:foreground ,magenta))))
    `(org-column ((,class (:background ,bg-alt :weight normal))))
    `(org-column-title ((,class (:underline t :background ,bg-alt :weight bold))))
