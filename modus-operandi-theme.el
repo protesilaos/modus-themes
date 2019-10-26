@@ -587,7 +587,7 @@
    `(markdown-pre-face ((t (:inherit (markdown-inline-code-face)))))
    ;;;; matching parentheses
    `(show-paren-match ((t (:inherit (modus-theme-intense-magenta) :weight bold))))
-   `(show-paren-match-expression ((,class :background ,bg-active :foreground ,fg-active)))
+   `(show-paren-match-expression ((,class (:background ,bg-special-warm :foreground ,fg-special-warm))))
    `(show-paren-mismatch ((t (:inherit (modus-theme-intense-red)))))
    ;;;; messages
    `(message-cited-text ((,class (:foreground ,red-alt))))
