@@ -50,10 +50,12 @@
 ;; appropriate foreground value.  This is to ensure a consistent
 ;; contrast ratio of >= 7:1.
 (defgroup modus-theme ()
-  "Themes that ensure WCAG AAA accessibility (contrast ratio
+  "Theme that ensures WCAG AAA accessibility (contrast ratio
 between foreground and background is >= 7:1)."
-  :group 'convenience
-  :prefix "modus-theme-")
+  :group 'faces
+  :prefix "modus-theme-"
+  :link '(url-link :tag "GitLab" "https://gitlab.com/protesilaos/modus-themes")
+  :tag "Modus Vivendi")
 
 (defface modus-theme-subtle-red nil t)
 (defface modus-theme-subtle-green nil t)
