@@ -1,41 +1,62 @@
-* Modus Themes for GNU Emacs
-  :PROPERTIES:
-  :CUSTOM_ID: h:33bb3c69-f24e-4ca7-a986-06ca8057c63a
-  :END:
+#+TITLE: Modus Themes for GNU Emacs
+#+AUTHOR: Protesilaos Stavrou
+#+EMAIL: public@protesilaos.com
 
-A pull request for adding a package to the MELPA repository will be
-submitted either towards the end of October or early November 2019.  The
-actual submission process might take some time, so please stay tuned.
-
-** Overview
-   :PROPERTIES:
-   :CUSTOM_ID: h:23434236-084c-4e17-8ef4-99aea6da4ade
-   :END:
+* Overview
 
 Accessible themes for GNU Emacs.  The contrast ratio between foreground
 and background values should always be >= 7:1, which conforms with the
 WCAG AAA accessibility standard.  This is the highest standard of this
 sort.
 
-/Modus/ consists of two themes, one where dark text is cast on a light
-backdrop (Modus Operandi), and another where light text is displayed
-against a dark background (Modus Vivendi).
+The /Modus/ project consists of two themes, one where dark text is cast
+on a light backdrop (Modus Operandi) and another where light text is
+displayed against a dark background (Modus Vivendi).
 
-I live demo these themes in [[https://protesilaos.com/code-casts][my Emacs-related screen casts]].
+Check the [[https://gitlab.com/protesilaos/modus-themes/wikis/Screenshots][Wiki page with the screen shots]].  Also note that I demo these
+themes in [[https://protesilaos.com/code-casts][my Emacs-related screen casts]] (some older videos contain
+earlier versions).
 
-** Face coverage
-   :PROPERTIES:
-   :CUSTOM_ID: h:a31623b9-bff7-4471-9f07-8afe3fffd2bd
-   :END:
+* Installation and configuration
+
+/A package for MELPA is in the works.  Stay tuned./
+
+** Manual method
+
+Download the files ending in =*-theme.el= and place them in an
+appropriate directory, such as =~/.emacs.d/themes/=.  Then to make sure
+that path is read by Emacs, insert the following in your initialisation
+file (=.emacs= or =init.el=):
+
+#+BEGIN_SRC emacs-lisp
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+#+END_SRC
+
+# ** Package method
+#
+# The Modus themes are available in MELPA.
+#
+# You can install the collection with:
+#
+# =M-x package-install RET modus-themes=
+
+** Load automatically
+
+To load the theme of your choice automatically upon Emacs startup add
+this to your init file, replacing =NAME= with either =operandi= or
+=vivendi=:
+
+#+BEGIN_SRC emacs-lisp
+(load-theme 'modus-NAME t)
+#+END_SRC
+
+* Face coverage
 
 This list will be updated to reflect the current state of the project.
 The idea is to offer an overview of the /known status/ of all affected
 face groups.
 
-*** Full support
-	:PROPERTIES:
-	:CUSTOM_ID: h:b6170300-446e-48d0-8660-a5946b057998
-	:END:
+** Full support
 
 + all-the-icons
 + anzu
@@ -73,18 +94,25 @@ face groups.
 + which-key
 + whitespace-mode
 
-*** Partially supported (need manual intervention)
-	:PROPERTIES:
-	:CUSTOM_ID: h:867999e4-b1e8-4457-a030-c52250a88876
-	:END:
+** Covered but not styled explicitly
+
+These do not require any extra styles because they are configured to
+inherit from some basic faces.  Please confirm.
+
++ calendar
++ change-log
++ comint
++ bongo
++ log-edit
++ package menu
++ rmail
+
+** Partially supported (need manual intervention)
 
 This section documents known cases where the Modus themes will not be
 used to their maximum potential.  Solutions are suggested in context.
 
-**** Ibuffer
-     :PROPERTIES:
-     :CUSTOM_ID: h:1c7b8111-2994-4ffa-9a04-33198cc98eef
-     :END:
+*** Ibuffer
 
 The default =ibuffer= configurations for denoting the mark and delete
 flags are not good enough.  My recommended tweak for those is to let
@@ -96,10 +124,7 @@ initialisation file.
 (setq ibuffer-marked-face 'dired-marked)
 #+END_SRC
 
-*** Help needed
-	:PROPERTIES:
-	:CUSTOM_ID: h:f8f72bdb-bfe9-4d2d-9c91-9436b450ffe0
-	:END:
+** Help needed
 
 These are face groups that I am aware of but do not know how to access
 or do not actively use.  I generally need to see how a face looks in its
@@ -119,26 +144,7 @@ Note that the themes do provide support for =org-mode=, but some of
 these interfaces have been decided based on indirect experience.  If you
 encounter anything that does not "feel right", please let me know.
 
-*** Covered but not styled explicitly
-	:PROPERTIES:
-	:CUSTOM_ID: h:11e0cad8-77fe-4c97-990c-505fef980695
-	:END:
-
-These do not require any extra styles because they are configured to
-inherit from some basic faces.  Please confirm.
-
-+ calendar
-+ change-log
-+ comint
-+ bongo
-+ log-edit
-+ package menu
-+ rmail
-
-** Contributing
-   :PROPERTIES:
-   :CUSTOM_ID: h:97e71bb1-74c7-4d0f-8fde-5d7bd369d867
-   :END:
+* Contributing
 
 A few tasks you can help me with, sorted from the most probable to the
 least likely:
@@ -158,16 +164,12 @@ Whatever you do, always bear in mind the overarching objective of the
 Modus themes: to keep a contrast ratio that is greater or equal to 7:1
 between background and foreground colours.
 
-** Development notes and objectives
-   :PROPERTIES:
-   :CUSTOM_ID: h:c6e8387b-2aa8-430d-89f5-80589d1271e9
-   :END:
+* Development notes and objectives
 
 To test the contrast ratio between two colour values in hexadecimal RGB
 notation (of the style =#ffffff=), you can use the online tool provided
 [[https://webaim.org/resources/contrastchecker/][by WebAim]], or [[https://gitlab.com/protesilaos/scripts][my own =clr= shell script]] that implements the same formula
-(I always use the latter, but am 100% sure that the results are the
-same).
+(I always use the latter, but am sure that the results are the same).
 
 Now on to some under-the-hood objectives for the longer term
 maintainability of the project:
@@ -184,10 +186,7 @@ maintainability of the project:
 The design notwithstanding, I would also be interested to improve the
 quality of the code, in any way that may be.
 
-** COPYING
-   :PROPERTIES:
-   :CUSTOM_ID: h:fc5de6dd-4eea-4e08-9abe-b5aced60e2cf
-   :END:
+* COPYING
 
 The Modus Themes are distributed under the terms of the GNU General
 Public License version 3 or, at your choice, any later version.  See the
