@@ -1,9 +1,15 @@
-;; modus-vivendi-theme.el --- very accessible dark theme (WCAG AAA)
-;;
-;; This file is not part of GNU Emacs.
-;;
+;;; modus-vivendi-theme.el --- Accessible dark theme (WCAG AAA) -*- lexical-binding:t -*-
+
 ;; Copyright (c) 2019 Protesilaos Stavrou <info@protesilaos.com>
-;;
+
+;; Author: Protesilaos Stavrou <info@protesilaos.com>
+;; URL: https://gitlab.com/protesilaos/modus-themes
+;; Version: 0.1.0
+;; Package-Requires: ((emacs "25.1"))
+;; Keywords: faces, theme, accessibility
+
+;; This file is NOT part of GNU Emacs.
+
 ;; This program is free software; you can redistribute it and/or
 ;; it under the terms of the GNU General Public License as published by
 ;; the Free Software Foundation, either version 3 of the License, or
@@ -16,7 +22,7 @@
 ;;
 ;; You should have received a copy of the GNU General Public License
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
-;;
+
 ;;; Commentary:
 ;;
 ;; The primary purpose of this theme is to provide a consistent
@@ -36,8 +42,9 @@
 ;; The original template is provided by `customize-create-theme'.  The
 ;; design of the colour variables was taken from the Tango theme that
 ;; comes packaged with GNU Emacs (at least it does on Debian 10).
-;;
+
 ;;; Code:
+
 (deftheme modus-vivendi
   "Dark theme that conforms with the highest accessibility
   standard for colour contrast between background and
@@ -845,13 +852,12 @@ between foreground and background is >= 7:1)."
    `(whitespace-space-after-tab ((t (:inherit (modus-theme-subtle-magenta)))))
    `(whitespace-space-before-tab ((t (:inherit (modus-theme-subtle-yellow)))))
    `(whitespace-tab ((t (:inherit (whitespace-space)))))
-   `(whitespace-trailing ((t (:inherit (modus-theme-intense-red)))))
-   ))
+   `(whitespace-trailing ((t (:inherit (modus-theme-intense-red)))))))
 
 ;;;###autoload
 (when load-file-name
   (add-to-list 'custom-theme-load-path
 (file-name-as-directory (file-name-directory load-file-name))))
 
-(provide-theme 'modus-vivendi)
+(provide 'modus-vivendi-theme)
 ;;; modus-vivendi-theme.el ends here
