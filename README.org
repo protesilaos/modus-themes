@@ -32,14 +32,6 @@ file (=.emacs= or =init.el=):
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 #+END_SRC
 
-# ** Package method
-#
-# The Modus themes are available in MELPA.
-#
-# You can install the collection with:
-#
-# =M-x package-install RET modus-themes=
-
 ** Load automatically
 
 To load the theme of your choice automatically upon Emacs startup add
