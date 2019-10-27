@@ -6,16 +6,16 @@
 
 Accessible themes for GNU Emacs.  The contrast ratio between foreground
 and background values should always be >= 7:1, which conforms with the
-WCAG AAA accessibility standard.  This is the highest standard of this
-sort.
+WCAG AAA accessibility standard.  This is the highest standard of its
+kind.
 
 The /Modus/ project consists of two themes, one where dark text is cast
 on a light backdrop (Modus Operandi) and another where light text is
 displayed against a dark background (Modus Vivendi).
 
 Check the [[https://gitlab.com/protesilaos/modus-themes/wikis/Screenshots][Wiki page with the screen shots]].  Also note that I demo these
-themes in [[https://protesilaos.com/code-casts][my Emacs-related screen casts]] (some older videos contain
-earlier versions).
+themes in [[https://protesilaos.com/code-casts][my Emacs-related screen casts]] (though older videos contain
+earlier "alpha" versions).
 
 * Installation and configuration
 
