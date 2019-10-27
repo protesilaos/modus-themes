@@ -36,7 +36,8 @@
 ;; The original template is provided by `customize-create-theme'.  The
 ;; design of the colour variables was taken from the Tango theme that
 ;; comes packaged with GNU Emacs (at least it does on Debian 10).
-
+;;
+;;; Code:
 (deftheme modus-operandi
   "Light theme that conforms with the highest accessibility
   standard for colour contrast between background and
@@ -48,6 +49,12 @@
 ;; these separately in order to combine each colour with its
 ;; appropriate foreground value.  This is to ensure a consistent
 ;; contrast ratio of >= 7:1.
+(defgroup modus-theme ()
+  "Themes that ensure WCAG AAA accessibility (contrast ratio
+between foreground and background is >= 7:1)."
+  :group 'convenience
+  :prefix "modus-theme-")
+
 (defface modus-theme-subtle-red nil t)
 (defface modus-theme-subtle-green nil t)
 (defface modus-theme-subtle-yellow nil t)
@@ -845,5 +852,4 @@
 (file-name-as-directory (file-name-directory load-file-name))))
 
 (provide-theme 'modus-operandi)
-
-;; modus-operandi-theme.el ends here
+;;; modus-operandi-theme.el ends here
