@@ -50,11 +50,14 @@ face groups.
 
 ** Full support
 
+Those with an appended asterisk =*= tend to have lots of extensions, so
+the "full support" may not be 100% true…
+
 + all-the-icons
 + anzu
 + avy
 + aw
-+ company-mode
++ company-mode*
 + deadgrep
 + dired-async
 + dired-subtree
@@ -71,13 +74,13 @@ face groups.
 + ido-mode
 + info pages
 + isearch, occur, etc.
-+ ivy
++ ivy*
 + markdown-mode
 + matching parentheses
 + messages
 + modeline
 + mu4e
-+ org-mode
++ org-mode*
 + outline-mode
 + rainbow-delimiters
 + speedbar
