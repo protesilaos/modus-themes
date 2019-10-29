@@ -201,7 +201,7 @@ between foreground and background is >= 7:1)."
    `(mm-command-output ((,class (:foreground ,red-alt-other))))
    `(next-error ((,class (:inherit (modus-theme-subtle-red)))))
    `(shadow ((,class (:foreground ,fg-alt))))
-   `(success ((,class (:inherit (modus-theme-intense-green) :weight bold))))
+   `(success ((,class (:background ,bg-main :foreground ,green-intense :weight bold))))
    `(trailing-whitespace ((,class (:background ,red-alt))))
    `(warning ((,class (:background ,bg-main :foreground ,yellow-intense :weight bold))))
    ;;;; all-the-icons
