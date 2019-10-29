@@ -810,6 +810,16 @@ between foreground and background is >= 7:1)."
    `(swiper-match-face-2 ((,class (:inherit (modus-theme-intense-magenta)))))
    `(swiper-match-face-3 ((,class (:inherit (modus-theme-intense-yellow)))))
    `(swiper-match-face-4 ((,class (:inherit (modus-theme-intense-green)))))
+   ;;;; term
+   `(term ((,class (:inherit (default)))))
+   `(term-bold ((,class (:weight bold))))
+   `(term-color-blue ((,class (:background ,blue :foreground ,blue))))
+   `(term-color-cyan ((,class (:background ,cyan :foreground ,cyan))))
+   `(term-color-green ((,class (:background ,green :foreground ,green))))
+   `(term-color-magenta ((,class (:background ,magenta :foreground ,magenta))))
+   `(term-color-red ((,class (:background ,red :foreground ,red))))
+   `(term-color-yellow ((,class (:background ,yellow :foreground ,yellow))))
+   `(term-underline ((,class (:underline t))))
    ;;;; treemacs
    `(treemacs-directory-collapsed-face ((,class (:foreground ,magenta-alt))))
    `(treemacs-directory-face ((,class (:inherit (dired-directory)))))

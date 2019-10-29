@@ -81,6 +81,7 @@ face groups.
 + rainbow-delimiters
 + speedbar
 + swiper
++ term
 + treemacs
 + undo-tree
 + visual-regexp
