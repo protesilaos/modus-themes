@@ -378,6 +378,19 @@ between foreground and background is >= 7:1)."
    ;;;; emms
    `(emms-playlist-track-face ((,class (:foreground ,blue))))
    `(emms-playlist-selected-face ((,class (:foreground ,magenta :weight bold))))
+   ;;;; eshell
+   `(eshell-ls-archive ((,class (:foreground ,cyan-alt :weight bold))))
+   `(eshell-ls-backup ((,class (:foreground ,yellow-alt))))
+   `(eshell-ls-clutter ((,class (:foreground ,red-alt))))
+   `(eshell-ls-directory ((,class (:foreground ,blue-alt :weight bold))))
+   `(eshell-ls-executable ((,class (:foreground ,magenta-alt))))
+   `(eshell-ls-missing ((,class (:inherit (modus-theme-intense-red)))))
+   `(eshell-ls-product ((,class (:foreground ,fg-special-warm))))
+   `(eshell-ls-readonly ((,class (:foreground ,fg-special-cold))))
+   `(eshell-ls-special ((,class (:foreground ,magenta :weight bold))))
+   `(eshell-ls-symlink ((,class (:foreground ,cyan :underline t))))
+   `(eshell-ls-unreadable ((,class (:background ,bg-inactive :foreground ,fg-inactive))))
+   `(eshell-prompt ((,class (:foreground ,cyan-alt-other :weight bold))))
    ;;;; eww
    `(eww-invalid-certificate ((,class (:inherit (error)))))
    `(eww-valid-certificate ((,class (:inherit (success)))))

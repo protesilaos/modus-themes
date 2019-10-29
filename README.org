@@ -61,6 +61,7 @@ face groups.
 + diredfl
 + elfeed
 + emms
++ eshell
 + eww
 + fancy-dabbrev
 + flyspell
