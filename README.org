@@ -67,6 +67,7 @@ face groups.
 + flyspell
 + git/magit
 + gnus
++ helm*
 + ido-mode
 + info pages
 + isearch, occur, etc.
