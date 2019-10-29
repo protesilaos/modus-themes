@@ -716,7 +716,7 @@ between foreground and background is >= 7:1)."
    `(mode-line ((,class (:box (:line-width 1 :color ,fg-inactive) :background ,bg-active :foreground ,fg-active))))
    `(mode-line-buffer-id ((,class (:weight bold))))
    `(mode-line-emphasis ((,class (:background ,bg-main :foreground ,blue-intense :weight bold))))
-   `(mode-line-highlight ((,class (:box (:line-width 1 :color ,fg-main) :inherit (modus-theme-subtle-magenta)))))
+   `(mode-line-highlight ((,class (:box (:line-width 1 :color ,fg-main) :inherit (modus-theme-intense-blue)))))
    `(mode-line-inactive ((,class (:box (:line-width 1 :color ,bg-inactive) :background ,bg-inactive :foreground ,fg-inactive))))
    `(which-func ((,class (:foreground ,fg-main))))
    ;;;; mu4e
