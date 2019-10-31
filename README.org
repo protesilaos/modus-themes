@@ -19,7 +19,10 @@ earlier "alpha" versions).
 
 * Installation and configuration
 
-/A package for MELPA is in the works.  Stay tuned./
+Packages for MELPA are in the works: one for each theme.  The pull
+requests were submitted on 2019-10-31 ([[https://github.com/melpa/melpa/pull/6516][#6516]] and [[https://github.com/melpa/melpa/pull/6517][#6517]]).  This README
+will be updated with the relevant instructions once the packages become
+available through MELPA.
 
 ** Manual method
 
