@@ -944,5 +944,7 @@ between foreground and background is >= 7:1)."
   (add-to-list 'custom-theme-load-path
 (file-name-as-directory (file-name-directory load-file-name))))
 
+(provide-theme 'modus-vivendi)
+
 (provide 'modus-vivendi-theme)
 ;;; modus-vivendi-theme.el ends here
