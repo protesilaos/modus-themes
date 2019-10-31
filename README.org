@@ -160,9 +160,11 @@ least likely:
 It would be great if your feedback also includes some screenshots, GIFs,
 or short videos.  Though this is not a requirement.
 
-Whatever you do, always bear in mind the overarching objective of the
+Whatever you do, please bear in mind the overarching objective of the
 Modus themes: to keep a contrast ratio that is greater or equal to 7:1
-between background and foreground colours.
+between background and foreground colours.  If a compromise is ever
+necessary between aesthetics and accessibility, it shall always be made
+in the interest of latter.
 
 * COPYING
 
