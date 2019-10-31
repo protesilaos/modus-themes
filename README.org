@@ -156,7 +156,6 @@ least likely:
 + Help expand the documentation of covered-but-not-styled packages.
 + Suggest refinements to the colour palette.
 + Help expand this document or any other piece of documentation.
-+ Help with development (see next section).
 
 It would be great if your feedback also includes some screenshots, GIFs,
 or short videos.  Though this is not a requirement.
