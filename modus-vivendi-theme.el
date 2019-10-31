@@ -936,9 +936,9 @@ between foreground and background is >= 7:1)."
    `(whitespace-trailing ((,class (:inherit (modus-theme-intense-red)))))))
 
 ;;;###autoload
-(when load-file-name
+(when (and (boundp 'custom-theme-load-path) load-file-name)
   (add-to-list 'custom-theme-load-path
-(file-name-as-directory (file-name-directory load-file-name))))
+               (file-name-as-directory (file-name-directory load-file-name))))
 
 (provide-theme 'modus-vivendi)
 
