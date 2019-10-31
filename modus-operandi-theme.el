@@ -941,4 +941,6 @@ between foreground and background is >= 7:1)."
     (file-name-as-directory (file-name-directory load-file-name))))
 
 (provide-theme 'modus-operandi)
+
+(provide 'modus-operandi-theme)
 ;;; modus-operandi-theme.el ends here
