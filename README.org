@@ -165,28 +165,6 @@ Whatever you do, always bear in mind the overarching objective of the
 Modus themes: to keep a contrast ratio that is greater or equal to 7:1
 between background and foreground colours.
 
-* Development notes and objectives
-
-To test the contrast ratio between two colour values in hexadecimal RGB
-notation (of the style =#ffffff=), you can use the online tool provided
-[[https://webaim.org/resources/contrastchecker/][by WebAim]], or [[https://gitlab.com/protesilaos/scripts][my own =clr= shell script]] that implements the same formula
-(I always use the latter, but am sure that the results are the same).
-
-Now on to some under-the-hood objectives for the longer term
-maintainability of the project:
-
-+ All faces should be defined in a single file, *the template*, since
-  the themes use the exact same mappings.  The template will avoid the
-  duplication of face coverage/definition across both themes.
-+ *The theme files*, Modus Operandi and Modus Vivendi, should only
-  define their colour palette.  That is the only group that
-  differentiates them.
-+ Theme files would thus inherit/source/require the template and pass
-  the value of their variables to the relevant constructs.
-
-The design notwithstanding, I would also be interested to improve the
-quality of the code, in any way that may be.
-
 * COPYING
 
 The Modus Themes are distributed under the terms of the GNU General
