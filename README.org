@@ -62,6 +62,7 @@ the "full support" may not be 100% true…
 + aw
 + company-mode*
 + deadgrep
++ diff-hl
 + dired-async
 + dired-subtree
 + diredfl

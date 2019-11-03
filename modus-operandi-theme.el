@@ -302,6 +302,16 @@ between foreground and background is >= 7:1)."
    `(deadgrep-meta-face ((,class (:foreground ,fg-alt))))
    `(deadgrep-regexp-metachar-face ((,class (:foreground ,yellow-intense :weight bold))))
    `(deadgrep-search-term-face ((,class (:foreground ,green-intense :weight bold))))
+   ;;;; diff-hl
+   `(diff-hl-change ((,class (:inherit (modus-theme-intense-yellow)))))
+   `(diff-hl-delete ((,class (:inherit (modus-theme-intense-red)))))
+   `(diff-hl-dired-change ((,class (:inherit (diff-hl-change)))))
+   `(diff-hl-dired-delete ((,class (:inherit (diff-hl-delete)))))
+   `(diff-hl-dired-ignored ((,class (:inherit (dired-ignored)))))
+   `(diff-hl-dired-insert ((,class (:inherit (diff-hl-insert)))))
+   `(diff-hl-dired-unknown ((,class (:inherit (dired-ignored)))))
+   `(diff-hl-insert ((,class (:inherit (modus-theme-intense-green)))))
+   `(diff-hl-reverted-hunk-highlight ((,class (:inherit (modus-theme-intense-magenta)))))
    ;;;; diff-mode
    `(diff-added ((,class (:inherit (modus-theme-subtle-green)))))
    `(diff-changed ((,class (:inherit (modus-theme-subtle-yellow)))))
