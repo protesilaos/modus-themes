@@ -137,7 +137,6 @@ Use =M-x list-faces-display= to get these.
 
 + diary
 + epa
-+ nobreak-{hyphen,space}
 + smerge
 + transient-{argument,key,value}…
 + tty-menu

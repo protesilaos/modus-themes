@@ -193,6 +193,8 @@ between foreground and background is >= 7:1)."
    `(homoglyph ((,class (:foreground ,yellow-alt-other))))
    `(ibuffer-locked-buffer ((,class (:foreground ,yellow-alt-other))))
    `(italic ((,class (:foreground ,fg-special-cold :slant italic)))) ; add colour because some fonts do not provide italics
+   `(nobreak-hyphen ((,class (:inherit (modus-theme-refine-cyan)))))
+   `(nobreak-space ((,class (:inherit (modus-theme-refine-cyan) :underline t))))
    `(minibuffer-prompt ((,class (:foreground ,cyan-intense))))
    `(mm-command-output ((,class (:foreground ,red-alt-other))))
    `(next-error ((,class (:inherit (modus-theme-subtle-red)))))
