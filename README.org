@@ -87,6 +87,7 @@ the "full support" may not be 100% true…
 + mu4e
 + org-mode*
 + outline-mode
++ pass
 + rainbow-delimiters
 + speedbar
 + swiper
