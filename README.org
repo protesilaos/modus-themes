@@ -3,6 +3,9 @@
 #+EMAIL: public@protesilaos.com
 
 * Overview
+  :PROPERTIES:
+  :CUSTOM_ID: h:d42d56a4-9252-4858-ac8e-3306cdd24e19
+  :END:
 
 Accessible themes for GNU Emacs.  The contrast ratio between foreground
 and background values should always be >= 7:1, which conforms with the
@@ -18,6 +21,9 @@ themes in [[https://protesilaos.com/code-casts][my Emacs-related screen casts]] 
 earlier "alpha" versions).
 
 * Installation and configuration
+  :PROPERTIES:
+  :CUSTOM_ID: h:25c3ecd3-8025-414c-9b96-e4d6266c6fe8
+  :END:
 
 Packages for MELPA are in the works: one for each theme.  The pull
 requests were submitted on 2019-10-31 ([[https://github.com/melpa/melpa/pull/6516][#6516]] and [[https://github.com/melpa/melpa/pull/6517][#6517]]).  This README
@@ -25,6 +31,9 @@ will be updated with the relevant instructions once the packages become
 available through MELPA.
 
 ** Manual method
+   :PROPERTIES:
+   :CUSTOM_ID: h:0317c29a-3ddb-4a0a-8ffd-16c781733ea2
+   :END:
 
 Download the files ending in =*-theme.el= and place them in an
 appropriate directory, such as =~/.emacs.d/themes/=.  Then to make sure
@@ -36,6 +45,9 @@ file (=.emacs= or =init.el=):
 #+END_SRC
 
 ** Load automatically
+   :PROPERTIES:
+   :CUSTOM_ID: h:ae978e05-526f-4509-a007-44a0925b8bce
+   :END:
 
 To load the theme of your choice automatically upon Emacs startup add
 this to your init file, replacing =NAME= with either =operandi= or
@@ -46,12 +58,18 @@ this to your init file, replacing =NAME= with either =operandi= or
 #+END_SRC
 
 * Face coverage
+  :PROPERTIES:
+  :CUSTOM_ID: h:944a3bdf-f545-40a0-a26c-b2cec8b2b316
+  :END:
 
 This list will be updated to reflect the current state of the project.
 The idea is to offer an overview of the /known status/ of all affected
 face groups.
 
 ** Full support
+   :PROPERTIES:
+   :CUSTOM_ID: h:5ea98392-1376-43a4-8080-2d42a5b690ef
+   :END:
 
 Those with an appended asterisk =*= tend to have lots of extensions, so
 the "full support" may not be 100% true…
@@ -99,6 +117,9 @@ the "full support" may not be 100% true…
 + whitespace-mode
 
 ** Covered but not styled explicitly
+   :PROPERTIES:
+   :CUSTOM_ID: h:8ada963d-046d-4c67-becf-eee18595f902
+   :END:
 
 These do not require any extra styles because they are configured to
 inherit from some basic faces.  Please confirm.
@@ -112,11 +133,17 @@ inherit from some basic faces.  Please confirm.
 + rmail
 
 ** Partially supported (need manual intervention)
+   :PROPERTIES:
+   :CUSTOM_ID: h:4a6831ea-e3ea-47cc-afc4-31ff1215dc2a
+   :END:
 
 This section documents known cases where the Modus themes will not be
 used to their maximum potential.  Solutions are suggested in context.
 
 *** Ibuffer
+    :PROPERTIES:
+    :CUSTOM_ID: h:5acef24c-f470-4f91-ab98-b720a2b4e696
+    :END:
 
 The default =ibuffer= configurations for denoting the mark and delete
 flags are not good enough.  My recommended tweak for those is to let
@@ -129,6 +156,9 @@ initialisation file.
 #+END_SRC
 
 ** Help needed
+   :PROPERTIES:
+   :CUSTOM_ID: h:bcc3f6f9-7ace-4e2a-8dbb-2bf55574dae5
+   :END:
 
 These are face groups that I am aware of but do not know how to access
 or do not actively use.  I generally need to see how a face looks in its
@@ -148,6 +178,9 @@ these interfaces have been decided based on indirect experience.  If you
 encounter anything that does not "feel right", please let me know.
 
 * Contributing
+  :PROPERTIES:
+  :CUSTOM_ID: h:25ba8d6f-6604-4338-b774-bbe531d467f6
+  :END:
 
 A few tasks you can help me with, sorted from the most probable to the
 least likely:
@@ -169,6 +202,9 @@ necessary between aesthetics and accessibility, it shall always be made
 in the interest of latter.
 
 * COPYING
+  :PROPERTIES:
+  :CUSTOM_ID: h:66652183-2fe0-46cd-b4bb-4121bad78d57
+  :END:
 
 The Modus Themes are distributed under the terms of the GNU General
 Public License version 3 or, at your choice, any later version.  See the
