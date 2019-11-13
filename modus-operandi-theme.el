@@ -863,6 +863,14 @@ between foreground and background is >= 7:1)."
    `(rainbow-delimiters-depth-9-face ((,class (:foreground ,yellow-alt))))
    `(rainbow-delimiters-mismatched-face ((,class (:foreground ,red-alt :weight bold))))
    `(rainbow-delimiters-unmatched-face ((,class (:foreground ,red :weight bold))))
+   ;;;; smerge
+   `(smerge-base ((,class (:inherit (modus-theme-special-warm)))))
+   `(smerge-lower ((,class (:inherit (modus-theme-subtle-green)))))
+   `(smerge-markers ((,class (:inherit (modus-theme-special-cold)))))
+   `(smerge-refined-added ((,class (:inherit (modus-theme-intense-green)))))
+   `(smerge-refined-changed ((,class (:inherit (modus-theme-intense-yellow)))))
+   `(smerge-refined-removed ((,class (:inherit (modus-theme-intense-red)))))
+   `(smerge-refined-upper ((,class (:inherit (modus-theme-subtle-red)))))
    ;;;; shell scripts
    `(sh-heredoc ((,class (:inherit (font-lock-string-face)))))
    `(sh-quoted-exec ((,class (:inherit (font-lock-builtin-face)))))

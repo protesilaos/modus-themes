@@ -107,6 +107,7 @@ the "full support" may not be 100% true…
 + outline-mode
 + pass
 + rainbow-delimiters
++ smerge
 + speedbar
 + swiper
 + term
@@ -168,7 +169,6 @@ Use =M-x list-faces-display= to get these.
 
 + diary
 + epa
-+ smerge
 + transient-{argument,key,value}…
 + tty-menu
 + vc-{conflict-state,state-base}…
