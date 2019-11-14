@@ -870,7 +870,8 @@ between foreground and background is >= 7:1)."
    `(smerge-refined-added ((,class (:inherit (modus-theme-intense-green)))))
    `(smerge-refined-changed ((,class (:inherit (modus-theme-intense-yellow)))))
    `(smerge-refined-removed ((,class (:inherit (modus-theme-intense-red)))))
-   `(smerge-refined-upper ((,class (:inherit (modus-theme-subtle-red)))))
+   `(smerge-refined-upper ((,class (:inherit (modus-theme-intense-red)))))
+   `(smerge-upper ((,class (:inherit (modus-theme-subtle-red)))))
    ;;;; shell scripts
    `(sh-heredoc ((,class (:inherit (font-lock-string-face)))))
    `(sh-quoted-exec ((,class (:inherit (font-lock-builtin-face)))))
