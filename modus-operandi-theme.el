@@ -447,8 +447,8 @@ between foreground and background is >= 7:1)."
    `(flycheck-verify-select-checker ((,class (:box (:line-width 1 :color nil :style released-button)))))
    `(flycheck-warning ((,class (:background ,bg-alt :foreground ,yellow :underline t))))
    ;;;; flyspell
-   `(flyspell-duplicate ((,class (:inherit (modus-theme-subtle-yellow) :underline (:color foreground-color :style line)))))
-   `(flyspell-incorrect ((,class (:inherit (modus-theme-subtle-red) :underline (:color foreground-color :style line)))))
+   `(flyspell-duplicate ((,class (:inherit (modus-theme-refine-yellow) :underline (:style wave)))))
+   `(flyspell-incorrect ((,class (:inherit (modus-theme-refine-red) :underline (:style wave)))))
    ;;;; git and magit
    `(git-commit-overlong-summary ((,class (:inherit (modus-theme-subtle-yellow)))))
    `(magit-bisect-bad ((,class (:foreground ,red-alt-other))))
