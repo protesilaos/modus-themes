@@ -116,6 +116,7 @@ the "full support" may not be 100% true…
 + visual-regexp
 + which-key
 + whitespace-mode
++ writegood-mode
 
 ** Covered but not styled explicitly
    :PROPERTIES:

@@ -958,7 +958,11 @@ between foreground and background is >= 7:1)."
    `(whitespace-space-after-tab ((,class (:inherit (modus-theme-subtle-magenta)))))
    `(whitespace-space-before-tab ((,class (:inherit (modus-theme-subtle-yellow)))))
    `(whitespace-tab ((,class (:inherit (whitespace-space)))))
-   `(whitespace-trailing ((,class (:inherit (modus-theme-intense-red)))))))
+   `(whitespace-trailing ((,class (:inherit (modus-theme-intense-red)))))
+   ;;;; writegood-mode
+   `(writegood-duplicates-face ((,class (:background ,bg-alt :foreground ,red-alt-other :underline (:style wave)))))
+   `(writegood-passive-voice-face ((,class (:background ,bg-alt :foreground ,cyan-alt-other :underline (:style wave)))))
+   `(writegood-weasels-face ((,class (:background ,bg-alt :foreground ,yellow-alt-other :underline (:style wave)))))))
 
 ;;;###autoload
 (when load-file-name
