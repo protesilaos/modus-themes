@@ -245,6 +245,11 @@ between foreground and background is >= 7:1)."
    `(anzu-mode-line-no-match ((,class (:background ,bg-main :foreground ,red-intense :weight bold))))
    `(anzu-replace-highlight ((,class (:inherit (modus-theme-intense-green) :weight bold))))
    `(anzu-replace-to ((,class (:inherit (modus-theme-intense-magenta)))))
+   ;;;; artbollocks-mode
+   `(artbollocks-face ((,class (:background ,bg-alt :foreground ,magenta-alt-other :underline (:style wave)))))
+   `(artbollocks-lexical-illusions-face ((,class (:inherit (modus-theme-refine-magenta) :underline (:style wave)))))
+   `(artbollocks-passive-voice-face ((,class (:background ,bg-alt :foreground ,cyan-alt-other :underline (:style wave)))))
+   `(artbollocks-weasel-words-face ((,class (:background ,bg-alt :foreground ,yellow-alt-other :underline (:style wave)))))
    ;;;; avy
    `(avy-background-face ((,class (:background ,bg-dim :foreground ,fg-dim))))
    `(avy-goto-char-timer-face ((,class (:background ,magenta-intense :foreground ,bg-main))))
