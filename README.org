@@ -80,6 +80,8 @@ the "full support" may not be 100% true…
 + avy
 + aw
 + company-mode*
++ compilation-mode
++ completions
 + deadgrep
 + diff-hl
 + diff-mode
