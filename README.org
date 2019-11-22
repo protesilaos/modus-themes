@@ -82,6 +82,7 @@ the "full support" may not be 100% true…
 + company-mode*
 + compilation-mode
 + completions
++ custom (M-x customize)
 + deadgrep
 + diff-hl
 + diff-mode
