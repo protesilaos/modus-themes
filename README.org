@@ -77,6 +77,7 @@ the "full support" may not be 100% true…
 + all-the-icons
 + anzu
 + artbollocks-mode
++ auto-dim-other-buffers
 + avy
 + aw
 + company-mode*
