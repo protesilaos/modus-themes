@@ -187,6 +187,7 @@ between foreground and background is >= 7:1)."
    `(cursor ((,class (:background ,fg-main))))
    `(fringe ((,class (:inherit (default)))))
    ;;;; basic and/or ungrouped styles
+   `(diary ((,class (:foreground ,yellow))))
    `(error ((,class (:background ,bg-main :foreground ,red-intense :weight bold))))
    `(escape-glyph ((,class (:inherit (modus-theme-refine-blue) :weight bold))))
    `(header-line ((,class (:background ,bg-alt :foreground ,fg-alt))))
