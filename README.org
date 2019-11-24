@@ -122,6 +122,7 @@ the "full support" may not be 100% true…
 + smerge
 + speedbar
 + swiper
++ sx
 + term
 + transient (pop-up windows like Magit's)
 + treemacs
