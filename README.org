@@ -123,6 +123,7 @@ the "full support" may not be 100% true…
 + whitespace-mode
 + writegood-mode
 + xterm-color (and ansi-colors)
++ ztree
 
 ** Covered but not styled explicitly
    :PROPERTIES:

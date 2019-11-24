@@ -1003,6 +1003,19 @@ between foreground and background is >= 7:1)."
    `(writegood-duplicates-face ((,class (:background ,bg-alt :foreground ,red-alt-other :underline (:style wave)))))
    `(writegood-passive-voice-face ((,class (:background ,bg-alt :foreground ,cyan-alt-other :underline (:style wave)))))
    `(writegood-weasels-face ((,class (:background ,bg-alt :foreground ,yellow-alt-other :underline (:style wave)))))
+   ;;;; ztree
+   `(ztreep-arrow-face ((,class (:foreground ,fg-inactive))))
+   `(ztreep-diff-header-face ((,class (:height 1.2 :foreground ,fg-special-cold :weight bold))))
+   `(ztreep-diff-header-small-face ((,class (:foreground ,fg-special-mild :weight bold))))
+   `(ztreep-diff-model-add-face ((,class (:foreground ,green))))
+   `(ztreep-diff-model-diff-face ((,class (:foreground ,red))))
+   `(ztreep-diff-model-ignored-face ((,class (:foreground ,fg-alt :strike-through t))))
+   `(ztreep-diff-model-normal-face ((,class (:foreground ,fg-alt))))
+   `(ztreep-expand-sign-face ((,class (:foreground ,blue))))
+   `(ztreep-header-face ((,class (:height 1.2 :foreground ,fg-special-cold :weight bold))))
+   `(ztreep-leaf-face ((,class (:foreground ,cyan))))
+   `(ztreep-node-count-children-face ((,class (:foreground ,fg-special-warm))))
+   `(ztreep-node-face ((,class (:foreground ,fg-main))))
    ;;; Theme Variables
    (custom-theme-set-variables
     'modus-operandi
