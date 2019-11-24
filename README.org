@@ -90,6 +90,7 @@ the "full support" may not be 100% true…
 + dired-async
 + dired-subtree
 + diredfl
++ ediff
 + elfeed
 + emms
 + epa
