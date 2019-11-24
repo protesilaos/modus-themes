@@ -141,10 +141,10 @@ between foreground and background is >= 7:1)."
       ;; are needed
       (red-refine-bg "#77002a") (green-refine-bg "#00422a")
       (yellow-refine-bg "#755000") (blue-refine-bg "#2222aa")
-      (magenta-refine-bg "#572f77") (cyan-refine-bg "#004f80")
+      (magenta-refine-bg "#572f77") (cyan-refine-bg "#2f4680")
       (red-refine-fg "#ffb9ab") (green-refine-fg "#9ff0cf")
       (yellow-refine-fg "#ffffcc") (blue-refine-fg "#adddff")
-      (magenta-refine-fg "#ffccff") (cyan-refine-fg "#afffff"))
+      (magenta-refine-fg "#ffccff") (cyan-refine-fg "#9ffcf6"))
   (custom-theme-set-faces
    'modus-vivendi
    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
