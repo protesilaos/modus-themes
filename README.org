@@ -188,6 +188,22 @@ Note that the themes do provide support for =org-mode=, but some of
 these interfaces have been decided based on indirect experience.  If you
 encounter anything that does not "feel right", please let me know.
 
+** Will NOT be supported
+   :PROPERTIES:
+   :CUSTOM_ID: h:46756fcc-0d85-4f77-b0e3-64f890e1c2ea
+   :END:
+
+I have thus far identified a single package that does fit into the
+overarching objective of this project: [[https://github.com/hlissner/emacs-solaire-mode][solaire]].  It basically tries to
+cast a less intense background on the main file-visiting buffers, so
+that secondary elements like sidebars can have the default (pure
+white/black) background.
+
+/I will only support this package if it ever supports the inverse
+effect/: less intense colours (but still accessible) for supportive
+interfaces and the intended styles for the content you are actually
+working on.
+
 * Contributing
   :PROPERTIES:
   :CUSTOM_ID: h:25ba8d6f-6604-4338-b774-bbe531d467f6
