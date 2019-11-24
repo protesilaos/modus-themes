@@ -122,6 +122,7 @@ the "full support" may not be 100% true…
 + which-key
 + whitespace-mode
 + writegood-mode
++ xterm-color (and ansi-colors)
 
 ** Covered but not styled explicitly
    :PROPERTIES:

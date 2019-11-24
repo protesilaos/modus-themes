@@ -1002,7 +1002,16 @@ between foreground and background is >= 7:1)."
    ;;;; writegood-mode
    `(writegood-duplicates-face ((,class (:background ,bg-alt :foreground ,red-alt-other :underline (:style wave)))))
    `(writegood-passive-voice-face ((,class (:background ,bg-alt :foreground ,cyan-alt-other :underline (:style wave)))))
-   `(writegood-weasels-face ((,class (:background ,bg-alt :foreground ,yellow-alt-other :underline (:style wave)))))))
+   `(writegood-weasels-face ((,class (:background ,bg-alt :foreground ,yellow-alt-other :underline (:style wave)))))
+   ;;; Theme Variables
+   (custom-theme-set-variables
+    'modus-operandi
+    ;;;; ansi-colors
+    `(ansi-color-names-vector
+      [,fg-main ,red ,green ,yellow ,blue ,magenta ,cyan ,bg-main])
+    ;;;; xterm-color
+    `(xterm-color-names [,fg-main ,red ,green ,yellow ,blue ,magenta ,cyan ,bg-alt])
+    `(xterm-color-names-bright [,fg-alt ,red-alt ,green-alt ,yellow-alt ,blue-alt ,magenta-alt ,cyan-alt ,bg-main]))))
 
 ;;;###autoload
 (when load-file-name
