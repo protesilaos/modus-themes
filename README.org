@@ -101,6 +101,7 @@ the "full support" may not be 100% true…
 + git-gutter (and variants)
 + gnus
 + helm*
++ hydra
 + ido-mode
 + info pages
 + isearch, occur, etc.

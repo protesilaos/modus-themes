@@ -717,6 +717,12 @@ between foreground and background is >= 7:1)."
    `(hl-line ((,class (:background ,bg-alt))))
    `(region ((,class (:background ,bg-active :foreground ,fg-active))))
    `(secondary-selection ((,class (:background ,bg-inactive :foreground ,fg-inactive))))
+   ;;;; hydra
+   `(hydra-face-amaranth ((,class (:background ,bg-main :foreground ,yellow-intense :weight bold))))
+   `(hydra-face-blue ((,class (:background ,bg-main :foreground ,blue-intense :weight bold))))
+   `(hydra-face-pink ((,class (:background ,bg-main :foreground ,magenta-intense :weight bold))))
+   `(hydra-face-red ((,class (:background ,bg-main :foreground ,red-intense :weight bold))))
+   `(hydra-face-teal ((,class (:background ,bg-main :foreground ,cyan-intense :weight bold))))
    ;;;; ido-mode
    `(flx-highlight-face ((,class (:inherit (modus-theme-intense-magenta)))))
    `(ido-first-match ((,class (:foreground ,magenta :weight bold))))
