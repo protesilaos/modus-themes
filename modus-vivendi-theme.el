@@ -109,12 +109,12 @@ between foreground and background is >= 7:1)."
       ;; styles for common, but still specialised constructs
       ;; must be combined with: bg-main, bg-alt, bg-dim
       (red-alt "#f4923b") (green-alt "#58dd13")
-      (yellow-alt "#f0ce43") (blue-alt "#72a4ff")
+      (yellow-alt "#e5f040") (blue-alt "#72a4ff")
       (magenta-alt "#ed92f8") (cyan-alt "#4ae8fc")
       ;; same purpose as above, just slight differences
       ;; must be combined with: bg-main, bg-alt, bg-dim
       (red-alt-other "#ff9977") (green-alt-other "#90d800")
-      (yellow-alt-other "#e0e040") (blue-alt-other "#00baf4")
+      (yellow-alt-other "#f0ce43") (blue-alt-other "#00baf4")
       (magenta-alt-other "#b6a0ff") (cyan-alt-other "#6ae4b9")
       ;; styles for elements that should draw attention to themselves
       ;; must be combined with: bg-main
