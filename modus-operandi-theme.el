@@ -355,7 +355,7 @@ between foreground and background is >= 7:1)."
    `(diff-refine-removed ((,class (:inherit (modus-theme-intense-red)))))
    `(diff-removed ((,class (:inherit (modus-theme-subtle-red)))))
    ;;;; dired (and extensions)
-   `(dgi-commit-message-face ((,class (:foreground ,fg-special-warm)))) ; dired-git-info
+   `(dgi-commit-message-face ((,class (:foreground ,fg-special-mild)))) ; dired-git-info
    `(dired-async-failures ((,class (:inherit (modus-theme-intense-red)))))
    `(dired-async-message ((,class (:inherit (modus-theme-intense-green)))))
    `(dired-async-mode-message ((,class (:inherit (modus-theme-intense-cyan)))))
