@@ -210,6 +210,7 @@ between foreground and background is >= 7:1)."
    `(all-the-icons-dblue ((,class (:foreground ,blue-alt-other))))
    `(all-the-icons-dcyan ((,class (:foreground ,cyan-alt-other))))
    `(all-the-icons-dgreen ((,class (:foreground ,green-alt-other))))
+   `(all-the-icons-dired-dir-face ((,class (:foreground ,blue))))
    `(all-the-icons-dmaroon ((,class (:foreground ,magenta-alt-other))))
    `(all-the-icons-dorange ((,class (:foreground ,red-alt-other))))
    `(all-the-icons-dpink ((,class (:foreground ,magenta))))
