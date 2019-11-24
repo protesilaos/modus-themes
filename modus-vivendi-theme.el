@@ -409,6 +409,15 @@ between foreground and background is >= 7:1)."
    ;;;; emms
    `(emms-playlist-track-face ((,class (:foreground ,blue))))
    `(emms-playlist-selected-face ((,class (:foreground ,magenta :weight bold))))
+   ;;;; epa
+   `(epa-field-body ((,class (:foreground ,fg-main))))
+   `(epa-field-name ((,class (:foreground ,fg-dim :weight bold))))
+   `(epa-mark ((,class (:foreground ,magenta :weight bold))))
+   `(epa-string ((,class (:foreground ,blue-alt))))
+   `(epa-validity-disabled ((,class (:inherit (modus-theme-refine-red)))))
+   `(epa-validity-high ((,class (:foreground ,cyan :weight bold))))
+   `(epa-validity-low ((,class (:foreground ,fg-alt))))
+   `(epa-validity-medium ((,class (:foreground ,yellow))))
    ;;;; eshell
    `(eshell-ls-archive ((,class (:foreground ,cyan-alt :weight bold))))
    `(eshell-ls-backup ((,class (:foreground ,yellow-alt))))

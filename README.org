@@ -176,7 +176,6 @@ context before assessing its aesthetics or specific requirements.
 
 Use =M-x list-faces-display= to get these.
 
-+ epa
 + transient-{argument,key,value}…
 + tty-menu
 + vc-{conflict-state,state-base}…
