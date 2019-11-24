@@ -115,6 +115,7 @@ the "full support" may not be 100% true…
 + org-mode*
 + outline-mode
 + pass
++ rainbow-blocks
 + rainbow-delimiters
 + smerge
 + speedbar
