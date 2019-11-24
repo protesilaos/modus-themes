@@ -92,6 +92,7 @@ the "full support" may not be 100% true…
 + diredfl
 + elfeed
 + emms
++ epa
 + eshell
 + eww
 + fancy-dabbrev
