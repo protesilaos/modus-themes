@@ -122,6 +122,7 @@ the "full support" may not be 100% true…
 + speedbar
 + swiper
 + term
++ transient (pop-up windows like Magit's)
 + treemacs
 + undo-tree
 + visual-regexp
@@ -181,7 +182,6 @@ context before assessing its aesthetics or specific requirements.
 
 Use =M-x list-faces-display= to get these.
 
-+ transient-{argument,key,value}…
 + tty-menu
 + vc-{conflict-state,state-base}…
 
