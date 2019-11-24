@@ -553,6 +553,25 @@ between foreground and background is >= 7:1)."
    `(magit-signature-revoked ((,class (:background ,bg-main :foreground ,magenta-intense))))
    `(magit-signature-untrusted ((,class (:background ,bg-main :foreground ,cyan-intense))))
    `(magit-tag ((,class (:foreground ,yellow-alt-other))))
+   ;;;; git-gutter
+   `(git-gutter:added ((,class (:background ,bg-main :foreground ,green-intense :weight bold))))
+   `(git-gutter:deleted ((,class (:background ,bg-main :foreground ,red-intense :weight bold))))
+   `(git-gutter:modified ((,class (:background ,bg-main :foreground ,yellow-intense :weight bold))))
+   `(git-gutter:separator ((,class (:background ,bg-main :foreground ,cyan-intense :weight bold))))
+   `(git-gutter:unchanged ((,class (:inherit (modus-theme-refine-magenta)))))
+   ;;;; git-gutter-fr
+   `(git-gutter-fr:added ((,class (:inherit (git-gutter:added)))))
+   `(git-gutter-fr:deleted ((,class (:inherit (git-gutter:deleted)))))
+   `(git-gutter-fr:modified ((,class (:inherit (git-gutter:modified)))))
+   ;;;; git-{gutter,fringe}+
+   `(git-gutter+-added ((,class (:inherit (git-gutter:added)))))
+   `(git-gutter+-deleted ((,class (:inherit (git-gutter:deleted)))))
+   `(git-gutter+-modified ((,class (:inherit (git-gutter:modified)))))
+   `(git-gutter+-separator ((,class (:inherit (git-gutter:separator)))))
+   `(git-gutter+-unchanged ((,class (:inherit (git-gutter:unchanged)))))
+   `(git-gutter-fr+-added ((,class (:inherit (git-gutter:added)))))
+   `(git-gutter-fr+-deleted ((,class (:inherit (git-gutter:deleted)))))
+   `(git-gutter-fr+-modified ((,class (:inherit (git-gutter:modified)))))
    ;;;; gnus
    `(gnus-button ((,class (:inherit (button)))))
    `(gnus-cite-1 ((,class (:foreground ,blue-alt))))

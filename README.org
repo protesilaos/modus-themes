@@ -98,6 +98,7 @@ the "full support" may not be 100% true…
 + fancy-dabbrev
 + flyspell
 + git/magit
++ git-gutter (and variants)
 + gnus
 + helm*
 + ido-mode
