@@ -107,6 +107,7 @@ the "full support" may not be 100% true…
 + messages
 + modeline
 + mu4e
++ neotree
 + org-mode*
 + outline-mode
 + pass
