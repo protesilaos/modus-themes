@@ -97,7 +97,7 @@ the "full support" may not be 100% true…
 + eww
 + fancy-dabbrev
 + flyspell
-+ git/magit
++ git
 + git-gutter (and variants)
 + gnus
 + helm*
@@ -106,6 +106,7 @@ the "full support" may not be 100% true…
 + info pages
 + isearch, occur, etc.
 + ivy*
++ magit
 + markdown-mode
 + matching parentheses
 + messages
