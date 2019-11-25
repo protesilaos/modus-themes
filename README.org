@@ -94,6 +94,7 @@ the "full support" may not be 100% true…
 + elfeed
 + emms
 + epa
++ erc
 + eshell
 + eww
 + fancy-dabbrev
