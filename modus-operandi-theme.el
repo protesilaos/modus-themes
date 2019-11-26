@@ -257,10 +257,10 @@ between foreground and background is >= 7:1)."
    ;;;; avy
    `(avy-background-face ((,class (:background ,bg-dim :foreground ,fg-dim))))
    `(avy-goto-char-timer-face ((,class (:background ,magenta-intense :foreground ,bg-main))))
-   `(avy-lead-face ((,class (:background ,yellow-intense :foreground ,bg-main))))
-   `(avy-lead-face-0 ((,class (:background ,blue-intense :foreground ,bg-main))))
-   `(avy-lead-face-1 ((,class (:background ,red-intense :foreground ,bg-main))))
-   `(avy-lead-face-2 ((,class (:background ,green-intense :foreground ,bg-main))))
+   `(avy-lead-face ((,class (:background ,bg-main :foreground ,yellow-intense :inverse-video t))))
+   `(avy-lead-face-0 ((,class (:background ,bg-main :foreground ,blue-intense :inverse-video t))))
+   `(avy-lead-face-1 ((,class (:background ,bg-main :foreground ,red-intense :inverse-video t))))
+   `(avy-lead-face-2 ((,class (:background ,bg-main :foreground ,green-intense :inverse-video t))))
    ;;;; aw
    `(aw-background-face ((,class (:background ,bg-dim :foreground ,fg-dim))))
    `(aw-key-face ((,class (:background ,bg-main :foreground ,magenta-intense :weight bold))))
