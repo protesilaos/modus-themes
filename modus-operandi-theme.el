@@ -717,6 +717,11 @@ between foreground and background is >= 7:1)."
    `(ido-only-match ((,class (:foreground ,magenta-intense :weight bold))))
    `(ido-subdir ((,class (:foreground ,blue-alt-other))))
    `(ido-virtual ((,class (:foreground ,yellow-alt-other))))
+   ;;;; info
+   `(Info-quoted ((,class (:foreground ,magenta)))) ; the capitalisation is canonical
+   `(info-header-node ((,class (:foreground ,fg-special-warm))))
+   `(info-header-xref ((,class (:foreground ,blue-alt))))
+   `(info-index-match ((,class (:inherit match))))
    ;;;; isearch, occur, and the like
    `(isearch ((,class (:inherit modus-theme-intense-green :weight bold))))
    `(isearch-fail ((,class (:inherit modus-theme-subtle-red))))
