@@ -248,10 +248,10 @@ between foreground and background is >= 7:1)."
    `(anzu-replace-highlight ((,class (:inherit modus-theme-intense-green :weight bold))))
    `(anzu-replace-to ((,class (:inherit modus-theme-intense-magenta))))
    ;;;; artbollocks-mode
-   `(artbollocks-face ((,class (:background ,bg-alt :foreground ,magenta-alt-other :underline (:style wave)))))
-   `(artbollocks-lexical-illusions-face ((,class (:inherit modus-theme-refine-magenta :underline (:style wave)))))
-   `(artbollocks-passive-voice-face ((,class (:background ,bg-alt :foreground ,cyan-alt-other :underline (:style wave)))))
-   `(artbollocks-weasel-words-face ((,class (:background ,bg-alt :foreground ,yellow-alt-other :underline (:style wave)))))
+   `(artbollocks-face ((,class (:background ,bg-alt :foreground ,magenta-alt-other :underline t))))
+   `(artbollocks-lexical-illusions-face ((,class (:inherit modus-theme-refine-magenta :underline t))))
+   `(artbollocks-passive-voice-face ((,class (:background ,bg-alt :foreground ,cyan-alt-other :underline t))))
+   `(artbollocks-weasel-words-face ((,class (:background ,bg-alt :foreground ,yellow-alt-other :underline t))))
    ;;;; auto-dim-other-buffers
    `(auto-dim-other-buffers-face ((,class (:background ,bg-alt))))
    ;;;; avy
@@ -521,8 +521,8 @@ between foreground and background is >= 7:1)."
    `(flycheck-verify-select-checker ((,class (:box (:line-width 1 :color nil :style released-button)))))
    `(flycheck-warning ((,class (:background ,bg-alt :foreground ,yellow :underline t))))
    ;;;; flyspell
-   `(flyspell-duplicate ((,class (:inherit modus-theme-refine-yellow :underline (:style wave)))))
-   `(flyspell-incorrect ((,class (:inherit modus-theme-refine-red :underline (:style wave)))))
+   `(flyspell-duplicate ((,class (:inherit modus-theme-refine-yellow :underline t))))
+   `(flyspell-incorrect ((,class (:inherit modus-theme-refine-red :underline t))))
    ;;;; git-commit
    `(git-commit-comment-action ((,class (:foreground ,fg-special-mild))))
    `(git-commit-comment-branch-local ((,class (:foreground ,cyan))))
@@ -1166,9 +1166,9 @@ between foreground and background is >= 7:1)."
    `(whitespace-tab ((,class (:inherit whitespace-space))))
    `(whitespace-trailing ((,class (:inherit modus-theme-intense-red))))
    ;;;; writegood-mode
-   `(writegood-duplicates-face ((,class (:background ,bg-alt :foreground ,red-alt-other :underline (:style wave)))))
-   `(writegood-passive-voice-face ((,class (:background ,bg-alt :foreground ,cyan-alt-other :underline (:style wave)))))
-   `(writegood-weasels-face ((,class (:background ,bg-alt :foreground ,yellow-alt-other :underline (:style wave)))))
+   `(writegood-duplicates-face ((,class (:background ,bg-alt :foreground ,red-alt-other :underline t))))
+   `(writegood-passive-voice-face ((,class (:background ,bg-alt :foreground ,cyan-alt-other :underline t))))
+   `(writegood-weasels-face ((,class (:background ,bg-alt :foreground ,yellow-alt-other :underline t))))
    ;;;; ztree
    `(ztreep-arrow-face ((,class (:foreground ,fg-inactive))))
    `(ztreep-diff-header-face ((,class (:height 1.2 :foreground ,fg-special-cold :weight bold))))
