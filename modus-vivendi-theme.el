@@ -364,12 +364,15 @@ between foreground and background is >= 7:1)."
    `(dired-header ((,class (:foreground ,fg-main :weight bold))))
    `(dired-marked ((,class (:inherit modus-theme-intense-magenta))))
    `(dired-narrow-blink ((,class (:inherit modus-theme-subtle-cyan :weight bold))))
-   `(dired-subtree-depth-1-face ((,class (:background ,bg-dim))))
-   `(dired-subtree-depth-2-face ((,class (:background ,bg-alt))))
-   `(dired-subtree-depth-3-face ((,class (:background ,bg-main))))
-   `(dired-subtree-depth-4-face ((,class (:background ,bg-dim))))
-   `(dired-subtree-depth-5-face ((,class (:background ,bg-alt))))
-   `(dired-subtree-depth-6-face ((,class (:background ,bg-main))))
+   ;; remove background from dired-subtree, else it breaks
+   ;; dired-{flagged,marked} and any other face that sets a background
+   ;; such as hl-line
+   `(dired-subtree-depth-1-face ((,class (:background nil))))
+   `(dired-subtree-depth-2-face ((,class (:background nil))))
+   `(dired-subtree-depth-3-face ((,class (:background nil))))
+   `(dired-subtree-depth-4-face ((,class (:background nil))))
+   `(dired-subtree-depth-5-face ((,class (:background nil))))
+   `(dired-subtree-depth-6-face ((,class (:background nil))))
    ;;;; diredfl
    `(diredfl-autofile-name ((,class (:inherit modus-theme-refine-yellow))))
    `(diredfl-compressed-file-name ((,class (:foreground ,red-alt :weight bold))))
