@@ -120,6 +120,7 @@ the "full support" may not be 100% true…
 + pass
 + rainbow-blocks
 + rainbow-delimiters
++ smartparens
 + smerge
 + speedbar
 + swiper

@@ -1033,6 +1033,15 @@ between foreground and background is >= 7:1)."
    ;;;; shell scripts
    `(sh-heredoc ((,class (:inherit font-lock-string-face))))
    `(sh-quoted-exec ((,class (:inherit font-lock-builtin-face))))
+   ;;;; smartparens
+   `(sp-pair-overlay-face ((,class (:inherit modus-theme-special-warm))))
+   `(sp-show-pair-enclosing ((,class (:inherit modus-theme-special-mild))))
+   `(sp-show-pair-match-face ((,class (:inherit show-paren-match))))
+   `(sp-show-pair-mismatch-face ((,class (:inherit show-paren-mismatch))))
+   `(sp-wrap-overlay-closing-pair ((,class (:inherit sp-pair-overlay-face :weight bold))))
+   `(sp-wrap-overlay-face ((,class (:inherit sp-pair-overlay-face))))
+   `(sp-wrap-overlay-opening-pair ((,class (:inherit sp-pair-overlay-face :weight bold))))
+   `(sp-wrap-tag-overlay-face ((,class (:inherit sp-pair-overlay-face))))
    ;;;; smerge
    `(smerge-base ((,class (:inherit modus-theme-special-warm))))
    `(smerge-lower ((,class (:inherit modus-theme-subtle-green))))
