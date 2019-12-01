@@ -40,9 +40,9 @@ And/or:
 
 =M-x package-install RET modus-vivendi-theme RET=
 
-To be clear, that sequence means /"press `Meta-X', then type
+To be clear, that sequence means "press `Meta-X', then type
 `package-install', hit the Return key, type the name of the package,
-then hit Return to confirm your choice"/.
+then hit Return to confirm your choice".
 
 *** With `use-package'
     :PROPERTIES:
