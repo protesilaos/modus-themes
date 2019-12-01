@@ -7,38 +7,68 @@
   :CUSTOM_ID: h:d42d56a4-9252-4858-ac8e-3306cdd24e19
   :END:
 
-Accessible themes for GNU Emacs.  The contrast ratio between foreground
-and background values should always be >= 7:1, which conforms with the
-WCAG AAA accessibility standard.  This is the highest standard of its
-kind.
+This is a set of accessible themes for GNU Emacs.  The contrast ratio
+between foreground and background values should always be >= 7:1, which
+conforms with the WCAG AAA accessibility standard.  This is the highest
+standard of its kind.
 
-The /Modus/ project consists of two themes, one where dark text is cast
-on a light backdrop (Modus Operandi) and another where light text is
-displayed against a dark background (Modus Vivendi).
+The /Modus themes/ project consists of two standalone items, one where
+dark text is cast on a light backdrop (Modus Operandi) and another where
+light text is displayed against a dark background (Modus Vivendi).
 
 *Check the [[https://gitlab.com/protesilaos/modus-themes/wikis/Screenshots][Wiki page with the screen shots]].* Also note that I demo these
 themes in [[https://protesilaos.com/code-casts][my Emacs-related screen casts]] (though older videos contain
-earlier "alpha" versions).
+earlier, "alpha" versions).
 
-* Installation and configuration
+* Install and auto-load
   :PROPERTIES:
   :CUSTOM_ID: h:25c3ecd3-8025-414c-9b96-e4d6266c6fe8
   :END:
 
-Packages for MELPA are in the works: one for each theme.  The pull
-requests were submitted on 2019-10-31 ([[https://github.com/melpa/melpa/pull/6516][#6516]] and [[https://github.com/melpa/melpa/pull/6517][#6517]]).  This README
-will be updated with the relevant instructions once the packages become
-available through MELPA.
+** Install the MELPA packages
+   :PROPERTIES:
+   :CUSTOM_ID: h:c3e293e8-8464-4196-aefd-184027116ded
+   :END:
 
-** Manual method
+I maintain /Modus Operandi/ (light theme) and /Modus Vivendi/ (dark) as
+standalone packages in [[http://melpa.org/][MELPA]].  Assuming you have configured MELPA for
+your package management needs, you can just run:
+
+=M-x package-install RET modus-operandi-theme RET=
+
+And/or:
+
+=M-x package-install RET modus-vivendi-theme RET=
+
+To be clear, that sequence means /"press `Meta-X', then type
+`package-install', hit the Return key, type the name of the package,
+then hit Return to confirm your choice"/.
+
+*** With `use-package'
+    :PROPERTIES:
+    :CUSTOM_ID: h:3ab0ac39-38fb-405b-8a15-771cbd843b6d
+    :END:
+
+For a declarative approach with =use-package=, you can write something
+like this:
+
+#+BEGIN_SRC emacs-lisp
+(use-package modus-operandi-theme
+  :ensure t)
+
+(use-package modus-vivendi-theme
+  :ensure t)
+#+END_SRC
+
+** Manual installation method
    :PROPERTIES:
    :CUSTOM_ID: h:0317c29a-3ddb-4a0a-8ffd-16c781733ea2
    :END:
 
-Download the files ending in =*-theme.el= and place them in an
-appropriate directory, such as =~/.emacs.d/themes/=.  Then to make sure
-that path is read by Emacs, insert the following in your initialisation
-file (=.emacs= or =init.el=):
+Download the files in this repository ending in =*-theme.el= and place
+them in an appropriate directory, such as =~/.emacs.d/themes/=.  To make
+sure the filesystem path of your choice is read by Emacs, insert the
+following in your initialisation file:
 
 #+BEGIN_SRC emacs-lisp
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
@@ -49,12 +79,12 @@ file (=.emacs= or =init.el=):
    :CUSTOM_ID: h:ae978e05-526f-4509-a007-44a0925b8bce
    :END:
 
-To load the theme of your choice automatically upon Emacs startup add
-this to your init file, replacing =NAME= with either =operandi= or
-=vivendi=:
+To load the theme from your Emacs initialisation file use the relevant
+snippet:
 
 #+BEGIN_SRC emacs-lisp
-(load-theme 'modus-NAME t)
+(load-theme 'modus-operandi t)          ; Light theme
+(load-theme 'modus-vivendi t)           ; Dark theme
 #+END_SRC
 
 * Face coverage
@@ -62,9 +92,9 @@ this to your init file, replacing =NAME= with either =operandi= or
   :CUSTOM_ID: h:944a3bdf-f545-40a0-a26c-b2cec8b2b316
   :END:
 
-This list will be updated to reflect the current state of the project.
-The idea is to offer an overview of the /known status/ of all affected
-face groups.
+This list will always be updated to reflect the current state of the
+project.  The idea is to offer an overview of the /known status/ of all
+affected face groups.
 
 ** Full support
    :PROPERTIES:
