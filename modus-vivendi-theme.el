@@ -984,7 +984,7 @@ between foreground and background is >= 7:1)."
    `(org-hide ((,class (:foreground ,fg-main))))
    `(org-latex-and-related ((,class (:foreground ,magenta-refine-fg))))
    `(org-level-1 ((,class (:foreground ,fg-main :weight bold))))
-   `(org-level-2 ((,class (:foreground ,fg-special-warm :weight bold))))
+   `(org-level-2 ((,class (:foreground ,fg-special-mild :weight bold))))
    `(org-level-3 ((,class (:foreground ,fg-special-cold :weight bold))))
    `(org-level-4 ((,class (:foreground ,fg-alt :weight bold))))
    `(org-level-5 ((,class (:foreground ,fg-dim :weight bold))))
