@@ -886,7 +886,7 @@ between foreground and background is >= 7:1)."
    `(mu4e-cited-6-face ((,class (:foreground ,blue-alt-other))))
    `(mu4e-cited-7-face ((,class (:foreground ,red-alt-other))))
    `(mu4e-compose-header-face ((,class (:foreground ,green-alt))))
-   `(mu4e-compose-separator-face ((,class (:inherit mode-line))))
+   `(mu4e-compose-separator-face ((,class (:background ,bg-active :foreground ,fg-main :box t))))
    `(mu4e-contact-face ((,class (:foreground ,cyan))))
    `(mu4e-context-face ((,class (:background ,bg-alt :foreground ,fg-alt :weight bold))))
    `(mu4e-draft-face ((,class (:background ,bg-main :foreground ,magenta-refine-fg))))
