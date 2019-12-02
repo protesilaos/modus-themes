@@ -876,6 +876,14 @@ between foreground and background is >= 7:1)."
    `(mode-line-highlight ((,class (:inherit modus-theme-intense-blue :box t))))
    `(mode-line-inactive ((,class (:box (:color ,bg-inactive) :background ,bg-inactive :foreground ,fg-inactive))))
    `(which-func ((,class (:foreground ,fg-main))))
+   ;;;; mood-line
+   `(mood-line-modified ((,class (:background ,bg-alt :foreground ,yellow-alt))))
+   `(mood-line-status-error ((,class (:background ,bg-alt :foreground ,red :weight bold))))
+   `(mood-line-status-info ((,class (:background ,bg-alt :foreground ,blue))))
+   `(mood-line-status-neutral ((,class (:background ,bg-alt :foreground ,fg-alt))))
+   `(mood-line-status-success ((,class (:background ,bg-alt :foreground ,green))))
+   `(mood-line-status-warning ((,class (:background ,bg-alt :foreground ,yellow :weight bold))))
+   `(mood-line-unimportant ((,class (:foreground ,fg-inactive))))
    ;;;; mu4e
    `(mu4e-attach-number-face ((,class (:foreground ,cyan-alt :weight bold))))
    `(mu4e-cited-1-face ((,class (:foreground ,blue-alt))))

@@ -143,6 +143,7 @@ the "full support" may not be 100% true…
 + matching parentheses
 + messages
 + modeline
++ mood-line
 + mu4e
 + neotree
 + org-mode*
