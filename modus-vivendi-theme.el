@@ -93,8 +93,8 @@ between foreground and background is >= 7:1)."
       (fg-dim "#e0e6f0") (bg-dim "#110b11")
       ;; specifically for on/off states (e.g. mode-line)
       ;; must be combined with themselves
-      (fg-active "#f5f5f5") (bg-active "#454545")
-      (fg-inactive "#bebebe") (bg-inactive "#303030")
+      (fg-active "#f5f5f5") (bg-active "#404040")
+      (fg-inactive "#bebebe") (bg-inactive "#282828")
       ;; special base values, used only for cases where the above
       ;; fg-* or bg-* cannot or should not be used (to avoid confusion)
       ;; must be combined with: {fg,bg}-{main,alt,dim}
