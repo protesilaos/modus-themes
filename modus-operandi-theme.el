@@ -144,7 +144,13 @@ between foreground and background is >= 7:1)."
       (magenta-refine-bg "#ffccff") (cyan-refine-bg "#c0e0ef")
       (red-refine-fg "#780000") (green-refine-fg "#004c00")
       (yellow-refine-fg "#604000") (blue-refine-fg "#0000bb")
-      (magenta-refine-fg "#770077") (cyan-refine-fg "#004382"))
+      (magenta-refine-fg "#770077") (cyan-refine-fg "#004382")
+      ;; styles that are meant exclusively for the mode line
+      ;;
+      ;; must be combined with: bg-active, bg-inactive
+      (red-active "#851000") (green-active "#004e00")
+      (yellow-active "#702f00") (blue-active "#0022cc")
+      (magenta-active "#701c70") (cyan-active "#203e86"))
   (custom-theme-set-faces
    'modus-operandi
    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
