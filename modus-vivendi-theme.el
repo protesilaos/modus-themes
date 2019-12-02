@@ -1013,7 +1013,7 @@ between foreground and background is >= 7:1)."
    `(org-upcoming-deadline ((,class (:foreground ,red-alt-other))))
    `(org-verbatim ((,class (:background ,bg-dim :foreground ,fg-special-warm))))
    `(org-verse ((,class (:inherit org-quote))))
-   `(org-warning ((,class (:inherit modus-theme-intense-red :weight bold))))
+   `(org-warning ((,class (:inherit modus-theme-refine-red :weight bold))))
    ;;;; outline-mode
    `(outline-1 ((,class (:inherit org-level-1))))
    `(outline-2 ((,class (:inherit org-level-2))))
