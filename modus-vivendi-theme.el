@@ -997,7 +997,7 @@ between foreground and background is >= 7:1)."
    `(org-meta-line ((,class (:inherit font-lock-comment-face))))
    `(org-mode-line-clock ((,class (:background ,bg-main :foreground ,fg-main))))
    `(org-mode-line-clock-overrun ((,class (:inherit modus-theme-intense-red))))
-   `(org-priority ((,class (:foreground ,magenta-alt-other))))
+   `(org-priority ((,class (:background ,bg-alt :foreground ,magenta-alt-other))))
    `(org-quote ((,class (:inherit org-block :foreground ,fg-special-cold))))
    `(org-scheduled ((,class (:foreground ,cyan-alt-other))))
    `(org-scheduled-previously ((,class (:foreground ,red-alt-other))))
