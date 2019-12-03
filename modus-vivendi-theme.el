@@ -913,7 +913,7 @@ between foreground and background is >= 7:1)."
    `(message-mml ((,class (:foreground ,cyan))))
    `(message-separator ((,class (:background ,bg-alt :foreground ,fg-alt))))
    ;;;; modeline
-   `(mode-line ((,class (:box t :background ,bg-active :foreground ,fg-active))))
+   `(mode-line ((,class (:box (:line-width 1 :color ,fg-inactive) :background ,bg-active :foreground ,fg-active))))
    `(mode-line-buffer-id ((,class (:weight bold))))
    `(mode-line-emphasis ((,class (:background ,bg-main :foreground ,blue-intense :weight bold))))
    `(mode-line-highlight ((,class (:inherit modus-theme-intense-blue :box t))))
