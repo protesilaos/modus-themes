@@ -172,6 +172,7 @@ the "full support" may not be 100% true…
 + dired-subtree
 + diredfl
 + doom-modeline
++ easy-jekyll
 + easy-kill
 + ediff
 + elfeed

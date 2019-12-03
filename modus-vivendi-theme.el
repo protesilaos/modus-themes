@@ -499,6 +499,8 @@ between foreground and background is >= 7:1)."
    `(doom-modeline-unread-number ((,class (:foreground ,fg-active :slant italic))))
    `(doom-modeline-urgent ((,class (:inherit modus-theme-intense-red :weight bold))))
    `(doom-modeline-warning ((,class (:inherit modus-theme-intense-yellow :weight bold))))
+   ;;;; easy-jekyll
+   `(easy-jekyll-help-face ((,class (:background ,bg-dim :foreground ,cyan-alt-other))))
    ;;;; easy-kill
    `(easy-kill-origin ((,class (:inherit modus-theme-subtle-red))))
    `(easy-kill-selection ((,class (:inherit modus-theme-subtle-yellow))))
