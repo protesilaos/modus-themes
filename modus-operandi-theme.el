@@ -551,7 +551,7 @@ between foreground and background is >= 7:1)."
    `(font-lock-variable-name-face ((,class (:foreground ,cyan))))
    `(font-lock-warning-face ((,class (:background ,bg-alt :foreground ,yellow-alt-other :weight bold))))
    ;;;; flycheck
-   `(flycheck-error ((,class (:background ,bg-alt :foreground ,red :underline t))))
+   `(flycheck-error ((,class (:foreground ,red :underline t))))
    `(flycheck-error-list-checker-name ((,class (:foreground ,magenta-alt))))
    `(flycheck-error-list-column-number ((,class (:foreground ,fg-special-cold))))
    `(flycheck-error-list-error ((,class (:inherit error))))
@@ -559,15 +559,15 @@ between foreground and background is >= 7:1)."
    `(flycheck-error-list-highlight ((,class (:inherit highlight))))
    `(flycheck-error-list-id ((,class (:foreground ,magenta-alt-other))))
    `(flycheck-error-list-id-with-explainer ((,class (:inherit flycheck-error-list-id :box t))))
-   `(flycheck-error-list-info ((,class (:background ,bg-alt :foreground ,green))))
+   `(flycheck-error-list-info ((,class (:foreground ,green))))
    `(flycheck-error-list-line-number ((,class (:foreground ,fg-special-cold))))
-   `(flycheck-error-list-warming ((,class (:bakground ,bg-alt :foreground ,yellow))))
+   `(flycheck-error-list-warning ((,class (:foreground ,yellow))))
    `(flycheck-fringe-error ((,class (:foreground ,red-intense :weight bold))))
    `(flycheck-fringe-info ((,class (:foreground ,green-intense :weight bold))))
    `(flycheck-fringe-warning ((,class (:foreground ,yellow-intense :weight bold))))
-   `(flycheck-info ((,class (:background ,bg-alt :foreground ,green :underline t))))
+   `(flycheck-info ((,class (:foreground ,green :underline t))))
    `(flycheck-verify-select-checker ((,class (:box (:line-width 1 :color nil :style released-button)))))
-   `(flycheck-warning ((,class (:background ,bg-alt :foreground ,yellow :underline t))))
+   `(flycheck-warning ((,class (:foreground ,yellow :underline t))))
    ;;;; flyspell
    `(flyspell-duplicate
      ((,(append '((supports :underline (:style wave))) class)
