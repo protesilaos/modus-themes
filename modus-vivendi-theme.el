@@ -126,7 +126,7 @@ between foreground and background is >= 7:1)."
 ;; against.
 (let ((class '((class color) (min-colors 89)))
       (fg-main "#ffffff") (bg-main "#000000")
-      (fg-alt "#d8cdcf") (bg-alt "#181a20")
+      (fg-alt "#a8a8a8") (bg-alt "#181a20")
       (fg-dim "#e0e6f0") (bg-dim "#110b11")
       ;; specifically for on/off states (e.g. mode-line)
       ;; must be combined with themselves
