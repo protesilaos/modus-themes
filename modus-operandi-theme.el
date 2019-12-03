@@ -292,6 +292,11 @@ between foreground and background is >= 7:1)."
    `(all-the-icons-red-alt ((,class (:foreground ,red-alt))))
    `(all-the-icons-silver ((,class (:foreground ,fg-special-cold))))
    `(all-the-icons-yellow ((,class (:foreground ,yellow))))
+   ;;;; annotate
+   `(annotate-annotation ((,class (:inherit modus-theme-intense-blue))))
+   `(annotate-annotation-secondary ((,class (:inherit modus-theme-intense-yellow))))
+   `(annotate-highlight ((,class (:underline (:color ,blue-intense :style line)))))
+   `(annotate-highlight-secondary ((,class (:underline (:color ,yellow-intense :style line)))))
    ;;;; anzu
    `(anzu-match-1 ((,class (:inherit modus-theme-subtle-cyan))))
    `(anzu-match-2 ((,class (:inherit modus-theme-subtle-green))))
