@@ -184,29 +184,6 @@ inherit from some basic faces.  Please confirm.
 + package menu
 + rmail
 
-** Partially supported (need manual intervention)
-   :PROPERTIES:
-   :CUSTOM_ID: h:4a6831ea-e3ea-47cc-afc4-31ff1215dc2a
-   :END:
-
-This section documents known cases where the Modus themes will not be
-used to their maximum potential.  Solutions are suggested in context.
-
-*** Ibuffer
-    :PROPERTIES:
-    :CUSTOM_ID: h:5acef24c-f470-4f91-ab98-b720a2b4e696
-    :END:
-
-The default =ibuffer= configurations for denoting the mark and delete
-flags are not good enough.  My recommended tweak for those is to let
-them inherit the styles of Dired.  Place something like this in your
-initialisation file.
-
-#+BEGIN_SRC emacs-lisp
-(setq ibuffer-deletion-face 'dired-flagged)
-(setq ibuffer-marked-face 'dired-marked)
-#+END_SRC
-
 ** Help needed
    :PROPERTIES:
    :CUSTOM_ID: h:bcc3f6f9-7ace-4e2a-8dbb-2bf55574dae5

@@ -1273,6 +1273,9 @@ between foreground and background is >= 7:1)."
     ;;;; ansi-colors
     `(ansi-color-faces-vector [default bold shadow italic underline success warning error])
     `(ansi-color-names-vector [,fg-main ,red ,green ,yellow ,blue ,magenta ,cyan ,bg-main])
+    ;;;; ibuffer
+    `(ibuffer-deletion-face 'dired-flagged)
+    `(ibuffer-marked-face 'dired-marked)
     ;;;; xterm-color
     `(xterm-color-names [,fg-main ,red ,green ,yellow ,blue ,magenta ,cyan ,bg-alt])
     `(xterm-color-names-bright [,fg-alt ,red-alt ,green-alt ,yellow-alt ,blue-alt ,magenta-alt ,cyan-alt ,bg-main]))))
