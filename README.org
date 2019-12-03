@@ -120,6 +120,7 @@ the "full support" may not be 100% true…
 + dired-async
 + dired-subtree
 + diredfl
++ doom-modeline
 + ediff
 + elfeed
 + emms
