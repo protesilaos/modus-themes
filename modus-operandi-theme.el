@@ -1186,12 +1186,12 @@ between foreground and background is >= 7:1)."
    `(undo-tree-visualizer-register-face ((,class (:foreground ,magenta-intense))))
    `(undo-tree-visualizer-unmodified-face ((,class (:foreground ,green-intense))))
    ;;;; visual-regexp
-   `(vr/group-0 ((,class (:inherit modus-theme-intense-cyan :weight bold))))
-   `(vr/group-1 ((,class (:inherit modus-theme-intense-magenta :weight bold))))
-   `(vr/group-2 ((,class (:inherit modus-theme-intense-blue :weight bold))))
+   `(vr/group-0 ((,class (:inherit modus-theme-subtle-cyan))))
+   `(vr/group-1 ((,class (:inherit modus-theme-subtle-yellow))))
+   `(vr/group-2 ((,class (:inherit modus-theme-subtle-blue))))
    `(vr/match-0 ((,class (:inherit modus-theme-subtle-green))))
-   `(vr/match-1 ((,class (:inherit modus-theme-subtle-yellow))))
-   `(vr/match-separator-face ((,class (:inherit modus-theme-intense-red))))
+   `(vr/match-1 ((,class (:inherit modus-theme-refine-green))))
+   `(vr/match-separator-face ((,class (:inherit modus-theme-subtle-magenta))))
    ;;;; which-key
    `(which-key-command-description-face ((,class (:foreground ,cyan))))
    `(which-key-group-description-face ((,class (:foreground ,magenta-alt))))
