@@ -499,6 +499,9 @@ between foreground and background is >= 7:1)."
    `(doom-modeline-unread-number ((,class (:foreground ,fg-active :slant italic))))
    `(doom-modeline-urgent ((,class (:inherit modus-theme-intense-red :weight bold))))
    `(doom-modeline-warning ((,class (:inherit modus-theme-intense-yellow :weight bold))))
+   ;;;; easy-kill
+   `(easy-kill-origin ((,class (:inherit modus-theme-subtle-red))))
+   `(easy-kill-selection ((,class (:inherit modus-theme-subtle-yellow))))
    ;;;; ediff
    `(ediff-current-diff-A ((,class (:inherit modus-theme-special-warm))))
    `(ediff-current-diff-Ancestor ((,class (:background ,bg-alt :foreground ,fg-main))))
