@@ -366,7 +366,7 @@ between foreground and background is >= 7:1)."
    `(dgi-commit-message-face ((,class (:foreground ,fg-special-mild)))) ; dired-git-info
    `(dired-async-failures ((,class (:foreground ,red-active :weight bold))))
    `(dired-async-message ((,class (:foreground ,green-active :weight bold))))
-   `(dired-async-mode-message ((,class (:foreground ,cyan-active))))
+   `(dired-async-mode-message ((,class (:foreground ,cyan-active :weight bold))))
    `(dired-directory ((,class (:foreground ,blue :weight bold))))
    `(dired-flagged ((,class (:inherit modus-theme-intense-red))))
    `(dired-header ((,class (:foreground ,fg-main :weight bold))))
