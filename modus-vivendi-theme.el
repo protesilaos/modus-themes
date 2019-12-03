@@ -569,8 +569,14 @@ between foreground and background is >= 7:1)."
    `(flycheck-verify-select-checker ((,class (:box (:line-width 1 :color nil :style released-button)))))
    `(flycheck-warning ((,class (:background ,bg-alt :foreground ,yellow :underline t))))
    ;;;; flyspell
-   `(flyspell-duplicate ((,class (:inherit modus-theme-refine-yellow :underline t))))
-   `(flyspell-incorrect ((,class (:inherit modus-theme-refine-red :underline t))))
+   `(flyspell-duplicate
+     ((,(append '((supports :underline (:style wave))) class)
+       (:foreground ,yellow :underline (:style wave)))
+      (,class (:foreground ,yellow :underline t))))
+   `(flyspell-incorrect
+     ((,(append '((supports :underline (:style wave))) class)
+       (:foreground ,red :underline (:style wave)))
+      (,class (:foreground ,red :underline t))))
    ;;;; git-commit
    `(git-commit-comment-action ((,class (:foreground ,fg-special-mild))))
    `(git-commit-comment-branch-local ((,class (:foreground ,cyan))))
