@@ -87,6 +87,54 @@ snippet:
 (load-theme 'modus-vivendi t)           ; Dark theme
 #+END_SRC
 
+* Customisation options
+  :PROPERTIES:
+  :CUSTOM_ID: h:d414ca47-6dce-4905-9f2e-de1465bf23bb
+  :END:
+
+Both of the Modus themes expose some variables that allow users to tweak
+the look of the theme.  By default, all variables are deactivated,
+meaning that *you need to explicitly opt in*.
+
+This is what is available right now (use the ones appropriate to the
+theme of your choice):
+
+#+BEGIN_SRC emacs-lisp
+;; Choose to render some code constructs in slanted text (italics).  The
+;; default, shown below, is to not use italics, unless it is absolutely
+;; necessary.
+(setq modus-operandi-theme-slanted-constructs nil)
+
+(setq modus-vivendi-theme-slanted-constructs nil)
+
+;; Use proportionately-spaced fonts (variable-pitch) for headings.  The
+;; default is to use whatever font the user has selected, typically a
+;; monospaced typeface.
+(setq modus-operandi-theme-proportional-fonts nil)
+
+(setq modus-vivendi-theme-proportional-fonts nil)
+
+;; Whether headings should be scaled or have the same height as body
+;; text.  The default is to keep everything the same as the base size.
+(setq modus-operandi-theme-scale-headings nil)
+
+(setq modus-vivendi-theme-scale-headings nil)
+
+;; Font scale that should apply to headings.  These are the default values.
+(setq modus-operandi-theme-scale-1 1.05)
+(setq modus-operandi-theme-scale-2 1.1)
+(setq modus-operandi-theme-scale-3 1.15)
+(setq modus-operandi-theme-scale-4 1.2)
+
+(setq modus-vivendi-theme-scale-1 1.05)
+(setq modus-vivendi-theme-scale-2 1.1)
+(setq modus-vivendi-theme-scale-3 1.15)
+(setq modus-vivendi-theme-scale-4 1.2)
+#+END_SRC
+
+*NOTE* that all customisation options must be declared /before/ loading
+the theme, else they will not be parsed and have no effect.
+
 * Face coverage
   :PROPERTIES:
   :CUSTOM_ID: h:944a3bdf-f545-40a0-a26c-b2cec8b2b316

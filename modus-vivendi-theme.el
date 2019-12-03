@@ -84,6 +84,43 @@ between foreground and background is >= 7:1)."
 (defface modus-theme-special-mild nil t)
 (defface modus-theme-special-warm nil t)
 
+;; User-facing customisation options.  They are all deactivated by
+;; default (users must opt in).
+(defcustom modus-vivendi-theme-slanted-constructs nil
+  "Use slanted text in more code constructs (italics or oblique)."
+  :type 'boolean
+  :group 'modus-theme)
+
+(defcustom modus-vivendi-theme-proportional-fonts nil
+  "Use proportional fonts (variable-pitch) in headings."
+  :type 'boolean
+  :group 'modus-theme)
+
+(defcustom modus-vivendi-theme-scale-headings nil
+  "Use font scaling for headings."
+  :type 'boolean
+  :group 'modus-theme)
+
+(defcustom modus-vivendi-theme-scale-1 1.05
+  "Font size that is slightly larger than the base value."
+  :type 'number
+  :group 'modus-theme)
+
+(defcustom modus-vivendi-theme-scale-2 1.1
+  "Font size that is slightly larger than `modus-theme-scale-1'."
+  :type 'number
+  :group 'modus-theme)
+
+(defcustom modus-vivendi-theme-scale-3 1.15
+  "Font size that is slightly larger than `modus-theme-scale-2'."
+  :type 'number
+  :group 'modus-theme)
+
+(defcustom modus-vivendi-theme-scale-4 1.2
+  "Font size that is slightly larger than `modus-theme-scale-3'."
+  :type 'number
+  :group 'modus-theme)
+
 ;; Define colour palette.  Each colour must have a >= 7:1 contrast
 ;; ratio relative to the foreground/background colour it is rendered
 ;; against.
@@ -150,7 +187,15 @@ between foreground and background is >= 7:1)."
       ;; must be combined with: bg-active, bg-inactive
       (red-active "#ffcf70") (green-active "#70f070")
       (yellow-active "#dddd00") (blue-active "#bed6ff")
-      (magenta-active "#f0c8ff") (cyan-active "#40ede0"))
+      (magenta-active "#f0c8ff") (cyan-active "#40ede0")
+
+      ;; conditional styles that evaluate user-facing customisation
+      ;; options
+      (modus-theme-slant (if modus-vivendi-theme-slanted-constructs
+                             'italic 'normal))
+
+      (modus-theme-variable-pitch (if modus-vivendi-theme-proportional-fonts
+                                      'variable-pitch 'default)))
   (custom-theme-set-faces
    'modus-vivendi
    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -536,8 +581,8 @@ between foreground and background is >= 7:1)."
    `(fancy-dabbrev-selection-face ((,class (:inherit modus-theme-intense-cyan :weight bold))))
    ;;;; font lock
    `(font-lock-builtin-face ((,class (:foreground ,magenta-alt))))
-   `(font-lock-comment-delimiter-face ((,class (:inherit font-lock-comment-face))))
-   `(font-lock-comment-face ((,class (:foreground ,fg-alt))))
+   `(font-lock-comment-delimiter-face ((,class (:foreground ,fg-alt))))
+   `(font-lock-comment-face ((,class (:foreground ,fg-alt :slant ,modus-theme-slant))))
    `(font-lock-constant-face ((,class (:foreground ,blue-alt-other))))
    `(font-lock-doc-face ((,class (:foreground ,fg-special-cold))))
    `(font-lock-function-name-face ((,class (:foreground ,magenta))))
@@ -1040,14 +1085,30 @@ between foreground and background is >= 7:1)."
    `(org-headline-done ((,class (:foreground ,green-refine-fg))))
    `(org-hide ((,class (:foreground ,fg-main))))
    `(org-latex-and-related ((,class (:foreground ,magenta-refine-fg))))
-   `(org-level-1 ((,class (:foreground ,fg-main :weight bold))))
-   `(org-level-2 ((,class (:foreground ,fg-special-warm :weight bold))))
-   `(org-level-3 ((,class (:foreground ,fg-special-cold :weight bold))))
-   `(org-level-4 ((,class (:foreground ,fg-special-mild :weight bold))))
-   `(org-level-5 ((,class (:foreground ,cyan-alt-other :weight bold))))
-   `(org-level-6 ((,class (:foreground ,green-alt-other :weight bold))))
-   `(org-level-7 ((,class (:foreground ,fg-dim :weight bold))))
-   `(org-level-8 ((,class (:foreground ,fg-alt :weight bold))))
+   `(org-level-1 ((,class (:inherit ,modus-theme-variable-pitch
+                           :foreground ,fg-main :weight bold
+                                       ,@(when modus-vivendi-theme-scale-headings
+                                           (list :height modus-vivendi-theme-scale-4))))))
+   `(org-level-2 ((,class (:inherit ,modus-theme-variable-pitch
+                           :foreground ,fg-special-warm :weight bold
+                                       ,@(when modus-vivendi-theme-scale-headings
+                                          (list :height modus-vivendi-theme-scale-3))))))
+   `(org-level-3 ((,class (:inherit ,modus-theme-variable-pitch
+                           :foreground ,fg-special-cold :weight bold
+                                       ,@(when modus-vivendi-theme-scale-headings
+                                          (list :height modus-vivendi-theme-scale-2))))))
+   `(org-level-4 ((,class (:inherit ,modus-theme-variable-pitch
+                           :foreground ,fg-special-mild :weight bold
+                                       ,@(when modus-vivendi-theme-scale-headings
+                                          (list :height modus-vivendi-theme-scale-1))))))
+   `(org-level-5 ((,class (:inherit ,modus-theme-variable-pitch
+                           :foreground ,cyan-alt-other :weight bold))))
+   `(org-level-6 ((,class (:inherit ,modus-theme-variable-pitch
+                           :foreground ,green-alt-other :weight bold))))
+   `(org-level-7 ((,class (:inherit ,modus-theme-variable-pitch
+                           :foreground ,fg-dim :weight bold))))
+   `(org-level-8 ((,class (:inherit ,modus-theme-variable-pitch
+                           :foreground ,fg-alt :weight bold))))
    `(org-link ((,class (:inherit link))))
    `(org-list-dt ((,class (:foreground ,fg-dim :weight bold))))
    `(org-macro ((,class (:inherit org-latex-and-related))))
