@@ -821,6 +821,9 @@ between foreground and background is >= 7:1)."
    `(ido-only-match ((,class (:foreground ,magenta-intense :weight bold))))
    `(ido-subdir ((,class (:foreground ,blue-alt-other))))
    `(ido-virtual ((,class (:foreground ,yellow-alt-other))))
+   ;;;; iedit
+   `(iedit-occurrence ((,class (:inherit modus-theme-refine-blue))))
+   `(iedit-read-only-occurrence ((,class (:inherit modus-theme-intense-yellow))))
    ;;;; info
    `(Info-quoted ((,class (:foreground ,magenta)))) ; the capitalisation is canonical
    `(info-header-node ((,class (:foreground ,fg-special-warm))))
