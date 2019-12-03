@@ -336,6 +336,8 @@ between foreground and background is >= 7:1)."
    `(widget-field ((,class (:background ,bg-alt :foreground ,fg-dim))))
    `(widget-inactive ((,class (:background ,bg-inactive :foreground ,fg-inactive))))
    `(widget-single-line-field ((,class (:inherit widget-field))))
+   ;;;; column-enforce-mode
+   `(column-enforce-face ((,class (:inherit modus-theme-refine-yellow))))
    ;;;; company-mode
    `(company-echo-common ((,class (:foreground ,magenta-alt-other))))
    `(company-preview ((,class (:inherit modus-theme-intense-neutral))))
