@@ -175,6 +175,7 @@ the "full support" may not be 100% true…
 + easy-jekyll
 + easy-kill
 + ediff
++ eldoc-box
 + elfeed
 + emms
 + epa

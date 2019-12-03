@@ -521,6 +521,9 @@ between foreground and background is >= 7:1)."
    `(ediff-odd-diff-Ancestor ((,class (:background ,bg-active :foreground ,fg-main))))
    `(ediff-odd-diff-B ((,class (:inherit modus-theme-refine-cyan))))
    `(ediff-odd-diff-C ((,class (:inherit modus-theme-refine-green))))
+   ;;;; eldoc-box
+   `(eldoc-box-body ((,class (:background ,bg-alt :foreground ,fg-main))))
+   `(eldoc-box-border ((,class (:background ,fg-alt))))
    ;;;; elfeed
    `(elfeed-search-date-face ((,class (:inherit default))))
    `(elfeed-search-title-face ((,class (:inherit default))))
