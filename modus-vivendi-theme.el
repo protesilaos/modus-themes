@@ -387,6 +387,9 @@ between foreground and background is >= 7:1)."
    `(deadgrep-meta-face ((,class (:foreground ,fg-alt))))
    `(deadgrep-regexp-metachar-face ((,class (:foreground ,yellow-intense :weight bold))))
    `(deadgrep-search-term-face ((,class (:foreground ,green-intense :weight bold))))
+   ;;;; define-word
+   `(define-word-face-1 ((,class (:foreground ,yellow))))
+   `(define-word-face-2 ((,class (:foreground ,fg-main))))
    ;;;; diff-hl
    `(diff-hl-change ((,class (:inherit modus-theme-intense-yellow))))
    `(diff-hl-delete ((,class (:inherit modus-theme-intense-red))))

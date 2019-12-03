@@ -165,6 +165,7 @@ the "full support" may not be 100% true…
 + completions
 + custom (M-x customize)
 + deadgrep
++ define-word
 + diff-hl
 + diff-mode
 + dired-async
