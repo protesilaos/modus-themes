@@ -194,6 +194,7 @@ the "full support" may not be 100% true…
 + info pages
 + isearch, occur, etc.
 + ivy*
++ ivy-posframe
 + magit
 + markdown-mode
 + matching parentheses

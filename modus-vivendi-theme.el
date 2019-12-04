@@ -880,6 +880,10 @@ between foreground and background is >= 7:1)."
    `(ivy-subdir ((,class (:foreground ,blue-alt-other))))
    `(ivy-virtual ((,class (:foreground ,magenta-alt-other))))
    `(ivy-yanked-word ((,class (:inherit modus-theme-refine-blue))))
+   ;;;; ivy-posframe
+   `(ivy-posframe ((,class (:background ,bg-alt :foreground ,fg-main))))
+   `(ivy-posframe-border ((,class (:inherit default :background ,fg-main))))
+   `(ivy-posframe-cursor ((,class (:inherit cursor))))
    ;;;; line numbers (display-line-numbers-mode and global variant)
    `(line-number ((,class (:background ,bg-alt :foreground ,fg-alt))))
    `(line-number-current-line ((,class (:background ,bg-active :foreground ,fg-active :weight bold))))
