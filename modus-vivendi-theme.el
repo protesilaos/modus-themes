@@ -135,8 +135,8 @@ between foreground and background is >= 7:1)."
       ;; special base values, used only for cases where the above
       ;; fg-* or bg-* cannot or should not be used (to avoid confusion)
       ;; must be combined with: {fg,bg}-{main,alt,dim}
-      (fg-special-cold "#c0e0ff") (bg-special-cold "#1e283a")
-      (fg-special-mild "#e0ffeb") (bg-special-mild "#2f5a4e")
+      (fg-special-cold "#c6eaff") (bg-special-cold "#203448")
+      (fg-special-mild "#bfebe0") (bg-special-mild "#00322e")
       (fg-special-warm "#f8dec0") (bg-special-warm "#382f27")
       ;; styles for the main constructs
       ;; must be combined with: bg-main, bg-alt, bg-dim
