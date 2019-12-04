@@ -191,11 +191,15 @@ between foreground and background is >= 7:1)."
 
       ;; conditional styles that evaluate user-facing customisation
       ;; options
-      (modus-theme-slant (if modus-operandi-theme-slanted-constructs
-                             'italic 'normal))
+      (modus-theme-slant
+       (if modus-operandi-theme-slanted-constructs
+           'italic
+         'normal))
 
-      (modus-theme-variable-pitch (if modus-operandi-theme-proportional-fonts
-                                      'variable-pitch 'default)))
+      (modus-theme-variable-pitch
+       (if modus-operandi-theme-proportional-fonts
+           'variable-pitch
+         'default)))
   (custom-theme-set-faces
    'modus-operandi
    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
