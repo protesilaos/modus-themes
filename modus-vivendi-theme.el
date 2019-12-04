@@ -1177,6 +1177,10 @@ between foreground and background is >= 7:1)."
    `(pass-mode-directory-face ((,class (:foreground ,fg-special-cold :weight bold))))
    `(pass-mode-entry-face ((,class (:inherit default))))
    `(pass-mode-header-face ((,class (:foreground ,fg-special-warm))))
+   ;;;; prodigy
+   `(prodigy-green-face ((,class (:foreground ,green))))
+   `(prodigy-red-face ((,class (:foreground ,red))))
+   `(prodigy-yellow-face ((,class (:foreground ,yellow))))
    ;;;; rainbow-blocks
    `(rainbow-blocks-depth-1-face ((,class (:foreground ,magenta-alt-other))))
    `(rainbow-blocks-depth-2-face ((,class (:foreground ,blue))))
