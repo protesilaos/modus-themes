@@ -183,6 +183,7 @@ the "full support" may not be 100% true…
 + eshell
 + eww
 + fancy-dabbrev
++ flycheck
 + flyspell
 + git
 + git-gutter (and variants)
