@@ -635,6 +635,13 @@ between foreground and background is >= 7:1)."
    `(flycheck-info ((,class (:foreground ,green :underline t))))
    `(flycheck-verify-select-checker ((,class (:box (:line-width 1 :color nil :style released-button)))))
    `(flycheck-warning ((,class (:foreground ,yellow :underline t))))
+   ;;;; flycheck-posframe
+   `(flycheck-posframe-background-face ((,class (:background ,bg-alt))))
+   `(flycheck-posframe-border-face ((,class (:foreground ,fg-alt))))
+   `(flycheck-posframe-error-face ((,class (:foreground ,red :weight bold))))
+   `(flycheck-posframe-face ((,class (:foreground ,fg-main :slant ,modus-theme-slant))))
+   `(flycheck-posframe-info-face ((,class (:foreground ,green :weight bold))))
+   `(flycheck-posframe-warning-face ((,class (:foreground ,yellow :weight bold))))
    ;;;; flyspell
    `(flyspell-duplicate
      ((,(append '((supports :underline (:style wave))) class)

@@ -184,6 +184,7 @@ the "full support" may not be 100% true…
 + eww
 + fancy-dabbrev
 + flycheck
++ flycheck-posframe
 + flyspell
 + git
 + git-gutter (and variants)
