@@ -149,7 +149,7 @@ affected face groups.
    :CUSTOM_ID: h:5ea98392-1376-43a4-8080-2d42a5b690ef
    :END:
 
-Those with an appended asterisk =*= tend to have lots of extensions, so
+The items with an appended asterisk =*= tend to have lots of extensions, so
 the "full support" may not be 100% true…
 
 + all-the-icons
@@ -230,7 +230,7 @@ the "full support" may not be 100% true…
 + xterm-color (and ansi-colors)
 + ztree
 
-Plus lots of miscellaneous faces that are provided by the out-of-the-box
+Plus many other miscellaneous faces that are provided by the out-of-the-box
 Emacs distribution.
 
 ** Covered but not styled explicitly
