@@ -1373,6 +1373,12 @@ between foreground and background is >= 7:1)."
    `(vr/match-0 ((,class (:inherit modus-theme-subtle-green))))
    `(vr/match-1 ((,class (:inherit modus-theme-refine-green))))
    `(vr/match-separator-face ((,class (:inherit modus-theme-subtle-magenta))))
+   ;;;; wgrep
+   `(wgrep-delete-face ((,class (:inherit modus-theme-refine-yellow))))
+   `(wgrep-done-face ((,class (:inherit modus-theme-refine-blue))))
+   `(wgrep-face ((,class (:inherit modus-theme-refine-green))))
+   `(wgrep-file-face ((,class (:foreground ,fg-special-warm))))
+   `(wgrep-reject-face ((,class (:inherit modus-theme-intense-red :weight bold))))
    ;;;; which-key
    `(which-key-command-description-face ((,class (:foreground ,cyan))))
    `(which-key-group-description-face ((,class (:foreground ,magenta-alt))))

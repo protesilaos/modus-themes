@@ -224,6 +224,7 @@ the "full support" may not be 100% true…
 + treemacs
 + undo-tree
 + visual-regexp
++ wgrep
 + which-key
 + whitespace-mode
 + writegood-mode
