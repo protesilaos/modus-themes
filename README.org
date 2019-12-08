@@ -183,6 +183,7 @@ the "full support" may not be 100% true…
 + erc
 + eshell
 + eww
++ eyebrowse
 + fancy-dabbrev
 + font-lock (generic syntax highlighting)
 + flycheck
@@ -210,6 +211,7 @@ the "full support" may not be 100% true…
 + org-mode*
 + outline-mode
 + pass
++ perspective
 + prodigy
 + rainbow-blocks
 + rainbow-delimiters

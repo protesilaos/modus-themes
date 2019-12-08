@@ -597,6 +597,8 @@ between foreground and background is >= 7:1)."
    `(eww-form-submit ((,class (:inherit eww-form-file))))
    `(eww-form-text ((,class (:box (:line-width 1 :color ,fg-inactive :style none) :background ,bg-active :foreground ,fg-active))))
    `(eww-form-textarea ((,class (:background ,bg-alt :foreground ,fg-main))))
+   ;;;; eyebrowse
+   `(eyebrowse-mode-line-active ((,class (:foreground ,blue-active :weight bold))))
    ;;;; fancy-dabbrev
    `(fancy-dabbrev-menu-face ((,class (:background ,bg-alt :foreground ,fg-alt))))
    `(fancy-dabbrev-preview-face ((,class (:foreground ,fg-alt :underline t))))
@@ -1192,6 +1194,8 @@ between foreground and background is >= 7:1)."
    `(pass-mode-directory-face ((,class (:foreground ,fg-special-cold :weight bold))))
    `(pass-mode-entry-face ((,class (:inherit default))))
    `(pass-mode-header-face ((,class (:foreground ,fg-special-warm))))
+   ;;;; perspective
+   `(persp-selected-face ((,class (:foreground ,blue-active :weight bold))))
    ;;;; prodigy
    `(prodigy-green-face ((,class (:foreground ,green))))
    `(prodigy-red-face ((,class (:foreground ,red))))
