@@ -186,8 +186,8 @@ between foreground and background is >= 7:1)."
       ;;
       ;; must be combined with: bg-active, bg-inactive
       (red-active "#ffcf70") (green-active "#70f070")
-      (yellow-active "#dddd00") (blue-active "#bed6ff")
-      (magenta-active "#f0c8ff") (cyan-active "#40ede0")
+      (yellow-active "#dddd00") (blue-active "#0eeaff")
+      (magenta-active "#f0c8ff") (cyan-active "#70ecd0")
 
       ;; conditional styles that evaluate user-facing customisation
       ;; options
