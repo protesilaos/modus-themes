@@ -161,6 +161,7 @@ the "full support" may not be 100% true…
 + aw
 + column-enforce-mode
 + company-mode*
++ company-posframe
 + compilation-mode
 + completions
 + custom (M-x customize)

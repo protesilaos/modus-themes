@@ -358,6 +358,10 @@ between foreground and background is >= 7:1)."
    `(company-tooltip-search ((,class (:inherit modus-theme-subtle-green))))
    `(company-tooltip-search-selection ((,class (:inherit modus-theme-intense-green))))
    `(company-tooltip-selection ((,class (:inherit modus-theme-intense-cyan))))
+   ;;;; company-posframe
+   `(company-posframe-active-backend-name ((,class (:background ,bg-active :foreground ,blue-active :weight bold))))
+   `(company-posframe-inactive-backend-name ((,class (:background ,bg-active :foreground ,fg-active))))
+   `(company-posframe-metadata ((,class (:background ,bg-inactive :foreground ,fg-inactive))))
    ;;;; compilation feedback
    `(compilation-column-number ((,class (:foreground ,magenta))))
    `(compilation-error ((,class (:foreground ,red :weight bold))))
