@@ -212,7 +212,7 @@ between foreground and background is >= 7:1)."
    `(modus-theme-subtle-blue ((,class (:background ,blue-subtle-bg :foreground ,fg-dim))))
    `(modus-theme-subtle-magenta ((,class (:background ,magenta-subtle-bg :foreground ,fg-dim))))
    `(modus-theme-subtle-cyan ((,class (:background ,cyan-subtle-bg :foreground ,fg-dim))))
-   `(modus-theme-subtle-neutral ((,class (:background ,bg-alt :foreground ,fg-alt))))
+   `(modus-theme-subtle-neutral ((,class (:background ,bg-inactive :foreground ,fg-inactive))))
    ;;; intense coloured backgrounds
    `(modus-theme-intense-red ((,class (:background ,red-intense-bg :foreground ,fg-main))))
    `(modus-theme-intense-green ((,class (:background ,green-intense-bg :foreground ,fg-main))))
@@ -220,7 +220,7 @@ between foreground and background is >= 7:1)."
    `(modus-theme-intense-blue ((,class (:background ,blue-intense-bg :foreground ,fg-main))))
    `(modus-theme-intense-magenta ((,class (:background ,magenta-intense-bg :foreground ,fg-main))))
    `(modus-theme-intense-cyan ((,class (:background ,cyan-intense-bg :foreground ,fg-main))))
-   `(modus-theme-intense-neutral ((,class (:background ,bg-dim :foreground ,fg-main))))
+   `(modus-theme-intense-neutral ((,class (:background ,bg-active :foreground ,fg-main))))
    ;;; refined background and foreground combinations
    `(modus-theme-refine-red ((,class (:background ,red-refine-bg :foreground ,red-refine-fg))))
    `(modus-theme-refine-green ((,class (:background ,green-refine-bg :foreground ,green-refine-fg))))
