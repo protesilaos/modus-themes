@@ -246,6 +246,7 @@ between foreground and background is >= 7:1)."
    `(error ((,class (:foreground ,red :weight bold))))
    `(escape-glyph ((,class (:inherit modus-theme-refine-blue :weight bold))))
    `(header-line ((,class (:background ,bg-alt :foreground ,fg-alt))))
+   `(holiday ((,class (:inherit modus-theme-subtle-magenta))))
    `(homoglyph ((,class (:foreground ,yellow-alt-other))))
    `(ibuffer-locked-buffer ((,class (:foreground ,yellow-alt-other))))
    `(italic ((,class (:foreground ,fg-special-cold :slant italic))))
