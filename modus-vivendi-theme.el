@@ -1200,6 +1200,10 @@ between foreground and background is >= 7:1)."
    `(pass-mode-directory-face ((,class (:foreground ,fg-special-cold :weight bold))))
    `(pass-mode-entry-face ((,class (:inherit default))))
    `(pass-mode-header-face ((,class (:foreground ,fg-special-warm))))
+   ;;;; persp-mode
+   `(persp-face-lighter-buffer-not-in-persp ((,class (:inherit modus-theme-intense-red))))
+   `(persp-face-lighter-default ((,class (:foreground ,blue-active :weight bold))))
+   `(persp-face-lighter-nil-persp ((,class (:foreground ,fg-active :weight bold))))
    ;;;; perspective
    `(persp-selected-face ((,class (:foreground ,blue-active :weight bold))))
    ;;;; prodigy
