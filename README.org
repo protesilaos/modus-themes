@@ -193,6 +193,7 @@ the "full support" may not be 100% true…
 + erc
 + eshell
 + evil* (evil-mode)
++ evil-goggles
 + eww
 + eyebrowse
 + fancy-dabbrev
