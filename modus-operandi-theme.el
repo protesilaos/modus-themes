@@ -599,6 +599,13 @@ between foreground and background is >= 7:1)."
    `(eshell-ls-symlink ((,class (:foreground ,cyan :underline t))))
    `(eshell-ls-unreadable ((,class (:background ,bg-inactive :foreground ,fg-inactive))))
    `(eshell-prompt ((,class (:foreground ,cyan-alt-other :weight bold))))
+   ;;;; evil-mode
+   `(evil-ex-commands ((,class (:foreground ,magenta-alt-other))))
+   `(evil-ex-info ((,class (:foreground ,cyan-alt-other))))
+   `(evil-ex-lazy-highlight ((,class (:inherit lazy-highlight))))
+   `(evil-ex-search ((,class (:inherit isearch))))
+   `(evil-ex-substitute-matches ((,class (:inherit modus-theme-refine-yellow :underline t))))
+   `(evil-ex-substitute-replacement ((,class (:inherit modus-theme-intense-green :weight bold))))
    ;;;; eww
    `(eww-invalid-certificate ((,class (:inherit error))))
    `(eww-valid-certificate ((,class (:inherit success))))

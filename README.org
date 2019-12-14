@@ -192,6 +192,7 @@ the "full support" may not be 100% true…
 + epa
 + erc
 + eshell
++ evil* (evil-mode)
 + eww
 + eyebrowse
 + fancy-dabbrev
