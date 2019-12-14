@@ -166,7 +166,7 @@ the "full support" may not be 100% true…
 + artbollocks-mode
 + auto-dim-other-buffers
 + avy
-+ aw
++ ace-window
 + column-enforce-mode
 + company-mode*
 + company-posframe
