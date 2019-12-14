@@ -173,6 +173,7 @@ the "full support" may not be 100% true…
 + compilation-mode
 + completions
 + custom (M-x customize)
++ dashboard (emacs-dashboard)
 + deadgrep
 + define-word
 + diff-hl

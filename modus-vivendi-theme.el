@@ -390,6 +390,12 @@ between foreground and background is >= 7:1)."
    `(custom-state ((,class (:foreground ,cyan-alt-other))))
    `(custom-themed ((,class (:inherit modus-theme-subtle-blue))))
    `(custom-variable-tag ((,class (:foreground ,cyan :weight bold))))
+   ;;;; dashboard (emacs-dashboard)
+   `(dashboard-banner-logo-title ((,class (:foreground ,fg-special-cold :weight bold))))
+   `(dashboard-footer ((,class (:foreground ,fg-special-mild :weight bold))))
+   `(dashboard-heading ((,class (:foreground ,fg-special-warm :weight bold))))
+   `(dashboard-navigator ((,class (:foreground ,cyan-alt-other))))
+   `(dashboard-text-banner ((,class (:foreground ,fg-dim))))
    ;;;; deadgrep
    `(deadgrep-filename-face ((,class (:foreground ,cyan :weight bold))))
    `(deadgrep-match-face ((,class (:inherit modus-theme-subtle-blue))))
