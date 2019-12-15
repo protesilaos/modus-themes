@@ -904,7 +904,7 @@ between foreground and background is >= 7:1)."
    `(info-menu-star ((,class (:inherit default))))
    `(info-node ((,class ((:weight bold)))))
    ;;;; ivy
-   `(ivy-action ((,class (:foreground ,magenta-alt))))
+   `(ivy-action ((,class (:foreground ,red-alt :weight bold))))
    `(ivy-completions-annotations ((,class (:foreground ,fg-special-cold :slant ,modus-theme-slant))))
    `(ivy-confirm-face ((,class (:foreground ,cyan))))
    `(ivy-current-match ((,class (:inherit modus-theme-special-mild :weight bold :underline t))))
@@ -928,8 +928,8 @@ between foreground and background is >= 7:1)."
    `(ivy-virtual ((,class (:foreground ,magenta-alt-other))))
    `(ivy-yanked-word ((,class (:inherit modus-theme-refine-blue))))
    ;;;; ivy-posframe
-   `(ivy-posframe ((,class (:background ,bg-alt :foreground ,fg-main))))
-   `(ivy-posframe-border ((,class (:inherit default :background ,fg-main))))
+   `(ivy-posframe ((,class (:background ,bg-dim :foreground ,fg-main))))
+   `(ivy-posframe-border ((,class (:background ,bg-active))))
    `(ivy-posframe-cursor ((,class (:inherit cursor))))
    ;;;; line numbers (display-line-numbers-mode and global variant)
    `(line-number ((,class (:background ,bg-alt :foreground ,fg-alt))))
