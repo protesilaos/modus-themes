@@ -910,7 +910,7 @@ between foreground and background is >= 7:1)."
    `(ivy-current-match ((,class (:inherit modus-theme-special-mild :weight bold :underline t))))
    `(ivy-cursor ((,class (:inherit cursor))))
    `(ivy-grep-info ((,class (:foreground ,cyan-alt))))
-   `(ivy-grep-line-number ((,class (:inherit line-number))))
+   `(ivy-grep-line-number ((,class (:foreground ,fg-special-warm))))
    `(ivy-highlight-face ((,class (:foreground ,magenta))))
    `(ivy-match-required-face ((,class (:inherit error))))
    `(ivy-minibuffer-match-face-1 ((,class (:inherit modus-theme-subtle-neutral))))
