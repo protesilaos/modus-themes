@@ -325,9 +325,9 @@ between foreground and background is >= 7:1)."
    `(avy-lead-face-1 ((,class (:inherit modus-theme-intense-red :weight bold))))
    `(avy-lead-face-2 ((,class (:inherit modus-theme-intense-green :weight bold))))
    ;;;; aw (ace-window)
-   `(aw-background-face ((,class (:background ,bg-alt))))
+   `(aw-background-face ((,class (:background ,bg-dim :foreground ,fg-dim))))
    `(aw-key-face ((,class (:foreground ,blue-intense :weight bold))))
-   `(aw-leading-char-face ((,class (:height 1.5 :inherit modus-theme-intense-green :weight bold))))
+   `(aw-leading-char-face ((,class (:height 1.5 :background ,bg-main :foreground ,red-intense :weight bold))))
    `(aw-minibuffer-leading-char-face ((,class (:foreground ,magenta-active))))
    `(aw-mode-line-face ((,class (:weight bold))))
    ;;;; buttons, links, widgets
