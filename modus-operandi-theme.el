@@ -1267,6 +1267,17 @@ between foreground and background is >= 7:1)."
    `(rainbow-delimiters-depth-9-face ((,class (:foreground ,yellow-alt))))
    `(rainbow-delimiters-mismatched-face ((,class (:foreground ,red-alt :weight bold))))
    `(rainbow-delimiters-unmatched-face ((,class (:foreground ,red :weight bold))))
+   ;;;; ruler-mode
+   `(ruler-mode-column-number ((,class (:inherit ruler-mode-default :foreground ,fg-main :weight bold))))
+   `(ruler-mode-comment-column ((,class (:inherit ruler-mode-default :foreground ,red-active))))
+   `(ruler-mode-current-column ((,class (:inherit ruler-mode-default :foreground ,cyan-active :box t))))
+   `(ruler-mode-default ((,class (:background ,bg-inactive :foreground ,fg-inactive))))
+   `(ruler-mode-fill-column ((,class (:inherit ruler-mode-default :foreground ,green-active))))
+   `(ruler-mode-fringes ((,class (:inherit ruler-mode-default :foreground ,blue-active))))
+   `(ruler-mode-goal-column ((,class (:inherit ruler-mode-default :foreground ,magenta-active))))
+   `(ruler-mode-margins ((,class (:inherit ruler-mode-default :foreground ,bg-main))))
+   `(ruler-mode-pad ((,class (:background ,bg-active :foreground ,fg-inactive))))
+   `(ruler-mode-tab-stop ((,class (:inherit ruler-mode-default :foreground ,yellow-active))))
    ;;;; shell scripts
    `(sh-heredoc ((,class (:inherit font-lock-string-face))))
    `(sh-quoted-exec ((,class (:inherit font-lock-builtin-face))))
