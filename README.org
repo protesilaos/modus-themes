@@ -212,6 +212,7 @@ the "full support" may not be 100% true…
 + isearch, occur, etc.
 + ivy*
 + ivy-posframe
++ keycast
 + magit
 + markdown-mode
 + matching parentheses
