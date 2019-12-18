@@ -213,6 +213,7 @@ the "full support" may not be 100% true…
 + ivy*
 + ivy-posframe
 + keycast
++ line numbers (=display-line-numbers-mode= and global variant)
 + magit
 + markdown-mode
 + matching parentheses
@@ -232,6 +233,7 @@ the "full support" may not be 100% true…
 + rainbow-blocks
 + rainbow-delimiters
 + ruler-mode
++ shell-script-mode
 + smart-mode-line
 + smartparens
 + smerge
