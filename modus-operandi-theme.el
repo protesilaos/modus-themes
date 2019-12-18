@@ -1229,6 +1229,8 @@ between foreground and background is >= 7:1)."
    `(outline-6 ((,class (:inherit org-level-6))))
    `(outline-7 ((,class (:inherit org-level-7))))
    `(outline-8 ((,class (:inherit org-level-8))))
+   ;;;; paren-face
+   `(parenthesis ((,class (:foreground ,fg-alt))))
    ;;;; pass
    `(pass-mode-directory-face ((,class (:foreground ,fg-special-cold :weight bold))))
    `(pass-mode-entry-face ((,class (:inherit default))))

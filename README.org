@@ -222,6 +222,7 @@ the "full support" may not be 100% true…
 + neotree
 + org-mode*
 + outline-mode
++ paren-face
 + pass
 + persp-mode
 + perspective
