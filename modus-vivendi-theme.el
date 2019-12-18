@@ -1239,6 +1239,13 @@ between foreground and background is >= 7:1)."
    `(persp-face-lighter-nil-persp ((,class (:foreground ,fg-active :weight bold))))
    ;;;; perspective
    `(persp-selected-face ((,class (:foreground ,blue-active :weight bold))))
+   ;;;; powerline
+   `(powerline-active0 ((,class (:background ,fg-inactive :foreground ,bg-inactive))))
+   `(powerline-active1 ((,class (:background ,bg-active :foreground ,fg-active))))
+   `(powerline-active2 ((,class (:background ,bg-alt :foreground ,fg-active))))
+   `(powerline-inactive0 ((,class (:background ,bg-inactive :foreground ,fg-inactive))))
+   `(powerline-inactive1 ((,class (:background ,bg-alt :foreground ,fg-alt))))
+   `(powerline-inactive2 ((,class (:background ,bg-main :foreground ,fg-alt))))
    ;;;; prodigy
    `(prodigy-green-face ((,class (:foreground ,green))))
    `(prodigy-red-face ((,class (:foreground ,red))))

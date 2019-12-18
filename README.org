@@ -225,6 +225,7 @@ the "full support" may not be 100% true…
 + pass
 + persp-mode
 + perspective
++ powerline
 + prodigy
 + rainbow-blocks
 + rainbow-delimiters
