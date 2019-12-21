@@ -390,6 +390,8 @@ between foreground and background is >= 7:1)."
    `(counsel-outline-8 ((,class (:inherit outline-8))))
    `(counsel-outline-default ((,class (:foreground ,green-alt-other :weight bold))))
    `(counsel-variable-documentation ((,class (:foreground ,yellow-alt-other :slant ,modus-theme-slant))))
+   ;;;; counsel-org-capture-string
+   `(counsel-org-capture-string-template-body-face ((,class (:foreground ,fg-special-cold))))
    ;;;; custom
    `(custom-changed ((,class (:inherit modus-theme-subtle-cyan))))
    `(custom-comment ((,class (:foreground ,fg-alt))))

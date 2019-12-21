@@ -173,6 +173,7 @@ the "full support" may not be 100% true…
 + compilation-mode
 + completions
 + counsel*
++ counsel-org-capture-string
 + custom (M-x customize)
 + dashboard (emacs-dashboard)
 + deadgrep
