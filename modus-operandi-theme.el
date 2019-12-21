@@ -397,6 +397,11 @@ between foreground and background is >= 7:1)."
    `(counsel-css-selector-depth-face-4 ((,class (:foreground ,yellow))))
    `(counsel-css-selector-depth-face-5 ((,class (:foreground ,magenta))))
    `(counsel-css-selector-depth-face-6 ((,class (:foreground ,red))))
+   ;;;; counsel-notmuch
+   `(counsel-notmuch-count-face ((,class (:foreground ,cyan))))
+   `(counsel-notmuch-date-face ((,class (:foreground ,blue))))
+   `(counsel-notmuch-people-face ((,class (:foreground ,magenta))))
+   `(counsel-notmuch-subject-face ((,class (:foreground ,magenta-alt-other))))
    ;;;; counsel-org-capture-string
    `(counsel-org-capture-string-template-body-face ((,class (:foreground ,fg-special-cold))))
    ;;;; custom
