@@ -1222,6 +1222,10 @@ between foreground and background is >= 7:1)."
    `(org-verbatim ((,class (:background ,bg-dim :foreground ,fg-special-warm))))
    `(org-verse ((,class (:inherit org-quote))))
    `(org-warning ((,class (:foreground ,blue-intense))))
+   ;;;; org-journal
+   `(org-journal-calendar-entry-face ((,class (:foreground ,yellow-alt-other :slant ,modus-theme-slant))))
+   `(org-journal-calendar-scheduled-face ((,class (:foreground ,red-alt-other :slant ,modus-theme-slant))))
+   `(org-journal-highlight ((,class (:foreground ,magenta-alt))))
    ;;;; org-noter
    `(org-noter-no-notes-exist-face ((,class (:foreground ,red-active :weight bold))))
    `(org-noter-notes-exist-face ((,class (:foreground ,green-active :weight bold))))
