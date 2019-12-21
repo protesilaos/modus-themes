@@ -222,7 +222,7 @@ the "full support" may not be 100% true…
 + mood-line
 + mu4e
 + neotree
-+ org-mode*
++ org*
 + org-recur
 + outline-mode
 + paren-face
