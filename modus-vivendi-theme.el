@@ -1206,7 +1206,6 @@ between foreground and background is >= 7:1)."
    `(org-mode-line-clock ((,class (:background ,bg-main :foreground ,fg-main))))
    `(org-mode-line-clock-overrun ((,class (:inherit modus-theme-intense-red))))
    `(org-priority ((,class (:foreground ,magenta))))
-   `(org-recur ((,class (:foreground ,magenta-active))))
    `(org-quote ((,class (:inherit org-block :foreground ,fg-special-cold))))
    `(org-scheduled ((,class (:foreground ,fg-special-cold))))
    `(org-scheduled-previously ((,class (:foreground ,fg-special-warm))))
@@ -1223,6 +1222,8 @@ between foreground and background is >= 7:1)."
    `(org-verbatim ((,class (:background ,bg-dim :foreground ,fg-special-warm))))
    `(org-verse ((,class (:inherit org-quote))))
    `(org-warning ((,class (:foreground ,blue-intense))))
+   ;;;; org-recur
+   `(org-recur ((,class (:foreground ,magenta-active))))
    ;;;; outline-mode
    `(outline-1 ((,class (:inherit org-level-1))))
    `(outline-2 ((,class (:inherit org-level-2))))
