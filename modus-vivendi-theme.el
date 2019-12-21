@@ -390,6 +390,13 @@ between foreground and background is >= 7:1)."
    `(counsel-outline-8 ((,class (:inherit outline-8))))
    `(counsel-outline-default ((,class (:foreground ,green-alt-other :weight bold))))
    `(counsel-variable-documentation ((,class (:foreground ,yellow-alt-other :slant ,modus-theme-slant))))
+   ;;;; counsel-css
+   `(counsel-css-selector-depth-face-1 ((,class (:foreground ,blue))))
+   `(counsel-css-selector-depth-face-2 ((,class (:foreground ,cyan))))
+   `(counsel-css-selector-depth-face-3 ((,class (:foreground ,green))))
+   `(counsel-css-selector-depth-face-4 ((,class (:foreground ,yellow))))
+   `(counsel-css-selector-depth-face-5 ((,class (:foreground ,magenta))))
+   `(counsel-css-selector-depth-face-6 ((,class (:foreground ,red))))
    ;;;; counsel-org-capture-string
    `(counsel-org-capture-string-template-body-face ((,class (:foreground ,fg-special-cold))))
    ;;;; custom
