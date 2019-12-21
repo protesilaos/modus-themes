@@ -1125,7 +1125,7 @@ between foreground and background is >= 7:1)."
    `(neo-vc-unlocked-changes-face ((,class (:inherit modus-theme-refine-blue))))
    `(neo-vc-up-to-date-face ((,class (:foreground ,fg-alt))))
    `(neo-vc-user-face ((,class (:foreground ,magenta))))
-   ;;;; org-mode
+   ;;;; org
    `(org-agenda-calendar-event ((,class (:foreground ,blue-alt))))
    `(org-agenda-calendar-sexp ((,class (:foreground ,cyan-alt))))
    `(org-agenda-clocking ((,class (:inherit modus-theme-special-cold))))
