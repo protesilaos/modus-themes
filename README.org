@@ -172,6 +172,7 @@ the "full support" may not be 100% true…
 + company-posframe
 + compilation-mode
 + completions
++ counsel*
 + custom (M-x customize)
 + dashboard (emacs-dashboard)
 + deadgrep
