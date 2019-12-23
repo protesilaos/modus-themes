@@ -234,6 +234,7 @@ the "full support" may not be 100% true…
 + org-noter
 + org-recur
 + outline-mode
++ package (=M-x list-packages=)
 + paren-face
 + pass
 + persp-mode
@@ -278,7 +279,6 @@ inherit from some basic faces.  Please confirm.
 + comint
 + bongo
 + log-edit
-+ package menu
 + rmail
 
 ** Help needed
