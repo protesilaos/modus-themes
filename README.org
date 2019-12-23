@@ -255,6 +255,7 @@ the "full support" may not be 100% true…
 + transient (pop-up windows like Magit's)
 + treemacs
 + undo-tree
++ vc (built-in mode line status for version control)
 + visual-regexp
 + wgrep
 + which-key
@@ -293,7 +294,6 @@ context before assessing its aesthetics or specific requirements.
 Use =M-x list-faces-display= to get these.
 
 + tty-menu
-+ vc-{conflict-state,state-base}…
 
 Note that the themes do provide support for =org-mode=, but some of
 these interfaces have been decided based on indirect experience.  If you
