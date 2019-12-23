@@ -176,6 +176,7 @@ the "full support" may not be 100% true…
 + counsel-css
 + counsel-notmuch
 + counsel-org-capture-string
++ cov
 + custom (M-x customize)
 + dashboard (emacs-dashboard)
 + deadgrep

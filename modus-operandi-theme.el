@@ -404,6 +404,13 @@ between foreground and background is >= 7:1)."
    `(counsel-notmuch-subject-face ((,class (:foreground ,magenta-alt-other))))
    ;;;; counsel-org-capture-string
    `(counsel-org-capture-string-template-body-face ((,class (:foreground ,fg-special-cold))))
+   ;;;; cov
+   `(cov-coverage-not-run-face ((,class (:foreground ,red-intense))))
+   `(cov-coverage-run-face ((,class (:foreground ,green-intense))))
+   `(cov-heavy-face ((,class (:foreground ,magenta-intense))))
+   `(cov-light-face ((,class (:foreground ,blue-intense))))
+   `(cov-med-face ((,class (:foreground ,yellow-intense))))
+   `(cov-none-face ((,class (:foreground ,cyan-intense))))
    ;;;; custom
    `(custom-changed ((,class (:inherit modus-theme-subtle-cyan))))
    `(custom-comment ((,class (:foreground ,fg-alt))))
