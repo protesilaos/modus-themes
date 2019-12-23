@@ -687,7 +687,7 @@ between foreground and background is >= 7:1)."
    `(fancy-dabbrev-selection-face ((,class (:inherit modus-theme-intense-cyan :weight bold))))
    ;;;; font lock
    `(font-lock-builtin-face ((,class (:foreground ,magenta-alt))))
-   `(font-lock-comment-delimiter-face ((,class (:foreground ,fg-alt))))
+   `(font-lock-comment-delimiter-face ((,class (:foreground ,fg-alt :slant ,modus-theme-slant))))
    `(font-lock-comment-face ((,class (:foreground ,fg-alt :slant ,modus-theme-slant))))
    `(font-lock-constant-face ((,class (:foreground ,blue-alt-other))))
    `(font-lock-doc-face ((,class (:foreground ,fg-special-cold))))
