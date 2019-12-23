@@ -979,7 +979,7 @@ between foreground and background is >= 7:1)."
    `(ivy-org ((,class (:foreground ,cyan-alt-other))))
    `(ivy-prompt-match ((,class (:inherit ivy-current-match))))
    `(ivy-remote ((,class (:foreground ,magenta))))
-   `(ivy-remote ((,class (:foreground ,fg-alt))))
+   `(ivy-separator ((,class (:foreground ,fg-alt))))
    `(ivy-subdir ((,class (:foreground ,blue-alt-other))))
    `(ivy-virtual ((,class (:foreground ,magenta-alt-other))))
    `(ivy-yanked-word ((,class (:inherit modus-theme-refine-blue))))
