@@ -242,7 +242,7 @@ between foreground and background is >= 7:1)."
    ;;; default constructs
    ;;;; absolute essentials
    `(default ((,class (:background ,bg-main :foreground ,fg-main))))
-   `(cursor ((,class (:background ,fg-main))))
+   `(cursor ((,class (:background ,bg-main :foreground ,fg-main :inverse-video t))))
    `(fringe ((,class (:inherit default))))
    ;;;; basic and/or ungrouped styles
    `(diary ((,class (:foreground ,yellow))))
