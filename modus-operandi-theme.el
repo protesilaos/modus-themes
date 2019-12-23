@@ -726,6 +726,18 @@ between foreground and background is >= 7:1)."
      ((,(append '((supports :underline (:style wave))) class)
        (:foreground ,red :underline (:style wave)))
       (,class (:foreground ,red :underline t))))
+   ;;;; geiser
+   `(geiser-font-lock-autodoc-current-arg ((,class (:foreground ,magenta))))
+   `(geiser-font-lock-autodoc-identifier ((,class (:foreground ,blue))))
+   `(geiser-font-lock-doc-button ((,class (:foreground ,cyan-alt :underline t))))
+   `(geiser-font-lock-doc-link ((,class (:inherit link))))
+   `(geiser-font-lock-error-link ((,class (:foreground ,red-alt :underline t))))
+   `(geiser-font-lock-image-button ((,class (:foreground ,green-alt :underline t))))
+   `(geiser-font-lock-repl-input ((,class (:weight bold))))
+   `(geiser-font-lock-repl-output ((,class (:foreground ,magenta-alt-other))))
+   `(geiser-font-lock-repl-prompt ((,class (:foreground ,cyan-alt-other))))
+   `(geiser-font-lock-xref-header ((,class (:weight bold))))
+   `(geiser-font-lock-xref-link ((,class (:inherit link))))
    ;;;; git-commit
    `(git-commit-comment-action ((,class (:foreground ,fg-special-mild))))
    `(git-commit-comment-branch-local ((,class (:foreground ,cyan))))

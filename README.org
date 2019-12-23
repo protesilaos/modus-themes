@@ -206,6 +206,7 @@ the "full support" may not be 100% true…
 + flycheck
 + flycheck-posframe
 + flyspell
++ geiser
 + git
 + git-gutter (and variants)
 + gnus
