@@ -690,7 +690,7 @@ between foreground and background is >= 7:1)."
    `(font-lock-comment-delimiter-face ((,class (:foreground ,fg-alt :slant ,modus-theme-slant))))
    `(font-lock-comment-face ((,class (:foreground ,fg-alt :slant ,modus-theme-slant))))
    `(font-lock-constant-face ((,class (:foreground ,blue-alt-other))))
-   `(font-lock-doc-face ((,class (:foreground ,fg-special-cold))))
+   `(font-lock-doc-face ((,class (:foreground ,fg-special-cold :slant ,modus-theme-slant))))
    `(font-lock-function-name-face ((,class (:foreground ,magenta))))
    `(font-lock-keyword-face ((,class (:foreground ,magenta-alt-other))))
    `(font-lock-negation-char-face ((,class nil)))
