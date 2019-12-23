@@ -373,7 +373,7 @@ between foreground and background is >= 7:1)."
    `(company-posframe-inactive-backend-name ((,class (:background ,bg-active :foreground ,fg-active))))
    `(company-posframe-metadata ((,class (:background ,bg-inactive :foreground ,fg-inactive))))
    ;;;; compilation feedback
-   `(compilation-column-number ((,class (:foreground ,magenta))))
+   `(compilation-column-number ((,class (:foreground ,magenta-alt-other))))
    `(compilation-error ((,class (:foreground ,red :weight bold))))
    `(compilation-info ((,class (:foreground ,fg-special-cold))))
    `(compilation-line-number ((,class (:foreground ,magenta-alt))))
