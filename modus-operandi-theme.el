@@ -256,7 +256,7 @@ between foreground and background is >= 7:1)."
    `(no-emoji ((,class (:foreground ,fg-special-mild :weight bold))))
    `(nobreak-hyphen ((,class (:inherit modus-theme-refine-cyan))))
    `(nobreak-space ((,class (:inherit modus-theme-refine-cyan :underline t))))
-   `(minibuffer-prompt ((,class (:foreground ,cyan-intense))))
+   `(minibuffer-prompt ((,class (:foreground ,cyan))))
    `(mm-command-output ((,class (:foreground ,red-alt-other))))
    `(mm-uu-extract ((,class (:inherit modus-theme-refine-yellow))))
    `(next-error ((,class (:inherit modus-theme-subtle-red))))
