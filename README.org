@@ -266,6 +266,7 @@ the "full support" may not be 100% true…
 + which-key
 + whitespace-mode
 + writegood-mode
++ xah-elisp-mode
 + xterm-color (and ansi-colors)
 + ztree
 

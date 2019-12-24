@@ -1605,6 +1605,11 @@ between foreground and background is >= 7:1)."
    `(writegood-duplicates-face ((,class (:background ,bg-alt :foreground ,red-alt-other :underline t))))
    `(writegood-passive-voice-face ((,class (:background ,bg-alt :foreground ,cyan-alt-other :underline t))))
    `(writegood-weasels-face ((,class (:background ,bg-alt :foreground ,yellow-alt-other :underline t))))
+   ;;;; xah-elisp-mode
+   `(xah-elisp-at-symbol ((,class (:foreground ,red-alt :weight bold))))
+   `(xah-elisp-cap-variable ((,class (:foreground ,red-alt-other))))
+   `(xah-elisp-command-face ((,class (:foreground ,cyan-alt-other))))
+   `(xah-elisp-dollar-symbol ((,class (:foreground ,green))))
    ;;;; ztree
    `(ztreep-arrow-face ((,class (:foreground ,fg-inactive))))
    `(ztreep-diff-header-face ((,class (:height 1.2 :foreground ,fg-special-cold :weight bold))))
