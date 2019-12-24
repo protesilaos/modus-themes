@@ -350,6 +350,10 @@ between foreground and background is >= 7:1)."
    `(widget-field ((,class (:background ,bg-alt :foreground ,fg-dim))))
    `(widget-inactive ((,class (:background ,bg-inactive :foreground ,fg-inactive))))
    `(widget-single-line-field ((,class (:inherit widget-field))))
+   ;;;; calendar
+   `(calendar-today ((,class (:underline t))))
+   `(calendar-weekday-header ((,class (:foreground ,blue-alt-other))))
+   `(calendar-weekend-header ((,class (:foreground ,fg-alt :slant ,modus-theme-slant))))
    ;;;; column-enforce-mode
    `(column-enforce-face ((,class (:inherit modus-theme-refine-yellow))))
    ;;;; company-mode

@@ -168,6 +168,7 @@ the "full support" may not be 100% true…
 + auto-dim-other-buffers
 + avy
 + ace-window
++ calendar
 + column-enforce-mode
 + company-mode*
 + company-posframe
@@ -275,7 +276,6 @@ Emacs distribution.
 These do not require any extra styles because they are configured to
 inherit from some basic faces.  Please confirm.
 
-+ calendar
 + change-log
 + comint
 + bongo
