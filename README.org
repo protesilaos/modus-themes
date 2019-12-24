@@ -188,6 +188,8 @@ the "full support" may not be 100% true…
 + diff-mode
 + dired
 + dired-async
++ dired-git-info
++ dired-narrow
 + dired-subtree
 + diredfl
 + doom-modeline

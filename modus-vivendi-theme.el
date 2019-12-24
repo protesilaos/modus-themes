@@ -502,16 +502,25 @@ between foreground and background is >= 7:1)."
    `(diff-refine-changed ((,class (:inherit modus-theme-intense-yellow))))
    `(diff-refine-removed ((,class (:inherit modus-theme-intense-red))))
    `(diff-removed ((,class (:inherit modus-theme-subtle-red))))
-   ;;;; dired (and extensions)
-   `(dgi-commit-message-face ((,class (:foreground ,fg-special-mild)))) ; dired-git-info
-   `(dired-async-failures ((,class (:foreground ,red-active :weight bold))))
-   `(dired-async-message ((,class (:foreground ,green-active :weight bold))))
-   `(dired-async-mode-message ((,class (:foreground ,cyan-active :weight bold))))
+   ;;;; dired
    `(dired-directory ((,class (:foreground ,blue :weight bold))))
    `(dired-flagged ((,class (:inherit modus-theme-intense-red))))
    `(dired-header ((,class (:foreground ,fg-main :weight bold))))
+   `(dired-ignored ((,class (:foreground ,fg-alt))))
+   `(dired-mark ((,class (:foreground ,magenta-alt :weight bold))))
    `(dired-marked ((,class (:inherit modus-theme-intense-magenta))))
+   `(dired-perm-write ((,class (:foreground ,fg-special-warm))))
+   `(dired-symlink ((,class (:foreground ,blue-alt :underline t))))
+   `(dired-warning ((,class (:foreground ,yellow :weight bold))))
+   ;;;; dired-async
+   `(dired-async-failures ((,class (:foreground ,red-active :weight bold))))
+   `(dired-async-message ((,class (:foreground ,green-active :weight bold))))
+   `(dired-async-mode-message ((,class (:foreground ,cyan-active :weight bold))))
+   ;;;; dired-git-info
+   `(dgi-commit-message-face ((,class (:foreground ,fg-special-mild))))
+   ;;;; dired-narrow
    `(dired-narrow-blink ((,class (:inherit modus-theme-subtle-cyan :weight bold))))
+   ;;;; dired-subtree
    ;; remove background from dired-subtree, else it breaks
    ;; dired-{flagged,marked} and any other face that sets a background
    ;; such as hl-line
