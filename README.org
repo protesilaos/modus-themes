@@ -184,6 +184,7 @@ the "full support" may not be 100% true…
 + dashboard (emacs-dashboard)
 + deadgrep
 + define-word
++ disk-usage
 + diff-hl
 + diff-mode
 + dired

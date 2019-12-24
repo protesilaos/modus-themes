@@ -475,6 +475,13 @@ between foreground and background is >= 7:1)."
    ;;;; define-word
    `(define-word-face-1 ((,class (:foreground ,yellow))))
    `(define-word-face-2 ((,class (:foreground ,fg-main))))
+   ;;;; disk-usage
+   `(disk-usage-children ((,class (:foreground ,yellow))))
+   `(disk-usage-inaccessible ((,class (:foreground ,red :weight bold))))
+   `(disk-usage-percent ((,class (:foreground ,green))))
+   `(disk-usage-size ((,class (:foreground ,cyan))))
+   `(disk-usage-symlink ((,class (:foreground ,blue :underline t))))
+   `(disk-usage-symlink-directory ((,class (:foreground ,blue-alt :weight bold))))
    ;;;; diff-hl
    `(diff-hl-change ((,class (:inherit modus-theme-intense-yellow))))
    `(diff-hl-delete ((,class (:inherit modus-theme-intense-red))))
