@@ -354,6 +354,28 @@ between foreground and background is >= 7:1)."
    `(calendar-today ((,class (:underline t))))
    `(calendar-weekday-header ((,class (:foreground ,blue-alt-other))))
    `(calendar-weekend-header ((,class (:foreground ,fg-alt :slant ,modus-theme-slant))))
+   ;;;; calfw
+   `(cfw:face-annotation ((,class (:background ,bg-alt :foreground ,fg-alt))))
+   `(cfw:face-day-title ((,class (:background ,bg-alt :foreground ,fg-main))))
+   `(cfw:face-default-content ((,class (:foreground ,green-alt))))
+   `(cfw:face-default-day ((,class (:inherit cfw:face-day-title :weight bold))))
+   `(cfw:face-disable ((,class (:background ,bg-inactive :foreground ,fg-inactive))))
+   `(cfw:face-grid ((,class (:foreground ,fg-inactive))))
+   `(cfw:face-header ((,class (::foreground ,fg-main :weight bold))))
+   `(cfw:face-holiday ((,class (:background ,bg-alt :foreground ,magenta :weight bold))))
+   `(cfw:face-periods ((,class (:foreground ,cyan-alt-other))))
+   `(cfw:face-saturday ((,class (:background ,bg-alt :foreground ,magenta-alt :weight bold))))
+   `(cfw:face-select ((,class (:inherit modus-theme-intense-blue))))
+   `(cfw:face-sunday ((,class (:background ,bg-alt :foreground ,magenta-alt-other :weight bold))))
+   `(cfw:face-title ((,class (:inherit ,modus-theme-variable-pitch
+                                       :foreground ,fg-special-warm :weight bold
+                                       ,@(when modus-operandi-theme-scale-headings
+                                           (list :height modus-operandi-theme-scale-4))))))
+   `(cfw:face-today ((,class (:foreground ,blue :weight bold))))
+   `(cfw:face-today-title ((,class (:inherit modus-theme-special-mild :box t))))
+   `(cfw:face-toolbar ((,class (:background ,bg-active :foreground ,bg-active))))
+   `(cfw:face-toolbar-button-off ((,class (:background ,bg-alt :foreground ,cyan))))
+   `(cfw:face-toolbar-button-on ((,class (:background ,bg-main :foreground ,blue-intense :weight bold))))
    ;;;; column-enforce-mode
    `(column-enforce-face ((,class (:inherit modus-theme-refine-yellow))))
    ;;;; company-mode

@@ -169,6 +169,7 @@ the "full support" may not be 100% true…
 + avy
 + ace-window
 + calendar
++ calfw
 + column-enforce-mode
 + company-mode*
 + company-posframe
