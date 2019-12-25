@@ -235,6 +235,7 @@ the "full support" may not be 100% true…
 + line numbers (=display-line-numbers-mode= and global variant)
 + magit
 + markdown-mode
++ mentor
 + messages
 + modeline
 + mood-line

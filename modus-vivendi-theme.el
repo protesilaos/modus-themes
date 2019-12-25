@@ -1179,6 +1179,16 @@ between foreground and background is >= 7:1)."
    `(markdown-strike-through-face ((,class (:strike-through t))))
    `(markdown-table-face ((,class (:foreground ,fg-special-cold))))
    `(markdown-url-face ((,class (:foreground ,blue))))
+   ;;;; mentor
+   `(mentor-download-message ((,class (:foreground ,fg-special-warm))))
+   `(mentor-download-name ((,class (:foreground ,fg-special-cold))))
+   `(mentor-download-progress ((,class (:foreground ,blue-alt-other))))
+   `(mentor-download-size ((,class (:foreground ,magenta-alt-other))))
+   `(mentor-download-speed-down ((,class (:foreground ,cyan-alt))))
+   `(mentor-download-speed-up ((,class (:foreground ,red-alt))))
+   `(mentor-download-state ((,class (:foreground ,yellow-alt))))
+   `(mentor-highlight-face ((,class (:inherit modus-theme-subtle-blue))))
+   `(mentor-tracker-name ((,class (:foreground ,magenta-alt))))
    ;;;; messages
    `(message-cited-text ((,class (:foreground ,red-alt))))
    `(message-header-cc ((,class (:foreground ,green-alt :weight bold))))
