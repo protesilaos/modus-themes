@@ -1179,10 +1179,6 @@ between foreground and background is >= 7:1)."
    `(markdown-strike-through-face ((,class (:strike-through t))))
    `(markdown-table-face ((,class (:foreground ,fg-special-cold))))
    `(markdown-url-face ((,class (:foreground ,blue))))
-   ;;;; matching parentheses
-   `(show-paren-match ((,class (:inherit modus-theme-intense-magenta :weight bold))))
-   `(show-paren-match-expression ((,class (:inherit modus-theme-special-mild))))
-   `(show-paren-mismatch ((,class (:inherit modus-theme-intense-red))))
    ;;;; messages
    `(message-cited-text ((,class (:foreground ,red-alt))))
    `(message-header-cc ((,class (:foreground ,green-alt :weight bold))))
@@ -1457,6 +1453,10 @@ between foreground and background is >= 7:1)."
    ;;;; shell scripts
    `(sh-heredoc ((,class (:inherit font-lock-string-face))))
    `(sh-quoted-exec ((,class (:inherit font-lock-builtin-face))))
+   ;;;; show-paren-mode
+   `(show-paren-match ((,class (:inherit modus-theme-intense-magenta :weight bold))))
+   `(show-paren-match-expression ((,class (:inherit modus-theme-special-mild))))
+   `(show-paren-mismatch ((,class (:inherit modus-theme-intense-red))))
    ;;;; smart-mode-line
    `(sml/charging ((,class (:foreground ,green-active))))
    `(sml/discharging ((,class (:foreground ,red-active))))

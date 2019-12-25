@@ -235,7 +235,6 @@ the "full support" may not be 100% true…
 + line numbers (=display-line-numbers-mode= and global variant)
 + magit
 + markdown-mode
-+ matching parentheses
 + messages
 + modeline
 + mood-line
@@ -257,6 +256,7 @@ the "full support" may not be 100% true…
 + rainbow-delimiters
 + ruler-mode
 + shell-script-mode
++ show-paren-mode
 + smart-mode-line
 + smartparens
 + smerge
