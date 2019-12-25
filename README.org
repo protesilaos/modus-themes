@@ -108,7 +108,7 @@ This is what is available right now (use the ones appropriate to the
 theme of your choice):
 
 #+BEGIN_SRC emacs-lisp
-;; Choose to render some code constructs in slanted text (italics).  The
+;; Choose to render more code constructs in slanted text (italics).  The
 ;; default, shown below, is to not use italics, unless it is absolutely
 ;; necessary.
 (setq modus-operandi-theme-slanted-constructs nil)
