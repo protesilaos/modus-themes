@@ -94,6 +94,11 @@ between foreground and background is >= 7:1)."
   :type 'boolean
   :group 'modus-theme)
 
+(defcustom modus-operandi-theme-bold-constructs nil
+  "Use bold text in more code constructs."
+  :type 'boolean
+  :group 'modus-theme)
+
 (defcustom modus-operandi-theme-proportional-fonts nil
   "Use proportional fonts (variable-pitch) in headings."
   :type 'boolean
@@ -197,6 +202,11 @@ between foreground and background is >= 7:1)."
       (modus-theme-slant
        (if modus-operandi-theme-slanted-constructs
            'italic
+         'normal))
+
+      (modus-theme-bold
+       (if modus-operandi-theme-bold-constructs
+           'bold
          'normal))
 
       (modus-theme-variable-pitch
@@ -729,18 +739,18 @@ between foreground and background is >= 7:1)."
    `(fancy-dabbrev-menu-face ((,class (:background ,bg-alt :foreground ,fg-alt))))
    `(fancy-dabbrev-preview-face ((,class (:foreground ,fg-alt :underline t))))
    `(fancy-dabbrev-selection-face ((,class (:inherit modus-theme-intense-cyan :weight bold))))
-   ;;;; font lock
-   `(font-lock-builtin-face ((,class (:foreground ,magenta-alt))))
+   ;;;; font-lock
+   `(font-lock-builtin-face ((,class (:foreground ,magenta-alt :weight ,modus-theme-bold))))
    `(font-lock-comment-delimiter-face ((,class (:foreground ,fg-alt :slant ,modus-theme-slant))))
    `(font-lock-comment-face ((,class (:foreground ,fg-alt :slant ,modus-theme-slant))))
    `(font-lock-constant-face ((,class (:foreground ,blue-alt-other))))
    `(font-lock-doc-face ((,class (:foreground ,fg-special-cold :slant ,modus-theme-slant))))
    `(font-lock-function-name-face ((,class (:foreground ,magenta))))
-   `(font-lock-keyword-face ((,class (:foreground ,magenta-alt-other))))
-   `(font-lock-negation-char-face ((,class nil)))
+   `(font-lock-keyword-face ((,class (:foreground ,magenta-alt-other :weight ,modus-theme-bold))))
+   `(font-lock-negation-char-face ((,class (:foreground ,yellow :weight ,modus-theme-bold))))
    `(font-lock-preprocessor-face ((,class (:foreground ,magenta))))
-   `(font-lock-regexp-grouping-backslash ((,class (:weight bold))))
-   `(font-lock-regexp-grouping-construct ((,class (:weight bold))))
+   `(font-lock-regexp-grouping-backslash ((,class (:foreground ,yellow-alt-other :weight bold))))
+   `(font-lock-regexp-grouping-construct ((,class (:foreground ,green-alt-other :weight bold))))
    `(font-lock-string-face ((,class (:foreground ,blue-alt))))
    `(font-lock-type-face ((,class (:foreground ,magenta-alt))))
    `(font-lock-variable-name-face ((,class (:foreground ,cyan))))

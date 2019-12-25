@@ -115,6 +115,12 @@ theme of your choice):
 
 (setq modus-vivendi-theme-slanted-constructs nil)
 
+;; Opt to display some additional code constructs in bold.  The default,
+;; shown below, is to use bold weight only where necessary.
+(setq modus-operandi-theme-bold-constructs nil)
+
+(setq modus-vivendi-theme-bold-constructs nil)
+
 ;; Use proportionately-spaced fonts (variable-pitch) for headings.  The
 ;; default is to use whatever font the user has selected, typically a
 ;; monospaced typeface.
