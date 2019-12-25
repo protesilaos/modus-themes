@@ -712,6 +712,8 @@ between foreground and background is >= 7:1)."
    `(evil-goggles-shift-face ((,class (:inherit evil-goggles-default-face))))
    `(evil-goggles-surround-face ((,class (:inherit evil-goggles-default-face))))
    `(evil-goggles-yank-face ((,class (:inherit modus-theme-subtle-blue))))
+   ;;;; evil-visual-mark-mode
+   `(evil-visual-mark-face ((,class (:inherit modus-theme-intense-magenta))))
    ;;;; eww
    `(eww-invalid-certificate ((,class (:inherit error))))
    `(eww-valid-certificate ((,class (:inherit success))))
