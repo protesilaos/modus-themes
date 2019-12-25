@@ -369,8 +369,8 @@ between foreground and background is >= 7:1)."
    `(cfw:face-sunday ((,class (:background ,bg-alt :foreground ,magenta-alt-other :weight bold))))
    `(cfw:face-title ((,class (:inherit ,modus-theme-variable-pitch
                                        :foreground ,fg-special-warm :weight bold
-                                       ,@(when modus-operandi-theme-scale-headings
-                                           (list :height modus-operandi-theme-scale-4))))))
+                                       ,@(when modus-vivendi-theme-scale-headings
+                                           (list :height modus-vivendi-theme-scale-4))))))
    `(cfw:face-today ((,class (:foreground ,blue :weight bold))))
    `(cfw:face-today-title ((,class (:inherit modus-theme-special-mild :box t))))
    `(cfw:face-toolbar ((,class (:background ,bg-active :foreground ,bg-active))))
