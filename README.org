@@ -240,6 +240,7 @@ the "full support" may not be 100% true…
 + modeline
 + mood-line
 + mu4e
++ mu4e-conversation
 + neotree
 + org*
 + org-journal

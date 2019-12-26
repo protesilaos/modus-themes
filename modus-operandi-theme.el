@@ -1251,6 +1251,18 @@ between foreground and background is >= 7:1)."
    `(mu4e-url-number-face ((,class (:foreground ,blue-alt-other :weight bold))))
    `(mu4e-view-body-face ((,class (:inherit default))))
    `(mu4e-warning-face ((,class (:inherit warning))))
+   ;;;; mu4e-conversation
+   `(mu4e-conversation-header ((,class (:inherit modus-theme-special-cold))))
+   `(mu4e-conversation-sender-1 ((,class (:foreground ,fg-special-warm))))
+   `(mu4e-conversation-sender-2 ((,class (:foreground ,fg-special-cold))))
+   `(mu4e-conversation-sender-3 ((,class (:foreground ,fg-special-mild))))
+   `(mu4e-conversation-sender-4 ((,class (:foreground ,fg-alt))))
+   `(mu4e-conversation-sender-5 ((,class (:foreground ,yellow-refine-fg))))
+   `(mu4e-conversation-sender-6 ((,class (:foreground ,cyan-refine-fg))))
+   `(mu4e-conversation-sender-7 ((,class (:foreground ,green-refine-fg))))
+   `(mu4e-conversation-sender-8 ((,class (:foreground ,blue-refine-fg))))
+   `(mu4e-conversation-sender-me ((,class (:foreground ,fg-main))))
+   `(mu4e-conversation-unread ((,class (:weight bold))))
    ;;;; neotree
    `(neo-banner-face ((,class (:foreground ,magenta))))
    `(neo-button-face ((,class (:inherit button))))
