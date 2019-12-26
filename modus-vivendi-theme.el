@@ -182,7 +182,7 @@ between foreground and background is >= 7:1)."
       ;; distinguishable
       ;; must be combined with: fg-main
       (red-intense-bg "#a4202a") (green-intense-bg "#006800")
-      (yellow-intense-bg "#625a00") (blue-intense-bg "#2844b8")
+      (yellow-intense-bg "#824a00") (blue-intense-bg "#2844b8")
       (magenta-intense-bg "#7042a2") (cyan-intense-bg "#005f88")
       ;; styles for refined git diffs and other contexts where both the
       ;; foreground and the background need to have the same/similar hue
