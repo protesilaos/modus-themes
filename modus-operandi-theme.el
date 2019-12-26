@@ -144,8 +144,8 @@ between foreground and background is >= 7:1)."
       (fg-dim "#282828") (bg-dim "#f8f8f8")
       ;; specifically for on/off states (e.g. mode-line)
       ;; must be combined with themselves
-      (fg-active "#0b0b0b") (bg-active "#d8d8d8")
-      (fg-inactive "#424242") (bg-inactive "#e7e6e4")
+      (fg-active "#191919") (bg-active "#e0e0e0")
+      (fg-inactive "#424242") (bg-inactive "#efedef")
       ;; special base values, used only for cases where the above
       ;; fg-* or bg-* cannot or should not be used (to avoid confusion)
       ;; must be combined with: {fg,bg}-{main,alt,dim}
@@ -199,9 +199,9 @@ between foreground and background is >= 7:1)."
       ;; styles that are meant exclusively for the mode line
       ;;
       ;; must be combined with: bg-active, bg-inactive
-      (red-active "#851000") (green-active "#004e00")
-      (yellow-active "#702f00") (blue-active "#0022cc")
-      (magenta-active "#701c70") (cyan-active "#203e86")
+      (red-active "#930000") (green-active "#005300")
+      (yellow-active "#703700") (blue-active "#0033c0")
+      (magenta-active "#6320a0") (cyan-active "#004882")
 
       ;; conditional styles that evaluate user-facing customisation
       ;; options
