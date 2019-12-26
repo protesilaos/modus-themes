@@ -265,6 +265,7 @@ the "full support" may not be 100% true…
 + speedbar
 + swiper
 + sx
++ telephone-line
 + term
 + transient (pop-up windows like Magit's)
 + treemacs
