@@ -142,6 +142,8 @@ between foreground and background is >= 7:1)."
       (fg-main "#000000") (bg-main "#ffffff")
       (fg-alt "#505050") (bg-alt "#f3f1f3")
       (fg-dim "#282828") (bg-dim "#f8f8f8")
+      ;; this one is reserved for hl-line-mode or equivalent
+      (bg-hl-line "#f3f6f9")
       ;; specifically for on/off states (e.g. mode-line)
       ;; must be combined with themselves
       (fg-active "#191919") (bg-active "#e0e0e0")
@@ -990,7 +992,7 @@ between foreground and background is >= 7:1)."
    `(highlight-changes ((,class (:foreground ,yellow-alt-other))))
    `(highlight-changes-delete ((,class (:foreground ,red-alt-other :underline t))))
    `(hl-line ((,class (,@(and (>= emacs-major-version 27) '(:extend t))
-                       :background ,bg-alt))))
+                       :background ,bg-hl-line))))
    `(region ((,class (,@(and (>= emacs-major-version 27) '(:extend t))
                       :background ,bg-active :foreground ,fg-active))))
    `(secondary-selection ((,class (,@(and (>= emacs-major-version 27) '(:extend t))
