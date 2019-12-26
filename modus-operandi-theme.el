@@ -1206,7 +1206,6 @@ between foreground and background is >= 7:1)."
    `(mode-line-emphasis ((,class (:foreground ,blue-active :weight bold :box t))))
    `(mode-line-highlight ((,class (:inherit modus-theme-intense-blue :box t))))
    `(mode-line-inactive ((,class (:box (:color ,bg-inactive) :background ,bg-inactive :foreground ,fg-inactive))))
-   `(which-func ((,class (:foreground ,fg-main))))
    ;;;; mood-line
    `(mood-line-modified ((,class (:foreground ,magenta-active))))
    `(mood-line-status-error ((,class (:foreground ,red-active :weight bold))))
@@ -1633,6 +1632,8 @@ between foreground and background is >= 7:1)."
    `(wgrep-face ((,class (:inherit modus-theme-refine-green))))
    `(wgrep-file-face ((,class (:foreground ,fg-special-warm))))
    `(wgrep-reject-face ((,class (:inherit modus-theme-intense-red :weight bold))))
+   ;;;; which-function-mode
+   `(which-func ((,class (:foreground ,magenta-active))))
    ;;;; which-key
    `(which-key-command-description-face ((,class (:foreground ,cyan))))
    `(which-key-group-description-face ((,class (:foreground ,magenta-alt))))
