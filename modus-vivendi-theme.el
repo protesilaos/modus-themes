@@ -83,6 +83,12 @@ between foreground and background is >= 7:1)."
 (defface modus-theme-refine-blue nil t)
 (defface modus-theme-refine-magenta nil t)
 (defface modus-theme-refine-cyan nil t)
+(defface modus-theme-active-red nil t)
+(defface modus-theme-active-green nil t)
+(defface modus-theme-active-yellow nil t)
+(defface modus-theme-active-blue nil t)
+(defface modus-theme-active-magenta nil t)
+(defface modus-theme-active-cyan nil t)
 (defface modus-theme-special-cold nil t)
 (defface modus-theme-special-mild nil t)
 (defface modus-theme-special-warm nil t)
@@ -241,6 +247,14 @@ between foreground and background is >= 7:1)."
    `(modus-theme-refine-blue ((,class (:background ,blue-refine-bg :foreground ,blue-refine-fg))))
    `(modus-theme-refine-magenta ((,class (:background ,magenta-refine-bg :foreground ,magenta-refine-fg))))
    `(modus-theme-refine-cyan ((,class (:background ,cyan-refine-bg :foreground ,cyan-refine-fg))))
+   ;;; invert the colours used on the "active" backgrounds
+   ;;; mostly for use on the mode line
+   `(modus-theme-active-red ((,class (:background ,red-active :foreground ,bg-active))))
+   `(modus-theme-active-green ((,class (:background ,green-active :foreground ,bg-active))))
+   `(modus-theme-active-yellow ((,class (:background ,yellow-active :foreground ,bg-active))))
+   `(modus-theme-active-blue ((,class (:background ,blue-active :foreground ,bg-active))))
+   `(modus-theme-active-magenta ((,class (:background ,magenta-active :foreground ,bg-active))))
+   `(modus-theme-active-cyan ((,class (:background ,cyan-active :foreground ,bg-active))))
    ;;; special base values that are closer to the grayscale than
    ;;; the accents defined above
    `(modus-theme-special-cold ((,class (:background ,bg-special-cold :foreground ,fg-special-cold))))
