@@ -268,7 +268,7 @@ between foreground and background is >= 7:1)."
    ;;; default constructs
    ;;;; absolute essentials
    `(default ((,class (:background ,bg-main :foreground ,fg-main))))
-   `(cursor ((,class (:background ,bg-main :foreground ,fg-main :inverse-video t))))
+   `(cursor ((,class (:background ,fg-main))))
    `(fringe ((,class (:inherit default))))
    ;;;; basic and/or ungrouped styles
    `(diary ((,class (:foreground ,yellow))))
@@ -1034,7 +1034,7 @@ between foreground and background is >= 7:1)."
    `(ivy-completions-annotations ((,class (:foreground ,fg-special-cold :slant ,modus-theme-slant))))
    `(ivy-confirm-face ((,class (:foreground ,cyan))))
    `(ivy-current-match ((,class (:inherit modus-theme-special-mild :weight bold :underline t))))
-   `(ivy-cursor ((,class (:inherit cursor))))
+   `(ivy-cursor ((,class (:background ,fg-main :foreground ,bg-main))))
    `(ivy-grep-info ((,class (:foreground ,cyan-alt))))
    `(ivy-grep-line-number ((,class (:foreground ,fg-special-warm))))
    `(ivy-highlight-face ((,class (:foreground ,magenta))))
@@ -1056,7 +1056,7 @@ between foreground and background is >= 7:1)."
    ;;;; ivy-posframe
    `(ivy-posframe ((,class (:background ,bg-dim :foreground ,fg-main))))
    `(ivy-posframe-border ((,class (:background ,bg-active))))
-   `(ivy-posframe-cursor ((,class (:inherit cursor))))
+   `(ivy-posframe-cursor ((,class (:background ,fg-main :foreground ,bg-main))))
    ;;;; keycast
    `(keycast-command ((,class (:foreground ,red-active :weight bold))))
    `(keycast-key ((,class (:height 1.2 :inherit modus-theme-special-warm :weight bold :box (:line-width -3 :style released-button)))))
