@@ -626,7 +626,7 @@ between foreground and background is >= 7:1)."
    `(doom-modeline-project-parent-dir ((,class (:foreground ,blue-active))))
    `(doom-modeline-project-root-dir ((,class (:foreground ,fg-active))))
    `(doom-modeline-unread-number ((,class (:foreground ,fg-active :slant italic))))
-   `(doom-modeline-urgent ((,class (:inherit modus-theme-active-red :weight bold))))
+   `(doom-modeline-urgent ((,class (:foreground ,red-active :weight bold))))
    `(doom-modeline-warning ((,class (:foreground ,yellow-active :weight bold))))
    ;;;; easy-jekyll
    `(easy-jekyll-help-face ((,class (:background ,bg-dim :foreground ,cyan-alt-other))))
