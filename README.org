@@ -253,6 +253,7 @@ the "full support" may not be 100% true…
 + persp-mode
 + perspective
 + powerline
++ powerline-evil
 + prodigy
 + rainbow-blocks
 + rainbow-delimiters

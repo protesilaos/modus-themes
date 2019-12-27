@@ -1450,6 +1450,15 @@ between foreground and background is >= 7:1)."
    `(powerline-inactive0 ((,class (:background ,bg-active :foreground ,fg-inactive))))
    `(powerline-inactive1 ((,class (:background ,bg-inactive :foreground ,fg-inactive))))
    `(powerline-inactive2 ((,class (:background ,bg-main :foreground ,fg-alt))))
+   ;;;; powerline-evil
+   `(powerline-evil-base-face ((,class (:background ,fg-main :foreground ,bg-main))))
+   `(powerline-evil-emacs-face ((,class (:inherit modus-theme-active-magenta))))
+   `(powerline-evil-insert-face ((,class (:inherit modus-theme-active-green))))
+   `(powerline-evil-motion-face ((,class (:inherit modus-theme-active-blue))))
+   `(powerline-evil-normal-face ((,class (:background ,fg-alt :foreground ,bg-main))))
+   `(powerline-evil-operator-face ((,class (:inherit modus-theme-active-yellow))))
+   `(powerline-evil-replace-face ((,class (:inherit modus-theme-active-red))))
+   `(powerline-evil-visual-face ((,class (:inherit modus-theme-active-cyan))))
    ;;;; prodigy
    `(prodigy-green-face ((,class (:foreground ,green))))
    `(prodigy-red-face ((,class (:foreground ,red))))
