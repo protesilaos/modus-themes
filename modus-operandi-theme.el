@@ -89,7 +89,6 @@ between foreground and background is >= 7:1)."
 (defface modus-theme-active-blue nil t)
 (defface modus-theme-active-magenta nil t)
 (defface modus-theme-active-cyan nil t)
-(defface modus-theme-active-neutral nil t)
 (defface modus-theme-special-cold nil t)
 (defface modus-theme-special-mild nil t)
 (defface modus-theme-special-warm nil t)
@@ -258,7 +257,6 @@ between foreground and background is >= 7:1)."
    `(modus-theme-active-blue ((,class (:background ,blue-active :foreground ,bg-active))))
    `(modus-theme-active-magenta ((,class (:background ,magenta-active :foreground ,bg-active))))
    `(modus-theme-active-cyan ((,class (:background ,cyan-active :foreground ,bg-active))))
-   `(modus-theme-active-neutral ((,class (:background ,fg-active :foreground ,bg-active))))
    ;;; special base values that are closer to the grayscale than
    ;;; the accents defined above
    `(modus-theme-special-cold ((,class (:background ,bg-special-cold :foreground ,fg-special-cold))))
