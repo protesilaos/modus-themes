@@ -1042,7 +1042,8 @@ between foreground and background is >= 7:1)."
    `(ivy-action ((,class (:foreground ,red-alt :weight bold))))
    `(ivy-completions-annotations ((,class (:foreground ,fg-special-cold :slant ,modus-theme-slant))))
    `(ivy-confirm-face ((,class (:foreground ,cyan))))
-   `(ivy-current-match ((,class (:inherit modus-theme-special-mild :weight bold :underline t))))
+   `(ivy-current-match ((,class (:inherit modus-theme-special-mild :weight bold
+                                          :box (:line-width 1 :color ,fg-inactive)))))
    `(ivy-cursor ((,class (:background ,fg-main :foreground ,bg-main))))
    `(ivy-grep-info ((,class (:foreground ,cyan-alt))))
    `(ivy-grep-line-number ((,class (:foreground ,fg-special-warm))))
