@@ -1265,7 +1265,7 @@ between foreground and background is >= 7:1)."
    `(mu4e-header-value-face ((,class (:foreground ,magenta-alt-other))))
    `(mu4e-highlight-face ((,class (:foreground ,blue-intense :weight bold))))
    `(mu4e-link-face ((,class (:inherit link))))
-   `(mu4e-modeline-face ((,class (:foreground ,cyan-active))))
+   `(mu4e-modeline-face ((,class (:foreground ,magenta-active))))
    `(mu4e-moved-face ((,class (:foreground ,blue-refine-fg))))
    `(mu4e-ok-face ((,class (:foreground ,green-intense :weight bold))))
    `(mu4e-region-code ((,class (:inherit show-paren-match-expression))))
