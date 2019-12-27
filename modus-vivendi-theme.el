@@ -1447,8 +1447,8 @@ between foreground and background is >= 7:1)."
    `(powerline-active0 ((,class (:background ,fg-inactive :foreground ,bg-inactive))))
    `(powerline-active1 ((,class (:background ,bg-active :foreground ,fg-active))))
    `(powerline-active2 ((,class (:background ,bg-alt :foreground ,fg-active))))
-   `(powerline-inactive0 ((,class (:background ,bg-inactive :foreground ,fg-inactive))))
-   `(powerline-inactive1 ((,class (:background ,bg-alt :foreground ,fg-alt))))
+   `(powerline-inactive0 ((,class (:background ,bg-active :foreground ,fg-inactive))))
+   `(powerline-inactive1 ((,class (:background ,bg-inactive :foreground ,fg-inactive))))
    `(powerline-inactive2 ((,class (:background ,bg-main :foreground ,fg-alt))))
    ;;;; prodigy
    `(prodigy-green-face ((,class (:foreground ,green))))
