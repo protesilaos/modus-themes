@@ -791,6 +791,13 @@ between foreground and background is >= 7:1)."
    `(flycheck-info ((,class (:foreground ,green :underline t))))
    `(flycheck-verify-select-checker ((,class (:box (:line-width 1 :color nil :style released-button)))))
    `(flycheck-warning ((,class (:foreground ,yellow :underline t))))
+   ;;;; flycheck-indicator
+   `(flycheck-indicator-disabled ((,class (:foreground ,fg-inactive :slant ,modus-theme-slant))))
+   `(flycheck-indicator-error ((,class (:foreground ,red-active :weight bold))))
+   `(flycheck-indicator-info ((,class (:foreground ,blue-active :weight bold))))
+   `(flycheck-indicator-running ((,class (:foreground ,magenta-active :weight bold))))
+   `(flycheck-indicator-success ((,class (:foreground ,green-active :weight bold))))
+   `(flycheck-indicator-warning ((,class (:foreground ,yellow-active :weight bold))))
    ;;;; flycheck-posframe
    `(flycheck-posframe-background-face ((,class (:background ,bg-alt))))
    `(flycheck-posframe-border-face ((,class (:foreground ,fg-alt))))

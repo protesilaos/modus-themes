@@ -217,6 +217,7 @@ the "full support" may not be 100% true…
 + fancy-dabbrev
 + font-lock (generic syntax highlighting)
 + flycheck
++ flycheck-indicator
 + flycheck-posframe
 + flyspell
 + geiser
