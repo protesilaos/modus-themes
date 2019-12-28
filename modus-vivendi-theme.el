@@ -197,7 +197,7 @@ between foreground and background is >= 7:1)."
       ;; must be combined with themselves OR the foregrounds can be
       ;; combined with any of the base backgrounds
       (red-refine-bg "#77002a") (green-refine-bg "#00422a")
-      (yellow-refine-bg "#755000") (blue-refine-bg "#2222aa")
+      (yellow-refine-bg "#755000") (blue-refine-bg "#2428a0")
       (magenta-refine-bg "#572f77") (cyan-refine-bg "#2f4680")
       (red-refine-fg "#ffb9ab") (green-refine-fg "#9ff0cf")
       (yellow-refine-fg "#ffffcc") (blue-refine-fg "#adddff")
