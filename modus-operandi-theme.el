@@ -215,7 +215,10 @@ between foreground and background is >= 7:1)."
       ;; work with all accents that cover those two, plus `bg-main'
       ;;
       ;; `bg-region' must be combined with `fg-main'
+      ;;
+      ;; the whitespace values should be combined with themselves
       (bg-hl-line "#f1f2f6") (bg-region "#bcbcbc")
+      (fg-whitespace "#645060") (bg-whitespace "#fff8fc")
 
       ;; conditional styles that evaluate user-facing customisation
       ;; options
@@ -1718,14 +1721,14 @@ between foreground and background is >= 7:1)."
    ;;;; whitespace-mode
    `(whitespace-big-indent ((,class (:inherit modus-theme-subtle-red))))
    `(whitespace-empty ((,class (:inherit modus-theme-intense-magenta))))
-   `(whitespace-hspace ((,class (:background ,bg-dim :foreground ,fg-alt))))
-   `(whitespace-indentation ((,class (:background ,bg-dim :foreground ,fg-alt))))
+   `(whitespace-hspace ((,class (:background ,bg-whitespace :foreground ,fg-whitespace))))
+   `(whitespace-indentation ((,class (:background ,bg-whitespace :foreground ,fg-whitespace))))
    `(whitespace-line ((,class (:inherit modus-theme-special-warm))))
    `(whitespace-newline ((,class (:inherit modus-theme-special-cold))))
-   `(whitespace-space ((,class (:background ,bg-dim :foreground ,fg-alt))))
+   `(whitespace-space ((,class (:background ,bg-whitespace :foreground ,fg-whitespace))))
    `(whitespace-space-after-tab ((,class (:inherit modus-theme-subtle-magenta))))
    `(whitespace-space-before-tab ((,class (:inherit modus-theme-subtle-cyan))))
-   `(whitespace-tab ((,class (:background ,bg-dim :foreground ,fg-alt))))
+   `(whitespace-tab ((,class (:background ,bg-whitespace :foreground ,fg-whitespace))))
    `(whitespace-trailing ((,class (:inherit modus-theme-intense-red))))
    ;;;; writegood-mode
    `(writegood-duplicates-face ((,class (:background ,bg-alt :foreground ,red-alt-other :underline t))))
