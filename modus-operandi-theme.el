@@ -142,8 +142,6 @@ between foreground and background is >= 7:1)."
       (fg-main "#000000") (bg-main "#ffffff")
       (fg-alt "#505050") (bg-alt "#f3f1f3")
       (fg-dim "#282828") (bg-dim "#f8f8f8")
-      ;; this one is reserved for hl-line-mode or equivalent
-      (bg-hl-line "#f3f6f9")
       ;; specifically for on/off states (e.g. mode-line)
       ;; must be combined with themselves
       (fg-active "#191919") (bg-active "#e0e0e0")
@@ -204,6 +202,14 @@ between foreground and background is >= 7:1)."
       (red-active "#930000") (green-active "#005300")
       (yellow-active "#703700") (blue-active "#0033c0")
       (magenta-active "#6320a0") (cyan-active "#004882")
+
+      ;; styles reserved for specific faces
+      ;;
+      ;; `bg-hl-line' is between `bg-dim' and `bg-alt', so it should
+      ;; work with all accents that cover those two, plus `bg-main'
+      ;;
+      ;; `bg-region' must be combined with `fg-main'
+      (bg-hl-line "#f1f2f6") (bg-region "#bcbcbc")
 
       ;; conditional styles that evaluate user-facing customisation
       ;; options
@@ -1001,7 +1007,7 @@ between foreground and background is >= 7:1)."
    `(hl-line ((,class (,@(and (>= emacs-major-version 27) '(:extend t))
                        :background ,bg-hl-line))))
    `(region ((,class (,@(and (>= emacs-major-version 27) '(:extend t))
-                      :background ,bg-active :foreground ,fg-active))))
+                      :background ,bg-region :foreground ,fg-main))))
    `(secondary-selection ((,class (,@(and (>= emacs-major-version 27) '(:extend t))
                                    :background ,bg-inactive :foreground ,fg-inactive))))
    ;;;; hydra
