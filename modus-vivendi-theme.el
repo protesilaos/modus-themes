@@ -142,7 +142,8 @@ between foreground and background is >= 7:1)."
       (fg-main "#ffffff") (bg-main "#000000")
       (fg-alt "#a8a8a8") (bg-alt "#181a20")
       (fg-dim "#e0e6f0") (bg-dim "#110b11")
-      ;; specifically for on/off states (e.g. mode-line)
+      ;; specifically for on/off states (e.g. `mode-line')
+      ;;
       ;; must be combined with themselves
       (fg-active "#f5f5f5") (bg-active "#2f2f2f")
       (fg-inactive "#bebebe") (bg-inactive "#202020")
@@ -153,34 +154,40 @@ between foreground and background is >= 7:1)."
       (fg-special-mild "#bfebe0") (bg-special-mild "#00322e")
       (fg-special-warm "#f8dec0") (bg-special-warm "#382f27")
       ;; styles for the main constructs
-      ;; must be combined with: bg-main, bg-alt, bg-dim
+      ;;
+      ;; must be combined with: `bg-main', `bg-alt', `bg-dim'
       (red "#ff8059") (green "#44bc44")
       (yellow "#eecc00") (blue "#33beff")
       (magenta "#feacd0") (cyan "#00d3d0")
       ;; styles for common, but still specialised constructs
-      ;; must be combined with: bg-main, bg-alt, bg-dim
+      ;;
+      ;; must be combined with: `bg-main', `bg-alt', `bg-dim'
       (red-alt "#f4923b") (green-alt "#58dd13")
       (yellow-alt "#e5f040") (blue-alt "#72a4ff")
       (magenta-alt "#ed92f8") (cyan-alt "#4ae8fc")
       ;; same purpose as above, just slight differences
-      ;; must be combined with: bg-main, bg-alt, bg-dim
+      ;;
+      ;; must be combined with: `bg-main', `bg-alt', `bg-dim'
       (red-alt-other "#ff9977") (green-alt-other "#90d800")
       (yellow-alt-other "#f0ce43") (blue-alt-other "#00baf4")
       (magenta-alt-other "#b6a0ff") (cyan-alt-other "#6ae4b9")
       ;; styles for elements that should draw attention to themselves
-      ;; must be combined with: bg-main
+      ;;
+      ;; must be combined with: `bg-main'
       (red-intense "#fb6859") (green-intense "#00fc50")
       (yellow-intense "#ffdd00") (blue-intense "#00a2ff")
       (magenta-intense "#ff8bd4") (cyan-intense "#30ffc0")
       ;; styles for background elements that should be visible yet
       ;; subtle
-      ;; must be combined with: fg-dim
+      ;;
+      ;; must be combined with: `fg-dim'
       (red-subtle-bg "#762422") (green-subtle-bg "#2f4a00")
       (yellow-subtle-bg "#654230") (blue-subtle-bg "#2a2f90")
       (magenta-subtle-bg "#5d2975") (cyan-subtle-bg "#00415e")
       ;; styles for background elements that should be visible and
       ;; distinguishable
-      ;; must be combined with: fg-main
+      ;;
+      ;; must be combined with: `fg-main'
       (red-intense-bg "#a4202a") (green-intense-bg "#006800")
       (yellow-intense-bg "#824a00") (blue-intense-bg "#2844b8")
       (magenta-intense-bg "#7042a2") (cyan-intense-bg "#005f88")
@@ -188,8 +195,7 @@ between foreground and background is >= 7:1)."
       ;; foreground and the background need to have the same/similar hue
       ;;
       ;; must be combined with themselves OR the foregrounds can be
-      ;; combined with any of the base backgrounds where subtle shades
-      ;; are needed
+      ;; combined with any of the base backgrounds
       (red-refine-bg "#77002a") (green-refine-bg "#00422a")
       (yellow-refine-bg "#755000") (blue-refine-bg "#2222aa")
       (magenta-refine-bg "#572f77") (cyan-refine-bg "#2f4680")
@@ -198,7 +204,7 @@ between foreground and background is >= 7:1)."
       (magenta-refine-fg "#ffccff") (cyan-refine-fg "#9ffcf6")
       ;; styles that are meant exclusively for the mode line
       ;;
-      ;; must be combined with: bg-active, bg-inactive
+      ;; must be combined with: `bg-active', `bg-inactive'
       (red-active "#ffaa20") (green-active "#70e030")
       (yellow-active "#efdf00") (blue-active "#00ccff")
       (magenta-active "#d0acff") (cyan-active "#00ddc0")
