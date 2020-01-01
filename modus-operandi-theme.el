@@ -717,6 +717,9 @@ between foreground and background is >= 7:1)."
    `(erc-prompt-face ((,class (:foreground ,cyan-alt-other :weight bold))))
    `(erc-timestamp-face ((,class (:foreground ,fg-special-cold :weight bold))))
    `(erc-underline-face ((,class (:underline t))))
+   ;;;; ert
+   `(ert-test-result-expected ((,class (:inherit modus-theme-intense-green))))
+   `(ert-test-result-unexpected ((,class (:inherit modus-theme-intense-red))))
    ;;;; eshell
    `(eshell-ls-archive ((,class (:foreground ,cyan-alt :weight bold))))
    `(eshell-ls-backup ((,class (:foreground ,yellow-alt))))
