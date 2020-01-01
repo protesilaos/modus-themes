@@ -1692,14 +1692,14 @@ between foreground and background is >= 7:1)."
    `(undo-tree-visualizer-unmodified-face ((,class (:foreground ,green-intense))))
    ;;;; vc
    `(vc-conflict-state ((,class (:foreground ,red-active :weight bold))))
-   `(vc-edited-state ((,class (:foreground ,green-active))))
+   `(vc-edited-state ((,class (:foreground ,fg-special-warm))))
    `(vc-locally-added-state ((,class (:foreground ,cyan-active))))
    `(vc-locked-state ((,class (:foreground ,magenta-active :weight bold))))
    `(vc-missing-state ((,class (:foreground ,yellow-active :weight bold))))
-   `(vc-needs-update-state ((,class (:foreground ,blue-active :weight bold))))
-   `(vc-removed-state ((,class (:foreground ,red-active :weight bold))))
+   `(vc-needs-update-state ((,class (:foreground ,fg-special-mild :weight bold))))
+   `(vc-removed-state ((,class (:foreground ,red-active))))
    `(vc-state-base ((,class (:foreground ,fg-active))))
-   `(vc-up-to-date-state ((,class (:foreground ,fg-active))))
+   `(vc-up-to-date-state ((,class (:foreground ,fg-special-cold))))
    ;;;; visual-regexp
    `(vr/group-0 ((,class (:inherit modus-theme-subtle-cyan))))
    `(vr/group-1 ((,class (:inherit modus-theme-subtle-yellow))))
