@@ -220,6 +220,7 @@ the "full support" may not be 100% true…
 + flycheck
 + flycheck-indicator
 + flycheck-posframe
++ flymake
 + flyspell
 + geiser
 + git

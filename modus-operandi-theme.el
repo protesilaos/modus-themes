@@ -821,6 +821,10 @@ between foreground and background is >= 7:1)."
    `(flycheck-posframe-face ((,class (:foreground ,fg-main :slant ,modus-theme-slant))))
    `(flycheck-posframe-info-face ((,class (:foreground ,green :weight bold))))
    `(flycheck-posframe-warning-face ((,class (:foreground ,yellow :weight bold))))
+   ;;;; flymake
+   `(flymake-error ((,class (:foreground ,red :underline t))))
+   `(flymake-note ((,class (:foreground ,green :underline t))))
+   `(flymake-warning ((,class (:foreground ,yellow :underline t))))
    ;;;; flyspell
    `(flyspell-duplicate
      ((,(append '((supports :underline (:style wave))) class)
