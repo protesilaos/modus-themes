@@ -1058,7 +1058,7 @@ between foreground and background is >= 7:1)."
    ;;;; isearch, occur, and the like
    `(isearch ((,class (:inherit modus-theme-intense-green :weight bold))))
    `(isearch-fail ((,class (:inherit modus-theme-subtle-red :weight bold))))
-   `(lazy-highlight ((,class (:inherit modus-theme-subtle-cyan))))
+   `(lazy-highlight ((,class (:inherit modus-theme-refine-cyan))))
    `(match ((,class (:inherit modus-theme-intense-blue))))
    `(query-replace ((,class (:inherit modus-theme-refine-yellow :weight bold))))
    ;;;; info pages (help pages)
