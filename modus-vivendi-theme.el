@@ -874,6 +874,10 @@ between foreground and background is >= 7:1)."
    `(git-gutter-fr+-added ((,class (:inherit git-gutter:added))))
    `(git-gutter-fr+-deleted ((,class (:inherit git-gutter:deleted))))
    `(git-gutter-fr+-modified ((,class (:inherit git-gutter:modified))))
+   ;;;; git-timemachine
+   `(git-timemachine-commit ((,class (:foreground ,yellow-active :weight bold))))
+   `(git-timemachine-minibuffer-author-face ((,class (:foreground ,fg-special-warm))))
+   `(git-timemachine-minibuffer-detail-face ((,class (:foreground ,red-alt))))
    ;;;; gnus
    `(gnus-button ((,class (:inherit button))))
    `(gnus-cite-1 ((,class (:foreground ,blue-alt))))
