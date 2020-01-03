@@ -1065,7 +1065,7 @@ between foreground and background is >= 7:1)."
    `(isearch ((,class (:inherit modus-theme-intense-green :weight bold))))
    `(isearch-fail ((,class (:inherit modus-theme-subtle-red :weight bold))))
    `(lazy-highlight ((,class (:inherit modus-theme-refine-cyan))))
-   `(match ((,class (:inherit modus-theme-intense-blue))))
+   `(match ((,class (:inherit modus-theme-special-calm))))
    `(query-replace ((,class (:inherit modus-theme-refine-yellow :weight bold))))
    ;;;; info pages (help pages)
    `(info-header-node ((,class ((:weight bold)))))
