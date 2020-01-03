@@ -198,10 +198,10 @@ between foreground and background is >= 7:1)."
       ;; combined with any of the base backgrounds
       (red-refine-bg "#77002a") (green-refine-bg "#00422a")
       (yellow-refine-bg "#755000") (blue-refine-bg "#2428a0")
-      (magenta-refine-bg "#572f77") (cyan-refine-bg "#2f4680")
+      (magenta-refine-bg "#71206a") (cyan-refine-bg "#2f4680")
       (red-refine-fg "#ffb9ab") (green-refine-fg "#9ff0cf")
       (yellow-refine-fg "#ffffcc") (blue-refine-fg "#adddff")
-      (magenta-refine-fg "#ffccff") (cyan-refine-fg "#9ffcf6")
+      (magenta-refine-fg "#ffcaf0") (cyan-refine-fg "#9ffcf6")
       ;; styles that are meant exclusively for the mode line
       ;;
       ;; must be combined with: `bg-active', `bg-inactive'
