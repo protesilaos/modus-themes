@@ -850,7 +850,7 @@ between foreground and background is >= 7:1)."
    `(geiser-font-lock-xref-header ((,class (:weight bold))))
    `(geiser-font-lock-xref-link ((,class (:inherit link))))
    ;;;; git-commit
-   `(git-commit-comment-action ((,class (:foreground ,fg-special-mild))))
+   `(git-commit-comment-action ((,class (:foreground ,fg-special-calm))))
    `(git-commit-comment-branch-local ((,class (:foreground ,cyan))))
    `(git-commit-comment-branch-remote ((,class (:foreground ,blue))))
    `(git-commit-comment-detached ((,class (:foreground ,yellow))))
