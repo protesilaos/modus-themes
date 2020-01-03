@@ -185,14 +185,14 @@ between foreground and background is >= 7:1)."
       ;; must be combined with: `fg-dim'
       (red-subtle-bg "#f2b0a2") (green-subtle-bg "#aecf90")
       (yellow-subtle-bg "#f0e0a0") (blue-subtle-bg "#b5d0ff")
-      (magenta-subtle-bg "#ffcef5") (cyan-subtle-bg "#c0efff")
+      (magenta-subtle-bg "#f0d3ff") (cyan-subtle-bg "#c0efff")
       ;; styles for background elements that should be visible and
       ;; distinguishable
       ;;
       ;; must be combined with: `fg-main'
       (red-intense-bg "#ff8892") (green-intense-bg "#5ada88")
       (yellow-intense-bg "#f0f27c") (blue-intense-bg "#90c0ff")
-      (magenta-intense-bg "#e5c0ff") (cyan-intense-bg "#90e5f0")
+      (magenta-intense-bg "#d5baff") (cyan-intense-bg "#90e5f0")
       ;; styles for refined git diffs and other contexts where both the
       ;; foreground and the background need to have the same/similar hue
       ;;
