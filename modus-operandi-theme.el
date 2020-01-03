@@ -92,6 +92,7 @@ between foreground and background is >= 7:1)."
 (defface modus-theme-special-cold nil t)
 (defface modus-theme-special-mild nil t)
 (defface modus-theme-special-warm nil t)
+(defface modus-theme-special-calm nil t)
 
 ;; User-facing customisation options.  They are all deactivated by
 ;; default (users must opt in).
@@ -153,6 +154,7 @@ between foreground and background is >= 7:1)."
       (fg-special-cold "#093060") (bg-special-cold "#dde3f4")
       (fg-special-mild "#184034") (bg-special-mild "#c4ede0")
       (fg-special-warm "#5d3026") (bg-special-warm "#f0e0d4")
+      (fg-special-calm "#5a2b4a") (bg-special-calm "#f8ddea")
       ;; styles for the main constructs
       ;;
       ;; must be combined with: `bg-main', `bg-alt', `bg-dim'
@@ -277,6 +279,7 @@ between foreground and background is >= 7:1)."
    `(modus-theme-special-cold ((,class (:background ,bg-special-cold :foreground ,fg-special-cold))))
    `(modus-theme-special-mild ((,class (:background ,bg-special-mild :foreground ,fg-special-mild))))
    `(modus-theme-special-warm ((,class (:background ,bg-special-warm :foreground ,fg-special-warm))))
+   `(modus-theme-special-calm ((,class (:background ,bg-special-calm :foreground ,fg-special-calm))))
    ;;;;;;;;;;;;;;;;;;;
    ;; actual styles ;;
    ;;;;;;;;;;;;;;;;;;;
