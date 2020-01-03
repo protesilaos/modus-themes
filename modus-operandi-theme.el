@@ -878,6 +878,12 @@ between foreground and background is >= 7:1)."
    `(git-gutter-fr+-added ((,class (:inherit git-gutter:added))))
    `(git-gutter-fr+-deleted ((,class (:inherit git-gutter:deleted))))
    `(git-gutter-fr+-modified ((,class (:inherit git-gutter:modified))))
+   ;;;; git-lens
+   `(git-lens-added ((,class (:foreground ,green :weight bold))))
+   `(git-lens-deleted ((,class (:foreground ,red :weight bold))))
+   `(git-lens-header ((,class (:height 1.1 :foreground ,cyan :weight bold))))
+   `(git-lens-modified ((,class (:foreground ,yellow :weight bold))))
+   `(git-lens-renamed ((,class (:foreground ,magenta :weight bold))))
    ;;;; git-timemachine
    `(git-timemachine-commit ((,class (:foreground ,yellow-active :weight bold))))
    `(git-timemachine-minibuffer-author-face ((,class (:foreground ,fg-special-warm))))

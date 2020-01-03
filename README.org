@@ -225,6 +225,7 @@ the "full support" may not be 100% true…
 + geiser
 + git
 + git-gutter (and variants)
++ git-lens
 + git-timemachine
 + gnus
 + helm*
