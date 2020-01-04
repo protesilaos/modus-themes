@@ -207,6 +207,7 @@ the "full support" may not be 100% true…
 + elfeed
 + emms
 + epa
++ equake
 + erc
 + ert
 + eshell

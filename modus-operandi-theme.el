@@ -696,6 +696,15 @@ between foreground and background is >= 7:1)."
    `(epa-validity-high ((,class (:foreground ,cyan :weight bold))))
    `(epa-validity-low ((,class (:foreground ,fg-alt))))
    `(epa-validity-medium ((,class (:foreground ,yellow))))
+   ;;;; equake
+   `(equake-buffer-face ((,class (:inherit default))))
+   `(equake-shell-type-eshell ((,class (:background ,bg-inactive :foreground ,green-active))))
+   `(equake-shell-type-rash ((,class (:background ,bg-inactive :foreground ,red-active))))
+   `(equake-shell-type-shell ((,class (:background ,bg-inactive :foreground ,cyan-active))))
+   `(equake-shell-type-term ((,class (:background ,bg-inactive :foreground ,yellow-active))))
+   `(equake-shell-type-vterm ((,class (:background ,bg-inactive :foreground ,magenta-active))))
+   `(equake-tab-active ((,class (:background ,fg-alt :foreground ,bg-alt))))
+   `(equake-tab-inactive ((,class (:foreground ,fg-inactive))))
    ;;;; erc
    `(erc-action-face ((,class (:foreground ,cyan :weight bold))))
    `(erc-bold-face ((,class (:weight bold))))
