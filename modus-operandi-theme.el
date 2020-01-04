@@ -1162,6 +1162,8 @@ between foreground and background is >= 7:1)."
    `(magit-log-author ((,class (:foreground ,fg-special-mild))))
    `(magit-log-date ((,class (:foreground ,fg-dim))))
    `(magit-log-graph ((,class (:foreground ,fg-dim))))
+   `(magit-mode-line-process ((,class (:foreground ,blue-active :weight bold))))
+   `(magit-mode-line-process-error ((,class (:foreground ,red-active :weight bold))))
    `(magit-process-ng ((,class (:inherit error))))
    `(magit-process-ok ((,class (:inherit success))))
    `(magit-reflog-amend ((,class (:background ,bg-main :foreground ,magenta-intense))))
