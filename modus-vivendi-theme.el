@@ -218,9 +218,10 @@ between foreground and background is >= 7:1)."
       ;;
       ;; `bg-region' must be combined with `fg-main'
       ;;
-      ;; the whitespace values should be combined with themselves
+      ;; all other pairs are combinable with themselves
       (bg-hl-line "#151823") (bg-region "#505050")
       (fg-whitespace "#a4959f") (bg-whitespace "#170016")
+      (fg-paren-match "#fcfcfc") (bg-paren-match "#754a5d")
 
       ;; conditional styles that evaluate user-facing customisation
       ;; options
@@ -1528,8 +1529,8 @@ between foreground and background is >= 7:1)."
    `(sh-heredoc ((,class (:inherit font-lock-string-face))))
    `(sh-quoted-exec ((,class (:inherit font-lock-builtin-face))))
    ;;;; show-paren-mode
-   `(show-paren-match ((,class (:inherit modus-theme-intense-magenta :weight bold))))
-   `(show-paren-match-expression ((,class (:inherit modus-theme-special-mild))))
+   `(show-paren-match ((,class (:background ,bg-paren-match :foreground ,fg-paren-match :weight bold))))
+   `(show-paren-match-expression ((,class (:inherit modus-theme-special-calm))))
    `(show-paren-mismatch ((,class (:inherit modus-theme-intense-red))))
    ;;;; smart-mode-line
    `(sml/charging ((,class (:foreground ,green-active))))
