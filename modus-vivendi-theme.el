@@ -1513,6 +1513,7 @@ between foreground and background is >= 7:1)."
    `(rainbow-blocks-depth-9-face ((,class (:foreground ,red-alt))))
    `(rainbow-blocks-unmatched-face ((,class (:foreground ,red))))
    ;;;; rainbow-delimiters
+   `(rainbow-delimiters-base-face-error ((,class (:foreground ,red))))
    `(rainbow-delimiters-base-face ((,class (:foreground ,fg-main))))
    `(rainbow-delimiters-depth-1-face ((,class (:foreground ,green-alt-other))))
    `(rainbow-delimiters-depth-2-face ((,class (:foreground ,magenta-alt-other))))
