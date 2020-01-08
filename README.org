@@ -223,6 +223,7 @@ the "full support" may not be 100% true…
 + flycheck-posframe
 + flymake
 + flyspell
++ fountain (fountain-mode)
 + geiser
 + git
 + git-gutter (and variants)
