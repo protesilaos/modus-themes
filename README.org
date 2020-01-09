@@ -232,6 +232,7 @@ the "full support" may not be 100% true…
 + gnus
 + helm*
 + hydra
++ hl-line-mode
 + ido-mode
 + iedit
 + info pages
