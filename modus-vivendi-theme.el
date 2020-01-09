@@ -1065,6 +1065,8 @@ between foreground and background is >= 7:1)."
    `(hl-line ((,class (:background ,bg-hl-line))))
    `(region ((,class (:background ,bg-region :foreground ,fg-main))))
    `(secondary-selection ((,class (:background ,bg-inactive :foreground ,fg-inactive))))
+   ;;;; hl-fill-column
+   `(hl-fill-column-face ((,class (:background ,bg-active :foreground ,fg-active))))
    ;;;; hydra
    `(hydra-face-amaranth ((,class (:foreground ,yellow-intense :weight bold))))
    `(hydra-face-blue ((,class (:foreground ,blue-intense :weight bold))))

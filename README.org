@@ -233,6 +233,7 @@ the "full support" may not be 100% true…
 + helm*
 + hydra
 + hl-line-mode
++ hl-fill-column
 + ido-mode
 + iedit
 + info pages
