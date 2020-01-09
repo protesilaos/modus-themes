@@ -1065,6 +1065,16 @@ between foreground and background is >= 7:1)."
    `(hl-line ((,class (:background ,bg-hl-line))))
    `(region ((,class (:background ,bg-region :foreground ,fg-main))))
    `(secondary-selection ((,class (:background ,bg-inactive :foreground ,fg-inactive))))
+   ;;;; highlight-blocks
+   `(highlight-blocks-depth-1-face ((,class (:background ,bg-dim :foreground ,fg-main))))
+   `(highlight-blocks-depth-2-face ((,class (:background ,bg-alt :foreground ,fg-main))))
+   `(highlight-blocks-depth-3-face ((,class (:background ,bg-special-cold :foreground ,fg-main))))
+   `(highlight-blocks-depth-4-face ((,class (:background ,bg-special-calm :foreground ,fg-main))))
+   `(highlight-blocks-depth-5-face ((,class (:background ,bg-special-warm :foreground ,fg-main))))
+   `(highlight-blocks-depth-6-face ((,class (:background ,bg-special-mild :foreground ,fg-main))))
+   `(highlight-blocks-depth-7-face ((,class (:background ,bg-inactive :foreground ,fg-main))))
+   `(highlight-blocks-depth-8-face ((,class (:background ,bg-active :foreground ,fg-main))))
+   `(highlight-blocks-depth-9-face ((,class (:background ,cyan-subtle-bg :foreground ,fg-main))))
    ;;;; hl-fill-column
    `(hl-fill-column-face ((,class (:background ,bg-active :foreground ,fg-active))))
    ;;;; hydra
