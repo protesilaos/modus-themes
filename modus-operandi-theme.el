@@ -1387,7 +1387,7 @@ between foreground and background is >= 7:1)."
    `(org-agenda-structure ((,class (:foreground ,fg-special-mild))))
    `(org-archived ((,class (:background ,bg-alt :foreground ,fg-alt))))
    `(org-block ((,class (:inherit default))))
-   `(org-block-begin-line ((,class (:background ,bg-dim :foreground ,fg-alt))))
+   `(org-block-begin-line ((,class (:background ,bg-dim :foreground ,fg-special-mild))))
    `(org-block-end-line ((,class (:inherit org-block-begin-line))))
    `(org-checkbox ((,class (:weight bold))))
    `(org-checkbox-statistics-done ((,class (:foreground ,green :weight bold))))
