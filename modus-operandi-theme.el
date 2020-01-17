@@ -1554,6 +1554,13 @@ between foreground and background is >= 7:1)."
    `(rainbow-delimiters-depth-9-face ((,class (:foreground ,yellow-alt))))
    `(rainbow-delimiters-mismatched-face ((,class (:foreground ,red-alt :weight bold))))
    `(rainbow-delimiters-unmatched-face ((,class (:foreground ,red :weight bold))))
+   ;;;; regexp-builder (re-builder)
+   `(reb-match-0 ((,class (:inherit modus-theme-special-cold))))
+   `(reb-match-1 ((,class (:inherit modus-theme-intense-yellow))))
+   `(reb-match-2 ((,class (:inherit modus-theme-intense-green))))
+   `(reb-match-3 ((,class (:inherit modus-theme-intense-red))))
+   `(reb-regexp-grouping-backslash ((,class (:foreground ,green :weight bold))))
+   `(reb-regexp-grouping-construct ((,class (:foreground ,magenta :weight bold))))
    ;;;; ruler-mode
    `(ruler-mode-column-number ((,class (:inherit ruler-mode-default :foreground ,fg-main :weight bold))))
    `(ruler-mode-comment-column ((,class (:inherit ruler-mode-default :foreground ,red-active))))

@@ -267,6 +267,7 @@ the "full support" may not be 100% true…
 + prodigy
 + rainbow-blocks
 + rainbow-delimiters
++ regexp-builder (also known as =re-builder=)
 + ruler-mode
 + shell-script-mode
 + show-paren-mode
