@@ -712,7 +712,6 @@ between foreground and background is >= 7:1)."
    `(erc-command-indicator-face ((,class (:foreground ,cyan-alt :weight bold))))
    `(erc-current-nick-face ((,class (:foreground ,blue))))
    `(erc-dangerous-host-face ((,class (:inherit modus-theme-intense-red))))
-   `(erc-default-face ((,class (:inherit default))))
    `(erc-direct-msg-face ((,class (:foreground ,green))))
    `(erc-error-face ((,class (:foreground ,red :weight bold))))
    `(erc-fool-face ((,class (:foreground ,fg-inactive))))
