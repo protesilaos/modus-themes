@@ -1779,7 +1779,7 @@ between foreground and background is >= 7:1)."
    `(whitespace-hspace ((,class (:background ,bg-whitespace :foreground ,fg-whitespace))))
    `(whitespace-indentation ((,class (:background ,bg-whitespace :foreground ,fg-whitespace))))
    `(whitespace-line ((,class (:inherit modus-theme-special-warm))))
-   `(whitespace-newline ((,class (:inherit modus-theme-special-cold))))
+   `(whitespace-newline ((,class (:background ,bg-whitespace :foreground ,fg-whitespace))))
    `(whitespace-space ((,class (:background ,bg-whitespace :foreground ,fg-whitespace))))
    `(whitespace-space-after-tab ((,class (:inherit modus-theme-subtle-magenta))))
    `(whitespace-space-before-tab ((,class (:inherit modus-theme-subtle-cyan))))
