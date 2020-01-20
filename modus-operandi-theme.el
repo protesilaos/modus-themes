@@ -1098,16 +1098,14 @@ between foreground and background is >= 7:1)."
    `(info-header-node ((,class (:foreground ,fg-special-warm))))
    `(info-header-xref ((,class (:foreground ,blue-alt))))
    `(info-index-match ((,class (:inherit match))))
+   `(info-menu-star ((,class (:foreground ,fg-main))))
+   `(info-node ((,class ((:weight bold)))))
    ;;;; isearch, occur, and the like
    `(isearch ((,class (:inherit modus-theme-intense-green :weight bold))))
    `(isearch-fail ((,class (:inherit modus-theme-subtle-red :weight bold))))
    `(lazy-highlight ((,class (:inherit modus-theme-refine-cyan))))
    `(match ((,class (:inherit modus-theme-special-calm))))
    `(query-replace ((,class (:inherit modus-theme-refine-yellow :weight bold))))
-   ;;;; info pages (help pages)
-   `(info-header-node ((,class ((:weight bold)))))
-   `(info-menu-star ((,class (:inherit default))))
-   `(info-node ((,class ((:weight bold)))))
    ;;;; ivy
    `(ivy-action ((,class (:foreground ,red-alt :weight bold))))
    `(ivy-completions-annotations ((,class (:foreground ,fg-special-cold :slant ,modus-theme-slant))))
