@@ -216,11 +216,16 @@ between foreground and background is >= 7:1)."
       ;; `bg-hl-line' is between `bg-dim' and `bg-alt', so it should
       ;; work with all accents that cover those two, plus `bg-main'
       ;;
+      ;; `bg-header' is between `bg-active' and `bg-inactive', so it
+      ;; can be combined with any of the "active" values, plus the
+      ;; "special" and base foreground colours
+      ;;
       ;; `bg-region' must be combined with `fg-main'
       ;;
       ;; all other pairs are combinable with themselves
       (bg-hl-line "#151823")
       (bg-region "#505050")
+      (fg-header "#dddddd") (bg-header "#2a2a2a")
       (fg-whitespace "#a4959f") (bg-whitespace "#170016")
       (fg-paren-match "#fcfcfc") (bg-paren-match "#754a5d")
 
@@ -294,7 +299,7 @@ between foreground and background is >= 7:1)."
    `(diary ((,class (:foreground ,yellow))))
    `(error ((,class (:foreground ,red :weight bold))))
    `(escape-glyph ((,class (:inherit modus-theme-refine-blue :weight bold))))
-   `(header-line ((,class (:background ,bg-alt :foreground ,fg-alt))))
+   `(header-line ((,class (:background ,bg-header :foreground ,fg-header))))
    `(holiday ((,class (:inherit modus-theme-subtle-magenta))))
    `(homoglyph ((,class (:foreground ,yellow-alt-other))))
    `(ibuffer-locked-buffer ((,class (:foreground ,yellow-alt-other))))
