@@ -1525,6 +1525,10 @@ between foreground and background is >= 7:1)."
    `(powerline-evil-operator-face ((,class (:inherit modus-theme-active-yellow))))
    `(powerline-evil-replace-face ((,class (:inherit modus-theme-active-red))))
    `(powerline-evil-visual-face ((,class (:inherit modus-theme-active-cyan))))
+   ;;;; proced
+   `(proced-mark ((,class (:foreground ,magenta-alt :weight bold))))
+   `(proced-marked ((,class (:inherit modus-theme-intense-magenta))))
+   `(proced-sort-header ((,class (:foreground ,fg-special-calm :weight bold :underline t))))
    ;;;; prodigy
    `(prodigy-green-face ((,class (:foreground ,green))))
    `(prodigy-red-face ((,class (:foreground ,red))))

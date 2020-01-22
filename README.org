@@ -264,6 +264,7 @@ the "full support" may not be 100% true…
 + perspective
 + powerline
 + powerline-evil
++ proced
 + prodigy
 + rainbow-blocks
 + rainbow-delimiters
