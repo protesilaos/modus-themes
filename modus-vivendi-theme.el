@@ -219,7 +219,8 @@ between foreground and background is >= 7:1)."
       ;; `bg-region' must be combined with `fg-main'
       ;;
       ;; all other pairs are combinable with themselves
-      (bg-hl-line "#151823") (bg-region "#505050")
+      (bg-hl-line "#151823")
+      (bg-region "#505050")
       (fg-whitespace "#a4959f") (bg-whitespace "#170016")
       (fg-paren-match "#fcfcfc") (bg-paren-match "#754a5d")
 
