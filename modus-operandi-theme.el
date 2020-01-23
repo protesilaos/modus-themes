@@ -1467,7 +1467,7 @@ between foreground and background is >= 7:1)."
    `(org-time-grid ((,class (:foreground ,yellow-alt-other))))
    `(org-todo ((,class (:foreground ,magenta-alt-other))))
    `(org-upcoming-deadline ((,class (:foreground ,red-alt-other))))
-   `(org-verbatim ((,class (:background ,bg-dim :foreground ,fg-special-warm))))
+   `(org-verbatim ((,class (:background ,bg-alt :foreground ,fg-special-calm))))
    `(org-verse ((,class (:inherit org-quote))))
    `(org-warning ((,class (:foreground ,blue-intense))))
    ;;;; org-journal
