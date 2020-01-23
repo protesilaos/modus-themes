@@ -1480,14 +1480,30 @@ between foreground and background is >= 7:1)."
    ;;;; org-recur
    `(org-recur ((,class (:foreground ,magenta-active))))
    ;;;; outline-mode
-   `(outline-1 ((,class (:inherit org-level-1))))
-   `(outline-2 ((,class (:inherit org-level-2))))
-   `(outline-3 ((,class (:inherit org-level-3))))
-   `(outline-4 ((,class (:inherit org-level-4))))
-   `(outline-5 ((,class (:inherit org-level-5))))
-   `(outline-6 ((,class (:inherit org-level-6))))
-   `(outline-7 ((,class (:inherit org-level-7))))
-   `(outline-8 ((,class (:inherit org-level-8))))
+   `(outline-1 ((,class (:inherit ,modus-theme-variable-pitch
+                           :foreground ,fg-main :weight bold
+                                       ,@(when modus-operandi-theme-scale-headings
+                                           (list :height modus-operandi-theme-scale-4))))))
+   `(outline-2 ((,class (:inherit ,modus-theme-variable-pitch
+                           :foreground ,fg-special-warm :weight bold
+                                       ,@(when modus-operandi-theme-scale-headings
+                                          (list :height modus-operandi-theme-scale-3))))))
+   `(outline-3 ((,class (:inherit ,modus-theme-variable-pitch
+                           :foreground ,fg-special-cold :weight bold
+                                       ,@(when modus-operandi-theme-scale-headings
+                                          (list :height modus-operandi-theme-scale-2))))))
+   `(outline-4 ((,class (:inherit ,modus-theme-variable-pitch
+                           :foreground ,fg-special-mild :weight bold
+                                       ,@(when modus-operandi-theme-scale-headings
+                                          (list :height modus-operandi-theme-scale-1))))))
+   `(outline-5 ((,class (:inherit ,modus-theme-variable-pitch
+                           :foreground ,fg-dim :weight bold))))
+   `(outline-6 ((,class (:inherit ,modus-theme-variable-pitch
+                           :foreground ,fg-alt :weight bold))))
+   `(outline-7 ((,class (:inherit ,modus-theme-variable-pitch
+                           :foreground ,cyan-active :weight bold))))
+   `(outline-8 ((,class (:inherit ,modus-theme-variable-pitch
+                           :foreground ,magenta-active :weight bold))))
    ;;;; package (M-x list-packages)
    `(package-description ((,class (:foreground ,fg-special-cold))))
    `(package-help-section-name ((,class (:foreground ,magenta-alt-other :weight bold))))
