@@ -1102,7 +1102,7 @@ between foreground and background is >= 7:1)."
    ;;;; info
    `(Info-quoted ((,class (:foreground ,magenta)))) ; the capitalisation is canonical
    `(info-header-node ((,class (:foreground ,fg-special-warm))))
-   `(info-header-xref ((,class (:foreground ,blue-alt))))
+   `(info-header-xref ((,class (:foreground ,blue-active))))
    `(info-index-match ((,class (:inherit match))))
    `(info-menu-star ((,class (:foreground ,fg-main))))
    `(info-node ((,class ((:weight bold)))))
