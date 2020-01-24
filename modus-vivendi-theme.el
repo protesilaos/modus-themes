@@ -777,8 +777,8 @@ between foreground and background is >= 7:1)."
    ;;;; evil-visual-mark-mode
    `(evil-visual-mark-face ((,class (:inherit modus-theme-intense-magenta))))
    ;;;; eww
-   `(eww-invalid-certificate ((,class (:inherit error))))
-   `(eww-valid-certificate ((,class (:inherit success))))
+   `(eww-invalid-certificate ((,class (:foreground ,red-active))))
+   `(eww-valid-certificate ((,class (:foreground ,green-active))))
    `(eww-form-checkbox ((,class (:box (:line-width 1 :color ,fg-inactive :style released-button) :background ,bg-inactive :foreground ,fg-main))))
    `(eww-form-file ((,class (:box (:line-width 1 :color ,fg-inactive :style released-button) :background ,bg-active :foreground ,fg-main))))
    `(eww-form-select ((,class (:inherit eww-form-checkbox))))
