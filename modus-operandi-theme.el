@@ -154,7 +154,7 @@ between foreground and background is >= 7:1)."
       (fg-special-cold "#093060") (bg-special-cold "#dde3f4")
       (fg-special-mild "#184034") (bg-special-mild "#c4ede0")
       (fg-special-warm "#5d3026") (bg-special-warm "#f0e0d4")
-      (fg-special-calm "#5a2b4a") (bg-special-calm "#f8ddea")
+      (fg-special-calm "#61284f") (bg-special-calm "#f8ddea")
       ;; styles for the main constructs
       ;;
       ;; must be combined with: `bg-main', `bg-alt', `bg-dim'
@@ -184,26 +184,26 @@ between foreground and background is >= 7:1)."
       ;;
       ;; must be combined with: `fg-dim'
       (red-subtle-bg "#f2b0a2") (green-subtle-bg "#aecf90")
-      (yellow-subtle-bg "#f0e0a0") (blue-subtle-bg "#b5d0ff")
+      (yellow-subtle-bg "#e4c340") (blue-subtle-bg "#b5d0ff")
       (magenta-subtle-bg "#f0d3ff") (cyan-subtle-bg "#c0efff")
       ;; styles for background elements that should be visible and
       ;; distinguishable
       ;;
       ;; must be combined with: `fg-main'
       (red-intense-bg "#ff8892") (green-intense-bg "#5ada88")
-      (yellow-intense-bg "#f0f27c") (blue-intense-bg "#90c0ff")
-      (magenta-intense-bg "#d5baff") (cyan-intense-bg "#90e5f0")
+      (yellow-intense-bg "#f5df23") (blue-intense-bg "#6aaeff")
+      (magenta-intense-bg "#d5baff") (cyan-intense-bg "#42cbd4")
       ;; styles for refined git diffs and other contexts where both the
       ;; foreground and the background need to have the same/similar hue
       ;;
       ;; must be combined with themselves OR the foregrounds can be
       ;; combined with any of the base backgrounds
       (red-refine-bg "#ffcccc") (green-refine-bg "#aceaac")
-      (yellow-refine-bg "#e2e2aa") (blue-refine-bg "#dad8f9")
-      (magenta-refine-bg "#ffccff") (cyan-refine-bg "#c0e0ef")
+      (yellow-refine-bg "#fff29a") (blue-refine-bg "#8ac7ff")
+      (magenta-refine-bg "#ffccff") (cyan-refine-bg "#8eecf4")
       (red-refine-fg "#780000") (green-refine-fg "#004c00")
-      (yellow-refine-fg "#604000") (blue-refine-fg "#0000bb")
-      (magenta-refine-fg "#770077") (cyan-refine-fg "#004382")
+      (yellow-refine-fg "#604000") (blue-refine-fg "#002288")
+      (magenta-refine-fg "#770077") (cyan-refine-fg "#004850")
       ;; styles that are meant exclusively for the mode line
       ;;
       ;; must be combined with: `bg-active', `bg-inactive'
