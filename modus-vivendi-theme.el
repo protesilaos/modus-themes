@@ -433,6 +433,7 @@ between foreground and background is >= 7:1)."
    `(company-echo-common ((,class (:foreground ,magenta-alt-other))))
    `(company-preview ((,class (:background ,bg-dim :foreground ,fg-dim))))
    `(company-preview-common ((,class (:foreground ,blue-alt))))
+   `(company-preview-search ((,class (:inherit modus-theme-special-calm))))
    `(company-scrollbar-bg ((,class (:background ,bg-active))))
    `(company-scrollbar-fg ((,class (:background ,fg-active))))
    `(company-template-field ((,class (:inherit modus-theme-intense-magenta))))
@@ -442,8 +443,8 @@ between foreground and background is >= 7:1)."
    `(company-tooltip-common ((,class (:foreground ,blue-alt :weight bold))))
    `(company-tooltip-common-selection ((,class (:foreground ,fg-main))))
    `(company-tooltip-mouse ((,class (:inherit modus-theme-intense-blue))))
-   `(company-tooltip-search ((,class (:inherit modus-theme-subtle-blue :weight bold))))
-   `(company-tooltip-search-selection ((,class (:inherit modus-theme-refine-magenta :weight bold :underline t))))
+   `(company-tooltip-search ((,class (:inherit modus-theme-refine-cyan :weight bold))))
+   `(company-tooltip-search-selection ((,class (:inherit modus-theme-intense-green :weight bold :underline t))))
    `(company-tooltip-selection ((,class (:inherit modus-theme-subtle-cyan :weight bold))))
    ;;;; company-posframe
    `(company-posframe-active-backend-name ((,class (:background ,bg-active :foreground ,blue-active :weight bold))))
