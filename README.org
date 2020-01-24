@@ -217,6 +217,7 @@ the "full support" may not be 100% true…
 + eww
 + eyebrowse
 + fancy-dabbrev
++ focus
 + font-lock (generic syntax highlighting)
 + flycheck
 + flycheck-indicator
