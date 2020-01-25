@@ -1467,7 +1467,7 @@ between foreground and background is >= 7:1)."
    `(org-document-title ((,class (:foreground ,fg-special-cold :weight bold))))
    `(org-done ((,class (:foreground ,green))))
    `(org-drawer ((,class (:foreground ,cyan-alt))))
-   `(org-ellipsis ((,class (:foreground ,yellow-alt :underline t))))
+   `(org-ellipsis ((,class (:foreground nil)))) ; inherits from the heading's colour
    `(org-footnote ((,class (:foreground ,blue-alt :underline t))))
    `(org-formula ((,class (:foreground ,red-alt))))
    `(org-habit-alert-face ((,class (:inherit modus-theme-intense-yellow))))
