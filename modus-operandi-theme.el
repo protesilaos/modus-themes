@@ -1109,6 +1109,18 @@ between foreground and background is >= 7:1)."
    `(info-index-match ((,class (:inherit match))))
    `(info-menu-star ((,class (:foreground ,fg-main))))
    `(info-node ((,class ((:weight bold)))))
+   ;;;; info-colors
+   `(info-colors-lisp-code-block ((,class (:inherit fixed-pitch))))
+   `(info-colors-ref-item-command ((,class (:foreground ,magenta))))
+   `(info-colors-ref-item-constant ((,class (:foreground ,blue-alt-other))))
+   `(info-colors-ref-item-function ((,class (:foreground ,magenta))))
+   `(info-colors-ref-item-macro ((,class (:foreground ,magenta-alt-other :weight ,modus-theme-bold))))
+   `(info-colors-ref-item-other ((,class (:foreground ,cyan))))
+   `(info-colors-ref-item-special-form ((,class (:foreground ,magenta-alt-other :weight ,modus-theme-bold))))
+   `(info-colors-ref-item-syntax-class ((,class (:foreground ,magenta))))
+   `(info-colors-ref-item-type ((,class (:foreground ,magenta-alt))))
+   `(info-colors-ref-item-user-option ((,class (:foreground ,cyan))))
+   `(info-colors-ref-item-variable ((,class (:foreground ,cyan))))
    ;;;; isearch, occur, and the like
    `(isearch ((,class (:inherit modus-theme-intense-green :weight bold))))
    `(isearch-fail ((,class (:inherit modus-theme-refine-red))))

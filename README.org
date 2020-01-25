@@ -239,6 +239,7 @@ the "full support" may not be 100% true…
 + ido-mode
 + iedit
 + info
++ info-colors
 + isearch, occur, etc.
 + ivy*
 + ivy-posframe
