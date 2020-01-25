@@ -812,7 +812,7 @@ between foreground and background is >= 7:1)."
    `(font-lock-warning-face ((,class (:background ,bg-alt :foreground ,yellow-alt-other :weight bold))))
    ;;;; flycheck
    `(flycheck-error ((,class (:foreground ,red :underline t))))
-   `(flycheck-error-list-checker-name ((,class (:foreground ,magenta-alt))))
+   `(flycheck-error-list-checker-name ((,class (:foreground ,magenta-active))))
    `(flycheck-error-list-column-number ((,class (:foreground ,fg-special-cold))))
    `(flycheck-error-list-error ((,class (:inherit error))))
    `(flycheck-error-list-filename ((,class (:foreground ,blue))))
