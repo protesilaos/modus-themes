@@ -294,7 +294,7 @@ between foreground and background is >= 7:1)."
    ;;;; absolute essentials
    `(default ((,class (:background ,bg-main :foreground ,fg-main))))
    `(cursor ((,class (:background ,fg-main))))
-   `(fringe ((,class (:inherit default))))
+   `(fringe ((,class (:background ,bg-main :foreground ,fg-main))))
    ;;;; basic and/or ungrouped styles
    `(diary ((,class (:foreground ,yellow))))
    `(error ((,class (:foreground ,red :weight bold))))
