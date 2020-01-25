@@ -238,7 +238,7 @@ the "full support" may not be 100% true…
 + hl-fill-column
 + ido-mode
 + iedit
-+ info pages
++ info
 + isearch, occur, etc.
 + ivy*
 + ivy-posframe
