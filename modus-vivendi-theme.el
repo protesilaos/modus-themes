@@ -151,6 +151,7 @@
 ;;     org
 ;;     org-journal
 ;;     org-noter
+;;     org-pomodoro
 ;;     org-recur
 ;;     outline-mode
 ;;     package (M-x list-packages)
@@ -1701,6 +1702,10 @@ between foreground and background is >= 7:1)."
    ;;;; org-noter
    `(org-noter-no-notes-exist-face ((,class (:foreground ,red-active :weight bold))))
    `(org-noter-notes-exist-face ((,class (:foreground ,green-active :weight bold))))
+   ;;;; org-pomodoro
+   `(org-pomodoro-mode-line ((,class (:foreground ,red-active))))
+   `(org-pomodoro-mode-line-break ((,class (:foreground ,cyan-active))))
+   `(org-pomodoro-mode-line-overtime ((,class (:foreground ,red-active :weight bold))))
    ;;;; org-recur
    `(org-recur ((,class (:foreground ,magenta-active))))
    ;;;; outline-mode

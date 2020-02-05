@@ -261,6 +261,7 @@ the "full support" may not be 100% true…
 + org*
 + org-journal
 + org-noter
++ org-pomodoro
 + org-recur
 + outline-mode
 + package (=M-x list-packages=)
