@@ -136,6 +136,7 @@
 ;;     isearch, occur, etc.
 ;;     ivy
 ;;     ivy-posframe
+;;     jira (org-jira)
 ;;     keycast
 ;;     line numbers (`display-line-numbers-mode' and global variant)
 ;;     lsp-mode
@@ -1337,6 +1338,15 @@ between foreground and background is >= 7:1)."
    `(ivy-posframe ((,class (:background ,bg-dim :foreground ,fg-main))))
    `(ivy-posframe-border ((,class (:background ,bg-active))))
    `(ivy-posframe-cursor ((,class (:background ,fg-main :foreground ,bg-main))))
+   ;;;; org-jira
+   `(jiralib-comment-face ((,class (:background ,bg-alt))))
+   `(jiralib-comment-header-face ((,class (:weight bold))))
+   `(jiralib-issue-info-face ((,class (:inherit modus-theme-special-warm))))
+   `(jiralib-issue-info-header-face ((,class (:inherit modus-theme-special-warm :weight bold))))
+   `(jiralib-issue-summary-face ((,class (:weight bold))))
+   `(jiralib-link-filter-face ((,class (:underline t))))
+   `(jiralib-link-issue-face ((,class (:underline t))))
+   `(jiralib-link-project-face ((,class (:underline t))))
    ;;;; keycast
    `(keycast-command ((,class (:foreground ,blue-active :weight bold))))
    `(keycast-key ((,class (:inherit modus-theme-active-blue))))

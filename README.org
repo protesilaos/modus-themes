@@ -246,6 +246,7 @@ the "full support" may not be 100% true…
 + isearch, occur, etc.
 + ivy*
 + ivy-posframe
++ jira (org-jira)
 + keycast
 + line numbers (=display-line-numbers-mode= and global variant)
 + lsp-mode
