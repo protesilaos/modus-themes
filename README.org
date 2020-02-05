@@ -247,6 +247,7 @@ the "full support" may not be 100% true…
 + ivy*
 + ivy-posframe
 + jira (org-jira)
++ js2-mode
 + keycast
 + line numbers (=display-line-numbers-mode= and global variant)
 + lsp-mode
