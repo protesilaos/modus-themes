@@ -77,6 +77,7 @@
 ;;     counsel-org-capture-string
 ;;     cov
 ;;     custom (M-x customize)
+;;     dap-mode
 ;;     dashboard (emacs-dashboard)
 ;;     deadgrep
 ;;     define-word
@@ -659,6 +660,20 @@ between foreground and background is >= 7:1)."
    `(custom-state ((,class (:foreground ,cyan-alt-other))))
    `(custom-themed ((,class (:inherit modus-theme-subtle-blue))))
    `(custom-variable-tag ((,class (:foreground ,cyan :weight bold))))
+   ;;;; dap-mode
+   `(dap-mouse-eval-thing-face ((,class (:box (:line-width -1 :color ,blue-active :style nil)
+                                            :background ,bg-active :foreground ,fg-main))))
+   `(dap-result-overlay-face ((,class (:box (:line-width -1 :color ,bg-active :style nil)
+                                            :background ,bg-active :foreground ,fg-main))))
+   `(dap-ui-breakpoint-verified-fringe ((,class (:foreground ,green-intense :weight bold))))
+   `(dap-ui-compile-errline ((,class (:foreground ,red-intense :weight bold))))
+   `(dap-ui-locals-scope-face ((,class (:foreground ,magenta :weight bold :underline t))))
+   `(dap-ui-locals-variable-face ((,class (:foreground ,cyan :weight bold))))
+   `(dap-ui-locals-variable-leaf-face ((,class (:foreground ,cyan-alt-other :slant italic))))
+   `(dap-ui-marker-face ((,class (:inherit modus-theme-subtle-blue))))
+   `(dap-ui-sessions-stack-frame-face ((,class (:foreground ,magenta-alt :weight bold))))
+   `(dap-ui-sessions-terminated-active-face ((,class (:foreground ,fg-alt :weight bold))))
+   `(dap-ui-sessions-terminated-face ((,class (:foreground ,fg-alt))))
    ;;;; dashboard (emacs-dashboard)
    `(dashboard-banner-logo-title ((,class (:foreground ,fg-special-cold :weight bold))))
    `(dashboard-footer ((,class (:foreground ,fg-special-mild :weight bold))))

@@ -187,6 +187,7 @@ the "full support" may not be 100% true…
 + counsel-org-capture-string
 + cov
 + custom (=M-x customize=)
++ dap-mode
 + dashboard (emacs-dashboard)
 + deadgrep
 + define-word
