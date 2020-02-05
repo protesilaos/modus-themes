@@ -56,6 +56,7 @@
 ;; inherit from font-lock or some basic group).  You are encouraged to
 ;; notify me of any missing package or change you would like to see.
 ;;
+;;     alert
 ;;     all-the-icons
 ;;     annotate
 ;;     anzu
@@ -465,6 +466,12 @@ between foreground and background is >= 7:1)."
    `(success ((,class (:foreground ,green :weight bold))))
    `(trailing-whitespace ((,class (:background ,red-alt))))
    `(warning ((,class (:foreground ,yellow :weight bold))))
+   ;;;; alert
+   `(alert-high-face ((,class (:foreground ,red-alt :weight bold))))
+   `(alert-low-face ((,class (:foreground ,fg-special-mild))))
+   `(alert-moderate-face ((,class (:foreground ,yellow :weight bold))))
+   `(alert-trivial-face ((,class (:foreground ,fg-special-calm))))
+   `(alert-urgent-face ((,class (:foreground ,red-intense :weight bold))))
    ;;;; all-the-icons
    `(all-the-icons-blue ((,class (:foreground ,blue))))
    `(all-the-icons-blue-alt ((,class (:foreground ,blue-alt))))
