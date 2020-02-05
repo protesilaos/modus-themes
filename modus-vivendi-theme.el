@@ -154,6 +154,7 @@
 ;;     org-noter
 ;;     org-pomodoro
 ;;     org-recur
+;;     origami
 ;;     outline-mode
 ;;     package (M-x list-packages)
 ;;     paren-face
@@ -1715,6 +1716,9 @@ between foreground and background is >= 7:1)."
    `(org-pomodoro-mode-line-overtime ((,class (:foreground ,red-active :weight bold))))
    ;;;; org-recur
    `(org-recur ((,class (:foreground ,magenta-active))))
+   ;;;; origami
+   `(origami-fold-header-face ((,class (:background ,bg-dim :foreground ,fg-dim :box t))))
+   `(origami-fold-replacement-face ((,class (:background ,bg-alt :foreground ,fg-alt))))
    ;;;; outline-mode
    `(outline-1 ((,class (:inherit ,modus-theme-variable-pitch
                            :foreground ,fg-main :weight bold
