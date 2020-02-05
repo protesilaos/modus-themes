@@ -64,6 +64,7 @@
 ;;     auto-dim-other-buffers
 ;;     avy
 ;;     ace-window
+;;     breakpoint (provided by built-in gdb-mi.el)
 ;;     calendar
 ;;     calfw
 ;;     column-enforce-mode
@@ -549,6 +550,9 @@ between foreground and background is >= 7:1)."
    `(widget-field ((,class (:background ,bg-alt :foreground ,fg-dim))))
    `(widget-inactive ((,class (:background ,bg-inactive :foreground ,fg-inactive))))
    `(widget-single-line-field ((,class (:inherit widget-field))))
+   ;;;; breakpoint (built-in gdb-mi.el)
+   `(breakpoint-disabled ((,class (:foreground ,fg-alt))))
+   `(breakpoint-enabled ((,class (:foreground ,red :weight bold))))
    ;;;; calendar
    `(calendar-today ((,class (:underline t))))
    `(calendar-weekday-header ((,class (:foreground ,blue-alt-other))))
