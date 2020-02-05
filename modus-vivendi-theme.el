@@ -552,7 +552,7 @@ between foreground and background is >= 7:1)."
    `(button ((,class (:foreground ,blue-alt-other :underline t))))
    `(link ((,class (:foreground ,blue-alt-other :underline t))))
    `(link-visited ((,class (:foreground ,magenta-alt-other :underline t))))
-   `(tooltip ((,class (:inherit modus-theme-subtle-yellow))))
+   `(tooltip ((,class (:background ,bg-special-cold :foreground ,fg-main))))
    `(widget-button ((,class (:inherit button))))
    `(widget-button-pressed ((,class (:inherit button :foreground ,magenta))))
    `(widget-documentation ((,class (:foreground ,green))))
