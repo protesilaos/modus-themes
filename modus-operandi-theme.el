@@ -192,6 +192,7 @@
 ;;     which-function-mode
 ;;     which-key
 ;;     whitespace-mode
+;;     window-divider-mode
 ;;     writegood-mode
 ;;     xah-elisp-mode
 ;;     xterm-color (and ansi-colors)
@@ -383,9 +384,13 @@ between foreground and background is >= 7:1)."
       ;;
       ;; `bg-region' must be combined with `fg-main'
       ;;
+      ;; the window divider colours apply to faces with just an fg value
+      ;;
       ;; all other pairs are combinable with themselves
       (bg-hl-line "#f1f2f6")
       (bg-region "#bcbcbc")
+      (fg-window-divider-inner "#888888")
+      (fg-window-divider-outer "#585858")
       (fg-header "#2a2a2a") (bg-header "#e5e5e5")
       (fg-whitespace "#645060") (bg-whitespace "#fff8fc")
       (fg-paren-match "#222222") (bg-paren-match "#deb8af")
@@ -2097,6 +2102,10 @@ between foreground and background is >= 7:1)."
    `(whitespace-space-before-tab ((,class (:inherit modus-theme-subtle-cyan))))
    `(whitespace-tab ((,class (:background ,bg-whitespace :foreground ,fg-whitespace))))
    `(whitespace-trailing ((,class (:inherit modus-theme-intense-red))))
+   ;;;; window-divider-mode
+   `(window-divider ((,class (:foreground ,fg-window-divider-inner))))
+   `(window-divider-first-pixel ((,class (:foreground ,fg-window-divider-outer))))
+   `(window-divider-last-pixel ((,class (:foreground ,fg-window-divider-outer))))
    ;;;; writegood-mode
    `(writegood-duplicates-face ((,class (:background ,bg-alt :foreground ,red-alt-other :underline t))))
    `(writegood-passive-voice-face ((,class (:background ,bg-alt :foreground ,cyan-alt-other :underline t))))

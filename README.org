@@ -302,6 +302,7 @@ the "full support" may not be 100% true…
 + which-function-mode
 + which-key
 + whitespace-mode
++ window-divider-mode
 + writegood-mode
 + xah-elisp-mode
 + xterm-color (and ansi-colors)
