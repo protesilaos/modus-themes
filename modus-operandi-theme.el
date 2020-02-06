@@ -327,6 +327,12 @@ between foreground and background is >= 7:1)."
       (red-alt-other "#9d2020") (green-alt-other "#145a00")
       (yellow-alt-other "#804000") (blue-alt-other "#0000bb")
       (magenta-alt-other "#5317ac") (cyan-alt-other "#005a68")
+      ;; styles for elements that should be very subtle
+      ;;
+      ;; must be combined with: `bg-main', `bg-alt', `bg-dim'
+      (red-nuanced "#4d0006") (green-nuanced "#003000")
+      (yellow-nuanced "#3a2a00") (blue-nuanced "#001170")
+      (magenta-nuanced "#381050") (cyan-nuanced "#003434")
       ;; styles for elements that should draw attention to themselves
       ;;
       ;; must be combined with: `bg-main'
