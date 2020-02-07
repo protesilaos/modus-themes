@@ -1243,7 +1243,7 @@ between foreground and background is >= 7:1)."
    `(helm-grep-finish ((,class (:foreground ,green))))
    `(helm-grep-lineno ((,class (:foreground ,fg-special-warm))))
    `(helm-grep-match ((,class (:inherit modus-theme-subtle-blue))))
-   `(helm-header ((,class (:background ,bg-alt :foreground ,fg-main :weight bold))))
+   `(helm-header ((,class (:background ,bg-header :foreground ,fg-header :weight bold))))
    `(helm-header-line-left-margin ((,class (:foreground ,yellow-intense :weight bold))))
    `(helm-history-deleted ((,class (:inherit modus-theme-intense-red :weight bold))))
    `(helm-history-remote ((,class (:foreground ,red-alt-other))))
@@ -1258,7 +1258,8 @@ between foreground and background is >= 7:1)."
    `(helm-non-file-buffer ((,class (:foreground ,fg-alt))))
    `(helm-prefarg ((,class (:foreground ,red-alt))))
    `(helm-resume-need-update ((,class (:inherit modus-theme-intense-red))))
-   `(helm-selection ((,class (:inherit modus-theme-special-mild :weight bold :box t))))
+   `(helm-selection  ((,class (,@(and (>= emacs-major-version 27) '(:extend t))
+                                 :inherit modus-theme-intense-cyan :weight bold))))
    `(helm-separator ((,class (:foreground ,fg-special-mild))))
    `(helm-source-header ((,class (:inherit modus-theme-special-cold :weight bold
                                            ,@(when modus-operandi-theme-scale-headings
