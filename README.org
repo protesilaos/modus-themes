@@ -176,7 +176,7 @@ the "full support" may not be 100% true…
 + avy
 + ace-window
 + breakpoint (provided by built-in gdb-mi.el)
-+ calendar
++ calendar and diary
 + calfw
 + column-enforce-mode
 + company-mode*

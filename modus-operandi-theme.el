@@ -66,7 +66,7 @@
 ;;     avy
 ;;     ace-window
 ;;     breakpoint (provided by built-in gdb-mi.el)
-;;     calendar
+;;     calendar and diary
 ;;     calfw
 ;;     column-enforce-mode
 ;;     company-mode
@@ -463,11 +463,9 @@ between foreground and background is >= 7:1)."
    `(cursor ((,class (:background ,fg-main))))
    `(fringe ((,class (:background ,bg-main :foreground ,fg-main))))
    ;;;; basic and/or ungrouped styles
-   `(diary ((,class (:foreground ,yellow))))
    `(error ((,class (:foreground ,red :weight bold))))
    `(escape-glyph ((,class (:inherit modus-theme-refine-blue :weight bold))))
    `(header-line ((,class (:background ,bg-header :foreground ,fg-header))))
-   `(holiday ((,class (:inherit modus-theme-subtle-magenta))))
    `(homoglyph ((,class (:foreground ,yellow-alt-other))))
    `(ibuffer-locked-buffer ((,class (:foreground ,yellow-alt-other))))
    `(italic ((,class (:foreground ,fg-special-cold :slant italic))))
@@ -577,10 +575,15 @@ between foreground and background is >= 7:1)."
    ;;;; breakpoint (built-in gdb-mi.el)
    `(breakpoint-disabled ((,class (:foreground ,fg-alt))))
    `(breakpoint-enabled ((,class (:foreground ,red :weight bold))))
-   ;;;; calendar
+   ;;;; calendar and diary
+   `(calendar-month-header ((,class (:foreground ,fg-main :weight bold))))
    `(calendar-today ((,class (:underline t))))
-   `(calendar-weekday-header ((,class (:foreground ,blue-alt-other))))
+   `(calendar-weekday-header ((,class (:foreground ,blue-alt))))
    `(calendar-weekend-header ((,class (:foreground ,fg-alt :slant ,modus-theme-slant))))
+   `(diary ((,class (:foreground ,yellow-alt-other))))
+   `(diary-anniversary ((,class (:foreground ,green))))
+   `(diary-time ((,class (:foreground ,cyan))))
+   `(holiday ((,class (:foreground ,magenta-alt))))
    ;;;; calfw
    `(cfw:face-annotation ((,class (:background ,bg-alt :foreground ,fg-alt))))
    `(cfw:face-day-title ((,class (:background ,bg-alt :foreground ,fg-main))))
