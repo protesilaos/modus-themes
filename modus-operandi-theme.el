@@ -1675,9 +1675,16 @@ between foreground and background is >= 7:1)."
    `(org-agenda-clocking ((,class (:inherit modus-theme-special-cold))))
    `(org-agenda-column-dateline ((,class (:inherit modus-theme-subtle-neutral))))
    `(org-agenda-current-time ((,class (:inherit modus-theme-intense-cyan))))
-   `(org-agenda-date ((,class (:foreground ,fg-main))))
-   `(org-agenda-date-today ((,class (:inherit modus-theme-subtle-cyan :weight bold :box t))))
-   `(org-agenda-date-weekend ((,class (:foreground ,fg-alt))))
+   `(org-agenda-date ((,class (:inherit ,modus-theme-variable-pitch :foreground ,fg-main
+                                        ,@(when modus-operandi-theme-scale-headings
+                                            (list :height modus-operandi-theme-scale-4))))))
+   `(org-agenda-date-today ((,class (:inherit ,modus-theme-variable-pitch :background ,cyan-subtle-bg
+                                              :foreground ,fg-main :weight bold
+                                              ,@(when modus-operandi-theme-scale-headings
+                                                  (list :height modus-operandi-theme-scale-4))))))
+   `(org-agenda-date-weekend ((,class (:inherit ,modus-theme-variable-pitch :foreground ,fg-alt
+                                                ,@(when modus-operandi-theme-scale-headings
+                                                    (list :height modus-operandi-theme-scale-4))))))
    `(org-agenda-diary ((,class (:background ,bg-main :foreground ,fg-main))))
    `(org-agenda-dimmed-todo-face ((,class (:inherit modus-theme-subtle-neutral))))
    `(org-agenda-done ((,class (:foreground ,green))))
@@ -1686,7 +1693,10 @@ between foreground and background is >= 7:1)."
    `(org-agenda-filter-regexp ((,class (:background ,bg-active :foreground ,fg-main :box t))))
    `(org-agenda-filter-tags ((,class (:background ,bg-active :foreground ,fg-main :box t))))
    `(org-agenda-restriction-lock ((,class (:background ,bg-dim :foreground ,fg-dim))))
-   `(org-agenda-structure ((,class (:foreground ,fg-special-mild))))
+   `(org-agenda-structure ((,class (:inherit ,modus-theme-variable-pitch
+                                             :foreground ,fg-special-mild
+                                             ,@(when modus-operandi-theme-scale-headings
+                                           (list :height modus-operandi-theme-scale-3))))))
    `(org-archived ((,class (:background ,bg-alt :foreground ,fg-alt))))
    `(org-block ((,class (:background ,bg-main :foreground ,fg-main))))
    `(org-block-begin-line ((,class (:background ,bg-dim :foreground ,fg-special-mild))))
