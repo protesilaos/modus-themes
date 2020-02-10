@@ -640,8 +640,9 @@ between foreground and background is >= 7:1)."
    `(compilation-warning ((,class (:foreground ,yellow :weight bold))))
    ;;;; completions
    `(completions-annotations ((,class (:foreground ,fg-special-cold :slant ,modus-theme-slant))))
-   `(completions-common-part ((,class nil)))
-   `(completions-first-difference ((,class (:weight bold))))
+   `(completions-common-part ((,class (:foreground ,cyan-alt-other))))
+   `(completions-first-difference ((,class (:foreground ,blue-alt-other :weight bold))))
+   `(icomplete-first-match ((,class (:foreground ,magenta :weight bold))))
    ;;;; counsel
    `(counsel-active-mode ((,class (:foreground ,magenta-alt-other))))
    `(counsel-application-name ((,class (:foreground ,red-alt-other))))
