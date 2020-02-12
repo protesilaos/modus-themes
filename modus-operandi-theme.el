@@ -87,6 +87,7 @@
 ;;     disk-usage
 ;;     diff-hl
 ;;     diff-mode
+;;     dim-autoload
 ;;     dired
 ;;     dired-async
 ;;     dired-git-info
@@ -769,6 +770,8 @@ between foreground and background is >= 7:1)."
    `(diff-refine-changed ((,class (:inherit modus-theme-intense-yellow))))
    `(diff-refine-removed ((,class (:inherit modus-theme-intense-red))))
    `(diff-removed ((,class (:inherit modus-theme-subtle-red))))
+   ;;;; dim-autoload
+   `(dim-autoload-cookie-line ((,class (:foreground ,fg-alt :slant ,modus-theme-slant))))
    ;;;; dired
    `(dired-directory ((,class (:foreground ,blue :weight bold))))
    `(dired-flagged ((,class (:inherit modus-theme-intense-red))))

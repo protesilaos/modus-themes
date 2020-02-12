@@ -197,6 +197,7 @@ the "full support" may not be 100% true…
 + disk-usage
 + diff-hl
 + diff-mode
++ dim-autoload
 + dired
 + dired-async
 + dired-git-info
