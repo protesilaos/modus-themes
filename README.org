@@ -200,6 +200,7 @@ the "full support" may not be 100% true…
 + dim-autoload
 + dired
 + dired-async
++ dired-git
 + dired-git-info
 + dired-narrow
 + dired-subtree
