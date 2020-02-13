@@ -68,6 +68,7 @@
 ;;     breakpoint (provided by built-in gdb-mi.el)
 ;;     calendar and diary
 ;;     calfw
+;;     change-log and log-view (`vc-print-log' and `vc-print-root-log')
 ;;     column-enforce-mode
 ;;     company-mode
 ;;     company-posframe
@@ -608,6 +609,19 @@ between foreground and background is >= 7:1)."
    `(cfw:face-toolbar ((,class (:background ,bg-active :foreground ,bg-active))))
    `(cfw:face-toolbar-button-off ((,class (:background ,bg-alt :foreground ,cyan))))
    `(cfw:face-toolbar-button-on ((,class (:background ,bg-main :foreground ,blue-intense :weight bold))))
+   ;;;; change-log and log-view (`vc-print-log' and `vc-print-root-log')
+   `(change-log-acknowledgment ((,class (:foreground ,yellow-nuanced))))
+   `(change-log-conditionals ((,class (:foreground ,magenta-alt))))
+   `(change-log-date ((,class (:foreground ,magenta-nuanced))))
+   `(change-log-email ((,class (:foreground ,cyan-nuanced))))
+   `(change-log-file ((,class (:foreground ,blue-nuanced))))
+   `(change-log-list ((,class (:foreground ,magenta-alt-other))))
+   `(change-log-name ((,class (:foreground ,cyan-nuanced))))
+   `(log-edit-header ((,class (:foreground ,blue :weight bold))))
+   `(log-edit-summary ((,class (:foreground ,magenta-alt-other))))
+   `(log-edit-unknown-header ((,class (:foreground ,fg-alt))))
+   `(log-view-file ((,class (:foreground ,fg-special-cold :weight bold))))
+   `(log-view-message ((,class (:foreground ,fg-special-warm))))
    ;;;; column-enforce-mode
    `(column-enforce-face ((,class (:inherit modus-theme-refine-yellow))))
    ;;;; company-mode
