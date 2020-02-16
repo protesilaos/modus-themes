@@ -199,6 +199,7 @@
 ;;     window-divider-mode
 ;;     writegood-mode
 ;;     xah-elisp-mode
+;;     xref
 ;;     xterm-color (and ansi-colors)
 ;;     ztree
 
@@ -2160,6 +2161,10 @@ between foreground and background is >= 7:1)."
    `(xah-elisp-cap-variable ((,class (:foreground ,red-alt-other))))
    `(xah-elisp-command-face ((,class (:foreground ,cyan-alt-other))))
    `(xah-elisp-dollar-symbol ((,class (:foreground ,green))))
+   ;;;; xref
+   `(xref-file-header ((,class (:foreground ,fg-special-cold :weight bold))))
+   `(xref-line-number ((,class (:foreground ,fg-alt))))
+   `(xref-match ((,class (:inherit match))))
    ;;;; ztree
    `(ztreep-arrow-face ((,class (:foreground ,fg-inactive))))
    `(ztreep-diff-header-face ((,class (:height 1.2 :foreground ,fg-special-cold :weight bold))))
