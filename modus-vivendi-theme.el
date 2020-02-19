@@ -102,6 +102,7 @@
 ;;     ediff
 ;;     eldoc-box
 ;;     elfeed
+;;     enhanced-ruby-mode
 ;;     emms
 ;;     epa
 ;;     equake
@@ -921,6 +922,14 @@ between foreground and background is >= 7:1)."
    `(elfeed-search-title-face ((,class (:foreground ,fg-main))))
    `(elfeed-search-unread-count-face ((,class (:foreground ,fg-special-warm))))
    `(elfeed-search-unread-title-face ((,class (:weight bold))))
+   ;;;; enhanced-ruby-mode
+   `(enh-ruby-heredoc-delimiter-face ((,class (:foreground ,blue-alt-other))))
+   `(enh-ruby-op-face ((,class (:foreground ,fg-main))))
+   `(enh-ruby-regexp-delimiter-face ((,class (:foreground ,green))))
+   `(enh-ruby-regexp-face ((,class (:foreground ,magenta))))
+   `(enh-ruby-string-delimiter-face ((,class (:foreground ,blue-alt))))
+   `(erm-syn-errline ((,class (:foreground ,red :underline t))))
+   `(erm-syn-warnline ((,class (:foreground ,yellow :underline t))))
    ;;;; emms
    `(emms-playlist-track-face ((,class (:foreground ,blue))))
    `(emms-playlist-selected-face ((,class (:foreground ,magenta :weight bold))))

@@ -212,6 +212,7 @@ the "full support" may not be 100% true…
 + ediff
 + eldoc-box
 + elfeed
++ enhanced-ruby-mode
 + emms
 + epa
 + equake
