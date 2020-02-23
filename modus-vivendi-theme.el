@@ -137,6 +137,7 @@
 ;;     hydra
 ;;     ido-mode
 ;;     iedit
+;;     imenu-list
 ;;     info
 ;;     info-colors
 ;;     isearch, occur, etc.
@@ -1352,6 +1353,15 @@ between foreground and background is >= 7:1)."
    ;;;; iedit
    `(iedit-occurrence ((,class (:inherit modus-theme-refine-blue))))
    `(iedit-read-only-occurrence ((,class (:inherit modus-theme-intense-yellow))))
+   ;;;; imenu-list
+   `(imenu-list-entry-face-0 ((,class (:foreground ,magenta-alt-other))))
+   `(imenu-list-entry-face-1 ((,class (:foreground ,cyan-alt-other))))
+   `(imenu-list-entry-face-2 ((,class (:foreground ,yellow-alt-other))))
+   `(imenu-list-entry-face-3 ((,class (:foreground ,green-alt-other))))
+   `(imenu-list-entry-subalist-face-0 ((,class (:foreground ,magenta-alt-other :weight bold :underline t))))
+   `(imenu-list-entry-subalist-face-1 ((,class (:foreground ,cyan-alt-other :weight bold :underline t))))
+   `(imenu-list-entry-subalist-face-2 ((,class (:foreground ,yellow-alt-other :weight bold :underline t))))
+   `(imenu-list-entry-subalist-face-3 ((,class (:foreground ,green-alt-other :weight bold :underline t))))
    ;;;; info
    `(Info-quoted ((,class (:foreground ,magenta)))) ; the capitalisation is canonical
    `(info-header-node ((,class (:foreground ,fg-special-warm))))

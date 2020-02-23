@@ -247,6 +247,7 @@ the "full support" may not be 100% true…
 + hydra
 + ido-mode
 + iedit
++ imenu-list
 + info
 + info-colors
 + isearch, occur, etc.
