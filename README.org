@@ -166,6 +166,7 @@ affected face groups.
 The items with an appended asterisk =*= tend to have lots of extensions, so
 the "full support" may not be 100% true…
 
++ ace-window
 + alert
 + all-the-icons
 + annotate
@@ -175,7 +176,6 @@ the "full support" may not be 100% true…
 + artbollocks-mode
 + auto-dim-other-buffers
 + avy
-+ ace-window
 + breakpoint (provided by built-in gdb-mi.el)
 + calendar and diary
 + calfw
@@ -196,7 +196,6 @@ the "full support" may not be 100% true…
 + deadgrep
 + define-word
 + deft
-+ disk-usage
 + diff-hl
 + diff-mode
 + dim-autoload
@@ -207,14 +206,15 @@ the "full support" may not be 100% true…
 + dired-narrow
 + dired-subtree
 + diredfl
++ disk-usage
 + doom-modeline
 + easy-jekyll
 + easy-kill
 + ediff
 + eldoc-box
 + elfeed
-+ enhanced-ruby-mode
 + emms
++ enhanced-ruby-mode
 + epa
 + equake
 + erc
@@ -226,13 +226,13 @@ the "full support" may not be 100% true…
 + eww
 + eyebrowse
 + fancy-dabbrev
-+ focus
-+ font-lock (generic syntax highlighting)
 + flycheck
 + flycheck-indicator
 + flycheck-posframe
 + flymake
 + flyspell
++ focus
++ font-lock (generic syntax highlighting)
 + fountain (fountain-mode)
 + geiser
 + git
@@ -241,10 +241,10 @@ the "full support" may not be 100% true…
 + git-timemachine
 + gnus
 + helm*
-+ hydra
 + highlight-blocks
-+ hl-line-mode
 + hl-fill-column
++ hl-line-mode
++ hydra
 + ido-mode
 + iedit
 + info
