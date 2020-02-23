@@ -326,10 +326,8 @@ Emacs distribution.
 These do not require any extra styles because they are configured to
 inherit from some basic faces.  Please confirm.
 
-+ change-log
 + comint
 + bongo
-+ log-edit
 + rmail
 
 ** Help needed
