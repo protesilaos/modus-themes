@@ -287,6 +287,7 @@ the "full support" may not be 100% true…
 + rainbow-blocks
 + rainbow-delimiters
 + regexp-builder (also known as =re-builder=)
++ rmail
 + ruler-mode
 + shell-script-mode
 + show-paren-mode
@@ -328,7 +329,6 @@ inherit from some basic faces.  Please confirm.
 
 + comint
 + bongo
-+ rmail
 
 ** Help needed
    :PROPERTIES:

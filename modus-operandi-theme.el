@@ -177,6 +177,7 @@
 ;;     rainbow-blocks
 ;;     rainbow-delimiters
 ;;     regexp-builder (also known as `re-builder')
+;;     rmail
 ;;     ruler-mode
 ;;     shell-script-mode
 ;;     show-paren-mode
@@ -1942,6 +1943,9 @@ between foreground and background is >= 7:1)."
    `(reb-match-3 ((,class (:inherit modus-theme-intense-red))))
    `(reb-regexp-grouping-backslash ((,class (:foreground ,green :weight bold))))
    `(reb-regexp-grouping-construct ((,class (:foreground ,magenta :weight bold))))
+   ;;;; rmail
+   `(rmail-header-name ((,class (:foreground ,cyan-alt-other))))
+   `(rmail-highlight ((,class (:foreground ,magenta-alt :weight bold))))
    ;;;; ruler-mode
    `(ruler-mode-column-number ((,class (:inherit ruler-mode-default :foreground ,fg-main :weight bold))))
    `(ruler-mode-comment-column ((,class (:inherit ruler-mode-default :foreground ,red-active))))
