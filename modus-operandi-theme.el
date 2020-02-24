@@ -482,7 +482,7 @@ between foreground and background is >= 7:1)."
    `(nobreak-space ((,class (:inherit modus-theme-special-cold :underline t))))
    `(minibuffer-prompt ((,class (:foreground ,cyan-alt))))
    `(mm-command-output ((,class (:foreground ,red-alt-other))))
-   `(mm-uu-extract ((,class (:inherit modus-theme-refine-yellow))))
+   `(mm-uu-extract ((,class (:background ,bg-dim :foreground ,fg-special-mild))))
    `(next-error ((,class (:inherit modus-theme-subtle-red))))
    `(shadow ((,class (:foreground ,fg-alt))))
    `(success ((,class (:foreground ,green :weight bold))))
