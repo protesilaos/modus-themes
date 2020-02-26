@@ -1806,7 +1806,7 @@ between foreground and background is >= 7:1)."
    `(org-level-8 ((,class (:inherit ,modus-theme-variable-pitch
                            :foreground ,fg-dim :weight bold))))
    `(org-link ((,class (:inherit link))))
-   `(org-list-dt ((,class (:foreground ,fg-dim :weight bold))))
+   `(org-list-dt ((,class (:weight bold))))
    `(org-macro ((,class (:inherit org-latex-and-related))))
    `(org-meta-line ((,class (:foreground ,fg-alt :slant ,modus-theme-slant))))
    `(org-mode-line-clock ((,class (:background ,bg-main :foreground ,fg-main))))
