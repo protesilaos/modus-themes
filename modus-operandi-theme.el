@@ -1301,9 +1301,13 @@ between foreground and background is >= 7:1)."
    `(helm-non-file-buffer ((,class (:foreground ,fg-alt))))
    `(helm-prefarg ((,class (:foreground ,red-alt))))
    `(helm-resume-need-update ((,class (:inherit modus-theme-intense-red))))
-   `(helm-selection  ((,class (,@(and (>= emacs-major-version 27) '(:extend t))
-                                 :inherit modus-theme-intense-cyan :weight bold))))
+   `(helm-selection ((,class (,@(and (>= emacs-major-version 27) '(:extend t))
+                              :inherit modus-theme-intense-cyan :weight bold))))
+   `(helm-selection-line ((,class (,@(and (>= emacs-major-version 27) '(:extend t))
+                                   :inherit modus-theme-subtle-blue))))
    `(helm-separator ((,class (:foreground ,fg-special-mild))))
+   `(helm-time-zone-current ((,class (:foreground ,green))))
+   `(helm-time-zone-home ((,class (:foreground ,magenta))))
    `(helm-source-header ((,class (:inherit modus-theme-special-cold :weight bold
                                            ,@(when modus-operandi-theme-scale-headings
                                                (list :height modus-operandi-theme-scale-4))))))
