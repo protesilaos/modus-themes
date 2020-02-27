@@ -1286,7 +1286,7 @@ between foreground and background is >= 7:1)."
    `(helm-grep-finish ((,class (:foreground ,green))))
    `(helm-grep-lineno ((,class (:foreground ,fg-special-warm))))
    `(helm-grep-match ((,class (:inherit modus-theme-subtle-blue))))
-   `(helm-header ((,class (:background ,bg-header :foreground ,fg-header :weight bold))))
+   `(helm-header ((,class (:foreground ,fg-special-cold :weight bold))))
    `(helm-header-line-left-margin ((,class (:foreground ,yellow-intense :weight bold))))
    `(helm-history-deleted ((,class (:inherit modus-theme-intense-red :weight bold))))
    `(helm-history-remote ((,class (:foreground ,red-alt-other))))
@@ -1308,10 +1308,11 @@ between foreground and background is >= 7:1)."
    `(helm-separator ((,class (:foreground ,fg-special-mild))))
    `(helm-time-zone-current ((,class (:foreground ,green))))
    `(helm-time-zone-home ((,class (:foreground ,magenta))))
-   `(helm-source-header ((,class (:inherit modus-theme-special-cold :weight bold
-                                           ,@(when modus-vivendi-theme-scale-headings
-                                               (list :height modus-vivendi-theme-scale-4))))))
+   `(helm-source-header ((,class (:foreground ,red-alt :weight bold
+                                              ,@(when modus-vivendi-theme-scale-headings
+                                                  (list :height modus-vivendi-theme-scale-4))))))
    `(helm-top-columns ((,class (:inherit helm-header))))
+   `(helm-ucs-char ((,class (:foreground ,yellow-alt-other))))
    `(helm-visible-mark ((,class (:inherit modus-theme-subtle-cyan))))
    ;;;; highlight region or ad-hoc regexp
    `(hi-black-b ((,class ((:background ,fg-main :foreground ,bg-main)))))
