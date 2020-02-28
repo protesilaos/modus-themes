@@ -131,6 +131,7 @@
 ;;     git-timemachine
 ;;     gnus
 ;;     helm
+;;     helm-ls-git
 ;;     highlight-blocks
 ;;     hl-fill-column
 ;;     hl-line-mode
@@ -1314,6 +1315,16 @@ between foreground and background is >= 7:1)."
    `(helm-top-columns ((,class (:inherit helm-header))))
    `(helm-ucs-char ((,class (:foreground ,yellow-alt-other))))
    `(helm-visible-mark ((,class (:inherit modus-theme-subtle-cyan))))
+   ;;;; helm-ls-git
+   `(helm-ls-git-added-copied-face ((,class (:foreground ,green-intense))))
+   `(helm-ls-git-added-modified-face ((,class (:foreground ,yellow-intense))))
+   `(helm-ls-git-conflict-face ((,class (:foreground ,red-intense :weight bold))))
+   `(helm-ls-git-deleted-and-staged-face ((,class (:foreground ,red-nuanced))))
+   `(helm-ls-git-deleted-not-staged-face ((,class (:foreground ,red))))
+   `(helm-ls-git-modified-and-staged-face ((,class (:foreground ,yellow-nuanced))))
+   `(helm-ls-git-modified-not-staged-face ((,class (:foreground ,yellow))))
+   `(helm-ls-git-renamed-modified-face ((,class (:foreground ,magenta))))
+   `(helm-ls-git-untracked-face ((,class (:foreground ,fg-special-cold))))
    ;;;; highlight region or ad-hoc regexp
    `(hi-black-b ((,class ((:background ,fg-main :foreground ,bg-main)))))
    `(hi-blue ((,class (:background ,bg-alt :foreground ,blue :underline t))))
