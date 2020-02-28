@@ -132,6 +132,7 @@
 ;;     gnus
 ;;     helm
 ;;     helm-ls-git
+;;     helm-xref
 ;;     highlight-blocks
 ;;     hl-fill-column
 ;;     hl-line-mode
@@ -1325,6 +1326,9 @@ between foreground and background is >= 7:1)."
    `(helm-ls-git-modified-not-staged-face ((,class (:foreground ,yellow))))
    `(helm-ls-git-renamed-modified-face ((,class (:foreground ,magenta))))
    `(helm-ls-git-untracked-face ((,class (:foreground ,fg-special-cold))))
+   ;;;; helm-xref
+   `(helm-xref-file-name ((,class (:foreground ,fg-special-cold :weight bold))))
+   `(helm-xref-file-name ((,class (:foreground ,fg-special-warm))))
    ;;;; highlight region or ad-hoc regexp
    `(hi-black-b ((,class ((:background ,fg-main :foreground ,bg-main)))))
    `(hi-blue ((,class (:background ,bg-alt :foreground ,blue :underline t))))

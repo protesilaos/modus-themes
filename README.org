@@ -242,6 +242,7 @@ the "full support" may not be 100% true…
 + gnus
 + helm*
 + helm-ls-git
++ helm-xref
 + highlight-blocks
 + hl-fill-column
 + hl-line-mode
