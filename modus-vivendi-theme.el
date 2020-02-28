@@ -1284,7 +1284,7 @@ between foreground and background is >= 7:1)."
    `(helm-ff-symlink ((,class (:foreground ,cyan :underline t))))
    `(helm-ff-truename ((,class (:foreground ,blue-alt-other))))
    `(helm-grep-cmd-line ((,class (:foreground ,yellow-alt-other))))
-   `(helm-grep-file ((,class (:foreground ,cyan-alt :weight bold))))
+   `(helm-grep-file ((,class (:foreground ,fg-special-cold :weight bold))))
    `(helm-grep-finish ((,class (:foreground ,green))))
    `(helm-grep-lineno ((,class (:foreground ,fg-special-warm))))
    `(helm-grep-match ((,class (:inherit modus-theme-subtle-blue))))
