@@ -1,10 +1,10 @@
 ;;; modus-vivendi-theme.el --- Accessible dark theme (WCAG AAA) -*- lexical-binding:t -*-
 
-;; Copyright (c) 2019-2020 Protesilaos Stavrou <info@protesilaos.com>
+;; Copyright (c) 2019-2020 Free Software Foundation, Inc.
 
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
-;; Version: 0.5.0
+;; Version: 0.6.0
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
