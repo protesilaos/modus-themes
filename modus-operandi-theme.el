@@ -142,6 +142,7 @@
 ;;     imenu-list
 ;;     info
 ;;     info-colors
+;;     interaction-log
 ;;     isearch, occur, etc.
 ;;     ivy
 ;;     ivy-posframe
@@ -1401,6 +1402,13 @@ between foreground and background is >= 7:1)."
    `(info-colors-ref-item-type ((,class (:foreground ,magenta-alt))))
    `(info-colors-ref-item-user-option ((,class (:foreground ,cyan))))
    `(info-colors-ref-item-variable ((,class (:foreground ,cyan))))
+   ;;;; interaction-log
+   `(ilog-buffer-face ((,class (:foreground ,magenta-alt-other))))
+   `(ilog-change-face ((,class (:foreground ,magenta-alt))))
+   `(ilog-echo-face ((,class (:foreground ,yellow-alt-other))))
+   `(ilog-load-face ((,class (:foreground ,green))))
+   `(ilog-message-face ((,class (:foreground ,fg-alt))))
+   `(ilog-non-change-face ((,class (:foreground ,blue))))
    ;;;; isearch, occur, and the like
    `(isearch ((,class (:inherit modus-theme-intense-green :weight bold))))
    `(isearch-fail ((,class (:inherit modus-theme-refine-red))))

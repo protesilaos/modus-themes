@@ -252,6 +252,7 @@ the "full support" may not be 100% true…
 + imenu-list
 + info
 + info-colors
++ interaction-log
 + isearch, occur, etc.
 + ivy*
 + ivy-posframe
