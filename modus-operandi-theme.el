@@ -1444,7 +1444,7 @@ between foreground and background is >= 7:1)."
    `(ivy-posframe ((,class (:background ,bg-dim :foreground ,fg-main))))
    `(ivy-posframe-border ((,class (:background ,bg-active))))
    `(ivy-posframe-cursor ((,class (:background ,fg-main :foreground ,bg-main))))
-   ;;;; org-jira
+   ;;;; jira (org-jira)
    `(jiralib-comment-face ((,class (:background ,bg-alt))))
    `(jiralib-comment-header-face ((,class (:weight bold))))
    `(jiralib-issue-info-face ((,class (:inherit modus-theme-special-warm))))
