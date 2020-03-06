@@ -165,6 +165,7 @@
 ;;     mood-line
 ;;     mu4e
 ;;     mu4e-conversation
+;;     multiple-cursors
 ;;     neotree
 ;;     org
 ;;     org-journal
@@ -1746,6 +1747,10 @@ between foreground and background is >= 7:1)."
    `(mu4e-conversation-sender-8 ((,class (:foreground ,blue-refine-fg))))
    `(mu4e-conversation-sender-me ((,class (:foreground ,fg-main))))
    `(mu4e-conversation-unread ((,class (:weight bold))))
+   ;;;; multiple-cursors
+   `(mc/cursor-bar-face ((,class (:height 1 :background ,fg-main))))
+   `(mc/cursor-face ((,class (:inverse-video t))))
+   `(mc/region-face ((,class (:inherit region))))
    ;;;; neotree
    `(neo-banner-face ((,class (:foreground ,magenta))))
    `(neo-button-face ((,class (:inherit button))))

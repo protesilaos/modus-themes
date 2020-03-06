@@ -275,6 +275,7 @@ the "full support" may not be 100% true…
 + mood-line
 + mu4e
 + mu4e-conversation
++ multiple-cursors
 + neotree
 + org*
 + org-journal
