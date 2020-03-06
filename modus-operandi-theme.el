@@ -202,6 +202,7 @@
 ;;     undo-tree
 ;;     vc (built-in mode line status for version control)
 ;;     visual-regexp
+;;     volatile-highlights
 ;;     wgrep
 ;;     which-function-mode
 ;;     which-key
@@ -2191,6 +2192,8 @@ between foreground and background is >= 7:1)."
    `(vr/match-0 ((,class (:inherit modus-theme-refine-yellow))))
    `(vr/match-1 ((,class (:inherit modus-theme-refine-yellow))))
    `(vr/match-separator-face ((,class (:inherit modus-theme-intense-neutral :weight bold))))
+   ;;;; volatile-highlights
+   `(vhl/default-face ((,class (:background ,bg-alt :foreground ,blue-nuanced))))
    ;;;; wgrep
    `(wgrep-delete-face ((,class (:inherit modus-theme-refine-yellow))))
    `(wgrep-done-face ((,class (:inherit modus-theme-refine-blue))))
