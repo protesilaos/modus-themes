@@ -122,6 +122,7 @@
 ;;     flycheck-posframe
 ;;     flymake
 ;;     flyspell
+;;     flyspell-correct
 ;;     focus
 ;;     font-lock (generic syntax highlighting)
 ;;     fountain (fountain-mode)
@@ -1113,6 +1114,8 @@ between foreground and background is >= 7:1)."
      ((,(append '((supports :underline (:style wave))) class)
        (:foreground ,red :underline (:style wave)))
       (,class (:foreground ,red :underline t))))
+   ;;;; flyspell-correct
+   `(flyspell-correct-highlight-face ((,class (:inherit modus-theme-refine-green))))
    ;;;; fountain-mode
    `(fountain-character ((,class (:foreground ,magenta-alt-other))))
    `(fountain-comment ((,class (:foreground ,fg-alt :slant ,modus-theme-slant))))
