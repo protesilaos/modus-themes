@@ -249,6 +249,7 @@ the "full support" may not be 100% true…
 + highlight-numbers
 + hl-fill-column
 + hl-line-mode
++ hl-todo
 + hydra
 + ido-mode
 + iedit

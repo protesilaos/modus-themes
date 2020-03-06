@@ -139,6 +139,7 @@
 ;;     highlight-numbers
 ;;     hl-fill-column
 ;;     hl-line-mode
+;;     hl-todo
 ;;     hydra
 ;;     ido-mode
 ;;     iedit
@@ -1371,6 +1372,8 @@ between foreground and background is >= 7:1)."
    `(highlight-numbers-number ((,class (:foreground ,blue-alt-other))))
    ;;;; hl-fill-column
    `(hl-fill-column-face ((,class (:background ,bg-active :foreground ,fg-active))))
+   ;;;; hl-todo
+   `(hl-todo ((,class (:foreground ,red-alt-other :weight bold))))
    ;;;; hydra
    `(hydra-face-amaranth ((,class (:foreground ,yellow-intense :weight bold))))
    `(hydra-face-blue ((,class (:foreground ,blue-intense :weight bold))))
@@ -2276,6 +2279,25 @@ between foreground and background is >= 7:1)."
     ;;;; ibuffer
     `(ibuffer-deletion-face 'dired-flagged)
     `(ibuffer-marked-face 'dired-marked)
+    ;;;; hl-todo
+    `(hl-todo-keyword-faces
+      '(("HOLD" . ,yellow-alt)
+        ("TODO" . ,magenta)
+        ("NEXT" . ,magenta-alt-other)
+        ("THEM" . ,magenta-alt)
+        ("PROG" . ,cyan)
+        ("OKAY" . ,cyan-alt)
+        ("DONT" . ,green-alt)
+        ("FAIL" . ,red)
+        ("DONE" . ,green)
+        ("NOTE" . ,yellow-alt-other)
+        ("KLUDGE" . ,yellow)
+        ("HACK" . ,yellow)
+        ("TEMP" . ,red-nuanced)
+        ("FIXME" . ,red-alt-other)
+        ("XXX+" . ,red-alt)
+        ("REVIEW" . ,cyan-alt-other)
+        ("DEPRECATED" . ,cyan-nuanced)))
     ;;;; xterm-color
     `(xterm-color-names [,bg-main ,red ,green ,yellow ,blue ,magenta ,cyan ,fg-alt])
     `(xterm-color-names-bright [,bg-alt ,red-alt ,green-alt ,yellow-alt ,blue-alt ,magenta-alt ,cyan-alt ,fg-main]))))
