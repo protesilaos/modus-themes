@@ -136,6 +136,7 @@
 ;;     helm-ls-git
 ;;     helm-xref
 ;;     highlight-blocks
+;;     highlight-defined
 ;;     highlight-numbers
 ;;     hl-fill-column
 ;;     hl-line-mode
@@ -1370,6 +1371,13 @@ between foreground and background is >= 7:1)."
    `(highlight-blocks-depth-7-face ((,class (:background ,bg-inactive :foreground ,fg-main))))
    `(highlight-blocks-depth-8-face ((,class (:background ,bg-active :foreground ,fg-main))))
    `(highlight-blocks-depth-9-face ((,class (:background ,cyan-subtle-bg :foreground ,fg-main))))
+   ;;;; highlight-defined
+   `(highlight-defined-builtin-function-name-face ((,class (:foreground ,magenta))))
+   `(highlight-defined-face-name-face ((,class (:foreground ,fg-main))))
+   `(highlight-defined-function-name-face ((,class (:foreground ,magenta))))
+   `(highlight-defined-macro-name-face ((,class (:foreground ,magenta-alt))))
+   `(highlight-defined-special-form-name-face ((,class (:foreground ,magenta-alt-other))))
+   `(highlight-defined-variable-name-face ((,class (:foreground ,cyan))))
    ;;;; highlight-numbers
    `(highlight-numbers-number ((,class (:foreground ,blue-alt-other))))
    ;;;; hl-fill-column
