@@ -316,6 +316,7 @@ the "full support" may not be 100% true…
 + vc (built-in mode line status for version control)
 + visual-regexp
 + volatile-highlights
++ web-mode
 + wgrep
 + which-function-mode
 + which-key
