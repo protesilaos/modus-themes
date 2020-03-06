@@ -322,6 +322,7 @@ the "full support" may not be 100% true…
 + xah-elisp-mode
 + xref
 + xterm-color (and ansi-colors)
++ yaml-mode
 + ztree
 
 Plus many other miscellaneous faces that are provided by the out-of-the-box

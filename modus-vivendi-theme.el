@@ -212,6 +212,7 @@
 ;;     xah-elisp-mode
 ;;     xref
 ;;     xterm-color (and ansi-colors)
+;;     yaml-mode
 ;;     ztree
 
 ;;; Code:
@@ -2240,6 +2241,8 @@ between foreground and background is >= 7:1)."
    `(xref-file-header ((,class (:foreground ,fg-special-cold :weight bold))))
    `(xref-line-number ((,class (:foreground ,fg-alt))))
    `(xref-match ((,class (:inherit match))))
+   ;;;; yaml-mode
+   `(yaml-tab-face ((,class (:inherit modus-theme-intense-red))))
    ;;;; ztree
    `(ztreep-arrow-face ((,class (:foreground ,fg-inactive))))
    `(ztreep-diff-header-face ((,class (:height 1.2 :foreground ,fg-special-cold :weight bold))))
