@@ -67,6 +67,7 @@
 ;;     auto-dim-other-buffers
 ;;     avy
 ;;     breakpoint (provided by built-in gdb-mi.el)
+;;     buffer-expose
 ;;     calendar and diary
 ;;     calfw
 ;;     change-log and log-view (`vc-print-log' and `vc-print-root-log')
@@ -594,6 +595,10 @@ between foreground and background is >= 7:1)."
    ;;;; breakpoint (built-in gdb-mi.el)
    `(breakpoint-disabled ((,class (:foreground ,fg-alt))))
    `(breakpoint-enabled ((,class (:foreground ,red :weight bold))))
+   ;;;; buffer-expose
+   `(buffer-expose-ace-char-face ((,class (:foreground ,red-active :weight bold))))
+   `(buffer-expose-mode-line-face ((,class (:foreground ,cyan-active))))
+   `(buffer-expose-selected-face ((,class (:inherit modus-theme-special-mild))))
    ;;;; calendar and diary
    `(calendar-month-header ((,class (:foreground ,fg-main :weight bold))))
    `(calendar-today ((,class (:underline t))))
