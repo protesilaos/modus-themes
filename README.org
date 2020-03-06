@@ -295,6 +295,7 @@ the "full support" may not be 100% true…
 + proced
 + prodigy
 + rainbow-blocks
++ rainbow-identifiers
 + rainbow-delimiters
 + regexp-builder (also known as =re-builder=)
 + rmail
