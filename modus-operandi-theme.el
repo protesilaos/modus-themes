@@ -195,6 +195,7 @@
 ;;     suggest
 ;;     swiper
 ;;     sx
+;;     symbol-overlay
 ;;     telephone-line
 ;;     term
 ;;     transient (pop-up windows like Magit's)
@@ -2108,6 +2109,16 @@ between foreground and background is >= 7:1)."
    `(sx-tag ((,class (:foreground ,magenta-alt))))
    `(sx-user-name ((,class (:foreground ,blue-alt))))
    `(sx-user-reputation ((,class (:foreground ,fg-alt))))
+   ;;;; symbol-overlay
+   `(symbol-overlay-default-face ((,class (:inherit modus-theme-refine-blue))))
+   `(symbol-overlay-face-1 ((,class (:inherit modus-theme-intense-blue))))
+   `(symbol-overlay-face-2 ((,class (:inherit modus-theme-refine-magenta))))
+   `(symbol-overlay-face-3 ((,class (:inherit modus-theme-intense-yellow))))
+   `(symbol-overlay-face-4 ((,class (:inherit modus-theme-intense-magenta))))
+   `(symbol-overlay-face-5 ((,class (:inherit modus-theme-intense-red))))
+   `(symbol-overlay-face-6 ((,class (:inherit modus-theme-refine-red))))
+   `(symbol-overlay-face-7 ((,class (:inherit modus-theme-intense-cyan))))
+   `(symbol-overlay-face-8 ((,class (:inherit modus-theme-refine-cyan))))
    ;;;; telephone-line
    `(telephone-line-accent-active ((,class (:background ,fg-inactive :foreground ,bg-inactive))))
    `(telephone-line-accent-inactive ((,class (:background ,bg-active :foreground ,fg-active))))

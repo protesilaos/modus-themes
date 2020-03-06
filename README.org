@@ -305,6 +305,7 @@ the "full support" may not be 100% true…
 + suggest
 + swiper
 + sx
++ symbol-overlay
 + telephone-line
 + term
 + transient (pop-up windows like Magit's)
