@@ -246,6 +246,7 @@ the "full support" may not be 100% true…
 + helm-ls-git
 + helm-xref
 + highlight-blocks
++ highlight-numbers
 + hl-fill-column
 + hl-line-mode
 + hydra

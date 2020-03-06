@@ -136,6 +136,7 @@
 ;;     helm-ls-git
 ;;     helm-xref
 ;;     highlight-blocks
+;;     highlight-numbers
 ;;     hl-fill-column
 ;;     hl-line-mode
 ;;     hydra
@@ -1363,6 +1364,8 @@ between foreground and background is >= 7:1)."
    `(highlight-blocks-depth-7-face ((,class (:background ,bg-inactive :foreground ,fg-main))))
    `(highlight-blocks-depth-8-face ((,class (:background ,bg-active :foreground ,fg-main))))
    `(highlight-blocks-depth-9-face ((,class (:background ,cyan-subtle-bg :foreground ,fg-main))))
+   ;;;; highlight-numbers
+   `(highlight-numbers-number ((,class (:foreground ,blue-alt-other))))
    ;;;; hl-fill-column
    `(hl-fill-column-face ((,class (:background ,bg-active :foreground ,fg-active))))
    ;;;; hydra
