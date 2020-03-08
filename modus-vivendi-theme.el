@@ -2247,7 +2247,8 @@ between foreground and background is >= 7:1)."
    `(vr/match-1 ((,class (:inherit modus-theme-refine-yellow))))
    `(vr/match-separator-face ((,class (:inherit modus-theme-intense-neutral :weight bold))))
    ;;;; volatile-highlights
-   `(vhl/default-face ((,class (:background ,bg-alt :foreground ,blue-nuanced))))
+   `(vhl/default-face ((,class (,@(and (>= emacs-major-version 27) '(:extend t))
+                                :background ,bg-alt :foreground ,blue-nuanced))))
    ;;;; web-mode
    `(web-mode-annotation-face ((,class (:inherit web-mode-comment-face))))
    `(web-mode-annotation-html-face ((,class (:inherit web-mode-comment-face))))
