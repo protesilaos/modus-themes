@@ -123,6 +123,7 @@
 ;;     flymake
 ;;     flyspell
 ;;     flyspell-correct
+;;     frog-menu
 ;;     focus
 ;;     font-lock (generic syntax highlighting)
 ;;     fountain (fountain-mode)
@@ -1125,6 +1126,13 @@ between foreground and background is >= 7:1)."
       (,class (:foreground ,red :underline t))))
    ;;;; flyspell-correct
    `(flyspell-correct-highlight-face ((,class (:inherit modus-theme-refine-green))))
+   ;;;; frog-menu
+   `(frog-menu-action-keybinding-face ((,class (:foreground ,blue-alt-other))))
+   `(frog-menu-actions-face ((,class (:foreground ,magenta))))
+   `(frog-menu-border ((,class (:background ,bg-active))))
+   `(frog-menu-candidates-face ((,class (:foreground ,fg-main))))
+   `(frog-menu-posframe-background-face ((,class (:background ,bg-dim))))
+   `(frog-menu-prompt-face ((,class (:foreground ,cyan))))
    ;;;; fountain-mode
    `(fountain-character ((,class (:foreground ,magenta-alt-other))))
    `(fountain-comment ((,class (:foreground ,fg-alt :slant ,modus-theme-slant))))

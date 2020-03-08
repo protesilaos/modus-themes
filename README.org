@@ -233,6 +233,7 @@ the "full support" may not be 100% true…
 + flymake
 + flyspell
 + flyspell-correct
++ frog-menu
 + focus
 + font-lock (generic syntax highlighting)
 + fountain (fountain-mode)
