@@ -31,9 +31,9 @@ earlier, "alpha" versions).
    :END:
 
 I maintain /Modus Operandi/ (light theme) and /Modus Vivendi/ (dark) as
-standalone packages in [[http://melpa.org/][MELPA]] (and MELPA Stable).  Assuming you have
-configured that repository for your package management needs, you can
-just run:
+standalone packages in ELPA, MELPA, and MELPA Stable.
+
+Just run:
 
 =M-x package-install RET modus-operandi-theme RET=
 
