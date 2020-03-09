@@ -1124,7 +1124,7 @@ between foreground and background is >= 7:1)."
    `(font-lock-string-face ((,class (:foreground ,blue-alt))))
    `(font-lock-type-face ((,class (:foreground ,magenta-alt))))
    `(font-lock-variable-name-face ((,class (:foreground ,cyan))))
-   `(font-lock-warning-face ((,class (:background ,bg-alt :foreground ,yellow-alt-other :weight bold))))
+   `(font-lock-warning-face ((,class (:foreground ,yellow-active :weight bold))))
    ;;;; fountain-mode
    `(fountain-character ((,class (:foreground ,magenta-alt-other))))
    `(fountain-comment ((,class (:foreground ,fg-alt :slant ,modus-theme-slant))))
