@@ -25,7 +25,7 @@ earlier, "alpha" versions).
   :CUSTOM_ID: h:25c3ecd3-8025-414c-9b96-e4d6266c6fe8
   :END:
 
-** Install the MELPA packages
+** Install the packages
    :PROPERTIES:
    :CUSTOM_ID: h:c3e293e8-8464-4196-aefd-184027116ded
    :END:
