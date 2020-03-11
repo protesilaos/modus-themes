@@ -1349,7 +1349,7 @@ between foreground and background is >= 7:1)."
    `(helm-non-file-buffer ((,class (:foreground ,fg-alt))))
    `(helm-prefarg ((,class (:foreground ,red-active))))
    `(helm-resume-need-update ((,class (,@(and (>= emacs-major-version 27) '(:extend t))
-                                       :inherit modus-theme-intense-red))))
+                                       :inherit modus-theme-refine-magenta))))
    `(helm-selection ((,class (,@(and (>= emacs-major-version 27) '(:extend t))
                               :inherit modus-theme-refine-blue :weight bold))))
    `(helm-selection-line ((,class (,@(and (>= emacs-major-version 27) '(:extend t))
