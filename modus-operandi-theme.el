@@ -125,6 +125,7 @@
 ;;     flyspell-correct
 ;;     frog-menu
 ;;     focus
+;;     fold-this
 ;;     font-lock (generic syntax highlighting)
 ;;     fountain (fountain-mode)
 ;;     geiser
@@ -1140,6 +1141,8 @@ between foreground and background is >= 7:1)."
    `(frog-menu-prompt-face ((,class (:foreground ,cyan))))
    ;;;; focus
    `(focus-unfocused ((,class (:foreground ,fg-alt))))
+   ;;;; fold-this
+   `(fold-this-overlay ((,class (:inherit modus-theme-special-mild))))
    ;;;; font-lock
    `(font-lock-builtin-face ((,class (:foreground ,magenta-alt :weight ,modus-theme-bold))))
    `(font-lock-comment-delimiter-face ((,class (:foreground ,fg-alt :slant ,modus-theme-slant))))

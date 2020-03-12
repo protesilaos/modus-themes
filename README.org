@@ -235,6 +235,7 @@ the "full support" may not be 100% true…
 + flyspell-correct
 + frog-menu
 + focus
++ fold-this
 + font-lock (generic syntax highlighting)
 + fountain (fountain-mode)
 + geiser
