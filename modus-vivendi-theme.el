@@ -1957,13 +1957,13 @@ between foreground and background is >= 7:1)."
                                        ,@(when modus-vivendi-theme-scale-headings
                                           (list :height modus-vivendi-theme-scale-1))))))
    `(outline-5 ((,class (:inherit ,modus-theme-variable-pitch
-                           :foreground ,fg-dim :weight bold))))
+                           :foreground ,fg-special-calm :weight bold))))
    `(outline-6 ((,class (:inherit ,modus-theme-variable-pitch
-                           :foreground ,fg-alt :weight bold))))
+                           :foreground ,yellow-nuanced :weight bold))))
    `(outline-7 ((,class (:inherit ,modus-theme-variable-pitch
-                           :foreground ,cyan-active :weight bold))))
+                           :foreground ,red-nuanced :weight bold))))
    `(outline-8 ((,class (:inherit ,modus-theme-variable-pitch
-                           :foreground ,magenta-active :weight bold))))
+                                  :foreground ,fg-dim :weight bold))))
    ;;;; outline-minor-faces (applies backgrounds to `outline-minor-mode')
    `(outline-minor-0 ((,class (,@(and (>= emacs-major-version 27) '(:extend t))
                                :background ,bg-alt :weight bold))))
