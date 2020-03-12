@@ -282,6 +282,7 @@ between foreground and background is >= 7:1)."
 (defface modus-theme-diff-focus-added nil t)
 (defface modus-theme-diff-focus-changed nil t)
 (defface modus-theme-diff-focus-removed nil t)
+(defface modus-theme-diff-heading nil t)
 
 ;; User-facing customisation options.  They are all deactivated by
 ;; default (users must opt in).
@@ -419,6 +420,7 @@ between foreground and background is >= 7:1)."
       (fg-header "#2a2a2a") (bg-header "#e5e5e5")
       (fg-whitespace "#645060") (bg-whitespace "#fff8fc")
       (fg-paren-match "#222222") (bg-paren-match "#deb8af")
+      (fg-diff-heading "#043355") (bg-diff-heading "#b7c2dd")
       (fg-diff-added "#004500") (bg-diff-added "#d4fad4")
       (fg-diff-changed "#524200") (bg-diff-changed "#fcefcf")
       (fg-diff-removed "#691616") (bg-diff-removed "#ffe8ef")
@@ -497,6 +499,7 @@ between foreground and background is >= 7:1)."
    `(modus-theme-diff-focus-added ((,class (:background ,bg-diff-focus-added :foreground ,fg-diff-focus-added))))
    `(modus-theme-diff-focus-changed ((,class (:background ,bg-diff-focus-changed :foreground ,fg-diff-focus-changed))))
    `(modus-theme-diff-focus-removed ((,class (:background ,bg-diff-focus-removed :foreground ,fg-diff-focus-removed))))
+   `(modus-theme-diff-heading ((,class (:background ,bg-diff-heading :foreground ,fg-diff-heading))))
    ;;;;;;;;;;;;;;;;;;;
    ;; actual styles ;;
    ;;;;;;;;;;;;;;;;;;;
@@ -820,7 +823,7 @@ between foreground and background is >= 7:1)."
    `(diff-file-header ((,class (:foreground ,blue :weight bold))))
    `(diff-function ((,class (:foreground ,fg-special-cold))))
    `(diff-header ((,class (:foreground ,blue-nuanced))))
-   `(diff-hunk-header ((,class (:inherit modus-theme-subtle-cyan :weight bold))))
+   `(diff-hunk-header ((,class (:inherit modus-theme-diff-heading :weight bold))))
    `(diff-index ((,class (:foreground ,blue-alt :weight bold))))
    `(diff-indicator-added ((,class (:inherit diff-added))))
    `(diff-indicator-changed ((,class (:inherit diff-changed))))
@@ -1603,13 +1606,13 @@ between foreground and background is >= 7:1)."
    `(magit-diff-base ((,class (:inherit modus-theme-diff-changed))))
    `(magit-diff-base-highlight ((,class (:inherit modus-theme-diff-focus-changed))))
    `(magit-diff-context ((,class (:foreground ,fg-alt))))
-   `(magit-diff-context-highlight ((,class (:background ,bg-alt :foreground ,fg-alt))))
+   `(magit-diff-context-highlight ((,class (:background ,bg-inactive :foreground ,fg-inactive))))
    `(magit-diff-file-heading ((,class (:foreground ,fg-special-cold :weight bold))))
    `(magit-diff-file-heading-highlight ((,class (:inherit modus-theme-special-cold :weight bold))))
    `(magit-diff-file-heading-selection ((,class (:background ,bg-alt :foreground ,cyan))))
-   `(magit-diff-hunk-heading ((,class (:inherit modus-theme-intense-neutral :weight bold))))
-   `(magit-diff-hunk-heading-highlight ((,class (:inherit modus-theme-subtle-blue :weight bold))))
-   `(magit-diff-hunk-heading-selection ((,class (:inherit modus-theme-refine-cyan))))
+   `(magit-diff-hunk-heading ((,class (:background ,bg-active :foreground ,fg-inactive :weight bold))))
+   `(magit-diff-hunk-heading-highlight ((,class (:inherit modus-theme-diff-heading :weight bold))))
+   `(magit-diff-hunk-heading-selection ((,class (:inherit modus-theme-intense-cyan))))
    `(magit-diff-hunk-region ((,class (:weight bold))))
    `(magit-diff-lines-boundary ((,class (:background ,fg-main))))
    `(magit-diff-lines-heading ((,class (:inherit modus-theme-refine-magenta))))
