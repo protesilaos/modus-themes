@@ -68,7 +68,6 @@
 ;;     avy
 ;;     breakpoint (provided by built-in gdb-mi.el)
 ;;     buffer-expose
-;;     bufler
 ;;     calendar and diary
 ;;     calfw
 ;;     change-log and log-view (`vc-print-log' and `vc-print-root-log')
@@ -636,15 +635,6 @@ between foreground and background is >= 7:1)."
    `(buffer-expose-ace-char-face ((,class (:foreground ,red-active :weight bold))))
    `(buffer-expose-mode-line-face ((,class (:foreground ,cyan-active))))
    `(buffer-expose-selected-face ((,class (:inherit modus-theme-special-mild))))
-   ;;;; bufler
-   `(bufler-buffer ((,class (:foreground ,fg-main))))
-   `(bufler-buffer-special ((,class (:foreground ,magenta-alt :slant ,modus-theme-slant))))
-   `(bufler-dim ((,class (:foreground ,fg-alt))))
-   `(bufler-group ((,class (:weight bold))))
-   `(bufler-mode ((,class (:foreground ,green-alt-other))))
-   `(bufler-path ((,class (:foreground ,blue))))
-   `(bufler-size ((,class (:foreground ,cyan))))
-   `(bufler-vc ((,class (:foreground ,yellow-alt-other))))
    ;;;; calendar and diary
    `(calendar-month-header ((,class (:foreground ,fg-main :weight bold))))
    `(calendar-today ((,class (:underline t))))
