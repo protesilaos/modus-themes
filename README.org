@@ -390,25 +390,26 @@ matches of a grep or grep-like command (=ag= or =ripgrep=).  It is
 =helm-grep-match=.  However, this face can only apply when the user does
 not pass =--color=always= as a command-line option for their command.
 
-This is the docstring for the aforementioned face, which is defined in
-the =helm-grep.el= library (visit a library with =M-x find-library=).
+Here is the docstring for that face, which is defined in the
+=helm-grep.el= library (view a library with =M-x find-library=).
 
 #+begin_quote
 Face used to highlight grep matches. Have no effect when grep backend
 use "--color="
 #+end_quote
 
-The user must either remove =--colour= from the flags passed to the grep
-function, or explicitly use =--colour=never= (or equivalent).  Helm
-provides user-facing customisation options for configuring the grep
-function's output, such as =helm-grep-default-command= and
+The user must either remove =--color= from the flags passed to the grep
+function, or explicitly use =--color=never= (or equivalent).  Helm
+provides user-facing customisation options for controlling the grep
+function's parameters, such as =helm-grep-default-command= and
 =helm-grep-git-grep-command=.
 
-When =--colour=always= is applied, the grep output will use red-coloured
-text with bold letter forms to present the matching text in the list of
-candidates.  That presentation is still accessible, though I have not
-been able to track its source in order to identify some other possible
-means of controlling it.
+When =--color=always= is in effect, the grep output will use red text in
+bold letter forms to present the matching part in the list of
+candidates.  *That style still meets the contrast ratio target of >= 7:1*
+(accessibility standard WCAG AAA), because it draws the reference to
+ANSI colour number 1 (red) from the already-supported array of
+=ansi-color-names-vector=.
 
 I presented [[https://gitlab.com/protesilaos/modus-themes/-/issues/21#note_302748582][some screen shots of this in issue 21]].
 
