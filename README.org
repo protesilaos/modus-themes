@@ -287,6 +287,7 @@ the "full support" may not be 100% true…
 + org-recur
 + origami
 + outline-mode
++ outline-minor-faces
 + package (=M-x list-packages=)
 + paren-face
 + pass

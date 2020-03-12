@@ -177,6 +177,7 @@
 ;;     org-recur
 ;;     origami
 ;;     outline-mode
+;;     outline-minor-faces
 ;;     package (M-x list-packages)
 ;;     paren-face
 ;;     pass
@@ -1963,6 +1964,9 @@ between foreground and background is >= 7:1)."
                            :foreground ,cyan-active :weight bold))))
    `(outline-8 ((,class (:inherit ,modus-theme-variable-pitch
                            :foreground ,magenta-active :weight bold))))
+   ;;;; outline-minor-faces (applies backgrounds to `outline-minor-mode')
+   `(outline-minor-0 ((,class (,@(and (>= emacs-major-version 27) '(:extend t))
+                               :background ,bg-alt :weight bold))))
    ;;;; package (M-x list-packages)
    `(package-description ((,class (:foreground ,fg-special-cold))))
    `(package-help-section-name ((,class (:foreground ,magenta-alt-other :weight bold))))
