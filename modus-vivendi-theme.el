@@ -198,6 +198,7 @@
 ;;     regexp-builder (also known as `re-builder')
 ;;     rmail
 ;;     ruler-mode
+;;     sesman
 ;;     shell-script-mode
 ;;     show-paren-mode
 ;;     smart-mode-line
@@ -2171,6 +2172,12 @@ between foreground and background is >= 7:1)."
    `(ruler-mode-margins ((,class (:inherit ruler-mode-default :foreground ,bg-main))))
    `(ruler-mode-pad ((,class (:background ,bg-active :foreground ,fg-inactive))))
    `(ruler-mode-tab-stop ((,class (:inherit ruler-mode-default :foreground ,yellow-active))))
+   ;;;; sesman
+   `(sesman-browser-button-face ((,class (:foreground ,blue-alt-other :underline t))))
+   `(sesman-browser-highligh-face ((,class (:inherit modus-theme-subtle-blue))))
+   `(sesman-buffer-face ((,class (:foreground ,magenta))))
+   `(sesman-directory-face ((,class (:foreground ,blue :weight bold))))
+   `(sesman-project-face ((,class (:foreground ,magenta-alt-other :weight bold))))
    ;;;; shell-script-mode
    `(sh-heredoc ((,class (:foreground ,blue-alt))))
    `(sh-quoted-exec ((,class (:foreground ,magenta-alt :weight ,modus-theme-bold))))
