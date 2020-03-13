@@ -268,6 +268,7 @@ the "full support" may not be 100% true…
 + jira (org-jira)
 + js2-mode
 + jupyter
++ kaocha-runner
 + keycast
 + line numbers (=display-line-numbers-mode= and global variant)
 + lsp-mode

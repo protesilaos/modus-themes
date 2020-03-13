@@ -158,6 +158,7 @@
 ;;     jira (org-jira)
 ;;     js2-mode
 ;;     jupyter
+;;     kaocha-runner
 ;;     keycast
 ;;     line numbers (`display-line-numbers-mode' and global variant)
 ;;     lsp-mode
@@ -1549,6 +1550,10 @@ between foreground and background is >= 7:1)."
    `(jupyter-repl-input-prompt ((,class (:foreground ,cyan-alt-other))))
    `(jupyter-repl-output-prompt ((,class (:foreground ,magenta-alt-other))))
    `(jupyter-repl-traceback ((,class (:inherit modus-theme-intense-red))))
+   ;;;; kaocha-runner
+   `(kaocha-runner-error-face ((,class (:foreground ,red))))
+   `(kaocha-runner-success-face ((,class (:foreground ,green))))
+   `(kaocha-runner-warning-face ((,class (:foreground ,yellow))))
    ;;;; keycast
    `(keycast-command ((,class (:foreground ,blue-active :weight bold))))
    `(keycast-key ((,class (:inherit modus-theme-active-blue))))
