@@ -206,6 +206,7 @@
 ;;     swiper
 ;;     sx
 ;;     symbol-overlay
+;;     syslog-mode
 ;;     telephone-line
 ;;     term
 ;;     transient (pop-up windows like Magit's)
@@ -2206,6 +2207,16 @@ between foreground and background is >= 7:1)."
    `(symbol-overlay-face-6 ((,class (:inherit modus-theme-refine-red))))
    `(symbol-overlay-face-7 ((,class (:inherit modus-theme-intense-cyan))))
    `(symbol-overlay-face-8 ((,class (:inherit modus-theme-refine-cyan))))
+   ;;;; syslog-mode
+   `(syslog-debug ((,class (:foreground ,cyan-alt-other :weight bold))))
+   `(syslog-error ((,class (:foreground ,red :weight bold))))
+   `(syslog-file ((,class (:foreground ,fg-special-cold :weight bold))))
+   `(syslog-hide ((,class (:background ,bg-main :foreground ,fg-main))))
+   `(syslog-hour ((,class (:foreground ,magenta-alt-other :weight bold))))
+   `(syslog-info ((,class (:foreground ,blue-alt-other :weight bold))))
+   `(syslog-ip ((,class (:foreground ,fg-special-mild :weight bold :underline t))))
+   `(syslog-su ((,class (:foreground ,red-alt :weight bold))))
+   `(syslog-warn ((,class (:foreground ,yellow :weight bold))))
    ;;;; telephone-line
    `(telephone-line-accent-active ((,class (:background ,fg-inactive :foreground ,bg-inactive))))
    `(telephone-line-accent-inactive ((,class (:background ,bg-active :foreground ,fg-active))))

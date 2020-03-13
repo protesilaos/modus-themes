@@ -316,6 +316,7 @@ the "full support" may not be 100% true…
 + swiper
 + sx
 + symbol-overlay
++ syslog-mode
 + telephone-line
 + term
 + transient (pop-up windows like Magit's)
