@@ -247,6 +247,7 @@ the "full support" may not be 100% true…
 + gnus
 + helm* (also see [[#h:e4408911-e186-4825-bd4f-4d0ea55cd6d6][section below on Helm's grep-related functions]])
 + helm-ls-git
++ helm-switch-shell
 + helm-xref
 + highlight-blocks
 + highlight-defined

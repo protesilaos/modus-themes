@@ -137,6 +137,7 @@
 ;;     gnus
 ;;     helm
 ;;     helm-ls-git
+;;     helm-switch-shell
 ;;     helm-xref
 ;;     highlight-blocks
 ;;     highlight-defined
@@ -1388,6 +1389,8 @@ between foreground and background is >= 7:1)."
    `(helm-ls-git-modified-not-staged-face ((,class (:foreground ,yellow))))
    `(helm-ls-git-renamed-modified-face ((,class (:foreground ,magenta))))
    `(helm-ls-git-untracked-face ((,class (:foreground ,fg-special-cold))))
+   ;;;; helm-switch-shell
+   `(helm-switch-shell-new-shell-face ((,class (:inherit modus-theme-refine-magenta :weight bold))))
    ;;;; helm-xref
    `(helm-xref-file-name ((,class (:foreground ,fg-special-cold :weight bold))))
    `(helm-xref-file-name ((,class (:foreground ,fg-special-warm))))
