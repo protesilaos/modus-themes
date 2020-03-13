@@ -275,6 +275,7 @@ the "full support" may not be 100% true…
 + lsp-ui
 + magit
 + markdown-mode
++ markup-faces (=adoc-mode=)
 + mentor
 + messages
 + modeline
