@@ -72,6 +72,7 @@
 ;;     calendar and diary
 ;;     calfw
 ;;     change-log and log-view (`vc-print-log' and `vc-print-root-log')
+;;     cider
 ;;     column-enforce-mode
 ;;     company-mode
 ;;     company-posframe
@@ -691,6 +692,41 @@ between foreground and background is >= 7:1)."
    `(log-edit-unknown-header ((,class (:foreground ,fg-alt))))
    `(log-view-file ((,class (:foreground ,fg-special-cold :weight bold))))
    `(log-view-message ((,class (:foreground ,fg-special-warm))))
+   ;;;; cider
+   `(cider-debug-code-overlay-face ((,class (:background ,bg-alt))))
+   `(cider-debug-prompt-face ((,class (:foreground ,magenta-alt :underline t))))
+   `(cider-deprecated-face ((,class (:inherit modus-theme-refine-yellow))))
+   `(cider-docview-emphasis-face ((,class (:foreground ,fg-special-cold :slant italic))))
+   `(cider-docview-literal-face ((,class (:foreground ,blue-alt))))
+   `(cider-docview-strong-face ((,class (:foreground ,fg-special-cold :weight bold))))
+   `(cider-docview-table-border-face ((,class (:foreground ,fg-alt))))
+   `(cider-enlightened-face ((,class (:box (:line-width -1 :color ,yellow-alt :style nil) :background ,bg-dim))))
+   `(cider-enlightened-local-face ((,class (:foreground ,yellow-alt-other :weight bold))))
+   `(cider-error-highlight-face ((,class (:foreground ,red :underline t))))
+   `(cider-fragile-button-face ((,class (:box (:line-width 3 :color ,fg-alt :style released-button)) :foreground ,yellow)))
+   `(cider-fringe-good-face ((,class (:foreground ,green-intense))))
+   `(cider-instrumented-face ((,class (:box (:line-width -1 :color ,red :style nil) :background ,bg-dim))))
+   `(cider-reader-conditional-face ((,class (:foreground ,fg-special-warm :slant italic))))
+   `(cider-repl-input-face ((,class (:weight bold))))
+   `(cider-repl-prompt-face ((,class (:foreground ,cyan-alt-other))))
+   `(cider-repl-stderr-face ((,class (:foreground ,red :weight bold))))
+   `(cider-repl-stdout-face ((,class (:foreground ,blue))))
+   `(cider-result-overlay-face ((,class (:box (:line-width -1 :color ,blue :style nil) :background ,bg-dim))))
+   `(cider-stacktrace-error-class-face ((,class (:foreground ,red :weight bold))))
+   `(cider-stacktrace-error-message-face ((,class (:foreground ,red-alt-other :slant italic))))
+   `(cider-stacktrace-face ((,class (:foreground ,fg-main))))
+   `(cider-stacktrace-filter-active-face ((,class (:foreground ,cyan-alt :underline t))))
+   `(cider-stacktrace-filter-inactive-face ((,class (:foreground ,cyan-alt))))
+   `(cider-stacktrace-fn-face ((,class (:foreground ,fg-main :weight bold))))
+   `(cider-stacktrace-ns-face ((,class (:foreground ,fg-alt :slant italic))))
+   `(cider-stacktrace-promoted-button-face ((,class (box (:line-width 3 :color ,fg-alt :style released-button)) :foreground ,red)))
+   `(cider-stacktrace-suppressed-button-face ((,class (:box (:line-width 3 :color ,fg-alt :style pressed-button))
+                                                      :background ,bg-alt :foreground ,fg-alt)))
+   `(cider-test-error-face ((,class (:inherit modus-theme-subtle-red))))
+   `(cider-test-failure-face ((,class (:inherit modus-theme-intense-red :weight bold))))
+   `(cider-test-success-face ((,class (:inherit modus-theme-intense-green))))
+   `(cider-traced-face ((,class (:box (:line-width -1 :color ,cyan :style nil) :background ,bg-dim))))
+   `(cider-warning-highlight-face ((,class (:foreground ,yellow :underline t))))
    ;;;; column-enforce-mode
    `(column-enforce-face ((,class (:inherit modus-theme-refine-yellow))))
    ;;;; company-mode
