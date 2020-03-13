@@ -67,6 +67,7 @@
 ;;     auto-dim-other-buffers
 ;;     avy
 ;;     breakpoint (provided by built-in gdb-mi.el)
+;;     bm
 ;;     buffer-expose
 ;;     calendar and diary
 ;;     calfw
@@ -617,6 +618,13 @@ between foreground and background is >= 7:1)."
    `(aw-leading-char-face ((,class (:height 1.5 :background ,bg-main :foreground ,red-intense :weight bold))))
    `(aw-minibuffer-leading-char-face ((,class (:foreground ,magenta-active))))
    `(aw-mode-line-face ((,class (:weight bold))))
+   ;;;; bm
+   `(bm-face ((,class (:inherit modus-theme-subtle-yellow
+                                ,@(and (>= emacs-major-version 27) '(:extend t))))))
+   `(bm-fringe-face ((,class (:inherit modus-theme-subtle-yellow))))
+   `(bm-fringe-persistent-face ((,class (:inherit modus-theme-intense-blue))))
+   `(bm-persistent-face ((,class (:inherit modus-theme-intense-blue
+                                           ,@(and (>= emacs-major-version 27) '(:extend t))))))
    ;;;; buttons, links, widgets
    `(button ((,class (:foreground ,blue-alt-other :underline t))))
    `(link ((,class (:foreground ,blue-alt-other :underline t))))
