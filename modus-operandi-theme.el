@@ -2171,7 +2171,7 @@ between foreground and background is >= 7:1)."
    `(ruler-mode-margins ((,class (:inherit ruler-mode-default :foreground ,bg-main))))
    `(ruler-mode-pad ((,class (:background ,bg-active :foreground ,fg-inactive))))
    `(ruler-mode-tab-stop ((,class (:inherit ruler-mode-default :foreground ,yellow-active))))
-   ;;;; shell scripts
+   ;;;; shell-script-mode
    `(sh-heredoc ((,class (:foreground ,blue-alt))))
    `(sh-quoted-exec ((,class (:foreground ,magenta-alt :weight ,modus-theme-bold))))
    ;;;; show-paren-mode
