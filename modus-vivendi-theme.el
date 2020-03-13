@@ -1398,7 +1398,7 @@ between foreground and background is >= 7:1)."
    `(helm-xref-file-name ((,class (:foreground ,fg-special-cold :weight bold))))
    `(helm-xref-file-name ((,class (:foreground ,fg-special-warm))))
    ;;;; highlight region or ad-hoc regexp
-   `(hi-black-b ((,class ((:background ,fg-main :foreground ,bg-main)))))
+   `(hi-black-b ((,class (:background ,fg-main :foreground ,bg-main))))
    `(hi-blue ((,class (:background ,bg-alt :foreground ,blue :underline t))))
    `(hi-blue-b ((,class (:inherit modus-theme-intense-blue))))
    `(hi-green ((,class (:background ,bg-alt :foreground ,green :underline t))))
@@ -1467,7 +1467,7 @@ between foreground and background is >= 7:1)."
    `(info-header-xref ((,class (:foreground ,blue-active))))
    `(info-index-match ((,class (:inherit match))))
    `(info-menu-star ((,class (:foreground ,fg-main))))
-   `(info-node ((,class ((:weight bold)))))
+   `(info-node ((,class (:weight bold))))
    ;;;; info-colors
    `(info-colors-lisp-code-block ((,class (:inherit fixed-pitch))))
    `(info-colors-ref-item-command ((,class (:foreground ,magenta))))
