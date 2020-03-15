@@ -1,0 +1,322 @@
+#+TITLE: Change log of the Modus Themes for GNU Emacs
+#+AUTHOR: Protesilaos Stavrou
+#+EMAIL: public@protesilaos.com
+
+This document contains the release notes that are included in each
+tagged commit on https://gitlab.com/protesilaos/modus-themes.  The
+newest release is at the top.
+
+* 0.6.0
+
+This release contains lots of refinements and additions.
+
+Let me start with an administrative point: I have completed the process
+of assigning my copy rights to the Free Software Foundation.  This
+covers every contribution I make to GNU Emacs.  In practice, it means
+that the Modus themes can now be included in the official ELPA archive
+and theoretically be shipped with Emacs itself.  The ELPA inclusion is
+ongoing.  Once it is completed, I will update the docs accordingly.
+
+The administrative change has no effect on the way this project is
+handled.  I still am the developer/maintainer and will continue to
+improve things further.  If you still have questions, feel free to
+contact me: https://protesilaos.com/contact
+
+Moving on to the changes since version 0.5.0 (2020-01-26).
+
+Added support for:
+
++ alert
++ apropos (built-in)
++ dap-mode
++ deft
++ dim-autoload
++ dired-git
++ enhanced-ruby-mode
++ gbd-mi.el (built-in library)
++ helm-ls-git
++ helm-xref
++ imenu-list
++ jira (org-jira)
++ js2-mode
++ jupyter
++ org-pomodoro
++ origami
++ rmail (built-in)
++ vc-print-log (built-in)
++ window-divider-mode (built-in)
++ xref (built-in)
+
+Refinements to existing faces:
+
++ A new subset of "nuanced" accent colours has been introduced.  These
+are named {red,green,yellow,blue,magenta,cyan}-nuanced.  Their purpose
+is to be used in contexts where lots of structured information is
+presented to the user, but each component does not need to draw too much
+attention to itself (e.g. Org's metadata).  As always, their contrast
+ratio is designed to always be >= 7:1 relative to the backgrounds they
+may be combined with.
+
++ Greatly improve the support for Gnus, even though most changes are
+subtle and are made in the interest of consistency.  The group levels
+now make use of the "nuanced" palette where appropriate (to denote
+levels of lower importance).
+
++ Several refinements for Org, including the use of "nuanced" colours
+for various metadata tags.  The agenda headers will now be scaled
+appropriately and use a variable-pitch font if the user sets the
+relevant customisation values of the theme they are using (check the
+documentation in each theme file or the repo's README).
+
++ Lots of refinements for Helm.  Some of these were introduced to align
+the overall aesthetic with equivalent metaphors in Ivy.  Others are
+meant to improve the styles of the headers and make various constructs
+consistent with their variants in the Helm ecosystem but also with their
+non-Helm counterparts (such as xref file names with and without Helm,
+but also with Helm's grep).
+
++ Improve the colours of buttons in contexts such as M-x customize.
+This is especially noticeable in modus-vivendi-theme (the dark theme)
+where the buttons are a darker shade of grey rather than the original
+lighter one.
+
++ Keycast now uses styles that are more consistent with the overall
+aesthetic of the Modus themes.  This means that the mode line indicators
+are blue-ish (blue is generally used for highlights in the mode line,
+but also when hovering over an item with the mouse pointer).  The pseudo
+button effect (colours + 3d) has been removed in favour of a flat look,
+in line with the flatness of the mode line itself.  Whereas before the
+keycast faces where designed to be consistent with the package's
+defaults.
+
+There were also a few minor refinements for:
+
++ calendar and diary
++ icomplete
++ mm-uu-extract
++ nobreak-hyphen and nobreak-space
++ org-habit
++ tooltip-mode
+
+Finally, the Commentary section of each theme has been greatly expanded.
+It now includes the user-facing customisation options and the complete
+list of supported packages.
+
+* 0.5.0
+
+This release contains support for several new packages and lots of
+refinements for existing ones.  A lot of work went into making the
+themes more robust by reviewing the inheritance of styles from one
+face group to another (in general, the ':inherit' property should not
+be used frivolously).  Several subtle changes were made to the colour
+palette of both themes to ensure consistency, enable more possible
+combinations, and avoid potential ambiguity under certain potential
+circumstances.
+
+Overall, this release gives me confidence that the themes have reached
+a fairly stable state.  What follows is an overview of the changes
+since version 0.4.0 (2020-01-02).
+
+Added support for:
+
++ equake
++ flymake
++ focus
++ fountain (fountain-mode)
++ git-lens
++ git-timemachine
++ hi-fill-column
++ highlight-blocks
++ info-colors
++ lsp-mode
++ lsp-ui
++ proced (built-in)
++ regexp-builder (built-in)
++ suggest
+
+Refinements:
+
++ The header line uses its own dedicated colours.  Several changes
+  were made in 'eww', 'info', 'elfeed', 'magit', 'flycheck' to make
+  sure that any accent value that appears there conforms with the
+  overarching accessibility objective of the Modus themes (contrast
+  ratio of >= 7:1, else WCAG AAA).
++ 'ivy' no longer uses a box style for the current line, as that was
+  not always reliable.  Appropriate colours are used instead.
++ 'org-mode' blocks use a foreground value that distinguishes their
+  opening and closing tags from source code comments.
++ The 'org-ellipsis' face was configured to always inherit the looks
+  of its respective heading or element, rather than have its own
+  excessive styling.
++ 'paren-match' has colours that are designed specifically for it.
+  This is done to retain their utility while making sure they are not
+  mistaken for some other type of feedback.
++ 'magit' has explicit styles for the mode line process indicators,
+  instead of inheriting from another face.  The intention is to use
+  foreground values that are designed specifically for use on the mode
+  line (the minimum contrast ratio requirement).
++ 'erc' faces have been thoroughly reviewed in the interest of better
+  usability.  Its mode line indicators now use appropriate colours.
++ The faces of the 'messages' library have been thoroughly reviewed.
+  This affects various email interfaces, but also 'elfeed' entry
+  metadata headings.
++ 'whitespace-mode' no longer has a newline character that stands out.
+  That kind of emphasis was not necessary, given that the symbol used
+  is a dollar sign, which is already far more visible than a mid dot.
++ 'font-lock' (generic syntax highlighting) has better colour
+  combinations for regexp grouping constructs.
++ 'rainbow-delimiters' was given its missing base error face.
++ 'git-commit' comment action uses a slightly different foreground
+  value than before to better match its context.
++ 'isearch' and 'query-replace' use colours that properly denote each
+  action's utility.
++ 'visual-regexp' has been reviewed to make the matching groups more
+  distinct from each other.
++ 'occur' and any other buffer that relies on the 'match' face can now
+  benefit from the new colour combinations, in that its results cannot
+  be confused for the active 'isearch' or 'query-replace' or even
+  their lazily highlighted results (or, indeed, of any other search
+  tool).
++ 'company' uses faces for its search feedback that are consistent
+  with other search metaphors.
++ Emacs 27's new ':extend' property is only implemented where
+  necessary (note that the latest release is version 26.3).
+
+* 0.4.0
+
+This is an overview of the changes since version 0.3.0 (2019-12-25).
+
+Add support for:
+
+	+ ert
+	+ flycheck-indicator
+	+ mentor
+	+ mu4e-conversation
+	+ powerline-evil
+	+ telephone-line
+	+ vc (built-in version control)
+
+Refinements to already-supported packages:
+
+	+ company-mode (several refinements)
+	+ doom-modeline (major review)
+	+ helm (several tweaks)
+	+ hl-line-mode (use unique background)
+	+ ivy (improve matching line)
+	+ line-number-mode (minor tweaks)
+	+ markdown-mode (comprehensive expansion)
+	+ mode-line (more appropriate styles for the highlight)
+	+ powerline (minor tweaks)
+	+ region (use unique background)
+	+ swiper (improve matching line in main window)
+	+ whitespace-mode (several refinements)
+    + mu4e (tweak mu4e-modeline-face for consistency)
+
+Miscellaneous:
+
+	+ Fix actual and potential problems with cursor faces that would
+      distort the use of appropriate background and foreground colours.
+      The documentation stipulates that the `cursor' face cannot be
+      inherited by other faces, due to its peculiar nature of only
+      recognising the background colour.
+	+ Add support for more bold constructs in code.  As with all such
+      options, it is disabled by default, expecting the user to
+      explicitly opt in.
+	+ Declare additional custom faces.  Only meant for internal use.
+	+ Subtle refinements to "active" colour values in both Modus
+      Operandi and Modus Vivendi.  These mostly concern the mode line
+      (with a few special exceptions), where emphasis has been placed on
+      the need to provide greater contrast between accent values that
+      can be used there.
+	+ Minor documentation refinements.
+
+* 0.3.0
+
+Overview of changes since 0.2.0 (2019-12-18):
+
++ Add support for the following packages:
+
+  * apt-sources-list
+  * calfw
+  * counsel-css
+  * counsel-notmuch
+  * counsel-org-capture-string
+  * cov
+  * disk-usage
+  * evil-visual-mark-mode
+  * geiser
+  * keycast
+  * org-journal
+  * org-noter
+  * paren-face
+  * powerline
+  * vc
+  * xah-elisp-mode
+
++ Explicitly style the following packages (these were already covered,
+  in terms of the colours they used, but are now targeted directly):
+
+  * calendar
+  * counsel
+  * cursor
+  * package (M-x list-packages)
+
++ Minor tweaks to face groups:
+
+  * dired
+  * compile
+
++ Fixes and refinements:
+
+  * Documentation strings will now inherit the option for slanted
+    constructs (off by default -- see the README about all the user
+    options).
+  * Comment delimiters have the same styles as the body of the comment
+    to avoid inconsistencies when the option for slanted constructs is
+    enabled.
+  * The line number that is displayed in the compile log is now
+    correctly styled.
+  * Removed duplicate entries for ivy-remote and added ivy-separator.
+  * Ensure that the minibuffer prompt is always above the minimum
+    contrast ratio of 7:1, by using a more appropriate shade of cyan.
+  * Properly reference a couple of variables in Modus Vivendi.
+
++ Internal adjustments:
+
+  * Decouple the core dired faces from those of external packages.
+  * Same for org and org-recur.
+
++ Minor documentation updates.
+
+* 0.2.0
+
+Overview of changes since 0.1.0 (2019-12-09):
+
++ Comprehensive review of `org-mode' faces.  The use of colour should
+now be more consistent with the semantics of each element.  These should
+also respond better to a variety of combinations, such as when the user
+has `hl-line-mode' enabled.  The agenda view is the greatest beneficiary
+of this review.
+
++ Make `mu4e' mode line faces consistent with other elements that may be
+placed on the mode line.
+
++ Make `gnus' header name/subject more distinct.
+
++ Several minor refinements to `ivy' and its extensions.
+
++ General usability refinements to `ace-window'.
+
++ Minor review of `elfeed' styles, in the interest of improving the
+contrast between the elements.
+
++ Add support for:
+  + `persp-mode' (fork of the already supported `perspective')
+  + `dashboard'
+  + `evil-mode'
+  + `evil-goggles'
+  + `ruler-mode'
+
+* 0.1.0
+
+First stable release of Modus Operandi and Modus Vivendi.
