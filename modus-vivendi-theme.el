@@ -432,15 +432,15 @@ between foreground and background is >= 7:1)."
       (fg-whitespace "#a4959f") (bg-whitespace "#170016")
       (fg-paren-match "#fcfcfc") (bg-paren-match "#754a5d")
       (fg-diff-heading "#dadffe") (bg-diff-heading "#304466")
-      (fg-diff-added "#94ba94") (bg-diff-added "#002600")
+      (fg-diff-added "#94ba94") (bg-diff-added "#0a280a")
       (fg-diff-changed "#b0ba9f") (bg-diff-changed "#2a2000")
-      (fg-diff-removed "#bbadaa") (bg-diff-removed "#390a0a")
-      (fg-diff-refine-added "#e0ffe0") (bg-diff-refine-added "#005a00")
+      (fg-diff-removed "#c6adaa") (bg-diff-removed "#40160f")
+      (fg-diff-refine-added "#e0f6e0") (bg-diff-refine-added "#005a36")
       (fg-diff-refine-changed "#ffffcc") (bg-diff-refine-changed "#585800")
-      (fg-diff-refine-removed "#ffc8bb") (bg-diff-refine-removed "#7d0000")
-      (fg-diff-focus-added "#b4ddb4") (bg-diff-focus-added "#244024")
+      (fg-diff-refine-removed "#ffd9eb") (bg-diff-refine-removed "#852828")
+      (fg-diff-focus-added "#b4ddb4") (bg-diff-focus-added "#203d20")
       (fg-diff-focus-changed "#d0daaf") (bg-diff-focus-changed "#4a3a10")
-      (fg-diff-focus-removed "#eebdba") (bg-diff-focus-removed "#542222")
+      (fg-diff-focus-removed "#eebdba") (bg-diff-focus-removed "#5e2526")
 
       ;; conditional styles that evaluate user-facing customisation
       ;; options
