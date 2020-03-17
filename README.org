@@ -448,6 +448,14 @@ between background and foreground colours.  If a compromise is ever
 necessary between aesthetics and accessibility, it shall always be made
 in the interest of latter.
 
+* Meta
+  :PROPERTIES:
+  :CUSTOM_ID: h:4c338a51-509e-42c0-8820-1f5014fb477b
+  :END:
+
+If you interested in the principles that govern the development of this
+project, read my article [[https://protesilaos.com/codelog/2020-03-17-design-modus-themes-emacs/][On the design of the Modus themes]] (2020-03-17).
+
 * COPYING
   :PROPERTIES:
   :CUSTOM_ID: h:66652183-2fe0-46cd-b4bb-4121bad78d57
