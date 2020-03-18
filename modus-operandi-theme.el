@@ -71,6 +71,7 @@
 ;;     buffer-expose
 ;;     calendar and diary
 ;;     calfw
+;;     centaur-tabs
 ;;     change-log and log-view (`vc-print-log' and `vc-print-root-log')
 ;;     cider
 ;;     column-enforce-mode
@@ -691,6 +692,18 @@ between foreground and background is >= 7:1)."
    `(cfw:face-toolbar ((,class (:background ,bg-active :foreground ,bg-active))))
    `(cfw:face-toolbar-button-off ((,class (:background ,bg-alt :foreground ,cyan))))
    `(cfw:face-toolbar-button-on ((,class (:background ,bg-main :foreground ,blue-intense :weight bold))))
+   ;;;; centaur-tabs
+   `(centaur-tabs-active-bar-face ((,class (:background ,fg-tab-active))))
+   `(centaur-tabs-close-mouse-face ((,class (:underline t))))
+   `(centaur-tabs-close-selected ((,class (:inherit centaur-tabs-selected))))
+   `(centaur-tabs-close-unselected ((,class (:inherit centaur-tabs-unselected))))
+   `(centaur-tabs-modified-marker-selected ((,class (:inherit centaur-tabs-selected))))
+   `(centaur-tabs-modified-marker-unselected ((,class (:inherit centaur-tabs-unselected))))
+   `(centaur-tabs-default ((,class (:background ,bg-main :foreground ,bg-main))))
+   `(centaur-tabs-selected ((,class (:background ,bg-tab-active :foreground ,fg-main))))
+   `(centaur-tabs-selected-modified ((,class (:background ,bg-tab-active :foreground ,fg-main :slant italic))))
+   `(centaur-tabs-unselected ((,class (:background ,bg-tab-inactive :foreground ,fg-dim))))
+   `(centaur-tabs-unselected-modified ((,class (:background ,bg-tab-inactive :foreground ,fg-dim :slant italic))))
    ;;;; change-log and log-view (`vc-print-log' and `vc-print-root-log')
    `(change-log-acknowledgment ((,class (:foreground ,yellow-nuanced))))
    `(change-log-conditionals ((,class (:foreground ,magenta-alt))))

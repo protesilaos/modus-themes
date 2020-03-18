@@ -181,6 +181,7 @@ the "full support" may not be 100% true…
 + buffer-expose
 + calendar and diary
 + calfw
++ centaur-tabs
 + change-log and log-view (=vc-print-log= and =vc-print-root-log=)
 + cider
 + column-enforce-mode
