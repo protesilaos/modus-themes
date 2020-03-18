@@ -419,13 +419,22 @@ between foreground and background is >= 7:1)."
       ;; can be combined with any of the "active" values, plus the
       ;; "special" and base foreground colours
       ;;
-      ;; `bg-region' must be combined with `fg-main'
+      ;; `bg-region' and `bg-tab-active' must be combined with
+      ;; `fg-main', while `bg-tab-inactive' should be combined with
+      ;; `fg-dim'
+      ;;
+      ;; `fg-tab-active' is meant to be combined with `bg-tab-active',
+      ;; though only for styling special elements, such as underlining
+      ;; the current tab
       ;;
       ;; the window divider colours apply to faces with just an fg value
       ;;
       ;; all other pairs are combinable with themselves
       (bg-hl-line "#f1f2f6")
       (bg-region "#bcbcbc")
+      (bg-tab-active "#ababab")
+      (bg-tab-inactive "#dadada")
+      (fg-tab-active "#000077")
       (fg-window-divider-inner "#888888")
       (fg-window-divider-outer "#585858")
       (fg-header "#2a2a2a") (bg-header "#e5e5e5")
