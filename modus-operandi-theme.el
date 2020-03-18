@@ -64,6 +64,7 @@
 ;;     apropos
 ;;     apt-sources-list
 ;;     artbollocks-mode
+;;     auctex and TeX
 ;;     auto-dim-other-buffers
 ;;     avy
 ;;     breakpoint (provided by built-in gdb-mi.el)
@@ -622,6 +623,50 @@ between foreground and background is >= 7:1)."
    `(artbollocks-lexical-illusions-face ((,class (:inherit modus-theme-refine-magenta :underline t))))
    `(artbollocks-passive-voice-face ((,class (:background ,bg-alt :foreground ,cyan-alt-other :underline t))))
    `(artbollocks-weasel-words-face ((,class (:background ,bg-alt :foreground ,yellow-alt-other :underline t))))
+   ;;;; auctex and Tex
+   `(font-latex-bold-face ((,class (:foreground ,fg-special-calm :weight bold))))
+   `(font-latex-doctex-documentation-face ((,class (:foreground ,fg-special-cold :slant ,modus-theme-slant))))
+   `(font-latex-doctex-preprocessor-face ((,class (:foreground ,magenta-alt :weight ,modus-theme-bold))))
+   `(font-latex-italic-face ((,class (:foreground ,fg-special-calm :slant italic))))
+   `(font-latex-math-face ((,class (:foreground ,cyan-alt-other))))
+   `(font-latex-script-char-face ((,class (:foreground ,cyan-alt-other))))
+   `(font-latex-sectioning-0-face ((,class (:inherit ,modus-theme-variable-pitch
+                                                     :foreground ,blue-nuanced :weight bold
+                                                     ,@(when modus-operandi-theme-scale-headings
+                                                         (list :height modus-operandi-theme-scale-4))))))
+   `(font-latex-sectioning-1-face ((,class (:inherit ,modus-theme-variable-pitch
+                                                     :foreground ,blue-nuanced :weight bold
+                                                     ,@(when modus-operandi-theme-scale-headings
+                                                         (list :height modus-operandi-theme-scale-3))))))
+   `(font-latex-sectioning-2-face ((,class (:inherit ,modus-theme-variable-pitch
+                                                     :foreground ,blue-nuanced :weight bold
+                                                     ,@(when modus-operandi-theme-scale-headings
+                                                         (list :height modus-operandi-theme-scale-2))))))
+   `(font-latex-sectioning-3-face ((,class (:inherit ,modus-theme-variable-pitch
+                                                     :foreground ,blue-nuanced :weight bold
+                                                     ,@(when modus-operandi-theme-scale-headings
+                                                         (list :height modus-operandi-theme-scale-1))))))
+   `(font-latex-sectioning-4-face ((,class (:inherit ,modus-theme-variable-pitch
+                                                     :foreground ,blue-nuanced :weight bold))))
+   `(font-latex-sectioning-5-face ((,class (:inherit ,modus-theme-variable-pitch
+                                                     :foreground ,blue-nuanced))))
+   `(font-latex-sedate-face ((,class (:foreground ,magenta-alt-other :weight ,modus-theme-bold))))
+   `(font-latex-slide-title-face ((,class (:inherit ,modus-theme-variable-pitch
+                                                     :foreground ,cyan-nuanced :weight bold
+                                                     ,@(when modus-operandi-theme-scale-headings
+                                                         (list :height modus-operandi-theme-scale-4))))))
+   `(font-latex-string-face ((,class (:foreground ,blue-alt))))
+   `(font-latex-subscript-face ((,class (:height 0.95))))
+   `(font-latex-superscript-face ((,class (:height 0.95))))
+   `(font-latex-verbatim-face ((,class (:background ,bg-dim :foreground ,fg-special-mild))))
+   `(font-latex-warning-face ((,class (:foreground ,yellow-alt-other))))
+   `(tex-match ((,class (:foreground ,blue-alt-other))))
+   `(tex-verbatim ((,class (:background ,bg-dim :foreground ,fg-special-mild))))
+   `(texinfo-heading ((,class (:foreground ,magenta))))
+   `(TeX-error-description-error ((,class (:foreground ,red :weight bold))))
+   `(TeX-error-description-help ((,class (:foreground ,blue))))
+   `(TeX-error-description-tex-said ((,class (:foreground ,blue))))
+   `(TeX-error-description-warning ((,class (:foreground ,yellow :weight bold))))
    ;;;; auto-dim-other-buffers
    `(auto-dim-other-buffers-face ((,class (:background ,bg-alt))))
    ;;;; avy
