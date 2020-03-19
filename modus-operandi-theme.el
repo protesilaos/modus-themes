@@ -183,6 +183,7 @@
 ;;     org-pomodoro
 ;;     org-recur
 ;;     org-roam
+;;     org-superstar
 ;;     origami
 ;;     outline-mode
 ;;     outline-minor-faces
@@ -2101,6 +2102,9 @@ between foreground and background is >= 7:1)."
    ;;;; org-roam
    `(org-roam-link ((,class (:foreground ,blue-alt-other :underline t))))
    `(org-roam-backlink ((,class (:foreground ,green-alt-other :underline t))))
+   ;;;; org-superstar
+   `(org-superstar-item ((,class (:foreground ,fg-main))))
+   `(org-superstar-leading ((,class (:foreground ,fg-whitespace))))
    ;;;; origami
    `(origami-fold-header-face ((,class (:background ,bg-dim :foreground ,fg-dim :box t))))
    `(origami-fold-replacement-face ((,class (:background ,bg-alt :foreground ,fg-alt))))
