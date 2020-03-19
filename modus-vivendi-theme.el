@@ -145,6 +145,7 @@
 ;;     highlight-blocks
 ;;     highlight-defined
 ;;     highlight-numbers
+;;     highlight-thing
 ;;     hl-fill-column
 ;;     hl-line-mode
 ;;     hl-todo
@@ -1539,6 +1540,8 @@ between foreground and background is >= 7:1)."
    `(highlight-defined-variable-name-face ((,class (:foreground ,cyan))))
    ;;;; highlight-numbers
    `(highlight-numbers-number ((,class (:foreground ,blue-alt-other))))
+   ;;;; highlight-thing
+   `(highlight-thing ((,class (:background ,bg-alt :foreground ,cyan))))
    ;;;; hl-fill-column
    `(hl-fill-column-face ((,class (:background ,bg-active :foreground ,fg-active))))
    ;;;; hl-todo
