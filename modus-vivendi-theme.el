@@ -529,8 +529,7 @@ between foreground and background is >= 7:1)."
    ;;;;;;;;;;;;;;;;;;;
    ;;; default constructs
    ;;;; absolute essentials
-   `(default ((,class (:background ,(when (display-graphic-p) bg-main)
-                                   :foreground ,fg-main))))
+   `(default ((,class (:background ,bg-main :foreground ,fg-main))))
    `(cursor ((,class (:background ,fg-main))))
    `(fringe ((,class (:background ,bg-main :foreground ,fg-main))))
    ;;;; basic and/or ungrouped styles
