@@ -317,6 +317,7 @@ the "full support" may not be 100% true…
 + sesman
 + shell-script-mode
 + show-paren-mode
++ skewer-mode
 + smart-mode-line
 + smartparens
 + smerge
