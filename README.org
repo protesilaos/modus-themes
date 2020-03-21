@@ -313,6 +313,7 @@ the "full support" may not be 100% true…
 + regexp-builder (also known as =re-builder=)
 + rmail
 + ruler-mode
++ sallet
 + selectrum
 + sesman
 + shell-script-mode

@@ -203,6 +203,7 @@
 ;;     regexp-builder (also known as `re-builder')
 ;;     rmail
 ;;     ruler-mode
+;;     sallet
 ;;     selectrum
 ;;     sesman
 ;;     shell-script-mode
@@ -2252,6 +2253,24 @@ between foreground and background is >= 7:1)."
    `(ruler-mode-margins ((,class (:inherit ruler-mode-default :foreground ,bg-main))))
    `(ruler-mode-pad ((,class (:background ,bg-active :foreground ,fg-inactive))))
    `(ruler-mode-tab-stop ((,class (:inherit ruler-mode-default :foreground ,yellow-active))))
+   ;;;; sallet
+   `(sallet-buffer-compressed ((,class (:foreground ,yellow-nuanced :slant italic))))
+   `(sallet-buffer-default-directory ((,class (:foreground ,cyan-nuanced))))
+   `(sallet-buffer-directory ((,class (:foreground ,blue-nuanced))))
+   `(sallet-buffer-help ((,class (:foreground ,fg-special-cold))))
+   `(sallet-buffer-modified ((,class (:foreground ,yellow-alt-other :slant italic))))
+   `(sallet-buffer-ordinary ((,class (:foreground ,fg-main))))
+   `(sallet-buffer-read-only ((,class (:foreground ,yellow-alt))))
+   `(sallet-buffer-size ((,class (:foreground ,fg-special-calm))))
+   `(sallet-buffer-special ((,class (:foreground ,magenta-alt-other))))
+   `(sallet-flx-match ((,class (:inherit modus-theme-refine-cyan))))
+   `(sallet-recentf-buffer-name ((,class (:foreground ,blue-nuanced))))
+   `(sallet-recentf-file-path ((,class (:foreground ,fg-special-mild))))
+   `(sallet-regexp-match ((,class (:inherit modus-theme-refine-magenta))))
+   `(sallet-source-header ((,class (:foreground ,red-alt :weight bold
+                                                ,@(when modus-operandi-theme-scale-headings
+                                                    (list :height modus-operandi-theme-scale-4))))))
+   `(sallet-substring-match ((,class (:inherit modus-theme-refine-blue))))
    ;;;; selectrum
    `(selectrum-current-candidate ((,class (:inherit modus-theme-intense-cyan :weight bold))))
    `(selectrum-primary-highlight ((,class (:inherit modus-theme-refine-blue :weight bold))))
