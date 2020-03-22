@@ -189,6 +189,7 @@
 ;;     outline-mode
 ;;     outline-minor-faces
 ;;     package (M-x list-packages)
+;;     paradox
 ;;     paren-face
 ;;     pass
 ;;     persp-mode
@@ -2155,6 +2156,19 @@ between foreground and background is >= 7:1)."
    `(package-status-installed ((,class (:foreground ,fg-special-warm))))
    `(package-status-new ((,class (:foreground ,green :weight bold))))
    `(package-status-unsigned ((,class (:foreground ,red-alt :weight bold))))
+   ;;;; paradox
+   `(paradox-archive-face ((,class (:foreground ,fg-special-mild))))
+   `(paradox-comment-face ((,class (:foreground ,fg-alt :slant ,modus-theme-slant))))
+   `(paradox-commit-tag-face ((,class (:inherit modus-theme-refine-magenta :box t))))
+   `(paradox-description-face ((,class (:foreground ,fg-special-cold))))
+   `(paradox-description-face-multiline ((,class (:foreground ,fg-special-cold))))
+   `(paradox-download-face ((,class (:foreground ,blue-alt-other :weight ,modus-theme-bold))))
+   `(paradox-highlight-face ((,class (:foreground ,cyan-alt-other :weight ,modus-theme-bold))))
+   `(paradox-homepage-button-face ((,class (:foreground ,magenta-alt-other :underline t))))
+   `(paradox-mode-line-face ((,class (:foreground ,cyan-active :weight bold))))
+   `(paradox-name-face ((,class (:foreground ,blue :underline t))))
+   `(paradox-star-face ((,class (:foreground ,magenta))))
+   `(paradox-starred-face ((,class (:foreground ,magenta-alt))))
    ;;;; paren-face
    `(parenthesis ((,class (:foreground ,fg-alt))))
    ;;;; pass
