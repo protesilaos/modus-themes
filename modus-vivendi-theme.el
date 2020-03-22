@@ -550,7 +550,7 @@ between foreground and background is >= 7:1)."
    `(next-error ((,class (:inherit modus-theme-subtle-red))))
    `(shadow ((,class (:foreground ,fg-alt))))
    `(success ((,class (:foreground ,green :weight bold))))
-   `(trailing-whitespace ((,class (:background ,red-alt))))
+   `(trailing-whitespace ((,class (:background ,red-intense-bg))))
    `(warning ((,class (:foreground ,yellow :weight bold))))
    ;;;; alert
    `(alert-high-face ((,class (:foreground ,red-alt :weight bold))))
