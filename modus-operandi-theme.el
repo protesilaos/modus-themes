@@ -338,6 +338,10 @@ between foreground and background is >= 7:1)."
   "Font size that is slightly larger than `modus-theme-scale-3'."
   :type 'number)
 
+(defcustom modus-operandi-theme-visible-fringes nil
+  "Use a visible style for fringes."
+  :type 'boolean)
+
 ;; Define colour palette.  Each colour must have a >= 7:1 contrast
 ;; ratio relative to the foreground/background colour it is rendered
 ;; against.
@@ -536,7 +540,9 @@ between foreground and background is >= 7:1)."
    ;;;; absolute essentials
    `(default ((,class (:background ,bg-main :foreground ,fg-main))))
    `(cursor ((,class (:background ,fg-main))))
-   `(fringe ((,class (:background ,bg-main :foreground ,fg-main))))
+   `(fringe ((,class (:background
+                      ,(if modus-operandi-theme-visible-fringes bg-inactive bg-main)
+                      :foreground ,fg-main))))
    ;;;; basic and/or ungrouped styles
    `(error ((,class (:foreground ,red :weight bold))))
    `(escape-glyph ((,class (:inherit modus-theme-refine-blue :weight bold))))
