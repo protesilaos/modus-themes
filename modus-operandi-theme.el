@@ -915,8 +915,8 @@ between foreground and background is >= 7:1)."
    `(dashboard-navigator ((,class (:foreground ,cyan-alt-other))))
    `(dashboard-text-banner ((,class (:foreground ,fg-dim))))
    ;;;; deadgrep
-   `(deadgrep-filename-face ((,class (:foreground ,cyan :weight bold))))
-   `(deadgrep-match-face ((,class (:inherit modus-theme-subtle-blue))))
+   `(deadgrep-filename-face ((,class (:foreground ,fg-special-cold :weight bold))))
+   `(deadgrep-match-face ((,class (:inherit modus-theme-special-calm))))
    `(deadgrep-meta-face ((,class (:foreground ,fg-alt))))
    `(deadgrep-regexp-metachar-face ((,class (:foreground ,yellow-intense :weight bold))))
    `(deadgrep-search-term-face ((,class (:foreground ,green-intense :weight bold))))
