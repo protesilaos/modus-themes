@@ -461,7 +461,7 @@ Whatever you do, please bear in mind the overarching objective of the
 Modus themes: to keep a contrast ratio that is greater or equal to 7:1
 between background and foreground colours.  If a compromise is ever
 necessary between aesthetics and accessibility, it shall always be made
-in the interest of latter.
+in the interest of the latter.
 
 * Meta
   :PROPERTIES:
