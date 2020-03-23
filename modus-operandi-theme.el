@@ -829,7 +829,7 @@ between foreground and background is >= 7:1)."
    `(compilation-column-number ((,class (:foreground ,magenta-alt-other))))
    `(compilation-error ((,class (:foreground ,red :weight bold))))
    `(compilation-info ((,class (:foreground ,fg-special-cold))))
-   `(compilation-line-number ((,class (:foreground ,magenta-alt))))
+   `(compilation-line-number ((,class (:foreground ,fg-special-warm))))
    `(compilation-mode-line-exit ((,class (:foreground ,blue-active :weight bold))))
    `(compilation-mode-line-fail ((,class (:foreground ,red-active :weight bold))))
    `(compilation-mode-line-run ((,class (:foreground ,magenta-active :weight bold))))
