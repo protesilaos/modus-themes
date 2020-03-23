@@ -144,6 +144,12 @@ theme of your choice):
 (setq modus-vivendi-theme-scale-2 1.1)
 (setq modus-vivendi-theme-scale-3 1.15)
 (setq modus-vivendi-theme-scale-4 1.2)
+
+;; Make the fringes visible.  This renders them in a different
+;; background than the main buffer.
+(setq modus-operandi-theme-visible-fringes nil)
+
+(setq modus-vivendi-theme-visible-fringes nil)
 #+END_SRC
 
 *NOTE* that all customisation options must be declared /before/ loading
