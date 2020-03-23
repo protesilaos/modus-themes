@@ -203,6 +203,7 @@
 ;;     rainbow-delimiters
 ;;     regexp-builder (also known as `re-builder')
 ;;     rg
+;;     ripgrep
 ;;     rmail
 ;;     ruler-mode
 ;;     sallet
@@ -2267,6 +2268,11 @@ between foreground and background is >= 7:1)."
    `(rg-toggle-off-face ((,class (:foreground ,fg-inactive :weight bold))))
    `(rg-toggle-on-face ((,class (:foreground ,cyan-active :weight bold))))
    `(rg-warning-face ((,class (:foreground ,yellow :weight bold))))
+   ;;;; ripgrep
+   `(ripgrep-context-face ((,class (:foreground ,fg-alt))))
+   `(ripgrep-error-face ((,class (:foreground ,red :weight bold))))
+   `(ripgrep-hit-face ((,class (:foreground ,cyan))))
+   `(ripgrep-match-face ((,class (:inherit modus-theme-special-calm))))
    ;;;; rmail
    `(rmail-header-name ((,class (:foreground ,cyan-alt-other))))
    `(rmail-highlight ((,class (:foreground ,magenta-alt :weight bold))))
