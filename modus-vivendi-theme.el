@@ -290,6 +290,12 @@ between foreground and background is >= 7:1)."
 (defface modus-theme-active-blue nil t)
 (defface modus-theme-active-magenta nil t)
 (defface modus-theme-active-cyan nil t)
+(defface modus-theme-fringe-red nil t)
+(defface modus-theme-fringe-green nil t)
+(defface modus-theme-fringe-yellow nil t)
+(defface modus-theme-fringe-blue nil t)
+(defface modus-theme-fringe-magenta nil t)
+(defface modus-theme-fringe-cyan nil t)
 (defface modus-theme-special-cold nil t)
 (defface modus-theme-special-mild nil t)
 (defface modus-theme-special-warm nil t)
@@ -423,6 +429,13 @@ between foreground and background is >= 7:1)."
       (red-active "#ffaa20") (green-active "#70e030")
       (yellow-active "#efdf00") (blue-active "#00ccff")
       (magenta-active "#d0acff") (cyan-active "#00ddc0")
+      ;; styles that are meant exclusively for the fringes
+      ;;
+      ;; must have a minimum contrast ratio of 1.5:1 with `bg-inactive'
+      ;; and be combined with `fg-main'
+      (red-fringe-bg "#a00000") (green-fringe-bg "#006600")
+      (yellow-fringe-bg "#775500") (blue-fringe-bg "#3228bb")
+      (magenta-fringe-bg "#990099") (cyan-fringe-bg "#005599")
 
       ;; styles reserved for specific faces
       ;;
@@ -517,6 +530,13 @@ between foreground and background is >= 7:1)."
    `(modus-theme-active-blue ((,class (:background ,blue-active :foreground ,bg-active))))
    `(modus-theme-active-magenta ((,class (:background ,magenta-active :foreground ,bg-active))))
    `(modus-theme-active-cyan ((,class (:background ,cyan-active :foreground ,bg-active))))
+   ;;; for fringe indicators
+   `(modus-theme-fringe-red ((,class (:background ,red-fringe-bg :foreground ,fg-main))))
+   `(modus-theme-fringe-green ((,class (:background ,green-fringe-bg :foreground ,fg-main))))
+   `(modus-theme-fringe-yellow ((,class (:background ,yellow-fringe-bg :foreground ,fg-main))))
+   `(modus-theme-fringe-blue ((,class (:background ,blue-fringe-bg :foreground ,fg-main))))
+   `(modus-theme-fringe-magenta ((,class (:background ,magenta-fringe-bg :foreground ,fg-main))))
+   `(modus-theme-fringe-cyan ((,class (:background ,cyan-fringe-bg :foreground ,fg-main))))
    ;;; special base values that are closer to the grayscale than
    ;;; the accents defined above
    `(modus-theme-special-cold ((,class (:background ,bg-special-cold :foreground ,fg-special-cold))))
