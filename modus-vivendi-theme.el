@@ -718,8 +718,8 @@ between foreground and background is >= 7:1)."
    ;;;; bm
    `(bm-face ((,class (:inherit modus-theme-subtle-yellow
                                 ,@(and (>= emacs-major-version 27) '(:extend t))))))
-   `(bm-fringe-face ((,class (:inherit modus-theme-subtle-yellow))))
-   `(bm-fringe-persistent-face ((,class (:inherit modus-theme-intense-blue))))
+   `(bm-fringe-face ((,class (:inherit modus-theme-fringe-yellow))))
+   `(bm-fringe-persistent-face ((,class (:inherit modus-theme-fringe-blue))))
    `(bm-persistent-face ((,class (:inherit modus-theme-intense-blue
                                            ,@(and (>= emacs-major-version 27) '(:extend t))))))
    ;;;; buttons, links, widgets
