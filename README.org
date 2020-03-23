@@ -463,6 +463,27 @@ between background and foreground colours.  If a compromise is ever
 necessary between aesthetics and accessibility, it shall always be made
 in the interest of the latter.
 
+** Code contributions require copyright assignment to the FSF
+   :PROPERTIES:
+   :CUSTOM_ID: h:d3fb2fc7-6c34-4e68-b2d6-6048849b0319
+   :END:
+
+I accept code contributions as well (send merge requests!).  But for any
+major contribution (more than 15 lines, or so), you need to make a
+copyright assignment to the Free Software Foundation.  This is necessary
+because the themes are distributed through the official GNU ELPA
+repository and the FSF must be in a position to enforce the GNU General
+Public License.
+
+Copyright assignment /is a simple process/ that I had to follow as well.
+Check the [[https://git.savannah.gnu.org/cgit/gnulib.git/tree/doc/Copyright/request-assign.future][request form]].  You must send an email to the address mentioned
+in the form and then wait for the FSF to send you a legal agreement.
+Sign the document and file it back to them.  This should all happen via
+email and take about a week.
+
+I encourage you to go through this process.  You only need to do it
+once.  It will allow you to make contributions to Emacs in general.
+
 * Meta
   :PROPERTIES:
   :CUSTOM_ID: h:4c338a51-509e-42c0-8820-1f5014fb477b
