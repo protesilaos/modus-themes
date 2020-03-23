@@ -202,6 +202,7 @@
 ;;     rainbow-identifiers
 ;;     rainbow-delimiters
 ;;     regexp-builder (also known as `re-builder')
+;;     rg
 ;;     rmail
 ;;     ruler-mode
 ;;     sallet
@@ -2253,6 +2254,19 @@ between foreground and background is >= 7:1)."
    `(reb-match-3 ((,class (:inherit modus-theme-intense-red))))
    `(reb-regexp-grouping-backslash ((,class (:foreground ,green :weight bold))))
    `(reb-regexp-grouping-construct ((,class (:foreground ,magenta :weight bold))))
+   ;;;; rg (rg.el)
+   `(rg-column-number-face ((,class (:foreground ,magenta-alt-other))))
+   `(rg-context-face ((,class (:foreground ,fg-alt))))
+   `(rg-error-face ((,class (:foreground ,red :weight bold))))
+   `(rg-file-tag-face ((,class (:foreground ,fg-special-cold))))
+   `(rg-filename-face ((,class (:foreground ,fg-special-cold :weight bold))))
+   `(rg-line-number-face ((,class (:foreground ,fg-special-warm))))
+   `(rg-literal-face ((,class (:foreground ,blue-alt))))
+   `(rg-match-face ((,class (:inherit modus-theme-special-calm))))
+   `(rg-regexp-face ((,class (:foreground ,magenta-active))))
+   `(rg-toggle-off-face ((,class (:foreground ,fg-inactive :weight bold))))
+   `(rg-toggle-on-face ((,class (:foreground ,cyan-active :weight bold))))
+   `(rg-warning-face ((,class (:foreground ,yellow :weight bold))))
    ;;;; rmail
    `(rmail-header-name ((,class (:foreground ,cyan-alt-other))))
    `(rmail-highlight ((,class (:foreground ,magenta-alt :weight bold))))

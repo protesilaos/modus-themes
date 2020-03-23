@@ -312,6 +312,7 @@ the "full support" may not be 100% true…
 + rainbow-identifiers
 + rainbow-delimiters
 + regexp-builder (also known as =re-builder=)
++ rg (rg.el)
 + rmail
 + ruler-mode
 + sallet
