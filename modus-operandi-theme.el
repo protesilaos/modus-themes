@@ -2148,27 +2148,27 @@ between foreground and background is >= 7:1)."
    `(origami-fold-replacement-face ((,class (:background ,bg-alt :foreground ,fg-alt))))
    ;;;; outline-mode
    `(outline-1 ((,class (:inherit ,modus-theme-variable-pitch
-                           :foreground ,fg-main :weight bold
-                                       ,@(when modus-operandi-theme-scale-headings
-                                           (list :height modus-operandi-theme-scale-4))))))
+                                  :foreground ,fg-main :weight bold
+                                  ,@(when modus-operandi-theme-scale-headings
+                                      (list :height modus-operandi-theme-scale-4))))))
    `(outline-2 ((,class (:inherit ,modus-theme-variable-pitch
-                           :foreground ,fg-special-warm :weight bold
-                                       ,@(when modus-operandi-theme-scale-headings
-                                          (list :height modus-operandi-theme-scale-3))))))
+                                  :foreground ,fg-special-warm :weight bold
+                                  ,@(when modus-operandi-theme-scale-headings
+                                      (list :height modus-operandi-theme-scale-3))))))
    `(outline-3 ((,class (:inherit ,modus-theme-variable-pitch
-                           :foreground ,fg-special-cold :weight bold
-                                       ,@(when modus-operandi-theme-scale-headings
-                                          (list :height modus-operandi-theme-scale-2))))))
+                                  :foreground ,fg-special-cold :weight bold
+                                  ,@(when modus-operandi-theme-scale-headings
+                                      (list :height modus-operandi-theme-scale-2))))))
    `(outline-4 ((,class (:inherit ,modus-theme-variable-pitch
-                           :foreground ,fg-special-mild :weight bold
-                                       ,@(when modus-operandi-theme-scale-headings
-                                          (list :height modus-operandi-theme-scale-1))))))
+                                  :foreground ,fg-special-mild :weight bold
+                                  ,@(when modus-operandi-theme-scale-headings
+                                      (list :height modus-operandi-theme-scale-1))))))
    `(outline-5 ((,class (:inherit ,modus-theme-variable-pitch
-                           :foreground ,fg-special-calm :weight bold))))
+                                  :foreground ,fg-special-calm :weight bold))))
    `(outline-6 ((,class (:inherit ,modus-theme-variable-pitch
-                           :foreground ,yellow-nuanced :weight bold))))
+                                  :foreground ,yellow-nuanced :weight bold))))
    `(outline-7 ((,class (:inherit ,modus-theme-variable-pitch
-                           :foreground ,red-nuanced :weight bold))))
+                                  :foreground ,red-nuanced :weight bold))))
    `(outline-8 ((,class (:inherit ,modus-theme-variable-pitch
                                   :foreground ,fg-dim :weight bold))))
    ;;;; outline-minor-faces (applies backgrounds to `outline-minor-mode')
