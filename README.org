@@ -150,6 +150,16 @@ theme of your choice):
 (setq modus-operandi-theme-visible-fringes nil)
 
 (setq modus-vivendi-theme-visible-fringes nil)
+
+;; Use a distinct background for Org's source blocks and extend their
+;; headings until the edge of the window (the "extend" part is for Emacs
+;; versions >= 27, whereas before they would extend anyhow).  The
+;; default is to use the same background as the rest of the buffer,
+;; while beginning and end lines do not extend to the end of the window
+;; (again, the extend is for Emacs 27 or higher).
+(setq modus-operandi-theme-distinct-org-blocks nil)
+
+(setq modus-vivendi-theme-distinct-org-blocks nil)
 #+END_SRC
 
 *NOTE* that all customisation options must be declared /before/ loading

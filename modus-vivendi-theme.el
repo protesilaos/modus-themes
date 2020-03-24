@@ -44,6 +44,7 @@
 ;;     modus-vivendi-theme-proportional-fonts
 ;;     modus-vivendi-theme-scale-headings
 ;;     modus-vivendi-theme-visible-fringes
+;;     modus-vivendi-theme-distinct-org-blocks
 ;;
 ;; The default scale is as follows (it can be customised as well):
 ;;
@@ -350,6 +351,10 @@ between foreground and background is >= 7:1)."
 
 (defcustom modus-vivendi-theme-visible-fringes nil
   "Use a visible style for fringes."
+  :type 'boolean)
+
+(defcustom modus-vivendi-theme-distinct-org-blocks nil
+  "Use a distinct background for `org-mode' source blocks."
   :type 'boolean)
 
 ;; Define colour palette.  Each colour must have a >= 7:1 contrast
@@ -2070,8 +2075,13 @@ between foreground and background is >= 7:1)."
                                              ,@(when modus-vivendi-theme-scale-headings
                                            (list :height modus-vivendi-theme-scale-3))))))
    `(org-archived ((,class (:background ,bg-alt :foreground ,fg-alt))))
-   `(org-block ((,class (:background ,bg-main :foreground ,fg-main))))
-   `(org-block-begin-line ((,class (:background ,bg-dim :foreground ,fg-special-mild))))
+   `(org-block ((,class (,@(and (>= emacs-major-version 27) '(:extend t))
+                         :background ,(if modus-vivendi-theme-distinct-org-blocks bg-dim bg-main)
+                         :foreground ,fg-main))))
+   `(org-block-begin-line ((,class (,@(and (>= emacs-major-version 27)
+                                           modus-vivendi-theme-distinct-org-blocks
+                                           '(:extend t))
+                                    :background ,bg-alt :foreground ,fg-special-mild))))
    `(org-block-end-line ((,class (:inherit org-block-begin-line))))
    `(org-checkbox ((,class (:weight bold))))
    `(org-checkbox-statistics-done ((,class (:foreground ,green :weight bold))))
