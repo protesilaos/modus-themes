@@ -213,6 +213,7 @@
 ;;     sesman
 ;;     shell-script-mode
 ;;     show-paren-mode
+;;     side-notes
 ;;     skewer-mode
 ;;     smart-mode-line
 ;;     smartparens
@@ -2354,6 +2355,8 @@ between foreground and background is >= 7:1)."
    `(show-paren-mismatch ((,class (:inherit modus-theme-intense-red))))
    ;;;; skewer-mode
    `(skewer-error-face ((,class (:foreground ,red :underline t))))
+   ;;;; side-notes
+   `(side-notes ((,class (:background ,bg-dim :foreground ,fg-dim))))
    ;;;; smart-mode-line
    `(sml/charging ((,class (:foreground ,green-active))))
    `(sml/discharging ((,class (:foreground ,red-active))))

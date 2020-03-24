@@ -328,6 +328,7 @@ the "full support" may not be 100% true…
 + sesman
 + shell-script-mode
 + show-paren-mode
++ side-notes
 + skewer-mode
 + smart-mode-line
 + smartparens
