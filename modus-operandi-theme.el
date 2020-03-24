@@ -146,6 +146,7 @@
 ;;     helm-xref
 ;;     highlight-blocks
 ;;     highlight-defined
+;;     highlight-escape-sequences (`hes-mode')
 ;;     highlight-numbers
 ;;     highlight-thing
 ;;     hl-fill-column
@@ -1594,6 +1595,9 @@ between foreground and background is >= 7:1)."
    `(highlight-defined-macro-name-face ((,class (:foreground ,magenta-alt))))
    `(highlight-defined-special-form-name-face ((,class (:foreground ,magenta-alt-other))))
    `(highlight-defined-variable-name-face ((,class (:foreground ,cyan))))
+   ;;;; highlight-escape-sequences (`hes-mode')
+   `(hes-escape-backslash-face ((,class (:foreground ,green :weight bold))))
+   `(hes-escape-sequence-face ((,class (:foreground ,magenta :weight bold))))
    ;;;; highlight-numbers
    `(highlight-numbers-number ((,class (:foreground ,blue-alt-other))))
    ;;;; highlight-thing

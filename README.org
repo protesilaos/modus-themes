@@ -261,6 +261,7 @@ the "full support" may not be 100% true…
 + helm-xref
 + highlight-blocks
 + highlight-defined
++ highlight-escape-sequences (=hes-mode=)
 + highlight-numbers
 + highlight-thing
 + hl-fill-column
