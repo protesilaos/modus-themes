@@ -2421,11 +2421,11 @@ between foreground and background is >= 7:1)."
    ;;;; smartparens
    `(sp-pair-overlay-face ((,class (:inherit modus-theme-special-warm))))
    `(sp-show-pair-enclosing ((,class (:inherit modus-theme-special-mild))))
-   `(sp-show-pair-match-face ((,class (:background ,bg-paren-match :foreground ,fg-paren-match :weight bold))))
+   `(sp-show-pair-match-face ((,class (:background ,bg-paren-match :foreground ,fg-paren-match))))
    `(sp-show-pair-mismatch-face ((,class (:inherit modus-theme-intense-red))))
-   `(sp-wrap-overlay-closing-pair ((,class (:inherit sp-pair-overlay-face :weight bold))))
+   `(sp-wrap-overlay-closing-pair ((,class (:inherit sp-pair-overlay-face))))
    `(sp-wrap-overlay-face ((,class (:inherit sp-pair-overlay-face))))
-   `(sp-wrap-overlay-opening-pair ((,class (:inherit sp-pair-overlay-face :weight bold))))
+   `(sp-wrap-overlay-opening-pair ((,class (:inherit sp-pair-overlay-face))))
    `(sp-wrap-tag-overlay-face ((,class (:inherit sp-pair-overlay-face))))
    ;;;; smerge
    `(smerge-base ((,class (:inherit modus-theme-special-warm))))
