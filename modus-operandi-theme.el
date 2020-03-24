@@ -1328,7 +1328,28 @@ between foreground and background is >= 7:1)."
    `(fountain-page-number ((,class (:foreground ,yellow-alt :weight bold))))
    `(fountain-paren ((,class (:foreground ,cyan))))
    `(fountain-scene-heading ((,class (:foreground ,fg-special-calm :weight bold))))
-   `(fountain-section-heading ((,class (:foreground ,green-alt-other :weight bold))))
+   `(fountain-section-heading ((,class (:inherit ,modus-theme-variable-pitch
+                                                 :foreground ,fg-main :weight bold
+                                                 ,@(when modus-operandi-theme-scale-headings
+                                                     (list :height modus-operandi-theme-scale-4))))))
+   `(fountain-section-heading-1 ((,class (:inherit ,modus-theme-variable-pitch
+                                                   :foreground ,fg-main :weight bold
+                                                   ,@(when modus-operandi-theme-scale-headings
+                                                       (list :height modus-operandi-theme-scale-4))))))
+   `(fountain-section-heading-2 ((,class (:inherit ,modus-theme-variable-pitch
+                                                   :foreground ,fg-special-warm :weight bold
+                                                   ,@(when modus-operandi-theme-scale-headings
+                                                       (list :height modus-operandi-theme-scale-3))))))
+   `(fountain-section-heading-3 ((,class (:inherit ,modus-theme-variable-pitch
+                                                   :foreground ,fg-special-cold :weight bold
+                                                   ,@(when modus-operandi-theme-scale-headings
+                                                       (list :height modus-operandi-theme-scale-2))))))
+   `(fountain-section-heading-4 ((,class (:inherit ,modus-theme-variable-pitch
+                                                   :foreground ,fg-special-mild :weight bold
+                                                   ,@(when modus-operandi-theme-scale-headings
+                                                       (list :height modus-operandi-theme-scale-1))))))
+   `(fountain-section-heading-5 ((,class (:inherit ,modus-theme-variable-pitch
+                                                   :foreground ,fg-special-calm :weight bold))))
    `(fountain-synopsis ((,class (:foreground ,green))))
    `(fountain-template ((,class (:foreground ,magenta-alt))))
    `(fountain-trans ((,class (:foreground ,magenta :weight bold))))
