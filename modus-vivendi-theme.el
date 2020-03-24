@@ -128,6 +128,7 @@
 ;;     flymake
 ;;     flyspell
 ;;     flyspell-correct
+;;     freeze-it
 ;;     frog-menu
 ;;     focus
 ;;     fold-this
@@ -1285,6 +1286,8 @@ between foreground and background is >= 7:1)."
       (,class (:foreground ,red :underline t))))
    ;;;; flyspell-correct
    `(flyspell-correct-highlight-face ((,class (:inherit modus-theme-refine-green))))
+   ;;;; freeze-it
+   `(freeze-it-show ((,class (:background ,bg-dim :foreground ,fg-special-warm))))
    ;;;; frog-menu
    `(frog-menu-action-keybinding-face ((,class (:foreground ,blue-alt-other))))
    `(frog-menu-actions-face ((,class (:foreground ,magenta))))
