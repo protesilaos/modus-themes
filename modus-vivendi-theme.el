@@ -189,6 +189,7 @@
 ;;     org-recur
 ;;     org-roam
 ;;     org-superstar
+;;     org-treescope
 ;;     origami
 ;;     outline-mode
 ;;     outline-minor-faces
@@ -2179,6 +2180,9 @@ between foreground and background is >= 7:1)."
    ;;;; org-superstar
    `(org-superstar-item ((,class (:foreground ,fg-main))))
    `(org-superstar-leading ((,class (:foreground ,fg-whitespace))))
+   ;;;; org-treescope
+   `(org-treescope-faces--markerinternal-midday ((,class (:inherit modus-theme-intense-blue))))
+   `(org-treescope-faces--markerinternal-range ((,class (:inherit modus-theme-special-mild))))
    ;;;; origami
    `(origami-fold-header-face ((,class (:background ,bg-dim :foreground ,fg-dim :box t))))
    `(origami-fold-replacement-face ((,class (:background ,bg-alt :foreground ,fg-alt))))

@@ -313,6 +313,7 @@ the "full support" may not be 100% true…
 + org-recur
 + org-roam
 + org-superstar
++ org-treescope
 + origami
 + outline-mode
 + outline-minor-faces
