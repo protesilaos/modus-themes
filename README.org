@@ -229,6 +229,7 @@ the "full support" may not be 100% true…
 + diredfl
 + disk-usage
 + doom-modeline
++ dynamic-ruler
 + easy-jekyll
 + easy-kill
 + ediff

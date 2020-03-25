@@ -106,6 +106,7 @@
 ;;     diredfl
 ;;     disk-usage
 ;;     doom-modeline
+;;     dynamic-ruler
 ;;     easy-jekyll
 ;;     easy-kill
 ;;     ediff
@@ -1104,6 +1105,9 @@ between foreground and background is >= 7:1)."
    `(doom-modeline-unread-number ((,class (:foreground ,fg-active :slant italic))))
    `(doom-modeline-urgent ((,class (:foreground ,red-active :weight bold :underline t))))
    `(doom-modeline-warning ((,class (:foreground ,yellow-active :weight bold))))
+   ;;;; dynamic-ruler
+   `(dynamic-ruler-negative-face ((,class (:inherit modus-theme-intense-neutral))))
+   `(dynamic-ruler-positive-face ((,class (:inherit modus-theme-intense-yellow))))
    ;;;; easy-jekyll
    `(easy-jekyll-help-face ((,class (:background ,bg-dim :foreground ,cyan-alt-other))))
    ;;;; easy-kill
