@@ -143,6 +143,7 @@
 ;;     git-gutter (and variants)
 ;;     git-lens
 ;;     git-timemachine
+;;     git-walktree
 ;;     gnus
 ;;     helm
 ;;     helm-ls-git
@@ -1429,6 +1430,10 @@ between foreground and background is >= 7:1)."
    `(git-timemachine-commit ((,class (:foreground ,yellow-active :weight bold))))
    `(git-timemachine-minibuffer-author-face ((,class (:foreground ,fg-special-warm))))
    `(git-timemachine-minibuffer-detail-face ((,class (:foreground ,red-alt))))
+   ;;;; git-walktree
+   `(git-walktree-commit-face ((,class (:foreground ,yellow))))
+   `(git-walktree-symlink-face ((,class (:foreground ,cyan :underline t))))
+   `(git-walktree-tree-face ((,class (:foreground ,magenta))))
    ;;;; gnus
    `(gnus-button ((,class (:inherit button))))
    `(gnus-cite-1 ((,class (:foreground ,blue-alt))))
