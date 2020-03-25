@@ -110,6 +110,7 @@
 ;;     ediff
 ;;     eldoc-box
 ;;     elfeed
+;;     elfeed-score
 ;;     emms
 ;;     enhanced-ruby-mode
 ;;     epa
@@ -1139,6 +1140,12 @@ between foreground and background is >= 7:1)."
    `(elfeed-search-title-face ((,class (:foreground ,fg-main))))
    `(elfeed-search-unread-count-face ((,class (:foreground ,fg-special-warm))))
    `(elfeed-search-unread-title-face ((,class (:weight bold))))
+   ;;;; elfeed-score
+   `(elfeed-score-date-face ((,class (:foreground ,blue))))
+   `(elfeed-score-debug-level-face ((,class (:foreground ,magenta-alt-other))))
+   `(elfeed-score-error-level-face ((,class (:foreground ,red))))
+   `(elfeed-score-info-level-face ((,class (:foreground ,cyan))))
+   `(elfeed-score-warn-level-face ((,class (:foreground ,yellow))))
    ;;;; emms
    `(emms-playlist-track-face ((,class (:foreground ,blue))))
    `(emms-playlist-selected-face ((,class (:foreground ,magenta :weight bold))))

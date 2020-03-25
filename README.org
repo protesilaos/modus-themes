@@ -234,6 +234,7 @@ the "full support" may not be 100% true…
 + ediff
 + eldoc-box
 + elfeed
++ elfeed-score
 + emms
 + enhanced-ruby-mode
 + epa
