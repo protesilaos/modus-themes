@@ -87,6 +87,7 @@
 ;;     counsel-notmuch
 ;;     counsel-org-capture-string
 ;;     cov
+;;     csv-mode
 ;;     custom (M-x customize)
 ;;     dap-mode
 ;;     dashboard (emacs-dashboard)
@@ -914,6 +915,8 @@ between foreground and background is >= 7:1)."
    `(cov-light-face ((,class (:foreground ,blue-intense))))
    `(cov-med-face ((,class (:foreground ,yellow-intense))))
    `(cov-none-face ((,class (:foreground ,cyan-intense))))
+   ;;;; csv-mode
+   `(csv-separator-face ((,class (:background ,bg-special-cold :foreground ,fg-main))))
    ;;;; custom (M-x customize)
    `(custom-button ((,class (:box (:line-width 2 :color nil :style released-button)
                                   :background ,bg-active :foreground ,fg-main))))
