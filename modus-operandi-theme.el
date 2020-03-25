@@ -221,6 +221,7 @@
 ;;     smartparens
 ;;     smerge
 ;;     speedbar
+;;     stripes
 ;;     suggest
 ;;     swiper
 ;;     sx
@@ -2444,6 +2445,8 @@ between foreground and background is >= 7:1)."
    `(speedbar-selected-face ((,class (:foreground ,cyan :weight bold))))
    `(speedbar-separator-face ((,class (:inherit modus-theme-intense-neutral))))
    `(speedbar-tag-face ((,class (:foreground ,yellow-alt-other))))
+   ;;;; stripes
+   `(stripes ((,class (:background ,bg-alt))))
    ;;;; success
    `(suggest-heading ((,class (:foreground ,yellow-alt-other :weight bold))))
    ;;;; swiper
