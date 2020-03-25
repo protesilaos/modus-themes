@@ -454,9 +454,9 @@ between foreground and background is >= 7:1)."
       ;; can be combined with any of the "active" values, plus the
       ;; "special" and base foreground colours
       ;;
-      ;; `bg-region' and `bg-tab-active' must be combined with
-      ;; `fg-main', while `bg-tab-inactive' should be combined with
-      ;; `fg-dim'
+      ;; `bg-paren-match', `bg-region' and `bg-tab-active' must be
+      ;; combined with `fg-main', while `bg-tab-inactive' should be
+      ;; combined with `fg-dim'
       ;;
       ;; `fg-tab-active' is meant to be combined with `bg-tab-active',
       ;; though only for styling special elements, such as underlining
@@ -466,6 +466,7 @@ between foreground and background is >= 7:1)."
       ;;
       ;; all other pairs are combinable with themselves
       (bg-hl-line "#151823")
+      (bg-paren-match "#6e3a50")
       (bg-region "#3c3c3c")
       (bg-tab-active "#484848")
       (bg-tab-inactive "#2f2f2f")
@@ -474,7 +475,6 @@ between foreground and background is >= 7:1)."
       (fg-window-divider-outer "#969696")
       (fg-header "#dddddd") (bg-header "#2a2a2a")
       (fg-whitespace "#a4959f") (bg-whitespace "#170016")
-      (fg-paren-match "#fcfcfc") (bg-paren-match "#754a5d")
       (fg-diff-heading "#dadffe") (bg-diff-heading "#304466")
       (fg-diff-added "#94ba94") (bg-diff-added "#0a280a")
       (fg-diff-changed "#b0ba9f") (bg-diff-changed "#2a2000")
@@ -2385,7 +2385,7 @@ between foreground and background is >= 7:1)."
    `(sh-heredoc ((,class (:foreground ,blue-alt))))
    `(sh-quoted-exec ((,class (:foreground ,magenta-alt :weight ,modus-theme-bold))))
    ;;;; show-paren-mode
-   `(show-paren-match ((,class (:background ,bg-paren-match :foreground ,fg-paren-match))))
+   `(show-paren-match ((,class (:background ,bg-paren-match :foreground ,fg-main))))
    `(show-paren-match-expression ((,class (:inherit modus-theme-special-calm))))
    `(show-paren-mismatch ((,class (:inherit modus-theme-intense-red))))
    ;;;; skewer-mode
@@ -2421,7 +2421,7 @@ between foreground and background is >= 7:1)."
    ;;;; smartparens
    `(sp-pair-overlay-face ((,class (:inherit modus-theme-special-warm))))
    `(sp-show-pair-enclosing ((,class (:inherit modus-theme-special-mild))))
-   `(sp-show-pair-match-face ((,class (:background ,bg-paren-match :foreground ,fg-paren-match))))
+   `(sp-show-pair-match-face ((,class (:background ,bg-paren-match :foreground ,fg-main))))
    `(sp-show-pair-mismatch-face ((,class (:inherit modus-theme-intense-red))))
    `(sp-wrap-overlay-closing-pair ((,class (:inherit sp-pair-overlay-face))))
    `(sp-wrap-overlay-face ((,class (:inherit sp-pair-overlay-face))))
