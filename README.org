@@ -232,6 +232,7 @@ the "full support" may not be 100% true…
 + dynamic-ruler
 + easy-jekyll
 + easy-kill
++ ebdb
 + ediff
 + eldoc-box
 + elfeed
