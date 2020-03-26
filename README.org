@@ -287,6 +287,7 @@ the "full support" may not be 100% true…
 + info
 + info-colors
 + interaction-log
++ ioccur
 + isearch, occur, etc.
 + ivy*
 + ivy-posframe
