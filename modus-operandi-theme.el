@@ -1016,12 +1016,12 @@ between foreground and background is >= 7:1)."
    ;;;; dim-autoload
    `(dim-autoload-cookie-line ((,class (:foreground ,fg-alt :slant ,modus-theme-slant))))
    ;;;; dired
-   `(dired-directory ((,class (:foreground ,blue :weight bold))))
-   `(dired-flagged ((,class (:inherit modus-theme-intense-red))))
+   `(dired-directory ((,class (:foreground ,blue))))
+   `(dired-flagged ((,class (:background ,bg-mark-del :foreground ,fg-mark-del :weight bold))))
    `(dired-header ((,class (:foreground ,fg-main :weight bold))))
    `(dired-ignored ((,class (:foreground ,fg-alt))))
-   `(dired-mark ((,class (:foreground ,magenta-alt :weight bold))))
-   `(dired-marked ((,class (:inherit modus-theme-intense-magenta))))
+   `(dired-mark ((,class (:foreground ,blue-alt :weight bold))))
+   `(dired-marked ((,class (:background ,bg-mark :foreground ,fg-mark :weight bold))))
    `(dired-perm-write ((,class (:foreground ,fg-special-warm))))
    `(dired-symlink ((,class (:foreground ,blue-alt :underline t))))
    `(dired-warning ((,class (:foreground ,yellow :weight bold))))
