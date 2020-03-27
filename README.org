@@ -312,6 +312,7 @@ the "full support" may not be 100% true…
 + mu4e-conversation
 + multiple-cursors
 + neotree
++ num3-mode
 + org*
 + org-journal
 + org-noter

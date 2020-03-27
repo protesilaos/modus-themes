@@ -189,6 +189,7 @@
 ;;     mu4e-conversation
 ;;     multiple-cursors
 ;;     neotree
+;;     num3-mode
 ;;     org
 ;;     org-journal
 ;;     org-noter
@@ -2101,6 +2102,8 @@ between foreground and background is >= 7:1)."
    `(neo-vc-unlocked-changes-face ((,class (:inherit modus-theme-refine-blue))))
    `(neo-vc-up-to-date-face ((,class (:foreground ,fg-alt))))
    `(neo-vc-user-face ((,class (:foreground ,magenta))))
+   ;;;; num3-mode
+   `(num3-face-even ((,class (:background ,bg-alt :weight bold))))
    ;;;; org
    `(org-agenda-calendar-event ((,class (:foreground ,blue-alt))))
    `(org-agenda-calendar-sexp ((,class (:foreground ,cyan-alt))))
