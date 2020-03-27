@@ -1712,8 +1712,8 @@ between foreground and background is >= 7:1)."
                                    :inherit modus-theme-refine-blue))))
    `(ioccur-regexp-face ((,class (:inherit modus-theme-intense-magenta :weight bold))))
    `(ioccur-title-face ((,class (:foreground ,red-alt :weight bold
-                                             ,@(when modus-operandi-theme-scale-headings
-                                                 (list :height modus-operandi-theme-scale-4))))))
+                                             ,@(when modus-vivendi-theme-scale-headings
+                                                 (list :height modus-vivendi-theme-scale-4))))))
    ;;;; isearch, occur, and the like
    `(isearch ((,class (:inherit modus-theme-intense-green :weight bold))))
    `(isearch-fail ((,class (:inherit modus-theme-refine-red))))
