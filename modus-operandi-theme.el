@@ -171,6 +171,7 @@
 ;;     ivy-posframe
 ;;     jira (org-jira)
 ;;     js2-mode
+;;     julia
 ;;     jupyter
 ;;     kaocha-runner
 ;;     keycast
@@ -1774,6 +1775,9 @@ between foreground and background is >= 7:1)."
    `(js2-private-function-call ((,class (:foreground ,green-alt-other))))
    `(js2-private-member ((,class (:foreground ,fg-special-mild))))
    `(js2-warning ((,class (:foreground ,yellow-alt :underline t))))
+   ;;;; julia
+   `(julia-macro-face ((,class (:foreground ,magenta :weight ,modus-theme-bold))))
+   `(julia-quoted-symbol-face ((,class (:foreground ,blue-alt-other))))
    ;;;; jupyter
    `(jupyter-eval-overlay ((,class (:foreground ,blue :weight bold))))
    `(jupyter-repl-input-prompt ((,class (:foreground ,cyan-alt-other))))
