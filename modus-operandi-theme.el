@@ -1510,7 +1510,7 @@ between foreground and background is >= 7:1)."
    `(gnus-server-opened ((,class (:foreground ,green :weight bold))))
    `(gnus-signature ((,class (:foreground ,fg-special-cold :slant italic))))
    `(gnus-splash ((,class (:foreground ,fg-alt))))
-   `(gnus-summary-cancelled ((,class (:inherit modus-theme-intense-yellow))))
+   `(gnus-summary-cancelled ((,class (:background ,bg-mark-other :foreground ,fg-mark-other :weight bold))))
    `(gnus-summary-high-ancient ((,class (:foreground ,fg-alt :weight bold))))
    `(gnus-summary-high-read ((,class (:foreground ,fg-special-cold :weight bold))))
    `(gnus-summary-high-ticked ((,class (:foreground ,red-alt :weight bold))))
