@@ -472,9 +472,12 @@ between foreground and background is >= 7:1)."
       ;; though only for styling special elements, such as underlining
       ;; the current tab
       ;;
+      ;; `fg-mark', `fg-mark-del', `fg-mark-other' can be combined with
+      ;; `bg-main', `bg-dim', `bg-alt', `bg-hl-line'
+      ;;
       ;; the window divider colours apply to faces with just an fg value
       ;;
-      ;; all other pairs are combinable with themselves
+      ;; all pairs are combinable with themselves
       (bg-hl-line "#f1f2f6")
       (bg-paren-match "#efcabf")
       (bg-region "#bcbcbc")
@@ -495,6 +498,9 @@ between foreground and background is >= 7:1)."
       (fg-diff-focus-added "#002c00") (bg-diff-focus-added "#bbeabb")
       (fg-diff-focus-changed "#392900") (bg-diff-focus-changed "#ecdfbf")
       (fg-diff-focus-removed "#4a0000") (bg-diff-focus-removed "#efcbcf")
+      (fg-mark "#005040") (bg-mark "#a0f0cf")
+      (fg-mark-del "#840040") (bg-mark-del "#ffccbb")
+      (fg-mark-other "#782900") (bg-mark-other "#f5d88f")
 
       ;; conditional styles that evaluate user-facing customisation
       ;; options
