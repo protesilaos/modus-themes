@@ -242,6 +242,7 @@
 ;;     treemacs
 ;;     undo-tree
 ;;     vc (built-in mode line status for version control)
+;;     vc-annotate (C-x v g)
 ;;     visual-regexp
 ;;     volatile-highlights
 ;;     web-mode
@@ -2825,6 +2826,29 @@ between foreground and background is >= 7:1)."
         ("XXX+" . ,red-alt)
         ("REVIEW" . ,cyan-alt-other)
         ("DEPRECATED" . ,cyan-nuanced)))
+    ;;;;; vc-annotate (C-x v g)
+    `(vc-annotate-background nil)
+    `(vc-annotate-background-mode nil)
+    `(vc-annotate-color-map
+      '((20 . ,red)
+        (40 . ,magenta)
+        (60 . ,magenta-alt)
+        (80 . ,red-alt)
+        (100 . ,yellow)
+        (120 . ,yellow-alt)
+        (140 . ,fg-special-warm)
+        (160 . ,fg-special-mild)
+        (180 . ,green)
+        (200 . ,green-alt)
+        (220 . ,cyan-alt-other)
+        (240 . ,cyan-alt)
+        (260 . ,cyan)
+        (280 . ,fg-special-cold)
+        (300 . ,blue)
+        (320 . ,blue-alt)
+        (340 . ,blue-alt-other)
+        (360 . ,magenta-alt-other)))
+    `(vc-annotate-very-old-color nil)
     ;;;; xterm-color
     `(xterm-color-names [,bg-main ,red ,green ,yellow ,blue ,magenta ,cyan ,fg-alt])
     `(xterm-color-names-bright [,bg-alt ,red-alt ,green-alt ,yellow-alt ,blue-alt ,magenta-alt ,cyan-alt ,fg-main]))))

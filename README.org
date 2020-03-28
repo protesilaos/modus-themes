@@ -365,6 +365,7 @@ the "full support" may not be 100% true…
 + treemacs
 + undo-tree
 + vc (built-in mode line status for version control)
++ vc-annotate (=C-x v g=)
 + visual-regexp
 + volatile-highlights
 + web-mode
@@ -460,6 +461,25 @@ ANSI colour number 1 (red) from the already-supported array of
 =ansi-color-names-vector=.
 
 I presented [[https://gitlab.com/protesilaos/modus-themes/-/issues/21#note_302748582][some screen shots of this in issue 21]].
+
+** Note on VC-ANNOTATE-BACKGROUND-MODE
+   :PROPERTIES:
+   :CUSTOM_ID: h:5b5d4420-50cc-4d53-a9f8-825cba6b68f1
+   :END:
+
+Due to the unique way =vc-annotate= (=C-x v g=) applies colours, support for
+its background mode (=vc-annotate-background-mode=) is disabled at the
+theme level.
+
+Normally, such a drastic measure should not belong in a theme: assuming
+the user's preferences is bad practice.  However, it has been deemed
+necessary in the interest of preserving colour contrast accessibility
+while still supporting a useful built-in tool.
+
+If there actually is a way to avoid such a course of action, without
+prejudice to the accessibility standard of this project, then please
+report as much (or contribute as per the information in the [[#h:25ba8d6f-6604-4338-b774-bbe531d467f6][Contributing]]
+section).
 
 * Contributing
   :PROPERTIES:
