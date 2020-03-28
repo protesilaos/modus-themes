@@ -349,15 +349,15 @@ between foreground and background is >= 7:1)."
   :type 'number)
 
 (defcustom modus-vivendi-theme-scale-2 1.1
-  "Font size that is slightly larger than `modus-theme-scale-1'."
+  "Font size slightly larger than `modus-vivendi-theme-scale-1'."
   :type 'number)
 
 (defcustom modus-vivendi-theme-scale-3 1.15
-  "Font size that is slightly larger than `modus-theme-scale-2'."
+  "Font size slightly larger than `modus-vivendi-theme-scale-2'."
   :type 'number)
 
 (defcustom modus-vivendi-theme-scale-4 1.2
-  "Font size that is slightly larger than `modus-theme-scale-3'."
+  "Font size slightly larger than `modus-vivendi-theme-scale-3'."
   :type 'number)
 
 (defcustom modus-vivendi-theme-visible-fringes nil
