@@ -6,6 +6,234 @@ This document contains the release notes that are included in each
 tagged commit on https://gitlab.com/protesilaos/modus-themes.  The
 newest release is at the top.
 
+* 0.7.0
+
+Modus Operandi and Modus Vivendi version 0.7.0
+
+By Protesilaos Stavrou <info@protesilaos.com> on 2020-03-30
+
+This entry documents the changes since version 0.6.0 (2020-03-01).  The
+present release is the largest to date containing 110 commits.
+
+All changes conform with the primary objective of this project, which is
+conformance with the WCAG AAA accessibility standard for colour
+contrast.  This represents a minimum contrast ratio of 7:1 between a
+given combination of foreground and background colours.
+
+All customisation options mentioned herein are off ('nil') by default.
+The project's policy is to offer such features on an "opt-in" basis.
+Refer to the README or each theme's source code for the names of these
+user-facing symbols.
+
+Major refinements to existing face groups
+-----------------------------------------
+
++ The headline feature of this release is a refined set of colours for
+  visualising version-control-system differences ("diffs").  The new
+  colours are less intense than before and are designed to better convey
+  the meaning of the constructs they apply to.  Affected face groups are
+  those of 'magit' and 'diff-mode'.  A future release will assess how
+  similar packages, such as 'ediff', can benefit from this work.
+
++ The other major set of changes concerns the colours that apply to
+  fringes (see 'fringe-mode').  A new customisation option allows for a
+  distinct background for the fringes (courtesy of Anders Johansson in
+  commit 80fb704).  The default uses the same colours as the main
+  buffer's background.  Building on this effort, fringe indicators, such
+  as those of 'flycheck' now benefit from an entirely new set of
+  background+foreground colour combinations that are designed
+  specifically for the fringes.
+
++ A new customisation option allows users to render 'org-mode' source
+  blocks in a distinct background colour.  The default is to use the
+  same background as the rest of the buffer.  When this option is
+  enabled, the background colour for the beginning and end line of such
+  blocks is extended to the end of the window (using the ':extend t'
+  attribute for >= Emacs 27).  Older Emacs versions already extend to
+  the end of the window.
+
++ The colour combination that shows the matching parentheses or
+  delimiters has been reviewed.  The commit is fairly small and the
+  changes are immediately noticeable only to the most discerning of
+  eyes.  Still, the considerations informing the review imposed a
+  rigorous method.  Rather than summarise the findings, interested
+  readers are advised to refer to commit af3a327: it offers a
+  comprehensive analysis on the matter.
+
+Added support for packages (A-Z)
+--------------------------------
+
++ auctex/tex
++ bm
++ buffer-expose
++ centaur-tabs
++ cider (tentative, feedback is much appreciated)
++ csv-mode
++ dynamic-ruler
++ ebdb
++ elfeed-score
++ flyspell-correct
++ fold-this
++ freeze-it
++ frog-menu
++ git-walktree
++ helm-switch-shell
++ highlight-defined
++ highlight-escape-sequences (hes-mode)
++ highlight-numbers
++ highlight-thing
++ hl-todo
++ ioccur
++ julia
++ kaocha-runner
++ markup-faces (adoc-mode)
++ multiple-cursors
++ num3-mode
++ org-roam
++ org-superstar
++ org-treescope
++ outline-minor-mode
++ paradox
++ rainbow-identifiers
++ rg
++ ripgrep
++ sallet (tentative, feedback is much appreciated)
++ selectrum
++ sesman
++ side-notes
++ skewer-mode
++ stripes
++ symbol-overlay
++ syslog-mode
++ vc-annotate (C-x v g)
++ volatile-highlights
++ web-mode
++ yaml-mode
+
+Note about VC-annotate
+----------------------
+
+Quoting from the relevant note in the project's README:
+
+    Due to the unique way `vc-annotate' (`C-x v g') applies colours,
+    support for its background mode (`vc-annotate-background-mode') is
+    disabled at the theme level.
+
+    Normally, such a drastic measure should not belong in a theme:
+    assuming the user's preferences is bad practice.  However, it has
+    been deemed necessary in the interest of preserving colour contrast
+    accessibility while still supporting a useful built-in tool.
+
+    If there actually is a way to avoid such a course of action, without
+    prejudice to the accessibility standard of this project, then please
+    report as much (or contribute as per the information in the
+    Contributing section).
+
+
+Overview of refinements to already supported packages
+-----------------------------------------------------
+
+In this section the notion of "dedicated colours" pertains to colour
+values that are reserved for special faces.  They are never used for
+syntax highlighting or other common scenaria.
+
++ Define new background colours for fringe indicators (as noted in the
+  first section).  Apply them to 'bm', 'diff-hl', 'git-gutter',
+  'flycheck' fringe indicators.  All such indicators are now made more
+  visible and work better with the new customisation option for
+  rendering the fringes in a distinct background.
+
++ Define dedicated colours for tab-like interfaces.  Currently these
+  apply only to 'centaur-tabs'.  The intention is to eventually
+  implement them to the tab modes that ship with Emacs 27, as well as
+  any other package that offers such functionality.
+
++ Define dedicated colours for actions that "mark" items.  Use them in
+  'dired', 'proced', 'gnus'. An accented background is combined with an
+  accented foreground.  The intention is to make the underlying
+  construct distinct even under circumstances where the mark's
+  background changes, such as when it intersects with 'hl-line-mode' or
+  'stripes': the accented foreground will still be recognisable as a
+  colour that differs from the main foreground.  The use of a bold font
+  weight further reinforces the intended action.
+
++ Refine 'dired' faces to account for the new "mark" styles.
+  Directories are no longer rendered in a bold weight.
+
++ Tweak the colours used in the built-in 'diary' and 'calendar' for
+  better usability.
+
++ Tweak 'deadgrep' colours for consistency with packages that offer
+  similar functionality.
+
++ Tweak 'compilation-line-number' in the interest of consistency with
+  similar interfaces.
+
++ Use a more appropriate colour for 'trailing-whitespace'.  It now is a
+  colour value that was designed specifically as a background.
+
++ Expand 'fountain-mode' support by covering its new heading faces.  The
+  headings will be presented in larger font sizes, or using proportional
+  fonts, should the user enable the relevant theme customisation options
+  (see README or source code).
+
++ Remove bold weight from matching parentheses in 'show-paren-mode' and
+  'smartparens'.  The temporarily applied bold weight can cause
+  misalignments while using certain fonts.  Also apply the new colours
+  for matching delimiters, as documented in the first section.
+
++ Refine 'outline-mode' colours to be consistent with those of Org's
+  headings.
+
++ Several usability and colour refinements for 'helm' and related
+  packages in that milieu.
+
++ Remove box property from emphasis markers in the mode line.  It
+  created inconsistencies with other faces.
+
++ Refine the colours used in Magit logs, `change-log', `log-view'.  They
+  are meant to be more distinct from their context, without drawing too
+  much attention to themselves.
+
++ Minor internal fixes for indentation and the like.
+
+Miscellaneous changes and concluding remarks
+--------------------------------------------
+
++ Add section in the README which documents a legal requirement for all
+  potential non-trivial code contributions: the need to assign copyright
+  to the Free Software Foundation.  The Modus Themes are now distributed
+  via the official GNU ELPA repository and copyright over them is
+  assigned to the FSF.
+
++ Add CHANGELOG file which consolidates all tagged release notes such as
+  this one.
+
++ Add new screen shots to the relevant Wiki page, together with detailed
+  descriptions on what is being demonstrated:
+  https://gitlab.com/protesilaos/modus-themes/-/wikis/Screenshots
+
+Special thanks to Manuel Uberti for reporting several issues and
+offering feedback where appropriate.  I was able to add support for lots
+of new packages.  While a few among the already supported face groups
+underwent tweaks and refinements.  The 'helm' ecosystem benefited the
+most.
+
+Thanks to Anders Johansson for the patch that introduced the
+fringes-related customisation option.  It inspired me to reconsider the
+use of this particular area of the interface, which eventually led to
+the barrage of commits that refashioned the fringe indicators.  A major
+win overall.
+
+Thanks to Jonathan Otsuka for fixing an error of mine on the naming of
+some symbols.  My apologies for missing it: I will be more careful from
+now on.
+
+Note: both patches were small, requiring no copyright assignment.
+Larger contributions are always welcome, though make sure you read the
+section in the README with regard to assigning copyright to the Free
+Software Foundation.
+
 * 0.6.0
 
 This release contains lots of refinements and additions.
