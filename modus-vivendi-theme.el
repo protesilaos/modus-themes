@@ -850,7 +850,7 @@ between foreground and background is >= 7:1)."
    `(cider-stacktrace-filter-inactive-face ((,class (:foreground ,cyan-alt))))
    `(cider-stacktrace-fn-face ((,class (:foreground ,fg-main :weight bold))))
    `(cider-stacktrace-ns-face ((,class (:foreground ,fg-alt :slant italic))))
-   `(cider-stacktrace-promoted-button-face ((,class (box (:line-width 3 :color ,fg-alt :style released-button)) :foreground ,red)))
+   `(cider-stacktrace-promoted-button-face ((,class (:box (:line-width 3 :color ,fg-alt :style released-button)) :foreground ,red)))
    `(cider-stacktrace-suppressed-button-face ((,class (:box (:line-width 3 :color ,fg-alt :style pressed-button))
                                                       :background ,bg-alt :foreground ,fg-alt)))
    `(cider-test-error-face ((,class (:inherit modus-theme-subtle-red))))
