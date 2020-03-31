@@ -211,6 +211,7 @@ the "full support" may not be 100% true…
 + counsel-notmuch
 + counsel-org-capture-string
 + cov
++ ctrlf
 + custom (=M-x customize=)
 + dap-mode
 + dashboard (emacs-dashboard)
