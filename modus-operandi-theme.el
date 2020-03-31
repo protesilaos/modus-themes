@@ -246,6 +246,7 @@
 ;;     vc-annotate (C-x v g)
 ;;     visual-regexp
 ;;     volatile-highlights
+;;     wcheck-mode
 ;;     web-mode
 ;;     wgrep
 ;;     which-function-mode
@@ -2666,6 +2667,8 @@ between foreground and background is >= 7:1)."
    ;;;; volatile-highlights
    `(vhl/default-face ((,class (,@(and (>= emacs-major-version 27) '(:extend t))
                                 :background ,bg-alt :foreground ,blue-nuanced))))
+   ;;;; wcheck-mode
+   `(wcheck-default-face ((,class (:foreground ,red :underline t))))
    ;;;; web-mode
    `(web-mode-annotation-face ((,class (:inherit web-mode-comment-face))))
    `(web-mode-annotation-html-face ((,class (:inherit web-mode-comment-face))))

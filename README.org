@@ -369,6 +369,7 @@ the "full support" may not be 100% true…
 + vc-annotate (=C-x v g=)
 + visual-regexp
 + volatile-highlights
++ wcheck-mode
 + web-mode
 + wgrep
 + which-function-mode
