@@ -245,6 +245,7 @@
 ;;     syslog-mode
 ;;     telephone-line
 ;;     term
+;;     tomatinho
 ;;     transient (pop-up windows like Magit's)
 ;;     treemacs
 ;;     undo-tree
@@ -2633,6 +2634,10 @@ between foreground and background is >= 7:1)."
    `(term-color-red ((,class (:background ,red :foreground ,red))))
    `(term-color-yellow ((,class (:background ,yellow :foreground ,yellow))))
    `(term-underline ((,class (:underline t))))
+   ;;;; tomatinho
+   `(tomatinho-ok-face ((,class (:foreground ,blue-intense))))
+   `(tomatinho-pause-face ((,class (:foreground ,yellow-intense))))
+   `(tomatinho-reset-face ((,class (:foreground ,fg-alt))))
    ;;;; transient
    `(transient-active-infix ((,class (:inherit modus-theme-special-mild))))
    `(transient-argument ((,class (:foreground ,green :weight bold))))

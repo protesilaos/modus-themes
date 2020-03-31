@@ -368,6 +368,7 @@ the "full support" may not be 100% true…
 + syslog-mode
 + telephone-line
 + term
++ tomatinho
 + transient (pop-up windows like Magit's)
 + treemacs
 + undo-tree
