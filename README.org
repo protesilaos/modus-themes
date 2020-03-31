@@ -334,6 +334,7 @@ the "full support" may not be 100% true…
 + pass
 + persp-mode
 + perspective
++ phi-grep
 + powerline
 + powerline-evil
 + proced
