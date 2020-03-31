@@ -213,6 +213,7 @@
 ;;     perspective
 ;;     phi-grep
 ;;     phi-search
+;;     pomidor
 ;;     powerline
 ;;     powerline-evil
 ;;     proced
@@ -2344,6 +2345,11 @@ between foreground and background is >= 7:1)."
    `(phi-search-failpart-face ((,class (:inherit modus-theme-refine-red))))
    `(phi-search-match-face ((,class (:inherit modus-theme-refine-cyan))))
    `(phi-search-selection-face ((,class (:inherit modus-theme-intense-green :weight bold))))
+   ;;;; pomidor
+   `(pomidor-break-face ((,class (:foreground ,blue-alt-other))))
+   `(pomidor-overwork-face ((,class (:foreground ,red-alt-other))))
+   `(pomidor-skip-face ((,class (:foreground ,fg-alt :slant ,modus-theme-slant))))
+   `(pomidor-work-face ((,class (:foreground ,green-alt-other))))
    ;;;; powerline
    `(powerline-active0 ((,class (:background ,fg-inactive :foreground ,bg-inactive))))
    `(powerline-active1 ((,class (:background ,bg-active :foreground ,fg-active))))

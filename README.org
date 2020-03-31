@@ -336,6 +336,7 @@ the "full support" may not be 100% true…
 + perspective
 + phi-grep
 + phi-search
++ pomidor
 + powerline
 + powerline-evil
 + proced
