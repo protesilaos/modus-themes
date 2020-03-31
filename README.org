@@ -313,6 +313,7 @@ the "full support" may not be 100% true…
 + mu4e-conversation
 + multiple-cursors
 + neotree
++ no-emoji
 + num3-mode
 + org*
 + org-journal

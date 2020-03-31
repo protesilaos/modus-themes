@@ -190,6 +190,7 @@
 ;;     mu4e-conversation
 ;;     multiple-cursors
 ;;     neotree
+;;     no-emoji
 ;;     num3-mode
 ;;     org
 ;;     org-journal
@@ -598,7 +599,6 @@ between foreground and background is >= 7:1)."
    `(homoglyph ((,class (:foreground ,yellow-alt-other))))
    `(ibuffer-locked-buffer ((,class (:foreground ,yellow-alt-other))))
    `(italic ((,class (:foreground ,fg-special-cold :slant italic))))
-   `(no-emoji ((,class (:foreground ,fg-special-mild :weight bold))))
    `(nobreak-hyphen ((,class (:inherit modus-theme-special-cold))))
    `(nobreak-space ((,class (:inherit modus-theme-special-cold :underline t))))
    `(minibuffer-prompt ((,class (:foreground ,cyan-alt))))
@@ -2113,6 +2113,8 @@ between foreground and background is >= 7:1)."
    `(neo-vc-unlocked-changes-face ((,class (:inherit modus-theme-refine-blue))))
    `(neo-vc-up-to-date-face ((,class (:foreground ,fg-alt))))
    `(neo-vc-user-face ((,class (:foreground ,magenta))))
+   ;;;; no-emoji
+   `(no-emoji ((,class (:foreground ,cyan))))
    ;;;; num3-mode
    `(num3-face-even ((,class (:background ,bg-alt :weight bold))))
    ;;;; org
