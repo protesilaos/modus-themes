@@ -302,6 +302,7 @@ the "full support" may not be 100% true…
 + lsp-mode
 + lsp-ui
 + magit
++ magit-imerge
 + markdown-mode
 + markup-faces (=adoc-mode=)
 + mentor

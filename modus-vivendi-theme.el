@@ -179,6 +179,7 @@
 ;;     lsp-mode
 ;;     lsp-ui
 ;;     magit
+;;     magit-imerge
 ;;     markdown-mode
 ;;     markup-faces (`adoc-mode')
 ;;     mentor
@@ -1924,6 +1925,8 @@ between foreground and background is >= 7:1)."
    `(magit-signature-revoked ((,class (:background ,bg-main :foreground ,magenta-intense))))
    `(magit-signature-untrusted ((,class (:background ,bg-main :foreground ,cyan-intense))))
    `(magit-tag ((,class (:foreground ,yellow-alt-other))))
+   ;;;; magit-imerge
+   `(magit-imerge-overriding-value ((,class (:foreground ,red-alt :weight bold))))
    ;;;; markdown-mode
    `(markdown-blockquote-face ((,class (:background ,bg-dim :foreground ,fg-special-warm :slant ,modus-theme-slant))))
    `(markdown-bold-face ((,class (:weight bold))))
