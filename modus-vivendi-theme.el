@@ -204,6 +204,7 @@
 ;;     outline-mode
 ;;     outline-minor-faces
 ;;     package (M-x list-packages)
+;;     page-break-lines
 ;;     paradox
 ;;     paren-face
 ;;     pass
@@ -2298,6 +2299,8 @@ between foreground and background is >= 7:1)."
    `(package-status-installed ((,class (:foreground ,fg-special-warm))))
    `(package-status-new ((,class (:foreground ,green :weight bold))))
    `(package-status-unsigned ((,class (:foreground ,red-alt :weight bold))))
+   ;;;; page-break-lines
+   `(page-break-lines ((,class (:foreground ,fg-alt))))
    ;;;; paradox
    `(paradox-archive-face ((,class (:foreground ,fg-special-mild))))
    `(paradox-comment-face ((,class (:foreground ,fg-alt :slant ,modus-theme-slant))))
