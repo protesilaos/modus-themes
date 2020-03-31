@@ -335,6 +335,7 @@ the "full support" may not be 100% true…
 + persp-mode
 + perspective
 + phi-grep
++ phi-search
 + powerline
 + powerline-evil
 + proced

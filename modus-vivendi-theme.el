@@ -212,6 +212,7 @@
 ;;     persp-mode
 ;;     perspective
 ;;     phi-grep
+;;     phi-search
 ;;     powerline
 ;;     powerline-evil
 ;;     proced
@@ -2338,6 +2339,11 @@ between foreground and background is >= 7:1)."
    `(phi-grep-match-face ((,class (:inherit modus-theme-special-calm))))
    `(phi-grep-modified-face ((,class (:inherit modus-theme-refine-yellow))))
    `(phi-grep-overlay-face ((,class (:inherit modus-theme-refine-blue))))
+   ;;;; phi-search
+   `(phi-replace-preview-face ((,class (:inherit modus-theme-intense-magenta))))
+   `(phi-search-failpart-face ((,class (:inherit modus-theme-refine-red))))
+   `(phi-search-match-face ((,class (:inherit modus-theme-refine-cyan))))
+   `(phi-search-selection-face ((,class (:inherit modus-theme-intense-green :weight bold))))
    ;;;; powerline
    `(powerline-active0 ((,class (:background ,fg-inactive :foreground ,bg-inactive))))
    `(powerline-active1 ((,class (:background ,bg-active :foreground ,fg-active))))
