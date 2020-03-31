@@ -330,6 +330,7 @@ the "full support" may not be 100% true…
 + page-break-lines
 + paradox
 + paren-face
++ parrot
 + pass
 + persp-mode
 + perspective

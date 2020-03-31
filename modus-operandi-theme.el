@@ -207,6 +207,7 @@
 ;;     page-break-lines
 ;;     paradox
 ;;     paren-face
+;;     parrot
 ;;     pass
 ;;     persp-mode
 ;;     perspective
@@ -2316,6 +2317,8 @@ between foreground and background is >= 7:1)."
    `(paradox-starred-face ((,class (:foreground ,magenta-alt))))
    ;;;; paren-face
    `(parenthesis ((,class (:foreground ,fg-alt))))
+   ;;;; parrot
+   `(parrot-rotate-rotation-highlight-face ((,class (:inherit modus-theme-refine-magenta))))
    ;;;; pass
    `(pass-mode-directory-face ((,class (:foreground ,fg-special-cold :weight bold))))
    `(pass-mode-entry-face ((,class (:background ,bg-main :foreground ,fg-main))))
