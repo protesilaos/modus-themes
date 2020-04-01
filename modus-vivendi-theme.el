@@ -394,6 +394,13 @@ INTENSE-FG should be one of the dedicated foregrounds for diffs"
         (list 'list :background subtle-bg :foreground subtle-fg)
         (list 'list :background intense-bg :foreground intense-fg)))
 
+(defmacro modus-vivendi-theme-scale (amount)
+  "Scale heading by AMOUNT.
+
+AMOUNT is a customisation option."
+  (list 'when 'modus-vivendi-theme-scale-headings
+        (list 'list :height amount)))
+
 ;; Define colour palette.  Each colour must have a >= 7:1 contrast
 ;; ratio relative to the foreground/background colour it is rendered
 ;; against.
@@ -715,29 +722,24 @@ INTENSE-FG should be one of the dedicated foregrounds for diffs"
    `(font-latex-script-char-face ((,class (:foreground ,cyan-alt-other))))
    `(font-latex-sectioning-0-face ((,class (:inherit ,modus-theme-variable-pitch
                                                      :foreground ,blue-nuanced :weight bold
-                                                     ,@(when modus-vivendi-theme-scale-headings
-                                                         (list :height modus-vivendi-theme-scale-4))))))
+                                                     ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-4)))))
    `(font-latex-sectioning-1-face ((,class (:inherit ,modus-theme-variable-pitch
                                                      :foreground ,blue-nuanced :weight bold
-                                                     ,@(when modus-vivendi-theme-scale-headings
-                                                         (list :height modus-vivendi-theme-scale-3))))))
+                                                     ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-3)))))
    `(font-latex-sectioning-2-face ((,class (:inherit ,modus-theme-variable-pitch
                                                      :foreground ,blue-nuanced :weight bold
-                                                     ,@(when modus-vivendi-theme-scale-headings
-                                                         (list :height modus-vivendi-theme-scale-2))))))
+                                                     ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-2)))))
    `(font-latex-sectioning-3-face ((,class (:inherit ,modus-theme-variable-pitch
                                                      :foreground ,blue-nuanced :weight bold
-                                                     ,@(when modus-vivendi-theme-scale-headings
-                                                         (list :height modus-vivendi-theme-scale-1))))))
+                                                     ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-1)))))
    `(font-latex-sectioning-4-face ((,class (:inherit ,modus-theme-variable-pitch
                                                      :foreground ,blue-nuanced :weight bold))))
    `(font-latex-sectioning-5-face ((,class (:inherit ,modus-theme-variable-pitch
                                                      :foreground ,blue-nuanced))))
    `(font-latex-sedate-face ((,class (:foreground ,magenta-alt-other :weight ,modus-theme-bold))))
    `(font-latex-slide-title-face ((,class (:inherit ,modus-theme-variable-pitch
-                                                     :foreground ,cyan-nuanced :weight bold
-                                                     ,@(when modus-vivendi-theme-scale-headings
-                                                         (list :height modus-vivendi-theme-scale-4))))))
+                                                    :foreground ,cyan-nuanced :weight bold
+                                                    ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-4)))))
    `(font-latex-string-face ((,class (:foreground ,blue-alt))))
    `(font-latex-subscript-face ((,class (:height 0.95))))
    `(font-latex-superscript-face ((,class (:height 0.95))))
@@ -814,8 +816,7 @@ INTENSE-FG should be one of the dedicated foregrounds for diffs"
    `(cfw:face-sunday ((,class (:background ,bg-alt :foreground ,magenta-alt-other :weight bold))))
    `(cfw:face-title ((,class (:inherit ,modus-theme-variable-pitch
                                        :foreground ,fg-special-warm :weight bold
-                                       ,@(when modus-vivendi-theme-scale-headings
-                                           (list :height modus-vivendi-theme-scale-4))))))
+                                       ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-4)))))
    `(cfw:face-today ((,class (:foreground ,blue :weight bold))))
    `(cfw:face-today-title ((,class (:inherit modus-theme-special-mild :box t))))
    `(cfw:face-toolbar ((,class (:background ,bg-active :foreground ,bg-active))))
@@ -1422,24 +1423,19 @@ INTENSE-FG should be one of the dedicated foregrounds for diffs"
    `(fountain-scene-heading ((,class (:foreground ,fg-special-calm :weight bold))))
    `(fountain-section-heading ((,class (:inherit ,modus-theme-variable-pitch
                                                  :foreground ,fg-main :weight bold
-                                                 ,@(when modus-vivendi-theme-scale-headings
-                                                     (list :height modus-vivendi-theme-scale-4))))))
+                                                 ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-4)))))
    `(fountain-section-heading-1 ((,class (:inherit ,modus-theme-variable-pitch
                                                    :foreground ,fg-main :weight bold
-                                                   ,@(when modus-vivendi-theme-scale-headings
-                                                       (list :height modus-vivendi-theme-scale-4))))))
+                                                   ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-4)))))
    `(fountain-section-heading-2 ((,class (:inherit ,modus-theme-variable-pitch
                                                    :foreground ,fg-special-warm :weight bold
-                                                   ,@(when modus-vivendi-theme-scale-headings
-                                                       (list :height modus-vivendi-theme-scale-3))))))
+                                                   ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-3)))))
    `(fountain-section-heading-3 ((,class (:inherit ,modus-theme-variable-pitch
                                                    :foreground ,fg-special-cold :weight bold
-                                                   ,@(when modus-vivendi-theme-scale-headings
-                                                       (list :height modus-vivendi-theme-scale-2))))))
+                                                   ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-2)))))
    `(fountain-section-heading-4 ((,class (:inherit ,modus-theme-variable-pitch
                                                    :foreground ,fg-special-mild :weight bold
-                                                   ,@(when modus-vivendi-theme-scale-headings
-                                                       (list :height modus-vivendi-theme-scale-1))))))
+                                                   ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-1)))))
    `(fountain-section-heading-5 ((,class (:inherit ,modus-theme-variable-pitch
                                                    :foreground ,fg-special-calm :weight bold))))
    `(fountain-synopsis ((,class (:foreground ,green))))
@@ -1638,8 +1634,7 @@ INTENSE-FG should be one of the dedicated foregrounds for diffs"
    `(helm-time-zone-current ((,class (:foreground ,green))))
    `(helm-time-zone-home ((,class (:foreground ,magenta))))
    `(helm-source-header ((,class (:foreground ,red-alt :weight bold
-                                              ,@(when modus-vivendi-theme-scale-headings
-                                                  (list :height modus-vivendi-theme-scale-4))))))
+                                              ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-4)))))
    `(helm-top-columns ((,class (:inherit helm-header))))
    `(helm-ucs-char ((,class (:foreground ,yellow-alt-other))))
    `(helm-visible-mark ((,class (:inherit modus-theme-subtle-cyan))))
@@ -1764,8 +1759,7 @@ INTENSE-FG should be one of the dedicated foregrounds for diffs"
                                    :inherit modus-theme-refine-blue))))
    `(ioccur-regexp-face ((,class (:inherit modus-theme-intense-magenta :weight bold))))
    `(ioccur-title-face ((,class (:foreground ,red-alt :weight bold
-                                             ,@(when modus-vivendi-theme-scale-headings
-                                                 (list :height modus-vivendi-theme-scale-4))))))
+                                             ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-4)))))
    ;;;; isearch, occur, and the like
    `(isearch ((,class (:inherit modus-theme-intense-green :weight bold))))
    `(isearch-fail ((,class (:inherit modus-theme-refine-red))))
@@ -2179,15 +2173,12 @@ INTENSE-FG should be one of the dedicated foregrounds for diffs"
    `(org-agenda-column-dateline ((,class (:inherit modus-theme-subtle-neutral))))
    `(org-agenda-current-time ((,class (:inherit modus-theme-intense-cyan))))
    `(org-agenda-date ((,class (:inherit ,modus-theme-variable-pitch :foreground ,fg-main
-                                        ,@(when modus-vivendi-theme-scale-headings
-                                            (list :height modus-vivendi-theme-scale-4))))))
+                                        ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-4)))))
    `(org-agenda-date-today ((,class (:inherit ,modus-theme-variable-pitch :background ,cyan-subtle-bg
                                               :foreground ,fg-main :weight bold
-                                              ,@(when modus-vivendi-theme-scale-headings
-                                                  (list :height modus-vivendi-theme-scale-4))))))
+                                              ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-4)))))
    `(org-agenda-date-weekend ((,class (:inherit ,modus-theme-variable-pitch :foreground ,fg-alt
-                                                ,@(when modus-vivendi-theme-scale-headings
-                                                    (list :height modus-vivendi-theme-scale-4))))))
+                                                ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-4)))))
    `(org-agenda-diary ((,class (:background ,bg-main :foreground ,fg-main))))
    `(org-agenda-dimmed-todo-face ((,class (:inherit modus-theme-subtle-neutral))))
    `(org-agenda-done ((,class (:foreground ,green))))
@@ -2198,8 +2189,7 @@ INTENSE-FG should be one of the dedicated foregrounds for diffs"
    `(org-agenda-restriction-lock ((,class (:background ,bg-dim :foreground ,fg-dim))))
    `(org-agenda-structure ((,class (:inherit ,modus-theme-variable-pitch
                                              :foreground ,fg-special-mild
-                                             ,@(when modus-vivendi-theme-scale-headings
-                                           (list :height modus-vivendi-theme-scale-3))))))
+                                             ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-3)))))
    `(org-archived ((,class (:background ,bg-alt :foreground ,fg-alt))))
    `(org-block ((,class (,@(and (>= emacs-major-version 27) '(:extend t))
                          :background ,(if modus-vivendi-theme-distinct-org-blocks bg-dim bg-main)
@@ -2238,29 +2228,25 @@ INTENSE-FG should be one of the dedicated foregrounds for diffs"
    `(org-hide ((,class (:foreground ,fg-main))))
    `(org-latex-and-related ((,class (:foreground ,magenta-refine-fg))))
    `(org-level-1 ((,class (:inherit ,modus-theme-variable-pitch
-                           :foreground ,fg-main :weight bold
-                                       ,@(when modus-vivendi-theme-scale-headings
-                                           (list :height modus-vivendi-theme-scale-4))))))
+                                    :foreground ,fg-main :weight bold
+                                    ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-4)))))
    `(org-level-2 ((,class (:inherit ,modus-theme-variable-pitch
-                           :foreground ,fg-special-warm :weight bold
-                                       ,@(when modus-vivendi-theme-scale-headings
-                                          (list :height modus-vivendi-theme-scale-3))))))
+                                    :foreground ,fg-special-warm :weight bold
+                                    ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-3)))))
    `(org-level-3 ((,class (:inherit ,modus-theme-variable-pitch
-                           :foreground ,fg-special-cold :weight bold
-                                       ,@(when modus-vivendi-theme-scale-headings
-                                          (list :height modus-vivendi-theme-scale-2))))))
+                                    :foreground ,fg-special-cold :weight bold
+                                    ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-2)))))
    `(org-level-4 ((,class (:inherit ,modus-theme-variable-pitch
-                           :foreground ,fg-special-mild :weight bold
-                                       ,@(when modus-vivendi-theme-scale-headings
-                                          (list :height modus-vivendi-theme-scale-1))))))
+                                    :foreground ,fg-special-mild :weight bold
+                                    ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-1)))))
    `(org-level-5 ((,class (:inherit ,modus-theme-variable-pitch
-                           :foreground ,fg-special-calm :weight bold))))
+                                    :foreground ,fg-special-calm :weight bold))))
    `(org-level-6 ((,class (:inherit ,modus-theme-variable-pitch
-                           :foreground ,yellow-nuanced :weight bold))))
+                                    :foreground ,yellow-nuanced :weight bold))))
    `(org-level-7 ((,class (:inherit ,modus-theme-variable-pitch
-                           :foreground ,red-nuanced :weight bold))))
+                                    :foreground ,red-nuanced :weight bold))))
    `(org-level-8 ((,class (:inherit ,modus-theme-variable-pitch
-                           :foreground ,fg-dim :weight bold))))
+                                    :foreground ,fg-dim :weight bold))))
    `(org-link ((,class (:inherit link))))
    `(org-list-dt ((,class (:weight bold))))
    `(org-macro ((,class (:inherit org-latex-and-related))))
@@ -2313,20 +2299,16 @@ INTENSE-FG should be one of the dedicated foregrounds for diffs"
    ;;;; outline-mode
    `(outline-1 ((,class (:inherit ,modus-theme-variable-pitch
                                   :foreground ,fg-main :weight bold
-                                  ,@(when modus-vivendi-theme-scale-headings
-                                      (list :height modus-vivendi-theme-scale-4))))))
+                                  ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-4)))))
    `(outline-2 ((,class (:inherit ,modus-theme-variable-pitch
                                   :foreground ,fg-special-warm :weight bold
-                                  ,@(when modus-vivendi-theme-scale-headings
-                                      (list :height modus-vivendi-theme-scale-3))))))
+                                  ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-3)))))
    `(outline-3 ((,class (:inherit ,modus-theme-variable-pitch
                                   :foreground ,fg-special-cold :weight bold
-                                  ,@(when modus-vivendi-theme-scale-headings
-                                      (list :height modus-vivendi-theme-scale-2))))))
+                                  ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-2)))))
    `(outline-4 ((,class (:inherit ,modus-theme-variable-pitch
                                   :foreground ,fg-special-mild :weight bold
-                                  ,@(when modus-vivendi-theme-scale-headings
-                                      (list :height modus-vivendi-theme-scale-1))))))
+                                  ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-1)))))
    `(outline-5 ((,class (:inherit ,modus-theme-variable-pitch
                                   :foreground ,fg-special-calm :weight bold))))
    `(outline-6 ((,class (:inherit ,modus-theme-variable-pitch
@@ -2384,8 +2366,7 @@ INTENSE-FG should be one of the dedicated foregrounds for diffs"
    `(persp-selected-face ((,class (:foreground ,blue-active :weight bold))))
    ;;;; phi-grep
    `(phi-grep-heading-face  ((,class (:foreground ,red-alt :weight bold
-                                              ,@(when modus-vivendi-theme-scale-headings
-                                                  (list :height modus-vivendi-theme-scale-4))))))
+                                                  ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-4)))))
    `(phi-grep-line-number-face ((,class (:foreground ,fg-special-warm))))
    `(phi-grep-match-face ((,class (:inherit modus-theme-special-calm))))
    `(phi-grep-modified-face ((,class (:inherit modus-theme-refine-yellow))))
@@ -2519,8 +2500,7 @@ INTENSE-FG should be one of the dedicated foregrounds for diffs"
    `(sallet-recentf-file-path ((,class (:foreground ,fg-special-mild))))
    `(sallet-regexp-match ((,class (:inherit modus-theme-refine-magenta))))
    `(sallet-source-header ((,class (:foreground ,red-alt :weight bold
-                                                ,@(when modus-vivendi-theme-scale-headings
-                                                    (list :height modus-vivendi-theme-scale-4))))))
+                                                ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-4)))))
    `(sallet-substring-match ((,class (:inherit modus-theme-refine-blue))))
    ;;;; selectrum
    `(selectrum-current-candidate ((,class (:inherit modus-theme-intense-cyan :weight bold))))
