@@ -380,7 +380,7 @@ between foreground and background is >= 7:1)."
   :type 'boolean)
 
 (defcustom modus-vivendi-theme-subtle-diffs nil
-  "Use fewer background colours in `diff-mode'."
+  "Use fewer background colours in `diff-mode' and related."
   :type 'boolean)
 
 (defmacro modus-vivendi-theme-diffs (subtle-bg subtle-fg intense-bg intense-fg)
