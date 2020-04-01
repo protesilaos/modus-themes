@@ -981,7 +981,7 @@ INTENSE-FG should be one of the dedicated foregrounds for diffs"
    `(custom-variable-tag ((,class (:foreground ,cyan :weight bold))))
    ;;;; dap-mode
    `(dap-mouse-eval-thing-face ((,class (:box (:line-width -1 :color ,blue-active :style nil)
-                                            :background ,bg-active :foreground ,fg-main))))
+                                              :background ,bg-active :foreground ,fg-main))))
    `(dap-result-overlay-face ((,class (:box (:line-width -1 :color ,bg-active :style nil)
                                             :background ,bg-active :foreground ,fg-main))))
    `(dap-ui-breakpoint-verified-fringe ((,class (:foreground ,green-active :weight bold))))
@@ -1046,14 +1046,14 @@ INTENSE-FG should be one of the dedicated foregrounds for diffs"
    `(diff-indicator-removed ((,class (:inherit modus-theme-diff-focus-removed))))
    `(diff-nonexistent ((,class (:inherit modus-theme-neutral :weight bold))))
    `(diff-refine-added ((,class ,(modus-operandi-theme-diffs
-                             bg-diff-added fg-diff-added
-                             bg-diff-refine-added fg-diff-refine-added))))
+                                  bg-diff-added fg-diff-added
+                                  bg-diff-refine-added fg-diff-refine-added))))
    `(diff-refine-changed ((,class ,(modus-operandi-theme-diffs
-                             bg-diff-changed fg-diff-changed
-                             bg-diff-refine-changed fg-diff-refine-changed))))
+                                    bg-diff-changed fg-diff-changed
+                                    bg-diff-refine-changed fg-diff-refine-changed))))
    `(diff-refine-removed ((,class ,(modus-operandi-theme-diffs
-                             bg-diff-removed fg-diff-removed
-                             bg-diff-refine-removed fg-diff-refine-removed))))
+                                    bg-diff-removed fg-diff-removed
+                                    bg-diff-refine-removed fg-diff-refine-removed))))
    `(diff-removed ((,class ,(modus-operandi-theme-diffs
                              bg-main red
                              bg-diff-focus-removed fg-diff-focus-removed))))

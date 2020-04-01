@@ -706,7 +706,7 @@ INTENSE-FG should be one of the dedicated foregrounds for diffs"
    `(artbollocks-lexical-illusions-face ((,class (:inherit modus-theme-refine-magenta :underline t))))
    `(artbollocks-passive-voice-face ((,class (:background ,bg-alt :foreground ,cyan-alt-other :underline t))))
    `(artbollocks-weasel-words-face ((,class (:background ,bg-alt :foreground ,yellow-alt-other :underline t))))
-   ;;;; auctex and TeX
+   ;;;; auctex and Tex
    `(font-latex-bold-face ((,class (:foreground ,fg-special-calm :weight bold))))
    `(font-latex-doctex-documentation-face ((,class (:foreground ,fg-special-cold :slant ,modus-theme-slant))))
    `(font-latex-doctex-preprocessor-face ((,class (:foreground ,magenta-alt :weight ,modus-theme-bold))))
@@ -981,7 +981,7 @@ INTENSE-FG should be one of the dedicated foregrounds for diffs"
    `(custom-variable-tag ((,class (:foreground ,cyan :weight bold))))
    ;;;; dap-mode
    `(dap-mouse-eval-thing-face ((,class (:box (:line-width -1 :color ,blue-active :style nil)
-                                            :background ,bg-active :foreground ,fg-main))))
+                                              :background ,bg-active :foreground ,fg-main))))
    `(dap-result-overlay-face ((,class (:box (:line-width -1 :color ,bg-active :style nil)
                                             :background ,bg-active :foreground ,fg-main))))
    `(dap-ui-breakpoint-verified-fringe ((,class (:foreground ,green-active :weight bold))))
@@ -1046,14 +1046,14 @@ INTENSE-FG should be one of the dedicated foregrounds for diffs"
    `(diff-indicator-removed ((,class (:inherit modus-theme-diff-focus-removed))))
    `(diff-nonexistent ((,class (:inherit modus-theme-neutral :weight bold))))
    `(diff-refine-added ((,class ,(modus-vivendi-theme-diffs
-                             bg-diff-added fg-diff-added
-                             bg-diff-refine-added fg-diff-refine-added))))
+                                  bg-diff-added fg-diff-added
+                                  bg-diff-refine-added fg-diff-refine-added))))
    `(diff-refine-changed ((,class ,(modus-vivendi-theme-diffs
-                             bg-diff-changed fg-diff-changed
-                             bg-diff-refine-changed fg-diff-refine-changed))))
+                                    bg-diff-changed fg-diff-changed
+                                    bg-diff-refine-changed fg-diff-refine-changed))))
    `(diff-refine-removed ((,class ,(modus-vivendi-theme-diffs
-                             bg-diff-removed fg-diff-removed
-                             bg-diff-refine-removed fg-diff-refine-removed))))
+                                    bg-diff-removed fg-diff-removed
+                                    bg-diff-refine-removed fg-diff-refine-removed))))
    `(diff-removed ((,class ,(modus-vivendi-theme-diffs
                              bg-main red
                              bg-diff-focus-removed fg-diff-focus-removed))))
@@ -2539,10 +2539,10 @@ INTENSE-FG should be one of the dedicated foregrounds for diffs"
    `(show-paren-match ((,class (:background ,bg-paren-match :foreground ,fg-main))))
    `(show-paren-match-expression ((,class (:inherit modus-theme-special-calm))))
    `(show-paren-mismatch ((,class (:inherit modus-theme-intense-red))))
-   ;;;; skewer-mode
-   `(skewer-error-face ((,class (:foreground ,red :underline t))))
    ;;;; side-notes
    `(side-notes ((,class (:background ,bg-dim :foreground ,fg-dim))))
+   ;;;; skewer-mode
+   `(skewer-error-face ((,class (:foreground ,red :underline t))))
    ;;;; smart-mode-line
    `(sml/charging ((,class (:foreground ,green-active))))
    `(sml/discharging ((,class (:foreground ,red-active))))
