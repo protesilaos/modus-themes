@@ -160,6 +160,19 @@ theme of your choice):
 (setq modus-operandi-theme-distinct-org-blocks nil)
 
 (setq modus-vivendi-theme-distinct-org-blocks nil)
+
+;; Display `diff-mode' and `magit' diff buffers with fewer background
+;; colours (the default is to use colour-coded backgrounds for line-wise
+;; highlights).  This means that only accented foreground values are
+;; used for affected lines: green for added, red for removed, yellow for
+;; changed.  "Refined" changes (word-wise highlights) still use a
+;; background value which is, nonetheless, more subtle than its default
+;; equivalent.  For `magit' an extra set of tweaks are introduced for
+;; the effect of highlighting the current diff hunk, so as to remain
+;; consistent with the overall experience of this tool.
+(setq modus-operandi-theme-subtle-diffs nil)
+
+(setq modus-vivendi-theme-subtle-diffs nil)
 #+END_SRC
 
 *NOTE* that all customisation options must be declared /before/ loading

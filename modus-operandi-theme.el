@@ -45,6 +45,7 @@
 ;;     modus-operandi-theme-scale-headings
 ;;     modus-operandi-theme-visible-fringes
 ;;     modus-operandi-theme-distinct-org-blocks
+;;     modus-operandi-theme-subtle-diffs
 ;;
 ;; The default scale is as follows (it can be customised as well):
 ;;
@@ -377,6 +378,21 @@ between foreground and background is >= 7:1)."
 (defcustom modus-operandi-theme-distinct-org-blocks nil
   "Use a distinct background for `org-mode' source blocks."
   :type 'boolean)
+
+(defcustom modus-operandi-theme-subtle-diffs nil
+  "Use fewer background colours in `diff-mode'."
+  :type 'boolean)
+
+(defmacro modus-operandi-theme-diffs (subtle-bg subtle-fg intense-bg intense-fg)
+  "Colour combinations for `modus-operandi-theme-subtle-diffs'.
+
+SUBTLE-BG should be similar or the same as the main background
+SUBTLE-FG should be an appropriate accent value
+INTENSE-BG should be one of the dedicated backgrounds for diffs
+INTENSE-FG should be one of the dedicated foregrounds for diffs"
+  (list 'if 'modus-operandi-theme-subtle-diffs
+        (list 'list :background subtle-bg :foreground subtle-fg)
+        (list 'list :background intense-bg :foreground intense-fg)))
 
 ;; Define colour palette.  Each colour must have a >= 7:1 contrast
 ;; ratio relative to the foreground/background colour it is rendered
@@ -1011,22 +1027,36 @@ between foreground and background is >= 7:1)."
    `(diff-hl-insert ((,class (:inherit modus-theme-fringe-green))))
    `(diff-hl-reverted-hunk-highlight ((,class (:inherit modus-theme-intense-blue))))
    ;;;; diff-mode
-   `(diff-added ((,class (:inherit modus-theme-diff-focus-added))))
-   `(diff-changed ((,class (:inherit modus-theme-diff-focus-changed))))
+   `(diff-added ((,class ,(modus-operandi-theme-diffs
+                           bg-main green
+                           bg-diff-focus-added fg-diff-focus-added))))
+   `(diff-changed ((,class ,(modus-operandi-theme-diffs
+                             bg-main yellow
+                             bg-diff-focus-changed fg-diff-focus-changed))))
    `(diff-context ((,class (:foreground ,fg-alt))))
    `(diff-file-header ((,class (:foreground ,blue :weight bold))))
    `(diff-function ((,class (:foreground ,fg-special-cold))))
    `(diff-header ((,class (:foreground ,blue-nuanced))))
-   `(diff-hunk-header ((,class (:inherit modus-theme-diff-heading :weight bold))))
+   `(diff-hunk-header ((,class ,(modus-operandi-theme-diffs
+                                 bg-alt blue-alt
+                                 bg-diff-heading fg-diff-heading))))
    `(diff-index ((,class (:foreground ,blue-alt :weight bold))))
-   `(diff-indicator-added ((,class (:inherit diff-added))))
-   `(diff-indicator-changed ((,class (:inherit diff-changed))))
-   `(diff-indicator-removed ((,class (:inherit diff-removed))))
-   `(diff-nonexistent ((,class (:inherit modus-theme-intense-neutral :weight bold))))
-   `(diff-refine-added ((,class (:inherit modus-theme-diff-refine-added))))
-   `(diff-refine-changed ((,class (:inherit modus-theme-diff-refine-changed))))
-   `(diff-refine-removed ((,class (:inherit modus-theme-diff-refine-removed))))
-   `(diff-removed ((,class (:inherit modus-theme-diff-focus-removed))))
+   `(diff-indicator-added ((,class (:inherit modus-theme-diff-focus-added))))
+   `(diff-indicator-changed ((,class (:inherit modus-theme-diff-focus-changed))))
+   `(diff-indicator-removed ((,class (:inherit modus-theme-diff-focus-removed))))
+   `(diff-nonexistent ((,class (:inherit modus-theme-neutral :weight bold))))
+   `(diff-refine-added ((,class ,(modus-operandi-theme-diffs
+                             bg-diff-added fg-diff-added
+                             bg-diff-refine-added fg-diff-refine-added))))
+   `(diff-refine-changed ((,class ,(modus-operandi-theme-diffs
+                             bg-diff-changed fg-diff-changed
+                             bg-diff-refine-changed fg-diff-refine-changed))))
+   `(diff-refine-removed ((,class ,(modus-operandi-theme-diffs
+                             bg-diff-removed fg-diff-removed
+                             bg-diff-refine-removed fg-diff-refine-removed))))
+   `(diff-removed ((,class ,(modus-operandi-theme-diffs
+                             bg-main red
+                             bg-diff-focus-removed fg-diff-focus-removed))))
    ;;;; dim-autoload
    `(dim-autoload-cookie-line ((,class (:foreground ,fg-alt :slant ,modus-theme-slant))))
    ;;;; dired
@@ -1875,12 +1905,22 @@ between foreground and background is >= 7:1)."
    `(magit-branch-upstream ((,class (:slant italic))))
    `(magit-cherry-equivalent ((,class (:background ,bg-main :foreground ,magenta-intense))))
    `(magit-cherry-unmatched ((,class (:background ,bg-main :foreground ,cyan-intense))))
-   `(magit-diff-added ((,class (:inherit modus-theme-diff-added))))
-   `(magit-diff-added-highlight ((,class (:inherit modus-theme-diff-focus-added))))
-   `(magit-diff-base ((,class (:inherit modus-theme-diff-changed))))
-   `(magit-diff-base-highlight ((,class (:inherit modus-theme-diff-focus-changed))))
+   `(magit-diff-added ((,class ,(modus-operandi-theme-diffs
+                                 bg-main green
+                                 bg-diff-added fg-diff-added))))
+   `(magit-diff-added-highlight ((,class ,(modus-operandi-theme-diffs
+                                           bg-dim green
+                                           bg-diff-focus-added fg-diff-focus-added))))
+   `(magit-diff-base ((,class ,(modus-operandi-theme-diffs
+                                bg-main yellow
+                                bg-diff-changed fg-diff-changed))))
+   `(magit-diff-base-highlight ((,class ,(modus-operandi-theme-diffs
+                                          bg-dim yellow
+                                          bg-diff-focus-changed fg-diff-focus-changed))))
    `(magit-diff-context ((,class (:foreground ,fg-alt))))
-   `(magit-diff-context-highlight ((,class (:background ,bg-inactive :foreground ,fg-inactive))))
+   `(magit-diff-context-highlight ((,class ,(modus-operandi-theme-diffs
+                                             bg-dim fg-dim
+                                             bg-inactive fg-inactive))))
    `(magit-diff-file-heading ((,class (:foreground ,fg-special-cold :weight bold))))
    `(magit-diff-file-heading-highlight ((,class (:inherit modus-theme-special-cold :weight bold))))
    `(magit-diff-file-heading-selection ((,class (:background ,bg-alt :foreground ,cyan))))
@@ -1890,8 +1930,12 @@ between foreground and background is >= 7:1)."
    `(magit-diff-hunk-region ((,class (:weight bold))))
    `(magit-diff-lines-boundary ((,class (:background ,fg-main))))
    `(magit-diff-lines-heading ((,class (:inherit modus-theme-refine-magenta))))
-   `(magit-diff-removed ((,class (:inherit modus-theme-diff-removed))))
-   `(magit-diff-removed-highlight ((,class (:inherit modus-theme-diff-focus-removed))))
+   `(magit-diff-removed ((,class ,(modus-operandi-theme-diffs
+                                   bg-main red
+                                   bg-diff-focus-removed fg-diff-focus-removed))))
+   `(magit-diff-removed-highlight ((,class ,(modus-operandi-theme-diffs
+                                             bg-dim red
+                                             bg-diff-focus-removed fg-diff-focus-removed))))
    `(magit-diffstat-added ((,class (:foreground ,green))))
    `(magit-diffstat-removed ((,class (:foreground ,red))))
    `(magit-dimmed ((,class (:foreground ,fg-alt))))
