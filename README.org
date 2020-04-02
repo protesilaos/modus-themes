@@ -297,6 +297,7 @@ the "full support" may not be 100% true…
 + hl-line-mode
 + hl-todo
 + hydra
++ ibuffer
 + ido-mode
 + iedit
 + imenu-list

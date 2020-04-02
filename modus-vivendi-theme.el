@@ -161,6 +161,7 @@
 ;;     hl-line-mode
 ;;     hl-todo
 ;;     hydra
+;;     ibuffer
 ;;     ido-mode
 ;;     iedit
 ;;     imenu-list
@@ -2875,7 +2876,9 @@ AMOUNT is a customisation option."
     `(ansi-color-names-vector [,bg-main ,red ,green ,yellow ,blue ,magenta ,cyan ,fg-main])
     ;;;; ibuffer
     `(ibuffer-deletion-face 'dired-flagged)
+    `(ibuffer-filter-group-name-face 'dired-mark)
     `(ibuffer-marked-face 'dired-marked)
+    `(ibuffer-title-face 'dired-header)
     ;;;; hl-todo
     `(hl-todo-keyword-faces
       '(("HOLD" . ,yellow-alt)
