@@ -514,7 +514,7 @@ For versions of Emacs >= 27, also add the =:extend t= property, like this:
 #+end_src
 
 Feel free to contribute any concrete proposals on how to improve support
-for this at the theme level (see [[#h:25ba8d6f-6604-4338-b774-bbe531d467f6][the "Contributing" section]].
+for this at the theme level (see [[#h:25ba8d6f-6604-4338-b774-bbe531d467f6][the "Contributing" section]]).
 
 ** Note for HELM users of grep or grep-like functions
    :PROPERTIES:
