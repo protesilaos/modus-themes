@@ -2508,9 +2508,9 @@ AMOUNT is a customisation option."
                                                 ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-4)))))
    `(sallet-substring-match ((,class (:inherit modus-theme-refine-blue))))
    ;;;; selectrum
-   `(selectrum-current-candidate ((,class (:inherit modus-theme-intense-cyan :weight bold))))
-   `(selectrum-primary-highlight ((,class (:inherit modus-theme-refine-blue :weight bold))))
-   `(selectrum-secondary-highlight ((,class (:inherit modus-theme-refine-magenta :weight bold))))
+   `(selectrum-current-candidate ((,class (:inherit modus-theme-intense-cyan))))
+   `(selectrum-primary-highlight ((,class (:foreground ,magenta-alt :weight bold))))
+   `(selectrum-secondary-highlight ((,class (:foreground ,blue-alt-other :weight bold))))
    ;;;; sesman
    `(sesman-browser-button-face ((,class (:foreground ,blue-alt-other :underline t))))
    `(sesman-browser-highligh-face ((,class (:inherit modus-theme-subtle-blue))))
