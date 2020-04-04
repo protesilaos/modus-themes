@@ -389,6 +389,7 @@ the "full support" may not be 100% true…
 + term
 + tomatinho
 + transient (pop-up windows like Magit's)
++ trashed
 + treemacs
 + undo-tree
 + vc (built-in mode line status for version control)

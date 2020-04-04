@@ -249,6 +249,7 @@
 ;;     sx
 ;;     symbol-overlay
 ;;     syslog-mode
+;;     trashed
 ;;     telephone-line
 ;;     term
 ;;     tomatinho
@@ -2657,6 +2658,13 @@ AMOUNT is a customisation option."
    `(syslog-ip ((,class (:foreground ,fg-special-mild :weight bold :underline t))))
    `(syslog-su ((,class (:foreground ,red-alt :weight bold))))
    `(syslog-warn ((,class (:foreground ,yellow :weight bold))))
+   ;;;; trashed
+   `(trashed-deleted ((,class (:background ,bg-mark-del :foreground ,fg-mark-del :weight bold))))
+   `(trashed-directory ((,class (:foreground ,blue))))
+   `(trashed-mark ((,class (:foreground ,blue-alt :weight bold))))
+   `(trashed-marked ((,class (:background ,bg-mark-other :foreground ,fg-mark-other :weight bold))))
+   `(trashed-restored ((,class (:background ,bg-mark :foreground ,fg-mark :weight bold))))
+   `(trashed-symlink ((,class (:foreground ,blue-alt :underline t))))
    ;;;; telephone-line
    `(telephone-line-accent-active ((,class (:background ,fg-inactive :foreground ,bg-inactive))))
    `(telephone-line-accent-inactive ((,class (:background ,bg-active :foreground ,fg-active))))
