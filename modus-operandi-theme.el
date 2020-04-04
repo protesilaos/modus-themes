@@ -1028,7 +1028,7 @@ AMOUNT is a customisation option."
    `(diff-hl-dired-insert ((,class (:inherit diff-hl-insert))))
    `(diff-hl-dired-unknown ((,class (:inherit dired-ignored))))
    `(diff-hl-insert ((,class (:inherit modus-theme-fringe-green))))
-   `(diff-hl-reverted-hunk-highlight ((,class (:inherit modus-theme-intense-blue))))
+   `(diff-hl-reverted-hunk-highlight ((,class (:inherit modus-theme-fringe-magenta :weight bold))))
    ;;;; diff-mode
    `(diff-added ((,class ,(modus-operandi-theme-diffs
                            bg-main green
