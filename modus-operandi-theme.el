@@ -243,6 +243,7 @@
 ;;     speedbar
 ;;     stripes
 ;;     suggest
+;;     switch-window
 ;;     swiper
 ;;     swoop
 ;;     sx
@@ -2585,6 +2586,9 @@ AMOUNT is a customisation option."
    `(stripes ((,class (:background ,bg-alt))))
    ;;;; success
    `(suggest-heading ((,class (:foreground ,yellow-alt-other :weight bold))))
+   ;;;; switch-window
+   `(switch-window-background ((,class (:background ,bg-dim))))
+   `(switch-window-label ((,class (:height 3.0 :foreground ,blue-intense))))
    ;;;; swiper
    `(swiper-background-match-face-1 ((,class (:inherit modus-theme-subtle-neutral))))
    `(swiper-background-match-face-2 ((,class (:inherit modus-theme-subtle-cyan))))

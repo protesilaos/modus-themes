@@ -379,6 +379,7 @@ the "full support" may not be 100% true…
 + speedbar
 + stripes
 + suggest
++ switch-window
 + swiper
 + swoop
 + sx
