@@ -244,6 +244,7 @@
 ;;     stripes
 ;;     suggest
 ;;     swiper
+;;     swoop
 ;;     sx
 ;;     symbol-overlay
 ;;     syslog-mode
@@ -2595,6 +2596,15 @@ AMOUNT is a customisation option."
    `(swiper-match-face-2 ((,class (:inherit swiper-line-face))))
    `(swiper-match-face-3 ((,class (:inherit swiper-line-face))))
    `(swiper-match-face-4 ((,class (:inherit swiper-line-face))))
+   ;;;; swoop
+   `(swoop-face-header-format-line ((,class (:foreground ,red-alt :weight bold
+                                                         ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-3)))))
+   `(swoop-face-line-buffer-name ((,class (:foreground ,blue-alt :weight bold
+                                                       ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-4)))))
+   `(swoop-face-line-number ((,class (:foreground ,fg-special-warm))))
+   `(swoop-face-target-line ((,class (:inherit modus-theme-intense-blue
+                                               ,@(and (>= emacs-major-version 27) '(:extend t))))))
+   `(swoop-face-target-words ((,class (:inherit modus-theme-refine-cyan))))
    ;;;; sx
    `(sx-inbox-item-type ((,class (:foreground ,magenta-alt-other))))
    `(sx-inbox-item-type-unread ((,class (:inherit sx-inbox-item-type :weight bold))))

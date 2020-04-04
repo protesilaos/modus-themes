@@ -380,6 +380,7 @@ the "full support" may not be 100% true…
 + stripes
 + suggest
 + swiper
++ swoop
 + sx
 + symbol-overlay
 + syslog-mode
