@@ -394,6 +394,7 @@ the "full support" may not be 100% true…
 + undo-tree
 + vc (built-in mode line status for version control)
 + vc-annotate (=C-x v g=)
++ visible-mark
 + visual-regexp
 + volatile-highlights
 + wcheck-mode

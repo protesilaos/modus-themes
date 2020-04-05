@@ -258,6 +258,7 @@
 ;;     undo-tree
 ;;     vc (built-in mode line status for version control)
 ;;     vc-annotate (C-x v g)
+;;     visible-mark
 ;;     visual-regexp
 ;;     volatile-highlights
 ;;     wcheck-mode
@@ -2747,6 +2748,12 @@ AMOUNT is a customisation option."
    `(vc-removed-state ((,class (:foreground ,red-active))))
    `(vc-state-base ((,class (:foreground ,fg-active))))
    `(vc-up-to-date-state ((,class (:foreground ,fg-special-cold))))
+   ;;;; visible-mark
+   `(visible-mark-active ((,class (:background ,blue-intense-bg))))
+   `(visible-mark-face1 ((,class (:background ,cyan-intense-bg))))
+   `(visible-mark-face2 ((,class (:background ,yellow-intense-bg))))
+   `(visible-mark-forward-face1 ((,class (:background ,magenta-intense-bg))))
+   `(visible-mark-forward-face2 ((,class (:background ,green-intense-bg))))
    ;;;; visual-regexp
    `(vr/group-0 ((,class (:inherit modus-theme-intense-blue))))
    `(vr/group-1 ((,class (:inherit modus-theme-intense-magenta))))
