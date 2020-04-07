@@ -16,9 +16,19 @@ The /Modus themes/ project consists of two standalone items, one where
 dark text is cast on a light backdrop (Modus Operandi) and another where
 light text is displayed against a dark background (Modus Vivendi).
 
-*Check the [[https://gitlab.com/protesilaos/modus-themes/wikis/Screenshots][Wiki page with the screen shots]].* Also note that I demo these
-themes in [[https://protesilaos.com/code-casts][my Emacs-related screen casts]] (though older videos contain
-earlier, "alpha" versions).
+** Links with demo content
+   :PROPERTIES:
+   :CUSTOM_ID: h:3b1b8ad9-f08f-4329-b9ee-d817b610708f
+   :END:
+
+Check the [[https://gitlab.com/protesilaos/modus-themes/wikis/Screenshots][Wiki page with the screen shots]].  There are lots of scenaria
+on display that draw attention to details and important aspects in the
+design of the themes.  Towards the end of that page you will always find
+something that is currently being developed in `master` and is slated
+for an upcoming tagged release.
+
+Also note that I use these themes in [[https://protesilaos.com/code-casts][my Emacs-related screen casts]]
+(though older videos contain earlier, "alpha" versions).
 
 * Install and auto-load
   :PROPERTIES:
