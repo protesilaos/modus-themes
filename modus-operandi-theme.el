@@ -386,7 +386,7 @@ between foreground and background is >= 7:1)."
   :type 'boolean)
 
 (defcustom modus-operandi-theme-subtle-diffs nil
-  "Use fewer background colours in `diff-mode' and related."
+  "Use fewer/dim backgrounds in `diff-mode', `ediff',`magit'."
   :type 'boolean)
 
 (defmacro modus-operandi-theme-diffs (subtle-bg subtle-fg intense-bg intense-fg)
@@ -521,13 +521,16 @@ AMOUNT is a customisation option."
       (bg-hl-line "#f1f2f6")
       (bg-paren-match "#efcabf")
       (bg-region "#bcbcbc")
+
       (bg-tab-active "#ababab")
       (bg-tab-inactive "#dadada")
       (fg-tab-active "#000077")
+
       (fg-window-divider-inner "#888888")
       (fg-window-divider-outer "#585858")
       (fg-header "#2a2a2a") (bg-header "#e5e5e5")
       (fg-whitespace "#645060") (bg-whitespace "#fff8fc")
+
       (fg-diff-heading "#043355") (bg-diff-heading "#b7c2dd")
       (fg-diff-added "#004500") (bg-diff-added "#d4fad4")
       (fg-diff-changed "#524200") (bg-diff-changed "#fcefcf")
@@ -538,6 +541,11 @@ AMOUNT is a customisation option."
       (fg-diff-focus-added "#002c00") (bg-diff-focus-added "#bbeabb")
       (fg-diff-focus-changed "#392900") (bg-diff-focus-changed "#ecdfbf")
       (fg-diff-focus-removed "#4a0000") (bg-diff-focus-removed "#efcbcf")
+
+      (fg-diff-neutral-0 "#040404") (bg-diff-neutral-0 "#979797")
+      (fg-diff-neutral-1 "#252525") (bg-diff-neutral-1 "#b0b0b0")
+      (fg-diff-neutral-2 "#3a3a3a") (bg-diff-neutral-2 "#cccccc")
+
       (fg-mark "#005040") (bg-mark "#a0f0cf")
       (fg-mark-del "#840040") (bg-mark-del "#ffccbb")
       (fg-mark-other "#782900") (bg-mark-other "#f5d88f")
@@ -1191,22 +1199,30 @@ AMOUNT is a customisation option."
    `(ebdb-role-defunct ((,class (:foreground ,fg-alt))))
    `(eieio-custom-slot-tag-face ((,class (:foreground ,red-alt))))
    ;;;; ediff
-   `(ediff-current-diff-A ((,class (:inherit modus-theme-special-warm))))
-   `(ediff-current-diff-Ancestor ((,class (:background ,bg-alt :foreground ,fg-main))))
-   `(ediff-current-diff-B ((,class (:inherit modus-theme-special-cold))))
-   `(ediff-current-diff-C ((,class (:inherit modus-theme-special-mild))))
-   `(ediff-even-diff-A ((,class (:inherit modus-theme-subtle-yellow))))
-   `(ediff-even-diff-Ancestor ((,class (:background ,bg-inactive :foreground ,fg-main))))
-   `(ediff-even-diff-B ((,class (:inherit modus-theme-subtle-cyan))))
-   `(ediff-even-diff-C ((,class (:inherit modus-theme-subtle-green))))
-   `(ediff-fine-diff-A ((,class (:inherit modus-theme-intense-yellow))))
-   `(ediff-fine-diff-Ancestor ((,class (:inherit modus-theme-intense-magenta))))
-   `(ediff-fine-diff-B ((,class (:inherit modus-theme-intense-cyan))))
-   `(ediff-fine-diff-C ((,class (:inherit modus-theme-intense-green))))
-   `(ediff-odd-diff-A ((,class (:inherit modus-theme-refine-yellow))))
-   `(ediff-odd-diff-Ancestor ((,class (:background ,bg-active :foreground ,fg-main))))
-   `(ediff-odd-diff-B ((,class (:inherit modus-theme-refine-cyan))))
-   `(ediff-odd-diff-C ((,class (:inherit modus-theme-refine-green))))
+   `(ediff-current-diff-A ((,class ,(modus-operandi-theme-diffs
+                                     bg-alt red
+                                     bg-diff-removed fg-diff-removed))))
+   `(ediff-current-diff-Ancestor ((,class ,(modus-operandi-theme-diffs
+                                            bg-alt fg-special-cold
+                                            bg-special-cold fg-special-cold))))
+   `(ediff-current-diff-B ((,class ,(modus-operandi-theme-diffs
+                                     bg-alt green
+                                     bg-diff-added fg-diff-added))))
+   `(ediff-current-diff-C ((,class ,(modus-operandi-theme-diffs
+                                     bg-alt yellow
+                                     bg-diff-changed fg-diff-changed))))
+   `(ediff-even-diff-A ((,class (:background ,bg-diff-neutral-1 :foreground ,fg-diff-neutral-1))))
+   `(ediff-even-diff-Ancestor ((,class (:background ,bg-diff-neutral-2 :foreground ,fg-diff-neutral-1))))
+   `(ediff-even-diff-B ((,class (:background ,bg-diff-neutral-1 :foreground ,fg-diff-neutral-1))))
+   `(ediff-even-diff-C ((,class (:background ,bg-diff-neutral-2 :foreground ,fg-diff-neutral-2))))
+   `(ediff-fine-diff-A ((,class (:background ,bg-diff-focus-removed :foreground ,fg-diff-focus-removed))))
+   `(ediff-fine-diff-Ancestor ((,class (:inherit modus-theme-refine-cyan))))
+   `(ediff-fine-diff-B ((,class (:background ,bg-diff-focus-added :foreground ,fg-diff-focus-added))))
+   `(ediff-fine-diff-C ((,class (:background ,bg-diff-focus-changed :foreground ,fg-diff-focus-changed))))
+   `(ediff-odd-diff-A ((,class (:background ,bg-diff-neutral-2 :foreground ,fg-diff-neutral-2))))
+   `(ediff-odd-diff-Ancestor ((,class (:background ,bg-diff-neutral-0 :foreground ,fg-diff-neutral-0))))
+   `(ediff-odd-diff-B ((,class (:background ,bg-diff-neutral-2 :foreground ,fg-diff-neutral-2))))
+   `(ediff-odd-diff-C ((,class (:background ,bg-diff-neutral-1 :foreground ,fg-diff-neutral-1))))
    ;;;; eldoc-box
    `(eldoc-box-body ((,class (:background ,bg-alt :foreground ,fg-main))))
    `(eldoc-box-border ((,class (:background ,fg-alt))))
