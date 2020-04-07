@@ -2584,14 +2584,23 @@ AMOUNT is a customisation option."
    `(sp-wrap-overlay-opening-pair ((,class (:inherit sp-pair-overlay-face))))
    `(sp-wrap-tag-overlay-face ((,class (:inherit sp-pair-overlay-face))))
    ;;;; smerge
-   `(smerge-base ((,class (:inherit modus-theme-special-warm))))
-   `(smerge-lower ((,class (:inherit modus-theme-subtle-green))))
-   `(smerge-markers ((,class (:inherit modus-theme-special-cold))))
-   `(smerge-refined-added ((,class (:inherit modus-theme-intense-green))))
-   `(smerge-refined-changed ((,class (:inherit modus-theme-intense-yellow))))
-   `(smerge-refined-removed ((,class (:inherit modus-theme-intense-red))))
-   `(smerge-refined-upper ((,class (:inherit modus-theme-intense-red))))
-   `(smerge-upper ((,class (:inherit modus-theme-subtle-red))))
+   `(smerge-base ((,class ,(modus-operandi-theme-diffs
+                            bg-main yellow
+                            bg-diff-focus-changed fg-diff-focus-changed))))
+   `(smerge-lower ((,class ,(modus-operandi-theme-diffs
+                             bg-main green
+                             bg-diff-focus-added fg-diff-focus-added))))
+   `(smerge-markers ((,class (:background ,bg-diff-neutral-2 :foreground ,fg-diff-neutral-2))))
+   `(smerge-refined-added ((,class ,(modus-operandi-theme-diffs
+                                     bg-diff-added fg-diff-added
+                                     bg-diff-refine-added fg-diff-refine-added))))
+   `(smerge-refined-changed ((,class nil)))
+   `(smerge-refined-removed ((,class ,(modus-operandi-theme-diffs
+                                       bg-diff-removed fg-diff-removed
+                                       bg-diff-refine-removed fg-diff-refine-removed))))
+   `(smerge-upper ((,class ,(modus-operandi-theme-diffs
+                             bg-main red
+                             bg-diff-focus-removed fg-diff-focus-removed))))
    ;;;; speedbar
    `(speedbar-button-face ((,class (:inherit link))))
    `(speedbar-directory-face ((,class (:foreground ,blue :weight bold))))
