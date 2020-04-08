@@ -135,6 +135,7 @@
 ;;     flymake
 ;;     flyspell
 ;;     flyspell-correct
+;;     flx
 ;;     freeze-it
 ;;     frog-menu
 ;;     focus
@@ -163,6 +164,7 @@
 ;;     hl-todo
 ;;     hydra
 ;;     ibuffer
+;;     icomplete
 ;;     ido-mode
 ;;     iedit
 ;;     imenu-list
@@ -932,7 +934,6 @@ AMOUNT is a customisation option."
    `(completions-annotations ((,class (:foreground ,fg-special-cold :slant ,modus-theme-slant))))
    `(completions-common-part ((,class (:foreground ,cyan-alt-other))))
    `(completions-first-difference ((,class (:foreground ,blue-alt-other :weight bold))))
-   `(icomplete-first-match ((,class (:foreground ,magenta :weight bold))))
    ;;;; counsel
    `(counsel-active-mode ((,class (:foreground ,magenta-alt-other))))
    `(counsel-application-name ((,class (:foreground ,red-alt-other))))
@@ -1402,6 +1403,8 @@ AMOUNT is a customisation option."
       (,class (:foreground ,red :underline t))))
    ;;;; flyspell-correct
    `(flyspell-correct-highlight-face ((,class (:inherit modus-theme-refine-green))))
+   ;;;; flx
+   `(flx-highlight-face ((,class (:inherit modus-theme-intense-magenta))))
    ;;;; freeze-it
    `(freeze-it-show ((,class (:background ,bg-dim :foreground ,fg-special-warm))))
    ;;;; frog-menu
@@ -1727,8 +1730,9 @@ AMOUNT is a customisation option."
    `(hydra-face-pink ((,class (:foreground ,magenta-intense :weight bold))))
    `(hydra-face-red ((,class (:foreground ,red-intense :weight bold))))
    `(hydra-face-teal ((,class (:foreground ,cyan-intense :weight bold))))
+   ;;;; icomplete
+   `(icomplete-first-match ((,class (:foreground ,magenta :weight bold))))
    ;;;; ido-mode
-   `(flx-highlight-face ((,class (:inherit modus-theme-intense-magenta))))
    `(ido-first-match ((,class (:foreground ,magenta :weight bold))))
    `(ido-incomplete-regexp ((,class (:inherit error))))
    `(ido-indicator ((,class (:inherit modus-theme-subtle-yellow))))

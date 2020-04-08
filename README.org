@@ -281,6 +281,7 @@ the "full support" may not be 100% true…
 + flymake
 + flyspell
 + flyspell-correct
++ flx
 + freeze-it
 + frog-menu
 + focus
@@ -309,6 +310,7 @@ the "full support" may not be 100% true…
 + hl-todo
 + hydra
 + ibuffer
++ icomplete
 + ido-mode
 + iedit
 + imenu-list
