@@ -1732,6 +1732,8 @@ AMOUNT is a customisation option."
    `(hydra-face-teal ((,class (:foreground ,cyan-intense :weight bold))))
    ;;;; icomplete
    `(icomplete-first-match ((,class (:foreground ,magenta :weight bold))))
+   ;;;; icomplete-vertical
+   `(icomplete-vertical-separator ((,class (:foreground ,fg-alt))))
    ;;;; ido-mode
    `(ido-first-match ((,class (:foreground ,magenta :weight bold))))
    `(ido-incomplete-regexp ((,class (:inherit error))))

@@ -311,6 +311,7 @@ the "full support" may not be 100% true…
 + hydra
 + ibuffer
 + icomplete
++ icomplete-vertical
 + ido-mode
 + iedit
 + imenu-list
