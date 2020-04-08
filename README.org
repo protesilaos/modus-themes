@@ -185,8 +185,39 @@ theme of your choice):
 (setq modus-vivendi-theme-subtle-diffs nil)
 #+END_SRC
 
-*NOTE* that all customisation options must be declared /before/ loading
-the theme, else they will not be parsed and have no effect.
+Same as above, but easier to read (showing the default values):
+
+#+begin_src emacs-lisp
+(setq modus-operandi-theme-slanted-constructs nil
+      modus-operandi-theme-bold-constructs nil
+      modus-operandi-theme-visible-fringes nil
+      modus-operandi-theme-subtle-diffs nil
+      modus-operandi-theme-distinct-org-blocks nil
+      modus-operandi-theme-proportional-fonts nil
+      modus-operandi-theme-scale-headings nil
+      modus-operandi-theme-scale-1 1.05
+      modus-operandi-theme-scale-2 1.1
+      modus-operandi-theme-scale-3 1.15
+      modus-operandi-theme-scale-4 1.2)
+
+(setq modus-vivendi-theme-slanted-constructs nil
+      modus-vivendi-theme-bold-constructs nil
+      modus-vivendi-theme-visible-fringes nil
+      modus-vivendi-theme-subtle-diffs nil
+      modus-vivendi-theme-distinct-org-blocks nil
+      modus-vivendi-theme-proportional-fonts nil
+      modus-vivendi-theme-scale-headings nil
+      modus-vivendi-theme-scale-1 1.05
+      modus-vivendi-theme-scale-2 1.1
+      modus-vivendi-theme-scale-3 1.15
+      modus-vivendi-theme-scale-4 1.2)
+#+end_src
+
+If you need inspiration for a toggle to switch between these two by
+pressing a single key, check [[https://protesilaos.com/dotemacs][my dotemacs]].
+
+*NOTE* that all customisation options must be declared /before/ loading the
+theme, else they will not be parsed and have no effect.
 
 * Face coverage
   :PROPERTIES:
