@@ -60,6 +60,7 @@
 ;; notify me of any missing package or change you would like to see.
 ;;
 ;;     ace-window
+;;     ag
 ;;     alert
 ;;     all-the-icons
 ;;     annotate
@@ -664,6 +665,9 @@ AMOUNT is a customisation option."
    `(success ((,class (:foreground ,green :weight bold))))
    `(trailing-whitespace ((,class (:background ,red-intense-bg))))
    `(warning ((,class (:foreground ,yellow :weight bold))))
+   ;;;; ag
+   `(ag-hit-face ((,class (:foreground ,fg-special-cold))))
+   `(ag-match-face ((,class (:inherit modus-theme-special-calm))))
    ;;;; alert
    `(alert-high-face ((,class (:foreground ,red-alt :weight bold))))
    `(alert-low-face ((,class (:foreground ,fg-special-mild))))
