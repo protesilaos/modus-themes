@@ -449,6 +449,7 @@ the "full support" may not be 100% true…
 + which-key
 + whitespace-mode
 + window-divider-mode
++ winum
 + writegood-mode
 + xah-elisp-mode
 + xref

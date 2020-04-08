@@ -271,6 +271,7 @@
 ;;     which-key
 ;;     whitespace-mode
 ;;     window-divider-mode
+;;     winum
 ;;     writegood-mode
 ;;     xah-elisp-mode
 ;;     xref
@@ -2919,6 +2920,8 @@ AMOUNT is a customisation option."
    `(window-divider ((,class (:foreground ,fg-window-divider-inner))))
    `(window-divider-first-pixel ((,class (:foreground ,fg-window-divider-outer))))
    `(window-divider-last-pixel ((,class (:foreground ,fg-window-divider-outer))))
+   ;;;; winum
+   `(winum-face ((,class (:foreground ,cyan-active :weight bold))))
    ;;;; writegood-mode
    `(writegood-duplicates-face ((,class (:background ,bg-alt :foreground ,red-alt-other :underline t))))
    `(writegood-passive-voice-face ((,class (:background ,bg-alt :foreground ,cyan-alt-other :underline t))))
