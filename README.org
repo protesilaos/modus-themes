@@ -336,6 +336,7 @@ the "full support" may not be 100% true…
 + highlight-defined
 + highlight-escape-sequences (=hes-mode=)
 + highlight-numbers
++ highlight-symbol
 + highlight-thing
 + hl-fill-column
 + hl-line-mode

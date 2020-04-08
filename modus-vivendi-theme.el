@@ -159,6 +159,7 @@
 ;;     highlight-defined
 ;;     highlight-escape-sequences (`hes-mode')
 ;;     highlight-numbers
+;;     highlight-symbol
 ;;     highlight-thing
 ;;     hl-fill-column
 ;;     hl-line-mode
@@ -1734,6 +1735,8 @@ AMOUNT is a customisation option."
    `(hes-escape-sequence-face ((,class (:foreground ,fg-escape-char-backslash :weight bold))))
    ;;;; highlight-numbers
    `(highlight-numbers-number ((,class (:foreground ,blue-alt-other))))
+   ;;;; highlight-symbol
+   `(highlight-symbol-face ((,class (:inherit modus-theme-special-mild))))
    ;;;; highlight-thing
    `(highlight-thing ((,class (:background ,bg-alt :foreground ,cyan))))
    ;;;; hl-fill-column
