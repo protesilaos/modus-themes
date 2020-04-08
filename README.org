@@ -318,6 +318,7 @@ the "full support" may not be 100% true…
 + focus
 + fold-this
 + font-lock (generic syntax highlighting)
++ forge
 + fountain (fountain-mode)
 + geiser
 + git

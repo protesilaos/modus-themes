@@ -141,6 +141,7 @@
 ;;     focus
 ;;     fold-this
 ;;     font-lock (generic syntax highlighting)
+;;     forge
 ;;     fountain (fountain-mode)
 ;;     geiser
 ;;     git
@@ -1434,6 +1435,14 @@ AMOUNT is a customisation option."
    `(font-lock-type-face ((,class (:foreground ,magenta-alt))))
    `(font-lock-variable-name-face ((,class (:foreground ,cyan))))
    `(font-lock-warning-face ((,class (:foreground ,yellow-active :weight bold))))
+   ;;;; forge
+   `(forge-post-author ((,class (:foreground ,fg-main :weight bold))))
+   `(forge-post-date ((,class (:foreground ,fg-special-cold))))
+   `(forge-topic-closed ((,class (:foreground ,fg-alt))))
+   `(forge-topic-merged ((,class (:foreground ,fg-alt))))
+   `(forge-topic-open ((,class (:foreground ,fg-special-mild))))
+   `(forge-topic-unmerged ((,class (:foreground ,magenta :slant ,modus-theme-slant))))
+   `(forge-topic-unread ((,class (:foreground ,fg-main :weight bold))))
    ;;;; fountain-mode
    `(fountain-character ((,class (:foreground ,magenta-alt-other))))
    `(fountain-comment ((,class (:foreground ,fg-alt :slant ,modus-theme-slant))))
