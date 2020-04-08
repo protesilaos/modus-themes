@@ -516,6 +516,9 @@ AMOUNT is a customisation option."
       ;; though only for styling special elements, such as underlining
       ;; the current tab
       ;;
+      ;; `fg-escape-char-construct' and `fg-escape-char-backslash' can
+      ;; be combined `bg-main', `bg-dim', `bg-alt'
+      ;;
       ;; `fg-mark', `fg-mark-del', `fg-mark-other' can be combined with
       ;; `bg-main', `bg-dim', `bg-alt', `bg-hl-line'
       ;;
@@ -529,6 +532,9 @@ AMOUNT is a customisation option."
       (bg-tab-active "#ababab")
       (bg-tab-inactive "#dadada")
       (fg-tab-active "#000077")
+
+      (fg-escape-char-construct "#8b1030")
+      (fg-escape-char-backslash "#644f00")
 
       (fg-window-divider-inner "#888888")
       (fg-window-divider-outer "#585858")
@@ -642,13 +648,13 @@ AMOUNT is a customisation option."
                       :foreground ,fg-main))))
    ;;;; basic and/or ungrouped styles
    `(error ((,class (:foreground ,red :weight bold))))
-   `(escape-glyph ((,class (:inherit modus-theme-refine-blue :weight bold))))
+   `(escape-glyph ((,class (:foreground ,fg-escape-char-construct))))
    `(header-line ((,class (:background ,bg-header :foreground ,fg-header))))
-   `(homoglyph ((,class (:foreground ,yellow-alt-other))))
+   `(homoglyph ((,class (:foreground ,fg-escape-char-construct))))
    `(ibuffer-locked-buffer ((,class (:foreground ,yellow-alt-other))))
    `(italic ((,class (:foreground ,fg-special-cold :slant italic))))
-   `(nobreak-hyphen ((,class (:inherit modus-theme-special-cold))))
-   `(nobreak-space ((,class (:inherit modus-theme-special-cold :underline t))))
+   `(nobreak-hyphen ((,class (:foreground ,fg-escape-char-construct))))
+   `(nobreak-space ((,class (:foreground ,fg-escape-char-construct :underline t))))
    `(minibuffer-prompt ((,class (:foreground ,cyan-alt))))
    `(mm-command-output ((,class (:foreground ,red-alt-other))))
    `(mm-uu-extract ((,class (:background ,bg-dim :foreground ,fg-special-mild))))
@@ -1430,8 +1436,8 @@ AMOUNT is a customisation option."
    `(font-lock-keyword-face ((,class (:foreground ,magenta-alt-other :weight ,modus-theme-bold))))
    `(font-lock-negation-char-face ((,class (:foreground ,yellow :weight ,modus-theme-bold))))
    `(font-lock-preprocessor-face ((,class (:foreground ,magenta))))
-   `(font-lock-regexp-grouping-backslash ((,class (:foreground ,green :weight bold))))
-   `(font-lock-regexp-grouping-construct ((,class (:foreground ,magenta :weight bold))))
+   `(font-lock-regexp-grouping-backslash ((,class (:foreground ,fg-escape-char-backslash :weight bold))))
+   `(font-lock-regexp-grouping-construct ((,class (:foreground ,fg-escape-char-construct :weight bold))))
    `(font-lock-string-face ((,class (:foreground ,blue-alt))))
    `(font-lock-type-face ((,class (:foreground ,magenta-alt))))
    `(font-lock-variable-name-face ((,class (:foreground ,cyan))))
@@ -1724,8 +1730,8 @@ AMOUNT is a customisation option."
    `(highlight-defined-special-form-name-face ((,class (:foreground ,magenta-alt-other))))
    `(highlight-defined-variable-name-face ((,class (:foreground ,cyan))))
    ;;;; highlight-escape-sequences (`hes-mode')
-   `(hes-escape-backslash-face ((,class (:foreground ,green :weight bold))))
-   `(hes-escape-sequence-face ((,class (:foreground ,magenta :weight bold))))
+   `(hes-escape-backslash-face ((,class (:foreground ,fg-escape-char-construct :weight bold))))
+   `(hes-escape-sequence-face ((,class (:foreground ,fg-escape-char-backslash :weight bold))))
    ;;;; highlight-numbers
    `(highlight-numbers-number ((,class (:foreground ,blue-alt-other))))
    ;;;; highlight-thing
@@ -2498,8 +2504,8 @@ AMOUNT is a customisation option."
    `(reb-match-1 ((,class (:inherit modus-theme-intense-magenta))))
    `(reb-match-2 ((,class (:inherit modus-theme-intense-green))))
    `(reb-match-3 ((,class (:inherit modus-theme-intense-red))))
-   `(reb-regexp-grouping-backslash ((,class (:foreground ,green :weight bold))))
-   `(reb-regexp-grouping-construct ((,class (:foreground ,magenta :weight bold))))
+   `(reb-regexp-grouping-backslash ((,class (:foreground ,fg-escape-char-backslash :weight bold))))
+   `(reb-regexp-grouping-construct ((,class (:foreground ,fg-escape-char-construct :weight bold))))
    ;;;; rg (rg.el)
    `(rg-column-number-face ((,class (:foreground ,magenta-alt-other))))
    `(rg-context-face ((,class (:foreground ,fg-alt))))
