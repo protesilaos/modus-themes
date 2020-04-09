@@ -264,6 +264,7 @@
 ;;     undo-tree
 ;;     vc (built-in mode line status for version control)
 ;;     vc-annotate (C-x v g)
+;;     vimish-fold
 ;;     visible-mark
 ;;     visual-regexp
 ;;     volatile-highlights
@@ -2824,6 +2825,10 @@ AMOUNT is a customisation option."
    `(vc-removed-state ((,class (:foreground ,red-active))))
    `(vc-state-base ((,class (:foreground ,fg-active))))
    `(vc-up-to-date-state ((,class (:foreground ,fg-special-cold))))
+   ;;;; vimish-fold
+   `(vimish-fold-fringe ((,class (:foreground ,cyan-active))))
+   `(vimish-fold-mouse-face ((,class (:inherit modus-theme-intense-blue))))
+   `(vimish-fold-overlay ((,class (:background ,bg-alt :foreground ,fg-special-cold))))
    ;;;; visible-mark
    `(visible-mark-active ((,class (:background ,blue-intense-bg))))
    `(visible-mark-face1 ((,class (:background ,cyan-intense-bg))))

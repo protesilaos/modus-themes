@@ -442,6 +442,7 @@ the "full support" may not be 100% true…
 + undo-tree
 + vc (built-in mode line status for version control)
 + vc-annotate (=C-x v g=)
++ vimish-fold
 + visible-mark
 + visual-regexp
 + volatile-highlights
