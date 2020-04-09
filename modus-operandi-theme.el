@@ -79,6 +79,7 @@
 ;;     centaur-tabs
 ;;     change-log and log-view (`vc-print-log' and `vc-print-root-log')
 ;;     cider
+;;     color-rg
 ;;     column-enforce-mode
 ;;     company-mode
 ;;     company-posframe
@@ -911,6 +912,21 @@ AMOUNT is a customisation option."
    `(cider-test-success-face ((,class (:inherit modus-theme-intense-green))))
    `(cider-traced-face ((,class (:box (:line-width -1 :color ,cyan :style nil) :background ,bg-dim))))
    `(cider-warning-highlight-face ((,class (:foreground ,yellow :underline t))))
+   ;;;; color-rg
+   `(color-rg-font-lock-column-number ((,class (:foreground ,magenta-alt-other))))
+   `(color-rg-font-lock-command ((,class (:foreground ,fg-main :weight bold))))
+   `(color-rg-font-lock-file ((,class (:foreground ,fg-special-cold :weight bold))))
+   `(color-rg-font-lock-flash ((,class (:inherit modus-theme-intense-blue))))
+   `(color-rg-font-lock-function-location ((,class (:inherit modus-theme-special-calm))))
+   `(color-rg-font-lock-header-line-directory ((,class (:foreground ,blue-active))))
+   `(color-rg-font-lock-header-line-edit-mode ((,class (:foreground ,magenta-active))))
+   `(color-rg-font-lock-header-line-keyword ((,class (:foreground ,green-active))))
+   `(color-rg-font-lock-header-line-text ((,class (:foreground ,fg-active))))
+   `(color-rg-font-lock-line-number ((,class (:foreground ,fg-special-warm))))
+   `(color-rg-font-lock-mark-changed ((,class (:foreground ,blue :weight bold))))
+   `(color-rg-font-lock-mark-deleted ((,class (:foreground ,red :weight bold))))
+   `(color-rg-font-lock-match ((,class (:inherit modus-theme-special-calm))))
+   `(color-rg-font-lock-position-splitter ((,class (:foreground ,fg-alt))))
    ;;;; column-enforce-mode
    `(column-enforce-face ((,class (:inherit modus-theme-refine-yellow))))
    ;;;; company-mode

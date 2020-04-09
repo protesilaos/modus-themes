@@ -256,6 +256,7 @@ the "full support" may not be 100% true…
 + centaur-tabs
 + change-log and log-view (=vc-print-log= and =vc-print-root-log=)
 + cider
++ color-rg
 + column-enforce-mode
 + company-mode*
 + company-posframe
