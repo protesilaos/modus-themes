@@ -349,6 +349,7 @@ the "full support" may not be 100% true…
 + icomplete-vertical
 + ido-mode
 + iedit
++ iflipb
 + imenu-list
 + info
 + info-colors

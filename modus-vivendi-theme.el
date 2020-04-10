@@ -171,6 +171,7 @@
 ;;     icomplete
 ;;     ido-mode
 ;;     iedit
+;;     iflipb
 ;;     imenu-list
 ;;     info
 ;;     info-colors
@@ -1784,6 +1785,9 @@ AMOUNT is a customisation option."
    ;;;; iedit
    `(iedit-occurrence ((,class (:inherit modus-theme-refine-blue))))
    `(iedit-read-only-occurrence ((,class (:inherit modus-theme-intense-yellow))))
+   ;;;; iflipb
+   `(iflipb-current-buffer-face ((,class (:foreground ,cyan-alt :weight bold))))
+   `(iflipb-other-buffer-face ((,class (:foreground ,fg-alt))))
    ;;;; imenu-list
    `(imenu-list-entry-face-0 ((,class (:foreground ,magenta-alt-other))))
    `(imenu-list-entry-face-1 ((,class (:foreground ,cyan-alt-other))))
