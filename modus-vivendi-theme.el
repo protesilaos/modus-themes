@@ -2968,9 +2968,9 @@ AMOUNT is a customisation option."
    ;;;; winum
    `(winum-face ((,class (:foreground ,cyan-active :weight bold))))
    ;;;; writegood-mode
-   `(writegood-duplicates-face ((,class (:background ,bg-alt :foreground ,red-alt-other :underline t))))
-   `(writegood-passive-voice-face ((,class (:background ,bg-alt :foreground ,cyan-alt-other :underline t))))
-   `(writegood-weasels-face ((,class (:background ,bg-alt :foreground ,yellow-alt-other :underline t))))
+   `(writegood-duplicates-face ((,class (:background ,bg-alt :foreground ,red-alt :underline t))))
+   `(writegood-passive-voice-face ((,class (:foreground ,yellow-nuanced :underline (:color ,fg-lang-warning :style line)))))
+   `(writegood-weasels-face ((,class (:foreground ,red-nuanced :underline (:color ,fg-lang-error :style line)))))
    ;;;; xah-elisp-mode
    `(xah-elisp-at-symbol ((,class (:foreground ,red-alt :weight bold))))
    `(xah-elisp-cap-variable ((,class (:foreground ,red-alt-other))))
