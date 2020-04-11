@@ -524,6 +524,9 @@ AMOUNT is a customisation option."
       ;; `fg-escape-char-construct' and `fg-escape-char-backslash' can
       ;; be combined `bg-main', `bg-dim', `bg-alt'
       ;;
+      ;; `fg-lang-error', `fg-lang-warning', `fg-lang-note' can be
+      ;; combined with `bg-main', `bg-dim', `bg-alt'
+      ;;
       ;; `fg-mark', `fg-mark-del', `fg-mark-other' can be combined with
       ;; `bg-main', `bg-dim', `bg-alt', `bg-hl-line'
       ;;
@@ -540,6 +543,10 @@ AMOUNT is a customisation option."
 
       (fg-escape-char-construct "#8b1030")
       (fg-escape-char-backslash "#644f00")
+
+      (fg-lang-error "#9f004f")
+      (fg-lang-warning "#605000")
+      (fg-lang-note "#4040ae")
 
       (fg-window-divider-inner "#888888")
       (fg-window-divider-outer "#585858")
