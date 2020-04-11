@@ -1433,12 +1433,12 @@ AMOUNT is a customisation option."
    ;;;; flyspell
    `(flyspell-duplicate
      ((,(append '((supports :underline (:style wave))) class)
-       (:foreground ,yellow :underline (:style wave)))
-      (,class (:foreground ,yellow :underline t))))
+       (:foreground ,fg-lang-warning :underline (:style wave)))
+      (,class (:foreground ,fg-lang-warning :underline t))))
    `(flyspell-incorrect
      ((,(append '((supports :underline (:style wave))) class)
-       (:foreground ,red :underline (:style wave)))
-      (,class (:foreground ,red :underline t))))
+       (:foreground ,fg-lang-error :underline (:style wave)))
+      (,class (:foreground ,fg-lang-error :underline t))))
    ;;;; flyspell-correct
    `(flyspell-correct-highlight-face ((,class (:inherit modus-theme-refine-green))))
    ;;;; flx
