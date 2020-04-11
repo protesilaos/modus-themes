@@ -1427,9 +1427,9 @@ AMOUNT is a customisation option."
    `(flycheck-posframe-info-face ((,class (:foreground ,cyan :weight bold))))
    `(flycheck-posframe-warning-face ((,class (:foreground ,yellow :weight bold))))
    ;;;; flymake
-   `(flymake-error ((,class (:foreground ,red :underline t))))
-   `(flymake-note ((,class (:foreground ,green :underline t))))
-   `(flymake-warning ((,class (:foreground ,yellow :underline t))))
+   `(flymake-error ((,class (:foreground ,red-nuanced :underline (:color ,fg-lang-error :style line)))))
+   `(flymake-note ((,class (:foreground ,blue-nuanced :underline (:color ,fg-lang-note :style line)))))
+   `(flymake-warning ((,class (:foreground ,yellow-nuanced :underline (:color ,fg-lang-warning :style line)))))
    ;;;; flyspell
    `(flyspell-duplicate
      ((,(append '((supports :underline (:style wave))) class)
@@ -3001,6 +3001,10 @@ AMOUNT is a customisation option."
     ;;;; ansi-colors
     `(ansi-color-faces-vector [default bold shadow italic underline success warning error])
     `(ansi-color-names-vector [,bg-main ,red ,green ,yellow ,blue ,magenta ,cyan ,fg-main])
+    ;;;; flymake fringe indicators
+    `(flymake-error-bitmap '(flymake-double-exclamation-mark modus-theme-fringe-red))
+    `(flymake-warning-bitmap '(exclamation-mark modus-theme-fringe-yellow))
+    `(flymake-note-bitmap '(exclamation-mark modus-theme-fringe-cyan))
     ;;;; ibuffer
     `(ibuffer-deletion-face 'dired-flagged)
     `(ibuffer-filter-group-name-face 'dired-mark)
