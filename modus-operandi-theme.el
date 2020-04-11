@@ -748,10 +748,10 @@ AMOUNT is a customisation option."
    `(apt-sources-list-type ((,class (:foreground ,magenta))))
    `(apt-sources-list-uri ((,class (:foreground ,blue))))
    ;;;; artbollocks-mode
-   `(artbollocks-face ((,class (:background ,bg-alt :foreground ,magenta-alt-other :underline t))))
-   `(artbollocks-lexical-illusions-face ((,class (:inherit modus-theme-refine-magenta :underline t))))
-   `(artbollocks-passive-voice-face ((,class (:background ,bg-alt :foreground ,cyan-alt-other :underline t))))
-   `(artbollocks-weasel-words-face ((,class (:background ,bg-alt :foreground ,yellow-alt-other :underline t))))
+   `(artbollocks-face ((,class (:foreground ,cyan-nuanced :underline (:color ,fg-lang-note :style line)))))
+   `(artbollocks-lexical-illusions-face ((,class (:background ,bg-alt :foreground ,red-alt :underline t))))
+   `(artbollocks-passive-voice-face ((,class (:foreground ,yellow-nuanced :underline (:color ,fg-lang-warning :style line)))))
+   `(artbollocks-weasel-words-face ((,class (:foreground ,red-nuanced :underline (:color ,fg-lang-error :style line)))))
    ;;;; auctex and Tex
    `(font-latex-bold-face ((,class (:foreground ,fg-special-calm :weight bold))))
    `(font-latex-doctex-documentation-face ((,class (:foreground ,fg-special-cold :slant ,modus-theme-slant))))
