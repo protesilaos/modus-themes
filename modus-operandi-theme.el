@@ -658,6 +658,7 @@ AMOUNT is a customisation option."
    `(fringe ((,class (:background
                       ,(if modus-operandi-theme-visible-fringes bg-inactive bg-main)
                       :foreground ,fg-main))))
+   `(vertical-border ((,class (:foreground ,fg-window-divider-inner))))
    ;;;; basic and/or ungrouped styles
    `(error ((,class (:foreground ,red :weight bold))))
    `(escape-glyph ((,class (:foreground ,fg-escape-char-construct))))
