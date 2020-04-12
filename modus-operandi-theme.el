@@ -2167,7 +2167,7 @@ AMOUNT is a customisation option."
    `(mode-line-buffer-id ((,class (:weight bold))))
    `(mode-line-emphasis ((,class (:foreground ,blue-active :weight bold))))
    `(mode-line-highlight ((,class (:inherit modus-theme-active-blue :box (:line-width -1 :style pressed-button)))))
-   `(mode-line-inactive ((,class (:box (:color ,bg-inactive) :background ,bg-inactive :foreground ,fg-inactive))))
+   `(mode-line-inactive ((,class (:box (:color ,bg-active) :background ,bg-inactive :foreground ,fg-inactive))))
    ;;;; mood-line
    `(mood-line-modified ((,class (:foreground ,magenta-active))))
    `(mood-line-status-error ((,class (:foreground ,red-active :weight bold))))
