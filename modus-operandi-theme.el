@@ -1353,7 +1353,7 @@ AMOUNT is a customisation option."
    `(eshell-ls-special ((,class (:foreground ,magenta :weight bold))))
    `(eshell-ls-symlink ((,class (:foreground ,cyan :underline t))))
    `(eshell-ls-unreadable ((,class (:background ,bg-inactive :foreground ,fg-inactive))))
-   `(eshell-prompt ((,class (:foreground ,cyan-alt-other :weight bold))))
+   `(eshell-prompt ((,class (:foreground ,cyan-alt-other :weight ,modus-theme-bold))))
    ;;;; evil-mode
    `(evil-ex-commands ((,class (:foreground ,magenta-alt-other))))
    `(evil-ex-info ((,class (:foreground ,cyan-alt-other))))
@@ -2966,7 +2966,7 @@ AMOUNT is a customisation option."
    `(window-divider-first-pixel ((,class (:foreground ,fg-window-divider-outer))))
    `(window-divider-last-pixel ((,class (:foreground ,fg-window-divider-outer))))
    ;;;; winum
-   `(winum-face ((,class (:foreground ,cyan-active :weight bold))))
+   `(winum-face ((,class (:foreground ,cyan-active :weight ,modus-theme-bold))))
    ;;;; writegood-mode
    `(writegood-duplicates-face ((,class (:background ,bg-alt :foreground ,red-alt :underline t))))
    `(writegood-passive-voice-face ((,class (:foreground ,yellow-nuanced :underline (:color ,fg-lang-warning :style line)))))
