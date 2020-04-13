@@ -426,6 +426,7 @@ the "full support" may not be 100% true…
 + smartparens
 + smerge
 + speedbar
++ spell-fu
 + stripes
 + suggest
 + switch-window

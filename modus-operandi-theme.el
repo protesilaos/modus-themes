@@ -248,6 +248,7 @@
 ;;     smartparens
 ;;     smerge
 ;;     speedbar
+;;     spell-fu
 ;;     stripes
 ;;     suggest
 ;;     switch-window
@@ -2675,6 +2676,11 @@ AMOUNT is a customisation option."
    `(speedbar-selected-face ((,class (:foreground ,cyan :weight bold))))
    `(speedbar-separator-face ((,class (:inherit modus-theme-intense-neutral))))
    `(speedbar-tag-face ((,class (:foreground ,yellow-alt-other))))
+   ;;;; spell-fu
+   `(spell-fu-incorrect-face
+     ((,(append '((supports :underline (:style wave))) class)
+       (:foreground ,fg-lang-error :underline (:style wave)))
+      (,class (:foreground ,fg-lang-error :underline t))))
    ;;;; stripes
    `(stripes ((,class (:background ,bg-alt))))
    ;;;; success
