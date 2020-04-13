@@ -3003,7 +3003,7 @@ AMOUNT is a customisation option."
       'modus-vivendi
       ;;;; tab-bar-mode
       `(tab-bar ((,class (:background ,bg-alt :foreground ,fg-alt))))
-      `(tab-bar-tab ((,class (:box (:line-width 1 :color ,fg-alt)
+      `(tab-bar-tab ((,class (:box (:line-width 1 :color ,fg-window-divider-inner)
                                    :background ,bg-tab-active :foreground ,fg-main))))
       `(tab-bar-tab-inactive ((,class (:box (:line-width 1 :color ,bg-tab-active)
                                             :background ,bg-tab-inactive :foreground ,fg-dim))))
@@ -3011,9 +3011,9 @@ AMOUNT is a customisation option."
       `(tab-line ((,class (:height 0.95 :background ,bg-active :foreground ,fg-active))))
       `(tab-line-close-highlight ((,class (:foreground ,red-active))))
       `(tab-line-highlight ((,class (:background ,bg-tab-active :foreground ,fg-main))))
-      `(tab-line-tab ((,class (:box (:line-width 1 :color ,fg-alt)
+      `(tab-line-tab ((,class (:box (:line-width 1 :color ,fg-window-divider-inner)
                                     :background ,bg-tab-active :foreground ,fg-main))))
-      `(tab-line-tab-current ((,class (:box (:line-width 1 :color ,fg-alt)
+      `(tab-line-tab-current ((,class (:box (:line-width 1 :color ,fg-window-divider-inner)
                                             :background ,bg-tab-active :foreground ,fg-main))))
       `(tab-line-tab-inactive ((,class (:box (:line-width 1 :color ,bg-tab-active)
                                              :background ,bg-tab-inactive :foreground ,fg-dim))))))
