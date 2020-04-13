@@ -45,6 +45,7 @@
 ;;     modus-vivendi-theme-scale-headings
 ;;     modus-vivendi-theme-visible-fringes
 ;;     modus-vivendi-theme-distinct-org-blocks
+;;     modus-vivendi-theme-3d-modeline
 ;;     modus-vivendi-theme-subtle-diffs
 ;;
 ;; The default scale is as follows (it can be customised as well):
@@ -396,6 +397,16 @@ between foreground and background is >= 7:1)."
 (defcustom modus-vivendi-theme-distinct-org-blocks nil
   "Use a distinct background for `org-mode' source blocks."
   :type 'boolean)
+
+(defcustom modus-vivendi-theme-3d-modeline nil
+  "Use a three-dimensional style for the active mode line."
+  :type 'boolean)
+
+(defun modus-vivendi-theme-modeline (col3d col)
+  "Control the box colour of the mode line, either COL3D or COL."
+  (if modus-vivendi-theme-3d-modeline
+      (list :line-width 1 :color col3d :style 'released-button)
+    (list :line-width 1 :color col :style nil)))
 
 (defcustom modus-vivendi-theme-subtle-diffs nil
   "Use fewer/dim backgrounds in `diff-mode', `ediff',`magit'."
@@ -2167,7 +2178,8 @@ AMOUNT is a customisation option."
    `(message-mml ((,class (:foreground ,green-alt))))
    `(message-separator ((,class (:background ,bg-alt :foreground ,fg-special-warm))))
    ;;;; modeline
-   `(mode-line ((,class (:box (:line-width 1 :color ,fg-inactive) :background ,bg-active :foreground ,fg-active))))
+   `(mode-line ((,class (:box ,(modus-vivendi-theme-modeline bg-inactive fg-inactive)
+                                 :background ,bg-active :foreground ,fg-active))))
    `(mode-line-buffer-id ((,class (:weight bold))))
    `(mode-line-emphasis ((,class (:foreground ,blue-active :weight bold))))
    `(mode-line-highlight ((,class (:inherit modus-theme-active-blue :box (:line-width -1 :style pressed-button)))))

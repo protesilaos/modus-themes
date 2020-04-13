@@ -183,6 +183,14 @@ theme of your choice):
 (setq modus-operandi-theme-subtle-diffs nil)
 
 (setq modus-vivendi-theme-subtle-diffs nil)
+
+;; Use a three-dimensional button effect for the focused window's mode
+;; line.  In practice, this makes the mode line less intense overall.
+;; The default is a flat, two-dimensional rectangle with a pronounced
+;; border around it.
+(setq modus-operandi-theme-3d-modeline nil)
+
+(setq modus-vivendi-theme-3d-modeline nil)
 #+END_SRC
 
 Same as above, but easier to read (showing the default values):
@@ -193,6 +201,7 @@ Same as above, but easier to read (showing the default values):
       modus-operandi-theme-visible-fringes nil
       modus-operandi-theme-subtle-diffs nil
       modus-operandi-theme-distinct-org-blocks nil
+      modus-operandi-theme-3d-modeline nil
       modus-operandi-theme-proportional-fonts nil
       modus-operandi-theme-scale-headings nil
       modus-operandi-theme-scale-1 1.05
@@ -205,6 +214,7 @@ Same as above, but easier to read (showing the default values):
       modus-vivendi-theme-visible-fringes nil
       modus-vivendi-theme-subtle-diffs nil
       modus-vivendi-theme-distinct-org-blocks nil
+      modus-vivendi-theme-3d-modeline nil
       modus-vivendi-theme-proportional-fonts nil
       modus-vivendi-theme-scale-headings nil
       modus-vivendi-theme-scale-1 1.05
