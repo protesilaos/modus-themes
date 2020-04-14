@@ -290,6 +290,8 @@
 
 ;;; Code:
 
+
+
 (deftheme modus-operandi
   "Light theme that conforms with the highest accessibility
   standard for colour contrast between background and
@@ -444,6 +446,8 @@ INTENSE-FG should be one of the dedicated foregrounds for diffs"
 AMOUNT is a customisation option."
   (when modus-operandi-theme-scale-headings
         (list :height amount)))
+
+
 
 ;; Define colour palette.  Each colour must have a >= 7:1 contrast
 ;; ratio relative to the foreground/background colour it is rendered
