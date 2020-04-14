@@ -1952,7 +1952,10 @@ AMOUNT is a customisation option."
    `(kaocha-runner-warning-face ((,class (:foreground ,yellow))))
    ;;;; keycast
    `(keycast-command ((,class (:foreground ,blue-active :weight bold))))
-   `(keycast-key ((,class (:inherit modus-theme-active-blue))))
+   `(keycast-key ((,class (:box ,(modus-operandi-theme-modeline-box blue-intense blue-active t -3)
+                                ,@(modus-operandi-theme-modeline-props
+                                   blue-active bg-main
+                                   blue-active bg-active)))))
    ;;;; line numbers (display-line-numbers-mode and global variant)
    `(line-number ((,class (:background ,bg-dim :foreground ,fg-alt))))
    `(line-number-current-line ((,class (:background ,bg-active :foreground ,fg-active :weight bold))))
