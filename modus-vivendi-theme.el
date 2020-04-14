@@ -412,23 +412,23 @@ between foreground and background is >= 7:1)."
   "Use fewer/dim backgrounds in `diff-mode', `ediff',`magit'."
   :type 'boolean)
 
-(defmacro modus-vivendi-theme-diffs (subtle-bg subtle-fg intense-bg intense-fg)
+(defun modus-vivendi-theme-diffs (subtle-bg subtle-fg intense-bg intense-fg)
   "Colour combinations for `modus-vivendi-theme-subtle-diffs'.
 
 SUBTLE-BG should be similar or the same as the main background
 SUBTLE-FG should be an appropriate accent value
 INTENSE-BG should be one of the dedicated backgrounds for diffs
 INTENSE-FG should be one of the dedicated foregrounds for diffs"
-  (list 'if 'modus-vivendi-theme-subtle-diffs
-        (list 'list :background subtle-bg :foreground subtle-fg)
-        (list 'list :background intense-bg :foreground intense-fg)))
+  (if modus-vivendi-theme-subtle-diffs
+      (list :background subtle-bg :foreground subtle-fg)
+    (list :background intense-bg :foreground intense-fg)))
 
-(defmacro modus-vivendi-theme-scale (amount)
+(defun modus-vivendi-theme-scale (amount)
   "Scale heading by AMOUNT.
 
 AMOUNT is a customisation option."
-  (list 'when 'modus-vivendi-theme-scale-headings
-        (list 'list :height amount)))
+  (when modus-vivendi-theme-scale-headings
+    (list :height amount)))
 
 ;; Define colour palette.  Each colour must have a >= 7:1 contrast
 ;; ratio relative to the foreground/background colour it is rendered
