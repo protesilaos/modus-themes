@@ -65,7 +65,7 @@ To be clear, that sequence means:
     :END:
 
 For a declarative approach with =use-package=, you can write something
-like this:
+like this (also see [[#h:d414ca47-6dce-4905-9f2e-de1465bf23bb][the customisation options]] for how to expand this):
 
 #+BEGIN_SRC emacs-lisp
 (use-package modus-operandi-theme
@@ -110,124 +110,141 @@ you might run into unexpected issues.
   :CUSTOM_ID: h:d414ca47-6dce-4905-9f2e-de1465bf23bb
   :END:
 
-Both of the Modus themes expose some variables that allow users to tweak
-the look of the theme.  By default, all variables are deactivated,
-meaning that *you need to explicitly opt in*.
+Both of the Modus themes expose variables that allow users to tweak how
+certain styles are configured.  By default, all variables are
+deactivated (=nil=), meaning that *you need to explicitly opt in*.
 
-This is what is available right now (use the ones appropriate to the
-theme of your choice):
+*NOTE* that all customisation options must be declared /before/ loading the
+theme, else they will not be parsed and have no effect.
 
-#+BEGIN_SRC emacs-lisp
-;; Choose to render more code constructs in slanted text (italics).  The
-;; default, shown below, is to not use italics, unless it is absolutely
-;; necessary.
-(setq modus-operandi-theme-slanted-constructs nil)
+** Option for visible fringes
+   :PROPERTIES:
+   :CUSTOM_ID: h:d989f116-7559-40bc-bf94-ef508d480960
+   :END:
 
-(setq modus-vivendi-theme-slanted-constructs nil)
++ =modus-operandi-theme-visible-fringe=
++ =modus-vivendi-theme-visible-fringe=
 
-;; Opt to display some additional code constructs in bold.  The default,
-;; shown below, is to use bold weight only where necessary.
-(setq modus-operandi-theme-bold-constructs nil)
+When enabled, this will render the fringes in a subtle background
+colour.  The default is to use the same colour as that of the main
+background, meaning that the fringes are not obvious though they still
+occupy the space given to them by =fringe-mode=.
 
-(setq modus-vivendi-theme-bold-constructs nil)
+** Option for more slanted constructs
+   :PROPERTIES:
+   :CUSTOM_ID: h:cb327797-b303-47c5-8171-4587a911ccc2
+   :END:
 
-;; Use proportionately-spaced fonts (variable-pitch) for headings.  The
-;; default is to use whatever font the user has selected, typically a
-;; monospaced typeface.
-(setq modus-operandi-theme-proportional-fonts nil)
++ =modus-operandi-theme-slanted-constructs=
++ =modus-vivendi-theme-slanted-constructs=
 
-(setq modus-vivendi-theme-proportional-fonts nil)
+Choose to render more faces in slanted text (italics).  This typically
+affects documentation strings and code comments.  The default is to not
+use italics unless it is absolutely necessary.
 
-;; Whether headings should be scaled or have the same height as body
-;; text.  The default is to keep everything the same as the base size.
-(setq modus-operandi-theme-scale-headings nil)
+** Option for more bold constructs
+   :PROPERTIES:
+   :CUSTOM_ID: h:9a77e814-5eca-488f-9a67-119a95c2d28a
+   :END:
 
-(setq modus-vivendi-theme-scale-headings nil)
++ =modus-operandi-theme-bold-constructs=
++ =modus-vivendi-theme-bold-constructs=
 
-;; Font scale that should apply to headings.  These are the default values.
-(setq modus-operandi-theme-scale-1 1.05)
-(setq modus-operandi-theme-scale-2 1.1)
-(setq modus-operandi-theme-scale-3 1.15)
-(setq modus-operandi-theme-scale-4 1.2)
+Display several constructs in bold weight.  This concerns keywords and
+other important aspects of code syntax.  It also affects certain mode
+line indicators.  The default is to only use a bold weight when it is
+necessary.
 
-(setq modus-vivendi-theme-scale-1 1.05)
-(setq modus-vivendi-theme-scale-2 1.1)
-(setq modus-vivendi-theme-scale-3 1.15)
-(setq modus-vivendi-theme-scale-4 1.2)
+** Option for three-dimensional focused mode line
+   :PROPERTIES:
+   :CUSTOM_ID: h:ce155208-fdd6-4ada-9e0c-54aab7e2aff8
+   :END:
 
-;; Make the fringes visible.  This renders them in a different
-;; background than the main buffer.
-(setq modus-operandi-theme-visible-fringes nil)
++ =modus-operandi-theme-3d-modeline=
++ =modus-vivendi-theme-3d-modeline=
 
-(setq modus-vivendi-theme-visible-fringes nil)
+Use a three-dimensional, "released button" effect for the focused
+window's mode line.  When enabled, this option will also affect the
+styles of any inactive mode lines, making them less intense overall in
+order to accommodate the added element of depth.  The default is to
+present the mode lines as rectangles with a border around them and with
+the active one having more intense colours than any inactive ones.
 
-;; Use a distinct background for Org's source blocks and extend their
-;; headings until the edge of the window (the "extend" part is for Emacs
-;; versions >= 27, whereas before they would extend anyhow).  The
-;; default is to use the same background as the rest of the buffer,
-;; while beginning and end lines do not extend to the end of the window
-;; (again, the extend is for Emacs 27 or higher).
-(setq modus-operandi-theme-distinct-org-blocks nil)
+** Option for subtle diffs
+   :PROPERTIES:
+   :CUSTOM_ID: h:e3933a53-cbd9-4e44-958a-1d6d133f0816
+   :END:
 
-(setq modus-vivendi-theme-distinct-org-blocks nil)
++ =modus-operandi-theme-subtle-diff=
++ =modus-vivendi-theme-subtle-diff=
 
-;; Display `diff-mode', `ediff', and `magit' diff buffers with fewer
-;; background colours (the default is to use colour-coded backgrounds
-;; for line-wise highlights).  This means that only accented foreground
-;; values are used for affected lines: green for added, red for removed,
-;; yellow for changed.  "Refined" changes (word-wise highlights) still
-;; use a background value which is, nonetheless, more subtle than its
-;; default equivalent.  For `magit' an extra set of tweaks are
-;; introduced for the effect of highlighting the current diff hunk, so
-;; as to remain consistent with the overall experience of this tool.
-(setq modus-operandi-theme-subtle-diffs nil)
+Display =diff-mode=, =ediff=, =smerge-mode=, =magit= diff buffers with fewer
+and/or less intense background colours or, where possible, with no
+background colours applied to the presentation of the added and removed
+lines.  Concerning =magit=, an extra set of tweaks are introduced for the
+effect of highlighting the current diff hunk, so as to remain consistent
+with the overall experience of that mode.  The default is to use
+colour-coded backgrounds for line-wise highlights.  "Refined" changes
+(word-wise highlights) always use a background value which is,
+nonetheless, more subtle with this option than with its default
+equivalent.
 
-(setq modus-vivendi-theme-subtle-diffs nil)
+** Option for distinct Org source blocks
+   :PROPERTIES:
+   :CUSTOM_ID: h:ca57a3af-6f79-4530-88c0-e35eda9d3bf7
+   :END:
 
-;; Use a three-dimensional button effect for the focused window's mode
-;; line.  In practice, this makes the mode line less intense overall.
-;; The default is a flat, two-dimensional rectangle with a pronounced
-;; border around it.
-(setq modus-operandi-theme-3d-modeline nil)
++ =modus-operandi-theme-distinct-org-blocks=
++ =modus-vivendi-theme-distinct-org-blocks=
 
-(setq modus-vivendi-theme-3d-modeline nil)
-#+END_SRC
+Use a distinct background for Org's source blocks and extend their
+headings until the edge of the window (the "extend" part is for Emacs
+versions >= 27, whereas before they would extend regardless).  The
+default is to use the same background as the rest of the buffer for the
+contents of the block, while beginning and end lines do not extend to
+the end of the window (again, the "extend" is for Emacs 27 or higher).
 
-Same as above, but easier to read (showing the default values):
+** Option for scaled headings
+   :PROPERTIES:
+   :CUSTOM_ID: h:db0275ea-11c2-47c9-82a9-10b65d8df0f8
+   :END:
+
++ =modus-operandi-theme-scale-headings=
++ =modus-vivendi-theme-scale-headings=
+
+Make headings larger in size relative to the main text.  This is
+noticeable in modes like Org.  The default is to use the same size for
+headers and body copy.
+
+In addition to toggles for enabling scaled headings, users can also
+specify the exact multiplier relative to the base font size.  These are
+the variables in their default sizes, from the smallest to the largest:
 
 #+begin_src emacs-lisp
-(setq modus-operandi-theme-slanted-constructs nil
-      modus-operandi-theme-bold-constructs nil
-      modus-operandi-theme-visible-fringes nil
-      modus-operandi-theme-subtle-diffs nil
-      modus-operandi-theme-distinct-org-blocks nil
-      modus-operandi-theme-3d-modeline nil
-      modus-operandi-theme-proportional-fonts nil
-      modus-operandi-theme-scale-headings nil
-      modus-operandi-theme-scale-1 1.05
+(setq modus-operandi-theme-scale-1 1.05
       modus-operandi-theme-scale-2 1.1
       modus-operandi-theme-scale-3 1.15
       modus-operandi-theme-scale-4 1.2)
 
-(setq modus-vivendi-theme-slanted-constructs nil
-      modus-vivendi-theme-bold-constructs nil
-      modus-vivendi-theme-visible-fringes nil
-      modus-vivendi-theme-subtle-diffs nil
-      modus-vivendi-theme-distinct-org-blocks nil
-      modus-vivendi-theme-3d-modeline nil
-      modus-vivendi-theme-proportional-fonts nil
-      modus-vivendi-theme-scale-headings nil
-      modus-vivendi-theme-scale-1 1.05
+(setq modus-vivendi-theme-scale-1 1.05
       modus-vivendi-theme-scale-2 1.1
       modus-vivendi-theme-scale-3 1.15
       modus-vivendi-theme-scale-4 1.2)
 #+end_src
 
-If you need inspiration for a toggle to switch between these two by
-pressing a single key, check [[https://protesilaos.com/dotemacs][my dotemacs]].
+** Option for proportional fonts
+   :PROPERTIES:
+   :CUSTOM_ID: h:33023fa6-6482-45d4-9b5e-3c73c945718f
+   :END:
 
-*NOTE* that all customisation options must be declared /before/ loading the
-theme, else they will not be parsed and have no effect.
++ =modus-operandi-theme-proportional-fonts=
++ =modus-vivendi-theme-proportional-fonts=
+
+Choose to apply a proportionately-spaced font to some faces.  Currently
+this only affects headings (e.g. in Org).  Contributions on who to make
+this more useful are highly appreciated (see [[#h:25ba8d6f-6604-4338-b774-bbe531d467f6][section on contributing]]).
+The default is to use whatever the default typeface is, typically a
+monospaced family.
 
 * Face coverage
   :PROPERTIES:
@@ -664,11 +681,11 @@ in the interest of the latter.
    :END:
 
 I accept code contributions as well (send merge requests!).  But for any
-major contribution (more than 15 lines, or so), you need to make a
-copyright assignment to the Free Software Foundation.  This is necessary
-because the themes are distributed through the official GNU ELPA
-repository and the FSF must be in a position to enforce the GNU General
-Public License.
+major contribution (more than 15 lines, or so, in aggregate), you need
+to make a copyright assignment to the Free Software Foundation.  This is
+necessary because the themes are distributed through the official GNU
+ELPA repository and the FSF must be in a position to enforce the GNU
+General Public License.
 
 Copyright assignment /is a simple process/ that I had to follow as well.
 Check the [[https://git.savannah.gnu.org/cgit/gnulib.git/tree/doc/Copyright/request-assign.future][request form]].  You must send an email to the address mentioned
