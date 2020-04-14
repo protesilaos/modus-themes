@@ -402,15 +402,17 @@ between foreground and background is >= 7:1)."
   "Use a three-dimensional style for the active mode line."
   :type 'boolean)
 
+(defcustom modus-vivendi-theme-subtle-diffs nil
+  "Use fewer/dim backgrounds in `diff-mode', `ediff',`magit'."
+  :type 'boolean)
+
+;; Helper functions that are meant to ease the implementation of the
+;; above customisation options.
 (defun modus-vivendi-theme-modeline (col3d col)
   "Control the box colour of the mode line, either COL3D or COL."
   (if modus-vivendi-theme-3d-modeline
       (list :line-width 1 :color col3d :style 'released-button)
     (list :line-width 1 :color col :style nil)))
-
-(defcustom modus-vivendi-theme-subtle-diffs nil
-  "Use fewer/dim backgrounds in `diff-mode', `ediff',`magit'."
-  :type 'boolean)
 
 (defun modus-vivendi-theme-diffs (subtle-bg subtle-fg intense-bg intense-fg)
   "Colour combinations for `modus-vivendi-theme-subtle-diffs'.
