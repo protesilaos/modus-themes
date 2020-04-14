@@ -2195,7 +2195,7 @@ AMOUNT is a customisation option."
    ;;;; modeline
    `(mode-line ((,class (:box ,(modus-vivendi-theme-modeline-box bg-inactive fg-inactive t)
                               ,@(modus-vivendi-theme-modeline-props
-                                 bg-active fg-main
+                                 bg-active fg-dim
                                  bg-active fg-active)))))
    `(mode-line-buffer-id ((,class (:weight bold))))
    `(mode-line-emphasis ((,class (:foreground ,blue-active :weight bold))))
