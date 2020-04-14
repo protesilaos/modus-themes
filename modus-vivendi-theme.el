@@ -410,14 +410,16 @@ between foreground and background is >= 7:1)."
 
 ;; Helper functions that are meant to ease the implementation of the
 ;; above customisation options.
-(defun modus-vivendi-theme-modeline-box (col3d col &optional btn)
+(defun modus-vivendi-theme-modeline-box (col3d col &optional btn int)
   "Control the box properties of the mode line.
 COL3D is the border that is intended for the three-dimensional modeline.
 COL applies to the two-dimensional modeline.
-Optional BTN provides the 3d button style."
-  (let ((style (if btn 'released-button nil)))
+Optional BTN provides the 3d button style.
+Optional INT defines a border width."
+  (let* ((style (if btn 'released-button nil))
+         (int (if int int 1)))
     (if modus-vivendi-theme-3d-modeline
-        (list :line-width 1 :color col3d :style style)
+        (list :line-width int :color col3d :style style)
       (list :line-width 1 :color col :style nil))))
 
 (defun modus-vivendi-theme-modeline-props (bg3d fg3d &optional bg fg)
