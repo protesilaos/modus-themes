@@ -2450,9 +2450,8 @@ AMOUNT is a customisation option."
                                   :foreground ,red-nuanced :weight bold))))
    `(outline-8 ((,class (:inherit ,modus-theme-variable-pitch
                                   :foreground ,fg-dim :weight bold))))
-   ;;;; outline-minor-faces (applies backgrounds to `outline-minor-mode')
-   `(outline-minor-0 ((,class (,@(and (>= emacs-major-version 27) '(:extend t))
-                               :background ,bg-alt :weight bold))))
+   ;;;; outline-minor-faces
+   `(outline-minor-0 ((,class (:background ,bg-alt))))
    ;;;; package (M-x list-packages)
    `(package-description ((,class (:foreground ,fg-special-cold))))
    `(package-help-section-name ((,class (:foreground ,magenta-alt-other :weight bold))))
