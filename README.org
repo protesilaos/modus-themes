@@ -59,6 +59,10 @@ To be clear, that sequence means:
 + type the name of the package
 + hit Return to confirm your choice
 
+*Remember to refresh your package lists* (=M-x package-refresh-contents= or
+=M-x list-packages=), in case Emacs complains that a package is no longer
+available.
+
 *** With `use-package'
     :PROPERTIES:
     :CUSTOM_ID: h:3ab0ac39-38fb-405b-8a15-771cbd843b6d
