@@ -212,6 +212,23 @@ default is to use the same background as the rest of the buffer for the
 contents of the block, while beginning and end lines do not extend to
 the end of the window (again, the "extend" is for Emacs 27 or higher).
 
+** Option for colourful "rainbow" headings
+   :PROPERTIES:
+   :CUSTOM_ID: h:1be42afb-bcd2-4425-b956-0ba93eb960c2
+   :END:
+
++ =modus-operandi-theme-rainbow-headings=
++ =modus-vivendi-theme-rainbow-headings=
+
+Apply more saturated colours to headings in =org-mode= and =outline-mode=
+while retaining all other heading properties (such as a bold weight and
+the optional scaled height ---see relevant customisation toggle).  The
+colours follow the rainbow's spectrum.  In Org headings, some additional
+tweaks are made to adapt keywords (like "TODO") to the more vivid
+presentation.  The default uses a more frugal aesthetic for headings,
+letting their bold typography and the nuances between the various
+heading levels provide the elements of differentiation.
+
 ** Option for scaled headings
    :PROPERTIES:
    :CUSTOM_ID: h:db0275ea-11c2-47c9-82a9-10b65d8df0f8

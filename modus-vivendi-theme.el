@@ -42,6 +42,7 @@
 ;;     modus-vivendi-theme-slanted-constructs
 ;;     modus-vivendi-theme-bold-constructs
 ;;     modus-vivendi-theme-proportional-fonts
+;;     modus-vivendi-theme-rainbow-headings
 ;;     modus-vivendi-theme-scale-headings
 ;;     modus-vivendi-theme-visible-fringes
 ;;     modus-vivendi-theme-distinct-org-blocks
@@ -373,6 +374,10 @@ between foreground and background is >= 7:1)."
   "Use proportional fonts (variable-pitch) in headings."
   :type 'boolean)
 
+(defcustom modus-vivendi-theme-rainbow-headings nil
+  "Use more saturated colours for headings."
+  :type 'boolean)
+
 (defcustom modus-vivendi-theme-scale-headings nil
   "Use font scaling for headings."
   :type 'boolean)
@@ -411,6 +416,14 @@ between foreground and background is >= 7:1)."
 
 ;; Helper functions that are meant to ease the implementation of the
 ;; above customisation options.
+(defun modus-vivendi-theme-heading-style (subtle rainbow)
+  "Apply foreground value to headings.
+SUBTLE is the default aesthetic.
+RAINBOW is the saturated one."
+  (if modus-vivendi-theme-rainbow-headings
+      (list :foreground rainbow)
+    (list :foreground subtle)))
+
 (defun modus-vivendi-theme-modeline-box (col3d col &optional btn int)
   "Control the box properties of the mode line.
 COL3D is the border that is intended for the three-dimensional modeline.
@@ -2384,26 +2397,26 @@ AMOUNT is a customisation option."
    `(org-headline-done ((,class (:foreground ,green-nuanced))))
    `(org-hide ((,class (:foreground ,fg-main))))
    `(org-latex-and-related ((,class (:foreground ,magenta-refine-fg))))
-   `(org-level-1 ((,class (:inherit ,modus-theme-variable-pitch
-                                    :foreground ,fg-main :weight bold
+   `(org-level-1 ((,class (:inherit ,modus-theme-variable-pitch :weight bold
+                                    ,@(modus-vivendi-theme-heading-style fg-main magenta-alt-other)
                                     ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-4)))))
-   `(org-level-2 ((,class (:inherit ,modus-theme-variable-pitch
-                                    :foreground ,fg-special-warm :weight bold
+   `(org-level-2 ((,class (:inherit ,modus-theme-variable-pitch :weight bold
+                                    ,@(modus-vivendi-theme-heading-style fg-special-warm magenta-alt)
                                     ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-3)))))
-   `(org-level-3 ((,class (:inherit ,modus-theme-variable-pitch
-                                    :foreground ,fg-special-cold :weight bold
+   `(org-level-3 ((,class (:inherit ,modus-theme-variable-pitch :weight bold
+                                    ,@(modus-vivendi-theme-heading-style fg-special-cold blue)
                                     ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-2)))))
-   `(org-level-4 ((,class (:inherit ,modus-theme-variable-pitch
-                                    :foreground ,fg-special-mild :weight bold
+   `(org-level-4 ((,class (:inherit ,modus-theme-variable-pitch :weight bold
+                                    ,@(modus-vivendi-theme-heading-style fg-special-mild cyan-alt-other)
                                     ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-1)))))
-   `(org-level-5 ((,class (:inherit ,modus-theme-variable-pitch
-                                    :foreground ,fg-special-calm :weight bold))))
-   `(org-level-6 ((,class (:inherit ,modus-theme-variable-pitch
-                                    :foreground ,yellow-nuanced :weight bold))))
-   `(org-level-7 ((,class (:inherit ,modus-theme-variable-pitch
-                                    :foreground ,red-nuanced :weight bold))))
-   `(org-level-8 ((,class (:inherit ,modus-theme-variable-pitch
-                                    :foreground ,fg-dim :weight bold))))
+   `(org-level-5 ((,class (:inherit ,modus-theme-variable-pitch :weight bold
+                                    ,@(modus-vivendi-theme-heading-style fg-special-calm green-alt)))))
+   `(org-level-6 ((,class (:inherit ,modus-theme-variable-pitch :weight bold
+                                    ,@(modus-vivendi-theme-heading-style yellow-nuanced yellow-alt-other)))))
+   `(org-level-7 ((,class (:inherit ,modus-theme-variable-pitch :weight bold
+                                    ,@(modus-vivendi-theme-heading-style red-nuanced red-alt)))))
+   `(org-level-8 ((,class (:inherit ,modus-theme-variable-pitch :weight bold
+                                    ,@(modus-vivendi-theme-heading-style fg-dim magenta)))))
    `(org-link ((,class (:inherit link))))
    `(org-list-dt ((,class (:weight bold))))
    `(org-macro ((,class (:inherit org-latex-and-related))))
@@ -2422,7 +2435,7 @@ AMOUNT is a customisation option."
    `(org-tag-group ((,class (:foreground ,cyan-nuanced :weight bold))))
    `(org-target ((,class (:underline t))))
    `(org-time-grid ((,class (:foreground ,cyan-nuanced))))
-   `(org-todo ((,class (:foreground ,magenta-alt-other))))
+   `(org-todo ((,class (,@(modus-vivendi-theme-heading-style magenta-alt-other blue-alt-other)))))
    `(org-upcoming-deadline ((,class (:foreground ,red-alt-other))))
    `(org-upcoming-distant-deadline ((,class (:foreground ,red-nuanced))))
    `(org-verbatim ((,class (:background ,bg-alt :foreground ,fg-special-calm))))
@@ -2454,26 +2467,26 @@ AMOUNT is a customisation option."
    `(origami-fold-header-face ((,class (:background ,bg-dim :foreground ,fg-dim :box t))))
    `(origami-fold-replacement-face ((,class (:background ,bg-alt :foreground ,fg-alt))))
    ;;;; outline-mode
-   `(outline-1 ((,class (:inherit ,modus-theme-variable-pitch
-                                  :foreground ,fg-main :weight bold
+   `(outline-1 ((,class (:inherit ,modus-theme-variable-pitch :weight bold
+                                  ,@(modus-vivendi-theme-heading-style fg-main magenta-alt-other)
                                   ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-4)))))
-   `(outline-2 ((,class (:inherit ,modus-theme-variable-pitch
-                                  :foreground ,fg-special-warm :weight bold
+   `(outline-2 ((,class (:inherit ,modus-theme-variable-pitch :weight bold
+                                  ,@(modus-vivendi-theme-heading-style fg-special-warm magenta-alt)
                                   ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-3)))))
-   `(outline-3 ((,class (:inherit ,modus-theme-variable-pitch
-                                  :foreground ,fg-special-cold :weight bold
+   `(outline-3 ((,class (:inherit ,modus-theme-variable-pitch :weight bold
+                                  ,@(modus-vivendi-theme-heading-style fg-special-cold blue)
                                   ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-2)))))
-   `(outline-4 ((,class (:inherit ,modus-theme-variable-pitch
-                                  :foreground ,fg-special-mild :weight bold
+   `(outline-4 ((,class (:inherit ,modus-theme-variable-pitch :weight bold
+                                  ,@(modus-vivendi-theme-heading-style fg-special-mild cyan-alt-other)
                                   ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-1)))))
-   `(outline-5 ((,class (:inherit ,modus-theme-variable-pitch
-                                  :foreground ,fg-special-calm :weight bold))))
-   `(outline-6 ((,class (:inherit ,modus-theme-variable-pitch
-                                  :foreground ,yellow-nuanced :weight bold))))
-   `(outline-7 ((,class (:inherit ,modus-theme-variable-pitch
-                                  :foreground ,red-nuanced :weight bold))))
-   `(outline-8 ((,class (:inherit ,modus-theme-variable-pitch
-                                  :foreground ,fg-dim :weight bold))))
+   `(outline-5 ((,class (:inherit ,modus-theme-variable-pitch :weight bold
+                                  ,@(modus-vivendi-theme-heading-style fg-special-calm green-alt)))))
+   `(outline-6 ((,class (:inherit ,modus-theme-variable-pitch :weight bold
+                                  ,@(modus-vivendi-theme-heading-style yellow-nuanced yellow-alt-other)))))
+   `(outline-7 ((,class (:inherit ,modus-theme-variable-pitch :weight bold
+                                  ,@(modus-vivendi-theme-heading-style red-nuanced red-alt)))))
+   `(outline-8 ((,class (:inherit ,modus-theme-variable-pitch :weight bold
+                                  ,@(modus-vivendi-theme-heading-style fg-dim magenta)))))
    ;;;; outline-minor-faces
    `(outline-minor-0 ((,class (:background ,bg-alt))))
    ;;;; package (M-x list-packages)
