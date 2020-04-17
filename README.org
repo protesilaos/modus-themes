@@ -116,7 +116,11 @@ you might run into unexpected issues.
 
 Both of the Modus themes expose variables that allow users to tweak how
 certain styles are configured.  By default, all variables are
-deactivated (=nil=), meaning that *you need to explicitly opt in*.
+deactivated (=nil=), meaning that *you need to explicitly opt in* like this:
+
+#+begin_src emacs-lisp
+(setq CUSTOMISATION-OPTION-NAME t)
+#+end_src
 
 *NOTE* that all customisation options must be declared /before/ loading the
 theme, else they will not be parsed and have no effect.
