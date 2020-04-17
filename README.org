@@ -24,8 +24,8 @@ light text is displayed against a dark background (Modus Vivendi).
 Check the [[https://gitlab.com/protesilaos/modus-themes/wikis/Screenshots][Wiki page with the screen shots]].  There are lots of scenaria
 on display that draw attention to details and important aspects in the
 design of the themes.  Towards the end of that page you will always find
-something that is currently being developed in `master` and is slated
-for an upcoming tagged release.
+something that is currently being developed in =master= and is slated for
+an upcoming tagged release.
 
 Also note that I use these themes in [[https://protesilaos.com/code-casts][my Emacs-related screen casts]]
 (though older videos contain earlier, "alpha" versions).
