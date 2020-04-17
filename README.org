@@ -412,6 +412,7 @@ the "full support" may not be 100% true…
 + neotree
 + no-emoji
 + num3-mode
++ orderless
 + org*
 + org-journal
 + org-noter

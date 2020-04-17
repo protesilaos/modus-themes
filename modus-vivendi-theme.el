@@ -204,6 +204,7 @@
 ;;     neotree
 ;;     no-emoji
 ;;     num3-mode
+;;     orderless
 ;;     org
 ;;     org-journal
 ;;     org-noter
@@ -2299,6 +2300,11 @@ AMOUNT is a customisation option."
    `(no-emoji ((,class (:foreground ,cyan))))
    ;;;; num3-mode
    `(num3-face-even ((,class (:background ,bg-alt :weight bold))))
+   ;;;; orderless
+   `(orderless-match-face-0 ((,class (:foreground ,blue-alt :weight bold))))
+   `(orderless-match-face-1 ((,class (:foreground ,magenta-alt :weight bold))))
+   `(orderless-match-face-2 ((,class (:foreground ,green-alt-other :weight bold))))
+   `(orderless-match-face-3 ((,class (:foreground ,yellow-alt-other :weight bold))))
    ;;;; org
    `(org-agenda-calendar-event ((,class (:foreground ,blue-alt))))
    `(org-agenda-calendar-sexp ((,class (:foreground ,cyan-alt))))
