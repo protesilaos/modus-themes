@@ -482,7 +482,7 @@ AMOUNT is a customisation option."
       ;; must be combined with: `bg-main', `bg-alt', `bg-dim'
       (red-alt "#f4923b") (green-alt "#58dd13")
       (yellow-alt "#e5f040") (blue-alt "#72a4ff")
-      (magenta-alt "#ed92f8") (cyan-alt "#4ae8fc")
+      (magenta-alt "#f78fe7") (cyan-alt "#4ae8fc")
       ;; same purpose as above, just slight differences
       ;;
       ;; must be combined with: `bg-main', `bg-alt', `bg-dim'
