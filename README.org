@@ -266,10 +266,10 @@ the variables in their default sizes, from the smallest to the largest:
 + =modus-vivendi-theme-proportional-fonts=
 
 Choose to apply a proportionately-spaced font to some faces.  Currently
-this only affects headings (e.g. in Org).  Contributions on who to make
-this more useful are highly appreciated (see [[#h:25ba8d6f-6604-4338-b774-bbe531d467f6][section on contributing]]).
-The default is to use whatever the default typeface is, typically a
-monospaced family.
+this only affects headings (e.g. in Org).  Contributions on how to make
+the use of proportional fonts more useful are highly appreciated (see
+[[#h:25ba8d6f-6604-4338-b774-bbe531d467f6][section on contributing]]).  The default is to use whatever the default
+typeface is, typically a monospaced family.
 
 * Face coverage
   :PROPERTIES:
