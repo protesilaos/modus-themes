@@ -229,6 +229,21 @@ presentation.  The default uses a more frugal aesthetic for headings,
 letting their bold typography and the nuances between the various
 heading levels provide the elements of differentiation.
 
+** Option for sectioned headings
+
++ =modus-operandi-theme-section-headings=
++ =modus-vivendi-theme-section-headings=
+
+Uses a background colour and an overline to mark section headings in
+=org-mode= and =outline-mode=.  These attributes are applied in addition to
+the existing foreground colour and the bold weight and can, therefore,
+be combined with the "rainbow" headings option (as well as all the other
+options pertaining to headings).  For Org several additional faces are
+configured accordingly, such as TODO keywords which gain a box style.
+
+The default is to use only a subtle foreground and a bold weight for
+headings, while no boxes or {under,over}-line effects are present.
+
 ** Option for scaled headings
    :PROPERTIES:
    :CUSTOM_ID: h:db0275ea-11c2-47c9-82a9-10b65d8df0f8

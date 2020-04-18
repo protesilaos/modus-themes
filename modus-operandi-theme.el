@@ -43,6 +43,7 @@
 ;;     modus-operandi-theme-bold-constructs
 ;;     modus-operandi-theme-proportional-fonts
 ;;     modus-operandi-theme-rainbow-headings
+;;     modus-operandi-theme-section-headings
 ;;     modus-operandi-theme-scale-headings
 ;;     modus-operandi-theme-visible-fringes
 ;;     modus-operandi-theme-distinct-org-blocks
@@ -378,6 +379,10 @@ between foreground and background is >= 7:1)."
   "Use more saturated colours for headings."
   :type 'boolean)
 
+(defcustom modus-operandi-theme-section-headings nil
+  "Use a background and an overline in headings."
+  :type 'boolean)
+
 (defcustom modus-operandi-theme-scale-headings nil
   "Use font scaling for headings."
   :type 'boolean)
@@ -416,13 +421,28 @@ between foreground and background is >= 7:1)."
 
 ;; Helper functions that are meant to ease the implementation of the
 ;; above customisation options.
-(defun modus-operandi-theme-heading-style (subtle rainbow)
+(defun modus-operandi-theme-heading-foreground (subtle rainbow)
   "Apply foreground value to headings.
 SUBTLE is the default aesthetic.
 RAINBOW is the saturated one."
   (if modus-operandi-theme-rainbow-headings
       (list :foreground rainbow)
     (list :foreground subtle)))
+
+(defun modus-operandi-theme-heading-block (bg fg)
+  "Conditionally extend heading styles.
+Apply BG to background and FG to overline."
+  (when modus-operandi-theme-section-headings
+    (list :background bg :overline fg)))
+
+(defun modus-operandi-theme-org-todo-block (bgbox fgbox fg)
+  "Conditionally extend the styles of Org keywords.
+BGBOX applies to the background.
+FGBOX applies to the foreground and the border.
+FG is used when no block style is in effect."
+  (if modus-operandi-theme-section-headings
+      (list :background bgbox :foreground fgbox :box (list :color fgbox))
+    (list :foreground fg)))
 
 (defun modus-operandi-theme-modeline-box (col3d col &optional btn int)
   "Control the box properties of the mode line.
@@ -2357,7 +2377,7 @@ AMOUNT is a customisation option."
                                                 ,@(modus-operandi-theme-scale modus-operandi-theme-scale-4)))))
    `(org-agenda-diary ((,class (:background ,bg-main :foreground ,fg-main))))
    `(org-agenda-dimmed-todo-face ((,class (:inherit modus-theme-subtle-neutral))))
-   `(org-agenda-done ((,class (:foreground ,green))))
+   `(org-agenda-done ((,class (,@(modus-operandi-theme-org-todo-block green-nuanced-bg green-nuanced green)))))
    `(org-agenda-filter-category ((,class (:background ,bg-active :foreground ,fg-main :box t))))
    `(org-agenda-filter-effort ((,class (:background ,bg-active :foreground ,fg-main :box t))))
    `(org-agenda-filter-regexp ((,class (:background ,bg-active :foreground ,fg-main :box t))))
@@ -2376,8 +2396,12 @@ AMOUNT is a customisation option."
                                     :background ,bg-alt :foreground ,fg-special-mild))))
    `(org-block-end-line ((,class (:inherit org-block-begin-line))))
    `(org-checkbox ((,class (:weight bold))))
-   `(org-checkbox-statistics-done ((,class (:foreground ,green :weight bold))))
-   `(org-checkbox-statistics-todo ((,class (:foreground ,yellow :weight bold))))
+   `(org-checkbox-statistics-done ((,class (:foreground ,green
+                                                        ,@(modus-operandi-theme-heading-block
+                                                           green-nuanced-bg green-nuanced)))))
+   `(org-checkbox-statistics-todo ((,class (:foreground ,yellow
+                                                        ,@(modus-operandi-theme-heading-block
+                                                           yellow-nuanced-bg yellow-nuanced)))))
    `(org-clock-overlay ((,class (:inherit modus-theme-special-cold))))
    `(org-code ((,class (:foreground ,magenta))))
    `(org-column ((,class (:background ,bg-alt))))
@@ -2387,7 +2411,7 @@ AMOUNT is a customisation option."
    `(org-default ((,class (:background ,bg-main :foreground ,fg-main))))
    `(org-document-info ((,class (:foreground ,fg-special-cold))))
    `(org-document-title ((,class (:foreground ,fg-special-cold :weight bold))))
-   `(org-done ((,class (:foreground ,green))))
+   `(org-done ((,class (,@(modus-operandi-theme-org-todo-block green-nuanced-bg green-nuanced green)))))
    `(org-drawer ((,class (:foreground ,cyan-alt))))
    `(org-ellipsis ((,class (:foreground nil)))) ; inherits from the heading's colour
    `(org-footnote ((,class (:foreground ,blue-alt :underline t))))
@@ -2400,29 +2424,39 @@ AMOUNT is a customisation option."
    `(org-habit-overdue-future-face ((,class (:inherit modus-theme-refine-red))))
    `(org-habit-ready-face ((,class (:inherit modus-theme-intense-blue))))
    `(org-habit-ready-future-face ((,class (:inherit modus-theme-refine-blue))))
-   `(org-headline-done ((,class (:foreground ,green-nuanced))))
+   `(org-headline-done ((,class (:foreground ,green-nuanced
+                                             ,@(modus-operandi-theme-heading-block
+                                                green-nuanced-bg green-nuanced)))))
    `(org-hide ((,class (:foreground ,fg-main))))
    `(org-latex-and-related ((,class (:foreground ,magenta-refine-fg))))
    `(org-level-1 ((,class (:inherit ,modus-theme-variable-pitch :weight bold
-                                    ,@(modus-operandi-theme-heading-style fg-main magenta-alt-other)
-                                    ,@(modus-operandi-theme-scale modus-operandi-theme-scale-4)))))
+                                    ,@(modus-operandi-theme-heading-foreground fg-main magenta-alt-other)
+                                    ,@(modus-operandi-theme-scale modus-operandi-theme-scale-4)
+                                    ,@(modus-operandi-theme-heading-block magenta-nuanced-bg magenta-nuanced)))))
    `(org-level-2 ((,class (:inherit ,modus-theme-variable-pitch :weight bold
-                                    ,@(modus-operandi-theme-heading-style fg-special-warm magenta-alt)
-                                    ,@(modus-operandi-theme-scale modus-operandi-theme-scale-3)))))
+                                    ,@(modus-operandi-theme-heading-foreground fg-special-warm magenta-alt)
+                                    ,@(modus-operandi-theme-scale modus-operandi-theme-scale-3)
+                                    ,@(modus-operandi-theme-heading-block red-nuanced-bg red-nuanced)))))
    `(org-level-3 ((,class (:inherit ,modus-theme-variable-pitch :weight bold
-                                    ,@(modus-operandi-theme-heading-style fg-special-cold blue)
-                                    ,@(modus-operandi-theme-scale modus-operandi-theme-scale-2)))))
+                                    ,@(modus-operandi-theme-heading-foreground fg-special-cold blue)
+                                    ,@(modus-operandi-theme-scale modus-operandi-theme-scale-2)
+                                    ,@(modus-operandi-theme-heading-block blue-nuanced-bg blue-nuanced)))))
    `(org-level-4 ((,class (:inherit ,modus-theme-variable-pitch :weight bold
-                                    ,@(modus-operandi-theme-heading-style fg-special-mild cyan-alt-other)
-                                    ,@(modus-operandi-theme-scale modus-operandi-theme-scale-1)))))
+                                    ,@(modus-operandi-theme-heading-foreground fg-special-mild cyan-alt-other)
+                                    ,@(modus-operandi-theme-scale modus-operandi-theme-scale-1)
+                                    ,@(modus-operandi-theme-heading-block cyan-nuanced-bg cyan-nuanced)))))
    `(org-level-5 ((,class (:inherit ,modus-theme-variable-pitch :weight bold
-                                    ,@(modus-operandi-theme-heading-style fg-special-calm green-alt)))))
+                                    ,@(modus-operandi-theme-heading-foreground fg-special-calm green-alt)
+                                    ,@(modus-operandi-theme-heading-block green-nuanced-bg green-nuanced)))))
    `(org-level-6 ((,class (:inherit ,modus-theme-variable-pitch :weight bold
-                                    ,@(modus-operandi-theme-heading-style yellow-nuanced yellow-alt-other)))))
+                                    ,@(modus-operandi-theme-heading-foreground yellow-nuanced yellow-alt-other)
+                                    ,@(modus-operandi-theme-heading-block yellow-nuanced-bg yellow-nuanced)))))
    `(org-level-7 ((,class (:inherit ,modus-theme-variable-pitch :weight bold
-                                    ,@(modus-operandi-theme-heading-style red-nuanced red-alt)))))
+                                    ,@(modus-operandi-theme-heading-foreground red-nuanced red-alt)
+                                    ,@(modus-operandi-theme-heading-block red-nuanced-bg red-nuanced)))))
    `(org-level-8 ((,class (:inherit ,modus-theme-variable-pitch :weight bold
-                                    ,@(modus-operandi-theme-heading-style fg-dim magenta)))))
+                                    ,@(modus-operandi-theme-heading-foreground fg-dim magenta)
+                                    ,@(modus-operandi-theme-heading-block bg-alt fg-alt)))))
    `(org-link ((,class (:inherit link))))
    `(org-list-dt ((,class (:weight bold))))
    `(org-macro ((,class (:inherit org-latex-and-related))))
@@ -2441,7 +2475,8 @@ AMOUNT is a customisation option."
    `(org-tag-group ((,class (:foreground ,cyan-nuanced :weight bold))))
    `(org-target ((,class (:underline t))))
    `(org-time-grid ((,class (:foreground ,cyan-nuanced))))
-   `(org-todo ((,class (,@(modus-operandi-theme-heading-style magenta-alt-other blue-alt-other)))))
+   `(org-todo ((,class (,@(modus-operandi-theme-org-todo-block magenta-nuanced-bg magenta-nuanced magenta-alt-other)
+                        ,@(modus-operandi-theme-heading-foreground magenta-alt-other red-alt-other)))))
    `(org-upcoming-deadline ((,class (:foreground ,red-alt-other))))
    `(org-upcoming-distant-deadline ((,class (:foreground ,red-nuanced))))
    `(org-verbatim ((,class (:background ,bg-alt :foreground ,fg-special-calm))))
@@ -2474,25 +2509,33 @@ AMOUNT is a customisation option."
    `(origami-fold-replacement-face ((,class (:background ,bg-alt :foreground ,fg-alt))))
    ;;;; outline-mode
    `(outline-1 ((,class (:inherit ,modus-theme-variable-pitch :weight bold
-                                  ,@(modus-operandi-theme-heading-style fg-main magenta-alt-other)
-                                  ,@(modus-operandi-theme-scale modus-operandi-theme-scale-4)))))
+                                  ,@(modus-operandi-theme-heading-foreground fg-main magenta-alt-other)
+                                  ,@(modus-operandi-theme-scale modus-operandi-theme-scale-4)
+                                  ,@(modus-operandi-theme-heading-block magenta-nuanced-bg magenta-nuanced)))))
    `(outline-2 ((,class (:inherit ,modus-theme-variable-pitch :weight bold
-                                  ,@(modus-operandi-theme-heading-style fg-special-warm magenta-alt)
-                                  ,@(modus-operandi-theme-scale modus-operandi-theme-scale-3)))))
+                                  ,@(modus-operandi-theme-heading-foreground fg-special-warm magenta-alt)
+                                  ,@(modus-operandi-theme-scale modus-operandi-theme-scale-3)
+                                  ,@(modus-operandi-theme-heading-block red-nuanced-bg red-nuanced)))))
    `(outline-3 ((,class (:inherit ,modus-theme-variable-pitch :weight bold
-                                  ,@(modus-operandi-theme-heading-style fg-special-cold blue)
-                                  ,@(modus-operandi-theme-scale modus-operandi-theme-scale-2)))))
+                                  ,@(modus-operandi-theme-heading-foreground fg-special-cold blue)
+                                  ,@(modus-operandi-theme-scale modus-operandi-theme-scale-2)
+                                  ,@(modus-operandi-theme-heading-block blue-nuanced-bg blue-nuanced)))))
    `(outline-4 ((,class (:inherit ,modus-theme-variable-pitch :weight bold
-                                  ,@(modus-operandi-theme-heading-style fg-special-mild cyan-alt-other)
-                                  ,@(modus-operandi-theme-scale modus-operandi-theme-scale-1)))))
+                                  ,@(modus-operandi-theme-heading-foreground fg-special-mild cyan-alt-other)
+                                  ,@(modus-operandi-theme-scale modus-operandi-theme-scale-1)
+                                  ,@(modus-operandi-theme-heading-block cyan-nuanced-bg cyan-nuanced)))))
    `(outline-5 ((,class (:inherit ,modus-theme-variable-pitch :weight bold
-                                  ,@(modus-operandi-theme-heading-style fg-special-calm green-alt)))))
+                                  ,@(modus-operandi-theme-heading-foreground fg-special-calm green-alt)
+                                  ,@(modus-operandi-theme-heading-block green-nuanced-bg green-nuanced)))))
    `(outline-6 ((,class (:inherit ,modus-theme-variable-pitch :weight bold
-                                  ,@(modus-operandi-theme-heading-style yellow-nuanced yellow-alt-other)))))
+                                  ,@(modus-operandi-theme-heading-foreground yellow-nuanced yellow-alt-other)
+                                  ,@(modus-operandi-theme-heading-block yellow-nuanced-bg yellow-nuanced)))))
    `(outline-7 ((,class (:inherit ,modus-theme-variable-pitch :weight bold
-                                  ,@(modus-operandi-theme-heading-style red-nuanced red-alt)))))
+                                  ,@(modus-operandi-theme-heading-foreground red-nuanced red-alt)
+                                  ,@(modus-operandi-theme-heading-block red-nuanced-bg red-nuanced)))))
    `(outline-8 ((,class (:inherit ,modus-theme-variable-pitch :weight bold
-                                  ,@(modus-operandi-theme-heading-style fg-dim magenta)))))
+                                  ,@(modus-operandi-theme-heading-foreground fg-dim magenta)
+                                  ,@(modus-operandi-theme-heading-block bg-alt fg-alt)))))
    ;;;; outline-minor-faces
    `(outline-minor-0 ((,class (:background ,bg-alt))))
    ;;;; package (M-x list-packages)
@@ -2511,7 +2554,7 @@ AMOUNT is a customisation option."
    `(package-status-new ((,class (:foreground ,green :weight bold))))
    `(package-status-unsigned ((,class (:foreground ,red-alt :weight bold))))
    ;;;; page-break-lines
-   `(page-break-lines ((,class (:foreground ,fg-alt))))
+   `(page-break-lines ((,class (:inherit default :foreground ,fg-window-divider-outer))))
    ;;;; paradox
    `(paradox-archive-face ((,class (:foreground ,fg-special-mild))))
    `(paradox-comment-face ((,class (:foreground ,fg-alt :slant ,modus-theme-slant))))
