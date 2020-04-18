@@ -508,6 +508,12 @@ AMOUNT is a customisation option."
       (red-nuanced "#4d0006") (green-nuanced "#003000")
       (yellow-nuanced "#3a2a00") (blue-nuanced "#001170")
       (magenta-nuanced "#381050") (cyan-nuanced "#003434")
+      ;; styles for slightly accented background
+      ;;
+      ;; must be combined with any of the above foreground values
+      (red-nuanced-bg "#fef2f2") (green-nuanced-bg "#f4faf4")
+      (yellow-nuanced-bg "#fcf6f1") (blue-nuanced-bg "#f4f4ff")
+      (magenta-nuanced-bg "#fff4fc") (cyan-nuanced-bg "#f0f6fa")
       ;; styles for elements that should draw attention to themselves
       ;;
       ;; must be combined with: `bg-main'
