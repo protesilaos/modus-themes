@@ -16,6 +16,10 @@ The /Modus themes/ project consists of two standalone items, one where
 dark text is cast on a light backdrop (Modus Operandi) and another where
 light text is displayed against a dark background (Modus Vivendi).
 
+The themes are *highly customisable* and can be made to look much
+different than their default austere aesthetic.  Make sure to read the
+section on the [[#h:d414ca47-6dce-4905-9f2e-de1465bf23bb][customisation options]].
+
 ** Links with demo content
    :PROPERTIES:
    :CUSTOM_ID: h:3b1b8ad9-f08f-4329-b9ee-d817b610708f
@@ -25,10 +29,11 @@ Check the [[https://gitlab.com/protesilaos/modus-themes/wikis/Screenshots][Wiki 
 on display that draw attention to details and important aspects in the
 design of the themes.  Towards the end of that page you will always find
 something that is currently being developed in =master= and is slated for
-an upcoming tagged release.
+an upcoming tagged release, though there may be some delay between code
+developments and new screen shots.
 
 Also note that I use these themes in [[https://protesilaos.com/code-casts][my Emacs-related screen casts]]
-(though older videos contain earlier, "alpha" versions).
+(although older videos contain earlier, "alpha" versions).
 
 * Install and auto-load
   :PROPERTIES:
@@ -125,6 +130,83 @@ deactivated (=nil=), meaning that *you need to explicitly opt in* like this:
 *NOTE* that all customisation options must be declared /before/ loading the
 theme, else they will not be parsed and have no effect.
 
+** Option for distinct Org source blocks
+   :PROPERTIES:
+   :CUSTOM_ID: h:ca57a3af-6f79-4530-88c0-e35eda9d3bf7
+   :END:
+
++ =modus-operandi-theme-distinct-org-blocks=
++ =modus-vivendi-theme-distinct-org-blocks=
+
+Use a distinct background for Org's source blocks and extend their
+headings until the edge of the window (the "extend" part is for Emacs
+versions >= 27, whereas before they would extend regardless).  The
+default is to use the same background as the rest of the buffer for the
+contents of the block, while beginning and end lines do not extend to
+the end of the window (again, the "extend" is for Emacs 27 or higher).
+
+** Option for colourful "rainbow" headings
+   :PROPERTIES:
+   :CUSTOM_ID: h:1be42afb-bcd2-4425-b956-0ba93eb960c2
+   :END:
+
++ =modus-operandi-theme-rainbow-headings=
++ =modus-vivendi-theme-rainbow-headings=
+
+Apply more saturated colours to headings in =org-mode= and =outline-mode=
+while retaining all other heading properties (such as a bold weight and
+the optional scaled height ---see relevant customisation toggle).  The
+colours follow the rainbow's spectrum.  In Org headings, some additional
+tweaks are made to adapt keywords (like "TODO") to the more vivid
+presentation.  The default uses a more frugal aesthetic for headings,
+letting their bold typography and the nuances between the various
+heading levels provide the elements of differentiation.
+
+** Option for sectioned headings
+
++ =modus-operandi-theme-section-headings=
++ =modus-vivendi-theme-section-headings=
+
+The default is to use only a subtle foreground and a bold weight for
+headings, while no boxes or {under,over}-line effects are present.
+
+Uses a background colour and an overline to mark section headings in
+=org-mode= and =outline-mode=.  These attributes are applied in addition to
+the existing foreground colour and the bold weight and can, therefore,
+be combined with the "rainbow" headings option (as well as all the other
+options pertaining to headings).  For Org several additional faces are
+configured accordingly, such as TODO keywords which gain a box style.
+
+** Option for scaled headings
+   :PROPERTIES:
+   :CUSTOM_ID: h:db0275ea-11c2-47c9-82a9-10b65d8df0f8
+   :END:
+
++ =modus-operandi-theme-scale-headings=
++ =modus-vivendi-theme-scale-headings=
+
+Make headings larger in size relative to the main text.  This is
+noticeable in modes like Org.  The default is to use the same size for
+headers and body copy.
+
+In addition to toggles for enabling scaled headings, users can also
+specify the exact multiplier relative to the base font size.  These are
+the variables in their default sizes, from the smallest to the largest
+(the numbers are very conservative, but you are free to increase them a
+bit):
+
+#+begin_src emacs-lisp
+(setq modus-operandi-theme-scale-1 1.05
+      modus-operandi-theme-scale-2 1.1
+      modus-operandi-theme-scale-3 1.15
+      modus-operandi-theme-scale-4 1.2)
+
+(setq modus-vivendi-theme-scale-1 1.05
+      modus-vivendi-theme-scale-2 1.1
+      modus-vivendi-theme-scale-3 1.15
+      modus-vivendi-theme-scale-4 1.2)
+#+end_src
+
 ** Option for visible fringes
    :PROPERTIES:
    :CUSTOM_ID: h:d989f116-7559-40bc-bf94-ef508d480960
@@ -196,81 +278,6 @@ colour-coded backgrounds for line-wise highlights.  "Refined" changes
 (word-wise highlights) always use a background value which is,
 nonetheless, more subtle with this option than with its default
 equivalent.
-
-** Option for distinct Org source blocks
-   :PROPERTIES:
-   :CUSTOM_ID: h:ca57a3af-6f79-4530-88c0-e35eda9d3bf7
-   :END:
-
-+ =modus-operandi-theme-distinct-org-blocks=
-+ =modus-vivendi-theme-distinct-org-blocks=
-
-Use a distinct background for Org's source blocks and extend their
-headings until the edge of the window (the "extend" part is for Emacs
-versions >= 27, whereas before they would extend regardless).  The
-default is to use the same background as the rest of the buffer for the
-contents of the block, while beginning and end lines do not extend to
-the end of the window (again, the "extend" is for Emacs 27 or higher).
-
-** Option for colourful "rainbow" headings
-   :PROPERTIES:
-   :CUSTOM_ID: h:1be42afb-bcd2-4425-b956-0ba93eb960c2
-   :END:
-
-+ =modus-operandi-theme-rainbow-headings=
-+ =modus-vivendi-theme-rainbow-headings=
-
-Apply more saturated colours to headings in =org-mode= and =outline-mode=
-while retaining all other heading properties (such as a bold weight and
-the optional scaled height ---see relevant customisation toggle).  The
-colours follow the rainbow's spectrum.  In Org headings, some additional
-tweaks are made to adapt keywords (like "TODO") to the more vivid
-presentation.  The default uses a more frugal aesthetic for headings,
-letting their bold typography and the nuances between the various
-heading levels provide the elements of differentiation.
-
-** Option for sectioned headings
-
-+ =modus-operandi-theme-section-headings=
-+ =modus-vivendi-theme-section-headings=
-
-Uses a background colour and an overline to mark section headings in
-=org-mode= and =outline-mode=.  These attributes are applied in addition to
-the existing foreground colour and the bold weight and can, therefore,
-be combined with the "rainbow" headings option (as well as all the other
-options pertaining to headings).  For Org several additional faces are
-configured accordingly, such as TODO keywords which gain a box style.
-
-The default is to use only a subtle foreground and a bold weight for
-headings, while no boxes or {under,over}-line effects are present.
-
-** Option for scaled headings
-   :PROPERTIES:
-   :CUSTOM_ID: h:db0275ea-11c2-47c9-82a9-10b65d8df0f8
-   :END:
-
-+ =modus-operandi-theme-scale-headings=
-+ =modus-vivendi-theme-scale-headings=
-
-Make headings larger in size relative to the main text.  This is
-noticeable in modes like Org.  The default is to use the same size for
-headers and body copy.
-
-In addition to toggles for enabling scaled headings, users can also
-specify the exact multiplier relative to the base font size.  These are
-the variables in their default sizes, from the smallest to the largest:
-
-#+begin_src emacs-lisp
-(setq modus-operandi-theme-scale-1 1.05
-      modus-operandi-theme-scale-2 1.1
-      modus-operandi-theme-scale-3 1.15
-      modus-operandi-theme-scale-4 1.2)
-
-(setq modus-vivendi-theme-scale-1 1.05
-      modus-vivendi-theme-scale-2 1.1
-      modus-vivendi-theme-scale-3 1.15
-      modus-vivendi-theme-scale-4 1.2)
-#+end_src
 
 ** Option for proportional fonts
    :PROPERTIES:
