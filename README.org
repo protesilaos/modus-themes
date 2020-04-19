@@ -27,10 +27,8 @@ section on the [[#h:d414ca47-6dce-4905-9f2e-de1465bf23bb][customisation options]
 
 Check the [[https://gitlab.com/protesilaos/modus-themes/wikis/Screenshots][Wiki page with the screen shots]].  There are lots of scenaria
 on display that draw attention to details and important aspects in the
-design of the themes.  Towards the end of that page you will always find
-something that is currently being developed in =master= and is slated for
-an upcoming tagged release, though there may be some delay between code
-developments and new screen shots.
+design of the themes.  They also showcase the numerous customisation
+options.
 
 Also note that I use these themes in [[https://protesilaos.com/code-casts][my Emacs-related screen casts]]
 (although older videos contain earlier, "alpha" versions).
@@ -129,6 +127,9 @@ deactivated (=nil=), meaning that *you need to explicitly opt in* like this:
 
 *NOTE* that all customisation options must be declared /before/ loading the
 theme, else they will not be parsed and have no effect.
+
+Do check the [[https://gitlab.com/protesilaos/modus-themes/wikis/Screenshots][Wiki page with the screen shots]] to see how these will
+change things.
 
 ** Option for distinct Org source blocks
    :PROPERTIES:
