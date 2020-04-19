@@ -486,6 +486,7 @@ the "full support" may not be 100% true…
 + rainbow-blocks
 + rainbow-identifiers
 + rainbow-delimiters
++ rcirc
 + regexp-builder (also known as =re-builder=)
 + rg (rg.el)
 + ripgrep

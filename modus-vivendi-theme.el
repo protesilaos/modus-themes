@@ -236,6 +236,7 @@
 ;;     rainbow-blocks
 ;;     rainbow-identifiers
 ;;     rainbow-delimiters
+;;     rcirc
 ;;     regexp-builder (also known as `re-builder')
 ;;     rg
 ;;     ripgrep
@@ -2664,6 +2665,17 @@ AMOUNT is a customisation option."
    `(rainbow-delimiters-depth-9-face ((,class (:foreground ,yellow-alt))))
    `(rainbow-delimiters-mismatched-face ((,class (:foreground ,red-alt :weight bold))))
    `(rainbow-delimiters-unmatched-face ((,class (:foreground ,red :weight bold))))
+   ;;;; rcirc
+   `(rcirc-bright-nick ((,class (:foreground ,magenta-alt :weight bold))))
+   `(rcirc-dim-nick ((,class (:foreground ,fg-alt))))
+   `(rcirc-my-nick ((,class (:foreground ,magenta :weight bold))))
+   `(rcirc-nick-in-message ((,class (:foreground ,blue))))
+   `(rcirc-nick-in-message-full-line ((,class (:foreground ,fg-special-mild :weight bold))))
+   `(rcirc-other-nick ((,class (:foreground ,fg-special-cold :weight bold))))
+   `(rcirc-prompt ((,class (:foreground ,cyan-alt-other :weight bold))))
+   `(rcirc-server ((,class (:foreground ,fg-special-warm))))
+   `(rcirc-timestamp ((,class (:foreground ,fg-inactive))))
+   `(rcirc-url ((,class (:foreground ,blue :underline t))))
    ;;;; regexp-builder (re-builder)
    `(reb-match-0 ((,class (:inherit modus-theme-intense-blue))))
    `(reb-match-1 ((,class (:inherit modus-theme-intense-magenta))))
