@@ -277,6 +277,7 @@
 ;;     visible-mark
 ;;     visual-regexp
 ;;     volatile-highlights
+;;     vterm
 ;;     wcheck-mode
 ;;     web-mode
 ;;     wgrep
@@ -3010,6 +3011,18 @@ AMOUNT is a customisation option."
    ;;;; volatile-highlights
    `(vhl/default-face ((,class (,@(and (>= emacs-major-version 27) '(:extend t))
                                 :background ,bg-alt :foreground ,blue-nuanced))))
+   ;;;; vterm
+   `(vterm-color-black ((,class (:background "black" :foreground "black"))))
+   `(vterm-color-blue ((,class (:background ,blue :foreground ,blue))))
+   `(vterm-color-cyan ((,class (:background ,cyan :foreground ,cyan))))
+   `(vterm-color-default ((,class (:background ,bg-main :foreground ,fg-main))))
+   `(vterm-color-green ((,class (:background ,green :foreground ,green))))
+   `(vterm-color-inverse-video ((,class (:background ,bg-main :inverse-video t))))
+   `(vterm-color-magenta ((,class (:background ,magenta :foreground ,magenta))))
+   `(vterm-color-red ((,class (:background ,red :foreground ,red))))
+   `(vterm-color-underline ((,class (:foreground ,fg-special-warm :underline t))))
+   `(vterm-color-white ((,class (:background "white" :foreground "white"))))
+   `(vterm-color-yellow ((,class (:background ,yellow :foreground ,yellow))))
    ;;;; wcheck-mode
    `(wcheck-default-face ((,class (:foreground ,red :underline t))))
    ;;;; web-mode
