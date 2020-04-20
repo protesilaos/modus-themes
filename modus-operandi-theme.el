@@ -445,6 +445,14 @@ FG is used when no block style is in effect."
       (list :background bgbox :foreground fgbox :box (list :color fgbox))
     (list :foreground fg)))
 
+(defun modus-operandi-theme-org-src-block (bgsrc bg)
+  "Conditionally set the styles of Org source blocks.
+BGSRC applies to a distinct background.  BG is used to keep
+blocks the same background as the rest of the buffer."
+  (if modus-operandi-theme-distinct-org-blocks
+      (list :background bgsrc :extend t)
+    (list :background bg)))
+
 (defun modus-operandi-theme-modeline-box (col3d col &optional btn int)
   "Control the box properties of the mode line.
 COL3D is the border that is intended for the three-dimensional modeline.
@@ -2388,9 +2396,7 @@ AMOUNT is a customisation option."
                                              :foreground ,fg-special-mild
                                              ,@(modus-operandi-theme-scale modus-operandi-theme-scale-3)))))
    `(org-archived ((,class (:background ,bg-alt :foreground ,fg-alt))))
-   `(org-block ((,class (,@(and (>= emacs-major-version 27) '(:extend t))
-                         :background ,(if modus-operandi-theme-distinct-org-blocks bg-dim bg-main)
-                         :foreground ,fg-main))))
+   `(org-block ((,class (,@(modus-operandi-theme-org-src-block bg-dim bg-main) :foreground ,fg-main))))
    `(org-block-begin-line ((,class (,@(and (>= emacs-major-version 27)
                                            modus-operandi-theme-distinct-org-blocks
                                            '(:extend t))
