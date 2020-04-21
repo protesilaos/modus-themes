@@ -434,8 +434,9 @@ RAINBOW is the saturated one."
 (defun modus-vivendi-theme-heading-block (bg fg)
   "Conditionally extend heading styles.
 Apply BG to background and FG to overline."
-  (when modus-vivendi-theme-section-headings
-    (list :background bg :overline fg)))
+  (if modus-vivendi-theme-section-headings
+      (list :background bg :overline fg)
+    (list :background nil :overline nil)))
 
 (defun modus-vivendi-theme-org-todo-block (bgbox fgbox fg)
   "Conditionally extend the styles of Org keywords.
