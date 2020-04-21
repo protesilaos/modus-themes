@@ -3023,7 +3023,7 @@ AMOUNT is a customisation option."
    `(vterm-color-red ((,class (:background ,red :foreground ,red))))
    `(vterm-color-underline ((,class (:foreground ,fg-special-warm :underline t))))
    `(vterm-color-white ((,class (:background "white" :foreground "white"))))
-   `(vterm-color-yellow ((,class (:background ,yellow :foreground ,yellow))))   
+   `(vterm-color-yellow ((,class (:background ,yellow :foreground ,yellow))))
    ;;;; wcheck-mode
    `(wcheck-default-face ((,class (:foreground ,red :underline t))))
    ;;;; web-mode
