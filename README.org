@@ -2,42 +2,6 @@
 #+AUTHOR: Protesilaos Stavrou
 #+EMAIL: public@protesilaos.com
 
-* Modus themes for GNU Emacs                                            :TOC:
-  :PROPERTIES:
-  :CUSTOM_ID: h:c52954be-b406-4a9e-bcc1-b084e3271823
-  :END:
-
-- [[#overview][Overview]]
-  - [[#links-with-demo-content][Links with demo content]]
-- [[#install-and-auto-load][Install and auto-load]]
-  - [[#install-the-packages][Install the packages]]
-  - [[#manual-installation-method][Manual installation method]]
-  - [[#load-automatically][Load automatically]]
-- [[#customisation-options][Customisation options]]
-  - [[#option-for-distinct-org-source-blocks][Option for distinct Org source blocks]]
-  - [[#option-for-colourful-rainbow-headings][Option for colourful "rainbow" headings]]
-  - [[#option-for-sectioned-headings][Option for sectioned headings]]
-  - [[#option-for-scaled-headings][Option for scaled headings]]
-  - [[#option-for-visible-fringes][Option for visible fringes]]
-  - [[#option-for-more-slanted-constructs][Option for more slanted constructs]]
-  - [[#option-for-more-bold-constructs][Option for more bold constructs]]
-  - [[#option-for-three-dimensional-focused-mode-line][Option for three-dimensional focused mode line]]
-  - [[#option-for-subtle-diffs][Option for subtle diffs]]
-  - [[#option-for-proportional-fonts][Option for proportional fonts]]
-  - [[#complete-example-configuration][Complete example configuration]]
-- [[#face-coverage][Face coverage]]
-  - [[#full-support][Full support]]
-  - [[#covered-but-not-styled-explicitly][Covered but not styled explicitly]]
-  - [[#help-needed][Help needed]]
-  - [[#will-not-be-supported][Will NOT be supported]]
-  - [[#note-about-colour-coded-org-source-blocks][Note about colour-coded ORG source blocks]]
-  - [[#note-for-helm-users-of-grep-or-grep-like-functions][Note for HELM users of grep or grep-like functions]]
-  - [[#note-on-vc-annotate-background-mode][Note on VC-ANNOTATE-BACKGROUND-MODE]]
-- [[#contributing][Contributing]]
-  - [[#code-contributions-require-copyright-assignment-to-the-fsf][Code contributions require copyright assignment to the FSF]]
-- [[#meta][Meta]]
-- [[#copying][COPYING]]
-
 * Overview
   :PROPERTIES:
   :CUSTOM_ID: h:d42d56a4-9252-4858-ac8e-3306cdd24e19
@@ -855,9 +819,6 @@ once.  It will allow you to make contributions to Emacs in general.
 
 If you interested in the principles that govern the development of this
 project, read my article [[https://protesilaos.com/codelog/2020-03-17-design-modus-themes-emacs/][On the design of the Modus themes]] (2020-03-17).
-
-The table of contents is created with the [[https://github.com/snosov1/toc-org][toc-org package]] by Sergei
-Nosov.
 
 * COPYING
   :PROPERTIES:
