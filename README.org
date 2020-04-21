@@ -2,6 +2,42 @@
 #+AUTHOR: Protesilaos Stavrou
 #+EMAIL: public@protesilaos.com
 
+* Modus themes for GNU Emacs                                      :TOC_2_ORG:
+  :PROPERTIES:
+  :CUSTOM_ID: h:c52954be-b406-4a9e-bcc1-b084e3271823
+  :END:
+
+- [[Overview][Overview]]
+  - [[Links with demo content][Links with demo content]]
+- [[Install and auto-load][Install and auto-load]]
+  - [[Install the packages][Install the packages]]
+  - [[Manual installation method][Manual installation method]]
+  - [[Load automatically][Load automatically]]
+- [[Customisation options][Customisation options]]
+  - [[Option for distinct Org source blocks][Option for distinct Org source blocks]]
+  - [[Option for colourful "rainbow" headings][Option for colourful "rainbow" headings]]
+  - [[Option for sectioned headings][Option for sectioned headings]]
+  - [[Option for scaled headings][Option for scaled headings]]
+  - [[Option for visible fringes][Option for visible fringes]]
+  - [[Option for more slanted constructs][Option for more slanted constructs]]
+  - [[Option for more bold constructs][Option for more bold constructs]]
+  - [[Option for three-dimensional focused mode line][Option for three-dimensional focused mode line]]
+  - [[Option for subtle diffs][Option for subtle diffs]]
+  - [[Option for proportional fonts][Option for proportional fonts]]
+  - [[Complete example configuration][Complete example configuration]]
+- [[Face coverage][Face coverage]]
+  - [[Full support][Full support]]
+  - [[Covered but not styled explicitly][Covered but not styled explicitly]]
+  - [[Help needed][Help needed]]
+  - [[Will NOT be supported][Will NOT be supported]]
+  - [[Note about colour-coded ORG source blocks][Note about colour-coded ORG source blocks]]
+  - [[Note for HELM users of grep or grep-like functions][Note for HELM users of grep or grep-like functions]]
+  - [[Note on VC-ANNOTATE-BACKGROUND-MODE][Note on VC-ANNOTATE-BACKGROUND-MODE]]
+- [[Contributing][Contributing]]
+  - [[Code contributions require copyright assignment to the FSF][Code contributions require copyright assignment to the FSF]]
+- [[Meta][Meta]]
+- [[COPYING][COPYING]]
+
 * Overview
   :PROPERTIES:
   :CUSTOM_ID: h:d42d56a4-9252-4858-ac8e-3306cdd24e19
@@ -118,18 +154,34 @@ you might run into unexpected issues.
   :END:
 
 Both of the Modus themes expose variables that allow users to tweak how
-certain styles are configured.  By default, all variables are
-deactivated (=nil=), meaning that *you need to explicitly opt in* like this:
+certain styles are configured.  Check the [[https://gitlab.com/protesilaos/modus-themes/wikis/Screenshots][Wiki with the screen shots]] to
+see how these will change things.
+
+By default, all variables are deactivated (=nil=), meaning that *you need
+to explicitly opt in* like this:
 
 #+begin_src emacs-lisp
 (setq CUSTOMISATION-OPTION-NAME t)
+
+;; example with "rainbow" headings for Modus Operandi:
+(setq modus-operandi-theme-rainbow-headings t)
 #+end_src
 
-*NOTE* that all customisation options must be declared /before/ loading the
-theme, else they will not be parsed and have no effect.
+Put the point (cursor) exactly to the right of the closing parenthesis
+and use =C-x C-e= to evaluate each =setq= form individually, or the entire
+expression that holds it (e.g. a function or =use-package= declaration).
 
-Do check the [[https://gitlab.com/protesilaos/modus-themes/wikis/Screenshots][Wiki page with the screen shots]] to see how these will
-change things.
+All customisation *options must be declared before loading the theme*,
+else they will not be parsed and have no immediate effect.  To [re-]load
+a theme, you can evaluate either of these:
+
+#+begin_src emacs-lisp
+(load-theme 'modus-operandi t)
+(load-theme 'modus-vivendi t)
+#+end_src
+
+Consult the section below with the [[#h:0e3b8a62-8d72-4439-be2d-cb12ed98f4cb][complete example configuration]] for a
+fully fledged =use-package= declaration.
 
 ** Option for distinct Org source blocks
    :PROPERTIES:
@@ -164,6 +216,9 @@ letting their bold typography and the nuances between the various
 heading levels provide the elements of differentiation.
 
 ** Option for sectioned headings
+   :PROPERTIES:
+   :CUSTOM_ID: h:c1c9a380-7a05-4c0d-b714-2acac88f10ad
+   :END:
 
 + =modus-operandi-theme-section-headings=
 + =modus-vivendi-theme-section-headings=
@@ -194,7 +249,7 @@ In addition to toggles for enabling scaled headings, users can also
 specify the exact multiplier relative to the base font size.  These are
 the variables in their default sizes, from the smallest to the largest
 (the numbers are very conservative, but you are free to increase them a
-bit):
+bit, such as =1.2=, =1.4=, =1.6=, =1.8=):
 
 #+begin_src emacs-lisp
 (setq modus-operandi-theme-scale-1 1.05
@@ -207,6 +262,11 @@ bit):
       modus-vivendi-theme-scale-3 1.15
       modus-vivendi-theme-scale-4 1.2)
 #+end_src
+
+Note that in Org, scaling only increases the size of the heading, but
+not of keywords that are added to it, like "TODO".  This is outside the
+control of the themes and I am not aware of any way to make such
+keywords scale accordingly.
 
 ** Option for visible fringes
    :PROPERTIES:
@@ -293,6 +353,47 @@ this only affects headings (e.g. in Org).  Contributions on how to make
 the use of proportional fonts more useful are highly appreciated (see
 [[#h:25ba8d6f-6604-4338-b774-bbe531d467f6][section on contributing]]).  The default is to use whatever the default
 typeface is, typically a monospaced family.
+
+** Complete example configuration
+   :PROPERTIES:
+   :CUSTOM_ID: h:0e3b8a62-8d72-4439-be2d-cb12ed98f4cb
+   :END:
+
+This is a complete =use-package= declaration with Modus Operandi as an
+example.  You can modify it to your preferences.  Here we enable all
+variables /before/ loading the theme.  You can also see a different form
+of =setq= that sets the value of multiple variables at once: use one =setq=
+expression for each variable, if in doubt.
+
+Do not forget to =M-x package-refresh-contents= to get your package list
+up-to-date, else the initial download may fail due to a newer version
+being available.
+
+#+begin_src emacs-lisp
+(use-package modus-operandi-theme
+  :ensure t
+  :init
+  (setq modus-operandi-theme-slanted-constructs t
+        modus-operandi-theme-bold-constructs t
+        modus-operandi-theme-visible-fringes t
+        modus-operandi-theme-3d-modeline t
+        modus-operandi-theme-subtle-diffs t
+        modus-operandi-theme-distinct-org-blocks t
+        modus-operandi-theme-proportional-fonts t
+        modus-operandi-theme-rainbow-headings t
+        modus-operandi-theme-section-headings t
+        modus-operandi-theme-scale-headings t
+        modus-operandi-theme-scale-1 1.05
+        modus-operandi-theme-scale-2 1.1
+        modus-operandi-theme-scale-3 1.15
+        modus-operandi-theme-scale-4 1.2)
+  :config
+  (load-theme 'modus-operandi t))
+#+end_src
+
+Need more ideas?  Check the [[https://protesilaos.com/dotemacs/#h:b7444e76-75d4-4ae6-a9d6-96ff9408efe6][Modus themes section of my dotemacs]] (though
+do not try to interpret the values of the variables, as I always test
+different combinations and scenaria).
 
 * Face coverage
   :PROPERTIES:
@@ -754,6 +855,9 @@ once.  It will allow you to make contributions to Emacs in general.
 
 If you interested in the principles that govern the development of this
 project, read my article [[https://protesilaos.com/codelog/2020-03-17-design-modus-themes-emacs/][On the design of the Modus themes]] (2020-03-17).
+
+The table of contents is created with the [[https://github.com/snosov1/toc-org][toc-org package]] by Sergei
+Nosov.
 
 * COPYING
   :PROPERTIES:
