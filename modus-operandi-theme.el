@@ -118,6 +118,7 @@
 ;;     easy-kill
 ;;     ebdb
 ;;     ediff
+;;     eglot
 ;;     eldoc-box
 ;;     elfeed
 ;;     elfeed-score
@@ -1349,6 +1350,8 @@ AMOUNT is a customisation option."
    `(ediff-odd-diff-Ancestor ((,class (:background ,bg-diff-neutral-0 :foreground ,fg-diff-neutral-0))))
    `(ediff-odd-diff-B ((,class (:background ,bg-diff-neutral-2 :foreground ,fg-diff-neutral-2))))
    `(ediff-odd-diff-C ((,class (:background ,bg-diff-neutral-1 :foreground ,fg-diff-neutral-1))))
+   ;;;; eglot
+   `(eglot-mode-line ((,class (:foreground ,magenta-active :weight ,modus-theme-bold))))
    ;;;; eldoc-box
    `(eldoc-box-body ((,class (:background ,bg-alt :foreground ,fg-main))))
    `(eldoc-box-border ((,class (:background ,fg-alt))))

@@ -432,6 +432,7 @@ the "full support" may not be 100% true…
 + easy-kill
 + ebdb
 + ediff
++ eglot
 + eldoc-box
 + elfeed
 + elfeed-score
