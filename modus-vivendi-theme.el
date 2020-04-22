@@ -2271,7 +2271,7 @@ AMOUNT is a customisation option."
    `(message-header-subject ((,class (:foreground ,magenta-alt-other :weight bold))))
    `(message-header-to ((,class (:foreground ,magenta-alt :weight bold))))
    `(message-header-xheader ((,class (:foreground ,blue-alt-other))))
-   `(message-mml ((,class (:foreground ,green-alt))))
+   `(message-mml ((,class (:foreground ,green-alt-other))))
    `(message-separator ((,class (:background ,bg-alt :foreground ,fg-special-warm))))
    ;;;; modeline
    `(mode-line ((,class (:box ,(modus-vivendi-theme-modeline-box bg-inactive fg-inactive t)
