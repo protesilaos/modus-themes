@@ -413,6 +413,7 @@ the "full support" may not be 100% true…
 + dap-mode
 + dashboard (emacs-dashboard)
 + deadgrep
++ debbugs
 + define-word
 + deft
 + diff-hl

@@ -99,6 +99,7 @@
 ;;     dap-mode
 ;;     dashboard (emacs-dashboard)
 ;;     deadgrep
+;;     debbugs
 ;;     define-word
 ;;     deft
 ;;     diff-hl
@@ -1147,6 +1148,19 @@ AMOUNT is a customisation option."
    `(deadgrep-meta-face ((,class (:foreground ,fg-alt))))
    `(deadgrep-regexp-metachar-face ((,class (:foreground ,yellow-intense :weight bold))))
    `(deadgrep-search-term-face ((,class (:foreground ,green-intense :weight bold))))
+   ;;;; debbugs
+   `(debbugs-gnu-archived ((,class (:inverse-video t))))
+   `(debbugs-gnu-done ((,class (:foreground ,fg-alt))))
+   `(debbugs-gnu-forwarded ((,class (:foreground ,fg-special-warm))))
+   `(debbugs-gnu-handled ((,class (:foreground ,green))))
+   `(debbugs-gnu-new ((,class (:foreground ,red))))
+   `(debbugs-gnu-pending ((,class (:foreground ,cyan))))
+   `(debbugs-gnu-stale-1 ((,class (:foreground ,yellow-nuanced))))
+   `(debbugs-gnu-stale-2 ((,class (:foreground ,yellow))))
+   `(debbugs-gnu-stale-3 ((,class (:foreground ,yellow-alt))))
+   `(debbugs-gnu-stale-4 ((,class (:foreground ,yellow-alt-other))))
+   `(debbugs-gnu-stale-5 ((,class (:foreground ,red-alt))))
+   `(debbugs-gnu-tagged ((,class (:foreground ,magenta-alt))))
    ;;;; define-word
    `(define-word-face-1 ((,class (:foreground ,yellow))))
    `(define-word-face-2 ((,class (:foreground ,fg-main))))
