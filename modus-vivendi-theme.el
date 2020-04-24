@@ -2031,10 +2031,6 @@ AMOUNT is a customisation option."
    ;;;; line numbers (display-line-numbers-mode and global variant)
    `(line-number ((,class (:background ,bg-dim :foreground ,fg-alt))))
    `(line-number-current-line ((,class (:background ,bg-active :foreground ,fg-active :weight bold))))
-   (when (>= emacs-major-version 27)
-     `(line-number-major-tick ((,class (:inherit modus-theme-special-calm)))))
-   (when (>= emacs-major-version 27)
-     `(line-number-minor-tick ((,class (:inherit modus-theme-special-mild)))))
    ;;;; lsp-mode
    `(lsp-face-highlight-read ((,class (:inherit modus-theme-subtle-blue :underline t))))
    `(lsp-face-highlight-textual ((,class (:inherit modus-theme-subtle-blue))))
