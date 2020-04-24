@@ -272,6 +272,7 @@
 ;;     tomatinho
 ;;     transient (pop-up windows like Magit's)
 ;;     treemacs
+;;     tuareg
 ;;     undo-tree
 ;;     vc (built-in mode line status for version control)
 ;;     vc-annotate (C-x v g)
@@ -2994,6 +2995,29 @@ AMOUNT is a customisation option."
    `(treemacs-root-unreadable-face ((,class (:inherit treemacs-root-face :strike-through t))))
    `(treemacs-tags-face ((,class (:foreground ,blue-alt))))
    `(treemacs-tags-face ((,class (:foreground ,magenta-alt))))
+   ;;;; tuareg
+   `(caml-types-def-face ((,class (:inherit modus-theme-subtle-red))))
+   `(caml-types-expr-face ((,class (:inherit modus-theme-subtle-green))))
+   `(caml-types-occ-face ((,class (:inherit modus-theme-subtle-green))))
+   `(caml-types-scope-face ((,class (:inherit modus-theme-subtle-blue))))
+   `(caml-types-typed-face ((,class (:inherit modus-theme-subtle-magenta))))
+   `(tuareg-font-double-semicolon-face ((,class (:foreground ,red-alt))))
+   `(tuareg-font-lock-attribute-face ((,class (:foreground ,magenta))))
+   `(tuareg-font-lock-constructor-face ((,class (:foreground ,fg-main))))
+   `(tuareg-font-lock-error-face ((,class (:inherit modus-theme-intense-red :weight bold))))
+   `(tuareg-font-lock-extension-node-face ((,class (:background ,bg-alt :foreground ,magenta))))
+   `(tuareg-font-lock-governing-face ((,class (:foreground ,fg-main :weight bold))))
+   `(tuareg-font-lock-infix-extension-node-face ((,class (:foreground ,magenta))))
+   `(tuareg-font-lock-interactive-directive-face ((,class (:foreground ,fg-special-cold))))
+   `(tuareg-font-lock-interactive-error-face ((,class (:foreground ,red :weight bold))))
+   `(tuareg-font-lock-interactive-output-face ((,class (:foreground ,blue-alt-other))))
+   `(tuareg-font-lock-label-face ((,class (:foreground ,cyan-alt-other))))
+   `(tuareg-font-lock-line-number-face ((,class (:foreground ,fg-special-warm))))
+   `(tuareg-font-lock-module-face ((,class (:foreground ,magenta-alt))))
+   `(tuareg-font-lock-multistage-face ((,class (:background ,bg-alt :foreground ,blue :weight bold))))
+   `(tuareg-font-lock-operator-face ((,class (:foreground ,red-alt))))
+   `(tuareg-opam-error-face ((,class (:foreground ,red :weight bold))))
+   `(tuareg-opam-pkg-variable-name-face ((,class (:foreground ,cyan :slant ,modus-theme-slant))))
    ;;;; undo-tree
    `(undo-tree-visualizer-active-branch-face ((,class (:foreground ,fg-main :weight bold))))
    `(undo-tree-visualizer-current-face ((,class (:foreground ,blue-intense))))

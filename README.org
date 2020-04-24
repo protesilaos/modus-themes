@@ -585,6 +585,7 @@ the "full support" may not be 100% true…
 + transient (pop-up windows like Magit's)
 + trashed
 + treemacs
++ tuareg
 + undo-tree
 + vc (built-in mode line status for version control)
 + vc-annotate (=C-x v g=)
