@@ -580,7 +580,7 @@ AMOUNT is a customisation option."
       ;; styles that are meant exclusively for the mode line
       ;;
       ;; must be combined with: `bg-active', `bg-inactive'
-      (red-active "#ffaa20") (green-active "#70e030")
+      (red-active "#ffa49e") (green-active "#70e030")
       (yellow-active "#efdf00") (blue-active "#00ccff")
       (magenta-active "#d0acff") (cyan-active "#00ddc0")
       ;; styles that are meant exclusively for the fringes
