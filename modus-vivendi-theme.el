@@ -1542,9 +1542,9 @@ AMOUNT is a customisation option."
    `(flycheck-posframe-warning-face ((,class (:foreground ,yellow :weight bold))))
    ;;;; flymake
    `(flymake-error
-       ((,(append '((supports :underline (:style wave))) class)
-         (:underline (:color ,fg-lang-error :style wave)))
-        (,class (:foreground ,red-nuanced :underline (:color ,fg-lang-error :style line)))))
+     ((,(append '((supports :underline (:style wave))) class)
+       (:underline (:color ,fg-lang-error :style wave)))
+      (,class (:foreground ,red-nuanced :underline (:color ,fg-lang-error :style line)))))
    `(flymake-note
      ((,(append '((supports :underline (:style wave))) class)
        (:underline (:color ,fg-lang-note :style wave)))
@@ -3288,7 +3288,7 @@ AMOUNT is a customisation option."
 ;;;###autoload
 (when load-file-name
   (add-to-list 'custom-theme-load-path
-    (file-name-as-directory (file-name-directory load-file-name))))
+               (file-name-as-directory (file-name-directory load-file-name))))
 
 (provide-theme 'modus-vivendi)
 
