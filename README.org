@@ -511,6 +511,7 @@ the "full support" may not be 100% true…
 + lsp-ui
 + magit
 + magit-imerge
++ man
 + markdown-mode
 + markup-faces (=adoc-mode=)
 + mentor
@@ -603,6 +604,7 @@ the "full support" may not be 100% true…
 + window-divider-mode
 + winum
 + writegood-mode
++ woman
 + xah-elisp-mode
 + xref
 + xterm-color (and ansi-colors)

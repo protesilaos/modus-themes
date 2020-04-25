@@ -196,6 +196,7 @@
 ;;     lsp-ui
 ;;     magit
 ;;     magit-imerge
+;;     man
 ;;     markdown-mode
 ;;     markup-faces (`adoc-mode')
 ;;     mentor
@@ -290,6 +291,7 @@
 ;;     window-divider-mode
 ;;     winum
 ;;     writegood-mode
+;;     woman
 ;;     xah-elisp-mode
 ;;     xref
 ;;     xterm-color (and ansi-colors)
@@ -2191,6 +2193,10 @@ AMOUNT is a customisation option."
    `(magit-tag ((,class (:foreground ,yellow-alt-other))))
    ;;;; magit-imerge
    `(magit-imerge-overriding-value ((,class (:foreground ,red-alt :weight bold))))
+   ;;;; man
+   `(Man-overstrike ((,class (:foreground ,magenta :weight bold))))
+   `(Man-reverse ((,class (:inherit modus-theme-subtle-magenta))))
+   `(Man-underline ((,class (:foreground ,cyan :underline t))))
    ;;;; markdown-mode
    `(markdown-blockquote-face ((,class (:background ,bg-dim :foreground ,fg-special-warm :slant ,modus-theme-slant))))
    `(markdown-bold-face ((,class (:weight bold))))
@@ -3181,6 +3187,11 @@ AMOUNT is a customisation option."
    `(writegood-duplicates-face ((,class (:background ,bg-alt :foreground ,red-alt :underline t))))
    `(writegood-passive-voice-face ((,class (:foreground ,yellow-nuanced :underline (:color ,fg-lang-warning :style line)))))
    `(writegood-weasels-face ((,class (:foreground ,red-nuanced :underline (:color ,fg-lang-error :style line)))))
+   ;;;; woman
+   `(woman-addition ((,class (:foreground ,magenta-alt-other))))
+   `(woman-bold ((,class (:foreground ,magenta :weight bold))))
+   `(woman-italic ((,class (:foreground ,cyan :slant italic))))
+   `(woman-unknown ((,class (:foreground ,yellow :slant italic))))
    ;;;; xah-elisp-mode
    `(xah-elisp-at-symbol ((,class (:foreground ,red-alt :weight bold))))
    `(xah-elisp-cap-variable ((,class (:foreground ,red-alt-other))))
