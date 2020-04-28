@@ -641,6 +641,7 @@ AMOUNT is a customisation option."
 
       (fg-window-divider-inner "#888888")
       (fg-window-divider-outer "#585858")
+
       (fg-header "#2a2a2a") (bg-header "#e5e5e5")
       (fg-whitespace "#645060") (bg-whitespace "#fff8fc")
 
@@ -648,9 +649,11 @@ AMOUNT is a customisation option."
       (fg-diff-added "#004500") (bg-diff-added "#d4fad4")
       (fg-diff-changed "#524200") (bg-diff-changed "#fcefcf")
       (fg-diff-removed "#691616") (bg-diff-removed "#ffe8ef")
+
       (fg-diff-refine-added "#002a00") (bg-diff-refine-added "#94cf94")
       (fg-diff-refine-changed "#302010") (bg-diff-refine-changed "#cccf8f")
       (fg-diff-refine-removed "#400000") (bg-diff-refine-removed "#daa2b0")
+
       (fg-diff-focus-added "#002c00") (bg-diff-focus-added "#bbeabb")
       (fg-diff-focus-changed "#392900") (bg-diff-focus-changed "#ecdfbf")
       (fg-diff-focus-removed "#4a0000") (bg-diff-focus-removed "#efcbcf")
