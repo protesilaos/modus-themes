@@ -6,6 +6,175 @@ This document contains the release notes that are included in each
 tagged commit on https://gitlab.com/protesilaos/modus-themes.  The
 newest release is at the top.
 
+* 0.8.0
+
+Modus Operandi and Modus Vivendi version 0.8.0
+
+By Protesilaos Stavrou <info@protesilaos.com> on 2020-04-28
+
+This entry records the changes since version 0.7.0 (2020-03-30).  The
+present release contains a little more than a hundred commits, covering
+one month of intense work.
+
+All changes are aligned with the primary objective of this project,
+which is conformance with the WCAG AAA accessibility standard for colour
+contrast.  This translates to a minimum contrast ratio of 7:1 between a
+given combination of foreground and background colours.
+
+All customisation options mentioned herein are off ('nil') by default.
+The project's policy is to offer such features on an "opt-in" basis,
+while always respecting the principle of least surprise.
+
+Refer to the README for further information.
+
+
+Four new customisation options
+------------------------------
+
+The options in outline, with their detailed description below:
+
++ Rainbow headings
++ Section headings
++ 3D modeline
++ Subtle diffs
+
+1. "Rainbow headings" will apply more vivid colours to headings in
+   'org-mode' and 'outline-mode'.  The gradation is similar to that of a
+   rainbow's colour spectrum.
+
+   The default is to use colour values that are closer to the grey
+   scale.
+
+2. "Section headings" also apply to 'org-mode' and 'outline-mode'.  They
+   will draw an overline over each heading and use a nuanced background
+   colour that is appropriate for each level.  For Org, this option has
+   some additional effects, where it will render keywords and priority
+   cookies in a box and add to them a subtle background.  This is to
+   make sure that everything feels consistent (to the extent possible).
+
+   The default is to not use overlines, backgrounds, boxes in any of the
+   relevant faces.  This is consistent with the standard austere
+   colouration of headings: to not deviate too much from a "plain text"
+   aesthetic.
+
+NOTE: "rainbow headings" and "section headings" can work on their own or
+be combined together.
+
+3. "3D modeline" will use a faux unpressed button style for the current
+   window's modeline (like the standard looks of 'emacs -Q').  The
+   colours used for the active and inactive modelines are tweaked
+   accordingly to maximise the effect while retaining the visual
+   distinction between them.
+
+   The default is to draw the modelines in a two-dimensional style, with
+   the active one having a more noticeable border around it.
+
+4. "Subtle diffs" will use colour-coded text for line-wise differences
+   without applying any appropriately-coded background value or, where
+   necessary, by using only a subtle greyscale background.  This affects
+   'diff-mode', 'magit', 'ediff', and 'smerge-mode'.  For Magit an extra
+   set of tweaks is implemented to account for the differentiation
+   between the focused and unfocused diff hunks.
+
+   Due to their unique requirements, word-wise or refined changes are
+   always drawn with a colour-coded background, though it is less
+   intense when this option is enabled.
+
+   The default is to use a colour-coded background and foreground
+   combination (e.g. light green text on a dark green backdrop) and to
+   make appropriate adjustments for refined diffs and modes of
+   interaction such as Magit's focused/unfocused diff states.
+
+
+Other major refinements
+-----------------------
+
++ Thoroughly revise the colours of 'ediff' and 'smerge-mode', so that
+  they are aligned with those of 'diff-mode' and 'magit'.  This is in
+  addition to the "subtle diffs" options mentioned in the previous
+  section.
+
++ Review the faces used by Flycheck and Flymake.  A wavy/curly underline
+  is now used in all terminals that support it.  The underlined text is
+  drawn with a more nuanced foreground than before.  The previous design
+  was exaggerating an already clear effect and could make things more
+  difficult under certain circumstances.
+
++ All language checkers, including the aforementioned linter front-ends,
+  now benefit from a new set of colours that are designed specifically
+  for this particular purpose.  Makes the affected faces feel more
+  different than their context.
+
++ Use dedicated colours for escape sequences, regular expression
+  constructs, and quoted characters.  The goal is to better
+  differentiate them from their surroundings.
+
++ Tweak the colours of 'hydra' to improve the distinction between its
+  various types of behaviour.
+
++ Reduce the overall luminance of the background colours used in the
+  fringes by the likes of 'flycheck', 'flymake', 'diff-hl', etc.  They
+  should now not stand out more than they should, while retaining their
+  intended role.
+
++ Implement more saturated colours in Elfeed.  The previous choices
+  could make it harder to differentiate the various parts of the
+  presentation.
+
++ Make better use of the customisation options for bold and slanted
+  constructs where that is allowed.  If a face is not tied to the
+  semantics of these styles then it is drawn without them, unless the
+  user specifically opts for the relevant customisation options.
+
+
+Added support for packages (A-Z)
+--------------------------------
+
++ ag
++ color-rg
++ ctrlf
++ debbugs
++ eglot
++ forge
++ helpful
++ highlight-symbol
++ ibuffer
++ icomplete
++ iflipb
++ magit-imerge
++ man
++ orderless
++ page-break-lines
++ parrot
++ phi-grep
++ phi-search
++ pomidor
++ rcirc
++ spell-fu
++ switch-window
++ swoop
++ tab-bar-mode
++ tab-line-mode
++ trashed
++ tomatinho
++ tuareg
++ vimish-fold
++ visible-mark
++ vterm
++ wcheck-mode
++ winum
++ woman
+
+
+Miscellaneous changes and concluding remarks
+--------------------------------------------
+
++ Rewrote large parts of the README to make the customisation options
+  easier to discover and understand.
+
++ Updated the screen shots and their description in the relevant Wiki
+  page: https://gitlab.com/protesilaos/modus-themes/-/wikis/Screenshots
+
 * 0.7.0
 
 Modus Operandi and Modus Vivendi version 0.7.0
