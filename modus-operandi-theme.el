@@ -529,13 +529,13 @@ AMOUNT is a customisation option."
       ;; styles for common, but still specialised constructs
       ;;
       ;; must be combined with: `bg-main', `bg-alt', `bg-dim'
-      (red-alt "#880000") (green-alt "#305c00")
+      (red-alt "#972500") (green-alt "#305c00")
       (yellow-alt "#714900") (blue-alt "#223fbf")
       (magenta-alt "#8f0075") (cyan-alt "#185870")
       ;; same purpose as above, just slight differences
       ;;
       ;; must be combined with: `bg-main', `bg-alt', `bg-dim'
-      (red-alt-other "#9d2020") (green-alt-other "#095f1c")
+      (red-alt-other "#a0132f") (green-alt-other "#095f1c")
       (yellow-alt-other "#804000") (blue-alt-other "#0000bb")
       (magenta-alt-other "#5317ac") (cyan-alt-other "#005a68")
       ;; styles for elements that should be very subtle
