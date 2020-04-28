@@ -1504,8 +1504,8 @@ AMOUNT is a customisation option."
    ;;;; flycheck
    `(flycheck-error
      ((,(append '((supports :underline (:style wave))) class)
-       (:underline (:color ,fg-lang-error :style wave)))
-      (,class (:foreground ,red-nuanced :underline (:color ,fg-lang-error :style line)))))
+       (:foreground ,red-nuanced :underline (:color ,fg-lang-error :style wave)))
+      (,class (:foreground red-nuanced :underline (:color ,fg-lang-error :style line)))))
    `(flycheck-error-list-checker-name ((,class (:foreground ,magenta-active))))
    `(flycheck-error-list-column-number ((,class (:foreground ,fg-special-cold))))
    `(flycheck-error-list-error ((,class (:foreground ,red :weight ,modus-theme-bold))))
@@ -1521,12 +1521,12 @@ AMOUNT is a customisation option."
    `(flycheck-fringe-warning ((,class (:inherit modus-theme-fringe-yellow))))
    `(flycheck-info
      ((,(append '((supports :underline (:style wave))) class)
-       (:underline (:color ,fg-lang-note :style wave)))
+       (:foreground ,blue-nuanced :underline (:color ,fg-lang-note :style wave)))
       (,class (:foreground ,blue-nuanced :underline (:color ,fg-lang-note :style line)))))
    `(flycheck-verify-select-checker ((,class (:box (:line-width 1 :color nil :style released-button)))))
    `(flycheck-warning
      ((,(append '((supports :underline (:style wave))) class)
-       (:underline (:color ,fg-lang-warning :style wave)))
+       (:foreground ,yellow-nuanced :underline (:color ,fg-lang-warning :style wave)))
       (,class (:foreground ,yellow-nuanced :underline (:color ,fg-lang-warning :style line)))))
    ;;;; flycheck-indicator
    `(flycheck-indicator-disabled ((,class (:foreground ,fg-inactive :slant ,modus-theme-slant))))
@@ -1545,15 +1545,15 @@ AMOUNT is a customisation option."
    ;;;; flymake
    `(flymake-error
      ((,(append '((supports :underline (:style wave))) class)
-       (:underline (:color ,fg-lang-error :style wave)))
+       (:foreground ,red-nuanced :underline (:color ,fg-lang-error :style wave)))
       (,class (:foreground ,red-nuanced :underline (:color ,fg-lang-error :style line)))))
    `(flymake-note
      ((,(append '((supports :underline (:style wave))) class)
-       (:underline (:color ,fg-lang-note :style wave)))
+       (:foreground ,blue-nuanced :underline (:color ,fg-lang-note :style wave)))
       (,class (:foreground ,blue-nuanced :underline (:color ,fg-lang-note :style line)))))
    `(flymake-warning
      ((,(append '((supports :underline (:style wave))) class)
-       (:underline (:color ,fg-lang-warning :style wave)))
+       (:foreground ,yellow-nuanced :underline (:color ,fg-lang-warning :style wave)))
       (,class (:foreground ,yellow-nuanced :underline (:color ,fg-lang-warning :style line)))))
    ;;;; flyspell
    `(flyspell-duplicate
