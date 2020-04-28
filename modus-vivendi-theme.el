@@ -590,7 +590,7 @@ AMOUNT is a customisation option."
       ;; styles that are meant exclusively for the fringes
       ;;
       ;; must have a minimum contrast ratio of 1.5:1 with `bg-inactive'
-      ;; and be combined with `fg-main'
+      ;; and be combined with `fg-main' or `fg-dim'
       (red-fringe-bg "#8f0040") (green-fringe-bg "#006000")
       (yellow-fringe-bg "#6f4a00") (blue-fringe-bg "#3a30ab")
       (magenta-fringe-bg "#692089") (cyan-fringe-bg "#0068a0")
@@ -719,12 +719,12 @@ AMOUNT is a customisation option."
    `(modus-theme-active-magenta ((,class (:background ,magenta-active :foreground ,bg-active))))
    `(modus-theme-active-cyan ((,class (:background ,cyan-active :foreground ,bg-active))))
    ;;; for fringe indicators
-   `(modus-theme-fringe-red ((,class (:background ,red-fringe-bg :foreground ,fg-main))))
-   `(modus-theme-fringe-green ((,class (:background ,green-fringe-bg :foreground ,fg-main))))
-   `(modus-theme-fringe-yellow ((,class (:background ,yellow-fringe-bg :foreground ,fg-main))))
-   `(modus-theme-fringe-blue ((,class (:background ,blue-fringe-bg :foreground ,fg-main))))
-   `(modus-theme-fringe-magenta ((,class (:background ,magenta-fringe-bg :foreground ,fg-main))))
-   `(modus-theme-fringe-cyan ((,class (:background ,cyan-fringe-bg :foreground ,fg-main))))
+   `(modus-theme-fringe-red ((,class (:background ,red-fringe-bg :foreground ,fg-dim))))
+   `(modus-theme-fringe-green ((,class (:background ,green-fringe-bg :foreground ,fg-dim))))
+   `(modus-theme-fringe-yellow ((,class (:background ,yellow-fringe-bg :foreground ,fg-dim))))
+   `(modus-theme-fringe-blue ((,class (:background ,blue-fringe-bg :foreground ,fg-dim))))
+   `(modus-theme-fringe-magenta ((,class (:background ,magenta-fringe-bg :foreground ,fg-dim))))
+   `(modus-theme-fringe-cyan ((,class (:background ,cyan-fringe-bg :foreground ,fg-dim))))
    ;;; special base values that are closer to the grayscale than
    ;;; the accents defined above
    `(modus-theme-special-cold ((,class (:background ,bg-special-cold :foreground ,fg-special-cold))))
