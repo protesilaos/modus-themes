@@ -621,6 +621,8 @@ AMOUNT is a customisation option."
       ;; `fg-mark', `fg-mark-del', `fg-mark-other' can be combined with
       ;; `bg-main', `bg-dim', `bg-alt', `bg-hl-line'
       ;;
+      ;; `fg-unfocused' must be combined with `fg-main'
+      ;;
       ;; the window divider colours apply to faces with just an fg value
       ;;
       ;; all pairs are combinable with themselves
@@ -641,6 +643,8 @@ AMOUNT is a customisation option."
 
       (fg-window-divider-inner "#646464")
       (fg-window-divider-outer "#969696")
+
+      (fg-unfocused "#93959b")
 
       (fg-header "#dddddd") (bg-header "#2a2a2a")
       (fg-whitespace "#a4959f") (bg-whitespace "#170016")
@@ -1195,7 +1199,7 @@ AMOUNT is a customisation option."
    `(diff-changed ((,class ,(modus-vivendi-theme-diffs
                              bg-main yellow
                              bg-diff-focus-changed fg-diff-focus-changed))))
-   `(diff-context ((,class (:foreground ,fg-alt))))
+   `(diff-context ((,class (:foreground ,fg-unfocused))))
    `(diff-file-header ((,class (:foreground ,blue :weight bold))))
    `(diff-function ((,class (:foreground ,fg-special-cold))))
    `(diff-header ((,class (:foreground ,blue-nuanced))))
@@ -1581,7 +1585,7 @@ AMOUNT is a customisation option."
    `(frog-menu-posframe-background-face ((,class (:background ,bg-dim))))
    `(frog-menu-prompt-face ((,class (:foreground ,cyan))))
    ;;;; focus
-   `(focus-unfocused ((,class (:foreground ,fg-alt))))
+   `(focus-unfocused ((,class (:foreground ,fg-unfocused))))
    ;;;; fold-this
    `(fold-this-overlay ((,class (:inherit modus-theme-special-mild))))
    ;;;; font-lock
@@ -2124,7 +2128,7 @@ AMOUNT is a customisation option."
    `(magit-diff-base-highlight ((,class ,(modus-vivendi-theme-diffs
                                           bg-dim yellow
                                           bg-diff-focus-changed fg-diff-focus-changed))))
-   `(magit-diff-context ((,class (:foreground ,fg-alt))))
+   `(magit-diff-context ((,class (:foreground ,fg-unfocused))))
    `(magit-diff-context-highlight ((,class ,(modus-vivendi-theme-diffs
                                              bg-dim fg-dim
                                              bg-inactive fg-inactive))))
@@ -2722,7 +2726,7 @@ AMOUNT is a customisation option."
    `(reb-regexp-grouping-construct ((,class (:foreground ,fg-escape-char-construct :weight bold))))
    ;;;; rg (rg.el)
    `(rg-column-number-face ((,class (:foreground ,magenta-alt-other))))
-   `(rg-context-face ((,class (:foreground ,fg-alt))))
+   `(rg-context-face ((,class (:foreground ,fg-unfocused))))
    `(rg-error-face ((,class (:foreground ,red :weight bold))))
    `(rg-file-tag-face ((,class (:foreground ,fg-special-cold))))
    `(rg-filename-face ((,class (:foreground ,fg-special-cold :weight bold))))
@@ -2734,7 +2738,7 @@ AMOUNT is a customisation option."
    `(rg-toggle-on-face ((,class (:foreground ,cyan-active :weight bold))))
    `(rg-warning-face ((,class (:foreground ,yellow :weight bold))))
    ;;;; ripgrep
-   `(ripgrep-context-face ((,class (:foreground ,fg-alt))))
+   `(ripgrep-context-face ((,class (:foreground ,fg-unfocused))))
    `(ripgrep-error-face ((,class (:foreground ,red :weight bold))))
    `(ripgrep-hit-face ((,class (:foreground ,cyan))))
    `(ripgrep-match-face ((,class (:inherit modus-theme-special-calm))))
