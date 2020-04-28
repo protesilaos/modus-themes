@@ -591,9 +591,9 @@ AMOUNT is a customisation option."
       ;;
       ;; must have a minimum contrast ratio of 1.5:1 with `bg-inactive'
       ;; and be combined with `fg-main'
-      (red-fringe-bg "#a00000") (green-fringe-bg "#006600")
-      (yellow-fringe-bg "#775500") (blue-fringe-bg "#3228bb")
-      (magenta-fringe-bg "#990099") (cyan-fringe-bg "#005599")
+      (red-fringe-bg "#8f0040") (green-fringe-bg "#006000")
+      (yellow-fringe-bg "#6f4a00") (blue-fringe-bg "#3a30ab")
+      (magenta-fringe-bg "#692089") (cyan-fringe-bg "#0068a0")
 
       ;; styles reserved for specific faces
       ;;
