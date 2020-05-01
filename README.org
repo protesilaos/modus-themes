@@ -318,7 +318,7 @@ the use of proportional fonts more useful are highly appreciated (see
 [[#h:25ba8d6f-6604-4338-b774-bbe531d467f6][section on contributing]]).  The default is to use whatever the default
 typeface is, typically a monospaced family.
 
-** Complete example configuration
+** Complete example configuration for the above
    :PROPERTIES:
    :CUSTOM_ID: h:0e3b8a62-8d72-4439-be2d-cb12ed98f4cb
    :END:
@@ -358,6 +358,109 @@ being available.
 Need more ideas?  Check the [[https://protesilaos.com/dotemacs/#h:b7444e76-75d4-4ae6-a9d6-96ff9408efe6][Modus themes section of my dotemacs]] (though
 do not try to interpret the values of the variables, as I always test
 different combinations and scenaria).
+
+** Full access to the palette for further tweaks
+   :PROPERTIES:
+   :CUSTOM_ID: h:b7282635-4fe9-415a-abdf-962b736ff5b6
+   :END:
+
+Unlike the previous options which follow a straightforward pattern of
+allowing the user to quickly select their preference, the themes also
+provide a more powerful, albeit difficult, mechanism of controlling
+things with precision.
+
+*** Option 1 to redefine colour values
+    :PROPERTIES:
+    :CUSTOM_ID: h:149e23b6-ada1-480f-95cd-c56fb40999b5
+    :END:
+
+The variables are:
+
++ =modus-operandi-theme-override-colors-alist=
++ =modus-vivendi-theme-override-colors-alist=
+
+Users can specify an association list that maps the names of colour
+variables to hexadecimal RGB values (in the form of =#RRGGBB=).  This
+means that it is possible to override the entire palette or subsets
+thereof (see the source code for the actual names and values).
+
+Example:
+
+#+begin_src emacs-lisp
+;; Redefine the values of those three variables for the given theme
+(setq modus-vivendi-theme-override-colors-alist
+      '(("magenta" . "#ffaabb")
+        ("magenta-alt" . "#ee88ff")
+        ("magenta-alt-other" . "#bbaaff")))
+#+end_src
+
+*** Option 2 to apply colour variables to faces
+    :PROPERTIES:
+    :CUSTOM_ID: h:9754abfd-c890-4af3-91a8-1a2cb2b5be44
+    :END:
+
+The macro symbols are:
+
++ =modus-operandi-theme-with-color-variables=
++ =modus-vivendi-theme-with-color-variables=
+
+Users can wrap face customisation snippets inside this macro in order to
+pass the variables that the themes use and map them to face attributes.
+This means that one can essentially override or extend the original
+design (also in tandem with option 1).
+
+Len Trigg who proposed [[https://gitlab.com/protesilaos/modus-themes/-/issues/39][the whole idea in issue 39]] uses this method to
+tweak how a couple of Magit faces will look in GUI and terminal Emacs
+respectively (follow the link for screen shots and details).  This is
+Len's sample package declaration (with comments by me):
+
+#+begin_src emacs-lisp
+(use-package modus-vivendi-theme
+  :init                                 ; enable some of the customisation options before loading the theme
+  (setq modus-vivendi-theme-visible-fringe t
+        modus-vivendi-theme-3d-modeline t)
+  :config
+  (defun customize-modus-vivendi ()     ; function that passes further customisations to the theme
+    "Customize modus-vivendi theme"
+    (if (member 'modus-vivendi custom-enabled-themes)
+        (modus-vivendi-theme-with-color-variables ; this macro allows us to access the colour palette
+         (custom-theme-set-faces
+          'modus-vivendi
+          `(magit-branch-current ((((supports :box t)) (:foreground ,blue-alt-other :background ,bg-alt :box t)) ; use a box property if possible and also apply a background
+                                  (t (:foreground ,blue-alt-other :background ,bg-alt :underline t)))) ; use an underline if the box is not available
+          `(magit-branch-remote-head ((((supports :box t)) (:foreground ,magenta-alt-other :background ,bg-alt :box t))
+                                      (t (:foreground ,magenta-alt-other :background ,bg-alt :underline t))))
+
+          ))))
+  (add-hook 'after-load-theme-hook 'customize-modus-vivendi) ; invoke the above function when appropriate in order to override the styles of the desired faces
+  (load-theme 'modus-vivendi t))                             ; load the theme
+#+end_src
+
+*** Further considerations
+    :PROPERTIES:
+    :CUSTOM_ID: h:4acda0f1-564e-48ff-8998-ebf7618377dd
+    :END:
+
+Please understand that these customisation methods are meant for
+advanced users or those who are prepared to do their own research.  If
+you think that the themes do not work well in some context you can
+inform me about it: maybe you do not need to carry your own
+customisations.  We can just fix the issue in its source.
+
+To harness the potential of this method you will need to study the
+source code of the themes.  You can always open an issue in case you
+need some help.  To support you in this task, try the =rainbow-mode=
+package which offers live colour previews.  This is how I configure it:
+
+#+begin_src emacs-lisp
+(use-package rainbow-mode
+  :ensure
+  :diminish                             ; optional if you use `diminish'
+  :commands rainbow-mode                ; optional
+  :config
+  (setq rainbow-ansi-colors nil)
+  (setq rainbow-x-colors nil))
+#+end_src
 
 * Face coverage
   :PROPERTIES:
