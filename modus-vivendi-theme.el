@@ -49,6 +49,7 @@
 ;;     modus-vivendi-theme-distinct-org-blocks
 ;;     modus-vivendi-theme-3d-modeline
 ;;     modus-vivendi-theme-subtle-diffs
+;;     modus-vivendi-theme-override-colors-alist
 ;;
 ;; The default scale is as follows (it can be customised as well):
 ;;
@@ -499,8 +500,6 @@ AMOUNT is a customisation option."
   (when modus-vivendi-theme-scale-headings
     (list :height amount)))
 
-
-
 ;; Define colour palette.  Each colour must have a >= 7:1 contrast
 ;; ratio relative to the foreground/background colour it is rendered
 ;; against.
@@ -510,140 +509,95 @@ AMOUNT is a customisation option."
 ;; https://github.com/bbatsov/zenburn-emacs
 (defvar modus-vivendi-theme-default-colors-alist
   '(;; base values
-    ("fg-main" . "#ffffff")
-    ("bg-main" . "#000000")
-    ("fg-alt" . "#a8a8a8")
-    ("bg-alt" . "#181a20")
-    ("fg-dim" . "#e0e6f0")
-    ("bg-dim" . "#110b11")
+    ("bg-main" . "#000000") ("fg-main" . "#ffffff")
+    ("bg-alt" . "#181a20") ("fg-alt" . "#a8a8a8")
+    ("bg-dim" . "#110b11") ("fg-dim" . "#e0e6f0")
     ;; specifically for on/off states (e.g. `mode-line')
     ;;
     ;; must be combined with themselves
-    ("fg-active" . "#f5f5f5")
-    ("bg-active" . "#2f2f2f")
-    ("fg-inactive" . "#bebebe")
-    ("bg-inactive" . "#202020")
+    ("bg-active" . "#2f2f2f") ("fg-active" . "#f5f5f5")
+    ("bg-inactive" . "#202020") ("fg-inactive" . "#bebebe")
     ;; special base values, used only for cases where the above
     ;; fg-* or bg-* cannot or should not be used (to avoid confusion)
     ;; must be combined with: {fg,bg}-{main,alt,dim}
-    ("fg-special-cold" . "#c6eaff")
-    ("bg-special-cold" . "#203448")
-    ("fg-special-mild" . "#bfebe0")
-    ("bg-special-mild" . "#00322e")
-    ("fg-special-warm" . "#f8dec0")
-    ("bg-special-warm" . "#382f27")
-    ("fg-special-calm" . "#fbd6f4")
-    ("bg-special-calm" . "#392a48")
+    ("bg-special-cold" . "#203448") ("fg-special-cold" . "#c6eaff")
+    ("bg-special-mild" . "#00322e") ("fg-special-mild" . "#bfebe0")
+    ("bg-special-warm" . "#382f27") ("fg-special-warm" . "#f8dec0")
+    ("bg-special-calm" . "#392a48") ("fg-special-calm" . "#fbd6f4")
     ;; styles for the main constructs
     ;;
     ;; must be combined with: `bg-main', `bg-alt', `bg-dim'
-    ("red" . "#ff8059")
-    ("green" . "#44bc44")
-    ("yellow" . "#eecc00")
-    ("blue" . "#33beff")
-    ("magenta" . "#feacd0")
-    ("cyan" . "#00d3d0")
+    ("red" . "#ff8059") ("green" . "#44bc44")
+    ("yellow" . "#eecc00") ("blue" . "#33beff")
+    ("magenta" . "#feacd0") ("cyan" . "#00d3d0")
     ;; styles for common, but still specialised constructs
     ;;
     ;; must be combined with: `bg-main', `bg-alt', `bg-dim'
-    ("red-alt" . "#f4923b")
-    ("green-alt" . "#58dd13")
-    ("yellow-alt" . "#e5f040")
-    ("blue-alt" . "#72a4ff")
-    ("magenta-alt" . "#f78fe7")
-    ("cyan-alt" . "#4ae8fc")
+    ("red-alt" . "#f4923b") ("green-alt" . "#58dd13")
+    ("yellow-alt" . "#e5f040") ("blue-alt" . "#72a4ff")
+    ("magenta-alt" . "#f78fe7") ("cyan-alt" . "#4ae8fc")
     ;; same purpose as above, just slight differences
     ;;
     ;; must be combined with: `bg-main', `bg-alt', `bg-dim'
-    ("red-alt-other" . "#ff9977")
-    ("green-alt-other" . "#90d800")
-    ("yellow-alt-other" . "#f0ce43")
-    ("blue-alt-other" . "#00baf4")
-    ("magenta-alt-other" . "#b6a0ff")
-    ("cyan-alt-other" . "#6ae4b9")
+    ("red-alt-other" . "#ff9977") ("green-alt-other" . "#90d800")
+    ("yellow-alt-other" . "#f0ce43") ("blue-alt-other" . "#00baf4")
+    ("magenta-alt-other" . "#b6a0ff") ("cyan-alt-other" . "#6ae4b9")
     ;; styles for elements that should be very subtle
     ;;
     ;; must be combined with: `bg-main', `bg-alt', `bg-dim'
-    ("red-nuanced" . "#ffcccc")
-    ("green-nuanced" . "#b0f0b0")
-    ("yellow-nuanced" . "#e0e0bb")
-    ("blue-nuanced" . "#ccccff")
-    ("magenta-nuanced" . "#eeccee")
-    ("cyan-nuanced" . "#aaeeee")
+    ("red-nuanced" . "#ffcccc") ("green-nuanced" . "#b0f0b0")
+    ("yellow-nuanced" . "#e0e0bb") ("blue-nuanced" . "#ccccff")
+    ("magenta-nuanced" . "#eeccee") ("cyan-nuanced" . "#aaeeee")
     ;; styles for slightly accented background
     ;;
     ;; must be combined with any of the above foreground values
-    ("red-nuanced-bg" . "#180505")
-    ("green-nuanced-bg" . "#061206")
-    ("yellow-nuanced-bg" . "#18140a")
-    ("blue-nuanced-bg" . "#070722")
-    ("magenta-nuanced-bg" . "#160616")
-    ("cyan-nuanced-bg" . "#091620")
+    ("red-nuanced-bg" . "#180505") ("green-nuanced-bg" . "#061206")
+    ("yellow-nuanced-bg" . "#18140a") ("blue-nuanced-bg" . "#070722")
+    ("magenta-nuanced-bg" . "#160616") ("cyan-nuanced-bg" . "#091620")
     ;; styles for elements that should draw attention to themselves
     ;;
     ;; must be combined with: `bg-main'
-    ("red-intense" . "#fb6859")
-    ("green-intense" . "#00fc50")
-    ("yellow-intense" . "#ffdd00")
-    ("blue-intense" . "#00a2ff")
-    ("magenta-intense" . "#ff8bd4")
-    ("cyan-intense" . "#30ffc0")
+    ("red-intense" . "#fb6859") ("green-intense" . "#00fc50")
+    ("yellow-intense" . "#ffdd00") ("blue-intense" . "#00a2ff")
+    ("magenta-intense" . "#ff8bd4") ("cyan-intense" . "#30ffc0")
     ;; styles for background elements that should be visible yet
     ;; subtle
     ;;
     ;; must be combined with: `fg-dim'
-    ("red-subtle-bg" . "#762422")
-    ("green-subtle-bg" . "#2f4a00")
-    ("yellow-subtle-bg" . "#604200")
-    ("blue-subtle-bg" . "#10387c")
-    ("magenta-subtle-bg" . "#49366e")
-    ("cyan-subtle-bg" . "#00415e")
+    ("red-subtle-bg" . "#762422") ("green-subtle-bg" . "#2f4a00")
+    ("yellow-subtle-bg" . "#604200") ("blue-subtle-bg" . "#10387c")
+    ("magenta-subtle-bg" . "#49366e") ("cyan-subtle-bg" . "#00415e")
     ;; styles for background elements that should be visible and
     ;; distinguishable
     ;;
     ;; must be combined with: `fg-main'
-    ("red-intense-bg" . "#a4202a")
-    ("green-intense-bg" . "#006800")
-    ("yellow-intense-bg" . "#874900")
-    ("blue-intense-bg" . "#2a40b8")
-    ("magenta-intense-bg" . "#7042a2")
-    ("cyan-intense-bg" . "#005f88")
-    ;; styles for refined git diffs and other contexts where both the
-    ;; foreground and the background need to have the same/similar hue
+    ("red-intense-bg" . "#a4202a") ("green-intense-bg" . "#006800")
+    ("yellow-intense-bg" . "#874900") ("blue-intense-bg" . "#2a40b8")
+    ("magenta-intense-bg" . "#7042a2") ("cyan-intense-bg" . "#005f88")
+    ;; styles for refined contexts where both the foreground and the
+    ;; background need to have the same/similar hue
     ;;
     ;; must be combined with themselves OR the foregrounds can be
     ;; combined with any of the base backgrounds
-    ("red-refine-bg" . "#77002a")
-    ("green-refine-bg" . "#00422a")
-    ("yellow-refine-bg" . "#705000")
-    ("blue-refine-bg" . "#242679")
-    ("magenta-refine-bg" . "#71206a")
-    ("cyan-refine-bg" . "#004065")
-    ("red-refine-fg" . "#ffb9ab")
-    ("green-refine-fg" . "#9ff0cf")
-    ("yellow-refine-fg" . "#ffffac")
-    ("blue-refine-fg" . "#8ec6ff")
-    ("magenta-refine-fg" . "#ffcaf0")
-    ("cyan-refine-fg" . "#8ae4f2")
+    ("red-refine-bg" . "#77002a") ("red-refine-fg" . "#ffb9ab")
+    ("green-refine-bg" . "#00422a") ("green-refine-fg" . "#9ff0cf")
+    ("yellow-refine-bg" . "#705000") ("yellow-refine-fg" . "#ffffac")
+    ("blue-refine-bg" . "#242679") ("blue-refine-fg" . "#8ec6ff")
+    ("magenta-refine-bg" . "#71206a") ("magenta-refine-fg" . "#ffcaf0")
+    ("cyan-refine-bg" . "#004065") ("cyan-refine-fg" . "#8ae4f2")
     ;; styles that are meant exclusively for the mode line
     ;;
     ;; must be combined with: `bg-active', `bg-inactive'
-    ("red-active" . "#ffa49e")
-    ("green-active" . "#70e030")
-    ("yellow-active" . "#efdf00")
-    ("blue-active" . "#00ccff")
-    ("magenta-active" . "#d0acff")
-    ("cyan-active" . "#00ddc0")
+    ("red-active" . "#ffa49e") ("green-active" . "#70e030")
+    ("yellow-active" . "#efdf00") ("blue-active" . "#00ccff")
+    ("magenta-active" . "#d0acff") ("cyan-active" . "#00ddc0")
     ;; styles that are meant exclusively for the fringes
     ;;
     ;; must have a minimum contrast ratio of 1.5:1 with `bg-inactive'
     ;; and be combined with `fg-main' or `fg-dim'
-    ("red-fringe-bg" . "#8f0040")
-    ("green-fringe-bg" . "#006000")
-    ("yellow-fringe-bg" . "#6f4a00")
-    ("blue-fringe-bg" . "#3a30ab")
-    ("magenta-fringe-bg" . "#692089")
-    ("cyan-fringe-bg" . "#0068a0")
+    ("red-fringe-bg" . "#8f0040") ("green-fringe-bg" . "#006000")
+    ("yellow-fringe-bg" . "#6f4a00") ("blue-fringe-bg" . "#3a30ab")
+    ("magenta-fringe-bg" . "#692089") ("cyan-fringe-bg" . "#0068a0")
     ;; styles reserved for specific faces
     ;;
     ;; `bg-hl-line' is between `bg-dim' and `bg-alt', so it should
@@ -695,48 +649,30 @@ AMOUNT is a customisation option."
 
     ("fg-unfocused" . "#93959b")
 
-    ("fg-header" . "#dddddd")
-    ("bg-header" . "#2a2a2a")
+    ("bg-header" . "#2a2a2a") ("fg-header" . "#dddddd")
 
-    ("fg-whitespace" . "#a4959f")
-    ("bg-whitespace" . "#170016")
+    ("bg-whitespace" . "#170016") ("fg-whitespace" . "#a4959f")
 
-    ("fg-diff-heading" . "#dadffe")
-    ("bg-diff-heading" . "#304466")
-    ("fg-diff-added" . "#94ba94")
-    ("bg-diff-added" . "#0a280a")
-    ("fg-diff-changed" . "#b0ba9f")
-    ("bg-diff-changed" . "#2a2000")
-    ("fg-diff-removed" . "#c6adaa")
-    ("bg-diff-removed" . "#40160f")
+    ("bg-diff-heading" . "#304466") ("fg-diff-heading" . "#dadffe")
+    ("bg-diff-added" . "#0a280a") ("fg-diff-added" . "#94ba94")
+    ("bg-diff-changed" . "#2a2000") ("fg-diff-changed" . "#b0ba9f")
+    ("bg-diff-removed" . "#40160f") ("fg-diff-removed" . "#c6adaa")
 
-    ("fg-diff-refine-added" . "#e0f6e0")
-    ("bg-diff-refine-added" . "#005a36")
-    ("fg-diff-refine-changed" . "#ffffcc")
-    ("bg-diff-refine-changed" . "#585800")
-    ("fg-diff-refine-removed" . "#ffd9eb")
-    ("bg-diff-refine-removed" . "#852828")
+    ("bg-diff-refine-added" . "#005a36") ("fg-diff-refine-added" . "#e0f6e0")
+    ("bg-diff-refine-changed" . "#585800") ("fg-diff-refine-changed" . "#ffffcc")
+    ("bg-diff-refine-removed" . "#852828") ("fg-diff-refine-removed" . "#ffd9eb")
 
-    ("fg-diff-focus-added" . "#b4ddb4")
-    ("bg-diff-focus-added" . "#203d20")
-    ("fg-diff-focus-changed" . "#d0daaf")
-    ("bg-diff-focus-changed" . "#4a3a10")
-    ("fg-diff-focus-removed" . "#eebdba")
-    ("bg-diff-focus-removed" . "#5e2526")
+    ("bg-diff-focus-added" . "#203d20") ("fg-diff-focus-added" . "#b4ddb4")
+    ("bg-diff-focus-changed" . "#4a3a10") ("fg-diff-focus-changed" . "#d0daaf")
+    ("bg-diff-focus-removed" . "#5e2526") ("fg-diff-focus-removed" . "#eebdba")
 
-    ("fg-diff-neutral-0" . "#fcfcfc")
-    ("bg-diff-neutral-0" . "#575757")
-    ("fg-diff-neutral-1" . "#dddddd")
-    ("bg-diff-neutral-1" . "#454545")
-    ("fg-diff-neutral-2" . "#bfbfbf")
-    ("bg-diff-neutral-2" . "#313131")
+    ("bg-diff-neutral-0" . "#575757") ("fg-diff-neutral-0" . "#fcfcfc")
+    ("bg-diff-neutral-1" . "#454545") ("fg-diff-neutral-1" . "#dddddd")
+    ("bg-diff-neutral-2" . "#313131") ("fg-diff-neutral-2" . "#bfbfbf")
 
-    ("fg-mark" . "#60cfa2")
-    ("bg-mark" . "#002f2f")
-    ("fg-mark-del" . "#ff99aa")
-    ("bg-mark-del" . "#5a0000")
-    ("fg-mark-other" . "#f0aa20")
-    ("bg-mark-other" . "#3f2210"))
+    ("bg-mark" . "#002f2f") ("fg-mark" . "#60cfa2")
+    ("bg-mark-del" . "#5a0000") ("fg-mark-del" . "#ff99aa")
+    ("bg-mark-other" . "#3f2210") ("fg-mark-other" . "#f0aa20"))
   "The entire palette of `modus-vivendi-theme'.
 Each element has the form (NAME . HEX).")
 
@@ -767,6 +703,8 @@ Also bind `class' to ((class color) (min-colors 89))."
          (modus-theme-variable-pitch
           (if modus-vivendi-theme-proportional-fonts 'variable-pitch 'default)))
      ,@body))
+
+
 
 (modus-vivendi-theme-with-color-variables
   (custom-theme-set-faces
