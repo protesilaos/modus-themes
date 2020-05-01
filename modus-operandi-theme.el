@@ -1512,7 +1512,7 @@ AMOUNT is a customisation option."
    `(flycheck-error
      ((,(append '((supports :underline (:style wave))) class)
        (:foreground ,red-nuanced :underline (:color ,fg-lang-error :style wave)))
-      (,class (:foreground red-nuanced :underline (:color ,fg-lang-error :style line)))))
+      (,class (:foreground ,red-nuanced :underline (:color ,fg-lang-error :style line)))))
    `(flycheck-error-list-checker-name ((,class (:foreground ,magenta-active))))
    `(flycheck-error-list-column-number ((,class (:foreground ,fg-special-cold))))
    `(flycheck-error-list-error ((,class (:foreground ,red :weight ,modus-theme-bold))))
