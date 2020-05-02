@@ -446,7 +446,9 @@ RAINBOW is the saturated one."
   "Conditionally extend heading styles.
 Apply BG to background and FG to overline."
   (if modus-operandi-theme-section-headings
-      (list :background bg :overline fg)
+      (append
+       (and (>= emacs-major-version 27) '(:extend t))
+       (list :background bg :overline fg))
     (list :background nil :overline nil)))
 
 (defun modus-operandi-theme-org-todo-block (bgbox fgbox fg)
