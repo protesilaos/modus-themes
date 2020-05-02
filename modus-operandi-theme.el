@@ -2497,7 +2497,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-headline-done ((,class (:foreground ,green-nuanced
                                              ,@(modus-operandi-theme-heading-block
                                                 green-nuanced-bg green-nuanced)))))
-   `(org-hide ((,class (:foreground ,fg-main))))
+   `(org-hide ((,class (:foreground ,bg-main))))
    `(org-latex-and-related ((,class (:foreground ,magenta-refine-fg))))
    `(org-level-1 ((,class (:inherit ,modus-theme-variable-pitch :weight bold
                                     ,@(modus-operandi-theme-heading-foreground fg-main magenta-alt-other)
