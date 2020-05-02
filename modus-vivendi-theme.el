@@ -57,6 +57,7 @@
 ;;     modus-vivendi-theme-scale-2 1.1
 ;;     modus-vivendi-theme-scale-3 1.15
 ;;     modus-vivendi-theme-scale-4 1.2
+;;     modus-vivendi-theme-scale-5 1.3
 ;;
 ;; What follows is the list of explicitly supported packages or face
 ;; groups (there are implicitly supported packages as well, which
@@ -409,6 +410,10 @@ between foreground and background is >= 7:1)."
 
 (defcustom modus-vivendi-theme-scale-4 1.2
   "Font size slightly larger than `modus-vivendi-theme-scale-3'."
+  :type 'number)
+
+(defcustom modus-vivendi-theme-scale-5 1.3
+  "Font size slightly larger than `modus-vivendi-theme-scale-4'."
   :type 'number)
 
 (defcustom modus-vivendi-theme-visible-fringes nil

@@ -213,18 +213,21 @@ In addition to toggles for enabling scaled headings, users can also
 specify the exact multiplier relative to the base font size.  These are
 the variables in their default sizes, from the smallest to the largest
 (the numbers are very conservative, but you are free to increase them a
-bit, such as =1.2=, =1.4=, =1.6=, =1.8=):
+bit, such as =1.2=, =1.4=, =1.6=, =1.8=, =2.0=---or use a resource for finding a
+consistent scale, like [[https://www.modularscale.com][modularscale.com]]):
 
 #+begin_src emacs-lisp
 (setq modus-operandi-theme-scale-1 1.05
       modus-operandi-theme-scale-2 1.1
       modus-operandi-theme-scale-3 1.15
-      modus-operandi-theme-scale-4 1.2)
+      modus-operandi-theme-scale-4 1.2
+      modus-operandi-theme-scale-5 1.3)
 
 (setq modus-vivendi-theme-scale-1 1.05
       modus-vivendi-theme-scale-2 1.1
       modus-vivendi-theme-scale-3 1.15
-      modus-vivendi-theme-scale-4 1.2)
+      modus-vivendi-theme-scale-4 1.2
+      modus-vivendi-theme-scale-5 1.3)
 #+end_src
 
 Note that in Org, scaling only increases the size of the heading, but
@@ -350,7 +353,8 @@ being available.
         modus-operandi-theme-scale-1 1.05
         modus-operandi-theme-scale-2 1.1
         modus-operandi-theme-scale-3 1.15
-        modus-operandi-theme-scale-4 1.2)
+        modus-operandi-theme-scale-4 1.2
+        modus-operandi-theme-scale-5 1.3)
   :config
   (load-theme 'modus-operandi t))
 #+end_src
