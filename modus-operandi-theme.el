@@ -2457,11 +2457,12 @@ Also bind `class' to ((class color) (min-colors 89))."
                                              :foreground ,fg-special-mild
                                              ,@(modus-operandi-theme-scale modus-operandi-theme-scale-3)))))
    `(org-archived ((,class (:background ,bg-alt :foreground ,fg-alt))))
-   `(org-block ((,class (,@(modus-operandi-theme-org-src-block bg-dim bg-main) :foreground ,fg-main))))
+   `(org-block ((,class (,@(modus-operandi-theme-org-src-block bg-dim bg-main)
+                         :inherit fixed-pitch :foreground ,fg-main))))
    `(org-block-begin-line ((,class (,@(and (>= emacs-major-version 27)
                                            modus-operandi-theme-distinct-org-blocks
                                            '(:extend t))
-                                    :background ,bg-alt :foreground ,fg-special-mild))))
+                                    :inherit fixed-pitch :background ,bg-alt :foreground ,fg-special-mild))))
    `(org-block-end-line ((,class (:inherit org-block-begin-line))))
    `(org-checkbox ((,class (:weight bold))))
    `(org-checkbox-statistics-done ((,class (:foreground ,green
@@ -2471,14 +2472,14 @@ Also bind `class' to ((class color) (min-colors 89))."
                                                         ,@(modus-operandi-theme-heading-block
                                                            yellow-nuanced-bg yellow-nuanced)))))
    `(org-clock-overlay ((,class (:inherit modus-theme-special-cold))))
-   `(org-code ((,class (:foreground ,magenta))))
+   `(org-code ((,class (:inherit fixed-pitch :foreground ,magenta))))
    `(org-column ((,class (:background ,bg-alt))))
    `(org-column-title ((,class (:underline t :background ,bg-alt :weight bold))))
    `(org-date ((,class (:foreground ,blue-nuanced))))
    `(org-date-selected ((,class (:inherit modus-theme-intense-cyan :weight bold))))
    `(org-default ((,class (:background ,bg-main :foreground ,fg-main))))
    `(org-document-info ((,class (:foreground ,fg-special-cold))))
-   `(org-document-title ((,class (:foreground ,fg-special-cold :weight bold))))
+   `(org-document-info-keyword ((,class (:inherit fixed-pitch :foreground ,fg-alt))))
    `(org-document-title ((,class (,@(modus-operandi-theme-scale modus-operandi-theme-scale-5)
                                   :foreground ,fg-special-cold :weight bold))))
    `(org-done ((,class (,@(modus-operandi-theme-org-todo-block green-nuanced-bg green-nuanced green)))))
@@ -2498,6 +2499,7 @@ Also bind `class' to ((class color) (min-colors 89))."
                                              ,@(modus-operandi-theme-heading-block
                                                 green-nuanced-bg green-nuanced)))))
    `(org-hide ((,class (:foreground ,bg-main))))
+   `(org-indent ((,class (:inherit (fixed-pitch org-hide)))))
    `(org-latex-and-related ((,class (:foreground ,magenta-refine-fg))))
    `(org-level-1 ((,class (:inherit ,modus-theme-variable-pitch :weight bold
                                     ,@(modus-operandi-theme-heading-foreground fg-main magenta-alt-other)
@@ -2530,7 +2532,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-link ((,class (:inherit link))))
    `(org-list-dt ((,class (:weight bold))))
    `(org-macro ((,class (:inherit org-latex-and-related))))
-   `(org-meta-line ((,class (:foreground ,fg-alt :slant ,modus-theme-slant))))
+   `(org-meta-line ((,class (:inherit fixed-pitch :foreground ,fg-alt :slant ,modus-theme-slant))))
    `(org-mode-line-clock ((,class (:background ,bg-main :foreground ,fg-main))))
    `(org-mode-line-clock-overrun ((,class (:inherit modus-theme-active-red))))
    `(org-priority ((,class (,@(modus-operandi-theme-org-todo-block blue-nuanced-bg blue-nuanced magenta)
@@ -2542,7 +2544,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-scheduled-today ((,class (:foreground ,yellow-alt-other))))
    `(org-sexp-date ((,class (:inherit org-date))))
    `(org-special-keyword ((,class (,@(modus-operandi-theme-org-todo-block cyan-nuanced-bg cyan-nuanced cyan-alt)))))
-   `(org-table ((,class (:foreground ,fg-special-cold))))
+   `(org-table ((,class (:inherit fixed-pitch :foreground ,fg-special-cold))))
    `(org-tag ((,class (:foreground ,magenta-nuanced :weight normal))))
    `(org-tag-group ((,class (:foreground ,cyan-nuanced :weight bold))))
    `(org-target ((,class (:underline t))))
@@ -2551,7 +2553,7 @@ Also bind `class' to ((class color) (min-colors 89))."
                         ,@(modus-operandi-theme-heading-foreground magenta-alt-other red-alt-other)))))
    `(org-upcoming-deadline ((,class (:foreground ,red-alt-other))))
    `(org-upcoming-distant-deadline ((,class (:foreground ,red-nuanced))))
-   `(org-verbatim ((,class (:background ,bg-alt :foreground ,fg-special-calm))))
+   `(org-verbatim ((,class (:inherit fixed-pitch :background ,bg-alt :foreground ,fg-special-calm))))
    `(org-verse ((,class (:inherit org-quote))))
    `(org-warning ((,class (:foreground ,blue-intense))))
    ;;;; org-journal
