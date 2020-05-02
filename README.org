@@ -440,6 +440,38 @@ Len's sample package declaration (with comments by me):
   (load-theme 'modus-vivendi t))                             ; load the theme
 #+end_src
 
+Perhaps you want something simpler, such as a nice style for the cursor:
+
+#+begin_src emacs-lisp
+(modus-operandi-theme-with-color-variables
+  (custom-theme-set-faces
+   'modus-operandi
+   `(cursor ((t (:background ,blue-alt))))))
+
+(modus-vivendi-theme-with-color-variables
+  (custom-theme-set-faces
+   'modus-vivendi
+   `(cursor ((t (:background ,red-alt))))))
+#+end_src
+
+The code for the bespoke =after-load-theme-hook= could be something like
+the following (courtesy of the [[https://github.com/seagle0128/.emacs.d/blob/master/lisp/init-funcs.el][Centaur Emacs project]]):
+
+#+begin_src emacs-lisp
+(defvar after-load-theme-hook nil
+  "Hook run after a color theme is loaded using `load-theme'.")
+
+(defun run-after-load-theme-hook (&rest _)
+  "Run `after-load-theme-hook'."
+  (run-hooks 'after-load-theme-hook))
+
+(advice-add #'load-theme :after #'run-after-load-theme-hook)
+#+end_src
+
+If you need more ideas check how I configure the themes in [[https://gitlab.com/protesilaos/dotemacs][my dotemacs]].
+If something is not clear or not working as intended, please let me
+know.
+
 *** Further considerations
     :PROPERTIES:
     :CUSTOM_ID: h:4acda0f1-564e-48ff-8998-ebf7618377dd
