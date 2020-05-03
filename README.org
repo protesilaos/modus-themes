@@ -662,6 +662,7 @@ the "full support" may not be 100% true…
 + iedit
 + iflipb
 + imenu-list
++ indium
 + info
 + info-colors
 + interaction-log
