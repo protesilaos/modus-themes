@@ -298,6 +298,7 @@
 ;;     xref
 ;;     xterm-color (and ansi-colors)
 ;;     yaml-mode
+;;     yasnippet
 ;;     ztree
 
 ;;; Code:
@@ -3242,6 +3243,8 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(xref-match ((,class (:inherit match))))
    ;;;; yaml-mode
    `(yaml-tab-face ((,class (:inherit modus-theme-intense-red))))
+   ;;;; yasnippet
+   `(yas-field-highlight-face ((,class (:background ,bg-alt :foreground ,fg-main))))
    ;;;; ztree
    `(ztreep-arrow-face ((,class (:foreground ,fg-inactive))))
    `(ztreep-diff-header-face ((,class (:height 1.2 :foreground ,fg-special-cold :weight bold))))
