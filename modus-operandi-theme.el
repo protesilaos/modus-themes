@@ -280,6 +280,7 @@
 ;;     undo-tree
 ;;     vc (built-in mode line status for version control)
 ;;     vc-annotate (C-x v g)
+;;     vdiff
 ;;     vimish-fold
 ;;     visible-mark
 ;;     visual-regexp
@@ -3089,6 +3090,24 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(vc-removed-state ((,class (:foreground ,red-active))))
    `(vc-state-base ((,class (:foreground ,fg-active))))
    `(vc-up-to-date-state ((,class (:foreground ,fg-special-cold))))
+   ;;;; vdiff
+   `(vdiff-addition-face ((,class ,(modus-operandi-theme-diffs
+                                    bg-main green
+                                    bg-diff-focus-added fg-diff-focus-added))))
+   `(vdiff-change-face ((,class ,(modus-operandi-theme-diffs
+                                  bg-main yellow
+                                  bg-diff-focus-changed fg-diff-focus-changed))))
+   `(vdiff-closed-fold-face ((,class (:background ,bg-diff-neutral-1 :foreground ,fg-diff-neutral-1))))
+   `(vdiff-refine-added ((,class ,(modus-operandi-theme-diffs
+                                   bg-diff-added fg-diff-added
+                                   bg-diff-refine-added fg-diff-refine-added))))
+   `(vdiff-refine-changed ((,class ,(modus-operandi-theme-diffs
+                                     bg-diff-changed fg-diff-changed
+                                     bg-diff-refine-changed fg-diff-refine-changed))))
+   `(vdiff-subtraction-face ((,class ,(modus-operandi-theme-diffs
+                                       bg-main red
+                                       bg-diff-focus-removed fg-diff-focus-removed))))
+   `(vdiff-target-face ((,class (:inherit modus-theme-intense-blue))))
    ;;;; vimish-fold
    `(vimish-fold-fringe ((,class (:foreground ,cyan-active))))
    `(vimish-fold-mouse-face ((,class (:inherit modus-theme-intense-blue))))
