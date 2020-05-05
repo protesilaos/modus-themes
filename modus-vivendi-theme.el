@@ -621,6 +621,9 @@ AMOUNT is a customisation option."
     ;; combined with `fg-main', while `bg-tab-inactive' should be
     ;; combined with `fg-dim'
     ;;
+    ;; `bg-tab-bar' is only intended for the bar that holds the tabs and
+    ;; can only be combined with `fg-main'
+    ;;
     ;; `fg-tab-active' is meant to be combined with `bg-tab-active',
     ;; though only for styling special elements, such as underlining
     ;; the current tab
