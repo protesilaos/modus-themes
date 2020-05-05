@@ -660,7 +660,7 @@ AMOUNT is a customisation option."
 
     ("fg-unfocused" . "#93959b")
 
-    ("bg-header" . "#2a2a2a") ("fg-header" . "#dddddd")
+    ("bg-header" . "#212121") ("fg-header" . "#dddddd")
 
     ("bg-whitespace" . "#170016") ("fg-whitespace" . "#a4959f")
 
