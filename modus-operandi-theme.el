@@ -643,9 +643,10 @@ AMOUNT is a customisation option."
     ("bg-paren-match" . "#efcabf")
     ("bg-region" . "#bcbcbc")
 
-    ("bg-tab-active" . "#ababab")
-    ("bg-tab-inactive" . "#dadada")
-    ("fg-tab-active" . "#000077")
+    ("bg-tab-bar" . "#d5d5d5")
+    ("bg-tab-active" . "#f6f6f6")
+    ("bg-tab-inactive" . "#bdbdbd")
+    ("fg-tab-active" . "#30169e")
 
     ("fg-escape-char-construct" . "#8b1030")
     ("fg-escape-char-backslash" . "#644f00")
@@ -993,13 +994,13 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(cfw:face-toolbar-button-on ((,class (:background ,bg-main :foreground ,blue-intense :weight bold))))
    ;;;; centaur-tabs
    `(centaur-tabs-active-bar-face ((,class (:background ,fg-tab-active))))
-   `(centaur-tabs-close-mouse-face ((,class (:underline t))))
+   `(centaur-tabs-close-mouse-face ((,class (:foreground ,red-active :weight bold :underline t))))
    `(centaur-tabs-close-selected ((,class (:inherit centaur-tabs-selected))))
    `(centaur-tabs-close-unselected ((,class (:inherit centaur-tabs-unselected))))
    `(centaur-tabs-modified-marker-selected ((,class (:inherit centaur-tabs-selected))))
    `(centaur-tabs-modified-marker-unselected ((,class (:inherit centaur-tabs-unselected))))
    `(centaur-tabs-default ((,class (:background ,bg-main :foreground ,bg-main))))
-   `(centaur-tabs-selected ((,class (:background ,bg-tab-active :foreground ,fg-main))))
+   `(centaur-tabs-selected ((,class (:background ,bg-tab-active :foreground ,fg-main :weight bold))))
    `(centaur-tabs-selected-modified ((,class (:background ,bg-tab-active :foreground ,fg-main :slant italic))))
    `(centaur-tabs-unselected ((,class (:background ,bg-tab-inactive :foreground ,fg-dim))))
    `(centaur-tabs-unselected-modified ((,class (:background ,bg-tab-inactive :foreground ,fg-dim :slant italic))))
@@ -3290,20 +3291,19 @@ Also bind `class' to ((class color) (min-colors 89))."
      (custom-theme-set-faces
       'modus-operandi
       ;;;; tab-bar-mode
-      `(tab-bar ((,class (:background ,bg-alt :foreground ,fg-alt))))
-      `(tab-bar-tab ((,class (:box (:line-width 1 :color ,fg-window-divider-inner)
-                                   :background ,bg-tab-active :foreground ,fg-main))))
-      `(tab-bar-tab-inactive ((,class (:box (:line-width 1 :color ,bg-tab-active)
+      `(tab-bar ((,class (:background ,bg-tab-bar :foreground ,fg-main))))
+      `(tab-bar-tab ((,class (:box (:line-width 2 :color ,bg-tab-active)
+                                   :background ,bg-tab-active :foreground ,fg-main :weight bold))))
+      `(tab-bar-tab-inactive ((,class (:box (:line-width 2 :color ,bg-tab-inactive)
                                             :background ,bg-tab-inactive :foreground ,fg-dim))))
       ;;;; tab-line-mode
-      `(tab-line ((,class (:height 0.95 :background ,bg-active :foreground ,fg-active))))
-      `(tab-line-close-highlight ((,class (:foreground ,red-active))))
-      `(tab-line-highlight ((,class (:background ,bg-tab-active :foreground ,fg-main))))
-      `(tab-line-tab ((,class (:box (:line-width 1 :color ,fg-window-divider-inner)
-                                    :background ,bg-tab-active :foreground ,fg-main))))
-      `(tab-line-tab-current ((,class (:box (:line-width 1 :color ,fg-window-divider-inner)
-                                            :background ,bg-tab-active :foreground ,fg-main))))
-      `(tab-line-tab-inactive ((,class (:box (:line-width 1 :color ,bg-tab-active)
+      `(tab-line ((,class (:height 0.95 :background ,bg-tab-bar :foreground ,fg-main))))
+      `(tab-line-close-highlight ((,class (:foreground ,red))))
+      `(tab-line-highlight ((,class (:background ,blue-subtle-bg :foreground ,fg-dim))))
+      `(tab-line-tab ((,class (:box (:line-width 2 :color ,bg-tab-active)
+                                    :background ,bg-tab-active :foreground ,fg-main :weight bold))))
+      `(tab-line-tab-current ((,class (:inherit tab-line-tab))))
+      `(tab-line-tab-inactive ((,class (:box (:line-width 2 :color ,bg-tab-inactive)
                                              :background ,bg-tab-inactive :foreground ,fg-dim))))))
    ;;; Theme Variables
    (custom-theme-set-variables
