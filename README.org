@@ -210,11 +210,19 @@ noticeable in modes like Org.  The default is to use the same size for
 headers and body copy.
 
 In addition to toggles for enabling scaled headings, users can also
-specify the exact multiplier relative to the base font size.  These are
-the variables in their default sizes, from the smallest to the largest
-(the numbers are very conservative, but you are free to increase them a
-bit, such as =1.2=, =1.4=, =1.6=, =1.8=, =2.0=---or use a resource for finding a
-consistent scale, like [[https://www.modularscale.com][modularscale.com]]):
+specify a number of their own.
+
++ If it is a *floating point*, say, =1.5= then it is interpreted as a
+  multiple of the base font size (there are many ways to set the main
+  font on Emacs, such as those [[https://gitlab.com/protesilaos/modus-themes/-/issues/43#note_337308289][I documented in issue 43]]).
++ If it is an *integer*, it is read as an absolute font height.  The
+  number is basically the point size multiplied by a hundred.  So if you
+  want it to be =18pt= you must pass =180=.
+
+Below are the variables in their default values, using the floating
+point paradigm.  The numbers are very conservative, but you are free to
+change them to your liking, such as =1.2=, =1.4=, =1.6=, =1.8=, =2.0=---or use a
+resource for finding a consistent scale, like [[https://www.modularscale.com][modularscale.com]]:
 
 #+begin_src emacs-lisp
 (setq modus-operandi-theme-scale-1 1.05

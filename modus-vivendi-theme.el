@@ -400,23 +400,58 @@ between foreground and background is >= 7:1)."
   :type 'boolean)
 
 (defcustom modus-vivendi-theme-scale-1 1.05
-  "Font size that is slightly larger than the base value."
+  "Font size that is slightly larger than the base value.
+The default is a floating point that is interpreted as a multiple
+of the base font size.  However, the variable also accepts an
+integer, understood as an absolute height (e.g. a value of 140 is
+the same as setting the font at 14 point size).
+
+For more on the matter, read the documentation of
+`set-face-attribute', specifically the ':height' section."
   :type 'number)
 
 (defcustom modus-vivendi-theme-scale-2 1.1
-  "Font size slightly larger than `modus-vivendi-theme-scale-1'."
+  "Font size slightly larger than `modus-vivendi-theme-scale-1'.
+The default is a floating point that is interpreted as a multiple
+of the base font size.  However, the variable also accepts an
+integer, understood as an absolute height (e.g. a value of 140 is
+the same as setting the font at 14 point size).
+
+For more on the matter, read the documentation of
+`set-face-attribute', specifically the ':height' section."
   :type 'number)
 
 (defcustom modus-vivendi-theme-scale-3 1.15
-  "Font size slightly larger than `modus-vivendi-theme-scale-2'."
+  "Font size slightly larger than `modus-vivendi-theme-scale-2'.
+The default is a floating point that is interpreted as a multiple
+of the base font size.  However, the variable also accepts an
+integer, understood as an absolute height (e.g. a value of 140 is
+the same as setting the font at 14 point size).
+
+For more on the matter, read the documentation of
+`set-face-attribute', specifically the ':height' section."
   :type 'number)
 
 (defcustom modus-vivendi-theme-scale-4 1.2
-  "Font size slightly larger than `modus-vivendi-theme-scale-3'."
+  "Font size slightly larger than `modus-vivendi-theme-scale-3'.
+The default is a floating point that is interpreted as a multiple
+of the base font size.  However, the variable also accepts an
+integer, understood as an absolute height (e.g. a value of 140 is
+the same as setting the font at 14 point size).
+
+For more on the matter, read the documentation of
+`set-face-attribute', specifically the ':height' section."
   :type 'number)
 
 (defcustom modus-vivendi-theme-scale-5 1.3
-  "Font size slightly larger than `modus-vivendi-theme-scale-4'."
+  "Font size slightly larger than `modus-vivendi-theme-scale-4'.
+The default is a floating point that is interpreted as a multiple
+of the base font size.  However, the variable also accepts an
+integer, understood as an absolute height (e.g. a value of 140 is
+the same as setting the font at 14 point size).
+
+For more on the matter, read the documentation of
+`set-face-attribute', specifically the ':height' section."
   :type 'number)
 
 (defcustom modus-vivendi-theme-visible-fringes nil
