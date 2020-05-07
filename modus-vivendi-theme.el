@@ -2583,7 +2583,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-list-dt ((,class (:weight bold))))
    `(org-macro ((,class (:inherit org-latex-and-related))))
    `(org-meta-line ((,class (:inherit fixed-pitch :foreground ,fg-alt :slant ,modus-theme-slant))))
-   `(org-mode-line-clock ((,class (:background ,bg-main :foreground ,fg-main))))
+   `(org-mode-line-clock ((,class (:foreground ,fg-main))))
    `(org-mode-line-clock-overrun ((,class (:inherit modus-theme-active-red))))
    `(org-priority ((,class (,@(modus-vivendi-theme-org-todo-block blue-nuanced-bg blue-nuanced magenta)
                             ,@(modus-vivendi-theme-heading-foreground magenta blue-alt)))))
