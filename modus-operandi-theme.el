@@ -555,7 +555,7 @@ AMOUNT is a customisation option."
 (defvar modus-operandi-theme-default-colors-alist
   '(;; base values
     ("bg-main" . "#ffffff") ("fg-main" . "#000000")
-    ("bg-alt" . "#f3f1f3") ("fg-alt" . "#505050")
+    ("bg-alt" . "#f0f0f0") ("fg-alt" . "#505050")
     ("bg-dim" . "#f8f8f8") ("fg-dim" . "#282828")
     ;; specifically for on/off states (e.g. `mode-line')
     ;;
@@ -572,21 +572,21 @@ AMOUNT is a customisation option."
     ;; styles for the main constructs
     ;;
     ;; must be combined with: `bg-main', `bg-alt', `bg-dim'
-    ("red" . "#a80000") ("green" . "#005f00")
-    ("yellow" . "#8b3800") ("blue" . "#0030a6")
-    ("magenta" . "#721045") ("cyan" . "#005589")
+    ("red" . "#a60000") ("green" . "#005e00")
+    ("yellow" . "#813e00") ("blue" . "#0030a6")
+    ("magenta" . "#721045") ("cyan" . "#00538b")
     ;; styles for common, but still specialised constructs
     ;;
     ;; must be combined with: `bg-main', `bg-alt', `bg-dim'
-    ("red-alt" . "#972500") ("green-alt" . "#305c00")
-    ("yellow-alt" . "#714900") ("blue-alt" . "#223fbf")
-    ("magenta-alt" . "#8f0075") ("cyan-alt" . "#185870")
+    ("red-alt" . "#972500") ("green-alt" . "#315b00")
+    ("yellow-alt" . "#70480f") ("blue-alt" . "#223fbf")
+    ("magenta-alt" . "#8f0075") ("cyan-alt" . "#30517f")
     ;; same purpose as above, just slight differences
     ;;
     ;; must be combined with: `bg-main', `bg-alt', `bg-dim'
-    ("red-alt-other" . "#a0132f") ("green-alt-other" . "#095f1c")
-    ("yellow-alt-other" . "#804000") ("blue-alt-other" . "#0000bb")
-    ("magenta-alt-other" . "#5317ac") ("cyan-alt-other" . "#005a68")
+    ("red-alt-other" . "#a0132f") ("green-alt-other" . "#145c33")
+    ("yellow-alt-other" . "#863927") ("blue-alt-other" . "#0000bb")
+    ("magenta-alt-other" . "#5317ac") ("cyan-alt-other" . "#005a5f")
     ;; styles for elements that should be very subtle
     ;;
     ;; must be combined with: `bg-main', `bg-alt', `bg-dim'
@@ -677,7 +677,7 @@ AMOUNT is a customisation option."
     ;; the window divider colours apply to faces with just an fg value
     ;;
     ;; all pairs are combinable with themselves
-    ("bg-hl-line" . "#f1f2f6")
+    ("bg-hl-line" . "#f2eff3")
     ("bg-paren-match" . "#efcabf")
     ("bg-region" . "#bcbcbc")
 
@@ -687,10 +687,10 @@ AMOUNT is a customisation option."
     ("fg-tab-active" . "#30169e")
 
     ("fg-escape-char-construct" . "#8b1030")
-    ("fg-escape-char-backslash" . "#644f00")
+    ("fg-escape-char-backslash" . "#654d0f")
 
     ("fg-lang-error" . "#9f004f")
-    ("fg-lang-warning" . "#605000")
+    ("fg-lang-warning" . "#604f0f")
     ("fg-lang-note" . "#4040ae")
 
     ("fg-window-divider-inner" . "#888888")
