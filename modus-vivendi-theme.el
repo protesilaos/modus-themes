@@ -726,7 +726,6 @@ AMOUNT is a customisation option."
     "The entire palette of `modus-vivendi-theme'.
 Each element has the form (NAME . HEX).")
 
-;;;###autoload
   (defcustom modus-vivendi-theme-override-colors-alist '()
     "Place to override default theme colors.
 You can override a subset of the theme's default colors by
