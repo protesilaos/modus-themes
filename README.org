@@ -511,31 +511,43 @@ package which offers live colour previews.  This is how I configure it:
   (setq rainbow-x-colors nil))
 #+end_src
 
-** Optional minimum extra configurations for mixed fonts
+** Font configurations for Org (and others)
    :PROPERTIES:
    :CUSTOM_ID: h:ea30ff0e-3bb6-4801-baf1-d49169d94cd5
    :END:
 
 The themes are designed to cope well with mixed font settings.
-Currently this applies to Org mode (courtesy of [[https://gitlab.com/protesilaos/modus-themes/-/issues/40][Ben in issue 40]]).
+Currently this applies to Org mode (courtesy of [[https://gitlab.com/protesilaos/modus-themes/-/issues/40][Ben in issue 40]]), though
+it may be extended to other major modes as well (e.g. markdown).
 
-In practice it means that some parts of an Org buffer will use a
-monospaced font even when the user opts for a proportionately-spaced
-typeface as their default (such as by enabling =(variable-pitch-mode)=).
-This is to ensure that code blocks and other relevant elements use the
+In practice it means that some parts of a buffer will use a monospaced
+font even when the user opts for a proportionately-spaced typeface as
+their default (such as by enabling =variable-pitch-mode=).  This is to
+ensure that code blocks, tables, and other relevant elements use the
 appropriate type settings and are positioned correctly.
 
-To specify the font families and their respective height, you could do
-something like:
+*To make everything use your desired font families*, you need to configure
+the =variable-pitch= (proportional spacing) and =fixed-pitch= (monospaced)
+faces respectively.  Otherwise you may get unintended combinations (such
+as those experienced by Mark in [[https://gitlab.com/protesilaos/modus-themes/-/issues/42][issue 42]]).
+
+Put something like this in your initialisation file:
 
 #+begin_src emacs-lisp
-(set-face-attribute 'variable-pitch nil :family "Source Sans Pro" :height 110)
+(set-face-attribute 'variable-pitch nil :family "DejaVu Sans" :height 110)
 (set-face-attribute 'fixed-pitch nil :family "Source Code Pro" :height 110)
 #+end_src
 
-In this example, you are defining the attributes of the =variable-pitch=
-face (proportional) and of =fixed-pitch= (monospace), which are then
-inherited by other faces at the theme level.
+You can also set your standard font the same way.  For example:
+
+#+begin_src emacs-lisp
+(set-face-attribute 'default nil :family "Fira Code" :height 120)
+#+end_src
+
+The value of the =:height= attribute essentially is the point size × 100.
+So if you want to use Fira Code at point size =12=, you set the height to
+=120=.  Values do not need to be rounded to multiples of ten, so the likes
+of =125= are perfectly valid.
 
 If any Org power user is reading this section, I encourage you to
 recommend some other /minimal/ tweaks and customisations that could
