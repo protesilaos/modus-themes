@@ -84,6 +84,7 @@
 ;;     centaur-tabs
 ;;     change-log and log-view (`vc-print-log' and `vc-print-root-log')
 ;;     cider
+;;     circe
 ;;     color-rg
 ;;     column-enforce-mode
 ;;     company-mode
@@ -1090,6 +1091,14 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(cider-test-success-face ((,class (:inherit modus-theme-intense-green))))
    `(cider-traced-face ((,class (:box (:line-width -1 :color ,cyan :style nil) :background ,bg-dim))))
    `(cider-warning-highlight-face ((,class (:foreground ,yellow :underline t))))
+   ;;;; circe (and lui)
+   `(circe-fool-face ((,class (:foreground ,fg-alt))))
+   `(circe-highlight-nick-face ((,class (:foreground ,blue :weight bold))))
+   `(circe-prompt-face ((,class (:foreground ,cyan-alt-other :weight bold))))
+   `(circe-server-face ((,class (:foreground ,fg-unfocused))))
+   `(lui-button-face ((,class (:foreground ,blue :underline t))))
+   `(lui-highlight-face ((,class (:foreground ,magenta-alt))))
+   `(lui-time-stamp-face ((,class (:foreground ,blue-nuanced))))
    ;;;; color-rg
    `(color-rg-font-lock-column-number ((,class (:foreground ,magenta-alt-other))))
    `(color-rg-font-lock-command ((,class (:foreground ,fg-main :weight bold))))
