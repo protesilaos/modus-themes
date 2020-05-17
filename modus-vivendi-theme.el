@@ -1590,8 +1590,8 @@ Also bind `class' to ((class color) (min-colors 89))."
    ;;;; flycheck
    `(flycheck-error
      ((,(append '((supports :underline (:style wave))) class)
-       (:foreground ,red-nuanced :underline (:color ,fg-lang-error :style wave)))
-      (,class (:foreground ,red-nuanced :underline (:color ,fg-lang-error :style line)))))
+       (:underline (:color ,fg-lang-error :style wave)))
+      (,class (:foreground ,fg-lang-error :underline t))))
    `(flycheck-error-list-checker-name ((,class (:foreground ,magenta-active))))
    `(flycheck-error-list-column-number ((,class (:foreground ,fg-special-cold))))
    `(flycheck-error-list-error ((,class (:foreground ,red :weight ,modus-theme-bold))))
@@ -1607,13 +1607,13 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(flycheck-fringe-warning ((,class (:inherit modus-theme-fringe-yellow))))
    `(flycheck-info
      ((,(append '((supports :underline (:style wave))) class)
-       (:foreground ,blue-nuanced :underline (:color ,fg-lang-note :style wave)))
-      (,class (:foreground ,blue-nuanced :underline (:color ,fg-lang-note :style line)))))
+       (:underline (:color ,fg-lang-note :style wave)))
+      (,class (:foreground ,fg-lang-note :underline t))))
    `(flycheck-verify-select-checker ((,class (:box (:line-width 1 :color nil :style released-button)))))
    `(flycheck-warning
      ((,(append '((supports :underline (:style wave))) class)
-       (:foreground ,yellow-nuanced :underline (:color ,fg-lang-warning :style wave)))
-      (,class (:foreground ,yellow-nuanced :underline (:color ,fg-lang-warning :style line)))))
+       (:underline (:color ,fg-lang-warning :style wave)))
+      (,class (:foreground ,fg-lang-warning :underline t))))
    ;;;; flycheck-indicator
    `(flycheck-indicator-disabled ((,class (:foreground ,fg-inactive :slant ,modus-theme-slant))))
    `(flycheck-indicator-error ((,class (:foreground ,red-active :weight ,modus-theme-bold))))
@@ -1631,24 +1631,24 @@ Also bind `class' to ((class color) (min-colors 89))."
    ;;;; flymake
    `(flymake-error
      ((,(append '((supports :underline (:style wave))) class)
-       (:foreground ,red-nuanced :underline (:color ,fg-lang-error :style wave)))
-      (,class (:foreground ,red-nuanced :underline (:color ,fg-lang-error :style line)))))
+       (:underline (:color ,fg-lang-error :style wave)))
+      (,class (:foreground ,fg-lang-error :underline t))))
    `(flymake-note
      ((,(append '((supports :underline (:style wave))) class)
-       (:foreground ,blue-nuanced :underline (:color ,fg-lang-note :style wave)))
-      (,class (:foreground ,blue-nuanced :underline (:color ,fg-lang-note :style line)))))
+       (:underline (:color ,fg-lang-note :style wave)))
+      (,class (:foreground ,fg-lang-note :underline t))))
    `(flymake-warning
      ((,(append '((supports :underline (:style wave))) class)
-       (:foreground ,yellow-nuanced :underline (:color ,fg-lang-warning :style wave)))
-      (,class (:foreground ,yellow-nuanced :underline (:color ,fg-lang-warning :style line)))))
+       (:underline (:color ,fg-lang-warning :style wave)))
+      (,class (:foreground ,fg-lang-warning :underline t))))
    ;;;; flyspell
    `(flyspell-duplicate
      ((,(append '((supports :underline (:style wave))) class)
-       (:foreground ,fg-lang-warning :underline (:style wave)))
+       (:underline (:color ,fg-lang-warning :style wave)))
       (,class (:foreground ,fg-lang-warning :underline t))))
    `(flyspell-incorrect
      ((,(append '((supports :underline (:style wave))) class)
-       (:foreground ,fg-lang-error :underline (:style wave)))
+       (:underline (:color ,fg-lang-error :style wave)))
       (,class (:foreground ,fg-lang-error :underline t))))
    ;;;; flyspell-correct
    `(flyspell-correct-highlight-face ((,class (:inherit modus-theme-refine-green))))
