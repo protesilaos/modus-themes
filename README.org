@@ -726,6 +726,7 @@ the "full support" may not be 100% true…
 + hl-line-mode
 + hl-todo
 + hydra
++ hyperlist
 + ibuffer
 + icomplete
 + icomplete-vertical

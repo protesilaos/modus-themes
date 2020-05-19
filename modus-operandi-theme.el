@@ -175,6 +175,7 @@
 ;;     hl-line-mode
 ;;     hl-todo
 ;;     hydra
+;;     hyperlist
 ;;     ibuffer
 ;;     icomplete
 ;;     ido-mode
@@ -1990,6 +1991,16 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(hydra-face-pink ((,class (:foreground ,magenta-alt :weight bold))))
    `(hydra-face-red ((,class (:foreground ,red :weight bold))))
    `(hydra-face-teal ((,class (:foreground ,cyan :weight bold))))
+   ;;;; hyperlist
+   `(hyperlist-condition ((,class (:foreground ,green))))
+   `(hyperlist-hashtag ((,class (:foreground ,yellow))))
+   `(hyperlist-operator ((,class (:foreground ,blue-alt))))
+   `(hyperlist-paren ((,class (:foreground ,cyan-alt-other))))
+   `(hyperlist-quote ((,class (:foreground ,cyan-alt))))
+   `(hyperlist-ref ((,class (:foreground ,magenta-alt-other))))
+   `(hyperlist-stars ((,class (:foreground ,fg-alt))))
+   `(hyperlist-tag ((,class (:foreground ,red))))
+   `(hyperlist-toplevel ((,class (:foreground ,fg-main :weight bold))))
    ;;;; icomplete
    `(icomplete-first-match ((,class (:foreground ,magenta :weight bold))))
    ;;;; icomplete-vertical
