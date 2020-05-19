@@ -205,6 +205,7 @@
 ;;     markup-faces (`adoc-mode')
 ;;     mentor
 ;;     messages
+;;     minimap
 ;;     modeline
 ;;     mood-line
 ;;     mu4e
@@ -2388,6 +2389,9 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(message-header-xheader ((,class (:foreground ,blue-alt-other))))
    `(message-mml ((,class (:foreground ,green-alt-other))))
    `(message-separator ((,class (:background ,bg-alt :foreground ,fg-special-warm))))
+   ;;;; minimap
+   `(minimap-active-region-background ((,class (:background ,bg-active))))
+   `(minimap-current-line-face ((,class (:background ,cyan-intense-bg :foreground ,fg-main))))
    ;;;; modeline
    `(mode-line ((,class (:box ,(modus-vivendi-theme-modeline-box bg-inactive fg-inactive t)
                               ,@(modus-vivendi-theme-modeline-props
