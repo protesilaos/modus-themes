@@ -2241,7 +2241,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(magit-hash ((,class (:foreground ,fg-special-warm))))
    `(magit-head ((,class (:inherit magit-branch-local))))
    `(magit-header-line ((,class (:foreground ,cyan-active :weight bold))))
-   `(magit-header-line-key ((,class (:foreground ,blue-active :weight bold))))
+   `(magit-header-line-key ((,class (:foreground ,red-active :weight bold))))
    `(magit-header-line-log-select ((,class (:foreground ,fg-main :weight bold))))
    `(magit-keyword ((,class (:foreground ,magenta))))
    `(magit-keyword-squash ((,class (:foreground ,yellow-alt-other :weight bold))))
