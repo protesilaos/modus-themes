@@ -837,7 +837,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(italic ((,class (:foreground ,fg-special-cold :slant italic))))
    `(nobreak-hyphen ((,class (:foreground ,fg-escape-char-construct))))
    `(nobreak-space ((,class (:foreground ,fg-escape-char-construct :underline t))))
-   `(minibuffer-prompt ((,class (:foreground ,cyan-alt))))
+   `(minibuffer-prompt ((,class (:foreground ,cyan-alt-other))))
    `(mm-command-output ((,class (:foreground ,red-alt-other))))
    `(mm-uu-extract ((,class (:background ,bg-dim :foreground ,fg-special-mild))))
    `(next-error ((,class (:inherit modus-theme-subtle-red))))
