@@ -682,6 +682,7 @@ the "full support" may not be 100% true…
 + epa
 + equake
 + erc
++ eros
 + ert
 + eshell
 + evil* (evil-mode)

@@ -131,6 +131,7 @@
 ;;     epa
 ;;     equake
 ;;     erc
+;;     eros
 ;;     ert
 ;;     eshell
 ;;     evil (evil-mode)
@@ -1533,6 +1534,8 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(erc-prompt-face ((,class (:foreground ,cyan-alt-other :weight bold))))
    `(erc-timestamp-face ((,class (:foreground ,blue-nuanced))))
    `(erc-underline-face ((,class (:underline t))))
+   ;;;; eros
+   `(eros-result-overlay-face ((,class (:inherit modus-theme-refine-blue))))
    ;;;; ert
    `(ert-test-result-expected ((,class (:inherit modus-theme-intense-green))))
    `(ert-test-result-unexpected ((,class (:inherit modus-theme-intense-red))))
