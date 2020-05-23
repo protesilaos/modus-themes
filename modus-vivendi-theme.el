@@ -1537,7 +1537,8 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(erc-timestamp-face ((,class (:foreground ,blue-nuanced))))
    `(erc-underline-face ((,class (:underline t))))
    ;;;; eros
-   `(eros-result-overlay-face ((,class (:inherit modus-theme-refine-blue))))
+   `(eros-result-overlay-face ((,class (:box (:line-width -1 :color ,blue)
+                                             :background ,bg-dim :foreground ,fg-dim))))
    ;;;; ert
    `(ert-test-result-expected ((,class (:inherit modus-theme-intense-green))))
    `(ert-test-result-unexpected ((,class (:inherit modus-theme-intense-red))))
