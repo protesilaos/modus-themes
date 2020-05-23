@@ -161,6 +161,7 @@
 ;;     git-timemachine
 ;;     git-walktree
 ;;     gnus
+;;     golden-ratio-scroll-screen
 ;;     helm
 ;;     helm-ls-git
 ;;     helm-switch-shell
@@ -1854,6 +1855,8 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(gnus-summary-normal-undownloaded ((,class (:foreground ,yellow))))
    `(gnus-summary-normal-unread ((,class (:foreground ,fg-main))))
    `(gnus-summary-selected ((,class (:inherit modus-theme-subtle-blue))))
+   ;;;; golden-ratio-scroll-screen
+   `(golden-ratio-scroll-highlight-line-face ((,class (:background ,cyan-subtle-bg :foreground ,fg-main))))
    ;;;; helm
    `(helm-M-x-key ((,class (:foreground ,magenta-alt-other :weight bold))))
    `(helm-action ((,class (:underline t))))
