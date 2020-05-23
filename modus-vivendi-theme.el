@@ -193,6 +193,7 @@
 ;;     ivy
 ;;     ivy-posframe
 ;;     jira (org-jira)
+;;     journalctl-mode
 ;;     js2-mode
 ;;     julia
 ;;     jupyter
@@ -2123,6 +2124,14 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(jiralib-link-filter-face ((,class (:underline t))))
    `(jiralib-link-issue-face ((,class (:underline t))))
    `(jiralib-link-project-face ((,class (:underline t))))
+   ;;;; journalctl-mode
+   `(journalctl-error-face ((,class (:foreground ,red :weight bold))))
+   `(journalctl-finished-face ((,class (:foreground ,green :weight bold))))
+   `(journalctl-host-face ((,class (:foreground ,blue))))
+   `(journalctl-process-face ((,class (:foreground ,cyan))))
+   `(journalctl-starting-face ((,class (:foreground ,green))))
+   `(journalctl-timestamp-face ((,class (:foreground ,fg-alt))))
+   `(journalctl-warning-face ((,class (:foreground ,yellow :weight bold))))
    ;;;; js2-mode
    `(js2-error ((,class (:foreground ,red))))
    `(js2-external-variable ((,class (:foreground ,cyan-alt-other))))

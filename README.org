@@ -745,6 +745,7 @@ the "full support" may not be 100% true…
 + ivy*
 + ivy-posframe
 + jira (org-jira)
++ journalctl-mode
 + js2-mode
 + julia
 + jupyter
