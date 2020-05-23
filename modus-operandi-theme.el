@@ -2129,9 +2129,9 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(journalctl-error-face ((,class (:foreground ,red :weight bold))))
    `(journalctl-finished-face ((,class (:foreground ,green :weight bold))))
    `(journalctl-host-face ((,class (:foreground ,blue))))
-   `(journalctl-process-face ((,class (:foreground ,cyan))))
+   `(journalctl-process-face ((,class (:foreground ,cyan-alt-other))))
    `(journalctl-starting-face ((,class (:foreground ,green))))
-   `(journalctl-timestamp-face ((,class (:foreground ,fg-alt))))
+   `(journalctl-timestamp-face ((,class (:foreground ,fg-special-cold))))
    `(journalctl-warning-face ((,class (:foreground ,yellow :weight bold))))
    ;;;; js2-mode
    `(js2-error ((,class (:foreground ,red))))
