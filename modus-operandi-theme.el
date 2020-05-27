@@ -485,8 +485,7 @@ For more on the matter, read the documentation of
 ;; above customisation options.
 (defun modus-operandi-theme-heading-foreground (subtle rainbow)
   "Apply foreground value to headings.
-SUBTLE is the default aesthetic.
-RAINBOW is the saturated one."
+SUBTLE is the default aesthetic.  RAINBOW is the saturated one."
   (if modus-operandi-theme-rainbow-headings
       (list :foreground rainbow)
     (list :foreground subtle)))
@@ -502,9 +501,8 @@ Apply BG to background and FG to overline."
 
 (defun modus-operandi-theme-org-todo-block (bgbox fgbox fg)
   "Conditionally extend the styles of Org keywords.
-BGBOX applies to the background.
-FGBOX applies to the foreground and the border.
-FG is used when no block style is in effect."
+BGBOX applies to the background.  FGBOX applies to the foreground
+and the border.  FG is used when no block style is in effect."
   (if modus-operandi-theme-section-headings
       (list :background bgbox :foreground fgbox :box (list :color fgbox))
     (list :foreground fg)))
@@ -519,10 +517,10 @@ blocks the same background as the rest of the buffer."
 
 (defun modus-operandi-theme-modeline-box (col3d col &optional btn int)
   "Control the box properties of the mode line.
-COL3D is the border that is intended for the three-dimensional modeline.
-COL applies to the two-dimensional modeline.
-Optional BTN provides the 3d button style.
-Optional INT defines a border width."
+COL3D is the border that is intended for the three-dimensional
+modeline.  COL applies to the two-dimensional modeline.  Optional
+BTN provides the 3d button style.  Optional INT defines a border
+width."
   (let* ((style (if btn 'released-button nil))
          (int (if int int 1)))
     (if modus-operandi-theme-3d-modeline
@@ -531,9 +529,9 @@ Optional INT defines a border width."
 
 (defun modus-operandi-theme-modeline-props (bg3d fg3d &optional bg fg)
   "Control the background and foreground of the mode line.
-BG is the modeline's background.
-FG is the modeline's foreground.
-BG3D and FG3D apply to the three-dimensional modeline style."
+BG is the modeline's background.  FG is the modeline's
+foreground.  BG3D and FG3D apply to the three-dimensional
+modeline style."
   (if modus-operandi-theme-3d-modeline
       (list :background bg3d :foreground fg3d)
     (list :background bg :foreground fg)))
@@ -541,10 +539,10 @@ BG3D and FG3D apply to the three-dimensional modeline style."
 (defun modus-operandi-theme-diffs (subtle-bg subtle-fg intense-bg intense-fg)
   "Colour combinations for `modus-operandi-theme-subtle-diffs'.
 
-SUBTLE-BG should be similar or the same as the main background
-SUBTLE-FG should be an appropriate accent value
-INTENSE-BG should be one of the dedicated backgrounds for diffs
-INTENSE-FG should be one of the dedicated foregrounds for diffs"
+SUBTLE-BG should be similar or the same as the main background.
+SUBTLE-FG should be an appropriate accent value.  INTENSE-BG
+should be one of the dedicated backgrounds for diffs.  INTENSE-FG
+should be one of the dedicated foregrounds for diffs"
   (if modus-operandi-theme-subtle-diffs
       (list :background subtle-bg :foreground subtle-fg)
     (list :background intense-bg :foreground intense-fg)))

@@ -419,6 +419,7 @@ being available.
         modus-operandi-theme-visible-fringes t
         modus-operandi-theme-3d-modeline t
         modus-operandi-theme-subtle-diffs t
+        modus-operandi-theme-intense-standard-completions t
         modus-operandi-theme-distinct-org-blocks t
         modus-operandi-theme-proportional-fonts t
         modus-operandi-theme-rainbow-headings t
