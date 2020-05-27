@@ -49,6 +49,7 @@
 ;;     modus-operandi-theme-distinct-org-blocks
 ;;     modus-operandi-theme-3d-modeline
 ;;     modus-operandi-theme-subtle-diffs
+;;     modus-operandi-theme-intense-standard-completions
 ;;     modus-operandi-theme-override-colors-alist
 ;;
 ;; The default scale is as follows (it can be customised as well):
@@ -476,6 +477,10 @@ For more on the matter, read the documentation of
   "Use fewer/dim backgrounds in `diff-mode', `ediff',`magit'."
   :type 'boolean)
 
+(defcustom modus-operandi-theme-intense-standard-completions nil
+  "Use prominent backgrounds for Icomplete, Ido, or similar."
+  :type 'boolean)
+
 ;; Helper functions that are meant to ease the implementation of the
 ;; above customisation options.
 (defun modus-operandi-theme-heading-foreground (subtle rainbow)
@@ -543,6 +548,17 @@ INTENSE-FG should be one of the dedicated foregrounds for diffs"
   (if modus-operandi-theme-subtle-diffs
       (list :background subtle-bg :foreground subtle-fg)
     (list :background intense-bg :foreground intense-fg)))
+
+(defun modus-operandi-theme-completions (subtle-fg intense-bg intense-fg)
+  "Combinations for `modus-operandi-theme-intense-standard-completions'.
+
+SUBTLE-FG should be an appropriate accent value.  INTENSE-BG
+should be one of the accented backgrounds.  INTENSE-FG should be
+one of the foreground intended to be combined with the
+aforementioned background."
+  (if modus-operandi-theme-intense-standard-completions
+      (list :background intense-bg :foreground intense-fg)
+    (list :foreground subtle-fg)))
 
 (defun modus-operandi-theme-scale (amount)
   "Scale heading by AMOUNT.
@@ -1153,8 +1169,11 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(compilation-warning ((,class (:foreground ,yellow :weight ,modus-theme-bold))))
    ;;;; completions
    `(completions-annotations ((,class (:foreground ,fg-special-cold :slant ,modus-theme-slant))))
-   `(completions-common-part ((,class (:foreground ,cyan-alt-other))))
-   `(completions-first-difference ((,class (:foreground ,blue-alt-other :weight bold))))
+   `(completions-common-part ((,class (,@(modus-operandi-theme-completions
+                                        cyan-alt-other green-refine-bg green-refine-fg)))))
+   `(completions-first-difference ((,class (,@(modus-operandi-theme-completions
+                                               blue-alt-other blue-intense-bg fg-main)
+                                            :weight bold))))
    ;;;; counsel
    `(counsel-active-mode ((,class (:foreground ,magenta-alt-other))))
    `(counsel-application-name ((,class (:foreground ,red-alt-other))))
@@ -2010,14 +2029,20 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(hyperlist-tag ((,class (:foreground ,red))))
    `(hyperlist-toplevel ((,class (:foreground ,fg-main :weight bold))))
    ;;;; icomplete
-   `(icomplete-first-match ((,class (:foreground ,magenta :weight bold))))
+   `(icomplete-first-match ((,class (,@(modus-operandi-theme-completions
+                                        magenta magenta-intense-bg fg-main)
+                                      :weight bold))))
    ;;;; icomplete-vertical
    `(icomplete-vertical-separator ((,class (:foreground ,fg-alt))))
    ;;;; ido-mode
-   `(ido-first-match ((,class (:foreground ,magenta :weight bold))))
+   `(ido-first-match ((,class (,@(modus-operandi-theme-completions
+                                  magenta magenta-subtle-bg fg-main)
+                               :weight bold))))
    `(ido-incomplete-regexp ((,class (:inherit error))))
    `(ido-indicator ((,class (:inherit modus-theme-subtle-yellow))))
-   `(ido-only-match ((,class (:foreground ,magenta-intense :weight bold))))
+   `(ido-only-match ((,class (,@(modus-operandi-theme-completions
+                                 magenta-intense magenta-intense-bg fg-main)
+                              :weight bold))))
    `(ido-subdir ((,class (:foreground ,blue-alt-other))))
    `(ido-virtual ((,class (:foreground ,yellow-alt-other))))
    ;;;; iedit
@@ -2518,10 +2543,18 @@ Also bind `class' to ((class color) (min-colors 89))."
    ;;;; num3-mode
    `(num3-face-even ((,class (:background ,bg-alt :weight bold))))
    ;;;; orderless
-   `(orderless-match-face-0 ((,class (:foreground ,blue-alt :weight bold))))
-   `(orderless-match-face-1 ((,class (:foreground ,magenta-alt :weight bold))))
-   `(orderless-match-face-2 ((,class (:foreground ,green-alt-other :weight bold))))
-   `(orderless-match-face-3 ((,class (:foreground ,yellow-alt-other :weight bold))))
+   `(orderless-match-face-0 ((,class (,@(modus-operandi-theme-completions
+                                         blue-alt blue-refine-bg blue-refine-fg)
+                                      :weight bold))))
+   `(orderless-match-face-1 ((,class (,@(modus-operandi-theme-completions
+                                         magenta-alt magenta-refine-bg magenta-refine-fg)
+                                      :weight bold))))
+   `(orderless-match-face-2 ((,class (,@(modus-operandi-theme-completions
+                                         green-alt-other green-refine-bg green-refine-fg)
+                                      :weight bold))))
+   `(orderless-match-face-3 ((,class (,@(modus-operandi-theme-completions
+                                         yellow-alt-other yellow-refine-bg yellow-refine-fg)
+                                      :weight bold))))
    ;;;; org
    `(org-agenda-calendar-event ((,class (:foreground ,blue-alt))))
    `(org-agenda-calendar-sexp ((,class (:foreground ,cyan-alt))))

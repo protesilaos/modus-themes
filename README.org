@@ -356,6 +356,27 @@ The default is to use colour-coded backgrounds for line-wise highlights.
 which is, nonetheless, more subtle with this option than with its
 default equivalent.
 
+** Option for intense standard completions
+   :PROPERTIES:
+   :CUSTOM_ID: h:5b0b1e66-8287-4f3f-ba14-011c29320a3f
+   :END:
+
++ =modus-operandi-theme-intense-standard-completions=
++ =modus-vivendi-theme-intense-standard-completions=
+
+Display faces for built-in completion frameworks, such as =icomplete=,
+with a combination of background and foreground colours.  This covers
+every completion interface that either is part of the upstream Emacs
+distribution or extends some built-in library.  For example, =orderless=
+is a powerful completion style that can be used with core Emacs.  So it
+also is covered by this customisation option.
+
+With this enabled, Icomplete and others will use similar UI metaphors to
+those of =ivy=, =helm=, =selectrum= (among others).
+
+The default is to only use foreground colour values for the various
+matching characters or items of standard completion tools.
+
 ** Option for proportional fonts in headings
    :PROPERTIES:
    :CUSTOM_ID: h:33023fa6-6482-45d4-9b5e-3c73c945718f
