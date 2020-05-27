@@ -649,7 +649,7 @@ AMOUNT is a customisation option."
       ;; combined with any of the base backgrounds
       ("red-refine-bg" . "#77002a") ("red-refine-fg" . "#ffb9ab")
       ("green-refine-bg" . "#00422a") ("green-refine-fg" . "#9ff0cf")
-      ("yellow-refine-bg" . "#705000") ("yellow-refine-fg" . "#ffffac")
+      ("yellow-refine-bg" . "#693200") ("yellow-refine-fg" . "#e2d980")
       ("blue-refine-bg" . "#242679") ("blue-refine-fg" . "#8ec6ff")
       ("magenta-refine-bg" . "#71206a") ("magenta-refine-fg" . "#ffcaf0")
       ("cyan-refine-bg" . "#004065") ("cyan-refine-fg" . "#8ae4f2")
