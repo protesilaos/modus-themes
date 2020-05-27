@@ -743,6 +743,7 @@ the "full support" may not be 100% true…
 + highlight-blocks
 + highlight-defined
 + highlight-escape-sequences (=hes-mode=)
++ highlight-indentation
 + highlight-numbers
 + highlight-symbol
 + highlight-thing

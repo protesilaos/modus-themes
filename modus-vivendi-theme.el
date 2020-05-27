@@ -171,6 +171,7 @@
 ;;     highlight-blocks
 ;;     highlight-defined
 ;;     highlight-escape-sequences (`hes-mode')
+;;     highlight-indentation
 ;;     highlight-numbers
 ;;     highlight-symbol
 ;;     highlight-thing
@@ -2000,6 +2001,9 @@ Also bind `class' to ((class color) (min-colors 89))."
    ;;;; highlight-escape-sequences (`hes-mode')
    `(hes-escape-backslash-face ((,class (:foreground ,fg-escape-char-construct :weight bold))))
    `(hes-escape-sequence-face ((,class (:foreground ,fg-escape-char-backslash :weight bold))))
+   ;;;; highlight-indentation
+   `(highlight-indentation-face ((,class (:background ,bg-hl-line))))
+   `(highlight-indentation-current-column-face ((,class (:background ,bg-active))))
    ;;;; highlight-numbers
    `(highlight-numbers-number ((,class (:foreground ,blue-alt-other))))
    ;;;; highlight-symbol
