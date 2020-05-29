@@ -225,6 +225,14 @@ configured accordingly, such as TODO keywords which gain a box style.
 The default is to use only a subtle foreground and a bold weight for
 headings, while no boxes or {under,over}-line effects are present.
 
+Note that the background for sectioned headings will extend to the edge
+of the window.  To make it cover just the area occupied by the heading's
+text, use this:
+
+#+begin_src emacs-lisp
+(setq org-fontify-whole-heading-line nil)
+#+end_src
+
 ** Option for scaled headings
    :PROPERTIES:
    :CUSTOM_ID: h:db0275ea-11c2-47c9-82a9-10b65d8df0f8
