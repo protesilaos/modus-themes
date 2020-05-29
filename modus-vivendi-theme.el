@@ -1902,6 +1902,8 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(helm-comint-prompts-promptidx ((,class (:foreground ,cyan-active))))
    `(helm-delete-async-message ((,class (:foreground ,magenta-active :weight bold))))
    `(helm-eob-line ((,class (:background ,bg-main :foreground ,fg-main))))
+   `(helm-eshell-prompts-buffer-name ((,class (:foreground ,green-active))))
+   `(helm-eshell-prompts-promptidx ((,class (:foreground ,cyan-active))))
    `(helm-etags-file ((,class (:foreground ,fg-dim :underline t))))
    `(helm-ff-denied ((,class (:inherit modus-theme-intense-red))))
    `(helm-ff-directory ((,class (:inherit helm-buffer-directory))))
