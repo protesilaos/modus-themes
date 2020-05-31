@@ -904,6 +904,7 @@ inherit from some basic faces.  Please confirm.
 + comint
 + bongo
 + edit-indirect
++ swift-mode
 
 ** Help needed
    :PROPERTIES:
