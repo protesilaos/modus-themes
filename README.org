@@ -704,6 +704,7 @@ the "full support" may not be 100% true…
 + ebdb
 + ediff
 + eglot
++ el-search
 + eldoc-box
 + elfeed
 + elfeed-score
