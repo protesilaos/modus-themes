@@ -221,6 +221,7 @@
 ;;     neotree
 ;;     no-emoji
 ;;     num3-mode
+;;     nxml-mode
 ;;     orderless
 ;;     org
 ;;     org-journal
@@ -2554,6 +2555,31 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(no-emoji ((,class (:foreground ,cyan))))
    ;;;; num3-mode
    `(num3-face-even ((,class (:background ,bg-alt :weight bold))))
+   ;;;; nxml-mode
+   `(nxml-attribute-colon ((,class (:foreground ,fg-main))))
+   `(nxml-attribute-local-name ((,class (:foreground ,cyan-alt))))
+   `(nxml-attribute-prefix ((,class (:foreground ,cyan-alt-other :weight ,modus-theme-bold))))
+   `(nxml-attribute-value ((,class (:foreground ,blue))))
+   `(nxml-cdata-section-CDATA ((,class (:foreground ,red-alt :weight ,modus-theme-bold))))
+   `(nxml-cdata-section-delimiter ((,class (:foreground ,red-alt))))
+   `(nxml-char-ref-delimiter ((,class (:foreground ,green-alt-other))))
+   `(nxml-char-ref-number ((,class (:foreground ,green-alt-other :weight ,modus-theme-bold))))
+   `(nxml-delimited-data ((,class (:foreground ,fg-special-cold :slant ,modus-theme-slant))))
+   `(nxml-delimiter ((,class (:foreground ,fg-dim))))
+   `(nxml-element-colon ((,class (:foreground ,fg-main))))
+   `(nxml-element-local-name ((,class (:foreground ,magenta))))
+   `(nxml-element-prefix ((,class (:foreground ,magenta-alt :weight ,modus-theme-bold))))
+   `(nxml-entity-ref-delimiter ((,class (:foreground ,green-alt-other))))
+   `(nxml-entity-ref-name ((,class (:foreground ,green-alt-other :weight ,modus-theme-bold))))
+   `(nxml-glyph ((,class (:inherit modus-theme-intense-neutral))))
+   `(nxml-hash ((,class (:foreground ,blue-alt :weight ,modus-theme-bold))))
+   `(nxml-heading ((,class (:weight bold))))
+   `(nxml-name ((,class (:foreground ,magenta-alt :weight ,modus-theme-bold))))
+   `(nxml-namespace-attribute-colon ((,class (:foreground ,fg-main))))
+   `(nxml-namespace-attribute-prefix ((,class (:foreground ,cyan))))
+   `(nxml-processing-instruction-target ((,class (:foreground ,magenta-alt-other :weight ,modus-theme-bold))))
+   `(nxml-prolog-keyword ((,class (:foreground ,magenta-alt-other :weight ,modus-theme-bold))))
+   `(nxml-ref ((,class (:foreground ,green-alt-other :weight ,modus-theme-bold))))
    ;;;; orderless
    `(orderless-match-face-0 ((,class (,@(modus-operandi-theme-completions
                                          blue-alt blue-refine-bg blue-refine-fg)
