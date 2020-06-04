@@ -6,6 +6,159 @@ This document contains the release notes that are included in each
 tagged commit on https://gitlab.com/protesilaos/modus-themes.  The
 newest release is at the top.
 
+* 0.9.0
+
+Modus Operandi and Modus Vivendi version 0.9.0
+
+By Protesilaos Stavrou <info@protesilaos.com> on 2020-06-03
+
+This entry records the changes since version 0.8.0 (2020-04-28).  The
+present release contains about 50 commits, covering a month of active
+development.
+
+All changes are aligned with the primary objective of this project,
+which is conformance with the WCAG AAA accessibility standard for colour
+contrast.  This translates to a minimum contrast ratio of 7:1 between a
+given combination of foreground and background colours.  The highest
+standard of its kind.
+
+All customisation options that are booleans are off ('nil') by default.
+The project's policy is to offer such features on an "opt-in" basis,
+while always respecting the principle of least surprise.
+
+Refer to the README for further information on the exact names of
+symbols and the like.
+
+New customisation options
+-------------------------
+
++ It is now possible to make the faces of Icomplete, Ido, and a few
+  other related tools such as 'orderless', use coloured backgrounds to
+  style their feedback.  This is the aesthetic already in effect for
+  Ivy, Helm, and Selectrum.  The default is more subtle, in that it uses
+  just an accented foreground value without any added background.
+
++ Advanced users can now override both the exact values of colour
+  variables, as well as the mapping of properties/variables to faces.
+  In practice this means that it is possible to completely change parts
+  of the theme (or the entirety of it for that matter).  It also means
+  that users can simply access the theme's palette for the sake of
+  correctly passing the appropriate value to some bespoke face of
+  theirs.
+
++ An extra increment for scaled headings is now available.  This should
+  hold the highest value on the scale.  Such variables only take effect
+  when the user opts for the "scaled headings" option.
+
+Overview of changes
+-------------------
+
++ A set of internal reforms were carried through in order to allow the
+  colour palette to be accessed from user configuration files.  This
+  required a lot of debugging work to make sure the themes compile
+  properly and performance is not affected.
+
+  - The original idea for this redesign was suggested by Len Trigg in
+    issue 39: https://gitlab.com/protesilaos/modus-themes/-/issues/39.
+    Len also provided a real-world implementation of this new option,
+    which is included in the project's README.
+
+  - André Alexandre Gomes helped figure out the problems caused by the
+    initial design of this feature.  In particular, André identified a
+    performance penalty as well as errors pertaining to byte
+    compilation.  Everything was eventually resolved.  For more see
+    issue 44: https://gitlab.com/protesilaos/modus-themes/-/issues/44.
+
++ Several org-mode faces were reviewed in order to cope well with mixed
+  font settings.  This is about use-cases where the main typeface is
+  proportionately-spaced, either by default or by some minor mode like
+  the built-in 'variable-pitch-mode'.  The intent of configuring those
+  faces is to make them always inherit a fixed-pitch (monospace) font
+  family, in the interest of preserving the alignment of elements.  The
+  idea, suggested code, as well as user feedback were offered by Ben in
+  issue 40: https://gitlab.com/protesilaos/modus-themes/-/issues/40.
+
++ Mixed font settings may have some side-effects depending on user
+  configurations.  This is unavoidable as we cannot control how users
+  define their fonts.  Mark Barton reported one such case, while he was
+  able to fix it by making use of the suggested typeface definitions.
+  See issue 42: https://gitlab.com/protesilaos/modus-themes/-/issues/42.
+
++ The faces for the 'tab-bar-mode' and 'tab-line-mode' that ship with
+  Emacs 27 were written anew.  Same for those of 'centaur-tabs'.  The
+  ideas for the redesign as well as the overall aesthetic are Ben's, per
+  issue 41: https://gitlab.com/protesilaos/modus-themes/-/issues/41.
+
++ An edge case with Helm's interpretation of colour values for its
+  ripgrep interface was reported by Manuel Uberti in issue 49:
+  https://gitlab.com/protesilaos/modus-themes/-/issues/49.  It
+  essentially had to do with the syntax for the regexp engine as read by
+  the underlying 'rg' executable.  Collaboration on that front
+  eventually led to fixes in Helm itself, committed by its maintainer.
+  Note that the README for the Modus themes already contains information
+  on how Helm applies a face to the matches of grep or grep-like
+  commands.  Issue 49 confirmed what was already known in that regard
+  (i.e. that the "--color=never" command-line option is required to use
+  the Helm face, else a colour value from the ANSI colour vector is
+  used---both are supported by the themes).
+
++ The faces for Flycheck, Flymake, and Flyspell that would apply an
+  underline effect were completely rewritten to account for relevant
+  differences between GUI and TUI Emacs.
+
+  - For GUI Emacs, all affected faces will now just use a colour-coded
+    wavy underline.  Empowered by the introduction of dedicated
+    linter-related colours in prior commits (for version 0.8.0), we no
+    longer have to change the foreground value of the offending text in
+    addition to applying the underline effect.  Whereas before the text
+    would also get repainted, which was too intrusive in most
+    circumstances.
+
+  - If support for wavy underlines is not available, we assume the
+    presence of a TUI, which generally is relatively more limited in its
+    ability to reproduce colours with precision (meaning that the
+    dedicated linter colour could be distorted, potentially producing
+    inaccessible combinations).  So for those cases we apply a straight
+    underline combined with a colour-coded foreground for the affected
+    text.  This makes it more intense compared to the GUI equivalent,
+    but is the necessary course of action to overcome the constraints
+    imposed by the underlying terminal.
+
++ The palette of Modus Operandi underwent lots of subtle changes to make
+  the background value of hl-line-mode more visible while retaining the
+  overall style and character of the theme.  In principle, you should
+  not be able to tell the difference, unless presented with a careful
+  side-by-side comparison.  This is the comprehensive report, including
+  a reproducible org-mode document with all the relevant contrast ratios:
+  https://protesilaos.com/codelog/2020-05-10-modus-operandi-palette-review/.
+
++ Fixed `org-hide' to actually "hide" by using the appropriate colour
+  value.
+
++ Several other face groups received minor tweaks.
+
++ The README was improved to better present the available customisation
+  options and to cover other topics of interest.
+
++ Updated the screen shots and their description in the relevant Wiki
+  page: https://gitlab.com/protesilaos/modus-themes/-/wikis/Screenshots.
+
+Added support for
+-----------------
+
++ circe
++ el-search
++ eros
++ golden-ratio-scroll-screen
++ highlight-indentation
++ hyperlist
++ indium
++ journalctl-mode
++ minimap
++ nxml-mode
++ vdiff
++ yasnippet
+
 * 0.8.0
 
 Modus Operandi and Modus Vivendi version 0.8.0
