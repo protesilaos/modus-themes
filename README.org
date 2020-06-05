@@ -793,6 +793,7 @@ the "full support" may not be 100% true…
 + markup-faces (=adoc-mode=)
 + mentor
 + messages
++ minibuffer-line
 + minimap
 + modeline
 + mood-line
