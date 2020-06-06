@@ -112,7 +112,7 @@ snippet:
 Make sure to /remove any other theme/ that is being loaded, otherwise you
 might run into unexpected issues (you can also =M-x disable-theme=).
 
-*** Load depending on the time of the day
+*** Load at a given time or at sunset/sunrise
     :PROPERTIES:
     :CUSTOM_ID: h:4e936e31-e9eb-4b50-8fdd-45d827a03cca
     :END:
@@ -124,16 +124,39 @@ themes when the time comes.
 #+begin_src emacs-lisp
 ;; Light for the day
 (load-theme 'modus-operandi t t)
-(run-at-time "05:00" (* 60 60 24) (lambda () (enable-theme 'modus-operandi)))
+(run-at-time "05:00" (* 60 60 24)
+             (lambda () (enable-theme 'modus-operandi)))
 
 ;; Dark for the night
 (load-theme 'modus-vivendi t t)
-(run-at-time "21:00" (* 60 60 24) (lambda () (enable-theme 'modus-vivendi)))
+(run-at-time "21:00" (* 60 60 24)
+             (lambda () (enable-theme 'modus-vivendi)))
 #+end_src
 
-Note that the =load-theme= here is slightly different than the one in the
-section right above, because it does not enable the theme directly (the
-subsequent =enable-theme= does that when needed).
+A modified version of the above technique was contributed by André
+Alexandre Gomes.  If you set =calendar-latitude= and =calendar-longitude=
+(defined in the built-in =solar.el= library) in your =init.el=, you can
+automatically switch between both themes at sunrise and sunset.  Note
+that /those calendar variables need to be set before loading the themes/.
+
+#+begin_src emacs-lisp
+;; Light at sunrise
+(load-theme 'modus-operandi t t)
+(run-at-time (nth 1 (split-string (sunrise-sunset)))
+             (* 60 60 24)
+             (lambda () (enable-theme 'modus-operandi)))
+
+;; Dark at sunset
+(load-theme 'modus-vivendi t t)
+(run-at-time (nth 4 (split-string (sunrise-sunset)))
+             (* 60 60 24)
+             (lambda () (enable-theme 'modus-vivendi)))
+#+end_src
+
+For the sake of completeness, the =load-theme= call in these snippets is
+slightly different than the one in the section right above, because it
+does not enable the theme directly: the subsequent =enable-theme= does
+that when needed.
 
 * Customisation options
   :PROPERTIES:
