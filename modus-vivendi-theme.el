@@ -3057,7 +3057,7 @@ Also bind `class' to ((class color) (min-colors 89))."
        (:foreground ,fg-lang-error :underline (:style wave)))
       (,class (:foreground ,fg-lang-error :underline t))))
    ;;;; stripes
-   `(stripes ((,class (:background ,bg-alt))))
+   `(stripes ((,class (:background ,bg-hl-line))))
    ;;;; success
    `(suggest-heading ((,class (:foreground ,yellow-alt-other :weight bold))))
    ;;;; switch-window
