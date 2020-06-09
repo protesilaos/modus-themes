@@ -576,7 +576,7 @@ AMOUNT is a customisation option."
 ;; The design of the colour palette and of the macro that maps it to
 ;; faces is copied from zenbern-theme.el from commit 7dd7968:
 ;; https://github.com/bbatsov/zenburn-emacs
-(eval-when-compile
+(eval-and-compile
   (defvar modus-vivendi-theme-default-colors-alist
     '(;; base values
       ("bg-main" . "#000000") ("fg-main" . "#ffffff")
