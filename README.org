@@ -133,8 +133,8 @@ themes when the time comes.
              (lambda () (enable-theme 'modus-vivendi)))
 #+end_src
 
-A modified version of the above technique was contributed by André
-Alexandre Gomes.  If you set =calendar-latitude= and =calendar-longitude=
+A modified version of the above technique was contributed by [[https://gitlab.com/aadcg][André
+Alexandre Gomes]].  If you set =calendar-latitude= and =calendar-longitude=
 (defined in the built-in =solar.el= library) in your =init.el=, you can
 automatically switch between both themes at sunrise and sunset.  Note
 that /those calendar variables need to be set before loading the themes/.
