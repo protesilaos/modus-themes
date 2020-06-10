@@ -2597,7 +2597,7 @@ Also bind `class' to ((class color) (min-colors 89))."
                                          yellow-alt-other yellow-refine-bg yellow-refine-fg)
                                       :weight bold))))
    ;;;; org
-   `(org-agenda-calendar-event ((,class (:foreground ,blue-alt))))
+   `(org-agenda-calendar-event ((,class (:foreground ,fg-main))))
    `(org-agenda-calendar-sexp ((,class (:foreground ,cyan-alt))))
    `(org-agenda-clocking ((,class (:inherit modus-theme-special-cold))))
    `(org-agenda-column-dateline ((,class (:inherit modus-theme-subtle-neutral))))
@@ -2609,7 +2609,7 @@ Also bind `class' to ((class color) (min-colors 89))."
                                               ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-4)))))
    `(org-agenda-date-weekend ((,class (:inherit ,modus-theme-variable-pitch :foreground ,fg-alt
                                                 ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-4)))))
-   `(org-agenda-diary ((,class (:background ,bg-main :foreground ,fg-main))))
+   `(org-agenda-diary ((,class (:foreground ,fg-main))))
    `(org-agenda-dimmed-todo-face ((,class (:inherit modus-theme-subtle-neutral))))
    `(org-agenda-done ((,class (,@(modus-vivendi-theme-org-todo-block green-nuanced-bg green-nuanced green)))))
    `(org-agenda-filter-category ((,class (:background ,bg-active :foreground ,fg-main :box t))))
@@ -2639,7 +2639,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-code ((,class (:inherit fixed-pitch :foreground ,magenta))))
    `(org-column ((,class (:background ,bg-alt))))
    `(org-column-title ((,class (:underline t :background ,bg-alt :weight bold))))
-   `(org-date ((,class (:foreground ,blue-nuanced))))
+   `(org-date ((,class (:foreground ,blue-nuanced :underline t))))
    `(org-date-selected ((,class (:inherit modus-theme-intense-cyan :weight bold))))
    `(org-default ((,class (:background ,bg-main :foreground ,fg-main))))
    `(org-document-info ((,class (:foreground ,fg-special-cold))))
