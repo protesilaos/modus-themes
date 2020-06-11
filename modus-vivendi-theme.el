@@ -2639,7 +2639,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-code ((,class (:inherit fixed-pitch :foreground ,magenta))))
    `(org-column ((,class (:background ,bg-alt))))
    `(org-column-title ((,class (:underline t :background ,bg-alt :weight bold))))
-   `(org-date ((,class (:foreground ,blue-nuanced :underline t))))
+   `(org-date ((,class (:foreground ,cyan-alt-other :underline t))))
    `(org-date-selected ((,class (:inherit modus-theme-intense-cyan :weight bold))))
    `(org-default ((,class (:background ,bg-main :foreground ,fg-main))))
    `(org-document-info ((,class (:foreground ,fg-special-cold))))
