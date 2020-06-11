@@ -2628,7 +2628,8 @@ Also bind `class' to ((class color) (min-colors 89))."
                                            '(:extend t))
                                     :inherit fixed-pitch :background ,bg-alt :foreground ,fg-special-mild))))
    `(org-block-end-line ((,class (:inherit org-block-begin-line))))
-   `(org-checkbox ((,class (:weight bold))))
+   `(org-checkbox ((,class (:box (:line-width 1 :color ,bg-active)
+                                 :background ,bg-inactive :foreground ,fg-active))))
    `(org-checkbox-statistics-done ((,class (:foreground ,green
                                                         ,@(modus-vivendi-theme-heading-block
                                                            green-nuanced-bg green-nuanced)))))
