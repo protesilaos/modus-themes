@@ -2635,9 +2635,9 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-checkbox-statistics-done ((,class (:foreground ,green
                                                         ,@(modus-vivendi-theme-heading-block
                                                            green-nuanced-bg green-nuanced)))))
-   `(org-checkbox-statistics-todo ((,class (:foreground ,yellow
+   `(org-checkbox-statistics-todo ((,class (:foreground ,red-alt
                                                         ,@(modus-vivendi-theme-heading-block
-                                                           yellow-nuanced-bg yellow-nuanced)))))
+                                                           red-nuanced-bg red-nuanced)))))
    `(org-clock-overlay ((,class (:inherit modus-theme-special-cold))))
    `(org-code ((,class (:inherit fixed-pitch :foreground ,magenta))))
    `(org-column ((,class (:background ,bg-alt))))
@@ -2716,8 +2716,8 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-tag-group ((,class (:foreground ,cyan-nuanced :weight bold))))
    `(org-target ((,class (:underline t))))
    `(org-time-grid ((,class (:foreground ,fg-unfocused))))
-   `(org-todo ((,class (,@(modus-vivendi-theme-org-todo-block magenta-nuanced-bg magenta-nuanced magenta-alt-other)
-                        ,@(modus-vivendi-theme-heading-foreground magenta-alt-other red-alt-other)))))
+   `(org-todo ((,class (,@(modus-vivendi-theme-org-todo-block red-nuanced-bg red-nuanced red-alt)
+                        ,@(modus-vivendi-theme-heading-foreground red-alt red-alt-other)))))
    `(org-upcoming-deadline ((,class (:foreground ,red-alt-other))))
    `(org-upcoming-distant-deadline ((,class (:foreground ,red-nuanced))))
    `(org-verbatim ((,class (:inherit fixed-pitch :background ,bg-alt :foreground ,fg-special-calm))))
