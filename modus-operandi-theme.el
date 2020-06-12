@@ -2602,13 +2602,15 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-agenda-clocking ((,class (:inherit modus-theme-special-cold))))
    `(org-agenda-column-dateline ((,class (:inherit modus-theme-subtle-neutral))))
    `(org-agenda-current-time ((,class (:inherit modus-theme-intense-cyan))))
-   `(org-agenda-date ((,class (:inherit ,modus-theme-variable-pitch :foreground ,fg-main
-                                        ,@(modus-operandi-theme-scale modus-operandi-theme-scale-4)))))
+   `(org-agenda-date ((,class (:inherit ,modus-theme-variable-pitch :foreground ,cyan-alt-other
+                                        ,@(modus-operandi-theme-scale modus-operandi-theme-scale-4)
+                                        ,@(modus-operandi-theme-heading-block cyan-nuanced-bg cyan-nuanced)))))
    `(org-agenda-date-today ((,class (:inherit ,modus-theme-variable-pitch :background ,cyan-subtle-bg
                                               :foreground ,fg-main :weight bold
                                               ,@(modus-operandi-theme-scale modus-operandi-theme-scale-4)))))
-   `(org-agenda-date-weekend ((,class (:inherit ,modus-theme-variable-pitch :foreground ,fg-alt
-                                                ,@(modus-operandi-theme-scale modus-operandi-theme-scale-4)))))
+   `(org-agenda-date-weekend ((,class (:inherit ,modus-theme-variable-pitch :foreground ,cyan
+                                        ,@(modus-operandi-theme-scale modus-operandi-theme-scale-4)
+                                        ,@(modus-operandi-theme-heading-block blue-nuanced-bg cyan-nuanced)))))
    `(org-agenda-diary ((,class (:foreground ,fg-main))))
    `(org-agenda-dimmed-todo-face ((,class (:inherit modus-theme-subtle-neutral))))
    `(org-agenda-done ((,class (,@(modus-operandi-theme-org-todo-block green-nuanced-bg green-nuanced green)))))
@@ -2713,7 +2715,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-tag ((,class (:foreground ,magenta-nuanced :weight normal))))
    `(org-tag-group ((,class (:foreground ,cyan-nuanced :weight bold))))
    `(org-target ((,class (:underline t))))
-   `(org-time-grid ((,class (:foreground ,cyan-nuanced))))
+   `(org-time-grid ((,class (:foreground ,fg-unfocused))))
    `(org-todo ((,class (,@(modus-operandi-theme-org-todo-block magenta-nuanced-bg magenta-nuanced magenta-alt-other)
                         ,@(modus-operandi-theme-heading-foreground magenta-alt-other red-alt-other)))))
    `(org-upcoming-deadline ((,class (:foreground ,red-alt-other))))
