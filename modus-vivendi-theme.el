@@ -2648,8 +2648,8 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-default ((,class (:background ,bg-main :foreground ,fg-main))))
    `(org-document-info ((,class (:foreground ,fg-special-cold))))
    `(org-document-info-keyword ((,class (:inherit fixed-pitch :foreground ,fg-alt))))
-   `(org-document-title ((,class (,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-5)
-                                  :foreground ,fg-special-cold :weight bold))))
+   `(org-document-title ((,class (:inherit ,modus-theme-variable-pitch :foreground ,fg-special-cold :weight bold
+                                  ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-5)))))
    `(org-done ((,class (,@(modus-vivendi-theme-org-todo-block green-nuanced-bg green-nuanced green)))))
    `(org-drawer ((,class (:foreground ,cyan-alt))))
    `(org-ellipsis ((,class (:foreground nil)))) ; inherits from the heading's colour
