@@ -2085,11 +2085,21 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(indium-repl-stdout-face ((,class (:foreground ,fg-main))))
    ;;;; info
    `(Info-quoted ((,class (:foreground ,magenta)))) ; the capitalisation is canonical
-   `(info-header-node ((,class (:foreground ,fg-special-warm))))
+   `(info-header-node ((,class (:foreground ,fg-alt :weight bold))))
    `(info-header-xref ((,class (:foreground ,blue-active))))
    `(info-index-match ((,class (:inherit match))))
+   `(info-menu-header ((,class (:inherit ,modus-theme-variable-pitch :foreground ,fg-main :weight bold
+                                         ,@(modus-operandi-theme-scale modus-operandi-theme-scale-2)))))
    `(info-menu-star ((,class (:foreground ,fg-main))))
    `(info-node ((,class (:weight bold))))
+   `(info-title-1 ((,class (:inherit ,modus-theme-variable-pitch :foreground ,fg-main :weight bold
+                                     ,@(modus-operandi-theme-scale modus-operandi-theme-scale-4)))))
+   `(info-title-2 ((,class (:inherit ,modus-theme-variable-pitch :foreground ,fg-special-warm :weight bold
+                                     ,@(modus-operandi-theme-scale modus-operandi-theme-scale-3)))))
+   `(info-title-3 ((,class (:inherit ,modus-theme-variable-pitch :foreground ,fg-special-cold :weight bold
+                                     ,@(modus-operandi-theme-scale modus-operandi-theme-scale-2)))))
+   `(info-title-4 ((,class (:inherit ,modus-theme-variable-pitch :foreground ,fg-special-mild :weight bold
+                                     ,@(modus-operandi-theme-scale modus-operandi-theme-scale-1)))))
    ;;;; info-colors
    `(info-colors-lisp-code-block ((,class (:inherit fixed-pitch))))
    `(info-colors-ref-item-command ((,class (:foreground ,magenta))))
