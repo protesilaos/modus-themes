@@ -1527,9 +1527,9 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(epa-mark ((,class (:foreground ,magenta :weight bold))))
    `(epa-string ((,class (:foreground ,blue-alt))))
    `(epa-validity-disabled ((,class (:inherit modus-theme-refine-red))))
-   `(epa-validity-high ((,class (:foreground ,cyan :weight bold))))
+   `(epa-validity-high ((,class (:foreground ,green-alt-other :weight bold))))
    `(epa-validity-low ((,class (:foreground ,fg-alt))))
-   `(epa-validity-medium ((,class (:foreground ,yellow))))
+   `(epa-validity-medium ((,class (:foreground ,green-alt))))
    ;;;; equake
    `(equake-buffer-face ((,class (:background ,bg-main :foreground ,fg-main))))
    `(equake-shell-type-eshell ((,class (:background ,bg-inactive :foreground ,green-active))))
