@@ -1581,7 +1581,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(eshell-ls-special ((,class (:foreground ,magenta :weight bold))))
    `(eshell-ls-symlink ((,class (:foreground ,cyan :underline t))))
    `(eshell-ls-unreadable ((,class (:background ,bg-inactive :foreground ,fg-inactive))))
-   `(eshell-prompt ((,class (:foreground ,cyan-alt-other :weight ,modus-theme-bold))))
+   `(eshell-prompt ((,class (:foreground ,green-alt-other :weight ,modus-theme-bold))))
    ;;;; evil-mode
    `(evil-ex-commands ((,class (:foreground ,magenta-alt-other))))
    `(evil-ex-info ((,class (:foreground ,cyan-alt-other))))
