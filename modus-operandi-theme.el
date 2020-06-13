@@ -2448,7 +2448,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(message-cited-text-3 ((,class (:foreground ,yellow))))
    `(message-cited-text-4 ((,class (:foreground ,red))))
    `(message-header-cc ((,class (:foreground ,blue-alt))))
-   `(message-header-name ((,class (:foreground ,cyan-alt))))
+   `(message-header-name ((,class (:foreground ,green-alt-other))))
    `(message-header-newsgroups ((,class (:foreground ,blue :weight bold))))
    `(message-header-other ((,class (:foreground ,cyan-alt-other :weight bold))))
    `(message-header-subject ((,class (:foreground ,magenta-alt-other :weight bold))))
