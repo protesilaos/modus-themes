@@ -1313,9 +1313,9 @@ Also bind `class' to ((class color) (min-colors 89))."
                                  bg-alt blue-alt
                                  bg-diff-heading fg-diff-heading))))
    `(diff-index ((,class (:foreground ,blue-alt :weight bold))))
-   `(diff-indicator-added ((,class (:inherit modus-theme-diff-focus-added))))
-   `(diff-indicator-changed ((,class (:inherit modus-theme-diff-focus-changed))))
-   `(diff-indicator-removed ((,class (:inherit modus-theme-diff-focus-removed))))
+   `(diff-indicator-added ((,class (:inherit diff-added))))
+   `(diff-indicator-changed ((,class (:inherit diff-changed))))
+   `(diff-indicator-removed ((,class (:inherit diff-removed))))
    `(diff-nonexistent ((,class (:inherit modus-theme-neutral :weight bold))))
    `(diff-refine-added ((,class ,(modus-operandi-theme-diffs
                                   bg-diff-added fg-diff-added
