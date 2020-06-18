@@ -504,6 +504,56 @@ Example:
         ("magenta-alt-other" . "#bbaaff")))
 #+end_src
 
+You can then use this as a basis for creating a spin-off theme, such as
+what [[https://gitlab.com/protesilaos/modus-themes/-/issues/45][Vincent Foley did in issue 45]].  The customisations were used to
+emulate the aesthetic of Vincent's [[https://github.com/gnuvince/purp][purp theme]].
+
+Excerpt of what was used in issue 45:
+
+#+begin_src emacs-lisp
+(use-package modus-operandi-theme
+  :ensure t
+  :config
+  (defun customize-modus-operandi ()
+    (when (member 'modus-operandi custom-enabled-themes)
+      (setq modus-operandi-theme-override-colors-alist
+            '(("magenta" . "#ff00ff"))) ; Redefine the value of the `magenta' variable
+      (modus-operandi-theme-with-color-variables
+        (custom-theme-set-faces
+         'modus-operandi
+         `(font-lock-builtin-face              ((t (:background ,bg-main :foreground ,fg-main))))
+         `(font-lock-comment-delimiter-face    ((t (:background ,bg-main :foreground ,green))))
+         `(font-lock-comment-face              ((t (:background ,bg-main :foreground ,green))))
+         `(font-lock-constant-face             ((t (:background ,bg-main :foreground ,fg-main))))
+         `(font-lock-doc-face                  ((t (:background ,bg-main :foreground ,green))))
+         `(font-lock-function-name-face        ((t (:background ,bg-main :foreground ,magenta)))) ; gets the value from the above alist
+         `(font-lock-keyword-face              ((t (:background ,bg-main :foreground ,fg-main))))
+         `(font-lock-negation-char-face        ((t (:background ,bg-main :foreground ,fg-main))))
+         `(font-lock-preprocessor-face         ((t (:background ,bg-main :foreground ,fg-main))))
+         `(font-lock-regexp-grouping-backslash ((t (:background ,bg-main :foreground ,fg-main))))
+         `(font-lock-regexp-grouping-construct ((t (:background ,bg-main :foreground ,fg-main))))
+         `(font-lock-string-face               ((t (:background ,bg-main :foreground ,yellow))))
+         `(font-lock-type-face                 ((t (:background ,bg-main :foreground ,fg-main))))
+         `(font-lock-variable-name-face        ((t (:background ,bg-main :foreground ,fg-main))))
+         `(font-lock-warning-face              ((t (:weight bold :background ,bg-main :foreground ,red))))
+         ))))
+  (add-hook 'after-load-theme-hook 'customize-modus-operandi))
+#+end_src
+
+The code for the bespoke =after-load-theme-hook= could be something like
+the following (courtesy of the [[https://github.com/seagle0128/.emacs.d/blob/master/lisp/init-funcs.el][Centaur Emacs project]]):
+
+#+begin_src emacs-lisp
+(defvar after-load-theme-hook nil
+  "Hook run after a color theme is loaded using `load-theme'.")
+
+(defun run-after-load-theme-hook (&rest _)
+  "Run `after-load-theme-hook'."
+  (run-hooks 'after-load-theme-hook))
+
+(advice-add #'load-theme :after #'run-after-load-theme-hook)
+#+end_src
+
 *** Option 2 to apply colour variables to faces
     :PROPERTIES:
     :CUSTOM_ID: h:9754abfd-c890-4af3-91a8-1a2cb2b5be44
@@ -574,19 +624,8 @@ Perhaps you want something simpler, such as a nice style for the cursor:
    `(cursor ((t (:background ,green-alt))))))
 #+end_src
 
-The code for the bespoke =after-load-theme-hook= could be something like
-the following (courtesy of the [[https://github.com/seagle0128/.emacs.d/blob/master/lisp/init-funcs.el][Centaur Emacs project]]):
-
-#+begin_src emacs-lisp
-(defvar after-load-theme-hook nil
-  "Hook run after a color theme is loaded using `load-theme'.")
-
-(defun run-after-load-theme-hook (&rest _)
-  "Run `after-load-theme-hook'."
-  (run-hooks 'after-load-theme-hook))
-
-(advice-add #'load-theme :after #'run-after-load-theme-hook)
-#+end_src
+Remember that the =after-load-theme-hook= is not built into Emacs.  The
+code for it was shown under heading [[#h:149e23b6-ada1-480f-95cd-c56fb40999b5][Option 1 to redefine colour values]].
 
 If you need more ideas check how I configure the themes in [[https://gitlab.com/protesilaos/dotemacs][my dotemacs]].
 If something is not clear or not working as intended, please let me
