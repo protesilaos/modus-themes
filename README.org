@@ -526,24 +526,38 @@ Len's sample package declaration (with comments by me):
 
 #+begin_src emacs-lisp
 (use-package modus-vivendi-theme
-  :init                                 ; enable some of the customisation options before loading the theme
+  :init
+  ;; enable some of the customisation options before loading the theme
   (setq modus-vivendi-theme-visible-fringe t
         modus-vivendi-theme-3d-modeline t)
   :config
-  (defun customize-modus-vivendi ()     ; function that passes further customisations to the theme
+  (defun customize-modus-vivendi ()
     "Customize modus-vivendi theme"
     (if (member 'modus-vivendi custom-enabled-themes)
-        (modus-vivendi-theme-with-color-variables ; this macro allows us to access the colour palette
+        ;; this macro allows us to access the colour palette
+        (modus-vivendi-theme-with-color-variables
          (custom-theme-set-faces
           'modus-vivendi
-          `(magit-branch-current ((((supports :box t)) (:foreground ,blue-alt-other :background ,bg-alt :box t)) ; use a box property if possible and also apply a background
-                                  (t (:foreground ,blue-alt-other :background ,bg-alt :underline t)))) ; use an underline if the box is not available
-          `(magit-branch-remote-head ((((supports :box t)) (:foreground ,magenta-alt-other :background ,bg-alt :box t))
-                                      (t (:foreground ,magenta-alt-other :background ,bg-alt :underline t))))
-
+          `(magit-branch-current
+            ((;; use a box property if the current display terminal
+              ;; supports it and also apply a background
+              ((supports :box t))
+              (:foreground ,blue-alt-other :background ,bg-alt :box t))
+             (t
+              ;; use an underline if instead of a box for other
+              ;; terminals
+              (:foreground ,blue-alt-other :background ,bg-alt :underline t))))
+          `(magit-branch-remote-head
+            ((((supports :box t))
+              (:foreground ,magenta-alt-other :background ,bg-alt :box t))
+             (t
+              (:foreground ,magenta-alt-other :background ,bg-alt :underline t))))
           ))))
-  (add-hook 'after-load-theme-hook 'customize-modus-vivendi) ; invoke the above function when appropriate in order to override the styles of the desired faces
-  (load-theme 'modus-vivendi t))                             ; load the theme
+  ;; invoke the above function when appropriate in order to override the
+  ;; styles of the desired faces
+  (add-hook 'after-load-theme-hook 'customize-modus-vivendi)
+  ;; load the theme
+  (load-theme 'modus-vivendi t))
 #+end_src
 
 Perhaps you want something simpler, such as a nice style for the cursor:
@@ -557,7 +571,7 @@ Perhaps you want something simpler, such as a nice style for the cursor:
 (modus-vivendi-theme-with-color-variables
   (custom-theme-set-faces
    'modus-vivendi
-   `(cursor ((t (:background ,red-alt))))))
+   `(cursor ((t (:background ,green-alt))))))
 #+end_src
 
 The code for the bespoke =after-load-theme-hook= could be something like
