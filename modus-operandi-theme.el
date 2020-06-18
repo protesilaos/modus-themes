@@ -1173,7 +1173,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    ;;;; completions
    `(completions-annotations ((,class (:foreground ,fg-special-cold :slant ,modus-theme-slant))))
    `(completions-common-part ((,class (,@(modus-operandi-theme-completions
-                                        cyan-alt-other green-refine-bg green-refine-fg)))))
+                                          cyan-alt-other green-refine-bg green-refine-fg)))))
    `(completions-first-difference ((,class (,@(modus-operandi-theme-completions
                                                blue-alt-other blue-intense-bg fg-main)
                                             :weight bold))))
@@ -2046,7 +2046,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    ;;;; icomplete
    `(icomplete-first-match ((,class (,@(modus-operandi-theme-completions
                                         magenta magenta-intense-bg fg-main)
-                                      :weight bold))))
+                                     :weight bold))))
    ;;;; icomplete-vertical
    `(icomplete-vertical-separator ((,class (:foreground ,fg-alt))))
    ;;;; ido-mode
@@ -2620,8 +2620,8 @@ Also bind `class' to ((class color) (min-colors 89))."
                                               :foreground ,fg-main :weight bold
                                               ,@(modus-operandi-theme-scale modus-operandi-theme-scale-4)))))
    `(org-agenda-date-weekend ((,class (:inherit ,modus-theme-variable-pitch :foreground ,cyan
-                                        ,@(modus-operandi-theme-scale modus-operandi-theme-scale-4)
-                                        ,@(modus-operandi-theme-heading-block blue-nuanced-bg cyan-nuanced)))))
+                                                ,@(modus-operandi-theme-scale modus-operandi-theme-scale-4)
+                                                ,@(modus-operandi-theme-heading-block blue-nuanced-bg cyan-nuanced)))))
    `(org-agenda-diary ((,class (:foreground ,fg-main))))
    `(org-agenda-dimmed-todo-face ((,class (:inherit modus-theme-subtle-neutral))))
    `(org-agenda-done ((,class (,@(modus-operandi-theme-org-todo-block green-nuanced-bg green-nuanced green)))))
@@ -2659,7 +2659,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-document-info ((,class (:foreground ,fg-special-cold))))
    `(org-document-info-keyword ((,class (:inherit fixed-pitch :foreground ,fg-alt))))
    `(org-document-title ((,class (:inherit ,modus-theme-variable-pitch :foreground ,fg-special-cold :weight bold
-                                  ,@(modus-operandi-theme-scale modus-operandi-theme-scale-5)))))
+                                           ,@(modus-operandi-theme-scale modus-operandi-theme-scale-5)))))
    `(org-done ((,class (,@(modus-operandi-theme-org-todo-block green-nuanced-bg green-nuanced green)))))
    `(org-drawer ((,class (:foreground ,cyan-alt))))
    `(org-ellipsis ((,class (:foreground nil)))) ; inherits from the heading's colour
@@ -3452,85 +3452,85 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(ztreep-header-face ((,class (:height 1.2 :foreground ,fg-special-cold :weight bold))))
    `(ztreep-leaf-face ((,class (:foreground ,cyan))))
    `(ztreep-node-count-children-face ((,class (:foreground ,fg-special-warm))))
-   `(ztreep-node-face ((,class (:foreground ,fg-main))))
-   (when (>= emacs-major-version 27) ; EXPERIMENTAL this form is subject to review
-     (custom-theme-set-faces
-      'modus-operandi
-      ;;;; tab-bar-mode
-      `(tab-bar ((,class (:background ,bg-tab-bar :foreground ,fg-main))))
-      `(tab-bar-tab ((,class (:box (:line-width 2 :color ,bg-tab-active)
+   `(ztreep-node-face ((,class (:foreground ,fg-main)))))
+  (when (>= emacs-major-version 27) ; EXPERIMENTAL this form is subject to review
+    (custom-theme-set-faces
+     'modus-operandi
+     ;;;; tab-bar-mode
+     `(tab-bar ((,class (:background ,bg-tab-bar :foreground ,fg-main))))
+     `(tab-bar-tab ((,class (:box (:line-width 2 :color ,bg-tab-active)
+                                  :background ,bg-tab-active :foreground ,fg-main :weight bold))))
+     `(tab-bar-tab-inactive ((,class (:box (:line-width 2 :color ,bg-tab-inactive)
+                                           :background ,bg-tab-inactive :foreground ,fg-dim))))
+     ;;;; tab-line-mode
+     `(tab-line ((,class (:height 0.95 :background ,bg-tab-bar :foreground ,fg-main))))
+     `(tab-line-close-highlight ((,class (:foreground ,red))))
+     `(tab-line-highlight ((,class (:background ,blue-subtle-bg :foreground ,fg-dim))))
+     `(tab-line-tab ((,class (:box (:line-width 2 :color ,bg-tab-active)
                                    :background ,bg-tab-active :foreground ,fg-main :weight bold))))
-      `(tab-bar-tab-inactive ((,class (:box (:line-width 2 :color ,bg-tab-inactive)
-                                            :background ,bg-tab-inactive :foreground ,fg-dim))))
-      ;;;; tab-line-mode
-      `(tab-line ((,class (:height 0.95 :background ,bg-tab-bar :foreground ,fg-main))))
-      `(tab-line-close-highlight ((,class (:foreground ,red))))
-      `(tab-line-highlight ((,class (:background ,blue-subtle-bg :foreground ,fg-dim))))
-      `(tab-line-tab ((,class (:box (:line-width 2 :color ,bg-tab-active)
-                                    :background ,bg-tab-active :foreground ,fg-main :weight bold))))
-      `(tab-line-tab-current ((,class (:inherit tab-line-tab))))
-      `(tab-line-tab-inactive ((,class (:box (:line-width 2 :color ,bg-tab-inactive)
-                                             :background ,bg-tab-inactive :foreground ,fg-dim))))))
-   ;;; Theme Variables
-   (custom-theme-set-variables
-    'modus-operandi
-    ;;;; ansi-colors
-    `(ansi-color-faces-vector [default bold shadow italic underline success warning error])
-    `(ansi-color-names-vector [,fg-main ,red ,green ,yellow ,blue ,magenta ,cyan ,bg-main])
-    ;;;; flymake fringe indicators
-    `(flymake-error-bitmap '(flymake-double-exclamation-mark modus-theme-fringe-red))
-    `(flymake-warning-bitmap '(exclamation-mark modus-theme-fringe-yellow))
-    `(flymake-note-bitmap '(exclamation-mark modus-theme-fringe-cyan))
-    ;;;; ibuffer
-    `(ibuffer-deletion-face 'dired-flagged)
-    `(ibuffer-filter-group-name-face 'dired-mark)
-    `(ibuffer-marked-face 'dired-marked)
-    `(ibuffer-title-face 'dired-header)
-    ;;;; hl-todo
-    `(hl-todo-keyword-faces
-      '(("HOLD" . ,yellow-alt)
-        ("TODO" . ,magenta)
-        ("NEXT" . ,magenta-alt-other)
-        ("THEM" . ,magenta-alt)
-        ("PROG" . ,cyan)
-        ("OKAY" . ,cyan-alt)
-        ("DONT" . ,green-alt)
-        ("FAIL" . ,red)
-        ("DONE" . ,green)
-        ("NOTE" . ,yellow-alt-other)
-        ("KLUDGE" . ,yellow)
-        ("HACK" . ,yellow)
-        ("TEMP" . ,red-nuanced)
-        ("FIXME" . ,red-alt-other)
-        ("XXX+" . ,red-alt)
-        ("REVIEW" . ,cyan-alt-other)
-        ("DEPRECATED" . ,blue-nuanced)))
-    ;;;;; vc-annotate (C-x v g)
-    `(vc-annotate-background nil)
-    `(vc-annotate-background-mode nil)
-    `(vc-annotate-color-map
-      '((20 . ,red)
-        (40 . ,magenta)
-        (60 . ,magenta-alt)
-        (80 . ,red-alt)
-        (100 . ,yellow)
-        (120 . ,yellow-alt)
-        (140 . ,fg-special-warm)
-        (160 . ,fg-special-mild)
-        (180 . ,green)
-        (200 . ,green-alt)
-        (220 . ,cyan-alt-other)
-        (240 . ,cyan-alt)
-        (260 . ,cyan)
-        (280 . ,fg-special-cold)
-        (300 . ,blue)
-        (320 . ,blue-alt)
-        (340 . ,blue-alt-other)
-        (360 . ,magenta-alt-other)))
-    `(vc-annotate-very-old-color nil)
-    ;;;; xterm-color
-    `(xterm-color-names [,fg-main ,red ,green ,yellow ,blue ,magenta ,cyan ,bg-alt])
-    `(xterm-color-names-bright [,fg-alt ,red-alt ,green-alt ,yellow-alt ,blue-alt ,magenta-alt ,cyan-alt ,bg-main]))))
+     `(tab-line-tab-current ((,class (:inherit tab-line-tab))))
+     `(tab-line-tab-inactive ((,class (:box (:line-width 2 :color ,bg-tab-inactive)
+                                            :background ,bg-tab-inactive :foreground ,fg-dim))))))
+  ;;; Theme Variables
+  (custom-theme-set-variables
+   'modus-operandi
+   ;;;; ansi-colors
+   `(ansi-color-faces-vector [default bold shadow italic underline success warning error])
+   `(ansi-color-names-vector [,fg-main ,red ,green ,yellow ,blue ,magenta ,cyan ,bg-main])
+   ;;;; flymake fringe indicators
+   `(flymake-error-bitmap '(flymake-double-exclamation-mark modus-theme-fringe-red))
+   `(flymake-warning-bitmap '(exclamation-mark modus-theme-fringe-yellow))
+   `(flymake-note-bitmap '(exclamation-mark modus-theme-fringe-cyan))
+   ;;;; ibuffer
+   `(ibuffer-deletion-face 'dired-flagged)
+   `(ibuffer-filter-group-name-face 'dired-mark)
+   `(ibuffer-marked-face 'dired-marked)
+   `(ibuffer-title-face 'dired-header)
+   ;;;; hl-todo
+   `(hl-todo-keyword-faces
+     '(("HOLD" . ,yellow-alt)
+       ("TODO" . ,magenta)
+       ("NEXT" . ,magenta-alt-other)
+       ("THEM" . ,magenta-alt)
+       ("PROG" . ,cyan)
+       ("OKAY" . ,cyan-alt)
+       ("DONT" . ,green-alt)
+       ("FAIL" . ,red)
+       ("DONE" . ,green)
+       ("NOTE" . ,yellow-alt-other)
+       ("KLUDGE" . ,yellow)
+       ("HACK" . ,yellow)
+       ("TEMP" . ,red-nuanced)
+       ("FIXME" . ,red-alt-other)
+       ("XXX+" . ,red-alt)
+       ("REVIEW" . ,cyan-alt-other)
+       ("DEPRECATED" . ,blue-nuanced)))
+   ;;;;; vc-annotate (C-x v g)
+   `(vc-annotate-background nil)
+   `(vc-annotate-background-mode nil)
+   `(vc-annotate-color-map
+     '((20 . ,red)
+       (40 . ,magenta)
+       (60 . ,magenta-alt)
+       (80 . ,red-alt)
+       (100 . ,yellow)
+       (120 . ,yellow-alt)
+       (140 . ,fg-special-warm)
+       (160 . ,fg-special-mild)
+       (180 . ,green)
+       (200 . ,green-alt)
+       (220 . ,cyan-alt-other)
+       (240 . ,cyan-alt)
+       (260 . ,cyan)
+       (280 . ,fg-special-cold)
+       (300 . ,blue)
+       (320 . ,blue-alt)
+       (340 . ,blue-alt-other)
+       (360 . ,magenta-alt-other)))
+   `(vc-annotate-very-old-color nil)
+   ;;;; xterm-color
+   `(xterm-color-names [,fg-main ,red ,green ,yellow ,blue ,magenta ,cyan ,bg-alt])
+   `(xterm-color-names-bright [,fg-alt ,red-alt ,green-alt ,yellow-alt ,blue-alt ,magenta-alt ,cyan-alt ,bg-main])))
 
 ;;;###autoload
 (when load-file-name
