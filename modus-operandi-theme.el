@@ -2464,8 +2464,8 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(message-header-subject ((,class (:foreground ,magenta-alt-other :weight bold))))
    `(message-header-to ((,class (:foreground ,magenta-alt :weight bold))))
    `(message-header-xheader ((,class (:foreground ,blue-alt-other))))
-   `(message-separator ((,class (:background ,bg-alt :foreground ,fg-special-warm))))
    `(message-mml ((,class (:foreground ,green-alt))))
+   `(message-separator ((,class (:background ,bg-active :foreground ,fg-main))))
    ;;;; minibuffer-line
    `(minibuffer-line ((,class (:foreground ,fg-main))))
    ;;;; minimap
