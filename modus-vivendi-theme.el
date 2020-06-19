@@ -383,10 +383,11 @@ between foreground and background is >= 7:1)."
 (defface modus-theme-diff-focus-changed nil t)
 (defface modus-theme-diff-focus-removed nil t)
 (defface modus-theme-diff-heading nil t)
-(defface modus-theme-flagged nil t)
-(defface modus-theme-header nil t)
-(defface modus-theme-mark nil t)
-(defface modus-theme-marked nil t)
+(defface modus-theme-header nil t)      ; Name is tentative
+(defface modus-theme-mark-alt nil t)
+(defface modus-theme-mark-del nil t)
+(defface modus-theme-mark-sel nil t)
+(defface modus-theme-mark-symbol nil t)
 
 ;; User-facing customisation options.  They are all deactivated by
 ;; default (users must opt in).
@@ -698,8 +699,8 @@ AMOUNT is a customisation option."
       ;; `fg-lang-error', `fg-lang-warning', `fg-lang-note' can be
       ;; combined with `bg-main', `bg-dim', `bg-alt'
       ;;
-      ;; `fg-mark', `fg-mark-del', `fg-mark-other' can be combined with
-      ;; `bg-main', `bg-dim', `bg-alt', `bg-hl-line'
+      ;; `fg-mark-sel', `fg-mark-del', `fg-mark-alt' can be combined
+      ;; with `bg-main', `bg-dim', `bg-alt', `bg-hl-line'
       ;;
       ;; `fg-unfocused' must be combined with `fg-main'
       ;;
@@ -748,9 +749,9 @@ AMOUNT is a customisation option."
       ("bg-diff-neutral-1" . "#454545") ("fg-diff-neutral-1" . "#dddddd")
       ("bg-diff-neutral-2" . "#313131") ("fg-diff-neutral-2" . "#bfbfbf")
 
-      ("bg-mark" . "#002f2f") ("fg-mark" . "#60cfa2")
+      ("bg-mark-sel" . "#002f2f") ("fg-mark-sel" . "#60cfa2")
       ("bg-mark-del" . "#5a0000") ("fg-mark-del" . "#ff99aa")
-      ("bg-mark-other" . "#3f2210") ("fg-mark-other" . "#f0aa20"))
+      ("bg-mark-alt" . "#3f2210") ("fg-mark-alt" . "#f0aa20"))
     "The entire palette of `modus-vivendi-theme'.
 Each element has the form (NAME . HEX).")
 
@@ -845,10 +846,11 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(modus-theme-diff-focus-removed ((,class (:background ,bg-diff-focus-removed :foreground ,fg-diff-focus-removed))))
    `(modus-theme-diff-heading ((,class (:background ,bg-diff-heading :foreground ,fg-diff-heading))))
    ;;; colour combinations intended for Dired, Ibuffer, or equivalent
-   `(modus-theme-flagged ((,class (:background ,bg-mark-del :foreground ,fg-mark-del :weight bold))))
    `(modus-theme-header ((,class (:foreground ,fg-main :weight bold))))
-   `(modus-theme-mark ((,class (:foreground ,blue-alt :weight bold))))
-   `(modus-theme-marked ((,class (:background ,bg-mark :foreground ,fg-mark :weight bold))))
+   `(modus-theme-mark-alt ((,class (:background ,bg-mark-alt :foreground ,fg-mark-alt :weight bold))))
+   `(modus-theme-mark-del ((,class (:background ,bg-mark-del :foreground ,fg-mark-del :weight bold))))
+   `(modus-theme-mark-sel ((,class (:background ,bg-mark-sel :foreground ,fg-mark-sel :weight bold))))
+   `(modus-theme-mark-symbol ((,class (:foreground ,blue-alt :weight bold))))
    ;;;;;;;;;;;;;;;;;;;
    ;; actual styles ;;
    ;;;;;;;;;;;;;;;;;;;
@@ -1342,11 +1344,11 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(dim-autoload-cookie-line ((,class (:foreground ,fg-alt :slant ,modus-theme-slant))))
    ;;;; dired
    `(dired-directory ((,class (:foreground ,blue))))
-   `(dired-flagged ((,class (:inherit modus-theme-flagged))))
+   `(dired-flagged ((,class (:inherit modus-theme-mark-del))))
    `(dired-header ((,class (:inherit modus-theme-header))))
    `(dired-ignored ((,class (:foreground ,fg-alt))))
-   `(dired-mark ((,class (:inherit modus-theme-mark))))
-   `(dired-marked ((,class (:inherit modus-theme-marked))))
+   `(dired-mark ((,class (:inherit modus-theme-mark-symbol))))
+   `(dired-marked ((,class (:inherit modus-theme-mark-sel))))
    `(dired-perm-write ((,class (:foreground ,fg-special-warm))))
    `(dired-symlink ((,class (:foreground ,blue-alt :underline t))))
    `(dired-warning ((,class (:foreground ,yellow :weight bold))))
@@ -1376,8 +1378,8 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(diredfl-compressed-file-name ((,class (:foreground ,green-alt-other))))
    `(diredfl-compressed-file-suffix ((,class (:foreground ,green-alt))))
    `(diredfl-date-time ((,class (:foreground ,fg-special-cold))))
-   `(diredfl-deletion ((,class (:inherit modus-theme-flagged))))
-   `(diredfl-deletion-file-name ((,class (:inherit modus-theme-flagged))))
+   `(diredfl-deletion ((,class (:inherit modus-theme-mark-del))))
+   `(diredfl-deletion-file-name ((,class (:inherit modus-theme-mark-del))))
    `(diredfl-dir-heading ((,class (:inherit modus-theme-header))))
    `(diredfl-dir-name ((,class (:inherit dired-directory))))
    `(diredfl-dir-priv ((,class (:foreground ,blue))))
@@ -1385,8 +1387,8 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(diredfl-executable-tag ((,class (:foreground ,red-alt))))
    `(diredfl-file-name ((,class (:foreground ,fg-main))))
    `(diredfl-file-suffix ((,class (:foreground ,fg-special-warm))))
-   `(diredfl-flag-mark ((,class (:inherit modus-theme-marked))))
-   `(diredfl-flag-mark-line ((,class (:inherit modus-theme-marked))))
+   `(diredfl-flag-mark ((,class (:inherit modus-theme-mark-sel))))
+   `(diredfl-flag-mark-line ((,class (:inherit modus-theme-mark-sel))))
    `(diredfl-ignored-file-name ((,class (:foreground ,fg-inactive))))
    `(diredfl-link-priv ((,class (:foreground ,blue-alt-other))))
    `(diredfl-no-priv ((,class (:foreground ,fg-inactive))))
@@ -1876,7 +1878,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(gnus-server-opened ((,class (:foreground ,green :weight bold))))
    `(gnus-signature ((,class (:foreground ,fg-special-cold :slant italic))))
    `(gnus-splash ((,class (:foreground ,fg-alt))))
-   `(gnus-summary-cancelled ((,class (:background ,bg-mark-other :foreground ,fg-mark-other :weight bold))))
+   `(gnus-summary-cancelled ((,class (:inherit modus-theme-mark-alt))))
    `(gnus-summary-high-ancient ((,class (:foreground ,fg-alt :weight bold))))
    `(gnus-summary-high-read ((,class (:foreground ,fg-special-cold :weight bold))))
    `(gnus-summary-high-ticked ((,class (:foreground ,red-alt-other :weight bold))))
@@ -2877,8 +2879,8 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(powerline-evil-replace-face ((,class (:inherit modus-theme-active-red))))
    `(powerline-evil-visual-face ((,class (:inherit modus-theme-active-cyan))))
    ;;;; proced
-   `(proced-mark ((,class (:foreground ,blue-alt :weight bold))))
-   `(proced-marked ((,class (:background ,bg-mark-other :foreground ,fg-mark-other :weight bold))))
+   `(proced-mark ((,class (:inherit modus-theme-mark-symbol))))
+   `(proced-marked ((,class (:inherit modus-theme-mark-alt))))
    `(proced-sort-header ((,class (:foreground ,fg-special-calm :weight bold :underline t))))
    ;;;; prodigy
    `(prodigy-green-face ((,class (:foreground ,green))))
@@ -3155,11 +3157,11 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(syslog-su ((,class (:foreground ,red-alt :weight bold))))
    `(syslog-warn ((,class (:foreground ,yellow :weight bold))))
    ;;;; trashed
-   `(trashed-deleted ((,class (:background ,bg-mark-del :foreground ,fg-mark-del :weight bold))))
+   `(trashed-deleted ((,class (:inherit modus-theme-mark-del))))
    `(trashed-directory ((,class (:foreground ,blue))))
-   `(trashed-mark ((,class (:foreground ,blue-alt :weight bold))))
-   `(trashed-marked ((,class (:background ,bg-mark-other :foreground ,fg-mark-other :weight bold))))
-   `(trashed-restored ((,class (:background ,bg-mark :foreground ,fg-mark :weight bold))))
+   `(trashed-mark ((,class (:inherit modus-theme-mark-symbol))))
+   `(trashed-marked ((,class (:inherit modus-theme-mark-alt))))
+   `(trashed-restored ((,class (:inherit modus-theme-mark-sel))))
    `(trashed-symlink ((,class (:foreground ,blue-alt :underline t))))
    ;;;; telephone-line
    `(telephone-line-accent-active ((,class (:background ,fg-inactive :foreground ,bg-inactive))))
@@ -3491,9 +3493,9 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(flymake-warning-bitmap '(exclamation-mark modus-theme-fringe-yellow))
    `(flymake-note-bitmap '(exclamation-mark modus-theme-fringe-cyan))
    ;;;; ibuffer
-   `(ibuffer-deletion-face 'modus-theme-flagged)
-   `(ibuffer-filter-group-name-face 'modus-theme-mark)
-   `(ibuffer-marked-face 'modus-theme-marked)
+   `(ibuffer-deletion-face 'modus-theme-mark-del)
+   `(ibuffer-filter-group-name-face 'modus-theme-mark-symbol)
+   `(ibuffer-marked-face 'modus-theme-mark-sel)
    `(ibuffer-title-face 'modus-theme-header)
    ;;;; hl-todo
    `(hl-todo-keyword-faces
