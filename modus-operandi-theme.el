@@ -383,6 +383,10 @@ between foreground and background is >= 7:1)."
 (defface modus-theme-diff-focus-changed nil t)
 (defface modus-theme-diff-focus-removed nil t)
 (defface modus-theme-diff-heading nil t)
+(defface modus-theme-flagged nil t)
+(defface modus-theme-header nil t)
+(defface modus-theme-mark nil t)
+(defface modus-theme-marked nil t)
 
 ;; User-facing customisation options.  They are all deactivated by
 ;; default (users must opt in).
@@ -840,6 +844,11 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(modus-theme-diff-focus-changed ((,class (:background ,bg-diff-focus-changed :foreground ,fg-diff-focus-changed))))
    `(modus-theme-diff-focus-removed ((,class (:background ,bg-diff-focus-removed :foreground ,fg-diff-focus-removed))))
    `(modus-theme-diff-heading ((,class (:background ,bg-diff-heading :foreground ,fg-diff-heading))))
+   ;;; colour combinations intended for Dired, Ibuffer, or equivalent
+   `(modus-theme-flagged ((,class (:background ,bg-mark-del :foreground ,fg-mark-del :weight bold))))
+   `(modus-theme-header ((,class (:foreground ,fg-main :weight bold))))
+   `(modus-theme-mark ((,class (:foreground ,blue-alt :weight bold))))
+   `(modus-theme-marked ((,class (:background ,bg-mark :foreground ,fg-mark :weight bold))))
    ;;;;;;;;;;;;;;;;;;;
    ;; actual styles ;;
    ;;;;;;;;;;;;;;;;;;;
@@ -1333,11 +1342,11 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(dim-autoload-cookie-line ((,class (:foreground ,fg-alt :slant ,modus-theme-slant))))
    ;;;; dired
    `(dired-directory ((,class (:foreground ,blue))))
-   `(dired-flagged ((,class (:background ,bg-mark-del :foreground ,fg-mark-del :weight bold))))
-   `(dired-header ((,class (:foreground ,fg-main :weight bold))))
+   `(dired-flagged ((,class (:inherit modus-theme-flagged))))
+   `(dired-header ((,class (:inherit modus-theme-header))))
    `(dired-ignored ((,class (:foreground ,fg-alt))))
-   `(dired-mark ((,class (:foreground ,blue-alt :weight bold))))
-   `(dired-marked ((,class (:background ,bg-mark :foreground ,fg-mark :weight bold))))
+   `(dired-mark ((,class (:inherit modus-theme-mark))))
+   `(dired-marked ((,class (:inherit modus-theme-marked))))
    `(dired-perm-write ((,class (:foreground ,fg-special-warm))))
    `(dired-symlink ((,class (:foreground ,blue-alt :underline t))))
    `(dired-warning ((,class (:foreground ,yellow :weight bold))))
@@ -1367,17 +1376,17 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(diredfl-compressed-file-name ((,class (:foreground ,green-alt-other))))
    `(diredfl-compressed-file-suffix ((,class (:foreground ,green-alt))))
    `(diredfl-date-time ((,class (:foreground ,fg-special-cold))))
-   `(diredfl-deletion ((,class (:inherit dired-flagged))))
-   `(diredfl-deletion-file-name ((,class (:inherit dired-flagged))))
-   `(diredfl-dir-heading ((,class (:inherit dired-header))))
+   `(diredfl-deletion ((,class (:inherit modus-theme-flagged))))
+   `(diredfl-deletion-file-name ((,class (:inherit modus-theme-flagged))))
+   `(diredfl-dir-heading ((,class (:inherit modus-theme-header))))
    `(diredfl-dir-name ((,class (:inherit dired-directory))))
    `(diredfl-dir-priv ((,class (:foreground ,blue))))
    `(diredfl-exec-priv ((,class (:foreground ,red-alt-other))))
    `(diredfl-executable-tag ((,class (:foreground ,red-alt))))
    `(diredfl-file-name ((,class (:foreground ,fg-main))))
    `(diredfl-file-suffix ((,class (:foreground ,fg-special-warm))))
-   `(diredfl-flag-mark ((,class (:inherit dired-marked))))
-   `(diredfl-flag-mark-line ((,class (:inherit dired-marked))))
+   `(diredfl-flag-mark ((,class (:inherit modus-theme-marked))))
+   `(diredfl-flag-mark-line ((,class (:inherit modus-theme-marked))))
    `(diredfl-ignored-file-name ((,class (:foreground ,fg-inactive))))
    `(diredfl-link-priv ((,class (:foreground ,blue-alt-other))))
    `(diredfl-no-priv ((,class (:foreground ,fg-inactive))))
@@ -3482,10 +3491,10 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(flymake-warning-bitmap '(exclamation-mark modus-theme-fringe-yellow))
    `(flymake-note-bitmap '(exclamation-mark modus-theme-fringe-cyan))
    ;;;; ibuffer
-   `(ibuffer-deletion-face 'dired-flagged)
-   `(ibuffer-filter-group-name-face 'dired-mark)
-   `(ibuffer-marked-face 'dired-marked)
-   `(ibuffer-title-face 'dired-header)
+   `(ibuffer-deletion-face 'modus-theme-flagged)
+   `(ibuffer-filter-group-name-face 'modus-theme-mark)
+   `(ibuffer-marked-face 'modus-theme-marked)
+   `(ibuffer-title-face 'modus-theme-header)
    ;;;; hl-todo
    `(hl-todo-keyword-faces
      '(("HOLD" . ,yellow-alt)
