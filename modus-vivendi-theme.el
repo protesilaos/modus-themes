@@ -1350,7 +1350,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(dired-mark ((,class :inherit modus-theme-mark-symbol)))
    `(dired-marked ((,class :inherit modus-theme-mark-sel)))
    `(dired-perm-write ((,class :foreground ,fg-special-warm)))
-   `(dired-symlink ((,class :foreground ,blue-alt :underline t)))
+   `(dired-symlink ((,class :foreground ,cyan-alt :underline t)))
    `(dired-warning ((,class :foreground ,yellow :weight bold)))
    ;;;; dired-async
    `(dired-async-failures ((,class :foreground ,red-active :weight ,modus-theme-bold)))
@@ -1396,7 +1396,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(diredfl-other-priv ((,class :foreground ,yellow)))
    `(diredfl-rare-priv ((,class :foreground ,magenta-alt-other)))
    `(diredfl-read-priv ((,class :foreground ,magenta)))
-   `(diredfl-symlink ((,class :foreground ,blue-alt :underline t)))
+   `(diredfl-symlink ((,class :foreground ,cyan-alt :underline t)))
    `(diredfl-tagged-autofile-name ((,class :inherit modus-theme-refine-magenta)))
    `(diredfl-write-priv ((,class :foreground ,cyan-alt-other)))
    ;;;; disk-usage
@@ -3162,7 +3162,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(trashed-mark ((,class :inherit modus-theme-mark-symbol)))
    `(trashed-marked ((,class :inherit modus-theme-mark-alt)))
    `(trashed-restored ((,class :inherit modus-theme-mark-sel)))
-   `(trashed-symlink ((,class :foreground ,blue-alt :underline t)))
+   `(trashed-symlink ((,class :foreground ,cyan-alt :underline t)))
    ;;;; telephone-line
    `(telephone-line-accent-active ((,class :background ,fg-inactive :foreground ,bg-inactive)))
    `(telephone-line-accent-inactive ((,class :background ,bg-active :foreground ,fg-active)))
