@@ -582,7 +582,7 @@ AMOUNT is a customisation option."
 ;; faces is copied from zenbern-theme.el from commit 7dd7968:
 ;; https://github.com/bbatsov/zenburn-emacs
 (eval-and-compile
-  (defvar modus-vivendi-theme-default-colors-alist
+  (defconst modus-vivendi-theme-default-colors-alist
     '(;; base values
       ("bg-main" . "#000000") ("fg-main" . "#ffffff")
       ("bg-alt" . "#181a20") ("fg-alt" . "#a8a8a8")
