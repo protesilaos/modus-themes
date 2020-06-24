@@ -6,6 +6,123 @@ This document contains the release notes that are included in each
 tagged commit on https://gitlab.com/protesilaos/modus-themes.  The
 newest release is at the top.
 
+* 0.10.0
+
+Modus Operandi and Modus Vivendi version 0.10.0
+
+By Protesilaos Stavrou <info@protesilaos.com> on 2020-06-24
+
+This entry records the changes since version 0.9.0 (2020-06-03).  The
+present release is focused on stability and internal improvements.
+
+Fixes and adjustments
+---------------------
+
+Basil L. Contovounisios, aka @basil-conto, (and also a contributor to
+core Emacs) sent several patches that do the following:
+
++ Fix top-level parentheses so that the results of
+  'custom-theme-set-faces' and 'custom-theme-set-variables' are not
+  passed as arguments to the first 'custom-theme-set-faces'.
+
++ Fix the docstrings of the custom 'modus-theme-*' faces.
+
++ Simplify the syntax of properties assigned to each face.
+
++ Improve the way styles are inherited by Dired and Ibuffer.
+
+Basil also pointed out an inconsistency with regard to an unwanted
+underline effect for the 'doom-modeline-urgent' face in Modus Vivendi.
+It was promptly removed.
+
+From my part, I fixed issues 46 and 51 that concerned the way the
+compiler would evaluate each theme's palette.  The palette is now
+defined as a constant.  Further information:
+
+- https://gitlab.com/protesilaos/modus-themes/-/issues/46
+- https://gitlab.com/protesilaos/modus-themes/-/issues/51
+
+
+Improvements to existing faces
+------------------------------
+
+André Alexandre Gomes (@aadcg) provided valuable feedback and
+suggestions in issue 50 on the redesign of several 'org-mode' faces.
+
+The thread is long and contains lots of screenshots:
+https://gitlab.com/protesilaos/modus-themes/-/issues/50
+
+The changes in outline:
+
++ Org checkboxes have a subtle background which gives them a more
+  pronounced appearance while retaining their overall simplicity.
+
++ Org dates use a more saturated variant of cyan than they did before.
+  It helps distinguish them from their context.  Especially true for
+  dates inside of tables.
+
++ Org agenda dates have also undergone a slight review to match the
+  above.
+
++ Org time grid now uses a more appropriate foreground colour, which has
+  been designed specifically for unfocused context.
+
++ Org todo keywords use a more semantically-correct variant of red,
+  rather than the purple one they had before.
+
++ Org statistics' cookies for pending tasks use a red variant as well
+  rather than the previous yellow one, in the interest of consistency
+  and to avoid exaggerations.
+
+
+Other internal refinements
+--------------------------
+
++ Subtle review of the Modus Vivendi palette.  In short, it addresses:
+
+  - Imbalanced levels of luminance and inconsistent differences in hue
+    between them and their neighbouring colours (e.g. the greens between
+    them, and the greens next to the yellows in the context of syntax
+    highlighting).  The result was that they would create an undesirable
+    emphatic 'pop out' effect when placed close to more moderate
+    colours.
+
+  - Differences in luminance and hue could lead to scenaria where two
+    colours could be conflated with each other or otherwise fail to
+    perform their intended function.
+
+  - The complete report is on my website:
+    https://protesilaos.com/codelog/2020-06-13-modus-vivendi-palette-review/
+
++ Major review of the 'diredfl' faces, in the interest of improved
+  readability and harmony between the various colours.  This benefits
+  from the palette changes in Modus Vivendi, but also from a similar
+  review to Modus Operandi that was documented in version 0.9.0.
+
++ Refactor the names of dedicates colours for "marking" purposes.  These
+  are used in Dired, Ibuffer, Proced, etc.  Then apply them consistently
+  throughout each theme.
+
++ Make sure that 'stripes' uses the same colours as 'hl-line-mode'.
+
++ Let symlinks use a more appropriate colour in Dired and Trashed.
+
++ Refine the use of colour in 'magit-tag', 'eshell-prompt',
+  'message-header-name', 'log-edit-header', 'change-log-function',
+  'message-mml', 'message-header-name', 'message-separator'.  These are
+  subtle (i.e. difficult) tweaks that improve the overall presentation
+  in context.
+
++ Make diff indicators not use an unnecessary background when the
+  user-facing option for "subtle diffs" is enabled (check the README for
+  the exact name of this option).  This ensures consistency between the
+  indicators and the actual scope of the diffs.
+
++ Add support for the 'minibuffer-line' package and extend existing
+  support of the faces used in the built-in Emacs info pages.
+
+My thanks to Basil and André for their contributions!
+
 * 0.9.0
 
 Modus Operandi and Modus Vivendi version 0.9.0
