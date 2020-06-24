@@ -221,6 +221,7 @@
 ;;     multiple-cursors
 ;;     neotree
 ;;     no-emoji
+;;     notmuch
 ;;     num3-mode
 ;;     nxml-mode
 ;;     orderless
@@ -2578,6 +2579,36 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(neo-vc-user-face ((,class :foreground ,magenta)))
    ;;;; no-emoji
    `(no-emoji ((,class :foreground ,cyan)))
+   ;;;; notmuch
+   `(notmuch-crypto-decryption ((,class :inherit modus-theme-refine-magenta)))
+   `(notmuch-crypto-part-header ((,class :foreground ,magenta-alt-other)))
+   `(notmuch-crypto-signature-bad ((,class :inherit modus-theme-intense-red)))
+   `(notmuch-crypto-signature-good ((,class :inherit modus-theme-refine-green)))
+   `(notmuch-crypto-signature-good-key ((,class :inherit modus-theme-refine-yellow)))
+   `(notmuch-crypto-signature-unknown ((,class :inherit modus-theme-refine-red)))
+   `(notmuch-hello-logo-background ((,class :background ,bg-main)))
+   `(notmuch-message-summary-face ((,class :background ,bg-dim)))
+   `(notmuch-search-flagged-face ((,class :foreground ,red-alt)))
+   `(notmuch-search-matching-authors ((,class :foreground ,fg-main)))
+   `(notmuch-search-non-matching-authors ((,class :foreground ,fg-alt)))
+   `(notmuch-search-unread-face ((,class :weight bold)))
+   `(notmuch-tag-added
+     ((,(append '((supports :underline (:style wave))) class)
+       :underline (:color ,green :style wave))
+      (,class :foreground ,green :underline t)))
+   `(notmuch-tag-deleted
+     ((,(append '((supports :underline (:style wave))) class)
+       :underline (:color ,red :style wave))
+      (,class :foreground ,red :underline t)))
+   `(notmuch-tag-face ((,class :foreground ,blue-alt :weight bold)))
+   `(notmuch-tag-flagged ((,class :foreground ,red-alt)))
+   `(notmuch-tag-unread ((,class :foreground ,magenta-alt)))
+   `(notmuch-tree-match-author-face ((,class :foreground ,fg-special-cold)))
+   `(notmuch-tree-match-face ((,class :foreground ,fg-main)))
+   `(notmuch-tree-match-tag-face ((,class :foreground ,blue-alt :weight bold)))
+   `(notmuch-tree-no-match-face ((,class :foreground ,fg-alt)))
+   `(notmuch-wash-cited-text ((,class :foreground ,cyan)))
+   `(notmuch-wash-toggle-button ((,class :background ,bg-alt :foreground ,fg-alt)))
    ;;;; num3-mode
    `(num3-face-even ((,class :background ,bg-alt :weight bold)))
    ;;;; nxml-mode

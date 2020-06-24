@@ -878,6 +878,7 @@ the "full support" may not be 100% true…
 + multiple-cursors
 + neotree
 + no-emoji
++ notmuch
 + num3-mode
 + nxml-mode
 + orderless
