@@ -705,6 +705,10 @@ AMOUNT is a customisation option."
       ;;
       ;; `fg-unfocused' must be combined with `fg-main'
       ;;
+      ;; `mode-line-default-border' is a special colour that is only
+      ;; intended for the active modeline when the user-facing option
+      ;; for `modus-vivendi-theme-3d-modeline' is `nil' (default)
+      ;;
       ;; the window divider colours apply to faces with just an fg value
       ;;
       ;; all pairs are combinable with themselves
@@ -728,6 +732,8 @@ AMOUNT is a customisation option."
       ("fg-window-divider-outer" . "#969696")
 
       ("fg-unfocused" . "#93959b")
+
+      ("mode-line-default-border" . "#767577")
 
       ("bg-header" . "#212121") ("fg-header" . "#dddddd")
 
@@ -2484,7 +2490,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(minimap-active-region-background ((,class :background ,bg-active)))
    `(minimap-current-line-face ((,class :background ,cyan-intense-bg :foreground ,fg-main)))
    ;;;; modeline
-   `(mode-line ((,class :box ,(modus-vivendi-theme-modeline-box bg-inactive fg-inactive t)
+   `(mode-line ((,class :box ,(modus-vivendi-theme-modeline-box bg-inactive mode-line-default-border t)
                         ,@(modus-vivendi-theme-modeline-props
                            bg-active fg-dim
                            bg-active fg-active))))
