@@ -1045,11 +1045,11 @@ Also bind `class' to ((class color) (min-colors 89))."
    ;;;; calendar and diary
    `(calendar-month-header ((,class :foreground ,fg-main :weight bold)))
    `(calendar-today ((,class :background ,bg-alt :underline t)))
-   `(calendar-weekday-header ((,class :foreground ,blue-alt)))
+   `(calendar-weekday-header ((,class :foreground ,fg-dim)))
    `(calendar-weekend-header ((,class :foreground ,fg-alt)))
-   `(diary ((,class :foreground ,green-alt-other)))
-   `(diary-anniversary ((,class :foreground ,yellow-alt-other)))
-   `(diary-time ((,class :foreground ,red-alt)))
+   `(diary ((,class :foreground ,cyan-alt-other)))
+   `(diary-anniversary ((,class :foreground ,red-alt-other)))
+   `(diary-time ((,class :foreground ,blue-alt)))
    `(holiday ((,class :foreground ,magenta-alt)))
    ;;;; calfw
    `(cfw:face-annotation ((,class :background ,bg-alt :foreground ,fg-alt)))
