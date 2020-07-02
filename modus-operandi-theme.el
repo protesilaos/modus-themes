@@ -2755,7 +2755,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-link ((,class :inherit link)))
    `(org-list-dt ((,class :weight bold)))
    `(org-macro ((,class :inherit org-latex-and-related)))
-   `(org-meta-line ((,class :inherit fixed-pitch :foreground ,fg-alt :slant ,modus-theme-slant)))
+   `(org-meta-line ((,class :inherit fixed-pitch :background ,yellow-nuanced-bg :foreground ,fg-special-warm)))
    `(org-mode-line-clock ((,class :foreground ,fg-main)))
    `(org-mode-line-clock-overrun ((,class :inherit modus-theme-active-red)))
    `(org-priority ((,class ,@(modus-operandi-theme-org-todo-block blue-nuanced-bg blue-nuanced magenta)
