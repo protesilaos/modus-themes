@@ -873,6 +873,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(error ((,class :foreground ,red :weight bold)))
    `(escape-glyph ((,class :foreground ,fg-escape-char-construct)))
    `(header-line ((,class :background ,bg-header :foreground ,fg-header)))
+   `(header-line-highlight ((,class :inherit modus-theme-active-blue)))
    `(homoglyph ((,class :foreground ,fg-escape-char-construct)))
    `(ibuffer-locked-buffer ((,class :foreground ,yellow-alt-other)))
    `(italic ((,class :foreground ,fg-special-cold :slant italic)))
