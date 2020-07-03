@@ -2775,7 +2775,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-target ((,class :underline t)))
    `(org-time-grid ((,class :foreground ,fg-unfocused)))
    `(org-todo ((,class ,@(modus-vivendi-theme-org-todo-block red-nuanced-bg red-nuanced red-alt)
-                       ,@(modus-vivendi-theme-heading-foreground red-alt red-alt-other))))
+                       ,@(modus-vivendi-theme-heading-foreground red-alt red))))
    `(org-upcoming-deadline ((,class :foreground ,red-alt-other)))
    `(org-upcoming-distant-deadline ((,class :foreground ,red-nuanced)))
    `(org-verbatim ((,class :inherit fixed-pitch :background ,bg-alt :foreground ,fg-special-calm)))
