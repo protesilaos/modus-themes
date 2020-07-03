@@ -2661,7 +2661,8 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-agenda-date ((,class :inherit ,modus-theme-variable-pitch :foreground ,cyan-alt-other
                               ,@(modus-operandi-theme-scale modus-operandi-theme-scale-4)
                               ,@(modus-operandi-theme-heading-block cyan-nuanced-bg cyan-nuanced))))
-   `(org-agenda-date-today ((,class :inherit ,modus-theme-variable-pitch :background ,cyan-subtle-bg
+   `(org-agenda-date-today ((,class :inherit ,modus-theme-variable-pitch
+                                    :background ,cyan-intense-bg
                                     :foreground ,fg-main :weight bold
                                     ,@(modus-operandi-theme-scale modus-operandi-theme-scale-4))))
    `(org-agenda-date-weekend ((,class :inherit ,modus-theme-variable-pitch :foreground ,cyan
