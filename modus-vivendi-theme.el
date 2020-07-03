@@ -1044,7 +1044,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(buffer-expose-selected-face ((,class :inherit modus-theme-special-mild)))
    ;;;; calendar and diary
    `(calendar-month-header ((,class :foreground ,fg-main :weight bold)))
-   `(calendar-today ((,class :background ,bg-alt :underline t)))
+   `(calendar-today ((,class :underline t)))
    `(calendar-weekday-header ((,class :foreground ,fg-dim)))
    `(calendar-weekend-header ((,class :foreground ,fg-alt)))
    `(diary ((,class :foreground ,cyan-alt-other)))
@@ -2699,7 +2699,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-column ((,class :background ,bg-alt)))
    `(org-column-title ((,class :underline t :background ,bg-alt :weight bold)))
    `(org-date ((,class :foreground ,cyan-alt-other :underline t)))
-   `(org-date-selected ((,class :inherit modus-theme-intense-cyan :weight bold)))
+   `(org-date-selected ((,class :foreground ,blue-alt :weight bold :inverse-video t)))
    `(org-default ((,class :background ,bg-main :foreground ,fg-main)))
    `(org-document-info ((,class :foreground ,fg-special-cold)))
    `(org-document-info-keyword ((,class :inherit fixed-pitch :foreground ,fg-alt)))
