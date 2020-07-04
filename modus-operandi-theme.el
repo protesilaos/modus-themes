@@ -1730,7 +1730,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(font-lock-function-name-face ((,class :foreground ,magenta)))
    `(font-lock-keyword-face ((,class :foreground ,magenta-alt-other :weight ,modus-theme-bold)))
    `(font-lock-negation-char-face ((,class :foreground ,yellow :weight ,modus-theme-bold)))
-   `(font-lock-preprocessor-face ((,class :foreground ,magenta)))
+   `(font-lock-preprocessor-face ((,class :foreground ,red-alt-other)))
    `(font-lock-regexp-grouping-backslash ((,class :foreground ,fg-escape-char-backslash :weight bold)))
    `(font-lock-regexp-grouping-construct ((,class :foreground ,fg-escape-char-construct :weight bold)))
    `(font-lock-string-face ((,class :foreground ,blue-alt)))
