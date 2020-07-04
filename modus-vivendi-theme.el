@@ -49,6 +49,7 @@
 ;;     modus-vivendi-theme-distinct-org-blocks
 ;;     modus-vivendi-theme-3d-modeline
 ;;     modus-vivendi-theme-subtle-diffs
+;;     modus-vivendi-theme-faint-syntax
 ;;     modus-vivendi-theme-intense-standard-completions
 ;;     modus-vivendi-theme-override-colors-alist
 ;;
@@ -491,8 +492,20 @@ For more on the matter, read the documentation of
   "Use prominent backgrounds for Icomplete, Ido, or similar."
   :type 'boolean)
 
+(defcustom modus-vivendi-theme-faint-syntax nil
+  "Use less saturated colours for code syntax highlighting."
+  :type 'boolean)
+
 ;; Helper functions that are meant to ease the implementation of the
 ;; above customisation options.
+(defun modus-vivendi-theme-syntax-foreground (normal faint)
+  "Apply foreground value to headings.
+NORMAL is the more saturated colour, which should be the default.
+FAINT is the less saturated colour."
+  (if modus-vivendi-theme-faint-syntax
+      (list :foreground faint)
+    (list :foreground normal)))
+
 (defun modus-vivendi-theme-heading-foreground (subtle rainbow)
   "Apply foreground value to headings.
 SUBTLE is the default aesthetic.  RAINBOW is the saturated one."
@@ -618,6 +631,21 @@ AMOUNT is a customisation option."
       ("red-alt-other" . "#ff9977") ("green-alt-other" . "#00cd68")
       ("yellow-alt-other" . "#f0ce43") ("blue-alt-other" . "#00bdfa")
       ("magenta-alt-other" . "#b6a0ff") ("cyan-alt-other" . "#6ae4b9")
+      ;; styles for desaturated foreground text, intended for use with
+      ;; the `modus-vivendi-theme-faint-syntax' option
+      ;;
+      ;; must be combined with: `bg-main', `bg-alt', `bg-dim'
+      ("red-faint" . "#ffa0a0") ("green-faint" . "#88cf88")
+      ("yellow-faint" . "#d2b580") ("blue-faint" . "#92baff")
+      ("magenta-faint" . "#e0b2d6") ("cyan-faint" . "#a0bfdf")
+
+      ("red-alt-faint" . "#f5aa80") ("green-alt-faint" . "#a8cf88")
+      ("yellow-alt-faint" . "#cabf77") ("blue-alt-faint" . "#a4b0ff")
+      ("magenta-alt-faint" . "#ef9fe4") ("cyan-alt-faint" . "#90c4ed")
+
+      ("red-alt-other-faint" . "#ff9fbf") ("green-alt-other-faint" . "#88cfaf")
+      ("yellow-alt-other-faint" . "#d0ba95") ("blue-alt-other-faint" . "#8fc5ff")
+      ("magenta-alt-other-faint" . "#d0b4ff") ("cyan-alt-other-faint" . "#a4d0bb")
       ;; styles for elements that should be very subtle
       ;;
       ;; must be combined with: `bg-main', `bg-alt', `bg-dim'
@@ -1722,21 +1750,37 @@ Also bind `class' to ((class color) (min-colors 89))."
    ;;;; fold-this
    `(fold-this-overlay ((,class :inherit modus-theme-special-mild)))
    ;;;; font-lock
-   `(font-lock-builtin-face ((,class :foreground ,magenta-alt :weight ,modus-theme-bold)))
+   `(font-lock-builtin-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                        magenta-alt magenta-alt-faint)
+                                     :weight ,modus-theme-bold)))
    `(font-lock-comment-delimiter-face ((,class :foreground ,fg-alt :slant ,modus-theme-slant)))
    `(font-lock-comment-face ((,class :foreground ,fg-alt :slant ,modus-theme-slant)))
-   `(font-lock-constant-face ((,class :foreground ,blue-alt-other)))
-   `(font-lock-doc-face ((,class :foreground ,fg-special-cold :slant ,modus-theme-slant)))
-   `(font-lock-function-name-face ((,class :foreground ,magenta)))
-   `(font-lock-keyword-face ((,class :foreground ,magenta-alt-other :weight ,modus-theme-bold)))
-   `(font-lock-negation-char-face ((,class :foreground ,yellow :weight ,modus-theme-bold)))
-   `(font-lock-preprocessor-face ((,class :foreground ,red-alt-other)))
+   `(font-lock-constant-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                         blue-alt-other blue-alt-other-faint))))
+   `(font-lock-doc-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                    fg-special-cold cyan-alt-other-faint)
+                                 :slant ,modus-theme-slant)))
+   `(font-lock-function-name-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                              magenta magenta-faint))))
+   `(font-lock-keyword-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                        magenta-alt-other magenta-alt-other-faint)
+                                     :weight ,modus-theme-bold)))
+   `(font-lock-negation-char-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                              yellow yellow-faint)
+                                           :weight ,modus-theme-bold)))
+   `(font-lock-preprocessor-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                             red-alt-other red-alt-other-faint))))
    `(font-lock-regexp-grouping-backslash ((,class :foreground ,fg-escape-char-backslash :weight bold)))
    `(font-lock-regexp-grouping-construct ((,class :foreground ,fg-escape-char-construct :weight bold)))
-   `(font-lock-string-face ((,class :foreground ,blue-alt)))
-   `(font-lock-type-face ((,class :foreground ,magenta-alt)))
-   `(font-lock-variable-name-face ((,class :foreground ,cyan)))
-   `(font-lock-warning-face ((,class :foreground ,yellow-active :weight ,modus-theme-bold)))
+   `(font-lock-string-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                       blue-alt blue-alt-faint))))
+   `(font-lock-type-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                     magenta-alt magenta-alt-faint))))
+   `(font-lock-variable-name-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                              cyan cyan-faint))))
+   `(font-lock-warning-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                        yellow-active yellow-alt-faint)
+                                     :weight ,modus-theme-bold)))
    ;;;; forge
    `(forge-post-author ((,class :foreground ,fg-main :weight bold)))
    `(forge-post-date ((,class :foreground ,fg-special-cold)))
@@ -1778,15 +1822,25 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(fountain-template ((,class :foreground ,magenta-alt)))
    `(fountain-trans ((,class :foreground ,magenta :weight bold)))
    ;;;; geiser
-   `(geiser-font-lock-autodoc-current-arg ((,class :foreground ,magenta)))
-   `(geiser-font-lock-autodoc-identifier ((,class :foreground ,blue)))
-   `(geiser-font-lock-doc-button ((,class :foreground ,cyan-alt :underline t)))
+   `(geiser-font-lock-autodoc-current-arg ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                                      magenta magenta-faint))))
+   `(geiser-font-lock-autodoc-identifier ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                                     blue blue-faint))))
+   `(geiser-font-lock-doc-button ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                             cyan-alt cyan-alt-faint)
+                                          :underline t)))
    `(geiser-font-lock-doc-link ((,class :inherit link)))
-   `(geiser-font-lock-error-link ((,class :foreground ,red-alt :underline t)))
-   `(geiser-font-lock-image-button ((,class :foreground ,green-alt :underline t)))
+   `(geiser-font-lock-error-link ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                             red-alt red-alt-faint)
+                                          :underline t)))
+   `(geiser-font-lock-image-button ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                               green-alt green-alt-faint)
+                                            :underline t)))
    `(geiser-font-lock-repl-input ((,class :weight bold)))
-   `(geiser-font-lock-repl-output ((,class :foreground ,magenta-alt-other)))
-   `(geiser-font-lock-repl-prompt ((,class :foreground ,cyan-alt-other)))
+   `(geiser-font-lock-repl-output ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                              magenta-alt-other magenta-alt-other-faint))))
+   `(geiser-font-lock-repl-prompt ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                              cyan-alt-other cyan-alt-other-faint))))
    `(geiser-font-lock-xref-header ((,class :weight bold)))
    `(geiser-font-lock-xref-link ((,class :inherit link)))
    ;;;; git-commit
@@ -2617,29 +2671,56 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(num3-face-even ((,class :background ,bg-alt :weight bold)))
    ;;;; nxml-mode
    `(nxml-attribute-colon ((,class :foreground ,fg-main)))
-   `(nxml-attribute-local-name ((,class :foreground ,cyan-alt)))
-   `(nxml-attribute-prefix ((,class :foreground ,cyan-alt-other :weight ,modus-theme-bold)))
-   `(nxml-attribute-value ((,class :foreground ,blue)))
-   `(nxml-cdata-section-CDATA ((,class :foreground ,red-alt :weight ,modus-theme-bold)))
-   `(nxml-cdata-section-delimiter ((,class :foreground ,red-alt)))
-   `(nxml-char-ref-delimiter ((,class :foreground ,green-alt-other)))
-   `(nxml-char-ref-number ((,class :foreground ,green-alt-other :weight ,modus-theme-bold)))
+   `(nxml-attribute-local-name ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                           cyan-alt cyan-alt-faint))))
+   `(nxml-attribute-prefix ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                       cyan-alt-other cyan-alt-other-faint)
+                                    :weight ,modus-theme-bold)))
+   `(nxml-attribute-value ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                      blue blue-faint))))
+   `(nxml-cdata-section-CDATA ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                          red-alt red-alt-faint)
+                                       :weight ,modus-theme-bold)))
+   `(nxml-cdata-section-delimiter ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                              red-alt red-alt-faint))))
+   `(nxml-char-ref-delimiter ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                         green-alt-other green-alt-other-faint))))
+   `(nxml-char-ref-number ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                      green-alt-other green-alt-other-faint)
+                                   :weight ,modus-theme-bold)))
    `(nxml-delimited-data ((,class :foreground ,fg-special-cold :slant ,modus-theme-slant)))
    `(nxml-delimiter ((,class :foreground ,fg-dim)))
    `(nxml-element-colon ((,class :foreground ,fg-main)))
-   `(nxml-element-local-name ((,class :foreground ,magenta)))
-   `(nxml-element-prefix ((,class :foreground ,magenta-alt :weight ,modus-theme-bold)))
-   `(nxml-entity-ref-delimiter ((,class :foreground ,green-alt-other)))
-   `(nxml-entity-ref-name ((,class :foreground ,green-alt-other :weight ,modus-theme-bold)))
+   `(nxml-element-local-name ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                         magenta magenta-faint))))
+   `(nxml-element-prefix ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                     magenta-alt magenta-alt-faint)
+                                  :weight ,modus-theme-bold)))
+   `(nxml-entity-ref-delimiter ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                           green-alt-other green-alt-other-faint))))
+   `(nxml-entity-ref-name ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                      green-alt-other green-alt-other-faint)
+                                   :weight ,modus-theme-bold)))
    `(nxml-glyph ((,class :inherit modus-theme-intense-neutral)))
-   `(nxml-hash ((,class :foreground ,blue-alt :weight ,modus-theme-bold)))
+   `(nxml-hash ((,class ,@(modus-vivendi-theme-syntax-foreground
+                           blue-alt blue-alt-faint)
+                        :weight ,modus-theme-bold)))
    `(nxml-heading ((,class :weight bold)))
-   `(nxml-name ((,class :foreground ,magenta-alt :weight ,modus-theme-bold)))
+   `(nxml-name ((,class ,@(modus-vivendi-theme-syntax-foreground
+                           magenta-alt magenta-alt-faint)
+                        :weight ,modus-theme-bold)))
    `(nxml-namespace-attribute-colon ((,class :foreground ,fg-main)))
-   `(nxml-namespace-attribute-prefix ((,class :foreground ,cyan)))
-   `(nxml-processing-instruction-target ((,class :foreground ,magenta-alt-other :weight ,modus-theme-bold)))
-   `(nxml-prolog-keyword ((,class :foreground ,magenta-alt-other :weight ,modus-theme-bold)))
-   `(nxml-ref ((,class :foreground ,green-alt-other :weight ,modus-theme-bold)))
+   `(nxml-namespace-attribute-prefix ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                                 cyan cyan-faint))))
+   `(nxml-processing-instruction-target ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                                    magenta-alt-other magenta-alt-other-faint)
+                                                 :weight ,modus-theme-bold)))
+   `(nxml-prolog-keyword ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                     magenta-alt-other magenta-alt-other-faint)
+                                  :weight ,modus-theme-bold)))
+   `(nxml-ref ((,class ,@(modus-vivendi-theme-syntax-foreground
+                          green-alt-other green-alt-other-faint)
+                       :weight ,modus-theme-bold)))
    ;;;; orderless
    `(orderless-match-face-0 ((,class ,@(modus-vivendi-theme-completions
                                         blue-alt blue-refine-bg blue-refine-fg)
@@ -3271,23 +3352,37 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(caml-types-occ-face ((,class :inherit modus-theme-subtle-green)))
    `(caml-types-scope-face ((,class :inherit modus-theme-subtle-blue)))
    `(caml-types-typed-face ((,class :inherit modus-theme-subtle-magenta)))
-   `(tuareg-font-double-semicolon-face ((,class :foreground ,red-alt)))
-   `(tuareg-font-lock-attribute-face ((,class :foreground ,magenta)))
+   `(tuareg-font-double-semicolon-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                                   red-alt red-alt-faint))))
+   `(tuareg-font-lock-attribute-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                                 magenta magenta-faint))))
    `(tuareg-font-lock-constructor-face ((,class :foreground ,fg-main)))
    `(tuareg-font-lock-error-face ((,class :inherit modus-theme-intense-red :weight bold)))
    `(tuareg-font-lock-extension-node-face ((,class :background ,bg-alt :foreground ,magenta)))
    `(tuareg-font-lock-governing-face ((,class :foreground ,fg-main :weight bold)))
-   `(tuareg-font-lock-infix-extension-node-face ((,class :foreground ,magenta)))
+   `(tuareg-font-lock-infix-extension-node-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                                            magenta magenta-faint))))
    `(tuareg-font-lock-interactive-directive-face ((,class :foreground ,fg-special-cold)))
-   `(tuareg-font-lock-interactive-error-face ((,class :foreground ,red :weight bold)))
-   `(tuareg-font-lock-interactive-output-face ((,class :foreground ,blue-alt-other)))
-   `(tuareg-font-lock-label-face ((,class :foreground ,cyan-alt-other)))
+   `(tuareg-font-lock-interactive-error-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                                         red red-faint)
+                                                      :weight bold)))
+   `(tuareg-font-lock-interactive-output-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                                          blue-alt-other blue-alt-other-faint))))
+   `(tuareg-font-lock-label-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                             cyan-alt-other cyan-alt-other-faint))))
    `(tuareg-font-lock-line-number-face ((,class :foreground ,fg-special-warm)))
-   `(tuareg-font-lock-module-face ((,class :foreground ,magenta-alt)))
-   `(tuareg-font-lock-multistage-face ((,class :background ,bg-alt :foreground ,blue :weight bold)))
-   `(tuareg-font-lock-operator-face ((,class :foreground ,red-alt)))
-   `(tuareg-opam-error-face ((,class :foreground ,red :weight bold)))
-   `(tuareg-opam-pkg-variable-name-face ((,class :foreground ,cyan :slant ,modus-theme-slant)))
+   `(tuareg-font-lock-module-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                              magenta-alt magenta-alt-faint))))
+   `(tuareg-font-lock-multistage-face ((,class :background ,bg-alt ,@(modus-vivendi-theme-syntax-foreground
+                                                                      blue blue-faint)
+                                               :weight bold)))
+   `(tuareg-font-lock-operator-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                                red-alt red-alt-faint))))
+   `(tuareg-opam-error-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                        red red-faint) :weight bold)))
+   `(tuareg-opam-pkg-variable-name-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                                    cyan cyan-faint)
+                                                 :slant ,modus-theme-slant)))
    ;;;; undo-tree
    `(undo-tree-visualizer-active-branch-face ((,class :foreground ,fg-main :weight bold)))
    `(undo-tree-visualizer-current-face ((,class :foreground ,blue-intense)))
@@ -3360,53 +3455,89 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(web-mode-annotation-face ((,class :inherit web-mode-comment-face)))
    `(web-mode-annotation-html-face ((,class :inherit web-mode-comment-face)))
    `(web-mode-annotation-tag-face ((,class :inherit web-mode-comment-face :underline t)))
-   `(web-mode-block-attr-name-face ((,class :foreground ,blue)))
-   `(web-mode-block-attr-value-face ((,class :foreground ,cyan-alt-other)))
+   `(web-mode-block-attr-name-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                               blue blue-faint))))
+   `(web-mode-block-attr-value-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                                cyan-alt-other cyan-alt-other-faint))))
    `(web-mode-block-comment-face ((,class :inherit web-mode-comment-face)))
-   `(web-mode-block-control-face ((,class :foreground ,magenta-alt :weight ,modus-theme-bold)))
+   `(web-mode-block-control-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                             magenta-alt magenta-alt-faint)
+                                          :weight ,modus-theme-bold)))
    `(web-mode-block-delimiter-face ((,class :foreground ,fg-main)))
    `(web-mode-block-face ((,class :background ,bg-dim)))
    `(web-mode-block-string-face ((,class :inherit web-mode-string-face)))
    `(web-mode-bold-face ((,class :weight bold)))
-   `(web-mode-builtin-face ((,class :foreground ,magenta-alt :weight ,modus-theme-bold)))
+   `(web-mode-builtin-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                       magenta-alt magenta-alt-faint)
+                                    :weight ,modus-theme-bold)))
    `(web-mode-comment-face ((,class :foreground ,fg-alt :slant ,modus-theme-slant)))
-   `(web-mode-comment-keyword-face ((,class :background ,bg-dim :foreground ,yellow :weight bold)))
-   `(web-mode-constant-face ((,class :foreground ,blue-alt-other)))
-   `(web-mode-css-at-rule-face ((,class :foreground ,blue-alt-other)))
-   `(web-mode-css-color-face ((,class :foreground ,magenta-alt :weight ,modus-theme-bold)))
+   `(web-mode-comment-keyword-face ((,class :background ,bg-dim
+                                            ,@(modus-vivendi-theme-syntax-foreground
+                                               yellow yellow-faint)
+                                            :weight bold)))
+   `(web-mode-constant-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                        blue-alt-other blue-alt-other-faint))))
+   `(web-mode-css-at-rule-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                           blue-alt-other blue-alt-other-faint))))
+   `(web-mode-css-color-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                         magenta-alt magenta-alt-faint)
+                                      :weight ,modus-theme-bold)))
    `(web-mode-css-comment-face ((,class :inherit web-mode-comment-face)))
-   `(web-mode-css-function-face ((,class :foreground ,magenta-alt :weight ,modus-theme-bold)))
-   `(web-mode-css-priority-face ((,class :foreground ,yellow-alt :weight ,modus-theme-bold)))
-   `(web-mode-css-property-name-face ((,class :foreground ,cyan)))
-   `(web-mode-css-pseudo-class-face ((,class :foreground ,cyan-alt-other)))
-   `(web-mode-css-selector-face ((,class :foreground ,magenta-alt-other :weight ,modus-theme-bold)))
+   `(web-mode-css-function-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                            magenta-alt magenta-alt-faint)
+                                         :weight ,modus-theme-bold)))
+   `(web-mode-css-priority-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                            yellow-alt yellow-alt-faint)
+                                         :weight ,modus-theme-bold)))
+   `(web-mode-css-property-name-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                                 cyan cyan-faint))))
+   `(web-mode-css-pseudo-class-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                                cyan-alt-other cyan-alt-other-faint))))
+   `(web-mode-css-selector-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                            magenta-alt-other magenta-alt-other-faint)
+                                         :weight ,modus-theme-bold)))
    `(web-mode-css-string-face ((,class :inherit web-mode-string-face)))
    `(web-mode-css-variable-face ((,class :foreground ,fg-special-warm)))
    `(web-mode-current-column-highlight-face ((,class :background ,bg-alt)))
    `(web-mode-current-element-highlight-face ((,class :inherit modus-theme-special-mild)))
    `(web-mode-doctype-face ((,class :foreground ,fg-special-cold :slant ,modus-theme-slant)))
    `(web-mode-error-face ((,class :inherit modus-theme-intense-red)))
-   `(web-mode-filter-face ((,class :foreground ,magenta)))
+   `(web-mode-filter-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                      magenta magenta-faint))))
    `(web-mode-folded-face ((,class :underline t)))
-   `(web-mode-function-call-face ((,class :foreground ,magenta)))
-   `(web-mode-function-name-face ((,class :foreground ,magenta)))
-   `(web-mode-html-attr-custom-face ((,class :foreground ,cyan)))
+   `(web-mode-function-call-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                             magenta magenta-faint))))
+   `(web-mode-function-name-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                             magenta magenta-faint))))
+   `(web-mode-html-attr-custom-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                                cyan cyan-faint))))
    `(web-mode-html-attr-engine-face ((,class :foreground ,fg-main)))
    `(web-mode-html-attr-equal-face ((,class :foreground ,fg-main)))
-   `(web-mode-html-attr-name-face ((,class :foreground ,cyan)))
-   `(web-mode-html-attr-value-face ((,class :foreground ,blue-alt-other)))
-   `(web-mode-html-entity-face ((,class :foreground ,yellow-alt-other :slant ,modus-theme-slant)))
+   `(web-mode-html-attr-name-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                              cyan cyan-faint))))
+   `(web-mode-html-attr-value-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                               blue-alt-other blue-alt-other-faint))))
+   `(web-mode-html-entity-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                           yellow-alt-other yellow-alt-other-faint)
+                                        :slant ,modus-theme-slant)))
    `(web-mode-html-tag-bracket-face ((,class :foreground ,fg-dim)))
-   `(web-mode-html-tag-custom-face ((,class :foreground ,magenta)))
-   `(web-mode-html-tag-face ((,class :foreground ,magenta)))
-   `(web-mode-html-tag-namespaced-face ((,class :foreground ,magenta-alt :weight ,modus-theme-bold)))
-   `(web-mode-html-tag-unclosed-face ((,class :foreground ,red :underline t)))
+   `(web-mode-html-tag-custom-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                               magenta magenta-faint))))
+   `(web-mode-html-tag-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                        magenta magenta-faint))))
+   `(web-mode-html-tag-namespaced-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                                   magenta-alt magenta-alt-faint)
+                                                :weight ,modus-theme-bold)))
+   `(web-mode-html-tag-unclosed-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                                 red red-faint)
+                                              :underline t)))
    `(web-mode-inlay-face ((,class :background ,bg-alt)))
    `(web-mode-italic-face ((,class :slant italic)))
    `(web-mode-javascript-comment-face ((,class :inherit web-mode-comment-face)))
    `(web-mode-javascript-string-face ((,class :inherit web-mode-string-face)))
    `(web-mode-json-comment-face ((,class :inherit web-mode-comment-face)))
-   `(web-mode-json-context-face ((,class :foreground ,magenta-alt)))
+   `(web-mode-json-context-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                            magenta-alt magenta-alt-faint))))
    `(web-mode-json-key-face ((,class :foreground ,blue-nuanced)))
    `(web-mode-json-string-face ((,class :inherit web-mode-string-face)))
    `(web-mode-jsx-depth-1-face ((,class :background ,blue-intense-bg :foreground ,fg-main)))
@@ -3414,21 +3545,33 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(web-mode-jsx-depth-3-face ((,class :background ,bg-special-cold :foreground ,fg-special-cold)))
    `(web-mode-jsx-depth-4-face ((,class :background ,bg-alt :foreground ,blue-refine-fg)))
    `(web-mode-jsx-depth-5-face ((,class :background ,bg-alt :foreground ,blue-nuanced)))
-   `(web-mode-keyword-face ((,class :foreground ,magenta-alt-other :weight ,modus-theme-bold)))
-   `(web-mode-param-name-face ((,class :foreground ,magenta)))
+   `(web-mode-keyword-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                       magenta-alt-other magenta-alt-other-faint)
+                                    :weight ,modus-theme-bold)))
+   `(web-mode-param-name-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                          magenta magenta-faint))))
    `(web-mode-part-comment-face ((,class :inherit web-mode-comment-face)))
    `(web-mode-part-face ((,class :inherit web-mode-block-face)))
    `(web-mode-part-string-face ((,class :inherit web-mode-string-face)))
-   `(web-mode-preprocessor-face ((,class :foreground ,magenta)))
+   `(web-mode-preprocessor-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                            magenta magenta-faint))))
    `(web-mode-script-face ((,class :inherit web-mode-part-face)))
-   `(web-mode-sql-keyword-face ((,class :foreground ,yellow :weight bold)))
-   `(web-mode-string-face ((,class :foreground ,blue-alt)))
+   `(web-mode-sql-keyword-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                           yellow yellow-faint)
+                                        :weight bold)))
+   `(web-mode-string-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                      blue-alt blue-alt-faint))))
    `(web-mode-style-face ((,class :inherit web-mode-part-face)))
-   `(web-mode-symbol-face ((,class :foreground ,blue-alt-other)))
-   `(web-mode-type-face ((,class :foreground ,magenta-alt)))
+   `(web-mode-symbol-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                      blue-alt-other blue-alt-other-faint))))
+   `(web-mode-type-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                    magenta-alt magenta-alt-faint))))
    `(web-mode-underline-face ((,class :underline t)))
-   `(web-mode-variable-name-face ((,class :foreground ,cyan)))
-   `(web-mode-warning-face ((,class :background ,bg-alt :foreground ,yellow-alt-other :weight bold)))
+   `(web-mode-variable-name-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                             cyan cyan-faint))))
+   `(web-mode-warning-face ((,class :background ,bg-alt ,@(modus-vivendi-theme-syntax-foreground
+                                                           yellow-alt-other yellow-alt-other-faint)
+                                    :weight bold)))
    `(web-mode-whitespace-face ((,class :background ,bg-whitespace :foreground ,fg-whitespace)))
    ;;;; wgrep
    `(wgrep-delete-face ((,class :inherit modus-theme-refine-yellow)))
@@ -3475,10 +3618,15 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(woman-italic ((,class :foreground ,cyan :slant italic)))
    `(woman-unknown ((,class :foreground ,yellow :slant italic)))
    ;;;; xah-elisp-mode
-   `(xah-elisp-at-symbol ((,class :foreground ,red-alt :weight bold)))
-   `(xah-elisp-cap-variable ((,class :foreground ,red-alt-other)))
-   `(xah-elisp-command-face ((,class :foreground ,cyan-alt-other)))
-   `(xah-elisp-dollar-symbol ((,class :foreground ,green)))
+   `(xah-elisp-at-symbol ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                     red-alt red-alt-faint)
+                                  :weight bold)))
+   `(xah-elisp-cap-variable ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                        red-alt-other red-alt-other-faint))))
+   `(xah-elisp-command-face ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                        cyan-alt-other cyan-alt-other-faint))))
+   `(xah-elisp-dollar-symbol ((,class ,@(modus-vivendi-theme-syntax-foreground
+                                         green green-faint))))
    ;;;; xref
    `(xref-file-header ((,class :foreground ,fg-special-cold :weight bold)))
    `(xref-line-number ((,class :foreground ,fg-alt)))

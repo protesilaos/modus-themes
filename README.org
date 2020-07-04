@@ -387,6 +387,21 @@ The default is to use colour-coded backgrounds for line-wise highlights.
 which is, nonetheless, more subtle with this option than with its
 default equivalent.
 
+** Option for faint code syntax highlighting
+   :PROPERTIES:
+   :CUSTOM_ID: h:9f05eef0-9d0d-4305-98a1-c4e49f41e1c8
+   :END:
+
++ =modus-operandi-theme-faint-syntax=
++ =modus-vivendi-theme-faint-syntax=
+
+Use less saturated colours in programming modes for highlighting code
+syntax.  The intent is to offer an impression of minimalism.  The
+default is to use saturated colours.
+
+*This option is new and could still undergo further refinements.*  User
+feedback would be much appreciated.
+
 ** Option for intense standard completions
    :PROPERTIES:
    :CUSTOM_ID: h:5b0b1e66-8287-4f3f-ba14-011c29320a3f
@@ -1182,6 +1197,13 @@ once.  It will allow you to make contributions to Emacs in general.
 
 If you interested in the principles that govern the development of this
 project, read my article [[https://protesilaos.com/codelog/2020-03-17-design-modus-themes-emacs/][On the design of the Modus themes]] (2020-03-17).
+
+Some more articles for those interested in the kind of work that goes
+into this project:
+
++ [[https://protesilaos.com/codelog/2020-06-13-modus-vivendi-palette-review/][Modus Vivendi theme subtle palette review]] (2020-06-13)
++ [[https://protesilaos.com/codelog/2020-05-10-modus-operandi-palette-review/][Modus Operandi theme subtle palette review]] (2020-05-10)
++ [[https://protesilaos.com/codelog/2020-07-04-modus-themes-faint-colours/][Modus themes: new "faint syntax" option]] (2020-07-04)
 
 * COPYING
   :PROPERTIES:
