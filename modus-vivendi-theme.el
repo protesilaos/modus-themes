@@ -1736,7 +1736,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(font-lock-string-face ((,class :foreground ,blue-alt)))
    `(font-lock-type-face ((,class :foreground ,magenta-alt)))
    `(font-lock-variable-name-face ((,class :foreground ,cyan)))
-   `(font-lock-warning-face ((,class :foreground ,yellow-active :weight bold)))
+   `(font-lock-warning-face ((,class :foreground ,yellow-active :weight ,modus-theme-bold)))
    ;;;; forge
    `(forge-post-author ((,class :foreground ,fg-main :weight bold)))
    `(forge-post-date ((,class :foreground ,fg-special-cold)))
