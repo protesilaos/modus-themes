@@ -1202,8 +1202,8 @@ project, read my article [[https://protesilaos.com/codelog/2020-03-17-design-mod
 Some more articles for those interested in the kind of work that goes
 into this project:
 
-+ [[https://protesilaos.com/codelog/2020-06-13-modus-vivendi-palette-review/][Modus Vivendi theme subtle palette review]] (2020-06-13)
 + [[https://protesilaos.com/codelog/2020-05-10-modus-operandi-palette-review/][Modus Operandi theme subtle palette review]] (2020-05-10)
++ [[https://protesilaos.com/codelog/2020-06-13-modus-vivendi-palette-review/][Modus Vivendi theme subtle palette review]] (2020-06-13)
 + [[https://protesilaos.com/codelog/2020-07-04-modus-themes-faint-colours/][Modus themes: new "faint syntax" option]] (2020-07-04)
 
 * COPYING
