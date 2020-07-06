@@ -176,6 +176,7 @@
 ;;     highlight-indentation
 ;;     highlight-numbers
 ;;     highlight-symbol
+;;     highlight-tail
 ;;     highlight-thing
 ;;     hl-fill-column
 ;;     hl-line-mode
@@ -3681,6 +3682,10 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(ibuffer-filter-group-name-face 'modus-theme-mark-symbol)
    `(ibuffer-marked-face 'modus-theme-mark-sel)
    `(ibuffer-title-face 'modus-theme-header)
+   ;;;; highlight-tail
+   `(highlight-tail-colors
+     '((,green-subtle-bg . 0)
+       (,cyan-subtle-bg . 20)))
    ;;;; hl-todo
    `(hl-todo-keyword-faces
      '(("HOLD" . ,yellow-alt)

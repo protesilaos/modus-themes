@@ -846,6 +846,7 @@ the "full support" may not be 100% true…
 + highlight-indentation
 + highlight-numbers
 + highlight-symbol
++ highlight-tail
 + highlight-thing
 + hl-fill-column
 + hl-line-mode
