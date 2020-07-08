@@ -3772,6 +3772,8 @@ Also bind `class' to ((class color) (min-colors 89))."
      `(org-src-block-faces              ; TODO this list should be expanded
        `(("emacs-lisp" 'modus-theme-nuanced-magenta)
          ("elisp" 'modus-theme-nuanced-magenta)
+         ("clojure" 'modus-theme-nuanced-magenta)
+         ("clojurescript" 'modus-theme-nuanced-magenta)
          ("c" 'modus-theme-nuanced-blue)
          ("c++" 'modus-theme-nuanced-cyan)
          ("sh" 'modus-theme-nuanced-green)
