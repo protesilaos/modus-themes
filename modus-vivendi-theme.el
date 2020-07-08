@@ -478,7 +478,8 @@ For more on the matter, read the documentation of
   :type 'boolean)
 
 (defcustom modus-vivendi-theme-distinct-org-blocks nil
-  "Use a distinct background for `org-mode' source blocks."
+  "Use a distinct neutral background for `org-mode' blocks."
+  :type 'boolean)
   :type 'boolean)
 
 (defcustom modus-vivendi-theme-3d-modeline nil
@@ -3708,7 +3709,7 @@ Also bind `class' to ((class color) (min-colors 89))."
        ("XXX+" . ,red-alt)
        ("REVIEW" . ,cyan-alt-other)
        ("DEPRECATED" . ,cyan-nuanced)))
-   ;;;;; vc-annotate (C-x v g)
+   ;;;; vc-annotate (C-x v g)
    `(vc-annotate-background nil)
    `(vc-annotate-background-mode nil)
    `(vc-annotate-color-map

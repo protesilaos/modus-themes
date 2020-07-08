@@ -193,7 +193,7 @@ a theme, you can evaluate either of these:
 Consult the section below with the [[#h:0e3b8a62-8d72-4439-be2d-cb12ed98f4cb][complete example configuration]] for a
 fully fledged =use-package= declaration.
 
-** Option for distinct Org source blocks
+** Option for distinct Org blocks
    :PROPERTIES:
    :CUSTOM_ID: h:ca57a3af-6f79-4530-88c0-e35eda9d3bf7
    :END:
@@ -201,7 +201,7 @@ fully fledged =use-package= declaration.
 + =modus-operandi-theme-distinct-org-blocks=
 + =modus-vivendi-theme-distinct-org-blocks=
 
-Use a distinct background for Org's source blocks and extend the
+Use a distinct neutral background for Org's blocks and extend the
 background of their beginning and end lines to the edge of the window
 (the "extend" part is for Emacs versions >= 27, whereas before they
 would extend regardless).
