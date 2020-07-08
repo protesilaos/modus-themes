@@ -211,6 +211,26 @@ the contents of the block, while beginning and end lines do not extend
 to the end of the window (again, the "extend" is for Emacs 27 or
 higher).
 
+Also see: [[#h:3eebcc85-b104-4774-a742-6dc4dc3dd122][Option for colourful "rainbow" Org SRC blocks]].
+
+** Option for colourful "rainbow" Org SRC blocks
+   :PROPERTIES:
+   :CUSTOM_ID: h:3eebcc85-b104-4774-a742-6dc4dc3dd122
+   :END:
+
++ =modus-operandi-theme-rainbow-org-src-blocks=
++ =modus-vivendi-theme-rainbow-org-src-blocks=
+
+Apply a colour-coded background to Org src blocks.  The exact colour of
+the background depends on the language being used.  These colours are
+designed to work well with all foreground values that are used in
+programming modes.
+
+The default is to use no background at all (it is the same as the rest
+of the buffer).
+
+Also see: [[#h:ca57a3af-6f79-4530-88c0-e35eda9d3bf7][Option for distinct Org blocks]].
+
 ** Option for colourful "rainbow" headings
    :PROPERTIES:
    :CUSTOM_ID: h:1be42afb-bcd2-4425-b956-0ba93eb960c2
@@ -467,6 +487,7 @@ being available.
         modus-operandi-theme-subtle-diffs t
         modus-operandi-theme-intense-standard-completions t
         modus-operandi-theme-distinct-org-blocks t
+        modus-operandi-theme-rainbow-org-src-blocks t
         modus-operandi-theme-proportional-fonts t
         modus-operandi-theme-rainbow-headings t
         modus-operandi-theme-section-headings t

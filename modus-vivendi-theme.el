@@ -47,6 +47,7 @@
 ;;     modus-vivendi-theme-scale-headings
 ;;     modus-vivendi-theme-visible-fringes
 ;;     modus-vivendi-theme-distinct-org-blocks
+;;     modus-vivendi-theme-rainbow-org-src-blocks
 ;;     modus-vivendi-theme-3d-modeline
 ;;     modus-vivendi-theme-subtle-diffs
 ;;     modus-vivendi-theme-faint-syntax
@@ -372,6 +373,12 @@ between foreground and background is >= 7:1)."
 (defface modus-theme-fringe-blue nil nil)
 (defface modus-theme-fringe-magenta nil nil)
 (defface modus-theme-fringe-cyan nil nil)
+(defface modus-theme-nuanced-red nil nil)
+(defface modus-theme-nuanced-green nil nil)
+(defface modus-theme-nuanced-yellow nil nil)
+(defface modus-theme-nuanced-blue nil nil)
+(defface modus-theme-nuanced-magenta nil nil)
+(defface modus-theme-nuanced-cyan nil nil)
 (defface modus-theme-special-cold nil nil)
 (defface modus-theme-special-mild nil nil)
 (defface modus-theme-special-warm nil nil)
@@ -480,6 +487,11 @@ For more on the matter, read the documentation of
 (defcustom modus-vivendi-theme-distinct-org-blocks nil
   "Use a distinct neutral background for `org-mode' blocks."
   :type 'boolean)
+
+(defcustom modus-vivendi-theme-rainbow-org-src-blocks nil
+  "Use colour-coded backgrounds for `org-mode' source blocks.
+The colour in use depends on the language (send feedback to
+include more languages)."
   :type 'boolean)
 
 (defcustom modus-vivendi-theme-3d-modeline nil
@@ -859,6 +871,20 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(modus-theme-active-blue ((,class :background ,blue-active :foreground ,bg-active)))
    `(modus-theme-active-magenta ((,class :background ,magenta-active :foreground ,bg-active)))
    `(modus-theme-active-cyan ((,class :background ,cyan-active :foreground ,bg-active)))
+   ;;; for adding a coloured background that is suitable for all main
+   ;;; foreground colours (intended for use in Org source blocks)
+   `(modus-theme-nuanced-red ((,class :background ,red-nuanced-bg
+                                      ,@(and (>= emacs-major-version 27) '(:extend t)))))
+   `(modus-theme-nuanced-green ((,class :background ,green-nuanced-bg
+                                        ,@(and (>= emacs-major-version 27) '(:extend t)))))
+   `(modus-theme-nuanced-yellow ((,class :background ,yellow-nuanced-bg
+                                         ,@(and (>= emacs-major-version 27) '(:extend t)))))
+   `(modus-theme-nuanced-blue ((,class :background ,blue-nuanced-bg
+                                       ,@(and (>= emacs-major-version 27) '(:extend t)))))
+   `(modus-theme-nuanced-magenta ((,class :background ,magenta-nuanced-bg
+                                          ,@(and (>= emacs-major-version 27) '(:extend t)))))
+   `(modus-theme-nuanced-cyan ((,class :background ,cyan-nuanced-bg
+                                       ,@(and (>= emacs-major-version 27) '(:extend t)))))
    ;;; for fringe indicators
    `(modus-theme-fringe-red ((,class :background ,red-fringe-bg :foreground ,fg-dim)))
    `(modus-theme-fringe-green ((,class :background ,green-fringe-bg :foreground ,fg-dim)))
@@ -3734,7 +3760,22 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(vc-annotate-very-old-color nil)
    ;;;; xterm-color
    `(xterm-color-names [,bg-main ,red ,green ,yellow ,blue ,magenta ,cyan ,fg-alt])
-   `(xterm-color-names-bright [,bg-alt ,red-alt ,green-alt ,yellow-alt ,blue-alt ,magenta-alt ,cyan-alt ,fg-main])))
+   `(xterm-color-names-bright [,bg-alt ,red-alt ,green-alt ,yellow-alt ,blue-alt ,magenta-alt ,cyan-alt ,fg-main]))
+  ;;; Conditional theme variables
+  ;;;; org-src-block-faces (this is a user option to add a colour-coded
+  ;;;; background to source blocks for various programming languages)
+  (when modus-vivendi-theme-rainbow-org-src-blocks
+    (custom-theme-set-variables
+     'modus-vivendi
+     `(org-src-block-faces              ; TODO this list should be expanded
+       `(("emacs-lisp" 'modus-theme-nuanced-magenta)
+         ("c" 'modus-theme-nuanced-blue)
+         ("c++" 'modus-theme-nuanced-cyan)
+         ("sh" 'modus-theme-nuanced-green)
+         ("html" 'modus-theme-nuanced-yellow)
+         ("css" 'modus-theme-nuanced-cyan)
+         ("scss" 'modus-theme-nuanced-magenta)
+         ("python" 'modus-theme-nuanced-red))))))
 
 ;;;###autoload
 (when load-file-name
