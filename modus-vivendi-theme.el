@@ -647,18 +647,19 @@ AMOUNT is a customisation option."
       ("red-alt-other-faint" . "#ff9fbf") ("green-alt-other-faint" . "#88cfaf")
       ("yellow-alt-other-faint" . "#d0ba95") ("blue-alt-other-faint" . "#8fc5ff")
       ("magenta-alt-other-faint" . "#d0b4ff") ("cyan-alt-other-faint" . "#a4d0bb")
-      ;; styles for elements that should be very subtle
+      ;; styles for elements that should be very subtle, yet accented
       ;;
-      ;; must be combined with: `bg-main', `bg-alt', `bg-dim'
-      ("red-nuanced" . "#ffcccc") ("green-nuanced" . "#b0f0b0")
-      ("yellow-nuanced" . "#e0e0bb") ("blue-nuanced" . "#ccccff")
-      ("magenta-nuanced" . "#eeccee") ("cyan-nuanced" . "#aaeeee")
+      ;; must be combined with: `bg-main', `bg-alt', `bg-dim' or any of
+      ;; the "nuanced" backgrounds
+      ("red-nuanced" . "#ffcccc") ("green-nuanced" . "#b8e2b8")
+      ("yellow-nuanced" . "#dfdfb0") ("blue-nuanced" . "#bfd9ff")
+      ("magenta-nuanced" . "#e5cfef") ("cyan-nuanced" . "#a8e5e5")
       ;; styles for slightly accented background
       ;;
       ;; must be combined with any of the above foreground values
-      ("red-nuanced-bg" . "#180505") ("green-nuanced-bg" . "#061206")
-      ("yellow-nuanced-bg" . "#18140a") ("blue-nuanced-bg" . "#070722")
-      ("magenta-nuanced-bg" . "#160616") ("cyan-nuanced-bg" . "#091620")
+      ("red-nuanced-bg" . "#3f0000") ("green-nuanced-bg" . "#002000")
+      ("yellow-nuanced-bg" . "#321000") ("blue-nuanced-bg" . "#001055")
+      ("magenta-nuanced-bg" . "#32003f") ("cyan-nuanced-bg" . "#001a3a")
       ;; styles for elements that should draw attention to themselves
       ;;
       ;; must be combined with: `bg-main'
