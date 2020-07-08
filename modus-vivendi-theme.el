@@ -2777,7 +2777,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-checkbox-statistics-done ((,class :foreground ,green
                                            ,@(modus-vivendi-theme-heading-block
                                               green-nuanced-bg green-nuanced))))
-   `(org-checkbox-statistics-todo ((,class :foreground ,red-alt
+   `(org-checkbox-statistics-todo ((,class ,@(modus-vivendi-theme-heading-foreground red-alt red)
                                            ,@(modus-vivendi-theme-heading-block
                                               red-nuanced-bg red-nuanced))))
    `(org-clock-overlay ((,class :inherit modus-theme-special-cold)))
