@@ -2823,11 +2823,11 @@ Also bind `class' to ((class color) (min-colors 89))."
                           ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-2)
                           ,@(modus-vivendi-theme-heading-block blue-nuanced-bg blue-nuanced))))
    `(org-level-4 ((,class :inherit ,modus-theme-variable-pitch :weight bold
-                          ,@(modus-vivendi-theme-heading-foreground fg-special-mild cyan-alt-other)
+                          ,@(modus-vivendi-theme-heading-foreground fg-special-mild cyan)
                           ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-1)
                           ,@(modus-vivendi-theme-heading-block cyan-nuanced-bg cyan-nuanced))))
    `(org-level-5 ((,class :inherit ,modus-theme-variable-pitch :weight bold
-                          ,@(modus-vivendi-theme-heading-foreground fg-special-calm green-alt)
+                          ,@(modus-vivendi-theme-heading-foreground fg-special-calm green-alt-other)
                           ,@(modus-vivendi-theme-heading-block green-nuanced-bg green-nuanced))))
    `(org-level-6 ((,class :inherit ,modus-theme-variable-pitch :weight bold
                           ,@(modus-vivendi-theme-heading-foreground yellow-nuanced yellow-alt-other)
@@ -2904,11 +2904,11 @@ Also bind `class' to ((class color) (min-colors 89))."
                         ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-2)
                         ,@(modus-vivendi-theme-heading-block blue-nuanced-bg blue-nuanced))))
    `(outline-4 ((,class :inherit ,modus-theme-variable-pitch :weight bold
-                        ,@(modus-vivendi-theme-heading-foreground fg-special-mild cyan-alt-other)
+                        ,@(modus-vivendi-theme-heading-foreground fg-special-mild cyan)
                         ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-1)
                         ,@(modus-vivendi-theme-heading-block cyan-nuanced-bg cyan-nuanced))))
    `(outline-5 ((,class :inherit ,modus-theme-variable-pitch :weight bold
-                        ,@(modus-vivendi-theme-heading-foreground fg-special-calm green-alt)
+                        ,@(modus-vivendi-theme-heading-foreground fg-special-calm green-alt-other)
                         ,@(modus-vivendi-theme-heading-block green-nuanced-bg green-nuanced))))
    `(outline-6 ((,class :inherit ,modus-theme-variable-pitch :weight bold
                         ,@(modus-vivendi-theme-heading-foreground yellow-nuanced yellow-alt-other)
