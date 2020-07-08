@@ -962,10 +962,12 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(all-the-icons-silver ((,class :foreground ,fg-special-cold)))
    `(all-the-icons-yellow ((,class :foreground ,yellow)))
    ;;;; annotate
-   `(annotate-annotation ((,class :inherit modus-theme-intense-blue)))
-   `(annotate-annotation-secondary ((,class :inherit modus-theme-intense-yellow)))
-   `(annotate-highlight ((,class :underline (:color ,blue-intense :style line))))
-   `(annotate-highlight-secondary ((,class :underline (:color ,yellow-intense :style line))))
+   `(annotate-annotation ((,class :inherit modus-theme-subtle-blue)))
+   `(annotate-annotation-secondary ((,class :inherit modus-theme-subtle-green)))
+   `(annotate-highlight ((,class :background ,blue-nuanced-bg
+                                 :underline (:color ,blue-intense))))
+   `(annotate-highlight-secondary ((,class :background ,green-nuanced-bg
+                                           :underline (:color ,green-intense))))
    ;;;; anzu
    `(anzu-match-1 ((,class :inherit modus-theme-subtle-cyan)))
    `(anzu-match-2 ((,class :inherit modus-theme-subtle-green)))
