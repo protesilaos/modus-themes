@@ -2804,10 +2804,10 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-agenda-diary ((,class :foreground ,fg-main)))
    `(org-agenda-dimmed-todo-face ((,class :inherit modus-theme-subtle-neutral)))
    `(org-agenda-done ((,class ,@(modus-operandi-theme-org-todo-block green-nuanced-bg green-nuanced green))))
-   `(org-agenda-filter-category ((,class :background ,bg-active :foreground ,fg-main :box t)))
-   `(org-agenda-filter-effort ((,class :background ,bg-active :foreground ,fg-main :box t)))
-   `(org-agenda-filter-regexp ((,class :background ,bg-active :foreground ,fg-main :box t)))
-   `(org-agenda-filter-tags ((,class :background ,bg-active :foreground ,fg-main :box t)))
+   `(org-agenda-filter-category ((,class :foreground ,magenta-active :weight bold)))
+   `(org-agenda-filter-effort ((,class :foreground ,magenta-active :weight bold)))
+   `(org-agenda-filter-regexp ((,class :foreground ,magenta-active :weight bold)))
+   `(org-agenda-filter-tags ((,class :foreground ,magenta-active :weight bold)))
    `(org-agenda-restriction-lock ((,class :background ,bg-dim :foreground ,fg-dim)))
    `(org-agenda-structure ((,class :inherit ,modus-theme-variable-pitch
                                    :foreground ,fg-special-mild
