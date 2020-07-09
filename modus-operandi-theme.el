@@ -1821,37 +1821,41 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(forge-topic-unmerged ((,class :foreground ,magenta :slant ,modus-theme-slant)))
    `(forge-topic-unread ((,class :foreground ,fg-main :weight bold)))
    ;;;; fountain-mode
-   `(fountain-character ((,class :foreground ,magenta-alt-other)))
+   `(fountain-character ((,class :foreground ,blue-alt-other)))
    `(fountain-comment ((,class :foreground ,fg-alt :slant ,modus-theme-slant)))
-   `(fountain-dialog ((,class :foreground ,blue)))
-   `(fountain-metadata-key ((,class :foreground ,blue-alt-other)))
-   `(fountain-metadata-value ((,class :foreground ,cyan-alt-other)))
-   `(fountain-non-printing ((,class :inherit fountain-comment)))
-   `(fountain-note ((,class :foreground ,fg-special-warm :slant ,modus-theme-slant)))
-   `(fountain-page-break ((,class :foreground ,yellow :weight bold)))
-   `(fountain-page-number ((,class :foreground ,yellow-alt :weight bold)))
+   `(fountain-dialog ((,class :foreground ,blue-alt)))
+   `(fountain-metadata-key ((,class :foreground ,green-alt-other)))
+   `(fountain-metadata-value ((,class :foreground ,blue)))
+   `(fountain-non-printing ((,class :foreground ,fg-alt)))
+   `(fountain-note ((,class :foreground ,yellow :slant ,modus-theme-slant)))
+   `(fountain-page-break ((,class :foreground ,red-alt :weight bold)))
+   `(fountain-page-number ((,class :foreground ,red-alt-other :weight bold)))
    `(fountain-paren ((,class :foreground ,cyan)))
-   `(fountain-scene-heading ((,class :foreground ,fg-special-calm :weight bold)))
+   `(fountain-scene-heading ((,class :foreground ,blue-nuanced :weight bold)))
    `(fountain-section-heading ((,class :inherit ,modus-theme-variable-pitch
                                        :foreground ,fg-main :weight bold
-                                       ,@(modus-operandi-theme-scale modus-operandi-theme-scale-4))))
+                                       ,@(modus-operandi-theme-scale
+                                          modus-operandi-theme-scale-4))))
    `(fountain-section-heading-1 ((,class :inherit ,modus-theme-variable-pitch
                                          :foreground ,fg-main :weight bold
-                                         ,@(modus-operandi-theme-scale modus-operandi-theme-scale-4))))
+                                         ,@(modus-operandi-theme-scale
+                                            modus-operandi-theme-scale-4))))
    `(fountain-section-heading-2 ((,class :inherit ,modus-theme-variable-pitch
                                          :foreground ,fg-special-warm :weight bold
-                                         ,@(modus-operandi-theme-scale modus-operandi-theme-scale-3))))
+                                         ,@(modus-operandi-theme-scale
+                                            modus-operandi-theme-scale-3))))
    `(fountain-section-heading-3 ((,class :inherit ,modus-theme-variable-pitch
-                                         :foreground ,fg-special-cold :weight bold
-                                         ,@(modus-operandi-theme-scale modus-operandi-theme-scale-2))))
-   `(fountain-section-heading-4 ((,class :inherit ,modus-theme-variable-pitch
                                          :foreground ,fg-special-mild :weight bold
-                                         ,@(modus-operandi-theme-scale modus-operandi-theme-scale-1))))
+                                         ,@(modus-operandi-theme-scale
+                                            modus-operandi-theme-scale-2))))
+   `(fountain-section-heading-4 ((,class :inherit ,modus-theme-variable-pitch
+                                         :foreground ,fg-special-calm :weight bold
+                                         ,@(modus-operandi-theme-scale
+                                            modus-operandi-theme-scale-1))))
    `(fountain-section-heading-5 ((,class :inherit ,modus-theme-variable-pitch
                                          :foreground ,fg-special-calm :weight bold)))
-   `(fountain-synopsis ((,class :foreground ,green)))
-   `(fountain-template ((,class :foreground ,magenta-alt)))
-   `(fountain-trans ((,class :foreground ,magenta :weight bold)))
+   `(fountain-synopsis ((,class :foreground ,cyan-alt)))
+   `(fountain-trans ((,class :foreground ,yellow-alt-other)))
    ;;;; geiser
    `(geiser-font-lock-autodoc-current-arg ((,class ,@(modus-operandi-theme-syntax-foreground
                                                       magenta magenta-faint))))
