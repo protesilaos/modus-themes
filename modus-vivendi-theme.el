@@ -3775,13 +3775,19 @@ Also bind `class' to ((class color) (min-colors 89))."
          ("clojure" 'modus-theme-nuanced-magenta)
          ("clojurescript" 'modus-theme-nuanced-magenta)
          ("c" 'modus-theme-nuanced-blue)
-         ("c++" 'modus-theme-nuanced-cyan)
+         ("c++" 'modus-theme-nuanced-blue)
          ("sh" 'modus-theme-nuanced-green)
          ("shell" 'modus-theme-nuanced-green)
          ("html" 'modus-theme-nuanced-yellow)
-         ("css" 'modus-theme-nuanced-cyan)
-         ("scss" 'modus-theme-nuanced-magenta)
-         ("python" 'modus-theme-nuanced-red))))))
+         ("xml" 'modus-theme-nuanced-yellow)
+         ("css" 'modus-theme-nuanced-red)
+         ("scss" 'modus-theme-nuanced-red)
+         ("python" 'modus-theme-nuanced-green)
+         ("ipython" 'modus-theme-nuanced-magenta)
+         ("r" 'modus-theme-nuanced-cyan)
+         ("yaml" 'modus-theme-nuanced-cyan)
+         ("docker" 'modus-theme-nuanced-cyan)
+         ("json" 'modus-theme-nuanced-cyan))))))
 
 ;;;###autoload
 (when load-file-name
