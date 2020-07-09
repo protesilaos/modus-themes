@@ -1026,7 +1026,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    ;;;; auctex and Tex
    `(font-latex-bold-face ((,class :foreground ,fg-special-calm :weight bold)))
    `(font-latex-doctex-documentation-face ((,class :foreground ,fg-special-cold :slant ,modus-theme-slant)))
-   `(font-latex-doctex-preprocessor-face ((,class :foreground ,magenta-alt :weight ,modus-theme-bold)))
+   `(font-latex-doctex-preprocessor-face ((,class :foreground ,red-alt-other :weight ,modus-theme-bold)))
    `(font-latex-italic-face ((,class :foreground ,fg-special-calm :slant italic)))
    `(font-latex-math-face ((,class :foreground ,cyan-alt-other)))
    `(font-latex-script-char-face ((,class :foreground ,cyan-alt-other)))
@@ -2338,7 +2338,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(lsp-face-semhl-function ((,class :foreground ,magenta)))
    `(lsp-face-semhl-method ((,class :foreground ,magenta)))
    `(lsp-face-semhl-namespace ((,class :foreground ,magenta-alt :weight ,modus-theme-bold)))
-   `(lsp-face-semhl-preprocessor ((,class :foreground ,magenta)))
+   `(lsp-face-semhl-preprocessor ((,class :foreground ,red-alt-other)))
    `(lsp-face-semhl-static-method ((,class :foreground ,magenta :slant ,modus-theme-slant)))
    `(lsp-face-semhl-type-class ((,class :foreground ,magenta-alt)))
    `(lsp-face-semhl-type-enum ((,class :foreground ,magenta-alt)))
@@ -2527,7 +2527,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(markup-meta-face ((,class :foreground ,fg-inactive)))
    `(markup-meta-hide-face ((,class :foreground ,fg-alt)))
    `(markup-passthrough-face ((,class :inherit fixed-pitch :foreground ,cyan)))
-   `(markup-preprocessor-face ((,class :foreground ,magenta)))
+   `(markup-preprocessor-face ((,class :foreground ,red-alt-other)))
    `(markup-replacement-face ((,class :foreground ,yellow-alt-other)))
    `(markup-secondary-text-face ((,class :height 0.8 :foreground ,magenta-nuanced)))
    `(markup-small-face ((,class :height 0.8 :foreground ,fg-main)))
@@ -3587,7 +3587,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(web-mode-part-face ((,class :inherit web-mode-block-face)))
    `(web-mode-part-string-face ((,class :inherit web-mode-string-face)))
    `(web-mode-preprocessor-face ((,class ,@(modus-operandi-theme-syntax-foreground
-                                            magenta magenta-faint))))
+                                            red-alt-other red-alt-other-faint))))
    `(web-mode-script-face ((,class :inherit web-mode-part-face)))
    `(web-mode-sql-keyword-face ((,class ,@(modus-operandi-theme-syntax-foreground
                                            yellow yellow-faint)
