@@ -224,10 +224,28 @@ Also see: [[#h:3eebcc85-b104-4774-a742-6dc4dc3dd122][Option for colourful "rainb
 Apply a colour-coded background to Org src blocks.  The exact colour of
 the background depends on the language being used.  These colours are
 designed to work well with all foreground values that are used in
-programming modes.
+programming modes (meaning that they respect the minimum 7:1 contrast
+ratio).
 
 The default is to use no background at all (it is the same as the rest
 of the buffer).
+
+*Alternatively* you can specify your own language+face combination.  Here
+is an example that you can put in your Emacs configuration file:
+
+#+begin_src emacs-lisp
+(setq org-src-block-faces
+      '(("emacs-lisp" 'modus-theme-nuanced-yellow)
+        ("python" 'modus-theme-nuanced-red)))
+#+end_src
+
+The faces: =modus-theme-nuanced-{red,green,yellow,blue,magenta,cyan}=.
+
+Note that if you update the referenced faces, you will need to evaluate
+=org-src-block-faces= and then either =M-x org-mode= to refresh the buffer
+or start typing in each code block.
+
+Consider sending [[https://gitlab.com/protesilaos/modus-themes/-/issues/57][feedback in issue 57]].
 
 Also see: [[#h:ca57a3af-6f79-4530-88c0-e35eda9d3bf7][Option for distinct Org blocks]].
 
