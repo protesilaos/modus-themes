@@ -2114,7 +2114,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(highlight-changes-delete ((,class :foreground ,red-alt-other :underline t)))
    `(hl-line ((,class :background ,bg-hl-line)))
    `(region ((,class :background ,bg-region :foreground ,fg-main)))
-   `(secondary-selection ((,class :background ,bg-inactive :foreground ,fg-inactive)))
+   `(secondary-selection ((,class :inherit modus-theme-special-cold)))
    ;;;; highlight-blocks
    `(highlight-blocks-depth-1-face ((,class :background ,bg-dim :foreground ,fg-main)))
    `(highlight-blocks-depth-2-face ((,class :background ,bg-alt :foreground ,fg-main)))
