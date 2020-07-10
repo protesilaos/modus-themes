@@ -2789,8 +2789,8 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-agenda-calendar-event ((,class :foreground ,fg-main)))
    `(org-agenda-calendar-sexp ((,class :foreground ,cyan-alt)))
    `(org-agenda-clocking ((,class :inherit modus-theme-special-cold)))
-   `(org-agenda-column-dateline ((,class :inherit modus-theme-subtle-neutral)))
-   `(org-agenda-current-time ((,class :inherit modus-theme-intense-cyan)))
+   `(org-agenda-column-dateline ((,class :background ,bg-alt)))
+   `(org-agenda-current-time ((,class :inherit modus-theme-subtle-cyan)))
    `(org-agenda-date ((,class :inherit ,modus-theme-variable-pitch :foreground ,cyan-alt-other
                               ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-4)
                               ,@(modus-vivendi-theme-heading-block cyan-nuanced-bg cyan-nuanced))))
