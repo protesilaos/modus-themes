@@ -555,16 +555,25 @@ as the rest of the buffer."
        (list :background bgblk))
     (list :background nil)))
 
-(defun modus-operandi-theme-org-block-delim (bgext fgext bg fg)
+(defun modus-operandi-theme-org-block-delim (bgaccent fgaccent bg fg)
   "Conditionally set the styles of Org block delimiters.
-BGEXT and FGEXT apply a background and foreground colour
-respectively and set the `:extend' attribute where applicable.
-BG and FG should be a largely neutral colour combination."
+BG, FG, BGACCENT, FGACCENT apply a background and foreground
+colour respectively and set the `:extend' attribute where
+applicable.
+
+The former pair is a greyscale combination that should be more
+distinct than the background of the block.
+
+The latter pair should be more subtle than the background of the
+block, as it is used when source blocks are cast on a
+coloured/accented backdrop."
   (if (or modus-operandi-theme-distinct-org-blocks
           modus-operandi-theme-rainbow-org-src-blocks)
       (append
        (and (>= emacs-major-version 27) '(:extend t))
-       (list :background bgext :foreground fgext))
+       (if modus-operandi-theme-rainbow-org-src-blocks
+           (list :background bgaccent :foreground fgaccent)
+         (list :background bg :foreground fg)))
     (list :background bg :foreground fg)))
 
 (defun modus-operandi-theme-modeline-box (col3d col &optional btn int)
@@ -2817,7 +2826,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-block ((,class ,@(modus-operandi-theme-org-block bg-dim)
                         :inherit fixed-pitch :foreground ,fg-main)))
    `(org-block-begin-line ((,class ,@(modus-operandi-theme-org-block-delim
-                                      bg-active fg-special-cold
+                                      bg-dim fg-special-cold
                                       bg-alt fg-special-mild)
                                    :inherit fixed-pitch)))
    `(org-block-end-line ((,class :inherit org-block-begin-line)))
