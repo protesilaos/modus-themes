@@ -138,6 +138,7 @@
 ;;     eros
 ;;     ert
 ;;     eshell
+;;     eshell-fringe-status
 ;;     evil (evil-mode)
 ;;     evil-goggles
 ;;     evil-visual-mark-mode
@@ -1684,6 +1685,9 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(eshell-ls-symlink ((,class :foreground ,cyan :underline t)))
    `(eshell-ls-unreadable ((,class :background ,bg-inactive :foreground ,fg-inactive)))
    `(eshell-prompt ((,class :foreground ,green-alt-other :weight ,modus-theme-bold)))
+   ;;;; eshell-fringe-status
+   `(eshell-fringe-status-failure ((,class :foreground ,red)))
+   `(eshell-fringe-status-success ((,class :foreground ,green)))
    ;;;; evil-mode
    `(evil-ex-commands ((,class :foreground ,magenta-alt-other)))
    `(evil-ex-info ((,class :foreground ,cyan-alt-other)))

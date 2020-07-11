@@ -866,6 +866,7 @@ the "full support" may not be 100% true…
 + eros
 + ert
 + eshell
++ eshell-fringe-status
 + evil* (evil-mode)
 + evil-goggles
 + evil-visual-mark-mode
