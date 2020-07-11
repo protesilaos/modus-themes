@@ -753,7 +753,8 @@ appropriate type settings and are positioned correctly.
 *To make everything use your desired font families*, you need to configure
 the =variable-pitch= (proportional spacing) and =fixed-pitch= (monospaced)
 faces respectively.  Otherwise you may get unintended combinations (such
-as those experienced by Mark in [[https://gitlab.com/protesilaos/modus-themes/-/issues/42][issue 42]]).
+as those experienced by Mark in [[https://gitlab.com/protesilaos/modus-themes/-/issues/42][issue 42]] or what I documented at length
+in [[https://gitlab.com/protesilaos/modus-themes/-/issues/54][issue 54]]).
 
 Put something like this in your initialisation file:
 
