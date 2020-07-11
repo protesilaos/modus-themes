@@ -2906,7 +2906,7 @@ Also bind `class' to ((class color) (min-colors 89))."
                            ,@(modus-vivendi-theme-heading-foreground magenta magenta-alt-other))))
    `(org-quote ((,class ,@(modus-vivendi-theme-org-block bg-dim)
                         :foreground ,fg-special-calm :slant ,modus-theme-slant)))
-   `(org-scheduled ((,class :foreground ,green-alt-other)))
+   `(org-scheduled ((,class :foreground ,fg-special-warm)))
    `(org-scheduled-previously ((,class :foreground ,yellow-alt-other)))
    `(org-scheduled-today ((,class :foreground ,magenta-alt-other)))
    `(org-sexp-date ((,class :inherit org-date)))
