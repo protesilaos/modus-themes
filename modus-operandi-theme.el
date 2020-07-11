@@ -3010,7 +3010,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(paradox-star-face ((,class :foreground ,magenta)))
    `(paradox-starred-face ((,class :foreground ,magenta-alt)))
    ;;;; paren-face
-   `(parenthesis ((,class :foreground ,fg-alt)))
+   `(parenthesis ((,class :foreground ,fg-unfocused)))
    ;;;; parrot
    `(parrot-rotate-rotation-highlight-face ((,class :inherit modus-theme-refine-magenta)))
    ;;;; pass
