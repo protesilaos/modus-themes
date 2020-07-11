@@ -356,11 +356,6 @@ not of keywords that are added to it, like "TODO".  This is outside the
 control of the themes and I am not aware of any way to make such
 keywords scale accordingly (see [[*Font configurations for Org (and others)][issue 37]]).
 
-Also note that in the latest tagged release (=0.8.1=) an Org file's
-=#+TITLE= will not scale at all.  This has been fixed in =master= and will
-be available in version =0.9.0=, which is expected in early June 2020
-(the fix pertains to the introduction of =*-scale-5=).
-
 ** Option for visible fringes
    :PROPERTIES:
    :CUSTOM_ID: h:d989f116-7559-40bc-bf94-ef508d480960
