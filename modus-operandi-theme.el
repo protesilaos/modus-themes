@@ -544,15 +544,16 @@ and the border.  FG is used when no block style is in effect."
       (list :background bgbox :foreground fgbox :box (list :color fgbox))
     (list :foreground fg)))
 
-(defun modus-operandi-theme-org-block (bgblk bg)
+(defun modus-operandi-theme-org-block (bgblk)
   "Conditionally set the background of Org blocks.
-BGBLK applies to a distinct neutral background.  BG is used to
-keep blocks the same background as the rest of the buffer."
+BGBLK applies to a distinct neutral background.  Else blocks have
+no background of their own (the default), so they look the same
+as the rest of the buffer."
   (if modus-operandi-theme-distinct-org-blocks
       (append
        (and (>= emacs-major-version 27) '(:extend t))
        (list :background bgblk))
-    (list :background bg)))
+    (list :background nil)))
 
 (defun modus-operandi-theme-org-block-delim (bgext fgext bg fg)
   "Conditionally set the styles of Org block delimiters.
@@ -2813,7 +2814,7 @@ Also bind `class' to ((class color) (min-colors 89))."
                                    :foreground ,fg-special-mild
                                    ,@(modus-operandi-theme-scale modus-operandi-theme-scale-3))))
    `(org-archived ((,class :background ,bg-alt :foreground ,fg-alt)))
-   `(org-block ((,class ,@(modus-operandi-theme-org-block bg-dim bg-main)
+   `(org-block ((,class ,@(modus-operandi-theme-org-block bg-dim)
                         :inherit fixed-pitch :foreground ,fg-main)))
    `(org-block-begin-line ((,class ,@(modus-operandi-theme-org-block-delim
                                       bg-active fg-special-cold
@@ -2894,7 +2895,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-mode-line-clock-overrun ((,class :inherit modus-theme-active-red)))
    `(org-priority ((,class ,@(modus-operandi-theme-org-todo-block magenta-nuanced-bg magenta-nuanced magenta)
                            ,@(modus-operandi-theme-heading-foreground magenta magenta-alt-other))))
-   `(org-quote ((,class ,@(modus-operandi-theme-org-block bg-dim bg-main)
+   `(org-quote ((,class ,@(modus-operandi-theme-org-block bg-dim)
                         :foreground ,fg-special-cold :slant ,modus-theme-slant)))
    `(org-scheduled ((,class :foreground ,green-alt-other)))
    `(org-scheduled-previously ((,class :foreground ,yellow-alt-other)))
