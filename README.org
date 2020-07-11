@@ -452,8 +452,17 @@ Use less saturated colours in programming modes for highlighting code
 syntax.  The intent is to offer an impression of minimalism.  The
 default is to use saturated colours.
 
+Consider using the "bold constructs" and/or "slanted constructs" options
+when opting for this one.  Some packages that may further improve the
+effect of focusing on the current text are (feel free to help expand
+this list):
+
++ [[https://github.com/mina86/auto-dim-other-buffers.el][auto-dim-other-buffers]]
++ [[https://github.com/larstvei/Focus][focus]]
++ [[https://github.com/tarsius/paren-face][paren-face]]
+
 *This option is new and could still undergo further refinements.*  User
-feedback would be much appreciated.
+feedback would be much appreciated.  See [[https://gitlab.com/protesilaos/modus-themes/-/issues/55][issue 55]].
 
 ** Option for intense standard completions
    :PROPERTIES:
