@@ -2905,7 +2905,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-priority ((,class ,@(modus-vivendi-theme-org-todo-block magenta-nuanced-bg magenta-nuanced magenta)
                            ,@(modus-vivendi-theme-heading-foreground magenta magenta-alt-other))))
    `(org-quote ((,class ,@(modus-vivendi-theme-org-block bg-dim)
-                        :foreground ,fg-special-cold :slant ,modus-theme-slant)))
+                        :foreground ,fg-special-calm :slant ,modus-theme-slant)))
    `(org-scheduled ((,class :foreground ,green-alt-other)))
    `(org-scheduled-previously ((,class :foreground ,yellow-alt-other)))
    `(org-scheduled-today ((,class :foreground ,magenta-alt-other)))
