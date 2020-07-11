@@ -868,6 +868,7 @@ the "full support" may not be 100% true…
 + eshell
 + eshell-fringe-status
 + eshell-git-prompt
++ eshell-prompt-extras (epe)
 + evil* (evil-mode)
 + evil-goggles
 + evil-visual-mark-mode

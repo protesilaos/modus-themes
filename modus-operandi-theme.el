@@ -140,6 +140,7 @@
 ;;     eshell
 ;;     eshell-fringe-status
 ;;     eshell-git-prompt
+;;     eshell-prompt-extras (epe)
 ;;     evil (evil-mode)
 ;;     evil-goggles
 ;;     evil-visual-mark-mode
@@ -1702,6 +1703,17 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(eshell-git-prompt-robyrussell-branch-face ((,class :foreground ,red)))
    `(eshell-git-prompt-robyrussell-git-dirty-face ((,class :foreground ,yellow)))
    `(eshell-git-prompt-robyrussell-git-face ((,class :foreground ,blue)))
+   ;;;; eshell-prompt-extras (epe)
+   `(epe-dir-face ((,class :foreground ,blue :weight ,modus-theme-bold)))
+   `(epe-git-dir-face ((,class :foreground ,red-alt-other)))
+   `(epe-git-face ((,class :foreground ,cyan-alt)))
+   `(epe-pipeline-delimiter-face ((,class :foreground ,green-alt)))
+   `(epe-pipeline-host-face ((,class :foreground ,blue)))
+   `(epe-pipeline-time-face ((,class :foreground ,fg-special-warm)))
+   `(epe-pipeline-user-face ((,class :foreground ,magenta)))
+   `(epe-remote-face ((,class :foreground ,fg-alt :slant ,modus-theme-slant)))
+   `(epe-status-face ((,class :foreground ,magenta-alt-other)))
+   `(epe-venv-face ((,class :foreground ,fg-alt :slant ,modus-theme-slant)))
    ;;;; evil-mode
    `(evil-ex-commands ((,class :foreground ,magenta-alt-other)))
    `(evil-ex-info ((,class :foreground ,cyan-alt-other)))
