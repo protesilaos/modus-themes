@@ -139,6 +139,7 @@
 ;;     ert
 ;;     eshell
 ;;     eshell-fringe-status
+;;     eshell-git-prompt
 ;;     evil (evil-mode)
 ;;     evil-goggles
 ;;     evil-visual-mark-mode
@@ -1688,6 +1689,19 @@ Also bind `class' to ((class color) (min-colors 89))."
    ;;;; eshell-fringe-status
    `(eshell-fringe-status-failure ((,class :foreground ,red)))
    `(eshell-fringe-status-success ((,class :foreground ,green)))
+   ;;;; eshell-git-prompt
+   `(eshell-git-prompt-add-face ((,class :foreground ,fg-alt)))
+   `(eshell-git-prompt-branch-face ((,class :foreground ,fg-alt)))
+   `(eshell-git-prompt-directory-face ((,class :foreground ,cyan)))
+   `(eshell-git-prompt-exit-fail-face ((,class :foreground ,red)))
+   `(eshell-git-prompt-exit-success-face ((,class :foreground ,green)))
+   `(eshell-git-prompt-modified-face ((,class :foreground ,yellow)))
+   `(eshell-git-prompt-powerline-clean-face ((,class :background ,green-refine-bg)))
+   `(eshell-git-prompt-powerline-dir-face ((,class :background ,blue-refine-bg)))
+   `(eshell-git-prompt-powerline-not-clean-face ((,class :background ,magenta-refine-bg)))
+   `(eshell-git-prompt-robyrussell-branch-face ((,class :foreground ,red)))
+   `(eshell-git-prompt-robyrussell-git-dirty-face ((,class :foreground ,yellow)))
+   `(eshell-git-prompt-robyrussell-git-face ((,class :foreground ,blue)))
    ;;;; evil-mode
    `(evil-ex-commands ((,class :foreground ,magenta-alt-other)))
    `(evil-ex-info ((,class :foreground ,cyan-alt-other)))
