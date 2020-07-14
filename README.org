@@ -808,7 +808,7 @@ the "full support" may not be 100% true…
 + auto-dim-other-buffers
 + avy
 + bm
-+ breakpoint (provided by built-in gdb-mi.el)
++ breakpoint (provided by the built-in =gdb-mi.el= library)
 + buffer-expose
 + calendar and diary
 + calfw
@@ -1018,7 +1018,7 @@ the "full support" may not be 100% true…
 + telephone-line
 + term
 + tomatinho
-+ transient (pop-up windows like Magit's)
++ transient (pop-up windows such as Magit's)
 + trashed
 + treemacs
 + tuareg
@@ -1048,8 +1048,8 @@ the "full support" may not be 100% true…
 + yasnippet
 + ztree
 
-Plus many other miscellaneous faces that are provided by the out-of-the-box
-Emacs distribution.
+Plus many other miscellaneous faces that are provided by the upstream
+GNU Emacs distribution.
 
 ** Covered but not styled explicitly
    :PROPERTIES:
@@ -1145,7 +1145,7 @@ while still supporting a useful built-in tool.
 
 If there actually is a way to avoid such a course of action, without
 prejudice to the accessibility standard of this project, then please
-report as much (or contribute as per the information in the [[#h:25ba8d6f-6604-4338-b774-bbe531d467f6][Contributing]]
+report as much (or send patches, per the information in the [[#h:25ba8d6f-6604-4338-b774-bbe531d467f6][Contributing]]
 section).
 
 * Contributing
@@ -1184,10 +1184,10 @@ ELPA repository and the FSF must be in a position to enforce the GNU
 General Public License.
 
 Copyright assignment /is a simple process/ that I had to follow as well.
-Check the [[https://git.savannah.gnu.org/cgit/gnulib.git/tree/doc/Copyright/request-assign.future][request form]].  You must send an email to the address mentioned
-in the form and then wait for the FSF to send you a legal agreement.
-Sign the document and file it back to them.  This should all happen via
-email and take about a week.
+Check the [[https://git.savannah.gnu.org/cgit/gnulib.git/tree/doc/Copyright/request-assign.future][request form]].  You must write an email to the address
+mentioned in the form and then wait for the FSF to send you a legal
+agreement.  Sign the document and file it back to them.  This should all
+happen via email and take about a week.
 
 I encourage you to go through this process.  You only need to do it
 once.  It will allow you to make contributions to Emacs in general.
@@ -1197,11 +1197,12 @@ once.  It will allow you to make contributions to Emacs in general.
   :CUSTOM_ID: h:4c338a51-509e-42c0-8820-1f5014fb477b
   :END:
 
-If you interested in the principles that govern the development of this
-project, read my article [[https://protesilaos.com/codelog/2020-03-17-design-modus-themes-emacs/][On the design of the Modus themes]] (2020-03-17).
+If you are curious about the principles that govern the development of
+this project, read my article [[https://protesilaos.com/codelog/2020-03-17-design-modus-themes-emacs/][On the design of the Modus themes]]
+(2020-03-17).
 
-Some more articles for those interested in the kind of work that goes
-into this project:
+Here are some more publications for those interested in the kind of work
+that goes into this project:
 
 + [[https://protesilaos.com/codelog/2020-05-10-modus-operandi-palette-review/][Modus Operandi theme subtle palette review]] (2020-05-10)
 + [[https://protesilaos.com/codelog/2020-06-13-modus-vivendi-palette-review/][Modus Vivendi theme subtle palette review]] (2020-06-13)
