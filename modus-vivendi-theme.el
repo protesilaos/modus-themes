@@ -570,14 +570,14 @@ distinct than the background of the block.
 The latter pair should be more subtle than the background of the
 block, as it is used when source blocks are cast on a
 coloured/accented backdrop."
-  (if (or modus-vivendi-theme-distinct-org-blocks
-          modus-vivendi-theme-rainbow-org-src-blocks)
+  (if modus-vivendi-theme-distinct-org-blocks
       (append
        (and (>= emacs-major-version 27) '(:extend t))
        (if modus-vivendi-theme-rainbow-org-src-blocks
            (list :background bgaccent :foreground fgaccent)
          (list :background bg :foreground fg)))
-    (list :background bg :foreground fg)))
+    (list :background bg :foreground fg
+          (and (>= emacs-major-version 27) '(:extend nil)))))
 
 (defun modus-vivendi-theme-modeline-box (col3d col &optional btn int)
   "Control the box properties of the mode line.
