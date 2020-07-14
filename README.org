@@ -227,33 +227,44 @@ the background depends on the language being used.  These colours are
 "nuanced" variants of red, green, yellow, blue, magenta, cyan: they are
 designed to work well with all foreground values that are used in
 programming modes (meaning that they respect the minimum 7:1 contrast
-ratio).  To make the block feel like a complete rectangle, the special
-keywords that delimit the beginning and end of the block explicitly have
-their background extended to the edge of the window.
+ratio).
 
-The default is to use no background at all, meaning that the block is
-the same as the rest of the buffer, while the begin/end lines only apply
-a background colour to the area covered by the length of their
-respective keywords.
+The default is to use no background at all: the block is the same as the
+rest of the buffer.
 
-This is also true for the "distinct Org blocks" option mentioned in the
-previous section.  Compared to that other option, the "begin" and "end"
-lines of Org blocks will have a subtler grey background, so that the
-focus is on the more colourful block (whereas the "distinct Org blocks"
-option retains the same shade of grey as the default looks, which is a
-bit more pronounced, and only appends the =:extend t= property).
+Also see: [[#h:ca57a3af-6f79-4530-88c0-e35eda9d3bf7][Option for distinct Org blocks]].
+
+This table summarises the differences between the "rainbow src blocks"
+option, the "distinct blocks" mentioned in the section right above, a
+combination of those two when enabled at the same time, and the
+out-of-the-box experience that the themes provide:
+
+#+NAME: modus-themes-org-blocks
+|                  | Block Background   | Beg/End bg       | Beg/End extend |
+|------------------+--------------------+------------------+----------------|
+| default          | None (white/black) | Subtle grey      | Maybe*         |
+| distinct blocks  | Most subtle grey   | Subtle grey      | Yes            |
+| rainbow blocks   | Accented           | Most subtle grey | No             |
+| distinct+rainbow | Mixed (per lang)   | Most subtle grey | Yes            |
+
+By "maybe" in the table above, I mean that we choose not to specify a
+value, letting upstream Org decide on what the standard face should look
+like with regard to the extent of its background.  This is consistent
+with the principle of least surprise.  For what it's worth, on my Emacs
+27 running Org 9.3, these lines do not have an =:extend t=.
 
 *Alternatively* you can avoid setting the "rainbow src blocks" option and
-instead specify your own language and face combination.  Here is an
-example that you can put in your Emacs configuration file:
+instead specify your own language and face combinations, while still
+using the bespoke faces defined by the Modus themes.  Here is an example
+that you can put in your Emacs configuration file:
 
 #+begin_src emacs-lisp
+;; Assign a language to a face:
+;; modus-theme-nuanced-{red,green,yellow,blue,magenta,cyan}
 (setq org-src-block-faces
       '(("emacs-lisp" 'modus-theme-nuanced-yellow)
         ("python" 'modus-theme-nuanced-red)))
 #+end_src
-
-The faces: =modus-theme-nuanced-{red,green,yellow,blue,magenta,cyan}=.
 
 Note that if you update the referenced faces using this alternative
 method, you will need to evaluate =org-src-block-faces= and then either
@@ -261,8 +272,6 @@ method, you will need to evaluate =org-src-block-faces= and then either
 
 Consider sending [[https://gitlab.com/protesilaos/modus-themes/-/issues/57][feedback in issue 57]] as this option is still subject to
 further refinements.
-
-Also see: [[#h:ca57a3af-6f79-4530-88c0-e35eda9d3bf7][Option for distinct Org blocks]].
 
 ** Option for colourful "rainbow" headings
    :PROPERTIES:
