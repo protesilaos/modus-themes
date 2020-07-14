@@ -201,16 +201,12 @@ fully fledged =use-package= declaration.
 + =modus-operandi-theme-distinct-org-blocks=
 + =modus-vivendi-theme-distinct-org-blocks=
 
-Use a distinct neutral background for Org's blocks and extend the
-background of their beginning and end lines to the edge of the window
-(the "extend" part is for Emacs versions >= 27, whereas before they
-would extend regardless).
+Use a distinct neutral background for Org's blocks.  This is the most
+subtle shade of grey used by each theme (it is more subtle than the one
+used for the begin/end lines of the blocks).
 
 The default is to use the same background as the rest of the buffer for
-the contents of the block.  The beginning and end lines do not extend to
-the end of the window, meaning that their background is only applied to
-the area covered by their respective keywords (again, the "extend" is
-only relevant for Emacs 27 or higher).
+the contents of the block.
 
 Also see: [[#h:3eebcc85-b104-4774-a742-6dc4dc3dd122][Option for colourful "rainbow" Org SRC blocks]].
 
@@ -240,18 +236,12 @@ combination of those two when enabled at the same time, and the
 out-of-the-box experience that the themes provide:
 
 #+NAME: modus-themes-org-blocks
-|                  | Block Background   | Beg/End bg       | Beg/End extend |
-|------------------+--------------------+------------------+----------------|
-| default          | None (white/black) | Subtle grey      | Maybe*         |
-| distinct blocks  | Most subtle grey   | Subtle grey      | Yes            |
-| rainbow blocks   | Accented           | Most subtle grey | No             |
-| distinct+rainbow | Mixed (per lang)   | Most subtle grey | Yes            |
-
-By "maybe" in the table above, I mean that we choose not to specify a
-value, letting upstream Org decide on what the standard face should look
-like with regard to the extent of its background.  This is consistent
-with the principle of least surprise.  For what it's worth, on my Emacs
-27 running Org 9.3, these lines do not have an =:extend t=.
+|                  | Block Background   | Beg/End bg       |
+|------------------+--------------------+------------------|
+| default          | None (white/black) | Subtle grey      |
+| distinct blocks  | Most subtle grey   | Subtle grey      |
+| rainbow blocks   | Accented           | Most subtle grey |
+| distinct+rainbow | Mixed (per lang)   | Most subtle grey |
 
 *Alternatively* you can avoid setting the "rainbow src blocks" option and
 instead specify your own language and face combinations, while still

@@ -561,8 +561,7 @@ as the rest of the buffer."
 (defun modus-operandi-theme-org-block-delim (bgaccent fgaccent bg fg)
   "Conditionally set the styles of Org block delimiters.
 BG, FG, BGACCENT, FGACCENT apply a background and foreground
-colour respectively and set the `:extend' attribute where
-applicable.
+colour respectively.
 
 The former pair is a greyscale combination that should be more
 distinct than the background of the block.
@@ -570,14 +569,9 @@ distinct than the background of the block.
 The latter pair should be more subtle than the background of the
 block, as it is used when source blocks are cast on a
 coloured/accented backdrop."
-  (if modus-operandi-theme-distinct-org-blocks
-      (append
-       (and (>= emacs-major-version 27) '(:extend t))
-       (if modus-operandi-theme-rainbow-org-src-blocks
-           (list :background bgaccent :foreground fgaccent)
-         (list :background bg :foreground fg)))
-    (list :background bg :foreground fg
-          (and (>= emacs-major-version 27) '(:extend nil)))))
+  (if modus-operandi-theme-rainbow-org-src-blocks
+      (list :background bgaccent :foreground fgaccent)
+    (list :background bg :foreground fg)))
 
 (defun modus-operandi-theme-modeline-box (col3d col &optional btn int)
   "Control the box properties of the mode line.
