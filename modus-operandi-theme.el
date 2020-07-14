@@ -2373,7 +2373,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(kaocha-runner-warning-face ((,class :foreground ,yellow)))
    ;;;; keycast
    `(keycast-command ((,class :foreground ,blue-active :weight bold)))
-   `(keycast-key ((,class :box ,(modus-operandi-theme-modeline-box blue-intense blue-active t -3)
+   `(keycast-key ((,class :box ,(modus-operandi-theme-modeline-box blue-alt blue-active t -3)
                           ,@(modus-operandi-theme-modeline-props
                              blue-active bg-main
                              blue-active bg-active))))
