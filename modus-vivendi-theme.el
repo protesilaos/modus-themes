@@ -182,6 +182,7 @@
 ;;     highlight-symbol
 ;;     highlight-tail
 ;;     highlight-thing
+;;     hl-defined
 ;;     hl-fill-column
 ;;     hl-line-mode
 ;;     hl-todo
@@ -2178,6 +2179,10 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(highlight-symbol-face ((,class :inherit modus-theme-special-mild)))
    ;;;; highlight-thing
    `(highlight-thing ((,class :background ,bg-alt :foreground ,cyan)))
+   ;;;; hl-defined
+   `(hdefd-functions ((,class :foreground ,blue)))
+   `(hdefd-undefined ((,class :foreground ,red-alt)))
+   `(hdefd-variables ((,class :foreground ,cyan-alt)))
    ;;;; hl-fill-column
    `(hl-fill-column-face ((,class :background ,bg-active :foreground ,fg-active)))
    ;;;; hl-todo

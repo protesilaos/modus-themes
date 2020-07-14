@@ -909,6 +909,7 @@ the "full support" may not be 100% true…
 + highlight-symbol
 + highlight-tail
 + highlight-thing
++ hl-defined
 + hl-fill-column
 + hl-line-mode
 + hl-todo
