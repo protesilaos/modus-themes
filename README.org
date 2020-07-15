@@ -906,6 +906,13 @@ check these:
 + [[https://protesilaos.com/codelog/2020-07-16-emacs-focused-editing/][“Focused editing” tools for Emacs]] (2020-07-16)
 + [[https://protesilaos.com/codelog/2020-07-17-emacs-mixed-fonts-org/][Configuring mixed fonts for Org mode and others]] (2020-07-17)
 
+** Note on settings for rendering of HTML buffers
+
+The rendering mechanism that enables viewing of HTML content in Emacs
+may need some explicit specification depending on your preferences. This
+is demonstrated in [[https://gitlab.com/protesilaos/modus-themes/-/issues/60][issue 60]] particularly with respect to viewing mails
+in mu4e.
+
 * Face coverage
   :PROPERTIES:
   :CUSTOM_ID: h:944a3bdf-f545-40a0-a26c-b2cec8b2b316
