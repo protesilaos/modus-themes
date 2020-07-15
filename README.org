@@ -343,8 +343,15 @@ provide the elements of differentiation.
    :CUSTOM_ID: h:c1c9a380-7a05-4c0d-b714-2acac88f10ad
    :END:
 
+Symbol names:
+
 + =modus-operandi-theme-section-headings=
 + =modus-vivendi-theme-section-headings=
+
+Possible values:
+
+1. =nil= (default)
+2. =t=
 
 Uses a background colour and an overline to mark section headings in
 =org-mode= and =outline-mode=.  These attributes are applied in addition to
@@ -369,8 +376,15 @@ text, use this:
    :CUSTOM_ID: h:db0275ea-11c2-47c9-82a9-10b65d8df0f8
    :END:
 
+Symbol names:
+
 + =modus-operandi-theme-scale-headings=
 + =modus-vivendi-theme-scale-headings=
+
+Possible values:
+
+1. =nil= (default)
+2. =t=
 
 Make headings larger in size relative to the main text.  This is
 noticeable in modes like Org.  The default is to use the same size for
@@ -416,8 +430,15 @@ keywords scale accordingly (see [[*Font configurations for Org (and others)][iss
    :CUSTOM_ID: h:d989f116-7559-40bc-bf94-ef508d480960
    :END:
 
+Symbol names:
+
 + =modus-operandi-theme-visible-fringe=
 + =modus-vivendi-theme-visible-fringe=
+
+Possible values:
+
+1. =nil= (default)
+2. =t=
 
 When enabled, this will render the fringes in a subtle background
 colour.
@@ -431,8 +452,15 @@ space given to them by =fringe-mode= (8px on either side by default).
    :CUSTOM_ID: h:cb327797-b303-47c5-8171-4587a911ccc2
    :END:
 
+Symbol names:
+
 + =modus-operandi-theme-slanted-constructs=
 + =modus-vivendi-theme-slanted-constructs=
+
+Possible values:
+
+1. =nil= (default)
+2. =t=
 
 Choose to render more faces in slanted text (italics).  This typically
 affects documentation strings and code comments.
@@ -444,8 +472,15 @@ The default is to not use italics unless it is absolutely necessary.
    :CUSTOM_ID: h:9a77e814-5eca-488f-9a67-119a95c2d28a
    :END:
 
+Symbol names:
+
 + =modus-operandi-theme-bold-constructs=
 + =modus-vivendi-theme-bold-constructs=
+
+Possible values:
+
+1. =nil= (default)
+2. =t=
 
 Display several constructs in bold weight.  This concerns keywords and
 other important aspects of code syntax.  It also affects certain mode
@@ -458,8 +493,15 @@ The default is to only use a bold weight when it is necessary.
    :CUSTOM_ID: h:ce155208-fdd6-4ada-9e0c-54aab7e2aff8
    :END:
 
+Symbol names:
+
 + =modus-operandi-theme-3d-modeline=
 + =modus-vivendi-theme-3d-modeline=
+
+Possible values:
+
+1. =nil= (default)
+2. =t=
 
 Use a three-dimensional, "released button" effect for the focused
 window's mode line.  When enabled, this option will also affect the
@@ -475,8 +517,15 @@ inactive ones.
    :CUSTOM_ID: h:e3933a53-cbd9-4e44-958a-1d6d133f0816
    :END:
 
+Symbol names:
+
 + =modus-operandi-theme-subtle-diff=
 + =modus-vivendi-theme-subtle-diff=
+
+Possible values:
+
+1. =nil= (default)
+2. =t=
 
 Display =diff-mode=, =ediff=, =smerge-mode=, =magit= diff buffers with fewer
 and/or less intense background colours or, where possible, with no
@@ -495,8 +544,15 @@ default equivalent.
    :CUSTOM_ID: h:9f05eef0-9d0d-4305-98a1-c4e49f41e1c8
    :END:
 
+Symbol names:
+
 + =modus-operandi-theme-faint-syntax=
 + =modus-vivendi-theme-faint-syntax=
+
+Possible values:
+
+1. =nil= (default)
+2. =t=
 
 Use less saturated colours in programming modes for highlighting code
 syntax.  The intent is to offer an impression of minimalism.  The
@@ -519,8 +575,15 @@ feedback would be much appreciated.  See [[https://gitlab.com/protesilaos/modus-
    :CUSTOM_ID: h:5b0b1e66-8287-4f3f-ba14-011c29320a3f
    :END:
 
+Symbol names:
+
 + =modus-operandi-theme-intense-standard-completions=
 + =modus-vivendi-theme-intense-standard-completions=
+
+Possible values:
+
+1. =nil= (default)
+2. =t=
 
 Display faces for built-in completion frameworks, such as =icomplete=,
 with a combination of background and foreground colours.  This covers
@@ -540,8 +603,15 @@ matching characters or items of standard completion tools.
    :CUSTOM_ID: h:33023fa6-6482-45d4-9b5e-3c73c945718f
    :END:
 
+Symbol names:
+
 + =modus-operandi-theme-proportional-fonts=
 + =modus-vivendi-theme-proportional-fonts=
+
+Possible values:
+
+1. =nil= (default)
+2. =t=
 
 Choose to apply a proportionately-spaced typeface to headings (such as
 in Org mode).  The default is to use whatever the main typeface is,
