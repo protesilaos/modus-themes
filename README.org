@@ -249,83 +249,56 @@ a theme, you can evaluate either of these:
 Consult the section below with the [[#h:0e3b8a62-8d72-4439-be2d-cb12ed98f4cb][complete example configuration]] for a
 fully fledged =use-package= declaration.
 
-** Option for distinct Org blocks
+** Option for "greyscale" or "rainbow" Org blocks
    :PROPERTIES:
    :CUSTOM_ID: h:ca57a3af-6f79-4530-88c0-e35eda9d3bf7
    :END:
 
-+ =modus-operandi-theme-distinct-org-blocks=
-+ =modus-vivendi-theme-distinct-org-blocks=
+Symbol names:
 
-Use a distinct neutral background for Org's blocks.  This is the most
-subtle shade of grey used by each theme (it is more subtle than the one
-used for the begin/end lines of the blocks).
++ =modus-operandi-theme-org-blocks=
++ =modus-vivendi-theme-org-blocks=
+
+Possible values:
+
+1. =nil= (default)
+2. =greyscale=
+3. =rainbow=
+
+=greyscale= will apply a subtle neutral grey background to the block's
+contents.  It will also extend to the edge of the window the background
+of the "begin" and "end" block delimiter lines (only relevant for Emacs
+versions >= 27 where the ':extend' keyword is recognised by
+=set-face-attribute=).
+
+=rainbow= will instead use an accented background for the contents of the
+block.  The exact colour will depend on the programming language and is
+controlled by the =org-src-block-faces= variable (refer to the theme's
+source code for the current association list).  This is most suitable
+for users who work on literate programming documents that mix and match
+several languages.
 
 The default is to use the same background as the rest of the buffer for
 the contents of the block.
 
-Also see: [[#h:3eebcc85-b104-4774-a742-6dc4dc3dd122][Option for colourful "rainbow" Org SRC blocks]].
-
-** Option for colourful "rainbow" Org SRC blocks
-   :PROPERTIES:
-   :CUSTOM_ID: h:3eebcc85-b104-4774-a742-6dc4dc3dd122
-   :END:
-
-+ =modus-operandi-theme-rainbow-org-src-blocks=
-+ =modus-vivendi-theme-rainbow-org-src-blocks=
-
-Apply a colour-coded background to Org src blocks.  The exact colour of
-the background depends on the language being used.  These colours are
-"nuanced" variants of red, green, yellow, blue, magenta, cyan: they are
-designed to work well with all foreground values that are used in
-programming modes (meaning that they respect the minimum 7:1 contrast
-ratio).
-
-The default is to use no background at all: the block is the same as the
-rest of the buffer.
-
-Also see: [[#h:ca57a3af-6f79-4530-88c0-e35eda9d3bf7][Option for distinct Org blocks]].
-
-This table summarises the differences between the "rainbow src blocks"
-option, the "distinct blocks" mentioned in the section right above, a
-combination of those two when enabled at the same time, and the
-out-of-the-box experience that the themes provide:
-
-#+NAME: modus-themes-org-blocks
-|                  | Block Background   | Beg/End bg       |
-|------------------+--------------------+------------------|
-| default          | None (white/black) | Subtle grey      |
-| distinct blocks  | Most subtle grey   | Subtle grey      |
-| rainbow blocks   | Accented           | Most subtle grey |
-| distinct+rainbow | Mixed (per lang)   | Most subtle grey |
-
-*Alternatively* you can avoid setting the "rainbow src blocks" option and
-instead specify your own language and face combinations, while still
-using the bespoke faces defined by the Modus themes.  Here is an example
-that you can put in your Emacs configuration file:
-
-#+begin_src emacs-lisp
-;; Assign a language to a face:
-;; modus-theme-nuanced-{red,green,yellow,blue,magenta,cyan}
-(setq org-src-block-faces
-      '(("emacs-lisp" 'modus-theme-nuanced-yellow)
-        ("python" 'modus-theme-nuanced-red)))
-#+end_src
-
-Note that if you update the referenced faces using this alternative
-method, you will need to evaluate =org-src-block-faces= and then either
-=M-x org-mode= to refresh the buffer or start typing in each code block.
-
-Consider sending [[https://gitlab.com/protesilaos/modus-themes/-/issues/57][feedback in issue 57]] as this option is still subject to
-further refinements.
+Note that the "rainbow" blocks may require you to also reload the
+major-mode so that the colours are applied properly: =M-x org-mode= to
+refresh the buffer.  Or start typing in each code block.
 
 ** Option for colourful "rainbow" headings
    :PROPERTIES:
    :CUSTOM_ID: h:1be42afb-bcd2-4425-b956-0ba93eb960c2
    :END:
 
+Symbol names:
+
 + =modus-operandi-theme-rainbow-headings=
 + =modus-vivendi-theme-rainbow-headings=
+
+Possible values:
+
+1. =nil= (default)
+2. =t=
 
 Apply more saturated colours to headings in =org-mode= and =outline-mode=
 while retaining all other heading properties (such as a bold weight and
@@ -648,8 +621,7 @@ being available.
         modus-operandi-theme-3d-modeline t
         modus-operandi-theme-subtle-diffs t
         modus-operandi-theme-intense-standard-completions t
-        modus-operandi-theme-distinct-org-blocks t
-        modus-operandi-theme-rainbow-org-src-blocks t
+        modus-operandi-theme-org-blocks 'greyscale
         modus-operandi-theme-proportional-fonts t
         modus-operandi-theme-rainbow-headings t
         modus-operandi-theme-section-headings t
