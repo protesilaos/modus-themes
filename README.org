@@ -44,15 +44,20 @@ Also note that I use these themes in [[https://protesilaos.com/code-casts][my Em
    :END:
 
 I maintain /Modus Operandi/ (light theme) and /Modus Vivendi/ (dark) as
-standalone packages in ELPA, MELPA, and MELPA Stable.
+standalone packages in Emacs-specific archives: GNU ELPA, MELPA, and
+MELPA Stable.  There also exist [[#h:f696763b-5db1-4717-a90a-964e127d1a73][GNU/Linux distro packages]].
 
-Just run:
+For an interactive method, just run:
 
-=M-x package-install RET modus-operandi-theme RET=
+#+begin_src
+M-x package-install RET modus-operandi-theme RET
+#+end_src
 
 And/or:
 
-=M-x package-install RET modus-vivendi-theme RET=
+#+begin_src
+M-x package-install RET modus-vivendi-theme RET
+#+end_src
 
 To be clear, that sequence means:
 
@@ -66,26 +71,77 @@ To be clear, that sequence means:
 =M-x list-packages=), in case Emacs complains that a package is no longer
 available.
 
-*** With `use-package'
+*** With the "use-package" configuration manager
     :PROPERTIES:
     :CUSTOM_ID: h:3ab0ac39-38fb-405b-8a15-771cbd843b6d
     :END:
 
-For a declarative approach with =use-package=, you can write something
-like this (also see [[#h:d414ca47-6dce-4905-9f2e-de1465bf23bb][the customisation options]] for how to expand this):
+For a declarative approach with =use-package= and the built-in =package.el=,
+you can write something like this (also see [[#h:d414ca47-6dce-4905-9f2e-de1465bf23bb][the customisation options]]
+for how to expand these package declarations):
 
 #+BEGIN_SRC emacs-lisp
-(use-package modus-operandi-theme
-  :ensure t)
+(use-package modus-operandi-theme :ensure)
 
-(use-package modus-vivendi-theme
-  :ensure t)
+(use-package modus-vivendi-theme :ensure)
 #+END_SRC
 
-** Manual installation method
-   :PROPERTIES:
-   :CUSTOM_ID: h:0317c29a-3ddb-4a0a-8ffd-16c781733ea2
-   :END:
+*** GNU/Linux distro packages
+    :PROPERTIES:
+    :CUSTOM_ID: h:f696763b-5db1-4717-a90a-964e127d1a73
+    :END:
+
+The themes are also available from the archives of some GNU/Linux
+distributions.  These should correspond to a tagged release rather than
+building directly from the latest Git commit.  It all depends on the
+distro's packaging policies.
+
+/Note for package maintainers:/ Feel free to [[#h:f696763b-5db1-4717-a90a-964e127d1a73][contact me]] for any questions
+you may have and/or to update this section.
+
+**** Debian ("Sid" or "Unstable")
+     :PROPERTIES:
+     :CUSTOM_ID: h:a3d891ff-3dc3-4455-a482-b251e59bb21a
+     :END:
+
+The two themes are distributed as [[https://packages.debian.org/sid/elpa-modus-themes][a single package for Debian]] and its
+derivatives.  Currently in the unstable suite and should be available in
+time for Debian 11 "Bullseye" (next stable).
+
+Get them with:
+
+#+begin_src sh
+sudo apt install elpa-modus-themes
+#+end_src
+
+Special thanks to package maintainer Dhavan Vaidya and the rest of the
+Debian Emacsen team!
+
+**** GNU Guix
+     :PROPERTIES:
+     :CUSTOM_ID: h:fea43d19-b307-46d7-81ab-d0e77e9cbede
+     :END:
+
+Users of either GuixSD (the distro) or just Guix (the package manager)
+can get each theme as a standalone package.
+
+#+begin_src sh
+guix package -i modus-operandi-theme
+#+end_src
+
+And/or:
+
+#+begin_src sh
+guix package -i modus-vivendi-theme
+#+end_src
+
+I do not know who the package maintainer is, but I wish to thank you
+regardless!
+
+*** Manual installation method
+    :PROPERTIES:
+    :CUSTOM_ID: h:0317c29a-3ddb-4a0a-8ffd-16c781733ea2
+    :END:
 
 Download the files in this repository ending in =*-theme.el= and place
 them in an appropriate directory, such as =~/.emacs.d/themes/=.  To make
