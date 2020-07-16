@@ -871,9 +871,9 @@ So if you want to use Fira Code at point size =12=, you set the height to
 =120=.  Values do not need to be rounded to multiples of ten, so the likes
 of =125= are perfectly valid.
 
-If any Org power user is reading this section, I encourage you to
-recommend some other /minimal/ tweaks and customisations that could
-improve the user experience.
+*Alternatively* you may want to review my elaborate setup for fonts,
+focused writing, etc.  Start with the [[https://protesilaos.com/dotemacs/#h:7a4dd5b8-724d-4f7c-b5ee-01d8ac98bda9][Base font configurations]] of my
+dotemacs (includes documentation and code).
 
 * Face coverage
   :PROPERTIES:
