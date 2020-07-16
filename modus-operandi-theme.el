@@ -81,6 +81,7 @@
 ;;     avy
 ;;     breakpoint (provided by built-in gdb-mi.el)
 ;;     bm
+;;     boon
 ;;     buffer-expose
 ;;     calendar and diary
 ;;     calfw
@@ -1157,6 +1158,11 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(widget-field ((,class :background ,bg-alt :foreground ,fg-dim)))
    `(widget-inactive ((,class :background ,bg-inactive :foreground ,fg-inactive)))
    `(widget-single-line-field ((,class :inherit widget-field)))
+   ;;;; boon
+   `(boon-modeline-cmd ((,class :inherit modus-theme-active-blue)))
+   `(boon-modeline-ins ((,class :inherit modus-theme-active-red)))
+   `(boon-modeline-off ((,class :inherit modus-theme-active-yellow)))
+   `(boon-modeline-spc ((,class :inherit modus-theme-active-green)))
    ;;;; breakpoint (built-in gdb-mi.el)
    `(breakpoint-disabled ((,class :foreground ,fg-alt)))
    `(breakpoint-enabled ((,class :foreground ,red :weight bold)))
