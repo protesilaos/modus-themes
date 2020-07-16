@@ -79,9 +79,9 @@
 ;;     auctex and TeX
 ;;     auto-dim-other-buffers
 ;;     avy
-;;     breakpoint (provided by built-in gdb-mi.el)
 ;;     bm
 ;;     boon
+;;     breakpoint (provided by built-in gdb-mi.el)
 ;;     buffer-expose
 ;;     calendar and diary
 ;;     calfw
@@ -1007,6 +1007,17 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(success ((,class :foreground ,green :weight bold)))
    `(trailing-whitespace ((,class :background ,red-intense-bg)))
    `(warning ((,class :foreground ,yellow :weight bold)))
+   ;;;; buttons, links, widgets
+   `(button ((,class :foreground ,blue-alt-other :underline t)))
+   `(link ((,class :foreground ,blue-alt-other :underline t)))
+   `(link-visited ((,class :foreground ,magenta-alt-other :underline t)))
+   `(tooltip ((,class :background ,bg-special-cold :foreground ,fg-main)))
+   `(widget-button ((,class :inherit button)))
+   `(widget-button-pressed ((,class :inherit button :foreground ,magenta)))
+   `(widget-documentation ((,class :foreground ,green)))
+   `(widget-field ((,class :background ,bg-alt :foreground ,fg-dim)))
+   `(widget-inactive ((,class :background ,bg-inactive :foreground ,fg-inactive)))
+   `(widget-single-line-field ((,class :inherit widget-field)))
    ;;;; ag
    `(ag-hit-face ((,class :foreground ,fg-special-cold)))
    `(ag-match-face ((,class :inherit modus-theme-special-calm)))
@@ -1147,17 +1158,6 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(bm-fringe-persistent-face ((,class :inherit modus-theme-fringe-blue)))
    `(bm-persistent-face ((,class :inherit modus-theme-intense-blue
                                  ,@(and (>= emacs-major-version 27) '(:extend t)))))
-   ;;;; buttons, links, widgets
-   `(button ((,class :foreground ,blue-alt-other :underline t)))
-   `(link ((,class :foreground ,blue-alt-other :underline t)))
-   `(link-visited ((,class :foreground ,magenta-alt-other :underline t)))
-   `(tooltip ((,class :background ,bg-special-cold :foreground ,fg-main)))
-   `(widget-button ((,class :inherit button)))
-   `(widget-button-pressed ((,class :inherit button :foreground ,magenta)))
-   `(widget-documentation ((,class :foreground ,green)))
-   `(widget-field ((,class :background ,bg-alt :foreground ,fg-dim)))
-   `(widget-inactive ((,class :background ,bg-inactive :foreground ,fg-inactive)))
-   `(widget-single-line-field ((,class :inherit widget-field)))
    ;;;; boon
    `(boon-modeline-cmd ((,class :inherit modus-theme-active-blue)))
    `(boon-modeline-ins ((,class :inherit modus-theme-active-red)))
