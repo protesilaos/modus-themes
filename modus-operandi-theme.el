@@ -296,6 +296,7 @@
 ;;     tomatinho
 ;;     transient (pop-up windows like Magit's)
 ;;     treemacs
+;;     tty-menu
 ;;     tuareg
 ;;     undo-tree
 ;;     vc (built-in mode line status for version control)
@@ -3484,6 +3485,10 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(treemacs-root-unreadable-face ((,class :inherit treemacs-root-face :strike-through t)))
    `(treemacs-tags-face ((,class :foreground ,blue-alt)))
    `(treemacs-tags-face ((,class :foreground ,magenta-alt)))
+   ;;;; tty-menu
+   `(tty-menu-disabled-face ((,class :background ,bg-alt :foreground ,fg-alt)))
+   `(tty-menu-enabled-face ((,class :background ,bg-alt :foreground ,fg-main :weight bold)))
+   `(tty-menu-selected-face ((,class :inherit modus-theme-intense-blue)))
    ;;;; tuareg
    `(caml-types-def-face ((,class :inherit modus-theme-subtle-red)))
    `(caml-types-expr-face ((,class :inherit modus-theme-subtle-green)))
