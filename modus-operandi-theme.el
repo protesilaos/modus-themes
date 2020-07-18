@@ -2920,7 +2920,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-code ((,class :inherit fixed-pitch :foreground ,magenta)))
    `(org-column ((,class :background ,bg-alt)))
    `(org-column-title ((,class :underline t :background ,bg-alt :weight bold)))
-   `(org-date ((,class :foreground ,cyan-alt-other :underline t)))
+   `(org-date ((,class :inherit fixed-pitch :foreground ,cyan-alt-other :underline t)))
    `(org-date-selected ((,class :foreground ,blue-alt :weight bold :inverse-video t)))
    `(org-default ((,class :background ,bg-main :foreground ,fg-main)))
    `(org-document-info ((,class :foreground ,fg-special-cold)))
