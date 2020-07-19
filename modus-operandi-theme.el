@@ -415,7 +415,14 @@ between foreground and background is >= 7:1)."
   "Use bold text in more code constructs."
   :type 'boolean)
 
+(define-obsolete-variable-alias 'modus-operandi-theme-proportional-fonts
+  'modus-operandi-theme-variable-pitch-headings "`modus-operandi-theme' 0.11.0")
+
 (defcustom modus-operandi-theme-proportional-fonts nil
+  "Use proportional fonts (variable-pitch) in headings."
+  :type 'boolean)
+
+(defcustom modus-operandi-theme-variable-pitch-headings nil
   "Use proportional fonts (variable-pitch) in headings."
   :type 'boolean)
 
@@ -893,7 +900,7 @@ Also bind `class' to ((class color) (min-colors 89))."
            (modus-theme-bold
             (if modus-operandi-theme-bold-constructs 'bold 'normal))
            (modus-theme-variable-pitch
-            (if modus-operandi-theme-proportional-fonts 'variable-pitch 'default)))
+            (if modus-operandi-theme-variable-pitch-headings 'variable-pitch 'default)))
        ,@body)))
 
 

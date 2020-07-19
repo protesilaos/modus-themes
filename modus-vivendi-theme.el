@@ -415,7 +415,14 @@ between foreground and background is >= 7:1)."
   "Use bold text in more code constructs."
   :type 'boolean)
 
+(define-obsolete-variable-alias 'modus-vivendi-theme-proportional-fonts
+  'modus-vivendi-theme-variable-pitch-headings "`modus-vivendi-theme' 0.11.0")
+
 (defcustom modus-vivendi-theme-proportional-fonts nil
+  "Use proportional fonts (variable-pitch) in headings."
+  :type 'boolean)
+
+(defcustom modus-vivendi-theme-variable-pitch-headings nil
   "Use proportional fonts (variable-pitch) in headings."
   :type 'boolean)
 
@@ -893,7 +900,7 @@ Also bind `class' to ((class color) (min-colors 89))."
            (modus-theme-bold
             (if modus-vivendi-theme-bold-constructs 'bold 'normal))
            (modus-theme-variable-pitch
-            (if modus-vivendi-theme-proportional-fonts 'variable-pitch 'default)))
+            (if modus-vivendi-theme-variable-pitch-headings 'variable-pitch 'default)))
        ,@body)))
 
 
