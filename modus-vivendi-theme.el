@@ -3867,7 +3867,7 @@ Also bind `class' to ((class color) (min-colors 89))."
        ("FIXME" . ,red-alt-other)
        ("XXX+" . ,red-alt)
        ("REVIEW" . ,cyan-alt-other)
-       ("DEPRECATED" . ,cyan-nuanced)))
+       ("DEPRECATED" . ,blue-nuanced)))
 ;;;; vc-annotate (C-x v g)
    `(vc-annotate-background nil)
    `(vc-annotate-background-mode nil)
