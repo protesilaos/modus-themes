@@ -3745,6 +3745,8 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(which-key-local-map-description-face ((,class :foreground ,fg-main)))
    `(which-key-note-face ((,class :background ,bg-dim :foreground ,fg-special-mild)))
    `(which-key-separator-face ((,class :foreground ,fg-alt)))
+   `(which-key-special-key-face ((,class :inherit bold :foreground ,yellow-intense)))
+;;;;; whitespace-mode
    `(whitespace-big-indent ((,class :inherit modus-theme-subtle-red)))
    `(whitespace-empty ((,class :inherit modus-theme-intense-magenta)))
    `(whitespace-hspace ((,class :background ,bg-whitespace :foreground ,fg-whitespace)))
@@ -3756,8 +3758,6 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(whitespace-space-before-tab ((,class :inherit modus-theme-subtle-cyan)))
    `(whitespace-tab ((,class :background ,bg-whitespace :foreground ,fg-whitespace)))
    `(whitespace-trailing ((,class :inherit modus-theme-intense-red)))
-   `(which-key-special-key-face ((,class :inherit bold :foreground ,yellow-intense)))
-;;;;; whitespace-mode
 ;;;;; window-divider-mode
    `(window-divider ((,class :foreground ,fg-window-divider-inner)))
    `(window-divider-first-pixel ((,class :foreground ,fg-window-divider-outer)))
