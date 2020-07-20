@@ -3068,7 +3068,7 @@ Also bind `class' to ((class color) (min-colors 89))."
                         ,@(modus-operandi-theme-heading-foreground fg-dim magenta)
                         ,@(modus-operandi-theme-heading-block bg-alt fg-alt))))
 ;;;;; outline-minor-faces
-   `(outline-minor-0 ((,class ,@(unless modus-vivendi-theme-section-headings
+   `(outline-minor-0 ((,class ,@(unless modus-operandi-theme-section-headings
                                   (list :background bg-alt)))))
 ;;;;; package (M-x list-packages)
    `(package-description ((,class :foreground ,fg-special-cold)))
