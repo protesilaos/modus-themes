@@ -3067,8 +3067,9 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(outline-8 ((,class :inherit (bold ,modus-theme-variable-pitch)
                         ,@(modus-operandi-theme-heading-foreground fg-dim magenta)
                         ,@(modus-operandi-theme-heading-block bg-alt fg-alt))))
-   `(outline-minor-0 ((,class :background ,bg-alt)))
 ;;;;; outline-minor-faces
+   ;; No need for extra properties as they inherit from `outline-mode'.
+   `(outline-minor-0 ((,class nil)))
 ;;;;; package (M-x list-packages)
    `(package-description ((,class :foreground ,fg-special-cold)))
    `(package-help-section-name ((,class :inherit bold :foreground ,magenta-alt-other)))
