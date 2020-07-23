@@ -580,24 +580,24 @@ those of =ivy=, =helm=, =selectrum= (among others).
 The default is to only use foreground colour values for the various
 matching characters or items of standard completion tools.
 
-** Option for proportional fonts in headings
+** Option for variable-pitch fonts in headings
    :PROPERTIES:
    :CUSTOM_ID: h:33023fa6-6482-45d4-9b5e-3c73c945718f
    :END:
 
 Symbol names:
 
-+ =modus-operandi-theme-proportional-fonts=
-+ =modus-vivendi-theme-proportional-fonts=
++ =modus-operandi-theme-variable-pitch-headings=
++ =modus-vivendi-theme-variable-pitch-headings=
 
 Possible values:
 
 1. =nil= (default)
 2. =t=
 
-Choose to apply a proportionately-spaced typeface to headings (such as
-in Org mode).  The default is to use whatever the main typeface is,
-typically a monospaced family.
+Choose to apply a proportionately-spaced, else "variable-pitch",
+typeface to headings (such as in Org mode).  The default is to use
+whatever the main typeface is, typically a monospaced family.
 
 Though also read [[#h:ea30ff0e-3bb6-4801-baf1-d49169d94cd5][Font configurations for Org (and others)]] as the themes
 are designed to cope well with more prose-friendly typeface
@@ -631,7 +631,7 @@ being available.
         modus-operandi-theme-subtle-diffs t
         modus-operandi-theme-intense-standard-completions t
         modus-operandi-theme-org-blocks 'greyscale
-        modus-operandi-theme-proportional-fonts t
+        modus-operandi-theme-variable-pitch-headings t
         modus-operandi-theme-rainbow-headings t
         modus-operandi-theme-section-headings t
         modus-operandi-theme-scale-headings t
