@@ -844,12 +844,14 @@ methods documented in my [[https://protesilaos.com/codelog/2020-05-10-modus-oper
    :END:
 
 The themes are designed to cope well with mixed font settings.
-Currently this applies to Org mode (courtesy of [[https://gitlab.com/protesilaos/modus-themes/-/issues/40][Ben in issue 40]]), though
-it may be extended to other major modes as well (e.g. markdown).
+Currently this applies to =org-mode= (courtesy of [[https://gitlab.com/protesilaos/modus-themes/-/issues/40][Ben in issue 40]]) and
+=markdown-mode=.
 
-In practice it means that some parts of a buffer will use a monospaced
-font even when the user opts for a proportionately-spaced typeface as
-their default (such as by enabling =variable-pitch-mode=).  This is to
+In practice it means that the user can safely opt for a more
+prose-friendly proportionately-spaced typeface as their default for
+paragraphs and headings, while allowing spacing-sensitive elements like
+tables and inline code to always use a monospaced font.  Users can try
+the built-in function of Emacs called =variable-pitch-mode=.  This is to
 ensure that code blocks, tables, and other relevant elements use the
 appropriate type settings and are positioned correctly.
 
@@ -879,7 +881,11 @@ of =125= are perfectly valid.
 
 *Alternatively* you may want to review my elaborate setup for fonts,
 focused writing, etc.  Start with the [[https://protesilaos.com/dotemacs/#h:7a4dd5b8-724d-4f7c-b5ee-01d8ac98bda9][Base font configurations]] of my
-dotemacs (includes documentation and code).
+dotemacs (includes documentation and code).  For video demonstrantions
+check these:
+
++ [[https://protesilaos.com/codelog/2020-07-16-emacs-focused-editing/][“Focused editing” tools for Emacs]] (2020-07-16)
++ [[https://protesilaos.com/codelog/2020-07-17-emacs-mixed-fonts-org/][Configuring mixed fonts for Org mode and others]] (2020-07-17)
 
 * Face coverage
   :PROPERTIES:
