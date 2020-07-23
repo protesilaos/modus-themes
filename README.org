@@ -549,9 +549,6 @@ this list):
 + [[https://github.com/larstvei/Focus][focus]]
 + [[https://github.com/tarsius/paren-face][paren-face]]
 
-*This option is new and could still undergo further refinements.*  User
-feedback would be much appreciated.  See [[https://gitlab.com/protesilaos/modus-themes/-/issues/55][issue 55]].
-
 ** Option for intense standard completions
    :PROPERTIES:
    :CUSTOM_ID: h:5b0b1e66-8287-4f3f-ba14-011c29320a3f
