@@ -3069,7 +3069,7 @@ Also bind `class' to ((class color) (min-colors 89))."
                         ,@(modus-vivendi-theme-heading-block bg-alt fg-alt))))
 ;;;;; outline-minor-faces
    `(outline-minor-0 ((,class ,@(unless modus-vivendi-theme-section-headings
-                                  (list :background bg-alt)))))
+                                  (list :background cyan-nuanced-bg)))))
 ;;;;; package (M-x list-packages)
    `(package-description ((,class :foreground ,fg-special-cold)))
    `(package-help-section-name ((,class :inherit bold :foreground ,magenta-alt-other)))
