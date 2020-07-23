@@ -461,10 +461,10 @@ line indicators.
 
 The default is to only use a bold weight when it is necessary.
 
-*To define the precise weight* for bold constructs, you only need to
-change the attribute of the =bold= face.  So, assuming your typeface of
-choice supports a "semibold" weight, here is how you specify it
-throughout the theme:
+*Optionally, to define the precise weight* for bold constructs, you only
+need to change the attribute of the =bold= face.  So, assuming your
+typeface of choice supports a "semibold" weight, here is how you specify
+it throughout the theme:
 
 #+begin_src emacs-lisp
 (set-face-attribute 'bold nil :weight 'semibold)
