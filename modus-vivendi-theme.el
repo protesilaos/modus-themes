@@ -50,6 +50,7 @@
 ;;     modus-vivendi-theme-3d-modeline                    (boolean)
 ;;     modus-vivendi-theme-subtle-diffs                   (boolean)
 ;;     modus-vivendi-theme-faint-syntax                   (boolean)
+;;     modus-vivendi-theme-intense-hl-line                (boolean)
 ;;     modus-vivendi-theme-intense-standard-completions   (boolean)
 ;;     modus-vivendi-theme-override-colors-alist          (alist)
 ;;
@@ -405,6 +406,7 @@ between foreground and background is >= 7:1)."
 (defface modus-theme-mark-del nil nil)
 (defface modus-theme-mark-sel nil nil)
 (defface modus-theme-mark-symbol nil nil)
+(defface modus-theme-hl-line nil nil)
 
 ;;; Customisation options
 
@@ -548,6 +550,10 @@ association list)."
 
 (defcustom modus-vivendi-theme-intense-standard-completions nil
   "Use prominent backgrounds for Icomplete, Ido, or similar."
+  :type 'boolean)
+
+(defcustom modus-vivendi-theme-intense-hl-line nil
+  "Use more prominent background for `hl-line-mode'."
   :type 'boolean)
 
 (defcustom modus-vivendi-theme-faint-syntax nil
@@ -1003,6 +1009,10 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(modus-theme-mark-del ((,class :inherit bold :background ,bg-mark-del :foreground ,fg-mark-del)))
    `(modus-theme-mark-sel ((,class :inherit bold :background ,bg-mark-sel :foreground ,fg-mark-sel)))
    `(modus-theme-mark-symbol ((,class :inherit bold :foreground ,blue-alt)))
+;;;;; other custom faces
+   `(modus-theme-hl-line ((,class :background ,(if modus-vivendi-theme-intense-hl-line
+                                                   bg-active bg-hl-line)
+                                  (and (>= emacs-major-version 27) '(:extend t)))))
 ;;;; standard faces
 ;;;;; absolute essentials
    `(default ((,class :background ,bg-main :foreground ,fg-main)))
@@ -1387,7 +1397,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(csv-separator-face ((,class :background ,bg-special-cold :foreground ,fg-main)))
 ;;;;; ctrlf
    `(ctrlf-highlight-active ((,class :inherit (modus-theme-intense-green bold))))
-   `(ctrlf-highlight-line ((,class :background ,bg-hl-line)))
+   `(ctrlf-highlight-line ((,class :inherit modus-theme-hl-line)))
    `(ctrlf-highlight-passive ((,class :inherit modus-theme-refine-cyan)))
 ;;;;; custom (M-x customize)
    `(custom-button ((,class :box (:line-width 2 :color nil :style released-button)
@@ -2207,7 +2217,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(highlight ((,class :inherit modus-theme-subtle-blue)))
    `(highlight-changes ((,class :foreground ,yellow-alt-other)))
    `(highlight-changes-delete ((,class :foreground ,red-alt-other :underline t)))
-   `(hl-line ((,class :background ,bg-hl-line)))
+   `(hl-line ((,class :inherit modus-theme-hl-line)))
    `(region ((,class :background ,bg-region :foreground ,fg-main)))
    `(secondary-selection ((,class :inherit modus-theme-special-cold)))
 ;;;;; highlight-blocks
@@ -2231,7 +2241,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(hes-escape-backslash-face ((,class :inherit bold :foreground ,fg-escape-char-construct)))
    `(hes-escape-sequence-face ((,class :inherit bold :foreground ,fg-escape-char-backslash)))
 ;;;;; highlight-indentation
-   `(highlight-indentation-face ((,class :background ,bg-hl-line)))
+   `(highlight-indentation-face ((,class :inherit modus-theme-hl-line)))
    `(highlight-indentation-current-column-face ((,class :background ,bg-active)))
 ;;;;; highlight-numbers
    `(highlight-numbers-number ((,class :foreground ,blue-alt-other)))
@@ -2731,7 +2741,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(mu4e-footer-face ((,class :foreground ,fg-special-cold :slant ,modus-theme-slant)))
    `(mu4e-forwarded-face ((,class :foreground ,green-alt-other)))
    `(mu4e-header-face ((,class :foreground ,fg-main)))
-   `(mu4e-header-highlight-face ((,class :background ,bg-hl-line)))
+   `(mu4e-header-highlight-face ((,class :inherit modus-theme-hl-line)))
    `(mu4e-header-key-face ((,class :foreground ,cyan)))
    `(mu4e-header-marks-face ((,class :inherit bold :foreground ,magenta-alt)))
    `(mu4e-header-title-face ((,class :foreground ,fg-special-mild)))
@@ -3351,7 +3361,7 @@ Also bind `class' to ((class color) (min-colors 89))."
        :foreground ,fg-lang-error :underline (:style wave))
       (,class :foreground ,fg-lang-error :underline t)))
 ;;;;; stripes
-   `(stripes ((,class :background ,bg-hl-line)))
+   `(stripes ((,class :inherit modus-theme-hl-line)))
 ;;;;; success
    `(suggest-heading ((,class :inherit bold :foreground ,yellow-alt-other)))
 ;;;;; switch-window

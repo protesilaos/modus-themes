@@ -549,6 +549,24 @@ this list):
 + [[https://github.com/larstvei/Focus][focus]]
 + [[https://github.com/tarsius/paren-face][paren-face]]
 
+** Option for intense line highlight (hl-line-mode)
+
+Symbol names:
+
++ =modus-operandi-theme-intense-hl-line=
++ =modus-vivendi-theme-intense-hl-line=
+
+Possible values:
+
+1. =nil= (default)
+2. =t=
+
+Draw the current line of =hl-line-mode= or its global equivalent in a more
+prominent background colour.  This would also affect several packages
+that enable =hl-line-mode=, such as =elfeed= and =mu4e=.
+
+The default is to use a more subtle grey.
+
 ** Option for intense standard completions
    :PROPERTIES:
    :CUSTOM_ID: h:5b0b1e66-8287-4f3f-ba14-011c29320a3f
@@ -626,6 +644,7 @@ being available.
         modus-operandi-theme-visible-fringes t
         modus-operandi-theme-3d-modeline t
         modus-operandi-theme-subtle-diffs t
+        modus-operandi-theme-intense-hl-line t
         modus-operandi-theme-intense-standard-completions t
         modus-operandi-theme-org-blocks 'greyscale
         modus-operandi-theme-variable-pitch-headings t
