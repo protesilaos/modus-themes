@@ -550,6 +550,9 @@ this list):
 + [[https://github.com/tarsius/paren-face][paren-face]]
 
 ** Option for intense line highlight (hl-line-mode)
+   :PROPERTIES:
+   :CUSTOM_ID: h:e19092a4-7204-40d3-ac35-3644b72de937
+   :END:
 
 Symbol names:
 
@@ -907,6 +910,9 @@ check these:
 + [[https://protesilaos.com/codelog/2020-07-17-emacs-mixed-fonts-org/][Configuring mixed fonts for Org mode and others]] (2020-07-17)
 
 ** Note on settings for rendering of HTML buffers
+   :PROPERTIES:
+   :CUSTOM_ID: h:61875051-b284-40f0-a74d-1574f41b3d42
+   :END:
 
 The rendering mechanism that enables viewing of HTML content in Emacs
 may need some explicit specification depending on your preferences. This
