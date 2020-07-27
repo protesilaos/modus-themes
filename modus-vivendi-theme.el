@@ -1839,7 +1839,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(flycheck-error-list-column-number ((,class :foreground ,fg-special-cold)))
    `(flycheck-error-list-error ((,class ,@(modus-vivendi-theme-bold-weight) :foreground ,red)))
    `(flycheck-error-list-filename ((,class :foreground ,blue)))
-   `(flycheck-error-list-highlight ((,class :inherit modus-theme-special-warm)))
+   `(flycheck-error-list-highlight ((,class :inherit modus-theme-hl-line)))
    `(flycheck-error-list-id ((,class :foreground ,magenta-alt-other)))
    `(flycheck-error-list-id-with-explainer ((,class :inherit flycheck-error-list-id :box t)))
    `(flycheck-error-list-info ((,class :foreground ,cyan)))
