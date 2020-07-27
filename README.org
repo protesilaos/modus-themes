@@ -978,6 +978,7 @@ the "full support" may not be 100% true…
 + debbugs
 + define-word
 + deft
++ dictionary
 + diff-hl
 + diff-mode
 + dim-autoload

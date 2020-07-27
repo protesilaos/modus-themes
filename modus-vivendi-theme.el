@@ -109,6 +109,7 @@
 ;;     debbugs
 ;;     define-word
 ;;     deft
+;;     dictionary
 ;;     diff-hl
 ;;     diff-mode
 ;;     dim-autoload
@@ -1469,6 +1470,11 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(deft-summary-face ((,class :foreground ,fg-alt :slant ,modus-theme-slant)))
    `(deft-time-face ((,class :foreground ,fg-special-cold)))
    `(deft-title-face ((,class :inherit bold :foreground ,fg-main)))
+;;;;; dictionary
+   `(dictionary-button-face ((,class :inherit bold :foreground ,fg-special-cold)))
+   `(dictionary-reference-face ((,class :foreground ,blue-alt-other :underline t)))
+   `(dictionary-word-definition-face ((,class :foreground ,fg-main)))
+   `(dictionary-word-entry-face ((,class :foreground ,fg-special-cold :slant ,modus-theme-slant)))
 ;;;;; diff-hl
    `(diff-hl-change ((,class :inherit modus-theme-fringe-blue)))
    `(diff-hl-delete ((,class :inherit modus-theme-fringe-red)))
