@@ -949,6 +949,7 @@ the "full support" may not be 100% true…
 + auto-dim-other-buffers
 + avy
 + bm
++ bongo
 + boon
 + breakpoint (provided by the built-in =gdb-mi.el= library)
 + buffer-expose
@@ -1205,7 +1206,6 @@ These do not require any extra styles because they are configured to
 inherit from some basic faces.  Please confirm.
 
 + comint
-+ bongo
 + edit-indirect
 + swift-mode
 

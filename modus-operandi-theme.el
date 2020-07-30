@@ -80,6 +80,7 @@
 ;;     auto-dim-other-buffers
 ;;     avy
 ;;     bm
+;;     bongo
 ;;     boon
 ;;     breakpoint (provided by built-in gdb-mi.el)
 ;;     buffer-expose
@@ -1194,6 +1195,17 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(bm-fringe-persistent-face ((,class :inherit modus-theme-fringe-blue)))
    `(bm-persistent-face ((,class :inherit modus-theme-intense-blue
                                  ,@(and (>= emacs-major-version 27) '(:extend t)))))
+;;;;; bongo
+   `(bongo-album-title ((,class :foreground ,magenta-alt-other)))
+   `(bongo-artist ((,class :foreground ,magenta)))
+   `(bongo-currently-playing-track ((,class :inherit bold)))
+   `(bongo-elapsed-track-part ((,class :background ,blue-refine-bg :foreground ,blue-refine-fg :underline t)))
+   `(bongo-filled-seek-bar ((,class :background ,cyan-subtle-bg :foreground ,fg-main)))
+   `(bongo-marked-track ((,class :foreground ,fg-mark-alt)))
+   `(bongo-marked-track-line ((,class :background ,bg-mark-alt)))
+   `(bongo-played-track ((,class :foreground ,fg-unfocused :strike-through t)))
+   `(bongo-track-length ((,class :foreground ,blue-alt-other)))
+   `(bongo-track-title ((,class :foreground ,blue-active)))
 ;;;;; boon
    `(boon-modeline-cmd ((,class :inherit modus-theme-active-blue)))
    `(boon-modeline-ins ((,class :inherit modus-theme-active-red)))
