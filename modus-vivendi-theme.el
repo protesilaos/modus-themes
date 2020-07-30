@@ -3933,6 +3933,7 @@ Also bind `class' to ((class color) (min-colors 89))."
          ("ipython" modus-theme-nuanced-magenta)
          ("r" modus-theme-nuanced-cyan)
          ("yaml" modus-theme-nuanced-cyan)
+         ("conf" modus-theme-nuanced-cyan)
          ("docker" modus-theme-nuanced-cyan)
          ("json" modus-theme-nuanced-cyan))))))
 
