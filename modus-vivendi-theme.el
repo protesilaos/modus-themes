@@ -3010,7 +3010,11 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-mode-line-clock-overrun ((,class :inherit modus-theme-active-red)))
    `(org-priority ((,class ,@(modus-vivendi-theme-org-todo-block magenta-nuanced-bg magenta-nuanced magenta)
                            ,@(modus-vivendi-theme-heading-foreground magenta magenta-alt-other))))
-   `(org-quote ((,class ,@(modus-vivendi-theme-org-block bg-dim)
+   `(org-quote ((,class ,@(if modus-vivendi-theme-org-blocks
+                              (append
+                               (and (>= emacs-major-version 27) '(:extend t))
+                               (list :background bg-dim))
+                            (list :background nil))
                         :foreground ,fg-special-calm :slant ,modus-theme-slant)))
    `(org-scheduled ((,class :foreground ,fg-special-warm)))
    `(org-scheduled-previously ((,class :foreground ,yellow-alt-other)))
