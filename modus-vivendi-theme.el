@@ -51,6 +51,7 @@
 ;;     modus-vivendi-theme-subtle-diffs                   (boolean)
 ;;     modus-vivendi-theme-faint-syntax                   (boolean)
 ;;     modus-vivendi-theme-intense-hl-line                (boolean)
+;;     modus-vivendi-theme-intense-paren-match            (boolean)
 ;;     modus-vivendi-theme-intense-standard-completions   (boolean)
 ;;     modus-vivendi-theme-override-colors-alist          (alist)
 ;;
@@ -558,6 +559,10 @@ association list)."
   "Use more prominent background for `hl-line-mode'."
   :type 'boolean)
 
+(defcustom modus-vivendi-theme-intense-paren-match nil
+  "Use more prominent colour for parenthesis matching."
+  :type 'boolean)
+
 (defcustom modus-vivendi-theme-faint-syntax nil
   "Use less saturated colours for code syntax highlighting."
   :type 'boolean)
@@ -570,6 +575,15 @@ association list)."
   "Conditional use of a heavier text weight."
   (when modus-vivendi-theme-bold-constructs
     (list :inherit 'bold)))
+
+(defun modus-vivendi-theme-paren (normalbg intensebg)
+  "Conditional use of intense colours for matching parentheses.
+NORMALBG should the special palette colour 'bg-paren-match' or
+something similar.  INTENSEBG must be easier to discern next to
+other backgrounds."
+  (if modus-vivendi-theme-intense-paren-match
+      (list :background intensebg)
+    (list :background normalbg)))
 
 (defun modus-vivendi-theme-syntax-foreground (normal faint)
   "Apply foreground value to headings.
@@ -3310,7 +3324,8 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(sh-heredoc ((,class :foreground ,blue-alt)))
    `(sh-quoted-exec ((,class ,@(modus-vivendi-theme-bold-weight) :foreground ,magenta-alt)))
 ;;;;; show-paren-mode
-   `(show-paren-match ((,class :background ,bg-paren-match :foreground ,fg-main)))
+   `(show-paren-match ((,class ,@(modus-vivendi-theme-paren bg-paren-match blue-intense-bg)
+                               :foreground ,fg-main)))
    `(show-paren-match-expression ((,class :inherit modus-theme-special-calm)))
    `(show-paren-mismatch ((,class :inherit modus-theme-intense-red)))
 ;;;;; side-notes
@@ -3346,7 +3361,8 @@ Also bind `class' to ((class color) (min-colors 89))."
 ;;;;; smartparens
    `(sp-pair-overlay-face ((,class :inherit modus-theme-special-warm)))
    `(sp-show-pair-enclosing ((,class :inherit modus-theme-special-mild)))
-   `(sp-show-pair-match-face ((,class :background ,bg-paren-match :foreground ,fg-main)))
+   `(sp-show-pair-match-face ((,class ,@(modus-vivendi-theme-paren bg-paren-match blue-intense-bg)
+                                      :foreground ,fg-main)))
    `(sp-show-pair-mismatch-face ((,class :inherit modus-theme-intense-red)))
    `(sp-wrap-overlay-closing-pair ((,class :inherit sp-pair-overlay-face)))
    `(sp-wrap-overlay-face ((,class :inherit sp-pair-overlay-face)))

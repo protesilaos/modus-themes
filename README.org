@@ -570,6 +570,23 @@ that enable =hl-line-mode=, such as =elfeed= and =mu4e=.
 
 The default is to use a more subtle grey.
 
+** Option for intense parenthesis matching (show-paren-mode)
+
+Symbol names:
+
++ =modus-operandi-theme-intense-paren-match=
++ =modus-vivendi-theme-intense-paren-match=
+
+Possible values:
+
+1. =nil= (default)
+2. =t=
+
+Apply a more intense background to the matching parentheses (or
+delimiters).  This affects tools such as the built-in =show-paren-mode= as
+well as the =smartparens= package.  The default is to use a subtle warm
+colour for the background of those overlays.
+
 ** Option for intense standard completions
    :PROPERTIES:
    :CUSTOM_ID: h:5b0b1e66-8287-4f3f-ba14-011c29320a3f
