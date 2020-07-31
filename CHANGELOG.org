@@ -6,6 +6,265 @@ This document contains the release notes that are included in each
 tagged commit on https://gitlab.com/protesilaos/modus-themes.  The
 newest release is at the top.
 
+* 0.11.0
+
+Modus Operandi and Modus Vivendi version 0.11.0
+
+By Protesilaos Stavrou <info@protesilaos.com> on 2020-07-31
+
+This entry records the changes since version 0.10.0 (2020-06-24).  The
+present release covers close to 100 commits, some of which introduce
+far-reaching changes.  It is not just the quantity that matters.
+Sometimes even a minor tweak requires lots of testing and forethought.
+This release represents another month of intense work and attention to
+detail.
+
+Palette review of "nuanced" colours
+===================================
+
+The themes contain a subset of palette variables that have a two-fold
+utility:
+
+1. Provide a subtle coloured background that can be combined with all
+   foreground colours that are intended for text/code highlighting.
+
+2. Produce variegated text in cases where complementary information
+   needs to be displayed alongside some more prominent construct
+   (e.g. Org table formulas).
+
+In early July 2020, these colours went through a comprehensive review to
+improve their intended use.  The complete report is available on my
+website:
+<https://protesilaos.com/codelog/2020-07-08-modus-themes-nuanced-colours/>
+
+This formed the preparatory work that enabled several of the changes
+documented herein, most noticeable among which is the "Org blocks"
+customisation option.
+
+Customisation options
+=====================
+
+Org blocks
+----------
+
+1. The symbols 'modus-operandi-theme-distinct-org-blocks' and
+   'modus-vivendi-theme-distinct-org-blocks' are DEPRECATED.  They are
+   now REPLACED by the general-purpose 'modus-operandi-theme-org-blocks'
+   and 'modus-vivendi-theme-org-blocks' respectively.
+
+2. The aforementioned new symbols allow users to configure different
+   styles for Org blocks.
+
+   + Option 'greyscale' (which you must quote like this: 'greyscale)
+     will apply a subtle grey background to the contents of the block,
+     while it will extend its beginning and end lines to ensure that the
+     area is distinct from the rest of the buffer.  This is the style
+     you would normally get with the old customisation options.
+
+   + Option 'rainbow' (again, must be quoted) will instead apply a
+     colour-coded subtle background in the main area of the block.  The
+     exact colour depends on the programming language being used.  You
+     would need to check the source code for how these are currently
+     mapped (search for "org-src-block-faces").  The basic idea is to
+     have different colours that make it easier for mixing the
+     input/output of multiple programming languages.  Users who engage
+     in literate programming may find this particularly useful.  Because
+     the block is already quite apparent, the beginning and end lines
+     are not extended to the edge of the window, to avoid exaggerations
+     that could create distractions.
+
+Variable pitch headings (proportionately-spaced headings)
+---------------------------------------------------------
+
+The symbols 'modus-operandi-theme-proportional-fonts' and
+'modus-vivendi-theme-proportional-fonts' are DEPRECATED.  They are now
+REPLACED by the more appropriately-named
+'modus-operandi-theme-variable-pitch-headings' and
+'modus-vivendi-theme-variable-pitch-headings' respectively.
+
+The intended effect is exactly the same as before, namely, to let
+headings in Org and relevant modes use a proportionately-spaced font
+regardless of what the default is (typically a monospaced typeface).
+
+Remember that to configure the exact font family for the generic
+'variable-pitch' face, you can use something like this:
+
+    (set-face-attribute 'variable-pitch nil :family "FiraGO")
+
+Check the README for further details on setting and mixing fonts.
+
+Faint syntax for programming
+----------------------------
+
+Users can now enable 'modus-operandi-theme-faint-syntax' or
+'modus-vivendi-theme-faint-syntax'.  The intended effect is to tone down
+all syntax highlighting in programming modes, while always respecting
+the overarching objective of these themes for a minimum contrast ratio
+of 7:1 (highest accessibility standard for colour contrast---WCAG AAA).
+
+The default is to use more saturated colours.
+
+Intense hl-line
+---------------
+
+Toggling on 'modus-operandi-theme-intense-hl-line' or
+'modus-vivendi-theme-intense-hl-line' will apply a more pronounced grey
+to the background of faces that highlight the current line.  This
+affects tools such as the built-in 'hl-line-mode', which is in turn
+enabled automatically by lots of other packages, like 'elfeed' and
+'mu4e'.
+
+The default is to use a subtle grey.
+
+Intense paren-match
+-------------------
+
+Same principle as above.  'modus-operandi-theme-intense-paren-match' and
+'modus-vivendi-theme-intense-paren-match' will make the matching
+parentheses more intense than the default subtle warm background.  This
+concerns modes such as that of the 'smartparens' package as well as the
+built-in 'show-paren-mode'.
+
+Refactored the use of bold
+==========================
+
+A major review of the themes now makes it possible to specify the exact
+weight of what a "bold" typeface is.  This is only meaningful for cases
+where a font family has variants such as "semibold".
+
+Evaluate this, replacing "semibold" with the one your typeface supports:
+
+    (set-face-attribute 'bold nil :weight 'semibold)
+
+The default is to use a standard bold weight.
+
+Packages and face groups
+========================
+
+Refine already-supported faces
+------------------------------
+
++ The following packages now use more appropriate colour combinations:
+
+  - diary
+  - annotate
+  - transient (magit pop-up menu, though also used elsewhere)
+  - fountain
+  - calendar
+  - mu4e
+  - markdown-mode
+  - outline-minor-faces
+
++ Other changes:
+
+  - org-agenda has undergone a thoroughgoing review to improve the
+    semantics of colour for scheduled tasks, deadlines, modeline
+    filters, current date etc.
+
+  - org and outline-mode headings have been refined to look better with
+    the "rainbow headings" option that was introduced in an earlier
+    release (check the README).
+
+  - org-quote now works properly with the "Org blocks" option mentioned
+    above.
+
+  - org-checkbox-statistics uses the same foreground colour as org-todo,
+    for the sake of consistency.
+
+  - org-date now always inherits from 'fixed-pitch', to ensure proper
+    alignment of elements when a mixed fonts setup is used (tools for
+    achieving this effect are documented at length in the README).  The
+    relevant patch was contributed by Matthew Stevenson.
+
+  - org-meta-line no longer looks like a comment, which helps denote its
+    special utility (e.g. when evaluating a table's formula).
+
+  - org-warning now uses a variant of red for its text, which works
+    better in the contexts this face is used (e.g. the agenda or the
+    export dispatcher).
+
+  - We now apply a slightly more accented colour combination for
+    'secondary-selection', which is chiefly used by Org and Calendar in
+    various contexts.
+
+  - Gnus group level faces make more considerate use of colour to better
+    denote their significance.
+
+  - Cited text in message buffers has a better sequence of colours.
+
+  - Two new Helm faces are supported.
+
+  - Let 'keycast' use a different border colour when the "3D modeline"
+    option is enabled (refer to the README for that option).
+
+  - Extend 'hl-todo-keyword-faces' with the "bug" keyword.
+
+  - More intense colour for 'diff-hl-reverted-hunk-highlight'.
+
+  - Tone down the focused modeline's border colour.
+
+  - Define new bespoke faces that the themes use internally.
+
+  - Use more appropriate colours for 'header-line-highlight'.
+
+  - Apply greyscale line highlight for flycheck current line in the
+    diagnostics buffer, instead of the warmer colour combination it had
+    before.
+
+  - Tweak text colour difference between MU4E read and unread messages.
+
+Added support for new packages
+------------------------------
+
++ bongo
++ boon
++ dictionary
++ eshell-fringe-status
++ eshell-git-prompt
++ eshell-prompt-extras
++ highlight-tail
++ hl-defined
++ notmuch
++ tty-menu
+
+Miscellaneous
+=============
+
++ Expand the README with new documentation and clarify parts of the
+  existing one.
+
++ Update the Wiki page with screenshots and their descriptions (this in
+  itself is a day's worth of work):
+  https://gitlab.com/protesilaos/modus-themes/-/wikis/Screenshots
+
++ Make the source code of each theme work better with the built-in
+  'outline-minor-mode'.  Check my video if you need a demo on how I use
+  this in tandem with 'imenu':
+  https://protesilaos.com/codelog/2020-07-20-emacs-outline-imenu/
+
+Thanks to, in no particular order:
+
++ Shreyas Ragavan (https://gitlab.com/shrysr) for introducing me to the
+  idea that derived the "rainbow" Org blocks and for providing valuable
+  feedback in several issues.
+
++ Matthew Stevenson (https://gitlab.com/matth0204) for contributing the
+  aforementioned patch for the 'org-date' face.
+
++ Manuel Uberti (https://gitlab.com/muberti) for offering valuable
+  feedback in a number of issues (and special thanks for doing this for
+  several months now).
+
++ Dinko (https://gitlab.com/dinkonin) for noticing a not-so-obvious bug
+  in the initial implementation of the "rainbow Org blocks" option.
+
++ okamsn (https://gitlab.com/okamsn) for providing the necessary
+  feedback that allowed me to refactor the use of "bold", mentioned
+  above.
+
+Refer to the issue tracker (or commit log) for further details:
+https://gitlab.com/protesilaos/modus-themes/-/issues
+
 * 0.10.0
 
 Modus Operandi and Modus Vivendi version 0.10.0
