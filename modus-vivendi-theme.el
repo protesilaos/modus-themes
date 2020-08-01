@@ -1503,7 +1503,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(dictionary-word-definition-face ((,class :foreground ,fg-main)))
    `(dictionary-word-entry-face ((,class :foreground ,fg-special-cold :slant ,modus-theme-slant)))
 ;;;;; diff-hl
-   `(diff-hl-change ((,class :inherit modus-theme-fringe-blue)))
+   `(diff-hl-change ((,class :inherit modus-theme-fringe-yellow)))
    `(diff-hl-delete ((,class :inherit modus-theme-fringe-red)))
    `(diff-hl-dired-change ((,class :inherit diff-hl-change)))
    `(diff-hl-dired-delete ((,class :inherit diff-hl-delete)))
