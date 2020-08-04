@@ -398,27 +398,29 @@ not of keywords that are added to it, like "TODO".  This is outside the
 control of the themes and I am not aware of any way to make such
 keywords scale accordingly (see [[*Font configurations for Org (and others)][issue 37]]).
 
-** Option for visible fringes
+** Option for "subtle" or "intense" fringe visibility
    :PROPERTIES:
    :CUSTOM_ID: h:d989f116-7559-40bc-bf94-ef508d480960
    :END:
 
 Symbol names:
 
-+ =modus-operandi-theme-visible-fringe=
-+ =modus-vivendi-theme-visible-fringe=
++ =modus-operandi-theme-fringes=
++ =modus-vivendi-theme-fringes=
 
 Possible values:
 
 1. =nil= (default)
-2. =t=
+2. =subtle=
+3. =intense=
 
-When enabled, this will render the fringes in a subtle background
-colour.
+The "subtle" symbol will apply a greyscale background that is visible,
+yet close enough to the main background colour.  While the "intense"
+symbol will use a more noticeable greyscale background.
 
 The default is to use the same colour as that of the main background,
 meaning that the fringes are not obvious though they still occupy the
-space given to them by =fringe-mode= (8px on either side by default).
+space given to them by =fringe-mode= (8 pixels on either side by default).
 
 ** Option for more slanted constructs
    :PROPERTIES:

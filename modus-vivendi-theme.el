@@ -45,7 +45,7 @@
 ;;     modus-vivendi-theme-rainbow-headings               (boolean)
 ;;     modus-vivendi-theme-section-headings               (boolean)
 ;;     modus-vivendi-theme-scale-headings                 (boolean)
-;;     modus-vivendi-theme-visible-fringes                (boolean)
+;;     modus-vivendi-theme-fringes                        (choice)
 ;;     modus-vivendi-theme-org-blocks                     (choice)
 ;;     modus-vivendi-theme-3d-modeline                    (boolean)
 ;;     modus-vivendi-theme-subtle-diffs                   (boolean)
@@ -501,9 +501,24 @@ For more on the matter, read the documentation of
 `set-face-attribute', specifically the ':height' section."
   :type 'number)
 
+(define-obsolete-variable-alias 'modus-vivendi-theme-visible-fringes
+  'modus-vivendi-theme-fringes "`modus-vivendi-theme' 0.12.0")
+
 (defcustom modus-vivendi-theme-visible-fringes nil
   "Use a visible style for fringes."
   :type 'boolean)
+
+(defcustom modus-vivendi-theme-fringes nil
+  "Define the visibility of fringes.
+
+Nil means the fringes have no background colour.  Option `subtle'
+will apply a greyscale value that is visible yet close to the
+main buffer background colour.  Option `intense' will use a more
+pronounced greyscale value."
+  :type '(choice
+	      (const :tag "No visible fringes (default)" nil)
+	      (const :tag "Subtle greyscale background" subtle)
+	      (const :tag "Intense greyscale background" intense)))
 
 (define-obsolete-variable-alias 'modus-vivendi-theme-distinct-org-blocks
   'modus-vivendi-theme-org-blocks "`modus-vivendi-theme' 0.11.0")
@@ -575,6 +590,19 @@ association list)."
   "Conditional use of a heavier text weight."
   (when modus-vivendi-theme-bold-constructs
     (list :inherit 'bold)))
+
+(defun modus-vivendi-theme-fringe (subtlebg intensebg)
+  "Conditional use of intense colours for matching parentheses.
+NORMALBG should the special palette colour 'bg-paren-match' or
+something similar.  INTENSEBG must be easier to discern next to
+other backgrounds."
+  (cond
+   ((eq modus-vivendi-theme-fringes 'intense)
+    (list :background intensebg))
+   ((eq modus-vivendi-theme-fringes 'subtle)
+    (list :background subtlebg))
+   (t
+    (list :background nil))))
 
 (defun modus-vivendi-theme-paren (normalbg intensebg)
   "Conditional use of intense colours for matching parentheses.
@@ -1033,8 +1061,7 @@ Also bind `class' to ((class color) (min-colors 89))."
 ;;;;; absolute essentials
    `(default ((,class :background ,bg-main :foreground ,fg-main)))
    `(cursor ((,class :background ,fg-main)))
-   `(fringe ((,class :background
-                     ,(if modus-vivendi-theme-visible-fringes bg-inactive bg-main)
+   `(fringe ((,class ,@(modus-vivendi-theme-fringe bg-inactive bg-active)
                      :foreground ,fg-main)))
    `(vertical-border ((,class :foreground ,fg-window-divider-inner)))
 ;;;;; basic and/or ungrouped styles

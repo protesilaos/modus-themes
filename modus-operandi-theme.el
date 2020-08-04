@@ -45,7 +45,7 @@
 ;;     modus-operandi-theme-rainbow-headings               (boolean)
 ;;     modus-operandi-theme-section-headings               (boolean)
 ;;     modus-operandi-theme-scale-headings                 (boolean)
-;;     modus-operandi-theme-visible-fringes                (boolean)
+;;     modus-operandi-theme-fringes                        (choice)
 ;;     modus-operandi-theme-org-blocks                     (choice)
 ;;     modus-operandi-theme-3d-modeline                    (boolean)
 ;;     modus-operandi-theme-subtle-diffs                   (boolean)
@@ -501,9 +501,24 @@ For more on the matter, read the documentation of
 `set-face-attribute', specifically the ':height' section."
   :type 'number)
 
+(define-obsolete-variable-alias 'modus-operandi-theme-visible-fringes
+  'modus-operandi-theme-fringes "`modus-operandi-theme' 0.12.0")
+
 (defcustom modus-operandi-theme-visible-fringes nil
   "Use a visible style for fringes."
   :type 'boolean)
+
+(defcustom modus-operandi-theme-fringes nil
+  "Define the visibility of fringes.
+
+Nil means the fringes have no background colour.  Option `subtle'
+will apply a greyscale value that is visible yet close to the
+main buffer background colour.  Option `intense' will use a more
+pronounced greyscale value."
+  :type '(choice
+	      (const :tag "No visible fringes (default)" nil)
+	      (const :tag "Subtle greyscale background" subtle)
+	      (const :tag "Intense greyscale background" intense)))
 
 (define-obsolete-variable-alias 'modus-operandi-theme-distinct-org-blocks
   'modus-operandi-theme-org-blocks "`modus-operandi-theme' 0.11.0")
@@ -575,6 +590,19 @@ association list)."
   "Conditional use of a heavier text weight."
   (when modus-operandi-theme-bold-constructs
     (list :inherit 'bold)))
+
+(defun modus-operandi-theme-fringe (subtlebg intensebg)
+  "Conditional use of intense colours for matching parentheses.
+NORMALBG should the special palette colour 'bg-paren-match' or
+something similar.  INTENSEBG must be easier to discern next to
+other backgrounds."
+  (cond
+   ((eq modus-operandi-theme-fringes 'intense)
+    (list :background intensebg))
+   ((eq modus-operandi-theme-fringes 'subtle)
+    (list :background subtlebg))
+   (t
+    (list :background nil))))
 
 (defun modus-operandi-theme-paren (normalbg intensebg)
   "Conditional use of intense colours for matching parentheses.
@@ -1033,8 +1061,7 @@ Also bind `class' to ((class color) (min-colors 89))."
 ;;;;; absolute essentials
    `(default ((,class :background ,bg-main :foreground ,fg-main)))
    `(cursor ((,class :background ,fg-main)))
-   `(fringe ((,class :background
-                     ,(if modus-operandi-theme-visible-fringes bg-inactive bg-main)
+   `(fringe ((,class ,@(modus-operandi-theme-fringe bg-inactive bg-active)
                      :foreground ,fg-main)))
    `(vertical-border ((,class :foreground ,fg-window-divider-inner)))
 ;;;;; basic and/or ungrouped styles
