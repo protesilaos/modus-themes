@@ -592,10 +592,9 @@ association list)."
     (list :inherit 'bold)))
 
 (defun modus-vivendi-theme-fringe (subtlebg intensebg)
-  "Conditional use of intense colours for matching parentheses.
-NORMALBG should the special palette colour 'bg-paren-match' or
-something similar.  INTENSEBG must be easier to discern next to
-other backgrounds."
+  "Conditional use of background colours for fringes.
+SUBTLEBG should be a subtle greyscale value.  INTENSEBG must be a
+more pronounced greyscale colour."
   (cond
    ((eq modus-vivendi-theme-fringes 'intense)
     (list :background intensebg))
