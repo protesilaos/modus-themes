@@ -654,9 +654,9 @@ as the rest of the buffer.
 which is applied conditionally to `org-src-block-faces' (see the
 theme's source code)."
   (if (eq modus-operandi-theme-org-blocks 'greyscale)
-    (append
-     (and (>= emacs-major-version 27) '(:extend t))
-     (list :background bgblk))
+      (append
+       (and (>= emacs-major-version 27) '(:extend t))
+       (list :background bgblk))
     (list :background nil)))
 
 (defun modus-operandi-theme-org-block-delim (bgaccent fgaccent bg fg)
