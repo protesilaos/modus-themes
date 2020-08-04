@@ -663,12 +663,12 @@ being available.
   :init
   (setq modus-operandi-theme-slanted-constructs t
         modus-operandi-theme-bold-constructs t
-        modus-operandi-theme-visible-fringes t
+        modus-operandi-theme-fringes 'subtle ; {nil,'subtle,'intense}
         modus-operandi-theme-3d-modeline t
         modus-operandi-theme-subtle-diffs t
         modus-operandi-theme-intense-hl-line t
         modus-operandi-theme-intense-standard-completions t
-        modus-operandi-theme-org-blocks 'greyscale
+        modus-operandi-theme-org-blocks 'greyscale ; {nil,'greyscale,'rainbow}
         modus-operandi-theme-variable-pitch-headings t
         modus-operandi-theme-rainbow-headings t
         modus-operandi-theme-section-headings t
