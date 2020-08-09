@@ -889,8 +889,8 @@ AMOUNT is a customisation option."
       ;;
       ;; all pairs are combinable with themselves
       ("bg-hl-line" . "#151823")
-      ("bg-paren-match" . "#6e3a50")
-      ("bg-paren-match-intense" . "#93632f")
+      ("bg-paren-match" . "#602a0f")
+      ("bg-paren-match-intense" . "#7c4d44")
       ("bg-region" . "#3c3c3c")
 
       ("bg-tab-bar" . "#2c2c2c")
