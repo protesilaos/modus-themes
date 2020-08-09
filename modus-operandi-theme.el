@@ -607,7 +607,8 @@ more pronounced greyscale colour."
   "Conditional use of intense colours for matching parentheses.
 NORMALBG should the special palette colour 'bg-paren-match' or
 something similar.  INTENSEBG must be easier to discern next to
-other backgrounds."
+other backgrounds, such as the special palette colour
+'bg-paren-match-intense'."
   (if modus-operandi-theme-intense-paren-match
       (list :background intensebg)
     (list :background normalbg)))
@@ -858,9 +859,9 @@ AMOUNT is a customisation option."
       ;; can be combined with any of the "active" values, plus the
       ;; "special" and base foreground colours
       ;;
-      ;; `bg-paren-match', `bg-region' and `bg-tab-active' must be
-      ;; combined with `fg-main', while `bg-tab-inactive' should be
-      ;; combined with `fg-dim'
+      ;; `bg-paren-match', `bg-paren-match-intense', `bg-region' and
+      ;; `bg-tab-active' must be combined with `fg-main', while
+      ;; `bg-tab-inactive' should be combined with `fg-dim'
       ;;
       ;; `bg-tab-bar' is only intended for the bar that holds the tabs and
       ;; can only be combined with `fg-main'
@@ -889,6 +890,7 @@ AMOUNT is a customisation option."
       ;; all pairs are combinable with themselves
       ("bg-hl-line" . "#f2eff3")
       ("bg-paren-match" . "#efcabf")
+      ("bg-paren-match-intense" . "#a0772f")
       ("bg-region" . "#bcbcbc")
 
       ("bg-tab-bar" . "#d5d5d5")
@@ -3350,7 +3352,8 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(sh-heredoc ((,class :foreground ,blue-alt)))
    `(sh-quoted-exec ((,class ,@(modus-operandi-theme-bold-weight) :foreground ,magenta-alt)))
 ;;;;; show-paren-mode
-   `(show-paren-match ((,class ,@(modus-operandi-theme-paren bg-paren-match blue-intense-bg)
+   `(show-paren-match ((,class ,@(modus-operandi-theme-paren bg-paren-match
+                                                             bg-paren-match-intense)
                                :foreground ,fg-main)))
    `(show-paren-match-expression ((,class :inherit modus-theme-special-calm)))
    `(show-paren-mismatch ((,class :inherit modus-theme-intense-red)))
@@ -3387,7 +3390,8 @@ Also bind `class' to ((class color) (min-colors 89))."
 ;;;;; smartparens
    `(sp-pair-overlay-face ((,class :inherit modus-theme-special-warm)))
    `(sp-show-pair-enclosing ((,class :inherit modus-theme-special-mild)))
-   `(sp-show-pair-match-face ((,class ,@(modus-operandi-theme-paren bg-paren-match blue-intense-bg)
+   `(sp-show-pair-match-face ((,class ,@(modus-operandi-theme-paren bg-paren-match
+                                                                    bg-paren-match-intense)
                                       :foreground ,fg-main)))
    `(sp-show-pair-mismatch-face ((,class :inherit modus-theme-intense-red)))
    `(sp-wrap-overlay-closing-pair ((,class :inherit sp-pair-overlay-face)))
