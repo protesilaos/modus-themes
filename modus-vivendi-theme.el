@@ -2868,7 +2868,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(notmuch-crypto-signature-good-key ((,class :inherit modus-theme-refine-yellow)))
    `(notmuch-crypto-signature-unknown ((,class :inherit modus-theme-refine-red)))
    `(notmuch-hello-logo-background ((,class :background ,bg-main)))
-   `(notmuch-message-summary-face ((,class :background ,bg-dim)))
+   `(notmuch-message-summary-face ((,class :inherit modus-theme-nuanced-cyan)))
    `(notmuch-search-flagged-face ((,class :foreground ,red-alt)))
    `(notmuch-search-matching-authors ((,class :foreground ,fg-main)))
    `(notmuch-search-non-matching-authors ((,class :foreground ,fg-alt)))
