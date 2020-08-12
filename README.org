@@ -1131,6 +1131,7 @@ the "full support" may not be 100% true…
 + org-recur
 + org-roam
 + org-superstar
++ org-table-sticky-header
 + org-treescope
 + origami
 + outline-mode

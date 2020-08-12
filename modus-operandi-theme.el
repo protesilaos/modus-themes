@@ -243,6 +243,7 @@
 ;;     org-recur
 ;;     org-roam
 ;;     org-superstar
+;;     org-table-sticky-header
 ;;     org-treescope
 ;;     origami
 ;;     outline-mode
@@ -3107,6 +3108,8 @@ Also bind `class' to ((class color) (min-colors 89))."
 ;;;;; org-superstar
    `(org-superstar-item ((,class :foreground ,fg-main)))
    `(org-superstar-leading ((,class :foreground ,fg-whitespace)))
+;;;;; org-table-sticky-header
+   `(org-table-sticky-header-face ((,class :inherit modus-theme-intense-neutral)))
 ;;;;; org-treescope
    `(org-treescope-faces--markerinternal-midday ((,class :inherit modus-theme-intense-blue)))
    `(org-treescope-faces--markerinternal-range ((,class :inherit modus-theme-special-mild)))
