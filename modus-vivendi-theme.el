@@ -295,11 +295,11 @@
 ;;     tab-line-mode
 ;;     syslog-mode
 ;;     table (built-in table.el)
-;;     trashed
 ;;     telephone-line
 ;;     term
 ;;     tomatinho
 ;;     transient (pop-up windows like Magit's)
+;;     trashed
 ;;     treemacs
 ;;     tty-menu
 ;;     tuareg
@@ -3510,13 +3510,6 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(syslog-warn ((,class :inherit bold :foreground ,yellow)))
 ;;;;; table (built-in table.el)
    `(table-cell ((,class :background ,blue-nuanced-bg)))
-;;;;; trashed
-   `(trashed-deleted ((,class :inherit modus-theme-mark-del)))
-   `(trashed-directory ((,class :foreground ,blue)))
-   `(trashed-mark ((,class :inherit modus-theme-mark-symbol)))
-   `(trashed-marked ((,class :inherit modus-theme-mark-alt)))
-   `(trashed-restored ((,class :inherit modus-theme-mark-sel)))
-   `(trashed-symlink ((,class :foreground ,cyan-alt :underline t)))
 ;;;;; telephone-line
    `(telephone-line-accent-active ((,class :background ,fg-inactive :foreground ,bg-inactive)))
    `(telephone-line-accent-inactive ((,class :background ,bg-active :foreground ,fg-active)))
@@ -3560,6 +3553,13 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(transient-unreachable ((,class :foreground ,fg-unfocused)))
    `(transient-unreachable-key ((,class :foreground ,fg-unfocused)))
    `(transient-value ((,class :foreground ,magenta-alt)))
+;;;;; trashed
+   `(trashed-deleted ((,class :inherit modus-theme-mark-del)))
+   `(trashed-directory ((,class :foreground ,blue)))
+   `(trashed-mark ((,class :inherit modus-theme-mark-symbol)))
+   `(trashed-marked ((,class :inherit modus-theme-mark-alt)))
+   `(trashed-restored ((,class :inherit modus-theme-mark-sel)))
+   `(trashed-symlink ((,class :foreground ,cyan-alt :underline t)))
 ;;;;; treemacs
    `(treemacs-directory-collapsed-face ((,class :foreground ,magenta-alt)))
    `(treemacs-directory-face ((,class :inherit dired-directory)))
