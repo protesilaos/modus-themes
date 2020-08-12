@@ -294,6 +294,7 @@
 ;;     tab-bar-mode
 ;;     tab-line-mode
 ;;     syslog-mode
+;;     table (built-in table.el)
 ;;     trashed
 ;;     telephone-line
 ;;     term
@@ -3507,6 +3508,8 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(syslog-ip ((,class :inherit bold :foreground ,fg-special-mild :underline t)))
    `(syslog-su ((,class :inherit bold :foreground ,red-alt)))
    `(syslog-warn ((,class :inherit bold :foreground ,yellow)))
+;;;;; table (built-in table.el)
+   `(table-cell ((,class :background ,blue-nuanced-bg)))
 ;;;;; trashed
    `(trashed-deleted ((,class :inherit modus-theme-mark-del)))
    `(trashed-directory ((,class :foreground ,blue)))

@@ -1180,6 +1180,7 @@ the "full support" may not be 100% true…
 + sx
 + symbol-overlay
 + syslog-mode
++ table (built-in table.el)
 + telephone-line
 + term
 + tomatinho
