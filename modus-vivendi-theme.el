@@ -1080,6 +1080,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(comint-highlight-prompt ((,class ,@(modus-vivendi-theme-bold-weight) :foreground ,cyan-alt-other)))
    `(error ((,class :inherit bold :foreground ,red)))
    `(escape-glyph ((,class :foreground ,fg-escape-char-construct)))
+   `(file-name-shadow ((,class :foreground ,fg-unfocused)))
    `(header-line ((,class :background ,bg-header :foreground ,fg-header)))
    `(header-line-highlight ((,class :inherit modus-theme-active-blue)))
    `(homoglyph ((,class :foreground ,fg-escape-char-construct)))
