@@ -1227,6 +1227,7 @@ These do not require any extra styles because they are configured to
 inherit from some basic faces.  Please confirm.
 
 + edit-indirect
++ php-mode
 + swift-mode
 
 ** Will NOT be supported
