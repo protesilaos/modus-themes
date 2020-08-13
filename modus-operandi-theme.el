@@ -1076,6 +1076,8 @@ Also bind `class' to ((class color) (min-colors 89))."
    ;;
    ;; (set-face-attribute 'bold nil :weight 'semibold)
    `(bold ((,class :weight bold)))
+   `(comint-highlight-input ((,class :inherit bold)))
+   `(comint-highlight-prompt ((,class ,@(modus-operandi-theme-bold-weight) :foreground ,cyan-alt-other)))
    `(error ((,class :inherit bold :foreground ,red)))
    `(escape-glyph ((,class :foreground ,fg-escape-char-construct)))
    `(header-line ((,class :background ,bg-header :foreground ,fg-header)))
