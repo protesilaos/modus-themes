@@ -166,7 +166,7 @@
 ;;     forge
 ;;     fountain (fountain-mode)
 ;;     geiser
-;;     git
+;;     git-commit
 ;;     git-gutter (and variants)
 ;;     git-lens
 ;;     git-timemachine

@@ -1056,7 +1056,7 @@ the "full support" may not be 100% true…
 + forge
 + fountain (fountain-mode)
 + geiser
-+ git
++ git-commit
 + git-gutter (and variants)
 + git-lens
 + git-timemachine
