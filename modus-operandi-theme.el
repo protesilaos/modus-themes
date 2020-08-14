@@ -258,6 +258,7 @@
 ;;     perspective
 ;;     phi-grep
 ;;     phi-search
+;;     pkgbuild-mode
 ;;     pomidor
 ;;     powerline
 ;;     powerline-evil
@@ -3208,6 +3209,8 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(phi-search-failpart-face ((,class :inherit modus-theme-refine-red)))
    `(phi-search-match-face ((,class :inherit modus-theme-refine-cyan)))
    `(phi-search-selection-face ((,class :inherit (modus-theme-intense-green bold))))
+;;;;; pkgbuild-mode
+   `(pkgbuild-error-face ((,class :underline (:color ,fg-lang-error))))
 ;;;;; pomidor
    `(pomidor-break-face ((,class :foreground ,blue-alt-other)))
    `(pomidor-overwork-face ((,class :foreground ,red-alt-other)))

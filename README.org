@@ -1149,6 +1149,7 @@ the "full support" may not be 100% true…
 + perspective
 + phi-grep
 + phi-search
++ pkgbuild-mode
 + pomidor
 + powerline
 + powerline-evil
