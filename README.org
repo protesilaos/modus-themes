@@ -1059,6 +1059,7 @@ the "full support" may not be 100% true…
 + git-commit
 + git-gutter (and variants)
 + git-lens
++ git-rebase
 + git-timemachine
 + git-walktree
 + gnus

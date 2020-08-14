@@ -169,6 +169,7 @@
 ;;     git-commit
 ;;     git-gutter (and variants)
 ;;     git-lens
+;;     git-rebase
 ;;     git-timemachine
 ;;     git-walktree
 ;;     gnus
@@ -2077,6 +2078,11 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(git-commit-overlong-summary ((,class :inherit modus-theme-refine-yellow)))
    `(git-commit-pseudo-header ((,class :inherit bold :foreground ,fg-alt)))
    `(git-commit-summary ((,class :foreground ,magenta-alt-other)))
+;;;;; git-rebase
+   `(git-rebase-comment-hash ((,class :foreground ,fg-special-cold :slant ,modus-theme-slant)))
+   `(git-rebase-comment-heading ((,class :inherit bold :foreground ,fg-dim :slant ,modus-theme-slant)))
+   `(git-rebase-description ((,class :foreground ,fg-main)))
+   `(git-rebase-hash ((,class :foreground ,cyan-alt-other)))
 ;;;;; git-gutter
    `(git-gutter:added ((,class :inherit modus-theme-fringe-green)))
    `(git-gutter:deleted ((,class :inherit modus-theme-fringe-red)))
