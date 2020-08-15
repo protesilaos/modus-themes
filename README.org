@@ -1167,6 +1167,7 @@ the "full support" may not be 100% true…
 + ruler-mode
 + sallet
 + selectrum
++ semantic
 + sesman
 + shell-script-mode
 + show-paren-mode

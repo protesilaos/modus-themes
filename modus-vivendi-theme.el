@@ -276,6 +276,7 @@
 ;;     ruler-mode
 ;;     sallet
 ;;     selectrum
+;;     semantic
 ;;     sesman
 ;;     shell-script-mode
 ;;     show-paren-mode
@@ -3358,6 +3359,15 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(selectrum-current-candidate ((,class :inherit modus-theme-intense-magenta)))
    `(selectrum-primary-highlight ((,class :inherit (modus-theme-refine-blue bold))))
    `(selectrum-secondary-highlight ((,class :inherit (modus-theme-refine-cyan bold))))
+;;;;; semantic
+   `(semantic-complete-inline-face ((,class :foreground ,fg-special-warm :underline t)))
+   `(semantic-decoration-on-private-members-face ((,class :inherit modus-theme-refine-cyan)))
+   `(semantic-decoration-on-protected-members-face ((,class :background ,bg-dim)))
+   `(semantic-highlight-edits-face ((,class :background ,bg-alt)))
+   `(semantic-highlight-func-current-tag-face ((,class :background ,bg-alt)))
+   `(semantic-idle-symbol-highlight ((,class :inherit modus-theme-special-mild)))
+   `(semantic-tag-boundary-face ((,class :overline ,blue-intense)))
+   `(semantic-unmatched-syntax-face ((,class :underline ,fg-lang-error)))
 ;;;;; sesman
    `(sesman-browser-button-face ((,class :foreground ,blue-alt-other :underline t)))
    `(sesman-browser-highligh-face ((,class :inherit modus-theme-subtle-blue)))
