@@ -1158,10 +1158,8 @@ Also bind `class' to ((class color) (min-colors 89))."
 ;;;;; annotate
    `(annotate-annotation ((,class :inherit modus-theme-subtle-blue)))
    `(annotate-annotation-secondary ((,class :inherit modus-theme-subtle-green)))
-   `(annotate-highlight ((,class :background ,blue-nuanced-bg
-                                 :underline (:color ,blue-intense))))
-   `(annotate-highlight-secondary ((,class :background ,green-nuanced-bg
-                                           :underline (:color ,green-intense))))
+   `(annotate-highlight ((,class :background ,blue-nuanced-bg :underline ,blue-intense)))
+   `(annotate-highlight-secondary ((,class :background ,green-nuanced-bg :underline ,green-intense)))
 ;;;;; anzu
    `(anzu-match-1 ((,class :inherit modus-theme-subtle-cyan)))
    `(anzu-match-2 ((,class :inherit modus-theme-subtle-green)))
@@ -1185,10 +1183,10 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(apt-sources-list-type ((,class :foreground ,magenta)))
    `(apt-sources-list-uri ((,class :foreground ,blue)))
 ;;;;; artbollocks-mode
-   `(artbollocks-face ((,class :foreground ,cyan-nuanced :underline (:color ,fg-lang-note :style line))))
+   `(artbollocks-face ((,class :foreground ,cyan-nuanced :underline ,fg-lang-note)))
    `(artbollocks-lexical-illusions-face ((,class :background ,bg-alt :foreground ,red-alt :underline t)))
-   `(artbollocks-passive-voice-face ((,class :foreground ,yellow-nuanced :underline (:color ,fg-lang-warning :style line))))
-   `(artbollocks-weasel-words-face ((,class :foreground ,red-nuanced :underline (:color ,fg-lang-error :style line))))
+   `(artbollocks-passive-voice-face ((,class :foreground ,yellow-nuanced :underline ,fg-lang-warning)))
+   `(artbollocks-weasel-words-face ((,class :foreground ,red-nuanced :underline ,fg-lang-error)))
 ;;;;; auctex and Tex
    `(font-latex-bold-face ((,class :inherit bold :foreground ,fg-special-calm)))
    `(font-latex-doctex-documentation-face ((,class :foreground ,fg-special-cold :slant ,modus-theme-slant)))
@@ -3217,7 +3215,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(phi-search-match-face ((,class :inherit modus-theme-refine-cyan)))
    `(phi-search-selection-face ((,class :inherit (modus-theme-intense-green bold))))
 ;;;;; pkgbuild-mode
-   `(pkgbuild-error-face ((,class :underline (:color ,fg-lang-error))))
+   `(pkgbuild-error-face ((,class :underline ,fg-lang-error)))
 ;;;;; pomidor
    `(pomidor-break-face ((,class :foreground ,blue-alt-other)))
    `(pomidor-overwork-face ((,class :foreground ,red-alt-other)))
@@ -3873,8 +3871,8 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(winum-face ((,class ,@(modus-operandi-theme-bold-weight) :foreground ,cyan-active)))
 ;;;;; writegood-mode
    `(writegood-duplicates-face ((,class :background ,bg-alt :foreground ,red-alt :underline t)))
-   `(writegood-passive-voice-face ((,class :foreground ,yellow-nuanced :underline (:color ,fg-lang-warning :style line))))
-   `(writegood-weasels-face ((,class :foreground ,red-nuanced :underline (:color ,fg-lang-error :style line))))
+   `(writegood-passive-voice-face ((,class :foreground ,yellow-nuanced :underline ,fg-lang-warning)))
+   `(writegood-weasels-face ((,class :foreground ,red-nuanced :underline ,fg-lang-error)))
 ;;;;; woman
    `(woman-addition ((,class :foreground ,magenta-alt-other)))
    `(woman-bold ((,class :inherit bold :foreground ,magenta)))
