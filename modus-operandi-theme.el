@@ -47,6 +47,7 @@
 ;;     modus-operandi-theme-scale-headings                 (boolean)
 ;;     modus-operandi-theme-fringes                        (choice)
 ;;     modus-operandi-theme-org-blocks                     (choice)
+;;     modus-operandi-theme-prompts                        (choice)
 ;;     modus-operandi-theme-3d-modeline                    (boolean)
 ;;     modus-operandi-theme-subtle-diffs                   (boolean)
 ;;     modus-operandi-theme-faint-syntax                   (boolean)
@@ -575,6 +576,19 @@ association list)."
   "Use prominent backgrounds for Icomplete, Ido, or similar."
   :type 'boolean)
 
+(defcustom modus-operandi-theme-prompts nil
+  "Use subtle or intense styles for minibuffer and REPL prompts.
+
+Nil means to only use an accented foreground colour.
+
+Options `subtle' and `intense' will change both the background
+and the foreground values.  The latter has a more pronounced
+effect than the former."
+  :type '(choice
+	      (const :tag "No prompt background (default)" nil)
+	      (const :tag "Subtle accented background for the prompt" subtle)
+	      (const :tag "Intense background and foreground for the prompt" intense)))
+
 (defcustom modus-operandi-theme-intense-hl-line nil
   "Use more prominent background for `hl-line-mode'."
   :type 'boolean)
@@ -607,6 +621,20 @@ more pronounced greyscale colour."
     (list :background subtlebg))
    (t
     (list :background nil))))
+
+(defun modus-operandi-theme-prompt (mainfg subtlebg subtlefg intensebg intensefg)
+  "Conditional use of background colours for prompts.
+MAINFG is the prompt's standard foreground.  SUBTLEBG should be a
+subtle accented background that works with SUBTLEFG.  INTENSEBG
+must be a more pronounced accented colour that should be
+combinable with INTENSEFG."
+  (cond
+   ((eq modus-operandi-theme-prompts 'intense)
+    (list :background intensebg :foreground intensefg))
+   ((eq modus-operandi-theme-prompts 'subtle)
+    (list :background subtlebg :foreground subtlefg))
+   (t
+    (list :background nil :foreground mainfg))))
 
 (defun modus-operandi-theme-paren (normalbg intensebg)
   "Conditional use of intense colours for matching parentheses.
@@ -1080,7 +1108,12 @@ Also bind `class' to ((class color) (min-colors 89))."
    ;; (set-face-attribute 'bold nil :weight 'semibold)
    `(bold ((,class :weight bold)))
    `(comint-highlight-input ((,class :inherit bold)))
-   `(comint-highlight-prompt ((,class ,@(modus-operandi-theme-bold-weight) :foreground ,cyan-alt-other)))
+   `(comint-highlight-prompt ((,class ,@(modus-operandi-theme-bold-weight)
+                                      ,@(modus-operandi-theme-prompt cyan
+                                                                     blue-nuanced-bg
+                                                                     blue-alt
+                                                                     blue-refine-bg
+                                                                     blue-refine-fg))))
    `(error ((,class :inherit bold :foreground ,red)))
    `(escape-glyph ((,class :foreground ,fg-escape-char-construct)))
    `(file-name-shadow ((,class :foreground ,fg-unfocused)))
@@ -1091,7 +1124,11 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(italic ((,class :slant italic)))
    `(nobreak-hyphen ((,class :foreground ,fg-escape-char-construct)))
    `(nobreak-space ((,class :foreground ,fg-escape-char-construct :underline t)))
-   `(minibuffer-prompt ((,class :foreground ,cyan-alt-other)))
+   `(minibuffer-prompt ((,class ,@(modus-operandi-theme-prompt cyan-alt-other
+                                                               cyan-nuanced-bg
+                                                               cyan
+                                                               blue-fringe-bg
+                                                               fg-main))))
    `(mm-command-output ((,class :foreground ,red-alt-other)))
    `(mm-uu-extract ((,class :background ,bg-dim :foreground ,fg-special-mild)))
    `(next-error ((,class :inherit modus-theme-subtle-red)))
@@ -1829,7 +1866,12 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(eshell-ls-special ((,class :inherit bold :foreground ,magenta)))
    `(eshell-ls-symlink ((,class :foreground ,cyan :underline t)))
    `(eshell-ls-unreadable ((,class :background ,bg-inactive :foreground ,fg-inactive)))
-   `(eshell-prompt ((,class ,@(modus-operandi-theme-bold-weight) :foreground ,green-alt-other)))
+   `(eshell-prompt ((,class ,@(modus-operandi-theme-bold-weight)
+                            ,@(modus-operandi-theme-prompt green-alt-other
+                                                           green-nuanced-bg
+                                                           green-alt
+                                                           green-refine-bg
+                                                           green-refine-fg))))
 ;;;;; eshell-fringe-status
    `(eshell-fringe-status-failure ((,class :foreground ,red)))
    `(eshell-fringe-status-success ((,class :foreground ,green)))

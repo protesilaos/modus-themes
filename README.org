@@ -589,6 +589,32 @@ delimiters).  This affects tools such as the built-in =show-paren-mode= as
 well as the =smartparens= package.  The default is to use a subtle warm
 colour for the background of those overlays.
 
+** Option for "subtle" or "intense" prompts
+:PROPERTIES:
+:CUSTOM_ID: h:53b947f7-c713-4ac2-97f7-9be44a41a67a
+:END:
+
+Symbol names:
+
++ =modus-operandi-theme-prompts=
++ =modus-vivendi-theme-prompts=
+
+Possible values:
+
+1. =nil= (default)
+2. =subtle=
+3. =intense=
+
+The symbols "subtle" and "intense" will apply a combination of accented
+background and foreground to the minibuffer and other REPL prompts (like
+=M-x shell=).  The difference between the two is that the latter has a
+more pronounced/noticeable effect than the former.
+
+The default is to not use any background for such prompts, while only
+relying on an accented foreground colour.
+
+*This option is new.  Please send feedback.*
+
 ** Option for intense standard completions
 :PROPERTIES:
 :CUSTOM_ID: h:5b0b1e66-8287-4f3f-ba14-011c29320a3f
@@ -669,6 +695,7 @@ being available.
         modus-operandi-theme-faint-syntax t
         modus-operandi-theme-intense-hl-line t
         modus-operandi-theme-intense-paren-match t
+        modus-operandi-theme-prompts 'subtle ; {nil,'subtle,'intense}
         modus-operandi-theme-intense-standard-completions t
         modus-operandi-theme-subtle-diffs t
         modus-operandi-theme-org-blocks 'greyscale ; {nil,'greyscale,'rainbow}
