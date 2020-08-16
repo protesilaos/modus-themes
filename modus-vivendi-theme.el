@@ -1171,7 +1171,7 @@ Also bind `class' to ((class color) (min-colors 89))."
                                                                     blue-nuanced-bg
                                                                     blue-alt
                                                                     blue-refine-bg
-                                                                    blue-refine-fg))))
+                                                                    fg-main))))
    `(error ((,class :inherit bold :foreground ,red)))
    `(escape-glyph ((,class :foreground ,fg-escape-char-construct)))
    `(file-name-shadow ((,class :foreground ,fg-unfocused)))
@@ -1185,7 +1185,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(minibuffer-prompt ((,class ,@(modus-vivendi-theme-prompt cyan-alt-other
                                                               cyan-nuanced-bg
                                                               cyan
-                                                              blue-fringe-bg
+                                                              cyan-refine-bg
                                                               fg-main))))
    `(mm-command-output ((,class :foreground ,red-alt-other)))
    `(mm-uu-extract ((,class :background ,bg-dim :foreground ,fg-special-mild)))
@@ -1931,7 +1931,7 @@ Also bind `class' to ((class color) (min-colors 89))."
                                                           green-nuanced-bg
                                                           green-alt
                                                           green-refine-bg
-                                                          green-refine-fg))))
+                                                          fg-main))))
 ;;;;; eshell-fringe-status
    `(eshell-fringe-status-failure ((,class :foreground ,red)))
    `(eshell-fringe-status-success ((,class :foreground ,green)))
