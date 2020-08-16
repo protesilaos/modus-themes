@@ -615,33 +615,48 @@ relying on an accented foreground colour.
 
 *This option is new.  Please send feedback.*
 
-** Option for intense standard completions
+** Option for "moderate" or "opinionated" completion UIs
 :PROPERTIES:
 :CUSTOM_ID: h:5b0b1e66-8287-4f3f-ba14-011c29320a3f
 :END:
 
 Symbol names:
 
-+ =modus-operandi-theme-intense-standard-completions=
-+ =modus-vivendi-theme-intense-standard-completions=
++ =modus-operandi-theme-completions=
++ =modus-vivendi-theme-completions=
 
 Possible values:
 
 1. =nil= (default)
-2. =t=
+2. =moderate=
+3. =opinionated=
 
-Display faces for built-in completion frameworks, such as =icomplete=,
-with a combination of background and foreground colours.  This covers
-every completion interface that either is part of the upstream Emacs
-distribution or extends some built-in library.  For example, =orderless=
-is a powerful completion style that can be used with core Emacs.  So it
-also is covered by this customisation option.
+This is a special option that has different effects depending on the
+completion UI.  The interfaces can be grouped in two categories: (i)
+those that only or mostly use foreground colours for their interaction
+model, and (ii) those that combine background and foreground values for
+some of their metaphors.  The former category encompasses the built-in
+tools, namely, Icomplete and Ido, as well as packages like Orderless and
+Flx.  The latter covers Ivy, Helm, Selectrum, and similar.
 
-With this enabled, Icomplete and others will use similar UI metaphors to
-those of =ivy=, =helm=, =selectrum= (among others).
+The symbol =moderate= will apply a combination of background and
+foreground that is fairly subtle.  For Icomplete and friends this
+constitutes a departure from their default aesthetics, however the
+difference is small.  While Ivy et al will appear slightly different
+than their original looks, as they are toned down a bit.
 
-The default is to only use foreground colour values for the various
-matching characters or items of standard completion tools.
+The symbol =opinionated= will apply colour combinations that refashion the
+completion UI.  For the Icomplete camp this means that intense
+background and foreground combinations are used: in effect their looks
+emulate those of Ivy and co. in their original style.  Whereas the other
+group of packages will revert to an even more nuanced aesthetic with
+some additional changes to the choice of hues.
+
+To appreciate the scope of this customisation option, you should spend
+some time with every one of the =nil= (default), =moderate=, and =opinionated=
+possibilities.
+
+*This option is new.  Please send feedback.*
 
 ** Option for variable-pitch fonts in headings
 :PROPERTIES:
@@ -696,7 +711,7 @@ being available.
         modus-operandi-theme-intense-hl-line t
         modus-operandi-theme-intense-paren-match t
         modus-operandi-theme-prompts 'subtle ; {nil,'subtle,'intense}
-        modus-operandi-theme-intense-standard-completions t
+        modus-operandi-theme-completions 'moderate ; {nil,'moderate,'opinionated}
         modus-operandi-theme-subtle-diffs t
         modus-operandi-theme-org-blocks 'greyscale ; {nil,'greyscale,'rainbow}
         modus-operandi-theme-variable-pitch-headings t
