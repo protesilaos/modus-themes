@@ -647,7 +647,7 @@ other backgrounds, such as the special palette colour
     (list :background normalbg)))
 
 (defun modus-vivendi-theme-syntax-foreground (normal faint)
-  "Apply foreground value to headings.
+  "Apply foreground value to code syntax.
 NORMAL is the more saturated colour, which should be the default.
 FAINT is the less saturated colour."
   (if modus-vivendi-theme-faint-syntax
