@@ -1218,6 +1218,7 @@ the "full support" may not be 100% true…
 + smart-mode-line
 + smartparens
 + smerge
++ spaceline
 + speedbar
 + spell-fu
 + stripes

@@ -286,6 +286,7 @@
 ;;     smart-mode-line
 ;;     smartparens
 ;;     smerge
+;;     spaceline
 ;;     speedbar
 ;;     spell-fu
 ;;     stripes
@@ -3667,6 +3668,21 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(smerge-upper ((,class ,@(modus-operandi-theme-diffs
                               bg-main red
                               bg-diff-focus-removed fg-diff-focus-removed))))
+;;;;; spaceline
+   `(spaceline-evil-emacs ((,class :inherit modus-theme-active-magenta)))
+   `(spaceline-evil-insert ((,class :inherit modus-theme-active-green)))
+   `(spaceline-evil-motion ((,class :inherit modus-theme-active-blue)))
+   `(spaceline-evil-normal ((,class :background ,fg-alt :foreground ,bg-alt)))
+   `(spaceline-evil-replace ((,class :inherit modus-theme-active-red)))
+   `(spaceline-evil-visual ((,class :inherit modus-theme-active-cyan)))
+   `(spaceline-flycheck-error ((,class :foreground ,red-active)))
+   `(spaceline-flycheck-info ((,class :foreground ,cyan-active)))
+   `(spaceline-flycheck-warning ((,class :foreground ,yellow-active)))
+   `(spaceline-highlight-face ((,class :inherit modus-theme-fringe-blue)))
+   `(spaceline-modified ((,class :inherit modus-theme-fringe-magenta)))
+   `(spaceline-python-venv ((,class :foreground ,magenta-active)))
+   `(spaceline-read-only ((,class :inherit modus-theme-fringe-red)))
+   `(spaceline-unmodified ((,class :inherit modus-theme-fringe-cyan)))
 ;;;;; speedbar
    `(speedbar-button-face ((,class :inherit link)))
    `(speedbar-directory-face ((,class :inherit bold :foreground ,blue)))
