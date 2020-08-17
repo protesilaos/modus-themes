@@ -2404,7 +2404,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(helm-selection ((,class ,@(modus-operandi-theme-extra-completions
                                 'modus-theme-subtle-blue
                                 'modus-theme-refine-blue
-                                'modus-theme-special-warm
+                                'modus-theme-special-cold
                                 nil
                                 'bold))))
    `(helm-selection-line ((,class :inherit modus-theme-special-cold)))
