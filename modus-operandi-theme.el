@@ -3423,12 +3423,12 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(pomidor-skip-face ((,class :foreground ,fg-alt :slant ,modus-theme-slant)))
    `(pomidor-work-face ((,class :foreground ,green-alt-other)))
 ;;;;; powerline
-   `(powerline-active0 ((,class :background ,fg-inactive :foreground ,bg-inactive)))
-   `(powerline-active1 ((,class :background ,bg-active :foreground ,fg-active)))
-   `(powerline-active2 ((,class :background ,bg-alt :foreground ,fg-active)))
+   `(powerline-active0 ((,class :background ,blue-nuanced-bg :foreground ,blue-nuanced :inverse-video t)))
+   `(powerline-active1 ((,class :background ,blue-nuanced-bg :foreground ,blue-nuanced)))
+   `(powerline-active2 ((,class :background ,bg-active :foreground ,fg-active)))
    `(powerline-inactive0 ((,class :background ,bg-active :foreground ,fg-inactive)))
-   `(powerline-inactive1 ((,class :background ,bg-inactive :foreground ,fg-inactive)))
-   `(powerline-inactive2 ((,class :background ,bg-main :foreground ,fg-alt)))
+   `(powerline-inactive1 ((,class :background ,bg-dim :foreground ,fg-inactive)))
+   `(powerline-inactive2 ((,class :background ,bg-inactive :foreground ,fg-inactive)))
 ;;;;; powerline-evil
    `(powerline-evil-base-face ((,class :background ,fg-main :foreground ,bg-main)))
    `(powerline-evil-emacs-face ((,class :inherit modus-theme-active-magenta)))
