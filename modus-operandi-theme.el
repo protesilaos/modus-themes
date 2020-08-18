@@ -1513,11 +1513,11 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(completions-annotations ((,class :foreground ,fg-special-cold :slant ,modus-theme-slant)))
    `(completions-common-part ((,class ,@(modus-operandi-theme-standard-completions
                                          cyan-alt-other cyan-nuanced-bg
-                                         green-refine-bg green-refine-fg))))
+                                         yellow-refine-bg yellow-refine-fg))))
    `(completions-first-difference ((,class :inherit bold
                                            ,@(modus-operandi-theme-standard-completions
                                               blue-alt-other blue-nuanced-bg
-                                              blue-intense-bg fg-main))))
+                                              cyan-subtle-bg fg-dim))))
 ;;;;; counsel
    `(counsel-active-mode ((,class :foreground ,magenta-alt-other)))
    `(counsel-application-name ((,class :foreground ,red-alt-other)))
