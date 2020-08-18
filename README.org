@@ -1268,9 +1268,9 @@ Plus many other miscellaneous faces that are provided by the upstream
 GNU Emacs distribution.
 
 ** Covered but not styled explicitly
-   :PROPERTIES:
-   :CUSTOM_ID: h:8ada963d-046d-4c67-becf-eee18595f902
-   :END:
+:PROPERTIES:
+:CUSTOM_ID: h:8ada963d-046d-4c67-becf-eee18595f902
+:END:
 
 These do not require any extra styles because they are configured to
 inherit from some basic faces.  Please confirm.
@@ -1280,9 +1280,9 @@ inherit from some basic faces.  Please confirm.
 + swift-mode
 
 ** Will NOT be supported
-   :PROPERTIES:
-   :CUSTOM_ID: h:46756fcc-0d85-4f77-b0e3-64f890e1c2ea
-   :END:
+:PROPERTIES:
+:CUSTOM_ID: h:46756fcc-0d85-4f77-b0e3-64f890e1c2ea
+:END:
 
 I have thus far identified a single package that does fit into the
 overarching objective of this project: [[https://github.com/hlissner/emacs-solaire-mode][solaire]].  It basically tries to
@@ -1296,9 +1296,9 @@ interfaces and the intended styles for the content you are actually
 working on.
 
 ** Note for HELM users of grep or grep-like functions
-   :PROPERTIES:
-   :CUSTOM_ID: h:e4408911-e186-4825-bd4f-4d0ea55cd6d6
-   :END:
+:PROPERTIES:
+:CUSTOM_ID: h:e4408911-e186-4825-bd4f-4d0ea55cd6d6
+:END:
 
 There is one face from the Helm package that is meant to highlight the
 matches of a grep or grep-like command (=ag= or =ripgrep=).  It is
@@ -1332,9 +1332,9 @@ A similar scenario was [[https://gitlab.com/protesilaos/modus-themes/-/issues/49
 fixed by the Helm maintainer.
 
 ** Note on VC-ANNOTATE-BACKGROUND-MODE
-   :PROPERTIES:
-   :CUSTOM_ID: h:5b5d4420-50cc-4d53-a9f8-825cba6b68f1
-   :END:
+:PROPERTIES:
+:CUSTOM_ID: h:5b5d4420-50cc-4d53-a9f8-825cba6b68f1
+:END:
 
 Due to the unique way =vc-annotate= (=C-x v g=) applies colours, support for
 its background mode (=vc-annotate-background-mode=) is disabled at the
@@ -1351,9 +1351,9 @@ report as much (or send patches, per the information in the [[#h:25ba8d6f-6604-4
 section).
 
 * Contributing
-  :PROPERTIES:
-  :CUSTOM_ID: h:25ba8d6f-6604-4338-b774-bbe531d467f6
-  :END:
+:PROPERTIES:
+:CUSTOM_ID: h:25ba8d6f-6604-4338-b774-bbe531d467f6
+:END:
 
 A few tasks you can help me with:
 
@@ -1374,9 +1374,9 @@ necessary between aesthetics and accessibility, it shall always be made
 in the interest of the latter.
 
 ** Code contributions require copyright assignment to the FSF
-   :PROPERTIES:
-   :CUSTOM_ID: h:d3fb2fc7-6c34-4e68-b2d6-6048849b0319
-   :END:
+:PROPERTIES:
+:CUSTOM_ID: h:d3fb2fc7-6c34-4e68-b2d6-6048849b0319
+:END:
 
 I accept code contributions as well (send merge requests!).  But for any
 major contribution (more than 15 lines, or so, in aggregate), you need
@@ -1413,9 +1413,9 @@ to produce such a port, feel welcome [[https://protesilaos.com/contact][to conta
   in the near future.
 
 * Meta
-  :PROPERTIES:
-  :CUSTOM_ID: h:4c338a51-509e-42c0-8820-1f5014fb477b
-  :END:
+:PROPERTIES:
+:CUSTOM_ID: h:4c338a51-509e-42c0-8820-1f5014fb477b
+:END:
 
 If you are curious about the principles that govern the development of
 this project, read my article [[https://protesilaos.com/codelog/2020-03-17-design-modus-themes-emacs/][On the design of the Modus themes]]
@@ -1430,9 +1430,9 @@ that goes into this project:
 + [[https://protesilaos.com/codelog/2020-07-08-modus-themes-nuanced-colours/][Modus themes: major review of "nuanced" colours]] (2020-07-08)
 
 * COPYING
-  :PROPERTIES:
-  :CUSTOM_ID: h:66652183-2fe0-46cd-b4bb-4121bad78d57
-  :END:
+:PROPERTIES:
+:CUSTOM_ID: h:66652183-2fe0-46cd-b4bb-4121bad78d57
+:END:
 
 The Modus Themes are distributed under the terms of the GNU General
 Public License version 3 or, at your choice, any later version.  See the
