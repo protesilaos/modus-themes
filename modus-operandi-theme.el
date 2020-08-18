@@ -2999,7 +2999,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(mu4e-compose-separator-face ((,class :background ,bg-active :foreground ,fg-special-warm)))
    `(mu4e-contact-face ((,class :inherit bold :foreground ,cyan-alt-other)))
    `(mu4e-context-face ((,class :foreground ,blue-active)))
-   `(mu4e-draft-face ((,class :foreground ,yellow-alt)))
+   `(mu4e-draft-face ((,class :foreground ,magenta-alt)))
    `(mu4e-flagged-face ((,class :foreground ,red-alt)))
    `(mu4e-footer-face ((,class :foreground ,fg-special-cold :slant ,modus-theme-slant)))
    `(mu4e-forwarded-face ((,class :foreground ,magenta-alt-other)))
