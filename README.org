@@ -1394,6 +1394,24 @@ happen via email and take about a week.
 I encourage you to go through this process.  You only need to do it
 once.  It will allow you to make contributions to Emacs in general.
 
+* External projects (ports)
+:PROPERTIES:
+:CUSTOM_ID: h:2a473296-2dd4-4575-9991-b89f83ef70aa
+:END:
+
+The present section documents projects that extend the scope of the
+Modus themes.  The following list will be updated whenever relevant
+information is brought to my attention.  If you already have or intend
+to produce such a port, feel welcome [[https://protesilaos.com/contact][to contact me]].
+
++ Modus exporter :: This is [[https://github.com/polaris64/modus-exporter][an Elisp library written by Simon Pugnet]].
+  It is meant to capture the colour values of the active Modus theme
+  (Operandi or Vivendi) and output it as a valid theme for some other
+  application.  As of this writing (2020-08-18), the project supports
+  exporting to a valid yaml format that can be applied to the Alacritty
+  terminal emulator.  Other templates are expected to be made available
+  in the near future.
+
 * Meta
   :PROPERTIES:
   :CUSTOM_ID: h:4c338a51-509e-42c0-8820-1f5014fb477b
