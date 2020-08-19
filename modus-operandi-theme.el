@@ -977,8 +977,8 @@ AMOUNT is a customisation option."
       ;;
       ;; all pairs are combinable with themselves
       ("bg-hl-line" . "#f2eff3")
-      ("bg-paren-match" . "#e0bc9f")
-      ("bg-paren-match-intense" . "#b08e7a")
+      ("bg-paren-match" . "#e0af82")
+      ("bg-paren-match-intense" . "#70af9f")
       ("bg-region" . "#bcbcbc")
 
       ("bg-tab-bar" . "#d5d5d5")
