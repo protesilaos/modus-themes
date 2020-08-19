@@ -856,8 +856,7 @@ Len's sample package declaration (with comments by me):
                ((supports :box t))
                (:foreground ,blue-alt-other :background ,bg-alt :box t))
               (t
-               ;; use an underline if instead of a box for other
-               ;; terminals
+               ;; use an underline instead of a box for other terminals
                (:foreground ,blue-alt-other :background ,bg-alt :underline t))))
            `(magit-branch-remote-head
              ((((supports :box t))
