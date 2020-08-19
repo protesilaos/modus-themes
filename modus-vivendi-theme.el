@@ -3417,10 +3417,10 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(pomidor-skip-face ((,class :foreground ,fg-alt :slant ,modus-theme-slant)))
    `(pomidor-work-face ((,class :foreground ,green-alt-other)))
 ;;;;; powerline
-   `(powerline-active0 ((,class :background ,blue-nuanced-bg :foreground ,blue-nuanced :inverse-video t)))
+   `(powerline-active0 ((,class :background ,bg-main :foreground ,blue-faint :inverse-video t)))
    `(powerline-active1 ((,class :background ,blue-nuanced-bg :foreground ,blue-nuanced)))
    `(powerline-active2 ((,class :background ,bg-active :foreground ,fg-active)))
-   `(powerline-inactive0 ((,class :background ,bg-active :foreground ,fg-inactive)))
+   `(powerline-inactive0 ((,class :background ,bg-special-cold :foreground ,fg-special-cold)))
    `(powerline-inactive1 ((,class :background ,bg-dim :foreground ,fg-inactive)))
    `(powerline-inactive2 ((,class :background ,bg-inactive :foreground ,fg-inactive)))
 ;;;;; powerline-evil
