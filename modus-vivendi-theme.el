@@ -645,13 +645,10 @@ effect than the former."
   "Conditional use of background colours for fringes.
 SUBTLEBG should be a subtle greyscale value.  INTENSEBG must be a
 more pronounced greyscale colour."
-  (cond
-   ((eq modus-vivendi-theme-fringes 'intense)
-    (list :background intensebg))
-   ((eq modus-vivendi-theme-fringes 'subtle)
-    (list :background subtlebg))
-   (t
-    (list :background nil))))
+  (pcase modus-vivendi-theme-fringes
+    ('intense (list :background intensebg))
+    ('subtle (list :background subtlebg))
+    (_ (list :background nil))))
 
 (defun modus-vivendi-theme-prompt (mainfg subtlebg subtlefg intensebg intensefg)
   "Conditional use of background colours for prompts.
@@ -659,13 +656,10 @@ MAINFG is the prompt's standard foreground.  SUBTLEBG should be a
 subtle accented background that works with SUBTLEFG.  INTENSEBG
 must be a more pronounced accented colour that should be
 combinable with INTENSEFG."
-  (cond
-   ((eq modus-vivendi-theme-prompts 'intense)
-    (list :background intensebg :foreground intensefg))
-   ((eq modus-vivendi-theme-prompts 'subtle)
-    (list :background subtlebg :foreground subtlefg))
-   (t
-    (list :background nil :foreground mainfg))))
+  (pcase modus-vivendi-theme-prompts
+    ('intense (list :background intensebg :foreground intensefg))
+    ('subtle (list :background subtlebg :foreground subtlefg))
+    (_ (list :background nil :foreground mainfg))))
 
 (defun modus-vivendi-theme-paren (normalbg intensebg)
   "Conditional use of intense colours for matching parentheses.
@@ -737,15 +731,11 @@ to `greyscale'.
 The latter pair should be more subtle than the background of the
 block, as it is used when `modus-vivendi-theme-org-blocks' is
 set to `rainbow'."
-  (cond
-   ((eq modus-vivendi-theme-org-blocks 'greyscale)
-    (append
-     (and (>= emacs-major-version 27) '(:extend t))
-     (list :background bg :foreground fg)))
-   ((eq modus-vivendi-theme-org-blocks 'rainbow)
-    (list :background bgaccent :foreground fgaccent))
-   (t
-    (list :background bg :foreground fg))))
+  (pcase modus-vivendi-theme-org-blocks
+    ('greyscale (append (and (>= emacs-major-version 27) '(:extend t))
+                        (list :background bg :foreground fg)))
+    ('rainbow (list :background bgaccent :foreground fgaccent))
+    (_ (list :background bg :foreground fg))))
 
 (defun modus-vivendi-theme-modeline-box (col3d col &optional btn int)
   "Control the box properties of the mode line.
@@ -787,13 +777,10 @@ MAINFG is an accented foreground value.  SUBTLEBG is an accented
 background value that can be combined with MAINFG.  INTENSEBG and
 INTENSEFG are accented colours that are designed to be used in
 tandem."
-  (cond
-   ((eq modus-vivendi-theme-completions 'opinionated)
-    (list :background intensebg :foreground intensefg))
-   ((eq modus-vivendi-theme-completions 'moderate)
-    (list :background subtlebg :foreground mainfg))
-   (t
-    (list :foreground mainfg))))
+  (pcase modus-vivendi-theme-completions
+    ('opinionated (list :background intensebg :foreground intensefg))
+    ('moderate (list :background subtlebg :foreground mainfg))
+    (_ (list :foreground mainfg))))
 
 (defun modus-vivendi-theme-extra-completions (subtleface intenseface altface &optional altfg bold)
   "Combinations for `modus-vivendi-theme-completions'.
@@ -808,15 +795,11 @@ from the UI's default aesthetics.  Optional ALTFG is meant to be
 used in tandem with it.
 
 Optional BOLD will apply a heavier weight to the text."
-  (cond
-   ((eq modus-vivendi-theme-completions 'opinionated)
-    (list :inherit (list altface bold) :foreground (if altfg
-                                                       altfg
-                                                     'unspecified)))
-   ((eq modus-vivendi-theme-completions 'moderate)
-    (list :inherit (list subtleface bold)))
-   (t
-    (list :inherit (list intenseface bold)))))
+  (pcase modus-vivendi-theme-completions
+    ('opinionated (list :inherit (list altface bold)
+                        :foreground (if altfg altfg 'unspecified)))
+    ('moderate (list :inherit (list subtleface bold)))
+    (_ (list :inherit (list intenseface bold)))))
 
 (defun modus-vivendi-theme-scale (amount)
   "Scale heading by AMOUNT.
