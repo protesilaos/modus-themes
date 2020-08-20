@@ -523,9 +523,9 @@ will apply a greyscale value that is visible yet close to the
 main buffer background colour.  Option `intense' will use a more
 pronounced greyscale value."
   :type '(choice
-	      (const :tag "No visible fringes (default)" nil)
-	      (const :tag "Subtle greyscale background" subtle)
-	      (const :tag "Intense greyscale background" intense)))
+          (const :tag "No visible fringes (default)" nil)
+          (const :tag "Subtle greyscale background" subtle)
+          (const :tag "Intense greyscale background" intense)))
 
 (define-obsolete-variable-alias 'modus-operandi-theme-distinct-org-blocks
   'modus-operandi-theme-org-blocks "`modus-operandi-theme' 0.11.0")
@@ -561,9 +561,9 @@ language and is controlled by the `org-src-block-faces'
 variable (refer to the theme's source code for the current
 association list)."
   :type '(choice
-	      (const :tag "No Org block background (default)" nil)
-	      (const :tag "Subtle grey block background" greyscale)
-	      (const :tag "Colour-coded background per programming language" rainbow)))
+          (const :tag "No Org block background (default)" nil)
+          (const :tag "Subtle grey block background" greyscale)
+          (const :tag "Colour-coded background per programming language" rainbow)))
 
 (defcustom modus-operandi-theme-3d-modeline nil
   "Use a three-dimensional style for the active mode line."
@@ -603,9 +603,9 @@ refashion the completion UI.  So Icomplete et al will now use
 styles that resemble the defaults of Ivy and co., while the
 latter group will revert to an even more nuanced aesthetic."
   :type '(choice
-	      (const :tag "Respect the framework's established aesthetic (default)" nil)
-	      (const :tag "Subtle backgrounds for various elements" moderate)
-	      (const :tag "Radical alternative to the framework's looks" opinionated)))
+          (const :tag "Respect the framework's established aesthetic (default)" nil)
+          (const :tag "Subtle backgrounds for various elements" moderate)
+          (const :tag "Radical alternative to the framework's looks" opinionated)))
 
 (defcustom modus-operandi-theme-prompts nil
   "Use subtle or intense styles for minibuffer and REPL prompts.
@@ -616,9 +616,9 @@ Options `subtle' and `intense' will change both the background
 and the foreground values.  The latter has a more pronounced
 effect than the former."
   :type '(choice
-	      (const :tag "No prompt background (default)" nil)
-	      (const :tag "Subtle accented background for the prompt" subtle)
-	      (const :tag "Intense background and foreground for the prompt" intense)))
+          (const :tag "No prompt background (default)" nil)
+          (const :tag "Subtle accented background for the prompt" subtle)
+          (const :tag "Intense background and foreground for the prompt" intense)))
 
 (defcustom modus-operandi-theme-intense-hl-line nil
   "Use more prominent background for `hl-line-mode'."
