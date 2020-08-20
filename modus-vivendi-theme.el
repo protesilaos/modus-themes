@@ -1185,6 +1185,9 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(mm-command-output ((,class :foreground ,red-alt-other)))
    `(mm-uu-extract ((,class :background ,bg-dim :foreground ,fg-special-mild)))
    `(next-error ((,class :inherit modus-theme-subtle-red)))
+   `(rectangle-preview ((,class :inherit modus-theme-special-mild)))
+   `(region ((,class :background ,bg-region :foreground ,fg-main)))
+   `(secondary-selection ((,class :inherit modus-theme-special-cold)))
    `(shadow ((,class :foreground ,fg-alt)))
    `(success ((,class :inherit bold :foreground ,green)))
    `(trailing-whitespace ((,class :background ,red-intense-bg)))
@@ -2447,8 +2450,6 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(highlight-changes ((,class :foreground ,yellow-alt-other)))
    `(highlight-changes-delete ((,class :foreground ,red-alt-other :underline t)))
    `(hl-line ((,class :inherit modus-theme-hl-line)))
-   `(region ((,class :background ,bg-region :foreground ,fg-main)))
-   `(secondary-selection ((,class :inherit modus-theme-special-cold)))
 ;;;;; highlight-blocks
    `(highlight-blocks-depth-1-face ((,class :background ,bg-dim :foreground ,fg-main)))
    `(highlight-blocks-depth-2-face ((,class :background ,bg-alt :foreground ,fg-main)))
