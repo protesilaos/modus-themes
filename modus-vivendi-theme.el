@@ -1270,18 +1270,12 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(font-latex-italic-face ((,class :foreground ,fg-special-calm :slant italic)))
    `(font-latex-math-face ((,class :foreground ,cyan-alt-other)))
    `(font-latex-script-char-face ((,class :foreground ,cyan-alt-other)))
-   `(font-latex-sectioning-0-face ((,class :inherit ,modus-theme-variable-pitch
-                                           :foreground ,blue-nuanced
-                                           ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-4))))
-   `(font-latex-sectioning-1-face ((,class :inherit (bold ,modus-theme-variable-pitch) :foreground ,blue-nuanced
-                                           ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-3))))
-   `(font-latex-sectioning-2-face ((,class :inherit (bold ,modus-theme-variable-pitch) :foreground ,blue-nuanced
-                                           ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-2))))
-   `(font-latex-sectioning-3-face ((,class :inherit (bold ,modus-theme-variable-pitch) :foreground ,blue-nuanced
-                                           ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-1))))
+   `(font-latex-sectioning-0-face ((,class :inherit ,modus-theme-variable-pitch :foreground ,blue-nuanced)))
+   `(font-latex-sectioning-1-face ((,class :inherit (bold ,modus-theme-variable-pitch) :foreground ,blue-nuanced)))
+   `(font-latex-sectioning-2-face ((,class :inherit (bold ,modus-theme-variable-pitch) :foreground ,blue-nuanced)))
+   `(font-latex-sectioning-3-face ((,class :inherit (bold ,modus-theme-variable-pitch) :foreground ,blue-nuanced)))
    `(font-latex-sectioning-4-face ((,class :inherit (bold ,modus-theme-variable-pitch) :foreground ,blue-nuanced)))
-   `(font-latex-sectioning-5-face ((,class :inherit ,modus-theme-variable-pitch
-                                           :foreground ,blue-nuanced)))
+   `(font-latex-sectioning-5-face ((,class :inherit ,modus-theme-variable-pitch :foreground ,blue-nuanced)))
    `(font-latex-sedate-face ((,class ,@(modus-vivendi-theme-bold-weight) :foreground ,magenta-alt-other)))
    `(font-latex-slide-title-face ((,class :inherit (bold ,modus-theme-variable-pitch) :foreground ,cyan-nuanced
                                           ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-4))))
