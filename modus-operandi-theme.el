@@ -1317,7 +1317,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(bongo-album-title ((,class :foreground ,cyan-active)))
    `(bongo-artist ((,class :foreground ,magenta-active)))
    `(bongo-currently-playing-track ((,class :inherit bold)))
-   `(bongo-elapsed-track-part ((,class :background ,blue-refine-bg :foreground ,blue-refine-fg :underline t)))
+   `(bongo-elapsed-track-part ((,class :inherit modus-theme-subtle-magenta :underline t)))
    `(bongo-filled-seek-bar ((,class :background ,blue-subtle-bg :foreground ,fg-main)))
    `(bongo-marked-track ((,class :foreground ,fg-mark-alt)))
    `(bongo-marked-track-line ((,class :background ,bg-mark-alt)))
