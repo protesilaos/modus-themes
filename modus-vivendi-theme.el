@@ -3748,7 +3748,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(sx-user-name ((,class :foreground ,blue-alt)))
    `(sx-user-reputation ((,class :foreground ,fg-alt)))
 ;;;;; symbol-overlay
-   `(symbol-overlay-default-face ((,class :inherit modus-theme-refine-blue)))
+   `(symbol-overlay-default-face ((,class :inherit modus-theme-special-warm)))
    `(symbol-overlay-face-1 ((,class :inherit modus-theme-intense-blue)))
    `(symbol-overlay-face-2 ((,class :inherit modus-theme-refine-magenta)))
    `(symbol-overlay-face-3 ((,class :inherit modus-theme-intense-yellow)))
