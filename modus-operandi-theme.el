@@ -1009,9 +1009,13 @@ AMOUNT is a customisation option."
 Each element has the form (NAME . HEX).")
 
   (defcustom modus-operandi-theme-override-colors-alist '()
-    "Place to override default theme colors.
-You can override a subset of the theme's default colors by
-defining them in this alist."
+    "Association list of palette colour overrides.
+Values can be mapped to variables, using the same syntax as the
+one present in `modus-operandi-theme-default-colors-alist'.
+
+This is only meant for do-it-yourself usage, with the
+understanding that the user is responsible for the resulting
+contrast ratio between new and existing colours."
     :type '(alist
             :key-type (string :tag "Name")
             :value-type (string :tag " Hex")))
