@@ -249,10 +249,6 @@ a theme, you can evaluate either of these:
 Consult the section below with the [[#h:0e3b8a62-8d72-4439-be2d-cb12ed98f4cb][complete example configuration]] for a
 fully fledged =use-package= declaration.
 
-Note: after making changes to the theme configuration, in order to reset
-any color irregularities in the mode line: Powerline users can use
-=powerline-reset= and Spaceline users can reload the package to fix this. 
-
 ** Option for "greyscale" or "rainbow" Org blocks
 :PROPERTIES:
 :CUSTOM_ID: h:ca57a3af-6f79-4530-88c0-e35eda9d3bf7
@@ -976,16 +972,6 @@ check these:
 + [[https://protesilaos.com/codelog/2020-07-16-emacs-focused-editing/][“Focused editing” tools for Emacs]] (2020-07-16)
 + [[https://protesilaos.com/codelog/2020-07-17-emacs-mixed-fonts-org/][Configuring mixed fonts for Org mode and others]] (2020-07-17)
 
-** Note on settings for rendering of HTML buffers
-:PROPERTIES:
-:CUSTOM_ID: h:61875051-b284-40f0-a74d-1574f41b3d42
-:END:
-
-The rendering mechanism that enables viewing of HTML content in Emacs
-may need some explicit specification depending on your preferences. This
-is demonstrated in [[https://gitlab.com/protesilaos/modus-themes/-/issues/60][issue 60]] particularly with respect to viewing mails
-in mu4e.
-
 * Face coverage
 :PROPERTIES:
 :CUSTOM_ID: h:944a3bdf-f545-40a0-a26c-b2cec8b2b316
@@ -1297,6 +1283,25 @@ white/black) background.
 effect/: less intense colours (but still accessible) for supportive
 interfaces and the intended styles for the content you are actually
 working on.
+
+** Note for powerline or spaceline users
+:PROPERTIES:
+:CUSTOM_ID: h:a7d956e5-c4fa-4586-bd84-770bf2c16666
+:END:
+
+After making changes to the theme configuration, in order to reset any
+color irregularities in the mode line: Powerline users can use
+=powerline-reset= and Spaceline users can reload the package to fix this.
+
+** Note on colour rendering of HTML buffers
+:PROPERTIES:
+:CUSTOM_ID: h:61875051-b284-40f0-a74d-1574f41b3d42
+:END:
+
+Emacs' HTML rendering mechanism (=shr=) may need explicit configuration to
+respect the theme's colours instead of whatever specifications the
+webpage provides.  Consult =C-h v shr-use-colors=.  This has been
+demonstrated in [[https://gitlab.com/protesilaos/modus-themes/-/issues/60][issue 60]] with respect to viewing mails in mu4e.
 
 ** Note for HELM users of grep or grep-like functions
 :PROPERTIES:
