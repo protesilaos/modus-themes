@@ -2838,7 +2838,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(magit-signature-good ((,class :background ,bg-main :foreground ,green-intense)))
    `(magit-signature-revoked ((,class :background ,bg-main :foreground ,magenta-intense)))
    `(magit-signature-untrusted ((,class :background ,bg-main :foreground ,cyan-intense)))
-   `(magit-tag ((,class :foreground ,green-alt-other)))
+   `(magit-tag ((,class :foreground ,yellow-alt-other)))
 ;;;;; magit-imerge
    `(magit-imerge-overriding-value ((,class :inherit bold :foreground ,red-alt)))
 ;;;;; man
