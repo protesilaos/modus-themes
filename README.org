@@ -249,6 +249,10 @@ a theme, you can evaluate either of these:
 Consult the section below with the [[#h:0e3b8a62-8d72-4439-be2d-cb12ed98f4cb][complete example configuration]] for a
 fully fledged =use-package= declaration.
 
+Note: after making changes to the theme configuration, in order to reset
+any color irregularities in the mode line: Powerline users can use
+=powerline-reset= and Spaceline users can reload the package to fix this. 
+
 ** Option for "greyscale" or "rainbow" Org blocks
 :PROPERTIES:
 :CUSTOM_ID: h:ca57a3af-6f79-4530-88c0-e35eda9d3bf7
