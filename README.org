@@ -621,8 +621,6 @@ more pronounced/noticeable effect than the former.
 The default is to not use any background for such prompts, while only
 relying on an accented foreground colour.
 
-*This option is new.  Please send feedback.*
-
 ** Option for "moderate" or "opinionated" completion UIs
 :PROPERTIES:
 :CUSTOM_ID: h:5b0b1e66-8287-4f3f-ba14-011c29320a3f
@@ -663,8 +661,6 @@ some additional changes to the choice of hues.
 To appreciate the scope of this customisation option, you should spend
 some time with every one of the =nil= (default), =moderate=, and =opinionated=
 possibilities.
-
-*This option is new.  Please send feedback.*
 
 ** Option for variable-pitch fonts in headings
 :PROPERTIES:
