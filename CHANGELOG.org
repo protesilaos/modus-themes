@@ -4,10 +4,12 @@
 
 This document contains the release notes that are included in each
 tagged commit on https://gitlab.com/protesilaos/modus-themes.  The
-newest release is at the top.
+newest release is at the top.  Since the notes are meant to be plain
+text, I copy them verbatim.
 
 * 0.11.0
 
+#+begin_src
 Modus Operandi and Modus Vivendi version 0.11.0
 
 By Protesilaos Stavrou <info@protesilaos.com> on 2020-07-31
@@ -264,9 +266,11 @@ Thanks to, in no particular order:
 
 Refer to the issue tracker (or commit log) for further details:
 https://gitlab.com/protesilaos/modus-themes/-/issues
+#+end_src
 
 * 0.10.0
 
+#+begin_src
 Modus Operandi and Modus Vivendi version 0.10.0
 
 By Protesilaos Stavrou <info@protesilaos.com> on 2020-06-24
@@ -381,9 +385,11 @@ Other internal refinements
   support of the faces used in the built-in Emacs info pages.
 
 My thanks to Basil and André for their contributions!
+#+end_src
 
 * 0.9.0
 
+#+begin_src
 Modus Operandi and Modus Vivendi version 0.9.0
 
 By Protesilaos Stavrou <info@protesilaos.com> on 2020-06-03
@@ -534,9 +540,11 @@ Added support for
 + nxml-mode
 + vdiff
 + yasnippet
+#+end_src
 
 * 0.8.0
 
+#+begin_src
 Modus Operandi and Modus Vivendi version 0.8.0
 
 By Protesilaos Stavrou <info@protesilaos.com> on 2020-04-28
@@ -703,9 +711,11 @@ Miscellaneous changes and concluding remarks
 
 + Updated the screen shots and their description in the relevant Wiki
   page: https://gitlab.com/protesilaos/modus-themes/-/wikis/Screenshots
+#+end_src
 
 * 0.7.0
 
+#+begin_src
 Modus Operandi and Modus Vivendi version 0.7.0
 
 By Protesilaos Stavrou <info@protesilaos.com> on 2020-03-30
@@ -931,9 +941,11 @@ Note: both patches were small, requiring no copyright assignment.
 Larger contributions are always welcome, though make sure you read the
 section in the README with regard to assigning copyright to the Free
 Software Foundation.
+#+end_src
 
 * 0.6.0
 
+#+begin_src
 This release contains lots of refinements and additions.
 
 Let me start with an administrative point: I have completed the process
@@ -1027,9 +1039,11 @@ There were also a few minor refinements for:
 Finally, the Commentary section of each theme has been greatly expanded.
 It now includes the user-facing customisation options and the complete
 list of supported packages.
+#+end_src
 
 * 0.5.0
 
+#+begin_src
 This release contains support for several new packages and lots of
 refinements for existing ones.  A lot of work went into making the
 themes more robust by reviewing the inheritance of styles from one
@@ -1107,9 +1121,11 @@ Refinements:
   with other search metaphors.
 + Emacs 27's new ':extend' property is only implemented where
   necessary (note that the latest release is version 26.3).
+#+end_src
 
 * 0.4.0
 
+#+begin_src
 This is an overview of the changes since version 0.3.0 (2019-12-25).
 
 Add support for:
@@ -1155,67 +1171,71 @@ Miscellaneous:
       the need to provide greater contrast between accent values that
       can be used there.
 	+ Minor documentation refinements.
+#+end_src
 
 * 0.3.0
 
+#+begin_src
 Overview of changes since 0.2.0 (2019-12-18):
 
 + Add support for the following packages:
 
-  * apt-sources-list
-  * calfw
-  * counsel-css
-  * counsel-notmuch
-  * counsel-org-capture-string
-  * cov
-  * disk-usage
-  * evil-visual-mark-mode
-  * geiser
-  * keycast
-  * org-journal
-  * org-noter
-  * paren-face
-  * powerline
-  * vc
-  * xah-elisp-mode
+  + apt-sources-list
+  + calfw
+  + counsel-css
+  + counsel-notmuch
+  + counsel-org-capture-string
+  + cov
+  + disk-usage
+  + evil-visual-mark-mode
+  + geiser
+  + keycast
+  + org-journal
+  + org-noter
+  + paren-face
+  + powerline
+  + vc
+  + xah-elisp-mode
 
 + Explicitly style the following packages (these were already covered,
   in terms of the colours they used, but are now targeted directly):
 
-  * calendar
-  * counsel
-  * cursor
-  * package (M-x list-packages)
+  + calendar
+  + counsel
+  + cursor
+  + package (M-x list-packages)
 
 + Minor tweaks to face groups:
 
-  * dired
-  * compile
+  + dired
+  + compile
 
 + Fixes and refinements:
 
-  * Documentation strings will now inherit the option for slanted
+  + Documentation strings will now inherit the option for slanted
     constructs (off by default -- see the README about all the user
     options).
-  * Comment delimiters have the same styles as the body of the comment
+  + Comment delimiters have the same styles as the body of the comment
     to avoid inconsistencies when the option for slanted constructs is
     enabled.
-  * The line number that is displayed in the compile log is now
+  + The line number that is displayed in the compile log is now
     correctly styled.
-  * Removed duplicate entries for ivy-remote and added ivy-separator.
-  * Ensure that the minibuffer prompt is always above the minimum
+  + Removed duplicate entries for ivy-remote and added ivy-separator.
+  + Ensure that the minibuffer prompt is always above the minimum
     contrast ratio of 7:1, by using a more appropriate shade of cyan.
-  * Properly reference a couple of variables in Modus Vivendi.
+  + Properly reference a couple of variables in Modus Vivendi.
 
 + Internal adjustments:
 
-  * Decouple the core dired faces from those of external packages.
-  * Same for org and org-recur.
+  + Decouple the core dired faces from those of external packages.
+  + Same for org and org-recur.
 
 + Minor documentation updates.
+#+end_src
 
 * 0.2.0
 
+#+begin_src
 Overview of changes since 0.1.0 (2019-12-09):
 
 + Comprehensive review of `org-mode' faces.  The use of colour should
@@ -1242,7 +1262,10 @@ contrast between the elements.
   + `evil-mode'
   + `evil-goggles'
   + `ruler-mode'
+#+end_src
 
 * 0.1.0
 
+#+begin_src
 First stable release of Modus Operandi and Modus Vivendi.
+#+end_src
