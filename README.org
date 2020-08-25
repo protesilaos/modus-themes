@@ -1,6 +1,14 @@
 #+TITLE: Modus Themes for GNU Emacs
 #+AUTHOR: Protesilaos Stavrou
 #+EMAIL: public@protesilaos.com
+#+OPTIONS: toc:nil
+
++ README HTML version on my website :: https://protesilaos.com/modus-themes
++ Git repo :: https://gitlab.com/protesilaos/modus-themes/
+
+-----
+
+#+TOC: headlines 8 insert TOC here, with eight headline levels
 
 * Overview
 :PROPERTIES:
