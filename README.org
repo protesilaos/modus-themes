@@ -104,7 +104,7 @@ distributions.  These should correspond to a tagged release rather than
 building directly from the latest Git commit.  It all depends on the
 distro's packaging policies.
 
-/Note for package maintainers:/ Feel free to [[#h:f696763b-5db1-4717-a90a-964e127d1a73][contact me]] for any questions
+/Note for package maintainers:/ Feel free to [[https://protesilaos.com/contact/][contact me]] for any questions
 you may have and/or to update this section.
 
 **** Debian ("Sid" or "Unstable")
