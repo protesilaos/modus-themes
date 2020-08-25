@@ -3,8 +3,8 @@
 #+EMAIL: public@protesilaos.com
 #+OPTIONS: toc:nil
 
-+ README HTML version on my website :: https://protesilaos.com/modus-themes
-+ Git repo :: https://gitlab.com/protesilaos/modus-themes/
++ README HTML version on my website :: [[https://protesilaos.com/modus-themes][https://protesilaos.com/modus-themes]]
++ Git repo :: [[https://gitlab.com/protesilaos/modus-themes/][https://gitlab.com/protesilaos/modus-themes/]]
 
 -----
 
