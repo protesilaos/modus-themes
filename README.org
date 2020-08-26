@@ -1294,8 +1294,8 @@ working on.
 :END:
 
 After making changes to the theme configuration, in order to reset any
-color irregularities in the mode line: Powerline users can use
-=powerline-reset= and Spaceline users can reload the package to fix this.
+color irregularities in the mode line, both Powerline and Spaceline
+package users can use the command =powerline-reset=.
 
 ** Note on colour rendering of HTML buffers
 :PROPERTIES:
