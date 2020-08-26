@@ -1162,6 +1162,7 @@ the "full support" may not be 100% true…
 + notmuch
 + num3-mode
 + nxml-mode
++ objed
 + orderless
 + org*
 + org-journal

@@ -237,6 +237,7 @@
 ;;     notmuch
 ;;     num3-mode
 ;;     nxml-mode
+;;     objed
 ;;     orderless
 ;;     org
 ;;     org-journal
@@ -3129,6 +3130,11 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(nxml-ref ((,class ,@(modus-vivendi-theme-syntax-foreground
                           green-alt-other green-alt-other-faint)
                        ,@(modus-vivendi-theme-bold-weight))))
+;;;;; objed
+   `(objed-extend ((,class :background ,bg-active)))
+   `(objed-hl ((,class :background ,bg-alt)))
+   `(objed-mark ((,class :background ,bg-active)))
+   `(objed-mode-line ((,class :foreground ,cyan-active)))
 ;;;;; orderless
    `(orderless-match-face-0 ((,class :inherit bold
                                      ,@(modus-vivendi-theme-standard-completions
