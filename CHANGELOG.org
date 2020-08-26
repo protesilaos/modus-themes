@@ -9,7 +9,7 @@ text, I copy them verbatim.
 
 * 0.11.0
 
-#+begin_src
+#+begin_src text
 Modus Operandi and Modus Vivendi version 0.11.0
 
 By Protesilaos Stavrou <info@protesilaos.com> on 2020-07-31
@@ -270,7 +270,7 @@ https://gitlab.com/protesilaos/modus-themes/-/issues
 
 * 0.10.0
 
-#+begin_src
+#+begin_src text
 Modus Operandi and Modus Vivendi version 0.10.0
 
 By Protesilaos Stavrou <info@protesilaos.com> on 2020-06-24
@@ -389,7 +389,7 @@ My thanks to Basil and André for their contributions!
 
 * 0.9.0
 
-#+begin_src
+#+begin_src text
 Modus Operandi and Modus Vivendi version 0.9.0
 
 By Protesilaos Stavrou <info@protesilaos.com> on 2020-06-03
@@ -544,7 +544,7 @@ Added support for
 
 * 0.8.0
 
-#+begin_src
+#+begin_src text
 Modus Operandi and Modus Vivendi version 0.8.0
 
 By Protesilaos Stavrou <info@protesilaos.com> on 2020-04-28
@@ -715,7 +715,7 @@ Miscellaneous changes and concluding remarks
 
 * 0.7.0
 
-#+begin_src
+#+begin_src text
 Modus Operandi and Modus Vivendi version 0.7.0
 
 By Protesilaos Stavrou <info@protesilaos.com> on 2020-03-30
@@ -945,7 +945,7 @@ Software Foundation.
 
 * 0.6.0
 
-#+begin_src
+#+begin_src text
 This release contains lots of refinements and additions.
 
 Let me start with an administrative point: I have completed the process
@@ -1043,7 +1043,7 @@ list of supported packages.
 
 * 0.5.0
 
-#+begin_src
+#+begin_src text
 This release contains support for several new packages and lots of
 refinements for existing ones.  A lot of work went into making the
 themes more robust by reviewing the inheritance of styles from one
@@ -1125,7 +1125,7 @@ Refinements:
 
 * 0.4.0
 
-#+begin_src
+#+begin_src text
 This is an overview of the changes since version 0.3.0 (2019-12-25).
 
 Add support for:
@@ -1175,7 +1175,7 @@ Miscellaneous:
 
 * 0.3.0
 
-#+begin_src
+#+begin_src text
 Overview of changes since 0.2.0 (2019-12-18):
 
 + Add support for the following packages:
@@ -1235,7 +1235,7 @@ Overview of changes since 0.2.0 (2019-12-18):
 
 * 0.2.0
 
-#+begin_src
+#+begin_src text
 Overview of changes since 0.1.0 (2019-12-09):
 
 + Comprehensive review of `org-mode' faces.  The use of colour should
@@ -1266,6 +1266,6 @@ contrast between the elements.
 
 * 0.1.0
 
-#+begin_src
+#+begin_src text
 First stable release of Modus Operandi and Modus Vivendi.
 #+end_src
