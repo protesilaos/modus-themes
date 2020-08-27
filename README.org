@@ -51,6 +51,12 @@ Also note that I use these themes in [[https://protesilaos.com/code-casts][my Em
 :CUSTOM_ID: h:c3e293e8-8464-4196-aefd-184027116ded
 :END:
 
+If you are tracking Emacs directly from its =master= branch, note that you
+do not need to install any package as the themes are already built in
+(starting with commit =c1b0515=).  Otherwise you are running a stable
+version of Emacs, in which case you should continue reading this
+section.
+
 I maintain /Modus Operandi/ (light theme) and /Modus Vivendi/ (dark) as
 standalone packages in Emacs-specific archives: GNU ELPA, MELPA, and
 MELPA Stable.  There also exist [[#h:f696763b-5db1-4717-a90a-964e127d1a73][GNU/Linux distro packages]].
