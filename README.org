@@ -51,11 +51,12 @@ Also note that I use these themes in [[https://protesilaos.com/code-casts][my Em
 :CUSTOM_ID: h:c3e293e8-8464-4196-aefd-184027116ded
 :END:
 
-If you are tracking Emacs directly from its =master= branch, note that you
-do not need to install any package as the themes are already built in
-(starting with commit =c1b0515=).  Otherwise you are running a stable
-version of Emacs, in which case you should continue reading this
-section.
+If you are tracking Emacs directly from its =master= branch, you do not
+need to install any package as the themes are already built in (starting
+with commit =c1b0515=---for the specifics refer to the section with the
+[[#h:064dc3f2-ef1f-448e-bb11-0efb37884ebe][note about the themes that are built into Emacs]]).  Otherwise you are
+running a stable version of Emacs, in which case you should continue
+reading this section.
 
 I maintain /Modus Operandi/ (light theme) and /Modus Vivendi/ (dark) as
 standalone packages in Emacs-specific archives: GNU ELPA, MELPA, and
@@ -1382,6 +1383,21 @@ If there actually is a way to avoid such a course of action, without
 prejudice to the accessibility standard of this project, then please
 report as much (or send patches, per the information in the [[#h:25ba8d6f-6604-4338-b774-bbe531d467f6][Contributing]]
 section).
+
+** Note about the themes that are built into Emacs
+:PROPERTIES:
+:CUSTOM_ID: h:064dc3f2-ef1f-448e-bb11-0efb37884ebe
+:END:
+
+As mentioned in the section about [[#h:c3e293e8-8464-4196-aefd-184027116ded][installing the packages]], the themes
+are now bundled with the upstream Emacs distribution.  Their version is
+that of the latest tagged release.  This is because I do not have push
+privileges to the Emacs repository and must contact the mailing list for
+someone else to make the changes for me.  As you can understand, it
+would be too tedious to do this each time I make a commit.
+
+If I am ever granted access to the Emacs git repo, I will make sure that
+the built-in themes are synced with the =HEAD= of my =master= branch.
 
 * Contributing
 :PROPERTIES:
