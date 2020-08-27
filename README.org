@@ -791,54 +791,63 @@ Example:
         ("magenta-alt-other" . "#bbaaff")))
 #+end_src
 
-You can then use this as a basis for creating a spin-off theme, such as
-what [[https://gitlab.com/protesilaos/modus-themes/-/issues/45][Vincent Foley did in issue 45]].  The customisations were used to
-emulate the aesthetic of Vincent's [[https://github.com/gnuvince/purp][purp theme]].
-
-Excerpt of what was used in issue 45:
+If you want to be creative, you can define a minor mode that refashions
+the themes on demand.  The following is a variation of what I showcased
+in the experimental [[#h:064dc3f2-ef1f-448e-bb11-0efb37884ebe][issue 78]] and is a simplified version of what I share
+in [[https://protesilaos.com/dotemacs/#h:b7444e76-75d4-4ae6-a9d6-96ff9408efe6][my dotemacs' section about the Modus themes]].
 
 #+begin_src emacs-lisp
-(use-package modus-operandi-theme
-  :ensure t
-  :config
-  (defun customize-modus-operandi ()
-    (when (member 'modus-operandi custom-enabled-themes)
+(define-minor-mode prot/modus-themes-alt-mode
+  "Override specific palette variables with custom values.
+
+This is intended as a proof-of-concept.  It is, nonetheless, a
+perfectly accessible alternative, conforming with the design
+principles of the Modus themes.  It still is not as good as the
+default colours."
+  :init-value nil
+  :global t
+  (if prot/modus-themes-alt-mode
       (setq modus-operandi-theme-override-colors-alist
-            '(("magenta" . "#ff00ff"))) ; Redefine the value of the `magenta' variable
-      (modus-operandi-theme-with-color-variables
-        (custom-theme-set-faces
-         'modus-operandi
-         `(font-lock-builtin-face              ((t (:background ,bg-main :foreground ,fg-main))))
-         `(font-lock-comment-delimiter-face    ((t (:background ,bg-main :foreground ,green))))
-         `(font-lock-comment-face              ((t (:background ,bg-main :foreground ,green))))
-         `(font-lock-constant-face             ((t (:background ,bg-main :foreground ,fg-main))))
-         `(font-lock-doc-face                  ((t (:background ,bg-main :foreground ,green))))
-         `(font-lock-function-name-face        ((t (:background ,bg-main :foreground ,magenta)))) ; gets the value from the above alist
-         `(font-lock-keyword-face              ((t (:background ,bg-main :foreground ,fg-main))))
-         `(font-lock-negation-char-face        ((t (:background ,bg-main :foreground ,fg-main))))
-         `(font-lock-preprocessor-face         ((t (:background ,bg-main :foreground ,fg-main))))
-         `(font-lock-regexp-grouping-backslash ((t (:background ,bg-main :foreground ,fg-main))))
-         `(font-lock-regexp-grouping-construct ((t (:background ,bg-main :foreground ,fg-main))))
-         `(font-lock-string-face               ((t (:background ,bg-main :foreground ,yellow))))
-         `(font-lock-type-face                 ((t (:background ,bg-main :foreground ,fg-main))))
-         `(font-lock-variable-name-face        ((t (:background ,bg-main :foreground ,fg-main))))
-         `(font-lock-warning-face              ((t (:weight bold :background ,bg-main :foreground ,red))))
-         ))))
-  (add-hook 'after-load-theme-hook 'customize-modus-operandi))
-#+end_src
+            '(("bg-main" . "#fefcf4")
+              ("bg-dim" . "#faf6ef")
+              ("bg-alt" . "#f7efe5")
+              ("bg-hl-line" . "#f4f0e3")
+              ("bg-active" . "#e8dfd1")
+              ("bg-inactive" . "#f6ece5")
+              ("bg-region" . "#c6bab1")
+              ("bg-header" . "#ede3e0")
+              ("bg-tab-bar" . "#dcd3d3")
+              ("bg-tab-active" . "#fdf6eb")
+              ("bg-tab-inactive" . "#c8bab8")
+              ("fg-unfocused" . "#55556f"))
+            modus-vivendi-theme-override-colors-alist
+            '(("bg-main" . "#100b17")
+              ("bg-dim" . "#161129")
+              ("bg-alt" . "#181732")
+              ("bg-hl-line" . "#191628")
+              ("bg-active" . "#282e46")
+              ("bg-inactive" . "#1a1e39")
+              ("bg-region" . "#393a53")
+              ("bg-header" . "#202037")
+              ("bg-tab-bar" . "#262b41")
+              ("bg-tab-active" . "#120f18")
+              ("bg-tab-inactive" . "#3a3a5a")
+              ("fg-unfocused" . "#9a9aab")))
+    (setq modus-operandi-theme-override-colors-alist nil
+          modus-vivendi-theme-override-colors-alist nil)))
 
-The code for the bespoke =after-load-theme-hook= could be something like
-the following (courtesy of the [[https://github.com/seagle0128/.emacs.d/blob/master/lisp/init-funcs.el][Centaur Emacs project]]):
-
-#+begin_src emacs-lisp
-(defvar after-load-theme-hook nil
-  "Hook run after a color theme is loaded using `load-theme'.")
-
-(defun run-after-load-theme-hook (&rest _)
-  "Run `after-load-theme-hook'."
-  (run-hooks 'after-load-theme-hook))
-
-(advice-add #'load-theme :after #'run-after-load-theme-hook)
+(defun prot/modus-themes-toggle (&optional arg)
+  "Toggle between `prot/modus-operandi' and `prot/modus-vivendi'."
+  (interactive "P")
+  (if arg
+      (prot/modus-themes-alt-mode 1)
+    (prot/modus-themes-alt-mode -1))
+  (if (eq (car custom-enabled-themes) 'modus-operandi)
+      (progn
+        (disable-theme 'modus-operandi)
+        (load-theme 'modus-vivendi t))
+    (disable-theme 'modus-vivendi)
+    (load-theme 'modus-operandi t)))
 #+end_src
 
 *** Option 2 to apply colour variables to faces
@@ -910,8 +919,19 @@ Perhaps you want something simpler, such as a nice style for the cursor:
    `(cursor ((t (:background ,green-alt))))))
 #+end_src
 
-Remember that the =after-load-theme-hook= is not built into Emacs.  The
-code for it was shown under heading [[#h:149e23b6-ada1-480f-95cd-c56fb40999b5][Option 1 to redefine colour values]].
+The code for the bespoke =after-load-theme-hook= could be something like
+the following (courtesy of the [[https://github.com/seagle0128/.emacs.d/blob/master/lisp/init-funcs.el][Centaur Emacs project]]):
+
+#+begin_src emacs-lisp
+(defvar after-load-theme-hook nil
+  "Hook run after a color theme is loaded using `load-theme'.")
+
+(defun run-after-load-theme-hook (&rest _)
+  "Run `after-load-theme-hook'."
+  (run-hooks 'after-load-theme-hook))
+
+(advice-add #'load-theme :after #'run-after-load-theme-hook)
+#+end_src
 
 If you need more ideas check how I configure the themes in [[https://gitlab.com/protesilaos/dotemacs][my dotemacs]].
 If something is not clear or not working as intended, please let me
