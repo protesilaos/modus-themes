@@ -510,32 +510,46 @@ The default is to present the mode lines as rectangles with a border
 around them and with the active one having more intense colours than any
 inactive ones.
 
-** Option for subtle diffs
+** Option for desaturated or coloured-text-only diffs
 :PROPERTIES:
 :CUSTOM_ID: h:e3933a53-cbd9-4e44-958a-1d6d133f0816
 :END:
 
 Symbol names:
 
-+ =modus-operandi-theme-subtle-diff=
-+ =modus-vivendi-theme-subtle-diff=
++ =modus-operandi-theme-diffs=
++ =modus-vivendi-theme-diffs=
 
 Possible values:
 
 1. =nil= (default)
-2. =t=
+2. =desaturated=
+2. =fg-only=
 
-Display =diff-mode=, =ediff=, =smerge-mode=, =magit= diff buffers with fewer
-and/or less intense background colours or, where possible, with no
-background colours applied to the presentation of the added and removed
-lines.  Concerning =magit=, an extra set of tweaks are introduced for the
-effect of highlighting the current diff hunk, so as to remain consistent
-with the overall experience of that mode.
+By default the themes will apply richly coloured backgrounds to the
+output of diffs, such as those of =diff-mode=, =ediff=, =smerge-mode=, and
+=magit=.  These are colour combinations of an accented background and
+foreground so that, for example, added lines have a pronounced green
+background with an appropriate shade of green for the affected text.
+Word-wise or "refined" changes follow this pattern but use different
+shades of those colours to remain distinct.
 
-The default is to use colour-coded backgrounds for line-wise highlights.
-"Refined" changes (word-wise highlights) always use a background value
-which is, nonetheless, more subtle with this option than with its
-default equivalent.
+A =desaturated= value tones down all relevant colour values.  It still
+combines an accented background with an appropriate background, yet its
+overall impression is very subtle.  Refined changes are a bit more
+intense to fulfil their intended function, though still less saturated
+than default.
+
+While =fg-only= will remove all accented backgrounds and instead rely on
+colour-coded text to denote changes.  For instance, added lines use an
+intense green foreground, while their background is the same as the rest
+of the buffer.  Word-wise highlights still use a background value which
+is, nonetheless, more subtle than its default equivalent.
+
+Concerning =magit=, an extra set of tweaks are introduced for the effect
+of highlighting the current diff hunk, so as to remain consistent with
+the overall experience of that mode.  Expect changes that are consistent
+with the overall intent of the aforementioned.
 
 ** Option for faint code syntax highlighting
 :PROPERTIES:
@@ -722,7 +736,7 @@ being available.
         modus-operandi-theme-intense-paren-match t
         modus-operandi-theme-prompts 'subtle ; {nil,'subtle,'intense}
         modus-operandi-theme-completions 'moderate ; {nil,'moderate,'opinionated}
-        modus-operandi-theme-subtle-diffs t
+        modus-operandi-theme-diffs 'desaturated ; {nil,'desaturated,'fg-only}
         modus-operandi-theme-org-blocks 'greyscale ; {nil,'greyscale,'rainbow}
         modus-operandi-theme-variable-pitch-headings t
         modus-operandi-theme-rainbow-headings t

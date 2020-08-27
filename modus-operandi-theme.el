@@ -49,7 +49,7 @@
 ;;     modus-operandi-theme-org-blocks                     (choice)
 ;;     modus-operandi-theme-prompts                        (choice)
 ;;     modus-operandi-theme-3d-modeline                    (boolean)
-;;     modus-operandi-theme-subtle-diffs                   (boolean)
+;;     modus-operandi-theme-diffs                          (choice)
 ;;     modus-operandi-theme-faint-syntax                   (boolean)
 ;;     modus-operandi-theme-intense-hl-line                (boolean)
 ;;     modus-operandi-theme-intense-paren-match            (boolean)
@@ -570,9 +570,34 @@ association list)."
   "Use a three-dimensional style for the active mode line."
   :type 'boolean)
 
+(define-obsolete-variable-alias 'modus-operandi-theme-subtle-diffs
+  'modus-operandi-theme-diffs "`modus-operandi-theme' 0.13.0")
+
 (defcustom modus-operandi-theme-subtle-diffs nil
   "Use fewer/dim backgrounds in `diff-mode', `ediff',`magit'."
   :type 'boolean)
+
+(defcustom modus-operandi-theme-diffs nil
+  "Adjust the overall styles of diffs.
+
+Nil means to use fairly intense colour combinations for diffs.
+For example, you get a rich green background with a green
+foreground for added lines.  Word-wise or 'refined' diffs follow
+the same pattern but use different shades of those colours to
+remain distinct.
+
+A `desaturated' value follows the same principles as with the nil
+option, while it tones down all relevant colours.
+
+Option `fg-only' will remove all accented backgrounds, except
+from word-wise changes.  It instead uses colour-coded foreground
+values to differentiate between added/removed/changed lines.  If
+a background is necessary, such as with `ediff', then a subtle
+greyscale value is used."
+  :type '(choice
+          (const :tag "Intensely coloured backgrounds (default)" nil)
+          (const :tag "Slightly accented backgrounds with tinted text" desaturated)
+          (const :tag "No backgrounds, except for refined diffs" fg-only)))
 
 (define-obsolete-variable-alias 'modus-operandi-theme-intense-standard-completions
   'modus-operandi-theme-completions "`modus-operandi-theme' 0.12.0")
@@ -759,16 +784,23 @@ modeline style."
       (list :background bg3d :foreground fg3d)
     (list :background bg :foreground fg)))
 
-(defun modus-operandi-theme-diffs (subtle-bg subtle-fg intense-bg intense-fg)
-  "Colour combinations for `modus-operandi-theme-subtle-diffs'.
+(defun modus-operandi-theme-diff (fg-only-bg fg-only-fg mainbg mainfg altbg altfg)
+  "Colour combinations for `modus-operandi-theme-diffs'.
 
-SUBTLE-BG should be similar or the same as the main background.
-SUBTLE-FG should be an appropriate accent value.  INTENSE-BG
-should be one of the dedicated backgrounds for diffs.  INTENSE-FG
-should be one of the dedicated foregrounds for diffs"
-  (if modus-operandi-theme-subtle-diffs
-      (list :background subtle-bg :foreground subtle-fg)
-    (list :background intense-bg :foreground intense-fg)))
+FG-ONLY-BG should be similar or the same as the main background.
+FG-ONLY-FG should be a saturated accent value that can be
+combined with the former.
+
+MAINBG must be one of the dedicated backgrounds for diffs while
+MAINFG must be the same for the foreground.
+
+ALTBG needs to be a slightly accented background that is meant to
+be combined with ALTFG.  Both must be less intense than MAINBG
+and MAINFG respectively."
+    (pcase modus-operandi-theme-diffs
+      ('fg-only (list :background fg-only-bg :foreground fg-only-fg))
+      ('desaturated (list :background altbg :foreground altfg))
+      (_ (list :background mainbg :foreground mainfg))))
 
 (defun modus-operandi-theme-standard-completions (mainfg subtlebg intensebg intensefg)
   "Combinations for `modus-operandi-theme-completions'.
@@ -1624,36 +1656,43 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(diff-hl-insert ((,class :inherit modus-theme-fringe-green)))
    `(diff-hl-reverted-hunk-highlight ((,class :inherit (modus-theme-active-magenta bold))))
 ;;;;; diff-mode
-   `(diff-added ((,class ,@(modus-operandi-theme-diffs
+   `(diff-added ((,class ,@(modus-operandi-theme-diff
                             bg-main green
-                            bg-diff-focus-added fg-diff-focus-added))))
-   `(diff-changed ((,class ,@(modus-operandi-theme-diffs
+                            bg-diff-focus-added fg-diff-focus-added
+                            green-nuanced-bg fg-diff-added))))
+   `(diff-changed ((,class ,@(modus-operandi-theme-diff
                               bg-main yellow
-                              bg-diff-focus-changed fg-diff-focus-changed))))
+                              bg-diff-focus-changed fg-diff-focus-changed
+                              yellow-nuanced-bg fg-diff-changed))))
    `(diff-context ((,class :foreground ,fg-unfocused)))
    `(diff-file-header ((,class :inherit bold :foreground ,blue)))
    `(diff-function ((,class :foreground ,fg-special-cold)))
    `(diff-header ((,class :foreground ,blue-nuanced)))
-   `(diff-hunk-header ((,class ,@(modus-operandi-theme-diffs
+   `(diff-hunk-header ((,class ,@(modus-operandi-theme-diff
                                   bg-alt blue-alt
-                                  bg-diff-heading fg-diff-heading))))
+                                  bg-diff-heading fg-diff-heading
+                                  blue-nuanced-bg blue))))
    `(diff-index ((,class :inherit bold :foreground ,blue-alt)))
    `(diff-indicator-added ((,class :inherit diff-added)))
    `(diff-indicator-changed ((,class :inherit diff-changed)))
    `(diff-indicator-removed ((,class :inherit diff-removed)))
    `(diff-nonexistent ((,class :inherit (modus-theme-neutral bold))))
-   `(diff-refine-added ((,class ,@(modus-operandi-theme-diffs
+   `(diff-refine-added ((,class ,@(modus-operandi-theme-diff
                                    bg-diff-added fg-diff-added
-                                   bg-diff-refine-added fg-diff-refine-added))))
-   `(diff-refine-changed ((,class ,@(modus-operandi-theme-diffs
+                                   bg-diff-refine-added fg-diff-refine-added
+                                   bg-diff-focus-added fg-diff-focus-added))))
+   `(diff-refine-changed ((,class ,@(modus-operandi-theme-diff
                                      bg-diff-changed fg-diff-changed
-                                     bg-diff-refine-changed fg-diff-refine-changed))))
-   `(diff-refine-removed ((,class ,@(modus-operandi-theme-diffs
+                                     bg-diff-refine-changed fg-diff-refine-changed
+                                     bg-diff-focus-changed fg-diff-focus-changed))))
+   `(diff-refine-removed ((,class ,@(modus-operandi-theme-diff
                                      bg-diff-removed fg-diff-removed
-                                     bg-diff-refine-removed fg-diff-refine-removed))))
-   `(diff-removed ((,class ,@(modus-operandi-theme-diffs
+                                     bg-diff-refine-removed fg-diff-refine-removed
+                                     bg-diff-focus-removed fg-diff-focus-removed))))
+   `(diff-removed ((,class ,@(modus-operandi-theme-diff
                               bg-main red
-                              bg-diff-focus-removed fg-diff-focus-removed))))
+                              bg-diff-focus-removed fg-diff-focus-removed
+                              red-nuanced-bg fg-diff-removed))))
 ;;;;; dim-autoload
    `(dim-autoload-cookie-line ((,class :foreground ,fg-alt :slant ,modus-theme-slant)))
 ;;;;; dired
@@ -1782,18 +1821,22 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(ebdb-role-defunct ((,class :foreground ,fg-alt)))
    `(eieio-custom-slot-tag-face ((,class :foreground ,red-alt)))
 ;;;;; ediff
-   `(ediff-current-diff-A ((,class ,@(modus-operandi-theme-diffs
-                                      bg-alt red
-                                      bg-diff-removed fg-diff-removed))))
-   `(ediff-current-diff-Ancestor ((,class ,@(modus-operandi-theme-diffs
-                                             bg-alt fg-special-cold
-                                             bg-special-cold fg-special-cold))))
-   `(ediff-current-diff-B ((,class ,@(modus-operandi-theme-diffs
-                                      bg-alt green
-                                      bg-diff-added fg-diff-added))))
-   `(ediff-current-diff-C ((,class ,@(modus-operandi-theme-diffs
-                                      bg-alt yellow
-                                      bg-diff-changed fg-diff-changed))))
+   `(ediff-current-diff-A ((,class ,@(modus-operandi-theme-diff
+                                      bg-dim red
+                                      bg-diff-removed fg-diff-removed
+                                      red-nuanced-bg red-faint))))
+   `(ediff-current-diff-Ancestor ((,class ,@(modus-operandi-theme-diff
+                                             bg-dim fg-special-cold
+                                             bg-special-cold fg-special-cold
+                                             blue-nuanced-bg blue))))
+   `(ediff-current-diff-B ((,class ,@(modus-operandi-theme-diff
+                                      bg-dim green
+                                      bg-diff-added fg-diff-added
+                                      green-nuanced-bg green-faint))))
+   `(ediff-current-diff-C ((,class ,@(modus-operandi-theme-diff
+                                      bg-dim yellow
+                                      bg-diff-changed fg-diff-changed
+                                      yellow-nuanced-bg yellow-faint))))
    `(ediff-even-diff-A ((,class :background ,bg-diff-neutral-1 :foreground ,fg-diff-neutral-1)))
    `(ediff-even-diff-Ancestor ((,class :background ,bg-diff-neutral-2 :foreground ,fg-diff-neutral-1)))
    `(ediff-even-diff-B ((,class :background ,bg-diff-neutral-1 :foreground ,fg-diff-neutral-1)))
@@ -2758,22 +2801,27 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(magit-branch-upstream ((,class :slant italic)))
    `(magit-cherry-equivalent ((,class :background ,bg-main :foreground ,magenta-intense)))
    `(magit-cherry-unmatched ((,class :background ,bg-main :foreground ,cyan-intense)))
-   `(magit-diff-added ((,class ,@(modus-operandi-theme-diffs
+   `(magit-diff-added ((,class ,@(modus-operandi-theme-diff
                                   bg-main green
-                                  bg-diff-added fg-diff-added))))
-   `(magit-diff-added-highlight ((,class ,@(modus-operandi-theme-diffs
+                                  bg-diff-added fg-diff-added
+                                  green-nuanced-bg fg-diff-added))))
+   `(magit-diff-added-highlight ((,class ,@(modus-operandi-theme-diff
                                             bg-dim green
-                                            bg-diff-focus-added fg-diff-focus-added))))
-   `(magit-diff-base ((,class ,@(modus-operandi-theme-diffs
+                                            bg-diff-focus-added fg-diff-focus-added
+                                            bg-diff-added fg-diff-added))))
+   `(magit-diff-base ((,class ,@(modus-operandi-theme-diff
                                  bg-main yellow
-                                 bg-diff-changed fg-diff-changed))))
-   `(magit-diff-base-highlight ((,class ,@(modus-operandi-theme-diffs
+                                 bg-diff-changed fg-diff-changed
+                                 yellow-nuanced-bg fg-diff-changed))))
+   `(magit-diff-base-highlight ((,class ,@(modus-operandi-theme-diff
                                            bg-dim yellow
-                                           bg-diff-focus-changed fg-diff-focus-changed))))
+                                           bg-diff-focus-changed fg-diff-focus-changed
+                                           bg-diff-changed fg-diff-changed))))
    `(magit-diff-context ((,class :foreground ,fg-unfocused)))
-   `(magit-diff-context-highlight ((,class ,@(modus-operandi-theme-diffs
+   `(magit-diff-context-highlight ((,class ,@(modus-operandi-theme-diff
                                               bg-dim fg-dim
-                                              bg-inactive fg-inactive))))
+                                              bg-inactive fg-inactive
+                                              bg-dim fg-alt))))
    `(magit-diff-file-heading ((,class :inherit bold :foreground ,fg-special-cold)))
    `(magit-diff-file-heading-highlight ((,class :inherit (modus-theme-special-cold bold))))
    `(magit-diff-file-heading-selection ((,class :background ,bg-alt :foreground ,cyan)))
@@ -2783,12 +2831,14 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(magit-diff-hunk-region ((,class :inherit bold)))
    `(magit-diff-lines-boundary ((,class :background ,fg-main)))
    `(magit-diff-lines-heading ((,class :inherit modus-theme-refine-magenta)))
-   `(magit-diff-removed ((,class ,@(modus-operandi-theme-diffs
+   `(magit-diff-removed ((,class ,@(modus-operandi-theme-diff
                                     bg-main red
-                                    bg-diff-removed fg-diff-removed))))
-   `(magit-diff-removed-highlight ((,class ,@(modus-operandi-theme-diffs
+                                    bg-diff-removed fg-diff-removed
+                                    red-nuanced-bg fg-diff-removed))))
+   `(magit-diff-removed-highlight ((,class ,@(modus-operandi-theme-diff
                                               bg-dim red
-                                              bg-diff-focus-removed fg-diff-focus-removed))))
+                                              bg-diff-focus-removed fg-diff-focus-removed
+                                              bg-diff-removed fg-diff-removed))))
    `(magit-diffstat-added ((,class :foreground ,green)))
    `(magit-diffstat-removed ((,class :foreground ,red)))
    `(magit-dimmed ((,class :foreground ,fg-unfocused)))
@@ -3634,23 +3684,28 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(sp-wrap-overlay-opening-pair ((,class :inherit sp-pair-overlay-face)))
    `(sp-wrap-tag-overlay-face ((,class :inherit sp-pair-overlay-face)))
 ;;;;; smerge
-   `(smerge-base ((,class ,@(modus-operandi-theme-diffs
+   `(smerge-base ((,class ,@(modus-operandi-theme-diff
                              bg-main yellow
-                             bg-diff-focus-changed fg-diff-focus-changed))))
-   `(smerge-lower ((,class ,@(modus-operandi-theme-diffs
+                             bg-diff-focus-changed fg-diff-focus-changed
+                             yellow-nuanced-bg fg-diff-changed))))
+   `(smerge-lower ((,class ,@(modus-operandi-theme-diff
                               bg-main green
-                              bg-diff-focus-added fg-diff-focus-added))))
+                              bg-diff-focus-added fg-diff-focus-added
+                              green-nuanced-bg fg-diff-added))))
    `(smerge-markers ((,class :background ,bg-diff-neutral-2 :foreground ,fg-diff-neutral-2)))
-   `(smerge-refined-added ((,class ,@(modus-operandi-theme-diffs
+   `(smerge-refined-added ((,class ,@(modus-operandi-theme-diff
                                       bg-diff-added fg-diff-added
-                                      bg-diff-refine-added fg-diff-refine-added))))
+                                      bg-diff-refine-added fg-diff-refine-added
+                                      green-refine-bg green-refine-fg))))
    `(smerge-refined-changed ((,class)))
-   `(smerge-refined-removed ((,class ,@(modus-operandi-theme-diffs
+   `(smerge-refined-removed ((,class ,@(modus-operandi-theme-diff
                                         bg-diff-removed fg-diff-removed
-                                        bg-diff-refine-removed fg-diff-refine-removed))))
-   `(smerge-upper ((,class ,@(modus-operandi-theme-diffs
+                                        bg-diff-refine-removed fg-diff-refine-removed
+                                        red-refine-bg red-refine-fg))))
+   `(smerge-upper ((,class ,@(modus-operandi-theme-diff
                               bg-main red
-                              bg-diff-focus-removed fg-diff-focus-removed))))
+                              bg-diff-focus-removed fg-diff-focus-removed
+                              red-nuanced-bg fg-diff-removed))))
 ;;;;; spaceline
    `(spaceline-evil-emacs ((,class :inherit modus-theme-active-magenta)))
    `(spaceline-evil-insert ((,class :inherit modus-theme-active-green)))
@@ -3893,22 +3948,27 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(vc-state-base ((,class :foreground ,fg-active)))
    `(vc-up-to-date-state ((,class :foreground ,fg-special-cold)))
 ;;;;; vdiff
-   `(vdiff-addition-face ((,class ,@(modus-operandi-theme-diffs
+   `(vdiff-addition-face ((,class ,@(modus-operandi-theme-diff
                                      bg-main green
-                                     bg-diff-focus-added fg-diff-focus-added))))
-   `(vdiff-change-face ((,class ,@(modus-operandi-theme-diffs
+                                     bg-diff-focus-added fg-diff-focus-added
+                                     green-nuanced-bg fg-diff-added))))
+   `(vdiff-change-face ((,class ,@(modus-operandi-theme-diff
                                    bg-main yellow
-                                   bg-diff-focus-changed fg-diff-focus-changed))))
+                                   bg-diff-focus-changed fg-diff-focus-changed
+                                   yellow-nuanced-bg fg-diff-changed))))
    `(vdiff-closed-fold-face ((,class :background ,bg-diff-neutral-1 :foreground ,fg-diff-neutral-1)))
-   `(vdiff-refine-added ((,class ,@(modus-operandi-theme-diffs
+   `(vdiff-refine-added ((,class ,@(modus-operandi-theme-diff
                                     bg-diff-added fg-diff-added
-                                    bg-diff-refine-added fg-diff-refine-added))))
-   `(vdiff-refine-changed ((,class ,@(modus-operandi-theme-diffs
+                                    bg-diff-refine-added fg-diff-refine-added
+                                    green-refine-bg green-refine-fg))))
+   `(vdiff-refine-changed ((,class ,@(modus-operandi-theme-diff
                                       bg-diff-changed fg-diff-changed
-                                      bg-diff-refine-changed fg-diff-refine-changed))))
-   `(vdiff-subtraction-face ((,class ,@(modus-operandi-theme-diffs
+                                      bg-diff-refine-changed fg-diff-refine-changed
+                                      yellow-refine-bg yellow-refine-fg))))
+   `(vdiff-subtraction-face ((,class ,@(modus-operandi-theme-diff
                                         bg-main red
-                                        bg-diff-focus-removed fg-diff-focus-removed))))
+                                        bg-diff-focus-removed fg-diff-focus-removed
+                                        red-nuanced-bg fg-diff-removed))))
    `(vdiff-target-face ((,class :inherit modus-theme-intense-blue)))
 ;;;;; vimish-fold
    `(vimish-fold-fringe ((,class :foreground ,cyan-active)))
