@@ -963,6 +963,10 @@ AMOUNT is a customisation option."
       ;; `bg-hl-line' is between `bg-dim' and `bg-alt', so it should
       ;; work with all accents that cover those two, plus `bg-main'
       ;;
+      ;; `bg-hl-alt' and `bg-hl-alt-intense' should only be used when no
+      ;; other greyscale or fairly neutral background is available to
+      ;; properly draw attention to a given construct
+      ;;
       ;; `bg-header' is between `bg-active' and `bg-inactive', so it
       ;; can be combined with any of the "active" values, plus the
       ;; "special" and base foreground colours
@@ -993,6 +997,8 @@ AMOUNT is a customisation option."
       ;;
       ;; all pairs are combinable with themselves
       ("bg-hl-line" . "#151823")
+      ("bg-hl-alt" . "#181732")
+      ("bg-hl-alt-intense" . "#282e46")
       ("bg-paren-match" . "#5f362f")
       ("bg-paren-match-intense" . "#255650")
       ("bg-region" . "#3c3c3c")
