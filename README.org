@@ -837,7 +837,10 @@ default colours."
           modus-vivendi-theme-override-colors-alist nil)))
 
 (defun prot/modus-themes-toggle (&optional arg)
-  "Toggle between `prot/modus-operandi' and `prot/modus-vivendi'."
+  "Toggle between `prot/modus-operandi' and `prot/modus-vivendi'.
+
+With optional \\[universal-argument] prefix, enable
+`prot/modus-themes-alt-mode' for the loaded theme."
   (interactive "P")
   (if arg
       (prot/modus-themes-alt-mode 1)
