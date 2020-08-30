@@ -797,10 +797,10 @@ MAINFG must be the same for the foreground.
 ALTBG needs to be a slightly accented background that is meant to
 be combined with ALTFG.  Both must be less intense than MAINBG
 and MAINFG respectively."
-    (pcase modus-vivendi-theme-diffs
-      ('fg-only (list :background fg-only-bg :foreground fg-only-fg))
-      ('desaturated (list :background altbg :foreground altfg))
-      (_ (list :background mainbg :foreground mainfg))))
+  (pcase modus-vivendi-theme-diffs
+    ('fg-only (list :background fg-only-bg :foreground fg-only-fg))
+    ('desaturated (list :background altbg :foreground altfg))
+    (_ (list :background mainbg :foreground mainfg))))
 
 (defun modus-vivendi-theme-standard-completions (mainfg subtlebg intensebg intensefg)
   "Combinations for `modus-vivendi-theme-completions'.
