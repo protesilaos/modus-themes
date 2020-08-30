@@ -3187,7 +3187,6 @@ Also bind `class' to ((class color) (min-colors 89))."
                           green-alt-other green-alt-other-faint)
                        ,@(modus-vivendi-theme-bold-weight))))
 ;;;;; objed
-   `(objed-extend ((,class :background ,bg-active)))
    `(objed-hl ((,class :background ,(if modus-vivendi-theme-intense-hl-line
                                         bg-hl-alt-intense bg-hl-alt))))
    `(objed-mark ((,class :background ,bg-active)))
