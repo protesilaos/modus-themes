@@ -1,6 +1,6 @@
 #+TITLE: Modus Themes for GNU Emacs
 #+AUTHOR: Protesilaos Stavrou
-#+EMAIL: public@protesilaos.com
+#+EMAIL: info@protesilaos.com
 #+OPTIONS: toc:nil
 
 + README HTML version on my website :: [[https://protesilaos.com/modus-themes][https://protesilaos.com/modus-themes]]
@@ -411,7 +411,7 @@ resource for finding a consistent scale, like [[https://www.modularscale.com][mo
 Note that in Org, scaling only increases the size of the heading, but
 not of keywords that are added to it, like "TODO".  This is outside the
 control of the themes and I am not aware of any way to make such
-keywords scale accordingly (see [[*Font configurations for Org (and others)][issue 37]]).
+keywords scale accordingly (see [[https://gitlab.com/protesilaos/modus-themes/-/issues/37][issue 37]]).
 
 ** Option for "subtle" or "intense" fringe visibility
 :PROPERTIES:
