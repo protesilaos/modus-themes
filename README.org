@@ -1109,6 +1109,7 @@ the "full support" may not be 100% true…
 + ediff
 + eglot
 + el-search
++ eldoc
 + eldoc-box
 + elfeed
 + elfeed-score

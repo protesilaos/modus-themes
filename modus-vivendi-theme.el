@@ -133,6 +133,7 @@
 ;;     ediff
 ;;     eglot
 ;;     el-search
+;;     eldoc
 ;;     eldoc-box
 ;;     elfeed
 ;;     elfeed-score
@@ -1906,6 +1907,8 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(el-search-match ((,class :inherit modus-theme-intense-green)))
    `(el-search-other-match ((,class :inherit modus-theme-special-mild)))
    `(el-search-occur-match ((,class :inherit modus-theme-special-calm)))
+;;;;; eldoc
+   `(eldoc-highlight-function-argument ((,class :inherit bold :foreground ,blue-alt-other)))
 ;;;;; eldoc-box
    `(eldoc-box-body ((,class :background ,bg-alt :foreground ,fg-main)))
    `(eldoc-box-border ((,class :background ,fg-alt)))
