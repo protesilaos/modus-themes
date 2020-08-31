@@ -793,7 +793,7 @@ Example:
 
 If you want to be creative, you can define a minor mode that refashions
 the themes on demand.  The following is a variation of what I showcased
-in the experimental [[#h:064dc3f2-ef1f-448e-bb11-0efb37884ebe][issue 78]] and is a simplified version of what I share
+in the experimental [[https://gitlab.com/protesilaos/modus-themes/-/issues/78][issue 78]] and is a simplified version of what I share
 in [[https://protesilaos.com/dotemacs/#h:b7444e76-75d4-4ae6-a9d6-96ff9408efe6][my dotemacs' section about the Modus themes]].
 
 #+begin_src emacs-lisp
