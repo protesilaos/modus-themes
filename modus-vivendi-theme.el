@@ -48,7 +48,7 @@
 ;;     modus-vivendi-theme-fringes                        (choice)
 ;;     modus-vivendi-theme-org-blocks                     (choice)
 ;;     modus-vivendi-theme-prompts                        (choice)
-;;     modus-vivendi-theme-3d-modeline                    (boolean)
+;;     modus-vivendi-theme-mode-line                      (choice)
 ;;     modus-vivendi-theme-diffs                          (choice)
 ;;     modus-vivendi-theme-faint-syntax                   (boolean)
 ;;     modus-vivendi-theme-intense-hl-line                (boolean)
@@ -566,9 +566,34 @@ association list)."
           (const :tag "Subtle grey block background" greyscale)
           (const :tag "Colour-coded background per programming language" rainbow)))
 
+(define-obsolete-variable-alias 'modus-vivendi-theme-3d-modeline
+  'modus-vivendi-theme-mode-line "`modus-vivendi-theme' 0.13.0")
+
 (defcustom modus-vivendi-theme-3d-modeline nil
   "Use a three-dimensional style for the active mode line."
   :type 'boolean)
+
+(defcustom modus-vivendi-theme-mode-line nil
+  "Adjust the overall style of the mode line.
+
+Nil is a two-dimensional rectangle with a border around it.  The
+active and the inactive modelines use different shades of
+greyscale values for the background and foreground.
+
+A `3d' value will apply a three-dimensional effect to the active
+modeline.  The inactive modelines remain two-dimensional and are
+toned down a bit, relative to the nil value.
+
+The `moody' option is meant to optimise the modeline for use with
+the library of the same name.  This practically means to remove
+the box effect and rely on underline and overline properties
+instead.  It also tones down the inactive modelines.  Despite its
+intended purpose, this option can also be used without the
+`moody' library."
+  :type '(choice
+          (const :tag "Two-dimensional box (default)" nil)
+          (const :tag "Three-dimensional style for the active mode line" 3d)
+          (const :tag "No box effects, which are optimal for use with the `moody' library" moody)))
 
 (define-obsolete-variable-alias 'modus-vivendi-theme-subtle-diffs
   'modus-vivendi-theme-diffs "`modus-vivendi-theme' 0.13.0")
@@ -763,26 +788,31 @@ set to `rainbow'."
     ('rainbow (list :background bgaccent :foreground fgaccent))
     (_ (list :background bg :foreground fg))))
 
-(defun modus-vivendi-theme-modeline-box (col3d col &optional btn int)
-  "Control the box properties of the mode line.
-COL3D is the border that is intended for the three-dimensional
-modeline.  COL applies to the two-dimensional modeline.  Optional
-BTN provides the 3d button style.  Optional INT defines a border
-width."
-  (let* ((style (if btn 'released-button nil))
-         (int (if int int 1)))
-    (if modus-vivendi-theme-3d-modeline
-        (list :line-width int :color col3d :style style)
-      (list :line-width 1 :color col :style nil))))
+(defun modus-vivendi-theme-mode-line-attrs
+    (fg bg fg-alt bg-alt border border-3d &optional alt-style border-width)
+  "Colour combinations for `modus-vivendi-theme-mode-line'.
 
-(defun modus-vivendi-theme-modeline-props (bg3d fg3d &optional bg fg)
-  "Control the background and foreground of the mode line.
-BG is the modeline's background.  FG is the modeline's
-foreground.  BG3D and FG3D apply to the three-dimensional
-modeline style."
-  (if modus-vivendi-theme-3d-modeline
-      (list :background bg3d :foreground fg3d)
-    (list :background bg :foreground fg)))
+FG and BG are the default colours.  FG-ALT and BG-ALT are meant
+to accommodate the options for a 3D modeline or a `moody'
+compliant one.  BORDER applies to all permutations of the
+modeline, except the three-dimensional effect, where BORDER-3D is
+used instead.
+
+Optional ALT-STYLE applies an appropriate style to the mode
+line's box property.
+
+Optional BORDER-WIDTH specifies an integer for the width of the
+rectangle that produces the box effect."
+  (pcase modus-vivendi-theme-mode-line
+    ('3d
+     `(:foreground ,fg-alt :background ,bg-alt
+                   :box (:line-width ,(or border-width 1)
+                                     :color ,border-3d
+                                     :style ,(and alt-style 'released-button))))
+    ('moody
+     `(:foreground ,fg-alt :background ,bg-alt :underline ,border :overline ,border))
+    (_
+     `(:foreground ,fg :background ,bg :box ,border))))
 
 (defun modus-vivendi-theme-diff (fg-only-bg fg-only-fg mainbg mainfg altbg altfg)
   "Colour combinations for `modus-vivendi-theme-diffs'.
@@ -2739,10 +2769,11 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(kaocha-runner-warning-face ((,class :foreground ,yellow)))
 ;;;;; keycast
    `(keycast-command ((,class :inherit bold :foreground ,blue-active)))
-   `(keycast-key ((,class :box ,(modus-vivendi-theme-modeline-box blue-alt blue-active t -3)
-                          ,@(modus-vivendi-theme-modeline-props
-                             blue-active bg-main
-                             blue-active bg-active))))
+   `(keycast-key ((,class ,@(modus-vivendi-theme-mode-line-attrs
+                             bg-main blue-active
+                             bg-main blue-active
+                             blue-active blue-intense
+                             'alt-style -3))))
 ;;;;; line numbers (display-line-numbers-mode and global variant)
    `(line-number ((,class :background ,bg-dim :foreground ,fg-alt)))
    `(line-number-current-line ((,class :inherit bold :background ,bg-active :foreground ,fg-active)))
@@ -3007,17 +3038,15 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(minimap-active-region-background ((,class :background ,bg-active)))
    `(minimap-current-line-face ((,class :background ,cyan-intense-bg :foreground ,fg-main)))
 ;;;;; modeline
-   `(mode-line ((,class :box ,(modus-vivendi-theme-modeline-box bg-active fg-alt t)
-                        ,@(modus-vivendi-theme-modeline-props
-                           bg-active fg-dim
-                           bg-active fg-active))))
+   `(mode-line ((,class ,@(modus-vivendi-theme-mode-line-attrs
+                           fg-active bg-active fg-dim bg-active
+                           fg-alt bg-active 'alt-style))))
    `(mode-line-buffer-id ((,class :inherit bold)))
    `(mode-line-emphasis ((,class :inherit bold :foreground ,blue-active)))
    `(mode-line-highlight ((,class :inherit modus-theme-active-blue :box (:line-width -1 :style pressed-button))))
-   `(mode-line-inactive ((,class :box ,(modus-vivendi-theme-modeline-box bg-active bg-region)
-                                 ,@(modus-vivendi-theme-modeline-props
-                                    bg-dim fg-inactive
-                                    bg-inactive fg-inactive))))
+   `(mode-line-inactive ((,class ,@(modus-vivendi-theme-mode-line-attrs
+                                    fg-inactive bg-inactive fg-alt bg-dim
+                                    bg-region bg-active))))
 ;;;;; mood-line
    `(mood-line-modified ((,class :foreground ,magenta-active)))
    `(mood-line-status-error ((,class :inherit bold :foreground ,red-active)))

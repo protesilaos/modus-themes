@@ -487,29 +487,37 @@ it throughout the theme:
 (set-face-attribute 'bold nil :weight 'semibold)
 #+end_src
 
-** Option for three-dimensional focused mode line
+** Option for "3D" or "moody" mode line
 :PROPERTIES:
 :CUSTOM_ID: h:ce155208-fdd6-4ada-9e0c-54aab7e2aff8
 :END:
 
 Symbol names:
 
-+ =modus-operandi-theme-3d-modeline=
-+ =modus-vivendi-theme-3d-modeline=
++ =modus-operandi-theme-mode-line=
++ =modus-vivendi-theme-mode-line=
 
 Possible values:
 
 1. =nil= (default)
-2. =t=
+2. =3d=
+3. =moody=
 
-Use a three-dimensional, "released button" effect for the focused
-window's mode line.  When enabled, this option will also affect the
-styles of any inactive mode lines, making them slightly less intense in
-order to accommodate the added element of depth.
+The default value (=nil=) produces a two-dimensional effect both for the
+active and inactive modelines.  The differences between the two are
+limited to distinct shades of greyscale values, with the active being
+more intense than the inactive.
 
-The default is to present the mode lines as rectangles with a border
-around them and with the active one having more intense colours than any
-inactive ones.
+A =3d= symbol will make the active modeline look like a three-dimensional
+rectangle.  Inactive modelines remain 2D, though they are slightly toned
+down relative to the default.  This aesthetic is the same as what you
+get when you run Emacs without any customisations (=emacs -Q= on the
+command line).
+
+While =moody= removes all box effects from the modelines and applies
+underline and overline properties instead.  It also tones down a bit the
+inactive modelines.  This is meant to optimise things for use with the
+[[https://github.com/tarsius/moody][moody package]], though it can work fine even without it.
 
 ** Option for desaturated or coloured-text-only diffs
 :PROPERTIES:
@@ -1198,6 +1206,7 @@ the "full support" may not be 100% true…
 + minimap
 + modeline
 + mood-line
++ moody (read [[#h:ce155208-fdd6-4ada-9e0c-54aab7e2aff8][Option for "3D" or "moody" mode line]])
 + mu4e
 + mu4e-conversation
 + multiple-cursors
