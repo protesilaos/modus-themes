@@ -1344,4 +1344,4 @@ once.  It will allow you to make contributions to Emacs in general.
 :CUSTOM_ID: h:3077c3d2-7f90-4228-8f0a-73124f4026f6
 :END:
 
-#+INCLUDE: doc/fdl-1.3.txt src txt
+#+INCLUDE: fdl-1.3.txt src txt
