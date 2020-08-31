@@ -674,7 +674,7 @@ effect than the former."
           (const :tag "Intense background and foreground for the prompt" intense)))
 
 (defcustom modus-vivendi-theme-intense-hl-line nil
-  "Use more prominent background for `hl-line-mode'."
+  "Use more prominent background for command `hl-line-mode'."
   :type 'boolean)
 
 (defcustom modus-vivendi-theme-intense-paren-match nil
