@@ -1,6 +1,11 @@
 This is modus-themes.info, produced by makeinfo version 6.7 from
 modus-themes.texi.
 
+INFO-DIR-SECTION Emacs
+START-INFO-DIR-ENTRY
+* Modus Themes: (modus-themes). Highly accessible themes (WCAG AAA).
+END-INFO-DIR-ENTRY
+
 
 File: modus-themes.info,  Node: Top,  Next: Overview,  Up: (dir)
 
@@ -1907,47 +1912,47 @@ Appendix A GNU Free Documentation License
 
 
 Tag Table:
-Node: Top85
-Node: Overview3281
-Node: Enable and load4927
-Node: Load automatically5500
-Node: Load at a given time or at sunset/sunrise6059
-Node: Toggle between the themes on demand8055
-Node: Configure options prior to loading8802
-Node: Customisation Options11244
-Node: Bold constructs12908
-Node: Slanted constructs13907
-Node: Syntax highlighting14498
-Node: Command prompts15227
-Node: Mode line16030
-Node: Completion UIs17284
-Node: Fringes19225
-Node: Line highlighting19989
-Node: Matching parentheses20655
-Node: Diffs21297
-Node: Org mode blocks23090
-Node: Accented headings24596
-Node: Section headings25451
-Node: Scaled headings26636
-Node: Scaled heading sizes27255
-Node: Headings' font28928
-Node: Advanced customisation (do-it-yourself)29552
-Node: Tweak colours (DIY)30472
-Node: Font configs (DIY)34106
-Node: Face coverage36470
-Node: Supported packages36972
-Node: Covered indirectly42826
-Node: Will NOT be supported43178
-Node: Notes for individual packages43896
-Node: Note for powerline or spaceline44302
-Node: Note on shr colours44674
-Node: Note for Helm grep45087
-Node: Note on vc-annotate-background-mode46534
-Node: Contributing47388
-Node: Sources of the themes47821
-Node: Issues you can help with48583
-Node: Merge requests49770
-Node: GNU Free Documentation License50852
+Node: Top218
+Node: Overview3414
+Node: Enable and load5060
+Node: Load automatically5633
+Node: Load at a given time or at sunset/sunrise6192
+Node: Toggle between the themes on demand8188
+Node: Configure options prior to loading8935
+Node: Customisation Options11377
+Node: Bold constructs13041
+Node: Slanted constructs14040
+Node: Syntax highlighting14631
+Node: Command prompts15360
+Node: Mode line16163
+Node: Completion UIs17417
+Node: Fringes19358
+Node: Line highlighting20122
+Node: Matching parentheses20788
+Node: Diffs21430
+Node: Org mode blocks23223
+Node: Accented headings24729
+Node: Section headings25584
+Node: Scaled headings26769
+Node: Scaled heading sizes27388
+Node: Headings' font29061
+Node: Advanced customisation (do-it-yourself)29685
+Node: Tweak colours (DIY)30605
+Node: Font configs (DIY)34239
+Node: Face coverage36603
+Node: Supported packages37105
+Node: Covered indirectly42959
+Node: Will NOT be supported43311
+Node: Notes for individual packages44029
+Node: Note for powerline or spaceline44435
+Node: Note on shr colours44807
+Node: Note for Helm grep45220
+Node: Note on vc-annotate-background-mode46667
+Node: Contributing47521
+Node: Sources of the themes47954
+Node: Issues you can help with48716
+Node: Merge requests49903
+Node: GNU Free Documentation License50985
 
 End Tag Table
 

@@ -6,6 +6,10 @@
 #+MACRO: version-tag 0.13.0
 #+MACRO: release-date late September 2020
 #+TEXINFO_FILENAME: modus-themes.info
+#+TEXINFO_DIR_CATEGORY: Emacs
+#+TEXINFO_DIR_TITLE: Modus Themes: (modus-themes)
+#+TEXINFO_DIR_DESC: Highly accessible themes (WCAG AAA)
+
 
 This manual, written by Protesilaos Stavrou, describes the customisation
 options for the =modus-operandi= and =modus-vivendi= themes, and provides
