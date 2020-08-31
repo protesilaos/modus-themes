@@ -81,6 +81,7 @@
 ;;     auctex and TeX
 ;;     auto-dim-other-buffers
 ;;     avy
+;;     awesome-tray
 ;;     bm
 ;;     bongo
 ;;     boon
@@ -1379,6 +1380,19 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(aw-leading-char-face ((,class :inherit bold :height 1.5 :background ,bg-main :foreground ,red-intense)))
    `(aw-minibuffer-leading-char-face ((,class :foreground ,magenta-active)))
    `(aw-mode-line-face ((,class :inherit bold)))
+;;;;; awesome-tray
+   `(awesome-tray-module-awesome-tab-face ((,class :inherit bold :foreground ,red-alt-other)))
+   `(awesome-tray-module-battery-face ((,class :inherit bold :foreground ,cyan-alt-other)))
+   `(awesome-tray-module-buffer-name-face ((,class :inherit bold :foreground ,yellow-alt-other)))
+   `(awesome-tray-module-circe-face ((,class :inherit bold :foreground ,blue-alt)))
+   `(awesome-tray-module-date-face ((,class :inherit bold :foreground ,fg-dim)))
+   `(awesome-tray-module-evil-face ((,class :inherit bold :foreground ,green-alt)))
+   `(awesome-tray-module-git-face ((,class :inherit bold :foreground ,magenta)))
+   `(awesome-tray-module-last-command-face ((,class :inherit bold :foreground ,blue-alt-other)))
+   `(awesome-tray-module-location-face ((,class :inherit bold :foreground ,yellow)))
+   `(awesome-tray-module-mode-name-face ((,class :inherit bold :foreground ,green)))
+   `(awesome-tray-module-parent-dir-face ((,class :inherit bold :foreground ,cyan)))
+   `(awesome-tray-module-rvm-face ((,class :inherit bold :foreground ,magenta-alt-other)))
 ;;;;; bm
    `(bm-face ((,class :inherit modus-theme-subtle-yellow
                       ,@(and (>= emacs-major-version 27) '(:extend t)))))
@@ -4267,6 +4281,9 @@ Also bind `class' to ((class color) (min-colors 89))."
 ;;;; ansi-colors
    `(ansi-color-faces-vector [default bold shadow italic underline success warning error])
    `(ansi-color-names-vector [,fg-main ,red ,green ,yellow ,blue ,magenta ,cyan ,bg-main])
+;;;; awesome-tray
+   `(awesome-tray-mode-line-active-color ,blue)
+   `(awesome-tray-mode-line-inactive-color ,bg-active)
 ;;;; flymake fringe indicators
    `(flymake-error-bitmap '(flymake-double-exclamation-mark modus-theme-fringe-red))
    `(flymake-warning-bitmap '(exclamation-mark modus-theme-fringe-yellow))

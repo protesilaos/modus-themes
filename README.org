@@ -1057,6 +1057,7 @@ the "full support" may not be 100% true…
 + auctex and TeX
 + auto-dim-other-buffers
 + avy
++ awesome-tray
 + bm
 + bongo
 + boon
