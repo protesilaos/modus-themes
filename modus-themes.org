@@ -150,7 +150,7 @@ With both themes available, it is possible to design a simple command to
 switch between them on demand.
 
 #+begin_src emacs-lisp
-(defun modus-themes-toggle (&optional arg)
+(defun modus-themes-toggle ()
   "Toggle between `modus-operandi' and `modus-vivendi' themes."
   (interactive)
   (if (eq (car custom-enabled-themes) 'modus-operandi)
@@ -201,7 +201,7 @@ just for the sake of this demonstration):
      (load-theme 'modus-%1$s t))
    theme))
 
-(defun modus-themes-toggle (&optional arg)
+(defun modus-themes-toggle ()
   "Toggle between `modus-operandi' and `modus-vivendi' themes."
   (interactive)
   (if (eq (car custom-enabled-themes) 'modus-operandi)

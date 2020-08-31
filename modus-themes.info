@@ -221,7 +221,7 @@ File: modus-themes.info,  Node: Toggle between the themes on demand,  Next: Conf
 With both themes available, it is possible to design a simple command to
 switch between them on demand.
 
-     (defun modus-themes-toggle (&optional arg)
+     (defun modus-themes-toggle ()
        "Toggle between `modus-operandi' and `modus-vivendi' themes."
        (interactive)
        (if (eq (car custom-enabled-themes) 'modus-operandi)
@@ -274,7 +274,7 @@ are just for the sake of this demonstration):
           (load-theme 'modus-%1$s t))
         theme))
 
-     (defun modus-themes-toggle (&optional arg)
+     (defun modus-themes-toggle ()
        "Toggle between `modus-operandi' and `modus-vivendi' themes."
        (interactive)
        (if (eq (car custom-enabled-themes) 'modus-operandi)
@@ -1913,41 +1913,41 @@ Node: Enable and load4927
 Node: Load automatically5500
 Node: Load at a given time or at sunset/sunrise6059
 Node: Toggle between the themes on demand8055
-Node: Configure options prior to loading8815
-Node: Customisation Options11270
-Node: Bold constructs12934
-Node: Slanted constructs13933
-Node: Syntax highlighting14524
-Node: Command prompts15253
-Node: Mode line16056
-Node: Completion UIs17310
-Node: Fringes19251
-Node: Line highlighting20015
-Node: Matching parentheses20681
-Node: Diffs21323
-Node: Org mode blocks23116
-Node: Accented headings24622
-Node: Section headings25477
-Node: Scaled headings26662
-Node: Scaled heading sizes27281
-Node: Headings' font28954
-Node: Advanced customisation (do-it-yourself)29578
-Node: Tweak colours (DIY)30498
-Node: Font configs (DIY)34132
-Node: Face coverage36496
-Node: Supported packages36998
-Node: Covered indirectly42852
-Node: Will NOT be supported43204
-Node: Notes for individual packages43922
-Node: Note for powerline or spaceline44328
-Node: Note on shr colours44700
-Node: Note for Helm grep45113
-Node: Note on vc-annotate-background-mode46560
-Node: Contributing47414
-Node: Sources of the themes47847
-Node: Issues you can help with48609
-Node: Merge requests49796
-Node: GNU Free Documentation License50878
+Node: Configure options prior to loading8802
+Node: Customisation Options11244
+Node: Bold constructs12908
+Node: Slanted constructs13907
+Node: Syntax highlighting14498
+Node: Command prompts15227
+Node: Mode line16030
+Node: Completion UIs17284
+Node: Fringes19225
+Node: Line highlighting19989
+Node: Matching parentheses20655
+Node: Diffs21297
+Node: Org mode blocks23090
+Node: Accented headings24596
+Node: Section headings25451
+Node: Scaled headings26636
+Node: Scaled heading sizes27255
+Node: Headings' font28928
+Node: Advanced customisation (do-it-yourself)29552
+Node: Tweak colours (DIY)30472
+Node: Font configs (DIY)34106
+Node: Face coverage36470
+Node: Supported packages36972
+Node: Covered indirectly42826
+Node: Will NOT be supported43178
+Node: Notes for individual packages43896
+Node: Note for powerline or spaceline44302
+Node: Note on shr colours44674
+Node: Note for Helm grep45087
+Node: Note on vc-annotate-background-mode46534
+Node: Contributing47388
+Node: Sources of the themes47821
+Node: Issues you can help with48583
+Node: Merge requests49770
+Node: GNU Free Documentation License50852
 
 End Tag Table
 
