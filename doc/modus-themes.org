@@ -28,6 +28,8 @@ Foundation; with no Invariant Sections, with no Front-Cover Texts,
 and with no Back-Cover Texts.
 #+end_quote
 
+[[https://protesilaos.com/modus-themes][Info manual HTML version]].
+
 #+TOC: headlines 8 insert TOC here, with eight headline levels
 
 * Overview
@@ -65,6 +67,91 @@ do this each time I make a commit.
 If I am ever granted access to the Emacs git repo, I will make sure that
 the built-in themes are synced with the =HEAD= of my =master= branch.
 
+** How do the themes look like
+:PROPERTIES:
+:CUSTOM_ID: h:69b92089-069c-4ba1-9d94-cc3415fc4f87
+:END:
+
+Check the [[https://gitlab.com/protesilaos/modus-themes/wikis/Screenshots][web page with the screen shots]].  There are lots of scenaria on
+display that draw attention to details and important aspects in the
+design of the themes.  They also showcase the numerous customisation
+options.
+
+[[#h:bf1c82f2-46c7-4eb2-ad00-dd11fdd8b53f][Customisation options]].
+
+* Installation
+:PROPERTIES:
+:CUSTOM_ID: h:1af85373-7f81-4c35-af25-afcef490c111
+:END:
+
+The Modus themes are built into Emacs' development branch (=master=) which
+corresponds to the nominal version 28.0.50.  Otherwise they can be
+installed using Emacs' package manager or manually from their code
+repository.
+
+Modus Operandi (light theme) and Modus Vivendi (dark) are normally
+distributed as standalone packages in Emacs-specific archives: GNU ELPA,
+MELPA, and MELPA Stable.  There also exist packages for GNU/Linux
+distributions.
+
+** Install from the archives
+:PROPERTIES:
+:CUSTOM_ID: h:c4b10085-149f-43e2-bd4d-347f33aee054
+:END:
+
+=modus-operandi-theme= and =modus-vivendi-theme= are available from GNU
+Elpa, Melpa, Melpa-Stable.
+
+Prior to querying any package archive, make sure to have updated the
+index, with =M-x package-refresh-contents=.  Then all you need to do is
+type =M-x package-install= and specify the theme of your choice.
+
+GNU Elpa and Melpa-Stable contain the last tagged release.  While Melpa
+builds from the latest commit to the [[https://gitlab.com/protesilaos/modus-themes][Modus theme's Git repository]].
+
+** Install on GNU/Linux
+:PROPERTIES:
+:CUSTOM_ID: h:da640eb1-95dd-4e86-bb4e-1027b27885f0
+:END:
+
+The themes are also available from the archives of some GNU/Linux
+distributions.  These should correspond to a tagged release rather than
+building directly from the latest Git commit.  It all depends on the
+distro's packaging policies.
+
+*** Debian 11 Bullseye
+:PROPERTIES:
+:CUSTOM_ID: h:7e570360-9ee6-4bc5-8c04-9dc11418a3e4
+:END:
+
+The two themes are distributed as a single package for Debian and its
+derivatives.  Currently in the unstable and testing suites and should be
+available in time for Debian 11 Bullseye (next stable).
+
+Get them with:
+
+#+begin_src sh
+sudo apt install elpa-modus-themes
+#+end_src
+
+*** GNU Guix
+:PROPERTIES:
+:CUSTOM_ID: h:a4ca52cd-869f-46a5-9e16-4d9665f5b88e
+:END:
+
+Users of either GuixSD (the distro) or just Guix (the package manager)
+can get each theme as a standalone package.
+
+#+begin_src sh
+guix package -i modus-operandi-theme
+#+end_src
+
+And/or:
+
+#+begin_src sh
+guix package -i modus-vivendi-theme
+#+end_src
+
 * Enable and load
 :PROPERTIES:
 :CUSTOM_ID: h:3f3c3728-1b34-437d-9d0c-b110f5b161a9
@@ -97,7 +184,8 @@ might run into unexpected issues (you can also =M-x disable-theme=).
 :END:
 
 It is possible to schedule a time during the day at or after which a
-given theme will be loaded.
+given theme will be loaded.[fn:: Contributed on Reddit by user b3n
+https://www.reddit.com/r/emacs/comments/gdtqov/weekly_tipstricketc_thread/fq9186h/.]
 
 #+begin_src emacs-lisp
 ;; Light for the day
@@ -114,11 +202,13 @@ given theme will be loaded.
 #+end_src
 
 A modified version of the above technique is to use the sunrise and
-sunset as references, instead of specifying a fixed value.  If you set
-=calendar-latitude= and =calendar-longitude= (defined in the built-in
-=solar.el= library---read it with =M-x find-library=), you can automatically
-switch between both themes at the appropriate time-of-day.  Note that
-/those calendar variables need to be set before loading the themes/.
+sunset as references, instead of specifying a fixed value.[fn::
+Contributed directly by André Alexandre Gomes https://gitlab.com/aadcg.]
+If you set =calendar-latitude= and =calendar-longitude= (defined in the
+built-in =solar.el= library---read it with =M-x find-library=), you can
+automatically switch between both themes at the appropriate time-of-day.
+Note that /those calendar variables need to be set before loading the
+themes/.
 
 #+begin_src emacs-lisp
 ;; Define coordinates
@@ -173,7 +263,9 @@ the standard =load-theme= command.  These extend the simple function we
 presented in [[#h:2a0895a6-3281-4e55-8aa1-8a737555821e][Toggle between the themes on demand]].
 
 Here is a comprehensive setup (the values assigned to the variables are
-just for the sake of this demonstration):
+just for the sake of this demonstration):[fn:: The =defmacro= and =dolist=
+method was contributed on Reddit by user b3n
+https://www.reddit.com/r/emacs/comments/gqsz8u/weekly_tipstricketc_thread/fsfakhg/.]
 
 #+begin_src emacs-lisp
 (defmacro modus-themes-format-sexp (sexp &rest objects)
@@ -1341,6 +1433,105 @@ it back to them.  This could all happen via email and take about a week.
 
 You are encouraged to go through this process.  You only need to do it
 once.  It will allow you to make contributions to Emacs in general.
+
+* Acknowledgements
+:PROPERTIES:
+:CUSTOM_ID: h:95c3da23-217f-404e-b5f3-56c75760ebcf
+:END:
+
+The Modus themes are a collective effort.  Every contribution counts.
+
+Author/maintainer:
+
++ Protesilaos Stavrou
+
+Code contributions:
+
++ Anders Johansson
++ Basil L. Contovounisios
++ Matthew Stevenson
+
+Ideas and user feedback:
+
++ Aaron Jensen
++ Adam Spiers
++ Alex Peitsinis
++ Alexey Shmalko
++ Anders Johansson
++ André Alexandre Gomes
++ Arif Rezai
++ Basil L. Contovounisios
++ Damien Cassou
++ David Edmondson
++ Davor Rotim
++ Divan Santana
++ Gerry Agbobada
++ Gianluca Recchia
++ Len Trigg
++ Manuel Uberti
++ Mark Burton
++ Michael Goldenberg
++ Murilo Pereira
++ Nicolas De Jaeghere
++ Pierre Téchoueyres
++ Ryan Phillips
++ Shreyas Ragavan
++ Thibaut Verron
++ Trey Merkley
++ Uri Sharf
++ User "Ben"
++ User "Fourchaux"
++ User "Fredrik"
++ User "Moesasji"
++ User "TheBlob42"
++ User "dinko"
++ User "doolio"
++ User "okamsn"
++ User "tycho garen"
++ Vincent Foley
+
+Packaging:
+
++ Dhavan Vaidya (Debian)
++ Stefan Kangas (core Emacs)
++ Stefan Monnier (GNU Elpa)
+
+Inspiration for certain features:
+
++ Fabrice Niessen (leuven-theme)
++ Bozhidar Batsov (zenburn-theme)
+
+* Meta
+:PROPERTIES:
+:CUSTOM_ID: h:13752581-4378-478c-af17-165b6e76bc1b
+:END:
+
+If you are curious about the principles that govern the development of
+this project read the essay [[https://protesilaos.com/codelog/2020-03-17-design-modus-themes-emacs/][On the design of the Modus themes]]
+(2020-03-17).
+
+Here are some more publications for those interested in the kind of work
+that goes into this project:
+
++ [[https://protesilaos.com/codelog/2020-05-10-modus-operandi-palette-review/][Modus Operandi theme subtle palette review]] (2020-05-10)
++ [[https://protesilaos.com/codelog/2020-06-13-modus-vivendi-palette-review/][Modus Vivendi theme subtle palette review]] (2020-06-13)
++ [[https://protesilaos.com/codelog/2020-07-04-modus-themes-faint-colours/][Modus themes: new "faint syntax" option]] (2020-07-04)
++ [[https://protesilaos.com/codelog/2020-07-08-modus-themes-nuanced-colours/][Modus themes: major review of "nuanced" colours]] (2020-07-08)
+
+* External projects (ports)
+:PROPERTIES:
+:CUSTOM_ID: h:21adb7c8-2208-41e8-803c-052e42e2c05d
+:END:
+
+The present section documents projects that extend the scope of the
+Modus themes.  The following list will be updated whenever relevant
+information is brought to my attention.  If you already have or intend
+to produce such a port, feel welcome [[https://protesilaos.com/contact][to contact me]].
+
++ Modus exporter :: This is [[https://github.com/polaris64/modus-exporter][an Elisp library written by Simon Pugnet]].
+  Licensed under the terms of the GNU General Public License.  It is
+  meant to capture the colour values of the active Modus theme (Operandi
+  or Vivendi) and output it as a valid theme for some other application.
 
 * GNU Free Documentation License
 :PROPERTIES:

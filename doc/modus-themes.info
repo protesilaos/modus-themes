@@ -27,18 +27,38 @@ work-in-progress.
      Foundation; with no Invariant Sections, with no Front-Cover Texts,
      and with no Back-Cover Texts.
 
+   Info manual HTML version (https://protesilaos.com/modus-themes).
+
 * Menu:
 
 * Overview::
+* Installation::
 * Enable and load::
 * Customisation Options::
 * Advanced customisation (do-it-yourself)::
 * Face coverage::
 * Notes for individual packages::
 * Contributing::
+* Acknowledgements::
+* Meta::
+* External projects (ports)::
 * GNU Free Documentation License::
 
 — The Detailed Node Listing —
+
+Overview
+
+* How do the themes look like::
+
+Installation
+
+* Install from the archives::
+* Install on GNU/Linux::
+
+Install on GNU/Linux
+
+* Debian 11 Bullseye::
+* GNU Guix::
 
 Enable and load
 
@@ -95,7 +115,7 @@ Contributing
 
 
 
-File: modus-themes.info,  Node: Overview,  Next: Enable and load,  Prev: Top,  Up: Top
+File: modus-themes.info,  Node: Overview,  Next: Installation,  Prev: Top,  Up: Top
 
 1 Overview
 **********
@@ -132,10 +152,111 @@ do this each time I make a commit.
 that the built-in themes are synced with the ‘HEAD’ of my ‘master’
 branch.
 
-
-File: modus-themes.info,  Node: Enable and load,  Next: Customisation Options,  Prev: Overview,  Up: Top
+* Menu:
 
-2 Enable and load
+* How do the themes look like::
+
+
+File: modus-themes.info,  Node: How do the themes look like,  Up: Overview
+
+1.1 How do the themes look like
+===============================
+
+Check the Wiki page with the screen shots
+(https://gitlab.com/protesilaos/modus-themes/wikis/Screenshots).  There
+are lots of scenaria on display that draw attention to details and
+important aspects in the design of the themes.  They also showcase the
+numerous customisation options.
+
+   *note Customisation options: Customisation Options.
+
+
+File: modus-themes.info,  Node: Installation,  Next: Enable and load,  Prev: Overview,  Up: Top
+
+2 Installation
+**************
+
+The Modus themes are built into Emacs’ development branch (‘master’)
+which corresponds to the nominal version 28.0.50.  Otherwise they can be
+installed using Emacs’ package manager or manually from their code
+repository.
+
+   Modus Operandi (light theme) and Modus Vivendi (dark) are normally
+distributed as standalone packages in Emacs-specific archives: GNU ELPA,
+MELPA, and MELPA Stable.  There also exist packages for GNU/Linux
+distributions.
+
+* Menu:
+
+* Install from the archives::
+* Install on GNU/Linux::
+
+
+File: modus-themes.info,  Node: Install from the archives,  Next: Install on GNU/Linux,  Up: Installation
+
+2.1 Install from the archives
+=============================
+
+‘modus-operandi-theme’ and ‘modus-vivendi-theme’ are available from GNU
+Elpa, Melpa, Melpa-Stable.
+
+   Prior to querying any package archive, make sure to have updated the
+index, with ‘M-x package-refresh-contents’.  Then all you need to do is
+type ‘M-x package-install’ and specify the theme of your choice.
+
+   GNU Elpa and Melpa-Stable contain the last tagged release.  While
+Melpa builds from the latest commit to the Modus theme’s Git repository
+(https://gitlab.com/protesilaos/modus-themes).
+
+
+File: modus-themes.info,  Node: Install on GNU/Linux,  Prev: Install from the archives,  Up: Installation
+
+2.2 Install on GNU/Linux
+========================
+
+The themes are also available from the archives of some GNU/Linux
+distributions.  These should correspond to a tagged release rather than
+building directly from the latest Git commit.  It all depends on the
+distro’s packaging policies.
+
+* Menu:
+
+* Debian 11 Bullseye::
+* GNU Guix::
+
+
+File: modus-themes.info,  Node: Debian 11 Bullseye,  Next: GNU Guix,  Up: Install on GNU/Linux
+
+2.2.1 Debian 11 Bullseye
+------------------------
+
+The two themes are distributed as a single package for Debian and its
+derivatives.  Currently in the unstable and testing suites and should be
+available in time for Debian 11 Bullseye (next stable).
+
+   Get them with:
+
+     sudo apt install elpa-modus-themes
+
+
+File: modus-themes.info,  Node: GNU Guix,  Prev: Debian 11 Bullseye,  Up: Install on GNU/Linux
+
+2.2.2 GNU Guix
+--------------
+
+Users of either GuixSD (the distro) or just Guix (the package manager)
+can get each theme as a standalone package.
+
+     guix package -i modus-operandi-theme
+
+   And/or:
+
+     guix package -i modus-vivendi-theme
+
+
+File: modus-themes.info,  Node: Enable and load,  Next: Customisation Options,  Prev: Installation,  Up: Top
+
+3 Enable and load
 *****************
 
 This section documents techniques on how to load the theme of your
@@ -153,7 +274,7 @@ you intend to use both Modus Operandi and Modus Vivendi.
 
 File: modus-themes.info,  Node: Load automatically,  Next: Load at a given time or at sunset/sunrise,  Up: Enable and load
 
-2.1 Load automatically
+3.1 Load automatically
 ======================
 
 A simple way to load the theme from your Emacs initialisation file is to
@@ -168,11 +289,11 @@ you might run into unexpected issues (you can also ‘M-x disable-theme’).
 
 File: modus-themes.info,  Node: Load at a given time or at sunset/sunrise,  Next: Toggle between the themes on demand,  Prev: Load automatically,  Up: Enable and load
 
-2.2 Load at a given time or at sunset/sunrise
+3.2 Load at a given time or at sunset/sunrise
 =============================================
 
 It is possible to schedule a time during the day at or after which a
-given theme will be loaded.
+given theme will be loaded.(1)
 
      ;; Light for the day
      (load-theme 'modus-operandi t t)
@@ -187,9 +308,9 @@ given theme will be loaded.
                     (enable-theme 'modus-vivendi)))
 
    A modified version of the above technique is to use the sunrise and
-sunset as references, instead of specifying a fixed value.  If you set
-‘calendar-latitude’ and ‘calendar-longitude’ (defined in the built-in
-‘solar.el’ library—read it with ‘M-x find-library’), you can
+sunset as references, instead of specifying a fixed value.(2)  If you
+set ‘calendar-latitude’ and ‘calendar-longitude’ (defined in the
+built-in ‘solar.el’ library—read it with ‘M-x find-library’), you can
 automatically switch between both themes at the appropriate time-of-day.
 Note that _those calendar variables need to be set before loading the
 themes_.
@@ -217,10 +338,17 @@ is slightly different than the one shown in *note Load automatically::,
 because it does not enable the theme directly: the subsequent
 ‘enable-theme’ does that when needed.
 
+   ---------- Footnotes ----------
+
+   (1) Contributed on Reddit by user b3n
+<https://www.reddit.com/r/emacs/comments/gdtqov/weekly_tipstricketc_thread/fq9186h/>.
+
+   (2) Contributed by André Alexandre Gomes <https://gitlab.com/aadcg>.
+
 
 File: modus-themes.info,  Node: Toggle between the themes on demand,  Next: Configure options prior to loading,  Prev: Load at a given time or at sunset/sunrise,  Up: Enable and load
 
-2.3 Toggle between the themes on demand
+3.3 Toggle between the themes on demand
 =======================================
 
 With both themes available, it is possible to design a simple command to
@@ -239,7 +367,7 @@ switch between them on demand.
 
 File: modus-themes.info,  Node: Configure options prior to loading,  Prev: Toggle between the themes on demand,  Up: Enable and load
 
-2.4 Configure options prior to loading
+3.4 Configure options prior to loading
 ======================================
 
 If you plan to use both themes and wish to apply styles consistently
@@ -248,7 +376,7 @@ around the standard ‘load-theme’ command.  These extend the simple
 function we presented in *note Toggle between the themes on demand::.
 
    Here is a comprehensive setup (the values assigned to the variables
-are just for the sake of this demonstration):
+are just for the sake of this demonstration):(1)
 
      (defmacro modus-themes-format-sexp (sexp &rest objects)
        `(eval (read (format ,(format "%S" sexp) ,@objects))))
@@ -289,10 +417,16 @@ are just for the sake of this demonstration):
          (disable-theme 'modus-vivendi)
          (modus-operandi-theme-load)))
 
+   ---------- Footnotes ----------
+
+   (1) The ‘defmacro’ and ‘dolist’ method was contributed on Reddit by
+user b3n
+<https://www.reddit.com/r/emacs/comments/gqsz8u/weekly_tipstricketc_thread/fsfakhg/>.
+
 
 File: modus-themes.info,  Node: Customisation Options,  Next: Advanced customisation (do-it-yourself),  Prev: Enable and load,  Up: Top
 
-3 Customisation Options
+4 Customisation Options
 ***********************
 
 The Modus themes are highly configurable.  Though they should work well
@@ -324,7 +458,7 @@ theme (see *note Enable and load::).
 
 File: modus-themes.info,  Node: Bold constructs,  Next: Slanted constructs,  Up: Customisation Options
 
-3.1 Option for more bold constructs
+4.1 Option for more bold constructs
 ===================================
 
 Symbol names:
@@ -355,7 +489,7 @@ weight, adding the following snippet to your init file should suffice:
 
 File: modus-themes.info,  Node: Slanted constructs,  Next: Syntax highlighting,  Prev: Bold constructs,  Up: Customisation Options
 
-3.2 Option for more slanted constructs
+4.2 Option for more slanted constructs
 ======================================
 
 Symbol names:
@@ -376,7 +510,7 @@ typically affects documentation strings and code comments.
 
 File: modus-themes.info,  Node: Syntax highlighting,  Next: Command prompts,  Prev: Slanted constructs,  Up: Customisation Options
 
-3.3 Option for faint code syntax highlighting
+4.3 Option for faint code syntax highlighting
 =============================================
 
 Symbol names:
@@ -399,7 +533,7 @@ font-lock.  The author is aware of ‘vc-dir’ as a case in point.
 
 File: modus-themes.info,  Node: Command prompts,  Next: Mode line,  Prev: Syntax highlighting,  Up: Customisation Options
 
-3.4 Option for command prompt styles
+4.4 Option for command prompt styles
 ====================================
 
 Symbol names:
@@ -425,7 +559,7 @@ relying on an accented foreground colour.
 
 File: modus-themes.info,  Node: Mode line,  Next: Completion UIs,  Prev: Command prompts,  Up: Customisation Options
 
-3.5 Option for mode line presentation
+4.5 Option for mode line presentation
 =====================================
 
 Symbol names:
@@ -459,7 +593,7 @@ fine even without it.
 
 File: modus-themes.info,  Node: Completion UIs,  Next: Fringes,  Prev: Mode line,  Up: Customisation Options
 
-3.6 Option for completion framework aesthetics
+4.6 Option for completion framework aesthetics
 ==============================================
 
 Symbol names:
@@ -505,7 +639,7 @@ spend some time with every one of the ‘nil’ (default), ‘moderate’, and
 
 File: modus-themes.info,  Node: Fringes,  Next: Line highlighting,  Prev: Completion UIs,  Up: Customisation Options
 
-3.7 Option for fringe visibility
+4.7 Option for fringe visibility
 ================================
 
 Symbol names:
@@ -530,7 +664,7 @@ space given to them by ‘fringe-mode’.
 
 File: modus-themes.info,  Node: Line highlighting,  Next: Matching parentheses,  Prev: Fringes,  Up: Customisation Options
 
-3.8 Option for line highlighting (hl-line-mode)
+4.8 Option for line highlighting (hl-line-mode)
 ===============================================
 
 Symbol names:
@@ -552,7 +686,7 @@ packages that enable ‘hl-line-mode’, such as ‘elfeed’ and ‘mu4e’.
 
 File: modus-themes.info,  Node: Matching parentheses,  Next: Diffs,  Prev: Line highlighting,  Up: Customisation Options
 
-3.9 Option for parenthesis matching (show-paren-mode)
+4.9 Option for parenthesis matching (show-paren-mode)
 =====================================================
 
 Symbol names:
@@ -573,7 +707,7 @@ overlays.
 
 File: modus-themes.info,  Node: Diffs,  Next: Org mode blocks,  Prev: Matching parentheses,  Up: Customisation Options
 
-3.10 Option for diff buffer looks
+4.10 Option for diff buffer looks
 =================================
 
 Symbol names:
@@ -615,7 +749,7 @@ consistent with the overall intent of the aforementioned.
 
 File: modus-themes.info,  Node: Org mode blocks,  Next: Accented headings,  Prev: Diffs,  Up: Customisation Options
 
-3.11 Option for org-mode block styles
+4.11 Option for org-mode block styles
 =====================================
 
 Symbol names:
@@ -653,7 +787,7 @@ each code block (inefficient at scale, but it still works).
 
 File: modus-themes.info,  Node: Accented headings,  Next: Section headings,  Prev: Org mode blocks,  Up: Customisation Options
 
-3.12 Option for colourful headings
+4.12 Option for colourful headings
 ==================================
 
 Symbol names:
@@ -679,7 +813,7 @@ provide the elements of differentiation.
 
 File: modus-themes.info,  Node: Section headings,  Next: Scaled headings,  Prev: Accented headings,  Up: Customisation Options
 
-3.13 Option for sectioned headings
+4.13 Option for sectioned headings
 ==================================
 
 Symbol names:
@@ -712,7 +846,7 @@ heading’s text, use this:
 
 File: modus-themes.info,  Node: Scaled headings,  Next: Headings' font,  Prev: Section headings,  Up: Customisation Options
 
-3.14 Option for scaled headings
+4.14 Option for scaled headings
 ===============================
 
 Symbol names:
@@ -736,7 +870,7 @@ headings and body copy.
 
 File: modus-themes.info,  Node: Scaled heading sizes,  Up: Scaled headings
 
-3.14.1 Control the scale of headings
+4.14.1 Control the scale of headings
 ------------------------------------
 
 In addition to toggles for enabling scaled headings, users can also
@@ -775,7 +909,7 @@ issue tracker).
 
 File: modus-themes.info,  Node: Headings' font,  Prev: Scaled headings,  Up: Customisation Options
 
-3.15 Option for variable-pitch font in headings
+4.15 Option for variable-pitch font in headings
 ===============================================
 
 Symbol names:
@@ -797,7 +931,7 @@ main font family.
 
 File: modus-themes.info,  Node: Advanced customisation (do-it-yourself),  Next: Face coverage,  Prev: Customisation Options,  Up: Top
 
-4 Advanced customisation (do-it-yourself)
+5 Advanced customisation (do-it-yourself)
 *****************************************
 
 Unlike the predefined customisation options which follow a
@@ -819,7 +953,7 @@ such, they are labelled as “do-it-yourself” or “DIY”.
 
 File: modus-themes.info,  Node: Tweak colours (DIY),  Next: Font configs (DIY),  Up: Advanced customisation (do-it-yourself)
 
-4.1 Full access to the themes’ palette
+5.1 Full access to the themes’ palette
 ======================================
 
 The variables are:
@@ -905,7 +1039,7 @@ prior to loading:: for a more comprehensive setup).
 
 File: modus-themes.info,  Node: Font configs (DIY),  Prev: Tweak colours (DIY),  Up: Advanced customisation (do-it-yourself)
 
-4.2 Font configurations for Org (and others)
+5.2 Font configurations for Org (and others)
 ============================================
 
 The themes are designed to cope well with mixed font settings.
@@ -957,7 +1091,7 @@ multiple faces like this:
 
 File: modus-themes.info,  Node: Face coverage,  Next: Notes for individual packages,  Prev: Advanced customisation (do-it-yourself),  Up: Top
 
-5 Face coverage
+6 Face coverage
 ***************
 
 Modus Operandi and Modus Vivendi try to provide as close to full face
@@ -973,7 +1107,7 @@ accessible reading experience across all possible interfaces.
 
 File: modus-themes.info,  Node: Supported packages,  Next: Covered indirectly,  Up: Face coverage
 
-5.1 Full support for packages or face groups
+6.1 Full support for packages or face groups
 ============================================
 
 This list will always be updated to reflect the current state of the
@@ -1254,7 +1388,7 @@ GNU Emacs distribution.
 
 File: modus-themes.info,  Node: Covered indirectly,  Next: Will NOT be supported,  Prev: Supported packages,  Up: Face coverage
 
-5.2 Covered indirectly
+6.2 Covered indirectly
 ======================
 
 These do not require any extra styles because they are configured to
@@ -1267,7 +1401,7 @@ inherit from some basic faces.  Please confirm.
 
 File: modus-themes.info,  Node: Will NOT be supported,  Prev: Covered indirectly,  Up: Face coverage
 
-5.3 Will NOT be supported
+6.3 Will NOT be supported
 =========================
 
 I have thus far identified a single package that does fit into the
@@ -1285,7 +1419,7 @@ working on.
 
 File: modus-themes.info,  Node: Notes for individual packages,  Next: Contributing,  Prev: Face coverage,  Up: Top
 
-6 Notes for individual packages
+7 Notes for individual packages
 *******************************
 
 This section covers information that may be of interest to users of
@@ -1301,7 +1435,7 @@ individual packages.
 
 File: modus-themes.info,  Node: Note for powerline or spaceline,  Next: Note on shr colours,  Up: Notes for individual packages
 
-6.1 Note for powerline or spaceline
+7.1 Note for powerline or spaceline
 ===================================
 
 Both Powerline and Spaceline package users will likely need to use the
@@ -1311,7 +1445,7 @@ and/or modeline setup.
 
 File: modus-themes.info,  Node: Note on shr colours,  Next: Note for Helm grep,  Prev: Note for powerline or spaceline,  Up: Notes for individual packages
 
-6.2 Note on shr colours
+7.2 Note on shr colours
 =======================
 
 Emacs’ HTML rendering mechanism (‘shr’) may need explicit configuration
@@ -1321,7 +1455,7 @@ webpage provides.  Consult ‘C-h v shr-use-colors’.
 
 File: modus-themes.info,  Node: Note for Helm grep,  Next: Note on vc-annotate-background-mode,  Prev: Note on shr colours,  Up: Notes for individual packages
 
-6.3 Note for Helm grep
+7.3 Note for Helm grep
 ======================
 
 There is one face from the Helm package that is meant to highlight the
@@ -1351,7 +1485,7 @@ ANSI colour number 1 (red) from the already-supported array of
 
 File: modus-themes.info,  Node: Note on vc-annotate-background-mode,  Prev: Note for Helm grep,  Up: Notes for individual packages
 
-6.4 Note on vc-annotate-background-mode
+7.4 Note on vc-annotate-background-mode
 =======================================
 
 Due to the unique way ‘vc-annotate’ (‘C-x v g’) applies colours, support
@@ -1368,9 +1502,9 @@ prejudice to the accessibility standard of this project, then please
 report as much or send patches (see *note Contributing::).
 
 
-File: modus-themes.info,  Node: Contributing,  Next: GNU Free Documentation License,  Prev: Notes for individual packages,  Up: Top
+File: modus-themes.info,  Node: Contributing,  Next: Acknowledgements,  Prev: Notes for individual packages,  Up: Top
 
-7 Contributing
+8 Contributing
 **************
 
 This section documents the canonical sources of the themes and the ways
@@ -1385,7 +1519,7 @@ in which you can contribute to their ongoing development.
 
 File: modus-themes.info,  Node: Sources of the themes,  Next: Issues you can help with,  Up: Contributing
 
-7.1 Sources of the themes
+8.1 Sources of the themes
 =========================
 
 The ‘modus-operandi’ and ‘modus-vivendi’ themes are built into Emacs.
@@ -1404,7 +1538,7 @@ not rely on any non-free code).
 
 File: modus-themes.info,  Node: Issues you can help with,  Next: Merge requests,  Prev: Sources of the themes,  Up: Contributing
 
-7.2 Issues you can help with
+8.2 Issues you can help with
 ============================
 
 A few tasks you can help with:
@@ -1433,7 +1567,7 @@ interest of the latter.
 
 File: modus-themes.info,  Node: Merge requests,  Prev: Issues you can help with,  Up: Contributing
 
-7.3 Patches require copyright assignment to the FSF
+8.3 Patches require copyright assignment to the FSF
 ===================================================
 
 Code contributions are most welcome.  For any major edit (more than 15
@@ -1453,7 +1587,121 @@ week.
 it once.  It will allow you to make contributions to Emacs in general.
 
 
-File: modus-themes.info,  Node: GNU Free Documentation License,  Prev: Contributing,  Up: Top
+File: modus-themes.info,  Node: Acknowledgements,  Next: Meta,  Prev: Contributing,  Up: Top
+
+9 Acknowledgements
+******************
+
+The Modus themes are a collective effort.  Every contribution counts.
+
+   Author/maintainer:
+
+   • Protesilaos Stavrou
+
+   Code contributions:
+
+   • Anders Johansson
+   • Basil L.  Contovounisios
+   • Matthew Stevenson
+
+   Ideas and user feedback:
+
+   • Aaron Jensen
+   • Adam Spiers
+   • Alex Peitsinis
+   • Alexey Shmalko
+   • Anders Johansson
+   • André Alexandre Gomes
+   • Arif Rezai
+   • Basil L.  Contovounisios
+   • Damien Cassou
+   • David Edmondson
+   • Davor Rotim
+   • Divan Santana
+   • Gerry Agbobada
+   • Gianluca Recchia
+   • Len Trigg
+   • Manuel Uberti
+   • Mark Burton
+   • Michael Goldenberg
+   • Murilo Pereira
+   • Nicolas De Jaeghere
+   • Pierre Téchoueyres
+   • Ryan Phillips
+   • Shreyas Ragavan
+   • Thibaut Verron
+   • Trey Merkley
+   • Uri Sharf
+   • User “Ben”
+   • User “Fourchaux”
+   • User “Fredrik”
+   • User “Moesasji”
+   • User “TheBlob42”
+   • User “dinko”
+   • User “doolio”
+   • User “okamsn”
+   • User “tycho garen”
+   • Vincent Foley
+
+   Packaging:
+
+   • Dhavan Vaidya (Debian)
+   • Stefan Kangas (core Emacs)
+   • Stefan Monnier (GNU Elpa)
+
+   Inspiration for certain features:
+
+   • Fabrice Niessen (leuven-theme)
+   • Bozhidar Batsov (zenburn-theme)
+
+
+File: modus-themes.info,  Node: Meta,  Next: External projects (ports),  Prev: Acknowledgements,  Up: Top
+
+10 Meta
+*******
+
+If you are curious about the principles that govern the development of
+this project read the essay On the design of the Modus themes
+(https://protesilaos.com/codelog/2020-03-17-design-modus-themes-emacs/)
+(2020-03-17).
+
+   Here are some more publications for those interested in the kind of
+work that goes into this project:
+
+   • Modus Operandi theme subtle palette review
+     (https://protesilaos.com/codelog/2020-05-10-modus-operandi-palette-review/)
+     (2020-05-10)
+   • Modus Vivendi theme subtle palette review
+     (https://protesilaos.com/codelog/2020-06-13-modus-vivendi-palette-review/)
+     (2020-06-13)
+   • Modus themes: new “faint syntax” option
+     (https://protesilaos.com/codelog/2020-07-04-modus-themes-faint-colours/)
+     (2020-07-04)
+   • Modus themes: major review of “nuanced” colours
+     (https://protesilaos.com/codelog/2020-07-08-modus-themes-nuanced-colours/)
+     (2020-07-08)
+
+
+File: modus-themes.info,  Node: External projects (ports),  Next: GNU Free Documentation License,  Prev: Meta,  Up: Top
+
+11 External projects (ports)
+****************************
+
+The present section documents projects that extend the scope of the
+Modus themes.  The following list will be updated whenever relevant
+information is brought to my attention.  If you already have or intend
+to produce such a port, feel welcome to contact me
+(https://protesilaos.com/contact).
+
+Modus exporter
+     This is an Elisp library written by Simon Pugnet
+     (https://github.com/polaris64/modus-exporter).  Licensed under the
+     terms of the GNU General Public License.  It is meant to capture
+     the colour values of the active Modus theme (Operandi or Vivendi)
+     and output it as a valid theme for some other application.
+
+
+File: modus-themes.info,  Node: GNU Free Documentation License,  Prev: External projects (ports),  Up: Top
 
 Appendix A GNU Free Documentation License
 *****************************************
@@ -1913,46 +2161,58 @@ Appendix A GNU Free Documentation License
 
 Tag Table:
 Node: Top218
-Node: Overview3414
-Node: Enable and load5060
-Node: Load automatically5633
-Node: Load at a given time or at sunset/sunrise6192
-Node: Toggle between the themes on demand8188
-Node: Configure options prior to loading8935
-Node: Customisation Options11377
-Node: Bold constructs13041
-Node: Slanted constructs14040
-Node: Syntax highlighting14631
-Node: Command prompts15360
-Node: Mode line16163
-Node: Completion UIs17417
-Node: Fringes19358
-Node: Line highlighting20122
-Node: Matching parentheses20788
-Node: Diffs21430
-Node: Org mode blocks23223
-Node: Accented headings24729
-Node: Section headings25584
-Node: Scaled headings26769
-Node: Scaled heading sizes27388
-Node: Headings' font29061
-Node: Advanced customisation (do-it-yourself)29685
-Node: Tweak colours (DIY)30605
-Node: Font configs (DIY)34239
-Node: Face coverage36603
-Node: Supported packages37105
-Node: Covered indirectly42959
-Node: Will NOT be supported43311
-Node: Notes for individual packages44029
-Node: Note for powerline or spaceline44435
-Node: Note on shr colours44807
-Node: Note for Helm grep45220
-Node: Note on vc-annotate-background-mode46667
-Node: Contributing47521
-Node: Sources of the themes47954
-Node: Issues you can help with48716
-Node: Merge requests49903
-Node: GNU Free Documentation License50985
+Node: Overview3732
+Node: How do the themes look like5417
+Node: Installation5901
+Node: Install from the archives6551
+Node: Install on GNU/Linux7238
+Node: Debian 11 Bullseye7683
+Node: GNU Guix8092
+Node: Enable and load8434
+Node: Load automatically9011
+Node: Load at a given time or at sunset/sunrise9570
+Ref: Load at a given time or at sunset/sunrise-Footnote-111608
+Ref: Load at a given time or at sunset/sunrise-Footnote-211736
+Node: Toggle between the themes on demand11810
+Node: Configure options prior to loading12557
+Ref: Configure options prior to loading-Footnote-115038
+Node: Customisation Options15213
+Node: Bold constructs16877
+Node: Slanted constructs17876
+Node: Syntax highlighting18467
+Node: Command prompts19196
+Node: Mode line19999
+Node: Completion UIs21253
+Node: Fringes23194
+Node: Line highlighting23958
+Node: Matching parentheses24624
+Node: Diffs25266
+Node: Org mode blocks27059
+Node: Accented headings28565
+Node: Section headings29420
+Node: Scaled headings30605
+Node: Scaled heading sizes31224
+Node: Headings' font32897
+Node: Advanced customisation (do-it-yourself)33521
+Node: Tweak colours (DIY)34441
+Node: Font configs (DIY)38075
+Node: Face coverage40439
+Node: Supported packages40941
+Node: Covered indirectly46795
+Node: Will NOT be supported47147
+Node: Notes for individual packages47865
+Node: Note for powerline or spaceline48271
+Node: Note on shr colours48643
+Node: Note for Helm grep49056
+Node: Note on vc-annotate-background-mode50503
+Node: Contributing51357
+Node: Sources of the themes51776
+Node: Issues you can help with52538
+Node: Merge requests53725
+Node: Acknowledgements54807
+Node: Meta56264
+Node: External projects (ports)57317
+Node: GNU Free Documentation License58140
 
 End Tag Table
 
