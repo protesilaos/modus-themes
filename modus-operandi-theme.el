@@ -3057,13 +3057,15 @@ Also bind `class' to ((class color) (min-colors 89))."
 ;;;;; modeline
    `(mode-line ((,class ,@(modus-operandi-theme-mode-line-attrs
                            fg-active bg-active fg-dim bg-active
-                           fg-alt bg-active 'alt-style))))
+                           fg-alt bg-active 'alt-style)
+                        :distant-foreground ,bg-main)))
    `(mode-line-buffer-id ((,class :inherit bold)))
    `(mode-line-emphasis ((,class :inherit bold :foreground ,blue-active)))
    `(mode-line-highlight ((,class :inherit modus-theme-active-blue :box (:line-width -1 :style pressed-button))))
    `(mode-line-inactive ((,class ,@(modus-operandi-theme-mode-line-attrs
                                     fg-inactive bg-inactive fg-alt bg-dim
-                                    bg-region bg-active))))
+                                    bg-region bg-active)
+                                 :distant-foreground ,bg-alt)))
 ;;;;; mood-line
    `(mood-line-modified ((,class :foreground ,magenta-active)))
    `(mood-line-status-error ((,class :inherit bold :foreground ,red-active)))
