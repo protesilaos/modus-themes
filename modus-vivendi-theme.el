@@ -459,20 +459,86 @@ between foreground and background is >= 7:1)."
 
 (defcustom modus-vivendi-theme-headings
   '((t . nil))
-  "Alist of styles for headings."
+  "Alist of styles for headings, with optional value per level.
+
+To control faces per level from 1-8, use something like this:
+
+  (setq modus-vivendi-theme-headings
+        '((1 . highlight)
+          (2 . line)
+          (t . rainbow-line-no-bold)))
+
+To set a uniform value for all heading levels, use this pattern:
+
+  (setq modus-vivendi-theme-headings
+        '((t . rainbow-line-no-bold)))
+
+The default uses a fairly desaturated foreground value in
+combination with a bold typographic weight.  To specify this
+style for a given level N (assuming you wish to have another
+fallback option), just specify the value t like this:
+
+  (setq modus-vivendi-theme-headings
+        '((1 . t)
+          (2 . line)
+          (t . rainbow-line-no-bold)))
+
+A description of all possible values:
+
++ `no-bold' retains the default text colour while removing
+  the typographic weight.
+
++ `line' is the same as the default plus an overline over the
+  heading.
+
++ `line-no-bold' is the same as `line' without bold weight.
+
++ `rainbow' uses a more colourful foreground in combination
+  with bold weight.
+
++ `rainbow-line' is the same as `rainbow' plus an overline.
+
++ `rainbow-line-no-bold' is the same as `rainbow-line' without
+  the bold weight.
+
++ `highlight' retains the default style of a fairly desaturated
+  foreground combined with a bold weight and add to it a subtle
+  accented background.
+
++ `highlight-no-bold' is the same as `highlight' without a bold
+  weight.
+
++ `rainbow-highlight' is the same as `highlight' but with a more
+  colourful foreground.
+
++ `rainbow-highlight-no-bold' is the same as `rainbow-highlight'
+  without a bold weight.
+
++ `section' retains the default looks and adds to them both an
+  overline and a slightly accented background.  It is, in effect,
+  a combination of the `line' and `highlight' values.
+
++ `section-no-bold' is the same as `section' without a bold
+  weight.
+
++ `rainbow-section' is the same as `section' but with a more
+  colourful foreground.
+
++ `rainbow-section-no-bold' is the same as `rainbow-section'
+  without a bold weight."
   :type
   '(alist
     :key-type symbol
     :value-type
-    (choice (const :tag "Fairly desaturated foreground with bold weight (default)" nil)
-            (const :tag "Like `nil' without bold weight" no-bold)
-            (const :tag "Like `nil' plus overline" line)
+    (choice (const :tag "Fairly desaturated foreground with bold weight (default)" t)
+            (const :tag "Like the default without bold weight" no-bold)
+            (const :tag "Like the default plus overline" line)
             (const :tag "Like `line' without bold weight" line-no-bold)
-            (const :tag "Like `nil' but with more colourful foreground" rainbow)
+            (const :tag "Like the default but with more colourful foreground" rainbow)
             (const :tag "Like `rainbow' plus overline" rainbow-line)
             (const :tag "Like `rainbow' without bold weight" rainbow-no-bold)
             (const :tag "Like `rainbow-line' without bold weight" rainbow-line-no-bold)
-            (const :tag "Like `nil' plus subtle background" highlight)
+            (const :tag "Like the default plus subtle background" highlight)
             (const :tag "Like `highlight' without bold weight" highlight-no-bold)
             (const :tag "Like `highlight' with more colourful foreground" rainbow-highlight)
             (const :tag "Like `rainbow-highlight' without bold weight" rainbow-highlight-no-bold)
