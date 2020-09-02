@@ -3496,8 +3496,8 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-scheduled-previously ((,class :foreground ,yellow-alt-other)))
    `(org-scheduled-today ((,class :foreground ,magenta-alt-other)))
    `(org-sexp-date ((,class :inherit org-date)))
-   `(org-special-keyword ((,class :box ,bg-region :background ,bg-dim :foreground ,cyan
-                                  :inherit ,modus-theme-variable-pitch)))
+   `(org-special-keyword ((,class :inherit ,modus-theme-variable-pitch
+                                  :foreground ,cyan-alt-other)))
    `(org-table ((,class :inherit fixed-pitch :foreground ,fg-special-cold)))
    `(org-tag ((,class ,@(modus-vivendi-theme-bold-weight) :foreground ,magenta-nuanced)))
    `(org-tag-group ((,class :inherit bold :foreground ,cyan-nuanced)))
