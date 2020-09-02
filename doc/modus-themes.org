@@ -285,9 +285,10 @@ https://www.reddit.com/r/emacs/comments/gqsz8u/weekly_tipstricketc_thread/fsfakh
            modus-%1$s-theme-completions 'moderate ; {nil,'moderate,'opinionated}
            modus-%1$s-theme-diffs nil ; {nil,'desaturated,'fg-only}
            modus-%1$s-theme-org-blocks 'greyscale ; {nil,'greyscale,'rainbow}
+           modus-%1$s-theme-headings  ; Read further below in the manual for this one
+           '((1 . line)
+             (t . rainbow-line-no-bold))
            modus-%1$s-theme-variable-pitch-headings t
-           modus-%1$s-theme-rainbow-headings t
-           modus-%1$s-theme-section-headings t
            modus-%1$s-theme-scale-headings t
            modus-%1$s-theme-scale-1 1.1
            modus-%1$s-theme-scale-2 1.15
