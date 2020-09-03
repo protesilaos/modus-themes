@@ -149,6 +149,7 @@
 ;;     eshell-fringe-status
 ;;     eshell-git-prompt
 ;;     eshell-prompt-extras (epe)
+;;     eshell-syntax-highlighting
 ;;     evil (evil-mode)
 ;;     evil-goggles
 ;;     evil-visual-mark-mode
@@ -2042,6 +2043,15 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(epe-remote-face ((,class :foreground ,fg-alt :slant ,modus-theme-slant)))
    `(epe-status-face ((,class :foreground ,magenta-alt-other)))
    `(epe-venv-face ((,class :foreground ,fg-alt :slant ,modus-theme-slant)))
+;;;;; eshell-syntax-highlighting
+   `(eshell-syntax-highlighting-alias-face ((,class :foreground ,cyan)))
+   `(eshell-syntax-highlighting-comment-face ((,class :foreground ,fg-alt)))
+   `(eshell-syntax-highlighting-directory-face ((,class :foreground ,blue)))
+   `(eshell-syntax-highlighting-envvar-face ((,class :foreground ,magenta-alt)))
+   `(eshell-syntax-highlighting-invalid-face ((,class :foreground ,red)))
+   `(eshell-syntax-highlighting-lisp-function-face ((,class :foreground ,magenta)))
+   `(eshell-syntax-highlighting-shell-command-face ((,class :foreground ,cyan-alt-other)))
+   `(eshell-syntax-highlighting-string-face ((,class :foreground ,blue-alt)))
 ;;;;; evil-mode
    `(evil-ex-commands ((,class :foreground ,magenta-alt-other)))
    `(evil-ex-info ((,class :foreground ,cyan-alt-other)))
