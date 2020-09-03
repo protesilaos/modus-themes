@@ -256,6 +256,9 @@ switch between them on demand.
 #+end_src
 
 ** Configure options prior to loading
+:PROPERTIES:
+:CUSTOM_ID: h:a897b302-8e10-4a26-beab-3caaee1e1193
+:END:
 
 If you plan to use both themes and wish to apply styles consistently
 (see [[#h:bf1c82f2-46c7-4eb2-ad00-dd11fdd8b53f][Customisation Options]]), you could define wrapper functions around
