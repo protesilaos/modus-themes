@@ -162,7 +162,7 @@ File: modus-themes.info,  Node: How do the themes look like,  Up: Overview
 1.1 How do the themes look like
 ===============================
 
-Check the Wiki page with the screen shots
+Check the web page with the screen shots
 (https://gitlab.com/protesilaos/modus-themes/wikis/Screenshots).  There
 are lots of scenaria on display that draw attention to details and
 important aspects in the design of the themes.  They also showcase the
@@ -244,8 +244,8 @@ File: modus-themes.info,  Node: GNU Guix,  Prev: Debian 11 Bullseye,  Up: Instal
 2.2.2 GNU Guix
 --------------
 
-Users of either GuixSD (the distro) or just Guix (the package manager)
-can get each theme as a standalone package.
+Users of either the Guix System (the distro) or just Guix (the package
+manager) can get each theme as a standalone package.
 
      guix package -i modus-operandi-theme
 
@@ -343,7 +343,8 @@ because it does not enable the theme directly: the subsequent
    (1) Contributed on Reddit by user b3n
 <https://www.reddit.com/r/emacs/comments/gdtqov/weekly_tipstricketc_thread/fq9186h/>.
 
-   (2) Contributed by André Alexandre Gomes <https://gitlab.com/aadcg>.
+   (2) Contributed directly by André Alexandre Gomes
+<https://gitlab.com/aadcg>.
 
 
 File: modus-themes.info,  Node: Toggle between the themes on demand,  Next: Configure options prior to loading,  Prev: Load at a given time or at sunset/sunrise,  Up: Enable and load
@@ -1127,6 +1128,8 @@ have lots of extensions, so the “full support” may not be 100% true…
    • auctex and TeX
    • auto-dim-other-buffers
    • avy
+   • awesome-tray
+   • binder
    • bm
    • bongo
    • boon
@@ -1193,6 +1196,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • eshell-fringe-status
    • eshell-git-prompt
    • eshell-prompt-extras (epe)
+   • eshell-syntax-highlighting
    • evil* (evil-mode)
    • evil-goggles
    • evil-visual-mark-mode
@@ -2163,56 +2167,56 @@ Tag Table:
 Node: Top218
 Node: Overview3732
 Node: How do the themes look like5417
-Node: Installation5901
-Node: Install from the archives6551
-Node: Install on GNU/Linux7238
-Node: Debian 11 Bullseye7683
-Node: GNU Guix8092
-Node: Enable and load8434
-Node: Load automatically9011
-Node: Load at a given time or at sunset/sunrise9570
-Ref: Load at a given time or at sunset/sunrise-Footnote-111608
-Ref: Load at a given time or at sunset/sunrise-Footnote-211736
-Node: Toggle between the themes on demand11810
-Node: Configure options prior to loading12557
-Ref: Configure options prior to loading-Footnote-115038
-Node: Customisation Options15213
-Node: Bold constructs16877
-Node: Slanted constructs17876
-Node: Syntax highlighting18467
-Node: Command prompts19196
-Node: Mode line19999
-Node: Completion UIs21253
-Node: Fringes23194
-Node: Line highlighting23958
-Node: Matching parentheses24624
-Node: Diffs25266
-Node: Org mode blocks27059
-Node: Accented headings28565
-Node: Section headings29420
-Node: Scaled headings30605
-Node: Scaled heading sizes31224
-Node: Headings' font32897
-Node: Advanced customisation (do-it-yourself)33521
-Node: Tweak colours (DIY)34441
-Node: Font configs (DIY)38075
-Node: Face coverage40439
-Node: Supported packages40941
-Node: Covered indirectly46795
-Node: Will NOT be supported47147
-Node: Notes for individual packages47865
-Node: Note for powerline or spaceline48271
-Node: Note on shr colours48643
-Node: Note for Helm grep49056
-Node: Note on vc-annotate-background-mode50503
-Node: Contributing51357
-Node: Sources of the themes51776
-Node: Issues you can help with52538
-Node: Merge requests53725
-Node: Acknowledgements54807
-Node: Meta56264
-Node: External projects (ports)57317
-Node: GNU Free Documentation License58140
+Node: Installation5900
+Node: Install from the archives6550
+Node: Install on GNU/Linux7237
+Node: Debian 11 Bullseye7682
+Node: GNU Guix8091
+Node: Enable and load8442
+Node: Load automatically9019
+Node: Load at a given time or at sunset/sunrise9578
+Ref: Load at a given time or at sunset/sunrise-Footnote-111616
+Ref: Load at a given time or at sunset/sunrise-Footnote-211744
+Node: Toggle between the themes on demand11827
+Node: Configure options prior to loading12574
+Ref: Configure options prior to loading-Footnote-115055
+Node: Customisation Options15230
+Node: Bold constructs16894
+Node: Slanted constructs17893
+Node: Syntax highlighting18484
+Node: Command prompts19213
+Node: Mode line20016
+Node: Completion UIs21270
+Node: Fringes23211
+Node: Line highlighting23975
+Node: Matching parentheses24641
+Node: Diffs25283
+Node: Org mode blocks27076
+Node: Accented headings28582
+Node: Section headings29437
+Node: Scaled headings30622
+Node: Scaled heading sizes31241
+Node: Headings' font32914
+Node: Advanced customisation (do-it-yourself)33538
+Node: Tweak colours (DIY)34458
+Node: Font configs (DIY)38092
+Node: Face coverage40456
+Node: Supported packages40958
+Node: Covered indirectly46880
+Node: Will NOT be supported47232
+Node: Notes for individual packages47950
+Node: Note for powerline or spaceline48356
+Node: Note on shr colours48728
+Node: Note for Helm grep49141
+Node: Note on vc-annotate-background-mode50588
+Node: Contributing51442
+Node: Sources of the themes51861
+Node: Issues you can help with52623
+Node: Merge requests53810
+Node: Acknowledgements54892
+Node: Meta56349
+Node: External projects (ports)57402
+Node: GNU Free Documentation License58225
 
 End Tag Table
 
