@@ -139,8 +139,8 @@ sudo apt install elpa-modus-themes
 :CUSTOM_ID: h:a4ca52cd-869f-46a5-9e16-4d9665f5b88e
 :END:
 
-Users of either GuixSD (the distro) or just Guix (the package manager)
-can get each theme as a standalone package.
+Users of either the Guix System (the distro) or just Guix (the package
+manager) can get each theme as a standalone package.
 
 #+begin_src sh
 guix package -i modus-operandi-theme
