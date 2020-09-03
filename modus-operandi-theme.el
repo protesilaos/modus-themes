@@ -82,6 +82,7 @@
 ;;     auto-dim-other-buffers
 ;;     avy
 ;;     awesome-tray
+;;     binder
 ;;     bm
 ;;     bongo
 ;;     boon
@@ -1394,6 +1395,11 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(awesome-tray-module-mode-name-face ((,class :inherit bold :foreground ,green)))
    `(awesome-tray-module-parent-dir-face ((,class :inherit bold :foreground ,cyan)))
    `(awesome-tray-module-rvm-face ((,class :inherit bold :foreground ,magenta-alt-other)))
+;;;;; binder
+   `(binder-sidebar-highlight ((,class :inherit modus-theme-subtle-cyan)))
+   `(binder-sidebar-marked ((,class :inherit modus-theme-mark-sel)))
+   `(binder-sidebar-missing ((,class :inherit modus-theme-subtle-red)))
+   `(binder-sidebar-tags ((,class :foreground ,cyan)))
 ;;;;; bm
    `(bm-face ((,class :inherit modus-theme-subtle-yellow
                       ,@(and (>= emacs-major-version 27) '(:extend t)))))
