@@ -3435,14 +3435,13 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-column-title ((,class :inherit bold :underline t :background ,bg-alt)))
    `(org-date ((,class :inherit fixed-pitch :foreground ,cyan-alt-other :underline t)))
    `(org-date-selected ((,class :inherit bold :foreground ,blue-alt :inverse-video t)))
-   `(org-default ((,class :background ,bg-main :foreground ,fg-main)))
    `(org-document-info ((,class :foreground ,fg-special-cold)))
    `(org-document-info-keyword ((,class :inherit fixed-pitch :foreground ,fg-alt)))
    `(org-document-title ((,class :inherit (bold ,modus-theme-variable-pitch) :foreground ,fg-special-cold
                                  ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-5))))
    `(org-done ((,class :box ,bg-region :background ,bg-dim :foreground ,green
                        :inherit ,modus-theme-variable-pitch)))
-   `(org-drawer ((,class :inherit ,modus-theme-variable-pitch :foreground ,cyan-alt)))
+   `(org-drawer ((,class :inherit ,modus-theme-variable-pitch :foreground ,cyan)))
    `(org-ellipsis ((,class :foreground nil))) ; inherits from the heading's colour
    `(org-footnote ((,class :foreground ,blue-alt :underline t)))
    `(org-formula ((,class :inherit fixed-pitch :foreground ,red-alt)))
@@ -3480,12 +3479,13 @@ Also bind `class' to ((class color) (min-colors 89))."
                              8 fg-dim magenta bg-alt bg-region))))
    `(org-link ((,class :inherit link)))
    `(org-list-dt ((,class :inherit bold)))
-   `(org-macro ((,class :inherit org-latex-and-related)))
+   `(org-macro ((,class :background ,blue-nuanced-bg :foreground ,magenta-alt-other)))
    `(org-meta-line ((,class :inherit fixed-pitch :background ,cyan-nuanced-bg :foreground ,cyan-nuanced)))
    `(org-mode-line-clock ((,class :foreground ,fg-main)))
    `(org-mode-line-clock-overrun ((,class :inherit modus-theme-active-red)))
    `(org-priority ((,class :box ,bg-region :background ,bg-dim :foreground ,magenta
                            :inherit ,modus-theme-variable-pitch)))
+   `(org-property-value ((,class :foreground ,cyan-alt-other)))
    `(org-quote ((,class ,@(if modus-vivendi-theme-org-blocks
                               (append
                                (and (>= emacs-major-version 27) '(:extend t))
@@ -3497,7 +3497,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-scheduled-today ((,class :foreground ,magenta-alt-other)))
    `(org-sexp-date ((,class :inherit org-date)))
    `(org-special-keyword ((,class :inherit ,modus-theme-variable-pitch
-                                  :foreground ,cyan-alt-other)))
+                                  :foreground ,blue-nuanced)))
    `(org-table ((,class :inherit fixed-pitch :foreground ,fg-special-cold)))
    `(org-tag ((,class :foreground ,magenta-nuanced)))
    `(org-tag-group ((,class :inherit bold :foreground ,cyan-nuanced)))
