@@ -3328,7 +3328,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-done ((,class ,@(modus-vivendi-theme-org-todo-block green-nuanced-bg green-nuanced green))))
    `(org-drawer ((,class :foreground ,cyan-alt)))
    `(org-ellipsis ((,class :foreground nil))) ; inherits from the heading's colour
-   `(org-footnote ((,class :foreground ,blue-alt :underline t)))
+   `(org-footnote ((,class :foreground ,blue-alt :underline ,blue-alt)))
    `(org-formula ((,class :inherit fixed-pitch :foreground ,red-alt)))
    `(org-habit-alert-face ((,class :inherit modus-theme-intense-yellow)))
    `(org-habit-alert-future-face ((,class :inherit modus-theme-refine-yellow)))
