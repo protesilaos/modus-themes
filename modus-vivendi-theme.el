@@ -2647,7 +2647,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(info-index-match ((,class :inherit match)))
    `(info-menu-header ((,class :inherit (bold ,modus-theme-variable-pitch) :foreground ,fg-main
                                ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-2))))
-   `(info-menu-star ((,class :foreground ,fg-main)))
+   `(info-menu-star ((,class :foreground ,red)))
    `(info-node ((,class :inherit bold)))
    `(info-title-1 ((,class :inherit (bold ,modus-theme-variable-pitch) :foreground ,fg-main
                            ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-4))))
