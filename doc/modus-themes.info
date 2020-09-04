@@ -1080,11 +1080,11 @@ describe-function’):
      (set-face-attribute 'fixed-pitch nil :family "DejaVu Sans Mono" :height 1.0)
 
    Note the differences in the ‘:height’ property.  The ‘default’ face
-must specify an absolute value, which is the point size × 100.  So if
-you want to use a font at point size ‘11’, you set the height at
-‘110’.(1)  Whereas every other face must have a value that is relative
-to the default, represented as a floating point (if you use an integer,
-say, ‘15’ then that means an absolute height).  This is of paramount
+must specify an absolute value, which is the point size × 10.  So if you
+want to use a font at point size ‘11’, you set the height at ‘110’.(1)
+Whereas every other face must have a value that is relative to the
+default, represented as a floating point (if you use an integer, say,
+‘15’ then that means an absolute height).  This is of paramount
 importantance: it ensures that all fonts can scale gracefully when using
 something like the ‘text-scale-adjust’ command which only operates on
 the base font size (i.e.  the ‘default’ face’s absolute height).
@@ -2286,26 +2286,26 @@ Node: Headings' font33284
 Node: Advanced customisation (do-it-yourself)33908
 Node: Tweak colours (DIY)34912
 Node: Font configs (DIY)38546
-Ref: Font configs (DIY)-Footnote-141128
-Ref: Font configs (DIY)-Footnote-241315
-Node: Org user faces (DIY)41537
-Node: Face coverage44369
-Node: Supported packages44871
-Node: Covered indirectly50793
-Node: Will NOT be supported51145
-Node: Notes for individual packages51863
-Node: Note for powerline or spaceline52269
-Node: Note on shr colours52641
-Node: Note for Helm grep53054
-Node: Note on vc-annotate-background-mode54501
-Node: Contributing55355
-Node: Sources of the themes55774
-Node: Issues you can help with56536
-Node: Merge requests57723
-Node: Acknowledgements58805
-Node: Meta60262
-Node: External projects (ports)61315
-Node: GNU Free Documentation License62138
+Ref: Font configs (DIY)-Footnote-141126
+Ref: Font configs (DIY)-Footnote-241313
+Node: Org user faces (DIY)41535
+Node: Face coverage44367
+Node: Supported packages44869
+Node: Covered indirectly50791
+Node: Will NOT be supported51143
+Node: Notes for individual packages51861
+Node: Note for powerline or spaceline52267
+Node: Note on shr colours52639
+Node: Note for Helm grep53052
+Node: Note on vc-annotate-background-mode54499
+Node: Contributing55353
+Node: Sources of the themes55772
+Node: Issues you can help with56534
+Node: Merge requests57721
+Node: Acknowledgements58803
+Node: Meta60260
+Node: External projects (ports)61313
+Node: GNU Free Documentation License62136
 
 End Tag Table
 
