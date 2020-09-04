@@ -977,6 +977,78 @@ faces like this:
   (set-face-attribute face nil :font "DejaVu Sans Mono-11"))
 #+end_src
 
+** Org user faces (DIY)
+:PROPERTIES:
+:DESCRIPTION: Extend styles for org-mode keywords and priorities
+:CUSTOM_ID: h:89f0678d-c5c3-4a57-a526-668b2bb2d7ad
+:END:
+
+Users of =org-mode= have the option to configure various keywords and
+priority cookies to better match their workflow.  User options are
+=org-todo-keyword-faces= and =org-priority-faces=.
+
+As those are meant to be custom faces, it would be futile to have the
+themes try to guess what each user would want to use, which keywords to
+target, and so on.  Instead, we can provide guidelines on how to
+customise things to one's liking with the intent to retain the overall
+aesthetics of the theme.
+
+Please bear in mind that the end result of those is not controlled by
+the active theme but by how Org maps faces to its constructs.  Editing
+those while =org-mode= is active requires =M-x org-mode-restart= for changes
+to take effect.
+
+Let us assume you wish to visually differentiate your keywords.  You
+have something like this:
+
+#+begin_src emacs-lisp
+(setq org-todo-keywords
+      '((sequence "TODO(t)" "|" "DONE(D)" "CANCEL(C)")
+        (sequence "MEET(m)" "|" "MET(M)")
+        (sequence "STUDY(s)" "|" "STUDIED(S)")
+        (sequence "WRITE(w)" "|" "WROTE(W)")))
+#+end_src
+
+You could then use a variant of the following to inherit from a face
+that uses the styles you want and also to preserve the properties
+applied by the =org-todo= face:
+
+#+begin_src emacs-lisp
+(setq org-todo-keyword-faces
+      '(("MEET" . '(font-lock-preprocessor-face org-todo))
+        ("STUDY" . '(font-lock-variable-name-face org-todo))
+        ("WRITE" . '(font-lock-type-face org-todo))))
+#+end_src
+
+This will refashion the keywords you specify, while letting the others
+use their original styles (which are defined in the =org-todo= face).
+
+When you inherit from multiple faces, you need to quote the list as
+shown above.  The order is important: the last item is applied over the
+previous ones.
+
+If you do not want to blend multiple faces, you do not need a quoted
+list.  A pattern of =keyword . face= would suffice.
+
+Consider both approaches in the configuration of the priority cookies:
+
+#+begin_src emacs-lisp
+(setq org-priority-faces
+      '((?A . '(org-scheduled-today org-priority))
+        (?B . org-priority)
+        (?C . '(shadow org-priority))))
+#+end_src
+
+To find all the faces that are loaded in your current Emacs session, use
+=M-x list-faces-display=.  Also try =M-x describe-variable= and then specify
+the name of each of those Org variables demonstrated above.  Their
+documentation strings will offer you further guidance.
+
+Also consider reading the "Notes for aspiring Emacs theme developers",
+published on 2020-08-28 by Protesilaos Stavrou:
+https://protesilaos.com/codelog/2020-08-28-notes-emacs-theme-devs/.
+
+
 * Face coverage
 :PROPERTIES:
 :CUSTOM_ID: h:a9c8f29d-7f72-4b54-b74b-ddefe15d6a19
