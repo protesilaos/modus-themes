@@ -952,13 +952,16 @@ the documentation of =set-face-attribute=, with =M-x describe-function=):
 #+end_src
 
 The value of the =:height= attribute essentially is the point size × 100.
-So if you want to use a font at point size =11=, you set the height to
+So if you want to use a font at point size =11=, you set the height at
 =110=.  Values do not need to be rounded to multiples of ten: the likes of
 =115= are perfectly valid.
 
 An alternative syntax, which the author of this documents prefers, is to
-pass all typeface parameters directly to a =font= property.  Note that
-here we use a standard point size.
+pass all typeface parameters directly to a =font= property.[fn:: Has the
+benefit of accepting =fontconfig= parameters (GNU/Linux), such as ="DejaVu
+Sans Mono-11:hintstyle=hintslight:autohint=false"=.
+https://www.freedesktop.org/software/fontconfig/fontconfig-user.html]
+Note that here we use a standard point size:
 
 #+begin_src emacs-lisp
 (set-face-attribute 'default nil :font "DejaVu Sans Mono-11")
