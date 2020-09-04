@@ -756,10 +756,14 @@ In addition to toggles for enabling scaled headings, users can also
 specify a number of their own.
 
 + If it is a floating point, say, =1.5=, it is interpreted as a multiple
-  of the base font size.
+  of the base font size.  This is the recommended method.
+
 + If it is an integer, it is read as an absolute font height.  The
   number is basically the point size multiplied by a hundred.  So if you
-  want it to be =18pt= you must pass =180=.
+  want it to be =18pt= you must pass =180=.  Please understand that setting
+  an absolute value is discouraged, as it will break the layout when you
+  try to change font sizes with the built-in =text-scale-adjust= command
+  (see [[#h:defcf4fc-8fa8-4c29-b12e-7119582cc929][Font configurations]]).
 
 Below are the variables in their default values, using the floating
 point paradigm.  The numbers are very conservative, but you are free to
