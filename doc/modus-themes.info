@@ -93,6 +93,7 @@ Advanced customisation (do-it-yourself)
 
 * Tweak colours (DIY)::          Declare your own palette overrides
 * Font configs (DIY)::           Optimise for mixed typeface buffers
+* Org user faces (DIY)::         Extend styles for org-mode keywords and priorities
 
 Face coverage
 
@@ -950,6 +951,7 @@ such, they are labelled as “do-it-yourself” or “DIY”.
 
 * Tweak colours (DIY)::          Declare your own palette overrides
 * Font configs (DIY)::           Optimise for mixed typeface buffers
+* Org user faces (DIY)::         Extend styles for org-mode keywords and priorities
 
 
 File: modus-themes.info,  Node: Tweak colours (DIY),  Next: Font configs (DIY),  Up: Advanced customisation (do-it-yourself)
@@ -1038,7 +1040,7 @@ prior to loading:: for a more comprehensive setup).
          (load-theme 'modus-operandi t)))
 
 
-File: modus-themes.info,  Node: Font configs (DIY),  Prev: Tweak colours (DIY),  Up: Advanced customisation (do-it-yourself)
+File: modus-themes.info,  Node: Font configs (DIY),  Next: Org user faces (DIY),  Prev: Tweak colours (DIY),  Up: Advanced customisation (do-it-yourself)
 
 5.2 Font configurations for Org (and others)
 ============================================
@@ -1072,12 +1074,12 @@ describe-function’):
 
    The value of the ‘:height’ attribute essentially is the point size ×
 100.  So if you want to use a font at point size ‘11’, you set the
-height to ‘110’.  Values do not need to be rounded to multiples of ten:
+height at ‘110’.  Values do not need to be rounded to multiples of ten:
 the likes of ‘115’ are perfectly valid.
 
    An alternative syntax, which the author of this documents prefers, is
-to pass all typeface parameters directly to a ‘font’ property.  Note
-that here we use a standard point size.
+to pass all typeface parameters directly to a ‘font’ property.(1)  Note
+that here we use a standard point size:
 
      (set-face-attribute 'default nil :font "DejaVu Sans Mono-11")
      (set-face-attribute 'variable-pitch nil :font "DejaVu Serif-11")
@@ -1088,6 +1090,79 @@ multiple faces like this:
 
      (dolist (face '(default fixed-pitch))
        (set-face-attribute face nil :font "DejaVu Sans Mono-11"))
+
+   ---------- Footnotes ----------
+
+   (1) Has the benefit of accepting ‘fontconfig’ parameters (GNU/Linux),
+such as ‘"DejaVu Sans Mono-11:hintstyle=hintslight:autohint=false"’.
+<https://www.freedesktop.org/software/fontconfig/fontconfig-user.html>
+
+
+File: modus-themes.info,  Node: Org user faces (DIY),  Prev: Font configs (DIY),  Up: Advanced customisation (do-it-yourself)
+
+5.3 Org user faces (DIY)
+========================
+
+Users of ‘org-mode’ have the option to configure various keywords and
+priority cookies to better match their workflow.  User options are
+‘org-todo-keyword-faces’ and ‘org-priority-faces’.
+
+   As those are meant to be custom faces, it would be futile to have the
+themes try to guess what each user would want to use, which keywords to
+target, and so on.  Instead, we can provide guidelines on how to
+customise things to one’s liking with the intent to retain the overall
+aesthetics of the theme.
+
+   Please bear in mind that the end result of those is not controlled by
+the active theme but by how Org maps faces to its constructs.  Editing
+those while ‘org-mode’ is active requires ‘M-x org-mode-restart’ for
+changes to take effect.
+
+   Let us assume you wish to visually differentiate your keywords.  You
+have something like this:
+
+     (setq org-todo-keywords
+           '((sequence "TODO(t)" "|" "DONE(D)" "CANCEL(C)")
+             (sequence "MEET(m)" "|" "MET(M)")
+             (sequence "STUDY(s)" "|" "STUDIED(S)")
+             (sequence "WRITE(w)" "|" "WROTE(W)")))
+
+   You could then use a variant of the following to inherit from a face
+that uses the styles you want and also to preserve the properties
+applied by the ‘org-todo’ face:
+
+     (setq org-todo-keyword-faces
+           '(("MEET" . '(font-lock-preprocessor-face org-todo))
+             ("STUDY" . '(font-lock-variable-name-face org-todo))
+             ("WRITE" . '(font-lock-type-face org-todo))))
+
+   This will refashion the keywords you specify, while letting the
+others use their original styles (which are defined in the ‘org-todo’
+face).
+
+   When you inherit from multiple faces, you need to quote the list as
+shown above.  The order is important: the last item is applied over the
+previous ones.
+
+   If you do not want to blend multiple faces, you do not need a quoted
+list.  A pattern of ‘keyword . face’ would suffice.
+
+   Consider both approaches in the configuration of the priority
+cookies:
+
+     (setq org-priority-faces
+           '((?A . '(org-scheduled-today org-priority))
+             (?B . org-priority)
+             (?C . '(shadow org-priority))))
+
+   To find all the faces that are loaded in your current Emacs session,
+use ‘M-x list-faces-display’.  Also try ‘M-x describe-variable’ and then
+specify the name of each of those Org variables demonstrated above.
+Their documentation strings will offer you further guidance.
+
+   Also consider reading the “Notes for aspiring Emacs theme
+developers”, published on 2020-08-28 by Protesilaos Stavrou:
+<https://protesilaos.com/codelog/2020-08-28-notes-emacs-theme-devs/>.
 
 
 File: modus-themes.info,  Node: Face coverage,  Next: Notes for individual packages,  Prev: Advanced customisation (do-it-yourself),  Up: Top
@@ -2165,58 +2240,60 @@ Appendix A GNU Free Documentation License
 
 Tag Table:
 Node: Top218
-Node: Overview3732
-Node: How do the themes look like5417
-Node: Installation5900
-Node: Install from the archives6550
-Node: Install on GNU/Linux7237
-Node: Debian 11 Bullseye7682
-Node: GNU Guix8091
-Node: Enable and load8442
-Node: Load automatically9019
-Node: Load at a given time or at sunset/sunrise9578
-Ref: Load at a given time or at sunset/sunrise-Footnote-111616
-Ref: Load at a given time or at sunset/sunrise-Footnote-211744
-Node: Toggle between the themes on demand11827
-Node: Configure options prior to loading12574
-Ref: Configure options prior to loading-Footnote-115055
-Node: Customisation Options15230
-Node: Bold constructs16894
-Node: Slanted constructs17893
-Node: Syntax highlighting18484
-Node: Command prompts19213
-Node: Mode line20016
-Node: Completion UIs21270
-Node: Fringes23211
-Node: Line highlighting23975
-Node: Matching parentheses24641
-Node: Diffs25283
-Node: Org mode blocks27076
-Node: Accented headings28582
-Node: Section headings29437
-Node: Scaled headings30622
-Node: Scaled heading sizes31241
-Node: Headings' font32914
-Node: Advanced customisation (do-it-yourself)33538
-Node: Tweak colours (DIY)34458
-Node: Font configs (DIY)38092
-Node: Face coverage40456
-Node: Supported packages40958
-Node: Covered indirectly46880
-Node: Will NOT be supported47232
-Node: Notes for individual packages47950
-Node: Note for powerline or spaceline48356
-Node: Note on shr colours48728
-Node: Note for Helm grep49141
-Node: Note on vc-annotate-background-mode50588
-Node: Contributing51442
-Node: Sources of the themes51861
-Node: Issues you can help with52623
-Node: Merge requests53810
-Node: Acknowledgements54892
-Node: Meta56349
-Node: External projects (ports)57402
-Node: GNU Free Documentation License58225
+Node: Overview3816
+Node: How do the themes look like5501
+Node: Installation5984
+Node: Install from the archives6634
+Node: Install on GNU/Linux7321
+Node: Debian 11 Bullseye7766
+Node: GNU Guix8175
+Node: Enable and load8526
+Node: Load automatically9103
+Node: Load at a given time or at sunset/sunrise9662
+Ref: Load at a given time or at sunset/sunrise-Footnote-111700
+Ref: Load at a given time or at sunset/sunrise-Footnote-211828
+Node: Toggle between the themes on demand11911
+Node: Configure options prior to loading12658
+Ref: Configure options prior to loading-Footnote-115139
+Node: Customisation Options15314
+Node: Bold constructs16978
+Node: Slanted constructs17977
+Node: Syntax highlighting18568
+Node: Command prompts19297
+Node: Mode line20100
+Node: Completion UIs21354
+Node: Fringes23295
+Node: Line highlighting24059
+Node: Matching parentheses24725
+Node: Diffs25367
+Node: Org mode blocks27160
+Node: Accented headings28666
+Node: Section headings29521
+Node: Scaled headings30706
+Node: Scaled heading sizes31325
+Node: Headings' font32998
+Node: Advanced customisation (do-it-yourself)33622
+Node: Tweak colours (DIY)34626
+Node: Font configs (DIY)38260
+Ref: Font configs (DIY)-Footnote-140692
+Node: Org user faces (DIY)40914
+Node: Face coverage43746
+Node: Supported packages44248
+Node: Covered indirectly50170
+Node: Will NOT be supported50522
+Node: Notes for individual packages51240
+Node: Note for powerline or spaceline51646
+Node: Note on shr colours52018
+Node: Note for Helm grep52431
+Node: Note on vc-annotate-background-mode53878
+Node: Contributing54732
+Node: Sources of the themes55151
+Node: Issues you can help with55913
+Node: Merge requests57100
+Node: Acknowledgements58182
+Node: Meta59639
+Node: External projects (ports)60692
+Node: GNU Free Documentation License61515
 
 End Tag Table
 
