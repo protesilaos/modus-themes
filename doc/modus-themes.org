@@ -1027,17 +1027,27 @@ applied by the =org-todo= face:
         ("WRITE" . '(font-lock-type-face org-todo))))
 #+end_src
 
-This will refashion the keywords you specify, while letting the others
-use their original styles (which are defined in the =org-todo= face).
+This will refashion the keywords you specify, while letting the other
+items in =org-todo-keywords= use their original styles (which are defined
+in the =org-todo= and =org-done= faces).
+
+If you want back the defaults, try specifying just the =org-todo= face (or
+use =org-done= if the meaning of the keywords you use demands as much):
+
+#+begin_src emacs-lisp
+(setq org-todo-keyword-faces
+      '(("MEET" . org-todo)
+        ("STUDY" . org-todo)
+        ("WRITE" . org-todo)))
+#+end_src
 
 When you inherit from multiple faces, you need to quote the list as
-shown above.  The order is important: the last item is applied over the
-previous ones.
+shown further above.  The order is important: the last item is applied
+over the previous ones.  If you do not want to blend multiple faces, you
+do not need a quoted list.  A pattern of =keyword . face= would suffice.
 
-If you do not want to blend multiple faces, you do not need a quoted
-list.  A pattern of =keyword . face= would suffice.
-
-Consider both approaches in the configuration of the priority cookies:
+Both approaches can be used simultaneously, as illustrated in this
+configuration of the priority cookies:
 
 #+begin_src emacs-lisp
 (setq org-priority-faces
@@ -1054,7 +1064,6 @@ documentation strings will offer you further guidance.
 Also consider reading the "Notes for aspiring Emacs theme developers",
 published on 2020-08-28 by Protesilaos Stavrou:
 https://protesilaos.com/codelog/2020-08-28-notes-emacs-theme-devs/.
-
 
 * Face coverage
 :PROPERTIES:

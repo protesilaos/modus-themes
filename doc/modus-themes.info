@@ -1147,19 +1147,26 @@ applied by the ‘org-todo’ face:
              ("STUDY" . '(font-lock-variable-name-face org-todo))
              ("WRITE" . '(font-lock-type-face org-todo))))
 
-   This will refashion the keywords you specify, while letting the
-others use their original styles (which are defined in the ‘org-todo’
-face).
+   This will refashion the keywords you specify, while letting the other
+items in ‘org-todo-keywords’ use their original styles (which are
+defined in the ‘org-todo’ and ‘org-done’ faces).
+
+   If you want back the defaults, try specifying just the ‘org-todo’
+face (or use ‘org-done’ if the meaning of the keywords you use demands
+as much):
+
+     (setq org-todo-keyword-faces
+           '(("MEET" . org-todo)
+             ("STUDY" . org-todo)
+             ("WRITE" . org-todo)))
 
    When you inherit from multiple faces, you need to quote the list as
-shown above.  The order is important: the last item is applied over the
-previous ones.
+shown further above.  The order is important: the last item is applied
+over the previous ones.  If you do not want to blend multiple faces, you
+do not need a quoted list.  A pattern of ‘keyword . face’ would suffice.
 
-   If you do not want to blend multiple faces, you do not need a quoted
-list.  A pattern of ‘keyword . face’ would suffice.
-
-   Consider both approaches in the configuration of the priority
-cookies:
+   Both approaches can be used simultaneously, as illustrated in this
+configuration of the priority cookies:
 
      (setq org-priority-faces
            '((?A . '(org-scheduled-today org-priority))
@@ -2289,23 +2296,23 @@ Node: Font configs (DIY)38546
 Ref: Font configs (DIY)-Footnote-141126
 Ref: Font configs (DIY)-Footnote-241313
 Node: Org user faces (DIY)41535
-Node: Face coverage44367
-Node: Supported packages44869
-Node: Covered indirectly50791
-Node: Will NOT be supported51143
-Node: Notes for individual packages51861
-Node: Note for powerline or spaceline52267
-Node: Note on shr colours52639
-Node: Note for Helm grep53052
-Node: Note on vc-annotate-background-mode54499
-Node: Contributing55353
-Node: Sources of the themes55772
-Node: Issues you can help with56534
-Node: Merge requests57721
-Node: Acknowledgements58803
-Node: Meta60260
-Node: External projects (ports)61313
-Node: GNU Free Documentation License62136
+Node: Face coverage44756
+Node: Supported packages45258
+Node: Covered indirectly51180
+Node: Will NOT be supported51532
+Node: Notes for individual packages52250
+Node: Note for powerline or spaceline52656
+Node: Note on shr colours53028
+Node: Note for Helm grep53441
+Node: Note on vc-annotate-background-mode54888
+Node: Contributing55742
+Node: Sources of the themes56161
+Node: Issues you can help with56923
+Node: Merge requests58110
+Node: Acknowledgements59192
+Node: Meta60649
+Node: External projects (ports)61702
+Node: GNU Free Documentation License62525
 
 End Tag Table
 
