@@ -1077,19 +1077,16 @@ describe-function’):
    Note the differences in the ‘:height’ property.  The ‘default’ face
 must specify an absolute value, which is the point size × 100.  So if
 you want to use a font at point size ‘11’, you set the height at
-‘110’.[fn:: ‘:height’ values do not need to be rounded to multiples of
-ten: the likes of ‘115’ are perfectly valid—some typefaces will change
-to account for those finer increments.)  Whereas every other face must
-have a value that is relative to the default, represented as a floating
-point (if you use an integer, say, ‘15’ then that means an absolute
-height).  This is of paramount importantance: it ensures that all fonts
-can scale gracefully when using something like the ‘text-scale-adjust’
-command which only operates on the base font size (i.e.  the ‘default’
-face’s absolute height).
+‘110’.(1)  Whereas every other face must have a value that is relative
+to the default, represented as a floating point (if you use an integer,
+say, ‘15’ then that means an absolute height).  This is of paramount
+importantance: it ensures that all fonts can scale gracefully when using
+something like the ‘text-scale-adjust’ command which only operates on
+the base font size (i.e.  the ‘default’ face’s absolute height).
 
    An alternative syntax for the ‘default’ face, which the author of
 this documents prefers, is to pass all typeface parameters directly to a
-‘font’ property.(1)  Note that here we use a standard point size:
+‘font’ property.(2)  Note that here we use a standard point size:
 
      (set-face-attribute 'default nil :font "DejaVu Sans Mono-11")
 
@@ -1098,7 +1095,11 @@ this documents prefers, is to pass all typeface parameters directly to a
 
    ---------- Footnotes ----------
 
-   (1) Has the benefit of accepting ‘fontconfig’ parameters (GNU/Linux),
+   (1) ‘:height’ values do not need to be rounded to multiples of ten:
+the likes of ‘115’ are perfectly valid—some typefaces will change to
+account for those finer increments.
+
+   (2) Has the benefit of accepting ‘fontconfig’ parameters (GNU/Linux),
 such as ‘"DejaVu Sans Mono-11:hintstyle=hintslight:autohint=false"’.
 <https://www.freedesktop.org/software/fontconfig/fontconfig-user.html>
 
@@ -2280,25 +2281,26 @@ Node: Headings' font32998
 Node: Advanced customisation (do-it-yourself)33622
 Node: Tweak colours (DIY)34626
 Node: Font configs (DIY)38260
-Ref: Font configs (DIY)-Footnote-141024
-Node: Org user faces (DIY)41246
-Node: Face coverage44078
-Node: Supported packages44580
-Node: Covered indirectly50502
-Node: Will NOT be supported50854
-Node: Notes for individual packages51572
-Node: Note for powerline or spaceline51978
-Node: Note on shr colours52350
-Node: Note for Helm grep52763
-Node: Note on vc-annotate-background-mode54210
-Node: Contributing55064
-Node: Sources of the themes55483
-Node: Issues you can help with56245
-Node: Merge requests57432
-Node: Acknowledgements58514
-Node: Meta59971
-Node: External projects (ports)61024
-Node: GNU Free Documentation License61847
+Ref: Font configs (DIY)-Footnote-140842
+Ref: Font configs (DIY)-Footnote-241029
+Node: Org user faces (DIY)41251
+Node: Face coverage44083
+Node: Supported packages44585
+Node: Covered indirectly50507
+Node: Will NOT be supported50859
+Node: Notes for individual packages51577
+Node: Note for powerline or spaceline51983
+Node: Note on shr colours52355
+Node: Note for Helm grep52768
+Node: Note on vc-annotate-background-mode54215
+Node: Contributing55069
+Node: Sources of the themes55488
+Node: Issues you can help with56250
+Node: Merge requests57437
+Node: Acknowledgements58519
+Node: Meta59976
+Node: External projects (ports)61029
+Node: GNU Free Documentation License61852
 
 End Tag Table
 
