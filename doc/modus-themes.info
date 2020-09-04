@@ -1050,7 +1050,7 @@ Currently this applies to ‘org-mode’ and ‘markdown-mode’.
 
    In practice it means that the user can safely opt for a more
 prose-friendly proportionately spaced typeface as their default, while
-letting spacing-sensitive elements like tables and inline code to always
+letting spacing-sensitive elements like tables and inline code always
 use a monospaced font, by inheriting from the ‘fixed-pitch’ face.
 
    Users can try the built-in ‘M-x variable-pitch-mode’ to see the
@@ -1059,7 +1059,7 @@ effect in action.
    To make everything use your desired font families, you need to
 configure the ‘variable-pitch’ (proportional spacing) and ‘fixed-pitch’
 (monospaced) faces respectively.  It may also be convenient to set your
-main typeface by configuring the ‘default’ face in the same way.
+main typeface by configuring the ‘default’ face the same way.
 
    Put something like this in your initialisation file (make sure to
 read the documentation of ‘set-face-attribute’, with ‘M-x
@@ -1067,29 +1067,34 @@ describe-function’):
 
      ;; Main typeface
      (set-face-attribute 'default nil :family "DejaVu Sans Mono" :height 110)
+
      ;; Proportionately spaced typeface
-     (set-face-attribute 'variable-pitch nil :family "DejaVu Serif" :height 110)
+     (set-face-attribute 'variable-pitch nil :family "DejaVu Serif" :height 1.0)
+
      ;; Monospaced typeface
-     (set-face-attribute 'fixed-pitch nil :family "DejaVu Sans Mono" :height 110)
+     (set-face-attribute 'fixed-pitch nil :family "DejaVu Sans Mono" :height 1.0)
 
-   The value of the ‘:height’ attribute essentially is the point size ×
-100.  So if you want to use a font at point size ‘11’, you set the
-height at ‘110’.  Values do not need to be rounded to multiples of ten:
-the likes of ‘115’ are perfectly valid.
+   Note the differences in the ‘:height’ property.  The ‘default’ face
+must specify an absolute value, which is the point size × 100.  So if
+you want to use a font at point size ‘11’, you set the height at
+‘110’.[fn:: ‘:height’ values do not need to be rounded to multiples of
+ten: the likes of ‘115’ are perfectly valid—some typefaces will change
+to account for those finer increments.)  Whereas every other face must
+have a value that is relative to the default, represented as a floating
+point (if you use an integer, say, ‘15’ then that means an absolute
+height).  This is of paramount importantance: it ensures that all fonts
+can scale gracefully when using something like the ‘text-scale-adjust’
+command which only operates on the base font size (i.e.  the ‘default’
+face’s absolute height).
 
-   An alternative syntax, which the author of this documents prefers, is
-to pass all typeface parameters directly to a ‘font’ property.(1)  Note
-that here we use a standard point size:
+   An alternative syntax for the ‘default’ face, which the author of
+this documents prefers, is to pass all typeface parameters directly to a
+‘font’ property.(1)  Note that here we use a standard point size:
 
      (set-face-attribute 'default nil :font "DejaVu Sans Mono-11")
-     (set-face-attribute 'variable-pitch nil :font "DejaVu Serif-11")
-     (set-face-attribute 'fixed-pitch nil :font "DejaVu Sans Mono-11")
 
-   For a more succinct setup, you can configure the same value for
-multiple faces like this:
-
-     (dolist (face '(default fixed-pitch))
-       (set-face-attribute face nil :font "DejaVu Sans Mono-11"))
+   Again, remember to only ever specify an absolute height for the
+‘default’.
 
    ---------- Footnotes ----------
 
@@ -2275,25 +2280,25 @@ Node: Headings' font32998
 Node: Advanced customisation (do-it-yourself)33622
 Node: Tweak colours (DIY)34626
 Node: Font configs (DIY)38260
-Ref: Font configs (DIY)-Footnote-140692
-Node: Org user faces (DIY)40914
-Node: Face coverage43746
-Node: Supported packages44248
-Node: Covered indirectly50170
-Node: Will NOT be supported50522
-Node: Notes for individual packages51240
-Node: Note for powerline or spaceline51646
-Node: Note on shr colours52018
-Node: Note for Helm grep52431
-Node: Note on vc-annotate-background-mode53878
-Node: Contributing54732
-Node: Sources of the themes55151
-Node: Issues you can help with55913
-Node: Merge requests57100
-Node: Acknowledgements58182
-Node: Meta59639
-Node: External projects (ports)60692
-Node: GNU Free Documentation License61515
+Ref: Font configs (DIY)-Footnote-141024
+Node: Org user faces (DIY)41246
+Node: Face coverage44078
+Node: Supported packages44580
+Node: Covered indirectly50502
+Node: Will NOT be supported50854
+Node: Notes for individual packages51572
+Node: Note for powerline or spaceline51978
+Node: Note on shr colours52350
+Node: Note for Helm grep52763
+Node: Note on vc-annotate-background-mode54210
+Node: Contributing55064
+Node: Sources of the themes55483
+Node: Issues you can help with56245
+Node: Merge requests57432
+Node: Acknowledgements58514
+Node: Meta59971
+Node: External projects (ports)61024
+Node: GNU Free Documentation License61847
 
 End Tag Table
 
