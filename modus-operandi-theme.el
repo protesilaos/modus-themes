@@ -271,6 +271,7 @@
 ;;     powerline-evil
 ;;     proced
 ;;     prodigy
+;;     racket-mode
 ;;     rainbow-blocks
 ;;     rainbow-identifiers
 ;;     rainbow-delimiters
@@ -3552,6 +3553,23 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(prodigy-green-face ((,class :foreground ,green)))
    `(prodigy-red-face ((,class :foreground ,red)))
    `(prodigy-yellow-face ((,class :foreground ,yellow)))
+;;;;; racket-mode
+   `(racket-debug-break-face ((,class :inherit modus-theme-intense-red)))
+   `(racket-debug-locals-face ((,class :box (:line-width -1 :color nil)
+                                       :foreground ,green-alt-other)))
+   `(racket-debug-result-face ((,class :inherit bold :box (:line-width -1 :color nil)
+                                       :foreground ,green)))
+   `(racket-here-string-face ((,class :foreground ,blue-alt)))
+   `(racket-keyword-argument-face ((,class :foreground ,red-alt)))
+   `(racket-logger-config-face ((,class :foreground ,fg-alt :slant ,modus-theme-slant)))
+   `(racket-logger-debug-face ((,class :foreground ,blue-alt-other)))
+   `(racket-logger-info-face ((,class :foreground ,fg-lang-note)))
+   `(racket-logger-topic-face ((,class :foreground ,magenta :slant ,modus-theme-slant)))
+   `(racket-selfeval-face ((,class :foreground ,green-alt)))
+   `(racket-xp-error-face
+     ((,(append '((supports :underline (:style wave))) class)
+       :underline (:color ,fg-lang-error :style wave))
+      (,class :foreground ,fg-lang-error :underline t)))
 ;;;;; rainbow-blocks
    `(rainbow-blocks-depth-1-face ((,class :foreground ,magenta-alt-other)))
    `(rainbow-blocks-depth-2-face ((,class :foreground ,blue)))

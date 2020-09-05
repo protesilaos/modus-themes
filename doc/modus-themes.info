@@ -1413,6 +1413,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • powerline-evil
    • proced
    • prodigy
+   • racket-mode
    • rainbow-blocks
    • rainbow-identifiers
    • rainbow-delimiters
@@ -2298,21 +2299,21 @@ Ref: Font configs (DIY)-Footnote-241313
 Node: Org user faces (DIY)41535
 Node: Face coverage44756
 Node: Supported packages45258
-Node: Covered indirectly51180
-Node: Will NOT be supported51532
-Node: Notes for individual packages52250
-Node: Note for powerline or spaceline52656
-Node: Note on shr colours53028
-Node: Note for Helm grep53441
-Node: Note on vc-annotate-background-mode54888
-Node: Contributing55742
-Node: Sources of the themes56161
-Node: Issues you can help with56923
-Node: Merge requests58110
-Node: Acknowledgements59192
-Node: Meta60649
-Node: External projects (ports)61702
-Node: GNU Free Documentation License62525
+Node: Covered indirectly51199
+Node: Will NOT be supported51551
+Node: Notes for individual packages52269
+Node: Note for powerline or spaceline52675
+Node: Note on shr colours53047
+Node: Note for Helm grep53460
+Node: Note on vc-annotate-background-mode54907
+Node: Contributing55761
+Node: Sources of the themes56180
+Node: Issues you can help with56942
+Node: Merge requests58129
+Node: Acknowledgements59211
+Node: Meta60668
+Node: External projects (ports)61721
+Node: GNU Free Documentation License62544
 
 End Tag Table
 
