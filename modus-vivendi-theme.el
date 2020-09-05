@@ -3008,7 +3008,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(markdown-reference-face ((,class :inherit markdown-markup-face)))
    `(markdown-strike-through-face ((,class :strike-through t)))
    `(markdown-table-face ((,class :inherit fixed-pitch :foreground ,fg-special-cold)))
-   `(markdown-url-face ((,class :foreground ,blue)))
+   `(markdown-url-face ((,class :foreground ,blue-alt)))
 ;;;;; markup-faces (`adoc-mode')
    `(markup-anchor-face ((,class :foreground ,fg-inactive)))
    `(markup-attribute-face ((,class :foreground ,fg-inactive :slant italic)))
