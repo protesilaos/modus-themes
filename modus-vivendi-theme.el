@@ -1921,7 +1921,8 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(el-search-other-match ((,class :inherit modus-theme-special-mild)))
    `(el-search-occur-match ((,class :inherit modus-theme-special-calm)))
 ;;;;; eldoc
-   `(eldoc-highlight-function-argument ((,class :inherit bold :foreground ,blue-alt-other)))
+   ;; NOTE: see https://github.com/purcell/package-lint/issues/187
+   (list 'eldoc-highlight-function-argument `((,class :inherit bold :foreground ,blue-alt-other)))
 ;;;;; eldoc-box
    `(eldoc-box-body ((,class :background ,bg-alt :foreground ,fg-main)))
    `(eldoc-box-border ((,class :background ,fg-alt)))
