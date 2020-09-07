@@ -589,8 +589,25 @@ same as what you get when you run Emacs without any customisations
    While ‘moody’ removes all box effects from the modelines and applies
 underline and overline properties instead.  It also tones down a bit the
 inactive modelines.  This is meant to optimise things for use with the
-moody package (https://github.com/tarsius/moody), though it can work
-fine even without it.
+moody package (https://github.com/tarsius/moody) (hereinafter referred
+to as “Moody”), though it can work fine even without it.
+
+   Note that Moody does not expose any faces that the themes could style
+directly.  Instead it re-purposes existing ones to render its tabs and
+ribbons.  As such, there may be cases where the contrast ratio falls
+below the 7:1 target that the themes conform with (WCAG AAA). To hedge
+against this, we configure a fallback foreground for the ‘moody’ option,
+which will come into effect when the background of the modeline changes
+to something less accessible, such as Moody ribbons (read the doc string
+of ‘set-face-attribute’, specifically ‘:distant-foreground’).  This
+fallback comes into effect when Emacs determines that the background and
+foreground of the given construct are too close to each other in terms
+of colour distance.  In effect, users would need to experiment with the
+variable ‘face-near-same-color-threshold’ to trigger the fallback
+colour.  We find that a value of ‘45000’ would suffice, contrary to the
+default ‘30000’.  Do not set the value too high, because that would have
+the adverse effect of always overriding the default colour (which has
+been carefully designed to be highly accessible).
 
 
 File: modus-themes.info,  Node: Completion UIs,  Next: Fringes,  Prev: Mode line,  Up: Customisation Options
@@ -2280,40 +2297,40 @@ Node: Slanted constructs17977
 Node: Syntax highlighting18568
 Node: Command prompts19297
 Node: Mode line20100
-Node: Completion UIs21354
-Node: Fringes23295
-Node: Line highlighting24059
-Node: Matching parentheses24725
-Node: Diffs25367
-Node: Org mode blocks27160
-Node: Accented headings28666
-Node: Section headings29521
-Node: Scaled headings30706
-Node: Scaled heading sizes31325
-Node: Headings' font33284
-Node: Advanced customisation (do-it-yourself)33908
-Node: Tweak colours (DIY)34912
-Node: Font configs (DIY)38546
-Ref: Font configs (DIY)-Footnote-141126
-Ref: Font configs (DIY)-Footnote-241313
-Node: Org user faces (DIY)41535
-Node: Face coverage44756
-Node: Supported packages45258
-Node: Covered indirectly51199
-Node: Will NOT be supported51551
-Node: Notes for individual packages52269
-Node: Note for powerline or spaceline52675
-Node: Note on shr colours53047
-Node: Note for Helm grep53460
-Node: Note on vc-annotate-background-mode54907
-Node: Contributing55761
-Node: Sources of the themes56180
-Node: Issues you can help with56942
-Node: Merge requests58129
-Node: Acknowledgements59211
-Node: Meta60668
-Node: External projects (ports)61721
-Node: GNU Free Documentation License62544
+Node: Completion UIs22537
+Node: Fringes24478
+Node: Line highlighting25242
+Node: Matching parentheses25908
+Node: Diffs26550
+Node: Org mode blocks28343
+Node: Accented headings29849
+Node: Section headings30704
+Node: Scaled headings31889
+Node: Scaled heading sizes32508
+Node: Headings' font34467
+Node: Advanced customisation (do-it-yourself)35091
+Node: Tweak colours (DIY)36095
+Node: Font configs (DIY)39729
+Ref: Font configs (DIY)-Footnote-142309
+Ref: Font configs (DIY)-Footnote-242496
+Node: Org user faces (DIY)42718
+Node: Face coverage45939
+Node: Supported packages46441
+Node: Covered indirectly52382
+Node: Will NOT be supported52734
+Node: Notes for individual packages53452
+Node: Note for powerline or spaceline53858
+Node: Note on shr colours54230
+Node: Note for Helm grep54643
+Node: Note on vc-annotate-background-mode56090
+Node: Contributing56944
+Node: Sources of the themes57363
+Node: Issues you can help with58125
+Node: Merge requests59312
+Node: Acknowledgements60394
+Node: Meta61851
+Node: External projects (ports)62904
+Node: GNU Free Documentation License63727
 
 End Tag Table
 

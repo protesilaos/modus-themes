@@ -462,7 +462,25 @@ command line).
 While =moody= removes all box effects from the modelines and applies
 underline and overline properties instead.  It also tones down a bit the
 inactive modelines.  This is meant to optimise things for use with the
-[[https://github.com/tarsius/moody][moody package]], though it can work fine even without it.
+[[https://github.com/tarsius/moody][moody package]] (hereinafter referred to as "Moody"), though it can work
+fine even without it.
+
+Note that Moody does not expose any faces that the themes could style
+directly.  Instead it re-purposes existing ones to render its tabs and
+ribbons.  As such, there may be cases where the contrast ratio falls
+below the 7:1 target that the themes conform with (WCAG AAA).  To hedge
+against this, we configure a fallback foreground for the =moody= option,
+which will come into effect when the background of the modeline changes
+to something less accessible, such as Moody ribbons (read the doc string
+of =set-face-attribute=, specifically =:distant-foreground=).  This fallback
+comes into effect when Emacs determines that the background and
+foreground of the given construct are too close to each other in terms
+of colour distance.  In effect, users would need to experiment with the
+variable =face-near-same-color-threshold= to trigger the fallback colour.
+We find that a value of =45000= would suffice, contrary to the default
+=30000=.  Do not set the value too high, because that would have the
+adverse effect of always overriding the default colour (which has been
+carefully designed to be highly accessible).
 
 ** Option for completion framework aesthetics
 :PROPERTIES:
