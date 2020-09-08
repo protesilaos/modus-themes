@@ -2783,17 +2783,22 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(info-header-node ((,class :inherit bold :foreground ,fg-alt)))
    `(info-header-xref ((,class :foreground ,blue-active)))
    `(info-index-match ((,class :inherit match)))
-   `(info-menu-header ((,class :inherit (bold ,modus-theme-variable-pitch) :foreground ,fg-main
-                               ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-2))))
+   `(info-menu-header ((,class ,@(modus-vivendi-theme-heading
+                              3 fg-special-cold blue blue-nuanced-bg bg-region)
+                           ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-2))))
    `(info-menu-star ((,class :foreground ,red)))
    `(info-node ((,class :inherit bold)))
-   `(info-title-1 ((,class :inherit (bold ,modus-theme-variable-pitch) :foreground ,fg-main
+   `(info-title-1 ((,class ,@(modus-vivendi-theme-heading
+                              1 fg-main magenta-alt-other magenta-nuanced-bg bg-region)
                            ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-4))))
-   `(info-title-2 ((,class :inherit (bold ,modus-theme-variable-pitch) :foreground ,fg-special-warm
+   `(info-title-2 ((,class ,@(modus-vivendi-theme-heading
+                              2 fg-special-warm magenta-alt red-nuanced-bg bg-region)
                            ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-3))))
-   `(info-title-3 ((,class :inherit (bold ,modus-theme-variable-pitch) :foreground ,fg-special-cold
+   `(info-title-3 ((,class ,@(modus-vivendi-theme-heading
+                              3 fg-special-cold blue blue-nuanced-bg bg-region)
                            ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-2))))
-   `(info-title-4 ((,class :inherit (bold ,modus-theme-variable-pitch) :foreground ,fg-special-mild
+   `(info-title-4 ((,class ,@(modus-vivendi-theme-heading
+                              4 fg-special-mild cyan cyan-nuanced-bg bg-region)
                            ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-1))))
 ;;;;; info-colors
    `(info-colors-lisp-code-block ((,class :inherit fixed-pitch)))
