@@ -3113,7 +3113,19 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(markdown-footnote-text-face ((,class :foreground ,fg-main :slant ,modus-theme-slant)))
    `(markdown-gfm-checkbox-face ((,class :foreground ,cyan-alt-other)))
    `(markdown-header-delimiter-face ((,class ,@(modus-operandi-theme-bold-weight) :foreground ,fg-dim)))
-   `(markdown-header-face ((,class :inherit bold)))
+   `(markdown-header-face ((t nil)))
+   `(markdown-header-face-1 ((,class ,@(modus-operandi-theme-heading
+                                        1 fg-main magenta-alt-other magenta-nuanced-bg bg-region))))
+   `(markdown-header-face-2 ((,class ,@(modus-operandi-theme-heading
+                                        2 fg-special-warm magenta-alt red-nuanced-bg bg-region))))
+   `(markdown-header-face-3 ((,class ,@(modus-operandi-theme-heading
+                                        3 fg-special-cold blue blue-nuanced-bg bg-region))))
+   `(markdown-header-face-4 ((,class ,@(modus-operandi-theme-heading
+                                        4 fg-special-mild cyan cyan-nuanced-bg bg-region))))
+   `(markdown-header-face-5 ((,class ,@(modus-operandi-theme-heading
+                                        5 fg-special-calm green-alt-other green-nuanced-bg bg-region))))
+   `(markdown-header-face-6 ((,class ,@(modus-operandi-theme-heading
+                                        6 yellow-nuanced yellow-alt-other yellow-nuanced-bg bg-region))))
    `(markdown-header-rule-face ((,class :inherit bold :foreground ,fg-special-warm)))
    `(markdown-hr-face ((,class :inherit bold :foreground ,fg-special-warm)))
    `(markdown-html-attr-name-face ((,class :inherit fixed-pitch :foreground ,cyan)))
