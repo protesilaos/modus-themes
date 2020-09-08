@@ -80,8 +80,7 @@ Customisation Options
 * Matching parentheses::         Toggle intense style for matching delimiters/parentheses
 * Diffs::                        Choose among intense, desaturated, or text-only diffs
 * Org mode blocks::              Choose among plain, greyscale, or rainbow styles
-* Accented headings::            Toggle saturated outline headings
-* Section headings::             Toggle sectioned outline headings
+* Heading styles::               Choose among several styles, also per heading level
 * Scaled headings::              Toggle scaling of headings
 * Headings' font::               Toggle proportionately spaced fonts in headings
 
@@ -397,9 +396,10 @@ are just for the sake of this demonstration):(1)
                 modus-%1$s-theme-completions 'moderate ; {nil,'moderate,'opinionated}
                 modus-%1$s-theme-diffs nil ; {nil,'desaturated,'fg-only}
                 modus-%1$s-theme-org-blocks 'greyscale ; {nil,'greyscale,'rainbow}
+                modus-%1$s-theme-headings  ; Read further below in the manual for this one
+                '((1 . line)
+                  (t . rainbow-line-no-bold))
                 modus-%1$s-theme-variable-pitch-headings t
-                modus-%1$s-theme-rainbow-headings t
-                modus-%1$s-theme-section-headings t
                 modus-%1$s-theme-scale-headings t
                 modus-%1$s-theme-scale-1 1.1
                 modus-%1$s-theme-scale-2 1.15
@@ -452,8 +452,7 @@ theme (see *note Enable and load::).
 * Matching parentheses::         Toggle intense style for matching delimiters/parentheses
 * Diffs::                        Choose among intense, desaturated, or text-only diffs
 * Org mode blocks::              Choose among plain, greyscale, or rainbow styles
-* Accented headings::            Toggle saturated outline headings
-* Section headings::             Toggle sectioned outline headings
+* Heading styles::               Choose among several styles, also per heading level
 * Scaled headings::              Toggle scaling of headings
 * Headings' font::               Toggle proportionately spaced fonts in headings
 
@@ -766,7 +765,7 @@ with the overall experience of that mode.  Expect changes that are
 consistent with the overall intent of the aforementioned.
 
 
-File: modus-themes.info,  Node: Org mode blocks,  Next: Accented headings,  Prev: Diffs,  Up: Customisation Options
+File: modus-themes.info,  Node: Org mode blocks,  Next: Heading styles,  Prev: Diffs,  Up: Customisation Options
 
 4.11 Option for org-mode block styles
 =====================================
@@ -804,68 +803,110 @@ or ‘M-x org-mode-restart’ to refresh the buffer.  Or start typing in
 each code block (inefficient at scale, but it still works).
 
 
-File: modus-themes.info,  Node: Accented headings,  Next: Section headings,  Prev: Org mode blocks,  Up: Customisation Options
+File: modus-themes.info,  Node: Heading styles,  Next: Scaled headings,  Prev: Org mode blocks,  Up: Customisation Options
 
-4.12 Option for colourful headings
-==================================
+4.12 Option for headings’ overall style
+=======================================
 
-Symbol names:
+This is defined as an alist and, therefore, uses a different approach
+than other customisation options documented in this manual.
 
-   • ‘modus-operandi-theme-rainbow-headings’
-   • ‘modus-vivendi-theme-rainbow-headings’
+   Symbol names:
 
-   Possible values:
+   • ‘modus-operandi-theme-headings’
+   • ‘modus-vivendi-theme-headings’
 
-  1. ‘nil’ (default)
-  2. ‘t’
+   Possible values, which can be specified for each heading level
+(examples further below):
 
-   Apply more saturated colours to headings in ‘org-mode’ and
-‘outline-mode’ while retaining all other heading properties.  The
-colours follow the rainbow’s spectrum.  In Org headings, some additional
-tweaks are made to adapt keywords (like “TODO”) to the more vivid
-presentation.
+   • ‘t’ (default style)
+   • ‘no-bold’
+   • ‘line’
+   • ‘line-no-bold’
+   • ‘rainbow’
+   • ‘rainbow-line’
+   • ‘rainbow-line-no-bold’
+   • ‘rainbow-highlight’
+   • ‘rainbow-highlight-no-bold’
+   • ‘section’
+   • ‘section-no-bold’
+   • ‘rainbow-section’
+   • ‘rainbow-section-no-bold’
 
-   The default uses a more frugal aesthetic for headings, letting their
-bold typography and the nuances between the various heading levels
-provide the elements of differentiation.
+   To control faces per level from 1-8, use something like this (same
+for ‘modus-vivendi-theme-headings’):
+
+     (setq modus-operandi-theme-headings
+           '((1 . highlight)
+             (2 . line)
+             (t . rainbow-line-no-bold)))
+
+   The above uses the ‘highlight’ value for heading levels 1 and the
+‘line’ for headings 2.  All other levels fall back to
+‘rainbow-line-no-bold’.
+
+   To set a uniform value for all heading levels, use this pattern:
+
+     (setq modus-operandi-theme-headings
+           '((t . rainbow-line-no-bold)))
+
+   The default style for headings uses a fairly desaturated foreground
+value in combination with a bold typographic weight.  To specify this
+style for a given level N (assuming you wish to have another fallback
+option), just specify the value t like this:
+
+     (setq modus-operandi-theme-headings
+           '((1 . t)
+             (2 . line)
+             (t . rainbow-line-no-bold)))
+
+   A description of all other possible values:
+
+   • ‘no-bold’ retains the default text colour while removing the
+     typographic weight.
+
+   • ‘line’ is the same as the default plus an overline over the
+     heading.
+
+   • ‘line-no-bold’ is the same as ‘line’ without bold weight.
+
+   • ‘rainbow’ uses a more colourful foreground in combination with bold
+     weight.
+
+   • ‘rainbow-line’ is the same as ‘rainbow’ plus an overline.
+
+   • ‘rainbow-line-no-bold’ is the same as ‘rainbow-line’ without the
+     bold weight.
+
+   • ‘highlight’ retains the default style of a fairly desaturated
+     foreground combined with a bold weight and add to it a subtle
+     accented background.
+
+   • ‘highlight-no-bold’ is the same as ‘highlight’ without a bold
+     weight.
+
+   • ‘rainbow-highlight’ is the same as ‘highlight’ but with a more
+     colourful foreground.
+
+   • ‘rainbow-highlight-no-bold’ is the same as ‘rainbow-highlight’
+     without a bold weight.
+
+   • ‘section’ retains the default looks and adds to them both an
+     overline and a slightly accented background.  It is, in effect, a
+     combination of the ‘line’ and ‘highlight’ values.
+
+   • ‘section-no-bold’ is the same as ‘section’ without a bold weight.
+
+   • ‘rainbow-section’ is the same as ‘section’ but with a more
+     colourful foreground.
+
+   • ‘rainbow-section-no-bold’ is the same as ‘rainbow-section’ without
+     a bold weight.“
 
 
-File: modus-themes.info,  Node: Section headings,  Next: Scaled headings,  Prev: Accented headings,  Up: Customisation Options
+File: modus-themes.info,  Node: Scaled headings,  Next: Headings' font,  Prev: Heading styles,  Up: Customisation Options
 
-4.13 Option for sectioned headings
-==================================
-
-Symbol names:
-
-   • ‘modus-operandi-theme-section-headings’
-   • ‘modus-vivendi-theme-section-headings’
-
-   Possible values:
-
-  1. ‘nil’ (default)
-  2. ‘t’
-
-   Uses a background colour and an overline to mark section headings in
-‘org-mode’ and ‘outline-mode’.  These attributes are applied in addition
-to the existing foreground colour and the bold weight and can,
-therefore, be combined with the “rainbow” headings option (as well as
-all the other options pertaining to headings).  For Org several
-additional faces are configured accordingly, such as ‘TODO’ keywords
-which gain a box style.
-
-   The default is to use only a subtle foreground and a bold weight for
-headings, while no boxes or {under,over}-line effects are present.
-
-   Note that the background for sectioned headings will extend to the
-edge of the window.  To make it cover just the area occupied by the
-heading’s text, use this:
-
-     (setq org-fontify-whole-heading-line nil)
-
-
-File: modus-themes.info,  Node: Scaled headings,  Next: Headings' font,  Prev: Section headings,  Up: Customisation Options
-
-4.14 Option for scaled headings
+4.13 Option for scaled headings
 ===============================
 
 Symbol names:
@@ -889,7 +930,7 @@ headings and body copy.
 
 File: modus-themes.info,  Node: Scaled heading sizes,  Up: Scaled headings
 
-4.14.1 Control the scale of headings
+4.13.1 Control the scale of headings
 ------------------------------------
 
 In addition to toggles for enabling scaled headings, users can also
@@ -933,7 +974,7 @@ issue tracker).
 
 File: modus-themes.info,  Node: Headings' font,  Prev: Scaled headings,  Up: Customisation Options
 
-4.15 Option for variable-pitch font in headings
+4.14 Option for variable-pitch font in headings
 ===============================================
 
 Symbol names:
@@ -2276,61 +2317,60 @@ Appendix A GNU Free Documentation License
 
 Tag Table:
 Node: Top218
-Node: Overview3816
-Node: How do the themes look like5501
-Node: Installation5984
-Node: Install from the archives6634
-Node: Install on GNU/Linux7321
-Node: Debian 11 Bullseye7766
-Node: GNU Guix8175
-Node: Enable and load8526
-Node: Load automatically9103
-Node: Load at a given time or at sunset/sunrise9662
-Ref: Load at a given time or at sunset/sunrise-Footnote-111700
-Ref: Load at a given time or at sunset/sunrise-Footnote-211828
-Node: Toggle between the themes on demand11911
-Node: Configure options prior to loading12658
-Ref: Configure options prior to loading-Footnote-115139
-Node: Customisation Options15314
-Node: Bold constructs16978
-Node: Slanted constructs17977
-Node: Syntax highlighting18568
-Node: Command prompts19297
-Node: Mode line20100
-Node: Completion UIs22537
-Node: Fringes24478
-Node: Line highlighting25242
-Node: Matching parentheses25908
-Node: Diffs26550
-Node: Org mode blocks28343
-Node: Accented headings29849
-Node: Section headings30704
-Node: Scaled headings31889
-Node: Scaled heading sizes32508
-Node: Headings' font34467
-Node: Advanced customisation (do-it-yourself)35091
-Node: Tweak colours (DIY)36095
-Node: Font configs (DIY)39729
-Ref: Font configs (DIY)-Footnote-142309
-Ref: Font configs (DIY)-Footnote-242496
-Node: Org user faces (DIY)42718
-Node: Face coverage45939
-Node: Supported packages46441
-Node: Covered indirectly52382
-Node: Will NOT be supported52734
-Node: Notes for individual packages53452
-Node: Note for powerline or spaceline53858
-Node: Note on shr colours54230
-Node: Note for Helm grep54643
-Node: Note on vc-annotate-background-mode56090
-Node: Contributing56944
-Node: Sources of the themes57363
-Node: Issues you can help with58125
-Node: Merge requests59312
-Node: Acknowledgements60394
-Node: Meta61851
-Node: External projects (ports)62904
-Node: GNU Free Documentation License63727
+Node: Overview3767
+Node: How do the themes look like5452
+Node: Installation5935
+Node: Install from the archives6585
+Node: Install on GNU/Linux7272
+Node: Debian 11 Bullseye7717
+Node: GNU Guix8126
+Node: Enable and load8477
+Node: Load automatically9054
+Node: Load at a given time or at sunset/sunrise9613
+Ref: Load at a given time or at sunset/sunrise-Footnote-111651
+Ref: Load at a given time or at sunset/sunrise-Footnote-211779
+Node: Toggle between the themes on demand11862
+Node: Configure options prior to loading12609
+Ref: Configure options prior to loading-Footnote-115152
+Node: Customisation Options15327
+Node: Bold constructs16942
+Node: Slanted constructs17941
+Node: Syntax highlighting18532
+Node: Command prompts19261
+Node: Mode line20064
+Node: Completion UIs22501
+Node: Fringes24442
+Node: Line highlighting25206
+Node: Matching parentheses25872
+Node: Diffs26514
+Node: Org mode blocks28307
+Node: Heading styles29810
+Node: Scaled headings33199
+Node: Scaled heading sizes33816
+Node: Headings' font35775
+Node: Advanced customisation (do-it-yourself)36399
+Node: Tweak colours (DIY)37403
+Node: Font configs (DIY)41037
+Ref: Font configs (DIY)-Footnote-143617
+Ref: Font configs (DIY)-Footnote-243804
+Node: Org user faces (DIY)44026
+Node: Face coverage47247
+Node: Supported packages47749
+Node: Covered indirectly53690
+Node: Will NOT be supported54042
+Node: Notes for individual packages54760
+Node: Note for powerline or spaceline55166
+Node: Note on shr colours55538
+Node: Note for Helm grep55951
+Node: Note on vc-annotate-background-mode57398
+Node: Contributing58252
+Node: Sources of the themes58671
+Node: Issues you can help with59433
+Node: Merge requests60620
+Node: Acknowledgements61702
+Node: Meta63159
+Node: External projects (ports)64212
+Node: GNU Free Documentation License65035
 
 End Tag Table
 
