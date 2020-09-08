@@ -288,9 +288,10 @@ https://www.reddit.com/r/emacs/comments/gqsz8u/weekly_tipstricketc_thread/fsfakh
            modus-%1$s-theme-completions 'moderate ; {nil,'moderate,'opinionated}
            modus-%1$s-theme-diffs nil ; {nil,'desaturated,'fg-only}
            modus-%1$s-theme-org-blocks 'greyscale ; {nil,'greyscale,'rainbow}
+           modus-%1$s-theme-headings  ; Read further below in the manual for this one
+           '((1 . line)
+             (t . rainbow-line-no-bold))
            modus-%1$s-theme-variable-pitch-headings t
-           modus-%1$s-theme-rainbow-headings t
-           modus-%1$s-theme-section-headings t
            modus-%1$s-theme-scale-headings t
            modus-%1$s-theme-scale-1 1.1
            modus-%1$s-theme-scale-2 1.15
@@ -681,66 +682,110 @@ major-mode so that the colours are applied properly: use =M-x org-mode= or
 =M-x org-mode-restart= to refresh the buffer.  Or start typing in each
 code block (inefficient at scale, but it still works).
 
-** Option for colourful headings
+** Option for headings' overall style
 :PROPERTIES:
-:ALT_TITLE: Accented headings
-:DESCRIPTION: Toggle saturated outline headings
-:CUSTOM_ID: h:61b65cff-cc37-4c69-91d7-f818293139a0
+:ALT_TITLE: Heading styles
+:DESCRIPTION: Choose among several styles, also per heading level
+:CUSTOM_ID: h:271eff19-97aa-4090-9415-a6463c2f9ae1
 :END:
+
+This is defined as an alist and, therefore, uses a different approach
+than other customisation options documented in this manual.
 
 Symbol names:
 
-+ =modus-operandi-theme-rainbow-headings=
-+ =modus-vivendi-theme-rainbow-headings=
++ =modus-operandi-theme-headings=
++ =modus-vivendi-theme-headings=
 
-Possible values:
+Possible values, which can be specified for each heading level (examples
+further below):
 
-1. =nil= (default)
-2. =t=
++ =t= (default style)
++ =no-bold=
++ =line=
++ =line-no-bold=
++ =rainbow=
++ =rainbow-line=
++ =rainbow-line-no-bold=
++ =rainbow-highlight=
++ =rainbow-highlight-no-bold=
++ =section=
++ =section-no-bold=
++ =rainbow-section=
++ =rainbow-section-no-bold=
 
-Apply more saturated colours to headings in =org-mode= and =outline-mode=
-while retaining all other heading properties.  The colours follow the
-rainbow's spectrum.  In Org headings, some additional tweaks are made to
-adapt keywords (like "TODO") to the more vivid presentation.
-
-The default uses a more frugal aesthetic for headings, letting their
-bold typography and the nuances between the various heading levels
-provide the elements of differentiation.
-
-** Option for sectioned headings
-:PROPERTIES:
-:ALT_TITLE: Section headings
-:DESCRIPTION: Toggle sectioned outline headings
-:CUSTOM_ID: h:7649e1b4-7b1d-41bc-aebd-fdae585212d9
-:END:
-
-Symbol names:
-
-+ =modus-operandi-theme-section-headings=
-+ =modus-vivendi-theme-section-headings=
-
-Possible values:
-
-1. =nil= (default)
-2. =t=
-
-Uses a background colour and an overline to mark section headings in
-=org-mode= and =outline-mode=.  These attributes are applied in addition to
-the existing foreground colour and the bold weight and can, therefore,
-be combined with the "rainbow" headings option (as well as all the other
-options pertaining to headings).  For Org several additional faces are
-configured accordingly, such as =TODO= keywords which gain a box style.
-
-The default is to use only a subtle foreground and a bold weight for
-headings, while no boxes or {under,over}-line effects are present.
-
-Note that the background for sectioned headings will extend to the edge
-of the window.  To make it cover just the area occupied by the heading's
-text, use this:
+To control faces per level from 1-8, use something like this (same for
+=modus-vivendi-theme-headings=):
 
 #+begin_src emacs-lisp
-(setq org-fontify-whole-heading-line nil)
+(setq modus-operandi-theme-headings
+      '((1 . highlight)
+        (2 . line)
+        (t . rainbow-line-no-bold)))
 #+end_src
+
+The above uses the =highlight= value for heading levels 1 and the =line= for
+headings 2.  All other levels fall back to =rainbow-line-no-bold=.
+
+To set a uniform value for all heading levels, use this pattern:
+
+#+begin_src emacs-lisp
+(setq modus-operandi-theme-headings
+      '((t . rainbow-line-no-bold)))
+#+end_src
+
+The default style for headings uses a fairly desaturated foreground
+value in combination with a bold typographic weight.  To specify this
+style for a given level N (assuming you wish to have another fallback
+option), just specify the value t like this:
+
+#+begin_src emacs-lisp
+(setq modus-operandi-theme-headings
+      '((1 . t)
+        (2 . line)
+        (t . rainbow-line-no-bold)))
+#+end_src
+
+A description of all other possible values:
+
++ =no-bold= retains the default text colour while removing the typographic
+  weight.
+
++ =line= is the same as the default plus an overline over the heading.
+
++ =line-no-bold= is the same as =line= without bold weight.
+
++ =rainbow= uses a more colourful foreground in combination with bold
+  weight.
+
++ =rainbow-line= is the same as =rainbow= plus an overline.
+
++ =rainbow-line-no-bold= is the same as =rainbow-line= without the bold
+  weight.
+
++ =highlight= retains the default style of a fairly desaturated foreground
+  combined with a bold weight and add to it a subtle accented
+  background.
+
++ =highlight-no-bold= is the same as =highlight= without a bold weight.
+
++ =rainbow-highlight= is the same as =highlight= but with a more colourful
+  foreground.
+
++ =rainbow-highlight-no-bold= is the same as =rainbow-highlight= without a
+  bold weight.
+
++ =section= retains the default looks and adds to them both an overline
+  and a slightly accented background.  It is, in effect, a combination
+  of the =line= and =highlight= values.
+
++ =section-no-bold= is the same as =section= without a bold weight.
+
++ =rainbow-section= is the same as =section= but with a more colourful
+  foreground.
+
++ =rainbow-section-no-bold= is the same as =rainbow-section= without a bold
+  weight."
 
 ** Option for scaled headings
 :PROPERTIES:
