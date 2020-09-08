@@ -2779,7 +2779,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(indium-repl-prompt-face ((,class :foreground ,cyan-alt-other)))
    `(indium-repl-stdout-face ((,class :foreground ,fg-main)))
 ;;;;; info
-   `(Info-quoted ((,class :foreground ,magenta))) ; the capitalisation is canonical
+   `(Info-quoted ((,class :inherit fixed-pitch :foreground ,magenta))) ; the capitalisation is canonical
    `(info-header-node ((,class :inherit bold :foreground ,fg-alt)))
    `(info-header-xref ((,class :foreground ,blue-active)))
    `(info-index-match ((,class :inherit match)))
