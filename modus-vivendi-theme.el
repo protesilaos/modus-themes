@@ -3122,13 +3122,17 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(markdown-header-delimiter-face ((,class ,@(modus-vivendi-theme-bold-weight) :foreground ,fg-dim)))
    `(markdown-header-face ((t nil)))
    `(markdown-header-face-1 ((,class ,@(modus-vivendi-theme-heading
-                                        1 fg-main magenta-alt-other magenta-nuanced-bg bg-region))))
+                                        1 fg-main magenta-alt-other magenta-nuanced-bg bg-region)
+                                     ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-4))))
    `(markdown-header-face-2 ((,class ,@(modus-vivendi-theme-heading
-                                        2 fg-special-warm magenta-alt red-nuanced-bg bg-region))))
+                                        2 fg-special-warm magenta-alt red-nuanced-bg bg-region)
+                                     ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-3))))
    `(markdown-header-face-3 ((,class ,@(modus-vivendi-theme-heading
-                                        3 fg-special-cold blue blue-nuanced-bg bg-region))))
+                                        3 fg-special-cold blue blue-nuanced-bg bg-region)
+                                     ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-2))))
    `(markdown-header-face-4 ((,class ,@(modus-vivendi-theme-heading
-                                        4 fg-special-mild cyan cyan-nuanced-bg bg-region))))
+                                        4 fg-special-mild cyan cyan-nuanced-bg bg-region)
+                                     ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-1))))
    `(markdown-header-face-5 ((,class ,@(modus-vivendi-theme-heading
                                         5 fg-special-calm green-alt-other green-nuanced-bg bg-region))))
    `(markdown-header-face-6 ((,class ,@(modus-vivendi-theme-heading
