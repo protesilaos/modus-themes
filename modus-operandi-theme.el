@@ -446,15 +446,17 @@ between foreground and background is >= 7:1)."
   "Use proportional fonts (variable-pitch) in headings."
   :type 'boolean)
 
-(define-obsolete-variable-alias 'modus-operandi-theme-rainbow-headings
-  'modus-operandi-theme-headings "`modus-operandi-theme' 0.13.0")
+(make-obsolete 'modus-operandi-theme-rainbow-headings
+               'modus-operandi-theme-headings
+               "`modus-operandi-theme' 0.13.0")
 
 (defcustom modus-operandi-theme-rainbow-headings nil
   "Use more saturated colours for headings."
   :type 'boolean)
 
-(define-obsolete-variable-alias 'modus-operandi-theme-section-headings
-  'modus-operandi-theme-headings "`modus-operandi-theme' 0.13.0")
+(make-obsolete 'modus-operandi-theme-section-headings
+               'modus-operandi-theme-headings
+               "`modus-operandi-theme' 0.13.0")
 
 (defcustom modus-operandi-theme-section-headings nil
   "Use a background and an overline in headings."

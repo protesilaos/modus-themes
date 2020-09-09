@@ -446,15 +446,17 @@ between foreground and background is >= 7:1)."
   "Use proportional fonts (variable-pitch) in headings."
   :type 'boolean)
 
-(define-obsolete-variable-alias 'modus-vivendi-theme-rainbow-headings
-  'modus-vivendi-theme-headings "`modus-vivendi-theme' 0.13.0")
+(make-obsolete 'modus-vivendi-theme-rainbow-headings
+               'modus-vivendi-theme-headings
+               "`modus-vivendi-theme' 0.13.0")
 
 (defcustom modus-vivendi-theme-rainbow-headings nil
   "Use more saturated colours for headings."
   :type 'boolean)
 
-(define-obsolete-variable-alias 'modus-vivendi-theme-section-headings
-  'modus-vivendi-theme-headings "`modus-vivendi-theme' 0.13.0")
+(make-obsolete 'modus-vivendi-theme-section-headings
+               'modus-vivendi-theme-headings
+               "`modus-vivendi-theme' 0.13.0")
 
 (defcustom modus-vivendi-theme-section-headings nil
   "Use a background and an overline in headings."
