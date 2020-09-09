@@ -104,6 +104,7 @@
 ;;     counsel-notmuch
 ;;     counsel-org-capture-string
 ;;     cov
+;;     cperl-mode
 ;;     csv-mode
 ;;     ctrlf
 ;;     custom (M-x customize)
@@ -1761,6 +1762,10 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(cov-light-face ((,class :foreground ,blue-intense)))
    `(cov-med-face ((,class :foreground ,yellow-intense)))
    `(cov-none-face ((,class :foreground ,cyan-intense)))
+;;;;; cperl-mode
+   `(cperl-nonoverridable-face ((,class :foreground ,green)))
+   `(cperl-array-face ((,class :inherit bold :background ,bg-alt :foreground ,blue)))
+   `(cperl-hash-face ((,class :inherit bold :background ,bg-alt :foreground ,red :slant italic)))
 ;;;;; csv-mode
    `(csv-separator-face ((,class :background ,bg-special-cold :foreground ,fg-main)))
 ;;;;; ctrlf

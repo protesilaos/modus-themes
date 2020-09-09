@@ -1304,6 +1304,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • counsel-notmuch
    • counsel-org-capture-string
    • cov
+   • cperl-mode
    • csv-mode
    • ctrlf
    • custom (‘M-x customize’)
@@ -1551,6 +1552,7 @@ These do not require any extra styles because they are configured to
 inherit from some basic faces.  Please confirm.
 
    • edit-indirect
+   • perl-mode
    • php-mode
    • swift-mode
 
