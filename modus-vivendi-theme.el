@@ -611,8 +611,9 @@ For more on the matter, read the documentation of
 `set-face-attribute', specifically the ':height' section."
   :type 'number)
 
-(define-obsolete-variable-alias 'modus-vivendi-theme-visible-fringes
-  'modus-vivendi-theme-fringes "`modus-vivendi-theme' 0.12.0")
+(make-obsolete 'modus-vivendi-theme-visible-fringes
+               'modus-vivendi-theme-fringes
+               "`modus-vivendi-theme' 0.12.0")
 
 (defcustom modus-vivendi-theme-visible-fringes nil
   "Use a visible style for fringes."
@@ -630,15 +631,17 @@ pronounced greyscale value."
           (const :tag "Subtle greyscale background" subtle)
           (const :tag "Intense greyscale background" intense)))
 
-(define-obsolete-variable-alias 'modus-vivendi-theme-distinct-org-blocks
-  'modus-vivendi-theme-org-blocks "`modus-vivendi-theme' 0.11.0")
+(make-obsolete 'modus-vivendi-theme-distinct-org-blocks
+               'modus-vivendi-theme-org-blocks
+               "`modus-vivendi-theme' 0.11.0")
 
 (defcustom modus-vivendi-theme-distinct-org-blocks nil
   "Use a distinct neutral background for `org-mode' blocks."
   :type 'boolean)
 
-(define-obsolete-variable-alias 'modus-vivendi-theme-rainbow-org-src-blocks
-  'modus-vivendi-theme-org-blocks "`modus-vivendi-theme' 0.11.0")
+(make-obsolete 'modus-vivendi-theme-rainbow-org-src-blocks
+               'modus-vivendi-theme-org-blocks
+               "`modus-vivendi-theme' 0.11.0")
 
 (defcustom modus-vivendi-theme-rainbow-org-src-blocks nil
   "Use colour-coded backgrounds for `org-mode' source blocks.
@@ -668,8 +671,9 @@ association list)."
           (const :tag "Subtle grey block background" greyscale)
           (const :tag "Colour-coded background per programming language" rainbow)))
 
-(define-obsolete-variable-alias 'modus-vivendi-theme-3d-modeline
-  'modus-vivendi-theme-mode-line "`modus-vivendi-theme' 0.13.0")
+(make-obsolete 'modus-vivendi-theme-3d-modeline
+               'modus-vivendi-theme-mode-line
+               "`modus-vivendi-theme' 0.13.0")
 
 (defcustom modus-vivendi-theme-3d-modeline nil
   "Use a three-dimensional style for the active mode line."
@@ -697,8 +701,9 @@ intended purpose, this option can also be used without the
           (const :tag "Three-dimensional style for the active mode line" 3d)
           (const :tag "No box effects, which are optimal for use with the `moody' library" moody)))
 
-(define-obsolete-variable-alias 'modus-vivendi-theme-subtle-diffs
-  'modus-vivendi-theme-diffs "`modus-vivendi-theme' 0.13.0")
+(make-obsolete 'modus-vivendi-theme-subtle-diffs
+               'modus-vivendi-theme-diffs
+               "`modus-vivendi-theme' 0.13.0")
 
 (defcustom modus-vivendi-theme-subtle-diffs nil
   "Use fewer/dim backgrounds in `diff-mode', `ediff',`magit'."
@@ -726,8 +731,9 @@ greyscale value is used."
           (const :tag "Slightly accented backgrounds with tinted text" desaturated)
           (const :tag "No backgrounds, except for refined diffs" fg-only)))
 
-(define-obsolete-variable-alias 'modus-vivendi-theme-intense-standard-completions
-  'modus-vivendi-theme-completions "`modus-vivendi-theme' 0.12.0")
+(make-obsolete 'modus-vivendi-theme-intense-standard-completions
+               'modus-vivendi-theme-completions
+               "`modus-vivendi-theme' 0.12.0")
 
 (defcustom modus-vivendi-theme-intense-standard-completions nil
   "Use prominent backgrounds for Icomplete, Ido, or similar."
