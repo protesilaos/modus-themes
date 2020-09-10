@@ -1613,12 +1613,12 @@ Ideas and user feedback: Aaron Jensen, Adam Spiers, Alex Griffin, Alex
 Peitsinis, Alexey Shmalko, Anders Johansson, André Alexandre Gomes, Arif
 Rezai, Basil L. Contovounisios, Damien Cassou, David Edmondson, Davor
 Rotim, Divan Santana, Gerry Agbobada, Gianluca Recchia, Len Trigg,
-Manuel Uberti, Mark Burton, Michael Goldenberg, Murilo Pereira, Nicolas
-De Jaeghere, Pierre Téchoueyres, Ryan Phillips, Shreyas Ragavan, Tassilo
-Horn, Thibaut Verron, Trey Merkley, Uri Sharf, User "Ben", User
-"Fourchaux", User "Fredrik", User "Moesasji", User "TheBlob42", User
-"dinko", User "doolio", User "okamsn", User "tycho garen", Vincent
-Foley.
+Manuel Uberti, Mark Burton, Markus Beppler, Michael Goldenberg, Murilo
+Pereira, Nicolas De Jaeghere, Pierre Téchoueyres, Ryan Phillips, Shreyas
+Ragavan, Tassilo Horn, Thibaut Verron, Trey Merkley, Uri Sharf, User
+"Ben", User "Fourchaux", User "Fredrik", User "Moesasji", User
+"TheBlob42", User "dinko", User "doolio", User "okamsn", User "tycho
+garen", Vincent Foley.
 
 Packaging:
 

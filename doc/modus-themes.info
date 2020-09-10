@@ -1761,12 +1761,12 @@ Markus Beppler, Matthew Stevenson.
 Alex Peitsinis, Alexey Shmalko, Anders Johansson, André Alexandre Gomes,
 Arif Rezai, Basil L.  Contovounisios, Damien Cassou, David Edmondson,
 Davor Rotim, Divan Santana, Gerry Agbobada, Gianluca Recchia, Len Trigg,
-Manuel Uberti, Mark Burton, Michael Goldenberg, Murilo Pereira, Nicolas
-De Jaeghere, Pierre Téchoueyres, Ryan Phillips, Shreyas Ragavan, Tassilo
-Horn, Thibaut Verron, Trey Merkley, Uri Sharf, User “Ben”, User
-“Fourchaux”, User “Fredrik”, User “Moesasji”, User “TheBlob42”, User
-“dinko”, User “doolio”, User “okamsn”, User “tycho garen”, Vincent
-Foley.
+Manuel Uberti, Mark Burton, Markus Beppler, Michael Goldenberg, Murilo
+Pereira, Nicolas De Jaeghere, Pierre Téchoueyres, Ryan Phillips, Shreyas
+Ragavan, Tassilo Horn, Thibaut Verron, Trey Merkley, Uri Sharf, User
+“Ben”, User “Fourchaux”, User “Fredrik”, User “Moesasji”, User
+“TheBlob42”, User “dinko”, User “doolio”, User “okamsn”, User “tycho
+garen”, Vincent Foley.
 
    Packaging:
 
@@ -2325,21 +2325,21 @@ Ref: Font configs (DIY)-Footnote-243804
 Node: Org user faces (DIY)44026
 Node: Face coverage47247
 Node: Supported packages47749
-Node: Covered indirectly53690
-Node: Will NOT be supported54042
-Node: Notes for individual packages54760
-Node: Note for powerline or spaceline55166
-Node: Note on shr colours55538
-Node: Note for Helm grep55951
-Node: Note on vc-annotate-background-mode57398
-Node: Contributing58252
-Node: Sources of the themes58671
-Node: Issues you can help with59433
-Node: Merge requests60620
-Node: Acknowledgements61702
-Node: Meta62960
-Node: External projects (ports)64013
-Node: GNU Free Documentation License64836
+Node: Covered indirectly53708
+Node: Will NOT be supported54077
+Node: Notes for individual packages54795
+Node: Note for powerline or spaceline55201
+Node: Note on shr colours55573
+Node: Note for Helm grep55986
+Node: Note on vc-annotate-background-mode57433
+Node: Contributing58287
+Node: Sources of the themes58706
+Node: Issues you can help with59468
+Node: Merge requests60655
+Node: Acknowledgements61737
+Node: Meta63011
+Node: External projects (ports)64064
+Node: GNU Free Documentation License64887
 
 End Tag Table
 
