@@ -4230,7 +4230,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(vhl/default-face ((,class ,@(and (>= emacs-major-version 27) '(:extend t))
                                :background ,bg-alt :foreground ,blue-nuanced)))
 ;;;;; vterm
-   `(vterm-color-black ((,class :background "black" :foreground "black")))
+   `(vterm-color-black ((,class :background "gray35" :foreground "gray35")))
    `(vterm-color-blue ((,class :background ,blue :foreground ,blue)))
    `(vterm-color-cyan ((,class :background ,cyan :foreground ,cyan)))
    `(vterm-color-default ((,class :background ,bg-main :foreground ,fg-main)))
@@ -4239,7 +4239,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(vterm-color-magenta ((,class :background ,magenta :foreground ,magenta)))
    `(vterm-color-red ((,class :background ,red :foreground ,red)))
    `(vterm-color-underline ((,class :foreground ,fg-special-warm :underline t)))
-   `(vterm-color-white ((,class :background "white" :foreground "white")))
+   `(vterm-color-white ((,class :background "gray65" :foreground "gray65")))
    `(vterm-color-yellow ((,class :background ,yellow :foreground ,yellow)))
 ;;;;; wcheck-mode
    `(wcheck-default-face ((,class :foreground ,red :underline t)))
