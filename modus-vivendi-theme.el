@@ -3496,7 +3496,7 @@ Also bind `class' to ((class color) (min-colors 89))."
                                  ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-5))))
    `(org-done ((,class :box ,bg-region :background ,bg-dim :foreground ,green
                        :inherit ,modus-theme-variable-pitch)))
-   `(org-drawer ((,class :inherit ,modus-theme-variable-pitch :foreground ,cyan)))
+   `(org-drawer ((,class :inherit fixed-pitch :foreground ,cyan)))
    `(org-ellipsis ((,class :foreground nil))) ; inherits from the heading's colour
    `(org-footnote ((,class :foreground ,blue-alt :underline ,blue-alt)))
    `(org-formula ((,class :inherit fixed-pitch :foreground ,red-alt)))
@@ -3540,7 +3540,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-mode-line-clock-overrun ((,class :inherit modus-theme-active-red)))
    `(org-priority ((,class :box ,bg-region :background ,bg-dim :foreground ,magenta
                            :inherit ,modus-theme-variable-pitch)))
-   `(org-property-value ((,class :foreground ,cyan-alt-other)))
+   `(org-property-value ((,class :inherit fixed-pitch :foreground ,cyan-alt-other)))
    `(org-quote ((,class ,@(if modus-vivendi-theme-org-blocks
                               (append
                                (and (>= emacs-major-version 27) '(:extend t))
@@ -3551,8 +3551,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-scheduled-previously ((,class :foreground ,yellow-alt-other)))
    `(org-scheduled-today ((,class :foreground ,magenta-alt-other)))
    `(org-sexp-date ((,class :inherit org-date)))
-   `(org-special-keyword ((,class :inherit ,modus-theme-variable-pitch
-                                  :foreground ,blue-nuanced)))
+   `(org-special-keyword ((,class :inherit fixed-pitch :foreground ,blue-nuanced)))
    `(org-table ((,class :inherit fixed-pitch :foreground ,fg-special-cold)))
    `(org-tag ((,class :foreground ,magenta-nuanced)))
    `(org-tag-group ((,class :inherit bold :foreground ,cyan-nuanced)))
