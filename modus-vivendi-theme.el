@@ -3450,13 +3450,13 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-agenda-column-dateline ((,class :background ,bg-alt)))
    `(org-agenda-current-time ((,class :inherit modus-theme-subtle-cyan)))
    `(org-agenda-date ((,class ,@(modus-vivendi-theme-heading
-                                 1 cyan-alt-other cyan-alt-other cyan-nuanced-bg cyan-nuanced)
+                                 1 cyan-alt-other cyan-alt-other cyan-nuanced-bg bg-region)
                               ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-4))))
    `(org-agenda-date-today ((,class :inherit (bold ,modus-theme-variable-pitch)
                                     :background ,cyan-intense-bg :foreground ,fg-main
                                     ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-4))))
    `(org-agenda-date-weekend ((,class ,@(modus-vivendi-theme-heading
-                                         1 cyan cyan blue-nuanced-bg cyan-nuanced)
+                                         1 cyan cyan blue-nuanced-bg bg-region)
                                       ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-4))))
    `(org-agenda-diary ((,class :foreground ,fg-main)))
    `(org-agenda-dimmed-todo-face ((,class :inherit modus-theme-subtle-neutral)))
