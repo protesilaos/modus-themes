@@ -2680,8 +2680,9 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(helm-xref-file-name ((,class :inherit bold :foreground ,fg-special-cold)))
    `(helm-xref-file-name ((,class :foreground ,fg-special-warm)))
 ;;;;; helpful
-   `(helpful-heading  ((,class :inherit (bold ,modus-theme-variable-pitch) :foreground ,fg-main
-                               ,@(modus-operandi-theme-scale modus-operandi-theme-scale-4))))
+   `(helpful-heading ((,class ,@(modus-operandi-theme-heading
+                             1 fg-main magenta-alt-other magenta-nuanced-bg bg-region)
+                          ,@(modus-operandi-theme-scale modus-operandi-theme-scale-4))))
 ;;;;; highlight region or ad-hoc regexp
    `(hi-black-b ((,class :background ,fg-main :foreground ,bg-main)))
    `(hi-blue ((,class :background ,bg-alt :foreground ,blue :underline t)))
