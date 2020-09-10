@@ -1602,54 +1602,21 @@ once.  It will allow you to make contributions to Emacs in general.
 
 The Modus themes are a collective effort.  Every contribution counts.
 
-Author/maintainer:
+Author/maintainer: Protesilaos Stavrou.
 
-+ Protesilaos Stavrou
+Code contributions: Anders Johansson, Basil L. Contovounisios, Markus
+Beppler, Matthew Stevenson.
 
-Code contributions:
-
-+ Anders Johansson
-+ Basil L. Contovounisios
-+ Matthew Stevenson
-
-Ideas and user feedback:
-
-+ Aaron Jensen
-+ Adam Spiers
-+ Alex Peitsinis
-+ Alexey Shmalko
-+ Anders Johansson
-+ André Alexandre Gomes
-+ Arif Rezai
-+ Basil L. Contovounisios
-+ Damien Cassou
-+ David Edmondson
-+ Davor Rotim
-+ Divan Santana
-+ Gerry Agbobada
-+ Gianluca Recchia
-+ Len Trigg
-+ Manuel Uberti
-+ Mark Burton
-+ Michael Goldenberg
-+ Murilo Pereira
-+ Nicolas De Jaeghere
-+ Pierre Téchoueyres
-+ Ryan Phillips
-+ Shreyas Ragavan
-+ Thibaut Verron
-+ Trey Merkley
-+ Uri Sharf
-+ User "Ben"
-+ User "Fourchaux"
-+ User "Fredrik"
-+ User "Moesasji"
-+ User "TheBlob42"
-+ User "dinko"
-+ User "doolio"
-+ User "okamsn"
-+ User "tycho garen"
-+ Vincent Foley
+Ideas and user feedback: Aaron Jensen, Adam Spiers, Alex Griffin, Alex
+Peitsinis, Alexey Shmalko, Anders Johansson, André Alexandre Gomes, Arif
+Rezai, Basil L. Contovounisios, Damien Cassou, David Edmondson, Davor
+Rotim, Divan Santana, Gerry Agbobada, Gianluca Recchia, Len Trigg,
+Manuel Uberti, Mark Burton, Michael Goldenberg, Murilo Pereira, Nicolas
+De Jaeghere, Pierre Téchoueyres, Ryan Phillips, Shreyas Ragavan, Tassilo
+Horn, Thibaut Verron, Trey Merkley, Uri Sharf, User "Ben", User
+"Fourchaux", User "Fredrik", User "Moesasji", User "TheBlob42", User
+"dinko", User "doolio", User "okamsn", User "tycho garen", Vincent
+Foley.
 
 Packaging:
 
