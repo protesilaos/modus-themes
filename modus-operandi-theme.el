@@ -2081,9 +2081,9 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(elfeed-search-filter-face ((,class :foreground ,magenta-active)))
    `(elfeed-search-last-update-face ((,class :foreground ,green-active)))
    `(elfeed-search-tag-face ((,class :foreground ,cyan-alt-other)))
-   `(elfeed-search-title-face ((,class :foreground ,fg-main)))
+   `(elfeed-search-title-face ((,class :foreground ,fg-dim)))
    `(elfeed-search-unread-count-face ((,class :foreground ,blue-active)))
-   `(elfeed-search-unread-title-face ((,class :inherit bold)))
+   `(elfeed-search-unread-title-face ((,class :inherit bold :foreground ,fg-main)))
 ;;;;; elfeed-score
    `(elfeed-score-date-face ((,class :foreground ,blue)))
    `(elfeed-score-debug-level-face ((,class :foreground ,magenta-alt-other)))
