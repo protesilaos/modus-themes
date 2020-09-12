@@ -72,6 +72,7 @@ Customisation Options
 * Bold constructs::              Toggle bold constructs in code
 * Slanted constructs::           Toggle slanted constructs (italics) in code
 * Syntax highlighting::          Toggle subtle colouration in programming modes
+* Link underline::               Toggle underlined text in links
 * Command prompts::              Choose among plain, subtle, or intense prompts
 * Mode line::                    Choose among plain, three-dimension, or moody-compliant styles
 * Completion UIs::               Choose among standard, moderate, or opinionated looks
@@ -392,6 +393,7 @@ are just for the sake of this demonstration):(1)
                 modus-%1$s-theme-faint-syntax nil
                 modus-%1$s-theme-intense-hl-line nil
                 modus-%1$s-theme-intense-paren-match nil
+                modus-%1$s-theme-no-link-underline t
                 modus-%1$s-theme-prompts nil ; {nil,'subtle,'intense}
                 modus-%1$s-theme-completions 'moderate ; {nil,'moderate,'opinionated}
                 modus-%1$s-theme-diffs nil ; {nil,'desaturated,'fg-only}
@@ -444,6 +446,7 @@ theme (see *note Enable and load::).
 * Bold constructs::              Toggle bold constructs in code
 * Slanted constructs::           Toggle slanted constructs (italics) in code
 * Syntax highlighting::          Toggle subtle colouration in programming modes
+* Link underline::               Toggle underlined text in links
 * Command prompts::              Choose among plain, subtle, or intense prompts
 * Mode line::                    Choose among plain, three-dimension, or moody-compliant styles
 * Completion UIs::               Choose among standard, moderate, or opinionated looks
@@ -509,7 +512,7 @@ typically affects documentation strings and code comments.
    The default is to not use italics unless it is absolutely necessary.
 
 
-File: modus-themes.info,  Node: Syntax highlighting,  Next: Command prompts,  Prev: Slanted constructs,  Up: Customisation Options
+File: modus-themes.info,  Node: Syntax highlighting,  Next: Link underline,  Prev: Slanted constructs,  Up: Customisation Options
 
 4.3 Option for faint code syntax highlighting
 =============================================
@@ -532,9 +535,28 @@ have effects in other places that are hard-wired to rely directly on
 font-lock.  The author is aware of ‘vc-dir’ as a case in point.
 
 
-File: modus-themes.info,  Node: Command prompts,  Next: Mode line,  Prev: Syntax highlighting,  Up: Customisation Options
+File: modus-themes.info,  Node: Link underline,  Next: Command prompts,  Prev: Syntax highlighting,  Up: Customisation Options
 
-4.4 Option for command prompt styles
+4.4 Option for no link underline
+================================
+
+Symbol names:
+
+   • ‘modus-operandi-theme-no-link-underline’
+   • ‘modus-vivendi-theme-no-link-underline’
+
+   Possible values:
+
+  1. ‘nil’ (default)
+  2. ‘t’
+
+   Remove the underline effect from links, symbolic links, and buttons.
+The default is to apply an underline.
+
+
+File: modus-themes.info,  Node: Command prompts,  Next: Mode line,  Prev: Link underline,  Up: Customisation Options
+
+4.5 Option for command prompt styles
 ====================================
 
 Symbol names:
@@ -560,7 +582,7 @@ relying on an accented foreground colour.
 
 File: modus-themes.info,  Node: Mode line,  Next: Completion UIs,  Prev: Command prompts,  Up: Customisation Options
 
-4.5 Option for mode line presentation
+4.6 Option for mode line presentation
 =====================================
 
 Symbol names:
@@ -611,7 +633,7 @@ been carefully designed to be highly accessible).
 
 File: modus-themes.info,  Node: Completion UIs,  Next: Fringes,  Prev: Mode line,  Up: Customisation Options
 
-4.6 Option for completion framework aesthetics
+4.7 Option for completion framework aesthetics
 ==============================================
 
 Symbol names:
@@ -657,7 +679,7 @@ spend some time with every one of the ‘nil’ (default), ‘moderate’, and
 
 File: modus-themes.info,  Node: Fringes,  Next: Line highlighting,  Prev: Completion UIs,  Up: Customisation Options
 
-4.7 Option for fringe visibility
+4.8 Option for fringe visibility
 ================================
 
 Symbol names:
@@ -682,7 +704,7 @@ space given to them by ‘fringe-mode’.
 
 File: modus-themes.info,  Node: Line highlighting,  Next: Matching parentheses,  Prev: Fringes,  Up: Customisation Options
 
-4.8 Option for line highlighting (hl-line-mode)
+4.9 Option for line highlighting (hl-line-mode)
 ===============================================
 
 Symbol names:
@@ -704,8 +726,8 @@ packages that enable ‘hl-line-mode’, such as ‘elfeed’ and ‘mu4e’.
 
 File: modus-themes.info,  Node: Matching parentheses,  Next: Diffs,  Prev: Line highlighting,  Up: Customisation Options
 
-4.9 Option for parenthesis matching (show-paren-mode)
-=====================================================
+4.10 Option for parenthesis matching (show-paren-mode)
+======================================================
 
 Symbol names:
 
@@ -725,7 +747,7 @@ overlays.
 
 File: modus-themes.info,  Node: Diffs,  Next: Org mode blocks,  Prev: Matching parentheses,  Up: Customisation Options
 
-4.10 Option for diff buffer looks
+4.11 Option for diff buffer looks
 =================================
 
 Symbol names:
@@ -767,7 +789,7 @@ consistent with the overall intent of the aforementioned.
 
 File: modus-themes.info,  Node: Org mode blocks,  Next: Heading styles,  Prev: Diffs,  Up: Customisation Options
 
-4.11 Option for org-mode block styles
+4.12 Option for org-mode block styles
 =====================================
 
 Symbol names:
@@ -805,7 +827,7 @@ each code block (inefficient at scale, but it still works).
 
 File: modus-themes.info,  Node: Heading styles,  Next: Scaled headings,  Prev: Org mode blocks,  Up: Customisation Options
 
-4.12 Option for headings’ overall style
+4.13 Option for headings’ overall style
 =======================================
 
 This is defined as an alist and, therefore, uses a different approach
@@ -906,7 +928,7 @@ option), just specify the value t like this:
 
 File: modus-themes.info,  Node: Scaled headings,  Next: Headings' font,  Prev: Heading styles,  Up: Customisation Options
 
-4.13 Option for scaled headings
+4.14 Option for scaled headings
 ===============================
 
 Symbol names:
@@ -930,7 +952,7 @@ headings and body copy.
 
 File: modus-themes.info,  Node: Scaled heading sizes,  Up: Scaled headings
 
-4.13.1 Control the scale of headings
+4.14.1 Control the scale of headings
 ------------------------------------
 
 In addition to toggles for enabling scaled headings, users can also
@@ -974,7 +996,7 @@ issue tracker).
 
 File: modus-themes.info,  Node: Headings' font,  Prev: Scaled headings,  Up: Customisation Options
 
-4.14 Option for variable-pitch font in headings
+4.15 Option for variable-pitch font in headings
 ===============================================
 
 Symbol names:
@@ -1752,32 +1774,31 @@ File: modus-themes.info,  Node: Acknowledgements,  Next: Meta,  Prev: Contributi
 
 The Modus themes are a collective effort.  Every contribution counts.
 
-   Author/maintainer: Protesilaos Stavrou.
+Author/maintainer
+     Protesilaos Stavrou.
 
-   Code contributions: Anders Johansson, Basil L.  Contovounisios,
-Markus Beppler, Matthew Stevenson.
+Code contributions
+     Anders Johansson, Basil L.  Contovounisios, Markus Beppler, Matthew
+     Stevenson.
 
-   Ideas and user feedback: Aaron Jensen, Adam Spiers, Alex Griffin,
-Alex Peitsinis, Alexey Shmalko, Anders Johansson, André Alexandre Gomes,
-Arif Rezai, Basil L.  Contovounisios, Damien Cassou, David Edmondson,
-Davor Rotim, Divan Santana, Gerry Agbobada, Gianluca Recchia, Len Trigg,
-Manuel Uberti, Mark Burton, Markus Beppler, Michael Goldenberg, Murilo
-Pereira, Nicolas De Jaeghere, Pierre Téchoueyres, Ryan Phillips, Shreyas
-Ragavan, Tassilo Horn, Thibaut Verron, Trey Merkley, Uri Sharf, User
-“Ben”, User “Fourchaux”, User “Fredrik”, User “Moesasji”, User
-“TheBlob42”, User “dinko”, User “doolio”, User “okamsn”, User “tycho
-garen”, Vincent Foley.
+Ideas and user feedback
+     Aaron Jensen, Adam Spiers, Alex Griffin, Alex Peitsinis, Alexey
+     Shmalko, Anders Johansson, André Alexandre Gomes, Arif Rezai, Basil
+     L.  Contovounisios, Damien Cassou, Dario Gjorgjevski, David
+     Edmondson, Davor Rotim, Divan Santana, Gerry Agbobada, Gianluca
+     Recchia, Len Trigg, Manuel Uberti, Mark Burton, Markus Beppler,
+     Michael Goldenberg, Murilo Pereira, Nicolas De Jaeghere, Pierre
+     Téchoueyres, Ryan Phillips, Shreyas Ragavan, Tassilo Horn, Thibaut
+     Verron, Trey Merkley, Uri Sharf, Utkarsh Singh, Vincent Foley.  As
+     well as users: Ben, Fourchaux, Fredrik, Moesasji, TheBlob42, dinko,
+     doolio, jixiuf, okamsn, tycho garen.
 
-   Packaging:
+Packaging
+     Dhavan Vaidya (Debian), Stefan Kangas (core Emacs), Stefan Monnier
+     (GNU Elpa).
 
-   • Dhavan Vaidya (Debian)
-   • Stefan Kangas (core Emacs)
-   • Stefan Monnier (GNU Elpa)
-
-   Inspiration for certain features:
-
-   • Fabrice Niessen (leuven-theme)
-   • Bozhidar Batsov (zenburn-theme)
+Inspiration for certain features
+     Fabrice Niessen (leuven-theme), Bozhidar Batsov (zenburn-theme).
 
 
 File: modus-themes.info,  Node: Meta,  Next: External projects (ports),  Prev: Acknowledgements,  Up: Top
@@ -2286,60 +2307,61 @@ Appendix A GNU Free Documentation License
 
 Tag Table:
 Node: Top218
-Node: Overview3767
-Node: How do the themes look like5452
-Node: Installation5935
-Node: Install from the archives6585
-Node: Install on GNU/Linux7272
-Node: Debian 11 Bullseye7717
-Node: GNU Guix8126
-Node: Enable and load8477
-Node: Load automatically9054
-Node: Load at a given time or at sunset/sunrise9613
-Ref: Load at a given time or at sunset/sunrise-Footnote-111651
-Ref: Load at a given time or at sunset/sunrise-Footnote-211779
-Node: Toggle between the themes on demand11862
-Node: Configure options prior to loading12609
-Ref: Configure options prior to loading-Footnote-115152
-Node: Customisation Options15327
-Node: Bold constructs16942
-Node: Slanted constructs17941
-Node: Syntax highlighting18532
-Node: Command prompts19261
-Node: Mode line20064
-Node: Completion UIs22501
-Node: Fringes24442
-Node: Line highlighting25206
-Node: Matching parentheses25872
-Node: Diffs26514
-Node: Org mode blocks28307
-Node: Heading styles29810
-Node: Scaled headings33199
-Node: Scaled heading sizes33816
-Node: Headings' font35775
-Node: Advanced customisation (do-it-yourself)36399
-Node: Tweak colours (DIY)37403
-Node: Font configs (DIY)41037
-Ref: Font configs (DIY)-Footnote-143617
-Ref: Font configs (DIY)-Footnote-243804
-Node: Org user faces (DIY)44026
-Node: Face coverage47247
-Node: Supported packages47749
-Node: Covered indirectly53708
-Node: Will NOT be supported54077
-Node: Notes for individual packages54795
-Node: Note for powerline or spaceline55201
-Node: Note on shr colours55573
-Node: Note for Helm grep55986
-Node: Note on vc-annotate-background-mode57433
-Node: Contributing58287
-Node: Sources of the themes58706
-Node: Issues you can help with59468
-Node: Merge requests60655
-Node: Acknowledgements61737
-Node: Meta63011
-Node: External projects (ports)64064
-Node: GNU Free Documentation License64887
+Node: Overview3832
+Node: How do the themes look like5517
+Node: Installation6000
+Node: Install from the archives6650
+Node: Install on GNU/Linux7337
+Node: Debian 11 Bullseye7782
+Node: GNU Guix8191
+Node: Enable and load8542
+Node: Load automatically9119
+Node: Load at a given time or at sunset/sunrise9678
+Ref: Load at a given time or at sunset/sunrise-Footnote-111716
+Ref: Load at a given time or at sunset/sunrise-Footnote-211844
+Node: Toggle between the themes on demand11927
+Node: Configure options prior to loading12674
+Ref: Configure options prior to loading-Footnote-115270
+Node: Customisation Options15445
+Node: Bold constructs17125
+Node: Slanted constructs18124
+Node: Syntax highlighting18715
+Node: Link underline19443
+Node: Command prompts19930
+Node: Mode line20728
+Node: Completion UIs23165
+Node: Fringes25106
+Node: Line highlighting25870
+Node: Matching parentheses26536
+Node: Diffs27180
+Node: Org mode blocks28973
+Node: Heading styles30476
+Node: Scaled headings33865
+Node: Scaled heading sizes34482
+Node: Headings' font36441
+Node: Advanced customisation (do-it-yourself)37065
+Node: Tweak colours (DIY)38069
+Node: Font configs (DIY)41703
+Ref: Font configs (DIY)-Footnote-144283
+Ref: Font configs (DIY)-Footnote-244470
+Node: Org user faces (DIY)44692
+Node: Face coverage47913
+Node: Supported packages48415
+Node: Covered indirectly54374
+Node: Will NOT be supported54743
+Node: Notes for individual packages55461
+Node: Note for powerline or spaceline55867
+Node: Note on shr colours56239
+Node: Note for Helm grep56652
+Node: Note on vc-annotate-background-mode58099
+Node: Contributing58953
+Node: Sources of the themes59372
+Node: Issues you can help with60134
+Node: Merge requests61321
+Node: Acknowledgements62403
+Node: Meta63667
+Node: External projects (ports)64720
+Node: GNU Free Documentation License65543
 
 End Tag Table
 

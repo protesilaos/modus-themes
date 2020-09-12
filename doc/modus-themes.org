@@ -284,6 +284,7 @@ https://www.reddit.com/r/emacs/comments/gqsz8u/weekly_tipstricketc_thread/fsfakh
            modus-%1$s-theme-faint-syntax nil
            modus-%1$s-theme-intense-hl-line nil
            modus-%1$s-theme-intense-paren-match nil
+           modus-%1$s-theme-no-link-underline t
            modus-%1$s-theme-prompts nil ; {nil,'subtle,'intense}
            modus-%1$s-theme-completions 'moderate ; {nil,'moderate,'opinionated}
            modus-%1$s-theme-diffs nil ; {nil,'desaturated,'fg-only}
@@ -404,6 +405,26 @@ syntax.  The default is to use saturated colours.
 This option essentially affects the font-lock faces, so it may also have
 effects in other places that are hard-wired to rely directly on
 font-lock.  The author is aware of =vc-dir= as a case in point.
+
+** Option for no link underline
+:PROPERTIES:
+:ALT_TITLE: Link underline
+:DESCRIPTION: Toggle underlined text in links
+:CUSTOM_ID: h:a1a639e9-d247-414c-a0ad-08adadcbc6c1
+:END:
+
+Symbol names:
+
++ =modus-operandi-theme-no-link-underline=
++ =modus-vivendi-theme-no-link-underline=
+
+Possible values:
+
+1. =nil= (default)
+2. =t=
+
+Remove the underline effect from links, symbolic links, and buttons.
+The default is to apply an underline.
 
 ** Option for command prompt styles
 :PROPERTIES:
@@ -1604,32 +1625,27 @@ once.  It will allow you to make contributions to Emacs in general.
 
 The Modus themes are a collective effort.  Every contribution counts.
 
-Author/maintainer: Protesilaos Stavrou.
++ Author/maintainer :: Protesilaos Stavrou.
 
-Code contributions: Anders Johansson, Basil L. Contovounisios, Markus
-Beppler, Matthew Stevenson.
++ Code contributions :: Anders Johansson, Basil L. Contovounisios,
+  Markus Beppler, Matthew Stevenson.
 
-Ideas and user feedback: Aaron Jensen, Adam Spiers, Alex Griffin, Alex
-Peitsinis, Alexey Shmalko, Anders Johansson, André Alexandre Gomes, Arif
-Rezai, Basil L. Contovounisios, Damien Cassou, David Edmondson, Davor
-Rotim, Divan Santana, Gerry Agbobada, Gianluca Recchia, Len Trigg,
-Manuel Uberti, Mark Burton, Markus Beppler, Michael Goldenberg, Murilo
-Pereira, Nicolas De Jaeghere, Pierre Téchoueyres, Ryan Phillips, Shreyas
-Ragavan, Tassilo Horn, Thibaut Verron, Trey Merkley, Uri Sharf, User
-"Ben", User "Fourchaux", User "Fredrik", User "Moesasji", User
-"TheBlob42", User "dinko", User "doolio", User "okamsn", User "tycho
-garen", Vincent Foley.
++ Ideas and user feedback :: Aaron Jensen, Adam Spiers, Alex Griffin,
+  Alex Peitsinis, Alexey Shmalko, Anders Johansson, André Alexandre
+  Gomes, Arif Rezai, Basil L. Contovounisios, Damien Cassou, Dario
+  Gjorgjevski, David Edmondson, Davor Rotim, Divan Santana, Gerry
+  Agbobada, Gianluca Recchia, Len Trigg, Manuel Uberti, Mark Burton,
+  Markus Beppler, Michael Goldenberg, Murilo Pereira, Nicolas De
+  Jaeghere, Pierre Téchoueyres, Ryan Phillips, Shreyas Ragavan, Tassilo
+  Horn, Thibaut Verron, Trey Merkley, Uri Sharf, Utkarsh Singh, Vincent
+  Foley.  As well as users: Ben, Fourchaux, Fredrik, Moesasji,
+  TheBlob42, dinko, doolio, jixiuf, okamsn, tycho garen.
 
-Packaging:
++ Packaging :: Dhavan Vaidya (Debian), Stefan Kangas (core Emacs),
+  Stefan Monnier (GNU Elpa).
 
-+ Dhavan Vaidya (Debian)
-+ Stefan Kangas (core Emacs)
-+ Stefan Monnier (GNU Elpa)
-
-Inspiration for certain features:
-
-+ Fabrice Niessen (leuven-theme)
-+ Bozhidar Batsov (zenburn-theme)
++ Inspiration for certain features :: Fabrice Niessen (leuven-theme),
+  Bozhidar Batsov (zenburn-theme).
 
 * Meta
 :PROPERTIES:

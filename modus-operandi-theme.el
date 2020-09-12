@@ -52,6 +52,7 @@
 ;;     modus-operandi-theme-faint-syntax                   (boolean)
 ;;     modus-operandi-theme-intense-hl-line                (boolean)
 ;;     modus-operandi-theme-intense-paren-match            (boolean)
+;;     modus-operandi-theme-no-link-underline              (boolean)
 ;;     modus-operandi-theme-completions                    (choice)
 ;;     modus-operandi-theme-override-colors-alist          (alist)
 ;;
@@ -792,6 +793,10 @@ effect than the former."
   "Use less saturated colours for code syntax highlighting."
   :type 'boolean)
 
+(defcustom modus-operandi-theme-no-link-underline nil
+  "Do not underline links."
+  :type 'boolean)
+
 ;;; Internal functions
 
 ;; Helper functions that are meant to ease the implementation of the
@@ -1399,9 +1404,11 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(trailing-whitespace ((,class :background ,red-intense-bg)))
    `(warning ((,class :inherit bold :foreground ,yellow)))
 ;;;;; buttons, links, widgets
-   `(button ((,class :foreground ,blue-alt-other :underline t)))
-   `(link ((,class :foreground ,blue-alt-other :underline t)))
-   `(link-visited ((,class :foreground ,magenta-alt-other :underline t)))
+   `(button ((,class :foreground ,blue-alt-other
+                     ,@(unless modus-operandi-theme-no-link-underline
+                         (list :underline t)))))
+   `(link ((,class :inherit button)))
+   `(link-visited ((,class :inherit link :foreground ,magenta-alt-other)))
    `(tooltip ((,class :background ,bg-special-cold :foreground ,fg-main)))
    `(widget-button ((,class :inherit button)))
    `(widget-button-pressed ((,class :inherit button :foreground ,magenta)))
@@ -1468,13 +1475,13 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(anzu-replace-highlight ((,class :inherit modus-theme-refine-yellow :underline t)))
    `(anzu-replace-to ((,class :inherit (modus-theme-intense-green bold))))
 ;;;;; apropos
-   `(apropos-function-button ((,class :foreground ,magenta-alt-other :underline t)))
+   `(apropos-function-button ((,class :inherit button :foreground ,magenta-alt-other)))
    `(apropos-keybinding ((,class :inherit bold :foreground ,cyan)))
-   `(apropos-misc-button ((,class :foreground ,cyan-alt-other :underline t)))
+   `(apropos-misc-button ((,class :inherit button :foreground ,cyan-alt-other)))
    `(apropos-property ((,class ,@(modus-operandi-theme-bold-weight) :foreground ,magenta-alt)))
-   `(apropos-symbol ((,class ,@(modus-operandi-theme-bold-weight) :foreground ,blue-nuanced :underline t)))
-   `(apropos-user-option-button ((,class :foreground ,green-alt-other :underline t)))
-   `(apropos-variable-button ((,class :foreground ,blue :underline t)))
+   `(apropos-symbol ((,class ,@(modus-operandi-theme-bold-weight) :foreground ,blue-alt-other)))
+   `(apropos-user-option-button ((,class :inherit button :foreground ,green-alt-other)))
+   `(apropos-variable-button ((,class :inherit button :foreground ,blue)))
 ;;;;; apt-sources-list
    `(apt-sources-list-components ((,class :foreground ,cyan)))
    `(apt-sources-list-options ((,class :foreground ,yellow)))
@@ -1911,7 +1918,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(dired-mark ((,class :inherit modus-theme-mark-symbol)))
    `(dired-marked ((,class :inherit modus-theme-mark-sel)))
    `(dired-perm-write ((,class :foreground ,fg-special-warm)))
-   `(dired-symlink ((,class :foreground ,cyan-alt :underline t)))
+   `(dired-symlink ((,class :inherit button :foreground ,cyan-alt)))
    `(dired-warning ((,class :inherit bold :foreground ,yellow)))
 ;;;;; dired-async
    `(dired-async-failures ((,class ,@(modus-operandi-theme-bold-weight) :foreground ,red-active)))
@@ -1957,7 +1964,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(diredfl-other-priv ((,class :foreground ,yellow)))
    `(diredfl-rare-priv ((,class :foreground ,magenta-alt-other)))
    `(diredfl-read-priv ((,class :foreground ,magenta)))
-   `(diredfl-symlink ((,class :foreground ,cyan-alt :underline t)))
+   `(diredfl-symlink ((,class :inherit button :foreground ,cyan-alt)))
    `(diredfl-tagged-autofile-name ((,class :inherit modus-theme-refine-magenta)))
    `(diredfl-write-priv ((,class :foreground ,cyan-alt-other)))
 ;;;;; disk-usage
@@ -2191,7 +2198,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(eshell-ls-product ((,class :foreground ,fg-special-warm)))
    `(eshell-ls-readonly ((,class :foreground ,fg-special-cold)))
    `(eshell-ls-special ((,class :inherit bold :foreground ,magenta)))
-   `(eshell-ls-symlink ((,class :foreground ,cyan :underline t)))
+   `(eshell-ls-symlink ((,class :inherit button :foreground ,cyan)))
    `(eshell-ls-unreadable ((,class :background ,bg-inactive :foreground ,fg-inactive)))
    `(eshell-prompt ((,class ,@(modus-operandi-theme-bold-weight)
                             ,@(modus-operandi-theme-prompt green-alt-other
@@ -2496,7 +2503,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(git-timemachine-minibuffer-detail-face ((,class :foreground ,red-alt)))
 ;;;;; git-walktree
    `(git-walktree-commit-face ((,class :foreground ,yellow)))
-   `(git-walktree-symlink-face ((,class :foreground ,cyan :underline t)))
+   `(git-walktree-symlink-face ((,class :inherit button :foreground ,cyan)))
    `(git-walktree-tree-face ((,class :foreground ,magenta)))
 ;;;;; gnus
    `(gnus-button ((,class :inherit button)))
@@ -3521,7 +3528,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-code ((,class :inherit fixed-pitch :foreground ,magenta)))
    `(org-column ((,class :background ,bg-alt)))
    `(org-column-title ((,class :inherit bold :underline t :background ,bg-alt)))
-   `(org-date ((,class :inherit fixed-pitch :foreground ,cyan-alt-other :underline t)))
+   `(org-date ((,class :inherit '(button fixed-pitch) :foreground ,cyan-alt-other)))
    `(org-date-selected ((,class :inherit bold :foreground ,blue-alt :inverse-video t)))
    `(org-document-info ((,class :foreground ,fg-special-cold)))
    `(org-document-info-keyword ((,class :inherit fixed-pitch :foreground ,fg-alt)))
@@ -3531,7 +3538,7 @@ Also bind `class' to ((class color) (min-colors 89))."
                        :inherit ,modus-theme-variable-pitch)))
    `(org-drawer ((,class :inherit fixed-pitch :foreground ,cyan)))
    `(org-ellipsis ((,class :foreground nil))) ; inherits from the heading's colour
-   `(org-footnote ((,class :foreground ,blue-alt :underline ,blue-alt)))
+   `(org-footnote ((,class :inherit button :foreground ,blue-alt)))
    `(org-formula ((,class :inherit fixed-pitch :foreground ,red-alt)))
    `(org-habit-alert-face ((,class :inherit modus-theme-intense-yellow)))
    `(org-habit-alert-future-face ((,class :inherit modus-theme-refine-yellow)))
@@ -3611,8 +3618,8 @@ Also bind `class' to ((class color) (min-colors 89))."
 ;;;;; org-recur
    `(org-recur ((,class :foreground ,magenta-active)))
 ;;;;; org-roam
-   `(org-roam-link ((,class :foreground ,blue-alt-other :underline t)))
-   `(org-roam-backlink ((,class :foreground ,green-alt-other :underline t)))
+   `(org-roam-link ((,class :inherit button :foreground ,blue-alt-other)))
+   `(org-roam-backlink ((,class :inherit button :foreground ,green-alt-other)))
 ;;;;; org-superstar
    `(org-superstar-item ((,class :foreground ,fg-main)))
    `(org-superstar-leading ((,class :foreground ,fg-whitespace)))
@@ -4137,7 +4144,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(trashed-mark ((,class :inherit modus-theme-mark-symbol)))
    `(trashed-marked ((,class :inherit modus-theme-mark-alt)))
    `(trashed-restored ((,class :inherit modus-theme-mark-sel)))
-   `(trashed-symlink ((,class :foreground ,cyan-alt :underline t)))
+   `(trashed-symlink ((,class :inherit button :foreground ,cyan-alt)))
 ;;;;; treemacs
    `(treemacs-directory-collapsed-face ((,class :foreground ,magenta-alt)))
    `(treemacs-directory-face ((,class :inherit dired-directory)))
