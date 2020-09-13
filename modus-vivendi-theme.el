@@ -2612,11 +2612,11 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(helm-ff-directory ((,class :inherit helm-buffer-directory)))
    `(helm-ff-dirs ((,class :inherit bold :foreground ,blue-alt-other)))
    `(helm-ff-dotted-directory ((,class :inherit bold :background ,bg-alt :foreground ,fg-alt)))
-   `(helm-ff-dotted-symlink-directory ((,class :inherit helm-ff-dotted-directory :underline t)))
+   `(helm-ff-dotted-symlink-directory ((,class :inherit (button helm-ff-dotted-directory))))
    `(helm-ff-executable ((,class :foreground ,magenta-alt)))
    `(helm-ff-file ((,class :foreground ,fg-main)))
    `(helm-ff-file-extension ((,class :foreground ,fg-special-warm)))
-   `(helm-ff-invalid-symlink ((,class :foreground ,red :underline t)))
+   `(helm-ff-invalid-symlink ((,class :inherit button :foreground ,red)))
    `(helm-ff-pipe ((,class ,@(modus-vivendi-theme-extra-completions
                               'modus-theme-refine-magenta
                               'modus-theme-subtle-magenta
