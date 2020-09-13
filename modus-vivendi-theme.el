@@ -2837,8 +2837,8 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(info-header-xref ((,class :foreground ,blue-active)))
    `(info-index-match ((,class :inherit match)))
    `(info-menu-header ((,class ,@(modus-vivendi-theme-heading
-                              3 fg-special-cold blue blue-nuanced-bg bg-region)
-                           ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-2))))
+                                  3 fg-special-cold blue blue-nuanced-bg bg-region)
+                               ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-2))))
    `(info-menu-star ((,class :foreground ,red)))
    `(info-node ((,class :inherit bold)))
    `(info-title-1 ((,class ,@(modus-vivendi-theme-heading
