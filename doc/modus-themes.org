@@ -1480,6 +1480,39 @@ and the intended styles for the content you are actually working on.
 This section covers information that may be of interest to users of
 individual packages.
 
+** Note for ERC escaped colour sequences
+:PROPERTIES:
+:CUSTOM_ID: h:98bdf319-1e32-4469-8a01-771200fba65c
+:END:
+
+The built-in IRC client =erc= has the ability to colourise any text using
+escape sequences that start with =^C= (inserted with =C-q C-c=) and are
+followed by a number for the foreground and background.[fn:: This page
+explains the basics, though it is not specific to Emacs:
+https://www.mirc.com/colors.html] Possible numbers are 0-15, with the
+first entry being the foreground and the second the background,
+separated by a comma.  Like this =^C1,6=.  The minimum setup is this:
+
+#+begin_src emacs-lisp
+(add-to-list 'erc-modules 'irccontrols)
+(setq erc-interpret-controls-p t
+      erc-interpret-mirc-color t)
+#+end_src
+
+As this allows users to make arbitrary combinations, it is impossible to
+guarantee a consistently high contrast ratio.  All we can we do is
+provide guidance on the combinations that satisfy the accessibility
+standard of the themes:
+
++ Modus Operandi :: Use foreground colour 1 for all backgrounds from
+  2-15.  Like so: =C-q C-c1,N= where =N= is the background.
+
++ Modus Vivendi :: Use foreground colour 0 for all backgrounds from
+  2-13.  Use foreground =1= for backgrounds 14, 15.
+
+Colours 0 and 1 are white and black respectively.  So combine them
+together, if you must.
+
 ** Note for powerline or spaceline
 :PROPERTIES:
 :CUSTOM_ID: h:9130a8ba-d8e3-41be-a58b-3cb1eb7b6d17

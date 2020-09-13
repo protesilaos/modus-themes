@@ -103,6 +103,7 @@ Face coverage
 
 Notes for individual packages
 
+* Note for ERC escaped colour sequences::
 * Note for powerline or spaceline::
 * Note on shr colours::
 * Note for Helm grep::
@@ -1607,15 +1608,54 @@ individual packages.
 
 * Menu:
 
+* Note for ERC escaped colour sequences::
 * Note for powerline or spaceline::
 * Note on shr colours::
 * Note for Helm grep::
 * Note on vc-annotate-background-mode::
 
 
-File: modus-themes.info,  Node: Note for powerline or spaceline,  Next: Note on shr colours,  Up: Notes for individual packages
+File: modus-themes.info,  Node: Note for ERC escaped colour sequences,  Next: Note for powerline or spaceline,  Up: Notes for individual packages
 
-7.1 Note for powerline or spaceline
+7.1 Note for ERC escaped colour sequences
+=========================================
+
+The built-in IRC client ‘erc’ has the ability to colourise any text
+using escape sequences that start with ‘^C’ (inserted with ‘C-q C-c’)
+and are followed by a number for the foreground and background.(1)
+Possible numbers are 0-15, with the first entry being the foreground and
+the second the background, separated by a comma.  Like this ‘^C1,6’.
+The minimum setup is this:
+
+     (add-to-list 'erc-modules 'irccontrols)
+     (setq erc-interpret-controls-p t
+           erc-interpret-mirc-color t)
+
+   As this allows users to make arbitrary combinations, it is impossible
+to guarantee a consistently high contrast ratio.  All we can we do is
+provide guidance on the combinations that satisfy the accessibility
+standard of the themes:
+
+Modus Operandi
+     Use foreground colour 1 for all backgrounds from 2-15.  Like so:
+     ‘C-q C-c1,N’ where ‘N’ is the background.
+
+Modus Vivendi
+     Use foreground colour 0 for all backgrounds from 2-13.  Use
+     foreground ‘1’ for backgrounds 14, 15.
+
+   Colours 0 and 1 are white and black respectively.  So combine them
+together, if you must.
+
+   ---------- Footnotes ----------
+
+   (1) This page explains the basics, though it is not specific to
+Emacs: <https://www.mirc.com/colors.html>
+
+
+File: modus-themes.info,  Node: Note for powerline or spaceline,  Next: Note on shr colours,  Prev: Note for ERC escaped colour sequences,  Up: Notes for individual packages
+
+7.2 Note for powerline or spaceline
 ===================================
 
 Both Powerline and Spaceline package users will likely need to use the
@@ -1625,7 +1665,7 @@ and/or modeline setup.
 
 File: modus-themes.info,  Node: Note on shr colours,  Next: Note for Helm grep,  Prev: Note for powerline or spaceline,  Up: Notes for individual packages
 
-7.2 Note on shr colours
+7.3 Note on shr colours
 =======================
 
 Emacs’ HTML rendering mechanism (‘shr’) may need explicit configuration
@@ -1635,7 +1675,7 @@ webpage provides.  Consult ‘C-h v shr-use-colors’.
 
 File: modus-themes.info,  Node: Note for Helm grep,  Next: Note on vc-annotate-background-mode,  Prev: Note on shr colours,  Up: Notes for individual packages
 
-7.3 Note for Helm grep
+7.4 Note for Helm grep
 ======================
 
 There is one face from the Helm package that is meant to highlight the
@@ -1665,7 +1705,7 @@ ANSI colour number 1 (red) from the already-supported array of
 
 File: modus-themes.info,  Node: Note on vc-annotate-background-mode,  Prev: Note for Helm grep,  Up: Notes for individual packages
 
-7.4 Note on vc-annotate-background-mode
+7.5 Note on vc-annotate-background-mode
 =======================================
 
 Due to the unique way ‘vc-annotate’ (‘C-x v g’) applies colours, support
@@ -2307,61 +2347,63 @@ Appendix A GNU Free Documentation License
 
 Tag Table:
 Node: Top218
-Node: Overview3832
-Node: How do the themes look like5517
-Node: Installation6000
-Node: Install from the archives6650
-Node: Install on GNU/Linux7337
-Node: Debian 11 Bullseye7782
-Node: GNU Guix8191
-Node: Enable and load8542
-Node: Load automatically9119
-Node: Load at a given time or at sunset/sunrise9678
-Ref: Load at a given time or at sunset/sunrise-Footnote-111716
-Ref: Load at a given time or at sunset/sunrise-Footnote-211844
-Node: Toggle between the themes on demand11927
-Node: Configure options prior to loading12674
-Ref: Configure options prior to loading-Footnote-115270
-Node: Customisation Options15445
-Node: Bold constructs17125
-Node: Slanted constructs18124
-Node: Syntax highlighting18715
-Node: Link underline19443
-Node: Command prompts19930
-Node: Mode line20728
-Node: Completion UIs23165
-Node: Fringes25106
-Node: Line highlighting25870
-Node: Matching parentheses26536
-Node: Diffs27180
-Node: Org mode blocks28973
-Node: Heading styles30476
-Node: Scaled headings33865
-Node: Scaled heading sizes34482
-Node: Headings' font36441
-Node: Advanced customisation (do-it-yourself)37065
-Node: Tweak colours (DIY)38069
-Node: Font configs (DIY)41703
-Ref: Font configs (DIY)-Footnote-144283
-Ref: Font configs (DIY)-Footnote-244470
-Node: Org user faces (DIY)44692
-Node: Face coverage47913
-Node: Supported packages48415
-Node: Covered indirectly54374
-Node: Will NOT be supported54743
-Node: Notes for individual packages55461
-Node: Note for powerline or spaceline55867
-Node: Note on shr colours56239
-Node: Note for Helm grep56652
-Node: Note on vc-annotate-background-mode58099
-Node: Contributing58953
-Node: Sources of the themes59372
-Node: Issues you can help with60134
-Node: Merge requests61321
-Node: Acknowledgements62403
-Node: Meta63667
-Node: External projects (ports)64720
-Node: GNU Free Documentation License65543
+Node: Overview3874
+Node: How do the themes look like5559
+Node: Installation6042
+Node: Install from the archives6692
+Node: Install on GNU/Linux7379
+Node: Debian 11 Bullseye7824
+Node: GNU Guix8233
+Node: Enable and load8584
+Node: Load automatically9161
+Node: Load at a given time or at sunset/sunrise9720
+Ref: Load at a given time or at sunset/sunrise-Footnote-111758
+Ref: Load at a given time or at sunset/sunrise-Footnote-211886
+Node: Toggle between the themes on demand11969
+Node: Configure options prior to loading12716
+Ref: Configure options prior to loading-Footnote-115312
+Node: Customisation Options15487
+Node: Bold constructs17167
+Node: Slanted constructs18166
+Node: Syntax highlighting18757
+Node: Link underline19485
+Node: Command prompts19972
+Node: Mode line20770
+Node: Completion UIs23207
+Node: Fringes25148
+Node: Line highlighting25912
+Node: Matching parentheses26578
+Node: Diffs27222
+Node: Org mode blocks29015
+Node: Heading styles30518
+Node: Scaled headings33907
+Node: Scaled heading sizes34524
+Node: Headings' font36483
+Node: Advanced customisation (do-it-yourself)37107
+Node: Tweak colours (DIY)38111
+Node: Font configs (DIY)41745
+Ref: Font configs (DIY)-Footnote-144325
+Ref: Font configs (DIY)-Footnote-244512
+Node: Org user faces (DIY)44734
+Node: Face coverage47955
+Node: Supported packages48457
+Node: Covered indirectly54416
+Node: Will NOT be supported54785
+Node: Notes for individual packages55503
+Node: Note for ERC escaped colour sequences55951
+Ref: Note for ERC escaped colour sequences-Footnote-157334
+Node: Note for powerline or spaceline57444
+Node: Note on shr colours57862
+Node: Note for Helm grep58275
+Node: Note on vc-annotate-background-mode59722
+Node: Contributing60576
+Node: Sources of the themes60995
+Node: Issues you can help with61757
+Node: Merge requests62944
+Node: Acknowledgements64026
+Node: Meta65290
+Node: External projects (ports)66343
+Node: GNU Free Documentation License67166
 
 End Tag Table
 
