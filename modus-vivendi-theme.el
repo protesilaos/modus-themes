@@ -3528,7 +3528,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-code ((,class :inherit fixed-pitch :foreground ,magenta)))
    `(org-column ((,class :background ,bg-alt)))
    `(org-column-title ((,class :inherit bold :underline t :background ,bg-alt)))
-   `(org-date ((,class :inherit fixed-pitch :inherit button :foreground ,cyan-alt-other)))
+   `(org-date ((,class :inherit (button fixed-pitch) :foreground ,cyan-alt-other)))
    `(org-date-selected ((,class :inherit bold :foreground ,blue-alt :inverse-video t)))
    `(org-document-info ((,class :foreground ,fg-special-cold)))
    `(org-document-info-keyword ((,class :inherit fixed-pitch :foreground ,fg-alt)))
