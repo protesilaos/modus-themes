@@ -1057,19 +1057,19 @@ AMOUNT is a customisation option."
       ;;
       ;; must be combined with: `bg-main', `bg-alt', `bg-dim'
       ("red" . "#a60000") ("green" . "#005e00")
-      ("yellow" . "#813e00") ("blue" . "#0030a6")
+      ("yellow" . "#813e00") ("blue" . "#0031a9")
       ("magenta" . "#721045") ("cyan" . "#00538b")
       ;; styles for common, but still specialised constructs
       ;;
       ;; must be combined with: `bg-main', `bg-alt', `bg-dim'
       ("red-alt" . "#972500") ("green-alt" . "#315b00")
-      ("yellow-alt" . "#70480f") ("blue-alt" . "#223fbf")
+      ("yellow-alt" . "#70480f") ("blue-alt" . "#2544bb")
       ("magenta-alt" . "#8f0075") ("cyan-alt" . "#30517f")
       ;; same purpose as above, just slight differences
       ;;
       ;; must be combined with: `bg-main', `bg-alt', `bg-dim'
       ("red-alt-other" . "#a0132f") ("green-alt-other" . "#145c33")
-      ("yellow-alt-other" . "#863927") ("blue-alt-other" . "#0000bb")
+      ("yellow-alt-other" . "#863927") ("blue-alt-other" . "#0000c0")
       ("magenta-alt-other" . "#5317ac") ("cyan-alt-other" . "#005a5f")
       ;; styles for desaturated foreground text, intended for use with
       ;; the `modus-operandi-theme-faint-syntax' option

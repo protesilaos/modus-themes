@@ -1057,19 +1057,19 @@ AMOUNT is a customisation option."
       ;;
       ;; must be combined with: `bg-main', `bg-alt', `bg-dim'
       ("red" . "#ff8059") ("green" . "#44bc44")
-      ("yellow" . "#eecc00") ("blue" . "#29aeff")
+      ("yellow" . "#eecc00") ("blue" . "#2fafff")
       ("magenta" . "#feacd0") ("cyan" . "#00d3d0")
       ;; styles for common, but still specialised constructs
       ;;
       ;; must be combined with: `bg-main', `bg-alt', `bg-dim'
       ("red-alt" . "#f4923b") ("green-alt" . "#80d200")
-      ("yellow-alt" . "#cfdf30") ("blue-alt" . "#72a4ff")
+      ("yellow-alt" . "#cfdf30") ("blue-alt" . "#79a8ff")
       ("magenta-alt" . "#f78fe7") ("cyan-alt" . "#4ae8fc")
       ;; same purpose as above, just slight differences
       ;;
       ;; must be combined with: `bg-main', `bg-alt', `bg-dim'
       ("red-alt-other" . "#ff9977") ("green-alt-other" . "#00cd68")
-      ("yellow-alt-other" . "#f0ce43") ("blue-alt-other" . "#00bdfa")
+      ("yellow-alt-other" . "#f0ce43") ("blue-alt-other" . "#00bcff")
       ("magenta-alt-other" . "#b6a0ff") ("cyan-alt-other" . "#6ae4b9")
       ;; styles for desaturated foreground text, intended for use with
       ;; the `modus-vivendi-theme-faint-syntax' option
