@@ -176,7 +176,12 @@ include either of the following expressions:
 #+END_SRC
 
 Make sure to remove any other theme that is being loaded, otherwise you
-might run into unexpected issues (you can also =M-x disable-theme=).
+might run into unexpected issues.
+
+Note that you can always =M-x disable-theme= and specify an item.  The
+command does exactly what its name suggests.  To deactivate all enabled
+themes at once, in case you have multiple of them enabled, you may
+evaluate the expression =(mapc #'disable-theme custom-enabled-themes)=.
 
 ** Load at a given time or at sunset/sunrise
 :PROPERTIES:
