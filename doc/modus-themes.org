@@ -411,6 +411,35 @@ This option essentially affects the font-lock faces, so it may also have
 effects in other places that are hard-wired to rely directly on
 font-lock.  The author is aware of =vc-dir= as a case in point.
 
+** Option for no font mixing
+:PROPERTIES:
+:ALT_TITLE: No mixed fonts
+:DESCRIPTION: Toggle mixing of font families
+:CUSTOM_ID: h:115e6c23-ee35-4a16-8cef-e2fcbb08e28b
+:END:
+
+Symbol names:
+
++ =modus-operandi-theme-no-mixed-fonts=
++ =modus-vivendi-theme-no-mixed-fonts=
+
+Possible values:
+
+1. =nil= (default)
+2. =t=
+
+By default, the themes configure some spacing-sensitive faces, such as
+Org tables and code blocks, to always inherit from the =fixed-pitch= face.
+This is to ensure that those constructs remain monospaced when users opt
+for something like the built-in =M-x variable-pitch-mode=.  Otherwise the
+layout would break.
+
+The obvious downside with this theme design is that users need to
+explicitly configure the font family of =fixed-pitch= in order to apply
+their desired typeface (see [[#h:defcf4fc-8fa8-4c29-b12e-7119582cc929][Font configurations for Org (and others)]]).
+That may be something they do not want to do.  Hence this option to
+disable any kind of technique for mixing fonts.
+
 ** Option for no link underline
 :PROPERTIES:
 :ALT_TITLE: Link underline
