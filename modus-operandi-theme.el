@@ -1044,8 +1044,8 @@ AMOUNT is a customisation option."
       ;; specifically for on/off states (e.g. `mode-line')
       ;;
       ;; must be combined with themselves
-      ("bg-active" . "#e0e0e0") ("fg-active" . "#191919")
-      ("bg-inactive" . "#efedef") ("fg-inactive" . "#424242")
+      ("bg-active" . "#dcdcdc") ("fg-active" . "#191919")
+      ("bg-inactive" . "#eeeeee") ("fg-inactive" . "#444344")
       ;; special base values, used only for cases where the above
       ;; fg-* or bg-* cannot or should not be used (to avoid confusion)
       ;; must be combined with: {fg,bg}-{main,alt,dim}
@@ -1133,9 +1133,9 @@ AMOUNT is a customisation option."
       ;; styles that are meant exclusively for the mode line
       ;;
       ;; must be combined with: `bg-active', `bg-inactive'
-      ("red-active" . "#930000") ("green-active" . "#005300")
-      ("yellow-active" . "#703700") ("blue-active" . "#0033c0")
-      ("magenta-active" . "#6320a0") ("cyan-active" . "#004882")
+      ("red-active" . "#900000") ("green-active" . "#00502e")
+      ("yellow-active" . "#71330f") ("blue-active" . "#0032b8")
+      ("magenta-active" . "#602492") ("cyan-active" . "#00438d")
       ;; styles that are meant exclusively for the fringes
       ;;
       ;; must be combined with `fg-main' or `fg-dim'
