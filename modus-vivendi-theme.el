@@ -3582,11 +3582,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-priority ((,class :box ,bg-region :background ,bg-dim :foreground ,magenta
                            :inherit ,modus-theme-variable-pitch)))
    `(org-property-value ((,class :inherit fixed-pitch :foreground ,cyan-alt-other)))
-   `(org-quote ((,class ,@(if modus-vivendi-theme-org-blocks
-                              (append
-                               (and (>= emacs-major-version 27) '(:extend t))
-                               (list :background bg-dim))
-                            (list :background nil))
+   `(org-quote ((,class ,@(modus-vivendi-theme-org-block bg-dim)
                         :foreground ,fg-special-calm :slant ,modus-theme-slant)))
    `(org-scheduled ((,class :foreground ,fg-special-warm)))
    `(org-scheduled-previously ((,class :foreground ,yellow-alt-other)))
