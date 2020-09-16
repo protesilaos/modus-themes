@@ -1138,8 +1138,7 @@ AMOUNT is a customisation option."
       ("magenta-active" . "#6320a0") ("cyan-active" . "#004882")
       ;; styles that are meant exclusively for the fringes
       ;;
-      ;; must have a minimum contrast ratio of 1.5:1 with `bg-inactive'
-      ;; and be combined with `fg-main' or `fg-dim'
+      ;; must be combined with `fg-main' or `fg-dim'
       ("red-fringe-bg" . "#ff9a9a") ("green-fringe-bg" . "#86cf86")
       ("yellow-fringe-bg" . "#e0c050") ("blue-fringe-bg" . "#82afff")
       ("magenta-fringe-bg" . "#f0a3ff") ("cyan-fringe-bg" . "#00d6e0")
