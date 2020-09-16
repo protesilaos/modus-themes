@@ -4220,7 +4220,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(undo-tree-visualizer-unmodified-face ((,class :foreground ,green-intense)))
 ;;;;; vc
    `(vc-conflict-state ((,class ,@(modus-vivendi-theme-bold-weight) :foreground ,red-active)))
-   `(vc-edited-state ((,class :foreground ,fg-special-warm)))
+   `(vc-edited-state ((,class :foreground ,yellow-active)))
    `(vc-locally-added-state ((,class :foreground ,cyan-active)))
    `(vc-locked-state ((,class ,@(modus-vivendi-theme-bold-weight) :foreground ,magenta-active)))
    `(vc-missing-state ((,class ,@(modus-vivendi-theme-bold-weight) :foreground ,yellow-active)))
