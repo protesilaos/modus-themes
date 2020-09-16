@@ -3276,7 +3276,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(message-header-to ((,class :inherit bold :foreground ,magenta-alt)))
    `(message-header-xheader ((,class :foreground ,blue-alt-other)))
    `(message-mml ((,class :foreground ,green-alt)))
-   `(message-separator ((,class :background ,bg-active :foreground ,fg-special-warm)))
+   `(message-separator ((,class :inherit modus-theme-intense-neutral)))
 ;;;;; minibuffer-line
    `(minibuffer-line ((,class :foreground ,fg-main)))
 ;;;;; minimap
@@ -3310,7 +3310,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(mu4e-cited-6-face ((,class :foreground ,cyan-alt)))
    `(mu4e-cited-7-face ((,class :foreground ,magenta)))
    `(mu4e-compose-header-face ((,class :inherit mu4e-compose-separator-face)))
-   `(mu4e-compose-separator-face ((,class :background ,bg-active :foreground ,fg-special-warm)))
+   `(mu4e-compose-separator-face ((,class :inherit modus-theme-intense-neutral)))
    `(mu4e-contact-face ((,class :inherit bold :foreground ,cyan-alt-other)))
    `(mu4e-context-face ((,class :foreground ,blue-active)))
    `(mu4e-draft-face ((,class :foreground ,magenta-alt)))
