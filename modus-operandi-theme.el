@@ -419,7 +419,7 @@ between foreground and background is >= 7:1)."
 (defface modus-theme-diff-focus-changed nil nil)
 (defface modus-theme-diff-focus-removed nil nil)
 (defface modus-theme-diff-heading nil nil)
-(defface modus-theme-header nil nil)    ; Name is tentative
+(defface modus-theme-pseudo-header nil nil)
 (defface modus-theme-mark-alt nil nil)
 (defface modus-theme-mark-del nil nil)
 (defface modus-theme-mark-sel nil nil)
@@ -1412,7 +1412,7 @@ Also bind `class' to ((class color) (min-colors 89))."
                  blue-nuanced-bg blue))))
 ;;;;; mark indicators
    ;; colour combinations intended for Dired, Ibuffer, or equivalent
-   `(modus-theme-header ((,class :inherit bold :foreground ,fg-main)))
+   `(modus-theme-pseudo-header ((,class :inherit bold :foreground ,fg-main)))
    `(modus-theme-mark-alt ((,class :inherit bold :background ,bg-mark-alt :foreground ,fg-mark-alt)))
    `(modus-theme-mark-del ((,class :inherit bold :background ,bg-mark-del :foreground ,fg-mark-del)))
    `(modus-theme-mark-sel ((,class :inherit bold :background ,bg-mark-sel :foreground ,fg-mark-sel)))
@@ -1988,7 +1988,7 @@ Also bind `class' to ((class color) (min-colors 89))."
 ;;;;; dired
    `(dired-directory ((,class :foreground ,blue)))
    `(dired-flagged ((,class :inherit modus-theme-mark-del)))
-   `(dired-header ((,class :inherit modus-theme-header)))
+   `(dired-header ((,class :inherit modus-theme-pseudo-header)))
    `(dired-ignored ((,class :foreground ,fg-alt)))
    `(dired-mark ((,class :inherit modus-theme-mark-symbol)))
    `(dired-marked ((,class :inherit modus-theme-mark-sel)))
@@ -2023,7 +2023,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(diredfl-date-time ((,class :foreground ,cyan-alt-other)))
    `(diredfl-deletion ((,class :inherit modus-theme-mark-del)))
    `(diredfl-deletion-file-name ((,class :inherit modus-theme-mark-del)))
-   `(diredfl-dir-heading ((,class :inherit modus-theme-header)))
+   `(diredfl-dir-heading ((,class :inherit modus-theme-pseudo-header)))
    `(diredfl-dir-name ((,class :inherit dired-directory)))
    `(diredfl-dir-priv ((,class :foreground ,blue-alt)))
    `(diredfl-exec-priv ((,class :foreground ,magenta)))
@@ -4543,7 +4543,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(ibuffer-deletion-face 'modus-theme-mark-del)
    `(ibuffer-filter-group-name-face 'modus-theme-mark-symbol)
    `(ibuffer-marked-face 'modus-theme-mark-sel)
-   `(ibuffer-title-face 'modus-theme-header)
+   `(ibuffer-title-face 'modus-theme-pseudo-header)
 ;;;; highlight-tail
    `(highlight-tail-colors
      '((,green-subtle-bg . 0)
