@@ -1360,16 +1360,56 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(modus-theme-special-calm ((,class :background ,bg-special-calm :foreground ,fg-special-calm)))
 ;;;;; diff-specific combinations
    ;; intended for `diff-mode' or equivalent
-   `(modus-theme-diff-added ((,class :background ,bg-diff-added :foreground ,fg-diff-added)))
-   `(modus-theme-diff-changed ((,class :background ,bg-diff-changed :foreground ,fg-diff-changed)))
-   `(modus-theme-diff-removed ((,class :background ,bg-diff-removed :foreground ,fg-diff-removed)))
-   `(modus-theme-diff-refine-added ((,class :background ,bg-diff-refine-added :foreground ,fg-diff-refine-added)))
-   `(modus-theme-diff-refine-changed ((,class :background ,bg-diff-refine-changed :foreground ,fg-diff-refine-changed)))
-   `(modus-theme-diff-refine-removed ((,class :background ,bg-diff-refine-removed :foreground ,fg-diff-refine-removed)))
-   `(modus-theme-diff-focus-added ((,class :background ,bg-diff-focus-added :foreground ,fg-diff-focus-added)))
-   `(modus-theme-diff-focus-changed ((,class :background ,bg-diff-focus-changed :foreground ,fg-diff-focus-changed)))
-   `(modus-theme-diff-focus-removed ((,class :background ,bg-diff-focus-removed :foreground ,fg-diff-focus-removed)))
-   `(modus-theme-diff-heading ((,class :background ,bg-diff-heading :foreground ,fg-diff-heading)))
+   `(modus-theme-diff-added
+     ((,class ,@(modus-vivendi-theme-diff
+                 bg-main green
+                 bg-diff-focus-added fg-diff-focus-added
+                 green-nuanced-bg fg-diff-added))))
+   `(modus-theme-diff-changed
+     ((,class ,@(modus-vivendi-theme-diff
+                 bg-main yellow
+                 bg-diff-focus-changed fg-diff-focus-changed
+                 yellow-nuanced-bg fg-diff-changed))))
+   `(modus-theme-diff-removed
+     ((,class ,@(modus-vivendi-theme-diff
+                 bg-main red
+                 bg-diff-focus-removed fg-diff-focus-removed
+                 red-nuanced-bg fg-diff-removed))))
+   `(modus-theme-diff-refine-added
+     ((,class ,@(modus-vivendi-theme-diff
+                 bg-diff-added fg-diff-added
+                 bg-diff-refine-added fg-diff-refine-added
+                 bg-diff-focus-added fg-diff-focus-added))))
+   `(modus-theme-diff-refine-changed
+     ((,class ,@(modus-vivendi-theme-diff
+                 bg-diff-changed fg-diff-changed
+                 bg-diff-refine-changed fg-diff-refine-changed
+                 bg-diff-focus-changed fg-diff-focus-changed))))
+   `(modus-theme-diff-refine-removed
+     ((,class ,@(modus-vivendi-theme-diff
+                 bg-diff-removed fg-diff-removed
+                 bg-diff-refine-removed fg-diff-refine-removed
+                 bg-diff-focus-removed fg-diff-focus-removed))))
+   `(modus-theme-diff-focus-added
+     ((,class ,@(modus-vivendi-theme-diff
+                 bg-dim green
+                 bg-diff-focus-added fg-diff-focus-added
+                 bg-diff-added fg-diff-added))))
+   `(modus-theme-diff-focus-changed
+     ((,class ,@(modus-vivendi-theme-diff
+                 bg-dim yellow
+                 bg-diff-focus-changed fg-diff-focus-changed
+                 bg-diff-changed fg-diff-changed))))
+   `(modus-theme-diff-focus-removed
+     ((,class ,@(modus-vivendi-theme-diff
+                 bg-dim red
+                 bg-diff-focus-removed fg-diff-focus-removed
+                 bg-diff-removed fg-diff-removed))))
+   `(modus-theme-diff-heading
+     ((,class ,@(modus-vivendi-theme-diff
+                 bg-alt blue-alt
+                 bg-diff-heading fg-diff-heading
+                 blue-nuanced-bg blue))))
 ;;;;; mark indicators
    ;; colour combinations intended for Dired, Ibuffer, or equivalent
    `(modus-theme-header ((,class :inherit bold :foreground ,fg-main)))
@@ -1927,43 +1967,22 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(diff-hl-insert ((,class :inherit modus-theme-fringe-green)))
    `(diff-hl-reverted-hunk-highlight ((,class :inherit (modus-theme-active-magenta bold))))
 ;;;;; diff-mode
-   `(diff-added ((,class ,@(modus-vivendi-theme-diff
-                            bg-main green
-                            bg-diff-focus-added fg-diff-focus-added
-                            green-nuanced-bg fg-diff-added))))
-   `(diff-changed ((,class ,@(modus-vivendi-theme-diff
-                              bg-main yellow
-                              bg-diff-focus-changed fg-diff-focus-changed
-                              yellow-nuanced-bg fg-diff-changed))))
+   `(diff-added ((,class :inherit modus-theme-diff-added)))
+   `(diff-changed ((,class :inherit modus-theme-diff-changed)))
    `(diff-context ((,class :foreground ,fg-unfocused)))
    `(diff-file-header ((,class :inherit bold :foreground ,blue)))
    `(diff-function ((,class :foreground ,fg-special-cold)))
    `(diff-header ((,class :foreground ,blue-nuanced)))
-   `(diff-hunk-header ((,class ,@(modus-vivendi-theme-diff
-                                  bg-alt blue-alt
-                                  bg-diff-heading fg-diff-heading
-                                  blue-nuanced-bg blue))))
+   `(diff-hunk-header ((,class :inherit modus-theme-diff-heading)))
    `(diff-index ((,class :inherit bold :foreground ,blue-alt)))
    `(diff-indicator-added ((,class :inherit diff-added)))
    `(diff-indicator-changed ((,class :inherit diff-changed)))
    `(diff-indicator-removed ((,class :inherit diff-removed)))
    `(diff-nonexistent ((,class :inherit (modus-theme-neutral bold))))
-   `(diff-refine-added ((,class ,@(modus-vivendi-theme-diff
-                                   bg-diff-added fg-diff-added
-                                   bg-diff-refine-added fg-diff-refine-added
-                                   bg-diff-focus-added fg-diff-focus-added))))
-   `(diff-refine-changed ((,class ,@(modus-vivendi-theme-diff
-                                     bg-diff-changed fg-diff-changed
-                                     bg-diff-refine-changed fg-diff-refine-changed
-                                     bg-diff-focus-changed fg-diff-focus-changed))))
-   `(diff-refine-removed ((,class ,@(modus-vivendi-theme-diff
-                                     bg-diff-removed fg-diff-removed
-                                     bg-diff-refine-removed fg-diff-refine-removed
-                                     bg-diff-focus-removed fg-diff-focus-removed))))
-   `(diff-removed ((,class ,@(modus-vivendi-theme-diff
-                              bg-main red
-                              bg-diff-focus-removed fg-diff-focus-removed
-                              red-nuanced-bg fg-diff-removed))))
+   `(diff-refine-added ((,class :inherit modus-theme-diff-refine-added)))
+   `(diff-refine-changed ((,class :inherit modus-theme-diff-refine-changed)))
+   `(diff-refine-removed ((,class :inherit modus-theme-diff-refine-removed)))
+   `(diff-removed ((,class :inherit modus-theme-diff-removed)))
 ;;;;; dim-autoload
    `(dim-autoload-cookie-line ((,class :foreground ,fg-alt :slant ,modus-theme-slant)))
 ;;;;; dired
@@ -2093,6 +2112,8 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(ebdb-role-defunct ((,class :foreground ,fg-alt)))
    `(eieio-custom-slot-tag-face ((,class :foreground ,red-alt)))
 ;;;;; ediff
+   ;; NOTE: here we break from the pattern of inheriting from the
+   ;; modus-theme-diff-* faces.
    `(ediff-current-diff-A ((,class ,@(modus-vivendi-theme-diff
                                       bg-dim red
                                       bg-diff-removed fg-diff-removed
@@ -3113,22 +3134,20 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(magit-branch-upstream ((,class :slant italic)))
    `(magit-cherry-equivalent ((,class :background ,bg-main :foreground ,magenta-intense)))
    `(magit-cherry-unmatched ((,class :background ,bg-main :foreground ,cyan-intense)))
+   ;; NOTE: here we break from the pattern of inheriting from the
+   ;; modus-theme-diff-* faces, though only for the standard actions,
+   ;; not the highlighted ones.  This is because Magit's interaction
+   ;; model relies on highlighting the current diff hunk.
    `(magit-diff-added ((,class ,@(modus-vivendi-theme-diff
                                   bg-main green
                                   bg-diff-added fg-diff-added
                                   green-nuanced-bg fg-diff-added))))
-   `(magit-diff-added-highlight ((,class ,@(modus-vivendi-theme-diff
-                                            bg-dim green
-                                            bg-diff-focus-added fg-diff-focus-added
-                                            bg-diff-added fg-diff-added))))
+   `(magit-diff-added-highlight ((,class :inherit modus-theme-diff-focus-added)))
    `(magit-diff-base ((,class ,@(modus-vivendi-theme-diff
                                  bg-main yellow
                                  bg-diff-changed fg-diff-changed
                                  yellow-nuanced-bg fg-diff-changed))))
-   `(magit-diff-base-highlight ((,class ,@(modus-vivendi-theme-diff
-                                           bg-dim yellow
-                                           bg-diff-focus-changed fg-diff-focus-changed
-                                           bg-diff-changed fg-diff-changed))))
+   `(magit-diff-base-highlight ((,class :inherit modus-theme-diff-focus-changed)))
    `(magit-diff-context ((,class :foreground ,fg-unfocused)))
    `(magit-diff-context-highlight ((,class ,@(modus-vivendi-theme-diff
                                               bg-dim fg-dim
@@ -3137,8 +3156,12 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(magit-diff-file-heading ((,class :inherit bold :foreground ,fg-special-cold)))
    `(magit-diff-file-heading-highlight ((,class :inherit (modus-theme-special-cold bold))))
    `(magit-diff-file-heading-selection ((,class :background ,bg-alt :foreground ,cyan)))
-   `(magit-diff-hunk-heading ((,class :inherit bold :background ,bg-active :foreground ,fg-inactive)))
-   `(magit-diff-hunk-heading-highlight ((,class :inherit (modus-theme-diff-heading bold))))
+   ;; NOTE: here we break from the pattern of inheriting from the
+   ;; modus-theme-diff-* faces.
+   `(magit-diff-hunk-heading ((,class :inherit bold :background ,bg-active
+                                      :foreground ,fg-inactive)))
+   `(magit-diff-hunk-heading-highlight ((,class :inherit bold :background ,bg-diff-heading
+                                                :foreground ,fg-diff-heading)))
    `(magit-diff-hunk-heading-selection ((,class :inherit modus-theme-intense-cyan)))
    `(magit-diff-hunk-region ((,class :inherit bold)))
    `(magit-diff-lines-boundary ((,class :background ,fg-main)))
@@ -3147,10 +3170,7 @@ Also bind `class' to ((class color) (min-colors 89))."
                                     bg-main red
                                     bg-diff-removed fg-diff-removed
                                     red-nuanced-bg fg-diff-removed))))
-   `(magit-diff-removed-highlight ((,class ,@(modus-vivendi-theme-diff
-                                              bg-dim red
-                                              bg-diff-focus-removed fg-diff-focus-removed
-                                              bg-diff-removed fg-diff-removed))))
+   `(magit-diff-removed-highlight ((,class :inherit modus-theme-diff-focus-removed)))
    `(magit-diffstat-added ((,class :foreground ,green)))
    `(magit-diffstat-removed ((,class :foreground ,red)))
    `(magit-dimmed ((,class :foreground ,fg-unfocused)))
@@ -3994,28 +4014,13 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(sp-wrap-overlay-opening-pair ((,class :inherit sp-pair-overlay-face)))
    `(sp-wrap-tag-overlay-face ((,class :inherit sp-pair-overlay-face)))
 ;;;;; smerge
-   `(smerge-base ((,class ,@(modus-vivendi-theme-diff
-                             bg-main yellow
-                             bg-diff-focus-changed fg-diff-focus-changed
-                             yellow-nuanced-bg fg-diff-changed))))
-   `(smerge-lower ((,class ,@(modus-vivendi-theme-diff
-                              bg-main green
-                              bg-diff-focus-added fg-diff-focus-added
-                              green-nuanced-bg fg-diff-added))))
+   `(smerge-base ((,class :inherit modus-theme-diff-changed)))
+   `(smerge-lower ((,class :inherit modus-theme-diff-added)))
    `(smerge-markers ((,class :background ,bg-diff-neutral-2 :foreground ,fg-diff-neutral-2)))
-   `(smerge-refined-added ((,class ,@(modus-vivendi-theme-diff
-                                      bg-diff-added fg-diff-added
-                                      bg-diff-refine-added fg-diff-refine-added
-                                      green-refine-bg green-refine-fg))))
+   `(smerge-refined-added ((,class :inherit modus-theme-diff-refine-added)))
    `(smerge-refined-changed ((,class)))
-   `(smerge-refined-removed ((,class ,@(modus-vivendi-theme-diff
-                                        bg-diff-removed fg-diff-removed
-                                        bg-diff-refine-removed fg-diff-refine-removed
-                                        red-refine-bg red-refine-fg))))
-   `(smerge-upper ((,class ,@(modus-vivendi-theme-diff
-                              bg-main red
-                              bg-diff-focus-removed fg-diff-focus-removed
-                              red-nuanced-bg fg-diff-removed))))
+   `(smerge-refined-removed ((,class :inherit modus-theme-diff-refine-removed)))
+   `(smerge-upper ((,class :inherit modus-theme-diff-removed)))
 ;;;;; spaceline
    `(spaceline-evil-emacs ((,class :inherit modus-theme-active-magenta)))
    `(spaceline-evil-insert ((,class :inherit modus-theme-active-green)))
@@ -4258,27 +4263,12 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(vc-state-base ((,class :foreground ,fg-active)))
    `(vc-up-to-date-state ((,class :foreground ,fg-special-cold)))
 ;;;;; vdiff
-   `(vdiff-addition-face ((,class ,@(modus-vivendi-theme-diff
-                                     bg-main green
-                                     bg-diff-focus-added fg-diff-focus-added
-                                     green-nuanced-bg fg-diff-added))))
-   `(vdiff-change-face ((,class ,@(modus-vivendi-theme-diff
-                                   bg-main yellow
-                                   bg-diff-focus-changed fg-diff-focus-changed
-                                   yellow-nuanced-bg fg-diff-changed))))
+   `(vdiff-addition-face ((,class :inherit modus-theme-diff-added)))
+   `(vdiff-change-face ((,class :inherit modus-theme-diff-changed)))
    `(vdiff-closed-fold-face ((,class :background ,bg-diff-neutral-1 :foreground ,fg-diff-neutral-1)))
-   `(vdiff-refine-added ((,class ,@(modus-vivendi-theme-diff
-                                    bg-diff-added fg-diff-added
-                                    bg-diff-refine-added fg-diff-refine-added
-                                    green-refine-bg green-refine-fg))))
-   `(vdiff-refine-changed ((,class ,@(modus-vivendi-theme-diff
-                                      bg-diff-changed fg-diff-changed
-                                      bg-diff-refine-changed fg-diff-refine-changed
-                                      yellow-refine-bg yellow-refine-fg))))
-   `(vdiff-subtraction-face ((,class ,@(modus-vivendi-theme-diff
-                                        bg-main red
-                                        bg-diff-focus-removed fg-diff-focus-removed
-                                        red-nuanced-bg fg-diff-removed))))
+   `(vdiff-refine-added ((,class :inherit modus-theme-diff-refine-added)))
+   `(vdiff-refine-changed ((,class :inherit modus-theme-diff-refine-changed)))
+   `(vdiff-subtraction-face ((,class :inherit modus-theme-diff-removed)))
    `(vdiff-target-face ((,class :inherit modus-theme-intense-blue)))
 ;;;;; vimish-fold
    `(vimish-fold-fringe ((,class :foreground ,cyan-active)))
