@@ -2711,7 +2711,7 @@ Also bind `class' to ((class color) (min-colors 89))."
                               'modus-theme-refine-red
                               'modus-theme-nuanced-yellow
                               red-alt))))
-   `(helm-ff-symlink ((,class :foreground ,cyan :underline t)))
+   `(helm-ff-symlink ((,class :inherit button :foreground ,cyan)))
    `(helm-ff-truename ((,class :foreground ,blue-alt-other)))
    `(helm-grep-cmd-line ((,class :foreground ,yellow-alt-other)))
    `(helm-grep-file ((,class :inherit bold :foreground ,fg-special-cold)))
@@ -2747,7 +2747,7 @@ Also bind `class' to ((class color) (min-colors 89))."
                                  'modus-theme-nuanced-cyan
                                  cyan-alt-other))))
    `(helm-minibuffer-prompt ((,class :inherit minibuffer-prompt)))
-   `(helm-moccur-buffer ((,class :foreground ,cyan-alt-other :underline t)))
+   `(helm-moccur-buffer ((,class :inherit button :foreground ,cyan-alt-other)))
    `(helm-mode-prefix ((,class ,@(modus-vivendi-theme-extra-completions
                                   'modus-theme-subtle-magenta
                                   'modus-theme-intense-magenta
