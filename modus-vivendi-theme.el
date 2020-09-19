@@ -3535,7 +3535,7 @@ Also bind `class' to ((class color) (min-colors 89))."
 ;;;;; orderless
    `(orderless-match-face-0 ((,class :inherit bold
                                      ,@(modus-vivendi-theme-standard-completions
-                                        blue-alt blue-nuanced-bg
+                                        blue-alt-other blue-nuanced-bg
                                         blue-refine-bg blue-refine-fg))))
    `(orderless-match-face-1 ((,class :inherit bold
                                      ,@(modus-vivendi-theme-standard-completions
@@ -3543,11 +3543,11 @@ Also bind `class' to ((class color) (min-colors 89))."
                                         magenta-refine-bg magenta-refine-fg))))
    `(orderless-match-face-2 ((,class :inherit bold
                                      ,@(modus-vivendi-theme-standard-completions
-                                        green-alt-other green-nuanced-bg
+                                        green green-nuanced-bg
                                         green-refine-bg green-refine-fg))))
    `(orderless-match-face-3 ((,class :inherit bold
                                      ,@(modus-vivendi-theme-standard-completions
-                                        yellow-alt-other yellow-nuanced-bg
+                                        yellow yellow-nuanced-bg
                                         yellow-refine-bg yellow-refine-fg))))
 ;;;;; org
    `(org-agenda-calendar-event ((,class :foreground ,fg-main)))
