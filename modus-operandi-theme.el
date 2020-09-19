@@ -1781,7 +1781,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(circe-highlight-nick-face ((,class :inherit bold :foreground ,blue)))
    `(circe-prompt-face ((,class :inherit bold :foreground ,cyan-alt-other)))
    `(circe-server-face ((,class :foreground ,fg-unfocused)))
-   `(lui-button-face ((,class :foreground ,blue :underline t)))
+   `(lui-button-face ((,class :inherit button :foreground ,blue)))
    `(lui-highlight-face ((,class :foreground ,magenta-alt)))
    `(lui-time-stamp-face ((,class :foreground ,blue-nuanced)))
 ;;;;; color-rg
@@ -1957,7 +1957,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(deft-title-face ((,class :inherit bold :foreground ,fg-main)))
 ;;;;; dictionary
    `(dictionary-button-face ((,class :inherit bold :foreground ,fg-special-cold)))
-   `(dictionary-reference-face ((,class :foreground ,blue-alt-other :underline t)))
+   `(dictionary-reference-face ((,class :inherit :foreground ,blue-alt-other)))
    `(dictionary-word-definition-face ((,class :foreground ,fg-main)))
    `(dictionary-word-entry-face ((,class :foreground ,fg-special-cold :slant ,modus-theme-slant)))
 ;;;;; diff-hl
@@ -2051,7 +2051,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(disk-usage-inaccessible ((,class :inherit bold :foreground ,red)))
    `(disk-usage-percent ((,class :foreground ,green)))
    `(disk-usage-size ((,class :foreground ,cyan)))
-   `(disk-usage-symlink ((,class :foreground ,blue :underline t)))
+   `(disk-usage-symlink ((,class :inherit button :foreground ,blue)))
    `(disk-usage-symlink-directory ((,class :inherit bold :foreground ,blue-alt)))
 ;;;;; doom-modeline
    `(doom-modeline-bar ((,class :inherit modus-theme-active-blue)))
@@ -2905,7 +2905,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(imenu-list-entry-subalist-face-3 ((,class :inherit bold :foreground ,red-alt-other :underline t)))
 ;;;;; indium
    `(indium-breakpoint-face ((,class :foreground ,red-active)))
-   `(indium-frame-url-face ((,class :foreground ,fg-alt :underline t)))
+   `(indium-frame-url-face ((,class :inherit button :foreground ,fg-alt)))
    `(indium-keyword-face ((,class :foreground ,magenta-alt-other)))
    `(indium-litable-face ((,class :foreground ,fg-special-warm :slant ,modus-theme-slant)))
    `(indium-repl-error-face ((,class :inherit bold :foreground ,red)))
@@ -3106,7 +3106,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(lsp-lens-mouse-face ((,class :height 0.8 :foreground ,blue-alt-other :underline t)))
    `(lsp-ui-doc-background ((,class :background ,bg-alt)))
    `(lsp-ui-doc-header ((,class :background ,bg-header :foreground ,fg-header)))
-   `(lsp-ui-doc-url ((,class :foreground ,blue-alt-other :underline t)))
+   `(lsp-ui-doc-url ((,class :inherit button :foreground ,blue-alt-other)))
    `(lsp-ui-peek-filename ((,class :foreground ,fg-special-warm)))
    `(lsp-ui-peek-footer ((,class :background ,bg-header :foreground ,fg-header)))
    `(lsp-ui-peek-header ((,class :background ,bg-header :foreground ,fg-header)))
@@ -3299,7 +3299,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(markup-emphasis-face ((,class :foreground ,fg-special-cold :slant italic)))
    `(markup-error-face ((,class :inherit bold :foreground ,red)))
    `(markup-gen-face ((,class :foreground ,magenta-alt)))
-   `(markup-internal-reference-face ((,class :foreground ,fg-inactive :underline t)))
+   `(markup-internal-reference-face ((,class :inherit button :foreground ,fg-inactive)))
    `(markup-italic-face ((,class :foreground ,fg-special-cold :slant italic)))
    `(markup-list-face ((,class :inherit modus-theme-special-calm)))
    `(markup-meta-face ((,class :foreground ,fg-inactive)))
