@@ -885,7 +885,7 @@ background that can work well with either of the foreground
 values.  BORDER is a colour value that combines well with the
 background and alternative foreground."
   (let* ((key (modus-vivendi-theme-heading-p `,level))
-         (style (if key key (modus-vivendi-theme-heading-p t)))
+         (style (or key (modus-vivendi-theme-heading-p t)))
          (var (if modus-vivendi-theme-variable-pitch-headings
                   'variable-pitch
                 'default)))
