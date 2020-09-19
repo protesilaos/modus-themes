@@ -561,9 +561,9 @@ completion UI.  The interfaces can be grouped in two categories, based
 on their default aesthetics: (i) those that only or mostly use
 foreground colours for their interaction model, and (ii) those that
 combine background and foreground values for some of their metaphors.
-The former category encompasses the built-in tools, namely, Icomplete
-and Ido, as well as third party packages like Orderless and Flx.  The
-latter covers Helm, Ivy, Selectrum, and similar.
+The former category encompasses Icomplete, Ido, Selectrum as well as
+pattern matching styles like Orderless and Flx.  The latter covers Helm,
+Ivy, and similar.
 
 A value of =nil= will respect the metaphors of each completion framework.
 

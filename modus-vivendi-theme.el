@@ -765,6 +765,7 @@ greyscale value is used."
 
 (defcustom modus-vivendi-theme-completions nil
   "Apply special styles to the UI of completion frameworks.
+
 This concerns Icomplete, Ivy, Helm, Selectrum, Ido, as well as
 any other tool meant to enhance their experience.  The effect
 will vary depending on the completion framework.
@@ -1016,12 +1017,13 @@ and MAINFG respectively."
 
 (defun modus-vivendi-theme-standard-completions (mainfg subtlebg intensebg intensefg)
   "Combinations for `modus-vivendi-theme-completions'.
-These are intended for Icomplete, Ido, and related.
 
 MAINFG is an accented foreground value.  SUBTLEBG is an accented
 background value that can be combined with MAINFG.  INTENSEBG and
 INTENSEFG are accented colours that are designed to be used in
-tandem."
+tandem.
+
+These are intended for Icomplete, Ido, and related."
   (pcase modus-vivendi-theme-completions
     ('opinionated (list :background intensebg :foreground intensefg))
     ('moderate (list :background subtlebg :foreground mainfg))
@@ -1029,7 +1031,6 @@ tandem."
 
 (defun modus-vivendi-theme-extra-completions (subtleface intenseface altface &optional altfg bold)
   "Combinations for `modus-vivendi-theme-completions'.
-These are intended for Helm, Ivy, Selectrum, etc.
 
 SUBTLEFACE and INTENSEFACE are custom theme faces that combine a
 background and foreground value.  The difference between the two
@@ -1039,10 +1040,12 @@ ALTFACE is a combination of colours that represents a departure
 from the UI's default aesthetics.  Optional ALTFG is meant to be
 used in tandem with it.
 
-Optional BOLD will apply a heavier weight to the text."
+Optional BOLD will apply a heavier weight to the text.
+
+These are intended for Helm, Ivy, etc."
   (pcase modus-vivendi-theme-completions
     ('opinionated (list :inherit (list altface bold)
-                        :foreground (if altfg altfg 'unspecified)))
+                        :foreground (or altfg 'unspecified)))
     ('moderate (list :inherit (list subtleface bold)))
     (_ (list :inherit (list intenseface bold)))))
 
@@ -3929,24 +3932,19 @@ Also bind `class' to ((class color) (min-colors 89))."
                                         'modus-theme-nuanced-blue
                                         blue-alt-other))))
 ;;;;; selectrum
-   `(selectrum-current-candidate ((,class ,@(modus-vivendi-theme-extra-completions
-                                             'modus-theme-refine-magenta
-                                             'modus-theme-intense-magenta
-                                             'modus-theme-nuanced-magenta
-                                             magenta
-                                             'bold))))
-   `(selectrum-primary-highlight ((,class ,@(modus-vivendi-theme-extra-completions
-                                             'modus-theme-refine-blue
-                                             'modus-theme-intense-blue
-                                             'modus-theme-nuanced-blue
-                                             blue
-                                             'bold))))
-   `(selectrum-secondary-highlight ((,class ,@(modus-vivendi-theme-extra-completions
-                                               'modus-theme-refine-cyan
-                                               'modus-theme-intense-cyan
-                                               'modus-theme-nuanced-cyan
-                                               cyan
-                                               'bold))))
+   `(selectrum-current-candidate
+     ((,class :inherit bold :foreground ,fg-main :underline ,fg-main
+              :background ,@(pcase modus-vivendi-theme-completions
+                              ('opinionated (list bg-active))
+                              (_ (list bg-inactive))))))
+   `(selectrum-primary-highlight ((,class :inherit bold
+                                          ,@(modus-vivendi-theme-standard-completions
+                                             magenta-alt magenta-nuanced-bg
+                                             magenta-refine-bg magenta-refine-fg))))
+   `(selectrum-secondary-highlight ((,class :inherit bold
+                                            ,@(modus-vivendi-theme-standard-completions
+                                               cyan-alt-other cyan-nuanced-bg
+                                               cyan-refine-bg cyan-refine-fg))))
 ;;;;; semantic
    `(semantic-complete-inline-face ((,class :foreground ,fg-special-warm :underline t)))
    `(semantic-decoration-on-private-members-face ((,class :inherit modus-theme-refine-cyan)))

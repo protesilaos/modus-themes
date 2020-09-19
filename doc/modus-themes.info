@@ -690,9 +690,9 @@ completion UI.  The interfaces can be grouped in two categories, based
 on their default aesthetics: (i) those that only or mostly use
 foreground colours for their interaction model, and (ii) those that
 combine background and foreground values for some of their metaphors.
-The former category encompasses the built-in tools, namely, Icomplete
-and Ido, as well as third party packages like Orderless and Flx.  The
-latter covers Helm, Ivy, Selectrum, and similar.
+The former category encompasses Icomplete, Ido, Selectrum as well as
+pattern matching styles like Orderless and Flx.  The latter covers Helm,
+Ivy, and similar.
 
    A value of ‘nil’ will respect the metaphors of each completion
 framework.
@@ -2411,40 +2411,40 @@ Node: Link underline20915
 Node: Command prompts21397
 Node: Mode line22195
 Node: Completion UIs24632
-Node: Fringes26573
-Node: Line highlighting27337
-Node: Matching parentheses28005
-Node: Diffs28649
-Node: Org mode blocks30442
-Node: Heading styles31945
-Node: Scaled headings35334
-Node: Scaled heading sizes35951
-Node: Headings' font37910
-Node: Advanced customisation (do-it-yourself)38534
-Node: Tweak colours (DIY)39538
-Node: Font configs (DIY)43172
-Ref: Font configs (DIY)-Footnote-145752
-Ref: Font configs (DIY)-Footnote-245939
-Node: Org user faces (DIY)46161
-Node: Face coverage49382
-Node: Supported packages49884
-Node: Covered indirectly55843
-Node: Will NOT be supported56212
-Node: Notes for individual packages56930
-Node: Note for ERC escaped colour sequences57378
-Ref: Note for ERC escaped colour sequences-Footnote-158761
-Node: Note for powerline or spaceline58871
-Node: Note on shr colours59289
-Node: Note for Helm grep59702
-Node: Note on vc-annotate-background-mode61149
-Node: Contributing62003
-Node: Sources of the themes62422
-Node: Issues you can help with63184
-Node: Merge requests64371
-Node: Acknowledgements65453
-Node: Meta66717
-Node: External projects (ports)67909
-Node: GNU Free Documentation License68732
+Node: Fringes26544
+Node: Line highlighting27308
+Node: Matching parentheses27976
+Node: Diffs28620
+Node: Org mode blocks30413
+Node: Heading styles31916
+Node: Scaled headings35305
+Node: Scaled heading sizes35922
+Node: Headings' font37881
+Node: Advanced customisation (do-it-yourself)38505
+Node: Tweak colours (DIY)39509
+Node: Font configs (DIY)43143
+Ref: Font configs (DIY)-Footnote-145723
+Ref: Font configs (DIY)-Footnote-245910
+Node: Org user faces (DIY)46132
+Node: Face coverage49353
+Node: Supported packages49855
+Node: Covered indirectly55814
+Node: Will NOT be supported56183
+Node: Notes for individual packages56901
+Node: Note for ERC escaped colour sequences57349
+Ref: Note for ERC escaped colour sequences-Footnote-158732
+Node: Note for powerline or spaceline58842
+Node: Note on shr colours59260
+Node: Note for Helm grep59673
+Node: Note on vc-annotate-background-mode61120
+Node: Contributing61974
+Node: Sources of the themes62393
+Node: Issues you can help with63155
+Node: Merge requests64342
+Node: Acknowledgements65424
+Node: Meta66688
+Node: External projects (ports)67880
+Node: GNU Free Documentation License68703
 
 End Tag Table
 
