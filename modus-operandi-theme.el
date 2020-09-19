@@ -2869,14 +2869,14 @@ Also bind `class' to ((class color) (min-colors 89))."
 ;;;;; icomplete
    `(icomplete-first-match ((,class :inherit bold
                                     ,@(modus-operandi-theme-standard-completions
-                                       fg-main bg-alt
+                                       magenta bg-alt
                                        bg-active fg-main))))
 ;;;;; icomplete-vertical
    `(icomplete-vertical-separator ((,class :foreground ,fg-alt)))
 ;;;;; ido-mode
    `(ido-first-match ((,class :inherit bold
                               ,@(modus-operandi-theme-standard-completions
-                                 fg-main cyan-nuanced-bg
+                                 magenta bg-alt
                                  bg-active fg-main))))
    `(ido-incomplete-regexp ((,class :inherit error)))
    `(ido-indicator ((,class :inherit modus-theme-subtle-yellow)))
