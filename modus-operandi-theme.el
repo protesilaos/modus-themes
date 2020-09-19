@@ -1472,11 +1472,10 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(bold ((,class :weight bold)))
    `(comint-highlight-input ((,class :inherit bold)))
    `(comint-highlight-prompt ((,class ,@(modus-operandi-theme-bold-weight)
-                                      ,@(modus-operandi-theme-prompt cyan
-                                                                     blue-nuanced-bg
-                                                                     blue-alt
-                                                                     blue-refine-bg
-                                                                     fg-main))))
+                                      ,@(modus-operandi-theme-prompt
+                                         cyan
+                                         blue-nuanced-bg blue-alt
+                                         blue-refine-bg fg-main))))
    `(error ((,class :inherit bold :foreground ,red)))
    `(escape-glyph ((,class :foreground ,fg-escape-char-construct)))
    `(file-name-shadow ((,class :foreground ,fg-unfocused)))
@@ -1488,11 +1487,10 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(italic ((,class :slant italic)))
    `(nobreak-hyphen ((,class :foreground ,fg-escape-char-construct)))
    `(nobreak-space ((,class :foreground ,fg-escape-char-construct :underline t)))
-   `(minibuffer-prompt ((,class ,@(modus-operandi-theme-prompt cyan-alt-other
-                                                               cyan-nuanced-bg
-                                                               cyan
-                                                               cyan-refine-bg
-                                                               fg-main))))
+   `(minibuffer-prompt ((,class ,@(modus-operandi-theme-prompt
+                                   cyan-alt-other
+                                   cyan-nuanced-bg cyan
+                                   cyan-refine-bg fg-main))))
    `(mm-command-output ((,class :foreground ,red-alt-other)))
    `(mm-uu-extract ((,class :background ,bg-dim :foreground ,fg-special-mild)))
    `(next-error ((,class :inherit modus-theme-subtle-red)))
@@ -2284,11 +2282,10 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(eshell-ls-symlink ((,class :inherit button :foreground ,cyan)))
    `(eshell-ls-unreadable ((,class :background ,bg-inactive :foreground ,fg-inactive)))
    `(eshell-prompt ((,class ,@(modus-operandi-theme-bold-weight)
-                            ,@(modus-operandi-theme-prompt green-alt-other
-                                                           green-nuanced-bg
-                                                           green-alt
-                                                           green-refine-bg
-                                                           fg-main))))
+                            ,@(modus-operandi-theme-prompt
+                               green-alt-other
+                               green-nuanced-bg green-alt
+                               green-refine-bg fg-main))))
 ;;;;; eshell-fringe-status
    `(eshell-fringe-status-failure ((,class :foreground ,red)))
    `(eshell-fringe-status-success ((,class :foreground ,green)))
@@ -2879,8 +2876,8 @@ Also bind `class' to ((class color) (min-colors 89))."
 ;;;;; ido-mode
    `(ido-first-match ((,class :inherit bold
                               ,@(modus-operandi-theme-standard-completions
-                                       fg-main cyan-nuanced-bg
-                                       bg-active fg-main))))
+                                 fg-main cyan-nuanced-bg
+                                 bg-active fg-main))))
    `(ido-incomplete-regexp ((,class :inherit error)))
    `(ido-indicator ((,class :inherit modus-theme-subtle-yellow)))
    `(ido-only-match ((,class :inherit bold
