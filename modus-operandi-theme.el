@@ -1834,12 +1834,12 @@ Also bind `class' to ((class color) (min-colors 89))."
 ;;;;; completions
    `(completions-annotations ((,class :foreground ,fg-special-cold :slant ,modus-theme-slant)))
    `(completions-common-part ((,class ,@(modus-operandi-theme-standard-completions
-                                         cyan-alt-other cyan-nuanced-bg
-                                         yellow-refine-bg yellow-refine-fg))))
+                                         blue-alt blue-nuanced-bg
+                                         cyan-refine-bg cyan-refine-fg))))
    `(completions-first-difference ((,class :inherit bold
                                            ,@(modus-operandi-theme-standard-completions
-                                              blue-alt-other blue-nuanced-bg
-                                              cyan-subtle-bg fg-dim))))
+                                              magenta-alt blue-nuanced-bg
+                                              magenta-intense-bg fg-main))))
 ;;;;; counsel
    `(counsel-active-mode ((,class :foreground ,magenta-alt-other)))
    `(counsel-application-name ((,class :foreground ,red-alt-other)))
@@ -2434,7 +2434,7 @@ Also bind `class' to ((class color) (min-colors 89))."
                                     'modus-theme-subtle-magenta
                                     'modus-theme-intense-magenta
                                     'modus-theme-nuanced-magenta
-                                    magenta-alt-other
+                                    magenta-alt
                                     'bold))))
 ;;;;; freeze-it
    `(freeze-it-show ((,class :background ,bg-dim :foreground ,fg-special-warm)))
@@ -2871,23 +2871,23 @@ Also bind `class' to ((class color) (min-colors 89))."
 ;;;;; icomplete
    `(icomplete-first-match ((,class :inherit bold
                                     ,@(modus-operandi-theme-standard-completions
-                                       magenta magenta-nuanced-bg
-                                       magenta-intense-bg fg-main))))
+                                       fg-main bg-alt
+                                       bg-active fg-main))))
 ;;;;; icomplete-vertical
    `(icomplete-vertical-separator ((,class :foreground ,fg-alt)))
 ;;;;; ido-mode
    `(ido-first-match ((,class :inherit bold
                               ,@(modus-operandi-theme-standard-completions
-                                 magenta magenta-nuanced-bg
-                                 magenta-subtle-bg fg-main))))
+                                       fg-main cyan-nuanced-bg
+                                       bg-active fg-main))))
    `(ido-incomplete-regexp ((,class :inherit error)))
    `(ido-indicator ((,class :inherit modus-theme-subtle-yellow)))
    `(ido-only-match ((,class :inherit bold
                              ,@(modus-operandi-theme-standard-completions
-                                magenta-intense red-nuanced-bg
-                                magenta-intense-bg fg-main))))
-   `(ido-subdir ((,class :foreground ,blue-alt-other)))
-   `(ido-virtual ((,class :foreground ,yellow-alt-other)))
+                                green green-nuanced-bg
+                                green-intense-bg fg-main))))
+   `(ido-subdir ((,class :foreground ,blue)))
+   `(ido-virtual ((,class :foreground ,fg-special-warm)))
 ;;;;; iedit
    `(iedit-occurrence ((,class :inherit modus-theme-refine-blue)))
    `(iedit-read-only-occurrence ((,class :inherit modus-theme-intense-yellow)))
