@@ -1482,6 +1482,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(file-name-shadow ((,class :foreground ,fg-unfocused)))
    `(header-line ((,class :background ,bg-header :foreground ,fg-header)))
    `(header-line-highlight ((,class :inherit modus-theme-active-blue)))
+   `(help-argument-name ((,class :foreground ,cyan :slant ,modus-theme-slant)))
    `(homoglyph ((,class :foreground ,fg-escape-char-construct)))
    `(ibuffer-locked-buffer ((,class :foreground ,yellow-alt-other)))
    `(italic ((,class :slant italic)))
