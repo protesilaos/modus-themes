@@ -1574,6 +1574,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • treemacs
    • tty-menu
    • tuareg
+   • typescript
    • undo-tree
    • vc (built-in mode line status for version control)
    • vc-annotate (‘C-x v g’)
@@ -2430,23 +2431,23 @@ Ref: Font configs (DIY)-Footnote-245910
 Node: Org user faces (DIY)46132
 Node: Face coverage49353
 Node: Supported packages49855
-Node: Covered indirectly55846
-Node: Will NOT be supported56231
-Node: Notes for individual packages56949
-Node: Note for ERC escaped colour sequences57397
-Ref: Note for ERC escaped colour sequences-Footnote-158780
-Node: Note for powerline or spaceline58890
-Node: Note on shr colours59308
-Node: Note for Helm grep59721
-Node: Note on vc-annotate-background-mode61168
-Node: Contributing62022
-Node: Sources of the themes62441
-Node: Issues you can help with63203
-Node: Merge requests64390
-Node: Acknowledgements65472
-Node: Meta66742
-Node: External projects (ports)67934
-Node: GNU Free Documentation License68757
+Node: Covered indirectly55864
+Node: Will NOT be supported56249
+Node: Notes for individual packages56967
+Node: Note for ERC escaped colour sequences57415
+Ref: Note for ERC escaped colour sequences-Footnote-158798
+Node: Note for powerline or spaceline58908
+Node: Note on shr colours59326
+Node: Note for Helm grep59739
+Node: Note on vc-annotate-background-mode61186
+Node: Contributing62040
+Node: Sources of the themes62459
+Node: Issues you can help with63221
+Node: Merge requests64408
+Node: Acknowledgements65490
+Node: Meta66760
+Node: External projects (ports)67952
+Node: GNU Free Documentation License68775
 
 End Tag Table
 

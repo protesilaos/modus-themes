@@ -317,6 +317,7 @@
 ;;     treemacs
 ;;     tty-menu
 ;;     tuareg
+;;     typescript
 ;;     undo-tree
 ;;     vc (built-in mode line status for version control)
 ;;     vc-annotate (C-x v g)
@@ -4247,6 +4248,10 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(tuareg-opam-pkg-variable-name-face ((,class ,@(modus-vivendi-theme-syntax-foreground
                                                     cyan cyan-faint)
                                                  :slant ,modus-theme-slant)))
+;;;;; typescript
+   `(typescript-jsdoc-tag ((,class :foreground ,fg-special-mild :slant ,modus-theme-slant)))
+   `(typescript-jsdoc-type ((,class :foreground ,fg-special-calm :slant ,modus-theme-slant)))
+   `(typescript-jsdoc-value ((,class :foreground ,fg-special-cold :slant ,modus-theme-slant)))
 ;;;;; undo-tree
    `(undo-tree-visualizer-active-branch-face ((,class :inherit bold :foreground ,fg-main)))
    `(undo-tree-visualizer-current-face ((,class :foreground ,blue-intense)))
