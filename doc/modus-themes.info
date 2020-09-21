@@ -1416,6 +1416,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • eyebrowse
    • fancy-dabbrev
    • flycheck
+   • flycheck-color-mode-line
    • flycheck-indicator
    • flycheck-posframe
    • flymake
@@ -1612,6 +1613,7 @@ These do not require any extra styles because they are configured to
 inherit from some basic faces.  Please confirm.
 
    • edit-indirect
+   • evil-owl
    • perl-mode
    • php-mode
    • swift-mode
@@ -1867,8 +1869,8 @@ Ideas and user feedback
      Michael Goldenberg, Murilo Pereira, Nicolas De Jaeghere, Pierre
      Téchoueyres, Ryan Phillips, Shreyas Ragavan, Tassilo Horn, Thibaut
      Verron, Trey Merkley, Uri Sharf, Utkarsh Singh, Vincent Foley.  As
-     well as users: Ben, Fourchaux, Fredrik, Moesasji, TheBlob42, dinko,
-     doolio, jixiuf, okamsn, tycho garen.
+     well as users: Ben, Fourchaux, Fredrik, Moesasji, Nick, TheBlob42,
+     dinko, doolio, jixiuf, okamsn, tycho garen.
 
 Packaging
      Dhavan Vaidya (Debian), Stefan Kangas (core Emacs), Stefan Monnier
@@ -2428,23 +2430,23 @@ Ref: Font configs (DIY)-Footnote-245910
 Node: Org user faces (DIY)46132
 Node: Face coverage49353
 Node: Supported packages49855
-Node: Covered indirectly55814
-Node: Will NOT be supported56183
-Node: Notes for individual packages56901
-Node: Note for ERC escaped colour sequences57349
-Ref: Note for ERC escaped colour sequences-Footnote-158732
-Node: Note for powerline or spaceline58842
-Node: Note on shr colours59260
-Node: Note for Helm grep59673
-Node: Note on vc-annotate-background-mode61120
-Node: Contributing61974
-Node: Sources of the themes62393
-Node: Issues you can help with63155
-Node: Merge requests64342
-Node: Acknowledgements65424
-Node: Meta66688
-Node: External projects (ports)67880
-Node: GNU Free Documentation License68703
+Node: Covered indirectly55846
+Node: Will NOT be supported56231
+Node: Notes for individual packages56949
+Node: Note for ERC escaped colour sequences57397
+Ref: Note for ERC escaped colour sequences-Footnote-158780
+Node: Note for powerline or spaceline58890
+Node: Note on shr colours59308
+Node: Note for Helm grep59721
+Node: Note on vc-annotate-background-mode61168
+Node: Contributing62022
+Node: Sources of the themes62441
+Node: Issues you can help with63203
+Node: Merge requests64390
+Node: Acknowledgements65472
+Node: Meta66742
+Node: External projects (ports)67934
+Node: GNU Free Documentation License68757
 
 End Tag Table
 

@@ -1487,6 +1487,7 @@ These do not require any extra styles because they are configured to
 inherit from some basic faces.  Please confirm.
 
 + edit-indirect
++ evil-owl
 + perl-mode
 + php-mode
 + swift-mode
@@ -1705,7 +1706,7 @@ The Modus themes are a collective effort.  Every contribution counts.
   Markus Beppler, Michael Goldenberg, Murilo Pereira, Nicolas De
   Jaeghere, Pierre Téchoueyres, Ryan Phillips, Shreyas Ragavan, Tassilo
   Horn, Thibaut Verron, Trey Merkley, Uri Sharf, Utkarsh Singh, Vincent
-  Foley.  As well as users: Ben, Fourchaux, Fredrik, Moesasji,
+  Foley.  As well as users: Ben, Fourchaux, Fredrik, Moesasji, Nick,
   TheBlob42, dinko, doolio, jixiuf, okamsn, tycho garen.
 
 + Packaging :: Dhavan Vaidya (Debian), Stefan Kangas (core Emacs),
