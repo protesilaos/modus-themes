@@ -159,6 +159,7 @@
 ;;     eyebrowse
 ;;     fancy-dabbrev
 ;;     flycheck
+;;     flycheck-color-mode-line
 ;;     flycheck-indicator
 ;;     flycheck-posframe
 ;;     flymake
@@ -2389,6 +2390,11 @@ Also bind `class' to ((class color) (min-colors 89))."
      ((,(append '((supports :underline (:style wave))) class)
        :underline (:color ,fg-lang-warning :style wave))
       (,class :foreground ,fg-lang-warning :underline t)))
+;;;;; flycheck-color-mode-line
+   `(flycheck-color-mode-line-error-face ((,class :inherit flycheck-fringe-error)))
+   `(flycheck-color-mode-line-info-face ((,class :inherit flycheck-fringe-info)))
+   `(flycheck-color-mode-line-running-face ((,class :foreground ,fg-inactive :slant italic)))
+   `(flycheck-color-mode-line-info-face ((,class :inherit flycheck-fringe-warning)))
 ;;;;; flycheck-indicator
    `(flycheck-indicator-disabled ((,class :foreground ,fg-inactive :slant ,modus-theme-slant)))
    `(flycheck-indicator-error ((,class ,@(modus-operandi-theme-bold-weight) :foreground ,red-active)))
