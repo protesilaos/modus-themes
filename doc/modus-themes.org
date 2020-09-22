@@ -290,6 +290,7 @@ https://www.reddit.com/r/emacs/comments/gqsz8u/weekly_tipstricketc_thread/fsfakh
            modus-%1$s-theme-intense-hl-line nil
            modus-%1$s-theme-intense-paren-match nil
            modus-%1$s-theme-no-link-underline t
+           modus-%1$s-theme-no-mixed-fonts nil
            modus-%1$s-theme-prompts nil ; {nil,'subtle,'intense}
            modus-%1$s-theme-completions 'moderate ; {nil,'moderate,'opinionated}
            modus-%1$s-theme-diffs nil ; {nil,'desaturated,'fg-only}

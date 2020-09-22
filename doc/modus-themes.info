@@ -403,6 +403,7 @@ are just for the sake of this demonstration):(1)
                 modus-%1$s-theme-intense-hl-line nil
                 modus-%1$s-theme-intense-paren-match nil
                 modus-%1$s-theme-no-link-underline t
+                modus-%1$s-theme-no-mixed-fonts nil
                 modus-%1$s-theme-prompts nil ; {nil,'subtle,'intense}
                 modus-%1$s-theme-completions 'moderate ; {nil,'moderate,'opinionated}
                 modus-%1$s-theme-diffs nil ; {nil,'desaturated,'fg-only}
@@ -2427,53 +2428,53 @@ Ref: Load at a given time or at sunset/sunrise-Footnote-112116
 Ref: Load at a given time or at sunset/sunrise-Footnote-212244
 Node: Toggle between the themes on demand12327
 Node: Configure options prior to loading13074
-Ref: Configure options prior to loading-Footnote-115670
-Node: Customisation Options15845
-Node: Bold constructs17589
-Node: Slanted constructs18588
-Node: Syntax highlighting19179
-Node: No mixed fonts19907
-Node: Link underline20955
-Node: Command prompts21437
-Node: Mode line22235
-Node: Completion UIs24672
-Node: Fringes26584
-Node: Line highlighting27348
-Node: Matching parentheses28016
-Node: Diffs28660
-Node: Org mode blocks30453
-Node: Heading styles31956
-Node: Scaled headings35345
-Node: Scaled heading sizes35962
-Node: Headings' font37921
-Node: Advanced customisation (do-it-yourself)38545
-Node: Tweak colours (DIY)39549
-Node: Font configs (DIY)43183
-Ref: Font configs (DIY)-Footnote-145763
-Ref: Font configs (DIY)-Footnote-245950
-Node: Org user faces (DIY)46172
-Node: Face coverage49393
-Node: Supported packages49895
-Node: Covered indirectly55904
-Node: Will NOT be supported56289
-Node: Notes for individual packages57007
-Node: Note on company-mode overlay pop-up57495
-Ref: Note on company-mode overlay pop-up-Footnote-158159
-Ref: Note on company-mode overlay pop-up-Footnote-258226
-Node: Note for ERC escaped colour sequences58281
-Ref: Note for ERC escaped colour sequences-Footnote-159708
-Node: Note for powerline or spaceline59818
-Node: Note on shr colours60236
-Node: Note for Helm grep60649
-Node: Note on vc-annotate-background-mode62096
-Node: Contributing62950
-Node: Sources of the themes63369
-Node: Issues you can help with64131
-Node: Merge requests65318
-Node: Acknowledgements66400
-Node: Meta67683
-Node: External projects (ports)68875
-Node: GNU Free Documentation License69698
+Ref: Configure options prior to loading-Footnote-115722
+Node: Customisation Options15897
+Node: Bold constructs17641
+Node: Slanted constructs18640
+Node: Syntax highlighting19231
+Node: No mixed fonts19959
+Node: Link underline21007
+Node: Command prompts21489
+Node: Mode line22287
+Node: Completion UIs24724
+Node: Fringes26636
+Node: Line highlighting27400
+Node: Matching parentheses28068
+Node: Diffs28712
+Node: Org mode blocks30505
+Node: Heading styles32008
+Node: Scaled headings35397
+Node: Scaled heading sizes36014
+Node: Headings' font37973
+Node: Advanced customisation (do-it-yourself)38597
+Node: Tweak colours (DIY)39601
+Node: Font configs (DIY)43235
+Ref: Font configs (DIY)-Footnote-145815
+Ref: Font configs (DIY)-Footnote-246002
+Node: Org user faces (DIY)46224
+Node: Face coverage49445
+Node: Supported packages49947
+Node: Covered indirectly55956
+Node: Will NOT be supported56341
+Node: Notes for individual packages57059
+Node: Note on company-mode overlay pop-up57547
+Ref: Note on company-mode overlay pop-up-Footnote-158211
+Ref: Note on company-mode overlay pop-up-Footnote-258278
+Node: Note for ERC escaped colour sequences58333
+Ref: Note for ERC escaped colour sequences-Footnote-159760
+Node: Note for powerline or spaceline59870
+Node: Note on shr colours60288
+Node: Note for Helm grep60701
+Node: Note on vc-annotate-background-mode62148
+Node: Contributing63002
+Node: Sources of the themes63421
+Node: Issues you can help with64183
+Node: Merge requests65370
+Node: Acknowledgements66452
+Node: Meta67735
+Node: External projects (ports)68927
+Node: GNU Free Documentation License69750
 
 End Tag Table
 
