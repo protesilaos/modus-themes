@@ -104,6 +104,7 @@ Face coverage
 
 Notes for individual packages
 
+* Note on company-mode overlay pop-up::
 * Note for ERC escaped colour sequences::
 * Note for powerline or spaceline::
 * Note on shr colours::
@@ -1648,6 +1649,7 @@ individual packages.
 
 * Menu:
 
+* Note on company-mode overlay pop-up::
 * Note for ERC escaped colour sequences::
 * Note for powerline or spaceline::
 * Note on shr colours::
@@ -1655,9 +1657,30 @@ individual packages.
 * Note on vc-annotate-background-mode::
 
 
-File: modus-themes.info,  Node: Note for ERC escaped colour sequences,  Next: Note for powerline or spaceline,  Up: Notes for individual packages
+File: modus-themes.info,  Node: Note on company-mode overlay pop-up,  Next: Note for ERC escaped colour sequences,  Up: Notes for individual packages
 
-7.1 Note for ERC escaped colour sequences
+7.1 Note on company-mode overlay pop-up
+=======================================
+
+By default, the ‘company-mode’ pop-up that lists completion candidates
+is drawn using an overlay.  This creates alignment issues every time it
+is placed above a piece of text that has a different height than the
+default.
+
+   The solution recommended by the project’s maintainer is to use an
+alternative front-end for drawing the pop-up which uses child frames
+instead of overlays.(1)(2)
+
+   ---------- Footnotes ----------
+
+   (1) <https://github.com/company-mode/company-mode/issues/1010>
+
+   (2) <https://github.com/tumashu/company-posframe/>
+
+
+File: modus-themes.info,  Node: Note for ERC escaped colour sequences,  Next: Note for powerline or spaceline,  Prev: Note on company-mode overlay pop-up,  Up: Notes for individual packages
+
+7.2 Note for ERC escaped colour sequences
 =========================================
 
 The built-in IRC client ‘erc’ has the ability to colourise any text
@@ -1695,7 +1718,7 @@ Emacs: <https://www.mirc.com/colors.html>
 
 File: modus-themes.info,  Node: Note for powerline or spaceline,  Next: Note on shr colours,  Prev: Note for ERC escaped colour sequences,  Up: Notes for individual packages
 
-7.2 Note for powerline or spaceline
+7.3 Note for powerline or spaceline
 ===================================
 
 Both Powerline and Spaceline package users will likely need to use the
@@ -1705,7 +1728,7 @@ and/or modeline setup.
 
 File: modus-themes.info,  Node: Note on shr colours,  Next: Note for Helm grep,  Prev: Note for powerline or spaceline,  Up: Notes for individual packages
 
-7.3 Note on shr colours
+7.4 Note on shr colours
 =======================
 
 Emacs’ HTML rendering mechanism (‘shr’) may need explicit configuration
@@ -1715,7 +1738,7 @@ webpage provides.  Consult ‘C-h v shr-use-colors’.
 
 File: modus-themes.info,  Node: Note for Helm grep,  Next: Note on vc-annotate-background-mode,  Prev: Note on shr colours,  Up: Notes for individual packages
 
-7.4 Note for Helm grep
+7.5 Note for Helm grep
 ======================
 
 There is one face from the Helm package that is meant to highlight the
@@ -1745,7 +1768,7 @@ ANSI colour number 1 (red) from the already-supported array of
 
 File: modus-themes.info,  Node: Note on vc-annotate-background-mode,  Prev: Note for Helm grep,  Up: Notes for individual packages
 
-7.5 Note on vc-annotate-background-mode
+7.6 Note on vc-annotate-background-mode
 =======================================
 
 Due to the unique way ‘vc-annotate’ (‘C-x v g’) applies colours, support
@@ -1866,12 +1889,12 @@ Ideas and user feedback
      Shmalko, Anders Johansson, André Alexandre Gomes, Arif Rezai, Basil
      L.  Contovounisios, Damien Cassou, Dario Gjorgjevski, David
      Edmondson, Davor Rotim, Divan Santana, Gerry Agbobada, Gianluca
-     Recchia, Len Trigg, Manuel Uberti, Mark Burton, Markus Beppler,
-     Michael Goldenberg, Murilo Pereira, Nicolas De Jaeghere, Pierre
-     Téchoueyres, Ryan Phillips, Shreyas Ragavan, Tassilo Horn, Thibaut
-     Verron, Trey Merkley, Uri Sharf, Utkarsh Singh, Vincent Foley.  As
-     well as users: Ben, Fourchaux, Fredrik, Moesasji, Nick, TheBlob42,
-     dinko, doolio, jixiuf, okamsn, tycho garen.
+     Recchia, Iris Garcia, Len Trigg, Manuel Uberti, Mark Burton, Markus
+     Beppler, Michael Goldenberg, Murilo Pereira, Nicolas De Jaeghere,
+     Pierre Téchoueyres, Ryan Phillips, Shreyas Ragavan, Tassilo Horn,
+     Thibaut Verron, Trey Merkley, Uri Sharf, Utkarsh Singh, Vincent
+     Foley.  As well as users: Ben, Fourchaux, Fredrik, Moesasji, Nick,
+     TheBlob42, dinko, doolio, jixiuf, okamsn, tycho garen.
 
 Packaging
      Dhavan Vaidya (Debian), Stefan Kangas (core Emacs), Stefan Monnier
@@ -2390,64 +2413,67 @@ Appendix A GNU Free Documentation License
 
 Tag Table:
 Node: Top218
-Node: Overview3938
-Node: How do the themes look like5623
-Node: Installation6106
-Node: Install from the archives6756
-Node: Install on GNU/Linux7443
-Node: Debian 11 Bullseye7888
-Node: GNU Guix8297
-Node: Enable and load8648
-Node: Load automatically9225
-Node: Load at a given time or at sunset/sunrise10038
-Ref: Load at a given time or at sunset/sunrise-Footnote-112076
-Ref: Load at a given time or at sunset/sunrise-Footnote-212204
-Node: Toggle between the themes on demand12287
-Node: Configure options prior to loading13034
-Ref: Configure options prior to loading-Footnote-115630
-Node: Customisation Options15805
-Node: Bold constructs17549
-Node: Slanted constructs18548
-Node: Syntax highlighting19139
-Node: No mixed fonts19867
-Node: Link underline20915
-Node: Command prompts21397
-Node: Mode line22195
-Node: Completion UIs24632
-Node: Fringes26544
-Node: Line highlighting27308
-Node: Matching parentheses27976
-Node: Diffs28620
-Node: Org mode blocks30413
-Node: Heading styles31916
-Node: Scaled headings35305
-Node: Scaled heading sizes35922
-Node: Headings' font37881
-Node: Advanced customisation (do-it-yourself)38505
-Node: Tweak colours (DIY)39509
-Node: Font configs (DIY)43143
-Ref: Font configs (DIY)-Footnote-145723
-Ref: Font configs (DIY)-Footnote-245910
-Node: Org user faces (DIY)46132
-Node: Face coverage49353
-Node: Supported packages49855
-Node: Covered indirectly55864
-Node: Will NOT be supported56249
-Node: Notes for individual packages56967
-Node: Note for ERC escaped colour sequences57415
-Ref: Note for ERC escaped colour sequences-Footnote-158798
-Node: Note for powerline or spaceline58908
-Node: Note on shr colours59326
-Node: Note for Helm grep59739
-Node: Note on vc-annotate-background-mode61186
-Node: Contributing62040
-Node: Sources of the themes62459
-Node: Issues you can help with63221
-Node: Merge requests64408
-Node: Acknowledgements65490
-Node: Meta66760
-Node: External projects (ports)67952
-Node: GNU Free Documentation License68775
+Node: Overview3978
+Node: How do the themes look like5663
+Node: Installation6146
+Node: Install from the archives6796
+Node: Install on GNU/Linux7483
+Node: Debian 11 Bullseye7928
+Node: GNU Guix8337
+Node: Enable and load8688
+Node: Load automatically9265
+Node: Load at a given time or at sunset/sunrise10078
+Ref: Load at a given time or at sunset/sunrise-Footnote-112116
+Ref: Load at a given time or at sunset/sunrise-Footnote-212244
+Node: Toggle between the themes on demand12327
+Node: Configure options prior to loading13074
+Ref: Configure options prior to loading-Footnote-115670
+Node: Customisation Options15845
+Node: Bold constructs17589
+Node: Slanted constructs18588
+Node: Syntax highlighting19179
+Node: No mixed fonts19907
+Node: Link underline20955
+Node: Command prompts21437
+Node: Mode line22235
+Node: Completion UIs24672
+Node: Fringes26584
+Node: Line highlighting27348
+Node: Matching parentheses28016
+Node: Diffs28660
+Node: Org mode blocks30453
+Node: Heading styles31956
+Node: Scaled headings35345
+Node: Scaled heading sizes35962
+Node: Headings' font37921
+Node: Advanced customisation (do-it-yourself)38545
+Node: Tweak colours (DIY)39549
+Node: Font configs (DIY)43183
+Ref: Font configs (DIY)-Footnote-145763
+Ref: Font configs (DIY)-Footnote-245950
+Node: Org user faces (DIY)46172
+Node: Face coverage49393
+Node: Supported packages49895
+Node: Covered indirectly55904
+Node: Will NOT be supported56289
+Node: Notes for individual packages57007
+Node: Note on company-mode overlay pop-up57495
+Ref: Note on company-mode overlay pop-up-Footnote-158159
+Ref: Note on company-mode overlay pop-up-Footnote-258226
+Node: Note for ERC escaped colour sequences58281
+Ref: Note for ERC escaped colour sequences-Footnote-159708
+Node: Note for powerline or spaceline59818
+Node: Note on shr colours60236
+Node: Note for Helm grep60649
+Node: Note on vc-annotate-background-mode62096
+Node: Contributing62950
+Node: Sources of the themes63369
+Node: Issues you can help with64131
+Node: Merge requests65318
+Node: Acknowledgements66400
+Node: Meta67683
+Node: External projects (ports)68875
+Node: GNU Free Documentation License69698
 
 End Tag Table
 

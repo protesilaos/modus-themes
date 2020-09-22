@@ -1517,6 +1517,22 @@ and the intended styles for the content you are actually working on.
 This section covers information that may be of interest to users of
 individual packages.
 
+** Note on company-mode overlay pop-up
+:PROPERTIES:
+:CUSTOM_ID: h:20cef8c4-d11f-4053-8b2c-2872925780b1
+:END:
+
+By default, the =company-mode= pop-up that lists completion candidates is
+drawn using an overlay.  This creates alignment issues every time it is
+placed above a piece of text that has a different height than the
+default.
+
+The solution recommended by the project's maintainer is to use an
+alternative front-end for drawing the pop-up which uses child frames
+instead of overlays.[fn::
+https://github.com/company-mode/company-mode/issues/1010][fn::
+https://github.com/tumashu/company-posframe/]
+
 ** Note for ERC escaped colour sequences
 :PROPERTIES:
 :CUSTOM_ID: h:98bdf319-1e32-4469-8a01-771200fba65c
@@ -1704,12 +1720,13 @@ The Modus themes are a collective effort.  Every contribution counts.
   Alex Peitsinis, Alexey Shmalko, Anders Johansson, André Alexandre
   Gomes, Arif Rezai, Basil L. Contovounisios, Damien Cassou, Dario
   Gjorgjevski, David Edmondson, Davor Rotim, Divan Santana, Gerry
-  Agbobada, Gianluca Recchia, Len Trigg, Manuel Uberti, Mark Burton,
-  Markus Beppler, Michael Goldenberg, Murilo Pereira, Nicolas De
-  Jaeghere, Pierre Téchoueyres, Ryan Phillips, Shreyas Ragavan, Tassilo
-  Horn, Thibaut Verron, Trey Merkley, Uri Sharf, Utkarsh Singh, Vincent
-  Foley.  As well as users: Ben, Fourchaux, Fredrik, Moesasji, Nick,
-  TheBlob42, dinko, doolio, jixiuf, okamsn, tycho garen.
+  Agbobada, Gianluca Recchia, Iris Garcia, Len Trigg, Manuel Uberti,
+  Mark Burton, Markus Beppler, Michael Goldenberg, Murilo Pereira,
+  Nicolas De Jaeghere, Pierre Téchoueyres, Ryan Phillips, Shreyas
+  Ragavan, Tassilo Horn, Thibaut Verron, Trey Merkley, Uri Sharf,
+  Utkarsh Singh, Vincent Foley.  As well as users: Ben, Fourchaux,
+  Fredrik, Moesasji, Nick, TheBlob42, dinko, doolio, jixiuf, okamsn,
+  tycho garen.
 
 + Packaging :: Dhavan Vaidya (Debian), Stefan Kangas (core Emacs),
   Stefan Monnier (GNU Elpa).
