@@ -236,6 +236,7 @@
 ;;     minimap
 ;;     modeline
 ;;     mood-line
+;;     mpdel
 ;;     mu4e
 ;;     mu4e-conversation
 ;;     multiple-cursors
@@ -3375,6 +3376,9 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(mood-line-status-success ((,class :foreground ,green-active)))
    `(mood-line-status-warning ((,class :inherit bold :foreground ,yellow-active)))
    `(mood-line-unimportant ((,class :foreground ,fg-inactive)))
+;;;;; mpdel
+   `(mpdel-browser-directory-face ((,class :foreground ,blue)))
+   `(mpdel-playlist-current-song-face ((,class :inherit bold :foreground ,blue-alt-other)))
 ;;;;; mu4e
    `(mu4e-attach-number-face ((,class :inherit bold :foreground ,cyan-alt)))
    `(mu4e-cited-1-face ((,class :foreground ,blue-alt)))
