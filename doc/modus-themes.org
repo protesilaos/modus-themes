@@ -539,6 +539,13 @@ We find that a value of =45000= would suffice, contrary to the default
 adverse effect of always overriding the default colour (which has been
 carefully designed to be highly accessible).
 
+Furthermore, because Moody expects an underline and overline instead of
+a box style, it is recommended you also include this in your setup:
+
+#+begin_src emacs-lisp
+(setq x-underline-at-descent-line t)
+#+end_src
+
 ** Option for completion framework aesthetics
 :PROPERTIES:
 :ALT_TITLE: Completion UIs
