@@ -433,13 +433,13 @@ By default, the themes configure some spacing-sensitive faces, such as
 Org tables and code blocks, to always inherit from the =fixed-pitch= face.
 This is to ensure that those constructs remain monospaced when users opt
 for something like the built-in =M-x variable-pitch-mode=.  Otherwise the
-layout would break.
+layout would appear broken.  To disable this behaviour, set the option
+to =t=.
 
-The obvious downside with this theme design is that users need to
-explicitly configure the font family of =fixed-pitch= in order to apply
-their desired typeface (see [[#h:defcf4fc-8fa8-4c29-b12e-7119582cc929][Font configurations for Org (and others)]]).
-That may be something they do not want to do.  Hence this option to
-disable any kind of technique for mixing fonts.
+Users may prefer to use another package for handling mixed typeface
+configurations, rather than letting the theme do it, perhaps because a
+purpose-specific package has extra functionality.  Two possible options
+are [[https://melpa.org/#/org-variable-pitch][org-variable-pitch]] and [[https://melpa.org/#/mixed-pitch][mixed-pitch]].
 
 ** Option for no link underline
 :PROPERTIES:

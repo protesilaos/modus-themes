@@ -565,14 +565,14 @@ Symbol names:
 as Org tables and code blocks, to always inherit from the ‘fixed-pitch’
 face.  This is to ensure that those constructs remain monospaced when
 users opt for something like the built-in ‘M-x variable-pitch-mode’.
-Otherwise the layout would break.
+Otherwise the layout would appear broken.  To disable this behaviour,
+set the option to ‘t’.
 
-   The obvious downside with this theme design is that users need to
-explicitly configure the font family of ‘fixed-pitch’ in order to apply
-their desired typeface (see *note Font configurations for Org (and
-others): Font configs (DIY).). That may be something they do not want to
-do.  Hence this option to disable any kind of technique for mixing
-fonts.
+   Users may prefer to use another package for handling mixed typeface
+configurations, rather than letting the theme do it, perhaps because a
+purpose-specific package has extra functionality.  Two possible options
+are org-variable-pitch (https://melpa.org/#/org-variable-pitch) and
+mixed-pitch (https://melpa.org/#/mixed-pitch).
 
 
 File: modus-themes.info,  Node: Link underline,  Next: Command prompts,  Prev: No mixed fonts,  Up: Customisation Options
@@ -2440,47 +2440,47 @@ Node: Bold constructs17641
 Node: Slanted constructs18640
 Node: Syntax highlighting19231
 Node: No mixed fonts19959
-Node: Link underline21007
-Node: Command prompts21489
-Node: Mode line22287
-Node: Completion UIs24911
-Node: Fringes26823
-Node: Line highlighting27587
-Node: Matching parentheses28255
-Node: Diffs28899
-Node: Org mode blocks30692
-Node: Heading styles32195
-Node: Scaled headings35584
-Node: Scaled heading sizes36201
-Node: Headings' font38160
-Node: Advanced customisation (do-it-yourself)38784
-Node: Tweak colours (DIY)39788
-Node: Font configs (DIY)43422
-Ref: Font configs (DIY)-Footnote-146002
-Ref: Font configs (DIY)-Footnote-246189
-Node: Org user faces (DIY)46411
-Node: Face coverage49632
-Node: Supported packages50134
-Node: Covered indirectly56156
-Node: Will NOT be supported56541
-Node: Notes for individual packages57259
-Node: Note on company-mode overlay pop-up57747
-Ref: Note on company-mode overlay pop-up-Footnote-158411
-Ref: Note on company-mode overlay pop-up-Footnote-258478
-Node: Note for ERC escaped colour sequences58533
-Ref: Note for ERC escaped colour sequences-Footnote-159960
-Node: Note for powerline or spaceline60070
-Node: Note on shr colours60488
-Node: Note for Helm grep60901
-Node: Note on vc-annotate-background-mode62348
-Node: Contributing63202
-Node: Sources of the themes63621
-Node: Issues you can help with64383
-Node: Merge requests65570
-Node: Acknowledgements66652
-Node: Meta67935
-Node: External projects (ports)69127
-Node: GNU Free Documentation License69950
+Node: Link underline21040
+Node: Command prompts21522
+Node: Mode line22320
+Node: Completion UIs24944
+Node: Fringes26856
+Node: Line highlighting27620
+Node: Matching parentheses28288
+Node: Diffs28932
+Node: Org mode blocks30725
+Node: Heading styles32228
+Node: Scaled headings35617
+Node: Scaled heading sizes36234
+Node: Headings' font38193
+Node: Advanced customisation (do-it-yourself)38817
+Node: Tweak colours (DIY)39821
+Node: Font configs (DIY)43455
+Ref: Font configs (DIY)-Footnote-146035
+Ref: Font configs (DIY)-Footnote-246222
+Node: Org user faces (DIY)46444
+Node: Face coverage49665
+Node: Supported packages50167
+Node: Covered indirectly56189
+Node: Will NOT be supported56574
+Node: Notes for individual packages57292
+Node: Note on company-mode overlay pop-up57780
+Ref: Note on company-mode overlay pop-up-Footnote-158444
+Ref: Note on company-mode overlay pop-up-Footnote-258511
+Node: Note for ERC escaped colour sequences58566
+Ref: Note for ERC escaped colour sequences-Footnote-159993
+Node: Note for powerline or spaceline60103
+Node: Note on shr colours60521
+Node: Note for Helm grep60934
+Node: Note on vc-annotate-background-mode62381
+Node: Contributing63235
+Node: Sources of the themes63654
+Node: Issues you can help with64416
+Node: Merge requests65603
+Node: Acknowledgements66685
+Node: Meta67968
+Node: External projects (ports)69160
+Node: GNU Free Documentation License69983
 
 End Tag Table
 
