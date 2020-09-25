@@ -4499,7 +4499,6 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(ztreep-node-count-children-face ((,class :foreground ,fg-special-warm)))
    `(ztreep-node-face ((,class :foreground ,fg-main))))
 ;;;; Emacs 27+
-  ;; EXPERIMENTAL this form is subject to review
   (when (>= emacs-major-version 27)
     (custom-theme-set-faces
      'modus-operandi
@@ -4524,6 +4523,20 @@ Also bind `class' to ((class color) (min-colors 89))."
      `(tab-line-tab-current ((,class :inherit tab-line-tab)))
      `(tab-line-tab-inactive ((,class :box (:line-width 2 :color ,bg-tab-inactive)
                                       :background ,bg-tab-inactive :foreground ,fg-dim)))))
+;;;; Emacs 28+
+  (when (>= emacs-major-version 28)
+    (custom-theme-set-faces
+     'modus-operandi
+;;;;; isearch regexp groups
+     `(isearch-group-1 ((,class :inherit modus-theme-refine-green)))
+     `(isearch-group-2 ((,class :inherit modus-theme-subtle-green)))
+     `(isearch-group-3 ((,class :inherit modus-theme-refine-blue)))
+     `(isearch-group-4 ((,class :inherit modus-theme-subtle-blue)))
+     `(isearch-group-5 ((,class :inherit modus-theme-refine-magenta)))
+     `(isearch-group-6 ((,class :inherit modus-theme-subtle-magenta)))
+     `(isearch-group-7 ((,class :inherit modus-theme-refine-red)))
+     `(isearch-group-8 ((,class :inherit modus-theme-subtle-red)))
+     `(isearch-group-9 ((,class :inherit modus-theme-refine-yellow)))))
 ;;; variables
   (custom-theme-set-variables
    'modus-operandi
