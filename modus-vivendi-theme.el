@@ -3567,17 +3567,9 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-agenda-clocking ((,class :inherit modus-theme-special-cold)))
    `(org-agenda-column-dateline ((,class :background ,bg-alt)))
    `(org-agenda-current-time ((,class :inherit modus-theme-subtle-cyan)))
-   ;; NOTE: here we break the pattern of inheriting from
-   ;; modus-theme-heading-N faces.
-   `(org-agenda-date ((,class ,@(modus-vivendi-theme-heading
-                                 1 cyan-alt-other cyan-alt-other cyan-nuanced-bg bg-region)
-                              ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-4))))
-   `(org-agenda-date-today ((,class :inherit (bold ,modus-theme-variable-pitch)
-                                    :background ,cyan-intense-bg :foreground ,fg-main
-                                    ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-4))))
-   `(org-agenda-date-weekend ((,class ,@(modus-vivendi-theme-heading
-                                         1 cyan cyan blue-nuanced-bg bg-region)
-                                      ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-4))))
+   `(org-agenda-date ((,class :inherit bold :foreground ,cyan)))
+   `(org-agenda-date-today ((,class :inherit (bold modus-theme-intense-cyan))))
+   `(org-agenda-date-weekend ((,class :inherit bold :foreground ,cyan-alt-other)))
    `(org-agenda-diary ((,class :foreground ,fg-main)))
    `(org-agenda-dimmed-todo-face ((,class :inherit modus-theme-subtle-neutral)))
    `(org-agenda-done ((,class :foreground ,green-alt)))
@@ -3586,9 +3578,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-agenda-filter-regexp ((,class :inherit bold :foreground ,magenta-active)))
    `(org-agenda-filter-tags ((,class :inherit bold :foreground ,magenta-active)))
    `(org-agenda-restriction-lock ((,class :background ,bg-dim :foreground ,fg-dim)))
-   `(org-agenda-structure ((,class :inherit ,modus-theme-variable-pitch
-                                   :foreground ,fg-special-mild
-                                   ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-3))))
+   `(org-agenda-structure ((,class :foreground ,blue-alt)))
    `(org-archived ((,class :background ,bg-alt :foreground ,fg-alt)))
    `(org-block ((,class ,@(modus-vivendi-theme-mixed-fonts)
                         ,@(modus-vivendi-theme-org-block bg-dim)
