@@ -2631,7 +2631,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(gnus-group-news-low ((,class :inherit bold :foreground ,green-nuanced)))
    `(gnus-group-news-low-empty ((,class :foreground ,green-nuanced)))
    `(gnus-header-content ((,class :foreground ,cyan)))
-   `(gnus-header-from ((,class :inherit bold :foreground ,cyan-alt :underline nil)))
+   `(gnus-header-from ((,class :inherit bold :foreground ,cyan-alt-other :underline nil)))
    `(gnus-header-name ((,class :foreground ,green)))
    `(gnus-header-newsgroups ((,class :inherit bold :foreground ,blue-alt)))
    `(gnus-header-subject ((,class :inherit bold :foreground ,magenta-alt-other)))
