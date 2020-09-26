@@ -1218,7 +1218,7 @@ AMOUNT is a customisation option."
       ("bg-hl-alt" . "#181732")
       ("bg-hl-alt-intense" . "#282e46")
       ("bg-paren-match" . "#5f362f")
-      ("bg-paren-match-intense" . "#255650")
+      ("bg-paren-match-intense" . "#7416b5")
       ("bg-region" . "#3c3c3c")
 
       ("bg-tab-bar" . "#2c2c2c")
