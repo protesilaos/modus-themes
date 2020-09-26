@@ -3082,7 +3082,7 @@ Also bind `class' to ((class color) (min-colors 89))."
                              'alt-style -3))))
 ;;;;; line numbers (display-line-numbers-mode and global variant)
    `(line-number ((,class :inherit default :background ,bg-dim :foreground ,fg-alt)))
-   `(line-number-current-line ((,class :inherit (default bold) :background ,bg-active :foreground ,fg-active)))
+   `(line-number-current-line ((,class :inherit default :background ,bg-active :foreground ,fg-main)))
 ;;;;; lsp-mode
    `(lsp-face-highlight-read ((,class :inherit modus-theme-subtle-blue :underline t)))
    `(lsp-face-highlight-textual ((,class :inherit modus-theme-subtle-blue)))
