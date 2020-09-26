@@ -4507,8 +4507,12 @@ Also bind `class' to ((class color) (min-colors 89))."
      ;; NOTE that this is specifically for the faces that were
      ;; introduced in Emacs 27, as the other faces are already
      ;; supported.
-     `(line-number-major-tick ((,class :inherit default :background ,yellow-nuanced-bg :foreground ,yellow-nuanced)))
-     `(line-number-minor-tick ((,class :inherit default :background ,cyan-nuanced-bg :foreground ,cyan-nuanced)))
+     `(line-number-major-tick ((,class :inherit (bold default)
+                                       :background ,yellow-nuanced-bg
+                                       :foreground ,yellow-nuanced)))
+     `(line-number-minor-tick ((,class :inherit (bold default)
+                                       :background ,bg-inactive
+                                       :foreground ,fg-inactive)))
 ;;;;; tab-bar-mode
      `(tab-bar ((,class :background ,bg-tab-bar :foreground ,fg-main)))
      `(tab-bar-tab ((,class :inherit bold :box (:line-width 2 :color ,bg-tab-active)
