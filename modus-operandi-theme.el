@@ -1214,6 +1214,7 @@ AMOUNT is a customisation option."
       ;;
       ;; all pairs are combinable with themselves
       ("bg-hl-line" . "#f2eff3")
+      ("bg-hl-line-intense" . "#e0e0e0")
       ("bg-hl-alt" . "#fbeee0")
       ("bg-hl-alt-intense" . "#e8dfd1")
       ("bg-paren-match" . "#e0af82")
@@ -1455,7 +1456,7 @@ Also bind `class' to ((class color) (min-colors 89))."
                  8 fg-dim magenta bg-alt bg-region))))
 ;;;;; other custom faces
    `(modus-theme-hl-line ((,class :background ,(if modus-operandi-theme-intense-hl-line
-                                                   bg-active bg-hl-line)
+                                                   bg-hl-line-intense bg-hl-line)
                                   (and (>= emacs-major-version 27) '(:extend t)))))
 ;;;; standard faces
 ;;;;; absolute essentials
