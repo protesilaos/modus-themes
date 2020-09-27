@@ -1625,6 +1625,7 @@ inherit from some basic faces.  Please confirm.
    • evil-owl
    • perl-mode
    • php-mode
+   • rjsx-mode
    • swift-mode
 
 
