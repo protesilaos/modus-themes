@@ -72,7 +72,7 @@ the built-in themes are synced with the =HEAD= of my =master= branch.
 :CUSTOM_ID: h:69b92089-069c-4ba1-9d94-cc3415fc4f87
 :END:
 
-Check the [[https://gitlab.com/protesilaos/modus-themes/wikis/Screenshots][web page with the screen shots]].  There are lots of scenaria on
+Check the [[https://protesilaos.com/modus-themes-pictures/][web page with the screen shots]].  There are lots of scenaria on
 display that draw attention to details and important aspects in the
 design of the themes.  They also showcase the numerous customisation
 options.

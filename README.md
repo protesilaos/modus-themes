@@ -26,5 +26,5 @@ The themes cover a lot of packages and are highly customisable.
 
 For some demo content, check:
 
-+ the screenshots https://gitlab.com/protesilaos/modus-themes/wikis/Screenshots
++ the screenshots https://protesilaos.com/modus-themes-pictures/
 + my videos https://protesilaos.com/code-casts/
