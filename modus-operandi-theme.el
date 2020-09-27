@@ -1171,10 +1171,10 @@ AMOUNT is a customisation option."
       ("magenta-active" . "#5c2092") ("cyan-active" . "#003f8a")
       ;; styles that are meant exclusively for the fringes
       ;;
-      ;; must be combined with `fg-main' or `fg-dim'
-      ("red-fringe-bg" . "#ff9a9a") ("green-fringe-bg" . "#86cf86")
-      ("yellow-fringe-bg" . "#e0c050") ("blue-fringe-bg" . "#82afff")
-      ("magenta-fringe-bg" . "#f0a3ff") ("cyan-fringe-bg" . "#00d6e0")
+      ;; must be combined with `fg-main'
+      ("red-fringe-bg" . "#f08290") ("green-fringe-bg" . "#62c86a")
+      ("yellow-fringe-bg" . "#dbba3f") ("blue-fringe-bg" . "#82afff")
+      ("magenta-fringe-bg" . "#e0a3ff") ("cyan-fringe-bg" . "#2fcddf")
       ;; styles reserved for specific faces
       ;;
       ;; `bg-hl-line' is between `bg-dim' and `bg-alt', so it should
@@ -1351,12 +1351,12 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(modus-theme-nuanced-cyan ((,class :background ,cyan-nuanced-bg
                                        ,@(and (>= emacs-major-version 27) '(:extend t)))))
 ;;;;; fringe-specific combinations
-   `(modus-theme-fringe-red ((,class :background ,red-fringe-bg :foreground ,fg-dim)))
-   `(modus-theme-fringe-green ((,class :background ,green-fringe-bg :foreground ,fg-dim)))
-   `(modus-theme-fringe-yellow ((,class :background ,yellow-fringe-bg :foreground ,fg-dim)))
-   `(modus-theme-fringe-blue ((,class :background ,blue-fringe-bg :foreground ,fg-dim)))
-   `(modus-theme-fringe-magenta ((,class :background ,magenta-fringe-bg :foreground ,fg-dim)))
-   `(modus-theme-fringe-cyan ((,class :background ,cyan-fringe-bg :foreground ,fg-dim)))
+   `(modus-theme-fringe-red ((,class :background ,red-fringe-bg :foreground ,fg-main)))
+   `(modus-theme-fringe-green ((,class :background ,green-fringe-bg :foreground ,fg-main)))
+   `(modus-theme-fringe-yellow ((,class :background ,yellow-fringe-bg :foreground ,fg-main)))
+   `(modus-theme-fringe-blue ((,class :background ,blue-fringe-bg :foreground ,fg-main)))
+   `(modus-theme-fringe-magenta ((,class :background ,magenta-fringe-bg :foreground ,fg-main)))
+   `(modus-theme-fringe-cyan ((,class :background ,cyan-fringe-bg :foreground ,fg-main)))
 ;;;;; special base values
    ;; these are closer to the grayscale than the accents defined above
    ;; and should only be used when the next closest alternative would be
