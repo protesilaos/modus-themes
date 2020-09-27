@@ -3166,14 +3166,14 @@ Also bind `class' to ((class color) (min-colors 89))."
                                               bg-dim fg-alt))))
    `(magit-diff-file-heading ((,class :inherit bold :foreground ,fg-special-cold)))
    `(magit-diff-file-heading-highlight ((,class :inherit (modus-theme-special-cold bold))))
-   `(magit-diff-file-heading-selection ((,class :background ,bg-alt :foreground ,cyan)))
+   `(magit-diff-file-heading-selection ((,class :inherit modus-theme-refine-cyan)))
    ;; NOTE: here we break from the pattern of inheriting from the
    ;; modus-theme-diff-* faces.
    `(magit-diff-hunk-heading ((,class :inherit bold :background ,bg-active
                                       :foreground ,fg-inactive)))
    `(magit-diff-hunk-heading-highlight ((,class :inherit bold :background ,bg-diff-heading
                                                 :foreground ,fg-diff-heading)))
-   `(magit-diff-hunk-heading-selection ((,class :inherit modus-theme-intense-cyan)))
+   `(magit-diff-hunk-heading-selection ((,class :inherit modus-theme-refine-blue)))
    `(magit-diff-hunk-region ((,class :inherit bold)))
    `(magit-diff-lines-boundary ((,class :background ,fg-main)))
    `(magit-diff-lines-heading ((,class :inherit modus-theme-refine-magenta)))
