@@ -990,12 +990,12 @@ values.  It is intended to be used as a distant-foreground
 property."
   (pcase modus-vivendi-theme-mode-line
     ('3d
-     `(:foreground ,fg-alt :background ,bg-alt
+     `(:background ,bg-alt :foreground ,fg-alt
                    :box (:line-width ,(or border-width 1)
                                      :color ,border-3d
                                      :style ,(and alt-style 'released-button))))
     ('moody
-     `(:foreground ,fg-alt :background ,bg-alt :underline ,border :overline ,border
+     `(:background ,bg-alt :foreground ,fg-alt :underline ,border :overline ,border
                    :distant-foreground ,fg-distant))
     (_
      `(:foreground ,fg :background ,bg :box ,border))))
