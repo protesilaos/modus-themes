@@ -3240,7 +3240,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(Man-reverse ((,class :inherit modus-theme-subtle-magenta)))
    `(Man-underline ((,class :foreground ,cyan :underline t)))
 ;;;;; markdown-mode
-   `(markdown-blockquote-face ((,class :foreground ,fg-special-warm :slant ,modus-theme-slant)))
+   `(markdown-blockquote-face ((,class :foreground ,fg-special-cold :slant ,modus-theme-slant)))
    `(markdown-bold-face ((,class :inherit bold)))
    `(markdown-code-face ((,class ,@(modus-vivendi-theme-mixed-fonts))))
    `(markdown-comment-face ((,class :foreground ,fg-alt :slant ,modus-theme-slant)))
@@ -3646,7 +3646,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-property-value ((,class ,@(modus-vivendi-theme-mixed-fonts)
                                  :foreground ,cyan-alt-other)))
    `(org-quote ((,class ,@(modus-vivendi-theme-org-block bg-dim)
-                        :foreground ,fg-special-calm :slant ,modus-theme-slant)))
+                        :foreground ,fg-special-cold :slant ,modus-theme-slant)))
    `(org-scheduled ((,class :foreground ,fg-special-warm)))
    `(org-scheduled-previously ((,class :foreground ,yellow-alt-other)))
    `(org-scheduled-today ((,class :foreground ,magenta-alt-other)))
