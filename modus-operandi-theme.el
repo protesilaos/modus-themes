@@ -3591,12 +3591,8 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-block-end-line ((,class :inherit org-block-begin-line)))
    `(org-checkbox ((,class :box (:line-width 1 :color ,bg-active)
                            :background ,bg-inactive :foreground ,fg-active)))
-   `(org-checkbox-statistics-done ((,class :box ,bg-region :background ,bg-dim
-                                           :foreground ,green
-                                           :inherit ,modus-theme-variable-pitch)))
-   `(org-checkbox-statistics-todo ((,class :box ,bg-region :background ,bg-dim
-                                           :foreground ,red-alt
-                                           :inherit ,modus-theme-variable-pitch)))
+   `(org-checkbox-statistics-done ((,class :inherit org-done)))
+   `(org-checkbox-statistics-todo ((,class :inherit org-todo)))
    `(org-clock-overlay ((,class :inherit modus-theme-special-cold)))
    `(org-code ((,class ,@(modus-operandi-theme-mixed-fonts) :foreground ,magenta)))
    `(org-column ((,class :background ,bg-alt)))
