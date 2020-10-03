@@ -3677,8 +3677,11 @@ Also bind `class' to ((class color) (min-colors 89))."
 ;;;;; org-recur
    `(org-recur ((,class :foreground ,magenta-active)))
 ;;;;; org-roam
-   `(org-roam-link ((,class :inherit button :foreground ,blue-alt-other)))
-   `(org-roam-backlink ((,class :inherit button :foreground ,green-alt-other)))
+   `(org-roam-link ((,class :inherit button :foreground ,green)))
+   `(org-roam-link-current ((,class :inherit button :foreground ,green-alt)))
+   `(org-roam-link-invalid ((,class :inherit button :foreground ,red)))
+   `(org-roam-link-shielded ((,class :inherit button :foreground ,yellow)))
+   `(org-roam-tag ((,class :foreground ,fg-alt :slant italic)))
 ;;;;; org-superstar
    `(org-superstar-item ((,class :foreground ,fg-main)))
    `(org-superstar-leading ((,class :foreground ,fg-whitespace)))
