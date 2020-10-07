@@ -120,6 +120,7 @@
 ;;     diff-hl
 ;;     diff-mode
 ;;     dim-autoload
+;;     dir-treeview
 ;;     dired
 ;;     dired-async
 ;;     dired-git
@@ -1992,6 +1993,27 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(diff-removed ((,class :inherit modus-theme-diff-removed)))
 ;;;;; dim-autoload
    `(dim-autoload-cookie-line ((,class :foreground ,fg-alt :slant ,modus-theme-slant)))
+;;;;; dir-treeview
+   `(dir-treeview-archive-face ((,class :foreground ,fg-special-warm)))
+   `(dir-treeview-archive-icon-face ((,class :inherit dir-treeview-default-icon-face :foreground ,yellow)))
+   `(dir-treeview-audio-face ((,class :foreground ,magenta)))
+   `(dir-treeview-audio-icon-face ((,class :inherit dir-treeview-default-icon-face :foreground ,magenta-alt)))
+   `(dir-treeview-control-face ((,class :foreground ,fg-alt)))
+   `(dir-treeview-control-mouse-face ((,class :inherit highlight)))
+   `(dir-treeview-default-icon-face ((,class :inherit bold :family "Font Awesome" :foreground ,fg-alt)))
+   `(dir-treeview-default-filename-face ((,class :foreground ,fg-main)))
+   `(dir-treeview-directory-face ((,class :foreground ,blue)))
+   `(dir-treeview-directory-icon-face ((,class :inherit dir-treeview-default-icon-face :foreground ,blue-alt)))
+   `(dir-treeview-executable-face ((,class :foreground ,red-alt)))
+   `(dir-treeview-executable-icon-face ((,class :inherit dir-treeview-default-icon-face :foreground ,red-alt-other)))
+   `(dir-treeview-image-face ((,class :foreground ,green-alt-other)))
+   `(dir-treeview-image-icon-face ((,class :inherit dir-treeview-default-icon-face :foreground ,green-alt)))
+   `(dir-treeview-indent-face ((,class :foreground ,fg-alt)))
+   `(dir-treeview-label-mouse-face ((,class :inherit highlight)))
+   `(dir-treeview-start-dir-face ((,class :inherit modus-theme-pseudo-header)))
+   `(dir-treeview-symlink-face ((,class :inherit button :foreground ,cyan)))
+   `(dir-treeview-video-face ((,class :foreground ,magenta-alt-other)))
+   `(dir-treeview-video-icon-face ((,class :inherit dir-treeview-default-icon-face :foreground ,magenta-alt-other)))
 ;;;;; dired
    `(dired-directory ((,class :foreground ,blue)))
    `(dired-flagged ((,class :inherit modus-theme-mark-del)))

@@ -1262,6 +1262,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + diff-hl
 + diff-mode
 + dim-autoload
++ dir-treeview
 + dired
 + dired-async
 + dired-git
