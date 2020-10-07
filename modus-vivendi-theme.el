@@ -3639,7 +3639,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-meta-line ((,class ,@(modus-vivendi-theme-mixed-fonts) :foreground ,fg-alt)))
    `(org-mode-line-clock ((,class :foreground ,fg-main)))
    `(org-mode-line-clock-overrun ((,class :inherit modus-theme-active-red)))
-   `(org-priority ((,class :foreground ,magenta)))
+   `(org-priority ((,class :box ,bg-region :background ,bg-dim :foreground ,magenta)))
    `(org-property-value ((,class ,@(modus-vivendi-theme-mixed-fonts)
                                  :foreground ,cyan-alt-other)))
    `(org-quote ((,class ,@(modus-vivendi-theme-org-block bg-dim)
