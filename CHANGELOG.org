@@ -1,11 +1,547 @@
 #+TITLE: Change log of the Modus Themes for GNU Emacs
 #+AUTHOR: Protesilaos Stavrou
 #+EMAIL: public@protesilaos.com
+#+OPTIONS: ':nil toc:nil num:nil author:nil email:nil
 
 This document contains the release notes that are included in each
-tagged commit on https://gitlab.com/protesilaos/modus-themes.  The
-newest release is at the top.  Since the notes are meant to be plain
-text, I copy them verbatim.
+tagged commit on the project's main git repository:
+<https://gitlab.com/protesilaos/modus-themes>.
+
+The newest release is at the top.  Since the notes are meant to be in
+plain text format, I copy them verbatim.
+
+For further details, please consult these additional resources:
+
++ Manual :: <https://protesilaos.com/modus-themes>
++ Screenshots :: <https://protesilaos.com/modus-themes-pictures>
+
+* 0.13.0
+
+#+begin_src text
+Modus Operandi and Modus Vivendi version 0.13.0
+
+By Protesilaos Stavrou <info@protesilaos.com> on 2020-10-08
+
+This entry documents the changes since version 0.12.0 (2020-08-26).
+There have been around 150 commits in the meantime, making this the
+largest release to date (though sheer volume should not be conflated
+with quality, of which there is plenty).
+
+As always, everything described herein conforms with the overarching
+accessibility objective of the themes for a minimum contrast ratio of
+7:1 between background and foreground values in their given combinations
+(conformance with the WCAG AAA standard).
+
+Overview
+========
+
+1. There is a new Info manual that documents the customisation options
+   as well as every other piece of information pertinent to the themes.
+   You will find it in the Info pages inside of Emacs.  Or browse it
+   online: <https://protesilaos.com/modus-themes>.
+
+2. New customisation options grant users more power to further adapt the
+   active theme to their preferences.
+
+3. Extended coverage for even more faces and face groups, adding to the
+   already comprehensive list of directly supported ones.
+
+4. Lots of tweaks to improve the use of colour and avoid exaggerations
+   (well, "exaggerations" is relative, since the prior state was already
+   carefully designed).
+
+5. A new page hosts all pictures that demo the themes across a wide
+   range of scenaria: <https://protesilaos.com/modus-themes-pictures>.
+
+6. Similarly, the change log also has its own dedicated web page:
+   <https://protesilaos.com/modus-themes-changelog>.
+
+
+New customisation options
+=========================
+
+Note that all customisation options are documented at length in the new
+Info manual.  What is offered here is not necessarily exhaustive.
+
+
+Diff styles
+-----------
+
+Symbol names ("choice" type):
+
++ modus-operandi-theme-diffs
++ modus-vivendi-theme-diffs
+
+Possible values:
+
+1. nil (default)
+2. desaturated
+2. fg-only
+
+DEPRECATED ("boolean" type):
+
++ modus-operandi-theme-subtle-diffs
++ modus-vivendi-theme-subtle-diffs
+
+This option supersedes older ones while retaining their functionality.
+
+The default remains unaltered, meaning that the diffs will use fairly
+prominent colour-coded combinations for the various elements (e.g. green
+text on an unambiguously green backdrop).
+
+A 'desatured' value will tone down the default aesthetic, giving a less
+vibrant feel.
+
+While 'fg-only' removes almost all coloured backgrounds, opting to apply
+colour only to the relevant text (this was the case with the
+now-deprecated options).  There are some exceptions, like word-wise or
+"refined" diffs, which still use coloured backgrounds to convey their
+meaning.
+
+
+Modeline styles
+---------------
+
+Symbol names ("choice" type):
+
++ modus-operandi-theme-mode-line
++ modus-vivendi-theme-mode-line
+
+Possible values:
+
+1. nil (default)
+2. 3d
+3. moody
+
+DEPRECATED ("boolean" type):
+
++ modus-operandi-theme-3d-modeline
++ modus-vivendi-theme-3d-modeline
+
+The default modeline continues to be a two-dimensional rectangle with a
+border around it.  Active and inactive modelines use different colour
+combinations for their main background and foreground.
+
+Option '3d' produces an effect similar to what you get in a generic
+Emacs session, where the active modeline has a pseudo three-dimensional
+effect applied to it.  This option offers the same functionality as that
+of the deprecated variables.
+
+Option 'moody' is designed specifically for use with the Moody library,
+though it can also be used without it.  Instead of implementing a box
+effect, it applies an overline and underline instead, while also toning
+down the inactive modeline.
+
+Thanks to Nicolas De Jaeghere for the feedback and code samples in issue
+80: <https://gitlab.com/protesilaos/modus-themes/-/issues/80>
+
+
+Headline styles
+---------------
+
+Symbol names ("alist" type):
+
++ modus-operandi-theme-headings
++ modus-vivendi-theme-headings
+
+DEPRECATED ("boolean" type):
+
++ modus-operandi-theme-rainbow-headings
++ modus-operandi-theme-section-headings
++ modus-vivendi-theme-rainbow-headings
++ modus-vivendi-theme-section-headings
+
+Possible values, which can be specified for each heading level (examples
+further below):
+
+0.  nil (default fallback option---covers all heading levels)
+1.  t (default style for a single heading, when the fallback differs)
+2.  no-bold
+3.  line
+4.  line-no-bold
+5.  rainbow
+6.  rainbow-line
+7.  rainbow-line-no-bold
+8.  highlight
+9.  highlight-no-bold
+10. rainbow-highlight
+11. rainbow-highlight-no-bold
+12. section
+13. section-no-bold
+14. rainbow-section
+15. rainbow-section-no-bold
+
+This supersedes and greatly expands upon what the deprecated variables
+once offered.  It is now possible to (i) benefit from more stylistic
+choices, and (ii) apply them on a per-level basis.
+
+As always, the defaults remain in tact: headings are just rendered in a
+bold weight and their colours are not too saturated to offer a plain
+text impression that relies on typography to convey its meaning.
+
+The info manual explains the details.  A few examples:
+
+    ;; Per-level styles (t means everything else)
+    (setq modus-operandi-theme-headings
+          '((1 . highlight)
+            (2 . line)
+            (t . rainbow-line-no-bold)))
+
+    ;; Uniform style for all levels
+    (setq modus-operandi-theme-headings
+          '((t . rainbow-line-no-bold)))
+
+    ;; Default style for level 1, while others differ
+    (setq modus-operandi-theme-headings
+          '((1 . t)
+            (2 . line)
+            (t . rainbow-line-no-bold)))
+
+Thanks to Adam Spiers for the feedback in issue 81:
+<https://gitlab.com/protesilaos/modus-themes/-/issues/81>.  Also thanks
+to Nicolas De Jaeghere for helping refine relevant stylistic choices:
+<https://gitlab.com/protesilaos/modus-themes/-/issues/90>.
+
+
+No link underlines
+------------------
+
+Symbol names ("boolean" type):
+
++ modus-operandi-theme-no-link-underline
++ modus-vivendi-theme-no-link-underline
+
+Possible values:
+
+1. nil (default)
+2. t
+
+By default, the themes apply an underline effect to links, symbolic
+links, and buttons.  Users can now disable this style by setting the new
+option to 't'.
+
+Thanks to Utkarsh Singh for the feedback in issue 94:
+<https://gitlab.com/protesilaos/modus-themes/-/issues/94>
+
+
+No mixed fonts
+--------------
+
+Symbol names ("boolean" type):
+
++ modus-operandi-theme-no-mixed-fonts
++ modus-vivendi-theme-no-mixed-fonts
+
+Possible values:
+
+1. nil (default)
+2. t
+
+By default, the themes configure some spacing-sensitive faces, such as
+Org tables and code blocks, to always inherit from the 'fixed-pitch'
+face (documented in the manual).  This is to ensure that those
+constructs remain monospaced when users opt for something like the
+built-in 'M-x variable-pitch-mode'.  Otherwise the layout would break.
+
+The obvious downside with this theme design is that users need to
+explicitly configure the font family of 'fixed-pitch' in order to apply
+their desired typeface (how to do this is also covered in the manual).
+That may be something they do not want to do.  Hence this option to
+disable any kind of font mixing done by the active theme.  Set it to
+'t'.
+
+
+Support for new faces or face groups
+====================================
+
++ awesome-tray
++ binder
++ cperl-mode
++ eldoc-highlight-function-argument
++ erc escaped colour sequences
++ eshell-syntax-highlighting
++ flycheck-color-mode-line
++ isearch regexp groups (Emacs version >= 28)
++ mpdel
++ objed
++ org 9.4 new faces: 'org-headline-todo' and 'org-table-header'
++ racket-mode
++ typescript-mode
+
+Thanks to:
+
++ Damien Cassou for reporting the issue with mpdel:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/99>
+
++ Dario Gjorgjevski for reporting the issue with erc:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/92>
+
++ Markus Beppler for contributing the patch for cperl-mode:
+  <https://gitlab.com/protesilaos/modus-themes/-/merge_requests/11>
+
++ User "Moesasji" for reporting the issue with objed:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/79>
+
+
+Refinements to existing faces
+=============================
+
++ calfw applies colours and styles in a way that makes it consistent
+  with the rest of the themes' metaphors.
+
++ diredfl makes more considerate use of colour.  We still apply colour
+  everywhere (the whole point of this package) but make sure to avoid
+  exaggerations.
+
++ doom-modeline-battery-error face fits better with the rest of the
+  design.
+
++ elfeed search buffers use less intense colours, while still keeping
+  all elements fairly distinct.  The intent is to avoid a "rainbow
+  effect" in such a dense interface.
+
++ elfeed read and unread items are more distinct.
+
++ git commit and vc log edit messages benefit from refined colour
+  combinations for their various constructs.  The commit's summary is
+  now rendered in a bold weight, to better convey the idea that this is
+  a quasi heading element.
+
++ gnus heading colours are more consistent.  All information remains
+  clearly distinct, but we now avoid using colours that are on opposite
+  sides of the colour spectrum.  Basically to keep things distinct
+  without going over the top.
+
++ gnus read and unread items are easier to tell apart.  Thanks to user
+  "Nick" for reporting the issue:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/97>.
+
++ help-argument-name has a distinct foreground colour, so that it is
+  easier to spot it in "*Help*" buffers.  Its slant is also controlled
+  by the active theme's customisation option for slanted constructs (nil
+  by default---check the manual).
+
++ helpful-heading now is consistent with other heading styles.  Thanks
+  to Nicolas De Jaeghere for reporting the issue:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/90>.
+
++ icomplete, ido, orderless are all tweaked to work better under various
+  circumstances.
+
++ info-menu-star uses a red colour to make it easier to select a menu
+  entry by estimating its number.  This face applies to every third
+  element and is a nice little extra to have.
+
++ info quoted strings are configured to always render in 'fixed-pitch',
+  in line with the themes' design for mixed fonts (remember to check the
+  relevant customisation option).
+
++ line numbers work properly with 'text-scale-adjust'.  Thanks to user
+  "jixiuf" for reporting the issue:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/98>.
+
++ line-number-current-line no longer applies a bold weight to its text.
+  This is to avoid a certain "jump effect" while moving between lines,
+  where the affected numbers grow and shrink in weight as the line
+  changes (once you see it, you will know what I mean).
+
++ line-number-major-tick and line-number-minor-tick do use a bold weight
+  because they are fixed on the scale.  Their colours are also improved
+  to better complement their intended role (these faces are for Emacs 27
+  or higher).
+
++ magit-diff-file-heading-selection, magit-diff-hunk-heading-selection
+  use more appropriate colour combinations.
+
++ markdown blockquotes and org quote blocks use a different foreground,
+  which is colder than the previous one.  Just to make sure that they
+  are not mistaken for inline code.
+
++ message headers use less exaggerated colour combinations.  The
+  differences are fairly minor.
+
++ message-mml no longer uses a green foreground, as that could
+  potentially cause confusion with quoted text in some cases.  A unique,
+  albeit less saturated, foreground is used instead.
+
++ message-separator uses a more neutral colour combination, while
+  retaining its overall uniqueness within its context (i.e. mail
+  composition).
+
++ modeline colours are refined to improve the contrast between active
+  and inactive states.
+
++ mu4e-replied-face has a new colour that accounts for colour distance
+  relative to its context.  Thanks to Shreyas Ragavan for reporting the
+  issue: <https://gitlab.com/protesilaos/modus-themes/-/issues/69>.
+
++ org agenda date and structure no longer behave like headings in other
+  Org buffers.  Instead, they have their own styles to better perform
+  their intended function and to avoid exaggerations.
+
++ org agenda dimmed to-do items (which have blocked sub-items) are no
+  longer assigned a subtle grey background colour.  They are instead
+  rendered with a bold weight and a subtle grey foreground to minimise
+  distractions.  Thanks to Roman Rudakov for reporting this in issue
+  101: <https://gitlab.com/protesilaos/modus-themes/-/issues/101>.
+
++ org agenda clocked items are configured to extend their background to
+  the edge of the window.  Otherwise they are cut off at the last text
+  character, which creates inconsistencies while using tags: a tag is
+  placed to the right so the background extends further than without
+  them.  Based again on the feedback of Roman Rudakov in issue 101:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/101>.
+
++ org agenda current time no longer uses a background.  A bold weight
+  and a blue foreground are applied instead.  The intent is to keep
+  things clean.  This is also covered by Roman Rudakov's feedback in
+  issue 101: <https://gitlab.com/protesilaos/modus-themes/-/issues/101>.
+
++ org-checkbox-statistics-done, org-checkbox-statistics-todo inherit
+  from org-done and org-todo respectively, instead of defining their own
+  properties.
+
++ org drawers and their data now use 'fixed-pitch' in the interest of
+  consistency with other metadata-like faces.  Thanks (yet again!) to
+  Nicolas De Jaeghere for reporting the issue:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/91>.
+
++ org-footnote underlines will now always use the same colour, instead
+  of applying the one of other coloured constructs (e.g. when the
+  footnote is inline and part of the text is rendered as verbatim).
+
++ org-meta-line is less prominent and, thus, more consistent with other
+  metadata-related constructs.
+
++ org-roam faces are updated to match the current state of the upstream
+  project.  The main colour of org-roam links is now different than that
+  of standard links in an attempt to differentiate between the two (due
+  to their unique semantics).  If this is not desired, you can evaluate
+  the following:
+
+      (setq org-roam-link-use-custom-faces nil)
+
++ org-todo, org-done, as well as relevant faces such as priorities and
+  statistics are reviewed to work better with all heading combinations.
+  Though please read the next section about "adaptive headings", as such
+  workarounds will no longer be necessary for future stable releases of
+  Org.
+
++ selectrum uses different styles than before to account for its unique
+  property of overlaying matching characters on top of the current
+  line's background.  We want to avoid scenaria where matches are
+  difficult to discern and the current line is not clear.
+
++ vc modeline states benefit from improved colour choices.  Just minor
+  adjustments to account for the review of the base modeline colours.
+
++ vterm base colours now are variants of gray to ensure that some tools,
+  such as zsh suggestions work properly.  Thanks to user "jixiuf" for
+  reporting this issue and suggesting a possible solution:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/93>.
+
+Contributions to the wider community
+====================================
+
+Sometimes the themes reveal bugs in other packages.  It is of paramount
+importance that we report those to the upstream developers, try to help
+them reproduce the issue, and, where possible, support them in tracing
+the problem's root cause.
+
+Four such cases during this release:
+
+1. Adaptive Org headings.  Solved upstream and documented on my website:
+   <https://protesilaos.com/codelog/2020-09-24-org-headings-adapt/>.
+   Reported and discussed on the themes' issue tracker:
+   <https://gitlab.com/protesilaos/modus-themes/-/issues/37>.
+
+2. Alignment of Org tags with proportional fonts.  Ongoing thread:
+   <https://lists.gnu.org/archive/html/emacs-orgmode/2020-09/msg00415.html>.
+   Reported and discussed on the themes' issue tracker:
+   <https://gitlab.com/protesilaos/modus-themes/-/issues/85>.
+
+3. Org priority cookie has extra space.  Ongoing thread:
+   <https://lists.gnu.org/archive/html/emacs-orgmode/2020-09/msg00696.html>.
+   Reported and discussed on the themes' issue tracker, with feedback
+   from Roman Rudakov:
+   <https://gitlab.com/protesilaos/modus-themes/-/issues/95>.
+
+4. Company overlay pop-up misaligns items.  Reported upstream and
+   acknowledged as a known issue that occurs in certain cases:
+   <https://github.com/company-mode/company-mode/issues/1010>.
+   Discussion on the themes' issue tracker, with feedback from Iris
+   Garcia: <https://gitlab.com/protesilaos/modus-themes/-/issues/96>.
+
+
+Miscellaneous
+=============
+
++ Belatedly (by about 2 weeks) pushed tag for version 0.12.0.  Thanks to
+  Alex Griffin for bringing this to my attention:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/89>
+
++ Fixed a bug with how some older customisation options were declared as
+  obsolete.  Thanks to Tassilo Horn for noticing and reporting the
+  problem: <https://gitlab.com/protesilaos/modus-themes/-/issues/88>.
+
++ Fixed a misplaced optional prefix argument in the manual for how to
+  switch themes using a custom function.  Thanks to Manuel Uberti for
+  catching this omission of mine and reporting it:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/84>.
+
++ Silenced the Elisp package linter for a spurious error on a single
+  eldoc face.  Thanks to Steve Purcell for the guidance:
+  <https://github.com/purcell/package-lint/issues/187>.
+
++ Defined two new dedicated background colours for exceptional cases.
+  These are intended for internal use in very special circumstances.
+
++ Reword GuixSD to "Guix System" in the list of package formats
+  currently available.
+
++ Reviewed the main blue colours for both themes.  While the changes are
+  practically impossible to discern upon first sight, the process was
+  far from straightforward.  A complete report documents the minutia:
+  <https://protesilaos.com/codelog/2020-09-14-modus-themes-review-blues/>.
+
++ Reviewed the "active" palette subset, typically used in the modelines.
+  No report was necessary for those, as the changes were fairly simple.
+
++ Reviewed the "intense" background colour that comes into effect when
+  users opt for the customisation option for intense paren-match styles
+  (check the manual).  Both the hue and the saturation have been changed
+  to better conform with the intended function of this particular entry.
+
++ Reviewed the fringe-specific accented backgrounds.  Commit 7316e3320
+  contains tables that compare the relative luminance of old and new
+  values.
+
++ Improved the advice for setting fonts using 'set-face-attribute'.  The
+  information is in the manual and is also available as a blog entry:
+  <https://protesilaos.com/codelog/2020-09-05-emacs-note-mixed-font-heights/>.
+
++ Rewrote an expression as "(or x y)" instead of "(if x x y)" in one
+  place.  Just goes to show that tweaking the code is also part of the
+  deal.
+
++ Abstracted and simplified heading level properties by using bespoke
+  theme faces.  Makes it easier to keep things consistent across the
+  various face groups.
+
++ Same principle as above for diff-related styles.
+
++ Users who prefer to do things their own way or who just wish to
+  contribute code to the Modus themes may wish to read my "Notes for
+  aspiring Emacs theme developers":
+  <https://protesilaos.com/codelog/2020-08-28-notes-emacs-theme-devs/>.
+
+This has been yet another period of intense work: reviewing faces and
+applying colours is never easy, adding new customisation options is
+always tricky, and documenting everything takes a lot of time (unless
+you do all of those on a whimsy, which hopefully is not the case here).
+
+Thanks again to everyone who helped improve the themes!
+#+end_src
 
 * 0.12.0
 

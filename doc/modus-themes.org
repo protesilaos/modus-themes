@@ -4,7 +4,7 @@
 #+OPTIONS: ':t toc:nil author:t email:t
 #+LANGUAGE: en
 #+MACRO: version-tag 0.13.0
-#+MACRO: release-date late September 2020
+#+MACRO: release-date 2020-10-08
 #+TEXINFO_FILENAME: modus-themes.info
 #+TEXINFO_DIR_CATEGORY: Emacs
 #+TEXINFO_DIR_TITLE: Modus Themes: (modus-themes)
@@ -13,10 +13,12 @@
 
 This manual, written by Protesilaos Stavrou, describes the customisation
 options for the =modus-operandi= and =modus-vivendi= themes, and provides
-every other piece of information pertinent to them.  The document
-corresponds to version {{{version-tag}}}, expected to be released in
-{{{release-date}}}.  As such, the present entry should be considered a
-work-in-progress.
+every other piece of information pertinent to them.
+
+The documentation furnished herein corresponds to version {{{version-tag}}},
+released on {{{release-date}}}.  Any reference to a newer feature which does
+not yet form part of the latest tagged commit, is explicitly marked as
+such.
 
 Copyright (C) 2020 Free Software Foundation, Inc.
 
@@ -28,8 +30,6 @@ Foundation; with no Invariant Sections, with no Front-Cover Texts,
 and with no Back-Cover Texts.
 #+end_quote
 
-[[https://protesilaos.com/modus-themes][Info manual HTML version]].
-
 #+TOC: headlines 8 insert TOC here, with eight headline levels
 
 * Overview
@@ -39,7 +39,7 @@ and with no Back-Cover Texts.
 
 The Modus themes are designed for accessible readability.  They conform
 with the highest standard for colour contrast between any given
-combination of background and foreground colours.  This corresponds to
+combination of background and foreground values.  This corresponds to
 the WCAG AAA standard, which specifies a minimum rate of distance in
 relative luminance of 7:1.
 
@@ -50,34 +50,35 @@ computing environment.
 
 The overarching objective of this project is to always offer accessible
 colour combinations.  There shall never be a compromise on this
-principle.  If there is an inescapable trade-off between readability and
-stylistic considerations, we will always opt for the former.
+principle.  If there arises an inescapable trade-off between readability
+and stylistic considerations, we will always opt for the former.
 
 To ensure that users have a consistently accessible experience, the
 themes strive to achieve as close to full face coverage as possible
 (see [[#h:a9c8f29d-7f72-4b54-b74b-ddefe15d6a19][Face coverage]]).
 
-Starting with version 0.12.0, the themes are built into Emacs.  Their
-version is that of the latest tagged release.  This is because I
-(Protesilaos Stavrou) do not have push privileges to the Emacs
-repository and must contact the mailing list for someone else to make
-the changes for me.  As you can understand, it would be too tedious to
-do this each time I make a commit.
-
-If I am ever granted access to the Emacs git repo, I will make sure that
-the built-in themes are synced with the =HEAD= of my =master= branch.
+Starting with version 0.12.0 and onwards, the themes are built into GNU
+Emacs (current version is {{{version-tag}}}).
 
 ** How do the themes look like
 :PROPERTIES:
 :CUSTOM_ID: h:69b92089-069c-4ba1-9d94-cc3415fc4f87
 :END:
 
-Check the [[https://protesilaos.com/modus-themes-pictures/][web page with the screen shots]].  There are lots of scenaria on
+Check the web page with [[https://protesilaos.com/modus-themes-pictures/][the screen shots]].  There are lots of scenaria on
 display that draw attention to details and important aspects in the
 design of the themes.  They also showcase the numerous customisation
 options.
 
 [[#h:bf1c82f2-46c7-4eb2-ad00-dd11fdd8b53f][Customisation options]].
+
+** Learn about the latest changes
+:PROPERTIES:
+:CUSTOM_ID: h:2cc37c36-6c1a-48b2-a010-1050b270ee18
+:END:
+
+Please refer to the [[https://protesilaos.com/modus-themes-changelog][web page with the change log]].  It is comprehensive
+and covers everything that goes into every tagged release of the themes.
 
 * Installation
 :PROPERTIES:
@@ -100,13 +101,13 @@ distributions.
 :END:
 
 =modus-operandi-theme= and =modus-vivendi-theme= are available from GNU
-Elpa, Melpa, Melpa-Stable.
+ELPA, MELPA, MELPA Stable.
 
 Prior to querying any package archive, make sure to have updated the
 index, with =M-x package-refresh-contents=.  Then all you need to do is
 type =M-x package-install= and specify the theme of your choice.
 
-GNU Elpa and Melpa-Stable contain the last tagged release.  While Melpa
+GNU ELPA and MELPA Stable contain the last tagged release.  While MELPA
 builds from the latest commit to the [[https://gitlab.com/protesilaos/modus-themes][Modus theme's Git repository]].
 
 ** Install on GNU/Linux
@@ -181,7 +182,11 @@ might run into unexpected issues.
 Note that you can always =M-x disable-theme= and specify an item.  The
 command does exactly what its name suggests.  To deactivate all enabled
 themes at once, in case you have multiple of them enabled, you may
-evaluate the expression =(mapc #'disable-theme custom-enabled-themes)=.
+evaluate the expression:
+
+#+begin_src emacs-lisp
+(mapc #'disable-theme custom-enabled-themes)
+#+end_src
 
 ** Load at a given time or at sunset/sunrise
 :PROPERTIES:
@@ -207,7 +212,7 @@ https://www.reddit.com/r/emacs/comments/gdtqov/weekly_tipstricketc_thread/fq9186
 #+end_src
 
 A modified version of the above technique is to use the sunrise and
-sunset as references, instead of specifying a fixed value.[fn::
+sunset as references, instead of specifying a fixed hour value.[fn::
 Contributed directly by André Alexandre Gomes https://gitlab.com/aadcg.]
 If you set =calendar-latitude= and =calendar-longitude= (defined in the
 built-in =solar.el= library---read it with =M-x find-library=), you can
@@ -260,6 +265,9 @@ switch between them on demand.
     (load-theme 'modus-operandi t)))
 #+end_src
 
+You could use =(mapc #'disable-theme custom-enabled-themes)= instead of
+disabling a single target, but you get the idea.
+
 ** Configure options prior to loading
 :PROPERTIES:
 :CUSTOM_ID: h:a897b302-8e10-4a26-beab-3caaee1e1193
@@ -272,7 +280,7 @@ presented in [[#h:2a0895a6-3281-4e55-8aa1-8a737555821e][Toggle between the theme
 
 Here is a comprehensive setup (the values assigned to the variables are
 just for the sake of this demonstration):[fn:: The =defmacro= and =dolist=
-method was contributed on Reddit by user b3n
+method were contributed on Reddit by user b3n
 https://www.reddit.com/r/emacs/comments/gqsz8u/weekly_tipstricketc_thread/fsfakhg/.]
 
 #+begin_src emacs-lisp
@@ -296,9 +304,10 @@ https://www.reddit.com/r/emacs/comments/gqsz8u/weekly_tipstricketc_thread/fsfakh
            modus-%1$s-theme-diffs nil ; {nil,'desaturated,'fg-only}
            modus-%1$s-theme-org-blocks 'greyscale ; {nil,'greyscale,'rainbow}
            modus-%1$s-theme-headings  ; Read further below in the manual for this one
-           '((1 . line)
+           '((1 . section)
+             (2 . line)
              (t . rainbow-line-no-bold))
-           modus-%1$s-theme-variable-pitch-headings t
+           modus-%1$s-theme-variable-pitch-headings nil
            modus-%1$s-theme-scale-headings t
            modus-%1$s-theme-scale-1 1.1
            modus-%1$s-theme-scale-2 1.15
@@ -351,20 +360,23 @@ Possible values:
 
 Display several constructs in bold weight.  This concerns keywords and
 other important aspects of code syntax.  It also affects certain mode
-line indicators.
+line indicators and command-line prompts.
 
-The default is to only use a bold weight when it is necessary.
+The default is to only use a bold weight when it is required.
 
-Additionally and while not necessary, to define the precise weight for
+Additionally, and while not necessary, to define the precise weight for
 bold constructs, you can change the typographic intensity of the =bold=
-face.  Assuming your typeface of choice supports a "semibold" weight,
-adding the following snippet to your init file should suffice:
+face.  The standard is a bold weight.  It requires no further
+intervention.  Assuming though that your typeface of choice supports a
+"semibold" weight, adding the following snippet to your init file should
+suffice.
 
 #+begin_src emacs-lisp
 (set-face-attribute 'bold nil :weight 'semibold)
 #+end_src
 
-The standard is a bold weight.  It requires no further intervention.
+Note that if you are switching themes, you need to re-evaluate this
+expression after the new theme is loaded.
 
 ** Option for more slanted constructs
 :PROPERTIES:
@@ -409,8 +421,10 @@ Use less saturated colours in programming modes for highlighting code
 syntax.  The default is to use saturated colours.
 
 This option essentially affects the font-lock faces, so it may also have
-effects in other places that are hard-wired to rely directly on
-font-lock.  The author is aware of =vc-dir= as a case in point.
+implications in other places that are hard-wired to rely directly on
+them instead of specifying their own faces (which could inherit from
+font-lock if that is the intent).  The author is aware of =vc-dir= as a
+case in point.
 
 ** Option for no font mixing
 :PROPERTIES:
@@ -484,8 +498,8 @@ background and foreground to the minibuffer and other REPL prompts (like
 =M-x shell= and =M-x eshell=).  The difference between the two is that the
 latter has a more pronounced/noticeable effect than the former.
 
-The default is to not use any background for such prompts, while only
-relying on an accented foreground colour.
+The default is to not use any background for such prompts, while relying
+exclusively on an accented foreground colour.
 
 ** Option for mode line presentation
 :PROPERTIES:
@@ -690,7 +704,7 @@ Word-wise or "refined" changes follow this pattern but use different
 shades of those colours to remain distinct.
 
 A =desaturated= value tones down all relevant colour values.  It still
-combines an accented background with an appropriate background, yet its
+combines an accented background with an appropriate foreground, yet its
 overall impression is very subtle.  Refined changes are a bit more
 intense to fulfil their intended function, though still less saturated
 than default.
@@ -763,13 +777,16 @@ Symbol names:
 Possible values, which can be specified for each heading level (examples
 further below):
 
-+ =t= (default style)
++ nil (default fallback option---covers all heading levels)
++ =t= (default style for a single heading, when the fallback differs)
 + =no-bold=
 + =line=
 + =line-no-bold=
 + =rainbow=
 + =rainbow-line=
 + =rainbow-line-no-bold=
++ =highlight=
++ =highlight-no-bold=
 + =rainbow-highlight=
 + =rainbow-highlight-no-bold=
 + =section=
@@ -782,25 +799,32 @@ To control faces per level from 1-8, use something like this (same for
 
 #+begin_src emacs-lisp
 (setq modus-operandi-theme-headings
-      '((1 . highlight)
+      '((1 . section)
         (2 . line)
-        (t . rainbow-line-no-bold)))
+        (3 . highlight)
+        (t . rainbow-no-bold)))
 #+end_src
 
-The above uses the =highlight= value for heading levels 1 and the =line= for
-headings 2.  All other levels fall back to =rainbow-line-no-bold=.
+The above uses the =section= value for heading levels 1, the =line= for
+headings 2, =highlight= for 3.  All other levels fall back to
+=rainbow-line-no-bold=.
 
 To set a uniform value for all heading levels, use this pattern:
 
 #+begin_src emacs-lisp
+;; A given style for every heading
 (setq modus-operandi-theme-headings
       '((t . rainbow-line-no-bold)))
+
+;; Default aesthetic for every heading
+(setq modus-operandi-theme-headings
+      '((t . nil)))
 #+end_src
 
 The default style for headings uses a fairly desaturated foreground
 value in combination with a bold typographic weight.  To specify this
 style for a given level N (assuming you wish to have another fallback
-option), just specify the value t like this:
+option), just specify the value =t= like this:
 
 #+begin_src emacs-lisp
 (setq modus-operandi-theme-headings
@@ -809,7 +833,7 @@ option), just specify the value t like this:
         (t . rainbow-line-no-bold)))
 #+end_src
 
-A description of all other possible values:
+A description of all other possible styles:
 
 + =no-bold= retains the default text colour while removing the typographic
   weight.
@@ -827,7 +851,7 @@ A description of all other possible values:
   weight.
 
 + =highlight= retains the default style of a fairly desaturated foreground
-  combined with a bold weight and add to it a subtle accented
+  combined with a bold weight and adds to it a subtle accented
   background.
 
 + =highlight-no-bold= is the same as =highlight= without a bold weight.
@@ -885,9 +909,9 @@ specify a number of their own.
   of the base font size.  This is the recommended method.
 
 + If it is an integer, it is read as an absolute font height.  The
-  number is basically the point size multiplied by a hundred.  So if you
-  want it to be =18pt= you must pass =180=.  Please understand that setting
-  an absolute value is discouraged, as it will break the layout when you
+  number is basically the point size multiplied by ten.  So if you want
+  it to be =18pt= you must pass =180=.  Please understand that setting an
+  absolute value is discouraged, as it will break the layout when you
   try to change font sizes with the built-in =text-scale-adjust= command
   (see [[#h:defcf4fc-8fa8-4c29-b12e-7119582cc929][Font configurations]]).
 
@@ -910,11 +934,10 @@ resource for finding a consistent scale:
       modus-vivendi-theme-scale-5 1.3)
 #+end_src
 
-Note that in Org, scaling only increases the size of the heading, but
-not of keywords that are added to it, like "TODO".  This is outside the
-control of the themes and I am not aware of any way to make such
-keywords scale accordingly without patching upstream Org (see [[https://gitlab.com/protesilaos/modus-themes/-/issues/37][issue 37]]
-in the themes' issue tracker).
+Note that in earlier versions of Org, scaling would only increase the
+size of the heading, but not of keywords that were added to it, like
+"TODO".  The issue has been fixed upstream:
+<https://protesilaos.com/codelog/2020-09-24-org-headings-adapt/>.
 
 ** Option for variable-pitch font in headings
 :PROPERTIES:
@@ -1053,8 +1076,9 @@ With optional \\[universal-argument] prefix, enable
 :CUSTOM_ID: h:defcf4fc-8fa8-4c29-b12e-7119582cc929
 :END:
 
-The themes are designed to cope well with mixed font settings.
-Currently this applies to =org-mode= and =markdown-mode=.
+The themes are designed to cope well with mixed font settings ([[#h:115e6c23-ee35-4a16-8cef-e2fcbb08e28b][Option
+for no font mixing]]).  Currently this applies to =org-mode= and
+=markdown-mode=.
 
 In practice it means that the user can safely opt for a more
 prose-friendly proportionately spaced typeface as their default, while
@@ -1096,10 +1120,9 @@ when using something like the =text-scale-adjust= command which only
 operates on the base font size (i.e. the =default= face's absolute
 height).
 
-An alternative syntax for the =default= face, which the author of this
-documents prefers, is to pass all typeface parameters directly to a =font=
-property.[fn:: Has the benefit of accepting =fontconfig= parameters
-(GNU/Linux), such as ="DejaVu Sans
+An alternative syntax for the =default= face, is to pass all typeface
+parameters directly to a =font= property.[fn:: Has the benefit of
+accepting =fontconfig= parameters (GNU/Linux), such as ="DejaVu Sans
 Mono-11:hintstyle=hintslight:autohint=false"=.
 https://www.freedesktop.org/software/fontconfig/fontconfig-user.html]
 Note that here we use a standard point size:
@@ -1123,8 +1146,8 @@ priority cookies to better match their workflow.  User options are
 As those are meant to be custom faces, it would be futile to have the
 themes try to guess what each user would want to use, which keywords to
 target, and so on.  Instead, we can provide guidelines on how to
-customise things to one's liking with the intent to retain the overall
-aesthetics of the theme.
+customise things to one's liking with the intent of retaining the
+overall aesthetics of the theme.
 
 Please bear in mind that the end result of those is not controlled by
 the active theme but by how Org maps faces to its constructs.  Editing
@@ -1157,8 +1180,7 @@ This will refashion the keywords you specify, while letting the other
 items in =org-todo-keywords= use their original styles (which are defined
 in the =org-todo= and =org-done= faces).
 
-If you want back the defaults, try specifying just the =org-todo= face (or
-use =org-done= if the meaning of the keywords you use demands as much):
+If you want back the defaults, try specifying just the =org-todo= face:
 
 #+begin_src emacs-lisp
 (setq org-todo-keyword-faces
@@ -1187,8 +1209,8 @@ To find all the faces that are loaded in your current Emacs session, use
 the name of each of those Org variables demonstrated above.  Their
 documentation strings will offer you further guidance.
 
-Also consider reading the "Notes for aspiring Emacs theme developers",
-published on 2020-08-28 by Protesilaos Stavrou:
+Furthermore, consider reading the "Notes for aspiring Emacs theme
+developers", published on 2020-08-28 by me (Protesilaos Stavrou):
 https://protesilaos.com/codelog/2020-08-28-notes-emacs-theme-devs/.
 
 * Face coverage
@@ -1707,13 +1729,61 @@ assignment to the Free Software Foundation.  This is necessary because
 the themes are part of the upstream Emacs distribution: the FSF must at
 all times be in a position to enforce the GNU General Public License.
 
-Copyright assignment is a simple process.  Check the [[https://git.savannah.gnu.org/cgit/gnulib.git/tree/doc/Copyright/request-assign.future][request form]].  You
-must write an email to the address mentioned in the form and then wait
-for the FSF to send you a legal agreement.  Sign the document and file
-it back to them.  This could all happen via email and take about a week.
+Copyright assignment is a simple process.  Check the request form below
+(please adapt it accordingly).  You must write an email to the address
+mentioned in the form and then wait for the FSF to send you a legal
+agreement.  Sign the document and file it back to them.  This could all
+happen via email and take about a week.  You are encouraged to go
+through this process.  You only need to do it once.  It will allow you
+to make contributions to Emacs in general.
 
-You are encouraged to go through this process.  You only need to do it
-once.  It will allow you to make contributions to Emacs in general.
+#+begin_example text
+Please email the following information to assign@gnu.org, and we
+will send you the assignment form for your past and future changes.
+
+Please use your full legal name (in ASCII characters) as the subject
+line of the message.
+----------------------------------------------------------------------
+REQUEST: SEND FORM FOR PAST AND FUTURE CHANGES
+
+[What is the name of the program or package you're contributing to?]
+
+GNU Emacs
+
+[Did you copy any files or text written by someone else in these changes?
+Even if that material is free software, we need to know about it.]
+
+Copied a few snippets from the same files I edited.  Their author,
+Protesilaos Stavrou, has already assigned copyright to the Free Software
+Foundation.
+
+[Do you have an employer who might have a basis to claim to own
+your changes?  Do you attend a school which might make such a claim?]
+
+
+[For the copyright registration, what country are you a citizen of?]
+
+
+[What year were you born?]
+
+
+[Please write your email address here.]
+
+
+[Please write your postal address here.]
+
+
+
+
+
+[Which files have you changed so far, and which new files have you written
+so far?]
+
+Changed a couple of themes that are part of the Emacs source code:
+
+./etc/themes/modus-operandi-theme.el
+./etc/themes/modus-vivendi-theme.el
+#+end_example
 
 * Acknowledgements
 :PROPERTIES:
@@ -1733,11 +1803,11 @@ The Modus themes are a collective effort.  Every contribution counts.
   Gjorgjevski, David Edmondson, Davor Rotim, Divan Santana, Gerry
   Agbobada, Gianluca Recchia, Iris Garcia, Len Trigg, Manuel Uberti,
   Mark Burton, Markus Beppler, Michael Goldenberg, Murilo Pereira,
-  Nicolas De Jaeghere, Pierre Téchoueyres, Ryan Phillips, Shreyas
-  Ragavan, Tassilo Horn, Thibaut Verron, Trey Merkley, Uri Sharf,
-  Utkarsh Singh, Vincent Foley.  As well as users: Ben, Fourchaux,
-  Fredrik, Moesasji, Nick, TheBlob42, dinko, doolio, jixiuf, okamsn,
-  tycho garen.
+  Nicolas De Jaeghere, Pierre Téchoueyres, Roman Rudakov, Ryan Phillips,
+  Shreyas Ragavan, Tassilo Horn, Thibaut Verron, Trey Merkley, Uri
+  Sharf, Utkarsh Singh, Vincent Foley.  As well as users: Ben,
+  Fourchaux, Fredrik, Moesasji, Nick, TheBlob42, dinko, doolio, jixiuf,
+  okamsn, tycho garen.
 
 + Packaging :: Dhavan Vaidya (Debian), Stefan Kangas (core Emacs),
   Stefan Monnier (GNU Elpa).
@@ -1755,13 +1825,20 @@ this project read the essay [[https://protesilaos.com/codelog/2020-03-17-design-
 (2020-03-17).
 
 Here are some more publications for those interested in the kind of work
-that goes into this project:
+that goes into this project (sometimes the commits also include details
+of this sort):
 
 + [[https://protesilaos.com/codelog/2020-05-10-modus-operandi-palette-review/][Modus Operandi theme subtle palette review]] (2020-05-10)
 + [[https://protesilaos.com/codelog/2020-06-13-modus-vivendi-palette-review/][Modus Vivendi theme subtle palette review]] (2020-06-13)
 + [[https://protesilaos.com/codelog/2020-07-04-modus-themes-faint-colours/][Modus themes: new "faint syntax" option]] (2020-07-04)
 + [[https://protesilaos.com/codelog/2020-07-08-modus-themes-nuanced-colours/][Modus themes: major review of "nuanced" colours]] (2020-07-08)
 + [[https://protesilaos.com/codelog/2020-09-14-modus-themes-review-blues/][Modus themes: review of blue colours]] (2020-09-14)
+
+And here are the canonical sources for this project's documentation:
+
++ Manual :: <https://protesilaos.com/modus-themes>
++ Change Log :: <https://protesilaos.com/modus-themes-changelog>
++ Screenshots :: <https://protesilaos.com/modus-themes-pictures>
 
 * External projects (ports)
 :PROPERTIES:

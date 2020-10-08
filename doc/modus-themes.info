@@ -14,10 +14,11 @@ Modus themes for GNU Emacs
 
 This manual, written by Protesilaos Stavrou, describes the customisation
 options for the ‘modus-operandi’ and ‘modus-vivendi’ themes, and
-provides every other piece of information pertinent to them.  The
-document corresponds to version 0.13.0, expected to be released in late
-September 2020.  As such, the present entry should be considered a
-work-in-progress.
+provides every other piece of information pertinent to them.
+
+   The documentation furnished herein corresponds to version 0.13.0,
+released on 2020-10-08.  Any reference to a newer feature which does not
+yet form part of the latest tagged commit, is explicitly marked as such.
 
    Copyright (C) 2020 Free Software Foundation, Inc.
 
@@ -26,8 +27,6 @@ work-in-progress.
      Version 1.3 or any later version published by the Free Software
      Foundation; with no Invariant Sections, with no Front-Cover Texts,
      and with no Back-Cover Texts.
-
-   Info manual HTML version (https://protesilaos.com/modus-themes).
 
 * Menu:
 
@@ -49,6 +48,7 @@ work-in-progress.
 Overview
 
 * How do the themes look like::
+* Learn about the latest changes::
 
 Installation
 
@@ -126,7 +126,7 @@ File: modus-themes.info,  Node: Overview,  Next: Installation,  Prev: Top,  Up: 
 
 The Modus themes are designed for accessible readability.  They conform
 with the highest standard for colour contrast between any given
-combination of background and foreground colours.  This corresponds to
+combination of background and foreground values.  This corresponds to
 the WCAG AAA standard, which specifies a minimum rate of distance in
 relative luminance of 7:1.
 
@@ -137,7 +137,7 @@ in the Emacs computing environment.
 
    The overarching objective of this project is to always offer
 accessible colour combinations.  There shall never be a compromise on
-this principle.  If there is an inescapable trade-off between
+this principle.  If there arises an inescapable trade-off between
 readability and stylistic considerations, we will always opt for the
 former.
 
@@ -145,23 +145,16 @@ former.
 themes strive to achieve as close to full face coverage as possible (see
 *note Face coverage::).
 
-   Starting with version 0.12.0, the themes are built into Emacs.  Their
-version is that of the latest tagged release.  This is because I
-(Protesilaos Stavrou) do not have push privileges to the Emacs
-repository and must contact the mailing list for someone else to make
-the changes for me.  As you can understand, it would be too tedious to
-do this each time I make a commit.
-
-   If I am ever granted access to the Emacs git repo, I will make sure
-that the built-in themes are synced with the ‘HEAD’ of my ‘master’
-branch.
+   Starting with version 0.12.0 and onwards, the themes are built into
+GNU Emacs (current version is 0.13.0).
 
 * Menu:
 
 * How do the themes look like::
+* Learn about the latest changes::
 
 
-File: modus-themes.info,  Node: How do the themes look like,  Up: Overview
+File: modus-themes.info,  Node: How do the themes look like,  Next: Learn about the latest changes,  Up: Overview
 
 1.1 How do the themes look like
 ===============================
@@ -173,6 +166,16 @@ in the design of the themes.  They also showcase the numerous
 customisation options.
 
    *note Customisation options: Customisation Options.
+
+
+File: modus-themes.info,  Node: Learn about the latest changes,  Prev: How do the themes look like,  Up: Overview
+
+1.2 Learn about the latest changes
+==================================
+
+Please refer to the web page with the change log
+(https://protesilaos.com/modus-themes-changelog).  It is comprehensive
+and covers everything that goes into every tagged release of the themes.
 
 
 File: modus-themes.info,  Node: Installation,  Next: Enable and load,  Prev: Overview,  Up: Top
@@ -202,14 +205,14 @@ File: modus-themes.info,  Node: Install from the archives,  Next: Install on GNU
 =============================
 
 ‘modus-operandi-theme’ and ‘modus-vivendi-theme’ are available from GNU
-Elpa, Melpa, Melpa-Stable.
+ELPA, MELPA, MELPA Stable.
 
    Prior to querying any package archive, make sure to have updated the
 index, with ‘M-x package-refresh-contents’.  Then all you need to do is
 type ‘M-x package-install’ and specify the theme of your choice.
 
-   GNU Elpa and Melpa-Stable contain the last tagged release.  While
-Melpa builds from the latest commit to the Modus theme’s Git repository
+   GNU ELPA and MELPA Stable contain the last tagged release.  While
+MELPA builds from the latest commit to the Modus theme’s Git repository
 (https://gitlab.com/protesilaos/modus-themes).
 
 
@@ -293,8 +296,9 @@ you might run into unexpected issues.
    Note that you can always ‘M-x disable-theme’ and specify an item.
 The command does exactly what its name suggests.  To deactivate all
 enabled themes at once, in case you have multiple of them enabled, you
-may evaluate the expression ‘(mapc #'disable-theme
-custom-enabled-themes)’.
+may evaluate the expression:
+
+     (mapc #'disable-theme custom-enabled-themes)
 
 
 File: modus-themes.info,  Node: Load at a given time or at sunset/sunrise,  Next: Toggle between the themes on demand,  Prev: Load automatically,  Up: Enable and load
@@ -318,8 +322,8 @@ given theme will be loaded.(1)
                     (enable-theme 'modus-vivendi)))
 
    A modified version of the above technique is to use the sunrise and
-sunset as references, instead of specifying a fixed value.(2)  If you
-set ‘calendar-latitude’ and ‘calendar-longitude’ (defined in the
+sunset as references, instead of specifying a fixed hour value.(2)  If
+you set ‘calendar-latitude’ and ‘calendar-longitude’ (defined in the
 built-in ‘solar.el’ library—read it with ‘M-x find-library’), you can
 automatically switch between both themes at the appropriate time-of-day.
 Note that _those calendar variables need to be set before loading the
@@ -375,6 +379,9 @@ switch between them on demand.
          (disable-theme 'modus-vivendi)
          (load-theme 'modus-operandi t)))
 
+   You could use ‘(mapc #'disable-theme custom-enabled-themes)’ instead
+of disabling a single target, but you get the idea.
+
 
 File: modus-themes.info,  Node: Configure options prior to loading,  Prev: Toggle between the themes on demand,  Up: Enable and load
 
@@ -409,9 +416,10 @@ are just for the sake of this demonstration):(1)
                 modus-%1$s-theme-diffs nil ; {nil,'desaturated,'fg-only}
                 modus-%1$s-theme-org-blocks 'greyscale ; {nil,'greyscale,'rainbow}
                 modus-%1$s-theme-headings  ; Read further below in the manual for this one
-                '((1 . line)
+                '((1 . section)
+                  (2 . line)
                   (t . rainbow-line-no-bold))
-                modus-%1$s-theme-variable-pitch-headings t
+                modus-%1$s-theme-variable-pitch-headings nil
                 modus-%1$s-theme-scale-headings t
                 modus-%1$s-theme-scale-1 1.1
                 modus-%1$s-theme-scale-2 1.15
@@ -433,7 +441,7 @@ are just for the sake of this demonstration):(1)
 
    ---------- Footnotes ----------
 
-   (1) The ‘defmacro’ and ‘dolist’ method was contributed on Reddit by
+   (1) The ‘defmacro’ and ‘dolist’ method were contributed on Reddit by
 user b3n
 <https://www.reddit.com/r/emacs/comments/gqsz8u/weekly_tipstricketc_thread/fsfakhg/>.
 
@@ -488,18 +496,21 @@ Symbol names:
 
    Display several constructs in bold weight.  This concerns keywords
 and other important aspects of code syntax.  It also affects certain
-mode line indicators.
+mode line indicators and command-line prompts.
 
-   The default is to only use a bold weight when it is necessary.
+   The default is to only use a bold weight when it is required.
 
-   Additionally and while not necessary, to define the precise weight
+   Additionally, and while not necessary, to define the precise weight
 for bold constructs, you can change the typographic intensity of the
-‘bold’ face.  Assuming your typeface of choice supports a “semibold”
-weight, adding the following snippet to your init file should suffice:
+‘bold’ face.  The standard is a bold weight.  It requires no further
+intervention.  Assuming though that your typeface of choice supports a
+“semibold” weight, adding the following snippet to your init file should
+suffice.
 
      (set-face-attribute 'bold nil :weight 'semibold)
 
-   The standard is a bold weight.  It requires no further intervention.
+   Note that if you are switching themes, you need to re-evaluate this
+expression after the new theme is loaded.
 
 
 File: modus-themes.info,  Node: Slanted constructs,  Next: Syntax highlighting,  Prev: Bold constructs,  Up: Customisation Options
@@ -542,8 +553,10 @@ Symbol names:
 syntax.  The default is to use saturated colours.
 
    This option essentially affects the font-lock faces, so it may also
-have effects in other places that are hard-wired to rely directly on
-font-lock.  The author is aware of ‘vc-dir’ as a case in point.
+have implications in other places that are hard-wired to rely directly
+on them instead of specifying their own faces (which could inherit from
+font-lock if that is the intent).  The author is aware of ‘vc-dir’ as a
+case in point.
 
 
 File: modus-themes.info,  Node: No mixed fonts,  Next: Link underline,  Prev: Syntax highlighting,  Up: Customisation Options
@@ -616,8 +629,8 @@ prompts (like ‘M-x shell’ and ‘M-x eshell’).  The difference between the
 two is that the latter has a more pronounced/noticeable effect than the
 former.
 
-   The default is to not use any background for such prompts, while only
-relying on an accented foreground colour.
+   The default is to not use any background for such prompts, while
+relying exclusively on an accented foreground colour.
 
 
 File: modus-themes.info,  Node: Mode line,  Next: Completion UIs,  Prev: Command prompts,  Up: Customisation Options
@@ -815,7 +828,7 @@ Word-wise or “refined” changes follow this pattern but use different
 shades of those colours to remain distinct.
 
    A ‘desaturated’ value tones down all relevant colour values.  It
-still combines an accented background with an appropriate background,
+still combines an accented background with an appropriate foreground,
 yet its overall impression is very subtle.  Refined changes are a bit
 more intense to fulfil their intended function, though still less
 saturated than default.
@@ -886,13 +899,16 @@ than other customisation options documented in this manual.
    Possible values, which can be specified for each heading level
 (examples further below):
 
-   • ‘t’ (default style)
+   • nil (default fallback option—covers all heading levels)
+   • ‘t’ (default style for a single heading, when the fallback differs)
    • ‘no-bold’
    • ‘line’
    • ‘line-no-bold’
    • ‘rainbow’
    • ‘rainbow-line’
    • ‘rainbow-line-no-bold’
+   • ‘highlight’
+   • ‘highlight-no-bold’
    • ‘rainbow-highlight’
    • ‘rainbow-highlight-no-bold’
    • ‘section’
@@ -904,30 +920,36 @@ than other customisation options documented in this manual.
 for ‘modus-vivendi-theme-headings’):
 
      (setq modus-operandi-theme-headings
-           '((1 . highlight)
+           '((1 . section)
              (2 . line)
-             (t . rainbow-line-no-bold)))
+             (3 . highlight)
+             (t . rainbow-no-bold)))
 
-   The above uses the ‘highlight’ value for heading levels 1 and the
-‘line’ for headings 2.  All other levels fall back to
+   The above uses the ‘section’ value for heading levels 1, the ‘line’
+for headings 2, ‘highlight’ for 3.  All other levels fall back to
 ‘rainbow-line-no-bold’.
 
    To set a uniform value for all heading levels, use this pattern:
 
+     ;; A given style for every heading
      (setq modus-operandi-theme-headings
            '((t . rainbow-line-no-bold)))
+
+     ;; Default aesthetic for every heading
+     (setq modus-operandi-theme-headings
+           '((t . nil)))
 
    The default style for headings uses a fairly desaturated foreground
 value in combination with a bold typographic weight.  To specify this
 style for a given level N (assuming you wish to have another fallback
-option), just specify the value t like this:
+option), just specify the value ‘t’ like this:
 
      (setq modus-operandi-theme-headings
            '((1 . t)
              (2 . line)
              (t . rainbow-line-no-bold)))
 
-   A description of all other possible values:
+   A description of all other possible styles:
 
    • ‘no-bold’ retains the default text colour while removing the
      typographic weight.
@@ -946,7 +968,7 @@ option), just specify the value t like this:
      bold weight.
 
    • ‘highlight’ retains the default style of a fairly desaturated
-     foreground combined with a bold weight and add to it a subtle
+     foreground combined with a bold weight and adds to it a subtle
      accented background.
 
    • ‘highlight-no-bold’ is the same as ‘highlight’ without a bold
@@ -1007,9 +1029,9 @@ specify a number of their own.
      multiple of the base font size.  This is the recommended method.
 
    • If it is an integer, it is read as an absolute font height.  The
-     number is basically the point size multiplied by a hundred.  So if
-     you want it to be ‘18pt’ you must pass ‘180’.  Please understand
-     that setting an absolute value is discouraged, as it will break the
+     number is basically the point size multiplied by ten.  So if you
+     want it to be ‘18pt’ you must pass ‘180’.  Please understand that
+     setting an absolute value is discouraged, as it will break the
      layout when you try to change font sizes with the built-in
      ‘text-scale-adjust’ command (see *note Font configurations: Font
      configs (DIY).).
@@ -1031,12 +1053,10 @@ use a resource for finding a consistent scale:
            modus-vivendi-theme-scale-4 1.2
            modus-vivendi-theme-scale-5 1.3)
 
-   Note that in Org, scaling only increases the size of the heading, but
-not of keywords that are added to it, like “TODO”.  This is outside the
-control of the themes and I am not aware of any way to make such
-keywords scale accordingly without patching upstream Org (see issue 37
-(https://gitlab.com/protesilaos/modus-themes/-/issues/37) in the themes’
-issue tracker).
+   Note that in earlier versions of Org, scaling would only increase the
+size of the heading, but not of keywords that were added to it, like
+“TODO”.  The issue has been fixed upstream:
+<https://protesilaos.com/codelog/2020-09-24-org-headings-adapt/>.
 
 
 File: modus-themes.info,  Node: Headings' font,  Prev: Scaled headings,  Up: Customisation Options
@@ -1175,8 +1195,9 @@ File: modus-themes.info,  Node: Font configs (DIY),  Next: Org user faces (DIY),
 5.2 Font configurations for Org (and others)
 ============================================
 
-The themes are designed to cope well with mixed font settings.
-Currently this applies to ‘org-mode’ and ‘markdown-mode’.
+The themes are designed to cope well with mixed font settings (*note
+Option for no font mixing: No mixed fonts.).  Currently this applies to
+‘org-mode’ and ‘markdown-mode’.
 
    In practice it means that the user can safely opt for a more
 prose-friendly proportionately spaced typeface as their default, while
@@ -1214,9 +1235,9 @@ importantance: it ensures that all fonts can scale gracefully when using
 something like the ‘text-scale-adjust’ command which only operates on
 the base font size (i.e.  the ‘default’ face’s absolute height).
 
-   An alternative syntax for the ‘default’ face, which the author of
-this documents prefers, is to pass all typeface parameters directly to a
-‘font’ property.(2)  Note that here we use a standard point size:
+   An alternative syntax for the ‘default’ face, is to pass all typeface
+parameters directly to a ‘font’ property.(2)  Note that here we use a
+standard point size:
 
      (set-face-attribute 'default nil :font "DejaVu Sans Mono-11")
 
@@ -1246,8 +1267,8 @@ priority cookies to better match their workflow.  User options are
    As those are meant to be custom faces, it would be futile to have the
 themes try to guess what each user would want to use, which keywords to
 target, and so on.  Instead, we can provide guidelines on how to
-customise things to one’s liking with the intent to retain the overall
-aesthetics of the theme.
+customise things to one’s liking with the intent of retaining the
+overall aesthetics of the theme.
 
    Please bear in mind that the end result of those is not controlled by
 the active theme but by how Org maps faces to its constructs.  Editing
@@ -1277,8 +1298,7 @@ items in ‘org-todo-keywords’ use their original styles (which are
 defined in the ‘org-todo’ and ‘org-done’ faces).
 
    If you want back the defaults, try specifying just the ‘org-todo’
-face (or use ‘org-done’ if the meaning of the keywords you use demands
-as much):
+face:
 
      (setq org-todo-keyword-faces
            '(("MEET" . org-todo)
@@ -1303,8 +1323,8 @@ use ‘M-x list-faces-display’.  Also try ‘M-x describe-variable’ and then
 specify the name of each of those Org variables demonstrated above.
 Their documentation strings will offer you further guidance.
 
-   Also consider reading the “Notes for aspiring Emacs theme
-developers”, published on 2020-08-28 by Protesilaos Stavrou:
+   Furthermore, consider reading the “Notes for aspiring Emacs theme
+developers”, published on 2020-08-28 by me (Protesilaos Stavrou):
 <https://protesilaos.com/codelog/2020-08-28-notes-emacs-theme-devs/>.
 
 
@@ -1385,6 +1405,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • diff-hl
    • diff-mode
    • dim-autoload
+   • dir-treeview
    • dired
    • dired-async
    • dired-git
@@ -1868,14 +1889,58 @@ the themes are part of the upstream Emacs distribution: the FSF must at
 all times be in a position to enforce the GNU General Public License.
 
    Copyright assignment is a simple process.  Check the request form
-(https://git.savannah.gnu.org/cgit/gnulib.git/tree/doc/Copyright/request-assign.future).
-You must write an email to the address mentioned in the form and then
-wait for the FSF to send you a legal agreement.  Sign the document and
-file it back to them.  This could all happen via email and take about a
-week.
+below (please adapt it accordingly).  You must write an email to the
+address mentioned in the form and then wait for the FSF to send you a
+legal agreement.  Sign the document and file it back to them.  This
+could all happen via email and take about a week.  You are encouraged to
+go through this process.  You only need to do it once.  It will allow
+you to make contributions to Emacs in general.
 
-   You are encouraged to go through this process.  You only need to do
-it once.  It will allow you to make contributions to Emacs in general.
+     Please email the following information to assign@gnu.org, and we
+     will send you the assignment form for your past and future changes.
+
+     Please use your full legal name (in ASCII characters) as the subject
+     line of the message.
+     ----------------------------------------------------------------------
+     REQUEST: SEND FORM FOR PAST AND FUTURE CHANGES
+
+     [What is the name of the program or package you're contributing to?]
+
+     GNU Emacs
+
+     [Did you copy any files or text written by someone else in these changes?
+     Even if that material is free software, we need to know about it.]
+
+     Copied a few snippets from the same files I edited.  Their author,
+     Protesilaos Stavrou, has already assigned copyright to the Free Software
+     Foundation.
+
+     [Do you have an employer who might have a basis to claim to own
+     your changes?  Do you attend a school which might make such a claim?]
+
+
+     [For the copyright registration, what country are you a citizen of?]
+
+
+     [What year were you born?]
+
+
+     [Please write your email address here.]
+
+
+     [Please write your postal address here.]
+
+
+
+
+
+     [Which files have you changed so far, and which new files have you written
+     so far?]
+
+     Changed a couple of themes that are part of the Emacs source code:
+
+     ./etc/themes/modus-operandi-theme.el
+     ./etc/themes/modus-vivendi-theme.el
 
 
 File: modus-themes.info,  Node: Acknowledgements,  Next: Meta,  Prev: Contributing,  Up: Top
@@ -1899,10 +1964,11 @@ Ideas and user feedback
      Edmondson, Davor Rotim, Divan Santana, Gerry Agbobada, Gianluca
      Recchia, Iris Garcia, Len Trigg, Manuel Uberti, Mark Burton, Markus
      Beppler, Michael Goldenberg, Murilo Pereira, Nicolas De Jaeghere,
-     Pierre Téchoueyres, Ryan Phillips, Shreyas Ragavan, Tassilo Horn,
-     Thibaut Verron, Trey Merkley, Uri Sharf, Utkarsh Singh, Vincent
-     Foley.  As well as users: Ben, Fourchaux, Fredrik, Moesasji, Nick,
-     TheBlob42, dinko, doolio, jixiuf, okamsn, tycho garen.
+     Pierre Téchoueyres, Roman Rudakov, Ryan Phillips, Shreyas Ragavan,
+     Tassilo Horn, Thibaut Verron, Trey Merkley, Uri Sharf, Utkarsh
+     Singh, Vincent Foley.  As well as users: Ben, Fourchaux, Fredrik,
+     Moesasji, Nick, TheBlob42, dinko, doolio, jixiuf, okamsn, tycho
+     garen.
 
 Packaging
      Dhavan Vaidya (Debian), Stefan Kangas (core Emacs), Stefan Monnier
@@ -1923,7 +1989,8 @@ this project read the essay On the design of the Modus themes
 (2020-03-17).
 
    Here are some more publications for those interested in the kind of
-work that goes into this project:
+work that goes into this project (sometimes the commits also include
+details of this sort):
 
    • Modus Operandi theme subtle palette review
      (https://protesilaos.com/codelog/2020-05-10-modus-operandi-palette-review/)
@@ -1940,6 +2007,15 @@ work that goes into this project:
    • Modus themes: review of blue colours
      (https://protesilaos.com/codelog/2020-09-14-modus-themes-review-blues/)
      (2020-09-14)
+
+   And here are the canonical sources for this project’s documentation:
+
+Manual
+     <https://protesilaos.com/modus-themes>
+Change Log
+     <https://protesilaos.com/modus-themes-changelog>
+Screenshots
+     <https://protesilaos.com/modus-themes-pictures>
 
 
 File: modus-themes.info,  Node: External projects (ports),  Next: GNU Free Documentation License,  Prev: Meta,  Up: Top
@@ -2421,67 +2497,68 @@ Appendix A GNU Free Documentation License
 
 Tag Table:
 Node: Top218
-Node: Overview3978
-Node: How do the themes look like5663
-Node: Installation6131
-Node: Install from the archives6781
-Node: Install on GNU/Linux7468
-Node: Debian 11 Bullseye7913
-Node: GNU Guix8322
-Node: Enable and load8673
-Node: Load automatically9250
-Node: Load at a given time or at sunset/sunrise10063
-Ref: Load at a given time or at sunset/sunrise-Footnote-112101
-Ref: Load at a given time or at sunset/sunrise-Footnote-212229
-Node: Toggle between the themes on demand12312
-Node: Configure options prior to loading13059
-Ref: Configure options prior to loading-Footnote-115707
-Node: Customisation Options15882
-Node: Bold constructs17626
-Node: Slanted constructs18625
-Node: Syntax highlighting19216
-Node: No mixed fonts19944
-Node: Link underline21025
-Node: Command prompts21507
-Node: Mode line22305
-Node: Completion UIs24929
-Node: Fringes26841
-Node: Line highlighting27605
-Node: Matching parentheses28273
-Node: Diffs28917
-Node: Org mode blocks30710
-Node: Heading styles32213
-Node: Scaled headings35602
-Node: Scaled heading sizes36219
-Node: Headings' font38178
-Node: Advanced customisation (do-it-yourself)38802
-Node: Tweak colours (DIY)39806
-Node: Font configs (DIY)43440
-Ref: Font configs (DIY)-Footnote-146020
-Ref: Font configs (DIY)-Footnote-246207
-Node: Org user faces (DIY)46429
-Node: Face coverage49650
-Node: Supported packages50152
-Node: Covered indirectly56174
-Node: Will NOT be supported56559
-Node: Notes for individual packages57277
-Node: Note on company-mode overlay pop-up57765
-Ref: Note on company-mode overlay pop-up-Footnote-158429
-Ref: Note on company-mode overlay pop-up-Footnote-258496
-Node: Note for ERC escaped colour sequences58551
-Ref: Note for ERC escaped colour sequences-Footnote-159978
-Node: Note for powerline or spaceline60088
-Node: Note on shr colours60506
-Node: Note for Helm grep60919
-Node: Note on vc-annotate-background-mode62366
-Node: Contributing63220
-Node: Sources of the themes63639
-Node: Issues you can help with64401
-Node: Merge requests65588
-Node: Acknowledgements66670
-Node: Meta67953
-Node: External projects (ports)69145
-Node: GNU Free Documentation License69968
+Node: Overview3998
+Node: How do the themes look like5299
+Node: Learn about the latest changes5806
+Node: Installation6188
+Node: Install from the archives6838
+Node: Install on GNU/Linux7525
+Node: Debian 11 Bullseye7970
+Node: GNU Guix8379
+Node: Enable and load8730
+Node: Load automatically9307
+Node: Load at a given time or at sunset/sunrise10120
+Ref: Load at a given time or at sunset/sunrise-Footnote-112163
+Ref: Load at a given time or at sunset/sunrise-Footnote-212291
+Node: Toggle between the themes on demand12374
+Node: Configure options prior to loading13250
+Ref: Configure options prior to loading-Footnote-115932
+Node: Customisation Options16108
+Node: Bold constructs17852
+Node: Slanted constructs18999
+Node: Syntax highlighting19590
+Node: No mixed fonts20415
+Node: Link underline21496
+Node: Command prompts21978
+Node: Mode line22783
+Node: Completion UIs25407
+Node: Fringes27319
+Node: Line highlighting28083
+Node: Matching parentheses28751
+Node: Diffs29395
+Node: Org mode blocks31188
+Node: Heading styles32691
+Node: Scaled headings36445
+Node: Scaled heading sizes37062
+Node: Headings' font38895
+Node: Advanced customisation (do-it-yourself)39519
+Node: Tweak colours (DIY)40523
+Node: Font configs (DIY)44157
+Ref: Font configs (DIY)-Footnote-146745
+Ref: Font configs (DIY)-Footnote-246932
+Node: Org user faces (DIY)47154
+Node: Face coverage50312
+Node: Supported packages50814
+Node: Covered indirectly56856
+Node: Will NOT be supported57258
+Node: Notes for individual packages57976
+Node: Note on company-mode overlay pop-up58464
+Ref: Note on company-mode overlay pop-up-Footnote-159128
+Ref: Note on company-mode overlay pop-up-Footnote-259195
+Node: Note for ERC escaped colour sequences59250
+Ref: Note for ERC escaped colour sequences-Footnote-160677
+Node: Note for powerline or spaceline60787
+Node: Note on shr colours61205
+Node: Note for Helm grep61618
+Node: Note on vc-annotate-background-mode63065
+Node: Contributing63919
+Node: Sources of the themes64338
+Node: Issues you can help with65100
+Node: Merge requests66287
+Node: Acknowledgements68705
+Node: Meta70008
+Node: External projects (ports)71515
+Node: GNU Free Documentation License72338
 
 End Tag Table
 
