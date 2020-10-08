@@ -4555,15 +4555,8 @@ Also bind `class' to ((class color) (min-colors 89))."
     (custom-theme-set-faces
      'modus-vivendi
 ;;;;; isearch regexp groups
-     `(isearch-group-1 ((,class :inherit modus-theme-refine-green)))
-     `(isearch-group-2 ((,class :inherit modus-theme-subtle-green)))
-     `(isearch-group-3 ((,class :inherit modus-theme-refine-blue)))
-     `(isearch-group-4 ((,class :inherit modus-theme-subtle-blue)))
-     `(isearch-group-5 ((,class :inherit modus-theme-refine-magenta)))
-     `(isearch-group-6 ((,class :inherit modus-theme-subtle-magenta)))
-     `(isearch-group-7 ((,class :inherit modus-theme-refine-red)))
-     `(isearch-group-8 ((,class :inherit modus-theme-subtle-red)))
-     `(isearch-group-9 ((,class :inherit modus-theme-refine-yellow)))))
+     `(isearch-group-1 ((,class :inherit modus-theme-intense-blue)))
+     `(isearch-group-2 ((,class :inherit modus-theme-intense-magenta)))))
 ;;; variables
   (custom-theme-set-variables
    'modus-vivendi
