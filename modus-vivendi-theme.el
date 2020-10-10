@@ -3692,7 +3692,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-column-title ((,class :inherit bold :underline t :background ,bg-alt)))
    `(org-date ((,class :inherit (button fixed-pitch)
                        ,@(modus-vivendi-theme-link-colour
-                          cyan-alt-other cyan-alt-other-faint))))
+                          cyan cyan-faint))))
    `(org-date-selected ((,class :inherit bold :foreground ,blue-alt :inverse-video t)))
    `(org-document-info ((,class :foreground ,fg-special-cold)))
    `(org-document-info-keyword ((,class ,@(modus-vivendi-theme-mixed-fonts)
@@ -3701,7 +3701,7 @@ Also bind `class' to ((class color) (min-colors 89))."
                                  ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-5))))
    `(org-done ((,class :box ,bg-region :background ,bg-dim :foreground ,green)))
    `(org-drawer ((,class ,@(modus-vivendi-theme-mixed-fonts)
-                         :foreground ,cyan)))
+                         :foreground ,blue-nuanced)))
    `(org-ellipsis ((,class :foreground nil))) ; inherits from the heading's colour
    `(org-footnote ((,class :inherit button
                            ,@(modus-vivendi-theme-link-colour
@@ -3737,7 +3737,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-mode-line-clock-overrun ((,class :inherit modus-theme-active-red)))
    `(org-priority ((,class :box ,bg-region :background ,bg-dim :foreground ,magenta)))
    `(org-property-value ((,class ,@(modus-vivendi-theme-mixed-fonts)
-                                 :foreground ,cyan-alt-other)))
+                                 :foreground ,fg-alt)))
    `(org-quote ((,class ,@(modus-vivendi-theme-org-block bg-dim)
                         :foreground ,fg-special-cold :slant ,modus-theme-slant)))
    `(org-scheduled ((,class :foreground ,fg-special-warm)))
