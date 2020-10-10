@@ -1118,7 +1118,7 @@ AMOUNT is a customisation option."
       ("magenta-alt-faint" . "#702565") ("cyan-alt-faint" . "#354f6f")
 
       ("red-alt-other-faint" . "#7f002f") ("green-alt-other-faint" . "#0f443f")
-      ("yellow-alt-other-faint" . "#5e3a20") ("blue-alt-other-faint" . "#1f2f6f")
+      ("yellow-alt-other-faint" . "#5e3a20") ("blue-alt-other-faint" . "#1f0f6f")
       ("magenta-alt-other-faint" . "#5f3f7f") ("cyan-alt-other-faint" . "#2e584f")
       ;; styles for elements that should be very subtle, yet accented
       ;;
