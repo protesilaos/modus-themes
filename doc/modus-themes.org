@@ -297,7 +297,7 @@ https://www.reddit.com/r/emacs/comments/gqsz8u/weekly_tipstricketc_thread/fsfakh
            modus-%1$s-theme-faint-syntax nil
            modus-%1$s-theme-intense-hl-line nil
            modus-%1$s-theme-intense-paren-match nil
-           modus-%1$s-theme-no-link-underline t
+           modus-%1$s-theme-links 'faint ; {nil,'faint,'neutral-underline,'faint-neutral-underline,'no-underline}
            modus-%1$s-theme-no-mixed-fonts nil
            modus-%1$s-theme-prompts nil ; {nil,'subtle,'intense}
            modus-%1$s-theme-completions 'moderate ; {nil,'moderate,'opinionated}
@@ -455,12 +455,14 @@ configurations, rather than letting the theme do it, perhaps because a
 purpose-specific package has extra functionality.  Two possible options
 are [[https://melpa.org/#/org-variable-pitch][org-variable-pitch]] and [[https://melpa.org/#/mixed-pitch][mixed-pitch]].
 
-** Option for no link underline
+** Option for no link underline (deprecated for ~0.14.0~)
 :PROPERTIES:
 :ALT_TITLE: Link underline
-:DESCRIPTION: Toggle underlined text in links
+:DESCRIPTION: Toggle underlined text in links (deprecated for 0.14.0)
 :CUSTOM_ID: h:a1a639e9-d247-414c-a0ad-08adadcbc6c1
 :END:
+
+Note: deprecated ahead of version =0.14.0= ([[#h:c119d7b2-fcd4-4e44-890e-5e25733d5e52][Option for links]]).
 
 Symbol names:
 
@@ -474,6 +476,45 @@ Possible values:
 
 Remove the underline effect from links, symbolic links, and buttons.
 The default is to apply an underline.
+
+** Option for links
+:PROPERTIES:
+:ALT_TITLE: Link styles
+:DESCRIPTION: Choose colour intensity or no underline for links
+:CUSTOM_ID: h:c119d7b2-fcd4-4e44-890e-5e25733d5e52
+:END:
+
+This option supersedes the "no link underline" one ahead of version
+=0.14.0= ([[#h:a1a639e9-d247-414c-a0ad-08adadcbc6c1][Option for no link underline]]).
+
+Symbol names:
+
++ =modus-operandi-theme-links=
++ =modus-vivendi-theme-links=
+
+Possible values:
+
+1. =nil= (default)
+2. =faint=
+3. =neutral-underline=
+4. =faint-neutral-underline=
+5. =no-underline=
+
+The default style (nil) for links is to apply an underline and a
+saturated colour to the affected text.  The colour of the two is the
+same, which makes the link fairly prominent.
+
+Option =faint= follows the same approach as the default, but uses less
+intense colours.
+
+Option =neutral-underline= changes the underline's colour to a subtle
+grey, while retaining the default text colour.
+
+Option =faint-neutral-underline= combines a desaturated text colour with a
+subtle grey underline.
+
+Option =no-underline= removes link underlines altogether, while keeping
+their text colour the same as the default.
 
 ** Option for command prompt styles
 :PROPERTIES:

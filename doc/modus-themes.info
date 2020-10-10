@@ -73,7 +73,8 @@ Customisation Options
 * Slanted constructs::           Toggle slanted constructs (italics) in code
 * Syntax highlighting::          Toggle subtle colouration in programming modes
 * No mixed fonts::               Toggle mixing of font families
-* Link underline::               Toggle underlined text in links
+* Link underline::               Toggle underlined text in links (deprecated for 0.14.0)
+* Link styles::                  Choose colour intensity or no underline for links
 * Command prompts::              Choose among plain, subtle, or intense prompts
 * Mode line::                    Choose among plain, three-dimension, or moody-compliant styles
 * Completion UIs::               Choose among standard, moderate, or opinionated looks
@@ -409,7 +410,7 @@ are just for the sake of this demonstration):(1)
                 modus-%1$s-theme-faint-syntax nil
                 modus-%1$s-theme-intense-hl-line nil
                 modus-%1$s-theme-intense-paren-match nil
-                modus-%1$s-theme-no-link-underline t
+                modus-%1$s-theme-links 'faint ; {nil,'faint,'neutral-underline,'faint-neutral-underline,'no-underline}
                 modus-%1$s-theme-no-mixed-fonts nil
                 modus-%1$s-theme-prompts nil ; {nil,'subtle,'intense}
                 modus-%1$s-theme-completions 'moderate ; {nil,'moderate,'opinionated}
@@ -465,7 +466,8 @@ theme (see *note Enable and load::).
 * Slanted constructs::           Toggle slanted constructs (italics) in code
 * Syntax highlighting::          Toggle subtle colouration in programming modes
 * No mixed fonts::               Toggle mixing of font families
-* Link underline::               Toggle underlined text in links
+* Link underline::               Toggle underlined text in links (deprecated for 0.14.0)
+* Link styles::                  Choose colour intensity or no underline for links
 * Command prompts::              Choose among plain, subtle, or intense prompts
 * Mode line::                    Choose among plain, three-dimension, or moody-compliant styles
 * Completion UIs::               Choose among standard, moderate, or opinionated looks
@@ -588,12 +590,15 @@ are org-variable-pitch (https://melpa.org/#/org-variable-pitch) and
 mixed-pitch (https://melpa.org/#/mixed-pitch).
 
 
-File: modus-themes.info,  Node: Link underline,  Next: Command prompts,  Prev: No mixed fonts,  Up: Customisation Options
+File: modus-themes.info,  Node: Link underline,  Next: Link styles,  Prev: No mixed fonts,  Up: Customisation Options
 
-4.5 Option for no link underline
-================================
+4.5 Option for no link underline (deprecated for ‘0.14.0’)
+==========================================================
 
-Symbol names:
+Note: deprecated ahead of version ‘0.14.0’ (*note Option for links: Link
+styles.).
+
+   Symbol names:
 
    • ‘modus-operandi-theme-no-link-underline’
    • ‘modus-vivendi-theme-no-link-underline’
@@ -607,9 +612,47 @@ Symbol names:
 The default is to apply an underline.
 
 
-File: modus-themes.info,  Node: Command prompts,  Next: Mode line,  Prev: Link underline,  Up: Customisation Options
+File: modus-themes.info,  Node: Link styles,  Next: Command prompts,  Prev: Link underline,  Up: Customisation Options
 
-4.6 Option for command prompt styles
+4.6 Option for links
+====================
+
+This option supersedes the “no link underline” one ahead of version
+‘0.14.0’ (*note Option for no link underline: Link underline.).
+
+   Symbol names:
+
+   • ‘modus-operandi-theme-links’
+   • ‘modus-vivendi-theme-links’
+
+   Possible values:
+
+  1. ‘nil’ (default)
+  2. ‘faint’
+  3. ‘neutral-underline’
+  4. ‘faint-neutral-underline’
+  5. ‘no-underline’
+
+   The default style (nil) for links is to apply an underline and a
+saturated colour to the affected text.  The colour of the two is the
+same, which makes the link fairly prominent.
+
+   Option ‘faint’ follows the same approach as the default, but uses
+less intense colours.
+
+   Option ‘neutral-underline’ changes the underline’s colour to a subtle
+grey, while retaining the default text colour.
+
+   Option ‘faint-neutral-underline’ combines a desaturated text colour
+with a subtle grey underline.
+
+   Option ‘no-underline’ removes link underlines altogether, while
+keeping their text colour the same as the default.
+
+
+File: modus-themes.info,  Node: Command prompts,  Next: Mode line,  Prev: Link styles,  Up: Customisation Options
+
+4.7 Option for command prompt styles
 ====================================
 
 Symbol names:
@@ -635,7 +678,7 @@ relying exclusively on an accented foreground colour.
 
 File: modus-themes.info,  Node: Mode line,  Next: Completion UIs,  Prev: Command prompts,  Up: Customisation Options
 
-4.7 Option for mode line presentation
+4.8 Option for mode line presentation
 =====================================
 
 Symbol names:
@@ -691,7 +734,7 @@ of a box style, it is recommended you also include this in your setup:
 
 File: modus-themes.info,  Node: Completion UIs,  Next: Fringes,  Prev: Mode line,  Up: Customisation Options
 
-4.8 Option for completion framework aesthetics
+4.9 Option for completion framework aesthetics
 ==============================================
 
 Symbol names:
@@ -737,8 +780,8 @@ spend some time with every one of the ‘nil’ (default), ‘moderate’, and
 
 File: modus-themes.info,  Node: Fringes,  Next: Line highlighting,  Prev: Completion UIs,  Up: Customisation Options
 
-4.9 Option for fringe visibility
-================================
+4.10 Option for fringe visibility
+=================================
 
 Symbol names:
 
@@ -762,7 +805,7 @@ space given to them by ‘fringe-mode’.
 
 File: modus-themes.info,  Node: Line highlighting,  Next: Matching parentheses,  Prev: Fringes,  Up: Customisation Options
 
-4.10 Option for line highlighting (hl-line-mode)
+4.11 Option for line highlighting (hl-line-mode)
 ================================================
 
 Symbol names:
@@ -784,7 +827,7 @@ packages that enable ‘hl-line-mode’, such as ‘elfeed’ and ‘mu4e’.
 
 File: modus-themes.info,  Node: Matching parentheses,  Next: Diffs,  Prev: Line highlighting,  Up: Customisation Options
 
-4.11 Option for parenthesis matching (show-paren-mode)
+4.12 Option for parenthesis matching (show-paren-mode)
 ======================================================
 
 Symbol names:
@@ -805,7 +848,7 @@ overlays.
 
 File: modus-themes.info,  Node: Diffs,  Next: Org mode blocks,  Prev: Matching parentheses,  Up: Customisation Options
 
-4.12 Option for diff buffer looks
+4.13 Option for diff buffer looks
 =================================
 
 Symbol names:
@@ -847,7 +890,7 @@ consistent with the overall intent of the aforementioned.
 
 File: modus-themes.info,  Node: Org mode blocks,  Next: Heading styles,  Prev: Diffs,  Up: Customisation Options
 
-4.13 Option for org-mode block styles
+4.14 Option for org-mode block styles
 =====================================
 
 Symbol names:
@@ -885,7 +928,7 @@ each code block (inefficient at scale, but it still works).
 
 File: modus-themes.info,  Node: Heading styles,  Next: Scaled headings,  Prev: Org mode blocks,  Up: Customisation Options
 
-4.14 Option for headings’ overall style
+4.15 Option for headings’ overall style
 =======================================
 
 This is defined as an alist and, therefore, uses a different approach
@@ -995,7 +1038,7 @@ option), just specify the value ‘t’ like this:
 
 File: modus-themes.info,  Node: Scaled headings,  Next: Headings' font,  Prev: Heading styles,  Up: Customisation Options
 
-4.15 Option for scaled headings
+4.16 Option for scaled headings
 ===============================
 
 Symbol names:
@@ -1019,7 +1062,7 @@ headings and body copy.
 
 File: modus-themes.info,  Node: Scaled heading sizes,  Up: Scaled headings
 
-4.15.1 Control the scale of headings
+4.16.1 Control the scale of headings
 ------------------------------------
 
 In addition to toggles for enabling scaled headings, users can also
@@ -1061,7 +1104,7 @@ size of the heading, but not of keywords that were added to it, like
 
 File: modus-themes.info,  Node: Headings' font,  Prev: Scaled headings,  Up: Customisation Options
 
-4.16 Option for variable-pitch font in headings
+4.17 Option for variable-pitch font in headings
 ===============================================
 
 Symbol names:
@@ -2497,68 +2540,69 @@ Appendix A GNU Free Documentation License
 
 Tag Table:
 Node: Top218
-Node: Overview3998
-Node: How do the themes look like5299
-Node: Learn about the latest changes5806
-Node: Installation6188
-Node: Install from the archives6838
-Node: Install on GNU/Linux7525
-Node: Debian 11 Bullseye7970
-Node: GNU Guix8379
-Node: Enable and load8730
-Node: Load automatically9307
-Node: Load at a given time or at sunset/sunrise10120
-Ref: Load at a given time or at sunset/sunrise-Footnote-112163
-Ref: Load at a given time or at sunset/sunrise-Footnote-212291
-Node: Toggle between the themes on demand12374
-Node: Configure options prior to loading13250
-Ref: Configure options prior to loading-Footnote-115932
-Node: Customisation Options16108
-Node: Bold constructs17852
-Node: Slanted constructs18999
-Node: Syntax highlighting19590
-Node: No mixed fonts20415
-Node: Link underline21496
-Node: Command prompts21978
-Node: Mode line22783
-Node: Completion UIs25407
-Node: Fringes27319
-Node: Line highlighting28083
-Node: Matching parentheses28751
-Node: Diffs29395
-Node: Org mode blocks31188
-Node: Heading styles32691
-Node: Scaled headings36445
-Node: Scaled heading sizes37062
-Node: Headings' font38895
-Node: Advanced customisation (do-it-yourself)39519
-Node: Tweak colours (DIY)40523
-Node: Font configs (DIY)44157
-Ref: Font configs (DIY)-Footnote-146745
-Ref: Font configs (DIY)-Footnote-246932
-Node: Org user faces (DIY)47154
-Node: Face coverage50312
-Node: Supported packages50814
-Node: Covered indirectly56856
-Node: Will NOT be supported57258
-Node: Notes for individual packages57976
-Node: Note on company-mode overlay pop-up58464
-Ref: Note on company-mode overlay pop-up-Footnote-159128
-Ref: Note on company-mode overlay pop-up-Footnote-259195
-Node: Note for ERC escaped colour sequences59250
-Ref: Note for ERC escaped colour sequences-Footnote-160677
-Node: Note for powerline or spaceline60787
-Node: Note on shr colours61205
-Node: Note for Helm grep61618
-Node: Note on vc-annotate-background-mode63065
-Node: Contributing63919
-Node: Sources of the themes64338
-Node: Issues you can help with65100
-Node: Merge requests66287
-Node: Acknowledgements68705
-Node: Meta70008
-Node: External projects (ports)71515
-Node: GNU Free Documentation License72338
+Node: Overview4105
+Node: How do the themes look like5406
+Node: Learn about the latest changes5913
+Node: Installation6295
+Node: Install from the archives6945
+Node: Install on GNU/Linux7632
+Node: Debian 11 Bullseye8077
+Node: GNU Guix8486
+Node: Enable and load8837
+Node: Load automatically9414
+Node: Load at a given time or at sunset/sunrise10227
+Ref: Load at a given time or at sunset/sunrise-Footnote-112270
+Ref: Load at a given time or at sunset/sunrise-Footnote-212398
+Node: Toggle between the themes on demand12481
+Node: Configure options prior to loading13357
+Ref: Configure options prior to loading-Footnote-116105
+Node: Customisation Options16281
+Node: Bold constructs18132
+Node: Slanted constructs19279
+Node: Syntax highlighting19870
+Node: No mixed fonts20695
+Node: Link underline21776
+Node: Link styles22401
+Node: Command prompts23592
+Node: Mode line24394
+Node: Completion UIs27018
+Node: Fringes28930
+Node: Line highlighting29696
+Node: Matching parentheses30364
+Node: Diffs31008
+Node: Org mode blocks32801
+Node: Heading styles34304
+Node: Scaled headings38058
+Node: Scaled heading sizes38675
+Node: Headings' font40508
+Node: Advanced customisation (do-it-yourself)41132
+Node: Tweak colours (DIY)42136
+Node: Font configs (DIY)45770
+Ref: Font configs (DIY)-Footnote-148358
+Ref: Font configs (DIY)-Footnote-248545
+Node: Org user faces (DIY)48767
+Node: Face coverage51925
+Node: Supported packages52427
+Node: Covered indirectly58469
+Node: Will NOT be supported58871
+Node: Notes for individual packages59589
+Node: Note on company-mode overlay pop-up60077
+Ref: Note on company-mode overlay pop-up-Footnote-160741
+Ref: Note on company-mode overlay pop-up-Footnote-260808
+Node: Note for ERC escaped colour sequences60863
+Ref: Note for ERC escaped colour sequences-Footnote-162290
+Node: Note for powerline or spaceline62400
+Node: Note on shr colours62818
+Node: Note for Helm grep63231
+Node: Note on vc-annotate-background-mode64678
+Node: Contributing65532
+Node: Sources of the themes65951
+Node: Issues you can help with66713
+Node: Merge requests67900
+Node: Acknowledgements70318
+Node: Meta71621
+Node: External projects (ports)73128
+Node: GNU Free Documentation License73951
 
 End Tag Table
 

@@ -53,7 +53,7 @@
 ;;     modus-vivendi-theme-faint-syntax                   (boolean)
 ;;     modus-vivendi-theme-intense-hl-line                (boolean)
 ;;     modus-vivendi-theme-intense-paren-match            (boolean)
-;;     modus-vivendi-theme-no-link-underline              (boolean)
+;;     modus-vivendi-theme-links                          (choice)
 ;;     modus-vivendi-theme-completions                    (choice)
 ;;     modus-vivendi-theme-override-colors-alist          (alist)
 ;;
@@ -820,9 +820,36 @@ effect than the former."
   "Use less saturated colours for code syntax highlighting."
   :type 'boolean)
 
+(make-obsolete 'modus-vivendi-theme-no-link-underline
+               'modus-vivendi-theme-links
+               "`modus-vivendi-theme' 0.14.0")
+
 (defcustom modus-vivendi-theme-no-link-underline nil
   "Do not underline links."
   :type 'boolean)
+
+(defcustom modus-vivendi-theme-links nil
+  "Set the style of links.
+
+Nil means to use an underline that is the same colour as the
+foreground.
+
+Option `faint' applies desaturated colours to the link's text and
+underline.
+
+Option `neutral-underline' applies a sublte grey underline, while
+retaining the link's foreground.
+
+Option `faint-neutral-underline' combines a desaturated text
+colour with a subtle grey underline.
+
+Option `no-underline' removes link underlines altogether."
+  :type '(choice
+          (const :tag "Undeline link using the same colour as the text (default)" nil)
+          (const :tag "Like the default, but apply less intense colours to links" faint)
+          (const :tag "Change the colour of link underlines to a neutral grey" neutral-underline)
+          (const :tag "Desaturated foreground with neutral grey underline" faint-neutral-underline)
+          (const :tag "Remove underline property from links, keeping their foreground as-is" no-underline)))
 
 ;;; Internal functions
 
@@ -1052,6 +1079,25 @@ These are intended for Helm, Ivy, etc."
                         :foreground (or altfg 'unspecified)))
     ('moderate (list :inherit (list subtleface bold)))
     (_ (list :inherit (list intenseface bold)))))
+
+(defun modus-vivendi-theme-link (fg fgfaint underline)
+  "Conditional application of link styles.
+FG is the link's default colour for its text and underline
+property.  FGFAINT is a desaturated colour for the text and
+underline.  UNDERLINE is a grey colour only for the undeline."
+  (pcase modus-vivendi-theme-links
+    ('faint (list :foreground fgfaint :underline t))
+    ('neutral-underline (list :foreground fg :underline underline))
+    ('faint-neutral-underline (list :foreground fgfaint :underline underline))
+    ('no-underline (list :foreground fg :underline nil))
+    (_ (list :foreground fg :underline t))))
+
+(defun modus-vivendi-theme-link-colour (fg fgfaint)
+  "Extends `modus-vivendi-theme-link'.
+FG is the main foreground.  FGFAINT is the desaturated one."
+  (if (eq modus-vivendi-theme-links (or 'faint 'faint-neutral-underline))
+      (list :foreground fgfaint)
+    (list :foreground fg)))
 
 (defun modus-vivendi-theme-scale (amount)
   "Scale heading by AMOUNT.
@@ -1507,14 +1553,17 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(trailing-whitespace ((,class :background ,red-intense-bg)))
    `(warning ((,class :inherit bold :foreground ,yellow)))
 ;;;;; buttons, links, widgets
-   `(button ((,class :foreground ,blue-alt-other
-                     ,@(unless modus-vivendi-theme-no-link-underline
-                         (list :underline t)))))
+   `(button ((,class ,@(modus-vivendi-theme-link
+                        blue-alt-other blue-alt-other-faint bg-region))))
    `(link ((,class :inherit button)))
-   `(link-visited ((,class :inherit link :foreground ,magenta-alt-other)))
+   `(link-visited ((,class :inherit button
+                           ,@(modus-vivendi-theme-link-colour
+                              magenta-alt-other magenta-alt-other-faint))))
    `(tooltip ((,class :background ,bg-special-cold :foreground ,fg-main)))
    `(widget-button ((,class :inherit button)))
-   `(widget-button-pressed ((,class :inherit button :foreground ,magenta)))
+   `(widget-button-pressed ((,class :inherit button
+                                    ,@(modus-vivendi-theme-link-colour
+                                       magenta magenta-faint))))
    `(widget-documentation ((,class :foreground ,green)))
    `(widget-field ((,class :background ,bg-alt :foreground ,fg-dim)))
    `(widget-inactive ((,class :background ,bg-inactive :foreground ,fg-inactive)))
@@ -1578,13 +1627,21 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(anzu-replace-highlight ((,class :inherit modus-theme-refine-yellow :underline t)))
    `(anzu-replace-to ((,class :inherit (modus-theme-intense-green bold))))
 ;;;;; apropos
-   `(apropos-function-button ((,class :inherit button :foreground ,magenta-alt-other)))
+   `(apropos-function-button ((,class :inherit button
+                                      ,@(modus-vivendi-theme-link-colour
+                                         magenta-alt-other magenta-alt-other-faint))))
    `(apropos-keybinding ((,class :inherit bold :foreground ,cyan)))
-   `(apropos-misc-button ((,class :inherit button :foreground ,cyan-alt-other)))
+   `(apropos-misc-button ((,class :inherit button
+                                  ,@(modus-vivendi-theme-link-colour
+                                     cyan-alt-other cyan-alt-other-faint))))
    `(apropos-property ((,class ,@(modus-vivendi-theme-bold-weight) :foreground ,magenta-alt)))
    `(apropos-symbol ((,class ,@(modus-vivendi-theme-bold-weight) :foreground ,blue-alt-other)))
-   `(apropos-user-option-button ((,class :inherit button :foreground ,green-alt-other)))
-   `(apropos-variable-button ((,class :inherit button :foreground ,blue)))
+   `(apropos-user-option-button ((,class :inherit button
+                                         ,@(modus-vivendi-theme-link-colour
+                                            green-alt-other green-alt-other-faint))))
+   `(apropos-variable-button ((,class :inherit button
+                                      ,@(modus-vivendi-theme-link-colour
+                                         blue blue-faint))))
 ;;;;; apt-sources-list
    `(apt-sources-list-components ((,class :foreground ,cyan)))
    `(apt-sources-list-options ((,class :foreground ,yellow)))
@@ -1785,7 +1842,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(circe-highlight-nick-face ((,class :inherit bold :foreground ,blue)))
    `(circe-prompt-face ((,class :inherit bold :foreground ,cyan-alt-other)))
    `(circe-server-face ((,class :foreground ,fg-unfocused)))
-   `(lui-button-face ((,class :inherit button :foreground ,blue)))
+   `(lui-button-face ((,class :inherit button)))
    `(lui-highlight-face ((,class :foreground ,magenta-alt)))
    `(lui-time-stamp-face ((,class :foreground ,blue-nuanced)))
 ;;;;; color-rg
@@ -2011,7 +2068,9 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(dir-treeview-indent-face ((,class :foreground ,fg-alt)))
    `(dir-treeview-label-mouse-face ((,class :inherit highlight)))
    `(dir-treeview-start-dir-face ((,class :inherit modus-theme-pseudo-header)))
-   `(dir-treeview-symlink-face ((,class :inherit button :foreground ,cyan)))
+   `(dir-treeview-symlink-face ((,class :inherit button
+                                        ,@(modus-vivendi-theme-link-colour
+                                           cyan cyan-faint))))
    `(dir-treeview-video-face ((,class :foreground ,magenta-alt-other)))
    `(dir-treeview-video-icon-face ((,class :inherit dir-treeview-default-icon-face :foreground ,magenta-alt-other)))
 ;;;;; dired
@@ -2022,7 +2081,9 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(dired-mark ((,class :inherit modus-theme-mark-symbol)))
    `(dired-marked ((,class :inherit modus-theme-mark-sel)))
    `(dired-perm-write ((,class :foreground ,fg-special-warm)))
-   `(dired-symlink ((,class :inherit button :foreground ,cyan-alt)))
+   `(dired-symlink ((,class :inherit button
+                            ,@(modus-vivendi-theme-link-colour
+                              cyan-alt cyan-alt-faint))))
    `(dired-warning ((,class :inherit bold :foreground ,yellow)))
 ;;;;; dired-async
    `(dired-async-failures ((,class ,@(modus-vivendi-theme-bold-weight) :foreground ,red-active)))
@@ -2076,7 +2137,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(disk-usage-inaccessible ((,class :inherit bold :foreground ,red)))
    `(disk-usage-percent ((,class :foreground ,green)))
    `(disk-usage-size ((,class :foreground ,cyan)))
-   `(disk-usage-symlink ((,class :inherit button :foreground ,blue)))
+   `(disk-usage-symlink ((,class :inherit button)))
    `(disk-usage-symlink-directory ((,class :inherit bold :foreground ,blue-alt)))
 ;;;;; doom-modeline
    `(doom-modeline-bar ((,class :inherit modus-theme-active-blue)))
@@ -2305,7 +2366,9 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(eshell-ls-product ((,class :foreground ,fg-special-warm)))
    `(eshell-ls-readonly ((,class :foreground ,fg-special-cold)))
    `(eshell-ls-special ((,class :inherit bold :foreground ,magenta)))
-   `(eshell-ls-symlink ((,class :inherit button :foreground ,cyan)))
+   `(eshell-ls-symlink ((,class :inherit button
+                                ,@(modus-vivendi-theme-link-colour
+                                   cyan cyan-faint))))
    `(eshell-ls-unreadable ((,class :background ,bg-inactive :foreground ,fg-inactive)))
    `(eshell-prompt ((,class ,@(modus-vivendi-theme-bold-weight)
                             ,@(modus-vivendi-theme-prompt
@@ -2551,7 +2614,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(geiser-font-lock-doc-button ((,class ,@(modus-vivendi-theme-syntax-foreground
                                              cyan-alt cyan-alt-faint)
                                           :underline t)))
-   `(geiser-font-lock-doc-link ((,class :inherit link)))
+   `(geiser-font-lock-doc-link ((,class :inherit button)))
    `(geiser-font-lock-error-link ((,class ,@(modus-vivendi-theme-syntax-foreground
                                              red-alt red-alt-faint)
                                           :underline t)))
@@ -2564,7 +2627,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(geiser-font-lock-repl-prompt ((,class ,@(modus-vivendi-theme-syntax-foreground
                                               cyan-alt-other cyan-alt-other-faint))))
    `(geiser-font-lock-xref-header ((,class :inherit bold)))
-   `(geiser-font-lock-xref-link ((,class :inherit link)))
+   `(geiser-font-lock-xref-link ((,class :inherit button)))
 ;;;;; git-commit
    `(git-commit-comment-action ((,class :foreground ,fg-alt :slant ,modus-theme-slant)))
    `(git-commit-comment-branch-local ((,class :foreground ,blue-alt :slant ,modus-theme-slant)))
@@ -2614,7 +2677,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(git-timemachine-minibuffer-detail-face ((,class :foreground ,red-alt)))
 ;;;;; git-walktree
    `(git-walktree-commit-face ((,class :foreground ,yellow)))
-   `(git-walktree-symlink-face ((,class :inherit button :foreground ,cyan)))
+   `(git-walktree-symlink-face ((,class :inherit button)))
    `(git-walktree-tree-face ((,class :foreground ,magenta)))
 ;;;;; gnus
    `(gnus-button ((,class :inherit button)))
@@ -2727,7 +2790,9 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(helm-ff-executable ((,class :foreground ,magenta-alt)))
    `(helm-ff-file ((,class :foreground ,fg-main)))
    `(helm-ff-file-extension ((,class :foreground ,fg-special-warm)))
-   `(helm-ff-invalid-symlink ((,class :inherit button :foreground ,red)))
+   `(helm-ff-invalid-symlink ((,class :inherit button
+                                      ,@(modus-vivendi-theme-link-colour
+                                         red red-faint))))
    `(helm-ff-pipe ((,class ,@(modus-vivendi-theme-extra-completions
                               'modus-theme-refine-magenta
                               'modus-theme-subtle-magenta
@@ -2744,7 +2809,9 @@ Also bind `class' to ((class color) (min-colors 89))."
                               'modus-theme-refine-red
                               'modus-theme-nuanced-yellow
                               red-alt))))
-   `(helm-ff-symlink ((,class :inherit button :foreground ,cyan)))
+   `(helm-ff-symlink ((,class :inherit button
+                              ,@(modus-vivendi-theme-link-colour
+                                 cyan cyan-faint))))
    `(helm-ff-truename ((,class :foreground ,blue-alt-other)))
    `(helm-grep-cmd-line ((,class :foreground ,yellow-alt-other)))
    `(helm-grep-file ((,class :inherit bold :foreground ,fg-special-cold)))
@@ -2780,7 +2847,9 @@ Also bind `class' to ((class color) (min-colors 89))."
                                  'modus-theme-nuanced-cyan
                                  cyan-alt-other))))
    `(helm-minibuffer-prompt ((,class :inherit minibuffer-prompt)))
-   `(helm-moccur-buffer ((,class :inherit button :foreground ,cyan-alt-other)))
+   `(helm-moccur-buffer ((,class :inherit button
+                                 ,@(modus-vivendi-theme-link-colour
+                                    cyan-alt-other cyan-alt-other-faint))))
    `(helm-mode-prefix ((,class ,@(modus-vivendi-theme-extra-completions
                                   'modus-theme-subtle-magenta
                                   'modus-theme-intense-magenta
@@ -3135,7 +3204,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(lsp-lens-mouse-face ((,class :height 0.8 :foreground ,blue-alt-other :underline t)))
    `(lsp-ui-doc-background ((,class :background ,bg-alt)))
    `(lsp-ui-doc-header ((,class :background ,bg-header :foreground ,fg-header)))
-   `(lsp-ui-doc-url ((,class :inherit button :foreground ,blue-alt-other)))
+   `(lsp-ui-doc-url ((,class :inherit button)))
    `(lsp-ui-peek-filename ((,class :foreground ,fg-special-warm)))
    `(lsp-ui-peek-footer ((,class :background ,bg-header :foreground ,fg-header)))
    `(lsp-ui-peek-header ((,class :background ,bg-header :foreground ,fg-header)))
@@ -3297,7 +3366,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(markdown-language-keyword-face ((,class ,@(modus-vivendi-theme-mixed-fonts)
                                              :foreground ,green-alt-other)))
    `(markdown-line-break-face ((,class :inherit modus-theme-refine-cyan :underline t)))
-   `(markdown-link-face ((,class :inherit link)))
+   `(markdown-link-face ((,class :inherit button)))
    `(markdown-link-title-face ((,class :foreground ,fg-special-cold :slant ,modus-theme-slant)))
    `(markdown-list-face ((,class :foreground ,fg-dim)))
    `(markdown-markup-face ((,class :foreground ,fg-alt)))
@@ -3328,7 +3397,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(markup-emphasis-face ((,class :foreground ,fg-special-cold :slant italic)))
    `(markup-error-face ((,class :inherit bold :foreground ,red)))
    `(markup-gen-face ((,class :foreground ,magenta-alt)))
-   `(markup-internal-reference-face ((,class :inherit button :foreground ,fg-inactive)))
+   `(markup-internal-reference-face ((,class :inherit button :foreground ,fg-alt)))
    `(markup-italic-face ((,class :foreground ,fg-special-cold :slant italic)))
    `(markup-list-face ((,class :inherit modus-theme-special-calm)))
    `(markup-meta-face ((,class :foreground ,fg-inactive)))
@@ -3426,7 +3495,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(mu4e-header-title-face ((,class :foreground ,fg-special-mild)))
    `(mu4e-header-value-face ((,class :inherit bold :foreground ,magenta-alt-other)))
    `(mu4e-highlight-face ((,class :inherit bold :foreground ,blue-alt-other)))
-   `(mu4e-link-face ((,class :inherit link)))
+   `(mu4e-link-face ((,class :inherit button)))
    `(mu4e-modeline-face ((,class :foreground ,magenta-active)))
    `(mu4e-moved-face ((,class :foreground ,yellow :slant ,modus-theme-slant)))
    `(mu4e-ok-face ((,class :inherit bold :foreground ,green)))
@@ -3620,7 +3689,9 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-code ((,class ,@(modus-vivendi-theme-mixed-fonts) :foreground ,magenta)))
    `(org-column ((,class :background ,bg-alt)))
    `(org-column-title ((,class :inherit bold :underline t :background ,bg-alt)))
-   `(org-date ((,class :inherit (button fixed-pitch) :foreground ,cyan-alt-other)))
+   `(org-date ((,class :inherit (button fixed-pitch)
+                       ,@(modus-vivendi-theme-link-colour
+                          cyan-alt-other cyan-alt-other-faint))))
    `(org-date-selected ((,class :inherit bold :foreground ,blue-alt :inverse-video t)))
    `(org-document-info ((,class :foreground ,fg-special-cold)))
    `(org-document-info-keyword ((,class ,@(modus-vivendi-theme-mixed-fonts)
@@ -3631,7 +3702,9 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-drawer ((,class ,@(modus-vivendi-theme-mixed-fonts)
                          :foreground ,cyan)))
    `(org-ellipsis ((,class :foreground nil))) ; inherits from the heading's colour
-   `(org-footnote ((,class :inherit button :foreground ,blue-alt)))
+   `(org-footnote ((,class :inherit button
+                           ,@(modus-vivendi-theme-link-colour
+                              blue-alt blue-alt-faint))))
    `(org-formula ((,class ,@(modus-vivendi-theme-mixed-fonts)
                           :foreground ,red-alt)))
    `(org-habit-alert-face ((,class :inherit modus-theme-intense-yellow)))
@@ -3655,7 +3728,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-level-6 ((,class :inherit modus-theme-heading-6)))
    `(org-level-7 ((,class :inherit modus-theme-heading-7)))
    `(org-level-8 ((,class :inherit modus-theme-heading-8)))
-   `(org-link ((,class :inherit link)))
+   `(org-link ((,class :inherit button)))
    `(org-list-dt ((,class :inherit bold)))
    `(org-macro ((,class :background ,blue-nuanced-bg :foreground ,magenta-alt-other)))
    `(org-meta-line ((,class ,@(modus-vivendi-theme-mixed-fonts) :foreground ,fg-alt)))
@@ -3700,10 +3773,18 @@ Also bind `class' to ((class color) (min-colors 89))."
 ;;;;; org-recur
    `(org-recur ((,class :foreground ,magenta-active)))
 ;;;;; org-roam
-   `(org-roam-link ((,class :inherit button :foreground ,green)))
-   `(org-roam-link-current ((,class :inherit button :foreground ,green-alt)))
-   `(org-roam-link-invalid ((,class :inherit button :foreground ,red)))
-   `(org-roam-link-shielded ((,class :inherit button :foreground ,yellow)))
+   `(org-roam-link ((,class :inherit button
+                            ,@(modus-vivendi-theme-link-colour
+                              green green-faint))))
+   `(org-roam-link-current ((,class :inherit button
+                                    ,@(modus-vivendi-theme-link-colour
+                                       green-alt green-alt-faint))))
+   `(org-roam-link-invalid ((,class :inherit button
+                                    ,@(modus-vivendi-theme-link-colour
+                                       red red-faint))))
+   `(org-roam-link-shielded ((,class :inherit button
+                                     ,@(modus-vivendi-theme-link-colour
+                                        yellow yellow-faint))))
    `(org-roam-tag ((,class :foreground ,fg-alt :slant italic)))
 ;;;;; org-superstar
    `(org-superstar-item ((,class :foreground ,fg-main)))
@@ -3730,7 +3811,7 @@ Also bind `class' to ((class color) (min-colors 89))."
 ;;;;; package (M-x list-packages)
    `(package-description ((,class :foreground ,fg-special-cold)))
    `(package-help-section-name ((,class :inherit bold :foreground ,magenta-alt-other)))
-   `(package-name ((,class :inherit link)))
+   `(package-name ((,class :inherit button)))
    `(package-status-avail-obso ((,class :inherit bold :foreground ,red)))
    `(package-status-available ((,class :foreground ,fg-special-mild)))
    `(package-status-built-in ((,class :foreground ,magenta)))
@@ -4054,7 +4135,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(spaceline-read-only ((,class :inherit modus-theme-fringe-red)))
    `(spaceline-unmodified ((,class :inherit modus-theme-fringe-cyan)))
 ;;;;; speedbar
-   `(speedbar-button-face ((,class :inherit link)))
+   `(speedbar-button-face ((,class :inherit button)))
    `(speedbar-directory-face ((,class :inherit bold :foreground ,blue)))
    `(speedbar-file-face ((,class :foreground ,fg-main)))
    `(speedbar-highlight-face ((,class :inherit modus-theme-subtle-blue)))
@@ -4197,7 +4278,9 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(trashed-mark ((,class :inherit modus-theme-mark-symbol)))
    `(trashed-marked ((,class :inherit modus-theme-mark-alt)))
    `(trashed-restored ((,class :inherit modus-theme-mark-sel)))
-   `(trashed-symlink ((,class :inherit button :foreground ,cyan-alt)))
+   `(trashed-symlink ((,class :inherit button
+                              ,@(modus-vivendi-theme-link-colour
+                                 cyan-alt cyan-alt-faint))))
 ;;;;; treemacs
    `(treemacs-directory-collapsed-face ((,class :foreground ,magenta-alt)))
    `(treemacs-directory-face ((,class :inherit dired-directory)))
