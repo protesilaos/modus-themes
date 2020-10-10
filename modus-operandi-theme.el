@@ -1095,9 +1095,10 @@ underline.  UNDERLINE is a grey colour only for the undeline."
 (defun modus-operandi-theme-link-colour (fg fgfaint)
   "Extends `modus-operandi-theme-link'.
 FG is the main foreground.  FGFAINT is the desaturated one."
-  (if (eq modus-operandi-theme-links (or 'faint 'faint-neutral-underline))
-      (list :foreground fgfaint)
-    (list :foreground fg)))
+  (pcase modus-operandi-theme-links
+    ('faint (list :foreground fgfaint))
+    ('faint-neutral-underline (list :foreground fgfaint))
+    (_ (list :foreground fg))))
 
 (defun modus-operandi-theme-scale (amount)
   "Scale heading by AMOUNT.
