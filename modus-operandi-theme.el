@@ -4272,7 +4272,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(transient-teal ((,class :inherit bold :foreground ,cyan-alt-other)))
    `(transient-unreachable ((,class :foreground ,fg-unfocused)))
    `(transient-unreachable-key ((,class :foreground ,fg-unfocused)))
-   `(transient-value ((,class :foreground ,magenta-alt)))
+   `(transient-value ((,class :inherit bold :foreground ,magenta-alt-other)))
 ;;;;; trashed
    `(trashed-deleted ((,class :inherit modus-theme-mark-del)))
    `(trashed-directory ((,class :foreground ,blue)))
