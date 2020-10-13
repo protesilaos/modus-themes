@@ -3701,7 +3701,7 @@ Also bind `class' to ((class color) (min-colors 89))."
                                  ,@(modus-vivendi-theme-scale modus-vivendi-theme-scale-5))))
    `(org-done ((,class :box ,bg-region :background ,bg-dim :foreground ,green)))
    `(org-drawer ((,class ,@(modus-vivendi-theme-mixed-fonts)
-                         :foreground ,blue-nuanced)))
+                         :foreground ,fg-alt)))
    `(org-ellipsis ((,class :foreground nil))) ; inherits from the heading's colour
    `(org-footnote ((,class :inherit button
                            ,@(modus-vivendi-theme-link-colour
@@ -3737,7 +3737,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-mode-line-clock-overrun ((,class :inherit modus-theme-active-red)))
    `(org-priority ((,class :box ,bg-region :background ,bg-dim :foreground ,magenta)))
    `(org-property-value ((,class ,@(modus-vivendi-theme-mixed-fonts)
-                                 :foreground ,fg-alt)))
+                                 :foreground ,blue-nuanced)))
    `(org-quote ((,class ,@(modus-vivendi-theme-org-block bg-dim)
                         :foreground ,fg-special-cold :slant ,modus-theme-slant)))
    `(org-scheduled ((,class :foreground ,fg-special-warm)))
@@ -3745,7 +3745,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-scheduled-today ((,class :foreground ,magenta-alt-other)))
    `(org-sexp-date ((,class :inherit org-date)))
    `(org-special-keyword ((,class ,@(modus-vivendi-theme-mixed-fonts)
-                                  :foreground ,blue-nuanced)))
+                                  :foreground ,fg-alt)))
    `(org-table ((,class ,@(modus-vivendi-theme-mixed-fonts)
                         :foreground ,fg-special-cold)))
    `(org-table-header ((,class :inherit (fixed-pitch modus-theme-intense-neutral))))
