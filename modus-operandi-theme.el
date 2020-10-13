@@ -2084,7 +2084,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(dired-perm-write ((,class :foreground ,fg-special-warm)))
    `(dired-symlink ((,class :inherit button
                             ,@(modus-operandi-theme-link-colour
-                              cyan-alt cyan-alt-faint))))
+                               cyan-alt cyan-alt-faint))))
    `(dired-warning ((,class :inherit bold :foreground ,yellow)))
 ;;;;; dired-async
    `(dired-async-failures ((,class ,@(modus-operandi-theme-bold-weight) :foreground ,red-active)))
@@ -3776,7 +3776,7 @@ Also bind `class' to ((class color) (min-colors 89))."
 ;;;;; org-roam
    `(org-roam-link ((,class :inherit button
                             ,@(modus-operandi-theme-link-colour
-                              green green-faint))))
+                               green green-faint))))
    `(org-roam-link-current ((,class :inherit button
                                     ,@(modus-operandi-theme-link-colour
                                        green-alt green-alt-faint))))
