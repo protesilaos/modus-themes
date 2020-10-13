@@ -100,7 +100,7 @@ Advanced customisation (do-it-yourself)
 Face coverage
 
 * Supported packages::           Full list of covered face groups
-* Covered indirectly::
+* Indirectly covered packages::
 * Will NOT be supported::
 
 Notes for individual packages
@@ -1383,11 +1383,11 @@ accessible reading experience across all possible interfaces.
 * Menu:
 
 * Supported packages::           Full list of covered face groups
-* Covered indirectly::
+* Indirectly covered packages::
 * Will NOT be supported::
 
 
-File: modus-themes.info,  Node: Supported packages,  Next: Covered indirectly,  Up: Face coverage
+File: modus-themes.info,  Node: Supported packages,  Next: Indirectly covered packages,  Up: Face coverage
 
 6.1 Full support for packages or face groups
 ============================================
@@ -1677,23 +1677,24 @@ have lots of extensions, so the “full support” may not be 100% true…
 GNU Emacs distribution.
 
 
-File: modus-themes.info,  Node: Covered indirectly,  Next: Will NOT be supported,  Prev: Supported packages,  Up: Face coverage
+File: modus-themes.info,  Node: Indirectly covered packages,  Next: Will NOT be supported,  Prev: Supported packages,  Up: Face coverage
 
-6.2 Covered indirectly
-======================
+6.2 Indirectly covered packages
+===============================
 
 These do not require any extra styles because they are configured to
 inherit from some basic faces.  Please confirm.
 
    • edit-indirect
    • evil-owl
+   • i3wm-config-mode
    • perl-mode
    • php-mode
    • rjsx-mode
    • swift-mode
 
 
-File: modus-themes.info,  Node: Will NOT be supported,  Prev: Covered indirectly,  Up: Face coverage
+File: modus-themes.info,  Node: Will NOT be supported,  Prev: Indirectly covered packages,  Up: Face coverage
 
 6.3 Will NOT be supported
 =========================
@@ -2540,69 +2541,69 @@ Appendix A GNU Free Documentation License
 
 Tag Table:
 Node: Top218
-Node: Overview4105
-Node: How do the themes look like5406
-Node: Learn about the latest changes5913
-Node: Installation6295
-Node: Install from the archives6945
-Node: Install on GNU/Linux7632
-Node: Debian 11 Bullseye8077
-Node: GNU Guix8486
-Node: Enable and load8837
-Node: Load automatically9414
-Node: Load at a given time or at sunset/sunrise10227
-Ref: Load at a given time or at sunset/sunrise-Footnote-112270
-Ref: Load at a given time or at sunset/sunrise-Footnote-212398
-Node: Toggle between the themes on demand12481
-Node: Configure options prior to loading13357
-Ref: Configure options prior to loading-Footnote-116105
-Node: Customisation Options16281
-Node: Bold constructs18132
-Node: Slanted constructs19279
-Node: Syntax highlighting19870
-Node: No mixed fonts20695
-Node: Link underline21776
-Node: Link styles22401
-Node: Command prompts23592
-Node: Mode line24394
-Node: Completion UIs27018
-Node: Fringes28930
-Node: Line highlighting29696
-Node: Matching parentheses30364
-Node: Diffs31008
-Node: Org mode blocks32801
-Node: Heading styles34304
-Node: Scaled headings38058
-Node: Scaled heading sizes38675
-Node: Headings' font40508
-Node: Advanced customisation (do-it-yourself)41132
-Node: Tweak colours (DIY)42136
-Node: Font configs (DIY)45770
-Ref: Font configs (DIY)-Footnote-148358
-Ref: Font configs (DIY)-Footnote-248545
-Node: Org user faces (DIY)48767
-Node: Face coverage51925
-Node: Supported packages52427
-Node: Covered indirectly58469
-Node: Will NOT be supported58871
-Node: Notes for individual packages59589
-Node: Note on company-mode overlay pop-up60077
-Ref: Note on company-mode overlay pop-up-Footnote-160741
-Ref: Note on company-mode overlay pop-up-Footnote-260808
-Node: Note for ERC escaped colour sequences60863
-Ref: Note for ERC escaped colour sequences-Footnote-162290
-Node: Note for powerline or spaceline62400
-Node: Note on shr colours62818
-Node: Note for Helm grep63231
-Node: Note on vc-annotate-background-mode64678
-Node: Contributing65532
-Node: Sources of the themes65951
-Node: Issues you can help with66713
-Node: Merge requests67900
-Node: Acknowledgements70318
-Node: Meta71621
-Node: External projects (ports)73128
-Node: GNU Free Documentation License73951
+Node: Overview4114
+Node: How do the themes look like5415
+Node: Learn about the latest changes5922
+Node: Installation6304
+Node: Install from the archives6954
+Node: Install on GNU/Linux7641
+Node: Debian 11 Bullseye8086
+Node: GNU Guix8495
+Node: Enable and load8846
+Node: Load automatically9423
+Node: Load at a given time or at sunset/sunrise10236
+Ref: Load at a given time or at sunset/sunrise-Footnote-112279
+Ref: Load at a given time or at sunset/sunrise-Footnote-212407
+Node: Toggle between the themes on demand12490
+Node: Configure options prior to loading13366
+Ref: Configure options prior to loading-Footnote-116114
+Node: Customisation Options16290
+Node: Bold constructs18141
+Node: Slanted constructs19288
+Node: Syntax highlighting19879
+Node: No mixed fonts20704
+Node: Link underline21785
+Node: Link styles22410
+Node: Command prompts23601
+Node: Mode line24403
+Node: Completion UIs27027
+Node: Fringes28939
+Node: Line highlighting29705
+Node: Matching parentheses30373
+Node: Diffs31017
+Node: Org mode blocks32810
+Node: Heading styles34313
+Node: Scaled headings38067
+Node: Scaled heading sizes38684
+Node: Headings' font40517
+Node: Advanced customisation (do-it-yourself)41141
+Node: Tweak colours (DIY)42145
+Node: Font configs (DIY)45779
+Ref: Font configs (DIY)-Footnote-148367
+Ref: Font configs (DIY)-Footnote-248554
+Node: Org user faces (DIY)48776
+Node: Face coverage51934
+Node: Supported packages52445
+Node: Indirectly covered packages58496
+Node: Will NOT be supported58949
+Node: Notes for individual packages59676
+Node: Note on company-mode overlay pop-up60164
+Ref: Note on company-mode overlay pop-up-Footnote-160828
+Ref: Note on company-mode overlay pop-up-Footnote-260895
+Node: Note for ERC escaped colour sequences60950
+Ref: Note for ERC escaped colour sequences-Footnote-162377
+Node: Note for powerline or spaceline62487
+Node: Note on shr colours62905
+Node: Note for Helm grep63318
+Node: Note on vc-annotate-background-mode64765
+Node: Contributing65619
+Node: Sources of the themes66038
+Node: Issues you can help with66800
+Node: Merge requests67987
+Node: Acknowledgements70405
+Node: Meta71708
+Node: External projects (ports)73215
+Node: GNU Free Documentation License74038
 
 End Tag Table
 

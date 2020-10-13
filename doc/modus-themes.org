@@ -1553,7 +1553,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 Plus many other miscellaneous faces that are provided by the upstream
 GNU Emacs distribution.
 
-** Covered indirectly
+** Indirectly covered packages
 :PROPERTIES:
 :CUSTOM_ID: h:2cb359c7-3a84-4262-bab3-dcdc1d0034d7
 :END:
@@ -1563,6 +1563,7 @@ inherit from some basic faces.  Please confirm.
 
 + edit-indirect
 + evil-owl
++ i3wm-config-mode
 + perl-mode
 + php-mode
 + rjsx-mode
