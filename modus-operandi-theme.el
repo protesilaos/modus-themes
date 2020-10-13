@@ -3699,7 +3699,7 @@ Also bind `class' to ((class color) (min-colors 89))."
                                         :foreground ,fg-alt)))
    `(org-document-title ((,class :inherit (bold ,modus-theme-variable-pitch) :foreground ,fg-special-cold
                                  ,@(modus-operandi-theme-scale modus-operandi-theme-scale-5))))
-   `(org-done ((,class :box ,bg-region :background ,bg-dim :foreground ,green)))
+   `(org-done ((,class :foreground ,green)))
    `(org-drawer ((,class ,@(modus-operandi-theme-mixed-fonts)
                          :foreground ,fg-alt)))
    `(org-ellipsis ((,class :foreground nil))) ; inherits from the heading's colour
@@ -3735,7 +3735,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-meta-line ((,class ,@(modus-operandi-theme-mixed-fonts) :foreground ,fg-alt)))
    `(org-mode-line-clock ((,class :foreground ,fg-main)))
    `(org-mode-line-clock-overrun ((,class :inherit modus-theme-active-red)))
-   `(org-priority ((,class :box ,bg-region :background ,bg-dim :foreground ,magenta)))
+   `(org-priority ((,class :foreground ,magenta)))
    `(org-property-value ((,class ,@(modus-operandi-theme-mixed-fonts)
                                  :foreground ,blue-nuanced)))
    `(org-quote ((,class ,@(modus-operandi-theme-org-block bg-dim)
@@ -3753,7 +3753,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-tag-group ((,class :inherit bold :foreground ,cyan-nuanced)))
    `(org-target ((,class :underline t)))
    `(org-time-grid ((,class :foreground ,fg-unfocused)))
-   `(org-todo ((,class :box ,bg-region :background ,bg-dim :foreground ,red-alt)))
+   `(org-todo ((,class :foreground ,red)))
    `(org-upcoming-deadline ((,class :foreground ,red-alt-other)))
    `(org-upcoming-distant-deadline ((,class :foreground ,red-nuanced)))
    `(org-verbatim ((,class ,@(modus-operandi-theme-mixed-fonts)
