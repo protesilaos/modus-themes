@@ -2019,7 +2019,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(deft-title-face ((,class :inherit bold :foreground ,fg-main)))
 ;;;;; dictionary
    `(dictionary-button-face ((,class :inherit bold :foreground ,fg-special-cold)))
-   `(dictionary-reference-face ((,class :inherit :foreground ,blue-alt-other)))
+   `(dictionary-reference-face ((,class :inherit button :foreground ,blue-alt-other)))
    `(dictionary-word-definition-face ((,class :foreground ,fg-main)))
    `(dictionary-word-entry-face ((,class :foreground ,fg-special-cold :slant ,modus-theme-slant)))
 ;;;;; diff-hl
