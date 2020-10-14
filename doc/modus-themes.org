@@ -298,6 +298,7 @@ https://www.reddit.com/r/emacs/comments/gqsz8u/weekly_tipstricketc_thread/fsfakh
            modus-%1$s-theme-intense-hl-line nil
            modus-%1$s-theme-intense-paren-match nil
            modus-%1$s-theme-links 'faint ; {nil,'faint,'neutral-underline,'faint-neutral-underline,'no-underline}
+           modus-%1$s-theme-comments 'green ; {nil,'green,'yellow}
            modus-%1$s-theme-no-mixed-fonts nil
            modus-%1$s-theme-prompts nil ; {nil,'subtle,'intense}
            modus-%1$s-theme-completions 'moderate ; {nil,'moderate,'opinionated}
@@ -515,6 +516,33 @@ subtle grey underline.
 
 Option =no-underline= removes link underlines altogether, while keeping
 their text colour the same as the default.
+
+** Option for comments
+:PROPERTIES:
+:ALT_TITLE: Comment styles
+:DESCRIPTION: Choose accent colour for comment lines
+:CUSTOM_ID: h:540743db-566a-4b09-bc20-356d450b14bd
+:END:
+
+This option is introduced ahead of version =0.14.0=.
+
+Symbol names:
+
++ =modus-operandi-theme-comments=
++ =modus-vivendi-theme-comments=
+
+Possible values:
+
+1. =nil= (default)
+2. =green=
+3. =yellow=
+
+By default (nil), comments in programming modes and elsewhere use a
+subtle grey colour.  Options =green= or =yellow= change it to a variant of
+the colour they name.
+
+This is meant for those who prefer a clear distinction between the main
+text and comments.
 
 ** Option for command prompt styles
 :PROPERTIES:

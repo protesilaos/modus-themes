@@ -54,6 +54,7 @@
 ;;     modus-vivendi-theme-intense-hl-line                (boolean)
 ;;     modus-vivendi-theme-intense-paren-match            (boolean)
 ;;     modus-vivendi-theme-links                          (choice)
+;;     modus-vivendi-theme-comments                       (choice)
 ;;     modus-vivendi-theme-completions                    (choice)
 ;;     modus-vivendi-theme-override-colors-alist          (alist)
 ;;
@@ -851,6 +852,16 @@ Option `no-underline' removes link underlines altogether."
           (const :tag "Desaturated foreground with neutral grey underline" faint-neutral-underline)
           (const :tag "Remove underline property from links, keeping their foreground as-is" no-underline)))
 
+(defcustom modus-vivendi-theme-comments nil
+  "Set the style of comments.
+
+Nil means to use a neutral grey colour.  Options `green' and
+`yellow' apply a variant of the colour they name."
+  :type '(choice
+          (const :tag "Use a subtle grey foreground for comments (default)" nil)
+          (const :tag "Use a green foreground for comments" green)
+          (const :tag "Use a yellow foreground for comments" yellow)))
+
 
 
 ;;; Internal functions
@@ -1111,6 +1122,16 @@ FG is the main foreground.  FGFAINT is the desaturated one."
     ('faint (list :foreground fgfaint))
     ('faint-neutral-underline (list :foreground fgfaint))
     (_ (list :foreground fg))))
+
+(defun modus-vivendi-theme-comment (green yellow neutral)
+  "Apply `modus-vivendi-theme-comments'.
+GREEN, YELLOW are accented values that correspond to the named
+colour.  NEUTRAL is the default text colour for comments and
+should be a shade of grey."
+  (pcase modus-vivendi-theme-comments
+    ('green (list :foreground green))
+    ('yellow (list :foreground yellow))
+    (_ (list :foreground neutral))))
 
 (defun modus-vivendi-theme-scale (amount)
   "Scale heading by AMOUNT.
@@ -2554,8 +2575,9 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(font-lock-builtin-face ((,class ,@(modus-vivendi-theme-syntax-foreground
                                         magenta-alt magenta-alt-faint)
                                      ,@(modus-vivendi-theme-bold-weight))))
-   `(font-lock-comment-delimiter-face ((,class :foreground ,fg-alt ,@(modus-vivendi-theme-slant))))
-   `(font-lock-comment-face ((,class :foreground ,fg-alt ,@(modus-vivendi-theme-slant))))
+   `(font-lock-comment-delimiter-face ((,class :inherit font-lock-comment-face)))
+   `(font-lock-comment-face ((,class ,@(modus-vivendi-theme-comment green yellow-active fg-alt)
+                                     ,@(modus-vivendi-theme-slant))))
    `(font-lock-constant-face ((,class ,@(modus-vivendi-theme-syntax-foreground
                                          blue-alt-other blue-alt-other-faint))))
    `(font-lock-doc-face ((,class ,@(modus-vivendi-theme-syntax-foreground
@@ -2633,7 +2655,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(geiser-font-lock-xref-header ((,class :inherit bold)))
    `(geiser-font-lock-xref-link ((,class :inherit button)))
 ;;;;; git-commit
-   `(git-commit-comment-action ((,class :foreground ,fg-alt ,@(modus-vivendi-theme-slant))))
+   `(git-commit-comment-action ((,class :inherit font-lock-comment-face)))
    `(git-commit-comment-branch-local ((,class :foreground ,blue-alt ,@(modus-vivendi-theme-slant))))
    `(git-commit-comment-branch-remote ((,class :foreground ,magenta-alt ,@(modus-vivendi-theme-slant))))
    `(git-commit-comment-detached ((,class :foreground ,cyan-alt ,@(modus-vivendi-theme-slant))))
@@ -3338,7 +3360,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(markdown-blockquote-face ((,class :foreground ,fg-special-cold ,@(modus-vivendi-theme-slant))))
    `(markdown-bold-face ((,class :inherit bold)))
    `(markdown-code-face ((,class ,@(modus-vivendi-theme-mixed-fonts))))
-   `(markdown-comment-face ((,class :foreground ,fg-alt ,@(modus-vivendi-theme-slant))))
+   `(markdown-comment-face ((,class :inherit font-lock-comment-face)))
    `(markdown-footnote-marker-face ((,class :inherit bold :foreground ,cyan-alt)))
    `(markdown-footnote-text-face ((,class :foreground ,fg-main ,@(modus-vivendi-theme-slant))))
    `(markdown-gfm-checkbox-face ((,class :foreground ,cyan-alt-other)))
@@ -3395,7 +3417,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(markup-bold-face ((,class :inherit bold :foreground ,red-nuanced)))
    `(markup-code-face ((,class :inherit fixed-pitch :foreground ,magenta)))
    `(markup-command-face ((,class :foreground ,fg-inactive)))
-   `(markup-comment-face ((,class :foreground ,fg-alt ,@(modus-vivendi-theme-slant))))
+   `(markup-comment-face ((,class :inherit font-lock-comment-face)))
    `(markup-complex-replacement-face ((,class :box (:line-width 2 :color nil :style released-button)
                                               :inherit modus-theme-refine-magenta)))
    `(markup-emphasis-face ((,class :foreground ,fg-special-cold :slant italic)))
@@ -4431,7 +4453,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(web-mode-builtin-face ((,class ,@(modus-vivendi-theme-syntax-foreground
                                        magenta-alt magenta-alt-faint)
                                     ,@(modus-vivendi-theme-bold-weight))))
-   `(web-mode-comment-face ((,class :foreground ,fg-alt ,@(modus-vivendi-theme-slant))))
+   `(web-mode-comment-face ((,class :inherit font-lock-comment-face)))
    `(web-mode-comment-keyword-face ((,class :inherit bold :background ,bg-dim
                                             ,@(modus-vivendi-theme-syntax-foreground
                                                yellow yellow-faint))))
