@@ -2576,7 +2576,7 @@ Also bind `class' to ((class color) (min-colors 89))."
                                         magenta-alt magenta-alt-faint)
                                      ,@(modus-vivendi-theme-bold-weight))))
    `(font-lock-comment-delimiter-face ((,class :inherit font-lock-comment-face)))
-   `(font-lock-comment-face ((,class ,@(modus-vivendi-theme-comment green yellow-active fg-alt)
+   `(font-lock-comment-face ((,class ,@(modus-vivendi-theme-comment green yellow-faint fg-alt)
                                      ,@(modus-vivendi-theme-slant))))
    `(font-lock-constant-face ((,class ,@(modus-vivendi-theme-syntax-foreground
                                          blue-alt-other blue-alt-other-faint))))
