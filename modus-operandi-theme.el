@@ -837,7 +837,7 @@ foreground.
 Option `faint' applies desaturated colours to the link's text and
 underline.
 
-Option `neutral-underline' applies a sublte grey underline, while
+Option `neutral-underline' applies a subtle grey underline, while
 retaining the link's foreground.
 
 Option `faint-neutral-underline' combines a desaturated text
