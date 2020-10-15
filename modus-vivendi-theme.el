@@ -1545,7 +1545,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(modus-theme-hl-line ((,class :background ,(if modus-vivendi-theme-intense-hl-line
                                                    bg-hl-line-intense bg-hl-line)
                                   (and (>= emacs-major-version 27) '(:extend t)))))
-   `(modus-theme-slant ((,class :inherit (italic ,@(modus-vivendi-theme-slant)))))
+   `(modus-theme-slant ((,class :inherit italic ,@(modus-vivendi-theme-slant))))
    `(modus-theme-variable-pitch ((,class :inherit ,@(modus-vivendi-theme-variable-pitch))))
 ;;;; standard faces
 ;;;;; absolute essentials
