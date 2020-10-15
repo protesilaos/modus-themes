@@ -2710,8 +2710,12 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(git-lens-modified ((,class :inherit bold :foreground ,yellow)))
    `(git-lens-renamed ((,class :inherit bold :foreground ,magenta)))
 ;;;;; git-rebase
-   `(git-rebase-comment-hash ((,class :inherit modus-theme-slant :foreground ,fg-special-cold)))
-   `(git-rebase-comment-heading ((,class :inherit (bold modus-theme-slant) :foreground ,fg-dim)))
+   `(git-rebase-comment-hash ((,class :inherit modus-theme-slant
+                                      ,@(modus-operandi-theme-comment
+                                         cyan-nuanced red-nuanced fg-special-cold))))
+   `(git-rebase-comment-heading  ((,class :inherit (bold modus-theme-slant)
+                                          ,@(modus-operandi-theme-comment
+                                             fg-special-mild fg-special-warm fg-dim))))
    `(git-rebase-description ((,class :foreground ,fg-main)))
    `(git-rebase-hash ((,class :foreground ,cyan-alt-other)))
 ;;;;; git-timemachine
