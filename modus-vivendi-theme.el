@@ -883,13 +883,14 @@ Nil means to use a neutral grey colour.  Options `green' and
 
 (defun modus-vivendi-theme-slant ()
   "Conditional use of italics for slant attribute."
-  (when modus-vivendi-theme-slanted-constructs
-    (list :slant 'italic)))
+  (if modus-vivendi-theme-slanted-constructs
+      (list 'italic)
+    (list 'normal)))
 
 (defun modus-vivendi-theme-variable-pitch ()
   "Conditional use of `variable-pitch' in headings."
   (when modus-vivendi-theme-variable-pitch-headings
-    (list 'variable-pitch)))
+    (list :inherit 'variable-pitch)))
 
 (defun modus-vivendi-theme-fringe (subtlebg intensebg)
   "Conditional use of background colours for fringes.
@@ -1545,8 +1546,8 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(modus-theme-hl-line ((,class :background ,(if modus-vivendi-theme-intense-hl-line
                                                    bg-hl-line-intense bg-hl-line)
                                   (and (>= emacs-major-version 27) '(:extend t)))))
-   `(modus-theme-slant ((,class :inherit italic ,@(modus-vivendi-theme-slant))))
-   `(modus-theme-variable-pitch ((,class :inherit ,@(modus-vivendi-theme-variable-pitch))))
+   `(modus-theme-slant ((,class :inherit italic :slant ,@(modus-vivendi-theme-slant))))
+   `(modus-theme-variable-pitch ((,class ,@(modus-vivendi-theme-variable-pitch))))
 ;;;; standard faces
 ;;;;; absolute essentials
    `(default ((,class :background ,bg-main :foreground ,fg-main)))
