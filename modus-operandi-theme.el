@@ -1293,6 +1293,9 @@ AMOUNT is a customisation option."
       ;;
       ;; `fg-unfocused' must be combined with `fg-main'
       ;;
+      ;; `fg-comment-green' and `fg-comment-yellow' can be combined with
+      ;; `bg-main', `bg-dim', `bg-alt'
+      ;;
       ;; the window divider colours apply to faces with just an fg value
       ;;
       ;; all pairs are combinable with themselves
@@ -1320,6 +1323,9 @@ AMOUNT is a customisation option."
       ("fg-window-divider-outer" . "#585858")
 
       ("fg-unfocused" . "#56576d")
+
+      ("fg-comment-green" . "#00581a")
+      ("fg-comment-yellow" . "#5f4400")
 
       ("bg-header" . "#e5e5e5") ("fg-header" . "#2a2a2a")
 
@@ -2576,7 +2582,8 @@ Also bind `class' to ((class color) (min-colors 89))."
                                         magenta-alt magenta-alt-faint)
                                      ,@(modus-operandi-theme-bold-weight))))
    `(font-lock-comment-delimiter-face ((,class :inherit font-lock-comment-face)))
-   `(font-lock-comment-face ((,class ,@(modus-operandi-theme-comment green yellow-faint fg-alt)
+   `(font-lock-comment-face ((,class ,@(modus-operandi-theme-comment
+                                        fg-comment-green fg-comment-yellow fg-alt)
                                      ,@(modus-operandi-theme-slant))))
    `(font-lock-constant-face ((,class ,@(modus-operandi-theme-syntax-foreground
                                          blue-alt-other blue-alt-other-faint))))
