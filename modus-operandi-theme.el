@@ -892,14 +892,14 @@ Nil means to use a neutral grey colour.  Options `green' and
   (when modus-operandi-theme-variable-pitch-headings
     (list :inherit 'variable-pitch)))
 
-(defun modus-operandi-theme-fringe (subtlebg intensebg)
+(defun modus-operandi-theme-fringe (mainbg subtlebg intensebg)
   "Conditional use of background colours for fringes.
-SUBTLEBG should be a subtle greyscale value.  INTENSEBG must be a
-more pronounced greyscale colour."
+MAINBG is the default.  SUBTLEBG should be a subtle greyscale
+value.  INTENSEBG must be a more pronounced greyscale colour."
   (pcase modus-operandi-theme-fringes
     ('intense (list :background intensebg))
     ('subtle (list :background subtlebg))
-    (_ (list :background nil))))
+    (_ (list :background mainbg))))
 
 (defun modus-operandi-theme-prompt (mainfg subtlebg subtlefg intensebg intensefg)
   "Conditional use of background colours for prompts.
@@ -1552,7 +1552,7 @@ Also bind `class' to ((class color) (min-colors 89))."
 ;;;;; absolute essentials
    `(default ((,class :background ,bg-main :foreground ,fg-main)))
    `(cursor ((,class :background ,fg-main)))
-   `(fringe ((,class ,@(modus-operandi-theme-fringe bg-inactive bg-active)
+   `(fringe ((,class ,@(modus-operandi-theme-fringe bg-main bg-inactive bg-active)
                      :foreground ,fg-main)))
    `(vertical-border ((,class :foreground ,fg-window-divider-inner)))
 ;;;;; basic and/or ungrouped styles
