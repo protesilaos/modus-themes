@@ -2659,8 +2659,13 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(git-commit-comment-branch-local ((,class :foreground ,blue-alt ,@(modus-vivendi-theme-slant))))
    `(git-commit-comment-branch-remote ((,class :foreground ,magenta-alt ,@(modus-vivendi-theme-slant))))
    `(git-commit-comment-detached ((,class :foreground ,cyan-alt ,@(modus-vivendi-theme-slant))))
-   `(git-commit-comment-file ((,class :foreground ,fg-special-cold ,@(modus-vivendi-theme-slant))))
-   `(git-commit-comment-heading ((,class :inherit bold :foreground ,fg-dim ,@(modus-vivendi-theme-slant))))
+   `(git-commit-comment-file ((,class ,@(modus-vivendi-theme-comment
+                                          cyan-nuanced red-nuanced fg-special-cold)
+                                      ,@(modus-vivendi-theme-slant))))
+   `(git-commit-comment-heading ((,class :inherit bold
+                                         ,@(modus-vivendi-theme-comment
+                                            fg-special-mild fg-special-warm fg-dim)
+                                         ,@(modus-vivendi-theme-slant))))
    `(git-commit-keyword ((,class :foreground ,magenta)))
    `(git-commit-known-pseudo-header ((,class :foreground ,cyan-alt-other)))
    `(git-commit-nonempty-second-line ((,class :inherit modus-theme-refine-yellow)))
