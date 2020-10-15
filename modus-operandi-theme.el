@@ -2094,7 +2094,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(diff-refine-removed ((,class :inherit modus-theme-diff-refine-removed)))
    `(diff-removed ((,class :inherit modus-theme-diff-removed)))
 ;;;;; dim-autoload
-   `(dim-autoload-cookie-line ((,class :inherit modus-theme-slant :foreground ,fg-alt)))
+   `(dim-autoload-cookie-line ((,class :inherit font-lock-comment-face)))
 ;;;;; dir-treeview
    `(dir-treeview-archive-face ((,class :foreground ,fg-special-warm)))
    `(dir-treeview-archive-icon-face ((,class :inherit dir-treeview-default-icon-face :foreground ,yellow)))
