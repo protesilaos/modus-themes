@@ -440,6 +440,7 @@ between foreground and background is >= 7:1)."
 (defface modus-theme-hl-line nil nil)
 (defface modus-theme-bold nil nil)
 (defface modus-theme-slant nil nil)
+(defface modus-theme-variable-pitch nil nil)
 
 ;;; Customisation options
 
@@ -1545,6 +1546,7 @@ Also bind `class' to ((class color) (min-colors 89))."
                                                    bg-hl-line-intense bg-hl-line)
                                   (and (>= emacs-major-version 27) '(:extend t)))))
    `(modus-theme-slant ((,class :inherit (italic ,@(modus-operandi-theme-slant)))))
+   `(modus-theme-variable-pitch ((,class :inherit ,@(modus-operandi-theme-variable-pitch))))
 ;;;; standard faces
 ;;;;; absolute essentials
    `(default ((,class :background ,bg-main :foreground ,fg-main)))
@@ -1700,14 +1702,14 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(font-latex-italic-face ((,class :foreground ,fg-special-calm :slant italic)))
    `(font-latex-math-face ((,class :foreground ,cyan-alt-other)))
    `(font-latex-script-char-face ((,class :foreground ,cyan-alt-other)))
-   `(font-latex-sectioning-0-face ((,class :inherit ,@(modus-operandi-theme-variable-pitch) :foreground ,blue-nuanced)))
-   `(font-latex-sectioning-1-face ((,class :inherit (bold ,@(modus-operandi-theme-variable-pitch)) :foreground ,blue-nuanced)))
-   `(font-latex-sectioning-2-face ((,class :inherit (bold ,@(modus-operandi-theme-variable-pitch)) :foreground ,blue-nuanced)))
-   `(font-latex-sectioning-3-face ((,class :inherit (bold ,@(modus-operandi-theme-variable-pitch)) :foreground ,blue-nuanced)))
-   `(font-latex-sectioning-4-face ((,class :inherit (bold ,@(modus-operandi-theme-variable-pitch)) :foreground ,blue-nuanced)))
-   `(font-latex-sectioning-5-face ((,class :inherit ,@(modus-operandi-theme-variable-pitch) :foreground ,blue-nuanced)))
+   `(font-latex-sectioning-0-face ((,class :inherit modus-theme-variable-pitch :foreground ,blue-nuanced)))
+   `(font-latex-sectioning-1-face ((,class :inherit (bold modus-theme-variable-pitch) :foreground ,blue-nuanced)))
+   `(font-latex-sectioning-2-face ((,class :inherit (bold modus-theme-variable-pitch) :foreground ,blue-nuanced)))
+   `(font-latex-sectioning-3-face ((,class :inherit (bold modus-theme-variable-pitch) :foreground ,blue-nuanced)))
+   `(font-latex-sectioning-4-face ((,class :inherit (bold modus-theme-variable-pitch) :foreground ,blue-nuanced)))
+   `(font-latex-sectioning-5-face ((,class :inherit modus-theme-variable-pitch :foreground ,blue-nuanced)))
    `(font-latex-sedate-face ((,class :inherit modus-theme-bold :foreground ,magenta-alt-other)))
-   `(font-latex-slide-title-face ((,class :inherit (bold ,@(modus-operandi-theme-variable-pitch)) :foreground ,cyan-nuanced
+   `(font-latex-slide-title-face ((,class :inherit (bold modus-theme-variable-pitch) :foreground ,cyan-nuanced
                                           ,@(modus-operandi-theme-scale modus-operandi-theme-scale-4))))
    `(font-latex-string-face ((,class :foreground ,blue-alt)))
    `(font-latex-subscript-face ((,class :height 0.95)))
@@ -1807,7 +1809,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(cfw:face-saturday ((,class :inherit bold :foreground ,cyan-alt-other)))
    `(cfw:face-select ((,class :inherit modus-theme-intense-blue)))
    `(cfw:face-sunday ((,class :inherit bold :foreground ,cyan-alt-other)))
-   `(cfw:face-title ((,class :inherit ,@(modus-operandi-theme-variable-pitch)
+   `(cfw:face-title ((,class :inherit modus-theme-variable-pitch
                              :foreground ,fg-special-cold
                              ,@(modus-operandi-theme-scale modus-operandi-theme-scale-5))))
    `(cfw:face-today ((,class :background ,bg-inactive)))
@@ -3737,7 +3739,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-document-info ((,class :foreground ,fg-special-cold)))
    `(org-document-info-keyword ((,class ,@(modus-operandi-theme-mixed-fonts)
                                         :foreground ,fg-alt)))
-   `(org-document-title ((,class :inherit (bold ,@(modus-operandi-theme-variable-pitch)) :foreground ,fg-special-cold
+   `(org-document-title ((,class :inherit (bold modus-theme-variable-pitch) :foreground ,fg-special-cold
                                  ,@(modus-operandi-theme-scale modus-operandi-theme-scale-5))))
    `(org-done ((,class :foreground ,green)))
    `(org-drawer ((,class ,@(modus-operandi-theme-mixed-fonts)
@@ -3756,8 +3758,8 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-habit-overdue-future-face ((,class :inherit modus-theme-refine-red)))
    `(org-habit-ready-face ((,class :inherit modus-theme-intense-blue)))
    `(org-habit-ready-future-face ((,class :inherit modus-theme-refine-blue)))
-   `(org-headline-done ((,class :inherit ,@(modus-operandi-theme-variable-pitch) :foreground ,green-nuanced)))
-   `(org-headline-todo ((,class :inherit ,@(modus-operandi-theme-variable-pitch) :foreground ,red-nuanced)))
+   `(org-headline-done ((,class :inherit modus-theme-variable-pitch :foreground ,green-nuanced)))
+   `(org-headline-todo ((,class :inherit modus-theme-variable-pitch :foreground ,red-nuanced)))
    `(org-hide ((,class :foreground ,bg-main)))
    `(org-indent ((,class :inherit (fixed-pitch org-hide))))
    `(org-latex-and-related ((,class :foreground ,magenta-refine-fg)))
