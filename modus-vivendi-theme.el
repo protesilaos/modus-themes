@@ -1563,6 +1563,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    ;;
    ;; (set-face-attribute 'bold nil :weight 'semibold)
    `(bold ((,class :weight bold)))
+   `(bold-italic ((,class :inherit (bold italic))))
    `(comint-highlight-input ((,class :inherit bold)))
    `(comint-highlight-prompt ((,class :inherit modus-theme-bold
                                       ,@(modus-vivendi-theme-prompt
@@ -2740,7 +2741,13 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(gnus-cite-8 ((,class :foreground ,red-alt-other)))
    `(gnus-cite-9 ((,class :foreground ,green-alt-other)))
    `(gnus-cite-attribution ((,class :foreground ,fg-main :slant italic)))
+   `(gnus-emphasis-bold ((,class :inherit bold)))
+   `(gnus-emphasis-bold-italic ((,class :inherit bold-italic)))
    `(gnus-emphasis-highlight-words ((,class :inherit modus-theme-refine-yellow)))
+   `(gnus-emphasis-italic ((,class :inherit italic)))
+   `(gnus-emphasis-underline-bold ((,class :inherit gnus-emphasis-bold :underline t)))
+   `(gnus-emphasis-underline-bold-italic ((,class :inherit gnus-emphasis-bold-italic :underline t)))
+   `(gnus-emphasis-underline-italic ((,class :inherit gnus-emphasis-italic :underline t)))
    `(gnus-group-mail-1 ((,class :inherit bold :foreground ,magenta-alt)))
    `(gnus-group-mail-1-empty ((,class :foreground ,magenta-alt)))
    `(gnus-group-mail-2 ((,class :inherit bold :foreground ,magenta)))
