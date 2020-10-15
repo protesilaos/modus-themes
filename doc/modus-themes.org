@@ -1506,6 +1506,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + phi-search
 + pkgbuild-mode
 + pomidor
++ popup
 + powerline
 + powerline-evil
 + proced

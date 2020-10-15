@@ -1630,6 +1630,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • phi-search
    • pkgbuild-mode
    • pomidor
+   • popup
    • powerline
    • powerline-evil
    • proced
@@ -2614,26 +2615,26 @@ Ref: Font configs (DIY)-Footnote-249461
 Node: Org user faces (DIY)49683
 Node: Face coverage52841
 Node: Supported packages53352
-Node: Indirectly covered packages59403
-Node: Will NOT be supported59856
-Node: Notes for individual packages60583
-Node: Note on company-mode overlay pop-up61071
-Ref: Note on company-mode overlay pop-up-Footnote-161735
-Ref: Note on company-mode overlay pop-up-Footnote-261802
-Node: Note for ERC escaped colour sequences61857
-Ref: Note for ERC escaped colour sequences-Footnote-163284
-Node: Note for powerline or spaceline63394
-Node: Note on shr colours63812
-Node: Note for Helm grep64225
-Node: Note on vc-annotate-background-mode65672
-Node: Contributing66526
-Node: Sources of the themes66945
-Node: Issues you can help with67707
-Node: Merge requests68894
-Node: Acknowledgements71312
-Node: Meta72615
-Node: External projects (ports)74122
-Node: GNU Free Documentation License74945
+Node: Indirectly covered packages59416
+Node: Will NOT be supported59869
+Node: Notes for individual packages60596
+Node: Note on company-mode overlay pop-up61084
+Ref: Note on company-mode overlay pop-up-Footnote-161748
+Ref: Note on company-mode overlay pop-up-Footnote-261815
+Node: Note for ERC escaped colour sequences61870
+Ref: Note for ERC escaped colour sequences-Footnote-163297
+Node: Note for powerline or spaceline63407
+Node: Note on shr colours63825
+Node: Note for Helm grep64238
+Node: Note on vc-annotate-background-mode65685
+Node: Contributing66539
+Node: Sources of the themes66958
+Node: Issues you can help with67720
+Node: Merge requests68907
+Node: Acknowledgements71325
+Node: Meta72628
+Node: External projects (ports)74135
+Node: GNU Free Documentation License74958
 
 End Tag Table
 

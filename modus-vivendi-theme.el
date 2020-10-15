@@ -273,6 +273,7 @@
 ;;     phi-search
 ;;     pkgbuild-mode
 ;;     pomidor
+;;     popup
 ;;     powerline
 ;;     powerline-evil
 ;;     proced
@@ -3927,6 +3928,15 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(pomidor-overwork-face ((,class :foreground ,red-alt-other)))
    `(pomidor-skip-face ((,class :inherit modus-theme-slant :foreground ,fg-alt)))
    `(pomidor-work-face ((,class :foreground ,green-alt-other)))
+;;;;; popup
+   `(popup-face ((,class :background ,bg-alt :foreground ,fg-main)))
+   `(popup-isearch-match ((,class :inherit (modus-theme-refine-cyan bold))))
+   `(popup-menu-mouse-face ((,class :inherit modus-theme-intense-blue)))
+   `(popup-menu-selection-face ((,class :inherit (modus-theme-subtle-cyan bold))))
+   `(popup-scroll-bar-background-face ((,class :background ,bg-active)))
+   `(popup-scroll-bar-foreground-face ((,class :foreground ,fg-active)))
+   `(popup-summary-face ((,class :background ,bg-active :foreground ,fg-inactive)))
+   `(popup-tip-face ((,class :inherit modus-theme-special-warm)))
 ;;;;; powerline
    `(powerline-active0 ((,class :background ,bg-main :foreground ,blue-faint :inverse-video t)))
    `(powerline-active1 ((,class :background ,blue-nuanced-bg :foreground ,blue-nuanced)))
