@@ -3792,7 +3792,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-mode-line-clock-overrun ((,class :inherit modus-theme-active-red)))
    `(org-priority ((,class :foreground ,magenta)))
    `(org-property-value ((,class ,@(modus-operandi-theme-mixed-fonts)
-                                 :foreground ,blue-nuanced)))
+                                 :foreground ,fg-special-cold)))
    `(org-quote ((,class :inherit modus-theme-slant
                         ,@(modus-operandi-theme-org-block bg-dim)
                         :foreground ,fg-special-cold)))
