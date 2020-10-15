@@ -2036,13 +2036,13 @@ Ideas and user feedback
      Shmalko, Anders Johansson, André Alexandre Gomes, Arif Rezai, Basil
      L.  Contovounisios, Damien Cassou, Dario Gjorgjevski, David
      Edmondson, Davor Rotim, Divan Santana, Gerry Agbobada, Gianluca
-     Recchia, Iris Garcia, Len Trigg, Manuel Uberti, Mark Burton, Markus
-     Beppler, Michael Goldenberg, Murilo Pereira, Nicolas De Jaeghere,
-     Pierre Téchoueyres, Roman Rudakov, Ryan Phillips, Shreyas Ragavan,
-     Tassilo Horn, Thibaut Verron, Trey Merkley, Uri Sharf, Utkarsh
-     Singh, Vincent Foley.  As well as users: Ben, Fourchaux, Fredrik,
-     Moesasji, Nick, TheBlob42, dinko, doolio, jixiuf, okamsn, tycho
-     garen.
+     Recchia, Ilja Kocken, Iris Garcia, Len Trigg, Manuel Uberti, Mark
+     Burton, Markus Beppler, Michael Goldenberg, Murilo Pereira, Nicolas
+     De Jaeghere, Paul Poloskov, Pierre Téchoueyres, Roman Rudakov, Ryan
+     Phillips, Shreyas Ragavan, Simon Pugnet, Tassilo Horn, Thibaut
+     Verron, Trey Merkley, Uri Sharf, Utkarsh Singh, Vincent Foley.  As
+     well as users: Ben, Eugene, Fourchaux, Fredrik, Moesasji, Nick,
+     TheBlob42, bepolymathe, dinko, doolio, jixiuf, okamsn, tycho garen.
 
 Packaging
      Dhavan Vaidya (Debian), Stefan Kangas (core Emacs), Stefan Monnier
@@ -2632,9 +2632,9 @@ Node: Sources of the themes66958
 Node: Issues you can help with67720
 Node: Merge requests68907
 Node: Acknowledgements71325
-Node: Meta72628
-Node: External projects (ports)74135
-Node: GNU Free Documentation License74958
+Node: Meta72691
+Node: External projects (ports)74198
+Node: GNU Free Documentation License75021
 
 End Tag Table
 
