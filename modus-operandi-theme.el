@@ -1566,6 +1566,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    ;; (set-face-attribute 'bold nil :weight 'semibold)
    `(bold ((,class :weight bold)))
    `(bold-italic ((,class :inherit (bold italic))))
+   `(buffer-menu-buffer ((,class :inherit bold)))
    `(comint-highlight-input ((,class :inherit bold)))
    `(comint-highlight-prompt ((,class :inherit modus-theme-bold
                                       ,@(modus-operandi-theme-prompt
