@@ -1329,8 +1329,8 @@ AMOUNT is a customisation option."
 
       ("fg-unfocused" . "#93959b")
 
-      ("fg-comment-green" . "#7cb45b")
-      ("fg-comment-yellow" . "#b0aa6f")
+      ("fg-comment-green" . "#66b766")
+      ("fg-comment-yellow" . "#cab98f")
 
       ("bg-header" . "#212121") ("fg-header" . "#dddddd")
 
