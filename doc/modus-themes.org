@@ -144,13 +144,13 @@ Users of either the Guix System (the distro) or just Guix (the package
 manager) can get each theme as a standalone package.
 
 #+begin_src sh
-guix package -i modus-operandi-theme
+guix package -i emacs-modus-operandi-theme
 #+end_src
 
 And/or:
 
 #+begin_src sh
-guix package -i modus-vivendi-theme
+guix package -i emacs-modus-vivendi-theme
 #+end_src
 
 * Enable and load
