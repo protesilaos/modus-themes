@@ -2020,9 +2020,10 @@ The Modus themes are a collective effort.  Every contribution counts.
 Author/maintainer
      Protesilaos Stavrou.
 
-Code contributions
-     Anders Johansson, Basil L.  Contovounesios, Markus Beppler, Matthew
-     Stevenson.
+Contributions to code or documentation
+     Anders Johansson, Basil L.  Contovounesios, Eli Zaretskii, Markus
+     Beppler, Matthew Stevenson, Shreyas Ragavan, Stefan Kangas, Vincent
+     Murphy.
 
 Ideas and user feedback
      Aaron Jensen, Adam Spiers, Alex Griffin, Alex Peitsinis, Alexey
@@ -2042,7 +2043,7 @@ Packaging
      (GNU Elpa).
 
 Inspiration for certain features
-     Fabrice Niessen (leuven-theme), Bozhidar Batsov (zenburn-theme).
+     Bozhidar Batsov (zenburn-theme), Fabrice Niessen (leuven-theme).
 
 
 File: modus-themes.info,  Node: Meta,  Next: External projects (ports),  Prev: Acknowledgements,  Up: Top
@@ -2625,9 +2626,9 @@ Node: Sources of the themes66612
 Node: Issues you can help with67354
 Node: Merge requests68539
 Node: Acknowledgements70957
-Node: Meta72323
-Node: External projects (ports)73830
-Node: GNU Free Documentation License74652
+Node: Meta72411
+Node: External projects (ports)73918
+Node: GNU Free Documentation License74740
 
 End Tag Table
 

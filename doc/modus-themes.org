@@ -1860,8 +1860,9 @@ The Modus themes are a collective effort.  Every contribution counts.
 
 + Author/maintainer :: Protesilaos Stavrou.
 
-+ Code contributions :: Anders Johansson, Basil L. Contovounesios,
-  Markus Beppler, Matthew Stevenson.
++ Contributions to code or documentation :: Anders Johansson, Basil
+  L. Contovounesios, Eli Zaretskii, Markus Beppler, Matthew Stevenson,
+  Shreyas Ragavan, Stefan Kangas, Vincent Murphy.
 
 + Ideas and user feedback :: Aaron Jensen, Adam Spiers, Alex Griffin,
   Alex Peitsinis, Alexey Shmalko, Anders Johansson, André Alexandre
@@ -1878,8 +1879,8 @@ The Modus themes are a collective effort.  Every contribution counts.
 + Packaging :: Dhavan Vaidya (Debian), Stefan Kangas (core Emacs),
   Stefan Monnier (GNU Elpa).
 
-+ Inspiration for certain features :: Fabrice Niessen (leuven-theme),
-  Bozhidar Batsov (zenburn-theme).
++ Inspiration for certain features :: Bozhidar Batsov (zenburn-theme),
+  Fabrice Niessen (leuven-theme).
 
 * Meta
 :PROPERTIES:
