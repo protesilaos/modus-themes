@@ -205,7 +205,7 @@ File: modus-themes.info,  Node: Install from the archives,  Next: Install on GNU
 =============================
 
 ‘modus-operandi-theme’ and ‘modus-vivendi-theme’ are available from GNU
-ELPA archive, which is configured by default.
+the ELPA archive, which is configured by default.
 
    Prior to querying any package archive, make sure to have updated the
 index, with ‘M-x package-refresh-contents’.  Then all you need to do is
@@ -350,7 +350,7 @@ because it does not enable the theme directly: the subsequent
 
    ---------- Footnotes ----------
 
-   (1) Contributed on Reddit by user ‘b3n’
+   (1) Contributed on Reddit by user ‘b3n’,
 <https://www.reddit.com/r/emacs/comments/gdtqov/weekly_tipstricketc_thread/fq9186h/>.
 
    (2) Contributed directly by André Alexandre Gomes
@@ -2021,13 +2021,13 @@ Author/maintainer
      Protesilaos Stavrou.
 
 Code contributions
-     Anders Johansson, Basil L.  Contovounisios, Markus Beppler, Matthew
+     Anders Johansson, Basil L.  Contovounesios, Markus Beppler, Matthew
      Stevenson.
 
 Ideas and user feedback
      Aaron Jensen, Adam Spiers, Alex Griffin, Alex Peitsinis, Alexey
      Shmalko, Anders Johansson, André Alexandre Gomes, Arif Rezai, Basil
-     L.  Contovounisios, Damien Cassou, Dario Gjorgjevski, David
+     L.  Contovounesios, Damien Cassou, Dario Gjorgjevski, David
      Edmondson, Davor Rotim, Divan Santana, Gerry Agbobada, Gianluca
      Recchia, Ilja Kocken, Iris Garcia, Len Trigg, Manuel Uberti, Mark
      Burton, Markus Beppler, Michael Goldenberg, Murilo Pereira, Nicolas
@@ -2068,10 +2068,10 @@ details of this sort):
    • Modus themes: new “faint syntax” option
      (https://protesilaos.com/codelog/2020-07-04-modus-themes-faint-colours/)
      (2020-07-04)
-   • Modus themes: major review of “nuanced” colors
+   • Modus themes: major review of “nuanced” colours
      (https://protesilaos.com/codelog/2020-07-08-modus-themes-nuanced-colours/)
      (2020-07-08)
-   • Modus themes: review of blue colors
+   • Modus themes: review of blue colours
      (https://protesilaos.com/codelog/2020-09-14-modus-themes-review-blues/)
      (2020-09-14)
 
@@ -2569,65 +2569,65 @@ Node: How do the themes look like5493
 Node: Learn about the latest changes6001
 Node: Installation6383
 Node: Install from the archives6962
-Node: Install on GNU/Linux7477
-Node: Debian 11 Bullseye7922
-Node: GNU Guix8331
-Node: Enable and load8694
-Node: Load automatically9257
-Node: Load at a given time or at sunset/sunrise10070
-Ref: Load at a given time or at sunset/sunrise-Footnote-112113
-Ref: Load at a given time or at sunset/sunrise-Footnote-212247
-Node: Toggle between the themes on demand12330
-Node: Configure options prior to loading13206
-Ref: Configure options prior to loading-Footnote-116026
-Node: Customization Options16208
-Node: Bold constructs18127
-Node: Slanted constructs19274
-Node: Syntax highlighting19865
-Node: No mixed fonts20688
-Node: Link underline21706
-Node: Link styles22331
-Node: Comment styles23514
-Node: Command prompts24199
-Node: Mode line25002
-Node: Completion UIs27622
-Node: Fringes29534
-Node: Line highlighting30298
-Node: Matching parentheses30965
-Node: Diffs31608
-Node: Org mode blocks33396
-Node: Heading styles34897
-Node: Scaled headings38647
-Node: Scaled heading sizes39264
-Node: Headings' font41097
-Node: Advanced customization (do-it-yourself)41721
-Node: Tweak colors (DIY)42725
-Node: Font configs (DIY)46356
-Ref: Font configs (DIY)-Footnote-148943
-Ref: Font configs (DIY)-Footnote-249130
-Node: Org user faces (DIY)49352
-Node: Face coverage52510
-Node: Supported packages53021
-Node: Indirectly covered packages59085
-Node: Will NOT be supported59538
-Node: Notes for individual packages60263
-Node: Note on company-mode overlay pop-up60749
-Ref: Note on company-mode overlay pop-up-Footnote-161412
-Ref: Note on company-mode overlay pop-up-Footnote-261479
-Node: Note for ERC escaped color sequences61534
-Ref: Note for ERC escaped color sequences-Footnote-162956
-Node: Note for powerline or spaceline63066
-Node: Note on shr colors63482
-Node: Note for Helm grep63891
-Node: Note on vc-annotate-background-mode65336
-Node: Contributing66188
-Node: Sources of the themes66607
-Node: Issues you can help with67349
-Node: Merge requests68534
-Node: Acknowledgements70952
-Node: Meta72318
-Node: External projects (ports)73823
-Node: GNU Free Documentation License74645
+Node: Install on GNU/Linux7481
+Node: Debian 11 Bullseye7926
+Node: GNU Guix8335
+Node: Enable and load8698
+Node: Load automatically9261
+Node: Load at a given time or at sunset/sunrise10074
+Ref: Load at a given time or at sunset/sunrise-Footnote-112117
+Ref: Load at a given time or at sunset/sunrise-Footnote-212252
+Node: Toggle between the themes on demand12335
+Node: Configure options prior to loading13211
+Ref: Configure options prior to loading-Footnote-116031
+Node: Customization Options16213
+Node: Bold constructs18132
+Node: Slanted constructs19279
+Node: Syntax highlighting19870
+Node: No mixed fonts20693
+Node: Link underline21711
+Node: Link styles22336
+Node: Comment styles23519
+Node: Command prompts24204
+Node: Mode line25007
+Node: Completion UIs27627
+Node: Fringes29539
+Node: Line highlighting30303
+Node: Matching parentheses30970
+Node: Diffs31613
+Node: Org mode blocks33401
+Node: Heading styles34902
+Node: Scaled headings38652
+Node: Scaled heading sizes39269
+Node: Headings' font41102
+Node: Advanced customization (do-it-yourself)41726
+Node: Tweak colors (DIY)42730
+Node: Font configs (DIY)46361
+Ref: Font configs (DIY)-Footnote-148948
+Ref: Font configs (DIY)-Footnote-249135
+Node: Org user faces (DIY)49357
+Node: Face coverage52515
+Node: Supported packages53026
+Node: Indirectly covered packages59090
+Node: Will NOT be supported59543
+Node: Notes for individual packages60268
+Node: Note on company-mode overlay pop-up60754
+Ref: Note on company-mode overlay pop-up-Footnote-161417
+Ref: Note on company-mode overlay pop-up-Footnote-261484
+Node: Note for ERC escaped color sequences61539
+Ref: Note for ERC escaped color sequences-Footnote-162961
+Node: Note for powerline or spaceline63071
+Node: Note on shr colors63487
+Node: Note for Helm grep63896
+Node: Note on vc-annotate-background-mode65341
+Node: Contributing66193
+Node: Sources of the themes66612
+Node: Issues you can help with67354
+Node: Merge requests68539
+Node: Acknowledgements70957
+Node: Meta72323
+Node: External projects (ports)73830
+Node: GNU Free Documentation License74652
 
 End Tag Table
 

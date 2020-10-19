@@ -98,7 +98,7 @@ also exist packages for GNU/Linux distributions.
 :CUSTOM_ID: h:c4b10085-149f-43e2-bd4d-347f33aee054
 :END:
 
-=modus-operandi-theme= and =modus-vivendi-theme= are available from GNU
+=modus-operandi-theme= and =modus-vivendi-theme= are available from GNU the
 ELPA archive, which is configured by default.
 
 Prior to querying any package archive, make sure to have updated the
@@ -189,7 +189,7 @@ evaluate the expression:
 :END:
 
 It is possible to schedule a time during the day at or after which a
-given theme will be loaded.[fn:: Contributed on Reddit by user =b3n=
+given theme will be loaded.[fn:: Contributed on Reddit by user =b3n=,
 https://www.reddit.com/r/emacs/comments/gdtqov/weekly_tipstricketc_thread/fq9186h/.]
 
 #+begin_src emacs-lisp
@@ -1860,12 +1860,12 @@ The Modus themes are a collective effort.  Every contribution counts.
 
 + Author/maintainer :: Protesilaos Stavrou.
 
-+ Code contributions :: Anders Johansson, Basil L. Contovounisios,
++ Code contributions :: Anders Johansson, Basil L. Contovounesios,
   Markus Beppler, Matthew Stevenson.
 
 + Ideas and user feedback :: Aaron Jensen, Adam Spiers, Alex Griffin,
   Alex Peitsinis, Alexey Shmalko, Anders Johansson, André Alexandre
-  Gomes, Arif Rezai, Basil L. Contovounisios, Damien Cassou, Dario
+  Gomes, Arif Rezai, Basil L. Contovounesios, Damien Cassou, Dario
   Gjorgjevski, David Edmondson, Davor Rotim, Divan Santana, Gerry
   Agbobada, Gianluca Recchia, Ilja Kocken, Iris Garcia, Len Trigg,
   Manuel Uberti, Mark Burton, Markus Beppler, Michael Goldenberg, Murilo
@@ -1897,8 +1897,8 @@ of this sort):
 + [[https://protesilaos.com/codelog/2020-05-10-modus-operandi-palette-review/][Modus Operandi theme subtle palette review]] (2020-05-10)
 + [[https://protesilaos.com/codelog/2020-06-13-modus-vivendi-palette-review/][Modus Vivendi theme subtle palette review]] (2020-06-13)
 + [[https://protesilaos.com/codelog/2020-07-04-modus-themes-faint-colours/][Modus themes: new "faint syntax" option]] (2020-07-04)
-+ [[https://protesilaos.com/codelog/2020-07-08-modus-themes-nuanced-colours/][Modus themes: major review of "nuanced" colors]] (2020-07-08)
-+ [[https://protesilaos.com/codelog/2020-09-14-modus-themes-review-blues/][Modus themes: review of blue colors]] (2020-09-14)
++ [[https://protesilaos.com/codelog/2020-07-08-modus-themes-nuanced-colours/][Modus themes: major review of "nuanced" colours]] (2020-07-08)
++ [[https://protesilaos.com/codelog/2020-09-14-modus-themes-review-blues/][Modus themes: review of blue colours]] (2020-09-14)
 
 And here are the canonical sources for this project's documentation:
 
