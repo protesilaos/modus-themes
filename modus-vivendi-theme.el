@@ -683,16 +683,16 @@ include more languages)."
   :type 'boolean)
 
 (defcustom modus-vivendi-theme-org-blocks nil
-  "Use a subtle grey or colour-coded background for Org blocks.
+  "Use a subtle gray or colour-coded background for Org blocks.
 
 Nil means that the block will have no background of its own and
 will use the default that applies to the rest of the buffer.
 
-Option `greyscale' will apply a subtle neutral grey background to
-the block's contents.  It also affects the begin and end lines of
-the block: their background will be extended to the edge of the
-window for Emacs version >= 27 where the ':extend' keyword is
-recognised by `set-face-attribute'.
+Option `grayscale' (or `greyscale') will apply a subtle neutral
+gray background to the block's contents.  It also affects the
+begin and end lines of the block: their background will be
+extended to the edge of the window for Emacs version >= 27 where
+the ':extend' keyword is recognised by `set-face-attribute'.
 
 Option `rainbow' will use an accented background for the contents
 of the block.  The exact colour will depend on the programming
@@ -701,7 +701,8 @@ variable (refer to the theme's source code for the current
 association list)."
   :type '(choice
           (const :tag "No Org block background (default)" nil)
-          (const :tag "Subtle grey block background" greyscale)
+          (const :tag "Subtle gray block background" grayscale)
+          (const :tag "Subtle gray block background (alt spelling)" greyscale)
           (const :tag "Colour-coded background per programming language" rainbow)))
 
 (make-obsolete 'modus-vivendi-theme-3d-modeline
@@ -1000,7 +1001,8 @@ as the rest of the buffer.
 `modus-vivendi-theme-org-blocks' also accepts a `rainbow' option
 which is applied conditionally to `org-src-block-faces' (see the
 theme's source code)."
-  (if (eq modus-vivendi-theme-org-blocks 'greyscale)
+  (if (or (eq modus-vivendi-theme-org-blocks 'grayscale)
+          (eq modus-vivendi-theme-org-blocks 'greyscale))
       (append
        (and (>= emacs-major-version 27) '(:extend t))
        (list :background bgblk))
@@ -1020,6 +1022,8 @@ The latter pair should be more subtle than the background of the
 block, as it is used when `modus-vivendi-theme-org-blocks' is
 set to `rainbow'."
   (pcase modus-vivendi-theme-org-blocks
+    ('grayscale (append (and (>= emacs-major-version 27) '(:extend t))
+                        (list :background bg :foreground fg)))
     ('greyscale (append (and (>= emacs-major-version 27) '(:extend t))
                         (list :background bg :foreground fg)))
     ('rainbow (list :background bgaccent :foreground fgaccent))
