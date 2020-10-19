@@ -25,7 +25,7 @@
 
 ;;; Commentary:
 ;;
-;; This theme is designed for colour-contrast accessibility.
+;; This theme is designed for color-contrast accessibility.
 ;;
 ;; 1. Provide a consistent minimum contrast ratio between background and
 ;; foreground values of 7:1 or higher.  This meets the highest such
@@ -36,7 +36,7 @@
 ;; already quite long (see further below), with more additions to follow
 ;; as part of the ongoing development process.
 ;;
-;; The theme provides the following customisation options, all of which
+;; The theme provides the following customization options, all of which
 ;; are disabled by default:
 ;;
 ;;     modus-operandi-theme-slanted-constructs             (boolean)
@@ -58,7 +58,7 @@
 ;;     modus-operandi-theme-completions                    (choice)
 ;;     modus-operandi-theme-override-colors-alist          (alist)
 ;;
-;; The default scale is as follows (it can be customised as well):
+;; The default scale is as follows (it can be customized as well):
 ;;
 ;;     modus-operandi-theme-scale-1 1.05
 ;;     modus-operandi-theme-scale-2 1.1
@@ -354,15 +354,15 @@
 
 (deftheme modus-operandi
   "Light theme that conforms with the highest accessibility
-  standard for colour contrast between background and
-  foreground elements (WCAG AAA).")
+  standard for color contrast between background and foreground
+  elements (WCAG AAA).")
 
 ;;; Custom faces
 
 ;; These faces will be inherited by actual constructs.  They are meant
 ;; for those cases where a face needs to distinguish its output from
 ;; the rest of the text, such as `isearch' and `occur'…  We define
-;; these separately in order to combine each colour with its
+;; these separately in order to combine each color with its
 ;; appropriate foreground value.  This is to ensure a consistent
 ;; contrast ratio of >= 7:1.
 (defgroup modus-theme ()
@@ -443,9 +443,9 @@ between foreground and background is >= 7:1)."
 (defface modus-theme-slant nil nil)
 (defface modus-theme-variable-pitch nil nil)
 
-;;; Customisation options
+;;; Customization options
 
-;; User-facing customisation options.  They are all deactivated by
+;; User-facing customization options.  They are all deactivated by
 ;; default (users must opt in).
 (defcustom modus-operandi-theme-slanted-constructs nil
   "Use slanted text in more code constructs (italics or oblique)."
@@ -484,7 +484,7 @@ mixing fonts."
                "`modus-operandi-theme' 0.13.0")
 
 (defcustom modus-operandi-theme-rainbow-headings nil
-  "Use more saturated colours for headings."
+  "Use more saturated colors for headings."
   :type 'boolean)
 
 (make-obsolete 'modus-operandi-theme-section-headings
@@ -523,16 +523,16 @@ fallback option), just specify the value t like this:
 
 A description of all possible values:
 
-+ `no-bold' retains the default text colour while removing
-  the typographic weight.
++ `no-bold' retains the default text color while removing the
+  typographic weight.
 
 + `line' is the same as the default plus an overline over the
   heading.
 
 + `line-no-bold' is the same as `line' without bold weight.
 
-+ `rainbow' uses a more colourful foreground in combination
-  with bold weight.
++ `rainbow' uses a more colorful foreground in combination with
+  bold weight.
 
 + `rainbow-line' is the same as `rainbow' plus an overline.
 
@@ -547,7 +547,7 @@ A description of all possible values:
   weight.
 
 + `rainbow-highlight' is the same as `highlight' but with a more
-  colourful foreground.
+  colorful foreground.
 
 + `rainbow-highlight-no-bold' is the same as `rainbow-highlight'
   without a bold weight.
@@ -560,7 +560,7 @@ A description of all possible values:
   weight.
 
 + `rainbow-section' is the same as `section' but with a more
-  colourful foreground.
+  colorful foreground.
 
 + `rainbow-section-no-bold' is the same as `rainbow-section'
   without a bold weight."
@@ -572,17 +572,17 @@ A description of all possible values:
             (const :tag "Like the default without bold weight" no-bold)
             (const :tag "Like the default plus overline" line)
             (const :tag "Like `line' without bold weight" line-no-bold)
-            (const :tag "Like the default but with more colourful foreground" rainbow)
+            (const :tag "Like the default but with more colorful foreground" rainbow)
             (const :tag "Like `rainbow' plus overline" rainbow-line)
             (const :tag "Like `rainbow' without bold weight" rainbow-no-bold)
             (const :tag "Like `rainbow-line' without bold weight" rainbow-line-no-bold)
             (const :tag "Like the default plus subtle background" highlight)
             (const :tag "Like `highlight' without bold weight" highlight-no-bold)
-            (const :tag "Like `highlight' with more colourful foreground" rainbow-highlight)
+            (const :tag "Like `highlight' with more colorful foreground" rainbow-highlight)
             (const :tag "Like `rainbow-highlight' without bold weight" rainbow-highlight-no-bold)
             (const :tag "Like `highlight' plus overline" section)
             (const :tag "Like `section' without bold weight" section-no-bold)
-            (const :tag "Like `section' with more colourful foreground" rainbow-section)
+            (const :tag "Like `section' with more colorful foreground" rainbow-section)
             (const :tag "Like `rainbow-section' without bold weight" rainbow-section-no-bold))))
 
 (defcustom modus-operandi-theme-scale-headings nil
@@ -655,9 +655,9 @@ For more on the matter, read the documentation of
 (defcustom modus-operandi-theme-fringes nil
   "Define the visibility of fringes.
 
-Nil means the fringes have no background colour.  Option `subtle'
+Nil means the fringes have no background color.  Option `subtle'
 will apply a greyscale value that is visible yet close to the
-main buffer background colour.  Option `intense' will use a more
+main buffer background color.  Option `intense' will use a more
 pronounced greyscale value."
   :type '(choice
           (const :tag "No visible fringes (default)" nil)
@@ -677,13 +677,13 @@ pronounced greyscale value."
                "`modus-operandi-theme' 0.11.0")
 
 (defcustom modus-operandi-theme-rainbow-org-src-blocks nil
-  "Use colour-coded backgrounds for `org-mode' source blocks.
-The colour in use depends on the language (send feedback to
+  "Use color-coded backgrounds for `org-mode' source blocks.
+The color in use depends on the language (send feedback to
 include more languages)."
   :type 'boolean)
 
 (defcustom modus-operandi-theme-org-blocks nil
-  "Use a subtle gray or colour-coded background for Org blocks.
+  "Use a subtle gray or color-coded background for Org blocks.
 
 Nil means that the block will have no background of its own and
 will use the default that applies to the rest of the buffer.
@@ -692,10 +692,10 @@ Option `grayscale' (or `greyscale') will apply a subtle neutral
 gray background to the block's contents.  It also affects the
 begin and end lines of the block: their background will be
 extended to the edge of the window for Emacs version >= 27 where
-the ':extend' keyword is recognised by `set-face-attribute'.
+the ':extend' keyword is recognized by `set-face-attribute'.
 
 Option `rainbow' will use an accented background for the contents
-of the block.  The exact colour will depend on the programming
+of the block.  The exact color will depend on the programming
 language and is controlled by the `org-src-block-faces'
 variable (refer to the theme's source code for the current
 association list)."
@@ -703,7 +703,7 @@ association list)."
           (const :tag "No Org block background (default)" nil)
           (const :tag "Subtle gray block background" grayscale)
           (const :tag "Subtle gray block background (alt spelling)" greyscale)
-          (const :tag "Colour-coded background per programming language" rainbow)))
+          (const :tag "Color-coded background per programming language" rainbow)))
 
 (make-obsolete 'modus-operandi-theme-3d-modeline
                'modus-operandi-theme-mode-line
@@ -724,7 +724,7 @@ A `3d' value will apply a three-dimensional effect to the active
 modeline.  The inactive modelines remain two-dimensional and are
 toned down a bit, relative to the nil value.
 
-The `moody' option is meant to optimise the modeline for use with
+The `moody' option is meant to optimize the modeline for use with
 the library of the same name.  This practically means to remove
 the box effect and rely on underline and overline properties
 instead.  It also tones down the inactive modelines.  Despite its
@@ -746,22 +746,22 @@ intended purpose, this option can also be used without the
 (defcustom modus-operandi-theme-diffs nil
   "Adjust the overall styles of diffs.
 
-Nil means to use fairly intense colour combinations for diffs.
+Nil means to use fairly intense color combinations for diffs.
 For example, you get a rich green background with a green
 foreground for added lines.  Word-wise or 'refined' diffs follow
-the same pattern but use different shades of those colours to
+the same pattern but use different shades of those colors to
 remain distinct.
 
 A `desaturated' value follows the same principles as with the nil
-option, while it tones down all relevant colours.
+option, while it tones down all relevant colors.
 
 Option `fg-only' will remove all accented backgrounds, except
-from word-wise changes.  It instead uses colour-coded foreground
+from word-wise changes.  It instead uses color-coded foreground
 values to differentiate between added/removed/changed lines.  If
 a background is necessary, such as with `ediff', then a subtle
 greyscale value is used."
   :type '(choice
-          (const :tag "Intensely coloured backgrounds (default)" nil)
+          (const :tag "Intensely colored backgrounds (default)" nil)
           (const :tag "Slightly accented backgrounds with tinted text" desaturated)
           (const :tag "No backgrounds, except for refined diffs" fg-only)))
 
@@ -782,20 +782,20 @@ will vary depending on the completion framework.
 
 Nil means to remain faithful to the metaphors that each UI
 establishes.  For example, Icomplete and Ido only use foreground
-colours to style their matches, whereas Ivy or Helm rely on an
-aesthetic that combines coloured backgrounds with appropriate
-text colour.
+colors to style their matches, whereas Ivy or Helm rely on an
+aesthetic that combines colored backgrounds with appropriate text
+color.
 
 Option `moderate' will apply a combination of background and
 foreground that is fairly subtle.  For Icomplete and the like,
 this constitutes a departure from their standard style.  While
-Ivy, Helm, and the others, will use less pronounced colours for
+Ivy, Helm, and the others, will use less pronounced colors for
 applicable contexts.
 
-Option `opinionated' will apply colour combinations that
-refashion the completion UI.  So Icomplete et al will now use
-styles that resemble the defaults of Ivy and co., while the
-latter group will revert to an even more nuanced aesthetic."
+Option `opinionated' will apply color combinations that refashion
+the completion UI.  So Icomplete et al will now use styles that
+resemble the defaults of Ivy and co., while the latter group will
+revert to an even more nuanced aesthetic."
   :type '(choice
           (const :tag "Respect the framework's established aesthetic (default)" nil)
           (const :tag "Subtle backgrounds for various elements" moderate)
@@ -804,7 +804,7 @@ latter group will revert to an even more nuanced aesthetic."
 (defcustom modus-operandi-theme-prompts nil
   "Use subtle or intense styles for minibuffer and REPL prompts.
 
-Nil means to only use an accented foreground colour.
+Nil means to only use an accented foreground color.
 
 Options `subtle' and `intense' will change both the background
 and the foreground values.  The latter has a more pronounced
@@ -815,15 +815,15 @@ effect than the former."
           (const :tag "Intense background and foreground for the prompt" intense)))
 
 (defcustom modus-operandi-theme-intense-hl-line nil
-  "Use more prominent background for command `hl-line-mode'."
+  "Use a more prominent background for command `hl-line-mode'."
   :type 'boolean)
 
 (defcustom modus-operandi-theme-intense-paren-match nil
-  "Use more prominent colour for parenthesis matching."
+  "Use a more prominent color for parenthesis matching."
   :type 'boolean)
 
 (defcustom modus-operandi-theme-faint-syntax nil
-  "Use less saturated colours for code syntax highlighting."
+  "Use less saturated colors for code syntax highlighting."
   :type 'boolean)
 
 (make-obsolete 'modus-operandi-theme-no-link-underline
@@ -837,31 +837,31 @@ effect than the former."
 (defcustom modus-operandi-theme-links nil
   "Set the style of links.
 
-Nil means to use an underline that is the same colour as the
+Nil means to use an underline that is the same color as the
 foreground.
 
-Option `faint' applies desaturated colours to the link's text and
+Option `faint' applies desaturated colors to the link's text and
 underline.
 
 Option `neutral-underline' applies a subtle grey underline, while
 retaining the link's foreground.
 
 Option `faint-neutral-underline' combines a desaturated text
-colour with a subtle grey underline.
+color with a subtle grey underline.
 
 Option `no-underline' removes link underlines altogether."
   :type '(choice
-          (const :tag "Undeline link using the same colour as the text (default)" nil)
-          (const :tag "Like the default, but apply less intense colours to links" faint)
-          (const :tag "Change the colour of link underlines to a neutral grey" neutral-underline)
+          (const :tag "Undeline link using the same color as the text (default)" nil)
+          (const :tag "Like the default, but apply less intense colors to links" faint)
+          (const :tag "Change the color of link underlines to a neutral grey" neutral-underline)
           (const :tag "Desaturated foreground with neutral grey underline" faint-neutral-underline)
           (const :tag "Remove underline property from links, keeping their foreground as-is" no-underline)))
 
 (defcustom modus-operandi-theme-comments nil
   "Set the style of comments.
 
-Nil means to use a neutral grey colour.  Options `green' and
-`yellow' apply a variant of the colour they name."
+Nil means to use a neutral grey color.  Options `green' and
+`yellow' apply a variant of the color they name."
   :type '(choice
           (const :tag "Use a subtle grey foreground for comments (default)" nil)
           (const :tag "Use a green foreground for comments" green)
@@ -872,7 +872,7 @@ Nil means to use a neutral grey colour.  Options `green' and
 ;;; Internal functions
 
 ;; Helper functions that are meant to ease the implementation of the
-;; above customisation options.
+;; above customization options.
 (defun modus-operandi-theme-bold-weight ()
   "Conditional use of a heavier text weight."
   (when modus-operandi-theme-bold-constructs
@@ -895,19 +895,19 @@ Nil means to use a neutral grey colour.  Options `green' and
     (list :inherit 'variable-pitch)))
 
 (defun modus-operandi-theme-fringe (mainbg subtlebg intensebg)
-  "Conditional use of background colours for fringes.
+  "Conditional use of background colors for fringes.
 MAINBG is the default.  SUBTLEBG should be a subtle greyscale
-value.  INTENSEBG must be a more pronounced greyscale colour."
+value.  INTENSEBG must be a more pronounced greyscale color."
   (pcase modus-operandi-theme-fringes
     ('intense (list :background intensebg))
     ('subtle (list :background subtlebg))
     (_ (list :background mainbg))))
 
 (defun modus-operandi-theme-prompt (mainfg subtlebg subtlefg intensebg intensefg)
-  "Conditional use of background colours for prompts.
+  "Conditional use of background colors for prompts.
 MAINFG is the prompt's standard foreground.  SUBTLEBG should be a
 subtle accented background that works with SUBTLEFG.  INTENSEBG
-must be a more pronounced accented colour that should be
+must be a more pronounced accented color that should be
 combinable with INTENSEFG."
   (pcase modus-operandi-theme-prompts
     ('intense (list :background intensebg :foreground intensefg))
@@ -915,10 +915,10 @@ combinable with INTENSEFG."
     (_ (list :background nil :foreground mainfg))))
 
 (defun modus-operandi-theme-paren (normalbg intensebg)
-  "Conditional use of intense colours for matching parentheses.
-NORMALBG should the special palette colour 'bg-paren-match' or
+  "Conditional use of intense colors for matching parentheses.
+NORMALBG should the special palette color 'bg-paren-match' or
 something similar.  INTENSEBG must be easier to discern next to
-other backgrounds, such as the special palette colour
+other backgrounds, such as the special palette color
 'bg-paren-match-intense'."
   (if modus-operandi-theme-intense-paren-match
       (list :background intensebg)
@@ -926,8 +926,8 @@ other backgrounds, such as the special palette colour
 
 (defun modus-operandi-theme-syntax-foreground (normal faint)
   "Apply foreground value to code syntax.
-NORMAL is the more saturated colour, which should be the default.
-FAINT is the less saturated colour."
+NORMAL is the more saturated color, which should be the default.
+FAINT is the less saturated color."
   (if modus-operandi-theme-faint-syntax
       (list :foreground faint)
     (list :foreground normal)))
@@ -940,10 +940,10 @@ FAINT is the less saturated colour."
   "Conditional styles for `modus-operandi-theme-headings'.
 
 LEVEL is the heading's position in their order.  FG is the
-default text colour.  FG-ALT is an accented, more saturated value
+default text color.  FG-ALT is an accented, more saturated value
 than the default.  BG is a nuanced, typically accented,
 background that can work well with either of the foreground
-values.  BORDER is a colour value that combines well with the
+values.  BORDER is a color value that combines well with the
 background and alternative foreground."
   (let* ((key (modus-operandi-theme-heading-p `,level))
          (style (or key (modus-operandi-theme-heading-p t)))
@@ -1011,7 +1011,7 @@ theme's source code)."
 (defun modus-operandi-theme-org-block-delim (bgaccent fgaccent bg fg)
   "Conditionally set the styles of Org block delimiters.
 BG, FG, BGACCENT, FGACCENT apply a background and foreground
-colour respectively.
+color respectively.
 
 The former pair is a greyscale combination that should be more
 distinct than the background of the block.  It is applied to the
@@ -1031,13 +1031,12 @@ set to `rainbow'."
 
 (defun modus-operandi-theme-mode-line-attrs
     (fg bg fg-alt bg-alt border border-3d &optional alt-style border-width fg-distant)
-  "Colour combinations for `modus-operandi-theme-mode-line'.
+  "Color combinations for `modus-operandi-theme-mode-line'.
 
-FG and BG are the default colours.  FG-ALT and BG-ALT are meant
-to accommodate the options for a 3D modeline or a `moody'
-compliant one.  BORDER applies to all permutations of the
-modeline, except the three-dimensional effect, where BORDER-3D is
-used instead.
+FG and BG are the default colors.  FG-ALT and BG-ALT are meant to
+accommodate the options for a 3D modeline or a `moody' compliant
+one.  BORDER applies to all permutations of the modeline, except
+the three-dimensional effect, where BORDER-3D is used instead.
 
 Optional ALT-STYLE applies an appropriate style to the mode
 line's box property.
@@ -1061,7 +1060,7 @@ property."
      `(:foreground ,fg :background ,bg :box ,border))))
 
 (defun modus-operandi-theme-diff (fg-only-bg fg-only-fg mainbg mainfg altbg altfg)
-  "Colour combinations for `modus-operandi-theme-diffs'.
+  "Color combinations for `modus-operandi-theme-diffs'.
 
 FG-ONLY-BG should be similar or the same as the main background.
 FG-ONLY-FG should be a saturated accent value that can be
@@ -1083,7 +1082,7 @@ and MAINFG respectively."
 
 MAINFG is an accented foreground value.  SUBTLEBG is an accented
 background value that can be combined with MAINFG.  INTENSEBG and
-INTENSEFG are accented colours that are designed to be used in
+INTENSEFG are accented colors that are designed to be used in
 tandem.
 
 These are intended for Icomplete, Ido, and related."
@@ -1099,7 +1098,7 @@ SUBTLEFACE and INTENSEFACE are custom theme faces that combine a
 background and foreground value.  The difference between the two
 is a matter of degree.
 
-ALTFACE is a combination of colours that represents a departure
+ALTFACE is a combination of colors that represents a departure
 from the UI's default aesthetics.  Optional ALTFG is meant to be
 used in tandem with it.
 
@@ -1114,9 +1113,9 @@ These are intended for Helm, Ivy, etc."
 
 (defun modus-operandi-theme-link (fg fgfaint underline)
   "Conditional application of link styles.
-FG is the link's default colour for its text and underline
-property.  FGFAINT is a desaturated colour for the text and
-underline.  UNDERLINE is a grey colour only for the undeline."
+FG is the link's default color for its text and underline
+property.  FGFAINT is a desaturated color for the text and
+underline.  UNDERLINE is a grey color only for the undeline."
   (pcase modus-operandi-theme-links
     ('faint (list :foreground fgfaint :underline t))
     ('neutral-underline (list :foreground fg :underline underline))
@@ -1124,7 +1123,7 @@ underline.  UNDERLINE is a grey colour only for the undeline."
     ('no-underline (list :foreground fg :underline nil))
     (_ (list :foreground fg :underline t))))
 
-(defun modus-operandi-theme-link-colour (fg fgfaint)
+(defun modus-operandi-theme-link-color (fg fgfaint)
   "Extends `modus-operandi-theme-link'.
 FG is the main foreground.  FGFAINT is the desaturated one."
   (pcase modus-operandi-theme-links
@@ -1135,8 +1134,8 @@ FG is the main foreground.  FGFAINT is the desaturated one."
 (defun modus-operandi-theme-comment (green yellow neutral)
   "Apply `modus-operandi-theme-comments'.
 GREEN, YELLOW are accented values that correspond to the named
-colour.  NEUTRAL is the default text colour for comments and
-should be a shade of grey."
+color.  NEUTRAL is the default text color for comments and should
+be a shade of grey."
   (pcase modus-operandi-theme-comments
     ('green (list :foreground green))
     ('yellow (list :foreground yellow))
@@ -1144,20 +1143,18 @@ should be a shade of grey."
 
 (defun modus-operandi-theme-scale (amount)
   "Scale heading by AMOUNT.
-
-AMOUNT is a customisation option."
+AMOUNT is a customization option."
   (when modus-operandi-theme-scale-headings
     (list :height amount)))
 
 
 
-;;; Colour palette
+;;; Color palette
 
-;; Define colour palette.  Each colour must have a >= 7:1 contrast
-;; ratio relative to the foreground/background colour it is rendered
-;; against.
+;; Define color palette.  Each color must have a >= 7:1 contrast ratio
+;; relative to the foreground/background color it is rendered against.
 ;;
-;; The design of the colour palette as a macro that maps it to faces is
+;; The design of the color palette as a macro that maps it to faces is
 ;; adapted from zenbern-theme.el, last seen at commit 7dd7968:
 ;; https://github.com/bbatsov/zenburn-emacs
 (eval-and-compile
@@ -1184,7 +1181,7 @@ AMOUNT is a customisation option."
       ("red" . "#a60000") ("green" . "#005e00")
       ("yellow" . "#813e00") ("blue" . "#0031a9")
       ("magenta" . "#721045") ("cyan" . "#00538b")
-      ;; styles for common, but still specialised constructs
+      ;; styles for common, but still specialized constructs
       ;;
       ;; must be combined with: `bg-main', `bg-alt', `bg-dim'
       ("red-alt" . "#972500") ("green-alt" . "#315b00")
@@ -1278,7 +1275,7 @@ AMOUNT is a customisation option."
       ;;
       ;; `bg-header' is between `bg-active' and `bg-inactive', so it
       ;; can be combined with any of the "active" values, plus the
-      ;; "special" and base foreground colours
+      ;; "special" and base foreground colors
       ;;
       ;; `bg-paren-match', `bg-paren-match-intense', `bg-region' and
       ;; `bg-tab-active' must be combined with `fg-main', while
@@ -1305,7 +1302,7 @@ AMOUNT is a customisation option."
       ;; `fg-comment-green' and `fg-comment-yellow' can be combined with
       ;; `bg-main', `bg-dim', `bg-alt'
       ;;
-      ;; the window divider colours apply to faces with just an fg value
+      ;; the window divider colors apply to faces with just an fg value
       ;;
       ;; all pairs are combinable with themselves
       ("bg-hl-line" . "#f2eff3")
@@ -1364,19 +1361,19 @@ AMOUNT is a customisation option."
 Each element has the form (NAME . HEX).")
 
   (defcustom modus-operandi-theme-override-colors-alist '()
-    "Association list of palette colour overrides.
+    "Association list of palette color overrides.
 Values can be mapped to variables, using the same syntax as the
 one present in `modus-operandi-theme-default-colors-alist'.
 
 This is only meant for do-it-yourself usage, with the
 understanding that the user is responsible for the resulting
-contrast ratio between new and existing colours."
+contrast ratio between new and existing colors."
     :type '(alist
             :key-type (string :tag "Name")
             :value-type (string :tag " Hex")))
 
   (defmacro modus-operandi-theme-with-color-variables (&rest body)
-    "`let' bind all colours around BODY.
+    "`let' bind all colors around BODY.
 Also bind `class' to ((class color) (min-colors 89))."
     (declare (indent 0))
     `(let ((class '((class color) (min-colors 89)))
@@ -1395,7 +1392,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    'modus-operandi
 ;;;; custom faces
    ;; these bespoke faces are inherited by other constructs below
-;;;;; subtle coloured backgrounds
+;;;;; subtle colored backgrounds
    `(modus-theme-subtle-red ((,class :background ,red-subtle-bg :foreground ,fg-dim)))
    `(modus-theme-subtle-green ((,class :background ,green-subtle-bg :foreground ,fg-dim)))
    `(modus-theme-subtle-yellow ((,class :background ,yellow-subtle-bg :foreground ,fg-dim)))
@@ -1403,7 +1400,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(modus-theme-subtle-magenta ((,class :background ,magenta-subtle-bg :foreground ,fg-dim)))
    `(modus-theme-subtle-cyan ((,class :background ,cyan-subtle-bg :foreground ,fg-dim)))
    `(modus-theme-subtle-neutral ((,class :background ,bg-inactive :foreground ,fg-inactive)))
-;;;;; intense coloured backgrounds
+;;;;; intense colored backgrounds
    `(modus-theme-intense-red ((,class :background ,red-intense-bg :foreground ,fg-main)))
    `(modus-theme-intense-green ((,class :background ,green-intense-bg :foreground ,fg-main)))
    `(modus-theme-intense-yellow ((,class :background ,yellow-intense-bg :foreground ,fg-main)))
@@ -1429,7 +1426,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(modus-theme-active-cyan ((,class :background ,cyan-active :foreground ,bg-active)))
 ;;;;; nuanced backgrounds
    ;; useful for adding an accented background that is suitable for all
-   ;; main foreground colours (intended for use in Org source blocks)
+   ;; main foreground colors (intended for use in Org source blocks)
    `(modus-theme-nuanced-red ((,class :background ,red-nuanced-bg
                                       ,@(and (>= emacs-major-version 27) '(:extend t)))))
    `(modus-theme-nuanced-green ((,class :background ,green-nuanced-bg
@@ -1510,7 +1507,7 @@ Also bind `class' to ((class color) (min-colors 89))."
                  bg-diff-heading fg-diff-heading
                  blue-nuanced-bg blue))))
 ;;;;; mark indicators
-   ;; colour combinations intended for Dired, Ibuffer, or equivalent
+   ;; color combinations intended for Dired, Ibuffer, or equivalent
    `(modus-theme-pseudo-header ((,class :inherit bold :foreground ,fg-main)))
    `(modus-theme-mark-alt ((,class :inherit bold :background ,bg-mark-alt :foreground ,fg-mark-alt)))
    `(modus-theme-mark-del ((,class :inherit bold :background ,bg-mark-del :foreground ,fg-mark-del)))
@@ -1607,12 +1604,12 @@ Also bind `class' to ((class color) (min-colors 89))."
                         blue-alt-other blue-alt-other-faint bg-region))))
    `(link ((,class :inherit button)))
    `(link-visited ((,class :inherit button
-                           ,@(modus-operandi-theme-link-colour
+                           ,@(modus-operandi-theme-link-color
                               magenta-alt-other magenta-alt-other-faint))))
    `(tooltip ((,class :background ,bg-special-cold :foreground ,fg-main)))
    `(widget-button ((,class :inherit button)))
    `(widget-button-pressed ((,class :inherit button
-                                    ,@(modus-operandi-theme-link-colour
+                                    ,@(modus-operandi-theme-link-color
                                        magenta magenta-faint))))
    `(widget-documentation ((,class :foreground ,green)))
    `(widget-field ((,class :background ,bg-alt :foreground ,fg-dim)))
@@ -1678,19 +1675,19 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(anzu-replace-to ((,class :inherit (modus-theme-intense-green bold))))
 ;;;;; apropos
    `(apropos-function-button ((,class :inherit button
-                                      ,@(modus-operandi-theme-link-colour
+                                      ,@(modus-operandi-theme-link-color
                                          magenta-alt-other magenta-alt-other-faint))))
    `(apropos-keybinding ((,class :inherit bold :foreground ,cyan)))
    `(apropos-misc-button ((,class :inherit button
-                                  ,@(modus-operandi-theme-link-colour
+                                  ,@(modus-operandi-theme-link-color
                                      cyan-alt-other cyan-alt-other-faint))))
    `(apropos-property ((,class :inherit modus-theme-bold :foreground ,magenta-alt)))
    `(apropos-symbol ((,class :inherit modus-theme-bold :foreground ,blue-alt-other)))
    `(apropos-user-option-button ((,class :inherit button
-                                         ,@(modus-operandi-theme-link-colour
+                                         ,@(modus-operandi-theme-link-color
                                             green-alt-other green-alt-other-faint))))
    `(apropos-variable-button ((,class :inherit button
-                                      ,@(modus-operandi-theme-link-colour
+                                      ,@(modus-operandi-theme-link-color
                                          blue blue-faint))))
 ;;;;; apt-sources-list
    `(apt-sources-list-components ((,class :foreground ,cyan)))
@@ -2119,7 +2116,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(dir-treeview-label-mouse-face ((,class :inherit highlight)))
    `(dir-treeview-start-dir-face ((,class :inherit modus-theme-pseudo-header)))
    `(dir-treeview-symlink-face ((,class :inherit button
-                                        ,@(modus-operandi-theme-link-colour
+                                        ,@(modus-operandi-theme-link-color
                                            cyan cyan-faint))))
    `(dir-treeview-video-face ((,class :foreground ,magenta-alt-other)))
    `(dir-treeview-video-icon-face ((,class :inherit dir-treeview-default-icon-face :foreground ,magenta-alt-other)))
@@ -2132,7 +2129,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(dired-marked ((,class :inherit modus-theme-mark-sel)))
    `(dired-perm-write ((,class :foreground ,fg-special-warm)))
    `(dired-symlink ((,class :inherit button
-                            ,@(modus-operandi-theme-link-colour
+                            ,@(modus-operandi-theme-link-color
                                cyan-alt cyan-alt-faint))))
    `(dired-warning ((,class :inherit bold :foreground ,yellow)))
 ;;;;; dired-async
@@ -2417,7 +2414,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(eshell-ls-readonly ((,class :foreground ,fg-special-cold)))
    `(eshell-ls-special ((,class :inherit bold :foreground ,magenta)))
    `(eshell-ls-symlink ((,class :inherit button
-                                ,@(modus-operandi-theme-link-colour
+                                ,@(modus-operandi-theme-link-color
                                    cyan cyan-faint))))
    `(eshell-ls-unreadable ((,class :background ,bg-inactive :foreground ,fg-inactive)))
    `(eshell-prompt ((,class :inherit modus-theme-bold
@@ -2852,7 +2849,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(helm-ff-file ((,class :foreground ,fg-main)))
    `(helm-ff-file-extension ((,class :foreground ,fg-special-warm)))
    `(helm-ff-invalid-symlink ((,class :inherit button
-                                      ,@(modus-operandi-theme-link-colour
+                                      ,@(modus-operandi-theme-link-color
                                          red red-faint))))
    `(helm-ff-pipe ((,class ,@(modus-operandi-theme-extra-completions
                               'modus-theme-refine-magenta
@@ -2871,7 +2868,7 @@ Also bind `class' to ((class color) (min-colors 89))."
                               'modus-theme-nuanced-yellow
                               red-alt))))
    `(helm-ff-symlink ((,class :inherit button
-                              ,@(modus-operandi-theme-link-colour
+                              ,@(modus-operandi-theme-link-color
                                  cyan cyan-faint))))
    `(helm-ff-truename ((,class :foreground ,blue-alt-other)))
    `(helm-grep-cmd-line ((,class :foreground ,yellow-alt-other)))
@@ -2909,7 +2906,7 @@ Also bind `class' to ((class color) (min-colors 89))."
                                  cyan-alt-other))))
    `(helm-minibuffer-prompt ((,class :inherit minibuffer-prompt)))
    `(helm-moccur-buffer ((,class :inherit button
-                                 ,@(modus-operandi-theme-link-colour
+                                 ,@(modus-operandi-theme-link-color
                                     cyan-alt-other cyan-alt-other-faint))))
    `(helm-mode-prefix ((,class ,@(modus-operandi-theme-extra-completions
                                   'modus-theme-subtle-magenta
@@ -3072,7 +3069,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(indium-repl-stdout-face ((,class :foreground ,fg-main)))
 ;;;;; info
    `(Info-quoted ((,class ,@(modus-operandi-theme-mixed-fonts)
-                          :foreground ,magenta))) ; the capitalisation is canonical
+                          :foreground ,magenta))) ; the capitalization is canonical
    `(info-header-node ((,class :inherit bold :foreground ,fg-alt)))
    `(info-header-xref ((,class :foreground ,blue-active)))
    `(info-index-match ((,class :inherit match)))
@@ -3751,7 +3748,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-column ((,class :background ,bg-alt)))
    `(org-column-title ((,class :inherit bold :underline t :background ,bg-alt)))
    `(org-date ((,class :inherit (button fixed-pitch)
-                       ,@(modus-operandi-theme-link-colour
+                       ,@(modus-operandi-theme-link-color
                           cyan cyan-faint))))
    `(org-date-selected ((,class :inherit bold :foreground ,blue-alt :inverse-video t)))
    `(org-document-info ((,class :foreground ,fg-special-cold)))
@@ -3762,9 +3759,9 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-done ((,class :foreground ,green)))
    `(org-drawer ((,class ,@(modus-operandi-theme-mixed-fonts)
                          :foreground ,fg-alt)))
-   `(org-ellipsis ((,class :foreground nil))) ; inherits from the heading's colour
+   `(org-ellipsis ((,class :foreground nil))) ; inherits from the heading's color
    `(org-footnote ((,class :inherit button
-                           ,@(modus-operandi-theme-link-colour
+                           ,@(modus-operandi-theme-link-color
                               blue-alt blue-alt-faint))))
    `(org-formula ((,class ,@(modus-operandi-theme-mixed-fonts)
                           :foreground ,red-alt)))
@@ -3836,16 +3833,16 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-recur ((,class :foreground ,magenta-active)))
 ;;;;; org-roam
    `(org-roam-link ((,class :inherit button
-                            ,@(modus-operandi-theme-link-colour
+                            ,@(modus-operandi-theme-link-color
                                green green-faint))))
    `(org-roam-link-current ((,class :inherit button
-                                    ,@(modus-operandi-theme-link-colour
+                                    ,@(modus-operandi-theme-link-color
                                        green-alt green-alt-faint))))
    `(org-roam-link-invalid ((,class :inherit button
-                                    ,@(modus-operandi-theme-link-colour
+                                    ,@(modus-operandi-theme-link-color
                                        red red-faint))))
    `(org-roam-link-shielded ((,class :inherit button
-                                     ,@(modus-operandi-theme-link-colour
+                                     ,@(modus-operandi-theme-link-color
                                         yellow yellow-faint))))
    `(org-roam-tag ((,class :inherit italic :foreground ,fg-alt)))
 ;;;;; org-superstar
@@ -4350,7 +4347,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(trashed-marked ((,class :inherit modus-theme-mark-alt)))
    `(trashed-restored ((,class :inherit modus-theme-mark-sel)))
    `(trashed-symlink ((,class :inherit button
-                              ,@(modus-operandi-theme-link-colour
+                              ,@(modus-operandi-theme-link-color
                                  cyan-alt cyan-alt-faint))))
 ;;;;; treemacs
    `(treemacs-directory-collapsed-face ((,class :foreground ,magenta-alt)))
@@ -4781,7 +4778,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(xterm-color-names-bright [,fg-alt ,red-alt ,green-alt ,yellow-alt ,blue-alt ,magenta-alt ,cyan-alt ,bg-main]))
 ;;; Conditional theme variables
 ;;;; org-src-block-faces
-  ;; this is a user option to add a colour-coded background to source
+  ;; this is a user option to add a color-coded background to source
   ;; blocks for various programming languages
   (when (eq modus-operandi-theme-org-blocks 'rainbow)
     (custom-theme-set-variables
