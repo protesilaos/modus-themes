@@ -1118,7 +1118,7 @@ present release is focused on stability and internal improvements.
 Fixes and adjustments
 ---------------------
 
-Basil L. Contovounisios, aka @basil-conto, (and also a contributor to
+Basil L. Contovounesios, aka @basil-conto, (and also a contributor to
 core Emacs) sent several patches that do the following:
 
 + Fix top-level parentheses so that the results of
