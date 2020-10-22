@@ -1299,8 +1299,8 @@ AMOUNT is a customization option."
       ;;
       ;; `fg-unfocused' must be combined with `fg-main'
       ;;
-      ;; `fg-comment-green', `fg-comment-yellow', and their "doc"
-      ;; counterparts can be combined with `bg-main', `bg-dim', `bg-alt'
+      ;; `fg-docstring', `fg-comment-green', `fg-comment-yellow' can be
+      ;; `bg-main', `bg-dim', `bg-alt'
       ;;
       ;; the window divider colors apply to faces with just an fg value
       ;;
@@ -1330,8 +1330,9 @@ AMOUNT is a customization option."
 
       ("fg-unfocused" . "#93959b")
 
-      ("fg-comment-green" . "#66b766") ("fg-comment-green-doc" . "#8ff0cf")
-      ("fg-comment-yellow" . "#cab98f") ("fg-comment-yellow-doc" . "#d0f0ba")
+      ("fg-docstring" . "#b0d6f5")
+      ("fg-comment-green" . "#66b766")
+      ("fg-comment-yellow" . "#cab98f")
 
       ("bg-header" . "#212121") ("fg-header" . "#dddddd")
 
@@ -2599,10 +2600,8 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(font-lock-constant-face ((,class ,@(modus-vivendi-theme-syntax-foreground
                                          blue-alt-other blue-alt-other-faint))))
    `(font-lock-doc-face ((,class :inherit modus-theme-slant
-                                 ,@(modus-vivendi-theme-comment
-                                    fg-comment-green-doc fg-comment-yellow-doc
-                                    `,@(if modus-vivendi-theme-faint-syntax
-                                        cyan-alt-other-faint fg-special-cold)))))
+                                 ,@(modus-vivendi-theme-syntax-foreground
+                                    fg-docstring cyan-alt-other-faint))))
    `(font-lock-function-name-face ((,class ,@(modus-vivendi-theme-syntax-foreground
                                               magenta magenta-faint))))
    `(font-lock-keyword-face ((,class :inherit modus-theme-bold

@@ -1299,8 +1299,8 @@ AMOUNT is a customization option."
       ;;
       ;; `fg-unfocused' must be combined with `fg-main'
       ;;
-      ;; `fg-comment-green', `fg-comment-yellow', and their "doc"
-      ;; counterparts can be combined with `bg-main', `bg-dim', `bg-alt'
+      ;; `fg-docstring', `fg-comment-green', `fg-comment-yellow' can be
+      ;; combined with `bg-main', `bg-dim', `bg-alt'
       ;;
       ;; the window divider colors apply to faces with just an fg value
       ;;
@@ -1330,8 +1330,9 @@ AMOUNT is a customization option."
 
       ("fg-unfocused" . "#56576d")
 
-      ("fg-comment-green" . "#00581a") ("fg-comment-green-doc" . "#4a4a6e")
-      ("fg-comment-yellow" . "#5f4400") ("fg-comment-yellow-doc" . "#32552f")
+      ("fg-docstring" . "#2a486a")
+      ("fg-comment-green" . "#00581a")
+      ("fg-comment-yellow" . "#5f4400")
 
       ("bg-header" . "#e5e5e5") ("fg-header" . "#2a2a2a")
 
@@ -2599,10 +2600,8 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(font-lock-constant-face ((,class ,@(modus-operandi-theme-syntax-foreground
                                          blue-alt-other blue-alt-other-faint))))
    `(font-lock-doc-face ((,class :inherit modus-theme-slant
-                                 ,@(modus-operandi-theme-comment
-                                    fg-comment-green-doc fg-comment-yellow-doc
-                                    `,@(if modus-operandi-theme-faint-syntax
-                                        cyan-alt-other-faint fg-special-cold)))))
+                                 ,@(modus-operandi-theme-syntax-foreground
+                                    fg-docstring cyan-alt-other-faint))))
    `(font-lock-function-name-face ((,class ,@(modus-operandi-theme-syntax-foreground
                                               magenta magenta-faint))))
    `(font-lock-keyword-face ((,class :inherit modus-theme-bold
