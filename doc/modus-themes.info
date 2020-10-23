@@ -71,11 +71,11 @@ Customization Options
 
 * Bold constructs::              Toggle bold constructs in code
 * Slanted constructs::           Toggle slanted constructs (italics) in code
-* Syntax highlighting::          Toggle subtle coloration in programming modes
+* Faint syntax::                 Toggle subtle coloration in code (deprecated for 0.14.0)
+* Syntax styles::                Choose the overall aesthetic of code syntax
 * No mixed fonts::               Toggle mixing of font families
 * Link underline::               Toggle underlined text in links (deprecated for 0.14.0)
 * Link styles::                  Choose color intensity or no underline for links
-* Comment styles::               Choose accent color for comment lines
 * Command prompts::              Choose among plain, subtle, or intense prompts
 * Mode line::                    Choose among plain, three-dimension, or moody-compliant styles
 * Completion UIs::               Choose among standard, moderate, or opinionated looks
@@ -402,11 +402,10 @@ are just for the sake of this demonstration):(1)
                 modus-%1$s-theme-bold-constructs t
                 modus-%1$s-theme-fringes 'subtle ; {nil,'subtle,'intense}
                 modus-%1$s-theme-mode-line '3d ; {nil,'3d,'moody}
-                modus-%1$s-theme-faint-syntax nil
+                modus-%1$s-theme-syntax 'alt-syntax ; {nil,faint,'yellow-comments,'green-strings,'alt-docs,'alt-syntax,'alt-syntax-yellow-comments}
                 modus-%1$s-theme-intense-hl-line nil
                 modus-%1$s-theme-intense-paren-match nil
                 modus-%1$s-theme-links 'faint ; {nil,'faint,'neutral-underline,'faint-neutral-underline,'no-underline}
-                modus-%1$s-theme-comments 'green ; {nil,'green,'yellow}
                 modus-%1$s-theme-no-mixed-fonts nil
                 modus-%1$s-theme-prompts nil ; {nil,'subtle,'intense}
                 modus-%1$s-theme-completions 'moderate ; {nil,'moderate,'opinionated}
@@ -460,11 +459,11 @@ theme (see *note Enable and load::).
 
 * Bold constructs::              Toggle bold constructs in code
 * Slanted constructs::           Toggle slanted constructs (italics) in code
-* Syntax highlighting::          Toggle subtle coloration in programming modes
+* Faint syntax::                 Toggle subtle coloration in code (deprecated for 0.14.0)
+* Syntax styles::                Choose the overall aesthetic of code syntax
 * No mixed fonts::               Toggle mixing of font families
 * Link underline::               Toggle underlined text in links (deprecated for 0.14.0)
 * Link styles::                  Choose color intensity or no underline for links
-* Comment styles::               Choose accent color for comment lines
 * Command prompts::              Choose among plain, subtle, or intense prompts
 * Mode line::                    Choose among plain, three-dimension, or moody-compliant styles
 * Completion UIs::               Choose among standard, moderate, or opinionated looks
@@ -512,7 +511,7 @@ suffice.
 expression after the new theme is loaded.
 
 
-File: modus-themes.info,  Node: Slanted constructs,  Next: Syntax highlighting,  Prev: Bold constructs,  Up: Customization Options
+File: modus-themes.info,  Node: Slanted constructs,  Next: Faint syntax,  Prev: Bold constructs,  Up: Customization Options
 
 4.2 Option for more slanted constructs
 ======================================
@@ -533,10 +532,10 @@ typically affects documentation strings and code comments.
    The default is to not use italics unless it is absolutely necessary.
 
 
-File: modus-themes.info,  Node: Syntax highlighting,  Next: No mixed fonts,  Prev: Slanted constructs,  Up: Customization Options
+File: modus-themes.info,  Node: Faint syntax,  Next: Syntax styles,  Prev: Slanted constructs,  Up: Customization Options
 
-4.3 Option for faint code syntax highlighting
-=============================================
+4.3 Option for faint code syntax highlighting (deprecated for ‘0.14.0’)
+=======================================================================
 
 Symbol names:
 
@@ -558,9 +557,57 @@ font-lock if that is the intent).  The author is aware of ‘vc-dir’ as a
 case in point.
 
 
-File: modus-themes.info,  Node: No mixed fonts,  Next: Link underline,  Prev: Syntax highlighting,  Up: Customization Options
+File: modus-themes.info,  Node: Syntax styles,  Next: No mixed fonts,  Prev: Faint syntax,  Up: Customization Options
 
-4.4 Option for no font mixing
+4.4 Option for syntax highlighting
+==================================
+
+This option supersedes the “faint syntax” one ahead of version ‘0.14.0’
+(*note Option for faint code syntax highlighting: Faint syntax.).
+
+   Symbol names:
+
+   • ‘modus-operandi-theme-syntax’
+   • ‘modus-vivendi-theme-syntax’
+
+   Possible values:
+
+  1. ‘nil’ (default)
+  2. ‘faint’
+  3. ‘yellow-comments’
+  4. ‘green-strings’
+  5. ‘alt-docs’
+  6. ‘alt-syntax’
+  7. ‘alt-syntax-yellow-comments’
+
+   The default style (nil) for code syntax highlighting is a balanced
+combination of colors on the cyan-blue-magenta side of the spectrum.
+There is little to no use of greens, yellows, or reds, except when it is
+necessary.
+
+   Option ‘faint’ is like the default in terms of the choice of palette
+but applies desaturated color values.
+
+   Option ‘yellow-comments’ applies a yellow tint to comments.  The rest
+of the syntax is the same as the default.
+
+   Option ‘green-strings’ replaces the blue/cyan/cold color variants in
+strings with greener alternatives.  The rest of the syntax remains the
+same.
+
+   Option ‘alt-docs’ combines ‘yellow-comments’ and ‘green-strings’.
+
+   Option ‘alt-syntax’ expands the color palette and applies new color
+combinations.  Strings are green.  Doc strings are magenta tinted.
+Comments are gray.
+
+   Option ‘alt-syntax-yellow-comments’ combines ‘alt-syntax’ with
+‘yellow-comments’.
+
+
+File: modus-themes.info,  Node: No mixed fonts,  Next: Link underline,  Prev: Syntax styles,  Up: Customization Options
+
+4.5 Option for no font mixing
 =============================
 
 Symbol names:
@@ -588,11 +635,11 @@ are ‘org-variable-pitch’ and ‘mixed-pitch’.
 
 File: modus-themes.info,  Node: Link underline,  Next: Link styles,  Prev: No mixed fonts,  Up: Customization Options
 
-4.5 Option for no link underline (deprecated for ‘0.14.0’)
+4.6 Option for no link underline (deprecated for ‘0.14.0’)
 ==========================================================
 
-Note: deprecated ahead of version ‘0.14.0’ (*note Option for links: Link
-styles.).
+Note: deprecated ahead of version ‘0.14.0’ (*note Option for links:
+Syntax styles.).
 
    Symbol names:
 
@@ -608,9 +655,9 @@ styles.).
 The default is to apply an underline.
 
 
-File: modus-themes.info,  Node: Link styles,  Next: Comment styles,  Prev: Link underline,  Up: Customization Options
+File: modus-themes.info,  Node: Link styles,  Next: Command prompts,  Prev: Link underline,  Up: Customization Options
 
-4.6 Option for links
+4.7 Option for links
 ====================
 
 This option supersedes the “no link underline” one ahead of version
@@ -646,33 +693,7 @@ with a subtle gray underline.
 keeping their text color the same as the default.
 
 
-File: modus-themes.info,  Node: Comment styles,  Next: Command prompts,  Prev: Link styles,  Up: Customization Options
-
-4.7 Option for comments
-=======================
-
-This option is introduced ahead of version ‘0.14.0’.
-
-   Symbol names:
-
-   • ‘modus-operandi-theme-comments’
-   • ‘modus-vivendi-theme-comments’
-
-   Possible values:
-
-  1. ‘nil’ (default)
-  2. ‘green’
-  3. ‘yellow’
-
-   By default (nil), comments in programming modes and elsewhere use a
-subtle gray color.  Options ‘green’ or ‘yellow’ change it to a variant
-of the color they name.
-
-   This is meant for those who prefer a clear distinction between the
-main text and comments.
-
-
-File: modus-themes.info,  Node: Command prompts,  Next: Mode line,  Prev: Comment styles,  Up: Customization Options
+File: modus-themes.info,  Node: Command prompts,  Next: Mode line,  Prev: Link styles,  Up: Customization Options
 
 4.8 Option for command prompt styles
 ====================================
@@ -1296,7 +1317,7 @@ want to use a font at point size ‘11’, you set the height at ‘110’.(1)
 Whereas every other face must have a value that is relative to the
 default, represented as a floating point (if you use an integer, say,
 ‘15’ then that means an absolute height).  This is of paramount
-importantance: it ensures that all fonts can scale gracefully when using
+importance: it ensures that all fonts can scale gracefully when using
 something like the ‘text-scale-adjust’ command which only operates on
 the base font size (i.e.  the ‘default’ face’s absolute height).
 
@@ -2565,70 +2586,70 @@ Appendix A GNU Free Documentation License
 
 Tag Table:
 Node: Top232
-Node: Overview4195
-Node: How do the themes look like5493
-Node: Learn about the latest changes6001
-Node: Installation6383
-Node: Install from the archives6962
-Node: Install on GNU/Linux7481
-Node: Debian 11 Bullseye7926
-Node: GNU Guix8335
-Node: Enable and load8698
-Node: Load automatically9261
-Node: Load at a given time or at sunset/sunrise10074
-Ref: Load at a given time or at sunset/sunrise-Footnote-112117
-Ref: Load at a given time or at sunset/sunrise-Footnote-212252
-Node: Toggle between the themes on demand12335
-Node: Configure options prior to loading13211
-Ref: Configure options prior to loading-Footnote-116031
-Node: Customization Options16213
-Node: Bold constructs18132
-Node: Slanted constructs19279
-Node: Syntax highlighting19870
-Node: No mixed fonts20693
-Node: Link underline21711
-Node: Link styles22336
-Node: Comment styles23519
-Node: Command prompts24204
-Node: Mode line25007
-Node: Completion UIs27627
-Node: Fringes29539
-Node: Line highlighting30303
-Node: Matching parentheses30970
-Node: Diffs31613
-Node: Org mode blocks33401
-Node: Heading styles34902
-Node: Scaled headings38652
-Node: Scaled heading sizes39269
-Node: Headings' font41102
-Node: Advanced customization (do-it-yourself)41726
-Node: Tweak colors (DIY)42730
-Node: Font configs (DIY)46361
-Ref: Font configs (DIY)-Footnote-148948
-Ref: Font configs (DIY)-Footnote-249135
-Node: Org user faces (DIY)49357
-Node: Face coverage52515
-Node: Supported packages53026
-Node: Indirectly covered packages59090
-Node: Will NOT be supported59543
-Node: Notes for individual packages60268
-Node: Note on company-mode overlay pop-up60754
-Ref: Note on company-mode overlay pop-up-Footnote-161417
-Ref: Note on company-mode overlay pop-up-Footnote-261484
-Node: Note for ERC escaped color sequences61539
-Ref: Note for ERC escaped color sequences-Footnote-162961
-Node: Note for powerline or spaceline63071
-Node: Note on shr colors63487
-Node: Note for Helm grep63896
-Node: Note on vc-annotate-background-mode65341
-Node: Contributing66193
-Node: Sources of the themes66612
-Node: Issues you can help with67354
-Node: Merge requests68539
-Node: Acknowledgements70957
-Node: Meta72411
-Node: External projects (ports)73918
-Node: GNU Free Documentation License74740
+Node: Overview4212
+Node: How do the themes look like5510
+Node: Learn about the latest changes6018
+Node: Installation6400
+Node: Install from the archives6979
+Node: Install on GNU/Linux7498
+Node: Debian 11 Bullseye7943
+Node: GNU Guix8352
+Node: Enable and load8715
+Node: Load automatically9278
+Node: Load at a given time or at sunset/sunrise10091
+Ref: Load at a given time or at sunset/sunrise-Footnote-112134
+Ref: Load at a given time or at sunset/sunrise-Footnote-212269
+Node: Toggle between the themes on demand12352
+Node: Configure options prior to loading13228
+Ref: Configure options prior to loading-Footnote-116074
+Node: Customization Options16256
+Node: Bold constructs18192
+Node: Slanted constructs19339
+Node: Faint syntax19923
+Node: Syntax styles20794
+Node: No mixed fonts22384
+Node: Link underline23396
+Node: Link styles24023
+Node: Command prompts25207
+Node: Mode line26007
+Node: Completion UIs28627
+Node: Fringes30539
+Node: Line highlighting31303
+Node: Matching parentheses31970
+Node: Diffs32613
+Node: Org mode blocks34401
+Node: Heading styles35902
+Node: Scaled headings39652
+Node: Scaled heading sizes40269
+Node: Headings' font42102
+Node: Advanced customization (do-it-yourself)42726
+Node: Tweak colors (DIY)43730
+Node: Font configs (DIY)47361
+Ref: Font configs (DIY)-Footnote-149945
+Ref: Font configs (DIY)-Footnote-250132
+Node: Org user faces (DIY)50354
+Node: Face coverage53512
+Node: Supported packages54023
+Node: Indirectly covered packages60087
+Node: Will NOT be supported60540
+Node: Notes for individual packages61265
+Node: Note on company-mode overlay pop-up61751
+Ref: Note on company-mode overlay pop-up-Footnote-162414
+Ref: Note on company-mode overlay pop-up-Footnote-262481
+Node: Note for ERC escaped color sequences62536
+Ref: Note for ERC escaped color sequences-Footnote-163958
+Node: Note for powerline or spaceline64068
+Node: Note on shr colors64484
+Node: Note for Helm grep64893
+Node: Note on vc-annotate-background-mode66338
+Node: Contributing67190
+Node: Sources of the themes67609
+Node: Issues you can help with68351
+Node: Merge requests69536
+Node: Acknowledgements71954
+Node: Meta73408
+Node: External projects (ports)74915
+Node: GNU Free Documentation License75737
 
 End Tag Table
 

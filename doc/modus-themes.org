@@ -286,11 +286,10 @@ https://www.reddit.com/r/emacs/comments/gqsz8u/weekly_tipstricketc_thread/fsfakh
            modus-%1$s-theme-bold-constructs t
            modus-%1$s-theme-fringes 'subtle ; {nil,'subtle,'intense}
            modus-%1$s-theme-mode-line '3d ; {nil,'3d,'moody}
-           modus-%1$s-theme-faint-syntax nil
+           modus-%1$s-theme-syntax 'alt-syntax ; {nil,faint,'yellow-comments,'green-strings,'alt-docs,'alt-syntax,'alt-syntax-yellow-comments}
            modus-%1$s-theme-intense-hl-line nil
            modus-%1$s-theme-intense-paren-match nil
            modus-%1$s-theme-links 'faint ; {nil,'faint,'neutral-underline,'faint-neutral-underline,'no-underline}
-           modus-%1$s-theme-comments 'green ; {nil,'green,'yellow}
            modus-%1$s-theme-no-mixed-fonts nil
            modus-%1$s-theme-prompts nil ; {nil,'subtle,'intense}
            modus-%1$s-theme-completions 'moderate ; {nil,'moderate,'opinionated}
@@ -393,10 +392,10 @@ affects documentation strings and code comments.
 
 The default is to not use italics unless it is absolutely necessary.
 
-** Option for faint code syntax highlighting
+** Option for faint code syntax highlighting (deprecated for ~0.14.0~)
 :PROPERTIES:
-:ALT_TITLE: Syntax highlighting
-:DESCRIPTION: Toggle subtle coloration in programming modes
+:ALT_TITLE: Faint syntax
+:DESCRIPTION: Toggle subtle coloration in code (deprecated for 0.14.0)
 :CUSTOM_ID: h:741379fe-7203-4dad-a7f8-ab71f61b43e6
 :END:
 
@@ -418,6 +417,55 @@ implications in other places that are hard-wired to rely directly on
 them instead of specifying their own faces (which could inherit from
 font-lock if that is the intent).  The author is aware of =vc-dir= as a
 case in point.
+
+** Option for syntax highlighting
+:PROPERTIES:
+:ALT_TITLE: Syntax styles
+:DESCRIPTION: Choose the overall aesthetic of code syntax
+:CUSTOM_ID: h:c119d7b2-fcd4-4e44-890e-5e25733d5e52
+:END:
+
+This option supersedes the "faint syntax" one ahead of version =0.14.0=
+([[#h:741379fe-7203-4dad-a7f8-ab71f61b43e6][Option for faint code syntax highlighting]]).
+
+Symbol names:
+
++ =modus-operandi-theme-syntax=
++ =modus-vivendi-theme-syntax=
+
+Possible values:
+
+1. =nil= (default)
+2. =faint=
+3. =yellow-comments=
+4. =green-strings=
+5. =alt-docs=
+6. =alt-syntax=
+7. =alt-syntax-yellow-comments=
+
+The default style (nil) for code syntax highlighting is a balanced
+combination of colors on the cyan-blue-magenta side of the spectrum.
+There is little to no use of greens, yellows, or reds, except when it is
+necessary.
+
+Option =faint= is like the default in terms of the choice of palette but
+applies desaturated color values.
+
+Option =yellow-comments= applies a yellow tint to comments.  The
+rest of the syntax is the same as the default.
+
+Option =green-strings= replaces the blue/cyan/cold color variants
+in strings with greener alternatives.  The rest of the syntax
+remains the same.
+
+Option =alt-docs= combines =yellow-comments= and =green-strings=.
+
+Option =alt-syntax= expands the color palette and applies new
+color combinations.  Strings are green.  Doc strings are magenta
+tinted.  Comments are gray.
+
+Option =alt-syntax-yellow-comments= combines =alt-syntax= with
+=yellow-comments=.
 
 ** Option for no font mixing
 :PROPERTIES:
@@ -508,33 +556,6 @@ subtle gray underline.
 
 Option =no-underline= removes link underlines altogether, while keeping
 their text color the same as the default.
-
-** Option for comments
-:PROPERTIES:
-:ALT_TITLE: Comment styles
-:DESCRIPTION: Choose accent color for comment lines
-:CUSTOM_ID: h:540743db-566a-4b09-bc20-356d450b14bd
-:END:
-
-This option is introduced ahead of version =0.14.0=.
-
-Symbol names:
-
-+ =modus-operandi-theme-comments=
-+ =modus-vivendi-theme-comments=
-
-Possible values:
-
-1. =nil= (default)
-2. =green=
-3. =yellow=
-
-By default (nil), comments in programming modes and elsewhere use a
-subtle gray color.  Options =green= or =yellow= change it to a variant of
-the color they name.
-
-This is meant for those who prefer a clear distinction between the main
-text and comments.
 
 ** Option for command prompt styles
 :PROPERTIES:
