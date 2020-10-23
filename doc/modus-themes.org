@@ -1,12 +1,9 @@
 #+TITLE: Modus themes for GNU Emacs
 #+AUTHOR: Protesilaos Stavrou
 #+EMAIL: info@protesilaos.com
-#+TEXINFO_FILENAME: ../../info/modus-themes.info
 #+TEXINFO_DIR_CATEGORY: Emacs misc features
 #+TEXINFO_DIR_TITLE: Modus Themes: (modus-themes)
-#+TEXINFO_HEADER: @include docstyle.texi
 #+TEXINFO_DIR_DESC: Highly accessible themes (WCAG AAA)
-#+TEXINFO_POST_HEADER: @include emacsver.texi
 #+OPTIONS: ':t toc:nil author:t email:t
 #+MACRO: version-tag 0.13.0
 #+MACRO: release-date 2020-10-08
