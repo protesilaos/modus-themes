@@ -1179,7 +1179,7 @@ are perfectly valid—some typefaces will change to account for those
 finer increments.]  Whereas every other face must have a value that is
 relative to the default, represented as a floating point (if you use an
 integer, say, =15= then that means an absolute height).  This is of
-paramount importantance: it ensures that all fonts can scale gracefully
+paramount importance: it ensures that all fonts can scale gracefully
 when using something like the =text-scale-adjust= command which only
 operates on the base font size (i.e. the =default= face's absolute
 height).
