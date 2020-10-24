@@ -286,7 +286,7 @@ https://www.reddit.com/r/emacs/comments/gqsz8u/weekly_tipstricketc_thread/fsfakh
            modus-%1$s-theme-bold-constructs t
            modus-%1$s-theme-fringes 'subtle ; {nil,'subtle,'intense}
            modus-%1$s-theme-mode-line '3d ; {nil,'3d,'moody}
-           modus-%1$s-theme-syntax 'alt-syntax ; {nil,faint,'yellow-comments,'green-strings,'alt-docs,'alt-syntax,'alt-syntax-yellow-comments}
+           modus-%1$s-theme-syntax 'alt-syntax ; {nil,faint,'yellow-comments,'green-strings,'yellow-comments-green-strings,'alt-syntax,'alt-syntax-yellow-comments}
            modus-%1$s-theme-intense-hl-line nil
            modus-%1$s-theme-intense-paren-match nil
            modus-%1$s-theme-links 'faint ; {nil,'faint,'neutral-underline,'faint-neutral-underline,'no-underline}
@@ -439,7 +439,7 @@ Possible values:
 2. =faint=
 3. =yellow-comments=
 4. =green-strings=
-5. =alt-docs=
+5. =yellow-comments-green-strings=
 6. =alt-syntax=
 7. =alt-syntax-yellow-comments=
 
@@ -451,18 +451,19 @@ necessary.
 Option =faint= is like the default in terms of the choice of palette but
 applies desaturated color values.
 
-Option =yellow-comments= applies a yellow tint to comments.  The
-rest of the syntax is the same as the default.
+Option =yellow-comments= applies a yellow tint to comments.  The rest of
+the syntax is the same as the default.
 
-Option =green-strings= replaces the blue/cyan/cold color variants
-in strings with greener alternatives.  The rest of the syntax
-remains the same.
+Option =green-strings= replaces the blue/cyan/cold color variants in
+strings with greener alternatives.  The rest of the syntax remains the
+same.
 
-Option =alt-docs= combines =yellow-comments= and =green-strings=.
+Option =yellow-comments-green-strings= combines yellow comments with green
+strings and the rest of the default syntax highlighting style.
 
-Option =alt-syntax= expands the color palette and applies new
-color combinations.  Strings are green.  Doc strings are magenta
-tinted.  Comments are gray.
+Option =alt-syntax= expands the color palette and applies new color
+combinations.  Strings are green.  Doc strings are magenta tinted.
+Comments are gray.
 
 Option =alt-syntax-yellow-comments= combines =alt-syntax= with
 =yellow-comments=.

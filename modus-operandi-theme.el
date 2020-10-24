@@ -860,7 +860,9 @@ Option `green-strings' replaces the blue/cyan/cold color variants
 in strings with greener alternatives.  The rest of the syntax
 remains the same.
 
-Option `alt-docs' combines `yellow-comments' and `green-strings'.
+Option `yellow-comments-green-strings' combines yellow comments
+with green strings and the rest of the default syntax
+highlighting style.
 
 Option `alt-syntax' expands the color palette and applies new
 color combinations.  Strings are green.  Doc strings are magenta
@@ -873,7 +875,7 @@ Option `alt-syntax-yellow-comments' combines `alt-syntax' with
           (const :tag "Like the default, but with desaturated color values" faint)
           (const :tag "Apply yellow tint to comments, keep the default style for the rest" yellow-comments)
           (const :tag "Use green for strings, keep the default style for the rest" green-strings)
-          (const :tag "Use green for strings, yellow for comments, keep the default style for the rest" alt-docs)
+          (const :tag "Use green for strings, yellow for comments, keep the default style for the rest" yellow-comments-green-strings)
           (const :tag "Refashion syntax highlighting with more colors, gray comments" alt-syntax)
           (const :tag "Like `alt-syntax' but with yellow comments" alt-syntax-yellow-comments)))
 
@@ -991,7 +993,7 @@ the spectrum.  ALT is another hue."
   (pcase modus-operandi-theme-syntax
     ('faint (list :foreground faint))
     ('green-strings (list :foreground green))
-    ('alt-docs (list :foreground alt))
+    ('yellow-comments-green-strings (list :foreground alt))
     ('alt-syntax (list :foreground alt))
     ('alt-syntax-yellow-comments (list :foreground alt))
     (_ (list :foreground fg))))
@@ -1004,7 +1006,7 @@ the spectrum.  ALT is another hue."
   (pcase modus-operandi-theme-syntax
     ('faint (list :foreground faint))
     ('green-strings (list :foreground green))
-    ('alt-docs (list :foreground green))
+    ('yellow-comments-green-strings (list :foreground green))
     ('alt-syntax (list :foreground alt))
     ('alt-syntax-yellow-comments (list :foreground alt))
     (_ (list :foreground fg))))
@@ -1014,7 +1016,7 @@ the spectrum.  ALT is another hue."
 FG is the default.  YELLOW is a color variant of that name."
   (pcase modus-operandi-theme-syntax
     ('yellow-comments (list :foreground yellow))
-    ('alt-docs (list :foreground yellow))
+    ('yellow-comments-green-strings (list :foreground yellow))
     ('alt-syntax-yellow-comments (list :foreground yellow))
     (_ (list :foreground fg))))
 
@@ -1269,8 +1271,7 @@ AMOUNT is a customization option."
       ("red-alt-other" . "#a0132f") ("green-alt-other" . "#145c33")
       ("yellow-alt-other" . "#863927") ("blue-alt-other" . "#0000c0")
       ("magenta-alt-other" . "#5317ac") ("cyan-alt-other" . "#005a5f")
-      ;; styles for desaturated foreground text, intended for use with
-      ;; the `modus-operandi-theme-faint-syntax' option
+      ;; styles for desaturated foreground text
       ;;
       ;; must be combined with: `bg-main', `bg-alt', `bg-dim'
       ("red-faint" . "#7f1010") ("green-faint" . "#104410")

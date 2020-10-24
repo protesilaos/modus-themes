@@ -402,7 +402,7 @@ are just for the sake of this demonstration):(1)
                 modus-%1$s-theme-bold-constructs t
                 modus-%1$s-theme-fringes 'subtle ; {nil,'subtle,'intense}
                 modus-%1$s-theme-mode-line '3d ; {nil,'3d,'moody}
-                modus-%1$s-theme-syntax 'alt-syntax ; {nil,faint,'yellow-comments,'green-strings,'alt-docs,'alt-syntax,'alt-syntax-yellow-comments}
+                modus-%1$s-theme-syntax 'alt-syntax ; {nil,faint,'yellow-comments,'green-strings,'yellow-comments-green-strings,'alt-syntax,'alt-syntax-yellow-comments}
                 modus-%1$s-theme-intense-hl-line nil
                 modus-%1$s-theme-intense-paren-match nil
                 modus-%1$s-theme-links 'faint ; {nil,'faint,'neutral-underline,'faint-neutral-underline,'no-underline}
@@ -576,7 +576,7 @@ This option supersedes the “faint syntax” one ahead of version ‘0.14.0’
   2. ‘faint’
   3. ‘yellow-comments’
   4. ‘green-strings’
-  5. ‘alt-docs’
+  5. ‘yellow-comments-green-strings’
   6. ‘alt-syntax’
   7. ‘alt-syntax-yellow-comments’
 
@@ -595,7 +595,8 @@ of the syntax is the same as the default.
 strings with greener alternatives.  The rest of the syntax remains the
 same.
 
-   Option ‘alt-docs’ combines ‘yellow-comments’ and ‘green-strings’.
+   Option ‘yellow-comments-green-strings’ combines yellow comments with
+green strings and the rest of the default syntax highlighting style.
 
    Option ‘alt-syntax’ expands the color palette and applies new color
 combinations.  Strings are green.  Doc strings are magenta tinted.
@@ -2601,55 +2602,55 @@ Ref: Load at a given time or at sunset/sunrise-Footnote-112134
 Ref: Load at a given time or at sunset/sunrise-Footnote-212269
 Node: Toggle between the themes on demand12352
 Node: Configure options prior to loading13228
-Ref: Configure options prior to loading-Footnote-116074
-Node: Customization Options16256
-Node: Bold constructs18192
-Node: Slanted constructs19339
-Node: Faint syntax19923
-Node: Syntax styles20794
-Node: No mixed fonts22384
-Node: Link underline23396
-Node: Link styles24023
-Node: Command prompts25207
-Node: Mode line26007
-Node: Completion UIs28627
-Node: Fringes30539
-Node: Line highlighting31303
-Node: Matching parentheses31970
-Node: Diffs32613
-Node: Org mode blocks34401
-Node: Heading styles35902
-Node: Scaled headings39652
-Node: Scaled heading sizes40269
-Node: Headings' font42102
-Node: Advanced customization (do-it-yourself)42726
-Node: Tweak colors (DIY)43730
-Node: Font configs (DIY)47361
-Ref: Font configs (DIY)-Footnote-149945
-Ref: Font configs (DIY)-Footnote-250132
-Node: Org user faces (DIY)50354
-Node: Face coverage53512
-Node: Supported packages54023
-Node: Indirectly covered packages60087
-Node: Will NOT be supported60540
-Node: Notes for individual packages61265
-Node: Note on company-mode overlay pop-up61751
-Ref: Note on company-mode overlay pop-up-Footnote-162414
-Ref: Note on company-mode overlay pop-up-Footnote-262481
-Node: Note for ERC escaped color sequences62536
-Ref: Note for ERC escaped color sequences-Footnote-163958
-Node: Note for powerline or spaceline64068
-Node: Note on shr colors64484
-Node: Note for Helm grep64893
-Node: Note on vc-annotate-background-mode66338
-Node: Contributing67190
-Node: Sources of the themes67609
-Node: Issues you can help with68351
-Node: Merge requests69536
-Node: Acknowledgements71954
-Node: Meta73408
-Node: External projects (ports)74915
-Node: GNU Free Documentation License75737
+Ref: Configure options prior to loading-Footnote-116095
+Node: Customization Options16277
+Node: Bold constructs18213
+Node: Slanted constructs19360
+Node: Faint syntax19944
+Node: Syntax styles20815
+Node: No mixed fonts22490
+Node: Link underline23502
+Node: Link styles24129
+Node: Command prompts25313
+Node: Mode line26113
+Node: Completion UIs28733
+Node: Fringes30645
+Node: Line highlighting31409
+Node: Matching parentheses32076
+Node: Diffs32719
+Node: Org mode blocks34507
+Node: Heading styles36008
+Node: Scaled headings39758
+Node: Scaled heading sizes40375
+Node: Headings' font42208
+Node: Advanced customization (do-it-yourself)42832
+Node: Tweak colors (DIY)43836
+Node: Font configs (DIY)47467
+Ref: Font configs (DIY)-Footnote-150051
+Ref: Font configs (DIY)-Footnote-250238
+Node: Org user faces (DIY)50460
+Node: Face coverage53618
+Node: Supported packages54129
+Node: Indirectly covered packages60193
+Node: Will NOT be supported60646
+Node: Notes for individual packages61371
+Node: Note on company-mode overlay pop-up61857
+Ref: Note on company-mode overlay pop-up-Footnote-162520
+Ref: Note on company-mode overlay pop-up-Footnote-262587
+Node: Note for ERC escaped color sequences62642
+Ref: Note for ERC escaped color sequences-Footnote-164064
+Node: Note for powerline or spaceline64174
+Node: Note on shr colors64590
+Node: Note for Helm grep64999
+Node: Note on vc-annotate-background-mode66444
+Node: Contributing67296
+Node: Sources of the themes67715
+Node: Issues you can help with68457
+Node: Merge requests69642
+Node: Acknowledgements72060
+Node: Meta73514
+Node: External projects (ports)75021
+Node: GNU Free Documentation License75843
 
 End Tag Table
 
