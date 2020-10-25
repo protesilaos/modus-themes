@@ -3829,6 +3829,7 @@ Also bind `class' to ((class color) (min-colors 89))."
                        ,@(modus-vivendi-theme-link-color
                           cyan cyan-faint))))
    `(org-date-selected ((,class :inherit bold :foreground ,blue-alt :inverse-video t)))
+   `(org-dispatcher-highlight ((,class :inherit bold :background ,yellow-nuanced-bg :foreground ,red-alt)))
    `(org-document-info ((,class :foreground ,fg-special-cold)))
    `(org-document-info-keyword ((,class ,@(modus-vivendi-theme-mixed-fonts)
                                         :foreground ,fg-alt)))
