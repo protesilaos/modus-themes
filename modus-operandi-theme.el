@@ -293,6 +293,7 @@
 ;;     sesman
 ;;     shell-script-mode
 ;;     show-paren-mode
+;;     shr
 ;;     side-notes
 ;;     skewer-mode
 ;;     smart-mode-line
@@ -4763,6 +4764,12 @@ Also bind `class' to ((class color) (min-colors 89))."
      `(line-number-minor-tick ((,class :inherit (bold default)
                                        :background ,bg-inactive
                                        :foreground ,fg-inactive)))
+;;;;; shr
+     `(shr-abbreviation
+       ((,(append '((supports :underline (:style wave))) class)
+         :foreground ,fg-docstring :underline (:color ,fg-alt :style wave))
+        (,class :foreground ,fg-docstring :underline t)))
+     `(shr-selected-link ((,class :inherit modus-theme-subtle-cyan)))
 ;;;;; tab-bar-mode
      `(tab-bar ((,class :background ,bg-tab-bar :foreground ,fg-main)))
      `(tab-bar-tab ((,class :inherit bold :box (:line-width 2 :color ,bg-tab-active)

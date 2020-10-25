@@ -1666,6 +1666,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • sesman
    • shell-script-mode
    • show-paren-mode
+   • shr
    • side-notes
    • skewer-mode
    • smart-mode-line
@@ -2631,26 +2632,26 @@ Ref: Font configs (DIY)-Footnote-250238
 Node: Org user faces (DIY)50460
 Node: Face coverage53618
 Node: Supported packages54129
-Node: Indirectly covered packages60193
-Node: Will NOT be supported60646
-Node: Notes for individual packages61371
-Node: Note on company-mode overlay pop-up61857
-Ref: Note on company-mode overlay pop-up-Footnote-162520
-Ref: Note on company-mode overlay pop-up-Footnote-262587
-Node: Note for ERC escaped color sequences62642
-Ref: Note for ERC escaped color sequences-Footnote-164064
-Node: Note for powerline or spaceline64174
-Node: Note on shr colors64590
-Node: Note for Helm grep64999
-Node: Note on vc-annotate-background-mode66444
-Node: Contributing67296
-Node: Sources of the themes67715
-Node: Issues you can help with68457
-Node: Merge requests69642
-Node: Acknowledgements72060
-Node: Meta73514
-Node: External projects (ports)75021
-Node: GNU Free Documentation License75843
+Node: Indirectly covered packages60204
+Node: Will NOT be supported60657
+Node: Notes for individual packages61382
+Node: Note on company-mode overlay pop-up61868
+Ref: Note on company-mode overlay pop-up-Footnote-162531
+Ref: Note on company-mode overlay pop-up-Footnote-262598
+Node: Note for ERC escaped color sequences62653
+Ref: Note for ERC escaped color sequences-Footnote-164075
+Node: Note for powerline or spaceline64185
+Node: Note on shr colors64601
+Node: Note for Helm grep65010
+Node: Note on vc-annotate-background-mode66455
+Node: Contributing67307
+Node: Sources of the themes67726
+Node: Issues you can help with68468
+Node: Merge requests69653
+Node: Acknowledgements72071
+Node: Meta73525
+Node: External projects (ports)75032
+Node: GNU Free Documentation License75854
 
 End Tag Table
 
