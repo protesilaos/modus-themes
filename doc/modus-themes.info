@@ -1600,6 +1600,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • lsp-ui
    • magit
    • magit-imerge
+   • make-mode
    • man
    • markdown-mode
    • markup-faces (‘adoc-mode’)

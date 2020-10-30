@@ -228,6 +228,7 @@
 ;;     lsp-ui
 ;;     magit
 ;;     magit-imerge
+;;     make-mode
 ;;     man
 ;;     markdown-mode
 ;;     markup-faces (`adoc-mode')
@@ -3462,6 +3463,9 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(magit-tag ((,class :foreground ,yellow-alt-other)))
 ;;;;; magit-imerge
    `(magit-imerge-overriding-value ((,class :inherit bold :foreground ,red-alt)))
+;;;;; make-mode (makefiles)
+   `(makefile-makepp-perl ((,class :background ,cyan-nuanced-bg)))
+   `(makefile-space ((,class :background ,magenta-nuanced-bg)))
 ;;;;; man
    `(Man-overstrike ((,class :inherit bold :foreground ,magenta)))
    `(Man-reverse ((,class :inherit modus-theme-subtle-magenta)))
