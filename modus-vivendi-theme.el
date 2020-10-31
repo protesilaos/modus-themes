@@ -2694,8 +2694,9 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(font-lock-regexp-grouping-construct ((,class :inherit bold :foreground ,fg-escape-char-construct)))
    `(font-lock-string-face ((,class ,@(modus-vivendi-theme-syntax-string
                                        blue-alt blue-alt-faint green green))))
-   `(font-lock-type-face ((,class ,@(modus-vivendi-theme-syntax-extra
-                                     magenta-alt magenta-alt-faint magenta-active))))
+   `(font-lock-type-face ((,class :inherit modus-theme-bold
+                                  ,@(modus-vivendi-theme-syntax-extra
+                                     cyan-alt-other magenta-alt-faint magenta-alt))))
    `(font-lock-variable-name-face ((,class ,@(modus-vivendi-theme-syntax-extra
                                               cyan cyan-faint blue))))
    `(font-lock-warning-face ((,class :inherit modus-theme-bold
