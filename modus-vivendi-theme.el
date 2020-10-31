@@ -2676,7 +2676,7 @@ Also bind `class' to ((class color) (min-colors 89))."
                                      ,@(modus-vivendi-theme-syntax-comment
                                         fg-alt fg-comment-yellow))))
    `(font-lock-constant-face ((,class ,@(modus-vivendi-theme-syntax-extra
-                                         blue-alt-other blue-alt-other-faint magenta-alt))))
+                                         blue-alt-other blue-alt-other-faint blue-alt))))
    `(font-lock-doc-face ((,class :inherit modus-theme-slant
                                  ,@(modus-vivendi-theme-syntax-docstring
                                     fg-docstring cyan-alt-other-faint green-alt-faint fg-special-calm))))
