@@ -267,6 +267,7 @@
 ;;     paren-face
 ;;     parrot
 ;;     pass
+;;     pdf-tools
 ;;     persp-mode
 ;;     perspective
 ;;     phi-grep
@@ -4840,6 +4841,9 @@ Also bind `class' to ((class color) (min-colors 89))."
        ("XXX+" . ,red-alt)
        ("REVIEW" . ,cyan-alt-other)
        ("DEPRECATED" . ,blue-nuanced)))
+;;;; pdf-tools
+   `(pdf-view-midnight-colors
+     '(,fg-main . ,bg-dim))
 ;;;; vc-annotate (C-x v g)
    `(vc-annotate-background nil)
    `(vc-annotate-background-mode nil)
