@@ -1640,6 +1640,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • paren-face
    • parrot
    • pass
+   • pdf-tools
    • persp-mode
    • perspective
    • phi-grep
@@ -2046,8 +2047,8 @@ Author/maintainer
 
 Contributions to code or documentation
      Anders Johansson, Basil L.  Contovounesios, Eli Zaretskii, Markus
-     Beppler, Matthew Stevenson, Shreyas Ragavan, Stefan Kangas, Vincent
-     Murphy.
+     Beppler, Madhavan Krishnan, Matthew Stevenson, Shreyas Ragavan,
+     Stefan Kangas, Vincent Murphy.
 
 Ideas and user feedback
      Aaron Jensen, Adam Spiers, Alex Griffin, Alex Peitsinis, Alexey

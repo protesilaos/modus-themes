@@ -1515,6 +1515,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + paren-face
 + parrot
 + pass
++ pdf-tools
 + persp-mode
 + perspective
 + phi-grep
@@ -1882,8 +1883,8 @@ The Modus themes are a collective effort.  Every contribution counts.
 + Author/maintainer :: Protesilaos Stavrou.
 
 + Contributions to code or documentation :: Anders Johansson, Basil
-  L. Contovounesios, Eli Zaretskii, Markus Beppler, Matthew Stevenson,
-  Shreyas Ragavan, Stefan Kangas, Vincent Murphy.
+  L. Contovounesios, Eli Zaretskii, Madhavan Krishnan, Markus Beppler,
+  Matthew Stevenson, Shreyas Ragavan, Stefan Kangas, Vincent Murphy.
 
 + Ideas and user feedback :: Aaron Jensen, Adam Spiers, Alex Griffin,
   Alex Peitsinis, Alexey Shmalko, Anders Johansson, André Alexandre
