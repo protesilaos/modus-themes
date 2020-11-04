@@ -2677,10 +2677,10 @@ Also bind `class' to ((class color) (min-colors 89))."
                                      ,@(modus-operandi-theme-syntax-comment
                                         fg-alt fg-comment-yellow))))
    `(font-lock-constant-face ((,class ,@(modus-operandi-theme-syntax-extra
-                                         blue-alt-other blue-alt-other-faint blue))))
+                                         blue-alt-other blue-alt-other-faint magenta-alt))))
    `(font-lock-doc-face ((,class :inherit modus-theme-slant
                                  ,@(modus-operandi-theme-syntax-docstring
-                                    fg-docstring cyan-alt-other-faint green-alt-faint fg-special-calm))))
+                                    fg-docstring cyan-alt-other-faint green-alt-faint blue-alt-other-faint))))
    `(font-lock-function-name-face ((,class ,@(modus-operandi-theme-syntax-extra
                                               magenta magenta-faint red-alt-other))))
    `(font-lock-keyword-face ((,class :inherit modus-theme-bold
