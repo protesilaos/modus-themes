@@ -2164,7 +2164,7 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(diff-context ((,class :foreground ,fg-unfocused)))
    `(diff-file-header ((,class :inherit bold :foreground ,fg-main)))
    `(diff-function ((,class :foreground ,blue)))
-   `(diff-header ((,class :foreground ,fg-main)))
+   `(diff-header ((,class :background ,bg-dim :foreground ,fg-main)))
    `(diff-hunk-header ((,class :inherit modus-theme-diff-heading)))
    `(diff-index ((,class :inherit bold :foreground ,blue-alt)))
    `(diff-indicator-added ((,class :inherit diff-added)))
