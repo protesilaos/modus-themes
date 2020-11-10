@@ -1238,7 +1238,6 @@ AMOUNT is a customization option."
 ;; The design of the color palette as a macro that maps it to faces is
 ;; adapted from zenbern-theme.el, last seen at commit 7dd7968:
 ;; https://github.com/bbatsov/zenburn-emacs
-(eval-and-compile
   (defconst modus-vivendi-theme-default-colors-alist
     '(;; base values
       ("bg-main" . "#000000") ("fg-main" . "#ffffff")
@@ -1440,6 +1439,7 @@ AMOUNT is a customization option."
     "The entire palette of `modus-vivendi-theme'.
 Each element has the form (NAME . HEX).")
 
+;;;###autoload
   (defcustom modus-vivendi-theme-override-colors-alist '()
     "Association list of palette color overrides.
 Values can be mapped to variables, using the same syntax as the
@@ -1461,7 +1461,7 @@ Also bind `class' to ((class color) (min-colors 89))."
                        (list (intern (car cons)) (cdr cons)))
                      (append modus-vivendi-theme-default-colors-alist
                              modus-vivendi-theme-override-colors-alist)))
-       ,@body)))
+       ,@body))
 
 
 
@@ -4906,5 +4906,9 @@ Also bind `class' to ((class color) (min-colors 89))."
 (provide-theme 'modus-vivendi)
 
 (provide 'modus-vivendi-theme)
+
+;; Local Variables:
+;; no-byte-compile: t
+;; End:
 
 ;;; modus-vivendi-theme.el ends here
