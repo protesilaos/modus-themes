@@ -17,9 +17,10 @@
   elements (WCAG AAA).")
 
 (defconst modus-operandi-colors-alist-default
-  '(("bg-main" . "#ffffff") ("fg-main" . "#000000"))
+  '((bg-main . "#ff0000") (fg-main . "#000000"))
   "The entire palette of `modus-operandi-theme'.
-Each element has the form (NAME . HEX).")
+Each element has the form (NAME . HEX) with the former as a
+symbol and the latter as a string.")
 
 ;;;###autoload
 (defcustom modus-operandi-colors-alist-override '()
