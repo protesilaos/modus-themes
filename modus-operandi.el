@@ -28,11 +28,5 @@ Each element has the form (NAME . HEX).")
           :key-type (string :tag "Name")
           :value-type (string :tag " Hex")))
 
-;; (modus-themes-core-with-colors
-;;  modus-operandi-colors-alist-default
-;;  (custom-theme-set-faces
-;;   'modus-operandi
-;;   `(default ((,class :background ,bg-main :foreground ,fg-main)))))
-
 (provide 'modus-operandi)
 ;;; modus-operandi.el ends here
