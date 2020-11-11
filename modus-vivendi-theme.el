@@ -6,8 +6,9 @@
 ;; -
 ;;; Code:
 
+(eval-when-compile
+  (require 'modus-themes-core))
 (require 'modus-vivendi)
-(require 'modus-themes-core)
 (require 'modus-themes-faces)
 
 (modus-themes-core-with-colors
