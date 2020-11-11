@@ -10,7 +10,7 @@
   "`let' bind ALIST elements around BODY."
   `(let ((class '((class color) (min-colors 89)))
          ,@(mapcar (lambda (cons)
-                     (list (intern (car cons)) (cdr cons)))
+                     `(,(car cons) ,(cdr cons)))
                    (symbol-value alist)))
      ,@body))
 
