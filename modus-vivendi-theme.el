@@ -17,5 +17,7 @@
   'modus-vivendi
   (modus-themes-faces)))
 
+(provide-theme 'modus-vivendi)
+
 (provide 'modus-vivendi-theme)
 ;;; modus-vivendi-theme.el ends here

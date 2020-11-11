@@ -17,5 +17,7 @@
   'modus-operandi
   (modus-themes-faces)))
 
+(provide-theme 'modus-operandi)
+
 (provide 'modus-operandi-theme)
 ;;; modus-operandi-theme.el ends here
