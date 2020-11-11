@@ -11,7 +11,7 @@
   `(let ((class '((class color) (min-colors 89)))
          ,@(mapcar (lambda (cons)
                      (list (intern (car cons)) (cdr cons)))
-                   (eval alist)))
+                   (symbol-value alist)))
      ,@body))
 
 (provide 'modus-themes-core)
