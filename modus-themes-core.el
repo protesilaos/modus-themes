@@ -10,18 +10,22 @@
 (defvar modus-themes-vivendi-colors)
 (defvar modus-themes)
 
+(defun modus-themes-core-theme-variables (name)
+  "Return correct variable for Modus theme NAME."
+  (pcase name
+    (''modus-operandi modus-themes-operandi-colors)
+    (''modus-vivendi modus-themes-vivendi-colors)
+    (_ (user-error "<< %s >> is not a valid Modus theme" name))))
+
 (defmacro modus-themes-core-theme (name &rest body)
   "Bind NAME's palette to `custom-theme-set-faces' around BODY.
 
 NAME should be the proper name of the theme, either 'modus-operandi' or 'modus-vivendi'."
-  (let ((colors (if `(eq ,name 'modus-operandi) ; TODO: consider `pcase' with `user-error'
-                    modus-themes-operandi-colors
-                  modus-themes-vivendi-colors))
-        (specs (or `,body modus-themes)))
+  (let ((specs (or `,body modus-themes)))
     `(let ((class '((class color) (min-colors 89)))
            ,@(mapcar (lambda (cons)
                        `(,(car cons) ,(cdr cons)))
-                     colors))
+                     (modus-themes-core-theme-variables name)))
        (custom-theme-set-faces
         ,name
         ,@specs))))
