@@ -1545,6 +1545,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + show-paren-mode
 + shr
 + side-notes
++ sieve-mode
 + skewer-mode
 + smart-mode-line
 + smartparens
@@ -1894,9 +1895,10 @@ The Modus themes are a collective effort.  Every contribution counts.
   Manuel Uberti, Mark Burton, Markus Beppler, Michael Goldenberg, Murilo
   Pereira, Nicolas De Jaeghere, Paul Poloskov, Pierre Téchoueyres, Roman
   Rudakov, Ryan Phillips, Shreyas Ragavan, Simon Pugnet, Tassilo Horn,
-  Thibaut Verron, Trey Merkley, Uri Sharf, Utkarsh Singh, Vincent Foley.
-  As well as users: Ben, Eugene, Fourchaux, Fredrik, Moesasji, Nick,
-  TheBlob42, bepolymathe, dinko, doolio, jixiuf, okamsn, tycho garen.
+  Thibaut Verron, Trey Merkley, Togan Muftuoglu, Uri Sharf, Utkarsh
+  Singh, Vincent Foley.  As well as users: Ben, Eugene, Fourchaux,
+  Fredrik, Moesasji, Nick, TheBlob42, bepolymathe, dinko, doolio,
+  jixiuf, okamsn, tycho garen.
 
 + Packaging :: Dhavan Vaidya (Debian), Stefan Kangas (core Emacs),
   Stefan Monnier (GNU Elpa).

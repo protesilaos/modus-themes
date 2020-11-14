@@ -297,6 +297,7 @@
 ;;     show-paren-mode
 ;;     shr
 ;;     side-notes
+;;     sieve-mode
 ;;     skewer-mode
 ;;     smart-mode-line
 ;;     smartparens
@@ -4224,6 +4225,11 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(show-paren-mismatch ((,class :inherit modus-theme-intense-red)))
 ;;;;; side-notes
    `(side-notes ((,class :background ,bg-dim :foreground ,fg-dim)))
+;;;;; sieve-mode
+   `(sieve-action-commands ((,class :inherit font-lock-builtin-face)))
+   `(sieve-control-commands ((,class :inherit font-lock-keyword-face)))
+   `(sieve-tagged-arguments ((,class :inherit font-lock-type-face)))
+   `(sieve-test-commands ((,class :inherit font-lock-function-name-face)))
 ;;;;; skewer-mode
    `(skewer-error-face ((,class :foreground ,red :underline t)))
 ;;;;; smart-mode-line
