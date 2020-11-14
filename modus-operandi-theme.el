@@ -6,18 +6,22 @@
 ;; -
 ;;; Code:
 
+(eval-and-compile
+  (require 'modus-themes))
+
 (eval-when-compile
   (require 'modus-themes-core))
-(require 'modus-operandi)
-(require 'modus-themes-faces)
 
-(modus-themes-core-with-colors
- modus-operandi-colors-alist-default
- (custom-theme-set-faces
-  'modus-operandi
-  (modus-themes-faces)))
+(modus-themes-core-theme
+ 'modus-operandi)
+
+;;;###autoload
+(when load-file-name
+  (add-to-list 'custom-theme-load-path
+               (file-name-as-directory (file-name-directory load-file-name))))
 
 (provide-theme 'modus-operandi)
 
 (provide 'modus-operandi-theme)
+
 ;;; modus-operandi-theme.el ends here

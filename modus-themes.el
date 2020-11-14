@@ -1,4 +1,4 @@
-;;; modus-themes-faces.el --- Testing -*- lexical-binding:t -*-
+;;; modus-themes.el --- Testing -*- lexical-binding:t -*-
 ;; URL: https://www.protesilaos.com
 ;; Version: 0.0.0
 ;; Package-Requires: ((emacs "26.1"))
@@ -85,12 +85,40 @@
 (defface modus-theme-slant nil nil)
 (defface modus-theme-variable-pitch nil nil)
 
+;;;; Theme variables
+
+;;;; Modus Operandi
+(deftheme modus-operandi
+  "Light theme that conforms with the highest accessibility
+  standard for color contrast between background and foreground
+  elements (WCAG AAA).")
+
+(defconst modus-themes-operandi-colors
+  '((bg-main . "#ffffff") (fg-main . "#000000"))
+  "The entire palette of `modus-operandi-theme'.
+Each element has the form (NAME . HEX) with the former as a
+symbol and the latter as a string.")
+
+;;;; Modus Vivendi
+
+(deftheme modus-vivendi
+  "Dark theme that conforms with the highest accessibility
+  standard for color contrast between background and foreground
+  elements (WCAG AAA).")
+
+(defconst modus-themes-vivendi-colors
+  '((bg-main . "#000000") (fg-main . "#000000"))
+  "The entire palette of `modus-vivendi-theme'.
+Each element has the form (NAME . HEX) with the former as a
+symbol and the latter as a string.")
+
 ;;;; Face specifications
 
-(defun modus-themes-faces ()
-  "Face specs for use with `modus-themes-core-with-colors'."
-  (quote
-   `(default ((,class :background ,bg-main :foreground ,fg-main)))))
+(defvar modus-themes
+  '(
+   `(default ((,class :background ,bg-main :foreground ,fg-main)))
+   `(font-lock-comment-face ((,class :foreground "blue"))))
+  "Face specs for use with `modus-themes-core-theme'.")
 
-(provide 'modus-themes-faces)
-;;; modus-themes-faces.el ends here
+(provide 'modus-themes)
+;;; modus-themes.el ends here

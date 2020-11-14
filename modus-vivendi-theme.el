@@ -6,18 +6,22 @@
 ;; -
 ;;; Code:
 
+(eval-and-compile
+  (require 'modus-themes))
+
 (eval-when-compile
   (require 'modus-themes-core))
-(require 'modus-vivendi)
-(require 'modus-themes-faces)
 
-(modus-themes-core-with-colors
- modus-vivendi-colors-alist-default
- (custom-theme-set-faces
-  'modus-vivendi
-  (modus-themes-faces)))
+(modus-themes-core-theme
+ 'modus-vivendi)
+
+;;;###autoload
+(when load-file-name
+  (add-to-list 'custom-theme-load-path
+               (file-name-as-directory (file-name-directory load-file-name))))
 
 (provide-theme 'modus-vivendi)
 
 (provide 'modus-vivendi-theme)
+
 ;;; modus-vivendi-theme.el ends here
