@@ -18,9 +18,14 @@
     (_ (user-error "<< %s >> is not a valid Modus theme" name))))
 
 (defmacro modus-themes-core-theme (name &rest body)
-  "Bind NAME's palette to `custom-theme-set-faces' around BODY.
+  "Bind NAME's color palette around BODY of face specifications.
 
-NAME should be the proper name of the theme, either 'modus-operandi' or 'modus-vivendi'."
+NAME should be the proper name of a Modus theme, either
+'modus-operandi or 'modus-vivendi.
+
+BODY consists of face specs as interpreted by
+`custom-theme-set-faces'.  For concrete examples, refer to
+`modus-themes'."
   (let ((specs (or `,body modus-themes)))
     `(let ((class '((class color) (min-colors 89)))
            ,@(mapcar (lambda (cons)
