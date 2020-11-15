@@ -1307,6 +1307,26 @@ symbol and the latter as a string.")
 
 (make-obsolete 'modus-vivendi-theme-override-colors-alist nil "1.0.0")
 
+
+
+;;;; Utilities for DIY users
+
+(defun modus-themes--active-theme ()
+  "Return appropriate alist of color values for active theme."
+  (let ((theme (car custom-enabled-themes)))
+    (pcase theme
+      ('modus-operandi modus-themes-operandi-colors)
+      ('modus-vivendi modus-themes-vivendi-colors)
+      (_ (user-error "'%s' not a Modus theme; check `custom-enabled-themes'" theme)))))
+
+;;;###autoload
+(defun modus-themes-color (key)
+  "Return color value for KEY."
+  (let ((alist (modus-themes--active-theme)))
+    (cdr (assoc `,key alist))))
+
+
+
 ;;;; Face specifications
 
 (defvar modus-themes
