@@ -1325,6 +1325,46 @@ symbol and the latter as a string.")
   (let ((alist (modus-themes--active-theme)))
     (cdr (assoc `,key alist))))
 
+;;;; Commands
+
+(defvar modus-themes-after-load-theme-hook nil
+  "Hook that runs after the `modus-themes-toggle' routines.")
+
+(defun modus-themes--light ()
+  "Load `modus-operandi' and disable `modus-vivendi'."
+  (disable-theme 'modus-vivendi)
+  (load-theme 'modus-operandi)
+  (run-hooks 'modus-themes-after-load-theme-hook))
+
+(defun modus-themes--dark ()
+  "Load `modus-vivendi' and disable `modus-operandi'."
+  (disable-theme 'modus-operandi)
+  (load-theme 'modus-vivendi)
+  (run-hooks 'modus-themes-after-load-theme-hook))
+
+(defun modus-themes--load-prompt ()
+  "Helper for `modus-themes-toggle'."
+  (let ((theme
+         (intern
+          (completing-read "Load Modus theme (will disable all others): "
+                           '(modus-operandi modus-vivendi) nil t))))
+    (mapc #'disable-theme custom-enabled-themes)
+    (pcase theme
+      ('modus-operandi (modus-themes--light))
+      ('modus-vivendi (modus-themes--dark)))))
+
+;;;###autoload
+(defun modus-themes-toggle ()
+  "Toggle between `modus-operandi' and `modus-vivendi' themes.
+Also runs `modus-themes-after-load-theme-hook' by virtue of
+calling the internal `modus-themes--light' and
+`modus-themes--dark' functions."
+  (interactive)
+  (pcase (car custom-enabled-themes)
+    ('modus-operandi (modus-themes--dark))
+    ('modus-vivendi (modus-themes--light))
+    (_ (modus-themes--load-prompt))))
+
 
 
 ;;;; Face specifications
