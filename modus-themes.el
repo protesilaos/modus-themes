@@ -883,7 +883,7 @@ AMOUNT is a customization option."
   elements (WCAG AAA).")
 
 (define-obsolete-variable-alias
-  'modus-themes-default-colors-alist
+  'modus-operandi-theme-default-colors-alist
   'modus-themes-operandi-colors
   "1.0.0")
 
@@ -1303,7 +1303,7 @@ symbol and the latter as a string.")
 Each element has the form (NAME . HEX) with the former as a
 symbol and the latter as a string.")
 
-(make-obsolete 'modus-themes-override-colors-alist nil "1.0.0")
+(make-obsolete 'modus-operandi-theme-override-colors-alist nil "1.0.0")
 
 (make-obsolete 'modus-vivendi-theme-override-colors-alist nil "1.0.0")
 
