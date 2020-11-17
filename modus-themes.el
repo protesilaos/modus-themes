@@ -91,21 +91,14 @@
 
 ;;; Customization options
 
-;; User-facing customization options.  They are all deactivated by
-;; default (users must opt in).
+;;;; Current customisation options (>= 1.0.0)
+
 (defcustom modus-themes-slanted-constructs nil
   "Use slanted text in more code constructs (italics or oblique)."
   :type 'boolean)
 
 (defcustom modus-themes-bold-constructs nil
   "Use bold text in more code constructs."
-  :type 'boolean)
-
-(define-obsolete-variable-alias 'modus-themes-proportional-fonts
-  'modus-themes-variable-pitch-headings "`modus-themes' 0.11.0")
-
-(defcustom modus-themes-proportional-fonts nil
-  "Use proportional fonts (variable-pitch) in headings."
   :type 'boolean)
 
 (defcustom modus-themes-variable-pitch-headings nil
@@ -123,22 +116,6 @@ configure the font family of `fixed-pitch' in order to get a
 consistent experience.  That may be something they do not want to
 do.  Hence this option to disable any kind of technique for
 mixing fonts."
-  :type 'boolean)
-
-(make-obsolete 'modus-themes-rainbow-headings
-               'modus-themes-headings
-               "`modus-themes' 0.13.0")
-
-(defcustom modus-themes-rainbow-headings nil
-  "Use more saturated colors for headings."
-  :type 'boolean)
-
-(make-obsolete 'modus-themes-section-headings
-               'modus-themes-headings
-               "`modus-themes' 0.13.0")
-
-(defcustom modus-themes-section-headings nil
-  "Use a background and an overline in headings."
   :type 'boolean)
 
 (defcustom modus-themes-headings
@@ -290,14 +267,6 @@ For more on the matter, read the documentation of
 `set-face-attribute', specifically the ':height' section."
   :type 'number)
 
-(make-obsolete 'modus-themes-visible-fringes
-               'modus-themes-fringes
-               "`modus-themes' 0.12.0")
-
-(defcustom modus-themes-visible-fringes nil
-  "Use a visible style for fringes."
-  :type 'boolean)
-
 (defcustom modus-themes-fringes nil
   "Define the visibility of fringes.
 
@@ -309,24 +278,6 @@ pronounced greyscale value."
           (const :tag "No visible fringes (default)" nil)
           (const :tag "Subtle greyscale background" subtle)
           (const :tag "Intense greyscale background" intense)))
-
-(make-obsolete 'modus-themes-distinct-org-blocks
-               'modus-themes-org-blocks
-               "`modus-themes' 0.11.0")
-
-(defcustom modus-themes-distinct-org-blocks nil
-  "Use a distinct neutral background for `org-mode' blocks."
-  :type 'boolean)
-
-(make-obsolete 'modus-themes-rainbow-org-src-blocks
-               'modus-themes-org-blocks
-               "`modus-themes' 0.11.0")
-
-(defcustom modus-themes-rainbow-org-src-blocks nil
-  "Use color-coded backgrounds for `org-mode' source blocks.
-The color in use depends on the language (send feedback to
-include more languages)."
-  :type 'boolean)
 
 (defcustom modus-themes-org-blocks nil
   "Use a subtle gray or color-coded background for Org blocks.
@@ -351,14 +302,6 @@ association list)."
           (const :tag "Subtle gray block background (alt spelling)" greyscale)
           (const :tag "Color-coded background per programming language" rainbow)))
 
-(make-obsolete 'modus-themes-3d-modeline
-               'modus-themes-mode-line
-               "`modus-themes' 0.13.0")
-
-(defcustom modus-themes-3d-modeline nil
-  "Use a three-dimensional style for the active mode line."
-  :type 'boolean)
-
 (defcustom modus-themes-mode-line nil
   "Adjust the overall style of the mode line.
 
@@ -381,14 +324,6 @@ intended purpose, this option can also be used without the
           (const :tag "Three-dimensional style for the active mode line" 3d)
           (const :tag "No box effects, which are optimal for use with the `moody' library" moody)))
 
-(make-obsolete 'modus-themes-subtle-diffs
-               'modus-themes-diffs
-               "`modus-themes' 0.13.0")
-
-(defcustom modus-themes-subtle-diffs nil
-  "Use fewer/dim backgrounds in `diff-mode', `ediff',`magit'."
-  :type 'boolean)
-
 (defcustom modus-themes-diffs nil
   "Adjust the overall styles of diffs.
 
@@ -410,14 +345,6 @@ greyscale value is used."
           (const :tag "Intensely colored backgrounds (default)" nil)
           (const :tag "Slightly accented backgrounds with tinted text" desaturated)
           (const :tag "No backgrounds, except for refined diffs" fg-only)))
-
-(make-obsolete 'modus-themes-intense-standard-completions
-               'modus-themes-completions
-               "`modus-themes' 0.12.0")
-
-(defcustom modus-themes-intense-standard-completions nil
-  "Use prominent backgrounds for Icomplete, Ido, or similar."
-  :type 'boolean)
 
 (defcustom modus-themes-completions nil
   "Apply special styles to the UI of completion frameworks.
@@ -468,28 +395,6 @@ effect than the former."
   "Use a more prominent color for parenthesis matching."
   :type 'boolean)
 
-(make-obsolete 'modus-themes-faint-syntax
-               'modus-themes-syntax
-               "`modus-themes' 0.14.0")
-
-(defcustom modus-themes-faint-syntax nil
-  "Use less saturated colors for code syntax highlighting."
-  :type 'boolean)
-
-(make-obsolete 'modus-themes-comments
-               'modus-themes-syntax
-               "`modus-themes' 0.14.0")
-
-(defcustom modus-themes-comments nil
-  "Set the style of comments.
-
-Nil means to use a neutral grey color.  Options `green' and
-`yellow' apply a variant of the color they name."
-  :type '(choice
-          (const :tag "Use a subtle grey foreground for comments (default)" nil)
-          (const :tag "Use a green foreground for comments" green)
-          (const :tag "Use a yellow foreground for comments" yellow)))
-
 (defcustom modus-themes-syntax nil
   "Control the overall style of code syntax highlighting.
 
@@ -526,14 +431,6 @@ Option `alt-syntax-yellow-comments' combines `alt-syntax' with
           (const :tag "Refashion syntax highlighting with more colors, gray comments" alt-syntax)
           (const :tag "Like `alt-syntax' but with yellow comments" alt-syntax-yellow-comments)))
 
-(make-obsolete 'modus-themes-no-link-underline
-               'modus-themes-links
-               "`modus-themes' 0.14.0")
-
-(defcustom modus-themes-no-link-underline nil
-  "Do not underline links."
-  :type 'boolean)
-
 (defcustom modus-themes-links nil
   "Set the style of links.
 
@@ -556,321 +453,6 @@ Option `no-underline' removes link underlines altogether."
           (const :tag "Change the color of link underlines to a neutral grey" neutral-underline)
           (const :tag "Desaturated foreground with neutral grey underline" faint-neutral-underline)
           (const :tag "Remove underline property from links, keeping their foreground as-is" no-underline)))
-
-
-
-;;; Internal functions
-
-;; Helper functions that are meant to ease the implementation of the
-;; above customization options.
-(defun modus-themes-bold-weight ()
-  "Conditional use of a heavier text weight."
-  (when modus-themes-bold-constructs
-    (list :inherit 'bold)))
-
-(defun modus-themes-mixed-fonts ()
-  "Conditional application of `fixed-pitch' inheritance."
-  (unless modus-themes-no-mixed-fonts
-    (list :inherit 'fixed-pitch)))
-
-(defun modus-themes-slant ()
-  "Conditional use of italics for slant attribute."
-  (if modus-themes-slanted-constructs
-      (list 'italic)
-    (list 'normal)))
-
-(defun modus-themes-variable-pitch ()
-  "Conditional use of `variable-pitch' in headings."
-  (when modus-themes-variable-pitch-headings
-    (list :inherit 'variable-pitch)))
-
-(defun modus-themes-fringe (mainbg subtlebg intensebg)
-  "Conditional use of background colors for fringes.
-MAINBG is the default.  SUBTLEBG should be a subtle greyscale
-value.  INTENSEBG must be a more pronounced greyscale color."
-  (pcase modus-themes-fringes
-    ('intense (list :background intensebg))
-    ('subtle (list :background subtlebg))
-    (_ (list :background mainbg))))
-
-(defun modus-themes-prompt (mainfg subtlebg subtlefg intensebg intensefg)
-  "Conditional use of background colors for prompts.
-MAINFG is the prompt's standard foreground.  SUBTLEBG should be a
-subtle accented background that works with SUBTLEFG.  INTENSEBG
-must be a more pronounced accented color that should be
-combinable with INTENSEFG."
-  (pcase modus-themes-prompts
-    ('intense (list :background intensebg :foreground intensefg))
-    ('subtle (list :background subtlebg :foreground subtlefg))
-    (_ (list :background nil :foreground mainfg))))
-
-(defun modus-themes-paren (normalbg intensebg)
-  "Conditional use of intense colors for matching parentheses.
-NORMALBG should the special palette color 'bg-paren-match' or
-something similar.  INTENSEBG must be easier to discern next to
-other backgrounds, such as the special palette color
-'bg-paren-match-intense'."
-  (if modus-themes-intense-paren-match
-      (list :background intensebg)
-    (list :background normalbg)))
-
-(defun modus-themes-syntax-foreground (fg faint)
-  "Apply foreground value to code syntax.
-FG is the default.  FAINT is typically the same color in its
-desaturated version."
-  (pcase modus-themes-syntax
-    ('faint (list :foreground faint))
-    (_ (list :foreground fg))))
-
-(defun modus-themes-syntax-extra (fg faint alt)
-  "Apply foreground value to code syntax.
-FG is the default.  FAINT is typically the same color in its
-desaturated version.  ALT is another hue."
-  (pcase modus-themes-syntax
-    ('faint (list :foreground faint))
-    ('alt-syntax (list :foreground alt))
-    ('alt-syntax-yellow-comments (list :foreground alt))
-    (_ (list :foreground fg))))
-
-(defun modus-themes-syntax-string (fg faint green alt)
-  "Apply foreground value to strings in code syntax.
-FG is the default.  FAINT is typically the same color in its
-desaturated version.  GREEN is a color variant in that side of
-the spectrum.  ALT is another hue."
-  (pcase modus-themes-syntax
-    ('faint (list :foreground faint))
-    ('green-strings (list :foreground green))
-    ('yellow-comments-green-strings (list :foreground alt))
-    ('alt-syntax (list :foreground alt))
-    ('alt-syntax-yellow-comments (list :foreground alt))
-    (_ (list :foreground fg))))
-
-(defun modus-themes-syntax-docstring (fg faint green alt)
-  "Apply foreground value to strings in code syntax.
-FG is the default.  FAINT is typically the same color in its
-desaturated version.  GREEN is a color variant in that side of
-the spectrum.  ALT is another hue."
-  (pcase modus-themes-syntax
-    ('faint (list :foreground faint))
-    ('green-strings (list :foreground green))
-    ('yellow-comments-green-strings (list :foreground green))
-    ('alt-syntax (list :foreground alt))
-    ('alt-syntax-yellow-comments (list :foreground alt))
-    (_ (list :foreground fg))))
-
-(defun modus-themes-syntax-comment (fg yellow)
-  "Apply foreground value to strings in code syntax.
-FG is the default.  YELLOW is a color variant of that name."
-  (pcase modus-themes-syntax
-    ('yellow-comments (list :foreground yellow))
-    ('yellow-comments-green-strings (list :foreground yellow))
-    ('alt-syntax-yellow-comments (list :foreground yellow))
-    (_ (list :foreground fg))))
-
-(defun modus-themes-heading-p (key)
-  "Query style of KEY in `modus-themes-headings'."
-  (cdr (assoc key modus-themes-headings)))
-
-(defun modus-themes-heading (level fg fg-alt bg border)
-  "Conditional styles for `modus-themes-headings'.
-
-LEVEL is the heading's position in their order.  FG is the
-default text color.  FG-ALT is an accented, more saturated value
-than the default.  BG is a nuanced, typically accented,
-background that can work well with either of the foreground
-values.  BORDER is a color value that combines well with the
-background and alternative foreground."
-  (let* ((key (modus-themes-heading-p `,level))
-         (style (or key (modus-themes-heading-p t)))
-         (var (if modus-themes-variable-pitch-headings
-                  'variable-pitch
-                'default)))
-    (pcase style
-      ('no-bold
-       (list :inherit `,var :foreground fg))
-      ('line
-       (list :inherit `(bold ,var) :foreground fg :overline border))
-      ('line-no-bold
-       (list :inherit `,var :foreground fg :overline border))
-      ('rainbow
-       (list :inherit `(bold ,var) :foreground fg-alt))
-      ('rainbow-no-bold
-       (list :inherit `,var :foreground fg-alt))
-      ('rainbow-line
-       (list :inherit `(bold ,var) :foreground fg-alt :overline border))
-      ('rainbow-line-no-bold
-       (list :inherit `,var :foreground fg-alt :overline border))
-      ('highlight
-       (list :inherit `(bold ,var) :background bg :foreground fg))
-      ('highlight-no-bold
-       (list :inherit `,var :background bg :foreground fg))
-      ('rainbow-highlight
-       (list :inherit `(bold ,var) :background bg :foreground fg-alt))
-      ('rainbow-highlight-no-bold
-       (list :inherit `,var :background bg :foreground fg-alt))
-      ('section
-       (append
-        (and (>= emacs-major-version 27) '(:extend t))
-        (list :inherit `(bold ,var) :background bg :foreground fg :overline border)))
-      ('section-no-bold
-       (append
-        (and (>= emacs-major-version 27) '(:extend t))
-        (list :inherit `,var :background bg :foreground fg :overline border)))
-      ('rainbow-section
-       (append
-        (and (>= emacs-major-version 27) '(:extend t))
-        (list :inherit `(bold ,var) :background bg :foreground fg-alt :overline border)))
-      ('rainbow-section-no-bold
-       (append
-        (and (>= emacs-major-version 27) '(:extend t))
-        (list :inherit `,var :background bg :foreground fg-alt :overline border)))
-      (_
-       (list :inherit `(bold ,var) :foreground fg)))))
-
-(defun modus-themes-org-block (bgblk)
-  "Conditionally set the background of Org blocks.
-BGBLK applies to a distinct neutral background.  Else blocks have
-no background of their own (the default), so they look the same
-as the rest of the buffer.
-
-`modus-themes-org-blocks' also accepts a `rainbow' option
-which is applied conditionally to `org-src-block-faces' (see the
-theme's source code)."
-  (if (or (eq modus-themes-org-blocks 'grayscale)
-          (eq modus-themes-org-blocks 'greyscale))
-      (append
-       (and (>= emacs-major-version 27) '(:extend t))
-       (list :background bgblk))
-    (list :background nil)))
-
-(defun modus-themes-org-block-delim (bgaccent fgaccent bg fg)
-  "Conditionally set the styles of Org block delimiters.
-BG, FG, BGACCENT, FGACCENT apply a background and foreground
-color respectively.
-
-The former pair is a greyscale combination that should be more
-distinct than the background of the block.  It is applied to the
-default styles or when `modus-themes-org-blocks' is set
-to `greyscale'.
-
-The latter pair should be more subtle than the background of the
-block, as it is used when `modus-themes-org-blocks' is
-set to `rainbow'."
-  (pcase modus-themes-org-blocks
-    ('grayscale (append (and (>= emacs-major-version 27) '(:extend t))
-                        (list :background bg :foreground fg)))
-    ('greyscale (append (and (>= emacs-major-version 27) '(:extend t))
-                        (list :background bg :foreground fg)))
-    ('rainbow (list :background bgaccent :foreground fgaccent))
-    (_ (list :background bg :foreground fg))))
-
-(defun modus-themes-mode-line-attrs
-    (fg bg fg-alt bg-alt border border-3d &optional alt-style border-width fg-distant)
-  "Color combinations for `modus-themes-mode-line'.
-
-FG and BG are the default colors.  FG-ALT and BG-ALT are meant to
-accommodate the options for a 3D modeline or a `moody' compliant
-one.  BORDER applies to all permutations of the modeline, except
-the three-dimensional effect, where BORDER-3D is used instead.
-
-Optional ALT-STYLE applies an appropriate style to the mode
-line's box property.
-
-Optional BORDER-WIDTH specifies an integer for the width of the
-rectangle that produces the box effect.
-
-Optional FG-DISTANT should be close to the main background
-values.  It is intended to be used as a distant-foreground
-property."
-  (pcase modus-themes-mode-line
-    ('3d
-     `(:background ,bg-alt :foreground ,fg-alt
-                   :box (:line-width ,(or border-width 1)
-                                     :color ,border-3d
-                                     :style ,(and alt-style 'released-button))))
-    ('moody
-     `(:background ,bg-alt :foreground ,fg-alt :underline ,border :overline ,border
-                   :distant-foreground ,fg-distant))
-    (_
-     `(:foreground ,fg :background ,bg :box ,border))))
-
-(defun modus-themes-diff (fg-only-bg fg-only-fg mainbg mainfg altbg altfg)
-  "Color combinations for `modus-themes-diffs'.
-
-FG-ONLY-BG should be similar or the same as the main background.
-FG-ONLY-FG should be a saturated accent value that can be
-combined with the former.
-
-MAINBG must be one of the dedicated backgrounds for diffs while
-MAINFG must be the same for the foreground.
-
-ALTBG needs to be a slightly accented background that is meant to
-be combined with ALTFG.  Both must be less intense than MAINBG
-and MAINFG respectively."
-  (pcase modus-themes-diffs
-    ('fg-only (list :background fg-only-bg :foreground fg-only-fg))
-    ('desaturated (list :background altbg :foreground altfg))
-    (_ (list :background mainbg :foreground mainfg))))
-
-(defun modus-themes-standard-completions (mainfg subtlebg intensebg intensefg)
-  "Combinations for `modus-themes-completions'.
-
-MAINFG is an accented foreground value.  SUBTLEBG is an accented
-background value that can be combined with MAINFG.  INTENSEBG and
-INTENSEFG are accented colors that are designed to be used in
-tandem.
-
-These are intended for Icomplete, Ido, and related."
-  (pcase modus-themes-completions
-    ('opinionated (list :background intensebg :foreground intensefg))
-    ('moderate (list :background subtlebg :foreground mainfg))
-    (_ (list :foreground mainfg))))
-
-(defun modus-themes-extra-completions (subtleface intenseface altface &optional altfg bold)
-  "Combinations for `modus-themes-completions'.
-
-SUBTLEFACE and INTENSEFACE are custom theme faces that combine a
-background and foreground value.  The difference between the two
-is a matter of degree.
-
-ALTFACE is a combination of colors that represents a departure
-from the UI's default aesthetics.  Optional ALTFG is meant to be
-used in tandem with it.
-
-Optional BOLD will apply a heavier weight to the text.
-
-These are intended for Helm, Ivy, etc."
-  (pcase modus-themes-completions
-    ('opinionated (list :inherit (list altface bold)
-                        :foreground (or altfg 'unspecified)))
-    ('moderate (list :inherit (list subtleface bold)))
-    (_ (list :inherit (list intenseface bold)))))
-
-(defun modus-themes-link (fg fgfaint underline)
-  "Conditional application of link styles.
-FG is the link's default color for its text and underline
-property.  FGFAINT is a desaturated color for the text and
-underline.  UNDERLINE is a grey color only for the undeline."
-  (pcase modus-themes-links
-    ('faint (list :foreground fgfaint :underline t))
-    ('neutral-underline (list :foreground fg :underline underline))
-    ('faint-neutral-underline (list :foreground fgfaint :underline underline))
-    ('no-underline (list :foreground fg :underline nil))
-    (_ (list :foreground fg :underline t))))
-
-(defun modus-themes-link-color (fg fgfaint)
-  "Extends `modus-themes-link'.
-FG is the main foreground.  FGFAINT is the desaturated one."
-  (pcase modus-themes-links
-    ('faint (list :foreground fgfaint))
-    ('faint-neutral-underline (list :foreground fgfaint))
-    (_ (list :foreground fg))))
-
-(defun modus-themes-scale (amount)
-  "Scale heading by AMOUNT.
-AMOUNT is a customization option."
-  (when modus-themes-scale-headings
-    (list :height amount)))
 
 
 
@@ -1303,9 +885,396 @@ symbol and the latter as a string.")
 Each element has the form (NAME . HEX) with the former as a
 symbol and the latter as a string.")
 
+;;;; Deprecated customisation options (prior to 1.0.0)
+
+;;;;; Modus Operandi obsolete options
+
 (make-obsolete 'modus-operandi-theme-override-colors-alist nil "1.0.0")
+(make-obsolete 'modus-operandi-theme-slanted-constructs 'modus-themes-slanted-constructs "1.0.0")
+(make-obsolete 'modus-operandi-theme-bold-constructs 'modus-themes-bold-constructs "1.0.0")
+(make-obsolete 'modus-operandi-theme-proportional-fonts 'modus-themes-variable-pitch-headings "1.0.0")
+(make-obsolete 'modus-operandi-theme-variable-pitch-headings 'modus-themes-variable-pitch-headings "1.0.0")
+(make-obsolete 'modus-operandi-theme-no-mixed-fonts 'modus-themes-no-mixed-fonts "1.0.0")
+(make-obsolete 'modus-operandi-theme-rainbow-headings 'modus-themes-headings "1.0.0")
+(make-obsolete 'modus-operandi-theme-section-headings 'modus-themes-headings "1.0.0")
+(make-obsolete 'modus-operandi-theme-headings 'modus-themes-headings "1.0.0")
+(make-obsolete 'modus-operandi-theme-scale-headings 'modus-themes-scale-headings "1.0.0")
+(make-obsolete 'modus-operandi-theme-scale-1 'modus-themes-scale-1 "1.0.0")
+(make-obsolete 'modus-operandi-theme-scale-2 'modus-themes-scale-2 "1.0.0")
+(make-obsolete 'modus-operandi-theme-scale-3 'modus-themes-scale-3 "1.0.0")
+(make-obsolete 'modus-operandi-theme-scale-4 'modus-themes-scale-4 "1.0.0")
+(make-obsolete 'modus-operandi-theme-scale-5 'modus-themes-scale-5 "1.0.0")
+(make-obsolete 'modus-operandi-theme-visible-fringes 'modus-themes-fringes "1.0.0")
+(make-obsolete 'modus-operandi-theme-fringes 'modus-themes-fringes "1.0.0")
+(make-obsolete 'modus-operandi-theme-distinct-org-blocks 'modus-themes-org-blocks "1.0.0")
+(make-obsolete 'modus-operandi-theme-rainbow-org-src-blocks 'modus-themes-org-blocks "1.0.0")
+(make-obsolete 'modus-operandi-theme-org-blocks 'modus-themes-org-blocks "1.0.0")
+(make-obsolete 'modus-operandi-theme-3d-modeline 'modus-themes-mode-line "1.0.0")
+(make-obsolete 'modus-operandi-theme-mode-line 'modus-themes-mode-line "1.0.0")
+(make-obsolete 'modus-operandi-theme-subtle-diffs 'modus-themes-diffs "1.0.0")
+(make-obsolete 'modus-operandi-theme-diffs 'modus-themes-diffs "1.0.0")
+(make-obsolete 'modus-operandi-theme-intense-standard-completions 'modus-themes-completions "1.0.0")
+(make-obsolete 'modus-operandi-theme-completions 'modus-themes-completions "1.0.0")
+(make-obsolete 'modus-operandi-theme-prompts 'modus-themes-prompts "1.0.0")
+(make-obsolete 'modus-operandi-theme-intense-hl-line 'modus-themes-intense-hl-line "1.0.0")
+(make-obsolete 'modus-operandi-theme-intense-paren-match 'modus-themes-intense-paren-match "1.0.0")
+(make-obsolete 'modus-operandi-theme-faint-syntax 'modus-themes-syntax "1.0.0")
+(make-obsolete 'modus-operandi-theme-comments 'modus-themes-syntax "1.0.0")
+(make-obsolete 'modus-operandi-theme-syntax 'modus-themes-syntax "1.0.0")
+(make-obsolete 'modus-operandi-theme-no-link-underline 'modus-themes-no-link-underline "1.0.0")
+(make-obsolete 'modus-operandi-theme-links 'modus-themes-links "1.0.0")
+
+;;;;; Modus Vivendi obsolete options
 
 (make-obsolete 'modus-vivendi-theme-override-colors-alist nil "1.0.0")
+(make-obsolete 'modus-vivendi-theme-slanted-constructs 'modus-themes-slanted-constructs "1.0.0")
+(make-obsolete 'modus-vivendi-theme-bold-constructs 'modus-themes-bold-constructs "1.0.0")
+(make-obsolete 'modus-vivendi-theme-proportional-fonts 'modus-themes-variable-pitch-headings "1.0.0")
+(make-obsolete 'modus-vivendi-theme-variable-pitch-headings 'modus-themes-variable-pitch-headings "1.0.0")
+(make-obsolete 'modus-vivendi-theme-no-mixed-fonts 'modus-themes-no-mixed-fonts "1.0.0")
+(make-obsolete 'modus-vivendi-theme-rainbow-headings 'modus-themes-headings "1.0.0")
+(make-obsolete 'modus-vivendi-theme-section-headings 'modus-themes-headings "1.0.0")
+(make-obsolete 'modus-vivendi-theme-headings 'modus-themes-headings "1.0.0")
+(make-obsolete 'modus-vivendi-theme-scale-headings 'modus-themes-scale-headings "1.0.0")
+(make-obsolete 'modus-vivendi-theme-scale-1 'modus-themes-scale-1 "1.0.0")
+(make-obsolete 'modus-vivendi-theme-scale-2 'modus-themes-scale-2 "1.0.0")
+(make-obsolete 'modus-vivendi-theme-scale-3 'modus-themes-scale-3 "1.0.0")
+(make-obsolete 'modus-vivendi-theme-scale-4 'modus-themes-scale-4 "1.0.0")
+(make-obsolete 'modus-vivendi-theme-scale-5 'modus-themes-scale-5 "1.0.0")
+(make-obsolete 'modus-vivendi-theme-visible-fringes 'modus-themes-fringes "1.0.0")
+(make-obsolete 'modus-vivendi-theme-fringes 'modus-themes-fringes "1.0.0")
+(make-obsolete 'modus-vivendi-theme-distinct-org-blocks 'modus-themes-org-blocks "1.0.0")
+(make-obsolete 'modus-vivendi-theme-rainbow-org-src-blocks 'modus-themes-org-blocks "1.0.0")
+(make-obsolete 'modus-vivendi-theme-org-blocks 'modus-themes-org-blocks "1.0.0")
+(make-obsolete 'modus-vivendi-theme-3d-modeline 'modus-themes-mode-line "1.0.0")
+(make-obsolete 'modus-vivendi-theme-mode-line 'modus-themes-mode-line "1.0.0")
+(make-obsolete 'modus-vivendi-theme-subtle-diffs 'modus-themes-diffs "1.0.0")
+(make-obsolete 'modus-vivendi-theme-diffs 'modus-themes-diffs "1.0.0")
+(make-obsolete 'modus-vivendi-theme-intense-standard-completions 'modus-themes-completions "1.0.0")
+(make-obsolete 'modus-vivendi-theme-completions 'modus-themes-completions "1.0.0")
+(make-obsolete 'modus-vivendi-theme-prompts 'modus-themes-prompts "1.0.0")
+(make-obsolete 'modus-vivendi-theme-intense-hl-line 'modus-themes-intense-hl-line "1.0.0")
+(make-obsolete 'modus-vivendi-theme-intense-paren-match 'modus-themes-intense-paren-match "1.0.0")
+(make-obsolete 'modus-vivendi-theme-faint-syntax 'modus-themes-syntax "1.0.0")
+(make-obsolete 'modus-vivendi-theme-comments 'modus-themes-syntax "1.0.0")
+(make-obsolete 'modus-vivendi-theme-syntax 'modus-themes-syntax "1.0.0")
+(make-obsolete 'modus-vivendi-theme-no-link-underline 'modus-themes-no-link-underline "1.0.0")
+(make-obsolete 'modus-vivendi-theme-links 'modus-themes-links "1.0.0")
+
+
+
+;;; Internal functions
+
+;; Helper functions that are meant to ease the implementation of the
+;; above customization options.
+(defun modus-themes-bold-weight ()
+  "Conditional use of a heavier text weight."
+  (when modus-themes-bold-constructs
+    (list :inherit 'bold)))
+
+(defun modus-themes-mixed-fonts ()
+  "Conditional application of `fixed-pitch' inheritance."
+  (unless modus-themes-no-mixed-fonts
+    (list :inherit 'fixed-pitch)))
+
+(defun modus-themes-slant ()
+  "Conditional use of italics for slant attribute."
+  (if modus-themes-slanted-constructs
+      (list 'italic)
+    (list 'normal)))
+
+(defun modus-themes-variable-pitch ()
+  "Conditional use of `variable-pitch' in headings."
+  (when modus-themes-variable-pitch-headings
+    (list :inherit 'variable-pitch)))
+
+(defun modus-themes-fringe (mainbg subtlebg intensebg)
+  "Conditional use of background colors for fringes.
+MAINBG is the default.  SUBTLEBG should be a subtle greyscale
+value.  INTENSEBG must be a more pronounced greyscale color."
+  (pcase modus-themes-fringes
+    ('intense (list :background intensebg))
+    ('subtle (list :background subtlebg))
+    (_ (list :background mainbg))))
+
+(defun modus-themes-prompt (mainfg subtlebg subtlefg intensebg intensefg)
+  "Conditional use of background colors for prompts.
+MAINFG is the prompt's standard foreground.  SUBTLEBG should be a
+subtle accented background that works with SUBTLEFG.  INTENSEBG
+must be a more pronounced accented color that should be
+combinable with INTENSEFG."
+  (pcase modus-themes-prompts
+    ('intense (list :background intensebg :foreground intensefg))
+    ('subtle (list :background subtlebg :foreground subtlefg))
+    (_ (list :background nil :foreground mainfg))))
+
+(defun modus-themes-paren (normalbg intensebg)
+  "Conditional use of intense colors for matching parentheses.
+NORMALBG should the special palette color 'bg-paren-match' or
+something similar.  INTENSEBG must be easier to discern next to
+other backgrounds, such as the special palette color
+'bg-paren-match-intense'."
+  (if modus-themes-intense-paren-match
+      (list :background intensebg)
+    (list :background normalbg)))
+
+(defun modus-themes-syntax-foreground (fg faint)
+  "Apply foreground value to code syntax.
+FG is the default.  FAINT is typically the same color in its
+desaturated version."
+  (pcase modus-themes-syntax
+    ('faint (list :foreground faint))
+    (_ (list :foreground fg))))
+
+(defun modus-themes-syntax-extra (fg faint alt)
+  "Apply foreground value to code syntax.
+FG is the default.  FAINT is typically the same color in its
+desaturated version.  ALT is another hue."
+  (pcase modus-themes-syntax
+    ('faint (list :foreground faint))
+    ('alt-syntax (list :foreground alt))
+    ('alt-syntax-yellow-comments (list :foreground alt))
+    (_ (list :foreground fg))))
+
+(defun modus-themes-syntax-string (fg faint green alt)
+  "Apply foreground value to strings in code syntax.
+FG is the default.  FAINT is typically the same color in its
+desaturated version.  GREEN is a color variant in that side of
+the spectrum.  ALT is another hue."
+  (pcase modus-themes-syntax
+    ('faint (list :foreground faint))
+    ('green-strings (list :foreground green))
+    ('yellow-comments-green-strings (list :foreground alt))
+    ('alt-syntax (list :foreground alt))
+    ('alt-syntax-yellow-comments (list :foreground alt))
+    (_ (list :foreground fg))))
+
+(defun modus-themes-syntax-docstring (fg faint green alt)
+  "Apply foreground value to strings in code syntax.
+FG is the default.  FAINT is typically the same color in its
+desaturated version.  GREEN is a color variant in that side of
+the spectrum.  ALT is another hue."
+  (pcase modus-themes-syntax
+    ('faint (list :foreground faint))
+    ('green-strings (list :foreground green))
+    ('yellow-comments-green-strings (list :foreground green))
+    ('alt-syntax (list :foreground alt))
+    ('alt-syntax-yellow-comments (list :foreground alt))
+    (_ (list :foreground fg))))
+
+(defun modus-themes-syntax-comment (fg yellow)
+  "Apply foreground value to strings in code syntax.
+FG is the default.  YELLOW is a color variant of that name."
+  (pcase modus-themes-syntax
+    ('yellow-comments (list :foreground yellow))
+    ('yellow-comments-green-strings (list :foreground yellow))
+    ('alt-syntax-yellow-comments (list :foreground yellow))
+    (_ (list :foreground fg))))
+
+(defun modus-themes-heading-p (key)
+  "Query style of KEY in `modus-themes-headings'."
+  (cdr (assoc key modus-themes-headings)))
+
+(defun modus-themes-heading (level fg fg-alt bg border)
+  "Conditional styles for `modus-themes-headings'.
+
+LEVEL is the heading's position in their order.  FG is the
+default text color.  FG-ALT is an accented, more saturated value
+than the default.  BG is a nuanced, typically accented,
+background that can work well with either of the foreground
+values.  BORDER is a color value that combines well with the
+background and alternative foreground."
+  (let* ((key (modus-themes-heading-p `,level))
+         (style (or key (modus-themes-heading-p t)))
+         (var (if modus-themes-variable-pitch-headings
+                  'variable-pitch
+                'default)))
+    (pcase style
+      ('no-bold
+       (list :inherit `,var :foreground fg))
+      ('line
+       (list :inherit `(bold ,var) :foreground fg :overline border))
+      ('line-no-bold
+       (list :inherit `,var :foreground fg :overline border))
+      ('rainbow
+       (list :inherit `(bold ,var) :foreground fg-alt))
+      ('rainbow-no-bold
+       (list :inherit `,var :foreground fg-alt))
+      ('rainbow-line
+       (list :inherit `(bold ,var) :foreground fg-alt :overline border))
+      ('rainbow-line-no-bold
+       (list :inherit `,var :foreground fg-alt :overline border))
+      ('highlight
+       (list :inherit `(bold ,var) :background bg :foreground fg))
+      ('highlight-no-bold
+       (list :inherit `,var :background bg :foreground fg))
+      ('rainbow-highlight
+       (list :inherit `(bold ,var) :background bg :foreground fg-alt))
+      ('rainbow-highlight-no-bold
+       (list :inherit `,var :background bg :foreground fg-alt))
+      ('section
+       (append
+        (and (>= emacs-major-version 27) '(:extend t))
+        (list :inherit `(bold ,var) :background bg :foreground fg :overline border)))
+      ('section-no-bold
+       (append
+        (and (>= emacs-major-version 27) '(:extend t))
+        (list :inherit `,var :background bg :foreground fg :overline border)))
+      ('rainbow-section
+       (append
+        (and (>= emacs-major-version 27) '(:extend t))
+        (list :inherit `(bold ,var) :background bg :foreground fg-alt :overline border)))
+      ('rainbow-section-no-bold
+       (append
+        (and (>= emacs-major-version 27) '(:extend t))
+        (list :inherit `,var :background bg :foreground fg-alt :overline border)))
+      (_
+       (list :inherit `(bold ,var) :foreground fg)))))
+
+(defun modus-themes-org-block (bgblk)
+  "Conditionally set the background of Org blocks.
+BGBLK applies to a distinct neutral background.  Else blocks have
+no background of their own (the default), so they look the same
+as the rest of the buffer.
+
+`modus-themes-org-blocks' also accepts a `rainbow' option
+which is applied conditionally to `org-src-block-faces' (see the
+theme's source code)."
+  (if (or (eq modus-themes-org-blocks 'grayscale)
+          (eq modus-themes-org-blocks 'greyscale))
+      (append
+       (and (>= emacs-major-version 27) '(:extend t))
+       (list :background bgblk))
+    (list :background nil)))
+
+(defun modus-themes-org-block-delim (bgaccent fgaccent bg fg)
+  "Conditionally set the styles of Org block delimiters.
+BG, FG, BGACCENT, FGACCENT apply a background and foreground
+color respectively.
+
+The former pair is a greyscale combination that should be more
+distinct than the background of the block.  It is applied to the
+default styles or when `modus-themes-org-blocks' is set
+to `greyscale'.
+
+The latter pair should be more subtle than the background of the
+block, as it is used when `modus-themes-org-blocks' is
+set to `rainbow'."
+  (pcase modus-themes-org-blocks
+    ('grayscale (append (and (>= emacs-major-version 27) '(:extend t))
+                        (list :background bg :foreground fg)))
+    ('greyscale (append (and (>= emacs-major-version 27) '(:extend t))
+                        (list :background bg :foreground fg)))
+    ('rainbow (list :background bgaccent :foreground fgaccent))
+    (_ (list :background bg :foreground fg))))
+
+(defun modus-themes-mode-line-attrs
+    (fg bg fg-alt bg-alt border border-3d &optional alt-style border-width fg-distant)
+  "Color combinations for `modus-themes-mode-line'.
+
+FG and BG are the default colors.  FG-ALT and BG-ALT are meant to
+accommodate the options for a 3D modeline or a `moody' compliant
+one.  BORDER applies to all permutations of the modeline, except
+the three-dimensional effect, where BORDER-3D is used instead.
+
+Optional ALT-STYLE applies an appropriate style to the mode
+line's box property.
+
+Optional BORDER-WIDTH specifies an integer for the width of the
+rectangle that produces the box effect.
+
+Optional FG-DISTANT should be close to the main background
+values.  It is intended to be used as a distant-foreground
+property."
+  (pcase modus-themes-mode-line
+    ('3d
+     `(:background ,bg-alt :foreground ,fg-alt
+                   :box (:line-width ,(or border-width 1)
+                                     :color ,border-3d
+                                     :style ,(and alt-style 'released-button))))
+    ('moody
+     `(:background ,bg-alt :foreground ,fg-alt :underline ,border :overline ,border
+                   :distant-foreground ,fg-distant))
+    (_
+     `(:foreground ,fg :background ,bg :box ,border))))
+
+(defun modus-themes-diff (fg-only-bg fg-only-fg mainbg mainfg altbg altfg)
+  "Color combinations for `modus-themes-diffs'.
+
+FG-ONLY-BG should be similar or the same as the main background.
+FG-ONLY-FG should be a saturated accent value that can be
+combined with the former.
+
+MAINBG must be one of the dedicated backgrounds for diffs while
+MAINFG must be the same for the foreground.
+
+ALTBG needs to be a slightly accented background that is meant to
+be combined with ALTFG.  Both must be less intense than MAINBG
+and MAINFG respectively."
+  (pcase modus-themes-diffs
+    ('fg-only (list :background fg-only-bg :foreground fg-only-fg))
+    ('desaturated (list :background altbg :foreground altfg))
+    (_ (list :background mainbg :foreground mainfg))))
+
+(defun modus-themes-standard-completions (mainfg subtlebg intensebg intensefg)
+  "Combinations for `modus-themes-completions'.
+
+MAINFG is an accented foreground value.  SUBTLEBG is an accented
+background value that can be combined with MAINFG.  INTENSEBG and
+INTENSEFG are accented colors that are designed to be used in
+tandem.
+
+These are intended for Icomplete, Ido, and related."
+  (pcase modus-themes-completions
+    ('opinionated (list :background intensebg :foreground intensefg))
+    ('moderate (list :background subtlebg :foreground mainfg))
+    (_ (list :foreground mainfg))))
+
+(defun modus-themes-extra-completions (subtleface intenseface altface &optional altfg bold)
+  "Combinations for `modus-themes-completions'.
+
+SUBTLEFACE and INTENSEFACE are custom theme faces that combine a
+background and foreground value.  The difference between the two
+is a matter of degree.
+
+ALTFACE is a combination of colors that represents a departure
+from the UI's default aesthetics.  Optional ALTFG is meant to be
+used in tandem with it.
+
+Optional BOLD will apply a heavier weight to the text.
+
+These are intended for Helm, Ivy, etc."
+  (pcase modus-themes-completions
+    ('opinionated (list :inherit (list altface bold)
+                        :foreground (or altfg 'unspecified)))
+    ('moderate (list :inherit (list subtleface bold)))
+    (_ (list :inherit (list intenseface bold)))))
+
+(defun modus-themes-link (fg fgfaint underline)
+  "Conditional application of link styles.
+FG is the link's default color for its text and underline
+property.  FGFAINT is a desaturated color for the text and
+underline.  UNDERLINE is a grey color only for the undeline."
+  (pcase modus-themes-links
+    ('faint (list :foreground fgfaint :underline t))
+    ('neutral-underline (list :foreground fg :underline underline))
+    ('faint-neutral-underline (list :foreground fgfaint :underline underline))
+    ('no-underline (list :foreground fg :underline nil))
+    (_ (list :foreground fg :underline t))))
+
+(defun modus-themes-link-color (fg fgfaint)
+  "Extends `modus-themes-link'.
+FG is the main foreground.  FGFAINT is the desaturated one."
+  (pcase modus-themes-links
+    ('faint (list :foreground fgfaint))
+    ('faint-neutral-underline (list :foreground fgfaint))
+    (_ (list :foreground fg))))
+
+(defun modus-themes-scale (amount)
+  "Scale heading by AMOUNT.
+AMOUNT is a customization option."
+  (when modus-themes-scale-headings
+    (list :height amount)))
 
 
 
