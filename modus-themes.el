@@ -472,145 +472,153 @@ Option `no-underline' removes link underlines altogether."
 (defconst modus-themes-operandi-colors
   '(;; base values
     (bg-main . "#ffffff") (fg-main . "#000000")
-    (bg-alt . "#f0f0f0") (fg-alt . "#505050")
     (bg-dim . "#f8f8f8") (fg-dim . "#282828")
-    ;; specifically for on/off states (e.g. `mode-line')
-    ;;
-    ;; must be combined with themselves
+    (bg-alt . "#f0f0f0") (fg-alt . "#505050")
+    ;; specifically for on/off states and must be combined with
+    ;; themselves, though the backgrounds are also meant to be used with
+    ;; other "active" values, defined further below
     (bg-active . "#d7d7d7") (fg-active . "#0a0a0a")
     (bg-inactive . "#efefef") (fg-inactive . "#404148")
-    ;; special base values, used only for cases where the above
-    ;; fg-* or bg-* cannot or should not be used (to avoid confusion)
-    ;; must be combined with: {fg,bg}-{main,alt,dim}
+    ;; these special values are intended as alternatives to the base
+    ;; values for cases where we need to avoid confusion between the
+    ;; highlighted constructs; they must either be used as pairs based
+    ;; on their name or each can be combined with {fg,bg}-{main,alt,dim}
+    ;; always in accordance with their role as background or foreground
     (bg-special-cold . "#dde3f4") (fg-special-cold . "#093060")
     (bg-special-mild . "#c4ede0") (fg-special-mild . "#184034")
     (bg-special-warm . "#f0e0d4") (fg-special-warm . "#5d3026")
     (bg-special-calm . "#f8ddea") (fg-special-calm . "#61284f")
-    ;; styles for the main constructs
-    ;;
-    ;; must be combined with: `bg-main', `bg-alt', `bg-dim'
-    (red . "#a60000") (green . "#005e00")
-    (yellow . "#813e00") (blue . "#0031a9")
-    (magenta . "#721045") (cyan . "#00538b")
-    ;; styles for common, but still specialized constructs
-    ;;
-    ;; must be combined with: `bg-main', `bg-alt', `bg-dim'
-    (red-alt . "#972500") (green-alt . "#315b00")
-    (yellow-alt . "#70480f") (blue-alt . "#2544bb")
-    (magenta-alt . "#8f0075") (cyan-alt . "#30517f")
-    ;; same purpose as above, just slight differences
-    ;;
-    ;; must be combined with: `bg-main', `bg-alt', `bg-dim'
-    (red-alt-other . "#a0132f") (green-alt-other . "#145c33")
-    (yellow-alt-other . "#863927") (blue-alt-other . "#0000c0")
-    (magenta-alt-other . "#5317ac") (cyan-alt-other . "#005a5f")
-    ;; styles for desaturated foreground text
-    ;;
-    ;; must be combined with: `bg-main', `bg-alt', `bg-dim'
-    (red-faint . "#7f1010") (green-faint . "#104410")
-    (yellow-faint . "#5f4400") (blue-faint . "#002f88")
-    (magenta-faint . "#752f50") (cyan-faint . "#12506f")
-
-    (red-alt-faint . "#702f00") (green-alt-faint . "#30440f")
-    (yellow-alt-faint . "#5d5000") (blue-alt-faint . "#003f78")
-    (magenta-alt-faint . "#702565") (cyan-alt-faint . "#354f6f")
-
-    (red-alt-other-faint . "#7f002f") (green-alt-other-faint . "#0f443f")
-    (yellow-alt-other-faint . "#5e3a20") (blue-alt-other-faint . "#1f0f6f")
-    (magenta-alt-other-faint . "#5f3f7f") (cyan-alt-other-faint . "#2e584f")
-    ;; styles for elements that should be very subtle, yet accented
-    ;;
-    ;; must be combined with: `bg-main', `bg-alt', `bg-dim' or any of
-    ;; the "nuanced" backgrounds
-    (red-nuanced . "#5f0000") (green-nuanced . "#004000")
-    (yellow-nuanced . "#3f3000") (blue-nuanced . "#201f55")
-    (magenta-nuanced . "#541f4f") (cyan-nuanced . "#0f3360")
-    ;; styles for slightly accented background
-    ;;
-    ;; must be combined with any of the above foreground values
-    (red-nuanced-bg . "#fff1f0") (green-nuanced-bg . "#ecf7ed")
-    (yellow-nuanced-bg . "#fff3da") (blue-nuanced-bg . "#f3f3ff")
-    (magenta-nuanced-bg . "#fdf0ff") (cyan-nuanced-bg . "#ebf6fa")
-    ;; styles for elements that should draw attention to themselves
-    ;;
-    ;; must be combined with: `bg-main'
-    (red-intense . "#b60000") (green-intense . "#006800")
-    (yellow-intense . "#904200") (blue-intense . "#1111ee")
-    (magenta-intense . "#7000e0") (cyan-intense . "#205b93")
-    ;; styles for background elements that should be visible yet
-    ;; subtle
-    ;;
-    ;; must be combined with: `fg-dim'
-    (red-subtle-bg . "#f2b0a2") (green-subtle-bg . "#aecf90")
-    (yellow-subtle-bg . "#e4c340") (blue-subtle-bg . "#b5d0ff")
-    (magenta-subtle-bg . "#f0d3ff") (cyan-subtle-bg . "#c0efff")
-    ;; styles for background elements that should be visible and
-    ;; distinguishable
-    ;;
-    ;; must be combined with: `fg-main'
-    (red-intense-bg . "#ff8892") (green-intense-bg . "#5ada88")
-    (yellow-intense-bg . "#f5df23") (blue-intense-bg . "#6aaeff")
-    (magenta-intense-bg . "#d5baff") (cyan-intense-bg . "#42cbd4")
-    ;; styles for refined contexts where both the foreground and the
-    ;; background need to have the same/similar hue
-    ;;
-    ;; must be combined with themselves OR the foregrounds can be
-    ;; combined with any of the base backgrounds
+    ;; foregrounds that can be combined with bg-main, bg-dim, bg-alt
+    (red . "#a60000")
+    (red-alt . "#972500")
+    (red-alt-other . "#a0132f")
+    (red-faint . "#7f1010")
+    (red-alt-faint . "#702f00")
+    (red-alt-other-faint . "#7f002f")
+    (green . "#005e00")
+    (green-alt . "#315b00")
+    (green-alt-other . "#145c33")
+    (green-faint . "#104410")
+    (green-alt-faint . "#30440f")
+    (green-alt-other-faint . "#0f443f")
+    (yellow . "#813e00")
+    (yellow-alt . "#70480f")
+    (yellow-alt-other . "#863927")
+    (yellow-faint . "#5f4400")
+    (yellow-alt-faint . "#5d5000")
+    (yellow-alt-other-faint . "#5e3a20")
+    (blue . "#0031a9")
+    (blue-alt . "#2544bb")
+    (blue-alt-other . "#0000c0")
+    (blue-faint . "#002f88")
+    (blue-alt-faint . "#003f78")
+    (blue-alt-other-faint . "#1f0f6f")
+    (magenta . "#721045")
+    (magenta-alt . "#8f0075")
+    (magenta-alt-other . "#5317ac")
+    (magenta-faint . "#752f50")
+    (magenta-alt-faint . "#702565")
+    (magenta-alt-other-faint . "#5f3f7f")
+    (cyan . "#00538b")
+    (cyan-alt . "#30517f")
+    (cyan-alt-other . "#005a5f")
+    (cyan-faint . "#12506f")
+    (cyan-alt-faint . "#354f6f")
+    (cyan-alt-other-faint . "#2e584f")
+    ;; these foreground values can only be combined with bg-main and are
+    ;; thus not suitable for general purpose highlighting
+    (red-intense . "#b60000")
+    (green-intense . "#006800")
+    (yellow-intense . "#904200")
+    (blue-intense . "#1111ee")
+    (magenta-intense . "#7000e0")
+    (cyan-intense . "#205b93")
+    ;; those foregrounds are meant exclusively for bg-active, bg-inactive
+    (red-active . "#8a0000")
+    (green-active . "#004c2e")
+    (yellow-active . "#702d1f")
+    (blue-active . "#0030b4")
+    (magenta-active . "#5c2092")
+    (cyan-active . "#003f8a")
+    ;; the "subtle" values below be combined with fg-dim, while the
+    ;; "intense" should be paired with fg-main
+    (red-subtle-bg . "#f2b0a2")
+    (red-intense-bg . "#ff8892")
+    (green-subtle-bg . "#aecf90")
+    (green-intense-bg . "#5ada88")
+    (yellow-subtle-bg . "#e4c340")
+    (yellow-intense-bg . "#f5df23")
+    (blue-subtle-bg . "#b5d0ff")
+    (blue-intense-bg . "#6aaeff")
+    (magenta-subtle-bg . "#f0d3ff")
+    (magenta-intense-bg . "#d5baff")
+    (cyan-subtle-bg . "#c0efff")
+    (cyan-intense-bg . "#42cbd4")
+    ;; those background values must be combined with fg-main and should
+    ;; only be used for indicators that are placed on the fringes
+    (red-fringe-bg . "#f08290")
+    (green-fringe-bg . "#62c86a")
+    (yellow-fringe-bg . "#dbba3f")
+    (blue-fringe-bg . "#82afff")
+    (magenta-fringe-bg . "#e0a3ff")
+    (cyan-fringe-bg . "#2fcddf")
+    ;; the following are for refined contexts where both the foreground
+    ;; and the background need to have a similar hue and so must be
+    ;; combined with themselves, even though the foregrounds can be
+    ;; paired with any of the base backgrounds
     (red-refine-bg . "#ffcccc") (red-refine-fg . "#780000")
     (green-refine-bg . "#aceaac") (green-refine-fg . "#004c00")
     (yellow-refine-bg . "#fff29a") (yellow-refine-fg . "#604000")
     (blue-refine-bg . "#8ac7ff") (blue-refine-fg . "#002288")
     (magenta-refine-bg . "#ffccff") (magenta-refine-fg . "#770077")
     (cyan-refine-bg . "#8eecf4") (cyan-refine-fg . "#004850")
-    ;; styles that are meant exclusively for the mode line
+    ;; the "nuanced" backgrounds can be combined with all of the above
+    ;; foregrounds, as well as those included here, while the "nuanced"
+    ;; foregrounds can in turn also be combined with bg-main, bg-dim,
+    ;; bg-alt
+    (red-nuanced-bg . "#fff1f0") (red-nuanced . "#5f0000")
+    (green-nuanced-bg . "#ecf7ed") (green-nuanced . "#004000")
+    (yellow-nuanced-bg . "#fff3da") (yellow-nuanced . "#3f3000")
+    (blue-nuanced-bg . "#f3f3ff") (blue-nuanced . "#201f55")
+    (magenta-nuanced-bg . "#fdf0ff") (magenta-nuanced . "#541f4f")
+    (cyan-nuanced-bg . "#ebf6fa") (cyan-nuanced . "#0f3360")
+    ;; the following are reserved for specific cases
     ;;
-    ;; must be combined with: `bg-active', `bg-inactive'
-    (red-active . "#8a0000") (green-active . "#004c2e")
-    (yellow-active . "#702d1f") (blue-active . "#0030b4")
-    (magenta-active . "#5c2092") (cyan-active . "#003f8a")
-    ;; styles that are meant exclusively for the fringes
+    ;; bg-hl-line is between bg-dim and bg-alt, so it should
+    ;; work with all accents that cover those two, plus bg-main
     ;;
-    ;; must be combined with `fg-main'
-    (red-fringe-bg . "#f08290") (green-fringe-bg . "#62c86a")
-    (yellow-fringe-bg . "#dbba3f") (blue-fringe-bg . "#82afff")
-    (magenta-fringe-bg . "#e0a3ff") (cyan-fringe-bg . "#2fcddf")
-    ;; styles reserved for specific faces
-    ;;
-    ;; `bg-hl-line' is between `bg-dim' and `bg-alt', so it should
-    ;; work with all accents that cover those two, plus `bg-main'
-    ;;
-    ;; `bg-hl-alt' and `bg-hl-alt-intense' should only be used when no
+    ;; bg-hl-alt and bg-hl-alt-intense should only be used when no
     ;; other greyscale or fairly neutral background is available to
     ;; properly draw attention to a given construct
     ;;
-    ;; `bg-header' is between `bg-active' and `bg-inactive', so it
+    ;; bg-header is between bg-active and bg-inactive, so it
     ;; can be combined with any of the "active" values, plus the
     ;; "special" and base foreground colors
     ;;
-    ;; `bg-paren-match', `bg-paren-match-intense', `bg-region' and
-    ;; `bg-tab-active' must be combined with `fg-main', while
-    ;; `bg-tab-inactive' should be combined with `fg-dim'
+    ;; bg-paren-match, bg-paren-match-intense, bg-region and
+    ;; bg-tab-active must be combined with fg-main, while
+    ;; bg-tab-inactive should be combined with fg-dim
     ;;
-    ;; `bg-tab-bar' is only intended for the bar that holds the tabs and
-    ;; can only be combined with `fg-main'
+    ;; bg-tab-bar is only intended for the bar that holds the tabs and
+    ;; can only be combined with fg-main
     ;;
-    ;; `fg-tab-active' is meant to be combined with `bg-tab-active',
+    ;; fg-tab-active is meant to be combined with bg-tab-active,
     ;; though only for styling special elements, such as underlining
     ;; the current tab
     ;;
-    ;; `fg-escape-char-construct' and `fg-escape-char-backslash' can
-    ;; be combined `bg-main', `bg-dim', `bg-alt'
+    ;; fg-escape-char-construct and fg-escape-char-backslash can
+    ;; be combined bg-main, bg-dim, bg-alt
     ;;
-    ;; `fg-lang-error', `fg-lang-warning', `fg-lang-note' can be
-    ;; combined with `bg-main', `bg-dim', `bg-alt'
+    ;; fg-lang-error, fg-lang-warning, fg-lang-note can be
+    ;; combined with bg-main, bg-dim, bg-alt
     ;;
-    ;; `fg-mark-sel', `fg-mark-del', `fg-mark-alt' can be combined
-    ;; with `bg-main', `bg-dim', `bg-alt', `bg-hl-line'
+    ;; fg-mark-sel, fg-mark-del, fg-mark-alt can be combined
+    ;; with bg-main, bg-dim, bg-alt, bg-hl-line
     ;;
-    ;; `fg-unfocused' must be combined with `fg-main'
+    ;; fg-unfocused must be combined with fg-main
     ;;
-    ;; `fg-docstring', `fg-comment-yellow' can be combined with
-    ;; `bg-main', `bg-dim', `bg-alt'
+    ;; fg-docstring, fg-comment-yellow can be combined with
+    ;; bg-main, bg-dim, bg-alt
     ;;
     ;; the window divider colors apply to faces with just an fg value
     ;;
@@ -686,145 +694,153 @@ symbol and the latter as a string.")
 (defconst modus-themes-vivendi-colors
   '(;; base values
     (bg-main . "#000000") (fg-main . "#ffffff")
-    (bg-alt . "#181a20") (fg-alt . "#a8a8a8")
     (bg-dim . "#110b11") (fg-dim . "#e0e6f0")
-    ;; specifically for on/off states (e.g. `mode-line')
-    ;;
-    ;; must be combined with themselves
+    (bg-alt . "#181a20") (fg-alt . "#a8a8a8")
+    ;; specifically for on/off states and must be combined with
+    ;; themselves, though the backgrounds are also meant to be used with
+    ;; other "active" values, defined further below
     (bg-active . "#323232") (fg-active . "#f4f4f4")
     (bg-inactive . "#1e1e1e") (fg-inactive . "#bfc0c4")
-    ;; special base values, used only for cases where the above
-    ;; fg-* or bg-* cannot or should not be used (to avoid confusion)
-    ;; must be combined with: {fg,bg}-{main,alt,dim}
+    ;; these special values are intended as alternatives to the base
+    ;; values for cases where we need to avoid confusion between the
+    ;; highlighted constructs; they must either be used as pairs based
+    ;; on their name or each can be combined with {fg,bg}-{main,alt,dim}
+    ;; always in accordance with their role as background or foreground
     (bg-special-cold . "#203448") (fg-special-cold . "#c6eaff")
     (bg-special-mild . "#00322e") (fg-special-mild . "#bfebe0")
     (bg-special-warm . "#382f27") (fg-special-warm . "#f8dec0")
     (bg-special-calm . "#392a48") (fg-special-calm . "#fbd6f4")
-    ;; styles for the main constructs
-    ;;
-    ;; must be combined with: `bg-main', `bg-alt', `bg-dim'
-    (red . "#ff8059") (green . "#44bc44")
-    (yellow . "#eecc00") (blue . "#2fafff")
-    (magenta . "#feacd0") (cyan . "#00d3d0")
-    ;; styles for common, but still specialized constructs
-    ;;
-    ;; must be combined with: `bg-main', `bg-alt', `bg-dim'
-    (red-alt . "#f4923b") (green-alt . "#80d200")
-    (yellow-alt . "#cfdf30") (blue-alt . "#79a8ff")
-    (magenta-alt . "#f78fe7") (cyan-alt . "#4ae8fc")
-    ;; same purpose as above, just slight differences
-    ;;
-    ;; must be combined with: `bg-main', `bg-alt', `bg-dim'
-    (red-alt-other . "#ff9977") (green-alt-other . "#00cd68")
-    (yellow-alt-other . "#f0ce43") (blue-alt-other . "#00bcff")
-    (magenta-alt-other . "#b6a0ff") (cyan-alt-other . "#6ae4b9")
-    ;; styles for desaturated foreground text
-    ;;
-    ;; must be combined with: `bg-main', `bg-alt', `bg-dim'
-    (red-faint . "#ffa0a0") (green-faint . "#88cf88")
-    (yellow-faint . "#d2b580") (blue-faint . "#92baff")
-    (magenta-faint . "#e0b2d6") (cyan-faint . "#a0bfdf")
-
-    (red-alt-faint . "#f5aa80") (green-alt-faint . "#a8cf88")
-    (yellow-alt-faint . "#cabf77") (blue-alt-faint . "#a4b0ff")
-    (magenta-alt-faint . "#ef9fe4") (cyan-alt-faint . "#90c4ed")
-
-    (red-alt-other-faint . "#ff9fbf") (green-alt-other-faint . "#88cfaf")
-    (yellow-alt-other-faint . "#d0ba95") (blue-alt-other-faint . "#8fc5ff")
-    (magenta-alt-other-faint . "#d0b4ff") (cyan-alt-other-faint . "#a4d0bb")
-    ;; styles for elements that should be very subtle, yet accented
-    ;;
-    ;; must be combined with: `bg-main', `bg-alt', `bg-dim' or any of
-    ;; the "nuanced" backgrounds
-    (red-nuanced . "#ffcccc") (green-nuanced . "#b8e2b8")
-    (yellow-nuanced . "#dfdfb0") (blue-nuanced . "#bfd9ff")
-    (magenta-nuanced . "#e5cfef") (cyan-nuanced . "#a8e5e5")
-    ;; styles for slightly accented background
-    ;;
-    ;; must be combined with any of the above foreground values
-    (red-nuanced-bg . "#2c0614") (green-nuanced-bg . "#001904")
-    (yellow-nuanced-bg . "#221000") (blue-nuanced-bg . "#0f0e39")
-    (magenta-nuanced-bg . "#230631") (cyan-nuanced-bg . "#041529")
-    ;; styles for elements that should draw attention to themselves
-    ;;
-    ;; must be combined with: `bg-main'
-    (red-intense . "#fb6859") (green-intense . "#00fc50")
-    (yellow-intense . "#ffdd00") (blue-intense . "#00a2ff")
-    (magenta-intense . "#ff8bd4") (cyan-intense . "#30ffc0")
-    ;; styles for background elements that should be visible yet
-    ;; subtle
-    ;;
-    ;; must be combined with: `fg-dim'
-    (red-subtle-bg . "#762422") (green-subtle-bg . "#2f4a00")
-    (yellow-subtle-bg . "#604200") (blue-subtle-bg . "#10387c")
-    (magenta-subtle-bg . "#49366e") (cyan-subtle-bg . "#00415e")
-    ;; styles for background elements that should be visible and
-    ;; distinguishable
-    ;;
-    ;; must be combined with: `fg-main'
-    (red-intense-bg . "#a4202a") (green-intense-bg . "#006800")
-    (yellow-intense-bg . "#874900") (blue-intense-bg . "#2a40b8")
-    (magenta-intense-bg . "#7042a2") (cyan-intense-bg . "#005f88")
-    ;; styles for refined contexts where both the foreground and the
-    ;; background need to have the same/similar hue
-    ;;
-    ;; must be combined with themselves OR the foregrounds can be
-    ;; combined with any of the base backgrounds
+    ;; foregrounds that can be combined with bg-main, bg-dim, bg-alt
+    (red . "#ff8059")
+    (red-alt . "#f4923b")
+    (red-alt-other . "#ff9977")
+    (red-faint . "#ffa0a0")
+    (red-alt-faint . "#f5aa80")
+    (red-alt-other-faint . "#ff9fbf")
+    (green . "#44bc44")
+    (green-alt . "#80d200")
+    (green-alt-other . "#00cd68")
+    (green-faint . "#88cf88")
+    (green-alt-faint . "#a8cf88")
+    (green-alt-other-faint . "#88cfaf")
+    (yellow . "#eecc00")
+    (yellow-alt . "#cfdf30")
+    (yellow-alt-other . "#f0ce43")
+    (yellow-faint . "#d2b580")
+    (yellow-alt-faint . "#cabf77")
+    (yellow-alt-other-faint . "#d0ba95")
+    (blue . "#2fafff")
+    (blue-alt . "#79a8ff" )
+    (blue-alt-other . "#00bcff")
+    (blue-faint . "#92baff")
+    (blue-alt-faint . "#a4b0ff")
+    (blue-alt-other-faint . "#8fc5ff")
+    (magenta . "#feacd0")
+    (magenta-alt . "#f78fe7")
+    (magenta-alt-other . "#b6a0ff")
+    (magenta-faint . "#e0b2d6")
+    (magenta-alt-faint . "#ef9fe4")
+    (magenta-alt-other-faint . "#d0b4ff")
+    (cyan . "#00d3d0")
+    (cyan-alt . "#4ae8fc")
+    (cyan-alt-other . "#6ae4b9")
+    (cyan-faint . "#a0bfdf")
+    (cyan-alt-faint . "#90c4ed")
+    (cyan-alt-other-faint . "#a4d0bb")
+    ;; these foreground values can only be combined with bg-main and are
+    ;; thus not suitable for general purpose highlighting
+    (red-intense . "#fb6859")
+    (green-intense . "#00fc50")
+    (yellow-intense . "#ffdd00")
+    (blue-intense . "#00a2ff")
+    (magenta-intense . "#ff8bd4")
+    (cyan-intense . "#30ffc0")
+    ;; those foregrounds are meant exclusively for bg-active, bg-inactive
+    (red-active . "#ffa7ba")
+    (green-active . "#70d73f")
+    (yellow-active . "#dbbe5f")
+    (blue-active . "#34cfff")
+    (magenta-active . "#d5b1ff")
+    (cyan-active . "#00d8b4")
+    ;; the "subtle" values below be combined with fg-dim, while the
+    ;; "intense" should be paired with fg-main
+    (red-subtle-bg . "#762422")
+    (red-intense-bg . "#a4202a")
+    (green-subtle-bg . "#2f4a00")
+    (green-intense-bg . "#006800")
+    (yellow-subtle-bg . "#604200")
+    (yellow-intense-bg . "#874900")
+    (blue-subtle-bg . "#10387c")
+    (blue-intense-bg . "#2a40b8")
+    (magenta-subtle-bg . "#49366e")
+    (magenta-intense-bg . "#7042a2")
+    (cyan-subtle-bg . "#00415e")
+    (cyan-intense-bg . "#005f88")
+    ;; those background values must be combined with fg-main and should
+    ;; only be used for indicators that are placed on the fringes
+    (red-fringe-bg . "#8f1f4b")
+    (green-fringe-bg . "#006700")
+    (yellow-fringe-bg . "#6f4f00")
+    (blue-fringe-bg . "#3f33af")
+    (magenta-fringe-bg . "#6f2f89")
+    (cyan-fringe-bg . "#004f8f")
+    ;; the following are for refined contexts where both the foreground
+    ;; and the background need to have a similar hue and so must be
+    ;; combined with themselves, even though the foregrounds can be
+    ;; paired with any of the base backgrounds
     (red-refine-bg . "#77002a") (red-refine-fg . "#ffb9ab")
     (green-refine-bg . "#00422a") (green-refine-fg . "#9ff0cf")
     (yellow-refine-bg . "#693200") (yellow-refine-fg . "#e2d980")
     (blue-refine-bg . "#242679") (blue-refine-fg . "#8ec6ff")
     (magenta-refine-bg . "#71206a") (magenta-refine-fg . "#ffcaf0")
     (cyan-refine-bg . "#004065") (cyan-refine-fg . "#8ae4f2")
-    ;; styles that are meant exclusively for the mode line
+    ;; the "nuanced" backgrounds can be combined with all of the above
+    ;; foregrounds, as well as those included here, while the "nuanced"
+    ;; foregrounds can in turn also be combined with bg-main, bg-dim,
+    ;; bg-alt
+    (red-nuanced-bg . "#2c0614") (red-nuanced . "#ffcccc")
+    (green-nuanced-bg . "#001904") (green-nuanced . "#b8e2b8")
+    (yellow-nuanced-bg . "#221000") (yellow-nuanced . "#dfdfb0")
+    (blue-nuanced-bg . "#0f0e39") (blue-nuanced . "#bfd9ff")
+    (magenta-nuanced-bg . "#230631") (magenta-nuanced . "#e5cfef")
+    (cyan-nuanced-bg . "#041529") (cyan-nuanced . "#a8e5e5")
+    ;; the following are reserved for specific cases
     ;;
-    ;; must be combined with: `bg-active', `bg-inactive'
-    (red-active . "#ffa7ba") (green-active . "#70d73f")
-    (yellow-active . "#dbbe5f") (blue-active . "#34cfff")
-    (magenta-active . "#d5b1ff") (cyan-active . "#00d8b4")
-    ;; styles that are meant exclusively for the fringes
+    ;; bg-hl-line is between bg-dim and bg-alt, so it should
+    ;; work with all accents that cover those two, plus bg-main
     ;;
-    ;; must be combined with `fg-main'
-    (red-fringe-bg . "#8f1f4b") (green-fringe-bg . "#006700")
-    (yellow-fringe-bg . "#6f4f00") (blue-fringe-bg . "#3f33af")
-    (magenta-fringe-bg . "#6f2f89") (cyan-fringe-bg . "#004f8f")
-    ;; styles reserved for specific faces
-    ;;
-    ;; `bg-hl-line' is between `bg-dim' and `bg-alt', so it should
-    ;; work with all accents that cover those two, plus `bg-main'
-    ;;
-    ;; `bg-hl-alt' and `bg-hl-alt-intense' should only be used when no
+    ;; bg-hl-alt and bg-hl-alt-intense should only be used when no
     ;; other greyscale or fairly neutral background is available to
     ;; properly draw attention to a given construct
     ;;
-    ;; `bg-header' is between `bg-active' and `bg-inactive', so it
+    ;; bg-header is between bg-active and bg-inactive, so it
     ;; can be combined with any of the "active" values, plus the
     ;; "special" and base foreground colors
     ;;
-    ;; `bg-paren-match', `bg-paren-match-intense', `bg-region' and
-    ;; `bg-tab-active' must be combined with `fg-main', while
-    ;; `bg-tab-inactive' should be combined with `fg-dim'
+    ;; bg-paren-match, bg-paren-match-intense, bg-region and
+    ;; bg-tab-active must be combined with fg-main, while
+    ;; bg-tab-inactive should be combined with fg-dim
     ;;
-    ;; `bg-tab-bar' is only intended for the bar that holds the tabs and
-    ;; can only be combined with `fg-main'
+    ;; bg-tab-bar is only intended for the bar that holds the tabs and
+    ;; can only be combined with fg-main
     ;;
-    ;; `fg-tab-active' is meant to be combined with `bg-tab-active',
+    ;; fg-tab-active is meant to be combined with bg-tab-active,
     ;; though only for styling special elements, such as underlining
     ;; the current tab
     ;;
-    ;; `fg-escape-char-construct' and `fg-escape-char-backslash' can
-    ;; be combined `bg-main', `bg-dim', `bg-alt'
+    ;; fg-escape-char-construct and fg-escape-char-backslash can
+    ;; be combined bg-main, bg-dim, bg-alt
     ;;
-    ;; `fg-lang-error', `fg-lang-warning', `fg-lang-note' can be
-    ;; combined with `bg-main', `bg-dim', `bg-alt'
+    ;; fg-lang-error, fg-lang-warning, fg-lang-note can be
+    ;; combined with bg-main, bg-dim, bg-alt
     ;;
-    ;; `fg-mark-sel', `fg-mark-del', `fg-mark-alt' can be combined
-    ;; with `bg-main', `bg-dim', `bg-alt', `bg-hl-line'
+    ;; fg-mark-sel, fg-mark-del, fg-mark-alt can be combined
+    ;; with bg-main, bg-dim, bg-alt, bg-hl-line
     ;;
-    ;; `fg-unfocused' must be combined with `fg-main'
+    ;; fg-unfocused must be combined with fg-main
     ;;
-    ;; `fg-docstring', `fg-comment-yellow' can be `bg-main', `bg-dim',
-    ;; `bg-alt'
+    ;; fg-docstring, fg-comment-yellow can be combined with
+    ;; bg-main, bg-dim, bg-alt
     ;;
     ;; the window divider colors apply to faces with just an fg value
     ;;
@@ -1506,7 +1522,7 @@ calling the internal `modus-themes--light' and
 
 
 
-    
+
 ;;;; standard faces
 ;;;;; absolute essentials
     `(default ((,class :background ,bg-main :foreground ,fg-main)))
