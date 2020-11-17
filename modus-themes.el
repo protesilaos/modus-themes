@@ -562,10 +562,10 @@ Option `no-underline' removes link underlines altogether."
     (blue-fringe-bg . "#82afff")
     (magenta-fringe-bg . "#e0a3ff")
     (cyan-fringe-bg . "#2fcddf")
-    ;; the following are for refined contexts where both the foreground
-    ;; and the background need to have a similar hue and so must be
-    ;; combined with themselves, even though the foregrounds can be
-    ;; paired with any of the base backgrounds
+    ;; the following are for cases where both the foreground and the
+    ;; background need to have a similar hue and so must be combined
+    ;; with themselves, even though the foregrounds can be paired with
+    ;; any of the base backgrounds
     (red-refine-bg . "#ffcccc") (red-refine-fg . "#780000")
     (green-refine-bg . "#aceaac") (green-refine-fg . "#004c00")
     (yellow-refine-bg . "#fff29a") (yellow-refine-fg . "#604000")
@@ -784,10 +784,10 @@ symbol and the latter as a string.")
     (blue-fringe-bg . "#3f33af")
     (magenta-fringe-bg . "#6f2f89")
     (cyan-fringe-bg . "#004f8f")
-    ;; the following are for refined contexts where both the foreground
-    ;; and the background need to have a similar hue and so must be
-    ;; combined with themselves, even though the foregrounds can be
-    ;; paired with any of the base backgrounds
+    ;; the following are for cases where both the foreground and the
+    ;; background need to have a similar hue and so must be combined
+    ;; with themselves, even though the foregrounds can be paired with
+    ;; any of the base backgrounds
     (red-refine-bg . "#77002a") (red-refine-fg . "#ffb9ab")
     (green-refine-bg . "#00422a") (green-refine-fg . "#9ff0cf")
     (yellow-refine-bg . "#693200") (yellow-refine-fg . "#e2d980")
