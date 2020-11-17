@@ -576,12 +576,12 @@ Option `no-underline' removes link underlines altogether."
     ;; foregrounds, as well as those included here, while the "nuanced"
     ;; foregrounds can in turn also be combined with bg-main, bg-dim,
     ;; bg-alt
-    (red-nuanced-bg . "#fff1f0") (red-nuanced . "#5f0000")
-    (green-nuanced-bg . "#ecf7ed") (green-nuanced . "#004000")
-    (yellow-nuanced-bg . "#fff3da") (yellow-nuanced . "#3f3000")
-    (blue-nuanced-bg . "#f3f3ff") (blue-nuanced . "#201f55")
-    (magenta-nuanced-bg . "#fdf0ff") (magenta-nuanced . "#541f4f")
-    (cyan-nuanced-bg . "#ebf6fa") (cyan-nuanced . "#0f3360")
+    (red-nuanced-bg . "#fff1f0") (red-nuanced-fg . "#5f0000")
+    (green-nuanced-bg . "#ecf7ed") (green-nuanced-fg . "#004000")
+    (yellow-nuanced-bg . "#fff3da") (yellow-nuanced-fg . "#3f3000")
+    (blue-nuanced-bg . "#f3f3ff") (blue-nuanced-fg . "#201f55")
+    (magenta-nuanced-bg . "#fdf0ff") (magenta-nuanced-fg . "#541f4f")
+    (cyan-nuanced-bg . "#ebf6fa") (cyan-nuanced-fg . "#0f3360")
     ;; the following are reserved for specific cases
     ;;
     ;; bg-hl-line is between bg-dim and bg-alt, so it should
@@ -798,12 +798,12 @@ symbol and the latter as a string.")
     ;; foregrounds, as well as those included here, while the "nuanced"
     ;; foregrounds can in turn also be combined with bg-main, bg-dim,
     ;; bg-alt
-    (red-nuanced-bg . "#2c0614") (red-nuanced . "#ffcccc")
-    (green-nuanced-bg . "#001904") (green-nuanced . "#b8e2b8")
-    (yellow-nuanced-bg . "#221000") (yellow-nuanced . "#dfdfb0")
-    (blue-nuanced-bg . "#0f0e39") (blue-nuanced . "#bfd9ff")
-    (magenta-nuanced-bg . "#230631") (magenta-nuanced . "#e5cfef")
-    (cyan-nuanced-bg . "#041529") (cyan-nuanced . "#a8e5e5")
+    (red-nuanced-bg . "#2c0614") (red-nuanced-fg . "#ffcccc")
+    (green-nuanced-bg . "#001904") (green-nuanced-fg . "#b8e2b8")
+    (yellow-nuanced-bg . "#221000") (yellow-nuanced-fg . "#dfdfb0")
+    (blue-nuanced-bg . "#0f0e39") (blue-nuanced-fg . "#bfd9ff")
+    (magenta-nuanced-bg . "#230631") (magenta-nuanced-fg . "#e5cfef")
+    (cyan-nuanced-bg . "#041529") (cyan-nuanced-fg . "#a8e5e5")
     ;; the following are reserved for specific cases
     ;;
     ;; bg-hl-line is between bg-dim and bg-alt, so it should
@@ -1502,10 +1502,10 @@ calling the internal `modus-themes--light' and
                   5 fg-special-calm green-alt-other green-nuanced-bg bg-region))))
     `(modus-theme-heading-6
       ((,class ,@(modus-themes-heading
-                  6 yellow-nuanced yellow-alt-other yellow-nuanced-bg bg-region))))
+                  6 yellow-nuanced-fg yellow-alt-other yellow-nuanced-bg bg-region))))
     `(modus-theme-heading-7
       ((,class ,@(modus-themes-heading
-                  7 red-nuanced red-alt red-nuanced-bg bg-region))))
+                  7 red-nuanced-fg red-alt red-nuanced-bg bg-region))))
     `(modus-theme-heading-8
       ((,class ,@(modus-themes-heading
                   8 fg-dim magenta bg-alt bg-region))))
@@ -1669,10 +1669,10 @@ calling the internal `modus-themes--light' and
     `(apt-sources-list-type ((,class :foreground ,magenta)))
     `(apt-sources-list-uri ((,class :foreground ,blue)))
 ;;;;; artbollocks-mode
-    `(artbollocks-face ((,class :foreground ,cyan-nuanced :underline ,fg-lang-note)))
+    `(artbollocks-face ((,class :foreground ,cyan-nuanced-fg :underline ,fg-lang-note)))
     `(artbollocks-lexical-illusions-face ((,class :background ,bg-alt :foreground ,red-alt :underline t)))
-    `(artbollocks-passive-voice-face ((,class :foreground ,yellow-nuanced :underline ,fg-lang-warning)))
-    `(artbollocks-weasel-words-face ((,class :foreground ,red-nuanced :underline ,fg-lang-error)))
+    `(artbollocks-passive-voice-face ((,class :foreground ,yellow-nuanced-fg :underline ,fg-lang-warning)))
+    `(artbollocks-weasel-words-face ((,class :foreground ,red-nuanced-fg :underline ,fg-lang-error)))
 ;;;;; auctex and Tex
     `(font-latex-bold-face ((,class :inherit bold :foreground ,fg-special-calm)))
     `(font-latex-doctex-documentation-face ((,class :inherit modus-theme-slant :foreground ,fg-special-cold)))
@@ -1680,14 +1680,14 @@ calling the internal `modus-themes--light' and
     `(font-latex-italic-face ((,class :inherit italic :foreground ,fg-special-calm)))
     `(font-latex-math-face ((,class :foreground ,cyan-alt-other)))
     `(font-latex-script-char-face ((,class :foreground ,cyan-alt-other)))
-    `(font-latex-sectioning-0-face ((,class :inherit modus-theme-variable-pitch :foreground ,blue-nuanced)))
-    `(font-latex-sectioning-1-face ((,class :inherit (bold modus-theme-variable-pitch) :foreground ,blue-nuanced)))
-    `(font-latex-sectioning-2-face ((,class :inherit (bold modus-theme-variable-pitch) :foreground ,blue-nuanced)))
-    `(font-latex-sectioning-3-face ((,class :inherit (bold modus-theme-variable-pitch) :foreground ,blue-nuanced)))
-    `(font-latex-sectioning-4-face ((,class :inherit (bold modus-theme-variable-pitch) :foreground ,blue-nuanced)))
-    `(font-latex-sectioning-5-face ((,class :inherit modus-theme-variable-pitch :foreground ,blue-nuanced)))
+    `(font-latex-sectioning-0-face ((,class :inherit modus-theme-variable-pitch :foreground ,blue-nuanced-fg)))
+    `(font-latex-sectioning-1-face ((,class :inherit (bold modus-theme-variable-pitch) :foreground ,blue-nuanced-fg)))
+    `(font-latex-sectioning-2-face ((,class :inherit (bold modus-theme-variable-pitch) :foreground ,blue-nuanced-fg)))
+    `(font-latex-sectioning-3-face ((,class :inherit (bold modus-theme-variable-pitch) :foreground ,blue-nuanced-fg)))
+    `(font-latex-sectioning-4-face ((,class :inherit (bold modus-theme-variable-pitch) :foreground ,blue-nuanced-fg)))
+    `(font-latex-sectioning-5-face ((,class :inherit modus-theme-variable-pitch :foreground ,blue-nuanced-fg)))
     `(font-latex-sedate-face ((,class :inherit modus-theme-bold :foreground ,magenta-alt-other)))
-    `(font-latex-slide-title-face ((,class :inherit (bold modus-theme-variable-pitch) :foreground ,cyan-nuanced
+    `(font-latex-slide-title-face ((,class :inherit (bold modus-theme-variable-pitch) :foreground ,cyan-nuanced-fg
                                            ,@(modus-themes-scale modus-themes-scale-4))))
     `(font-latex-string-face ((,class :foreground ,blue-alt)))
     `(font-latex-subscript-face ((,class :height 0.95)))
@@ -1864,7 +1864,7 @@ calling the internal `modus-themes--light' and
     `(circe-server-face ((,class :foreground ,fg-unfocused)))
     `(lui-button-face ((,class :inherit button)))
     `(lui-highlight-face ((,class :foreground ,magenta-alt)))
-    `(lui-time-stamp-face ((,class :foreground ,blue-nuanced)))
+    `(lui-time-stamp-face ((,class :foreground ,blue-nuanced-fg)))
 ;;;;; color-rg
     `(color-rg-font-lock-column-number ((,class :foreground ,magenta-alt-other)))
     `(color-rg-font-lock-command ((,class :inherit bold :foreground ,fg-main)))
@@ -2019,7 +2019,7 @@ calling the internal `modus-themes--light' and
     `(debbugs-gnu-handled ((,class :foreground ,green)))
     `(debbugs-gnu-new ((,class :foreground ,red)))
     `(debbugs-gnu-pending ((,class :foreground ,cyan)))
-    `(debbugs-gnu-stale-1 ((,class :foreground ,yellow-nuanced)))
+    `(debbugs-gnu-stale-1 ((,class :foreground ,yellow-nuanced-fg)))
     `(debbugs-gnu-stale-2 ((,class :foreground ,yellow)))
     `(debbugs-gnu-stale-3 ((,class :foreground ,yellow-alt)))
     `(debbugs-gnu-stale-4 ((,class :foreground ,yellow-alt-other)))
@@ -2271,11 +2271,11 @@ calling the internal `modus-themes--light' and
     `(elfeed-log-error-level-face ((,class :foreground ,red)))
     `(elfeed-log-info-level-face ((,class :foreground ,green)))
     `(elfeed-log-warn-level-face ((,class :foreground ,yellow)))
-    `(elfeed-search-date-face ((,class :foreground ,blue-nuanced)))
+    `(elfeed-search-date-face ((,class :foreground ,blue-nuanced-fg)))
     `(elfeed-search-feed-face ((,class :foreground ,cyan)))
     `(elfeed-search-filter-face ((,class :inherit bold :foreground ,magenta-active)))
     `(elfeed-search-last-update-face ((,class :foreground ,cyan-active)))
-    `(elfeed-search-tag-face ((,class :foreground ,blue-nuanced)))
+    `(elfeed-search-tag-face ((,class :foreground ,blue-nuanced-fg)))
     `(elfeed-search-title-face ((,class :foreground ,fg-dim)))
     `(elfeed-search-unread-count-face ((,class :foreground ,green-active)))
     `(elfeed-search-unread-title-face ((,class :inherit bold :foreground ,fg-main)))
@@ -2336,7 +2336,7 @@ calling the internal `modus-themes--light' and
     `(erc-notice-face ((,class :foreground ,fg-unfocused)))
     `(erc-pal-face ((,class :inherit bold :foreground ,red-alt)))
     `(erc-prompt-face ((,class :inherit bold :foreground ,cyan-alt-other)))
-    `(erc-timestamp-face ((,class :foreground ,blue-nuanced)))
+    `(erc-timestamp-face ((,class :foreground ,blue-nuanced-fg)))
     `(erc-underline-face ((,class :underline t)))
     `(bg:erc-color-face0 ((,class :background "white")))
     `(bg:erc-color-face1 ((,class :background "black")))
@@ -2615,7 +2615,7 @@ calling the internal `modus-themes--light' and
     `(fountain-page-break ((,class :inherit bold :foreground ,red-alt)))
     `(fountain-page-number ((,class :inherit bold :foreground ,red-alt-other)))
     `(fountain-paren ((,class :foreground ,cyan)))
-    `(fountain-scene-heading ((,class :inherit bold :foreground ,blue-nuanced)))
+    `(fountain-scene-heading ((,class :inherit bold :foreground ,blue-nuanced-fg)))
     `(fountain-section-heading ((,class :inherit modus-theme-heading-1)))
     `(fountain-section-heading-1 ((,class :inherit modus-theme-heading-1)))
     `(fountain-section-heading-2 ((,class :inherit modus-theme-heading-2)))
@@ -2653,7 +2653,7 @@ calling the internal `modus-themes--light' and
     `(git-commit-comment-detached ((,class :inherit modus-theme-slant :foreground ,cyan-alt)))
     `(git-commit-comment-file ((,class :inherit modus-theme-slant
                                        ,@(modus-themes-syntax-comment
-                                          fg-special-cold red-nuanced))))
+                                          fg-special-cold red-nuanced-fg))))
     `(git-commit-comment-heading ((,class :inherit (bold modus-theme-slant)
                                           ,@(modus-themes-syntax-comment
                                              fg-dim fg-special-warm))))
@@ -2691,7 +2691,7 @@ calling the internal `modus-themes--light' and
 ;;;;; git-rebase
     `(git-rebase-comment-hash ((,class :inherit modus-theme-slant
                                        ,@(modus-themes-syntax-comment
-                                          fg-special-cold red-nuanced))))
+                                          fg-special-cold red-nuanced-fg))))
     `(git-rebase-comment-heading  ((,class :inherit (bold modus-theme-slant)
                                            ,@(modus-themes-syntax-comment
                                               fg-dim fg-special-warm))))
@@ -2732,22 +2732,22 @@ calling the internal `modus-themes--light' and
     `(gnus-group-mail-2-empty ((,class :foreground ,magenta)))
     `(gnus-group-mail-3 ((,class :inherit bold :foreground ,magenta-alt-other)))
     `(gnus-group-mail-3-empty ((,class :foreground ,magenta-alt-other)))
-    `(gnus-group-mail-low ((,class :inherit bold :foreground ,magenta-nuanced)))
-    `(gnus-group-mail-low-empty ((,class :foreground ,magenta-nuanced)))
+    `(gnus-group-mail-low ((,class :inherit bold :foreground ,magenta-nuanced-fg)))
+    `(gnus-group-mail-low-empty ((,class :foreground ,magenta-nuanced-fg)))
     `(gnus-group-news-1 ((,class :inherit bold :foreground ,green)))
     `(gnus-group-news-1-empty ((,class :foreground ,green)))
     `(gnus-group-news-2 ((,class :inherit bold :foreground ,cyan)))
     `(gnus-group-news-2-empty ((,class :foreground ,cyan)))
-    `(gnus-group-news-3 ((,class :inherit bold :foreground ,yellow-nuanced)))
-    `(gnus-group-news-3-empty ((,class :foreground ,yellow-nuanced)))
-    `(gnus-group-news-4 ((,class :inherit bold :foreground ,cyan-nuanced)))
-    `(gnus-group-news-4-empty ((,class :foreground ,cyan-nuanced)))
-    `(gnus-group-news-5 ((,class :inherit bold :foreground ,red-nuanced)))
-    `(gnus-group-news-5-empty ((,class :foreground ,red-nuanced)))
+    `(gnus-group-news-3 ((,class :inherit bold :foreground ,yellow-nuanced-fg)))
+    `(gnus-group-news-3-empty ((,class :foreground ,yellow-nuanced-fg)))
+    `(gnus-group-news-4 ((,class :inherit bold :foreground ,cyan-nuanced-fg)))
+    `(gnus-group-news-4-empty ((,class :foreground ,cyan-nuanced-fg)))
+    `(gnus-group-news-5 ((,class :inherit bold :foreground ,red-nuanced-fg)))
+    `(gnus-group-news-5-empty ((,class :foreground ,red-nuanced-fg)))
     `(gnus-group-news-6 ((,class :inherit bold :foreground ,fg-alt)))
     `(gnus-group-news-6-empty ((,class :foreground ,fg-alt)))
-    `(gnus-group-news-low ((,class :inherit bold :foreground ,green-nuanced)))
-    `(gnus-group-news-low-empty ((,class :foreground ,green-nuanced)))
+    `(gnus-group-news-low ((,class :inherit bold :foreground ,green-nuanced-fg)))
+    `(gnus-group-news-low-empty ((,class :foreground ,green-nuanced-fg)))
     `(gnus-header-content ((,class :foreground ,cyan)))
     `(gnus-header-from ((,class :inherit bold :foreground ,cyan-alt-other :underline nil)))
     `(gnus-header-name ((,class :foreground ,green)))
@@ -2914,9 +2914,9 @@ calling the internal `modus-themes--light' and
     `(helm-ls-git-added-copied-face ((,class :foreground ,green-intense)))
     `(helm-ls-git-added-modified-face ((,class :foreground ,yellow-intense)))
     `(helm-ls-git-conflict-face ((,class :inherit bold :foreground ,red-intense)))
-    `(helm-ls-git-deleted-and-staged-face ((,class :foreground ,red-nuanced)))
+    `(helm-ls-git-deleted-and-staged-face ((,class :foreground ,red-nuanced-fg)))
     `(helm-ls-git-deleted-not-staged-face ((,class :foreground ,red)))
-    `(helm-ls-git-modified-and-staged-face ((,class :foreground ,yellow-nuanced)))
+    `(helm-ls-git-modified-and-staged-face ((,class :foreground ,yellow-nuanced-fg)))
     `(helm-ls-git-modified-not-staged-face ((,class :foreground ,yellow)))
     `(helm-ls-git-renamed-modified-face ((,class :foreground ,magenta)))
     `(helm-ls-git-untracked-face ((,class :foreground ,fg-special-cold)))
@@ -3421,8 +3421,8 @@ calling the internal `modus-themes--light' and
 ;;;;; markup-faces (`adoc-mode')
     `(markup-anchor-face ((,class :foreground ,fg-inactive)))
     `(markup-attribute-face ((,class :inherit italic :foreground ,fg-inactive)))
-    `(markup-big-face ((,class :height 1.3 :foreground ,blue-nuanced)))
-    `(markup-bold-face ((,class :inherit bold :foreground ,red-nuanced)))
+    `(markup-big-face ((,class :height 1.3 :foreground ,blue-nuanced-fg)))
+    `(markup-bold-face ((,class :inherit bold :foreground ,red-nuanced-fg)))
     `(markup-code-face ((,class :inherit fixed-pitch :foreground ,magenta)))
     `(markup-command-face ((,class :foreground ,fg-inactive)))
     `(markup-comment-face ((,class :inherit font-lock-comment-face)))
@@ -3439,20 +3439,20 @@ calling the internal `modus-themes--light' and
     `(markup-passthrough-face ((,class :inherit fixed-pitch :foreground ,cyan)))
     `(markup-preprocessor-face ((,class :foreground ,red-alt-other)))
     `(markup-replacement-face ((,class :foreground ,yellow-alt-other)))
-    `(markup-secondary-text-face ((,class :height 0.8 :foreground ,magenta-nuanced)))
+    `(markup-secondary-text-face ((,class :height 0.8 :foreground ,magenta-nuanced-fg)))
     `(markup-small-face ((,class :height 0.8 :foreground ,fg-main)))
-    `(markup-strong-face ((,class :inherit bold :foreground ,red-nuanced)))
+    `(markup-strong-face ((,class :inherit bold :foreground ,red-nuanced-fg)))
     `(markup-subscript-face ((,class :height 0.8 :foreground ,fg-special-cold)))
     `(markup-superscript-face ((,class :height 0.8 :foreground ,fg-special-cold)))
     `(markup-table-cell-face ((,class :inherit modus-theme-special-cold)))
     `(markup-table-face ((,class :inherit modus-theme-subtle-cyan)))
     `(markup-table-row-face ((,class :inherit modus-theme-subtle-cyan)))
-    `(markup-title-0-face ((,class :height 3.0 :foreground ,blue-nuanced)))
-    `(markup-title-1-face ((,class :height 2.4 :foreground ,blue-nuanced)))
-    `(markup-title-2-face ((,class :height 1.8 :foreground ,blue-nuanced)))
-    `(markup-title-3-face ((,class :height 1.4 :foreground ,blue-nuanced)))
-    `(markup-title-4-face ((,class :height 1.2 :foreground ,blue-nuanced)))
-    `(markup-title-5-face ((,class :height 1.2 :foreground ,blue-nuanced :underline t)))
+    `(markup-title-0-face ((,class :height 3.0 :foreground ,blue-nuanced-fg)))
+    `(markup-title-1-face ((,class :height 2.4 :foreground ,blue-nuanced-fg)))
+    `(markup-title-2-face ((,class :height 1.8 :foreground ,blue-nuanced-fg)))
+    `(markup-title-3-face ((,class :height 1.4 :foreground ,blue-nuanced-fg)))
+    `(markup-title-4-face ((,class :height 1.2 :foreground ,blue-nuanced-fg)))
+    `(markup-title-5-face ((,class :height 1.2 :foreground ,blue-nuanced-fg :underline t)))
     `(markup-value-face ((,class :foreground ,fg-inactive)))
     `(markup-verbatim-face ((,class :inherit modus-theme-special-mild)))
 ;;;;; mentor
@@ -3750,8 +3750,8 @@ calling the internal `modus-themes--light' and
     `(org-habit-overdue-future-face ((,class :inherit modus-theme-refine-red)))
     `(org-habit-ready-face ((,class :inherit modus-theme-intense-blue)))
     `(org-habit-ready-future-face ((,class :inherit modus-theme-refine-blue)))
-    `(org-headline-done ((,class :inherit modus-theme-variable-pitch :foreground ,green-nuanced)))
-    `(org-headline-todo ((,class :inherit modus-theme-variable-pitch :foreground ,red-nuanced)))
+    `(org-headline-done ((,class :inherit modus-theme-variable-pitch :foreground ,green-nuanced-fg)))
+    `(org-headline-todo ((,class :inherit modus-theme-variable-pitch :foreground ,red-nuanced-fg)))
     `(org-hide ((,class :foreground ,bg-main)))
     `(org-indent ((,class :inherit (fixed-pitch org-hide))))
     `(org-latex-and-related ((,class :foreground ,magenta-refine-fg)))
@@ -3784,13 +3784,13 @@ calling the internal `modus-themes--light' and
     `(org-table ((,class ,@(modus-themes-mixed-fonts)
                          :foreground ,fg-special-cold)))
     `(org-table-header ((,class :inherit (fixed-pitch modus-theme-intense-neutral))))
-    `(org-tag ((,class :foreground ,magenta-nuanced)))
-    `(org-tag-group ((,class :inherit bold :foreground ,cyan-nuanced)))
+    `(org-tag ((,class :foreground ,magenta-nuanced-fg)))
+    `(org-tag-group ((,class :inherit bold :foreground ,cyan-nuanced-fg)))
     `(org-target ((,class :underline t)))
     `(org-time-grid ((,class :foreground ,fg-unfocused)))
     `(org-todo ((,class :foreground ,red)))
     `(org-upcoming-deadline ((,class :foreground ,red-alt-other)))
-    `(org-upcoming-distant-deadline ((,class :foreground ,red-nuanced)))
+    `(org-upcoming-distant-deadline ((,class :foreground ,red-nuanced-fg)))
     `(org-verbatim ((,class ,@(modus-themes-mixed-fonts)
                             :background ,bg-alt :foreground ,fg-special-calm)))
     `(org-verse ((,class :inherit org-quote)))
@@ -3918,7 +3918,7 @@ calling the internal `modus-themes--light' and
     `(popup-tip-face ((,class :inherit modus-theme-refine-yellow)))
 ;;;;; powerline
     `(powerline-active0 ((,class :background ,bg-main :foreground ,blue-faint :inverse-video t)))
-    `(powerline-active1 ((,class :background ,blue-nuanced-bg :foreground ,blue-nuanced)))
+    `(powerline-active1 ((,class :background ,blue-nuanced-bg :foreground ,blue-nuanced-fg)))
     `(powerline-active2 ((,class :background ,bg-active :foreground ,fg-active)))
     `(powerline-inactive0 ((,class :background ,bg-special-cold :foreground ,fg-special-cold)))
     `(powerline-inactive1 ((,class :background ,bg-dim :foreground ,fg-inactive)))
@@ -4007,7 +4007,7 @@ calling the internal `modus-themes--light' and
     `(rcirc-other-nick ((,class :inherit bold :foreground ,fg-special-cold)))
     `(rcirc-prompt ((,class :inherit bold :foreground ,cyan-alt-other)))
     `(rcirc-server ((,class :foreground ,fg-unfocused)))
-    `(rcirc-timestamp ((,class :foreground ,blue-nuanced)))
+    `(rcirc-timestamp ((,class :foreground ,blue-nuanced-fg)))
     `(rcirc-url ((,class :foreground ,blue :underline t)))
 ;;;;; regexp-builder (re-builder)
     `(reb-match-0 ((,class :inherit modus-theme-intense-blue)))
@@ -4049,9 +4049,9 @@ calling the internal `modus-themes--light' and
     `(ruler-mode-pad ((,class :background ,bg-active :foreground ,fg-inactive)))
     `(ruler-mode-tab-stop ((,class :inherit ruler-mode-default :foreground ,yellow-active)))
 ;;;;; sallet
-    `(sallet-buffer-compressed ((,class :inherit italic :foreground ,yellow-nuanced)))
-    `(sallet-buffer-default-directory ((,class :foreground ,cyan-nuanced)))
-    `(sallet-buffer-directory ((,class :foreground ,blue-nuanced)))
+    `(sallet-buffer-compressed ((,class :inherit italic :foreground ,yellow-nuanced-fg)))
+    `(sallet-buffer-default-directory ((,class :foreground ,cyan-nuanced-fg)))
+    `(sallet-buffer-directory ((,class :foreground ,blue-nuanced-fg)))
     `(sallet-buffer-help ((,class :foreground ,fg-special-cold)))
     `(sallet-buffer-modified ((,class :inherit italic :foreground ,yellow-alt-other)))
     `(sallet-buffer-ordinary ((,class :foreground ,fg-main)))
@@ -4063,7 +4063,7 @@ calling the internal `modus-themes--light' and
                                    'modus-theme-refine-cyan
                                    'modus-theme-nuanced-cyan
                                    cyan-alt-other))))
-    `(sallet-recentf-buffer-name ((,class :foreground ,blue-nuanced)))
+    `(sallet-recentf-buffer-name ((,class :foreground ,blue-nuanced-fg)))
     `(sallet-recentf-file-path ((,class :foreground ,fg-special-mild)))
     `(sallet-regexp-match ((,class ,@(modus-themes-extra-completions
                                       'modus-theme-subtle-magenta
@@ -4443,7 +4443,7 @@ calling the internal `modus-themes--light' and
     `(vr/match-separator-face ((,class :inherit (modus-theme-intense-neutral bold))))
 ;;;;; volatile-highlights
     `(vhl/default-face ((,class ,@(and (>= emacs-major-version 27) '(:extend t))
-                                :background ,bg-alt :foreground ,blue-nuanced)))
+                                :background ,bg-alt :foreground ,blue-nuanced-fg)))
 ;;;;; vterm
     `(vterm-color-black ((,class :background "gray35" :foreground "gray35")))
     `(vterm-color-blue ((,class :background ,blue :foreground ,blue)))
@@ -4544,13 +4544,13 @@ calling the internal `modus-themes--light' and
     `(web-mode-json-comment-face ((,class :inherit web-mode-comment-face)))
     `(web-mode-json-context-face ((,class ,@(modus-themes-syntax-foreground
                                              magenta-alt magenta-alt-faint))))
-    `(web-mode-json-key-face ((,class :foreground ,blue-nuanced)))
+    `(web-mode-json-key-face ((,class :foreground ,blue-nuanced-fg)))
     `(web-mode-json-string-face ((,class :inherit web-mode-string-face)))
     `(web-mode-jsx-depth-1-face ((,class :background ,blue-intense-bg :foreground ,fg-main)))
     `(web-mode-jsx-depth-2-face ((,class :background ,blue-subtle-bg :foreground ,fg-main)))
     `(web-mode-jsx-depth-3-face ((,class :background ,bg-special-cold :foreground ,fg-special-cold)))
     `(web-mode-jsx-depth-4-face ((,class :background ,bg-alt :foreground ,blue-refine-fg)))
-    `(web-mode-jsx-depth-5-face ((,class :background ,bg-alt :foreground ,blue-nuanced)))
+    `(web-mode-jsx-depth-5-face ((,class :background ,bg-alt :foreground ,blue-nuanced-fg)))
     `(web-mode-keyword-face ((,class :inherit modus-theme-bold
                                      ,@(modus-themes-syntax-foreground
                                         magenta-alt-other magenta-alt-other-faint))))
@@ -4616,8 +4616,8 @@ calling the internal `modus-themes--light' and
     `(winum-face ((,class :inherit modus-theme-bold :foreground ,cyan-active)))
 ;;;;; writegood-mode
     `(writegood-duplicates-face ((,class :background ,bg-alt :foreground ,red-alt :underline t)))
-    `(writegood-passive-voice-face ((,class :foreground ,yellow-nuanced :underline ,fg-lang-warning)))
-    `(writegood-weasels-face ((,class :foreground ,red-nuanced :underline ,fg-lang-error)))
+    `(writegood-passive-voice-face ((,class :foreground ,yellow-nuanced-fg :underline ,fg-lang-warning)))
+    `(writegood-weasels-face ((,class :foreground ,red-nuanced-fg :underline ,fg-lang-error)))
 ;;;;; woman
     `(woman-addition ((,class :foreground ,magenta-alt-other)))
     `(woman-bold ((,class :inherit bold :foreground ,magenta)))
@@ -4664,7 +4664,7 @@ calling the internal `modus-themes--light' and
        ;; supported.
        `(line-number-major-tick ((,class :inherit (bold default)
                                          :background ,yellow-nuanced-bg
-                                         :foreground ,yellow-nuanced)))
+                                         :foreground ,yellow-nuanced-fg)))
        `(line-number-minor-tick ((,class :inherit (bold default)
                                          :background ,bg-inactive
                                          :foreground ,fg-inactive)))
@@ -4733,11 +4733,11 @@ calling the internal `modus-themes--light' and
          ("NOTE" . ,yellow-alt-other)
          ("KLUDGE" . ,yellow)
          ("HACK" . ,yellow)
-         ("TEMP" . ,red-nuanced)
+         ("TEMP" . ,red-nuanced-fg)
          ("FIXME" . ,red-alt-other)
          ("XXX+" . ,red-alt)
          ("REVIEW" . ,cyan-alt-other)
-         ("DEPRECATED" . ,blue-nuanced)))
+         ("DEPRECATED" . ,blue-nuanced-fg)))
 ;;;; pdf-tools
      `(pdf-view-midnight-colors
        '(,fg-main . ,bg-dim))
