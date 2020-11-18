@@ -5050,7 +5050,9 @@ calling the internal `modus-themes--light' and
        `(diff-error ((,class :inherit modus-theme-intense-red)))
 ;;;;; isearch regexp groups
        `(isearch-group-1 ((,class :inherit modus-theme-intense-blue)))
-       `(isearch-group-2 ((,class :inherit modus-theme-intense-magenta)))))
+       `(isearch-group-2 ((,class :inherit modus-theme-intense-magenta)))
+;;;;; log-view
+       `(log-view-commit-body ((,class :background ,bg-dim :foreground ,fg-special-warm)))))
 ;;; variables
     (custom-theme-set-variables
      'user
