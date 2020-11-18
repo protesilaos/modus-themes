@@ -5008,7 +5008,7 @@ calling the internal `modus-themes--light' and
 ;;;; Emacs 27+
     (when (>= emacs-major-version 27)
       (custom-theme-set-faces
-       'modus-operandi
+       'user
 ;;;;; line numbers (`display-line-numbers-mode' and global variant)
        ;; NOTE that this is specifically for the faces that were
        ;; introduced in Emacs 27, as the other faces are already
@@ -5043,13 +5043,13 @@ calling the internal `modus-themes--light' and
 ;;;; Emacs 28+
     (when (>= emacs-major-version 28)
       (custom-theme-set-faces
-       'modus-operandi
+       'user
 ;;;;; isearch regexp groups
        `(isearch-group-1 ((,class :inherit modus-theme-intense-blue)))
        `(isearch-group-2 ((,class :inherit modus-theme-intense-magenta)))))
 ;;; variables
     (custom-theme-set-variables
-     'modus-operandi
+     'user
 ;;;; ansi-colors
      `(ansi-color-faces-vector [default bold shadow italic underline success warning error])
      `(ansi-color-names-vector [,fg-main ,red ,green ,yellow ,blue ,magenta ,cyan ,bg-main])
@@ -5124,7 +5124,7 @@ calling the internal `modus-themes--light' and
     ;; blocks for various programming languages
     (when (eq modus-themes-org-blocks 'rainbow)
       (custom-theme-set-variables
-       'modus-operandi
+       'user
        `(org-src-block-faces              ; TODO this list should be expanded
          `(("emacs-lisp" modus-theme-nuanced-magenta)
            ("elisp" modus-theme-nuanced-magenta)
