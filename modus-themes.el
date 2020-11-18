@@ -5052,7 +5052,7 @@ calling the internal `modus-themes--light' and
        `(isearch-group-1 ((,class :inherit modus-theme-intense-blue)))
        `(isearch-group-2 ((,class :inherit modus-theme-intense-magenta)))
 ;;;;; log-view
-       `(log-view-commit-body ((,class :background ,bg-dim :foreground ,fg-special-warm)))))
+       `(log-view-commit-body ((,class :background ,bg-alt :foreground ,fg-main)))))
 ;;; variables
     (custom-theme-set-variables
      'user
