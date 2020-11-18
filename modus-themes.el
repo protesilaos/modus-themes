@@ -4641,11 +4641,13 @@ calling the internal `modus-themes--light' and
 ;;;;; term
     `(term ((,class :background ,bg-main :foreground ,fg-main)))
     `(term-bold ((,class :inherit bold)))
+    `(term-color-black ((,class :background "gray35" :foreground "gray35")))
     `(term-color-blue ((,class :background ,blue :foreground ,blue)))
     `(term-color-cyan ((,class :background ,cyan :foreground ,cyan)))
     `(term-color-green ((,class :background ,green :foreground ,green)))
     `(term-color-magenta ((,class :background ,magenta :foreground ,magenta)))
     `(term-color-red ((,class :background ,red :foreground ,red)))
+    `(term-color-white ((,class :background "gray65" :foreground "gray65")))
     `(term-color-yellow ((,class :background ,yellow :foreground ,yellow)))
     `(term-underline ((,class :underline t)))
 ;;;;; tomatinho
@@ -5114,8 +5116,8 @@ calling the internal `modus-themes--light' and
          (360 . ,magenta-alt-other)))
      `(vc-annotate-very-old-color nil)
 ;;;; xterm-color
-     `(xterm-color-names [,fg-main ,red ,green ,yellow ,blue ,magenta ,cyan ,bg-alt])
-     `(xterm-color-names-bright [,fg-alt ,red-alt ,green-alt ,yellow-alt ,blue-alt ,magenta-alt ,cyan-alt ,bg-main]))
+     `(xterm-color-names ["black" ,red ,green ,yellow ,blue ,magenta ,cyan "gray65"])
+     `(xterm-color-names-bright ["gray35" ,red-alt ,green-alt ,yellow-alt ,blue-alt ,magenta-alt ,cyan-alt "white"]))
 ;;; Conditional theme variables
 ;;;; org-src-block-faces
     ;; this is a user option to add a color-coded background to source
