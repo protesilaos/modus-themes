@@ -5044,6 +5044,10 @@ calling the internal `modus-themes--light' and
     (when (>= emacs-major-version 28)
       (custom-theme-set-faces
        'user
+;;;;; dired
+       `(dired-broken-symlink ((,class :inherit button :foreground ,red)))
+;;;;; diff-mode
+       `(diff-error ((,class :inherit modus-theme-intense-red)))
 ;;;;; isearch regexp groups
        `(isearch-group-1 ((,class :inherit modus-theme-intense-blue)))
        `(isearch-group-2 ((,class :inherit modus-theme-intense-magenta)))))
