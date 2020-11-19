@@ -4442,8 +4442,11 @@ calling the internal `modus-themes--light' and
                                                 cyan-refine-bg cyan-refine-fg))))
 ;;;;; semantic
     `(semantic-complete-inline-face ((,class :foreground ,fg-special-warm :underline t)))
+    `(semantic-decoration-on-fileless-includes ((,class :inherit modus-theme-refine-green)))
     `(semantic-decoration-on-private-members-face ((,class :inherit modus-theme-refine-cyan)))
     `(semantic-decoration-on-protected-members-face ((,class :background ,bg-dim)))
+    `(semantic-decoration-on-unknown-includes ((,class :inherit modus-theme-refine-red)))
+    `(semantic-decoration-on-unparsed-includes ((,class :inherit modus-theme-refine-yellow)))
     `(semantic-highlight-edits-face ((,class :background ,bg-alt)))
     `(semantic-highlight-func-current-tag-face ((,class :background ,bg-alt)))
     `(semantic-idle-symbol-highlight ((,class :inherit modus-theme-special-mild)))
