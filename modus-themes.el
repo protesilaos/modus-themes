@@ -220,6 +220,7 @@
 ;;     line numbers (`display-line-numbers-mode' and global variant)
 ;;     lsp-mode
 ;;     lsp-ui
+;;     macrostep
 ;;     magit
 ;;     magit-imerge
 ;;     make-mode
@@ -3598,6 +3599,15 @@ calling the internal `modus-themes--light' and
     `(lsp-ui-sideline-current-symbol ((,class :inherit bold :height 0.99 :box (:line-width -1 :style nil) :foreground ,fg-main)))
     `(lsp-ui-sideline-symbol ((,class :inherit bold :height 0.99 :box (:line-width -1 :style nil) :foreground ,fg-alt)))
     `(lsp-ui-sideline-symbol-info ((,class :inherit italic :height 0.99)))
+;;;;; macrostep
+    `(macrostep-compiler-macro-face ((,class :inherit italic)))
+    `(macrostep-expansion-highlight-face ((,class :background ,blue-nuanced-bg)))
+    `(macrostep-gensym-1 ((,class :inherit bold :foreground ,blue :box t)))
+    `(macrostep-gensym-2 ((,class :inherit bold :foreground ,green :box t)))
+    `(macrostep-gensym-3 ((,class :inherit bold :foreground ,yellow :box t)))
+    `(macrostep-gensym-4 ((,class :inherit bold :foreground ,red :box t)))
+    `(macrostep-gensym-5 ((,class :inherit bold :foreground ,magenta :box t)))
+    `(macrostep-macro-face ((,class :inherit button :foreground ,green-alt)))
 ;;;;; magit
     `(magit-bisect-bad ((,class :foreground ,red-alt-other)))
     `(magit-bisect-good ((,class :foreground ,green-alt-other)))

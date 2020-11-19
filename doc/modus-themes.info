@@ -1598,6 +1598,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • line numbers (‘display-line-numbers-mode’ and global variant)
    • lsp-mode
    • lsp-ui
+   • macrostep
    • magit
    • magit-imerge
    • make-mode
