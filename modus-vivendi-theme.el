@@ -51,9 +51,7 @@
 
 
 
-(eval-and-compile
-  (require 'modus-themes))
-
+(require 'modus-themes)
 (eval-when-compile
   (require 'modus-themes-core))
 
