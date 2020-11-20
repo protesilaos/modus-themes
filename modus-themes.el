@@ -2975,25 +2975,15 @@ calling the internal `modus-themes--light' and
     `(fountain-synopsis ((,class :foreground ,cyan-alt)))
     `(fountain-trans ((,class :foreground ,yellow-alt-other)))
 ;;;;; geiser
-    `(geiser-font-lock-autodoc-current-arg ((,class ,@(modus-themes-syntax-foreground
-                                                       magenta magenta-faint))))
-    `(geiser-font-lock-autodoc-identifier ((,class ,@(modus-themes-syntax-foreground
-                                                      blue blue-faint))))
-    `(geiser-font-lock-doc-button ((,class ,@(modus-themes-syntax-foreground
-                                              cyan-alt cyan-alt-faint)
-                                           :underline t)))
+    `(geiser-font-lock-autodoc-current-arg ((,class :inherit font-lock-function-name-face)))
+    `(geiser-font-lock-autodoc-identifier ((,class :inherit font-lock-constant-face)))
+    `(geiser-font-lock-doc-button ((,class :inherit button :foreground ,fg-docstring)))
     `(geiser-font-lock-doc-link ((,class :inherit button)))
-    `(geiser-font-lock-error-link ((,class ,@(modus-themes-syntax-foreground
-                                              red-alt red-alt-faint)
-                                           :underline t)))
-    `(geiser-font-lock-image-button ((,class ,@(modus-themes-syntax-foreground
-                                                green-alt green-alt-faint)
-                                             :underline t)))
+    `(geiser-font-lock-error-link ((,class :inherit button :foreground ,red)))
+    `(geiser-font-lock-image-button ((,class :inherit button :foreground ,green-alt)))
     `(geiser-font-lock-repl-input ((,class :inherit bold)))
-    `(geiser-font-lock-repl-output ((,class ,@(modus-themes-syntax-foreground
-                                               magenta-alt-other magenta-alt-other-faint))))
-    `(geiser-font-lock-repl-prompt ((,class ,@(modus-themes-syntax-foreground
-                                               cyan-alt-other cyan-alt-other-faint))))
+    `(geiser-font-lock-repl-output ((,class :inherit font-lock-keyword-face)))
+    `(geiser-font-lock-repl-prompt ((,class :inherit minibuffer-prompt)))
     `(geiser-font-lock-xref-header ((,class :inherit bold)))
     `(geiser-font-lock-xref-link ((,class :inherit button)))
 ;;;;; git-commit
