@@ -44,7 +44,8 @@
 
 (defvar modus-themes-operandi-colors)
 (defvar modus-themes-vivendi-colors)
-(defvar modus-themes)
+(defvar modus-themes-faces)
+(defvar modus-themes-custom-variables)
 
 (defun modus-themes-core-theme-variables (name)
   "Return correct variable for Modus theme NAME."
@@ -53,23 +54,27 @@
     (''modus-vivendi modus-themes-vivendi-colors)
     (_ (user-error "<< %s >> is not a valid Modus theme" name))))
 
-(defmacro modus-themes-core-theme (name &rest body)
-  "Bind NAME's color palette around BODY of face specifications.
+(defmacro modus-themes-core-theme (name)
+  "Bind NAME's color palette around face specifications.
 
 NAME should be the proper name of a Modus theme, either
 'modus-operandi or 'modus-vivendi.
 
-BODY consists of face specs as interpreted by
-`custom-theme-set-faces'.  For concrete examples, refer to
-`modus-themes'."
-  (let ((specs (or `,body modus-themes)))
+Face specifications are those passed to `custom-theme-set-faces'.
+They are extracted directly from variables defined in the
+`modus-themes' library.  For example, `modus-themes-faces'."
+  (let ((faces modus-themes-faces)
+        (cus modus-themes-custom-variables))
     `(let ((class '((class color) (min-colors 89)))
            ,@(mapcar (lambda (cons)
                        `(,(car cons) ,(cdr cons)))
                      (modus-themes-core-theme-variables name)))
        (custom-theme-set-faces
         ,name
-        ,@specs))))
+        ,@faces)
+       (custom-theme-set-variables
+        ,name
+        ,@cus))))
 
 (provide 'modus-themes-core)
 ;;; modus-themes-core.el ends here

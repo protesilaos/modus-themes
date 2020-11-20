@@ -1704,7 +1704,7 @@ calling the internal `modus-themes--light' and
 
 ;;;; Face specifications
 
-(defvar modus-themes
+(defvar modus-themes-faces
   '(
 ;;;; custom faces
     ;; these bespoke faces are inherited by other constructs below
@@ -4946,105 +4946,101 @@ calling the internal `modus-themes--light' and
     `(ztreep-header-face ((,class :inherit bold :height 1.2 :foreground ,fg-special-cold)))
     `(ztreep-leaf-face ((,class :foreground ,cyan)))
     `(ztreep-node-count-children-face ((,class :foreground ,fg-special-warm)))
-;;; variables
-    (custom-theme-set-variables
-     'user
-;;;; ansi-colors
-     `(ansi-color-faces-vector [default bold shadow italic underline success warning error])
-     `(ansi-color-names-vector [,fg-main ,red ,green ,yellow ,blue ,magenta ,cyan ,bg-main])
-;;;; awesome-tray
-     `(awesome-tray-mode-line-active-color ,blue)
-     `(awesome-tray-mode-line-inactive-color ,bg-active)
-;;;; flymake fringe indicators
-     `(flymake-error-bitmap '(flymake-double-exclamation-mark modus-theme-fringe-red))
-     `(flymake-warning-bitmap '(exclamation-mark modus-theme-fringe-yellow))
-     `(flymake-note-bitmap '(exclamation-mark modus-theme-fringe-cyan))
-;;;; ibuffer
-     `(ibuffer-deletion-face 'modus-theme-mark-del)
-     `(ibuffer-filter-group-name-face 'modus-theme-mark-symbol)
-     `(ibuffer-marked-face 'modus-theme-mark-sel)
-     `(ibuffer-title-face 'modus-theme-pseudo-header)
-;;;; highlight-tail
-     `(highlight-tail-colors
-       '((,green-subtle-bg . 0)
-         (,cyan-subtle-bg . 20)))
-;;;; hl-todo
-     `(hl-todo-keyword-faces
-       '(("HOLD" . ,yellow-alt)
-         ("TODO" . ,magenta)
-         ("NEXT" . ,magenta-alt-other)
-         ("THEM" . ,magenta-alt)
-         ("PROG" . ,cyan)
-         ("OKAY" . ,cyan-alt)
-         ("DONT" . ,green-alt)
-         ("FAIL" . ,red)
-         ("BUG" . ,red)
-         ("DONE" . ,green)
-         ("NOTE" . ,yellow-alt-other)
-         ("KLUDGE" . ,yellow)
-         ("HACK" . ,yellow)
-         ("TEMP" . ,red-nuanced-fg)
-         ("FIXME" . ,red-alt-other)
-         ("XXX+" . ,red-alt)
-         ("REVIEW" . ,cyan-alt-other)
-         ("DEPRECATED" . ,blue-nuanced-fg)))
-;;;; pdf-tools
-     `(pdf-view-midnight-colors
-       '(,fg-main . ,bg-dim))
-;;;; vc-annotate (C-x v g)
-     `(vc-annotate-background nil)
-     `(vc-annotate-background-mode nil)
-     `(vc-annotate-color-map
-       '((20 . ,red)
-         (40 . ,magenta)
-         (60 . ,magenta-alt)
-         (80 . ,red-alt)
-         (100 . ,yellow)
-         (120 . ,yellow-alt)
-         (140 . ,fg-special-warm)
-         (160 . ,fg-special-mild)
-         (180 . ,green)
-         (200 . ,green-alt)
-         (220 . ,cyan-alt-other)
-         (240 . ,cyan-alt)
-         (260 . ,cyan)
-         (280 . ,fg-special-cold)
-         (300 . ,blue)
-         (320 . ,blue-alt)
-         (340 . ,blue-alt-other)
-         (360 . ,magenta-alt-other)))
-     `(vc-annotate-very-old-color nil)
-;;;; xterm-color
-     `(xterm-color-names ["black" ,red ,green ,yellow ,blue ,magenta ,cyan "gray65"])
-     `(xterm-color-names-bright ["gray35" ,red-alt ,green-alt ,yellow-alt ,blue-alt ,magenta-alt ,cyan-alt "white"]))
-;;; Conditional theme variables
-;;;; org-src-block-faces
-    ;; this is a user option to add a color-coded background to source
-    ;; blocks for various programming languages
-    (when (eq modus-themes-org-blocks 'rainbow)
-      (custom-theme-set-variables
-       'user
-       `(org-src-block-faces              ; TODO this list should be expanded
-         `(("emacs-lisp" modus-theme-nuanced-magenta)
-           ("elisp" modus-theme-nuanced-magenta)
-           ("clojure" modus-theme-nuanced-magenta)
-           ("clojurescript" modus-theme-nuanced-magenta)
-           ("c" modus-theme-nuanced-blue)
-           ("c++" modus-theme-nuanced-blue)
-           ("sh" modus-theme-nuanced-green)
-           ("shell" modus-theme-nuanced-green)
-           ("html" modus-theme-nuanced-yellow)
-           ("xml" modus-theme-nuanced-yellow)
-           ("css" modus-theme-nuanced-red)
-           ("scss" modus-theme-nuanced-red)
-           ("python" modus-theme-nuanced-green)
-           ("ipython" modus-theme-nuanced-magenta)
-           ("r" modus-theme-nuanced-cyan)
-           ("yaml" modus-theme-nuanced-cyan)
-           ("conf" modus-theme-nuanced-cyan)
-           ("docker" modus-theme-nuanced-cyan)
-           ("json" modus-theme-nuanced-cyan))))))
+    `(ztreep-node-face ((,class :foreground ,fg-main))))
   "Face specs for use with `modus-themes-core-theme'.")
+
+(defvar modus-themes-custom-variables
+  '(
+;;;; ansi-colors
+    `(ansi-color-faces-vector [default bold shadow italic underline success warning error])
+    `(ansi-color-names-vector ["gray35" ,red ,green ,yellow ,blue ,magenta ,cyan "gray65"])
+;;;; awesome-tray
+    `(awesome-tray-mode-line-active-color ,blue)
+    `(awesome-tray-mode-line-inactive-color ,bg-active)
+;;;; flymake fringe indicators
+    `(flymake-error-bitmap '(flymake-double-exclamation-mark modus-theme-fringe-red))
+    `(flymake-warning-bitmap '(exclamation-mark modus-theme-fringe-yellow))
+    `(flymake-note-bitmap '(exclamation-mark modus-theme-fringe-cyan))
+;;;; ibuffer
+    `(ibuffer-deletion-face 'modus-theme-mark-del)
+    `(ibuffer-filter-group-name-face 'modus-theme-mark-symbol)
+    `(ibuffer-marked-face 'modus-theme-mark-sel)
+    `(ibuffer-title-face 'modus-theme-pseudo-header)
+;;;; highlight-tail
+    `(highlight-tail-colors
+      '((,green-subtle-bg . 0)
+        (,cyan-subtle-bg . 20)))
+;;;; hl-todo
+    `(hl-todo-keyword-faces
+      '(("HOLD" . ,yellow-alt)
+        ("TODO" . ,magenta)
+        ("NEXT" . ,magenta-alt-other)
+        ("THEM" . ,magenta-alt)
+        ("PROG" . ,cyan)
+        ("OKAY" . ,cyan-alt)
+        ("DONT" . ,green-alt)
+        ("FAIL" . ,red)
+        ("BUG" . ,red)
+        ("DONE" . ,green)
+        ("NOTE" . ,yellow-alt-other)
+        ("KLUDGE" . ,yellow)
+        ("HACK" . ,yellow)
+        ("TEMP" . ,red-nuanced-fg)
+        ("FIXME" . ,red-alt-other)
+        ("XXX+" . ,red-alt)
+        ("REVIEW" . ,cyan-alt-other)
+        ("DEPRECATED" . ,blue-nuanced-fg)))
+;;;; pdf-tools
+    `(pdf-view-midnight-colors
+      '(,fg-main . ,bg-dim))
+;;;; vc-annotate (C-x v g)
+    `(vc-annotate-background nil)
+    `(vc-annotate-background-mode nil)
+    `(vc-annotate-color-map
+      '((20 . ,red)
+        (40 . ,magenta)
+        (60 . ,magenta-alt)
+        (80 . ,red-alt)
+        (100 . ,yellow)
+        (120 . ,yellow-alt)
+        (140 . ,fg-special-warm)
+        (160 . ,fg-special-mild)
+        (180 . ,green)
+        (200 . ,green-alt)
+        (220 . ,cyan-alt-other)
+        (240 . ,cyan-alt)
+        (260 . ,cyan)
+        (280 . ,fg-special-cold)
+        (300 . ,blue)
+        (320 . ,blue-alt)
+        (340 . ,blue-alt-other)
+        (360 . ,magenta-alt-other)))
+    `(vc-annotate-very-old-color nil)
+;;;; xterm-color
+    `(xterm-color-names ["black" ,red ,green ,yellow ,blue ,magenta ,cyan "gray65"])
+    `(xterm-color-names-bright ["gray35" ,red-alt ,green-alt ,yellow-alt ,blue-alt ,magenta-alt ,cyan-alt "white"])
+    (if (eq modus-themes-org-blocks 'rainbow)
+      `(org-src-block-faces              ; TODO this list should be expanded
+        `(("emacs-lisp" modus-theme-nuanced-magenta)
+          ("elisp" modus-theme-nuanced-magenta)
+          ("clojure" modus-theme-nuanced-magenta)
+          ("clojurescript" modus-theme-nuanced-magenta)
+          ("c" modus-theme-nuanced-blue)
+          ("c++" modus-theme-nuanced-blue)
+          ("sh" modus-theme-nuanced-green)
+          ("shell" modus-theme-nuanced-green)
+          ("html" modus-theme-nuanced-yellow)
+          ("xml" modus-theme-nuanced-yellow)
+          ("css" modus-theme-nuanced-red)
+          ("scss" modus-theme-nuanced-red)
+          ("python" modus-theme-nuanced-green)
+          ("ipython" modus-theme-nuanced-magenta)
+          ("r" modus-theme-nuanced-cyan)
+          ("yaml" modus-theme-nuanced-cyan)
+          ("conf" modus-theme-nuanced-cyan)
+          ("docker" modus-theme-nuanced-cyan)))
+      `(org-src-block-faces '())))
+    "Custom variables for `modus-themes-core-theme'.")
 
 (provide 'modus-themes)
 ;;; modus-themes.el ends here
