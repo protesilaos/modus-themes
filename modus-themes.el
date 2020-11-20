@@ -4941,15 +4941,10 @@ calling the internal `modus-themes--light' and
     `(woman-italic ((,class :inherit italic :foreground ,cyan)))
     `(woman-unknown ((,class :inherit italic :foreground ,yellow)))
 ;;;;; xah-elisp-mode
-    `(xah-elisp-at-symbol ((,class :inherit bold
-                                   ,@(modus-themes-syntax-foreground
-                                      red-alt red-alt-faint))))
-    `(xah-elisp-cap-variable ((,class ,@(modus-themes-syntax-foreground
-                                         red-alt-other red-alt-other-faint))))
-    `(xah-elisp-command-face ((,class ,@(modus-themes-syntax-foreground
-                                         cyan-alt-other cyan-alt-other-faint))))
-    `(xah-elisp-dollar-symbol ((,class ,@(modus-themes-syntax-foreground
-                                          green green-faint))))
+    `(xah-elisp-at-symbol ((,class :inherit font-lock-warning-face)))
+    `(xah-elisp-cap-variable ((,class :inherit font-lock-preprocessor-face)))
+    `(xah-elisp-command-face ((,class :inherit font-lock-type-face)))
+    `(xah-elisp-dollar-symbol ((,class :inherit font-lock-variable-name-face)))
 ;;;;; xref
     `(xref-file-header ((,class :inherit bold :foreground ,fg-special-cold)))
     `(xref-line-number ((,class :foreground ,fg-alt)))
