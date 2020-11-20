@@ -4728,38 +4728,23 @@ calling the internal `modus-themes--light' and
     `(caml-types-occ-face ((,class :inherit modus-theme-subtle-green)))
     `(caml-types-scope-face ((,class :inherit modus-theme-subtle-blue)))
     `(caml-types-typed-face ((,class :inherit modus-theme-subtle-magenta)))
-    `(tuareg-font-double-semicolon-face ((,class ,@(modus-themes-syntax-foreground
-                                                    red-alt red-alt-faint))))
-    `(tuareg-font-lock-attribute-face ((,class ,@(modus-themes-syntax-foreground
-                                                  magenta magenta-faint))))
+    `(tuareg-font-double-semicolon-face ((,class :inherit font-lock-preprocessor-face)))
+    `(tuareg-font-lock-attribute-face ((,class :inherit font-lock-function-name-face)))
     `(tuareg-font-lock-constructor-face ((,class :foreground ,fg-main)))
     `(tuareg-font-lock-error-face ((,class :inherit (modus-theme-intense-red bold))))
     `(tuareg-font-lock-extension-node-face ((,class :background ,bg-alt :foreground ,magenta)))
     `(tuareg-font-lock-governing-face ((,class :inherit bold :foreground ,fg-main)))
-    `(tuareg-font-lock-infix-extension-node-face ((,class ,@(modus-themes-syntax-foreground
-                                                             magenta magenta-faint))))
+    `(tuareg-font-lock-infix-extension-node-face ((,class :inherit font-lock-function-name-face)))
     `(tuareg-font-lock-interactive-directive-face ((,class :foreground ,fg-special-cold)))
-    `(tuareg-font-lock-interactive-error-face ((,class :inherit bold
-                                                       ,@(modus-themes-syntax-foreground
-                                                          red red-faint))))
-    `(tuareg-font-lock-interactive-output-face ((,class ,@(modus-themes-syntax-foreground
-                                                           blue-alt-other blue-alt-other-faint))))
-    `(tuareg-font-lock-label-face ((,class ,@(modus-themes-syntax-foreground
-                                              cyan-alt-other cyan-alt-other-faint))))
+    `(tuareg-font-lock-interactive-error-face ((,class :inherit error)))
+    `(tuareg-font-lock-interactive-output-face ((,class :inherit font-lock-constant-face)))
+    `(tuareg-font-lock-label-face ((,class :inherit font-lock-type-face)))
     `(tuareg-font-lock-line-number-face ((,class :foreground ,fg-special-warm)))
-    `(tuareg-font-lock-module-face ((,class ,@(modus-themes-syntax-foreground
-                                               magenta-alt magenta-alt-faint))))
-    `(tuareg-font-lock-multistage-face ((,class :inherit bold :background ,bg-alt
-                                                ,@(modus-themes-syntax-foreground
-                                                   blue blue-faint))))
-    `(tuareg-font-lock-operator-face ((,class ,@(modus-themes-syntax-foreground
-                                                 red-alt red-alt-faint))))
-    `(tuareg-opam-error-face ((,class :inherit bold
-                                      ,@(modus-themes-syntax-foreground
-                                         red red-faint))))
-    `(tuareg-opam-pkg-variable-name-face ((,class :inherit modus-theme-slant
-                                                  ,@(modus-themes-syntax-foreground
-                                                     cyan cyan-faint))))
+    `(tuareg-font-lock-module-face ((,class :inherit font-lock-builtin-face)))
+    `(tuareg-font-lock-multistage-face ((,class :inherit bold :background ,bg-alt :foreground blue)))
+    `(tuareg-font-lock-operator-face ((,class :inherit font-lock-preprocessor-face)))
+    `(tuareg-opam-error-face ((,class :inherit error)))
+    `(tuareg-opam-pkg-variable-name-face ((,class :inherit font-lock-variable-name-face)))
 ;;;;; typescript
     `(typescript-jsdoc-tag ((,class :inherit modus-theme-slant :foreground ,fg-special-mild)))
     `(typescript-jsdoc-type ((,class :inherit modus-theme-slant :foreground ,fg-special-calm)))
