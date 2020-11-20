@@ -3974,56 +3974,30 @@ calling the internal `modus-themes--light' and
     `(num3-face-even ((,class :inherit bold :background ,bg-alt)))
 ;;;;; nxml-mode
     `(nxml-attribute-colon ((,class :foreground ,fg-main)))
-    `(nxml-attribute-local-name ((,class ,@(modus-themes-syntax-foreground
-                                            cyan-alt cyan-alt-faint))))
-    `(nxml-attribute-prefix ((,class :inherit modus-theme-bold
-                                     ,@(modus-themes-syntax-foreground
-                                        cyan-alt-other cyan-alt-other-faint))))
-    `(nxml-attribute-value ((,class ,@(modus-themes-syntax-foreground
-                                       blue blue-faint))))
-    `(nxml-cdata-section-CDATA ((,class :inherit modus-theme-bold
-                                        ,@(modus-themes-syntax-foreground
-                                           red-alt red-alt-faint))))
-    `(nxml-cdata-section-delimiter ((,class ,@(modus-themes-syntax-foreground
-                                               red-alt red-alt-faint))))
-    `(nxml-char-ref-delimiter ((,class ,@(modus-themes-syntax-foreground
-                                          green-alt-other green-alt-other-faint))))
-    `(nxml-char-ref-number ((,class :inherit modus-theme-bold
-                                    ,@(modus-themes-syntax-foreground
-                                       green-alt-other green-alt-other-faint))))
+    `(nxml-attribute-local-name ((,class :inherit font-lock-variable-name-face)))
+    `(nxml-attribute-prefix ((,class  :inherit font-lock-type-face)))
+    `(nxml-attribute-value ((,class :inherit font-lock-constant-face)))
+    `(nxml-cdata-section-CDATA ((,class :inherit error)))
+    `(nxml-cdata-section-delimiter ((,class :inherit error)))
+    `(nxml-char-ref-delimiter ((,class :foreground ,fg-special-mild)))
+    `(nxml-char-ref-number ((,class :inherit modus-theme-bold :foreground ,fg-special-mild)))
     `(nxml-delimited-data ((,class :inherit modus-theme-slant :foreground ,fg-special-cold)))
     `(nxml-delimiter ((,class :foreground ,fg-dim)))
     `(nxml-element-colon ((,class :foreground ,fg-main)))
-    `(nxml-element-local-name ((,class ,@(modus-themes-syntax-foreground
-                                          magenta magenta-faint))))
-    `(nxml-element-prefix ((,class :inherit modus-theme-bold
-                                   ,@(modus-themes-syntax-foreground
-                                      magenta-alt magenta-alt-faint))))
-    `(nxml-entity-ref-delimiter ((,class ,@(modus-themes-syntax-foreground
-                                            green-alt-other green-alt-other-faint))))
-    `(nxml-entity-ref-name ((,class :inherit modus-theme-bold
-                                    ,@(modus-themes-syntax-foreground
-                                       green-alt-other green-alt-other-faint))))
+    `(nxml-element-local-name ((,class :inherit font-lock-function-name-face)))
+    `(nxml-element-prefix ((,class :inherit font-lock-builtin-face)))
+    `(nxml-entity-ref-delimiter ((,class :foreground ,fg-special-mild)))
+    `(nxml-entity-ref-name ((,class :inherit modus-theme-bold :foreground ,fg-special-mild)))
     `(nxml-glyph ((,class :inherit modus-theme-intense-neutral)))
-    `(nxml-hash ((,class :inherit modus-theme-bold
-                         ,@(modus-themes-syntax-foreground
-                            blue-alt blue-alt-faint))))
+    `(nxml-hash ((,class :inherit (bold font-lock-string-face))))
     `(nxml-heading ((,class :inherit bold)))
-    `(nxml-name ((,class :inherit modus-theme-bold
-                         ,@(modus-themes-syntax-foreground
-                            magenta-alt magenta-alt-faint))))
+    `(nxml-name ((,class :inherit font-lock-builtin-face)))
     `(nxml-namespace-attribute-colon ((,class :foreground ,fg-main)))
-    `(nxml-namespace-attribute-prefix ((,class ,@(modus-themes-syntax-foreground
-                                                  cyan cyan-faint))))
-    `(nxml-processing-instruction-target ((,class :inherit modus-theme-bold
-                                                  ,@(modus-themes-syntax-foreground
-                                                     magenta-alt-other magenta-alt-other-faint))))
-    `(nxml-prolog-keyword ((,class :inherit modus-theme-bold
-                                   ,@(modus-themes-syntax-foreground
-                                      magenta-alt-other magenta-alt-other-faint))))
-    `(nxml-ref ((,class :inherit modus-theme-bold
-                        ,@(modus-themes-syntax-foreground
-                           green-alt-other green-alt-other-faint))))
+    `(nxml-namespace-attribute-prefix ((,class :inherit font-lock-variable-name-face)))
+    `(nxml-processing-instruction-target ((,class :inherit font-lock-keyword-face)))
+    `(nxml-prolog-keyword ((,class :inherit font-lock-keyword-face)))
+    `(nxml-ref ((,class :inherit modus-theme-bold :foreground ,fg-special-mild)))
+    `(rng-error ((,class :inherit error)))
 ;;;;; objed
     `(objed-hl ((,class :background ,(if modus-themes-intense-hl-line
                                          bg-hl-alt-intense bg-hl-alt))))
