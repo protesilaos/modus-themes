@@ -4826,88 +4826,53 @@ calling the internal `modus-themes--light' and
     `(web-mode-annotation-face ((,class :inherit web-mode-comment-face)))
     `(web-mode-annotation-html-face ((,class :inherit web-mode-comment-face)))
     `(web-mode-annotation-tag-face ((,class :inherit web-mode-comment-face :underline t)))
-    `(web-mode-block-attr-name-face ((,class ,@(modus-themes-syntax-foreground
-                                                blue blue-faint))))
-    `(web-mode-block-attr-value-face ((,class ,@(modus-themes-syntax-foreground
-                                                 cyan-alt-other cyan-alt-other-faint))))
+    `(web-mode-block-attr-name-face ((,class :inherit font-lock-constant-face)))
+    `(web-mode-block-attr-value-face ((,class :inherit font-lock-type-face)))
     `(web-mode-block-comment-face ((,class :inherit web-mode-comment-face)))
-    `(web-mode-block-control-face ((,class :inherit modus-theme-bold
-                                           ,@(modus-themes-syntax-foreground
-                                              magenta-alt magenta-alt-faint))))
+    `(web-mode-block-control-face ((,class :inherit font-lock-builtin-face)))
     `(web-mode-block-delimiter-face ((,class :foreground ,fg-main)))
     `(web-mode-block-face ((,class :background ,bg-dim)))
     `(web-mode-block-string-face ((,class :inherit web-mode-string-face)))
     `(web-mode-bold-face ((,class :inherit bold)))
-    `(web-mode-builtin-face ((,class :inherit modus-theme-bold
-                                     ,@(modus-themes-syntax-foreground
-                                        magenta-alt magenta-alt-faint))))
+    `(web-mode-builtin-face ((,class :inherit font-lock-builtin-face)))
     `(web-mode-comment-face ((,class :inherit font-lock-comment-face)))
-    `(web-mode-comment-keyword-face ((,class :inherit bold :background ,bg-dim
-                                             ,@(modus-themes-syntax-foreground
-                                                yellow yellow-faint))))
-    `(web-mode-constant-face ((,class ,@(modus-themes-syntax-foreground
-                                         blue-alt-other blue-alt-other-faint))))
-    `(web-mode-css-at-rule-face ((,class ,@(modus-themes-syntax-foreground
-                                            blue-alt-other blue-alt-other-faint))))
-    `(web-mode-css-color-face ((,class :inherit modus-theme-bold
-                                       ,@(modus-themes-syntax-foreground
-                                          magenta-alt magenta-alt-faint))))
+    `(web-mode-comment-keyword-face ((,class :inherit font-lock-warning-face)))
+    `(web-mode-constant-face ((,class :inherit font-lock-constant-face)))
+    `(web-mode-css-at-rule-face ((,class :inherit font-lock-constant-face)))
+    `(web-mode-css-color-face ((,class :inherit font-lock-builtin-face)))
     `(web-mode-css-comment-face ((,class :inherit web-mode-comment-face)))
-    `(web-mode-css-function-face ((,class :inherit modus-theme-bold
-                                          ,@(modus-themes-syntax-foreground
-                                             magenta-alt magenta-alt-faint))))
-    `(web-mode-css-priority-face ((,class :inherit modus-theme-bold
-                                          ,@(modus-themes-syntax-foreground
-                                             yellow-alt yellow-alt-faint))))
-    `(web-mode-css-property-name-face ((,class ,@(modus-themes-syntax-foreground
-                                                  cyan cyan-faint))))
-    `(web-mode-css-pseudo-class-face ((,class ,@(modus-themes-syntax-foreground
-                                                 cyan-alt-other cyan-alt-other-faint))))
-    `(web-mode-css-selector-face ((,class :inherit modus-theme-bold
-                                          ,@(modus-themes-syntax-foreground
-                                             magenta-alt-other magenta-alt-other-faint))))
+    `(web-mode-css-function-face ((,class :inherit font-lock-builtin-face)))
+    `(web-mode-css-priority-face ((,class :inherit font-lock-warning-face)))
+    `(web-mode-css-property-name-face ((,class :inherit font-lock-keyword-face)))
+    `(web-mode-css-pseudo-class-face ((,class :inherit font-lock-doc-face)))
+    `(web-mode-css-selector-face ((,class :inherit font-lock-keyword-face)))
     `(web-mode-css-string-face ((,class :inherit web-mode-string-face)))
     `(web-mode-css-variable-face ((,class :foreground ,fg-special-warm)))
     `(web-mode-current-column-highlight-face ((,class :background ,bg-alt)))
     `(web-mode-current-element-highlight-face ((,class :inherit modus-theme-special-mild)))
     `(web-mode-doctype-face ((,class :inherit modus-theme-slant :foreground ,fg-special-cold)))
     `(web-mode-error-face ((,class :inherit modus-theme-intense-red)))
-    `(web-mode-filter-face ((,class ,@(modus-themes-syntax-foreground
-                                       magenta magenta-faint))))
+    `(web-mode-filter-face ((,class :inherit font-lock-function-name-face)))
     `(web-mode-folded-face ((,class :underline t)))
-    `(web-mode-function-call-face ((,class ,@(modus-themes-syntax-foreground
-                                              magenta magenta-faint))))
-    `(web-mode-function-name-face ((,class ,@(modus-themes-syntax-foreground
-                                              magenta magenta-faint))))
-    `(web-mode-html-attr-custom-face ((,class ,@(modus-themes-syntax-foreground
-                                                 cyan cyan-faint))))
+    `(web-mode-function-call-face ((,class :inherit font-lock-function-name-face)))
+    `(web-mode-function-name-face ((,class :inherit font-lock-function-name-face)))
+    `(web-mode-html-attr-custom-face ((,class :inherit font-lock-variable-name-face)))
     `(web-mode-html-attr-engine-face ((,class :foreground ,fg-main)))
     `(web-mode-html-attr-equal-face ((,class :foreground ,fg-main)))
-    `(web-mode-html-attr-name-face ((,class ,@(modus-themes-syntax-foreground
-                                               cyan cyan-faint))))
-    `(web-mode-html-attr-value-face ((,class ,@(modus-themes-syntax-foreground
-                                                blue-alt-other blue-alt-other-faint))))
-    `(web-mode-html-entity-face ((,class :inherit modus-theme-slant
-                                         ,@(modus-themes-syntax-foreground
-                                            yellow-alt-other yellow-alt-other-faint))))
+    `(web-mode-html-attr-name-face ((,class :inherit font-lock-variable-name-face)))
+    `(web-mode-html-attr-value-face ((,class :inherit font-lock-constant-face)))
+    `(web-mode-html-entity-face ((,class :inherit font-lock-negation-char-face)))
     `(web-mode-html-tag-bracket-face ((,class :foreground ,fg-dim)))
-    `(web-mode-html-tag-custom-face ((,class ,@(modus-themes-syntax-foreground
-                                                magenta magenta-faint))))
-    `(web-mode-html-tag-face ((,class ,@(modus-themes-syntax-foreground
-                                         magenta magenta-faint))))
-    `(web-mode-html-tag-namespaced-face ((,class :inherit modus-theme-bold
-                                                 ,@(modus-themes-syntax-foreground
-                                                    magenta-alt magenta-alt-faint))))
-    `(web-mode-html-tag-unclosed-face ((,class ,@(modus-themes-syntax-foreground
-                                                  red red-faint)
-                                               :underline t)))
+    `(web-mode-html-tag-custom-face ((,class :inherit font-lock-function-name-face)))
+    `(web-mode-html-tag-face ((,class :inherit font-lock-function-name-face)))
+    `(web-mode-html-tag-namespaced-face ((,class :inherit font-lock-builtin-face)))
+    `(web-mode-html-tag-unclosed-face ((,class :inherit error :underline t)))
     `(web-mode-inlay-face ((,class :background ,bg-alt)))
     `(web-mode-italic-face ((,class :inherit italic)))
     `(web-mode-javascript-comment-face ((,class :inherit web-mode-comment-face)))
     `(web-mode-javascript-string-face ((,class :inherit web-mode-string-face)))
     `(web-mode-json-comment-face ((,class :inherit web-mode-comment-face)))
-    `(web-mode-json-context-face ((,class ,@(modus-themes-syntax-foreground
-                                             magenta-alt magenta-alt-faint))))
+    `(web-mode-json-context-face ((,class :inherit font-lock-builtin-face)))
     `(web-mode-json-key-face ((,class :foreground ,blue-nuanced-fg)))
     `(web-mode-json-string-face ((,class :inherit web-mode-string-face)))
     `(web-mode-jsx-depth-1-face ((,class :background ,blue-intense-bg :foreground ,fg-main)))
@@ -4915,33 +4880,21 @@ calling the internal `modus-themes--light' and
     `(web-mode-jsx-depth-3-face ((,class :background ,bg-special-cold :foreground ,fg-special-cold)))
     `(web-mode-jsx-depth-4-face ((,class :background ,bg-alt :foreground ,blue-refine-fg)))
     `(web-mode-jsx-depth-5-face ((,class :background ,bg-alt :foreground ,blue-nuanced-fg)))
-    `(web-mode-keyword-face ((,class :inherit modus-theme-bold
-                                     ,@(modus-themes-syntax-foreground
-                                        magenta-alt-other magenta-alt-other-faint))))
-    `(web-mode-param-name-face ((,class ,@(modus-themes-syntax-foreground
-                                           magenta magenta-faint))))
+    `(web-mode-keyword-face ((,class :inherit :inherit font-lock-keyword-face)))
+    `(web-mode-param-name-face ((,class :inherit font-lock-function-name-face)))
     `(web-mode-part-comment-face ((,class :inherit web-mode-comment-face)))
     `(web-mode-part-face ((,class :inherit web-mode-block-face)))
     `(web-mode-part-string-face ((,class :inherit web-mode-string-face)))
-    `(web-mode-preprocessor-face ((,class ,@(modus-themes-syntax-foreground
-                                             red-alt-other red-alt-other-faint))))
+    `(web-mode-preprocessor-face ((,class :inherit font-lock-preprocessor-face)))
     `(web-mode-script-face ((,class :inherit web-mode-part-face)))
-    `(web-mode-sql-keyword-face ((,class :inherit bold
-                                         ,@(modus-themes-syntax-foreground
-                                            yellow yellow-faint))))
-    `(web-mode-string-face ((,class ,@(modus-themes-syntax-foreground
-                                       blue-alt blue-alt-faint))))
+    `(web-mode-sql-keyword-face ((,class :inherit font-lock-negation-char-face)))
+    `(web-mode-string-face ((,class :inherit font-lock-string-face)))
     `(web-mode-style-face ((,class :inherit web-mode-part-face)))
-    `(web-mode-symbol-face ((,class ,@(modus-themes-syntax-foreground
-                                       blue-alt-other blue-alt-other-faint))))
-    `(web-mode-type-face ((,class ,@(modus-themes-syntax-foreground
-                                     magenta-alt magenta-alt-faint))))
+    `(web-mode-symbol-face ((,class :inherit font-lock-constant-face)))
+    `(web-mode-type-face ((,class :inherit font-lock-builtin-face)))
     `(web-mode-underline-face ((,class :underline t)))
-    `(web-mode-variable-name-face ((,class ,@(modus-themes-syntax-foreground
-                                              cyan cyan-faint))))
-    `(web-mode-warning-face ((,class :inherit bold :background ,bg-alt
-                                     ,@(modus-themes-syntax-foreground
-                                        yellow-alt-other yellow-alt-other-faint))))
+    `(web-mode-variable-name-face ((,class :inherit font-lock-variable-name-face)))
+    `(web-mode-warning-face ((,class :inherit font-lock-warning-face)))
     `(web-mode-whitespace-face ((,class :background ,bg-whitespace :foreground ,fg-whitespace)))
 ;;;;; wgrep
     `(wgrep-delete-face ((,class :inherit modus-theme-refine-yellow)))
