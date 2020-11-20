@@ -2170,6 +2170,7 @@ calling the internal `modus-themes--light' and
     `(log-edit-header ((,class :foreground ,fg-special-warm)))
     `(log-edit-summary ((,class :inherit bold :foreground ,blue)))
     `(log-edit-unknown-header ((,class :foreground ,fg-alt)))
+    `(log-view-commit-body ((,class :background ,bg-alt :foreground ,fg-main)))
     `(log-view-file ((,class :inherit bold :foreground ,fg-special-cold)))
     `(log-view-message ((,class :foreground ,green-alt-other-faint)))
 ;;;;; cider
@@ -2405,6 +2406,7 @@ calling the internal `modus-themes--light' and
     `(diff-added ((,class :inherit modus-theme-diff-added)))
     `(diff-changed ((,class :inherit modus-theme-diff-changed)))
     `(diff-context ((,class :foreground ,fg-unfocused)))
+    `(diff-error ((,class :inherit modus-theme-intense-red)))
     `(diff-file-header ((,class :inherit bold :foreground ,fg-main)))
     `(diff-function ((,class :foreground ,blue)))
     `(diff-header ((,class :background ,bg-dim :foreground ,fg-main)))
@@ -2444,6 +2446,7 @@ calling the internal `modus-themes--light' and
     `(dir-treeview-video-face ((,class :foreground ,magenta-alt-other)))
     `(dir-treeview-video-icon-face ((,class :inherit dir-treeview-default-icon-face :foreground ,magenta-alt-other)))
 ;;;;; dired
+    `(dired-broken-symlink ((,class :inherit button :foreground ,red)))
     `(dired-directory ((,class :foreground ,blue)))
     `(dired-flagged ((,class :inherit modus-theme-mark-del)))
     `(dired-header ((,class :inherit modus-theme-pseudo-header)))
@@ -3428,6 +3431,8 @@ calling the internal `modus-themes--light' and
 ;;;;; isearch, occur, and the like
     `(isearch ((,class :inherit (modus-theme-intense-green bold))))
     `(isearch-fail ((,class :inherit modus-theme-refine-red)))
+    `(isearch-group-1 ((,class :inherit modus-theme-intense-blue)))
+    `(isearch-group-2 ((,class :inherit modus-theme-intense-magenta)))
     `(lazy-highlight ((,class :inherit modus-theme-refine-cyan)))
     `(match ((,class :inherit modus-theme-special-calm)))
     `(query-replace ((,class :inherit (modus-theme-intense-yellow bold))))
@@ -3547,6 +3552,12 @@ calling the internal `modus-themes--light' and
 ;;;;; line numbers (display-line-numbers-mode and global variant)
     `(line-number ((,class :inherit default :background ,bg-dim :foreground ,fg-alt)))
     `(line-number-current-line ((,class :inherit default :background ,bg-active :foreground ,fg-main)))
+    `(line-number-major-tick ((,class :inherit (bold default)
+                                      :background ,yellow-nuanced-bg
+                                      :foreground ,yellow-nuanced-fg)))
+    `(line-number-minor-tick ((,class :inherit (bold default)
+                                      :background ,bg-inactive
+                                      :foreground ,fg-inactive)))
 ;;;;; lsp-mode
     `(lsp-face-highlight-read ((,class :inherit modus-theme-subtle-blue :underline t)))
     `(lsp-face-highlight-textual ((,class :inherit modus-theme-subtle-blue)))
@@ -4441,6 +4452,12 @@ calling the internal `modus-themes--light' and
                                 :foreground ,fg-main)))
     `(show-paren-match-expression ((,class :inherit modus-theme-special-calm)))
     `(show-paren-mismatch ((,class :inherit modus-theme-intense-red)))
+;;;;; shr
+    `(shr-abbreviation
+      ((,(append '((supports :underline (:style wave))) class)
+        :foreground ,fg-docstring :underline (:color ,fg-alt :style wave))
+       (,class :foreground ,fg-docstring :underline t)))
+    `(shr-selected-link ((,class :inherit modus-theme-subtle-cyan)))
 ;;;;; side-notes
     `(side-notes ((,class :background ,bg-dim :foreground ,fg-dim)))
 ;;;;; sieve-mode
@@ -4598,6 +4615,21 @@ calling the internal `modus-themes--light' and
     `(syslog-ip ((,class :inherit bold :foreground ,fg-special-mild :underline t)))
     `(syslog-su ((,class :inherit bold :foreground ,red-alt)))
     `(syslog-warn ((,class :inherit bold :foreground ,yellow)))
+;;;;; tab-bar-mode
+    `(tab-bar ((,class :background ,bg-tab-bar :foreground ,fg-main)))
+    `(tab-bar-tab ((,class :inherit bold :box (:line-width 2 :color ,bg-tab-active)
+                           :background ,bg-tab-active :foreground ,fg-main)))
+    `(tab-bar-tab-inactive ((,class :box (:line-width 2 :color ,bg-tab-inactive)
+                                    :background ,bg-tab-inactive :foreground ,fg-dim)))
+;;;;; tab-line-mode
+    `(tab-line ((,class :height 0.95 :background ,bg-tab-bar :foreground ,fg-main)))
+    `(tab-line-close-highlight ((,class :foreground ,red)))
+    `(tab-line-highlight ((,class :background ,blue-subtle-bg :foreground ,fg-dim)))
+    `(tab-line-tab ((,class :inherit bold :box (:line-width 2 :color ,bg-tab-active)
+                            :background ,bg-tab-active :foreground ,fg-main)))
+    `(tab-line-tab-current ((,class :inherit tab-line-tab)))
+    `(tab-line-tab-inactive ((,class :box (:line-width 2 :color ,bg-tab-inactive)
+                                     :background ,bg-tab-inactive :foreground ,fg-dim)))
 ;;;;; table (built-in table.el)
     `(table-cell ((,class :background ,blue-nuanced-bg)))
 ;;;;; telephone-line
@@ -4914,55 +4946,6 @@ calling the internal `modus-themes--light' and
     `(ztreep-header-face ((,class :inherit bold :height 1.2 :foreground ,fg-special-cold)))
     `(ztreep-leaf-face ((,class :foreground ,cyan)))
     `(ztreep-node-count-children-face ((,class :foreground ,fg-special-warm)))
-    `(ztreep-node-face ((,class :foreground ,fg-main)))
-;;;; Emacs 27+
-    (when (>= emacs-major-version 27)
-      (custom-theme-set-faces
-       'user
-;;;;; line numbers (`display-line-numbers-mode' and global variant)
-       ;; NOTE that this is specifically for the faces that were
-       ;; introduced in Emacs 27, as the other faces are already
-       ;; supported.
-       `(line-number-major-tick ((,class :inherit (bold default)
-                                         :background ,yellow-nuanced-bg
-                                         :foreground ,yellow-nuanced-fg)))
-       `(line-number-minor-tick ((,class :inherit (bold default)
-                                         :background ,bg-inactive
-                                         :foreground ,fg-inactive)))
-;;;;; shr
-       `(shr-abbreviation
-         ((,(append '((supports :underline (:style wave))) class)
-           :foreground ,fg-docstring :underline (:color ,fg-alt :style wave))
-          (,class :foreground ,fg-docstring :underline t)))
-       `(shr-selected-link ((,class :inherit modus-theme-subtle-cyan)))
-;;;;; tab-bar-mode
-       `(tab-bar ((,class :background ,bg-tab-bar :foreground ,fg-main)))
-       `(tab-bar-tab ((,class :inherit bold :box (:line-width 2 :color ,bg-tab-active)
-                              :background ,bg-tab-active :foreground ,fg-main)))
-       `(tab-bar-tab-inactive ((,class :box (:line-width 2 :color ,bg-tab-inactive)
-                                       :background ,bg-tab-inactive :foreground ,fg-dim)))
-;;;;; tab-line-mode
-       `(tab-line ((,class :height 0.95 :background ,bg-tab-bar :foreground ,fg-main)))
-       `(tab-line-close-highlight ((,class :foreground ,red)))
-       `(tab-line-highlight ((,class :background ,blue-subtle-bg :foreground ,fg-dim)))
-       `(tab-line-tab ((,class :inherit bold :box (:line-width 2 :color ,bg-tab-active)
-                               :background ,bg-tab-active :foreground ,fg-main)))
-       `(tab-line-tab-current ((,class :inherit tab-line-tab)))
-       `(tab-line-tab-inactive ((,class :box (:line-width 2 :color ,bg-tab-inactive)
-                                        :background ,bg-tab-inactive :foreground ,fg-dim)))))
-;;;; Emacs 28+
-    (when (>= emacs-major-version 28)
-      (custom-theme-set-faces
-       'user
-;;;;; dired
-       `(dired-broken-symlink ((,class :inherit button :foreground ,red)))
-;;;;; diff-mode
-       `(diff-error ((,class :inherit modus-theme-intense-red)))
-;;;;; isearch regexp groups
-       `(isearch-group-1 ((,class :inherit modus-theme-intense-blue)))
-       `(isearch-group-2 ((,class :inherit modus-theme-intense-magenta)))
-;;;;; log-view
-       `(log-view-commit-body ((,class :background ,bg-alt :foreground ,fg-main)))))
 ;;; variables
     (custom-theme-set-variables
      'user
