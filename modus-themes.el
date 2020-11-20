@@ -2039,18 +2039,18 @@ calling the internal `modus-themes--light' and
     `(font-latex-sedate-face ((,class :inherit modus-theme-bold :foreground ,magenta-alt-other)))
     `(font-latex-slide-title-face ((,class :inherit (bold modus-theme-variable-pitch) :foreground ,cyan-nuanced-fg
                                            ,@(modus-themes--scale modus-themes-scale-4))))
-    `(font-latex-string-face ((,class :foreground ,blue-alt)))
+    `(font-latex-string-face ((,class :inherit font-lock-string-face)))
     `(font-latex-subscript-face ((,class :height 0.95)))
     `(font-latex-superscript-face ((,class :height 0.95)))
     `(font-latex-verbatim-face ((,class :background ,bg-dim :foreground ,fg-special-mild)))
-    `(font-latex-warning-face ((,class :foreground ,yellow-alt-other)))
+    `(font-latex-warning-face ((,class :inherit font-lock-warning-face)))
     `(tex-match ((,class :foreground ,blue-alt-other)))
     `(tex-verbatim ((,class :background ,bg-dim :foreground ,fg-special-mild)))
     `(texinfo-heading ((,class :foreground ,magenta)))
-    `(TeX-error-description-error ((,class :inherit bold :foreground ,red)))
+    `(TeX-error-description-error ((,class :inherit error)))
     `(TeX-error-description-help ((,class :foreground ,blue)))
     `(TeX-error-description-tex-said ((,class :foreground ,blue)))
-    `(TeX-error-description-warning ((,class :inherit bold :foreground ,yellow)))
+    `(TeX-error-description-warning ((,class :inherit warning)))
 ;;;;; auto-dim-other-buffers
     `(auto-dim-other-buffers-face ((,class :background ,bg-alt)))
 ;;;;; avy
