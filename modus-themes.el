@@ -4437,7 +4437,7 @@ calling the internal `modus-themes--light' and
     `(sh-quoted-exec ((,class :inherit modus-theme-bold :foreground ,magenta-alt)))
 ;;;;; show-paren-mode
     `(show-paren-match ((,class ,@(modus-themes--paren bg-paren-match
-                                                      bg-paren-match-intense)
+                                                       bg-paren-match-intense)
                                 :foreground ,fg-main)))
     `(show-paren-match-expression ((,class :inherit modus-theme-special-calm)))
     `(show-paren-mismatch ((,class :inherit modus-theme-intense-red)))
@@ -4480,7 +4480,7 @@ calling the internal `modus-themes--light' and
     `(sp-pair-overlay-face ((,class :inherit modus-theme-special-warm)))
     `(sp-show-pair-enclosing ((,class :inherit modus-theme-special-mild)))
     `(sp-show-pair-match-face ((,class ,@(modus-themes--paren bg-paren-match
-                                                             bg-paren-match-intense)
+                                                              bg-paren-match-intense)
                                        :foreground ,fg-main)))
     `(sp-show-pair-mismatch-face ((,class :inherit modus-theme-intense-red)))
     `(sp-wrap-overlay-closing-pair ((,class :inherit sp-pair-overlay-face)))
