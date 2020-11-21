@@ -1704,7 +1704,7 @@ calling the internal `modus-themes--light' and
 
 ;;;; Face specifications
 
-(defvar modus-themes-faces
+(defconst modus-themes-faces
   '(
 ;;;; custom faces
     ;; these bespoke faces are inherited by other constructs below
@@ -4949,7 +4949,7 @@ calling the internal `modus-themes--light' and
     `(ztreep-node-face ((,class :foreground ,fg-main))))
   "Face specs for use with `modus-themes-core-theme'.")
 
-(defvar modus-themes-custom-variables
+(defconst modus-themes-custom-variables
   '(
 ;;;; ansi-colors
     `(ansi-color-faces-vector [default bold shadow italic underline success warning error])
