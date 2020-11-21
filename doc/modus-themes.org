@@ -291,7 +291,7 @@ a theme (see [[#h:3f3c3728-1b34-437d-9d0c-b110f5b161a9][Enable and load]]).
 :CUSTOM_ID: h:b25714f6-0fbe-41f6-89b5-6912d304091e
 :END:
 
-Symbol name: =modus-themes-bold-constructs=
+Symbol: =modus-themes-bold-constructs=
 
 Possible values:
 
@@ -313,7 +313,7 @@ prompts.
 :CUSTOM_ID: h:977c900d-0d6d-4dbb-82d9-c2aae69543d6
 :END:
 
-Symbol name: =modus-themes-slanted-constructs=
+Symbol: =modus-themes-slanted-constructs=
 
 Possible values:
 
@@ -333,7 +333,7 @@ This typically affects documentation strings and code comments.
 :CUSTOM_ID: h:c119d7b2-fcd4-4e44-890e-5e25733d5e52
 :END:
 
-Symbol name: =modus-themes-syntax=
+Symbol: =modus-themes-syntax=
 
 Possible values:
 
@@ -377,7 +377,7 @@ Option =alt-syntax-yellow-comments= combines =alt-syntax= with
 :CUSTOM_ID: h:115e6c23-ee35-4a16-8cef-e2fcbb08e28b
 :END:
 
-Symbol name: =modus-themes-no-mixed-fonts=
+Symbol: =modus-themes-no-mixed-fonts=
 
 Possible values:
 
@@ -403,7 +403,7 @@ are =org-variable-pitch= and =mixed-pitch=.
 :CUSTOM_ID: h:c119d7b2-fcd4-4e44-890e-5e25733d5e52
 :END:
 
-Symbol name: =modus-themes-links=
+Symbol: =modus-themes-links=
 
 Possible values:
 
@@ -436,7 +436,7 @@ their text color the same as the default.
 :CUSTOM_ID: h:db5a9a7c-2928-4a28-b0f0-6f2b9bd52ba1
 :END:
 
-Symbol name: =modus-themes-prompts=
+Symbol: =modus-themes-prompts=
 
 Possible values:
 
@@ -459,7 +459,7 @@ exclusively on an accented foreground color.
 :CUSTOM_ID: h:27943af6-d950-42d0-bc23-106e43f50a24
 :END:
 
-Symbol name: =modus-themes-mode-line=
+Symbol: =modus-themes-mode-line=
 
 Possible values:
 
@@ -515,7 +515,7 @@ a box style, it is advised you include this in your setup:
 :CUSTOM_ID: h:f1c20c02-7b34-4c35-9c65-99170efb2882
 :END:
 
-Symbol name: =modus-themes-completions=
+Symbol: =modus-themes-completions=
 
 Possible values:
 
@@ -558,7 +558,7 @@ possibilities.
 :CUSTOM_ID: h:1983c3fc-74f6-44f3-b917-967c403bebae
 :END:
 
-Symbol name: =modus-themes-fringes=
+Symbol: =modus-themes-fringes=
 
 Possible values:
 
@@ -581,7 +581,7 @@ their names imply.
 :CUSTOM_ID: h:1dba1cfe-d079-4c13-a810-f768e8789177
 :END:
 
-Symbol name: =modus-themes-intense-hl-line=
+Symbol: =modus-themes-intense-hl-line=
 
 Possible values:
 
@@ -603,7 +603,7 @@ and =mu4e=.
 :CUSTOM_ID: h:e66a7e4d-a512-4bc7-9f86-fbbb5923bf37
 :END:
 
-Symbol name: =modus-themes-intense-paren-match=
+Symbol: =modus-themes-intense-paren-match=
 
 Possible values:
 
@@ -624,7 +624,7 @@ saturated color to those same overlays.
 :CUSTOM_ID: h:ea7ac54f-5827-49bd-b09f-62424b3b6427
 :END:
 
-Symbol name: =modus-themes-diffs=
+Symbol: =modus-themes-diffs=
 
 Possible values:
 
@@ -664,7 +664,7 @@ with the overall intent of the aforementioned.
 :CUSTOM_ID: h:b7e328c0-3034-4db7-9cdf-d5ba12081ca2
 :END:
 
-Symbol name: =modus-themes-org-blocks=
+Symbol: =modus-themes-org-blocks=
 
 Possible values:
 
@@ -702,7 +702,7 @@ code block (inefficient at scale, but it still works).
 This is defined as an alist and, therefore, uses a different approach
 than other customization options documented in this manual.
 
-Symbol name: =modus-themes-headings=
+Symbol: =modus-themes-headings=
 
 Possible values, which can be specified for each heading level (examples
 further below):
@@ -811,7 +811,7 @@ A description of all other possible styles beyond the default:
 :CUSTOM_ID: h:075eb022-37a6-41a4-a040-cc189f6bfa1f
 :END:
 
-Symbol name: =modus-themes-scale-headings=
+Symbol: =modus-themes-scale-headings=
 
 Possible values:
 
@@ -868,7 +868,7 @@ size of the heading, but not of keywords that were added to it, like
 :CUSTOM_ID: h:97caca76-fa13-456c-aef1-a2aa165ea274
 :END:
 
-Symbol name: =modus-themes-variable-pitch-headings=
+Symbol: =modus-themes-variable-pitch-headings=
 
 Possible values:
 

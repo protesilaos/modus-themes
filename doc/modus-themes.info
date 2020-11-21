@@ -420,7 +420,7 @@ File: modus-themes.info,  Node: Bold constructs,  Next: Slanted constructs,  Up:
 4.1 Option for more bold constructs
 ===================================
 
-Symbol name: ‘modus-themes-bold-constructs’
+Symbol: ‘modus-themes-bold-constructs’
 
    Possible values:
 
@@ -441,7 +441,7 @@ File: modus-themes.info,  Node: Slanted constructs,  Next: Syntax styles,  Prev:
 4.2 Option for more slanted constructs
 ======================================
 
-Symbol name: ‘modus-themes-slanted-constructs’
+Symbol: ‘modus-themes-slanted-constructs’
 
    Possible values:
 
@@ -460,7 +460,7 @@ File: modus-themes.info,  Node: Syntax styles,  Next: No mixed fonts,  Prev: Sla
 4.3 Option for syntax highlighting
 ==================================
 
-Symbol name: ‘modus-themes-syntax’
+Symbol: ‘modus-themes-syntax’
 
    Possible values:
 
@@ -503,7 +503,7 @@ File: modus-themes.info,  Node: No mixed fonts,  Next: Link styles,  Prev: Synta
 4.4 Option for no font mixing
 =============================
 
-Symbol name: ‘modus-themes-no-mixed-fonts’
+Symbol: ‘modus-themes-no-mixed-fonts’
 
    Possible values:
 
@@ -528,7 +528,7 @@ File: modus-themes.info,  Node: Link styles,  Next: Command prompts,  Prev: No m
 4.5 Option for links
 ====================
 
-Symbol name: ‘modus-themes-links’
+Symbol: ‘modus-themes-links’
 
    Possible values:
 
@@ -560,7 +560,7 @@ File: modus-themes.info,  Node: Command prompts,  Next: Mode line,  Prev: Link s
 4.6 Option for command prompt styles
 ====================================
 
-Symbol name: ‘modus-themes-prompts’
+Symbol: ‘modus-themes-prompts’
 
    Possible values:
 
@@ -583,7 +583,7 @@ File: modus-themes.info,  Node: Mode line,  Next: Completion UIs,  Prev: Command
 4.7 Option for mode line presentation
 =====================================
 
-Symbol name: ‘modus-themes-mode-line’
+Symbol: ‘modus-themes-mode-line’
 
    Possible values:
 
@@ -636,7 +636,7 @@ File: modus-themes.info,  Node: Completion UIs,  Next: Fringes,  Prev: Mode line
 4.8 Option for completion framework aesthetics
 ==============================================
 
-Symbol name: ‘modus-themes-completions’
+Symbol: ‘modus-themes-completions’
 
    Possible values:
 
@@ -679,7 +679,7 @@ File: modus-themes.info,  Node: Fringes,  Next: Line highlighting,  Prev: Comple
 4.9 Option for fringe visibility
 ================================
 
-Symbol name: ‘modus-themes-fringes’
+Symbol: ‘modus-themes-fringes’
 
    Possible values:
 
@@ -701,7 +701,7 @@ File: modus-themes.info,  Node: Line highlighting,  Next: Matching parentheses, 
 4.10 Option for line highlighting (hl-line-mode)
 ================================================
 
-Symbol name: ‘modus-themes-intense-hl-line’
+Symbol: ‘modus-themes-intense-hl-line’
 
    Possible values:
 
@@ -723,7 +723,7 @@ File: modus-themes.info,  Node: Matching parentheses,  Next: Diffs,  Prev: Line 
 4.11 Option for parenthesis matching (show-paren-mode)
 ======================================================
 
-Symbol name: ‘modus-themes-intense-paren-match’
+Symbol: ‘modus-themes-intense-paren-match’
 
    Possible values:
 
@@ -743,7 +743,7 @@ File: modus-themes.info,  Node: Diffs,  Next: Org mode blocks,  Prev: Matching p
 4.12 Option for diff buffer looks
 =================================
 
-Symbol name: ‘modus-themes-diffs’
+Symbol: ‘modus-themes-diffs’
 
    Possible values:
 
@@ -782,7 +782,7 @@ File: modus-themes.info,  Node: Org mode blocks,  Next: Heading styles,  Prev: D
 4.13 Option for org-mode block styles
 =====================================
 
-Symbol name: ‘modus-themes-org-blocks’
+Symbol: ‘modus-themes-org-blocks’
 
    Possible values:
 
@@ -819,7 +819,7 @@ File: modus-themes.info,  Node: Heading styles,  Next: Scaled headings,  Prev: O
 This is defined as an alist and, therefore, uses a different approach
 than other customization options documented in this manual.
 
-   Symbol name: ‘modus-themes-headings’
+   Symbol: ‘modus-themes-headings’
 
    Possible values, which can be specified for each heading level
 (examples further below):
@@ -922,7 +922,7 @@ File: modus-themes.info,  Node: Scaled headings,  Next: Headings' font,  Prev: H
 4.15 Option for scaled headings
 ===============================
 
-Symbol name: ‘modus-themes-scale-headings’
+Symbol: ‘modus-themes-scale-headings’
 
    Possible values:
 
@@ -980,7 +980,7 @@ File: modus-themes.info,  Node: Headings' font,  Prev: Scaled headings,  Up: Cus
 4.16 Option for variable-pitch font in headings
 ===============================================
 
-Symbol name: ‘modus-themes-variable-pitch-headings’
+Symbol: ‘modus-themes-variable-pitch-headings’
 
    Possible values:
 
