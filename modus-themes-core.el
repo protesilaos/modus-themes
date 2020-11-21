@@ -1,4 +1,4 @@
-;;; modus-themes-core.el --- Core code of the Modus themes -*- lexical-binding:t -*-
+;;; modus-themes-core.el --- Highly accessible themes (WCAG AAA) -*- lexical-binding:t -*-
 
 ;; Copyright (C) 2019-2020 Free Software Foundation, Inc.
 
