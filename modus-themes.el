@@ -447,14 +447,17 @@
 
 (defcustom modus-themes-slanted-constructs nil
   "Use slanted text in more code constructs (italics or oblique)."
+  :version "1.0.0"
   :type 'boolean)
 
 (defcustom modus-themes-bold-constructs nil
   "Use bold text in more code constructs."
+  :version "1.0.0"
   :type 'boolean)
 
 (defcustom modus-themes-variable-pitch-headings nil
   "Use proportional fonts (variable-pitch) in headings."
+  :version "1.0.0"
   :type 'boolean)
 
 (defcustom modus-themes-no-mixed-fonts nil
@@ -468,6 +471,7 @@ configure the font family of `fixed-pitch' in order to get a
 consistent experience.  That may be something they do not want to
 do.  Hence this option to disable any kind of technique for
 mixing fonts."
+  :version "1.0.0"
   :type 'boolean)
 
 (defcustom modus-themes-headings
@@ -539,6 +543,7 @@ A description of all possible values:
 
 + `rainbow-section-no-bold' is the same as `rainbow-section'
   without a bold weight."
+  :version "1.0.0"
   :type
   '(alist
     :key-type symbol
@@ -562,6 +567,7 @@ A description of all possible values:
 
 (defcustom modus-themes-scale-headings nil
   "Use font scaling for headings."
+  :version "1.0.0"
   :type 'boolean)
 
 (defcustom modus-themes-scale-1 1.05
@@ -573,6 +579,7 @@ the same as setting the font at 14 point size).
 
 For more on the matter, read the documentation of
 `set-face-attribute', specifically the ':height' section."
+  :version "1.0.0"
   :type 'number)
 
 (defcustom modus-themes-scale-2 1.1
@@ -584,6 +591,7 @@ the same as setting the font at 14 point size).
 
 For more on the matter, read the documentation of
 `set-face-attribute', specifically the ':height' section."
+  :version "1.0.0"
   :type 'number)
 
 (defcustom modus-themes-scale-3 1.15
@@ -595,6 +603,7 @@ the same as setting the font at 14 point size).
 
 For more on the matter, read the documentation of
 `set-face-attribute', specifically the ':height' section."
+  :version "1.0.0"
   :type 'number)
 
 (defcustom modus-themes-scale-4 1.2
@@ -606,6 +615,7 @@ the same as setting the font at 14 point size).
 
 For more on the matter, read the documentation of
 `set-face-attribute', specifically the ':height' section."
+  :version "1.0.0"
   :type 'number)
 
 (defcustom modus-themes-scale-5 1.3
@@ -617,6 +627,7 @@ the same as setting the font at 14 point size).
 
 For more on the matter, read the documentation of
 `set-face-attribute', specifically the ':height' section."
+  :version "1.0.0"
   :type 'number)
 
 (defcustom modus-themes-fringes nil
@@ -626,6 +637,7 @@ Nil means the fringes have no background color.  Option `subtle'
 will apply a greyscale value that is visible yet close to the
 main buffer background color.  Option `intense' will use a more
 pronounced greyscale value."
+  :version "1.0.0"
   :type '(choice
           (const :tag "No visible fringes (default)" nil)
           (const :tag "Subtle greyscale background" subtle)
@@ -648,6 +660,7 @@ of the block.  The exact color will depend on the programming
 language and is controlled by the `org-src-block-faces'
 variable (refer to the theme's source code for the current
 association list)."
+  :version "1.0.0"
   :type '(choice
           (const :tag "No Org block background (default)" nil)
           (const :tag "Subtle gray block background" grayscale)
@@ -671,6 +684,7 @@ the box effect and rely on underline and overline properties
 instead.  It also tones down the inactive modelines.  Despite its
 intended purpose, this option can also be used without the
 `moody' library."
+  :version "1.0.0"
   :type '(choice
           (const :tag "Two-dimensional box (default)" nil)
           (const :tag "Three-dimensional style for the active mode line" 3d)
@@ -693,6 +707,7 @@ from word-wise changes.  It instead uses color-coded foreground
 values to differentiate between added/removed/changed lines.  If
 a background is necessary, such as with `ediff', then a subtle
 greyscale value is used."
+  :version "1.0.0"
   :type '(choice
           (const :tag "Intensely colored backgrounds (default)" nil)
           (const :tag "Slightly accented backgrounds with tinted text" desaturated)
@@ -721,6 +736,7 @@ Option `opinionated' will apply color combinations that refashion
 the completion UI.  So Icomplete et al will now use styles that
 resemble the defaults of Ivy and co., while the latter group will
 revert to an even more nuanced aesthetic."
+  :version "1.0.0"
   :type '(choice
           (const :tag "Respect the framework's established aesthetic (default)" nil)
           (const :tag "Subtle backgrounds for various elements" moderate)
@@ -734,6 +750,7 @@ Nil means to only use an accented foreground color.
 Options `subtle' and `intense' will change both the background
 and the foreground values.  The latter has a more pronounced
 effect than the former."
+  :version "1.0.0"
   :type '(choice
           (const :tag "No prompt background (default)" nil)
           (const :tag "Subtle accented background for the prompt" subtle)
@@ -741,10 +758,12 @@ effect than the former."
 
 (defcustom modus-themes-intense-hl-line nil
   "Use a more prominent background for command `hl-line-mode'."
+  :version "1.0.0"
   :type 'boolean)
 
 (defcustom modus-themes-intense-paren-match nil
   "Use a more prominent color for parenthesis matching."
+  :version "1.0.0"
   :type 'boolean)
 
 (defcustom modus-themes-syntax nil
@@ -774,6 +793,7 @@ tinted.  Comments are gray.
 
 Option `alt-syntax-yellow-comments' combines `alt-syntax' with
 `yellow-comments'."
+  :version "1.0.0"
   :type '(choice
           (const :tag "Balanced use of blue, cyan, magenta, purple variants (default)" nil)
           (const :tag "Like the default, but with desaturated color values" faint)
@@ -799,6 +819,7 @@ Option `faint-neutral-underline' combines a desaturated text
 color with a subtle grey underline.
 
 Option `no-underline' removes link underlines altogether."
+  :version "1.0.0"
   :type '(choice
           (const :tag "Undeline link using the same color as the text (default)" nil)
           (const :tag "Like the default, but apply less intense colors to links" faint)
