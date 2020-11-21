@@ -1679,7 +1679,9 @@ AMOUNT is a customization option."
 
 ;;;###autoload
 (defun modus-themes-color (key)
-  "Return color value for KEY."
+  "Return color value for KEY.
+The KEY is the car of each cons cell in the alists
+`modus-themes-operandi-colors', `modus-themes-vivendi-colors'."
   (let ((alist (modus-themes--active-theme)))
     (cdr (assoc `,key alist))))
 
@@ -1689,13 +1691,15 @@ AMOUNT is a customization option."
   "Hook that runs after the `modus-themes-toggle' routines.")
 
 (defun modus-themes--light ()
-  "Load `modus-operandi' and disable `modus-vivendi'."
+  "Load `modus-operandi' and disable `modus-vivendi'.
+Also run `modus-themes-after-load-theme-hook'."
   (disable-theme 'modus-vivendi)
   (load-theme 'modus-operandi t)
   (run-hooks 'modus-themes-after-load-theme-hook))
 
 (defun modus-themes--dark ()
-  "Load `modus-vivendi' and disable `modus-operandi'."
+  "Load `modus-vivendi' and disable `modus-operandi'.
+Also run `modus-themes-after-load-theme-hook'."
   (disable-theme 'modus-operandi)
   (load-theme 'modus-vivendi t)
   (run-hooks 'modus-themes-after-load-theme-hook))
