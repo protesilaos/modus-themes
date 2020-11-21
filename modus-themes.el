@@ -1670,13 +1670,13 @@ AMOUNT is a customization option."
 (defun modus-themes--light ()
   "Load `modus-operandi' and disable `modus-vivendi'."
   (disable-theme 'modus-vivendi)
-  (load-theme 'modus-operandi)
+  (load-theme 'modus-operandi t)
   (run-hooks 'modus-themes-after-load-theme-hook))
 
 (defun modus-themes--dark ()
   "Load `modus-vivendi' and disable `modus-operandi'."
   (disable-theme 'modus-operandi)
-  (load-theme 'modus-vivendi)
+  (load-theme 'modus-vivendi t)
   (run-hooks 'modus-themes-after-load-theme-hook))
 
 (defun modus-themes--load-prompt ()
