@@ -1669,6 +1669,25 @@ AMOUNT is a customization option."
 
 ;;;; Utilities for DIY users
 
+;; This is the WCAG formula: https://www.w3.org/TR/WCAG20-TECHS/G18.html
+(defun modus-themes-wcag-formula (hex)
+  "Get WCAG value of color value HEX.
+The value is defined in hexadecimal RGB notation, such as those in
+`modus-themes-operandi-colors' and `modus-themes-vivendi-colors'."
+  (cl-loop for k in '(0.2126 0.7152 0.0722)
+           for x in (color-name-to-rgb hex)
+           sum (* k (if (<= x 0.03928)
+                        (/ x 12.92)
+                      (expt (/ (+ x 0.055) 1.055) 2.4)))))
+
+;;;###autoload
+(defun modus-themes-contrast (c1 c2)
+  "Measure WCAG contrast ratio between C1 and C2.
+C1 and C2 are color values written in hexadecimal RGB."
+  (let ((ct (/ (+ (modus-themes-wcag-formula c1) 0.05)
+               (+ (modus-themes-wcag-formula c2) 0.05))))
+    (max ct (/ ct))))
+
 (defun modus-themes--active-theme ()
   "Return appropriate alist of color values for active theme."
   (let ((theme (car custom-enabled-themes)))
