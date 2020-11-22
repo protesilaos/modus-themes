@@ -55,9 +55,6 @@
 (eval-when-compile
   (require 'modus-themes-core))
 
-;;;###autoload
-(defalias 'modus-themes-load-operandi 'modus-themes--light)
-
 (modus-themes-core-theme
  'modus-operandi)
 

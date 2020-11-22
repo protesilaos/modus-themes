@@ -55,9 +55,6 @@
 (eval-when-compile
   (require 'modus-themes-core))
 
-;;;###autoload
-(defalias 'modus-themes-load-vivendi 'modus-themes--dark)
-
 (modus-themes-core-theme
  'modus-vivendi)
 

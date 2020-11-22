@@ -1716,12 +1716,18 @@ Also run `modus-themes-after-load-theme-hook'."
   (load-theme 'modus-operandi t)
   (run-hooks 'modus-themes-after-load-theme-hook))
 
+;;;###autoload
+(defalias 'modus-themes-load-operandi 'modus-themes--light)
+
 (defun modus-themes--dark ()
   "Load `modus-vivendi' and disable `modus-operandi'.
 Also run `modus-themes-after-load-theme-hook'."
   (disable-theme 'modus-operandi)
   (load-theme 'modus-vivendi t)
   (run-hooks 'modus-themes-after-load-theme-hook))
+
+;;;###autoload
+(defalias 'modus-themes-load-vivendi 'modus-themes--dark)
 
 (defun modus-themes--load-prompt ()
   "Helper for `modus-themes-toggle'."
