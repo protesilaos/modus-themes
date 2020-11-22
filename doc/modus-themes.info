@@ -349,11 +349,10 @@ example:
      ;; Load the light theme (`modus-operandi')
      (modus-themes-load-operandi)
 
-   Note that in this example we use ‘modus-themes-load-operandi’ which
-is an alias of the internal ‘modus-themes--light’ function.  Here is
-what it does:
+   Note that in this example we use ‘modus-themes-load-operandi’.  Here
+is what it does:
 
-     (defun modus-themes--light ()
+     (defun modus-themes-load-operandi ()
        "Load `modus-operandi' and disable `modus-vivendi'.
      Also run `modus-themes-after-load-theme-hook'."
        (disable-theme 'modus-vivendi)
@@ -361,8 +360,7 @@ what it does:
        (run-hooks 'modus-themes-after-load-theme-hook))
 
    Same principle, though inverse effect, for
-‘modus-themes-load-vivendi’ and its internal counterpart
-‘modus-themes--dark’.
+‘modus-themes-load-vivendi’.
 
    If you prefer to maintain different customization options between the
 two themes, it is best you write your own functions that first set those

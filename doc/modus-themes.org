@@ -235,12 +235,11 @@ example:
 (modus-themes-load-operandi)
 #+end_src
 
-Note that in this example we use =modus-themes-load-operandi= which is an
-alias of the internal =modus-themes--light= function.  Here is what it
-does:
+Note that in this example we use =modus-themes-load-operandi=.  Here is
+what it does:
 
 #+begin_src emacs-lisp
-(defun modus-themes--light ()
+(defun modus-themes-load-operandi ()
   "Load `modus-operandi' and disable `modus-vivendi'.
 Also run `modus-themes-after-load-theme-hook'."
   (disable-theme 'modus-vivendi)
@@ -248,8 +247,7 @@ Also run `modus-themes-after-load-theme-hook'."
   (run-hooks 'modus-themes-after-load-theme-hook))
 #+end_src
 
-Same principle, though inverse effect, for =modus-themes-load-vivendi= and
-its internal counterpart =modus-themes--dark=.
+Same principle, though inverse effect, for =modus-themes-load-vivendi=.
 
 If you prefer to maintain different customization options between the
 two themes, it is best you write your own functions that first set those

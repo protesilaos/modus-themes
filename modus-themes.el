@@ -1709,7 +1709,8 @@ The KEY is the car of each cons cell in the alists
 (defvar modus-themes-after-load-theme-hook nil
   "Hook that runs after the `modus-themes-toggle' routines.")
 
-(defun modus-themes--light ()
+;;;###autoload
+(defun modus-themes-load-operandi ()
   "Load `modus-operandi' and disable `modus-vivendi'.
 Also run `modus-themes-after-load-theme-hook'."
   (disable-theme 'modus-vivendi)
@@ -1717,17 +1718,12 @@ Also run `modus-themes-after-load-theme-hook'."
   (run-hooks 'modus-themes-after-load-theme-hook))
 
 ;;;###autoload
-(defalias 'modus-themes-load-operandi 'modus-themes--light)
-
-(defun modus-themes--dark ()
+(defun modus-themes-load-vivendi ()
   "Load `modus-vivendi' and disable `modus-operandi'.
 Also run `modus-themes-after-load-theme-hook'."
   (disable-theme 'modus-operandi)
   (load-theme 'modus-vivendi t)
   (run-hooks 'modus-themes-after-load-theme-hook))
-
-;;;###autoload
-(defalias 'modus-themes-load-vivendi 'modus-themes--dark)
 
 (defun modus-themes--load-prompt ()
   "Helper for `modus-themes-toggle'."
@@ -1737,19 +1733,19 @@ Also run `modus-themes-after-load-theme-hook'."
                            '(modus-operandi modus-vivendi) nil t))))
     (mapc #'disable-theme custom-enabled-themes)
     (pcase theme
-      ('modus-operandi (modus-themes--light))
-      ('modus-vivendi (modus-themes--dark)))))
+      ('modus-operandi (modus-themes-load-operandi))
+      ('modus-vivendi (modus-themes-load-vivendi)))))
 
 ;;;###autoload
 (defun modus-themes-toggle ()
   "Toggle between `modus-operandi' and `modus-vivendi' themes.
 Also runs `modus-themes-after-load-theme-hook' by virtue of
-calling the internal `modus-themes--light' and
-`modus-themes--dark' functions."
+calling the internal `modus-themes-load-operandi' and
+`modus-themes-load-vivendi' functions."
   (interactive)
   (pcase (car custom-enabled-themes)
-    ('modus-operandi (modus-themes--dark))
-    ('modus-vivendi (modus-themes--light))
+    ('modus-operandi (modus-themes-load-vivendi))
+    ('modus-vivendi (modus-themes-load-operandi))
     (_ (modus-themes--load-prompt))))
 
 
