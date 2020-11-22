@@ -42,16 +42,16 @@
 
 
 
-(defvar modus-themes-operandi-colors)
-(defvar modus-themes-vivendi-colors)
+(defvar modus-themes-colors-operandi)
+(defvar modus-themes-colors-vivendi)
 (defvar modus-themes-faces)
 (defvar modus-themes-custom-variables)
 
 (defun modus-themes-core-theme-variables (name)
   "Return correct variable for Modus theme NAME."
   (pcase name
-    (''modus-operandi modus-themes-operandi-colors)
-    (''modus-vivendi modus-themes-vivendi-colors)
+    (''modus-operandi modus-themes-colors-operandi)
+    (''modus-vivendi modus-themes-colors-vivendi)
     (_ (user-error "<< %s >> is not a valid Modus theme" name))))
 
 (defmacro modus-themes-core-theme (name)

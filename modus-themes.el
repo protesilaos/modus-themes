@@ -839,10 +839,10 @@ Option `no-underline' removes link underlines altogether."
 
 (define-obsolete-variable-alias
   'modus-operandi-theme-default-colors-alist
-  'modus-themes-operandi-colors
+  'modus-themes-colors-operandi
   "1.0.0")
 
-(defconst modus-themes-operandi-colors
+(defconst modus-themes-colors-operandi
   '(;; base values
     (bg-main . "#ffffff") (fg-main . "#000000")
     (bg-dim . "#f8f8f8") (fg-dim . "#282828")
@@ -1061,10 +1061,10 @@ symbol and the latter as a string.")
 
 (define-obsolete-variable-alias
   'modus-vivendi-theme-default-colors-alist
-  'modus-themes-vivendi-colors
+  'modus-themes-colors-vivendi
   "1.0.0")
 
-(defconst modus-themes-vivendi-colors
+(defconst modus-themes-colors-vivendi
   '(;; base values
     (bg-main . "#000000") (fg-main . "#ffffff")
     (bg-dim . "#110b11") (fg-dim . "#e0e6f0")
@@ -1673,7 +1673,7 @@ AMOUNT is a customization option."
 (defun modus-themes-wcag-formula (hex)
   "Get WCAG value of color value HEX.
 The value is defined in hexadecimal RGB notation, such as those in
-`modus-themes-operandi-colors' and `modus-themes-vivendi-colors'."
+`modus-themes-colors-operandi' and `modus-themes-colors-vivendi'."
   (cl-loop for k in '(0.2126 0.7152 0.0722)
            for x in (color-name-to-rgb hex)
            sum (* k (if (<= x 0.03928)
@@ -1692,15 +1692,15 @@ C1 and C2 are color values written in hexadecimal RGB."
   "Return appropriate alist of color values for active theme."
   (let ((theme (car custom-enabled-themes)))
     (pcase theme
-      ('modus-operandi modus-themes-operandi-colors)
-      ('modus-vivendi modus-themes-vivendi-colors)
+      ('modus-operandi modus-themes-colors-operandi)
+      ('modus-vivendi modus-themes-colors-vivendi)
       (_ (user-error "'%s' not a Modus theme; check `custom-enabled-themes'" theme)))))
 
 ;;;###autoload
 (defun modus-themes-color (key)
   "Return color value for KEY.
 The KEY is the car of each cons cell in the alists
-`modus-themes-operandi-colors', `modus-themes-vivendi-colors'."
+`modus-themes-colors-operandi', `modus-themes-colors-vivendi'."
   (let ((alist (modus-themes--active-theme)))
     (cdr (assoc `,key alist))))
 
