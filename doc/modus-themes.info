@@ -347,10 +347,11 @@ example:
            modus-themes-scale-5 1.33)
 
      ;; Load the light theme (`modus-operandi')
-     (modus-themes--light)
+     (modus-themes-load-operandi)
 
-   Note that in this example we use ‘modus-themes--light’ which is an
-internal function.  Here is what it does:
+   Note that in this example we use ‘modus-themes-load-operandi’ which
+is an alias of the internal ‘modus-themes--light’ function.  Here is
+what it does:
 
      (defun modus-themes--light ()
        "Load `modus-operandi' and disable `modus-vivendi'.
@@ -359,7 +360,9 @@ internal function.  Here is what it does:
        (load-theme 'modus-operandi t)
        (run-hooks 'modus-themes-after-load-theme-hook))
 
-   Same principle, though inverse effect, for ‘modus-themes--dark’.
+   Same principle, though inverse effect, for
+‘modus-themes-load-vivendi’ and its internal counterpart
+‘modus-themes--dark’.
 
    If you prefer to maintain different customization options between the
 two themes, it is best you write your own functions that first set those
@@ -370,12 +373,12 @@ constructs in code syntax (enabled for one, disabled for the other).
      (defun my-demo-modus-operandi ()
        (interactive)
        (setq modus-themes-bold-constructs t) ; ENABLE bold
-       (modus-themes--light))    ; load modus-operandi, disable modus-vivendi
+       (modus-themes-load-operandi))
 
      (defun my-demo-modus-vivendi ()
        (interactive)
        (setq modus-themes-bold-constructs nil) ; DISABLE bold
-       (modus-themes--dark))     ; load modus-vivendi, disable modus-operandi
+       (modus-themes-load-vivendi))
 
      (defun my-demo-modus-themes-toggle ()
        (if (eq (car custom-enabled-themes) 'modus-operandi)
@@ -1067,9 +1070,9 @@ attribute you assigned to that face.
 
    For such changes to persist, we need to make them after loading the
 theme.  So we rely on ‘modus-themes-after-load-theme-hook’, which gets
-called from ‘modus-themes--light’, ‘modus-themes--dark’, as well as
-‘modus-themes-toggle’.  Here is a sample function that tweaks two faces
-and then gets added to the hook:
+called from ‘modus-themes-load-operandi’, ‘modus-themes-load-vivendi’,
+as well as the command ‘modus-themes-toggle’.  Here is a sample function
+that tweaks two faces and then gets added to the hook:
 
      (defun my-modus-themes-custom-faces ()
        (set-face-attribute 'cursor nil :background (modus-themes-color 'blue))
@@ -2428,51 +2431,51 @@ Node: Enable and load8516
 Node: Load automatically8962
 Node: Toggle between the themes on demand9779
 Node: Configure options prior to loading10729
-Node: Customization Options13950
-Node: Bold constructs15746
-Node: Slanted constructs16340
-Node: Syntax styles16892
-Node: No mixed fonts18412
-Node: Link styles19356
-Node: Command prompts20340
-Node: Mode line21082
-Node: Completion UIs23616
-Node: Fringes25467
-Node: Line highlighting26137
-Node: Matching parentheses26757
-Node: Diffs27396
-Node: Org mode blocks29111
-Node: Heading styles30470
-Node: Scaled headings34139
-Node: Scaled heading sizes34730
-Node: Headings' font36304
-Node: Advanced customization (do-it-yourself)36909
-Node: Tweak faces (DIY)37987
-Node: Font configs (DIY)41268
-Ref: Font configs (DIY)-Footnote-143526
-Node: Org user faces (DIY)43713
-Node: Check color combinations (DIY)46909
-Node: Face coverage48698
-Node: Supported packages49184
-Node: Indirectly covered packages55328
-Node: Notes for individual packages55771
-Node: Note on company-mode overlay pop-up56257
-Ref: Note on company-mode overlay pop-up-Footnote-156921
-Ref: Note on company-mode overlay pop-up-Footnote-256988
-Node: Note for ERC escaped color sequences57043
-Ref: Note for ERC escaped color sequences-Footnote-158476
-Node: Note for powerline or spaceline58586
-Node: Note on SHR colors59002
-Node: Note for Helm grep59412
-Node: Note on vc-annotate-background-mode60857
-Node: Contributing61709
-Node: Sources of the themes62128
-Node: Issues you can help with62869
-Node: Merge requests64050
-Node: Acknowledgements66312
-Node: Meta67858
-Node: External projects (ports)69364
-Node: GNU Free Documentation License70186
+Node: Customization Options13981
+Node: Bold constructs15777
+Node: Slanted constructs16366
+Node: Syntax styles16913
+Node: No mixed fonts18428
+Node: Link styles19367
+Node: Command prompts20346
+Node: Mode line21083
+Node: Completion UIs23612
+Node: Fringes25458
+Node: Line highlighting26123
+Node: Matching parentheses26738
+Node: Diffs27372
+Node: Org mode blocks29082
+Node: Heading styles30436
+Node: Scaled headings34100
+Node: Scaled heading sizes34686
+Node: Headings' font36260
+Node: Advanced customization (do-it-yourself)36860
+Node: Tweak faces (DIY)37938
+Node: Font configs (DIY)41245
+Ref: Font configs (DIY)-Footnote-143503
+Node: Org user faces (DIY)43690
+Node: Check color combinations (DIY)46886
+Node: Face coverage48675
+Node: Supported packages49161
+Node: Indirectly covered packages55305
+Node: Notes for individual packages55748
+Node: Note on company-mode overlay pop-up56234
+Ref: Note on company-mode overlay pop-up-Footnote-156898
+Ref: Note on company-mode overlay pop-up-Footnote-256965
+Node: Note for ERC escaped color sequences57020
+Ref: Note for ERC escaped color sequences-Footnote-158453
+Node: Note for powerline or spaceline58563
+Node: Note on SHR colors58979
+Node: Note for Helm grep59389
+Node: Note on vc-annotate-background-mode60834
+Node: Contributing61686
+Node: Sources of the themes62105
+Node: Issues you can help with62846
+Node: Merge requests64027
+Node: Acknowledgements66289
+Node: Meta67835
+Node: External projects (ports)69341
+Node: GNU Free Documentation License70163
 
 End Tag Table
 

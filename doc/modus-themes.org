@@ -232,11 +232,12 @@ example:
       modus-themes-scale-5 1.33)
 
 ;; Load the light theme (`modus-operandi')
-(modus-themes--light)
+(modus-themes-load-operandi)
 #+end_src
 
-Note that in this example we use =modus-themes--light= which is an
-internal function.  Here is what it does:
+Note that in this example we use =modus-themes-load-operandi= which is an
+alias of the internal =modus-themes--light= function.  Here is what it
+does:
 
 #+begin_src emacs-lisp
 (defun modus-themes--light ()
@@ -247,7 +248,8 @@ Also run `modus-themes-after-load-theme-hook'."
   (run-hooks 'modus-themes-after-load-theme-hook))
 #+end_src
 
-Same principle, though inverse effect, for =modus-themes--dark=.
+Same principle, though inverse effect, for =modus-themes-load-vivendi= and
+its internal counterpart =modus-themes--dark=.
 
 If you prefer to maintain different customization options between the
 two themes, it is best you write your own functions that first set those
@@ -259,12 +261,12 @@ constructs in code syntax (enabled for one, disabled for the other).
 (defun my-demo-modus-operandi ()
   (interactive)
   (setq modus-themes-bold-constructs t) ; ENABLE bold
-  (modus-themes--light))    ; load modus-operandi, disable modus-vivendi
+  (modus-themes-load-operandi))
 
 (defun my-demo-modus-vivendi ()
   (interactive)
   (setq modus-themes-bold-constructs nil) ; DISABLE bold
-  (modus-themes--dark))     ; load modus-vivendi, disable modus-operandi
+  (modus-themes-load-vivendi))
 
 (defun my-demo-modus-themes-toggle ()
   (if (eq (car custom-enabled-themes) 'modus-operandi)
@@ -951,9 +953,9 @@ you assigned to that face.
 
 For such changes to persist, we need to make them after loading the
 theme.  So we rely on =modus-themes-after-load-theme-hook=, which gets
-called from =modus-themes--light=, =modus-themes--dark=, as well as
-=modus-themes-toggle=.  Here is a sample function that tweaks two faces
-and then gets added to the hook:
+called from =modus-themes-load-operandi=, =modus-themes-load-vivendi=, as
+well as the command =modus-themes-toggle=.  Here is a sample function that
+tweaks two faces and then gets added to the hook:
 
 #+begin_src emacs-lisp
 (defun my-modus-themes-custom-faces ()
