@@ -1914,13 +1914,6 @@ calling the internal `modus-themes-load-operandi' and
                                    (and (>= emacs-major-version 27) '(:extend t)))))
     `(modus-theme-slant ((,class :inherit italic :slant ,@(modus-themes--slant))))
     `(modus-theme-variable-pitch ((,class ,@(modus-themes--variable-pitch))))
-
-
-
-
-
-
-
 ;;;; standard faces
 ;;;;; absolute essentials
     `(default ((,class :background ,bg-main :foreground ,fg-main)))
