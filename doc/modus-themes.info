@@ -333,7 +333,7 @@ example:
            modus-themes-no-mixed-fonts nil
            modus-themes-prompts nil ; {nil,'subtle,'intense}
            modus-themes-completions nil ; {nil,'moderate,'opinionated}
-           modus-themes-diffs nil ; {nil,'desaturated,'fg-only}
+           modus-themes-diffs nil ; {nil,'desaturated,'fg-only,'bg-only}
            modus-themes-org-blocks nil ; {nil,'grayscale,'rainbow}
            modus-themes-headings ; Lots of options---continue reading the manual
            '((1 . section)
@@ -827,10 +827,20 @@ use a green foreground, while their background is the same as the rest
 of the buffer.  Word-wise highlights still use a background value which
 is, nonetheless, more subtle than its default equivalent.
 
-   Concerning ‘magit’, an extra set of tweaks are introduced for the
+   Option ‘bg-only’ applies color-coded backgrounds but does not
+override any syntax highlighting that may be present.  This makes it
+suitable for use with a non-nil value for ‘diff-font-lock-syntax’ (which
+is the default for ‘diff-mode’ buffers in Emacs 27 or higher).
+
+   Concerning Magit, an extra set of tweaks are introduced for the
 effect of highlighting the current diff hunk, so as to remain aligned
 with the overall experience of that mode.  Expect changes that are
-consistent with the overall intent of the aforementioned.
+consistent with the overall intent of the aforementioned.  Note,
+however, that the ‘bg-only’ option will not deliver the intended results
+in Magit diffs because no syntax highlighting is used there (last
+checked with Magit version 20201116.1057, though upstream has a plan to
+eventually support such a feature—this entry shall be updated
+accordingly).
 
 
 File: modus-themes.info,  Node: Org mode blocks,  Next: Heading styles,  Prev: Diffs,  Up: Customization Options

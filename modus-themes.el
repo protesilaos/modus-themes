@@ -720,13 +720,20 @@ Option `fg-only' will remove all accented backgrounds, except
 from word-wise changes.  It instead uses color-coded foreground
 values to differentiate between added/removed/changed lines.  If
 a background is necessary, such as with `ediff', then a subtle
-greyscale value is used."
+greyscale value is used.
+
+Option `bg-only' applies a background but does not override the
+text's foreground.  This makes it suitable for a non-nil value
+passed to `diff-font-lock-syntax' (note: Magit does not support
+syntax highlighting in diffs as of 2020-11-25, version
+20201116.1057)."
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
   :type '(choice
           (const :tag "Intensely colored backgrounds (default)" nil)
           (const :tag "Slightly accented backgrounds with tinted text" desaturated)
-          (const :tag "No backgrounds, except for refined diffs" fg-only)))
+          (const :tag "No backgrounds, except for refined diffs" fg-only)
+          (const :tag "Apply color-coded backgrounds; keep syntax colors in tact" bg-only)))
 
 (defcustom modus-themes-completions nil
   "Apply special styles to the UI of completion frameworks.
@@ -1608,7 +1615,8 @@ property."
     (_
      `(:foreground ,fg :background ,bg :box ,border))))
 
-(defun modus-themes--diff (fg-only-bg fg-only-fg mainbg mainfg altbg altfg)
+(defun modus-themes--diff
+    (fg-only-bg fg-only-fg mainbg mainfg altbg altfg &optional bg-only-fg)
   "Color combinations for `modus-themes-diffs'.
 
 FG-ONLY-BG should be similar or the same as the main background.
@@ -1620,10 +1628,14 @@ MAINFG must be the same for the foreground.
 
 ALTBG needs to be a slightly accented background that is meant to
 be combined with ALTFG.  Both must be less intense than MAINBG
-and MAINFG respectively."
+and MAINFG respectively.
+
+Optional BG-ONLY-FG applies ALTFG else leaves the foreground
+unspecified."
   (pcase modus-themes-diffs
     ('fg-only (list :background fg-only-bg :foreground fg-only-fg))
     ('desaturated (list :background altbg :foreground altfg))
+    ('bg-only (list :background altbg :foreground (if bg-only-fg altfg 'unspecified)))
     (_ (list :background mainbg :foreground mainfg))))
 
 (defun modus-themes--standard-completions (mainfg subtlebg intensebg intensefg)
@@ -1890,7 +1902,7 @@ calling the internal `modus-themes-load-operandi' and
       ((,class ,@(modus-themes--diff
                   bg-alt blue-alt
                   bg-diff-heading fg-diff-heading
-                  blue-nuanced-bg blue))))
+                  blue-nuanced-bg blue t))))
 ;;;;; mark indicators
     ;; color combinations intended for Dired, Ibuffer, or equivalent
     `(modus-theme-pseudo-header ((,class :inherit bold :foreground ,fg-main)))
@@ -2467,9 +2479,9 @@ calling the internal `modus-themes-load-operandi' and
     `(diff-header ((,class :background ,bg-dim :foreground ,fg-main)))
     `(diff-hunk-header ((,class :inherit modus-theme-diff-heading)))
     `(diff-index ((,class :inherit bold :foreground ,blue-alt)))
-    `(diff-indicator-added ((,class :inherit diff-added)))
-    `(diff-indicator-changed ((,class :inherit diff-changed)))
-    `(diff-indicator-removed ((,class :inherit diff-removed)))
+    `(diff-indicator-added ((,class :inherit (diff-added bold) :foreground ,green)))
+    `(diff-indicator-changed ((,class :inherit (diff-changed bold) :foreground ,yellow)))
+    `(diff-indicator-removed ((,class :inherit (diff-removed bold) :foreground ,red)))
     `(diff-nonexistent ((,class :inherit (modus-theme-neutral bold))))
     `(diff-refine-added ((,class :inherit modus-theme-diff-refine-added)))
     `(diff-refine-changed ((,class :inherit modus-theme-diff-refine-changed)))
