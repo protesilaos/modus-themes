@@ -1331,7 +1331,7 @@ symbol and the latter as a string.")
 (make-obsolete 'modus-operandi-theme-faint-syntax 'modus-themes-syntax "1.0.0")
 (make-obsolete 'modus-operandi-theme-comments 'modus-themes-syntax "1.0.0")
 (make-obsolete 'modus-operandi-theme-syntax 'modus-themes-syntax "1.0.0")
-(make-obsolete 'modus-operandi-theme-no-link-underline 'modus-themes-no-link-underline "1.0.0")
+(make-obsolete 'modus-operandi-theme-no-link-underline 'modus-themes-links "1.0.0")
 (make-obsolete 'modus-operandi-theme-links 'modus-themes-links "1.0.0")
 
 ;;;;; Modus Vivendi obsolete options
@@ -1368,7 +1368,7 @@ symbol and the latter as a string.")
 (make-obsolete 'modus-vivendi-theme-faint-syntax 'modus-themes-syntax "1.0.0")
 (make-obsolete 'modus-vivendi-theme-comments 'modus-themes-syntax "1.0.0")
 (make-obsolete 'modus-vivendi-theme-syntax 'modus-themes-syntax "1.0.0")
-(make-obsolete 'modus-vivendi-theme-no-link-underline 'modus-themes-no-link-underline "1.0.0")
+(make-obsolete 'modus-vivendi-theme-no-link-underline 'modus-themes-links "1.0.0")
 (make-obsolete 'modus-vivendi-theme-links 'modus-themes-links "1.0.0")
 
 
