@@ -1737,6 +1737,17 @@ The KEY is the car of each cons cell in the alists
   (let ((alist (modus-themes--active-theme)))
     (cdr (assoc `,key alist))))
 
+;;;###autoload
+(defun modus-themes-color-alts (key-light key-dark)
+  "Return color value for KEY-LIGHT and KEY-DARK.
+Both arguments must reference the car of a cons cell in
+`modus-themes-colors-operandi', `modus-themes-colors-vivendi'."
+  (let ((theme (car custom-enabled-themes)))
+    (pcase theme
+      ('modus-operandi (cdr (assoc `,key-light modus-themes-colors-operandi)))
+      ('modus-vivendi (cdr (assoc `,key-dark modus-themes-colors-vivendi)))
+      (_ (user-error "'%s' not a Modus theme; check `custom-enabled-themes'" theme)))))
+
 ;;;; Commands
 
 (defvar modus-themes-after-load-theme-hook nil

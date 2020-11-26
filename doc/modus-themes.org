@@ -1050,6 +1050,22 @@ above.  Because the themes do not hard-wire a specific weight, this
 simple form is enough to change the weight of all bold constructs
 throughout the interface.
 
+Finally, there are cases where you want to tweak colors though wish to
+apply different ones to each theme, say, a blue hue for Modus Operandi
+and a shade of red for Modus Vivendi.  To this end, we provide
+=modus-themes-color-alts= as a convenience function to save you from the
+trouble of writing separate wrappers for each theme.  It still returns a
+single value by querying either of =modus-themes-colors-operandi= and
+=modus-themes-colors-vivendi=, only here you pass the two keys you want,
+first for =modus-operandi= then =modus-vivendi=.
+
+Take the previous example with the =cursor= face:
+
+#+begin_src emacs-lisp
+;; Blue for `modus-operandi' and red for `modus-vivendi'
+(set-face-attribute 'cursor nil :background (modus-themes-color-alts 'blue 'red))
+#+end_src
+
 ** Font configurations (for Org and others)
 :PROPERTIES:
 :ALT_TITLE: Font configs (DIY)
