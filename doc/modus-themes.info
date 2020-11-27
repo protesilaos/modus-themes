@@ -329,11 +329,12 @@ example:
            modus-themes-mode-line '3d ; {nil,'3d,'moody}
            modus-themes-syntax nil ; Lots of options---continue reading the manual
            modus-themes-intense-hl-line nil
-           modus-themes-intense-paren-match nil
+           modus-themes-paren-match 'subtle-bold ; {nil,'subtle-bold,'intense,'intense-bold}
            modus-themes-links 'neutral-underline ; Lots of options---continue reading the manual
            modus-themes-no-mixed-fonts nil
            modus-themes-prompts nil ; {nil,'subtle,'intense}
            modus-themes-completions nil ; {nil,'moderate,'opinionated}
+           modus-themes-region 'bg-only-no-extend ; {nil,'no-extend,'bg-only,'bg-only-no-extend}
            modus-themes-diffs nil ; {nil,'desaturated,'fg-only,'bg-only}
            modus-themes-org-blocks nil ; {nil,'grayscale,'rainbow}
            modus-themes-headings ; Lots of options---continue reading the manual
