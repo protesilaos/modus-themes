@@ -48,7 +48,7 @@
 ;;     modus-themes-diffs                          (choice)
 ;;     modus-themes-syntax                         (choice)
 ;;     modus-themes-intense-hl-line                (boolean)
-;;     modus-themes-intense-paren-match            (boolean)
+;;     modus-themes-paren-match                    (choice)
 ;;     modus-themes-links                          (choice)
 ;;     modus-themes-completions                    (choice)
 ;;
@@ -786,11 +786,25 @@ effect than the former."
   :version "28.1"
   :type 'boolean)
 
-(defcustom modus-themes-intense-paren-match nil
-  "Use a more prominent color for parenthesis matching."
+(defcustom modus-themes-paren-match nil
+  "Choose the style of matching parentheses or delimiters.
+
+Nil means to use a subtle tinted background color (the default).
+
+Option `intense' applies a saturated background color.
+
+Option `subtle-bold' is the same as the default, but also makes
+use of bold typographic weight (inherits the `bold' face).
+
+Option `intense-bold' is the same as `intense', while it also
+uses a bold weight."
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
-  :type 'boolean)
+  :type '(choice
+          (const :tag "Sublte tinted background (default)" nil)
+          (const :tag "Like the default, but also use bold typographic weight" subtle-bold)
+          (const :tag "Intense saturated background" intense)
+          (const :tag "Like `intense' but with bold weight" intense-bold)))
 
 (defcustom modus-themes-syntax nil
   "Control the overall style of code syntax highlighting.
@@ -1334,7 +1348,7 @@ symbol and the latter as a string.")
 (make-obsolete 'modus-operandi-theme-completions 'modus-themes-completions "1.0.0")
 (make-obsolete 'modus-operandi-theme-prompts 'modus-themes-prompts "1.0.0")
 (make-obsolete 'modus-operandi-theme-intense-hl-line 'modus-themes-intense-hl-line "1.0.0")
-(make-obsolete 'modus-operandi-theme-intense-paren-match 'modus-themes-intense-paren-match "1.0.0")
+(make-obsolete 'modus-operandi-theme-intense-paren-match 'modus-themes-paren-match "1.0.0")
 (make-obsolete 'modus-operandi-theme-faint-syntax 'modus-themes-syntax "1.0.0")
 (make-obsolete 'modus-operandi-theme-comments 'modus-themes-syntax "1.0.0")
 (make-obsolete 'modus-operandi-theme-syntax 'modus-themes-syntax "1.0.0")
@@ -1371,7 +1385,7 @@ symbol and the latter as a string.")
 (make-obsolete 'modus-vivendi-theme-completions 'modus-themes-completions "1.0.0")
 (make-obsolete 'modus-vivendi-theme-prompts 'modus-themes-prompts "1.0.0")
 (make-obsolete 'modus-vivendi-theme-intense-hl-line 'modus-themes-intense-hl-line "1.0.0")
-(make-obsolete 'modus-vivendi-theme-intense-paren-match 'modus-themes-intense-paren-match "1.0.0")
+(make-obsolete 'modus-vivendi-theme-intense-paren-match 'modus-themes-paren-match "1.0.0")
 (make-obsolete 'modus-vivendi-theme-faint-syntax 'modus-themes-syntax "1.0.0")
 (make-obsolete 'modus-vivendi-theme-comments 'modus-themes-syntax "1.0.0")
 (make-obsolete 'modus-vivendi-theme-syntax 'modus-themes-syntax "1.0.0")
@@ -1427,13 +1441,15 @@ combinable with INTENSEFG."
 
 (defun modus-themes--paren (normalbg intensebg)
   "Conditional use of intense colors for matching parentheses.
-NORMALBG should the special palette color 'bg-paren-match' or
+NORMALBG should be the special palette color 'bg-paren-match' or
 something similar.  INTENSEBG must be easier to discern next to
 other backgrounds, such as the special palette color
 'bg-paren-match-intense'."
-  (if modus-themes-intense-paren-match
-      (list :background intensebg)
-    (list :background normalbg)))
+  (pcase modus-themes-paren-match
+    ('subtle-bold (list :inherit 'bold :background normalbg))
+    ('intense-bold (list :inherit 'bold :background intensebg))
+    ('intense (list :background intensebg))
+    (_ (list :background normalbg))))
 
 (defun modus-themes--syntax-foreground (fg faint)
   "Apply foreground value to code syntax.

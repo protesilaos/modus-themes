@@ -80,7 +80,7 @@ Customization Options
 * Completion UIs::               Choose among standard, moderate, or opinionated looks
 * Fringes::                      Choose among invisible, subtle, or intense fringe visibility
 * Line highlighting::            Toggle intense style for current line highlighting
-* Matching parentheses::         Toggle intense style for matching delimiters/parentheses
+* Matching parentheses::         Choose between various styles for matching delimiters/parentheses
 * Diffs::                        Choose among intense, desaturated, or text-only diffs
 * Org mode blocks::              Choose among plain, grayscale, or rainbow styles
 * Heading styles::               Choose among several styles, also per heading level
@@ -462,7 +462,7 @@ loading a theme (see *note Enable and load::).
 * Completion UIs::               Choose among standard, moderate, or opinionated looks
 * Fringes::                      Choose among invisible, subtle, or intense fringe visibility
 * Line highlighting::            Toggle intense style for current line highlighting
-* Matching parentheses::         Toggle intense style for matching delimiters/parentheses
+* Matching parentheses::         Choose between various styles for matching delimiters/parentheses
 * Diffs::                        Choose among intense, desaturated, or text-only diffs
 * Org mode blocks::              Choose among plain, grayscale, or rainbow styles
 * Heading styles::               Choose among several styles, also per heading level
@@ -779,19 +779,28 @@ File: modus-themes.info,  Node: Matching parentheses,  Next: Diffs,  Prev: Line 
 4.11 Option for parenthesis matching (show-paren-mode)
 ======================================================
 
-Symbol: ‘modus-themes-intense-paren-match’
+Symbol: ‘modus-themes-paren-match’
 
    Possible values:
 
   1. ‘nil’ (default)
-  2. ‘t’
+  2. ‘subtle-bold’
+  3. ‘intense’
+  4. ‘intense-bold’
 
-   The default is to use a subtle warm color for the background of
-matching parentheses (or delimiters).  This affects tools such as the
-built-in ‘show-paren-mode’.
+   Nil means to use a subtle tinted background color for the matching
+delimiters.
 
-   With a non-nil value (‘t’) make the effect more pronounced by
-applying a saturated color to those same overlays.
+   Option ‘intense’ applies a saturated background color.
+
+   Option ‘subtle-bold’ is the same as the default, but also makes use
+of bold typographic weight (inherits the ‘bold’ face).
+
+   Option ‘intense-bold’ is the same as ‘intense’, while it also uses a
+bold weight.
+
+   This customization variable affects tools such as the built-in
+‘show-paren-mode’ and ‘smartparens’.
 
 
 File: modus-themes.info,  Node: Diffs,  Next: Org mode blocks,  Prev: Matching parentheses,  Up: Customization Options
@@ -2511,64 +2520,64 @@ Appendix A GNU Free Documentation License
 
 Tag Table:
 Node: Top232
-Node: Overview4126
-Node: How do the themes look like5396
-Node: Learn about the latest changes5904
-Node: Installation6286
-Node: Install from the archives6734
-Node: Install on GNU/Linux7396
-Node: Debian 11 Bullseye7844
-Node: GNU Guix8253
-Node: Enable and load8542
-Node: Load automatically9029
-Node: Toggle between the themes on demand9846
-Node: Configure options prior to loading10796
-Node: Sample configuration for use-package14131
-Node: Customization Options15822
-Node: Bold constructs17618
-Node: Slanted constructs18207
-Node: Syntax styles18754
-Node: No mixed fonts20269
-Node: Link styles21280
-Node: Command prompts22259
-Node: Mode line22942
-Node: Completion UIs25465
-Node: Fringes27297
-Node: Line highlighting27957
-Node: Matching parentheses28572
-Node: Diffs29206
-Node: Org mode blocks30908
-Node: Heading styles32248
-Node: Scaled headings35914
-Node: Scaled heading sizes36500
-Node: Headings' font38074
-Node: Advanced customization (do-it-yourself)38674
-Node: Tweak faces (DIY)39752
-Node: Font configs (DIY)43133
-Ref: Font configs (DIY)-Footnote-145409
-Node: Org user faces (DIY)45596
-Node: Check color combinations (DIY)48831
-Node: Face coverage50708
-Node: Supported packages51178
-Node: Indirectly covered packages57322
-Node: Notes for individual packages57765
-Node: Note on company-mode overlay pop-up58251
-Ref: Note on company-mode overlay pop-up-Footnote-158915
-Ref: Note on company-mode overlay pop-up-Footnote-258982
-Node: Note for ERC escaped color sequences59037
-Ref: Note for ERC escaped color sequences-Footnote-160470
-Node: Note for powerline or spaceline60580
-Node: Note on SHR colors60996
-Node: Note for Helm grep61406
-Node: Note on vc-annotate-background-mode62851
-Node: Contributing63703
-Node: Sources of the themes64122
-Node: Issues you can help with64863
-Node: Merge requests66044
-Node: Acknowledgements68306
-Node: Meta70001
-Node: External projects (ports)71507
-Node: GNU Free Documentation License72329
+Node: Overview4135
+Node: How do the themes look like5405
+Node: Learn about the latest changes5913
+Node: Installation6295
+Node: Install from the archives6743
+Node: Install on GNU/Linux7405
+Node: Debian 11 Bullseye7853
+Node: GNU Guix8262
+Node: Enable and load8551
+Node: Load automatically9038
+Node: Toggle between the themes on demand9855
+Node: Configure options prior to loading10805
+Node: Sample configuration for use-package14149
+Node: Customization Options15840
+Node: Bold constructs17645
+Node: Slanted constructs18234
+Node: Syntax styles18781
+Node: No mixed fonts20296
+Node: Link styles21307
+Node: Command prompts22286
+Node: Mode line22969
+Node: Completion UIs25492
+Node: Fringes27324
+Node: Line highlighting27984
+Node: Matching parentheses28599
+Node: Diffs29474
+Node: Org mode blocks31753
+Node: Heading styles33093
+Node: Scaled headings36759
+Node: Scaled heading sizes37345
+Node: Headings' font38919
+Node: Advanced customization (do-it-yourself)39519
+Node: Tweak faces (DIY)40597
+Node: Font configs (DIY)44753
+Ref: Font configs (DIY)-Footnote-147029
+Node: Org user faces (DIY)47216
+Node: Check color combinations (DIY)50451
+Node: Face coverage52328
+Node: Supported packages52798
+Node: Indirectly covered packages58942
+Node: Notes for individual packages59385
+Node: Note on company-mode overlay pop-up59871
+Ref: Note on company-mode overlay pop-up-Footnote-160535
+Ref: Note on company-mode overlay pop-up-Footnote-260602
+Node: Note for ERC escaped color sequences60657
+Ref: Note for ERC escaped color sequences-Footnote-162090
+Node: Note for powerline or spaceline62200
+Node: Note on SHR colors62616
+Node: Note for Helm grep63026
+Node: Note on vc-annotate-background-mode64471
+Node: Contributing65323
+Node: Sources of the themes65742
+Node: Issues you can help with66483
+Node: Merge requests67664
+Node: Acknowledgements69926
+Node: Meta71636
+Node: External projects (ports)73142
+Node: GNU Free Documentation License73964
 
 End Tag Table
 

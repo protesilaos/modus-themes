@@ -656,23 +656,32 @@ and =mu4e=.
 ** Option for parenthesis matching (show-paren-mode)
 :PROPERTIES:
 :ALT_TITLE: Matching parentheses
-:DESCRIPTION: Toggle intense style for matching delimiters/parentheses
+:DESCRIPTION: Choose between various styles for matching delimiters/parentheses
 :CUSTOM_ID: h:e66a7e4d-a512-4bc7-9f86-fbbb5923bf37
 :END:
 
-Symbol: =modus-themes-intense-paren-match=
+Symbol: =modus-themes-paren-match=
 
 Possible values:
 
 1. =nil= (default)
-2. =t=
+2. =subtle-bold=
+3. =intense=
+4. =intense-bold=
 
-The default is to use a subtle warm color for the background of matching
-parentheses (or delimiters).  This affects tools such as the built-in
-=show-paren-mode=.
+Nil means to use a subtle tinted background color for the matching
+delimiters.
 
-With a non-nil value (=t=) make the effect more pronounced by applying a
-saturated color to those same overlays.
+Option =intense= applies a saturated background color.
+
+Option =subtle-bold= is the same as the default, but also makes use of
+bold typographic weight (inherits the =bold= face).
+
+Option =intense-bold= is the same as =intense=, while it also uses a bold
+weight.
+
+This customization variable affects tools such as the built-in
+=show-paren-mode= and =smartparens=.
 
 ** Option for diff buffer looks
 :PROPERTIES:
