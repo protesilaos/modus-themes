@@ -4189,7 +4189,9 @@ calling the internal `modus-themes-load-operandi' and
     `(org-code ((,class ,@(modus-themes--mixed-fonts) :foreground ,magenta)))
     `(org-column ((,class :background ,bg-alt)))
     `(org-column-title ((,class :inherit bold :underline t :background ,bg-alt)))
-    `(org-date ((,class :inherit (button fixed-pitch)
+    `(org-date ((,class :inherit ,(if modus-themes-no-mixed-fonts
+                                      'button
+                                    '(button fixed-pitch))
                         ,@(modus-themes--link-color
                            cyan cyan-faint))))
     `(org-date-selected ((,class :inherit bold :foreground ,blue-alt :inverse-video t)))
