@@ -49,6 +49,7 @@
 ;;     modus-themes-syntax                         (choice)
 ;;     modus-themes-intense-hl-line                (boolean)
 ;;     modus-themes-paren-match                    (choice)
+;;     modus-themes-region                         (choice)
 ;;     modus-themes-links                          (choice)
 ;;     modus-themes-completions                    (choice)
 ;;
@@ -868,6 +869,31 @@ Option `no-underline' removes link underlines altogether."
           (const :tag "Change the color of link underlines to a neutral grey" neutral-underline)
           (const :tag "Desaturated foreground with neutral grey underline" faint-neutral-underline)
           (const :tag "Remove underline property from links, keeping their foreground as-is" no-underline)))
+
+(defcustom modus-themes-region nil
+  "Change the overall appearance of the active region.
+
+Nil (the default) means to only use a prominent gray background
+with a neutral foreground.  The foreground overrides all syntax
+highlighting.  The region extends to the edge of the window.
+
+Option `no-extend' preserves the default aesthetic but prevents
+the region from extending to the edge of the window.
+
+Option `bg-only' applies a faint tinted background that is
+distinct from all others used in the theme, while it does not
+override any existing colors.  It extends to the edge of the
+window.
+
+Option `bg-only-no-extend' is a combination of the `bg-only' and
+`no-extend' options."
+  :package-version '(modus-themes . "1.0.0")
+  :version "28.1"
+  :type '(choice
+          (const :tag "Intense background; overrides colors; extends to edge of window (default)" nil)
+          (const :tag "As with the default, but does not extend" no-extend)
+          (const :tag "Subtle background; preserves colors; extends to edge of window" bg-only)
+          (const :tag "As with the `subtle' option, but does not extend" bg-only-no-extend)))
 
 
 
@@ -1714,6 +1740,18 @@ AMOUNT is a customization option."
   (when modus-themes-scale-headings
     (list :height amount)))
 
+(defun modus-themes--region (bg fg bgsubtle)
+  "Apply `modus-themes-region' styles.
+
+BG and FG are the main values that are used by default.  BGSUBTLE
+is a subtle background value that can be combined with all colors
+used to fontify text and code syntax."
+  (pcase modus-themes-region
+    ('bg-only (list :background bgsubtle))
+    ('bg-only-no-extend (list :background bgsubtle :extend nil))
+    ('no-extend (list :background bg :foreground fg :extend nil))
+    (_ (list :background bg :foreground bg))))
+
 
 
 ;;;; Utilities for DIY users
@@ -2010,7 +2048,7 @@ calling the internal `modus-themes-load-operandi' and
     `(mm-uu-extract ((,class :background ,bg-dim :foreground ,fg-special-mild)))
     `(next-error ((,class :inherit modus-theme-subtle-red)))
     `(rectangle-preview ((,class :inherit modus-theme-special-mild)))
-    `(region ((,class :background ,bg-region :foreground ,fg-main)))
+    `(region ((,class ,@(modus-themes--region bg-region fg-main bg-hl-alt-intense))))
     `(secondary-selection ((,class :inherit modus-theme-special-cold)))
     `(shadow ((,class :foreground ,fg-alt)))
     `(success ((,class :inherit bold :foreground ,green)))

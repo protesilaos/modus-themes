@@ -683,6 +683,36 @@ weight.
 This customization variable affects tools such as the built-in
 =show-paren-mode= and =smartparens=.
 
+** Option for active region
+:PROPERTIES:
+:ALT_TITLE: Active region
+:DESCRIPTION: Choose between various styles for the active region
+:CUSTOM_ID: h:60798063-b4ad-45ea-b9a7-ff7b5c0ab74c
+:END:
+
+Symbol: =modus-themes-region=
+
+Possible values:
+
+1. =nil= (default)
+2. =no-extend=
+3. =bg-only=
+4. =bg-only-no-extend=
+
+Nil means to only use a prominent gray background with a neutral
+foreground.  The foreground overrides all syntax highlighting.  The
+region extends to the edge of the window.
+
+Option =no-extend= preserves the default aesthetic but prevents the
+region from extending to the edge of the window.
+
+Option =bg-only= applies a faint tinted background that is distinct from
+all others used in the theme, while it does not override any existing
+colors.  It extends to the edge of the window.
+
+Option =bg-only-no-extend= is a combination of the =bg-only= and
+=no-extend= options.
+
 ** Option for diff buffer looks
 :PROPERTIES:
 :ALT_TITLE: Diffs
