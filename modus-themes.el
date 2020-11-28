@@ -2398,7 +2398,7 @@ calling the internal `modus-themes-load-operandi' and
     `(compilation-mode-line-run ((,class :inherit modus-theme-bold :foreground ,magenta-active)))
     `(compilation-warning ((,class :inherit modus-theme-bold :foreground ,yellow)))
 ;;;;; completions
-    `(completions-annotations ((,class :inherit modus-theme-slant :foreground ,fg-special-cold)))
+    `(completions-annotations ((,class :inherit modus-theme-slant :foreground ,cyan-faint)))
     `(completions-common-part ((,class ,@(modus-themes--standard-completions
                                           blue-alt blue-nuanced-bg
                                           cyan-refine-bg cyan-refine-fg))))
@@ -3572,7 +3572,7 @@ calling the internal `modus-themes-load-operandi' and
     `(query-replace ((,class :inherit (modus-theme-intense-yellow bold))))
 ;;;;; ivy
     `(ivy-action ((,class :inherit bold :foreground ,red-alt)))
-    `(ivy-completions-annotations ((,class :inherit modus-theme-slant :foreground ,fg-special-cold)))
+    `(ivy-completions-annotations ((,class :inherit completions-annotations)))
     `(ivy-confirm-face ((,class :foreground ,cyan)))
     `(ivy-current-match ((,class ,@(modus-themes--extra-completions
                                     'modus-theme-refine-cyan
