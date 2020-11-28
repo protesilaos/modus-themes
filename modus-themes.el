@@ -361,6 +361,8 @@
 
 
 
+(require 'cl-lib)
+
 ;;; Custom faces
 
 (defgroup modus-theme ()
