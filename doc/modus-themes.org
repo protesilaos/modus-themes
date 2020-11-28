@@ -1106,7 +1106,7 @@ Take the previous example with the =cursor= face:
 (set-face-attribute 'cursor nil :background (modus-themes-color-alts 'blue 'red))
 #+end_src
 
-** Font configurations (for Org and others)
+** Font configurations for Org and others (DIY)
 :PROPERTIES:
 :ALT_TITLE: Font configs (DIY)
 :DESCRIPTION: Optimise for mixed typeface buffers
@@ -1242,6 +1242,7 @@ it if you plan to control face attributes.
 
 ** Check color combinations (DIY)
 :PROPERTIES:
+:ALT_TITLE: WCAG test (DIY)
 :DESCRIPTION: Apply the WCAG formula to color values of your choosing
 :CUSTOM_ID: h:02e25930-e71a-493d-828a-8907fc80f874
 :END:
@@ -1289,6 +1290,34 @@ because certain colors are only meant to be used in combination with
 some others.  Consult the source code for relevant commentary.  And use
 the resources we covered in this section in case you plan to derive your
 own color combinations.
+
+** Load theme depending on time of day
+:PROPERTIES:
+:ALT_TITLE: Load at time (DIY)
+:DESCRIPTION: Switch between the themes depending on the time of day
+:CUSTOM_ID: h:1d1ef4b4-8600-4a09-993c-6de3af0ddd26
+:END:
+
+While we do provide =modus-themes-toggle= to manually switch between the
+themes, users may also set up their system to perform such a task
+automatically at sunrise and sunset.
+
+This can be accomplished by specifying the coordinates of one's location
+using the built-in =solar.el= and then configuring the =circadian= library:
+
+#+begin_src emacs-lisp
+(use-package solar                      ; built-in
+  :config
+  (setq calendar-latitude 35.17
+        calendar-longitude 33.36))
+
+(use-package circadian                  ; you need to install this
+  :ensure
+  :after solar
+  (setq circadian-themes '((:sunrise . modus-operandi)
+                           (:sunset  . modus-vivendi)))
+  (circadian-setup))
+#+end_src
 
 * Face coverage
 :PROPERTIES:

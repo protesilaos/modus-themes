@@ -97,7 +97,8 @@ Advanced customization (do-it-yourself)
 * Tweak faces (DIY)::            Declare your own face specs
 * Font configs (DIY)::           Optimise for mixed typeface buffers
 * Org user faces (DIY)::         Extend styles for org-mode keywords and priorities
-* Check color combinations (DIY):: Apply the WCAG formula to color values of your choosing
+* WCAG test (DIY)::              Apply the WCAG formula to color values of your choosing
+* Load at time (DIY)::           Switch between the themes depending on the time of day
 
 Face coverage
 
@@ -1123,7 +1124,8 @@ such, they are labelled as “do-it-yourself” or “DIY”.
 * Tweak faces (DIY)::            Declare your own face specs
 * Font configs (DIY)::           Optimise for mixed typeface buffers
 * Org user faces (DIY)::         Extend styles for org-mode keywords and priorities
-* Check color combinations (DIY):: Apply the WCAG formula to color values of your choosing
+* WCAG test (DIY)::              Apply the WCAG formula to color values of your choosing
+* Load at time (DIY)::           Switch between the themes depending on the time of day
 
 
 File: modus-themes.info,  Node: Tweak faces (DIY),  Next: Font configs (DIY),  Up: Advanced customization (do-it-yourself)
@@ -1218,8 +1220,8 @@ first for ‘modus-operandi’ then ‘modus-vivendi’.
 
 File: modus-themes.info,  Node: Font configs (DIY),  Next: Org user faces (DIY),  Prev: Tweak faces (DIY),  Up: Advanced customization (do-it-yourself)
 
-5.2 Font configurations (for Org and others)
-============================================
+5.2 Font configurations for Org and others (DIY)
+================================================
 
 The themes are designed to cope well with mixed font configurations
 (*note Option for no font mixing: No mixed fonts.).
@@ -1269,7 +1271,7 @@ the likes of ‘115’ are perfectly valid—some typefaces will change to
 account for those finer increments.
 
 
-File: modus-themes.info,  Node: Org user faces (DIY),  Next: Check color combinations (DIY),  Prev: Font configs (DIY),  Up: Advanced customization (do-it-yourself)
+File: modus-themes.info,  Node: Org user faces (DIY),  Next: WCAG test (DIY),  Prev: Font configs (DIY),  Up: Advanced customization (do-it-yourself)
 
 5.3 Org user faces (DIY)
 ========================
@@ -1342,10 +1344,10 @@ Do it if you plan to control face attributes.
 
    *note Custom face specs using the themes’ palette: Tweak faces (DIY).
 
-   *note Check color combinations: Check color combinations (DIY).
+   *note Check color combinations: WCAG test (DIY).
 
 
-File: modus-themes.info,  Node: Check color combinations (DIY),  Prev: Org user faces (DIY),  Up: Advanced customization (do-it-yourself)
+File: modus-themes.info,  Node: WCAG test (DIY),  Next: Load at time (DIY),  Prev: Org user faces (DIY),  Up: Advanced customization (do-it-yourself)
 
 5.4 Check color combinations (DIY)
 ==================================
@@ -1389,6 +1391,32 @@ because certain colors are only meant to be used in combination with
 some others.  Consult the source code for relevant commentary.  And use
 the resources we covered in this section in case you plan to derive your
 own color combinations.
+
+
+File: modus-themes.info,  Node: Load at time (DIY),  Prev: WCAG test (DIY),  Up: Advanced customization (do-it-yourself)
+
+5.5 Load theme depending on time of day
+=======================================
+
+While we do provide ‘modus-themes-toggle’ to manually switch between the
+themes, users may also set up their system to perform such a task
+automatically at sunrise and sunset.
+
+   This can be accomplished by specifying the coordinates of one’s
+location using the built-in ‘solar.el’ and then configuring the
+‘circadian’ library:
+
+     (use-package solar                      ; built-in
+       :config
+       (setq calendar-latitude 35.17
+             calendar-longitude 33.36))
+
+     (use-package circadian                  ; you need to install this
+       :ensure
+       :after solar
+       (setq circadian-themes '((:sunrise . modus-operandi)
+                                (:sunset  . modus-vivendi)))
+       (circadian-setup))
 
 
 File: modus-themes.info,  Node: Face coverage,  Next: Notes for individual packages,  Prev: Advanced customization (do-it-yourself),  Up: Top
@@ -2552,65 +2580,66 @@ Appendix A GNU Free Documentation License
 
 Tag Table:
 Node: Top232
-Node: Overview4220
-Node: How do the themes look like5490
-Node: Learn about the latest changes5998
-Node: Installation6380
-Node: Install from the archives6828
-Node: Install on GNU/Linux7490
-Node: Debian 11 Bullseye7938
-Node: GNU Guix8347
-Node: Enable and load8636
-Node: Load automatically9123
-Node: Toggle between the themes on demand9940
-Node: Configure options prior to loading10890
-Node: Sample configuration for use-package14234
-Node: Customization Options15925
-Node: Bold constructs17815
-Node: Slanted constructs18404
-Node: Syntax styles18951
-Node: No mixed fonts20466
-Node: Link styles21477
-Node: Command prompts22456
-Node: Mode line23139
-Node: Completion UIs25662
-Node: Fringes27494
-Node: Line highlighting28154
-Node: Matching parentheses28769
-Node: Active region29652
-Node: Diffs30588
-Node: Org mode blocks32860
-Node: Heading styles34200
-Node: Scaled headings37866
-Node: Scaled heading sizes38452
-Node: Headings' font40026
-Node: Advanced customization (do-it-yourself)40626
-Node: Tweak faces (DIY)41704
-Node: Font configs (DIY)45860
-Ref: Font configs (DIY)-Footnote-148136
-Node: Org user faces (DIY)48323
-Node: Check color combinations (DIY)51558
-Node: Face coverage53435
-Node: Supported packages53905
-Node: Indirectly covered packages60049
-Node: Notes for individual packages60492
-Node: Note on company-mode overlay pop-up60978
-Ref: Note on company-mode overlay pop-up-Footnote-161642
-Ref: Note on company-mode overlay pop-up-Footnote-261709
-Node: Note for ERC escaped color sequences61764
-Ref: Note for ERC escaped color sequences-Footnote-163197
-Node: Note for powerline or spaceline63307
-Node: Note on SHR colors63723
-Node: Note for Helm grep64133
-Node: Note on vc-annotate-background-mode65578
-Node: Contributing66430
-Node: Sources of the themes66849
-Node: Issues you can help with67590
-Node: Merge requests68771
-Node: Acknowledgements71033
-Node: Meta72743
-Node: External projects (ports)74249
-Node: GNU Free Documentation License75071
+Node: Overview4306
+Node: How do the themes look like5576
+Node: Learn about the latest changes6084
+Node: Installation6466
+Node: Install from the archives6914
+Node: Install on GNU/Linux7576
+Node: Debian 11 Bullseye8024
+Node: GNU Guix8433
+Node: Enable and load8722
+Node: Load automatically9209
+Node: Toggle between the themes on demand10026
+Node: Configure options prior to loading10976
+Node: Sample configuration for use-package14462
+Node: Customization Options16153
+Node: Bold constructs18043
+Node: Slanted constructs18632
+Node: Syntax styles19179
+Node: No mixed fonts20694
+Node: Link styles21705
+Node: Command prompts22684
+Node: Mode line23367
+Node: Completion UIs25890
+Node: Fringes27722
+Node: Line highlighting28382
+Node: Matching parentheses28997
+Node: Active region29880
+Node: Diffs30816
+Node: Org mode blocks33088
+Node: Heading styles34428
+Node: Scaled headings38094
+Node: Scaled heading sizes38680
+Node: Headings' font40254
+Node: Advanced customization (do-it-yourself)40854
+Node: Tweak faces (DIY)42018
+Node: Font configs (DIY)46174
+Ref: Font configs (DIY)-Footnote-148458
+Node: Org user faces (DIY)48645
+Node: WCAG test (DIY)51850
+Node: Load at time (DIY)53739
+Node: Face coverage54692
+Node: Supported packages55162
+Node: Indirectly covered packages61306
+Node: Notes for individual packages61749
+Node: Note on company-mode overlay pop-up62235
+Ref: Note on company-mode overlay pop-up-Footnote-162899
+Ref: Note on company-mode overlay pop-up-Footnote-262966
+Node: Note for ERC escaped color sequences63021
+Ref: Note for ERC escaped color sequences-Footnote-164454
+Node: Note for powerline or spaceline64564
+Node: Note on SHR colors64980
+Node: Note for Helm grep65390
+Node: Note on vc-annotate-background-mode66835
+Node: Contributing67687
+Node: Sources of the themes68106
+Node: Issues you can help with68847
+Node: Merge requests70028
+Node: Acknowledgements72290
+Node: Meta74013
+Node: External projects (ports)75519
+Node: GNU Free Documentation License76341
 
 End Tag Table
 
