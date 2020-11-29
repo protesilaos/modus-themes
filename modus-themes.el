@@ -3588,7 +3588,7 @@ calling the internal `modus-themes-load-operandi' and
     `(ivy-current-match ((,class ,@(modus-themes--extra-completions
                                     'modus-theme-refine-cyan
                                     'modus-theme-intense-cyan
-                                    'modus-theme-special-warm
+                                    'modus-theme-special-cold
                                     nil
                                     'bold))))
     `(ivy-cursor ((,class :background ,fg-main :foreground ,bg-main)))
@@ -3599,7 +3599,7 @@ calling the internal `modus-themes-load-operandi' and
     `(ivy-minibuffer-match-face-1 ((,class ,@(modus-themes--extra-completions
                                               'modus-theme-subtle-neutral
                                               'modus-theme-intense-neutral
-                                              'modus-theme-subtle-neutral
+                                              'modus-theme-nuanced-cyan
                                               fg-alt))))
     `(ivy-minibuffer-match-face-2 ((,class ,@(modus-themes--extra-completions
                                               'modus-theme-subtle-green
@@ -3608,10 +3608,10 @@ calling the internal `modus-themes-load-operandi' and
                                               green-alt-other
                                               'bold))))
     `(ivy-minibuffer-match-face-3 ((,class ,@(modus-themes--extra-completions
-                                              'modus-theme-subtle-cyan
-                                              'modus-theme-refine-cyan
-                                              'modus-theme-nuanced-cyan
-                                              cyan-alt-other
+                                              'modus-theme-subtle-blue
+                                              'modus-theme-refine-blue
+                                              'modus-theme-nuanced-blue
+                                              blue-alt-other
                                               'bold))))
     `(ivy-minibuffer-match-face-4 ((,class ,@(modus-themes--extra-completions
                                               'modus-theme-subtle-magenta
@@ -3620,10 +3620,10 @@ calling the internal `modus-themes-load-operandi' and
                                               magenta-alt-other
                                               'bold))))
     `(ivy-minibuffer-match-highlight ((,class ,@(modus-themes--extra-completions
-                                                 'modus-theme-subtle-blue
-                                                 'modus-theme-intense-blue
-                                                 'modus-theme-nuanced-blue
-                                                 blue-alt-other
+                                                 'modus-theme-subtle-cyan
+                                                 'modus-theme-intense-cyan
+                                                 'modus-theme-nuanced-cyan
+                                                 cyan-alt-other
                                                  'bold))))
     `(ivy-modified-buffer ((,class :inherit modus-theme-slant :foreground ,yellow)))
     `(ivy-modified-outside-buffer ((,class :inherit modus-theme-slant :foreground ,yellow-alt)))
