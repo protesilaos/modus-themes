@@ -4696,15 +4696,14 @@ calling the internal `modus-themes-load-operandi' and
     `(switch-window-label ((,class :height 3.0 :foreground ,blue-intense)))
 ;;;;; swiper
     `(swiper-background-match-face-1 ((,class :inherit modus-theme-subtle-neutral)))
-    `(swiper-background-match-face-2 ((,class :inherit modus-theme-subtle-cyan)))
-    `(swiper-background-match-face-3 ((,class :inherit modus-theme-subtle-magenta)))
-    `(swiper-background-match-face-4 ((,class :inherit modus-theme-subtle-green)))
-    `(swiper-line-face ((,class ,@(and (>= emacs-major-version 27) '(:extend t))
-                                :inherit modus-theme-special-cold)))
-    `(swiper-match-face-1 ((,class :inherit swiper-line-face)))
-    `(swiper-match-face-2 ((,class :inherit swiper-line-face)))
-    `(swiper-match-face-3 ((,class :inherit swiper-line-face)))
-    `(swiper-match-face-4 ((,class :inherit swiper-line-face)))
+    `(swiper-background-match-face-2 ((,class :inherit modus-theme-refine-cyan)))
+    `(swiper-background-match-face-3 ((,class :inherit modus-theme-refine-magenta)))
+    `(swiper-background-match-face-4 ((,class :inherit modus-theme-refine-yellow)))
+    `(swiper-line-face ((,class :inherit modus-theme-special-cold)))
+    `(swiper-match-face-1 ((,class :inherit (bold modus-theme-intense-neutral))))
+    `(swiper-match-face-2 ((,class :inherit (bold modus-theme-intense-green))))
+    `(swiper-match-face-3 ((,class :inherit (bold modus-theme-intense-blue))))
+    `(swiper-match-face-4 ((,class :inherit (bold modus-theme-intense-red))))
 ;;;;; swoop
     `(swoop-face-header-format-line ((,class :inherit bold :foreground ,red-alt
                                              ,@(modus-themes--scale modus-themes-scale-3))))

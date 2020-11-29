@@ -1899,14 +1899,14 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Alexandre Gomes, Arif Rezai, Basil L. Contovounesios, Damien Cassou,
   Daniel Mendler, Dario Gjorgjevski, David Edmondson, Davor Rotim, Divan
   Santana, Gerry Agbobada, Gianluca Recchia, Hörmetjan Yiltiz, Ilja
-  Kocken, Iris Garcia, Jeremy Friesen, Len Trigg, Manuel Uberti, Mark
-  Burton, Markus Beppler, Michael Goldenberg, Murilo Pereira, Nicolas De
-  Jaeghere, Paul Poloskov, Pierre Téchoueyres, Roman Rudakov, Ryan
-  Phillips, Shreyas Ragavan, Simon Pugnet, Tassilo Horn, Thibaut Verron,
-  Trey Merkley, Togan Muftuoglu, Uri Sharf, Utkarsh Singh, Vincent
-  Foley.  As well as users: Ben, Emacs Contrib, Eugene, Fourchaux,
-  Fredrik, Moesasji, Nick, TheBlob42, bepolymathe, dinko, doolio,
-  fleimgruber, jixiuf, okamsn, tycho garen.
+  Kocken, Iris Garcia, Jeremy Friesen, John Haman, Len Trigg, Manuel
+  Uberti, Mark Burton, Markus Beppler, Michael Goldenberg, Murilo
+  Pereira, Nicolas De Jaeghere, Paul Poloskov, Pierre Téchoueyres, Roman
+  Rudakov, Ryan Phillips, Shreyas Ragavan, Simon Pugnet, Tassilo Horn,
+  Thibaut Verron, Trey Merkley, Togan Muftuoglu, Uri Sharf, Utkarsh
+  Singh, Vincent Foley.  As well as users: Ben, Emacs Contrib, Eugene,
+  Fourchaux, Fredrik, Moesasji, Nick, TheBlob42, bepolymathe, dinko,
+  doolio, fleimgruber, jixiuf, okamsn, tycho garen.
 
 + Packaging :: Dhavan Vaidya (Debian), Stefan Kangas (core Emacs),
   Stefan Monnier (GNU Elpa).
