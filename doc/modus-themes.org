@@ -1371,6 +1371,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + company-posframe
 + compilation-mode
 + completions
++ consult
 + counsel*
 + counsel-css
 + counsel-notmuch
@@ -1896,16 +1897,16 @@ The Modus themes are a collective effort.  Every bit of work matters.
 + Ideas and user feedback :: Aaron Jensen, Adam Spiers, Alex Griffin,
   Alex Peitsinis, Alexey Shmalko, Alok Singh, Anders Johansson, André
   Alexandre Gomes, Arif Rezai, Basil L. Contovounesios, Damien Cassou,
-  Dario Gjorgjevski, David Edmondson, Davor Rotim, Divan Santana, Gerry
-  Agbobada, Gianluca Recchia, Hörmetjan Yiltiz, Ilja Kocken, Iris
-  Garcia, Jeremy Friesen, Len Trigg, Manuel Uberti, Mark Burton, Markus
-  Beppler, Michael Goldenberg, Murilo Pereira, Nicolas De Jaeghere, Paul
-  Poloskov, Pierre Téchoueyres, Roman Rudakov, Ryan Phillips, Shreyas
-  Ragavan, Simon Pugnet, Tassilo Horn, Thibaut Verron, Trey Merkley,
-  Togan Muftuoglu, Uri Sharf, Utkarsh Singh, Vincent Foley.  As well as
-  users: Ben, Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji, Nick,
-  TheBlob42, bepolymathe, dinko, doolio, fleimgruber, jixiuf, okamsn,
-  tycho garen.
+  Daniel Mendler, Dario Gjorgjevski, David Edmondson, Davor Rotim, Divan
+  Santana, Gerry Agbobada, Gianluca Recchia, Hörmetjan Yiltiz, Ilja
+  Kocken, Iris Garcia, Jeremy Friesen, Len Trigg, Manuel Uberti, Mark
+  Burton, Markus Beppler, Michael Goldenberg, Murilo Pereira, Nicolas De
+  Jaeghere, Paul Poloskov, Pierre Téchoueyres, Roman Rudakov, Ryan
+  Phillips, Shreyas Ragavan, Simon Pugnet, Tassilo Horn, Thibaut Verron,
+  Trey Merkley, Togan Muftuoglu, Uri Sharf, Utkarsh Singh, Vincent
+  Foley.  As well as users: Ben, Emacs Contrib, Eugene, Fourchaux,
+  Fredrik, Moesasji, Nick, TheBlob42, bepolymathe, dinko, doolio,
+  fleimgruber, jixiuf, okamsn, tycho garen.
 
 + Packaging :: Dhavan Vaidya (Debian), Stefan Kangas (core Emacs),
   Stefan Monnier (GNU Elpa).
