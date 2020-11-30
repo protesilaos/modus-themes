@@ -2411,10 +2411,9 @@ calling the internal `modus-themes-load-operandi' and
     `(consult-bookmark ((,class :foreground ,blue)))
     `(consult-file ((,class :foreground ,magenta-alt-other)))
     `(consult-lighter ((,class :foreground ,fg-alt)))
-    `(consult-line-number ((,class :foreground ,fg-alt)))
-    `(consult-mark ((,class :foreground ,blue-alt-other)))
     `(consult-off ((,class :inherit error)))
     `(consult-on ((,class :inherit success)))
+    `(consult-preview-cursor ((,class :inherit modus-theme-intense-blue)))
     `(consult-preview-line ((,class :inherit modus-theme-special-mild)))
     `(consult-view ((,class :inherit bold :foreground ,fg-special-warm)))
 ;;;;; counsel
