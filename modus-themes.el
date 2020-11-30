@@ -3639,7 +3639,7 @@ calling the internal `modus-themes-load-operandi' and
                                   blue-alt))))
 ;;;;; ivy-posframe
     `(ivy-posframe ((,class :background ,bg-dim :foreground ,fg-main)))
-    `(ivy-posframe-border ((,class :background ,bg-active)))
+    `(ivy-posframe-border ((,class :background ,fg-window-divider-inner)))
     `(ivy-posframe-cursor ((,class :background ,fg-main :foreground ,bg-main)))
 ;;;;; jira (org-jira)
     `(jiralib-comment-face ((,class :background ,bg-alt)))
