@@ -249,8 +249,7 @@ File: modus-themes.info,  Node: GNU Guix,  Prev: Debian 11 Bullseye,  Up: Instal
 2.2.2 GNU Guix
 --------------
 
-Users of either the Guix System (the distro) or just Guix (the package
-manager) can get the themes with this command:
+Users of Guix can get the themes with this command:
 
      guix package -i emacs-modus-themes
 
