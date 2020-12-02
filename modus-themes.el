@@ -2258,7 +2258,7 @@ calling the internal `modus-themes-load-operandi' and
     `(diary ((,class :foreground ,cyan-alt-other)))
     `(diary-anniversary ((,class :foreground ,red-alt-other)))
     `(diary-time ((,class :foreground ,blue-alt)))
-    `(holiday ((,class :foreground ,magenta-alt)))
+    `(holiday ((,class :foreground ,red-alt)))
 ;;;;; calfw
     `(cfw:face-annotation ((,class :foreground ,fg-special-warm)))
     `(cfw:face-day-title ((,class :foreground ,fg-main)))
