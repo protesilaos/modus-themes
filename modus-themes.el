@@ -1753,7 +1753,7 @@ used to fontify text and code syntax."
     ('bg-only (list :background bgsubtle))
     ('bg-only-no-extend (list :background bgsubtle :extend nil))
     ('no-extend (list :background bg :foreground fg :extend nil))
-    (_ (list :background bg :foreground bg))))
+    (_ (list :background bg :foreground fg))))
 
 
 
