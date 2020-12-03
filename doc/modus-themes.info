@@ -1139,7 +1139,7 @@ can be used to pass tweaks in the post-theme-load phase.
 
    *note Toggle between the themes: Toggle between the themes on demand.
 
-   *note Configure options prior to loading::
+   *note Configure options prior to loading::.
 
    Now assume you wish to change a single face, say, the ‘cursor’.  And
 you would like to get the standard “blue” color value of the active
@@ -1162,7 +1162,7 @@ theme.
        (modus-themes-color 'blue))           ; "#2fafff" for `modus-vivendi'
 
    Do ‘C-h v’ on the aforementioned variables to check all the available
-symbols that can be passed to that function.
+symbols that can be passed to this function.
 
    With that granted, let us expand the example to actually change the
 ‘cursor’ face’s background property.  We employ the built-in function of
@@ -1171,9 +1171,9 @@ symbols that can be passed to that function.
      (set-face-attribute 'cursor nil :background (modus-themes-color 'blue))
 
    If you evaluate this form, your cursor will become blue.  But if you
-change themes, such as with ‘modus-themes-toggle’, your changes will be
-lost, because the newly loaded theme overrides the ‘:background’
-attribute you assigned to that face.
+change themes, such as with ‘modus-themes-toggle’, your edits will be
+lost, because the newly loaded theme will override the ‘:background’
+attribute you had assigned to that face.
 
    For such changes to persist, we need to make them after loading the
 theme.  So we rely on ‘modus-themes-after-load-theme-hook’, which gets
@@ -1187,7 +1187,7 @@ that tweaks two faces and then gets added to the hook:
 
      (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
 
-   Using this principle it is possible to override the styles of faces
+   Using this principle, it is possible to override the styles of faces
 without having to find color values for each case.
 
    Another application is to control the precise weight for bold

@@ -1015,9 +1015,9 @@ and how to configure options prior to loading.  We also explained that
 some of the functions made available to users will fire up a hook that
 can be used to pass tweaks in the post-theme-load phase.
 
-[[#h:2a0895a6-3281-4e55-8aa1-8a737555821e][Toggle between the themes]]
+[[#h:2a0895a6-3281-4e55-8aa1-8a737555821e][Toggle between the themes]].
 
-[[#h:a897b302-8e10-4a26-beab-3caaee1e1193][Configure options prior to loading]]
+[[#h:a897b302-8e10-4a26-beab-3caaee1e1193][Configure options prior to loading]].
 
 Now assume you wish to change a single face, say, the =cursor=.  And you
 would like to get the standard "blue" color value of the active Modus
@@ -1043,7 +1043,7 @@ The function always extracts the color value of the active Modus theme.
 #+end_src
 
 Do =C-h v= on the aforementioned variables to check all the available
-symbols that can be passed to that function.
+symbols that can be passed to this function.
 
 With that granted, let us expand the example to actually change the
 =cursor= face's background property.  We employ the built-in function of
@@ -1054,9 +1054,9 @@ With that granted, let us expand the example to actually change the
 #+end_src
 
 If you evaluate this form, your cursor will become blue.  But if you
-change themes, such as with =modus-themes-toggle=, your changes will be
-lost, because the newly loaded theme overrides the =:background= attribute
-you assigned to that face.
+change themes, such as with =modus-themes-toggle=, your edits will be
+lost, because the newly loaded theme will override the =:background=
+attribute you had assigned to that face.
 
 For such changes to persist, we need to make them after loading the
 theme.  So we rely on =modus-themes-after-load-theme-hook=, which gets
@@ -1072,7 +1072,7 @@ tweaks two faces and then gets added to the hook:
 (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
 #+end_src
 
-Using this principle it is possible to override the styles of faces
+Using this principle, it is possible to override the styles of faces
 without having to find color values for each case.
 
 Another application is to control the precise weight for bold
