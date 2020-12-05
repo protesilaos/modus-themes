@@ -5078,7 +5078,7 @@ calling the internal `modus-themes-load-operandi' and
 ;;;;; yaml-mode
     `(yaml-tab-face ((,class :inherit modus-theme-intense-red)))
 ;;;;; yasnippet
-    `(yas-field-highlight-face ((,class :background ,bg-alt :foreground ,fg-main)))
+    `(yas-field-highlight-face ((,class :background ,bg-hl-alt-intense)))
 ;;;;; ztree
     `(ztreep-arrow-face ((,class :foreground ,fg-inactive)))
     `(ztreep-diff-header-face ((,class :inherit bold :height 1.2 :foreground ,fg-special-cold)))
