@@ -1905,7 +1905,8 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Pugnet, Tassilo Horn, Thibaut Verron, Trey Merkley, Togan Muftuoglu,
   Uri Sharf, Utkarsh Singh, Vincent Foley.  As well as users: Ben, Emacs
   Contrib, Eugene, Fourchaux, Fredrik, Moesasji, Nick, TheBlob42,
-  bepolymathe, dinko, doolio, fleimgruber, jixiuf, okamsn, tycho garen.
+  bepolymathe, dinko, doolio, fleimgruber, iSeeU, jixiuf, okamsn, tycho
+  garen.
 
 + Packaging :: Dhavan Vaidya (Debian), Stefan Kangas (core Emacs),
   Stefan Monnier (GNU Elpa).

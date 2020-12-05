@@ -2047,8 +2047,8 @@ Ideas and user feedback
      Pugnet, Tassilo Horn, Thibaut Verron, Trey Merkley, Togan
      Muftuoglu, Uri Sharf, Utkarsh Singh, Vincent Foley.  As well as
      users: Ben, Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji,
-     Nick, TheBlob42, bepolymathe, dinko, doolio, fleimgruber, jixiuf,
-     okamsn, tycho garen.
+     Nick, TheBlob42, bepolymathe, dinko, doolio, fleimgruber, iSeeU,
+     jixiuf, okamsn, tycho garen.
 
 Packaging
      Dhavan Vaidya (Debian), Stefan Kangas (core Emacs), Stefan Monnier
@@ -2589,58 +2589,58 @@ Node: Install from the archives6914
 Node: Install on GNU/Linux7576
 Node: Debian 11 Bullseye8024
 Node: GNU Guix8433
-Node: Enable and load8722
-Node: Load automatically9209
-Node: Toggle between the themes on demand10026
-Node: Configure options prior to loading10976
-Node: Sample configuration for use-package14462
-Node: Customization Options16153
-Node: Bold constructs18043
-Node: Slanted constructs18632
-Node: Syntax styles19179
-Node: No mixed fonts20694
-Node: Link styles21705
-Node: Command prompts22684
-Node: Mode line23367
-Node: Completion UIs25890
-Node: Fringes27722
-Node: Line highlighting28382
-Node: Matching parentheses28997
-Node: Active region29880
-Node: Diffs30816
-Node: Org mode blocks33088
-Node: Heading styles34428
-Node: Scaled headings38094
-Node: Scaled heading sizes38680
-Node: Headings' font40254
-Node: Advanced customization (do-it-yourself)40854
-Node: Tweak faces (DIY)42018
-Node: Font configs (DIY)46174
-Ref: Font configs (DIY)-Footnote-148458
-Node: Org user faces (DIY)48645
-Node: WCAG test (DIY)51850
-Node: Load at time (DIY)53739
-Node: Face coverage54692
-Node: Supported packages55162
-Node: Indirectly covered packages61306
-Node: Notes for individual packages61749
-Node: Note on company-mode overlay pop-up62235
-Ref: Note on company-mode overlay pop-up-Footnote-162899
-Ref: Note on company-mode overlay pop-up-Footnote-262966
-Node: Note for ERC escaped color sequences63021
-Ref: Note for ERC escaped color sequences-Footnote-164454
-Node: Note for powerline or spaceline64564
-Node: Note on SHR colors64980
-Node: Note for Helm grep65390
-Node: Note on vc-annotate-background-mode66835
-Node: Contributing67687
-Node: Sources of the themes68106
-Node: Issues you can help with68847
-Node: Merge requests70028
-Node: Acknowledgements72290
-Node: Meta74013
-Node: External projects (ports)75519
-Node: GNU Free Documentation License76341
+Node: Enable and load8656
+Node: Load automatically9143
+Node: Toggle between the themes on demand9960
+Node: Configure options prior to loading10910
+Node: Sample configuration for use-package14396
+Node: Customization Options16087
+Node: Bold constructs17977
+Node: Slanted constructs18566
+Node: Syntax styles19113
+Node: No mixed fonts20628
+Node: Link styles21639
+Node: Command prompts22618
+Node: Mode line23301
+Node: Completion UIs25824
+Node: Fringes27656
+Node: Line highlighting28316
+Node: Matching parentheses28931
+Node: Active region29814
+Node: Diffs30750
+Node: Org mode blocks33022
+Node: Heading styles34362
+Node: Scaled headings38028
+Node: Scaled heading sizes38614
+Node: Headings' font40188
+Node: Advanced customization (do-it-yourself)40788
+Node: Tweak faces (DIY)41952
+Node: Font configs (DIY)46116
+Ref: Font configs (DIY)-Footnote-148400
+Node: Org user faces (DIY)48587
+Node: WCAG test (DIY)51792
+Node: Load at time (DIY)53681
+Node: Face coverage54634
+Node: Supported packages55104
+Node: Indirectly covered packages61263
+Node: Notes for individual packages61706
+Node: Note on company-mode overlay pop-up62192
+Ref: Note on company-mode overlay pop-up-Footnote-162856
+Ref: Note on company-mode overlay pop-up-Footnote-262923
+Node: Note for ERC escaped color sequences62978
+Ref: Note for ERC escaped color sequences-Footnote-164411
+Node: Note for powerline or spaceline64521
+Node: Note on SHR colors64937
+Node: Note for Helm grep65347
+Node: Note on vc-annotate-background-mode66792
+Node: Contributing67644
+Node: Sources of the themes68063
+Node: Issues you can help with68804
+Node: Merge requests69985
+Node: Acknowledgements72247
+Node: Meta74025
+Node: External projects (ports)75531
+Node: GNU Free Documentation License76353
 
 End Tag Table
 
