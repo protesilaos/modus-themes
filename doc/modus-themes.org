@@ -1632,6 +1632,7 @@ GNU Emacs distribution.
 These do not require any extra styles because they are configured to
 inherit from some basic faces.  Please confirm.
 
++ bbdb
 + edit-indirect
 + evil-owl
 + fortran-mode
