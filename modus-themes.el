@@ -2305,7 +2305,7 @@ calling the internal `modus-themes-load-operandi' and
     `(log-edit-header ((,class :foreground ,fg-special-warm)))
     `(log-edit-summary ((,class :inherit bold :foreground ,blue)))
     `(log-edit-unknown-header ((,class :foreground ,fg-alt)))
-    `(log-view-commit-body ((,class :background ,bg-alt :foreground ,fg-main)))
+    `(log-view-commit-body ((,class :background ,bg-dim :foreground ,fg-main :extend t)))
     `(log-view-file ((,class :inherit bold :foreground ,fg-special-cold)))
     `(log-view-message ((,class :foreground ,green-alt-other-faint)))
 ;;;;; cider
