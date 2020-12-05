@@ -55,6 +55,11 @@
 (eval-when-compile
   (require 'modus-themes-core))
 
+(deftheme modus-operandi
+  "Light theme that conforms with the highest accessibility
+  standard for color contrast between background and foreground
+  elements (WCAG AAA).")
+
 (modus-themes-core-theme
  'modus-operandi)
 

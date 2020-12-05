@@ -903,10 +903,6 @@ Option `bg-only-no-extend' is a combination of the `bg-only' and
 ;;; Variables for each variant
 
 ;;;; Modus Operandi
-(deftheme modus-operandi
-  "Light theme that conforms with the highest accessibility
-  standard for color contrast between background and foreground
-  elements (WCAG AAA).")
 
 (define-obsolete-variable-alias
   'modus-operandi-theme-default-colors-alist
@@ -1124,11 +1120,6 @@ Each element has the form (NAME . HEX) with the former as a
 symbol and the latter as a string.")
 
 ;;;; Modus Vivendi
-
-(deftheme modus-vivendi
-  "Dark theme that conforms with the highest accessibility
-  standard for color contrast between background and foreground
-  elements (WCAG AAA).")
 
 (define-obsolete-variable-alias
   'modus-vivendi-theme-default-colors-alist
