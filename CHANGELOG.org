@@ -15,6 +15,410 @@ For further details, please consult these additional resources:
 + Manual :: <https://protesilaos.com/modus-themes>
 + Screenshots :: <https://protesilaos.com/modus-themes-pictures>
 
+* 1.0.0
+
+#+begin_src text
+Modus themes version 1.0.0
+
+By Protesilaos Stavrou <info@protesilaos.com> on 2020-12-05
+
+This entry documents the changes since version 0.13.0 (2020-10-08).
+They constitute a major release with backward-incompatible additions
+which are described below.
+
+As always, every colour-related modification documented herein conforms
+with the overarching accessibility objective of the themes for a minimum
+contrast ratio of 7:1 between background and foreground values in their
+given combination (conformance with the WCAG AAA standard).
+
+Expect to find examples of basic and advanced customisations in the
+comprehensive Info manual bundled with the themes, which is also
+available at: <https://protesilaos.com/modus-themes>.
+
+
+Overview of major changes
+=========================
+
+0. The option that was present in earlier releases to override the
+   colour palette has been removed.  It cannot work with byte
+   compilation.  We must not compromise on performance, especially in
+   light of the fairly high line count of the themes (broad face
+   coverage combined with a multitude of customisation options).
+
+1. The code base has been refactored.  The two themes, Modus Operandi
+   (light) and Modus Vivendi (dark), derive from the same source.
+
+2. The refactoring makes it possible to distribute the two themes as
+   part of a single package.  You can find 'modus-themes' on MELPA, with
+   other archives and core Emacs following suit soon thereafter (the
+   Modus themes are built into Emacs since their version 0.12.0).
+
+3. The 'modus-operandi-theme' and 'modus-vivendi-theme' packages in
+   MELPA and GNU ELPA are obsolete.  MELPA has already deleted them and
+   now only provides 'modus-themes', while GNU ELPA shall do so soon
+   enough.
+
+   + Package providers of GNU/Linux distros, or other archives, are
+     encouraged to update their sources so that they only deliver a
+     single package that covers both themes.
+
+4. To avoid surprises, the refactored code is in the 'main' branch which
+   becomes the default henceforth.  The 'master' branch, from where all
+   prior releases were built, is thus deprecated.  Existing installs of
+   'modus-operandi-theme' and/or 'modus-vivendi-theme' must manually
+   switch to the new package sources, which offer a certain guarantee
+   that they are informed of the breaking changes documented herein.
+
+   + Users of 'straight.el' must make sure that they pull from the
+     'main' branch.  This may also be the case for other such tools,
+     though I have not had the time to test them all.
+
+5. The refactoring introduces a unified customisation framework.  Now
+   all user-facing variables are named 'modus-themes-*' instead of
+   'modus-operandi-*' and 'modus-vivendi-*'.  Users of both items can
+   thus cut down on duplicate code or inelegant workarounds on their
+   end.  Example:
+
+       modus-operandi-bold-constructs
+          |   |   |   |   |   |   |   ====> modus-themes-bold-constructs
+       modus-vivendi-bold-constructs
+
+6. The themes now provide common user-facing functions.
+
+   + 'modus-themes-load-operandi' and 'modus-themes-load-vivendi' can be
+     used in Lisp to load the theme they name, while disabling their
+     counterpart and running 'modus-themes-after-load-theme-hook'.  The
+     hook can be used to override or further customise faces (examples
+     are furnished in the manual).
+
+   + 'modus-themes-toggle' interactively switches between Modus Operandi
+     and Modus Vivendi or opens a minibuffer prompt to select between
+     the two if none of them is active.  It ultimately calls the
+     aforementioned functions to load the themes, so it also triggers
+     the hook.  Bind this command to a key of your convenience (the
+     author uses F5).
+
+   + 'modus-themes-color' returns the colour value of a symbol in the
+     alists that hold the themes' palettes.  The alists are
+     'modus-themes-colors-operandi' and 'modus-themes-colors-vivendi'.
+     'modus-themes-color' always operates on the active theme, making it
+     suitable for post-theme-load customisations (via the hook we
+     covered earlier).  Its usage is documented in the manual and is
+     meant to be employed by those who are prepared to assume
+     responsibility for face-related changes they introduce on their
+     setup.
+
+   + 'modus-themes-color-alts' occupies the same niche as the one right
+     above, with the exception that it takes two arguments.  The first
+     is the alist key to be used by 'modus-operandi' and the second is
+     for 'modus-vivendi'.
+
+   + 'modus-themes-wcag-formula' implements the WCAG formula to measure
+     a colour value's relative luminance.  While 'modus-themes-contrast'
+     applies the formula to derive the contrast ratio between two colour
+     values in hexadecimal RGB notation.  This can be used to verify the
+     accessibility of colour combinations provided by the themes or new
+     ones defined at the user level (the Modus themes conform with the
+     WCAG AAA standard which means that this kind of contrast is 7:1 or
+     higher for all applicable background+foreground combinations).
+
+
+Customisation options
+=====================
+
+This is the complete list with all the customisation options:
+
+    modus-themes-slanted-constructs             (boolean)
+    modus-themes-bold-constructs                (boolean)
+    modus-themes-variable-pitch-headings        (boolean)
+    modus-themes-no-mixed-fonts                 (boolean)
+    modus-themes-headings                       (alist)
+    modus-themes-scale-headings                 (boolean)
+    modus-themes-fringes                        (choice)
+    modus-themes-org-blocks                     (choice)
+    modus-themes-prompts                        (choice)
+    modus-themes-mode-line                      (choice)
+    modus-themes-diffs                          (choice)
+    modus-themes-syntax                         (choice)
+    modus-themes-intense-hl-line                (boolean)
+    modus-themes-paren-match                    (choice)
+    modus-themes-region                         (choice)
+    modus-themes-links                          (choice)
+    modus-themes-completions                    (choice)
+
+Plus those which are contingent on 'modus-themes-scale-headings':
+
+    modus-themes-scale-1
+    modus-themes-scale-2
+    modus-themes-scale-3
+    modus-themes-scale-4
+    modus-themes-scale-5
+
+Consult the manual for each of them and please verify that none of the
+older options remains in your init file.
+
+
+Customisation options that did not exist in earlier versions
+------------------------------------------------------------
+
+New entries and their possible values:
+
+1. modus-themes-syntax
+
+   ,* nil (default)
+   ,* faint
+   ,* yellow-comments
+   ,* green-strings
+   ,* yellow-comments-green-strings
+   ,* alt-syntax
+   ,* alt-syntax-yellow-comments
+
+   (supersedes options for "faint syntax" and "comments")
+
+2. modus-themes-links
+
+   ,* nil (default)
+   ,* faint
+   ,* neutral-underline
+   ,* faint-neutral-underline
+   ,* no-underline
+
+   (supersedes options for "no underlines")
+
+3. modus-themes-paren-match
+
+   ,* nil (default)
+   ,* intense
+   ,* subtle-bold
+   ,* intense-bold
+
+   (supersedes options for "intense paren match")
+
+4. modus-themes-region
+
+   ,* nil (default)
+   ,* no-extend
+   ,* bg-only
+   ,* bg-only-no-extend
+
+Furthermore, the 'modus-themes-diff' has a new option to choose from:
+the symbol 'bg-only'.  It applies colour-coded backgrounds but does not
+override any syntax highlighting that may be present.  This makes it
+suitable for use with a non-nil value for diff-font-lock-syntax (which
+is the default for diff-mode buffers in Emacs 27 or higher).
+
+
+Support for new faces or face groups
+====================================
+
++ consult
++ macrostep
++ make-mode
++ pdf-tools
++ popup
++ shr
++ sieve-mode
+
+(remember that the list of supported packages is already comprehensive)
+
+Thanks to:
+
++ Adam Spiers for bringing 'macrostep' to my attention.
+
++ Madhavan Krishnan for submitting the code for pdf-tools:
+  <https://gitlab.com/protesilaos/modus-themes/-/merge_requests/14>.
+
++ Manuel Uberti for reporting the issue with popup.el:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/107>.
+
++ Again thanks to Manuel for consult:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/123>.  And to
+  Daniel Mendler, its developer, for communicating with us on the status
+  of the project.
+
++ Togan Muftuoglu for reporting the issue with sieve-mode:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/121>.
+
+
+Refinements to existing faces
+=============================
+
++ The diary and holiday marks in 'M-x calendar' are displayed using a
+  slightly tinted background in order to improve their contrast.
+  Holidays are also rendered in a bold font.  Thanks to Nicolas De
+  Jaeghere for reporting the issue and following it up with valuable
+  feedback: <https://gitlab.com/protesilaos/modus-themes/-/issues/127>.
+
++ Code blocks in 'markdown-mode' now have a subtle background that
+  extends to the edge of the window.  Thanks to Roman Rudakov for the
+  suggestion and Hörmetjan Yiltiz for further testing:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/115>.
+
++ Inline code in 'markdown-mode' has a subtle background that covers the
+  length of the construct.  Refer to issue #115 as above.
+
++ Ivy's main pattern-matching faces are slightly adjusted to work more
+  effectively when users opt for "modus-themes-completions 'moderate" or
+  "modus-themes-completions 'opinionated".
+
++ Swiper's 'swiper-isearch' command defaults to a more colourful
+  presentation that clearly disambiguates matching pattern groups
+  between themselves as well as their own active and inactive states.
+  Thanks to John Haman for reporting the problem:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/125>.
+
++ Swiper's remaining faces are tweaked to better convey the intent of
+  this tool.
+
++ The border of 'ivy-posframe' is more noticeable.  Thanks to Pete
+  Kazmier: <https://gitlab.com/protesilaos/modus-themes/-/issues/126>.
+
++ The 'fringe' face no longer returns a nil background, which allows
+  'dap-ui-controls-mode' to display things properly.  Thanks to Simon
+  Pugnet: <https://gitlab.com/protesilaos/modus-themes/-/issues/106>.
+
++ Tags and priority cookies in Org mode no longer have a box property.
+  This is because of changes in upstream Org that we helped solve and
+  that are covered in the previous CHANGELOG entry (in short: Org
+  heading constructs inherit the underlying heading's properties that
+  are not part of their own specs, while they retain those that are
+  explicitly defined for them---adaptive headings).  Properly solves the
+  following issues:
+
+  ,* <https://gitlab.com/protesilaos/modus-themes/-/issues/104>.  Thanks
+    to user "bepolymathe".
+
+  ,* <https://gitlab.com/protesilaos/modus-themes/-/issues/95>.  Thanks
+    to Roman Rudakov.
+
++ The faces of 'M-x re-builder' are less intrusive.
+
++ All the following now inherit from basic font-lock faces and thus
+  benefit from options such as 'modus-themes-syntax':
+
+  ,* geiser
+  ,* nxml-mode
+  ,* tuareg
+  ,* web-mode
+  ,* xah-elisp-mode
+
++ Diff headers have a subtle grey background that extends to the edge of
+  the window.
+
++ The faces of log-view and change-log use colour combinations that
+  better differentiate the various objects on display.
+
++ 'font-lock-type-face' uses a cyan hue instead of magenta.
+
++ 'magit-header-line-key' uses a blue foreground colour instead of red.
+
++ Doc strings in code syntax are rendered in a new dedicated colour.
+  The change is fairly subtle and should practically go unnoticed.
+
++ 'org-date' now respects the 'modus-themes-no-mixed-fonts' option.
+  Thanks to user "fleimgruber" for reporting the issue:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/124>.
+
++ 'org-property-value' uses a slightly different shade of cyan.
+
++ 'dim-autoload' will always look like a regular comment.
+
++ The 'italic' face is inhereted by all relevant faces instead of
+  hard-wiring a slant property.  This offers the potential advantage of
+  specifying a distinct family (or other properties) for constructs that
+  are meant to be rendered in italics (the manual has an example in its
+  DIY sections for this scenario though it uses the 'bold' face---just
+  apply the same idea to the 'italic' face).
+
++ 'dictionary-reference-face' inherits from 'button' (as with all
+  links).
+
++ Several comment-related faces beyond the basic ones work with
+  'modus-themes-syntax' when that has an effect on the colour of
+  comments.  The faces are:
+
+  ,* git-commit-comment-file
+  ,* git-commit-comment-heading
+  ,* git-rebase-comment-hash
+  ,* git-rebase-comment-heading
+
++ 'transient-value' is more noticeable and fits better in its context.
+
++ All remaining Org metadata-related faces are refined for consistency
+  between them in an attempt to make them unobtrusive.  More subtle
+  colouration is applied.  Affected faces:
+
+  ,* org-drawer
+  ,* org-property-value
+  ,* org-special-keyword
+
+
+Theme-related contributions to the wider community
+==================================================
+
++ Defined the 'log-view-commit-body' for Emacs 28.1:
+  <https://lists.gnu.org/archive/html/bug-gnu-emacs/2020-11/msg00303.html>
+  and
+  <https://lists.gnu.org/archive/html/bug-gnu-emacs/2020-11/msg02196.html>.
+
++ Specified the version of the 'diff-error' face for Emacs 28.1:
+  <https://lists.gnu.org/archive/html/bug-gnu-emacs/2020-11/msg01328.html>.
+
++ Added the 'org-dispatcher-highlight' face to upstream Org:
+  <https://lists.gnu.org/archive/html/emacs-orgmode/2020-10/msg00158.html>.
+
+  ,* Report with screenshots:
+    <https://protesilaos.com/codelog/2020-10-24-org-export-dispatcher-face/>.
+
++ Helped fix face of Flymake's unknown backend in inactive modelines:
+  <https://lists.gnu.org/archive/html/bug-gnu-emacs/2020-11/msg01119.html>.
+
++ Solved bug#44198 about a user not knowning the themes are in Emacs:
+  <https://lists.gnu.org/archive/html/bug-gnu-emacs/2020-10/msg02001.html>.
+
+
+Miscellaneous
+=============
+
++ The new default 'main' branch of the Modus themes' git repo is an idea
+  that was presented by user "Emacs Contrib" in issue 112:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/112>.  Raising
+  awareness about the negative impact of potentially, tacitly, or
+  explicitly offensive language is a goal worth pursuing.  Plus "main"
+  is a more appropriate name for the primary branch of a project and we
+  do not lose anything by introducing this change as part of version
+  1.0.0, which anyhow requires manual interventions in user
+  configurations.
+
++ Thanks to Manuel Uberti, Jeremy Friesen, and Gitlab user "Eugene" for
+  their feedback during the process that eventually led to the
+  development of the 'modus-themes-syntax' customisation option:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/105>.
+
++ Thanks to André Alexandre Gomes for the feedback in issue 111, which
+  led to the simplification of the manual's references to Guix:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/111>.
+
++ Thanks to Nicolas De Jaeghere for noting that BBDB is indirectly
+  supported: <https://gitlab.com/protesilaos/modus-themes/-/issues/128>.
+
+Between the refactoring of the code base and all other changes, this has
+been yet another period of hard work to deliver on the promise of themes
+that are (i) highly accessible and (ii) comprehensive in both their face
+coverage and customisation options, while always conforming with the
+highest accessibility standard for legible text.
+
+Special thanks to the MELPA maintainers for all their contributions.
+MELPA is an integral part of the wider Emacs community.  Thanks, in
+particular, to Chris Rayner who has reviewed all my pull requests
+hitherto, and to Jonas Bernoulli for checking the latest one (and its
+concomitant issue) that introduced the new 'modus-themes' package.
+
+Thank you, the reader, for your attention and for understanding the
+longer term benefits of the refactoring, despite the short term friction
+it may have introduced.
+#+end_src
+
 * 0.13.0
 
 #+begin_src text
