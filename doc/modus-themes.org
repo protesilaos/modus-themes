@@ -1438,6 +1438,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + evil-goggles
 + evil-visual-mark-mode
 + eww
++ exwm
 + eyebrowse
 + fancy-dabbrev
 + flycheck
@@ -1904,7 +1905,8 @@ The Modus themes are a collective effort.  Every bit of work matters.
 
 + Contributions to code or documentation :: Anders Johansson, Basil
   L. Contovounesios, Eli Zaretskii, Madhavan Krishnan, Markus Beppler,
-  Matthew Stevenson, Shreyas Ragavan, Stefan Kangas, Vincent Murphy.
+  Matthew Stevenson, Nicolas De Jaeghere, Shreyas Ragavan, Stefan
+  Kangas, Vincent Murphy.
 
 + Ideas and user feedback :: Aaron Jensen, Adam Spiers, Alex Griffin,
   Alex Peitsinis, Alexey Shmalko, Alok Singh, Anders Johansson, André
