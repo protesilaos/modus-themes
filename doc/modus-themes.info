@@ -17,9 +17,8 @@ options for the ‘modus-operandi’ and ‘modus-vivendi’ themes, and
 provides every other piece of information pertinent to them.
 
    The documentation furnished herein corresponds to version 1.0.0,
-released on TO BE DETERMINED.  Any reference to a newer feature which
-does not yet form part of the latest tagged commit, is explicitly marked
-as such.
+released on 2020-12-05.  Any reference to a newer feature which does not
+yet form part of the latest tagged commit, is explicitly marked as such.
 
    Copyright (C) 2020 Free Software Foundation, Inc.
 
@@ -2582,66 +2581,66 @@ Appendix A GNU Free Documentation License
 
 Tag Table:
 Node: Top232
-Node: Overview4306
-Node: How do the themes look like5576
-Node: Learn about the latest changes6084
-Node: Installation6466
-Node: Install from the archives6914
-Node: Install on GNU/Linux7576
-Node: Debian 11 Bullseye8024
-Node: GNU Guix8433
-Node: Enable and load8656
-Node: Load automatically9143
-Node: Toggle between the themes on demand9960
-Node: Configure options prior to loading10910
-Node: Sample configuration for use-package14396
-Node: Customization Options16087
-Node: Bold constructs17977
-Node: Slanted constructs18566
-Node: Syntax styles19113
-Node: No mixed fonts20628
-Node: Link styles21639
-Node: Command prompts22618
-Node: Mode line23301
-Node: Completion UIs25824
-Node: Fringes27656
-Node: Line highlighting28316
-Node: Matching parentheses28931
-Node: Active region29814
-Node: Diffs30750
-Node: Org mode blocks33022
-Node: Heading styles34362
-Node: Scaled headings38028
-Node: Scaled heading sizes38614
-Node: Headings' font40188
-Node: Advanced customization (do-it-yourself)40788
-Node: Tweak faces (DIY)41952
-Node: Font configs (DIY)46116
-Ref: Font configs (DIY)-Footnote-148400
-Node: Org user faces (DIY)48587
-Node: WCAG test (DIY)51792
-Node: Load at time (DIY)53681
-Node: Face coverage54634
-Node: Supported packages55104
-Node: Indirectly covered packages61263
-Node: Notes for individual packages61706
-Node: Note on company-mode overlay pop-up62192
-Ref: Note on company-mode overlay pop-up-Footnote-162856
-Ref: Note on company-mode overlay pop-up-Footnote-262923
-Node: Note for ERC escaped color sequences62978
-Ref: Note for ERC escaped color sequences-Footnote-164411
-Node: Note for powerline or spaceline64521
-Node: Note on SHR colors64937
-Node: Note for Helm grep65347
-Node: Note on vc-annotate-background-mode66792
-Node: Contributing67644
-Node: Sources of the themes68063
-Node: Issues you can help with68804
-Node: Merge requests69985
-Node: Acknowledgements72247
-Node: Meta74025
-Node: External projects (ports)75531
-Node: GNU Free Documentation License76353
+Node: Overview4300
+Node: How do the themes look like5570
+Node: Learn about the latest changes6078
+Node: Installation6460
+Node: Install from the archives6908
+Node: Install on GNU/Linux7570
+Node: Debian 11 Bullseye8018
+Node: GNU Guix8427
+Node: Enable and load8650
+Node: Load automatically9137
+Node: Toggle between the themes on demand9954
+Node: Configure options prior to loading10904
+Node: Sample configuration for use-package14390
+Node: Customization Options16081
+Node: Bold constructs17971
+Node: Slanted constructs18560
+Node: Syntax styles19107
+Node: No mixed fonts20622
+Node: Link styles21633
+Node: Command prompts22612
+Node: Mode line23295
+Node: Completion UIs25818
+Node: Fringes27650
+Node: Line highlighting28310
+Node: Matching parentheses28925
+Node: Active region29808
+Node: Diffs30744
+Node: Org mode blocks33016
+Node: Heading styles34356
+Node: Scaled headings38022
+Node: Scaled heading sizes38608
+Node: Headings' font40182
+Node: Advanced customization (do-it-yourself)40782
+Node: Tweak faces (DIY)41946
+Node: Font configs (DIY)46110
+Ref: Font configs (DIY)-Footnote-148394
+Node: Org user faces (DIY)48581
+Node: WCAG test (DIY)51786
+Node: Load at time (DIY)53675
+Node: Face coverage54628
+Node: Supported packages55098
+Node: Indirectly covered packages61257
+Node: Notes for individual packages61712
+Node: Note on company-mode overlay pop-up62198
+Ref: Note on company-mode overlay pop-up-Footnote-162862
+Ref: Note on company-mode overlay pop-up-Footnote-262929
+Node: Note for ERC escaped color sequences62984
+Ref: Note for ERC escaped color sequences-Footnote-164417
+Node: Note for powerline or spaceline64527
+Node: Note on SHR colors64943
+Node: Note for Helm grep65353
+Node: Note on vc-annotate-background-mode66798
+Node: Contributing67650
+Node: Sources of the themes68069
+Node: Issues you can help with68810
+Node: Merge requests69991
+Node: Acknowledgements72253
+Node: Meta74031
+Node: External projects (ports)75537
+Node: GNU Free Documentation License76359
 
 End Tag Table
 

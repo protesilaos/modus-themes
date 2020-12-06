@@ -6,7 +6,7 @@
 #+TEXINFO_DIR_DESC: Highly accessible themes (WCAG AAA)
 #+OPTIONS: ':t toc:nil author:t email:t
 #+MACRO: version-tag 1.0.0
-#+MACRO: release-date TO BE DETERMINED
+#+MACRO: release-date 2020-12-05
 
 This manual, written by Protesilaos Stavrou, describes the customization
 options for the =modus-operandi= and =modus-vivendi= themes, and provides
