@@ -155,6 +155,7 @@
 ;;     evil-goggles
 ;;     evil-visual-mark-mode
 ;;     eww
+;;     exwm
 ;;     eyebrowse
 ;;     fancy-dabbrev
 ;;     flycheck
@@ -5093,6 +5094,8 @@ calling the internal `modus-themes-load-operandi' and
 ;;;; awesome-tray
     `(awesome-tray-mode-line-active-color ,blue)
     `(awesome-tray-mode-line-inactive-color ,bg-active)
+;;;; exwm
+    `(exwm-floating-border-color ,fg-window-divider-inner)
 ;;;; flymake fringe indicators
     `(flymake-error-bitmap '(flymake-double-exclamation-mark modus-theme-fringe-red))
     `(flymake-warning-bitmap '(exclamation-mark modus-theme-fringe-yellow))
