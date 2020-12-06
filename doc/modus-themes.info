@@ -16,8 +16,8 @@ This manual, written by Protesilaos Stavrou, describes the customization
 options for the ‘modus-operandi’ and ‘modus-vivendi’ themes, and
 provides every other piece of information pertinent to them.
 
-   The documentation furnished herein corresponds to version 1.0.0,
-released on 2020-12-05.  Any reference to a newer feature which does not
+   The documentation furnished herein corresponds to version 1.0.2,
+released on 2020-12-06.  Any reference to a newer feature which does not
 yet form part of the latest tagged commit, is explicitly marked as such.
 
    Copyright (C) 2020 Free Software Foundation, Inc.
@@ -64,7 +64,7 @@ Enable and load
 
 * Load automatically::
 * Toggle between the themes on demand::
-* Configure options prior to loading::
+* Configure options prior to loading a theme::
 * Sample configuration for use-package::
 
 Customization Options
@@ -262,11 +262,19 @@ This section documents how to load the theme of your choice and how to
 further control its initialization.  It also includes some sample code
 snippets that could help you in the task.
 
+   Before you load a theme, it is necessary to enable the libraries:
+
+     (require 'modus-themes)                 ; common code
+     (require 'modus-operandi-theme)         ; light theme
+     (require 'modus-vivendi-theme)          ; dark theme
+
+   *note Sample configuration for use-package::.
+
 * Menu:
 
 * Load automatically::
 * Toggle between the themes on demand::
-* Configure options prior to loading::
+* Configure options prior to loading a theme::
 * Sample configuration for use-package::
 
 
@@ -275,8 +283,8 @@ File: modus-themes.info,  Node: Load automatically,  Next: Toggle between the th
 3.1 Load automatically
 ======================
 
-A simple way to load the theme from your Emacs initialization file is to
-include either of the following expressions:
+Once the libraries that define the themes are enabled, you can load a
+theme with either of the following expressions:
 
      (load-theme 'modus-operandi t)          ; Light theme
      (load-theme 'modus-vivendi t)           ; Dark theme
@@ -292,7 +300,7 @@ may evaluate the following expression:
      (mapc #'disable-theme custom-enabled-themes)
 
 
-File: modus-themes.info,  Node: Toggle between the themes on demand,  Next: Configure options prior to loading,  Prev: Load automatically,  Up: Enable and load
+File: modus-themes.info,  Node: Toggle between the themes on demand,  Next: Configure options prior to loading a theme,  Prev: Load automatically,  Up: Enable and load
 
 3.2 Toggle between the themes on demand
 =======================================
@@ -312,14 +320,14 @@ add your tweaks (see *note Custom face specs using the themes’ palette:
 Tweak faces (DIY).).
 
 
-File: modus-themes.info,  Node: Configure options prior to loading,  Next: Sample configuration for use-package,  Prev: Toggle between the themes on demand,  Up: Enable and load
+File: modus-themes.info,  Node: Configure options prior to loading a theme,  Next: Sample configuration for use-package,  Prev: Toggle between the themes on demand,  Up: Enable and load
 
-3.3 Configure options prior to loading
-======================================
+3.3 Configure options prior to loading a theme
+==============================================
 
-The themes provide a unified customization framework.  All options must
-be set before loading each theme in order to come into effect.  For
-example:
+The themes provide a unified customization framework.  This is why you
+need ‘(require 'modus-themes)’.  All options must be set before loading
+each theme in order to come into effect.  For example:
 
      ;; Set customization options to values of your choice
      (setq modus-themes-slanted-constructs t
@@ -365,8 +373,7 @@ is what it does:
        (load-theme 'modus-operandi t)
        (run-hooks 'modus-themes-after-load-theme-hook))
 
-   Same principle for ‘modus-themes-load-vivendi’ (though inverse
-effect).
+   Same principle, inverse effect, for ‘modus-themes-load-vivendi’.
 
    If you prefer to maintain different customization options between the
 two themes, it is best you write your own functions that first set those
@@ -393,7 +400,7 @@ constructs in code syntax (enabled for one, disabled for the other).
 equivalent the themes provide.
 
 
-File: modus-themes.info,  Node: Sample configuration for use-package,  Prev: Configure options prior to loading,  Up: Enable and load
+File: modus-themes.info,  Node: Sample configuration for use-package,  Prev: Configure options prior to loading a theme,  Up: Enable and load
 
 3.4 Sample configuration for use-package
 ========================================
@@ -410,18 +417,20 @@ package configurations in their setup.  We use this as an example:
        :config
        ;; Load the theme of your choice
        (modus-themes-load-operandi)
+       ;; ;; OR
+       ;; (load-theme 'modus-operandi t)
        :bind ("<f5>" . modus-themes-toggle))
 
    Note that manual installations expect that the user byte compiles all
-the relevant files and creates autoloads for them.  Otherwise the above
-snippet will fail to load any theme.
+the relevant files and creates autoloads for them.  If, for whatever
+reason, users wish to install the theme files manually while not doing
+the requisite packaging work, then this code block must be used instead
+(but please prefer the packaged format that does proper byte compilation
+and autoloading).
 
-   If, for whatever reason, users wish to install the theme files
-manually while not doing the requisite packaging work, then this code
-block must be used instead (but please prefer the packaged format that
-does proper byte compilation and autoloading).
+   The following snippet is for manual installations or those that use
+the themes that are shipped with Emacs:
 
-     ;; Only for manual installs that avoid packaging routines
      (use-package modus-themes
        :ensure
        :init
@@ -1138,7 +1147,8 @@ can be used to pass tweaks in the post-theme-load phase.
 
    *note Toggle between the themes: Toggle between the themes on demand.
 
-   *note Configure options prior to loading::.
+   *note Configure options prior to loading: Configure options prior to
+loading a theme.
 
    Now assume you wish to change a single face, say, the ‘cursor’.  And
 you would like to get the standard “blue” color value of the active
@@ -2581,66 +2591,66 @@ Appendix A GNU Free Documentation License
 
 Tag Table:
 Node: Top232
-Node: Overview4300
-Node: How do the themes look like5570
-Node: Learn about the latest changes6078
-Node: Installation6460
-Node: Install from the archives6908
-Node: Install on GNU/Linux7570
-Node: Debian 11 Bullseye8018
-Node: GNU Guix8427
-Node: Enable and load8650
-Node: Load automatically9137
-Node: Toggle between the themes on demand9954
-Node: Configure options prior to loading10904
-Node: Sample configuration for use-package14390
-Node: Customization Options16081
-Node: Bold constructs17971
-Node: Slanted constructs18560
-Node: Syntax styles19107
-Node: No mixed fonts20622
-Node: Link styles21633
-Node: Command prompts22612
-Node: Mode line23295
-Node: Completion UIs25818
-Node: Fringes27650
-Node: Line highlighting28310
-Node: Matching parentheses28925
-Node: Active region29808
-Node: Diffs30744
-Node: Org mode blocks33016
-Node: Heading styles34356
-Node: Scaled headings38022
-Node: Scaled heading sizes38608
-Node: Headings' font40182
-Node: Advanced customization (do-it-yourself)40782
-Node: Tweak faces (DIY)41946
-Node: Font configs (DIY)46110
-Ref: Font configs (DIY)-Footnote-148394
-Node: Org user faces (DIY)48581
-Node: WCAG test (DIY)51786
-Node: Load at time (DIY)53675
-Node: Face coverage54628
-Node: Supported packages55098
-Node: Indirectly covered packages61257
-Node: Notes for individual packages61712
-Node: Note on company-mode overlay pop-up62198
-Ref: Note on company-mode overlay pop-up-Footnote-162862
-Ref: Note on company-mode overlay pop-up-Footnote-262929
-Node: Note for ERC escaped color sequences62984
-Ref: Note for ERC escaped color sequences-Footnote-164417
-Node: Note for powerline or spaceline64527
-Node: Note on SHR colors64943
-Node: Note for Helm grep65353
-Node: Note on vc-annotate-background-mode66798
-Node: Contributing67650
-Node: Sources of the themes68069
-Node: Issues you can help with68810
-Node: Merge requests69991
-Node: Acknowledgements72253
-Node: Meta74031
-Node: External projects (ports)75537
-Node: GNU Free Documentation License76359
+Node: Overview4308
+Node: How do the themes look like5578
+Node: Learn about the latest changes6086
+Node: Installation6468
+Node: Install from the archives6916
+Node: Install on GNU/Linux7578
+Node: Debian 11 Bullseye8026
+Node: GNU Guix8435
+Node: Enable and load8658
+Node: Load automatically9450
+Node: Toggle between the themes on demand10267
+Node: Configure options prior to loading a theme11225
+Node: Sample configuration for use-package14781
+Node: Customization Options16525
+Node: Bold constructs18415
+Node: Slanted constructs19004
+Node: Syntax styles19551
+Node: No mixed fonts21066
+Node: Link styles22077
+Node: Command prompts23056
+Node: Mode line23739
+Node: Completion UIs26262
+Node: Fringes28094
+Node: Line highlighting28754
+Node: Matching parentheses29369
+Node: Active region30252
+Node: Diffs31188
+Node: Org mode blocks33460
+Node: Heading styles34800
+Node: Scaled headings38466
+Node: Scaled heading sizes39052
+Node: Headings' font40626
+Node: Advanced customization (do-it-yourself)41226
+Node: Tweak faces (DIY)42390
+Node: Font configs (DIY)46596
+Ref: Font configs (DIY)-Footnote-148880
+Node: Org user faces (DIY)49067
+Node: WCAG test (DIY)52272
+Node: Load at time (DIY)54161
+Node: Face coverage55114
+Node: Supported packages55584
+Node: Indirectly covered packages61743
+Node: Notes for individual packages62198
+Node: Note on company-mode overlay pop-up62684
+Ref: Note on company-mode overlay pop-up-Footnote-163348
+Ref: Note on company-mode overlay pop-up-Footnote-263415
+Node: Note for ERC escaped color sequences63470
+Ref: Note for ERC escaped color sequences-Footnote-164903
+Node: Note for powerline or spaceline65013
+Node: Note on SHR colors65429
+Node: Note for Helm grep65839
+Node: Note on vc-annotate-background-mode67284
+Node: Contributing68136
+Node: Sources of the themes68555
+Node: Issues you can help with69296
+Node: Merge requests70477
+Node: Acknowledgements72739
+Node: Meta74517
+Node: External projects (ports)76023
+Node: GNU Free Documentation License76845
 
 End Tag Table
 
