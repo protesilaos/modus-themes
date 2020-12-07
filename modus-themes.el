@@ -1567,21 +1567,13 @@ background and alternative foreground."
       ('rainbow-highlight-no-bold
        (list :inherit `,var :background bg :foreground fg-alt))
       ('section
-       (append
-        (and (>= emacs-major-version 27) '(:extend t))
-        (list :inherit `(bold ,var) :background bg :foreground fg :overline border)))
+       (list :inherit `(bold ,var) :background bg :foreground fg :overline border :extend t))
       ('section-no-bold
-       (append
-        (and (>= emacs-major-version 27) '(:extend t))
-        (list :inherit `,var :background bg :foreground fg :overline border)))
+       (list :inherit `,var :background bg :foreground fg :overline border :extend t))
       ('rainbow-section
-       (append
-        (and (>= emacs-major-version 27) '(:extend t))
-        (list :inherit `(bold ,var) :background bg :foreground fg-alt :overline border)))
+       (list :inherit `(bold ,var) :background bg :foreground fg-alt :overline border :extend t))
       ('rainbow-section-no-bold
-       (append
-        (and (>= emacs-major-version 27) '(:extend t))
-        (list :inherit `,var :background bg :foreground fg-alt :overline border)))
+        (list :inherit `,var :background bg :foreground fg-alt :overline border :extend t))
       (_
        (list :inherit `(bold ,var) :foreground fg)))))
 
@@ -1596,9 +1588,7 @@ which is applied conditionally to `org-src-block-faces' (see the
 theme's source code)."
   (if (or (eq modus-themes-org-blocks 'grayscale)
           (eq modus-themes-org-blocks 'greyscale))
-      (append
-       (and (>= emacs-major-version 27) '(:extend t))
-       (list :background bgblk))
+      (list :background bgblk :extend t)
     (list :background nil)))
 
 (defun modus-themes--org-block-delim (bgaccent fgaccent bg fg)
@@ -1615,10 +1605,8 @@ The latter pair should be more subtle than the background of the
 block, as it is used when `modus-themes-org-blocks' is
 set to `rainbow'."
   (pcase modus-themes-org-blocks
-    ('grayscale (append (and (>= emacs-major-version 27) '(:extend t))
-                        (list :background bg :foreground fg)))
-    ('greyscale (append (and (>= emacs-major-version 27) '(:extend t))
-                        (list :background bg :foreground fg)))
+    ('grayscale (list :background bg :foreground fg :extend t))
+    ('greyscale (list :background bg :foreground fg :extend t))
     ('rainbow (list :background bgaccent :foreground fgaccent))
     (_ (list :background bg :foreground fg))))
 
@@ -1884,18 +1872,12 @@ calling the internal `modus-themes-load-operandi' and
 ;;;;; nuanced backgrounds
     ;; useful for adding an accented background that is suitable for all
     ;; main foreground colors (intended for use in Org source blocks)
-    `(modus-theme-nuanced-red ((,class :background ,red-nuanced-bg
-                                       ,@(and (>= emacs-major-version 27) '(:extend t)))))
-    `(modus-theme-nuanced-green ((,class :background ,green-nuanced-bg
-                                         ,@(and (>= emacs-major-version 27) '(:extend t)))))
-    `(modus-theme-nuanced-yellow ((,class :background ,yellow-nuanced-bg
-                                          ,@(and (>= emacs-major-version 27) '(:extend t)))))
-    `(modus-theme-nuanced-blue ((,class :background ,blue-nuanced-bg
-                                        ,@(and (>= emacs-major-version 27) '(:extend t)))))
-    `(modus-theme-nuanced-magenta ((,class :background ,magenta-nuanced-bg
-                                           ,@(and (>= emacs-major-version 27) '(:extend t)))))
-    `(modus-theme-nuanced-cyan ((,class :background ,cyan-nuanced-bg
-                                        ,@(and (>= emacs-major-version 27) '(:extend t)))))
+    `(modus-theme-nuanced-red ((,class :background ,red-nuanced-bg :extend t)))
+    `(modus-theme-nuanced-green ((,class :background ,green-nuanced-bg :extend t)))
+    `(modus-theme-nuanced-yellow ((,class :background ,yellow-nuanced-bg :extend t)))
+    `(modus-theme-nuanced-blue ((,class :background ,blue-nuanced-bg :extend t)))
+    `(modus-theme-nuanced-magenta ((,class :background ,magenta-nuanced-bg :extend t)))
+    `(modus-theme-nuanced-cyan ((,class :background ,cyan-nuanced-bg :extend t)))
 ;;;;; fringe-specific combinations
     `(modus-theme-fringe-red ((,class :background ,red-fringe-bg :foreground ,fg-main)))
     `(modus-theme-fringe-green ((,class :background ,green-fringe-bg :foreground ,fg-main)))
@@ -2004,7 +1986,7 @@ calling the internal `modus-themes-load-operandi' and
     `(modus-theme-bold ((,class ,@(modus-themes--bold-weight))))
     `(modus-theme-hl-line ((,class :background ,(if modus-themes-intense-hl-line
                                                     bg-hl-line-intense bg-hl-line)
-                                   (and (>= emacs-major-version 27) '(:extend t)))))
+                                   :extend t)))
     `(modus-theme-slant ((,class :inherit italic :slant ,@(modus-themes--slant))))
     `(modus-theme-variable-pitch ((,class ,@(modus-themes--variable-pitch))))
 ;;;; standard faces
@@ -2212,12 +2194,10 @@ calling the internal `modus-themes-load-operandi' and
     `(binder-sidebar-missing ((,class :inherit modus-theme-subtle-red)))
     `(binder-sidebar-tags ((,class :foreground ,cyan)))
 ;;;;; bm
-    `(bm-face ((,class :inherit modus-theme-subtle-yellow
-                       ,@(and (>= emacs-major-version 27) '(:extend t)))))
+    `(bm-face ((,class :inherit modus-theme-subtle-yellow :extend t)))
     `(bm-fringe-face ((,class :inherit modus-theme-fringe-yellow)))
     `(bm-fringe-persistent-face ((,class :inherit modus-theme-fringe-blue)))
-    `(bm-persistent-face ((,class :inherit modus-theme-intense-blue
-                                  ,@(and (>= emacs-major-version 27) '(:extend t)))))
+    `(bm-persistent-face ((,class :inherit modus-theme-intense-blue :extend t)))
 ;;;;; bongo
     `(bongo-album-title ((,class :foreground ,cyan-active)))
     `(bongo-artist ((,class :foreground ,magenta-active)))
@@ -3556,11 +3536,9 @@ calling the internal `modus-themes-load-operandi' and
     `(ioccur-cursor ((,class :foreground ,fg-main)))
     `(ioccur-invalid-regexp ((,class :foreground ,red)))
     `(ioccur-match-face ((,class :inherit modus-theme-special-calm)))
-    `(ioccur-match-overlay-face ((,class ,@(and (>= emacs-major-version 27) '(:extend t))
-                                         :inherit modus-theme-special-cold)))
+    `(ioccur-match-overlay-face ((,class :inherit modus-theme-special-cold :extend t)))
     `(ioccur-num-line-face ((,class :foreground ,fg-special-warm)))
-    `(ioccur-overlay-face ((,class ,@(and (>= emacs-major-version 27) '(:extend t))
-                                   :inherit modus-theme-refine-blue)))
+    `(ioccur-overlay-face ((,class :inherit modus-theme-refine-blue :extend t)))
     `(ioccur-regexp-face ((,class :inherit (modus-theme-intense-magenta bold))))
     `(ioccur-title-face ((,class :inherit bold :foreground ,red-alt
                                  ,@(modus-themes--scale modus-themes-scale-4))))
@@ -3864,9 +3842,7 @@ calling the internal `modus-themes-load-operandi' and
 ;;;;; markdown-mode
     `(markdown-blockquote-face ((,class :inherit modus-theme-slant :foreground ,fg-special-cold)))
     `(markdown-bold-face ((,class :inherit bold)))
-    `(markdown-code-face ((,class ,@(and (>= emacs-major-version 27) '(:extend t))
-                                  ,@(modus-themes--mixed-fonts)
-                                  :background ,bg-dim)))
+    `(markdown-code-face ((,class ,@(modus-themes--mixed-fonts) :background ,bg-dim :extend t)))
     `(markdown-comment-face ((,class :inherit font-lock-comment-face)))
     `(markdown-footnote-marker-face ((,class :inherit bold :foreground ,cyan-alt)))
     `(markdown-footnote-text-face ((,class :inherit modus-theme-slant :foreground ,fg-main)))
@@ -4160,8 +4136,7 @@ calling the internal `modus-themes-load-operandi' and
 ;;;;; org
     `(org-agenda-calendar-event ((,class :foreground ,fg-main)))
     `(org-agenda-calendar-sexp ((,class :foreground ,cyan-alt)))
-    `(org-agenda-clocking ((,class :inherit modus-theme-special-cold
-                                   ,@(and (>= emacs-major-version 27) '(:extend t)))))
+    `(org-agenda-clocking ((,class :inherit modus-theme-special-cold :extend t)))
     `(org-agenda-column-dateline ((,class :background ,bg-alt)))
     `(org-agenda-current-time ((,class :inherit bold :foreground ,blue-alt-other)))
     `(org-agenda-date ((,class :foreground ,cyan)))
@@ -4701,8 +4676,7 @@ calling the internal `modus-themes-load-operandi' and
     `(swoop-face-line-buffer-name ((,class :inherit bold :foreground ,blue-alt
                                            ,@(modus-themes--scale modus-themes-scale-4))))
     `(swoop-face-line-number ((,class :foreground ,fg-special-warm)))
-    `(swoop-face-target-line ((,class :inherit modus-theme-intense-blue
-                                      ,@(and (>= emacs-major-version 27) '(:extend t)))))
+    `(swoop-face-target-line ((,class :inherit modus-theme-intense-blue :extend t)))
     `(swoop-face-target-words ((,class :inherit modus-theme-refine-cyan)))
 ;;;;; sx
     `(sx-inbox-item-type ((,class :foreground ,magenta-alt-other)))
@@ -4924,8 +4898,7 @@ calling the internal `modus-themes-load-operandi' and
     `(vr/match-1 ((,class :inherit modus-theme-refine-yellow)))
     `(vr/match-separator-face ((,class :inherit (modus-theme-intense-neutral bold))))
 ;;;;; volatile-highlights
-    `(vhl/default-face ((,class ,@(and (>= emacs-major-version 27) '(:extend t))
-                                :background ,bg-alt :foreground ,blue-nuanced-fg)))
+    `(vhl/default-face ((,class :background ,bg-alt :foreground ,blue-nuanced-fg :extend t)))
 ;;;;; vterm
     `(vterm-color-black ((,class :background "gray35" :foreground "gray35")))
     `(vterm-color-blue ((,class :background ,blue :foreground ,blue)))
