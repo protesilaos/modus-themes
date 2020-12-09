@@ -3304,6 +3304,7 @@ calling the internal `modus-themes-load-operandi' and
                                ,@(modus-themes--link-color
                                   cyan cyan-faint))))
     `(helm-ff-truename ((,class :foreground ,blue-alt-other)))
+    `(helm-fd-finish ((,class :foreground ,green-active)))
     `(helm-grep-cmd-line ((,class :foreground ,yellow-alt-other)))
     `(helm-grep-file ((,class :inherit bold :foreground ,fg-special-cold)))
     `(helm-grep-finish ((,class :foreground ,green-active)))
