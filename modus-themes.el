@@ -4290,7 +4290,7 @@ calling the internal `modus-themes-load-operandi' and
     `(outline-7 ((,class :inherit modus-theme-heading-7)))
     `(outline-8 ((,class :inherit modus-theme-heading-8)))
 ;;;;; outline-minor-faces
-    `(outline-minor-0 ((,class nil)))
+    `(outline-minor-0 ((,class :background ,bg-alt)))
 ;;;;; package (M-x list-packages)
     `(package-description ((,class :foreground ,fg-special-cold)))
     `(package-help-section-name ((,class :inherit bold :foreground ,magenta-alt-other)))
