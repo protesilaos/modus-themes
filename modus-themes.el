@@ -5155,5 +5155,10 @@ calling the internal `modus-themes-load-operandi' and
       `(org-src-block-faces '())))
     "Custom variables for `modus-themes-core-theme'.")
 
+;;;###autoload
+(when (and (boundp 'custom-theme-load-path) load-file-name)
+  (add-to-list 'custom-theme-load-path
+               (file-name-as-directory (file-name-directory load-file-name))))
+
 (provide 'modus-themes)
 ;;; modus-themes.el ends here
