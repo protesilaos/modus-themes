@@ -1096,7 +1096,7 @@ Option `bg-only-no-extend' is a combination of the `bg-only' and
 
     (bg-whitespace . "#fff8fc") (fg-whitespace . "#645060")
 
-    (bg-diff-heading . "#b7c2dd") (fg-diff-heading . "#043355")
+    (bg-diff-heading . "#b7c4dd") (fg-diff-heading . "#042665")
     (bg-diff-added . "#d4fad4") (fg-diff-added . "#004500")
     (bg-diff-changed . "#fcefcf") (fg-diff-changed . "#524200")
     (bg-diff-removed . "#ffe8ef") (fg-diff-removed . "#691616")
@@ -1944,7 +1944,7 @@ calling the internal `modus-themes-load-operandi' and
       ((,class ,@(modus-themes--diff
                   bg-alt blue-alt
                   bg-diff-heading fg-diff-heading
-                  blue-nuanced-bg blue t))))
+                  cyan-nuanced-bg cyan-nuanced-fg t))))
 ;;;;; mark indicators
     ;; color combinations intended for Dired, Ibuffer, or equivalent
     `(modus-theme-pseudo-header ((,class :inherit bold :foreground ,fg-main)))
@@ -2524,9 +2524,9 @@ calling the internal `modus-themes-load-operandi' and
     `(diff-context ((,class :foreground ,fg-unfocused)))
     `(diff-error ((,class :inherit modus-theme-intense-red)))
     `(diff-file-header ((,class :inherit bold :foreground ,fg-main)))
-    `(diff-function ((,class :foreground ,blue)))
+    `(diff-function ((,class :inherit modus-theme-diff-heading)))
     `(diff-header ((,class :background ,bg-dim :foreground ,fg-main)))
-    `(diff-hunk-header ((,class :inherit modus-theme-diff-heading)))
+    `(diff-hunk-header ((,class :inherit (bold modus-theme-diff-heading))))
     `(diff-index ((,class :inherit bold :foreground ,blue-alt)))
     `(diff-indicator-added ((,class :inherit (diff-added bold) :foreground ,green)))
     `(diff-indicator-changed ((,class :inherit (diff-changed bold) :foreground ,yellow)))
