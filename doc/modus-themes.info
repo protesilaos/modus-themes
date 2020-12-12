@@ -2062,8 +2062,8 @@ Ideas and user feedback
      jixiuf, okamsn, tycho garen.
 
 Packaging
-     Dhavan Vaidya (Debian), Stefan Kangas (core Emacs), Stefan Monnier
-     (GNU Elpa).
+     André Alexandre Gomes and Guix maintainers (Guix), Dhavan Vaidya
+     (Debian), Stefan Kangas (core Emacs), Stefan Monnier (GNU Elpa).
 
 Inspiration for certain features
      Bozhidar Batsov (zenburn-theme), Fabrice Niessen (leuven-theme).

@@ -1923,8 +1923,9 @@ The Modus themes are a collective effort.  Every bit of work matters.
   bepolymathe, dinko, doolio, fleimgruber, iSeeU, jixiuf, okamsn, tycho
   garen.
 
-+ Packaging :: Dhavan Vaidya (Debian), Stefan Kangas (core Emacs),
-  Stefan Monnier (GNU Elpa).
++ Packaging :: André Alexandre Gomes and Guix maintainers (Guix), Dhavan
+  Vaidya (Debian), Stefan Kangas (core Emacs), Stefan Monnier (GNU
+  Elpa).
 
 + Inspiration for certain features :: Bozhidar Batsov (zenburn-theme),
   Fabrice Niessen (leuven-theme).
