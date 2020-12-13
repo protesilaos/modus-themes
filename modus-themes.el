@@ -4527,7 +4527,7 @@ calling the internal `modus-themes-load-operandi' and
                                          blue-alt-other))))
 ;;;;; selectrum
     `(selectrum-current-candidate
-      ((,class :inherit bold :foreground ,fg-main :underline ,fg-main
+      ((,class :inherit bold :foreground ,fg-main
                :background ,@(pcase modus-themes-completions
                                ('opinionated (list bg-active))
                                (_ (list bg-inactive))))))
