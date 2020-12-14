@@ -1906,7 +1906,7 @@ The Modus themes are a collective effort.  Every bit of work matters.
 + Contributions to code or documentation :: Anders Johansson, Basil
   L. Contovounesios, Carlo Zancanaro, Eli Zaretskii, Madhavan Krishnan,
   Markus Beppler, Matthew Stevenson, Nicolas De Jaeghere, Shreyas
-  Ragavan, Stefan Kangas, Vincent Murphy.
+  Ragavan, Stefan Kangas, Vincent Murphy. As well as user yoctocell.
 
 + Ideas and user feedback :: Aaron Jensen, Adam Spiers, Alex Griffin,
   Alex Peitsinis, Alexey Shmalko, Alok Singh, Anders Johansson, André
