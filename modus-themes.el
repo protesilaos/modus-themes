@@ -284,6 +284,7 @@
 ;;     rainbow-identifiers
 ;;     rainbow-delimiters
 ;;     rcirc
+;;     recursion-indicator
 ;;     regexp-builder (also known as `re-builder')
 ;;     rg
 ;;     ripgrep
@@ -4462,6 +4463,9 @@ calling the internal `modus-themes-load-operandi' and
     `(rcirc-server ((,class :foreground ,fg-unfocused)))
     `(rcirc-timestamp ((,class :foreground ,blue-nuanced-fg)))
     `(rcirc-url ((,class :foreground ,blue :underline t)))
+;;;;; recursion-indicator
+    `(recursion-indicator-general ((,class :foreground ,blue-active)))
+    `(recursion-indicator-minibuffer ((,class :foreground ,red-active)))
 ;;;;; regexp-builder (re-builder)
     `(reb-match-0 ((,class :inherit modus-theme-refine-blue)))
     `(reb-match-1 ((,class :inherit modus-theme-refine-magenta)))

@@ -1671,6 +1671,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • rainbow-identifiers
    • rainbow-delimiters
    • rcirc
+   • recursion-indicator
    • regexp-builder (also known as ‘re-builder’)
    • rg (rg.el)
    • ripgrep
