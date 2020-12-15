@@ -230,6 +230,7 @@
 ;;     magit-imerge
 ;;     make-mode
 ;;     man
+;;     marginalia
 ;;     markdown-mode
 ;;     markup-faces (`adoc-mode')
 ;;     mentor
@@ -3841,6 +3842,18 @@ calling the internal `modus-themes-load-operandi' and
     `(Man-overstrike ((,class :inherit bold :foreground ,magenta)))
     `(Man-reverse ((,class :inherit modus-theme-subtle-magenta)))
     `(Man-underline ((,class :foreground ,cyan :underline t)))
+;;;;; marginalia
+    `(marginalia-archive ((,class :foreground ,green-nuanced-fg)))
+    `(marginalia-date ((,class :foreground ,blue-nuanced-fg)))
+    `(marginalia-documentation ((,class :foreground ,fg-special-cold :inherit modus-theme-slant)))
+    `(marginalia-file-modes ((,class :foreground ,fg-alt)))
+    `(marginalia-file-name ((,class :foreground ,fg-special-mild)))
+    `(marginalia-file-owner ((,class :foreground ,green-nuanced-fg)))
+    `(marginalia-key ((,class :foreground ,magenta-active)))
+    `(marginalia-mode ((,class :foreground ,cyan-active)))
+    `(marginalia-size ((,class :foreground ,cyan-active)))
+    `(marginalia-variable ((,class :foreground ,yellow-nuanced-fg)))
+    `(marginalia-version ((,class :foreground ,cyan-active)))
 ;;;;; markdown-mode
     `(markdown-blockquote-face ((,class :inherit modus-theme-slant :foreground ,fg-special-cold)))
     `(markdown-bold-face ((,class :inherit bold)))

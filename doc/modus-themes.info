@@ -1616,6 +1616,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • magit-imerge
    • make-mode
    • man
+   • marginalia
    • markdown-mode
    • markup-faces (‘adoc-mode’)
    • mentor
