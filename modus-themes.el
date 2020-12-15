@@ -1542,42 +1542,44 @@ values.  BORDER is a color value that combines well with the
 background and alternative foreground."
   (let* ((key (modus-themes--heading-p `,level))
          (style (or key (modus-themes--heading-p t)))
-         (var (if modus-themes-variable-pitch-headings
-                  'variable-pitch
-                'default)))
+         (var (when modus-themes-variable-pitch-headings
+                'variable-pitch))
+         (varbold (if var
+                      (append (list 'bold) (list var))
+                    'bold)))
     (pcase style
       ('no-bold
        (list :inherit `,var :foreground fg))
       ('line
-       (list :inherit `(bold ,var) :foreground fg :overline border))
+       (list :inherit `,varbold :foreground fg :overline border))
       ('line-no-bold
        (list :inherit `,var :foreground fg :overline border))
       ('rainbow
-       (list :inherit `(bold ,var) :foreground fg-alt))
+       (list :inherit `,varbold :foreground fg-alt))
       ('rainbow-no-bold
        (list :inherit `,var :foreground fg-alt))
       ('rainbow-line
-       (list :inherit `(bold ,var) :foreground fg-alt :overline border))
+       (list :inherit `,varbold :foreground fg-alt :overline border))
       ('rainbow-line-no-bold
        (list :inherit `,var :foreground fg-alt :overline border))
       ('highlight
-       (list :inherit `(bold ,var) :background bg :foreground fg))
+       (list :inherit `,varbold :background bg :foreground fg))
       ('highlight-no-bold
        (list :inherit `,var :background bg :foreground fg))
       ('rainbow-highlight
-       (list :inherit `(bold ,var) :background bg :foreground fg-alt))
+       (list :inherit `,varbold :background bg :foreground fg-alt))
       ('rainbow-highlight-no-bold
        (list :inherit `,var :background bg :foreground fg-alt))
       ('section
-       (list :inherit `(bold ,var) :background bg :foreground fg :overline border :extend t))
+       (list :inherit `,varbold :background bg :foreground fg :overline border :extend t))
       ('section-no-bold
        (list :inherit `,var :background bg :foreground fg :overline border :extend t))
       ('rainbow-section
-       (list :inherit `(bold ,var) :background bg :foreground fg-alt :overline border :extend t))
+       (list :inherit `,varbold :background bg :foreground fg-alt :overline border :extend t))
       ('rainbow-section-no-bold
-        (list :inherit `,var :background bg :foreground fg-alt :overline border :extend t))
+       (list :inherit `,var :background bg :foreground fg-alt :overline border :extend t))
       (_
-       (list :inherit `(bold ,var) :foreground fg)))))
+       (list :inherit `,varbold :foreground fg)))))
 
 (defun modus-themes--org-block (bgblk)
   "Conditionally set the background of Org blocks.
