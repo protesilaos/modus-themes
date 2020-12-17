@@ -43,6 +43,7 @@
 ;;     modus-themes-scale-headings                 (boolean)
 ;;     modus-themes-fringes                        (choice)
 ;;     modus-themes-org-blocks                     (choice)
+;;     modus-themes-org-habit                      (choice)
 ;;     modus-themes-prompts                        (choice)
 ;;     modus-themes-mode-line                      (choice)
 ;;     modus-themes-diffs                          (choice)
@@ -687,6 +688,42 @@ association list)."
           (const :tag "Subtle gray block background (alt spelling)" greyscale)
           (const :tag "Color-coded background per programming language" rainbow)))
 
+(defcustom modus-themes-org-habit nil
+  "Control the presentation of the `org-habit' graph.
+
+The default is meant to conform with the original aesthetic of
+=org-habit=.  It employs all four color codes that correspond to
+the org-habit states---clear, ready, alert, and overdue---while
+distinguishing between their present and future variants.  This
+results in a total of eight colors in use: red, yellow, green,
+blue, in tinted and shaded versions.  They cover the full set of
+information provided by the =org-habit= consistency graph.
+
+Option =simplified= is like the default except that it removes
+the dichotomy between current and future variants by applying
+uniform color-coded values.  It applies a total of four colors:
+red, yellow, green, blue.  They produce a simplified consistency
+graph that is more legible (or less \"busy\") than the default.
+The intent is to shift focus towards the distinction between the
+four states of a habit task, rather than each state's
+present/future outlook.
+
+Option =traffic-light= further reduces the available colors to
+red, yellow, and green.  As in =simplified=, present and future
+variants appear uniformly, but differently from it, the 'clear'
+state is rendered in a green hue, instead of the original blue.
+This is meant to capture the use-case where a habit task being
+\"too early\" is less important than it being \"too late\".  The
+difference between ready and clear states is attenuated by
+painting both of them using shades of green.  This option thus
+highlights the alert and overdue states."
+  :package-version '(modus-themes . "1.1.0")
+  :version "28.1"
+  :type '(choice
+          (const :tag "Respect the original design of org-habit (default)" nil)
+          (const :tag "Like the default, but do not distinguish between present and future variants" simplified)
+          (const :tag "Like `simplified', but only use red, yellow, green" traffic-light)))
+
 (defcustom modus-themes-mode-line nil
   "Adjust the overall style of the mode line.
 
@@ -1005,6 +1042,21 @@ Option `bg-only-no-extend' is a combination of the `bg-only' and
     (blue-fringe-bg . "#82afff")
     (magenta-fringe-bg . "#e0a3ff")
     (cyan-fringe-bg . "#2fcddf")
+    ;; those background values should only be used for graphs or similar
+    ;; applications where colored blocks are expected to be positioned
+    ;; next to each other
+    (red-graph-0-bg . "#d7554f")
+    (red-graph-1-bg . "#ffaaaa")
+    (green-graph-0-bg . "#0fff0f")
+    (green-graph-1-bg . "#40cd0a")
+    (yellow-graph-0-bg . "#dfba00")
+    (yellow-graph-1-bg . "#ffef60")
+    (blue-graph-0-bg . "#5f99ff")
+    (blue-graph-1-bg . "#6fcfff")
+    (magenta-graph-0-bg . "#bf72ef")
+    (magenta-graph-1-bg . "#eeafff")
+    (cyan-graph-0-bg . "#00afd4")
+    (cyan-graph-1-bg . "#a0e5ef")
     ;; the following are for cases where both the foreground and the
     ;; background need to have a similar hue and so must be combined
     ;; with themselves, even though the foregrounds can be paired with
@@ -1222,6 +1274,21 @@ symbol and the latter as a string.")
     (blue-fringe-bg . "#3f33af")
     (magenta-fringe-bg . "#6f2f89")
     (cyan-fringe-bg . "#004f8f")
+    ;; those background values should only be used for graphs or similar
+    ;; applications where colored blocks are expected to be positioned
+    ;; next to each other
+    (red-graph-0-bg . "#c63a3f")
+    (red-graph-1-bg . "#8f2f23")
+    (green-graph-0-bg . "#009900")
+    (green-graph-1-bg . "#006000")
+    (yellow-graph-0-bg . "#f5c900")
+    (yellow-graph-1-bg . "#bfaf00")
+    (blue-graph-0-bg . "#0070ff")
+    (blue-graph-1-bg . "#1f35bb")
+    (magenta-graph-0-bg . "#b57aef")
+    (magenta-graph-1-bg . "#743aa0")
+    (cyan-graph-0-bg . "#209fd6")
+    (cyan-graph-1-bg . "#2a5f8f")
     ;; the following are for cases where both the foreground and the
     ;; background need to have a similar hue and so must be combined
     ;; with themselves, even though the foregrounds can be paired with
@@ -1613,6 +1680,15 @@ set to `rainbow'."
     ('greyscale (list :background bg :foreground fg :extend t))
     ('rainbow (list :background bgaccent :foreground fgaccent))
     (_ (list :background bg :foreground fg))))
+
+(defun modus-themes--org-habit (default &optional traffic simple)
+  "Specify background values for `modus-themes-org-habit'.
+If no optional TRAFFIC argument is supplied, the DEFAULT is used
+instead.  Same for SIMPLE."
+  (pcase modus-themes-org-habit
+    ('traffic-light (list :background (or traffic default)))
+    ('simplified (list :background (or simple default)))
+    (_ (list :background default))))
 
 (defun modus-themes--mode-line-attrs
     (fg bg fg-alt bg-alt border border-3d &optional alt-style border-width fg-distant)
@@ -4211,14 +4287,22 @@ calling the internal `modus-themes-load-operandi' and
                                blue-alt blue-alt-faint))))
     `(org-formula ((,class ,@(modus-themes--mixed-fonts)
                            :foreground ,red-alt)))
-    `(org-habit-alert-face ((,class :inherit modus-theme-intense-yellow)))
-    `(org-habit-alert-future-face ((,class :inherit modus-theme-refine-yellow)))
-    `(org-habit-clear-face ((,class :inherit modus-theme-intense-magenta)))
-    `(org-habit-clear-future-face ((,class :inherit modus-theme-refine-magenta)))
-    `(org-habit-overdue-face ((,class :inherit modus-theme-intense-red)))
-    `(org-habit-overdue-future-face ((,class :inherit modus-theme-refine-red)))
-    `(org-habit-ready-face ((,class :inherit modus-theme-intense-blue)))
-    `(org-habit-ready-future-face ((,class :inherit modus-theme-refine-blue)))
+    `(org-habit-alert-face
+      ((,class ,@(modus-themes--org-habit yellow-graph-0-bg yellow-graph-0-bg yellow-graph-1-bg))))
+    `(org-habit-alert-future-face
+      ((,class ,@(modus-themes--org-habit yellow-graph-1-bg yellow-graph-0-bg yellow-graph-1-bg))))
+    `(org-habit-clear-face
+      ((,class ,@(modus-themes--org-habit blue-graph-0-bg green-graph-1-bg cyan-graph-1-bg))))
+    `(org-habit-clear-future-face
+      ((,class ,@(modus-themes--org-habit blue-graph-1-bg green-graph-1-bg cyan-graph-1-bg))))
+    `(org-habit-overdue-face
+      ((,class ,@(modus-themes--org-habit red-graph-0-bg red-graph-0-bg red-graph-1-bg))))
+    `(org-habit-overdue-future-face
+      ((,class ,@(modus-themes--org-habit red-graph-1-bg red-graph-0-bg red-graph-1-bg))))
+    `(org-habit-ready-face
+      ((,class ,@(modus-themes--org-habit green-graph-0-bg green-graph-0-bg green-graph-1-bg))))
+    `(org-habit-ready-future-face
+       ((,class ,@(modus-themes--org-habit green-graph-1-bg green-graph-0-bg green-graph-1-bg))))
     `(org-headline-done ((,class :inherit modus-theme-variable-pitch :foreground ,green-nuanced-fg)))
     `(org-headline-todo ((,class :inherit modus-theme-variable-pitch :foreground ,red-nuanced-fg)))
     `(org-hide ((,class :foreground ,bg-main)))

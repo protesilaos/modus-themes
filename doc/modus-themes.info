@@ -83,6 +83,7 @@ Customization Options
 * Active region::                Choose between various styles for the active region
 * Diffs::                        Choose among intense, desaturated, or text-only diffs
 * Org mode blocks::              Choose among plain, grayscale, or rainbow styles
+* Org agenda habits::            Choose among standard, simplified, or traffic light styles
 * Heading styles::               Choose among several styles, also per heading level
 * Scaled headings::              Toggle scaling of headings
 * Headings' font::               Toggle proportionately spaced fonts in headings
@@ -476,6 +477,7 @@ loading a theme (see *note Enable and load::).
 * Active region::                Choose between various styles for the active region
 * Diffs::                        Choose among intense, desaturated, or text-only diffs
 * Org mode blocks::              Choose among plain, grayscale, or rainbow styles
+* Org agenda habits::            Choose among standard, simplified, or traffic light styles
 * Heading styles::               Choose among several styles, also per heading level
 * Scaled headings::              Toggle scaling of headings
 * Headings' font::               Toggle proportionately spaced fonts in headings
@@ -892,7 +894,7 @@ eventually support such a feature—this entry shall be updated
 accordingly).
 
 
-File: modus-themes.info,  Node: Org mode blocks,  Next: Heading styles,  Prev: Diffs,  Up: Customization Options
+File: modus-themes.info,  Node: Org mode blocks,  Next: Org agenda habits,  Prev: Diffs,  Up: Customization Options
 
 4.14 Option for org-mode block styles
 =====================================
@@ -926,9 +928,50 @@ or ‘M-x org-mode-restart’ to refresh the buffer.  Or start typing in
 each code block (inefficient at scale, but it still works).
 
 
-File: modus-themes.info,  Node: Heading styles,  Next: Scaled headings,  Prev: Org mode blocks,  Up: Customization Options
+File: modus-themes.info,  Node: Org agenda habits,  Next: Heading styles,  Prev: Org mode blocks,  Up: Customization Options
 
-4.15 Option for the headings’ overall style
+4.15 Option for org-habit styles
+================================
+
+[Coming in version 1.1.0 of the Modus themes]
+
+   Symbol: ‘modus-themes-org-habit’
+
+   Possible values:
+
+  1. ‘nil’ (default)
+  2. ‘simplified’
+  3. ‘traffic-light’
+
+   The default is meant to conform with the original aesthetic of
+‘org-habit’.  It employs all four color codes that correspond to the
+org-habit states—clear, ready, alert, and overdue—while distinguishing
+between their present and future variants.  This results in a total of
+eight colors in use: red, yellow, green, blue, in tinted and shaded
+versions.  They cover the full set of information provided by the
+‘org-habit’ consistency graph.
+
+   Option ‘simplified’ is like the default except that it removes the
+dichotomy between current and future variants by applying uniform
+color-coded values.  It applies a total of four colors: red, yellow,
+green, blue.  They produce a simplified consistency graph that is more
+legible (or less “busy”) than the default.  The intent is to shift focus
+towards the distinction between the four states of a habit task, rather
+than each state’s present/future outlook.
+
+   Option ‘traffic-light’ further reduces the available colors to red,
+yellow, and green.  As in ‘simplified’, present and future variants
+appear uniformly, but differently from it, the ’clear’ state is rendered
+in a green hue, instead of the original blue.  This is meant to capture
+the use-case where a habit task being “too early” is less important than
+it being “too late”.  The difference between ready and clear states is
+attenuated by painting both of them using shades of green.  This option
+thus highlights the alert and overdue states.
+
+
+File: modus-themes.info,  Node: Heading styles,  Next: Scaled headings,  Prev: Org agenda habits,  Up: Customization Options
+
+4.16 Option for the headings’ overall style
 ===========================================
 
 This is defined as an alist and, therefore, uses a different approach
@@ -1034,7 +1077,7 @@ option, just specify the value ‘t’ like this:
 
 File: modus-themes.info,  Node: Scaled headings,  Next: Headings' font,  Prev: Heading styles,  Up: Customization Options
 
-4.16 Option for scaled headings
+4.17 Option for scaled headings
 ===============================
 
 Symbol: ‘modus-themes-scale-headings’
@@ -1056,7 +1099,7 @@ the main text.  This is noticeable in modes like Org.
 
 File: modus-themes.info,  Node: Scaled heading sizes,  Up: Scaled headings
 
-4.16.1 Control the scale of headings
+4.17.1 Control the scale of headings
 ------------------------------------
 
 In addition to toggles for enabling scaled headings, users can also
@@ -1092,7 +1135,7 @@ size of the heading, but not of keywords that were added to it, like
 
 File: modus-themes.info,  Node: Headings' font,  Prev: Scaled headings,  Up: Customization Options
 
-4.17 Option for variable-pitch font in headings
+4.18 Option for variable-pitch font in headings
 ===============================================
 
 Symbol: ‘modus-themes-variable-pitch-headings’
@@ -2044,9 +2087,9 @@ Author/maintainer
 
 Contributions to code or documentation
      Anders Johansson, Basil L.  Contovounesios, Carlo Zancanaro, Eli
-     Zaretskii, Madhavan Krishnan, Markus Beppler, Matthew Stevenson,
-     Nicolas De Jaeghere, Shreyas Ragavan, Stefan Kangas, Vincent
-     Murphy.  As well as user yoctocell.
+     Zaretskii, Gustavo Barros, Madhavan Krishnan, Markus Beppler,
+     Matthew Stevenson, Nicolas De Jaeghere, Shreyas Ragavan, Stefan
+     Kangas, Vincent Murphy.  As well as user yoctocell.
 
 Ideas and user feedback
      Aaron Jensen, Adam Spiers, Alex Griffin, Alex Peitsinis, Alexey
@@ -2595,66 +2638,67 @@ Appendix A GNU Free Documentation License
 
 Tag Table:
 Node: Top232
-Node: Overview4308
-Node: How do the themes look like5578
-Node: Learn about the latest changes6086
-Node: Installation6468
-Node: Install from the archives6916
-Node: Install on GNU/Linux7578
-Node: Debian 11 Bullseye8026
-Node: GNU Guix8435
-Node: Enable and load8658
-Node: Load automatically9450
-Node: Toggle between the themes on demand10267
-Node: Configure options prior to loading a theme11225
-Node: Sample configuration for use-package14781
-Node: Customization Options16525
-Node: Bold constructs18415
-Node: Slanted constructs19004
-Node: Syntax styles19551
-Node: No mixed fonts21066
-Node: Link styles22077
-Node: Command prompts23056
-Node: Mode line23739
-Node: Completion UIs26262
-Node: Fringes28094
-Node: Line highlighting28754
-Node: Matching parentheses29369
-Node: Active region30252
-Node: Diffs31188
-Node: Org mode blocks33460
-Node: Heading styles34800
-Node: Scaled headings38466
-Node: Scaled heading sizes39052
-Node: Headings' font40626
-Node: Advanced customization (do-it-yourself)41226
-Node: Tweak faces (DIY)42390
-Node: Font configs (DIY)46596
-Ref: Font configs (DIY)-Footnote-148880
-Node: Org user faces (DIY)49067
-Node: WCAG test (DIY)52272
-Node: Load at time (DIY)54161
-Node: Face coverage55114
-Node: Supported packages55584
-Node: Indirectly covered packages61743
-Node: Notes for individual packages62198
-Node: Note on company-mode overlay pop-up62684
-Ref: Note on company-mode overlay pop-up-Footnote-163348
-Ref: Note on company-mode overlay pop-up-Footnote-263415
-Node: Note for ERC escaped color sequences63470
-Ref: Note for ERC escaped color sequences-Footnote-164903
-Node: Note for powerline or spaceline65013
-Node: Note on SHR colors65429
-Node: Note for Helm grep65839
-Node: Note on vc-annotate-background-mode67284
-Node: Contributing68136
-Node: Sources of the themes68555
-Node: Issues you can help with69296
-Node: Merge requests70477
-Node: Acknowledgements72739
-Node: Meta74517
-Node: External projects (ports)76023
-Node: GNU Free Documentation License76845
+Node: Overview4400
+Node: How do the themes look like5670
+Node: Learn about the latest changes6178
+Node: Installation6560
+Node: Install from the archives7008
+Node: Install on GNU/Linux7670
+Node: Debian 11 Bullseye8118
+Node: GNU Guix8527
+Node: Enable and load8750
+Node: Load automatically9542
+Node: Toggle between the themes on demand10359
+Node: Configure options prior to loading a theme11317
+Node: Sample configuration for use-package14873
+Node: Customization Options16617
+Node: Bold constructs18599
+Node: Slanted constructs19188
+Node: Syntax styles19735
+Node: No mixed fonts21250
+Node: Link styles22261
+Node: Command prompts23240
+Node: Mode line23923
+Node: Completion UIs26446
+Node: Fringes28278
+Node: Line highlighting28938
+Node: Matching parentheses29553
+Node: Active region30436
+Node: Diffs31372
+Node: Org mode blocks33644
+Node: Org agenda habits34987
+Node: Heading styles36860
+Node: Scaled headings40528
+Node: Scaled heading sizes41114
+Node: Headings' font42688
+Node: Advanced customization (do-it-yourself)43288
+Node: Tweak faces (DIY)44452
+Node: Font configs (DIY)48658
+Ref: Font configs (DIY)-Footnote-150942
+Node: Org user faces (DIY)51129
+Node: WCAG test (DIY)54334
+Node: Load at time (DIY)56223
+Node: Face coverage57176
+Node: Supported packages57646
+Node: Indirectly covered packages63862
+Node: Notes for individual packages64317
+Node: Note on company-mode overlay pop-up64803
+Ref: Note on company-mode overlay pop-up-Footnote-165467
+Ref: Note on company-mode overlay pop-up-Footnote-265534
+Node: Note for ERC escaped color sequences65589
+Ref: Note for ERC escaped color sequences-Footnote-167022
+Node: Note for powerline or spaceline67132
+Node: Note on SHR colors67548
+Node: Note for Helm grep67958
+Node: Note on vc-annotate-background-mode69403
+Node: Contributing70255
+Node: Sources of the themes70674
+Node: Issues you can help with71415
+Node: Merge requests72596
+Node: Acknowledgements74858
+Node: Meta76791
+Node: External projects (ports)78297
+Node: GNU Free Documentation License79119
 
 End Tag Table
 

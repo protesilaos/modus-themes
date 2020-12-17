@@ -809,6 +809,48 @@ major-mode so that the colors are applied properly: use =M-x org-mode= or
 =M-x org-mode-restart= to refresh the buffer.  Or start typing in each
 code block (inefficient at scale, but it still works).
 
+** Option for org-habit graph styles
+:PROPERTIES:
+:ALT_TITLE: Org agenda habits
+:DESCRIPTION: Choose among standard, simplified, or traffic light styles
+:CUSTOM_ID: h:b7e328c0-3034-4db7-9cdf-d5ba12081ca2
+:END:
+
+[Coming in version 1.1.0 of the Modus themes]
+
+Symbol: =modus-themes-org-habit=
+
+Possible values:
+
+1. =nil= (default)
+2. =simplified=
+3. =traffic-light=
+
+The default is meant to conform with the original aesthetic of
+=org-habit=.  It employs all four color codes that correspond to the
+org-habit states---clear, ready, alert, and overdue---while
+distinguishing between their present and future variants.  This results
+in a total of eight colors in use: red, yellow, green, blue, in tinted
+and shaded versions.  They cover the full set of information provided by
+the =org-habit= consistency graph.
+
+Option =simplified= is like the default except that it removes the
+dichotomy between current and future variants by applying uniform
+color-coded values.  It applies a total of four colors: red, yellow,
+green, blue.  They produce a simplified consistency graph that is more
+legible (or less "busy") than the default.  The intent is to shift focus
+towards the distinction between the four states of a habit task, rather
+than each state's present/future outlook.
+
+Option =traffic-light= further reduces the available colors to red,
+yellow, and green.  As in =simplified=, present and future variants appear
+uniformly, but differently from it, the 'clear' state is rendered in a
+green hue, instead of the original blue.  This is meant to capture the
+use-case where a habit task being "too early" is less important than it
+being "too late".  The difference between ready and clear states is
+attenuated by painting both of them using shades of green.  This option
+thus highlights the alert and overdue states.
+
 ** Option for the headings' overall style
 :PROPERTIES:
 :ALT_TITLE: Heading styles
@@ -1906,9 +1948,10 @@ The Modus themes are a collective effort.  Every bit of work matters.
 + Author/maintainer :: Protesilaos Stavrou.
 
 + Contributions to code or documentation :: Anders Johansson, Basil
-  L. Contovounesios, Carlo Zancanaro, Eli Zaretskii, Madhavan Krishnan,
-  Markus Beppler, Matthew Stevenson, Nicolas De Jaeghere, Shreyas
-  Ragavan, Stefan Kangas, Vincent Murphy. As well as user yoctocell.
+  L. Contovounesios, Carlo Zancanaro, Eli Zaretskii, Gustavo Barros,
+  Madhavan Krishnan, Markus Beppler, Matthew Stevenson, Nicolas De
+  Jaeghere, Shreyas Ragavan, Stefan Kangas, Vincent Murphy. As well as
+  user yoctocell.
 
 + Ideas and user feedback :: Aaron Jensen, Adam Spiers, Alex Griffin,
   Alex Peitsinis, Alexey Shmalko, Alok Singh, Anders Johansson, André
