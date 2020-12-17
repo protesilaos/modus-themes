@@ -1288,7 +1288,7 @@ symbol and the latter as a string.")
     (magenta-graph-0-bg . "#b57aef")
     (magenta-graph-1-bg . "#743aa0")
     (cyan-graph-0-bg . "#209fd6")
-    (cyan-graph-1-bg . "#2a5f8f")
+    (cyan-graph-1-bg . "#3a5f8f")
     ;; the following are for cases where both the foreground and the
     ;; background need to have a similar hue and so must be combined
     ;; with themselves, even though the foregrounds can be paired with
