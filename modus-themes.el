@@ -1045,18 +1045,18 @@ Option `bg-only-no-extend' is a combination of the `bg-only' and
     ;; those background values should only be used for graphs or similar
     ;; applications where colored blocks are expected to be positioned
     ;; next to each other
-    (red-graph-0-bg . "#d7554f")
-    (red-graph-1-bg . "#ffaaaa")
-    (green-graph-0-bg . "#0fff0f")
-    (green-graph-1-bg . "#40cd0a")
-    (yellow-graph-0-bg . "#dfba00")
-    (yellow-graph-1-bg . "#ffef60")
-    (blue-graph-0-bg . "#5f99ff")
-    (blue-graph-1-bg . "#6fcfff")
-    (magenta-graph-0-bg . "#bf72ef")
-    (magenta-graph-1-bg . "#eeafff")
-    (cyan-graph-0-bg . "#00afd4")
-    (cyan-graph-1-bg . "#a0e5ef")
+    (red-graph-0-bg . "#ef5860")
+    (red-graph-1-bg . "#ef8f86")
+    (green-graph-0-bg . "#4fe00f")
+    (green-graph-1-bg . "#30c04a")
+    (yellow-graph-0-bg . "#efef00")
+    (yellow-graph-1-bg . "#daf352")
+    (blue-graph-0-bg . "#4f8fff")
+    (blue-graph-1-bg . "#7fc0ff")
+    (magenta-graph-0-bg . "#bf7cef")
+    (magenta-graph-1-bg . "#eeacf0")
+    (cyan-graph-0-bg . "#4ebeef")
+    (cyan-graph-1-bg . "#99cfff")
     ;; the following are for cases where both the foreground and the
     ;; background need to have a similar hue and so must be combined
     ;; with themselves, even though the foregrounds can be paired with
@@ -1277,18 +1277,18 @@ symbol and the latter as a string.")
     ;; those background values should only be used for graphs or similar
     ;; applications where colored blocks are expected to be positioned
     ;; next to each other
-    (red-graph-0-bg . "#c63a3f")
-    (red-graph-1-bg . "#8f2f23")
-    (green-graph-0-bg . "#009900")
-    (green-graph-1-bg . "#006000")
+    (red-graph-0-bg . "#ce2f3f")
+    (red-graph-1-bg . "#8a1f23")
+    (green-graph-0-bg . "#009600")
+    (green-graph-1-bg . "#206422")
     (yellow-graph-0-bg . "#f5c900")
-    (yellow-graph-1-bg . "#bfaf00")
-    (blue-graph-0-bg . "#0070ff")
-    (blue-graph-1-bg . "#1f35bb")
-    (magenta-graph-0-bg . "#b57aef")
-    (magenta-graph-1-bg . "#743aa0")
-    (cyan-graph-0-bg . "#209fd6")
-    (cyan-graph-1-bg . "#3a5f8f")
+    (yellow-graph-1-bg . "#cfaf3f")
+    (blue-graph-0-bg . "#448fef")
+    (blue-graph-1-bg . "#1f66c4")
+    (magenta-graph-0-bg . "#a654df")
+    (magenta-graph-1-bg . "#695fb0")
+    (cyan-graph-0-bg . "#1ac0d2")
+    (cyan-graph-1-bg . "#4f94ba")
     ;; the following are for cases where both the foreground and the
     ;; background need to have a similar hue and so must be combined
     ;; with themselves, even though the foregrounds can be paired with
@@ -4292,9 +4292,9 @@ calling the internal `modus-themes-load-operandi' and
     `(org-habit-alert-future-face
       ((,class ,@(modus-themes--org-habit yellow-graph-1-bg yellow-graph-0-bg yellow-graph-1-bg))))
     `(org-habit-clear-face
-      ((,class ,@(modus-themes--org-habit blue-graph-0-bg green-graph-1-bg cyan-graph-1-bg))))
+      ((,class ,@(modus-themes--org-habit blue-graph-0-bg green-graph-1-bg blue-graph-1-bg))))
     `(org-habit-clear-future-face
-      ((,class ,@(modus-themes--org-habit blue-graph-1-bg green-graph-1-bg cyan-graph-1-bg))))
+      ((,class ,@(modus-themes--org-habit blue-graph-1-bg green-graph-1-bg blue-graph-1-bg))))
     `(org-habit-overdue-face
       ((,class ,@(modus-themes--org-habit red-graph-0-bg red-graph-0-bg red-graph-1-bg))))
     `(org-habit-overdue-future-face
