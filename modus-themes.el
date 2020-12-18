@@ -2504,9 +2504,9 @@ calling the internal `modus-themes-load-operandi' and
     `(cov-med-face ((,class :foreground ,yellow-intense)))
     `(cov-none-face ((,class :foreground ,cyan-intense)))
 ;;;;; cperl-mode
-    `(cperl-nonoverridable-face ((,class :foreground ,yellow-alt-other)))
-    `(cperl-array-face ((,class :inherit bold :background ,bg-alt :foreground ,magenta-alt)))
-    `(cperl-hash-face ((,class :inherit (bold modus-theme-slant) :background ,bg-alt :foreground ,red-alt)))
+    `(cperl-nonoverridable-face ((,class :foreground unspecified)))
+    `(cperl-array-face ((,class :inherit font-lock-keyword-face)))
+    `(cperl-hash-face ((,class :inherit font-lock-variable-name-face)))
 ;;;;; csv-mode
     `(csv-separator-face ((,class :background ,bg-special-cold :foreground ,fg-main)))
 ;;;;; ctrlf
