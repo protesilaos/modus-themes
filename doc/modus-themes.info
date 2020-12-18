@@ -930,8 +930,8 @@ each code block (inefficient at scale, but it still works).
 
 File: modus-themes.info,  Node: Org agenda habits,  Next: Heading styles,  Prev: Org mode blocks,  Up: Customization Options
 
-4.15 Option for org-habit styles
-================================
+4.15 Option for org-habit graph styles
+======================================
 
 [Coming in version 1.1.0 of the Modus themes]
 
@@ -2087,9 +2087,9 @@ Author/maintainer
 
 Contributions to code or documentation
      Anders Johansson, Basil L.  Contovounesios, Carlo Zancanaro, Eli
-     Zaretskii, Gustavo Barros, Madhavan Krishnan, Markus Beppler,
-     Matthew Stevenson, Nicolas De Jaeghere, Shreyas Ragavan, Stefan
-     Kangas, Vincent Murphy.  As well as user yoctocell.
+     Zaretskii, Madhavan Krishnan, Markus Beppler, Matthew Stevenson,
+     Nicolas De Jaeghere, Shreyas Ragavan, Stefan Kangas, Vincent
+     Murphy.  As well as user yoctocell.
 
 Ideas and user feedback
      Aaron Jensen, Adam Spiers, Alex Griffin, Alex Peitsinis, Alexey
@@ -2667,38 +2667,38 @@ Node: Active region30436
 Node: Diffs31372
 Node: Org mode blocks33644
 Node: Org agenda habits34987
-Node: Heading styles36860
-Node: Scaled headings40528
-Node: Scaled heading sizes41114
-Node: Headings' font42688
-Node: Advanced customization (do-it-yourself)43288
-Node: Tweak faces (DIY)44452
-Node: Font configs (DIY)48658
-Ref: Font configs (DIY)-Footnote-150942
-Node: Org user faces (DIY)51129
-Node: WCAG test (DIY)54334
-Node: Load at time (DIY)56223
-Node: Face coverage57176
-Node: Supported packages57646
-Node: Indirectly covered packages63862
-Node: Notes for individual packages64317
-Node: Note on company-mode overlay pop-up64803
-Ref: Note on company-mode overlay pop-up-Footnote-165467
-Ref: Note on company-mode overlay pop-up-Footnote-265534
-Node: Note for ERC escaped color sequences65589
-Ref: Note for ERC escaped color sequences-Footnote-167022
-Node: Note for powerline or spaceline67132
-Node: Note on SHR colors67548
-Node: Note for Helm grep67958
-Node: Note on vc-annotate-background-mode69403
-Node: Contributing70255
-Node: Sources of the themes70674
-Node: Issues you can help with71415
-Node: Merge requests72596
-Node: Acknowledgements74858
-Node: Meta76791
-Node: External projects (ports)78297
-Node: GNU Free Documentation License79119
+Node: Heading styles36872
+Node: Scaled headings40540
+Node: Scaled heading sizes41126
+Node: Headings' font42700
+Node: Advanced customization (do-it-yourself)43300
+Node: Tweak faces (DIY)44464
+Node: Font configs (DIY)48670
+Ref: Font configs (DIY)-Footnote-150954
+Node: Org user faces (DIY)51141
+Node: WCAG test (DIY)54346
+Node: Load at time (DIY)56235
+Node: Face coverage57188
+Node: Supported packages57658
+Node: Indirectly covered packages63874
+Node: Notes for individual packages64329
+Node: Note on company-mode overlay pop-up64815
+Ref: Note on company-mode overlay pop-up-Footnote-165479
+Ref: Note on company-mode overlay pop-up-Footnote-265546
+Node: Note for ERC escaped color sequences65601
+Ref: Note for ERC escaped color sequences-Footnote-167034
+Node: Note for powerline or spaceline67144
+Node: Note on SHR colors67560
+Node: Note for Helm grep67970
+Node: Note on vc-annotate-background-mode69415
+Node: Contributing70267
+Node: Sources of the themes70686
+Node: Issues you can help with71427
+Node: Merge requests72608
+Node: Acknowledgements74870
+Node: Meta76787
+Node: External projects (ports)78293
+Node: GNU Free Documentation License79115
 
 End Tag Table
 
