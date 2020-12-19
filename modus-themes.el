@@ -259,6 +259,7 @@
 ;;     org-roam
 ;;     org-superstar
 ;;     org-table-sticky-header
+;;     org-tree-slide
 ;;     org-treescope
 ;;     origami
 ;;     outline-mode
@@ -4396,6 +4397,8 @@ calling the internal `modus-themes-load-operandi' and
     `(org-superstar-leading ((,class :foreground ,fg-whitespace)))
 ;;;;; org-table-sticky-header
     `(org-table-sticky-header-face ((,class :inherit modus-theme-intense-neutral)))
+;;;;; org-tree-slide
+    `(org-tree-slide-header-overlay-face ((,class :background ,bg-main :foreground ,fg-main)))
 ;;;;; org-treescope
     `(org-treescope-faces--markerinternal-midday ((,class :inherit modus-theme-intense-blue)))
     `(org-treescope-faces--markerinternal-range ((,class :inherit modus-theme-special-mild)))

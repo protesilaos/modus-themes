@@ -1689,6 +1689,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • org-roam
    • org-superstar
    • org-table-sticky-header
+   • org-tree-slide
    • org-treescope
    • origami
    • outline-mode
