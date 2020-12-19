@@ -692,14 +692,14 @@ association list)."
   "Control the presentation of the `org-habit' graph.
 
 The default is meant to conform with the original aesthetic of
-=org-habit=.  It employs all four color codes that correspond to
+`org-habit'.  It employs all four color codes that correspond to
 the org-habit states---clear, ready, alert, and overdue---while
 distinguishing between their present and future variants.  This
 results in a total of eight colors in use: red, yellow, green,
 blue, in tinted and shaded versions.  They cover the full set of
-information provided by the =org-habit= consistency graph.
+information provided by the `org-habit' consistency graph.
 
-Option =simplified= is like the default except that it removes
+Option `simplified' is like the default except that it removes
 the dichotomy between current and future variants by applying
 uniform color-coded values.  It applies a total of four colors:
 red, yellow, green, blue.  They produce a simplified consistency
@@ -708,8 +708,8 @@ The intent is to shift focus towards the distinction between the
 four states of a habit task, rather than each state's
 present/future outlook.
 
-Option =traffic-light= further reduces the available colors to
-red, yellow, and green.  As in =simplified=, present and future
+Option `traffic-light' further reduces the available colors to
+red, yellow, and green.  As in `simplified', present and future
 variants appear uniformly, but differently from it, the 'clear'
 state is rendered in a green hue, instead of the original blue.
 This is meant to capture the use-case where a habit task being
@@ -1045,18 +1045,18 @@ Option `bg-only-no-extend' is a combination of the `bg-only' and
     ;; those background values should only be used for graphs or similar
     ;; applications where colored blocks are expected to be positioned
     ;; next to each other
-    (red-graph-0-bg . "#ef5860")
-    (red-graph-1-bg . "#ef8f86")
-    (green-graph-0-bg . "#4fe00f")
-    (green-graph-1-bg . "#30c04a")
-    (yellow-graph-0-bg . "#efef00")
-    (yellow-graph-1-bg . "#daf352")
-    (blue-graph-0-bg . "#4f8fff")
-    (blue-graph-1-bg . "#7fc0ff")
-    (magenta-graph-0-bg . "#bf7cef")
-    (magenta-graph-1-bg . "#eeacf0")
-    (cyan-graph-0-bg . "#4ebeef")
-    (cyan-graph-1-bg . "#99cfff")
+    (red-graph-0-bg . "#ef6f79")
+    (red-graph-1-bg . "#ff9f9f")
+    (green-graph-0-bg . "#49d239")
+    (green-graph-1-bg . "#6dec6d")
+    (yellow-graph-0-bg . "#efec08")
+    (yellow-graph-1-bg . "#dbff4e")
+    (blue-graph-0-bg . "#55a2f0")
+    (blue-graph-1-bg . "#7fcfff")
+    (magenta-graph-0-bg . "#ba86ef")
+    (magenta-graph-1-bg . "#e7afff")
+    (cyan-graph-0-bg . "#30d3f0")
+    (cyan-graph-1-bg . "#6fefff")
     ;; the following are for cases where both the foreground and the
     ;; background need to have a similar hue and so must be combined
     ;; with themselves, even though the foregrounds can be paired with
@@ -1277,18 +1277,18 @@ symbol and the latter as a string.")
     ;; those background values should only be used for graphs or similar
     ;; applications where colored blocks are expected to be positioned
     ;; next to each other
-    (red-graph-0-bg . "#ce2f3f")
-    (red-graph-1-bg . "#8a1f23")
-    (green-graph-0-bg . "#009600")
-    (green-graph-1-bg . "#206422")
-    (yellow-graph-0-bg . "#f5c900")
-    (yellow-graph-1-bg . "#cfaf3f")
-    (blue-graph-0-bg . "#448fef")
-    (blue-graph-1-bg . "#1f66c4")
-    (magenta-graph-0-bg . "#a654df")
-    (magenta-graph-1-bg . "#695fb0")
-    (cyan-graph-0-bg . "#1ac0d2")
-    (cyan-graph-1-bg . "#4f94ba")
+    (red-graph-0-bg . "#af0404")
+    (red-graph-1-bg . "#801f2f")
+    (green-graph-0-bg . "#24ba2f")
+    (green-graph-1-bg . "#0f8f07")
+    (yellow-graph-0-bg . "#ffd03e")
+    (yellow-graph-1-bg . "#d7d800")
+    (blue-graph-0-bg . "#406fff")
+    (blue-graph-1-bg . "#2f50c8")
+    (magenta-graph-0-bg . "#af7bee")
+    (magenta-graph-1-bg . "#7f59cf")
+    (cyan-graph-0-bg . "#47dcfa")
+    (cyan-graph-1-bg . "#0bc0df")
     ;; the following are for cases where both the foreground and the
     ;; background need to have a similar hue and so must be combined
     ;; with themselves, even though the foregrounds can be paired with
@@ -4287,22 +4287,38 @@ calling the internal `modus-themes-load-operandi' and
                                blue-alt blue-alt-faint))))
     `(org-formula ((,class ,@(modus-themes--mixed-fonts)
                            :foreground ,red-alt)))
-    `(org-habit-alert-face
-      ((,class ,@(modus-themes--org-habit yellow-graph-0-bg yellow-graph-0-bg yellow-graph-1-bg))))
-    `(org-habit-alert-future-face
-      ((,class ,@(modus-themes--org-habit yellow-graph-1-bg yellow-graph-0-bg yellow-graph-1-bg))))
-    `(org-habit-clear-face
-      ((,class ,@(modus-themes--org-habit blue-graph-0-bg green-graph-1-bg blue-graph-1-bg))))
-    `(org-habit-clear-future-face
-      ((,class ,@(modus-themes--org-habit blue-graph-1-bg green-graph-1-bg blue-graph-1-bg))))
-    `(org-habit-overdue-face
-      ((,class ,@(modus-themes--org-habit red-graph-0-bg red-graph-0-bg red-graph-1-bg))))
-    `(org-habit-overdue-future-face
-      ((,class ,@(modus-themes--org-habit red-graph-1-bg red-graph-0-bg red-graph-1-bg))))
-    `(org-habit-ready-face
-      ((,class ,@(modus-themes--org-habit green-graph-0-bg green-graph-0-bg green-graph-1-bg))))
-    `(org-habit-ready-future-face
-       ((,class ,@(modus-themes--org-habit green-graph-1-bg green-graph-0-bg green-graph-1-bg))))
+    `(org-habit-alert-face ((,class ,@(modus-themes--org-habit
+                                       yellow-graph-0-bg
+                                       yellow-graph-0-bg
+                                       yellow-graph-1-bg))))
+    `(org-habit-alert-future-face ((,class ,@(modus-themes--org-habit
+                                              yellow-graph-1-bg
+                                              yellow-graph-0-bg
+                                              yellow-graph-1-bg))))
+    `(org-habit-clear-face ((,class ,@(modus-themes--org-habit
+                                       blue-graph-0-bg
+                                       green-graph-1-bg
+                                       blue-graph-1-bg))))
+    `(org-habit-clear-future-face ((,class ,@(modus-themes--org-habit
+                                              blue-graph-1-bg
+                                              green-graph-1-bg
+                                              blue-graph-1-bg))))
+    `(org-habit-overdue-face ((,class ,@(modus-themes--org-habit
+                                         red-graph-0-bg
+                                         red-graph-0-bg
+                                         red-graph-1-bg))))
+    `(org-habit-overdue-future-face ((,class ,@(modus-themes--org-habit
+                                                red-graph-1-bg
+                                                red-graph-0-bg
+                                                red-graph-1-bg))))
+    `(org-habit-ready-face ((,class ,@(modus-themes--org-habit
+                                       green-graph-0-bg
+                                       green-graph-0-bg
+                                       green-graph-1-bg))))
+    `(org-habit-ready-future-face ((,class ,@(modus-themes--org-habit
+                                              green-graph-1-bg
+                                              green-graph-0-bg
+                                              green-graph-1-bg))))
     `(org-headline-done ((,class :inherit modus-theme-variable-pitch :foreground ,green-nuanced-fg)))
     `(org-headline-todo ((,class :inherit modus-theme-variable-pitch :foreground ,red-nuanced-fg)))
     `(org-hide ((,class :foreground ,bg-main)))

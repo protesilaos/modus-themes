@@ -345,6 +345,7 @@ each theme in order to come into effect.  For example:
            modus-themes-region 'bg-only-no-extend ; {nil,'no-extend,'bg-only,'bg-only-no-extend}
            modus-themes-diffs nil ; {nil,'desaturated,'fg-only,'bg-only}
            modus-themes-org-blocks nil ; {nil,'grayscale,'rainbow}
+           modus-themes-org-habit 'traffic-light ; {nil,'simplified,'traffic-light}
            modus-themes-headings ; Lots of options---continue reading the manual
            '((1 . section)
              (2 . section-no-bold)
