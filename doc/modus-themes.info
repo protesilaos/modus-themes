@@ -1555,6 +1555,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • dired-git-info
    • dired-narrow
    • dired-subtree
+   • diredc
    • diredfl
    • disk-usage
    • doom-modeline

@@ -126,6 +126,7 @@
 ;;     dired-git-info
 ;;     dired-narrow
 ;;     dired-subtree
+;;     diredc
 ;;     diredfl
 ;;     disk-usage
 ;;     doom-modeline
@@ -2676,6 +2677,11 @@ calling the internal `modus-themes-load-operandi' and
     `(dired-subtree-depth-4-face ((,class :background nil)))
     `(dired-subtree-depth-5-face ((,class :background nil)))
     `(dired-subtree-depth-6-face ((,class :background nil)))
+;;;;; diredc
+    `(diredc-face-chmod-font-lock-dir ((,class :foreground ,blue-alt)))
+    `(diredc-face-chmod-font-lock-exec ((,class :foreground ,magenta)))
+    `(diredc-face-chmod-font-lock-read ((,class :foreground ,fg-main)))
+    `(diredc-face-chmod-font-lock-write ((,class :foreground ,cyan)))
 ;;;;; diredfl
     `(diredfl-autofile-name ((,class :inherit modus-theme-special-cold)))
     `(diredfl-compressed-file-name ((,class :foreground ,fg-special-warm)))
