@@ -1736,6 +1736,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • smart-mode-line
    • smartparens
    • smerge
+   • solaire
    • spaceline
    • speedbar
    • spell-fu
@@ -2105,9 +2106,9 @@ Ideas and user feedback
      Pierre Téchoueyres, Roman Rudakov, Ryan Phillips, Shreyas Ragavan,
      Simon Pugnet, Tassilo Horn, Thibaut Verron, Trey Merkley, Togan
      Muftuoglu, Uri Sharf, Utkarsh Singh, Vincent Foley.  As well as
-     users: Ben, Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji,
-     Nick, TheBlob42, bepolymathe, dinko, doolio, fleimgruber, iSeeU,
-     jixiuf, okamsn, tycho garen.
+     users: Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux,
+     Fredrik, Moesasji, Nick, TheBlob42, bepolymathe, dinko, doolio,
+     fleimgruber, iSeeU, jixiuf, okamsn, tycho garen.
 
 Packaging
      André Alexandre Gomes and Guix maintainers (Guix), Dhavan Vaidya

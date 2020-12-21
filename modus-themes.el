@@ -4753,6 +4753,11 @@ calling the internal `modus-themes-load-operandi' and
     `(smerge-refined-changed ((,class)))
     `(smerge-refined-removed ((,class :inherit modus-theme-diff-refine-removed)))
     `(smerge-upper ((,class :inherit modus-theme-diff-removed)))
+;;;;; solaire
+    `(solaire-default-face ((,class :inherit default :background ,bg-alt :foreground ,fg-dim)))
+    `(solaire-line-number-face ((,class :inherit solaire-default-face :foreground ,fg-unfocused)))
+    `(solaire-hl-line-face ((,class :background ,bg-active)))
+    `(solaire-org-hide-face ((,class :background ,fg-dim :foreground ,bg-alt)))
 ;;;;; spaceline
     `(spaceline-evil-emacs ((,class :inherit modus-theme-active-magenta)))
     `(spaceline-evil-insert ((,class :inherit modus-theme-active-green)))
