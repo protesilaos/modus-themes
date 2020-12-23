@@ -1837,40 +1837,40 @@ faces it inherits, it needs to be added to your initialization file
 after you've customized any faces.
 
 #+begin_src emacs-lisp
-  (use-package pdf-links
-    :config
-    (let ((spec
-           (apply #'append
-                  (mapcar
-                   (lambda (name)
-                     (list name
-                           (face-attribute 'pdf-links-read-link
-                                           name nil 'default)))
-                   '(:family :width :weight :slant)))))
-      (setq pdf-links-read-link-convert-commands
-            `("-density"    "96"
-              "-family"     ,(plist-get spec :family)
-              "-stretch"    ,(let* ((width (plist-get spec :width))
-                                    (name (symbol-name width)))
-                               (replace-regexp-in-string "-" ""
-                                                         (capitalize name)))
-              "-weight"     ,(pcase (plist-get spec :weight)
-                               ('ultra-light "Thin")
-                               ('extra-light "ExtraLight")
-                               ('light       "Light")
-                               ('semi-bold   "SemiBold")
-                               ('bold        "Bold")
-                               ('extra-bold  "ExtraBold")
-                               ('ultra-bold  "Black")
-                               (_weight      "Normal"))
-              "-style"      ,(pcase (plist-get spec :slant)
-                               ('italic  "Italic")
-                               ('oblique "Oblique")
-                               (_slant   "Normal"))
-              "-pointsize"  "%P"
-              "-undercolor" "%f"
-              "-fill"       "%b"
-              "-draw"       "text %X,%Y '%c'"))))
+(use-package pdf-links
+  :config
+  (let ((spec
+         (apply #'append
+                (mapcar
+                 (lambda (name)
+                   (list name
+                         (face-attribute 'pdf-links-read-link
+                                         name nil 'default)))
+                 '(:family :width :weight :slant)))))
+    (setq pdf-links-read-link-convert-commands
+          `("-density"    "96"
+            "-family"     ,(plist-get spec :family)
+            "-stretch"    ,(let* ((width (plist-get spec :width))
+                                  (name (symbol-name width)))
+                             (replace-regexp-in-string "-" ""
+                                                       (capitalize name)))
+            "-weight"     ,(pcase (plist-get spec :weight)
+                             ('ultra-light "Thin")
+                             ('extra-light "ExtraLight")
+                             ('light       "Light")
+                             ('semi-bold   "SemiBold")
+                             ('bold        "Bold")
+                             ('extra-bold  "ExtraBold")
+                             ('ultra-bold  "Black")
+                             (_weight      "Normal"))
+            "-style"      ,(pcase (plist-get spec :slant)
+                             ('italic  "Italic")
+                             ('oblique "Oblique")
+                             (_slant   "Normal"))
+            "-pointsize"  "%P"
+            "-undercolor" "%f"
+            "-fill"       "%b"
+            "-draw"       "text %X,%Y '%c'"))))
 #+end_src
 
 * Contributing
