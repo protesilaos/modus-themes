@@ -4460,6 +4460,10 @@ calling the internal `modus-themes-load-operandi' and
     `(pass-mode-directory-face ((,class :inherit bold :foreground ,fg-special-cold)))
     `(pass-mode-entry-face ((,class :background ,bg-main :foreground ,fg-main)))
     `(pass-mode-header-face ((,class :foreground ,fg-special-warm)))
+;;;;; pdf-tools
+    `(pdf-links-read-link ((,class :background ,fg-main :foreground ,magenta-intense-bg :inherit bold))) ; Foreground is background and vice versa
+    `(pdf-occur-document-face ((,class :inherit shadow)))
+    `(pdf-occur-page-face ((,class :inherit shadow)))
 ;;;;; persp-mode
     `(persp-face-lighter-buffer-not-in-persp ((,class :inherit modus-theme-intense-red)))
     `(persp-face-lighter-default ((,class :inherit bold :foreground ,blue-active)))
