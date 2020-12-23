@@ -1828,6 +1828,10 @@ prejudice to the accessibility standard of this project, then please
 report as much or send patches (see [[#h:9c3cd842-14b7-44d7-84b2-a5c8bc3fc3b1][Contributing]]).
 
 ** Note on pdf-tools link hints
+:PROPERTIES:
+:CUSTOM_ID: h:2659d13e-b1a5-416c-9a89-7c3ce3a76574
+:END:
+
 Hints are drawn by [[https://imagemagick.org/][ImageMagick]], not Emacs, i.e., ImageMagick doesn't
 know about the hint face unless you tell ImageMagick about it. By
 default, only the foreground and background color attributes are

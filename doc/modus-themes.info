@@ -113,6 +113,7 @@ Notes for individual packages
 * Note on SHR colors::
 * Note for Helm grep::
 * Note on vc-annotate-background-mode::
+* Note on pdf-tools link hints::
 
 Contributing
 
@@ -1824,6 +1825,7 @@ individual packages.
 * Note on SHR colors::
 * Note for Helm grep::
 * Note on vc-annotate-background-mode::
+* Note on pdf-tools link hints::
 
 
 File: modus-themes.info,  Node: Note on company-mode overlay pop-up,  Next: Note for ERC escaped color sequences,  Up: Notes for individual packages
@@ -1935,7 +1937,7 @@ ANSI color number 1 (red) from the already-supported array of
 ‘ansi-color-names-vector’.
 
 
-File: modus-themes.info,  Node: Note on vc-annotate-background-mode,  Prev: Note for Helm grep,  Up: Notes for individual packages
+File: modus-themes.info,  Node: Note on vc-annotate-background-mode,  Next: Note on pdf-tools link hints,  Prev: Note for Helm grep,  Up: Notes for individual packages
 
 7.6 Note on vc-annotate-background-mode
 =======================================
@@ -1952,6 +1954,55 @@ accessibility while still supporting a useful built-in tool.
    If there actually is a way to avoid such a course of action, without
 prejudice to the accessibility standard of this project, then please
 report as much or send patches (see *note Contributing::).
+
+
+File: modus-themes.info,  Node: Note on pdf-tools link hints,  Prev: Note on vc-annotate-background-mode,  Up: Notes for individual packages
+
+7.7 Note on pdf-tools link hints
+================================
+
+Hints are drawn by ImageMagick (https://imagemagick.org/), not Emacs,
+i.e., ImageMagick doesn’t know about the hint face unless you tell
+ImageMagick about it.  By default, only the foreground and background
+color attributes are passed.  The below snippet adds to those the
+various font attributes.  As it queries various faces, specifically
+‘pdf-links-read-link’ and the faces it inherits, it needs to be added to
+your initialization file after you’ve customized any faces.
+
+     (use-package pdf-links
+       :config
+       (let ((spec
+              (apply #'append
+                     (mapcar
+                      (lambda (name)
+                        (list name
+                              (face-attribute 'pdf-links-read-link
+                                              name nil 'default)))
+                      '(:family :width :weight :slant)))))
+         (setq pdf-links-read-link-convert-commands
+               `("-density"    "96"
+                 "-family"     ,(plist-get spec :family)
+                 "-stretch"    ,(let* ((width (plist-get spec :width))
+                                       (name (symbol-name width)))
+                                  (replace-regexp-in-string "-" ""
+                                                            (capitalize name)))
+                 "-weight"     ,(pcase (plist-get spec :weight)
+                                  ('ultra-light "Thin")
+                                  ('extra-light "ExtraLight")
+                                  ('light       "Light")
+                                  ('semi-bold   "SemiBold")
+                                  ('bold        "Bold")
+                                  ('extra-bold  "ExtraBold")
+                                  ('ultra-bold  "Black")
+                                  (_weight      "Normal"))
+                 "-style"      ,(pcase (plist-get spec :slant)
+                                  ('italic  "Italic")
+                                  ('oblique "Oblique")
+                                  (_slant   "Normal"))
+                 "-pointsize"  "%P"
+                 "-undercolor" "%f"
+                 "-fill"       "%b"
+                 "-draw"       "text %X,%Y '%c'"))))
 
 
 File: modus-themes.info,  Node: Contributing,  Next: Acknowledgements,  Prev: Notes for individual packages,  Up: Top
@@ -2642,67 +2693,68 @@ Appendix A GNU Free Documentation License
 
 Tag Table:
 Node: Top232
-Node: Overview4400
-Node: How do the themes look like5670
-Node: Learn about the latest changes6178
-Node: Installation6560
-Node: Install from the archives7008
-Node: Install on GNU/Linux7670
-Node: Debian 11 Bullseye8118
-Node: GNU Guix8527
-Node: Enable and load8750
-Node: Load automatically9542
-Node: Toggle between the themes on demand10359
-Node: Configure options prior to loading a theme11317
-Node: Sample configuration for use-package14873
-Node: Customization Options16617
-Node: Bold constructs18599
-Node: Slanted constructs19188
-Node: Syntax styles19735
-Node: No mixed fonts21250
-Node: Link styles22261
-Node: Command prompts23240
-Node: Mode line23923
-Node: Completion UIs26446
-Node: Fringes28278
-Node: Line highlighting28938
-Node: Matching parentheses29553
-Node: Active region30436
-Node: Diffs31372
-Node: Org mode blocks33644
-Node: Org agenda habits34987
-Node: Heading styles36872
-Node: Scaled headings40540
-Node: Scaled heading sizes41126
-Node: Headings' font42700
-Node: Advanced customization (do-it-yourself)43300
-Node: Tweak faces (DIY)44464
-Node: Font configs (DIY)48670
-Ref: Font configs (DIY)-Footnote-150954
-Node: Org user faces (DIY)51141
-Node: WCAG test (DIY)54346
-Node: Load at time (DIY)56235
-Node: Face coverage57188
-Node: Supported packages57658
-Node: Indirectly covered packages63874
-Node: Notes for individual packages64329
-Node: Note on company-mode overlay pop-up64815
-Ref: Note on company-mode overlay pop-up-Footnote-165479
-Ref: Note on company-mode overlay pop-up-Footnote-265546
-Node: Note for ERC escaped color sequences65601
-Ref: Note for ERC escaped color sequences-Footnote-167034
-Node: Note for powerline or spaceline67144
-Node: Note on SHR colors67560
-Node: Note for Helm grep67970
-Node: Note on vc-annotate-background-mode69415
-Node: Contributing70267
-Node: Sources of the themes70686
-Node: Issues you can help with71427
-Node: Merge requests72608
-Node: Acknowledgements74870
-Node: Meta76787
-Node: External projects (ports)78293
-Node: GNU Free Documentation License79115
+Node: Overview4433
+Node: How do the themes look like5703
+Node: Learn about the latest changes6211
+Node: Installation6593
+Node: Install from the archives7041
+Node: Install on GNU/Linux7703
+Node: Debian 11 Bullseye8151
+Node: GNU Guix8560
+Node: Enable and load8783
+Node: Load automatically9575
+Node: Toggle between the themes on demand10392
+Node: Configure options prior to loading a theme11350
+Node: Sample configuration for use-package14990
+Node: Customization Options16734
+Node: Bold constructs18716
+Node: Slanted constructs19305
+Node: Syntax styles19852
+Node: No mixed fonts21367
+Node: Link styles22378
+Node: Command prompts23357
+Node: Mode line24040
+Node: Completion UIs26563
+Node: Fringes28395
+Node: Line highlighting29055
+Node: Matching parentheses29670
+Node: Active region30553
+Node: Diffs31489
+Node: Org mode blocks33761
+Node: Org agenda habits35104
+Node: Heading styles36989
+Node: Scaled headings40657
+Node: Scaled heading sizes41243
+Node: Headings' font42817
+Node: Advanced customization (do-it-yourself)43417
+Node: Tweak faces (DIY)44581
+Node: Font configs (DIY)48787
+Ref: Font configs (DIY)-Footnote-151071
+Node: Org user faces (DIY)51258
+Node: WCAG test (DIY)54463
+Node: Load at time (DIY)56352
+Node: Face coverage57305
+Node: Supported packages57775
+Node: Indirectly covered packages64042
+Node: Notes for individual packages64497
+Node: Note on company-mode overlay pop-up65016
+Ref: Note on company-mode overlay pop-up-Footnote-165680
+Ref: Note on company-mode overlay pop-up-Footnote-265747
+Node: Note for ERC escaped color sequences65802
+Ref: Note for ERC escaped color sequences-Footnote-167235
+Node: Note for powerline or spaceline67345
+Node: Note on SHR colors67761
+Node: Note for Helm grep68171
+Node: Note on vc-annotate-background-mode69616
+Node: Note on pdf-tools link hints70505
+Node: Contributing72936
+Node: Sources of the themes73355
+Node: Issues you can help with74096
+Node: Merge requests75277
+Node: Acknowledgements77539
+Node: Meta79471
+Node: External projects (ports)80977
+Node: GNU Free Documentation License81799
 
 End Tag Table
 
