@@ -155,6 +155,7 @@
 ;;     eshell-syntax-highlighting
 ;;     evil (evil-mode)
 ;;     evil-goggles
+;;     evil-snipe
 ;;     evil-visual-mark-mode
 ;;     eww
 ;;     exwm
@@ -3010,6 +3011,9 @@ calling the internal `modus-themes-load-operandi' and
     `(evil-goggles-shift-face ((,class :inherit evil-goggles-default-face)))
     `(evil-goggles-surround-face ((,class :inherit evil-goggles-default-face)))
     `(evil-goggles-yank-face ((,class :inherit modus-theme-subtle-blue)))
+;;;;; evil-snipe
+    `(evil-snipe-first-match-face ((,class :inherit (bold modus-theme-intense-blue))))
+    `(evil-snipe-matches-face ((,class :inherit modus-theme-refine-magenta)))
 ;;;;; evil-visual-mark-mode
     `(evil-visual-mark-face ((,class :inherit modus-theme-intense-magenta)))
 ;;;;; eww
