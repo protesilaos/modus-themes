@@ -4630,7 +4630,7 @@ calling the internal `modus-themes-load-operandi' and
     `(ruler-mode-column-number ((,class :inherit (ruler-mode-default bold) :foreground ,fg-main)))
     `(ruler-mode-comment-column ((,class :inherit ruler-mode-default :foreground ,red-active)))
     `(ruler-mode-current-column ((,class :inherit ruler-mode-default :foreground ,cyan-active :box t)))
-    `(ruler-mode-default ((,class :background ,bg-inactive :foreground ,fg-inactive)))
+    `(ruler-mode-default ((,class :inherit default :background ,bg-inactive :foreground ,fg-inactive)))
     `(ruler-mode-fill-column ((,class :inherit ruler-mode-default :foreground ,green-active)))
     `(ruler-mode-fringes ((,class :inherit ruler-mode-default :foreground ,blue-active)))
     `(ruler-mode-goal-column ((,class :inherit ruler-mode-default :foreground ,magenta-active)))
