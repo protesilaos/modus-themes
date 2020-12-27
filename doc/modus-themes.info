@@ -2150,18 +2150,19 @@ Contributions to code or documentation
 Ideas and user feedback
      Aaron Jensen, Adam Spiers, Alex Griffin, Alex Peitsinis, Alexey
      Shmalko, Alok Singh, Anders Johansson, André Alexandre Gomes, Arif
-     Rezai, Basil L.  Contovounesios, Damien Cassou, Daniel Mendler,
-     Dario Gjorgjevski, David Edmondson, Davor Rotim, Divan Santana,
-     Gerry Agbobada, Gianluca Recchia, Gustavo Barros, Hörmetjan Yiltiz,
-     Ilja Kocken, Iris Garcia, Jeremy Friesen, John Haman, Len Trigg,
-     Manuel Uberti, Mark Burton, Markus Beppler, Michael Goldenberg,
-     Murilo Pereira, Nicolas De Jaeghere, Paul Poloskov, Pete Kazmier,
-     Peter Wu, Pierre Téchoueyres, Roman Rudakov, Ryan Phillips, Shreyas
-     Ragavan, Simon Pugnet, Tassilo Horn, Thibaut Verron, Trey Merkley,
-     Togan Muftuoglu, Uri Sharf, Utkarsh Singh, Vincent Foley.  As well
-     as users: Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux,
-     Fredrik, Moesasji, Nick, TheBlob42, bepolymathe, dinko, doolio,
-     fleimgruber, iSeeU, jixiuf, okamsn, tycho garen.
+     Rezai, Basil L.  Contovounesios, Christopher Dimech, Damien Cassou,
+     Daniel Mendler, Dario Gjorgjevski, David Edmondson, Davor Rotim,
+     Divan Santana, Gerry Agbobada, Gianluca Recchia, Gustavo Barros,
+     Hörmetjan Yiltiz, Ilja Kocken, Iris Garcia, Jeremy Friesen, John
+     Haman, Len Trigg, Manuel Uberti, Mark Burton, Markus Beppler,
+     Michael Goldenberg, Murilo Pereira, Nicolas De Jaeghere, Paul
+     Poloskov, Pete Kazmier, Peter Wu, Pierre Téchoueyres, Roman
+     Rudakov, Ryan Phillips, Shreyas Ragavan, Simon Pugnet, Tassilo
+     Horn, Thibaut Verron, Trey Merkley, Togan Muftuoglu, Uri Sharf,
+     Utkarsh Singh, Vincent Foley.  As well as users: Ben,
+     CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji,
+     Nick, TheBlob42, bepolymathe, dinko, doolio, fleimgruber, iSeeU,
+     jixiuf, okamsn, tycho garen.
 
 Packaging
      André Alexandre Gomes and Guix maintainers (Guix), Dhavan Vaidya
@@ -2736,26 +2737,26 @@ Node: WCAG test (DIY)54463
 Node: Load at time (DIY)56352
 Node: Face coverage57305
 Node: Supported packages57775
-Node: Indirectly covered packages64042
-Node: Notes for individual packages64497
-Node: Note on company-mode overlay pop-up65016
-Ref: Note on company-mode overlay pop-up-Footnote-165680
-Ref: Note on company-mode overlay pop-up-Footnote-265747
-Node: Note for ERC escaped color sequences65802
-Ref: Note for ERC escaped color sequences-Footnote-167235
-Node: Note for powerline or spaceline67345
-Node: Note on SHR colors67761
-Node: Note for Helm grep68171
-Node: Note on vc-annotate-background-mode69616
-Node: Note on pdf-tools link hints70505
-Node: Contributing72936
-Node: Sources of the themes73355
-Node: Issues you can help with74096
-Node: Merge requests75277
-Node: Acknowledgements77539
-Node: Meta79471
-Node: External projects (ports)80977
-Node: GNU Free Documentation License81799
+Node: Indirectly covered packages64060
+Node: Notes for individual packages64515
+Node: Note on company-mode overlay pop-up65034
+Ref: Note on company-mode overlay pop-up-Footnote-165698
+Ref: Note on company-mode overlay pop-up-Footnote-265765
+Node: Note for ERC escaped color sequences65820
+Ref: Note for ERC escaped color sequences-Footnote-167253
+Node: Note for powerline or spaceline67363
+Node: Note on SHR colors67779
+Node: Note for Helm grep68189
+Node: Note on vc-annotate-background-mode69634
+Node: Note on pdf-tools link hints70523
+Node: Contributing72954
+Node: Sources of the themes73373
+Node: Issues you can help with74114
+Node: Merge requests75295
+Node: Acknowledgements77557
+Node: Meta79524
+Node: External projects (ports)81030
+Node: GNU Free Documentation License81852
 
 End Tag Table
 
