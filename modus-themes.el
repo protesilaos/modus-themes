@@ -1011,11 +1011,13 @@ Option `bg-only-no-extend' is a combination of the `bg-only' and
     ;; these foreground values can only be combined with bg-main and are
     ;; thus not suitable for general purpose highlighting
     (red-intense . "#b60000")
+    (orange-intense . "#904200")
     (green-intense . "#006800")
-    (yellow-intense . "#904200")
-    (blue-intense . "#1111ee")
-    (magenta-intense . "#7000e0")
-    (cyan-intense . "#205b93")
+    (yellow-intense . "#605b00")
+    (blue-intense . "#1f1fce")
+    (magenta-intense . "#a8007f")
+    (purple-intense . "#7f10d0")
+    (cyan-intense . "#005f88")
     ;; those foregrounds are meant exclusively for bg-active, bg-inactive
     (red-active . "#8a0000")
     (green-active . "#004c2e")
@@ -1242,12 +1244,14 @@ symbol and the latter as a string.")
     (cyan-alt-other-faint . "#a4d0bb")
     ;; these foreground values can only be combined with bg-main and are
     ;; thus not suitable for general purpose highlighting
-    (red-intense . "#fb6859")
-    (green-intense . "#00fc50")
-    (yellow-intense . "#ffdd00")
-    (blue-intense . "#00a2ff")
-    (magenta-intense . "#ff8bd4")
-    (cyan-intense . "#30ffc0")
+    (red-intense . "#fe6060")
+    (orange-intense . "#fba849")
+    (green-intense . "#4fe42f")
+    (yellow-intense . "#f0dd60")
+    (blue-intense . "#4fafff")
+    (magenta-intense . "#ff62d4")
+    (purple-intense . "#9f80ff")
+    (cyan-intense . "#3fdfd0")
     ;; those foregrounds are meant exclusively for bg-active, bg-inactive
     (red-active . "#ffa7ba")
     (green-active . "#70d73f")
