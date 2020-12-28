@@ -1847,7 +1847,7 @@ C1 and C2 are color values written in hexadecimal RGB."
     (pcase theme
       ('modus-operandi modus-themes-colors-operandi)
       ('modus-vivendi modus-themes-colors-vivendi)
-      (_ (user-error "'%s' not a Modus theme; check `custom-enabled-themes'" theme)))))
+      (_ (error "'%s' not a Modus theme; check `custom-enabled-themes'" theme)))))
 
 ;;;###autoload
 (defun modus-themes-color (key)
@@ -1866,7 +1866,20 @@ Both arguments must reference the car of a cons cell in
     (pcase theme
       ('modus-operandi (cdr (assoc `,key-light modus-themes-colors-operandi)))
       ('modus-vivendi (cdr (assoc `,key-dark modus-themes-colors-vivendi)))
-      (_ (user-error "'%s' not a Modus theme; check `custom-enabled-themes'" theme)))))
+      (_ (error "'%s' not a Modus theme; check `custom-enabled-themes'" theme)))))
+
+(defmacro modus-themes-with-colors (&rest body)
+  "Evaluate BODY with colors from appropriate pallet bound.
+For colors bound, see `modus-themes-colors-operandi' or
+`modus-themes-colors-vivendi'."
+  (declare (indent 0))
+  (let ((pallet-sym (gensym))
+        (colors (mapcar #'car modus-themes-colors-operandi)))
+    `(let* ((,pallet-sym (modus-themes--active-theme))
+            ,@(mapcar (lambda (color)
+                        (list color `(alist-get ',color ,pallet-sym)))
+                      colors))
+       ,@body)))
 
 ;;;; Commands
 
