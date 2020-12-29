@@ -60,8 +60,7 @@
   standard for color contrast between background and foreground
   elements (WCAG AAA).")
 
-(modus-themes-core-theme
- 'modus-vivendi)
+(modus-themes-core-theme modus-vivendi)
 
 (provide-theme 'modus-vivendi)
 

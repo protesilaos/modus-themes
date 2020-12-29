@@ -60,8 +60,7 @@
   standard for color contrast between background and foreground
   elements (WCAG AAA).")
 
-(modus-themes-core-theme
- 'modus-operandi)
+(modus-themes-core-theme modus-operandi)
 
 (provide-theme 'modus-operandi)
 
