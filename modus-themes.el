@@ -469,6 +469,24 @@
 
 ;;;; Current customisation options (>= 1.0.0)
 
+(defcustom modus-themes-operandi-color-overrides nil
+  "Alist of color name to color value pairs.
+Pair is a cons cell, a pair of the same name in
+`modus-themes-operandi-colors' to overwrite.  Name is a symbol, a
+color name.  Value is a string, a hexadecimal color value."
+  :package-version '(modus-themes . "1.1.0")
+  :version "28.1"
+  :type '(alist :key-type symbol :value-type string))
+
+(defcustom modus-themes-vivendi-color-overrides nil
+  "Alist of color name to color value pairs.
+Pair is a cons cell, a pair of the same name in
+`modus-themes-vivendi-colors' to overwrite.  Name is a symbol, a
+color name.  Value is a string, a hexadecimal color value."
+  :package-version '(modus-themes . "1.1.0")
+  :version "28.1"
+  :type '(alist :key-type symbol :value-type string))
+
 (defcustom modus-themes-slanted-constructs nil
   "Use slanted text in more code constructs (italics or oblique)."
   :package-version '(modus-themes . "1.0.0")
@@ -965,6 +983,11 @@ Option `bg-only-no-extend' is a combination of the `bg-only' and
   'modus-themes-colors-operandi
   "1.0.0")
 
+(define-obsolete-variable-alias
+  'modus-themes-colors-operandi
+  'modus-themes-operandi-colors
+  "1.1.0")
+
 (defconst modus-themes-operandi-colors
   '(;; base values
     (bg-main . "#ffffff") (fg-main . "#000000")
@@ -1198,6 +1221,11 @@ symbol and the latter as a string.")
   'modus-vivendi-theme-default-colors-alist
   'modus-themes-colors-vivendi
   "1.0.0")
+
+(define-obsolete-variable-alias
+  'modus-themes-colors-vivendi
+  'modus-themes-vivendi-colors
+  "1.1.0")
 
 (defconst modus-themes-vivendi-colors
   '(;; base values
@@ -1505,6 +1533,23 @@ symbol and the latter as a string.")
 
 
 ;;; Internal functions
+
+(defun modus-themes--current-theme ()
+  "Return current theme."
+  (car custom-enabled-themes))
+
+(defun modus-themes--palette (theme)
+  "Return color palette for Modus theme THEME.
+THEME is a symbol, either modus-operandi or modus-vivendi."
+  (pcase theme
+    ('modus-operandi
+     (append modus-themes-operandi-color-overrides
+             modus-themes-operandi-colors))
+    ('modus-vivendi
+     (append modus-themes-vivendi-color-overrides
+             modus-themes-vivendi-colors))
+    (_theme
+     (error "'%s' is not a Modus theme" theme))))
 
 ;; Helper functions that are meant to ease the implementation of the
 ;; above customization options.
@@ -1858,47 +1903,45 @@ C1 and C2 are color values written in hexadecimal RGB."
                (+ (modus-themes-wcag-formula c2) 0.05))))
     (max ct (/ ct))))
 
-;;;###autoload
-(defun modus-themes-active-theme-colors ()
-  "Return appropriate alist of color values for active theme."
-  (let ((theme (car custom-enabled-themes)))
-    (pcase theme
-      ('modus-operandi modus-themes-operandi-colors)
-      ('modus-vivendi modus-themes-vivendi-colors)
-      (_ (error "'%s' not a Modus theme; check `custom-enabled-themes'" theme)))))
+(defun modus-themes-current-palette ()
+  "Return current color palette."
+  (modus-themes--palette (modus-themes--current-theme)))
 
 ;;;###autoload
-(defun modus-themes-color (key)
-  "Return color value for KEY.
-The KEY is the car of each cons cell in the alists
-`modus-themes-operandi-colors', `modus-themes-vivendi-colors'."
-  (let ((alist (modus-themes-active-theme-colors)))
-    (cdr (assoc `,key alist))))
+(defun modus-themes-color (color)
+  "Return color value for COLOR from current palette.
+COLOR is a key in `modus-themes-operandi-colors' or
+`modus-themes-vivendi-colors'."
+  (alist-get color (modus-themes-current-palette)))
 
 ;;;###autoload
-(defun modus-themes-color-alts (key-light key-dark)
-  "Return color value for KEY-LIGHT and KEY-DARK.
-Both arguments must reference the car of a cons cell in
-`modus-themes-operandi-colors', `modus-themes-vivendi-colors'."
-  (let ((theme (car custom-enabled-themes)))
-    (pcase theme
-      ('modus-operandi (cdr (assoc `,key-light modus-themes-operandi-colors)))
-      ('modus-vivendi (cdr (assoc `,key-dark modus-themes-vivendi-colors)))
-      (_ (error "'%s' not a Modus theme; check `custom-enabled-themes'" theme)))))
+(defun modus-themes-color-alts (light-color dark-color)
+  "Return color value from current palette.
+When Modus Operandi is enabled, return color value for color
+LIGHT-COLOR.  When Modus Vivendi is enabled, return color value
+for DARK-COLOR.  LIGHT-COLOR and DARK-COLOR are keys in
+`modus-themes-operandi-colors' or `modus-themes-vivendi-colors'."
+  (let* ((theme (modus-themes--current-theme))
+         (color (pcase theme
+                  ('modus-operandi light-color)
+                  ('modus-vivendi dark-color)
+                  (_theme
+                   (error "'%s' is not a Modus theme" theme)))))
+    (alist-get color (modus-themes--palette theme))))
 
 (defmacro modus-themes-with-colors (&rest body)
-  "Evaluate BODY with colors from appropriate palette bound.
+  "Evaluate BODY with colors from current palette bound.
 For colors bound, see `modus-themes-operandi-colors' or
 `modus-themes-vivendi-colors'."
   (declare (indent 0))
   (let ((palette-sym (gensym))
         (colors (mapcar #'car modus-themes-operandi-colors)))
     `(let* ((class '((class color) (min-colors 89)))
-            (,palette-sym (modus-themes-active-theme-colors))
+            (,palette-sym (modus-themes-current-palette))
             ,@(mapcar (lambda (color)
                         (list color `(alist-get ',color ,palette-sym)))
                       colors))
-       (ignore ,@colors)                ; Silence unused variable warnings
+       (ignore class ,@colors)          ; Silence unused variable warnings
        ,@body)))
 
 ;;;; Commands
@@ -1940,7 +1983,7 @@ Also runs `modus-themes-after-load-theme-hook' at its last stage
 by virtue of calling either of `modus-themes-load-operandi' and
 `modus-themes-load-vivendi' functions."
   (interactive)
-  (pcase (car custom-enabled-themes)
+  (pcase (modus-themes--current-theme)
     ('modus-operandi (modus-themes-load-vivendi))
     ('modus-vivendi (modus-themes-load-operandi))
     (_ (modus-themes--load-prompt))))

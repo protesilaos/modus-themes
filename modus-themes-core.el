@@ -43,16 +43,9 @@
 
 
 (defvar modus-themes-operandi-colors)
-(defvar modus-themes-vivendi-colors)
 (defvar modus-themes-faces)
 (defvar modus-themes-custom-variables)
-
-(defun modus-themes-core--palette (name)
-  "Return palette for Modus theme NAME."
-  (pcase name
-    ('modus-operandi modus-themes-operandi-colors)
-    ('modus-vivendi modus-themes-vivendi-colors)
-    (_ (error "<< %s >> is not a valid Modus theme" name))))
+(declare-function modus-themes--palette "modus-themes")
 
 (defmacro modus-themes-core-theme (name)
   "Bind NAME's color palette around face specifications.
@@ -64,12 +57,15 @@ Face specifications are those passed to `custom-theme-set-faces'.
 They are extracted directly from variables defined in the
 `modus-themes' library.  For example, `modus-themes-faces'."
   (declare (indent 0))
-  `(let ((class '((class color) (min-colors 89)))
-         ,@(mapcar (lambda (cons)
-                     `(,(car cons) ,(cdr cons)))
-                   (modus-themes-core--palette name)))
-     (custom-theme-set-faces ',name ,@modus-themes-faces)
-     (custom-theme-set-variables ',name ,@modus-themes-custom-variables)))
+  (let ((palette-sym (gensym))
+        (colors (mapcar #'car modus-themes-operandi-colors)))
+    `(let* ((class '((class color) (min-colors 89)))
+            (,palette-sym (modus-themes--palette ',name))
+            ,@(mapcar (lambda (color)
+                        (list color `(alist-get ',color ,palette-sym)))
+                      colors))
+       (custom-theme-set-faces ',name ,@modus-themes-faces)
+       (custom-theme-set-variables ',name ,@modus-themes-custom-variables))))
 
 (provide 'modus-themes-core)
 ;;; modus-themes-core.el ends here
