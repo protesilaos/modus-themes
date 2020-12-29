@@ -1190,8 +1190,8 @@ File: modus-themes.info,  Node: Simple face tweaks (DIY),  Next: Face tweaks in 
 ===========================================================
 
 This section is about tweaking individual faces.  If you plan to do
-things at scale, consult the next section (*note Set multiple faces
-(DIY): Face tweaks in bulk (DIY).).
+things at scale, consult the next section (*note Set multiple faces:
+Face tweaks in bulk (DIY).).
 
    We already covered in previous sections how to toggle between the
 themes and how to configure options prior to loading.  We also explained
@@ -1289,8 +1289,8 @@ Nicolas De Jaeghere.
 
    The examples here are for large scale operations.  For simple,
 one-off tweaks, you may prefer the approach documented in the previous
-section (*note Case-by-case face specs using the themes’ palette (DIY):
-Simple face tweaks (DIY).).
+section (*note Case-by-case face specs using the themes’ palette: Simple
+face tweaks (DIY).).
 
    The ‘modus-themes-with-colors’ macro lets you retrieve multiple color
 values by employing the backquote/backtick and comma notation.  The
@@ -1389,8 +1389,8 @@ File: modus-themes.info,  Node: Custom coloration (DIY),  Next: Font configs (DI
 
 This section assumes that you are already familiar with the
 ‘modus-themes-with-colors’ macro and understand how to make best use of
-it (*note Face specs at scale using the themes’ palette (DIY): Face
-tweaks in bulk (DIY).).
+it (*note Face specs at scale using the themes’ palette: Face tweaks in
+bulk (DIY).).
 
    While you may like the overall aesthetics of the Modus themes,
 chances are that you find something that does not align with your needs.
@@ -1470,7 +1470,7 @@ customise faces.  In this example we refashion the overall presentation:
 
      (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
 
-   Please understand that you will need to identify all faces that you
+   Please understand that you will have to identify all faces that you
 need to override, even though this should cover the general appearance.
 
    If someone knows how to override the palette and automatically reset
@@ -2937,35 +2937,35 @@ Node: Scaled heading sizes41405
 Node: Headings' font42979
 Node: Advanced customization (do-it-yourself)43579
 Node: Simple face tweaks (DIY)44898
-Node: Face tweaks in bulk (DIY)49306
-Node: Custom coloration (DIY)53979
-Node: Font configs (DIY)57975
-Ref: Font configs (DIY)-Footnote-160265
-Node: Org user faces (DIY)60452
-Node: WCAG test (DIY)63664
-Node: Load at time (DIY)65553
-Node: Face coverage66506
-Node: Supported packages66976
-Node: Indirectly covered packages73261
-Node: Notes for individual packages73716
-Node: Note on company-mode overlay pop-up74235
-Ref: Note on company-mode overlay pop-up-Footnote-174899
-Ref: Note on company-mode overlay pop-up-Footnote-274966
-Node: Note for ERC escaped color sequences75021
-Ref: Note for ERC escaped color sequences-Footnote-176454
-Node: Note for powerline or spaceline76564
-Node: Note on SHR colors76980
-Node: Note for Helm grep77390
-Node: Note on vc-annotate-background-mode78835
-Node: Note on pdf-tools link hints79724
-Node: Contributing82155
-Node: Sources of the themes82574
-Node: Issues you can help with83315
-Node: Merge requests84496
-Node: Acknowledgements86758
-Node: Meta88725
-Node: External projects (ports)90231
-Node: GNU Free Documentation License91053
+Node: Face tweaks in bulk (DIY)49300
+Node: Custom coloration (DIY)53967
+Node: Font configs (DIY)57957
+Ref: Font configs (DIY)-Footnote-160247
+Node: Org user faces (DIY)60434
+Node: WCAG test (DIY)63646
+Node: Load at time (DIY)65535
+Node: Face coverage66488
+Node: Supported packages66958
+Node: Indirectly covered packages73243
+Node: Notes for individual packages73698
+Node: Note on company-mode overlay pop-up74217
+Ref: Note on company-mode overlay pop-up-Footnote-174881
+Ref: Note on company-mode overlay pop-up-Footnote-274948
+Node: Note for ERC escaped color sequences75003
+Ref: Note for ERC escaped color sequences-Footnote-176436
+Node: Note for powerline or spaceline76546
+Node: Note on SHR colors76962
+Node: Note for Helm grep77372
+Node: Note on vc-annotate-background-mode78817
+Node: Note on pdf-tools link hints79706
+Node: Contributing82137
+Node: Sources of the themes82556
+Node: Issues you can help with83297
+Node: Merge requests84478
+Node: Acknowledgements86740
+Node: Meta88707
+Node: External projects (ports)90213
+Node: GNU Free Documentation License91035
 
 End Tag Table
 

@@ -1065,7 +1065,7 @@ they are labelled as "do-it-yourself" or "DIY".
 :END:
 
 This section is about tweaking individual faces.  If you plan to do
-things at scale, consult the next section ([[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Set multiple faces (DIY)]]).
+things at scale, consult the next section ([[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Set multiple faces]]).
 
 We already covered in previous sections how to toggle between the themes
 and how to configure options prior to loading.  We also explained that
@@ -1174,7 +1174,7 @@ Nicolas De Jaeghere.
 
 The examples here are for large scale operations.  For simple, one-off
 tweaks, you may prefer the approach documented in the previous section
-([[#h:1487c631-f4fe-490d-8d58-d72ffa3bd474][Case-by-case face specs using the themes' palette (DIY)]]).
+([[#h:1487c631-f4fe-490d-8d58-d72ffa3bd474][Case-by-case face specs using the themes' palette]]).
 
 The =modus-themes-with-colors= macro lets you retrieve multiple color
 values by employing the backquote/backtick and comma notation.  The
@@ -1279,7 +1279,7 @@ to a non-Modus item.
 
 This section assumes that you are already familiar with the
 =modus-themes-with-colors= macro and understand how to make best use of
-it ([[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Face specs at scale using the themes' palette (DIY)]]).
+it ([[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Face specs at scale using the themes' palette]]).
 
 While you may like the overall aesthetics of the Modus themes, chances
 are that you find something that does not align with your needs.  For
@@ -1364,7 +1364,7 @@ customise faces.  In this example we refashion the overall presentation:
 (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
 #+end_src
 
-Please understand that you will need to identify all faces that you need
+Please understand that you will have to identify all faces that you need
 to override, even though this should cover the general appearance.
 
 If someone knows how to override the palette and automatically reset all
