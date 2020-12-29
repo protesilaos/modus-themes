@@ -965,7 +965,7 @@ Option `bg-only-no-extend' is a combination of the `bg-only' and
   'modus-themes-colors-operandi
   "1.0.0")
 
-(defconst modus-themes-colors-operandi
+(defconst modus-themes-operandi-colors
   '(;; base values
     (bg-main . "#ffffff") (fg-main . "#000000")
     (bg-dim . "#f8f8f8") (fg-dim . "#282828")
@@ -1199,7 +1199,7 @@ symbol and the latter as a string.")
   'modus-themes-colors-vivendi
   "1.0.0")
 
-(defconst modus-themes-colors-vivendi
+(defconst modus-themes-vivendi-colors
   '(;; base values
     (bg-main . "#000000") (fg-main . "#ffffff")
     (bg-dim . "#110b11") (fg-dim . "#e0e6f0")
@@ -1843,7 +1843,7 @@ used to fontify text and code syntax."
 (defun modus-themes-wcag-formula (hex)
   "Get WCAG value of color value HEX.
 The value is defined in hexadecimal RGB notation, such as those in
-`modus-themes-colors-operandi' and `modus-themes-colors-vivendi'."
+`modus-themes-operandi-colors' and `modus-themes-vivendi-colors'."
   (cl-loop for k in '(0.2126 0.7152 0.0722)
            for x in (color-name-to-rgb hex)
            sum (* k (if (<= x 0.03928)
@@ -1863,15 +1863,15 @@ C1 and C2 are color values written in hexadecimal RGB."
   "Return appropriate alist of color values for active theme."
   (let ((theme (car custom-enabled-themes)))
     (pcase theme
-      ('modus-operandi modus-themes-colors-operandi)
-      ('modus-vivendi modus-themes-colors-vivendi)
+      ('modus-operandi modus-themes-operandi-colors)
+      ('modus-vivendi modus-themes-vivendi-colors)
       (_ (error "'%s' not a Modus theme; check `custom-enabled-themes'" theme)))))
 
 ;;;###autoload
 (defun modus-themes-color (key)
   "Return color value for KEY.
 The KEY is the car of each cons cell in the alists
-`modus-themes-colors-operandi', `modus-themes-colors-vivendi'."
+`modus-themes-operandi-colors', `modus-themes-vivendi-colors'."
   (let ((alist (modus-themes-active-theme-colors)))
     (cdr (assoc `,key alist))))
 
@@ -1879,20 +1879,20 @@ The KEY is the car of each cons cell in the alists
 (defun modus-themes-color-alts (key-light key-dark)
   "Return color value for KEY-LIGHT and KEY-DARK.
 Both arguments must reference the car of a cons cell in
-`modus-themes-colors-operandi', `modus-themes-colors-vivendi'."
+`modus-themes-operandi-colors', `modus-themes-vivendi-colors'."
   (let ((theme (car custom-enabled-themes)))
     (pcase theme
-      ('modus-operandi (cdr (assoc `,key-light modus-themes-colors-operandi)))
-      ('modus-vivendi (cdr (assoc `,key-dark modus-themes-colors-vivendi)))
+      ('modus-operandi (cdr (assoc `,key-light modus-themes-operandi-colors)))
+      ('modus-vivendi (cdr (assoc `,key-dark modus-themes-vivendi-colors)))
       (_ (error "'%s' not a Modus theme; check `custom-enabled-themes'" theme)))))
 
 (defmacro modus-themes-with-colors (&rest body)
   "Evaluate BODY with colors from appropriate palette bound.
-For colors bound, see `modus-themes-colors-operandi' or
-`modus-themes-colors-vivendi'."
+For colors bound, see `modus-themes-operandi-colors' or
+`modus-themes-vivendi-colors'."
   (declare (indent 0))
   (let ((palette-sym (gensym))
-        (colors (mapcar #'car modus-themes-colors-operandi)))
+        (colors (mapcar #'car modus-themes-operandi-colors)))
     `(let* ((class '((class color) (min-colors 89)))
             (,palette-sym (modus-themes-active-theme-colors))
             ,@(mapcar (lambda (color)

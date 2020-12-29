@@ -1088,8 +1088,8 @@ Now assume you wish to change a single face, say, the =cursor=.  And you
 would like to get the standard "blue" color value of the active Modus
 theme, whether it is Modus Operandi or Modus Vivendi.  To do that, you
 can use the =modus-themes-color= function.  It accepts a symbol that is
-associated with a color in =modus-themes-colors-operandi= and
-=modus-themes-colors-vivendi=.  Like this:
+associated with a color in =modus-themes-operandi-colors= and
+=modus-themes-vivendi-colors=.  Like this:
 
 #+begin_src emacs-lisp
 (modus-themes-color 'blue)
@@ -1159,8 +1159,8 @@ apply different ones to each theme, say, a blue hue for Modus Operandi
 and a shade of red for Modus Vivendi.  To this end, we provide
 =modus-themes-color-alts= as a convenience function to save you from the
 trouble of writing separate wrappers for each theme.  It still returns a
-single value by querying either of =modus-themes-colors-operandi= and
-=modus-themes-colors-vivendi=, only here you pass the two keys you want,
+single value by querying either of =modus-themes-operandi-colors= and
+=modus-themes-vivendi-colors=, only here you pass the two keys you want,
 first for =modus-operandi= then =modus-vivendi=.
 
 Take the previous example with the =cursor= face:
@@ -1186,8 +1186,8 @@ tweaks, you may prefer the approach documented in the previous section
 
 The =modus-themes-with-colors= macro lets you retrieve multiple color
 values by employing the backquote/backtick and comma notation.  The
-values are stored in the alists =modus-themes-colors-operandi= and
-=modus-themes-colors-vivendi=, while the macro always queries that of the
+values are stored in the alists =modus-themes-operandi-colors= and
+=modus-themes-vivendi-colors=, while the macro always queries that of the
 active Modus theme.
 
 Here is an abstract example that just returns a list of color values
