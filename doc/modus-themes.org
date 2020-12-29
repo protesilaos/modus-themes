@@ -1222,11 +1222,11 @@ This is how it works:
 #+begin_src emacs-lisp
 (modus-themes-with-colors
   (custom-set-faces
-   `(cursor ((t :background ,blue)))
-   `(mode-line ((t :inherit variable-pitch :background ,yellow-nuanced-bg)))
-   `(mode-line-inactive ((t :inherit variable-pitch :background ,blue-nuanced-bg)))
-   `(line-number ((t :background unspecified :foreground ,fg-unfocused)))
-   `(line-number-current-line ((t :background unspecified :foreground ,red-alt-other)))))
+   `(cursor ((,class :background ,blue)))
+   `(mode-line ((,class :inherit variable-pitch :background ,yellow-nuanced-bg)))
+   `(mode-line-inactive ((,class :inherit variable-pitch :background ,blue-nuanced-bg)))
+   `(line-number ((,class :background unspecified :foreground ,fg-unfocused)))
+   `(line-number-current-line ((,class :background unspecified :foreground ,red-alt-other)))))
 #+end_src
 
 We are showing some uses of =:inherit= and of the special =unspecified=
@@ -1250,11 +1250,11 @@ Thus:
 (defun my-modus-themes-custom-faces ()
   (modus-themes-with-colors
     (custom-set-faces
-     `(cursor ((t :background ,blue)))
-     `(mode-line ((t :inherit variable-pitch :background ,yellow-nuanced-bg)))
-     `(mode-line-inactive ((t :inherit variable-pitch :background ,blue-nuanced-bg)))
-     `(line-number ((t :background unspecified :foreground ,fg-unfocused)))
-     `(line-number-current-line ((t :background unspecified :foreground ,red-alt-other))))))
+     `(cursor ((,class :background ,blue)))
+     `(mode-line ((,class :inherit variable-pitch :background ,yellow-nuanced-bg)))
+     `(mode-line-inactive ((,class :inherit variable-pitch :background ,blue-nuanced-bg)))
+     `(line-number ((,class :background unspecified :foreground ,fg-unfocused)))
+     `(line-number-current-line ((,class :background unspecified :foreground ,red-alt-other))))))
 
 (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
 #+end_src
@@ -1352,14 +1352,14 @@ customise faces.  In this example we refashion the overall presentation:
                    my-modus-operandi-overrides
                  my-modus-vivendi-overrides)
       (custom-set-faces
-       `(default ((t :background ,.bg-main)))
-       `(fringe ((t :background ,.bg-alt)))
-       `(region ((t :background ,.bg-region)))
-       `(hl-line ((t :background ,.bg-hl-line)))
-       `(header-line ((t :background ,.bg-header)))
-       `(tab-bar ((t :background ,.bg-tab-bar)))
-       `(mode-line ((t :background ,.bg-active)))
-       `(mode-line-inactive ((t :background ,.bg-active-inactive)))))))
+       `(default ((,class :background ,.bg-main)))
+       `(fringe ((,class :background ,.bg-alt)))
+       `(region ((,class :background ,.bg-region)))
+       `(hl-line ((,class :background ,.bg-hl-line)))
+       `(header-line ((,class :background ,.bg-header)))
+       `(tab-bar ((,class :background ,.bg-tab-bar)))
+       `(mode-line ((,class :background ,.bg-active)))
+       `(mode-line-inactive ((,class :background ,.bg-active-inactive)))))))
 
 (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
 #+end_src
