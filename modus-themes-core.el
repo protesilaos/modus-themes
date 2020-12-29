@@ -52,7 +52,7 @@
   (pcase name
     (''modus-operandi modus-themes-colors-operandi)
     (''modus-vivendi modus-themes-colors-vivendi)
-    (_ (user-error "<< %s >> is not a valid Modus theme" name))))
+    (_ (error "<< %s >> is not a valid Modus theme" name))))
 
 (defmacro modus-themes-core-theme (name)
   "Bind NAME's color palette around face specifications.
