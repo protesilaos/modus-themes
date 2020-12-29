@@ -1922,8 +1922,8 @@ Also run `modus-themes-after-load-theme-hook'."
 ;;;###autoload
 (defun modus-themes-toggle ()
   "Toggle between `modus-operandi' and `modus-vivendi' themes.
-Also runs `modus-themes-after-load-theme-hook' by virtue of
-calling the internal `modus-themes-load-operandi' and
+Also runs `modus-themes-after-load-theme-hook' at its last stage
+by virtue of calling either of `modus-themes-load-operandi' and
 `modus-themes-load-vivendi' functions."
   (interactive)
   (pcase (car custom-enabled-themes)
