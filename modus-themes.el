@@ -1883,6 +1883,7 @@ For colors bound, see `modus-themes-colors-operandi' or
             ,@(mapcar (lambda (color)
                         (list color `(alist-get ',color ,pallet-sym)))
                       colors))
+       (ignore ,@colors)                ; Silence unused variable warnings
        ,@body)))
 
 ;;;; Commands
