@@ -1381,6 +1381,16 @@ Modus themes.  If you are cycling between multiple themes you may
 encounter unforeseen issues, such as the colors of the Modus themes
 being applied to a non-Modus item.
 
+   Finally, note that you can still use other functions where those make
+sense.  For example, the ‘modus-themes-color-alts’ that was discussed in
+the previous section.  Adapt the above example like this:
+
+     ...
+     (modus-themes-with-colors
+         (custom-set-faces
+          `(cursor ((,class :background ,(modus-themes-color-alts 'blue 'green))))
+          ...))
+
 
 File: modus-themes.info,  Node: Custom coloration (DIY),  Next: Font configs (DIY),  Prev: Face tweaks in bulk (DIY),  Up: Advanced customization (do-it-yourself)
 
@@ -2941,34 +2951,34 @@ Node: Headings' font42979
 Node: Advanced customization (do-it-yourself)43579
 Node: Simple face tweaks (DIY)44898
 Node: Face tweaks in bulk (DIY)49300
-Node: Custom coloration (DIY)53967
-Node: Font configs (DIY)57957
-Ref: Font configs (DIY)-Footnote-160247
-Node: Org user faces (DIY)60434
-Node: WCAG test (DIY)63646
-Node: Load at time (DIY)65535
-Node: Face coverage66488
-Node: Supported packages66958
-Node: Indirectly covered packages73243
-Node: Notes for individual packages73698
-Node: Note on company-mode overlay pop-up74217
-Ref: Note on company-mode overlay pop-up-Footnote-174881
-Ref: Note on company-mode overlay pop-up-Footnote-274948
-Node: Note for ERC escaped color sequences75003
-Ref: Note for ERC escaped color sequences-Footnote-176436
-Node: Note for powerline or spaceline76546
-Node: Note on SHR colors76962
-Node: Note for Helm grep77372
-Node: Note on vc-annotate-background-mode78817
-Node: Note on pdf-tools link hints79706
-Node: Contributing82137
-Node: Sources of the themes82556
-Node: Issues you can help with83297
-Node: Merge requests84478
-Node: Acknowledgements86740
-Node: Meta88707
-Node: External projects (ports)90213
-Node: GNU Free Documentation License91035
+Node: Custom coloration (DIY)54393
+Node: Font configs (DIY)58423
+Ref: Font configs (DIY)-Footnote-160713
+Node: Org user faces (DIY)60900
+Node: WCAG test (DIY)64112
+Node: Load at time (DIY)66001
+Node: Face coverage66954
+Node: Supported packages67424
+Node: Indirectly covered packages73709
+Node: Notes for individual packages74164
+Node: Note on company-mode overlay pop-up74683
+Ref: Note on company-mode overlay pop-up-Footnote-175347
+Ref: Note on company-mode overlay pop-up-Footnote-275414
+Node: Note for ERC escaped color sequences75469
+Ref: Note for ERC escaped color sequences-Footnote-176902
+Node: Note for powerline or spaceline77012
+Node: Note on SHR colors77428
+Node: Note for Helm grep77838
+Node: Note on vc-annotate-background-mode79283
+Node: Note on pdf-tools link hints80172
+Node: Contributing82603
+Node: Sources of the themes83022
+Node: Issues you can help with83763
+Node: Merge requests84944
+Node: Acknowledgements87206
+Node: Meta89173
+Node: External projects (ports)90840
+Node: GNU Free Documentation License91662
 
 End Tag Table
 

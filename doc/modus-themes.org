@@ -1270,6 +1270,18 @@ themes.  If you are cycling between multiple themes you may encounter
 unforeseen issues, such as the colors of the Modus themes being applied
 to a non-Modus item.
 
+Finally, note that you can still use other functions where those make
+sense.  For example, the =modus-themes-color-alts= that was discussed in
+the previous section.  Adapt the above example like this:
+
+#+begin_src emacs-lisp
+...
+(modus-themes-with-colors
+    (custom-set-faces
+     `(cursor ((,class :background ,(modus-themes-color-alts 'blue 'green))))
+     ...))
+#+end_src
+
 ** Override theme colors (DIY)
 :PROPERTIES:
 :ALT_TITLE: Custom coloration (DIY)
