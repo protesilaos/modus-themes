@@ -1845,7 +1845,8 @@ C1 and C2 are color values written in hexadecimal RGB."
                (+ (modus-themes-wcag-formula c2) 0.05))))
     (max ct (/ ct))))
 
-(defun modus-themes--active-theme ()
+;;;###autoload
+(defun modus-themes-active-theme-colors ()
   "Return appropriate alist of color values for active theme."
   (let ((theme (car custom-enabled-themes)))
     (pcase theme
@@ -1858,7 +1859,7 @@ C1 and C2 are color values written in hexadecimal RGB."
   "Return color value for KEY.
 The KEY is the car of each cons cell in the alists
 `modus-themes-colors-operandi', `modus-themes-colors-vivendi'."
-  (let ((alist (modus-themes--active-theme)))
+  (let ((alist (modus-themes-active-theme-colors)))
     (cdr (assoc `,key alist))))
 
 ;;;###autoload
@@ -1880,7 +1881,7 @@ For colors bound, see `modus-themes-colors-operandi' or
   (let ((palette-sym (gensym))
         (colors (mapcar #'car modus-themes-colors-operandi)))
     `(let* ((class '((class color) (min-colors 89)))
-            (,palette-sym (modus-themes--active-theme))
+            (,palette-sym (modus-themes-active-theme-colors))
             ,@(mapcar (lambda (color)
                         (list color `(alist-get ',color ,palette-sym)))
                       colors))
