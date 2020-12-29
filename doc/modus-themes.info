@@ -94,7 +94,9 @@ Scaled headings
 
 Advanced customization (do-it-yourself)
 
-* Tweak faces (DIY)::            Declare your own face specs
+* Simple face tweaks (DIY)::     Declare your own face specs case-by-case
+* Face tweaks in bulk (DIY)::    Declare your own face specs at scale
+* Custom coloration (DIY)::      Declare your own colors for face specs
 * Font configs (DIY)::           Optimise for mixed typeface buffers
 * Org user faces (DIY)::         Extend styles for org-mode keywords and priorities
 * WCAG test (DIY)::              Apply the WCAG formula to color values of your choosing
@@ -319,7 +321,7 @@ between the two.  In this latter scenario, all other themes will first
 be disabled (using the ‘disable-theme’ we covered before).  Lastly, the
 toggle calls ‘modus-themes-after-load-theme-hook’ which you can use to
 add your tweaks (see *note Custom face specs using the themes’ palette:
-Tweak faces (DIY).).
+Simple face tweaks (DIY).).
 
 
 File: modus-themes.info,  Node: Configure options prior to loading a theme,  Next: Sample configuration for use-package,  Prev: Toggle between the themes on demand,  Up: Enable and load
@@ -1173,22 +1175,28 @@ such, they are labelled as “do-it-yourself” or “DIY”.
 
 * Menu:
 
-* Tweak faces (DIY)::            Declare your own face specs
+* Simple face tweaks (DIY)::     Declare your own face specs case-by-case
+* Face tweaks in bulk (DIY)::    Declare your own face specs at scale
+* Custom coloration (DIY)::      Declare your own colors for face specs
 * Font configs (DIY)::           Optimise for mixed typeface buffers
 * Org user faces (DIY)::         Extend styles for org-mode keywords and priorities
 * WCAG test (DIY)::              Apply the WCAG formula to color values of your choosing
 * Load at time (DIY)::           Switch between the themes depending on the time of day
 
 
-File: modus-themes.info,  Node: Tweak faces (DIY),  Next: Font configs (DIY),  Up: Advanced customization (do-it-yourself)
+File: modus-themes.info,  Node: Simple face tweaks (DIY),  Next: Face tweaks in bulk (DIY),  Up: Advanced customization (do-it-yourself)
 
-5.1 Custom face specs using the themes’ palette (DIY)
-=====================================================
+5.1 Case-by-case face specs using the themes’ palette (DIY)
+===========================================================
 
-We already covered in previous sections how to toggle between the themes
-and how to configure options prior to loading.  We also explained that
-some of the functions made available to users will fire up a hook that
-can be used to pass tweaks in the post-theme-load phase.
+This section is about tweaking individual faces.  If you plan to do
+things at scale, consult the next section (*note Set multiple faces
+(DIY): Face tweaks in bulk (DIY).).
+
+   We already covered in previous sections how to toggle between the
+themes and how to configure options prior to loading.  We also explained
+that some of the functions made available to users will fire up a hook
+that can be used to pass tweaks in the post-theme-load phase.
 
    *note Toggle between the themes: Toggle between the themes on demand.
 
@@ -1271,9 +1279,207 @@ first for ‘modus-operandi’ then ‘modus-vivendi’.
      (set-face-attribute 'cursor nil :background (modus-themes-color-alts 'blue 'red))
 
 
-File: modus-themes.info,  Node: Font configs (DIY),  Next: Org user faces (DIY),  Prev: Tweak faces (DIY),  Up: Advanced customization (do-it-yourself)
+File: modus-themes.info,  Node: Face tweaks in bulk (DIY),  Next: Custom coloration (DIY),  Prev: Simple face tweaks (DIY),  Up: Advanced customization (do-it-yourself)
 
-5.2 Font configurations for Org and others (DIY)
+5.2 Face specs at scale using the themes’ palette (DIY)
+=======================================================
+
+NOTE: Coming in version ‘1.1.0’ of the themes.  The macro is courtesy of
+Nicolas De Jaeghere.
+
+   The examples here are for large scale operations.  For simple,
+one-off tweaks, you may prefer the approach documented in the previous
+section (*note Case-by-case face specs using the themes’ palette (DIY):
+Simple face tweaks (DIY).).
+
+   The ‘modus-themes-with-colors’ macro lets you retrieve multiple color
+values by employing the backquote/backtick and comma notation.  The
+values are stored in the alists ‘modus-themes-colors-operandi’ and
+‘modus-themes-colors-vivendi’, while the macro always queries that of
+the active Modus theme.
+
+   Here is an abstract example that just returns a list of color values
+while ‘modus-operandi’ is enabled:
+
+     (modus-themes-with-colors
+       `(,fg-main
+         ,blue-faint
+         ,magenta
+         ,magenta-alt-other
+         ,cyan-alt-other
+         ,fg-special-cold
+         ,blue-alt
+         ,magenta-faint
+         ,cyan
+         ,fg-main
+         ,green-faint
+         ,red-alt-faint
+         ,blue-alt-faint
+         ,fg-special-warm
+         ,cyan-alt
+         ,blue))
+     ;; =>
+     ;; ("#000000" "#002f88" "#721045" "#5317ac"
+     ;;  "#005a5f" "#093060" "#2544bb" "#752f50"
+     ;;  "#00538b" "#000000" "#104410" "#702f00"
+     ;;  "#003f78" "#5d3026" "#30517f" "#0031a9")
+
+   Getting a list of colors may have its applications, though what you
+are most likely interested in is how to use those variables to configure
+several faces at once.  To do so we can rely on the built-in
+‘custom-set-faces’ function, which sets face specifications for the
+special ‘user’ theme.  That “theme” gets applied on top of regular
+themes like ‘modus-operandi’ and ‘modus-vivendi’.
+
+   This is how it works:
+
+     (modus-themes-with-colors
+       (custom-set-faces
+        `(cursor ((t :background ,blue)))
+        `(mode-line ((t :inherit variable-pitch :background ,yellow-nuanced-bg)))
+        `(mode-line-inactive ((t :inherit variable-pitch :background ,blue-nuanced-bg)))
+        `(line-number ((t :background unspecified :foreground ,fg-unfocused)))
+        `(line-number-current-line ((t :background unspecified :foreground ,red-alt-other)))))
+
+   We are showing some uses of ‘:inherit’ and of the special
+‘unspecified’ value so that you can appreciate how a theme can be
+written.  Otherwise you can identify the color variables by the comma
+prefixed to them.
+
+   The above snippet will immediately refashion the faces it names once
+it is evaluated.  However, if you switch themes, say, from
+‘modus-operandi’ to ‘modus-vivendi’, the colors will not get updated to
+match those of the new theme.  To make things work across themes, we
+need to employ the same technique we discussed in the previous section,
+namely, to pass our changes at the post-theme-load phase via a hook.
+
+   The themes provide the ‘modus-themes-after-load-theme-hook’, which
+gets called from ‘modus-themes-load-operandi’,
+‘modus-themes-load-vivendi’, as well as the command
+‘modus-themes-toggle’.  With this knowledge, you can wrap the macro in a
+function and then assign that function to the hook.  Thus:
+
+     (defun my-modus-themes-custom-faces ()
+       (modus-themes-with-colors
+         (custom-set-faces
+          `(cursor ((t :background ,blue)))
+          `(mode-line ((t :inherit variable-pitch :background ,yellow-nuanced-bg)))
+          `(mode-line-inactive ((t :inherit variable-pitch :background ,blue-nuanced-bg)))
+          `(line-number ((t :background unspecified :foreground ,fg-unfocused)))
+          `(line-number-current-line ((t :background unspecified :foreground ,red-alt-other))))))
+
+     (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
+
+   To discover the faces defined by all loaded libraries, you may invoke
+‘M-x list-faces-display’.  Be warned that when you ‘:inherit’ a face you
+are introducing an implicit dependency, so try to avoid doing so for
+libraries other than the built-in ‘faces.el’ (or at least understand
+that things may break if you inherit from a yet-to-be-loaded face).
+
+   Also bear in mind that these examples are meant to work with the
+Modus themes.  If you are cycling between multiple themes you may
+encounter unforeseen issues, such as the colors of the Modus themes
+being applied to a non-Modus item.
+
+
+File: modus-themes.info,  Node: Custom coloration (DIY),  Next: Font configs (DIY),  Prev: Face tweaks in bulk (DIY),  Up: Advanced customization (do-it-yourself)
+
+5.3 Override theme colors (DIY)
+===============================
+
+This section assumes that you are already familiar with the
+‘modus-themes-with-colors’ macro and understand how to make best use of
+it (*note Face specs at scale using the themes’ palette (DIY): Face
+tweaks in bulk (DIY).).
+
+   While you may like the overall aesthetics of the Modus themes,
+chances are that you find something that does not align with your needs.
+For example, you do not want a pure white/black background but some
+slightly tinted alternative.  To make this happen, you need to define
+overrides for color variables and then assign them to the relevant
+faces.
+
+   This is a pair of palette alternatives:
+
+     (defvar my-modus-operandi-overrides
+       '((bg-main . "#fefcf4")
+         (bg-dim . "#faf6ef")
+         (bg-alt . "#f7efe5")
+         (bg-hl-line . "#f4f0e3")
+         (bg-active . "#e8dfd1")
+         (bg-inactive . "#f6ece5")
+         (bg-region . "#c6bab1")
+         (bg-header . "#ede3e0")
+         (bg-tab-bar . "#dcd3d3")
+         (bg-tab-active . "#fdf6eb")
+         (bg-tab-inactive . "#c8bab8")
+         (fg-unfocused . "#55556f")))
+
+     (defvar my-modus-vivendi-overrides
+       '((bg-main . "#100b17")
+         (bg-dim . "#161129")
+         (bg-alt . "#181732")
+         (bg-hl-line . "#191628")
+         (bg-active . "#282e46")
+         (bg-inactive . "#1a1e39")
+         (bg-region . "#393a53")
+         (bg-header . "#202037")
+         (bg-tab-bar . "#262b41")
+         (bg-tab-active . "#120f18")
+         (bg-tab-inactive . "#3a3a5a")
+         (fg-unfocused . "#9a9aab")))
+
+   The first gives a slight sepia tone to ‘modus-operandi’, while the
+second adds a midnight sky feel to ‘modus-vivendi’.  Both are introduced
+without prejudice to the overarching accessibility standard of the
+themes, though users can always opt to use whatever colors they want.
+
+   Once you have your subset of colors you want to use, you can
+experiment with this little demo:
+
+     (modus-themes-with-colors
+       (let-alist (if (eq (car custom-enabled-themes) 'modus-operandi)
+                      my-modus-operandi-overrides
+                    my-modus-vivendi-overrides)
+         `(,.bg-main                  ; comma and dot read from the overrides
+           ,bg-alt                    ; comma reads from the defaults
+           ,.bg-dim)))
+     ;; => ("#fefcf4" "#f0f0f0" "#faf6ef")
+
+   As you can tell from the inline comments, we are using the dot
+operator to extract the value from the let bound alist.  While the comma
+ensures that the variable is expanded by the macro.
+
+   Once you are comfortable with this notation, you can proceed to
+customise faces.  In this example we refashion the overall presentation:
+
+     (defun my-modus-themes-custom-faces ()
+       (modus-themes-with-colors
+         (let-alist (if (eq (car custom-enabled-themes) 'modus-operandi)
+                        my-modus-operandi-overrides
+                      my-modus-vivendi-overrides)
+           (custom-set-faces
+            `(default ((t :background ,.bg-main)))
+            `(fringe ((t :background ,.bg-alt)))
+            `(region ((t :background ,.bg-region)))
+            `(hl-line ((t :background ,.bg-hl-line)))
+            `(header-line ((t :background ,.bg-header)))
+            `(tab-bar ((t :background ,.bg-tab-bar)))
+            `(mode-line ((t :background ,.bg-active)))
+            `(mode-line-inactive ((t :background ,.bg-active-inactive)))))))
+
+     (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
+
+   Please understand that you will need to identify all faces that you
+need to override, even though this should cover the general appearance.
+
+   If someone knows how to override the palette and automatically reset
+all faces to the color overrides, please work with us to make it happen.
+
+
+File: modus-themes.info,  Node: Font configs (DIY),  Next: Org user faces (DIY),  Prev: Custom coloration (DIY),  Up: Advanced customization (do-it-yourself)
+
+5.4 Font configurations for Org and others (DIY)
 ================================================
 
 The themes are designed to cope well with mixed font configurations
@@ -1326,7 +1532,7 @@ account for those finer increments.
 
 File: modus-themes.info,  Node: Org user faces (DIY),  Next: WCAG test (DIY),  Prev: Font configs (DIY),  Up: Advanced customization (do-it-yourself)
 
-5.3 Org user faces (DIY)
+5.5 Org user faces (DIY)
 ========================
 
 Users of ‘org-mode’ have the option to configure various keywords and
@@ -1395,14 +1601,15 @@ Their documentation strings will offer you further guidance.
    Recall that the themes let you retrieve a color from their palette.
 Do it if you plan to control face attributes.
 
-   *note Custom face specs using the themes’ palette: Tweak faces (DIY).
+   *note Custom face specs using the themes’ palette: Simple face tweaks
+(DIY).
 
    *note Check color combinations: WCAG test (DIY).
 
 
 File: modus-themes.info,  Node: WCAG test (DIY),  Next: Load at time (DIY),  Prev: Org user faces (DIY),  Up: Advanced customization (do-it-yourself)
 
-5.4 Check color combinations (DIY)
+5.6 Check color combinations (DIY)
 ==================================
 
 The themes provide the functions ‘modus-themes-wcag-formula’ and
@@ -1448,7 +1655,7 @@ own color combinations.
 
 File: modus-themes.info,  Node: Load at time (DIY),  Prev: WCAG test (DIY),  Up: Advanced customization (do-it-yourself)
 
-5.5 Load theme depending on time of day
+5.7 Load theme depending on time of day
 =======================================
 
 While we do provide ‘modus-themes-toggle’ to manually switch between the
@@ -2695,68 +2902,70 @@ Appendix A GNU Free Documentation License
 
 Tag Table:
 Node: Top232
-Node: Overview4433
-Node: How do the themes look like5703
-Node: Learn about the latest changes6211
-Node: Installation6593
-Node: Install from the archives7041
-Node: Install on GNU/Linux7703
-Node: Debian 11 Bullseye8151
-Node: GNU Guix8560
-Node: Enable and load8783
-Node: Load automatically9575
-Node: Toggle between the themes on demand10392
-Node: Configure options prior to loading a theme11350
-Node: Sample configuration for use-package14990
-Node: Customization Options16734
-Node: Bold constructs18716
-Node: Slanted constructs19305
-Node: Syntax styles19852
-Node: No mixed fonts21367
-Node: Link styles22378
-Node: Command prompts23357
-Node: Mode line24040
-Node: Completion UIs26563
-Node: Fringes28395
-Node: Line highlighting29055
-Node: Matching parentheses29670
-Node: Active region30553
-Node: Diffs31489
-Node: Org mode blocks33761
-Node: Org agenda habits35104
-Node: Heading styles36989
-Node: Scaled headings40657
-Node: Scaled heading sizes41243
-Node: Headings' font42817
-Node: Advanced customization (do-it-yourself)43417
-Node: Tweak faces (DIY)44581
-Node: Font configs (DIY)48787
-Ref: Font configs (DIY)-Footnote-151071
-Node: Org user faces (DIY)51258
-Node: WCAG test (DIY)54463
-Node: Load at time (DIY)56352
-Node: Face coverage57305
-Node: Supported packages57775
-Node: Indirectly covered packages64060
-Node: Notes for individual packages64515
-Node: Note on company-mode overlay pop-up65034
-Ref: Note on company-mode overlay pop-up-Footnote-165698
-Ref: Note on company-mode overlay pop-up-Footnote-265765
-Node: Note for ERC escaped color sequences65820
-Ref: Note for ERC escaped color sequences-Footnote-167253
-Node: Note for powerline or spaceline67363
-Node: Note on SHR colors67779
-Node: Note for Helm grep68189
-Node: Note on vc-annotate-background-mode69634
-Node: Note on pdf-tools link hints70523
-Node: Contributing72954
-Node: Sources of the themes73373
-Node: Issues you can help with74114
-Node: Merge requests75295
-Node: Acknowledgements77557
-Node: Meta79524
-Node: External projects (ports)81030
-Node: GNU Free Documentation License81852
+Node: Overview4588
+Node: How do the themes look like5858
+Node: Learn about the latest changes6366
+Node: Installation6748
+Node: Install from the archives7196
+Node: Install on GNU/Linux7858
+Node: Debian 11 Bullseye8306
+Node: GNU Guix8715
+Node: Enable and load8938
+Node: Load automatically9730
+Node: Toggle between the themes on demand10547
+Node: Configure options prior to loading a theme11512
+Node: Sample configuration for use-package15152
+Node: Customization Options16896
+Node: Bold constructs18878
+Node: Slanted constructs19467
+Node: Syntax styles20014
+Node: No mixed fonts21529
+Node: Link styles22540
+Node: Command prompts23519
+Node: Mode line24202
+Node: Completion UIs26725
+Node: Fringes28557
+Node: Line highlighting29217
+Node: Matching parentheses29832
+Node: Active region30715
+Node: Diffs31651
+Node: Org mode blocks33923
+Node: Org agenda habits35266
+Node: Heading styles37151
+Node: Scaled headings40819
+Node: Scaled heading sizes41405
+Node: Headings' font42979
+Node: Advanced customization (do-it-yourself)43579
+Node: Simple face tweaks (DIY)44898
+Node: Face tweaks in bulk (DIY)49306
+Node: Custom coloration (DIY)53979
+Node: Font configs (DIY)57975
+Ref: Font configs (DIY)-Footnote-160265
+Node: Org user faces (DIY)60452
+Node: WCAG test (DIY)63664
+Node: Load at time (DIY)65553
+Node: Face coverage66506
+Node: Supported packages66976
+Node: Indirectly covered packages73261
+Node: Notes for individual packages73716
+Node: Note on company-mode overlay pop-up74235
+Ref: Note on company-mode overlay pop-up-Footnote-174899
+Ref: Note on company-mode overlay pop-up-Footnote-274966
+Node: Note for ERC escaped color sequences75021
+Ref: Note for ERC escaped color sequences-Footnote-176454
+Node: Note for powerline or spaceline76564
+Node: Note on SHR colors76980
+Node: Note for Helm grep77390
+Node: Note on vc-annotate-background-mode78835
+Node: Note on pdf-tools link hints79724
+Node: Contributing82155
+Node: Sources of the themes82574
+Node: Issues you can help with83315
+Node: Merge requests84496
+Node: Acknowledgements86758
+Node: Meta88725
+Node: External projects (ports)90231
+Node: GNU Free Documentation License91053
 
 End Tag Table
 

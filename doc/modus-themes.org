@@ -1044,7 +1044,6 @@ With a non-nil value (=t=) apply a proportionately spaced typeface, else
 
 * Advanced customization (do-it-yourself)
 :PROPERTIES:
-:INDEX: cp
 :CUSTOM_ID: h:f4651d55-8c07-46aa-b52b-bed1e53463bb
 :END:
 
@@ -1058,12 +1057,15 @@ their own local tweaks and who are willing to deal with any possible
 incompatibilities between versioned releases of the themes.  As such,
 they are labelled as "do-it-yourself" or "DIY".
 
-** Custom face specs using the themes' palette (DIY)
+** Case-by-case face specs using the themes' palette (DIY)
 :PROPERTIES:
-:ALT_TITLE: Tweak faces (DIY)
-:DESCRIPTION: Declare your own face specs
+:ALT_TITLE: Simple face tweaks (DIY)
+:DESCRIPTION: Declare your own face specs case-by-case
 :CUSTOM_ID: h:1487c631-f4fe-490d-8d58-d72ffa3bd474
 :END:
+
+This section is about tweaking individual faces.  If you plan to do
+things at scale, consult the next section ([[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Set multiple faces (DIY)]]).
 
 We already covered in previous sections how to toggle between the themes
 and how to configure options prior to loading.  We also explained that
@@ -1159,6 +1161,214 @@ Take the previous example with the =cursor= face:
 ;; Blue for `modus-operandi' and red for `modus-vivendi'
 (set-face-attribute 'cursor nil :background (modus-themes-color-alts 'blue 'red))
 #+end_src
+
+** Face specs at scale using the themes' palette (DIY)
+:PROPERTIES:
+:ALT_TITLE: Face tweaks in bulk (DIY)
+:DESCRIPTION: Declare your own face specs at scale
+:CUSTOM_ID: h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae
+:END:
+
+NOTE: Coming in version =1.1.0= of the themes.  The macro is courtesy of
+Nicolas De Jaeghere.
+
+The examples here are for large scale operations.  For simple, one-off
+tweaks, you may prefer the approach documented in the previous section
+([[#h:1487c631-f4fe-490d-8d58-d72ffa3bd474][Case-by-case face specs using the themes' palette (DIY)]]).
+
+The =modus-themes-with-colors= macro lets you retrieve multiple color
+values by employing the backquote/backtick and comma notation.  The
+values are stored in the alists =modus-themes-colors-operandi= and
+=modus-themes-colors-vivendi=, while the macro always queries that of the
+active Modus theme.
+
+Here is an abstract example that just returns a list of color values
+while =modus-operandi= is enabled:
+
+#+begin_src emacs-lisp
+(modus-themes-with-colors
+  `(,fg-main
+    ,blue-faint
+    ,magenta
+    ,magenta-alt-other
+    ,cyan-alt-other
+    ,fg-special-cold
+    ,blue-alt
+    ,magenta-faint
+    ,cyan
+    ,fg-main
+    ,green-faint
+    ,red-alt-faint
+    ,blue-alt-faint
+    ,fg-special-warm
+    ,cyan-alt
+    ,blue))
+;; =>
+;; ("#000000" "#002f88" "#721045" "#5317ac"
+;;  "#005a5f" "#093060" "#2544bb" "#752f50"
+;;  "#00538b" "#000000" "#104410" "#702f00"
+;;  "#003f78" "#5d3026" "#30517f" "#0031a9")
+#+end_src
+
+Getting a list of colors may have its applications, though what you are
+most likely interested in is how to use those variables to configure
+several faces at once.  To do so we can rely on the built-in
+=custom-set-faces= function, which sets face specifications for the
+special =user= theme.  That "theme" gets applied on top of regular themes
+like =modus-operandi= and =modus-vivendi=.
+
+This is how it works:
+
+#+begin_src emacs-lisp
+(modus-themes-with-colors
+  (custom-set-faces
+   `(cursor ((t :background ,blue)))
+   `(mode-line ((t :inherit variable-pitch :background ,yellow-nuanced-bg)))
+   `(mode-line-inactive ((t :inherit variable-pitch :background ,blue-nuanced-bg)))
+   `(line-number ((t :background unspecified :foreground ,fg-unfocused)))
+   `(line-number-current-line ((t :background unspecified :foreground ,red-alt-other)))))
+#+end_src
+
+We are showing some uses of =:inherit= and of the special =unspecified=
+value so that you can appreciate how a theme can be written.  Otherwise
+you can identify the color variables by the comma prefixed to them.
+
+The above snippet will immediately refashion the faces it names once it
+is evaluated.  However, if you switch themes, say, from =modus-operandi=
+to =modus-vivendi=, the colors will not get updated to match those of the
+new theme.  To make things work across themes, we need to employ the
+same technique we discussed in the previous section, namely, to pass our
+changes at the post-theme-load phase via a hook.
+
+The themes provide the =modus-themes-after-load-theme-hook=, which gets
+called from =modus-themes-load-operandi=, =modus-themes-load-vivendi=, as
+well as the command =modus-themes-toggle=.  With this knowledge, you can
+wrap the macro in a function and then assign that function to the hook.
+Thus:
+
+#+begin_src emacs-lisp
+(defun my-modus-themes-custom-faces ()
+  (modus-themes-with-colors
+    (custom-set-faces
+     `(cursor ((t :background ,blue)))
+     `(mode-line ((t :inherit variable-pitch :background ,yellow-nuanced-bg)))
+     `(mode-line-inactive ((t :inherit variable-pitch :background ,blue-nuanced-bg)))
+     `(line-number ((t :background unspecified :foreground ,fg-unfocused)))
+     `(line-number-current-line ((t :background unspecified :foreground ,red-alt-other))))))
+
+(add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
+#+end_src
+
+To discover the faces defined by all loaded libraries, you may invoke
+=M-x list-faces-display=.  Be warned that when you =:inherit= a face you are
+introducing an implicit dependency, so try to avoid doing so for
+libraries other than the built-in =faces.el= (or at least understand that
+things may break if you inherit from a yet-to-be-loaded face).
+
+Also bear in mind that these examples are meant to work with the Modus
+themes.  If you are cycling between multiple themes you may encounter
+unforeseen issues, such as the colors of the Modus themes being applied
+to a non-Modus item.
+
+** Override theme colors (DIY)
+:PROPERTIES:
+:ALT_TITLE: Custom coloration (DIY)
+:DESCRIPTION: Declare your own colors for face specs
+:CUSTOM_ID: h:307d95dd-8dbd-4ece-a543-10ae86f155a6
+:END:
+
+This section assumes that you are already familiar with the
+=modus-themes-with-colors= macro and understand how to make best use of
+it ([[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Face specs at scale using the themes' palette (DIY)]]).
+
+While you may like the overall aesthetics of the Modus themes, chances
+are that you find something that does not align with your needs.  For
+example, you do not want a pure white/black background but some slightly
+tinted alternative.  To make this happen, you need to define overrides
+for color variables and then assign them to the relevant faces.
+
+This is a pair of palette alternatives:
+
+#+begin_src emacs-lisp
+(defvar my-modus-operandi-overrides
+  '((bg-main . "#fefcf4")
+    (bg-dim . "#faf6ef")
+    (bg-alt . "#f7efe5")
+    (bg-hl-line . "#f4f0e3")
+    (bg-active . "#e8dfd1")
+    (bg-inactive . "#f6ece5")
+    (bg-region . "#c6bab1")
+    (bg-header . "#ede3e0")
+    (bg-tab-bar . "#dcd3d3")
+    (bg-tab-active . "#fdf6eb")
+    (bg-tab-inactive . "#c8bab8")
+    (fg-unfocused . "#55556f")))
+
+(defvar my-modus-vivendi-overrides
+  '((bg-main . "#100b17")
+    (bg-dim . "#161129")
+    (bg-alt . "#181732")
+    (bg-hl-line . "#191628")
+    (bg-active . "#282e46")
+    (bg-inactive . "#1a1e39")
+    (bg-region . "#393a53")
+    (bg-header . "#202037")
+    (bg-tab-bar . "#262b41")
+    (bg-tab-active . "#120f18")
+    (bg-tab-inactive . "#3a3a5a")
+    (fg-unfocused . "#9a9aab")))
+#+end_src
+
+The first gives a slight sepia tone to =modus-operandi=, while the second
+adds a midnight sky feel to =modus-vivendi=.  Both are introduced without
+prejudice to the overarching accessibility standard of the themes,
+though users can always opt to use whatever colors they want.
+
+Once you have your subset of colors you want to use, you can experiment
+with this little demo:
+
+#+begin_src emacs-lisp
+(modus-themes-with-colors
+  (let-alist (if (eq (car custom-enabled-themes) 'modus-operandi)
+                 my-modus-operandi-overrides
+               my-modus-vivendi-overrides)
+    `(,.bg-main                  ; comma and dot read from the overrides
+      ,bg-alt                    ; comma reads from the defaults
+      ,.bg-dim)))
+;; => ("#fefcf4" "#f0f0f0" "#faf6ef")
+#+end_src
+
+As you can tell from the inline comments, we are using the dot operator
+to extract the value from the let bound alist.  While the comma ensures
+that the variable is expanded by the macro.
+
+Once you are comfortable with this notation, you can proceed to
+customise faces.  In this example we refashion the overall presentation:
+
+#+begin_src emacs-lisp
+(defun my-modus-themes-custom-faces ()
+  (modus-themes-with-colors
+    (let-alist (if (eq (car custom-enabled-themes) 'modus-operandi)
+                   my-modus-operandi-overrides
+                 my-modus-vivendi-overrides)
+      (custom-set-faces
+       `(default ((t :background ,.bg-main)))
+       `(fringe ((t :background ,.bg-alt)))
+       `(region ((t :background ,.bg-region)))
+       `(hl-line ((t :background ,.bg-hl-line)))
+       `(header-line ((t :background ,.bg-header)))
+       `(tab-bar ((t :background ,.bg-tab-bar)))
+       `(mode-line ((t :background ,.bg-active)))
+       `(mode-line-inactive ((t :background ,.bg-active-inactive)))))))
+
+(add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
+#+end_src
+
+Please understand that you will need to identify all faces that you need
+to override, even though this should cover the general appearance.
+
+If someone knows how to override the palette and automatically reset all
+faces to the color overrides, please work with us to make it happen.
 
 ** Font configurations for Org and others (DIY)
 :PROPERTIES:
