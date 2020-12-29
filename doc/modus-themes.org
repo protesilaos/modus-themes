@@ -1277,9 +1277,9 @@ the previous section.  Adapt the above example like this:
 #+begin_src emacs-lisp
 ...
 (modus-themes-with-colors
-    (custom-set-faces
-     `(cursor ((,class :background ,(modus-themes-color-alts 'blue 'green))))
-     ...))
+  (custom-set-faces
+   `(cursor ((,class :background ,(modus-themes-color-alts 'blue 'green))))
+   ...))
 #+end_src
 
 ** Override theme colors (DIY)

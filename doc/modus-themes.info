@@ -1387,9 +1387,9 @@ the previous section.  Adapt the above example like this:
 
      ...
      (modus-themes-with-colors
-         (custom-set-faces
-          `(cursor ((,class :background ,(modus-themes-color-alts 'blue 'green))))
-          ...))
+       (custom-set-faces
+        `(cursor ((,class :background ,(modus-themes-color-alts 'blue 'green))))
+        ...))
 
 
 File: modus-themes.info,  Node: Custom coloration (DIY),  Next: Font configs (DIY),  Prev: Face tweaks in bulk (DIY),  Up: Advanced customization (do-it-yourself)
