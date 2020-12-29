@@ -1873,15 +1873,15 @@ Both arguments must reference the car of a cons cell in
       (_ (error "'%s' not a Modus theme; check `custom-enabled-themes'" theme)))))
 
 (defmacro modus-themes-with-colors (&rest body)
-  "Evaluate BODY with colors from appropriate pallet bound.
+  "Evaluate BODY with colors from appropriate palette bound.
 For colors bound, see `modus-themes-colors-operandi' or
 `modus-themes-colors-vivendi'."
   (declare (indent 0))
-  (let ((pallet-sym (gensym))
+  (let ((palette-sym (gensym))
         (colors (mapcar #'car modus-themes-colors-operandi)))
-    `(let* ((,pallet-sym (modus-themes--active-theme))
+    `(let* ((,palette-sym (modus-themes--active-theme))
             ,@(mapcar (lambda (color)
-                        (list color `(alist-get ',color ,pallet-sym)))
+                        (list color `(alist-get ',color ,palette-sym)))
                       colors))
        ,@body)))
 
