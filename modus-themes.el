@@ -450,6 +450,18 @@
 (defface modus-theme-bold nil nil)
 (defface modus-theme-slant nil nil)
 (defface modus-theme-variable-pitch nil nil)
+(defface modus-theme-graph-red-0 nil nil)
+(defface modus-theme-graph-red-1 nil nil)
+(defface modus-theme-graph-green-0 nil nil)
+(defface modus-theme-graph-green-1 nil nil)
+(defface modus-theme-graph-yellow-0 nil nil)
+(defface modus-theme-graph-yellow-1 nil nil)
+(defface modus-theme-graph-blue-0 nil nil)
+(defface modus-theme-graph-blue-1 nil nil)
+(defface modus-theme-graph-magenta-0 nil nil)
+(defface modus-theme-graph-magenta-1 nil nil)
+(defface modus-theme-graph-cyan-0 nil nil)
+(defface modus-theme-graph-cyan-1 nil nil)
 
 
 
@@ -2086,6 +2098,19 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(modus-theme-heading-8
       ((,class ,@(modus-themes--heading
                   8 fg-dim magenta bg-alt bg-region))))
+;;;;; graph-specific faces
+    `(modus-theme-graph-red-0 ((,class :background ,red-graph-0-bg)))
+    `(modus-theme-graph-red-1 ((,class :background ,red-graph-1-bg)))
+    `(modus-theme-graph-green-0 ((,class :background ,green-graph-0-bg)))
+    `(modus-theme-graph-green-1 ((,class :background ,green-graph-1-bg)))
+    `(modus-theme-graph-yellow-0 ((,class :background ,yellow-graph-0-bg)))
+    `(modus-theme-graph-yellow-1 ((,class :background ,yellow-graph-1-bg)))
+    `(modus-theme-graph-blue-0 ((,class :background ,blue-graph-0-bg)))
+    `(modus-theme-graph-blue-1 ((,class :background ,blue-graph-1-bg)))
+    `(modus-theme-graph-magenta-0 ((,class :background ,magenta-graph-0-bg)))
+    `(modus-theme-graph-magenta-1 ((,class :background ,magenta-graph-1-bg)))
+    `(modus-theme-graph-cyan-0 ((,class :background ,cyan-graph-0-bg)))
+    `(modus-theme-graph-cyan-1 ((,class :background ,cyan-graph-1-bg)))
 ;;;;; other custom faces
     `(modus-theme-bold ((,class ,@(modus-themes--bold-weight))))
     `(modus-theme-hl-line ((,class :background ,(if modus-themes-intense-hl-line

@@ -27,7 +27,7 @@ provides every other piece of information pertinent to them.
    The documentation furnished herein corresponds to version 1.0.2,
 released on 2020-12-06.  Any reference to a newer feature which does not
 yet form part of the latest tagged commit, is explicitly marked as such.
-Current build was done on 2020-12-30 11:21 +0200.
+Current build was done on 2020-12-30 11:39 +0200.
 
 * Menu:
 
@@ -2457,19 +2457,19 @@ Contributions to code or documentation
 Ideas and user feedback
      Aaron Jensen, Adam Spiers, Alex Griffin, Alex Peitsinis, Alexey
      Shmalko, Alok Singh, Anders Johansson, André Alexandre Gomes, Arif
-     Rezai, Basil L.  Contovounesios, Christopher Dimech, Damien Cassou,
-     Daniel Mendler, Dario Gjorgjevski, David Edmondson, Davor Rotim,
-     Divan Santana, Gerry Agbobada, Gianluca Recchia, Gustavo Barros,
-     Hörmetjan Yiltiz, Ilja Kocken, Iris Garcia, Jeremy Friesen, John
-     Haman, Len Trigg, Manuel Uberti, Mark Burton, Markus Beppler,
-     Michael Goldenberg, Murilo Pereira, Nicolas De Jaeghere, Paul
-     Poloskov, Pete Kazmier, Peter Wu, Pierre Téchoueyres, Roman
-     Rudakov, Ryan Phillips, Shreyas Ragavan, Simon Pugnet, Tassilo
-     Horn, Thibaut Verron, Trey Merkley, Togan Muftuoglu, Uri Sharf,
-     Utkarsh Singh, Vincent Foley.  As well as users: Ben,
-     CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji,
-     Nick, TheBlob42, bepolymathe, dinko, doolio, fleimgruber, iSeeU,
-     jixiuf, okamsn, tycho garen.
+     Rezai, Basil L.  Contovounesios, Christian Tietze, Christopher
+     Dimech, Damien Cassou, Daniel Mendler, Dario Gjorgjevski, David
+     Edmondson, Davor Rotim, Divan Santana, Gerry Agbobada, Gianluca
+     Recchia, Gustavo Barros, Hörmetjan Yiltiz, Ilja Kocken, Iris
+     Garcia, Jeremy Friesen, John Haman, Len Trigg, Manuel Uberti, Mark
+     Burton, Markus Beppler, Michael Goldenberg, Murilo Pereira, Nicolas
+     De Jaeghere, Paul Poloskov, Pete Kazmier, Peter Wu, Pierre
+     Téchoueyres, Roman Rudakov, Ryan Phillips, Shreyas Ragavan, Simon
+     Pugnet, Tassilo Horn, Thibaut Verron, Trey Merkley, Togan
+     Muftuoglu, Uri Sharf, Utkarsh Singh, Vincent Foley.  As well as
+     users: Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux,
+     Fredrik, Moesasji, Nick, TheBlob42, bepolymathe, dinko, doolio,
+     fleimgruber, iSeeU, jixiuf, okamsn, tycho garen.
 
 Packaging
      André Alexandre Gomes and Guix maintainers (Guix), Dhavan Vaidya
@@ -3067,9 +3067,9 @@ Node: Sources of the themes85981
 Node: Issues you can help with86722
 Node: Merge requests87903
 Node: Acknowledgements90165
-Node: Meta92132
-Node: External projects (ports)93799
-Node: GNU Free Documentation License94621
+Node: Meta92150
+Node: External projects (ports)93817
+Node: GNU Free Documentation License94639
 
 End Tag Table
 
