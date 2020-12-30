@@ -1229,12 +1229,17 @@ This is how it works:
 
 #+begin_src emacs-lisp
 (modus-themes-with-colors
-  (custom-set-faces
-   `(cursor ((,class :background ,blue)))
-   `(mode-line ((,class :inherit variable-pitch :background ,yellow-nuanced-bg)))
-   `(mode-line-inactive ((,class :inherit variable-pitch :background ,blue-nuanced-bg)))
-   `(line-number ((,class :background unspecified :foreground ,fg-unfocused)))
-   `(line-number-current-line ((,class :background unspecified :foreground ,red-alt-other)))))
+    (custom-set-faces
+     `(cursor ((,class :background ,blue)))
+     `(mode-line ((,class :inherit variable-pitch
+                          :background ,yellow-nuanced-bg
+                          :foreground ,yellow-nuanced-fg)))
+     `(mode-line-inactive ((,class :inherit variable-pitch
+                                   :background ,blue-nuanced-bg
+                                   :foreground ,blue-nuanced-fg)))
+     `(line-number ((,class :background unspecified :foreground ,fg-unfocused)))
+     `(line-number-current-line ((,class :background unspecified
+                                         :foreground ,red-alt-other)))))
 #+end_src
 
 We are showing some uses of =:inherit= and of the special =unspecified=
@@ -1259,10 +1264,15 @@ Thus:
   (modus-themes-with-colors
     (custom-set-faces
      `(cursor ((,class :background ,blue)))
-     `(mode-line ((,class :inherit variable-pitch :background ,yellow-nuanced-bg)))
-     `(mode-line-inactive ((,class :inherit variable-pitch :background ,blue-nuanced-bg)))
+     `(mode-line ((,class :inherit variable-pitch
+                          :background ,yellow-nuanced-bg
+                          :foreground ,yellow-nuanced-fg)))
+     `(mode-line-inactive ((,class :inherit variable-pitch
+                                   :background ,blue-nuanced-bg
+                                   :foreground ,blue-nuanced-fg)))
      `(line-number ((,class :background unspecified :foreground ,fg-unfocused)))
-     `(line-number-current-line ((,class :background unspecified :foreground ,red-alt-other))))))
+     `(line-number-current-line ((,class :background unspecified
+                                         :foreground ,red-alt-other))))))
 
 (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
 #+end_src

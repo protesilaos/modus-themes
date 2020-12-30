@@ -27,7 +27,7 @@ provides every other piece of information pertinent to them.
    The documentation furnished herein corresponds to version 1.0.2,
 released on 2020-12-06.  Any reference to a newer feature which does not
 yet form part of the latest tagged commit, is explicitly marked as such.
-Current build was done on 2020-12-30 11:39 +0200.
+Current build was done on 2020-12-30 13:03 +0200.
 
 * Menu:
 
@@ -1336,12 +1336,17 @@ themes like ‘modus-operandi’ and ‘modus-vivendi’.
    This is how it works:
 
      (modus-themes-with-colors
-       (custom-set-faces
-        `(cursor ((,class :background ,blue)))
-        `(mode-line ((,class :inherit variable-pitch :background ,yellow-nuanced-bg)))
-        `(mode-line-inactive ((,class :inherit variable-pitch :background ,blue-nuanced-bg)))
-        `(line-number ((,class :background unspecified :foreground ,fg-unfocused)))
-        `(line-number-current-line ((,class :background unspecified :foreground ,red-alt-other)))))
+         (custom-set-faces
+          `(cursor ((,class :background ,blue)))
+          `(mode-line ((,class :inherit variable-pitch
+                               :background ,yellow-nuanced-bg
+                               :foreground ,yellow-nuanced-fg)))
+          `(mode-line-inactive ((,class :inherit variable-pitch
+                                        :background ,blue-nuanced-bg
+                                        :foreground ,blue-nuanced-fg)))
+          `(line-number ((,class :background unspecified :foreground ,fg-unfocused)))
+          `(line-number-current-line ((,class :background unspecified
+                                              :foreground ,red-alt-other)))))
 
    We are showing some uses of ‘:inherit’ and of the special
 ‘unspecified’ value so that you can appreciate how a theme can be
@@ -1365,10 +1370,15 @@ function and then assign that function to the hook.  Thus:
        (modus-themes-with-colors
          (custom-set-faces
           `(cursor ((,class :background ,blue)))
-          `(mode-line ((,class :inherit variable-pitch :background ,yellow-nuanced-bg)))
-          `(mode-line-inactive ((,class :inherit variable-pitch :background ,blue-nuanced-bg)))
+          `(mode-line ((,class :inherit variable-pitch
+                               :background ,yellow-nuanced-bg
+                               :foreground ,yellow-nuanced-fg)))
+          `(mode-line-inactive ((,class :inherit variable-pitch
+                                        :background ,blue-nuanced-bg
+                                        :foreground ,blue-nuanced-fg)))
           `(line-number ((,class :background unspecified :foreground ,fg-unfocused)))
-          `(line-number-current-line ((,class :background unspecified :foreground ,red-alt-other))))))
+          `(line-number-current-line ((,class :background unspecified
+                                              :foreground ,red-alt-other))))))
 
      (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
 
@@ -3041,35 +3051,35 @@ Node: Headings' font43045
 Node: Advanced customization (do-it-yourself)43645
 Node: Simple face tweaks (DIY)44964
 Node: Face tweaks in bulk (DIY)49366
-Node: Custom coloration (DIY)54453
-Node: Font configs (DIY)58483
-Ref: Font configs (DIY)-Footnote-160773
-Node: Org user faces (DIY)60960
-Node: WCAG test (DIY)64172
-Node: Load at time (DIY)66061
-Node: Face coverage67014
-Node: Supported packages67484
-Node: Indirectly covered packages73829
-Node: Notes for individual packages74284
-Node: Note for prism74822
-Node: Note on company-mode overlay pop-up77619
-Ref: Note on company-mode overlay pop-up-Footnote-178306
-Ref: Note on company-mode overlay pop-up-Footnote-278373
-Node: Note for ERC escaped color sequences78428
-Ref: Note for ERC escaped color sequences-Footnote-179861
-Node: Note for powerline or spaceline79971
-Node: Note on SHR colors80387
-Node: Note for Helm grep80797
-Node: Note on vc-annotate-background-mode82242
-Node: Note on pdf-tools link hints83131
-Node: Contributing85562
-Node: Sources of the themes85981
-Node: Issues you can help with86722
-Node: Merge requests87903
-Node: Acknowledgements90165
-Node: Meta92150
-Node: External projects (ports)93817
-Node: GNU Free Documentation License94639
+Node: Custom coloration (DIY)54961
+Node: Font configs (DIY)58991
+Ref: Font configs (DIY)-Footnote-161281
+Node: Org user faces (DIY)61468
+Node: WCAG test (DIY)64680
+Node: Load at time (DIY)66569
+Node: Face coverage67522
+Node: Supported packages67992
+Node: Indirectly covered packages74337
+Node: Notes for individual packages74792
+Node: Note for prism75330
+Node: Note on company-mode overlay pop-up78127
+Ref: Note on company-mode overlay pop-up-Footnote-178814
+Ref: Note on company-mode overlay pop-up-Footnote-278881
+Node: Note for ERC escaped color sequences78936
+Ref: Note for ERC escaped color sequences-Footnote-180369
+Node: Note for powerline or spaceline80479
+Node: Note on SHR colors80895
+Node: Note for Helm grep81305
+Node: Note on vc-annotate-background-mode82750
+Node: Note on pdf-tools link hints83639
+Node: Contributing86070
+Node: Sources of the themes86489
+Node: Issues you can help with87230
+Node: Merge requests88411
+Node: Acknowledgements90673
+Node: Meta92658
+Node: External projects (ports)94325
+Node: GNU Free Documentation License95147
 
 End Tag Table
 
