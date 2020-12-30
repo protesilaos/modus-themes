@@ -1,12 +1,15 @@
 #+TITLE: Modus themes for GNU Emacs
 #+AUTHOR: Protesilaos Stavrou
 #+EMAIL: info@protesilaos.com
+#+LANGUAGE: en
+#+TEXINFO_FILENAME: modus-themes.info
 #+TEXINFO_DIR_CATEGORY: Emacs misc features
 #+TEXINFO_DIR_TITLE: Modus Themes: (modus-themes)
 #+TEXINFO_DIR_DESC: Highly accessible themes (WCAG AAA)
 #+OPTIONS: ':t toc:nil author:t email:t
 #+MACRO: version-tag 1.0.2
 #+MACRO: release-date 2020-12-06
+#+MACRO: export-date (eval (format-time-string "%F %R %z" (current-time)))
 
 This manual, written by Protesilaos Stavrou, describes the customization
 options for the =modus-operandi= and =modus-vivendi= themes, and provides
@@ -15,9 +18,16 @@ every other piece of information pertinent to them.
 The documentation furnished herein corresponds to version {{{version-tag}}},
 released on {{{release-date}}}.  Any reference to a newer feature which does
 not yet form part of the latest tagged commit, is explicitly marked as
-such.
+such.  Current build was done on {{{export-date}}}.
 
-Copyright (C) 2020 Free Software Foundation, Inc.
+#+TOC: headlines 8 insert TOC here, with eight headline levels
+
+* COPYING
+:PROPERTIES:
+:COPYING: t
+:END:
+
+Copyright (C) 2020  Free Software Foundation, Inc.
 
 #+begin_quote
 Permission is granted to copy, distribute and/or modify this
@@ -26,8 +36,6 @@ Version 1.3 or any later version published by the Free Software
 Foundation; with no Invariant Sections, with no Front-Cover Texts,
 and with no Back-Cover Texts.
 #+end_quote
-
-#+TOC: headlines 8 insert TOC here, with eight headline levels
 
 * Overview
 :PROPERTIES:
