@@ -27,7 +27,7 @@ provides every other piece of information pertinent to them.
    The documentation furnished herein corresponds to version 1.0.2,
 released on 2020-12-06.  Any reference to a newer feature which does not
 yet form part of the latest tagged commit, is explicitly marked as such.
-Current build was done on 2020-12-30 07:21 +0200.
+Current build was done on 2020-12-30 11:21 +0200.
 
 * Menu:
 
@@ -110,6 +110,7 @@ Face coverage
 
 Notes for individual packages
 
+* Note for prism::
 * Note on company-mode overlay pop-up::
 * Note for ERC escaped color sequences::
 * Note for powerline or spaceline::
@@ -1931,6 +1932,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • popup
    • powerline
    • powerline-evil
+   • prism (see *note Note for prism.el: Note for prism.)
    • proced
    • prodigy
    • racket-mode
@@ -2038,6 +2040,7 @@ individual packages.
 
 * Menu:
 
+* Note for prism::
 * Note on company-mode overlay pop-up::
 * Note for ERC escaped color sequences::
 * Note for powerline or spaceline::
@@ -2047,9 +2050,95 @@ individual packages.
 * Note on pdf-tools link hints::
 
 
-File: modus-themes.info,  Node: Note on company-mode overlay pop-up,  Next: Note for ERC escaped color sequences,  Up: Notes for individual packages
+File: modus-themes.info,  Node: Note for prism,  Next: Note on company-mode overlay pop-up,  Up: Notes for individual packages
 
-7.1 Note on company-mode overlay pop-up
+7.1 Note for prism.el
+=====================
+
+This library by Adam Porter, aka “alphapapa” or “github-alphapapa”,
+implements an alternative to the typical coloration of code.  Instead of
+highligting the syntactic constructs, it applies color to different
+levels of depth in the code.
+
+   As ‘prism.el’ is highly configurable, we cannot style it directly at
+the theme level.  Instead, we may offer sample presets.  Those should
+offer a starting point for users to adapt to their needs.
+
+   In the following code snippets, we employ the
+‘modus-themes-with-colors’ macro (see *note Face specs at scale using
+the themes’ palette: Face tweaks in bulk (DIY).).
+
+   With 16 colors:
+
+     (setq prism-num-faces 16)
+
+     (prism-set-colors
+       :desaturations '(0) ; may lower the contrast ratio
+       :lightens '(0)      ; same
+       :colors (modus-themes-with-colors
+                 `(,fg-main
+                   ,magenta
+                   ,cyan-alt-other
+                   ,magenta-alt-other
+                   ,blue
+                   ,magenta-alt
+                   ,cyan-alt
+                   ,red-alt-other
+                   ,green
+                   ,fg-main
+                   ,cyan
+                   ,yellow
+                   ,blue-alt
+                   ,red-alt
+                   ,green-alt-other
+                   ,fg-special-warm)))
+
+   With 8 colors:
+
+     (setq prism-num-faces 8)
+
+     (prism-set-colors
+       :desaturations '(0) ; may lower the contrast ratio
+       :lightens '(0)      ; same
+       :colors (modus-themes-with-colors
+                 `(,fg-special-cold
+                   ,magenta
+                   ,magenta-alt-other
+                   ,cyan-alt-other
+                   ,fg-main
+                   ,blue-alt
+                   ,red-alt-other
+                   ,cyan)))
+
+   With 4 colors (the closest to the themes’ default):
+
+     (setq prism-num-faces 4)
+
+     (prism-set-colors
+       :desaturations '(0) ; may lower the contrast ratio
+       :lightens '(0)      ; same
+       :colors (modus-themes-with-colors
+                 `(,fg-main
+                   ,cyan-alt-other
+                   ,magenta-alt-other
+                   ,magenta)))
+
+   If you need to apply desaturation and ligthening, you can use what
+the prism.el documentation recommends, like this:
+
+     (prism-set-colors
+       :desaturations (cl-loop for i from 0 below 16 collect (* i 2.5))
+       :lightens (cl-loop for i from 0 below 16 collect (* i 2.5))
+       :colors (modus-themes-with-colors
+                 `(,fg-main
+                   ,cyan-alt-other
+                   ,magenta-alt-other
+                   ,magenta)))
+
+
+File: modus-themes.info,  Node: Note on company-mode overlay pop-up,  Next: Note for ERC escaped color sequences,  Prev: Note for prism,  Up: Notes for individual packages
+
+7.2 Note on company-mode overlay pop-up
 =======================================
 
 By default, the ‘company-mode’ pop-up that lists completion candidates
@@ -2070,7 +2159,7 @@ instead of overlays.(1)(2)
 
 File: modus-themes.info,  Node: Note for ERC escaped color sequences,  Next: Note for powerline or spaceline,  Prev: Note on company-mode overlay pop-up,  Up: Notes for individual packages
 
-7.2 Note for ERC escaped color sequences
+7.3 Note for ERC escaped color sequences
 ========================================
 
 The built-in IRC client ‘erc’ has the ability to colorise any text using
@@ -2108,7 +2197,7 @@ Emacs: <https://www.mirc.com/colors.html>
 
 File: modus-themes.info,  Node: Note for powerline or spaceline,  Next: Note on SHR colors,  Prev: Note for ERC escaped color sequences,  Up: Notes for individual packages
 
-7.3 Note for powerline or spaceline
+7.4 Note for powerline or spaceline
 ===================================
 
 Both Powerline and Spaceline package users will likely need to use the
@@ -2118,7 +2207,7 @@ and/or modeline setup.
 
 File: modus-themes.info,  Node: Note on SHR colors,  Next: Note for Helm grep,  Prev: Note for powerline or spaceline,  Up: Notes for individual packages
 
-7.4 Note on SHR colors
+7.5 Note on SHR colors
 ======================
 
 Emacs’ HTML rendering library (‘shr.el’) may need explicit configuration
@@ -2128,7 +2217,7 @@ webpage provides.  Consult ‘C-h v shr-use-colors’.
 
 File: modus-themes.info,  Node: Note for Helm grep,  Next: Note on vc-annotate-background-mode,  Prev: Note on SHR colors,  Up: Notes for individual packages
 
-7.5 Note for Helm grep
+7.6 Note for Helm grep
 ======================
 
 There is one face from the Helm package that is meant to highlight the
@@ -2158,7 +2247,7 @@ ANSI color number 1 (red) from the already-supported array of
 
 File: modus-themes.info,  Node: Note on vc-annotate-background-mode,  Next: Note on pdf-tools link hints,  Prev: Note for Helm grep,  Up: Notes for individual packages
 
-7.6 Note on vc-annotate-background-mode
+7.7 Note on vc-annotate-background-mode
 =======================================
 
 Due to the unique way ‘vc-annotate’ (‘C-x v g’) applies colors, support
@@ -2177,7 +2266,7 @@ report as much or send patches (see *note Contributing::).
 
 File: modus-themes.info,  Node: Note on pdf-tools link hints,  Prev: Note on vc-annotate-background-mode,  Up: Notes for individual packages
 
-7.7 Note on pdf-tools link hints
+7.8 Note on pdf-tools link hints
 ================================
 
 Hints are drawn by ImageMagick (https://imagemagick.org/), not Emacs,
@@ -2916,70 +3005,71 @@ Appendix A GNU Free Documentation License
 
 Tag Table:
 Node: Top595
-Node: Overview4635
-Node: How do the themes look like5905
-Node: Learn about the latest changes6413
-Node: Installation6795
-Node: Install from the archives7243
-Node: Install on GNU/Linux7905
-Node: Debian 11 Bullseye8353
-Node: GNU Guix8762
-Node: Enable and load8985
-Node: Load automatically9777
-Node: Toggle between the themes on demand10594
-Node: Configure options prior to loading a theme11559
-Node: Sample configuration for use-package15199
-Node: Customization Options16943
-Node: Bold constructs18925
-Node: Slanted constructs19514
-Node: Syntax styles20061
-Node: No mixed fonts21576
-Node: Link styles22587
-Node: Command prompts23566
-Node: Mode line24249
-Node: Completion UIs26772
-Node: Fringes28604
-Node: Line highlighting29264
-Node: Matching parentheses29879
-Node: Active region30762
-Node: Diffs31698
-Node: Org mode blocks33970
-Node: Org agenda habits35313
-Node: Heading styles37198
-Node: Scaled headings40866
-Node: Scaled heading sizes41452
-Node: Headings' font43026
-Node: Advanced customization (do-it-yourself)43626
-Node: Simple face tweaks (DIY)44945
-Node: Face tweaks in bulk (DIY)49347
-Node: Custom coloration (DIY)54434
-Node: Font configs (DIY)58464
-Ref: Font configs (DIY)-Footnote-160754
-Node: Org user faces (DIY)60941
-Node: WCAG test (DIY)64153
-Node: Load at time (DIY)66042
-Node: Face coverage66995
-Node: Supported packages67465
-Node: Indirectly covered packages73750
-Node: Notes for individual packages74205
-Node: Note on company-mode overlay pop-up74724
-Ref: Note on company-mode overlay pop-up-Footnote-175388
-Ref: Note on company-mode overlay pop-up-Footnote-275455
-Node: Note for ERC escaped color sequences75510
-Ref: Note for ERC escaped color sequences-Footnote-176943
-Node: Note for powerline or spaceline77053
-Node: Note on SHR colors77469
-Node: Note for Helm grep77879
-Node: Note on vc-annotate-background-mode79324
-Node: Note on pdf-tools link hints80213
-Node: Contributing82644
-Node: Sources of the themes83063
-Node: Issues you can help with83804
-Node: Merge requests84985
-Node: Acknowledgements87247
-Node: Meta89214
-Node: External projects (ports)90881
-Node: GNU Free Documentation License91703
+Node: Overview4654
+Node: How do the themes look like5924
+Node: Learn about the latest changes6432
+Node: Installation6814
+Node: Install from the archives7262
+Node: Install on GNU/Linux7924
+Node: Debian 11 Bullseye8372
+Node: GNU Guix8781
+Node: Enable and load9004
+Node: Load automatically9796
+Node: Toggle between the themes on demand10613
+Node: Configure options prior to loading a theme11578
+Node: Sample configuration for use-package15218
+Node: Customization Options16962
+Node: Bold constructs18944
+Node: Slanted constructs19533
+Node: Syntax styles20080
+Node: No mixed fonts21595
+Node: Link styles22606
+Node: Command prompts23585
+Node: Mode line24268
+Node: Completion UIs26791
+Node: Fringes28623
+Node: Line highlighting29283
+Node: Matching parentheses29898
+Node: Active region30781
+Node: Diffs31717
+Node: Org mode blocks33989
+Node: Org agenda habits35332
+Node: Heading styles37217
+Node: Scaled headings40885
+Node: Scaled heading sizes41471
+Node: Headings' font43045
+Node: Advanced customization (do-it-yourself)43645
+Node: Simple face tweaks (DIY)44964
+Node: Face tweaks in bulk (DIY)49366
+Node: Custom coloration (DIY)54453
+Node: Font configs (DIY)58483
+Ref: Font configs (DIY)-Footnote-160773
+Node: Org user faces (DIY)60960
+Node: WCAG test (DIY)64172
+Node: Load at time (DIY)66061
+Node: Face coverage67014
+Node: Supported packages67484
+Node: Indirectly covered packages73829
+Node: Notes for individual packages74284
+Node: Note for prism74822
+Node: Note on company-mode overlay pop-up77619
+Ref: Note on company-mode overlay pop-up-Footnote-178306
+Ref: Note on company-mode overlay pop-up-Footnote-278373
+Node: Note for ERC escaped color sequences78428
+Ref: Note for ERC escaped color sequences-Footnote-179861
+Node: Note for powerline or spaceline79971
+Node: Note on SHR colors80387
+Node: Note for Helm grep80797
+Node: Note on vc-annotate-background-mode82242
+Node: Note on pdf-tools link hints83131
+Node: Contributing85562
+Node: Sources of the themes85981
+Node: Issues you can help with86722
+Node: Merge requests87903
+Node: Acknowledgements90165
+Node: Meta92132
+Node: External projects (ports)93799
+Node: GNU Free Documentation License94621
 
 End Tag Table
 

@@ -1839,6 +1839,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + popup
 + powerline
 + powerline-evil
++ prism (see [[#h:a94272e0-99da-4149-9e80-11a7e67a2cf2][Note for prism.el]])
 + proced
 + prodigy
 + racket-mode
@@ -1941,6 +1942,99 @@ inherit from some basic faces.  Please confirm.
 
 This section covers information that may be of interest to users of
 individual packages.
+
+** Note for prism.el
+:PROPERTIES:
+:ALT_TITLE: Note for prism
+:CUSTOM_ID: h:a94272e0-99da-4149-9e80-11a7e67a2cf2
+:END:
+
+This library by Adam Porter, aka "alphapapa" or "github-alphapapa",
+implements an alternative to the typical coloration of code.  Instead of
+highligting the syntactic constructs, it applies color to different
+levels of depth in the code.
+
+As =prism.el= is highly configurable, we cannot style it directly at the
+theme level.  Instead, we may offer sample presets.  Those should offer
+a starting point for users to adapt to their needs.
+
+In the following code snippets, we employ the =modus-themes-with-colors=
+macro (see [[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Face specs at scale using the themes' palette]]).
+
+With 16 colors:
+
+#+begin_src emacs-lisp
+(setq prism-num-faces 16)
+
+(prism-set-colors
+  :desaturations '(0) ; may lower the contrast ratio
+  :lightens '(0)      ; same
+  :colors (modus-themes-with-colors
+            `(,fg-main
+              ,magenta
+              ,cyan-alt-other
+              ,magenta-alt-other
+              ,blue
+              ,magenta-alt
+              ,cyan-alt
+              ,red-alt-other
+              ,green
+              ,fg-main
+              ,cyan
+              ,yellow
+              ,blue-alt
+              ,red-alt
+              ,green-alt-other
+              ,fg-special-warm)))
+#+end_src
+
+With 8 colors:
+
+#+begin_src emacs-lisp
+(setq prism-num-faces 8)
+
+(prism-set-colors
+  :desaturations '(0) ; may lower the contrast ratio
+  :lightens '(0)      ; same
+  :colors (modus-themes-with-colors
+            `(,fg-special-cold
+              ,magenta
+              ,magenta-alt-other
+              ,cyan-alt-other
+              ,fg-main
+              ,blue-alt
+              ,red-alt-other
+              ,cyan)))
+#+end_src
+
+With 4 colors (the closest to the themes' default):
+
+#+begin_src emacs-lisp
+(setq prism-num-faces 4)
+
+(prism-set-colors
+  :desaturations '(0) ; may lower the contrast ratio
+  :lightens '(0)      ; same
+  :colors (modus-themes-with-colors
+            `(,fg-main
+              ,cyan-alt-other
+              ,magenta-alt-other
+              ,magenta)))
+#+end_src
+
+If you need to apply desaturation and ligthening, you can use what the
+prism.el documentation recommends, like this:
+
+#+begin_src emacs-lisp
+(prism-set-colors
+  :desaturations (cl-loop for i from 0 below 16 collect (* i 2.5))
+  :lightens (cl-loop for i from 0 below 16 collect (* i 2.5))
+  :colors (modus-themes-with-colors
+            `(,fg-main
+              ,cyan-alt-other
+              ,magenta-alt-other
+              ,magenta)))
+#+end_src
 
 ** Note on company-mode overlay pop-up
 :PROPERTIES:
