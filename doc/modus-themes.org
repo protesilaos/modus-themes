@@ -1195,22 +1195,22 @@ while =modus-operandi= is enabled:
 
 #+begin_src emacs-lisp
 (modus-themes-with-colors
-  `(,fg-main
-    ,blue-faint
-    ,magenta
-    ,magenta-alt-other
-    ,cyan-alt-other
-    ,fg-special-cold
-    ,blue-alt
-    ,magenta-faint
-    ,cyan
-    ,fg-main
-    ,green-faint
-    ,red-alt-faint
-    ,blue-alt-faint
-    ,fg-special-warm
-    ,cyan-alt
-    ,blue))
+  (list fg-main
+        blue-faint
+        magenta
+        magenta-alt-other
+        cyan-alt-other
+        fg-special-cold
+        blue-alt
+        magenta-faint
+        cyan
+        fg-main
+        green-faint
+        red-alt-faint
+        blue-alt-faint
+        fg-special-warm
+        cyan-alt
+        blue))
 ;; =>
 ;; ("#000000" "#002f88" "#721045" "#5317ac"
 ;;  "#005a5f" "#093060" "#2544bb" "#752f50"
@@ -2010,25 +2010,25 @@ With 16 colors:
 (setq prism-num-faces 16)
 
 (prism-set-colors
-  :desaturations '(0) ; may lower the contrast ratio
-  :lightens '(0)      ; same
-  :colors (modus-themes-with-colors
-            `(,fg-main
-              ,magenta
-              ,cyan-alt-other
-              ,magenta-alt-other
-              ,blue
-              ,magenta-alt
-              ,cyan-alt
-              ,red-alt-other
-              ,green
-              ,fg-main
-              ,cyan
-              ,yellow
-              ,blue-alt
-              ,red-alt
-              ,green-alt-other
-              ,fg-special-warm)))
+ :desaturations '(0) ; may lower the contrast ratio
+ :lightens '(0)      ; same
+ :colors (modus-themes-with-colors
+           (list fg-main
+                 magenta
+                 cyan-alt-other
+                 magenta-alt-other
+                 blue
+                 magenta-alt
+                 cyan-alt
+                 red-alt-other
+                 green
+                 fg-main
+                 cyan
+                 yellow
+                 blue-alt
+                 red-alt
+                 green-alt-other
+                 fg-special-warm)))
 #+end_src
 
 With 8 colors:
@@ -2037,17 +2037,17 @@ With 8 colors:
 (setq prism-num-faces 8)
 
 (prism-set-colors
-  :desaturations '(0) ; may lower the contrast ratio
-  :lightens '(0)      ; same
-  :colors (modus-themes-with-colors
-            `(,fg-special-cold
-              ,magenta
-              ,magenta-alt-other
-              ,cyan-alt-other
-              ,fg-main
-              ,blue-alt
-              ,red-alt-other
-              ,cyan)))
+ :desaturations '(0) ; may lower the contrast ratio
+ :lightens '(0)      ; same
+ :colors (modus-themes-with-colors
+           (list fg-special-cold
+                 magenta
+                 magenta-alt-other
+                 cyan-alt-other
+                 fg-main
+                 blue-alt
+                 red-alt-other
+                 cyan)))
 #+end_src
 
 With 4 colors (the closest to the themes' default):
@@ -2056,13 +2056,13 @@ With 4 colors (the closest to the themes' default):
 (setq prism-num-faces 4)
 
 (prism-set-colors
-  :desaturations '(0) ; may lower the contrast ratio
-  :lightens '(0)      ; same
-  :colors (modus-themes-with-colors
-            `(,fg-main
-              ,cyan-alt-other
-              ,magenta-alt-other
-              ,magenta)))
+ :desaturations '(0) ; may lower the contrast ratio
+ :lightens '(0)      ; same
+ :colors (modus-themes-with-colors
+           (list fg-main
+                 cyan-alt-other
+                 magenta-alt-other
+                 magenta)))
 #+end_src
 
 If you need to apply desaturation and ligthening, you can use what the
@@ -2070,13 +2070,13 @@ prism.el documentation recommends, like this:
 
 #+begin_src emacs-lisp
 (prism-set-colors
-  :desaturations (cl-loop for i from 0 below 16 collect (* i 2.5))
-  :lightens (cl-loop for i from 0 below 16 collect (* i 2.5))
-  :colors (modus-themes-with-colors
-            `(,fg-main
-              ,cyan-alt-other
-              ,magenta-alt-other
-              ,magenta)))
+ :desaturations (cl-loop for i from 0 below 16 collect (* i 2.5))
+ :lightens (cl-loop for i from 0 below 16 collect (* i 2.5))
+ :colors (modus-themes-with-colors
+           (list fg-main
+                 cyan-alt-other
+                 magenta-alt-other
+                 magenta)))
 #+end_src
 
 ** Note on company-mode overlay pop-up
