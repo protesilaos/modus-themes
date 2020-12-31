@@ -27,7 +27,7 @@ provides every other piece of information pertinent to them.
    The documentation furnished herein corresponds to version 1.0.2,
 released on 2020-12-06.  Any reference to a newer feature which does not
 yet form part of the latest tagged commit, is explicitly marked as such.
-Current build was done on 2020-12-30 13:03 +0200.
+Current build was done on 2020-12-31 11:27 +0200.
 
 * Menu:
 
@@ -97,7 +97,7 @@ Advanced customization (do-it-yourself)
 
 * Simple face tweaks (DIY)::     Declare your own face specs case-by-case
 * Face tweaks in bulk (DIY)::    Declare your own face specs at scale
-* Custom coloration (DIY)::      Declare your own colors for face specs
+* Custom coloration (DIY)::      Declare your own colors to override the defaults
 * Font configs (DIY)::           Optimise for mixed typeface buffers
 * Org user faces (DIY)::         Extend styles for org-mode keywords and priorities
 * WCAG test (DIY)::              Apply the WCAG formula to color values of your choosing
@@ -1179,7 +1179,7 @@ such, they are labelled as “do-it-yourself” or “DIY”.
 
 * Simple face tweaks (DIY)::     Declare your own face specs case-by-case
 * Face tweaks in bulk (DIY)::    Declare your own face specs at scale
-* Custom coloration (DIY)::      Declare your own colors for face specs
+* Custom coloration (DIY)::      Declare your own colors to override the defaults
 * Font configs (DIY)::           Optimise for mixed typeface buffers
 * Org user faces (DIY)::         Extend styles for org-mode keywords and priorities
 * WCAG test (DIY)::              Apply the WCAG formula to color values of your choosing
@@ -1209,8 +1209,8 @@ loading a theme.
 you would like to get the standard “blue” color value of the active
 Modus theme, whether it is Modus Operandi or Modus Vivendi.  To do that,
 you can use the ‘modus-themes-color’ function.  It accepts a symbol that
-is associated with a color in ‘modus-themes-colors-operandi’ and
-‘modus-themes-colors-vivendi’.  Like this:
+is associated with a color in ‘modus-themes-operandi-colors’ and
+‘modus-themes-vivendi-colors’.  Like this:
 
      (modus-themes-color 'blue)
 
@@ -1271,8 +1271,8 @@ to apply different ones to each theme, say, a blue hue for Modus
 Operandi and a shade of red for Modus Vivendi.  To this end, we provide
 ‘modus-themes-color-alts’ as a convenience function to save you from the
 trouble of writing separate wrappers for each theme.  It still returns a
-single value by querying either of ‘modus-themes-colors-operandi’ and
-‘modus-themes-colors-vivendi’, only here you pass the two keys you want,
+single value by querying either of ‘modus-themes-operandi-colors’ and
+‘modus-themes-vivendi-colors’, only here you pass the two keys you want,
 first for ‘modus-operandi’ then ‘modus-vivendi’.
 
    Take the previous example with the ‘cursor’ face:
@@ -1296,8 +1296,8 @@ face tweaks (DIY).).
 
    The ‘modus-themes-with-colors’ macro lets you retrieve multiple color
 values by employing the backquote/backtick and comma notation.  The
-values are stored in the alists ‘modus-themes-colors-operandi’ and
-‘modus-themes-colors-vivendi’, while the macro always queries that of
+values are stored in the alists ‘modus-themes-operandi-colors’ and
+‘modus-themes-vivendi-colors’, while the macro always queries that of
 the active Modus theme.
 
    Here is an abstract example that just returns a list of color values
@@ -1409,94 +1409,107 @@ File: modus-themes.info,  Node: Custom coloration (DIY),  Next: Font configs (DI
 5.3 Override theme colors (DIY)
 ===============================
 
-This section assumes that you are already familiar with the
-‘modus-themes-with-colors’ macro and understand how to make best use of
-it (*note Face specs at scale using the themes’ palette: Face tweaks in
-bulk (DIY).).
+NOTE: Coming in version ‘1.1.0’ of the themes.  Courtesy of Nicolas De
+Jaeghere.
 
-   While you may like the overall aesthetics of the Modus themes,
-chances are that you find something that does not align with your needs.
-For example, you do not want a pure white/black background but some
-slightly tinted alternative.  To make this happen, you need to define
-overrides for color variables and then assign them to the relevant
-faces.
+   The themes provide a mechanism for overriding their color values.
+This is controlled by the variables
+‘modus-themes-operandi-color-overrides’ and
+‘modus-themes-vivendi-color-overrides’, which are alists that should
+mirror a subset of the associations in ‘modus-=themes-operandi-colors’
+and ‘modus-themes-vivendi-colors’ respectively.  As with all
+customisations, overriding must be done before loading the affected
+theme.
 
-   This is a pair of palette alternatives:
+   Let us approach the present topic one step at a time.  Here is a
+simplified excerpt of the default palette for Modus Operandi with some
+basic background values that apply to buffers and the mode line
+(remember to inspect the actual value to find out all the associations
+you can override):
 
-     (defvar my-modus-operandi-overrides
-       '((bg-main . "#fefcf4")
-         (bg-dim . "#faf6ef")
-         (bg-alt . "#f7efe5")
-         (bg-hl-line . "#f4f0e3")
-         (bg-active . "#e8dfd1")
-         (bg-inactive . "#f6ece5")
-         (bg-region . "#c6bab1")
-         (bg-header . "#ede3e0")
-         (bg-tab-bar . "#dcd3d3")
-         (bg-tab-active . "#fdf6eb")
-         (bg-tab-inactive . "#c8bab8")
-         (fg-unfocused . "#55556f")))
+     (defconst modus-themes-colors-operandi
+       '((bg-main . "#ffffff")
+         (bg-dim . "#f8f8f8")
+         (bg-alt . "#f0f0f0")
+         (bg-active . "#d7d7d7")
+         (bg-inactive . "#efefef")))
 
-     (defvar my-modus-vivendi-overrides
-       '((bg-main . "#100b17")
-         (bg-dim . "#161129")
-         (bg-alt . "#181732")
-         (bg-hl-line . "#191628")
-         (bg-active . "#282e46")
-         (bg-inactive . "#1a1e39")
-         (bg-region . "#393a53")
-         (bg-header . "#202037")
-         (bg-tab-bar . "#262b41")
-         (bg-tab-active . "#120f18")
-         (bg-tab-inactive . "#3a3a5a")
-         (fg-unfocused . "#9a9aab")))
+   As you can see, we bind a key to a hexadecimal RGB color value.  Now
+say you wish to override those specific values and have your changes
+propagate to all faces that use those keys.  You could write something
+like this, which adds a subtle ochre tint:
 
-   The first gives a slight sepia tone to ‘modus-operandi’, while the
-second adds a midnight sky feel to ‘modus-vivendi’.  Both are introduced
-without prejudice to the overarching accessibility standard of the
-themes, though users can always opt to use whatever colors they want.
+     (setq modus-themes-operandi-color-overrides
+           '((bg-main . "#fefcf4")
+             (bg-dim . "#faf6ef")
+             (bg-alt . "#f7efe5")
+             (bg-active . "#e8dfd1")
+             (bg-inactive . "#f6ece5")))
 
-   Once you have your subset of colors you want to use, you can
-experiment with this little demo:
+   Once this is evaluated, any subsequent loading of ‘modus-operandi’
+will use those values instead of the defaults.  No further intervention
+is required.
 
-     (modus-themes-with-colors
-       (let-alist (if (eq (car custom-enabled-themes) 'modus-operandi)
-                      my-modus-operandi-overrides
-                    my-modus-vivendi-overrides)
-         `(,.bg-main                  ; comma and dot read from the overrides
-           ,bg-alt                    ; comma reads from the defaults
-           ,.bg-dim)))
-     ;; => ("#fefcf4" "#f0f0f0" "#faf6ef")
+   To reset your changes, apply this and reload the theme:
 
-   As you can tell from the inline comments, we are using the dot
-operator to extract the value from the let bound alist.  While the comma
-ensures that the variable is expanded by the macro.
+     (setq modus-themes-operandi-color-overrides nil)
 
-   Once you are comfortable with this notation, you can proceed to
-customise faces.  In this example we refashion the overall presentation:
+   Users who wish to leverage such a mechanism can opt to implement it
+on-demand by means of a minor mode.  The following snippet covers both
+themes and expands to some more assosiations:
 
-     (defun my-modus-themes-custom-faces ()
-       (modus-themes-with-colors
-         (let-alist (if (eq (car custom-enabled-themes) 'modus-operandi)
-                        my-modus-operandi-overrides
-                      my-modus-vivendi-overrides)
-           (custom-set-faces
-            `(default ((,class :background ,.bg-main)))
-            `(fringe ((,class :background ,.bg-alt)))
-            `(region ((,class :background ,.bg-region)))
-            `(hl-line ((,class :background ,.bg-hl-line)))
-            `(header-line ((,class :background ,.bg-header)))
-            `(tab-bar ((,class :background ,.bg-tab-bar)))
-            `(mode-line ((,class :background ,.bg-active)))
-            `(mode-line-inactive ((,class :background ,.bg-active-inactive)))))))
+     (define-minor-mode my-modus-themes-tinted
+       "Tweak some Modus themes colors."
+       :init-value nil
+       :global t
+       (if my-modus-themes-tinted
+           (setq modus-themes-operandi-color-overrides
+                 '((bg-main . "#fefcf4")
+                   (bg-dim . "#faf6ef")
+                   (bg-alt . "#f7efe5")
+                   (bg-hl-line . "#f4f0e3")
+                   (bg-active . "#e8dfd1")
+                   (bg-inactive . "#f6ece5")
+                   (bg-region . "#c6bab1")
+                   (bg-header . "#ede3e0")
+                   (bg-tab-bar . "#dcd3d3")
+                   (bg-tab-active . "#fdf6eb")
+                   (bg-tab-inactive . "#c8bab8")
+                   (fg-unfocused . "#55556f"))
+                 modus-themes-vivendi-color-overrides
+                 '((bg-main . "#100b17")
+                   (bg-dim . "#161129")
+                   (bg-alt . "#181732")
+                   (bg-hl-line . "#191628")
+                   (bg-active . "#282e46")
+                   (bg-inactive . "#1a1e39")
+                   (bg-region . "#393a53")
+                   (bg-header . "#202037")
+                   (bg-tab-bar . "#262b41")
+                   (bg-tab-active . "#120f18")
+                   (bg-tab-inactive . "#3a3a5a")
+                   (fg-unfocused . "#9a9aab")))
+         (setq modus-themes-operandi-color-overrides nil
+               modus-themes-vivendi-color-overrides nil)))
 
-     (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
+   With this in place, one can invoke ‘M-x my-modus-themes-tinted’ and
+then load the Modus theme of their choice.  The new colors will come
+into effect.  Switching between the themes will also use the overrides.
 
-   Please understand that you will have to identify all faces that you
-need to override, even though this should cover the general appearance.
+   Given that this is a user-level customisation, one is free to
+implement whatever color values they desire, even if the possible
+combinations fall below the minimum 7:1 contrast ratio that governs the
+design of the themes (the WCAG AAA legibility standard).  Preferences
+aside, it is advised to inspect the source code of
+‘modus-themes-operandi-colors’ and ‘modus-themes-vivendi-colors’ to read
+the inline commentary: it explains what the intended use of each subset
+is.
 
-   If someone knows how to override the palette and automatically reset
-all faces to the color overrides, please work with us to make it happen.
+   Furthermore, users may benefit from the ‘modus-themes-contrast’
+function that we provide (*note Check color combinations: WCAG test
+(DIY).). It measures the contrast ratio between two color values, so it
+can help in overriding the palette (or a subset thereof) without making
+the end result inaccessible.
 
 
 File: modus-themes.info,  Node: Font configs (DIY),  Next: Org user faces (DIY),  Prev: Custom coloration (DIY),  Up: Advanced customization (do-it-yourself)
@@ -3015,71 +3028,71 @@ Appendix A GNU Free Documentation License
 
 Tag Table:
 Node: Top595
-Node: Overview4654
-Node: How do the themes look like5924
-Node: Learn about the latest changes6432
-Node: Installation6814
-Node: Install from the archives7262
-Node: Install on GNU/Linux7924
-Node: Debian 11 Bullseye8372
-Node: GNU Guix8781
-Node: Enable and load9004
-Node: Load automatically9796
-Node: Toggle between the themes on demand10613
-Node: Configure options prior to loading a theme11578
-Node: Sample configuration for use-package15218
-Node: Customization Options16962
-Node: Bold constructs18944
-Node: Slanted constructs19533
-Node: Syntax styles20080
-Node: No mixed fonts21595
-Node: Link styles22606
-Node: Command prompts23585
-Node: Mode line24268
-Node: Completion UIs26791
-Node: Fringes28623
-Node: Line highlighting29283
-Node: Matching parentheses29898
-Node: Active region30781
-Node: Diffs31717
-Node: Org mode blocks33989
-Node: Org agenda habits35332
-Node: Heading styles37217
-Node: Scaled headings40885
-Node: Scaled heading sizes41471
-Node: Headings' font43045
-Node: Advanced customization (do-it-yourself)43645
-Node: Simple face tweaks (DIY)44964
-Node: Face tweaks in bulk (DIY)49366
-Node: Custom coloration (DIY)54961
-Node: Font configs (DIY)58991
-Ref: Font configs (DIY)-Footnote-161281
-Node: Org user faces (DIY)61468
-Node: WCAG test (DIY)64680
-Node: Load at time (DIY)66569
-Node: Face coverage67522
-Node: Supported packages67992
-Node: Indirectly covered packages74337
-Node: Notes for individual packages74792
-Node: Note for prism75330
-Node: Note on company-mode overlay pop-up78127
-Ref: Note on company-mode overlay pop-up-Footnote-178814
-Ref: Note on company-mode overlay pop-up-Footnote-278881
-Node: Note for ERC escaped color sequences78936
-Ref: Note for ERC escaped color sequences-Footnote-180369
-Node: Note for powerline or spaceline80479
-Node: Note on SHR colors80895
-Node: Note for Helm grep81305
-Node: Note on vc-annotate-background-mode82750
-Node: Note on pdf-tools link hints83639
-Node: Contributing86070
-Node: Sources of the themes86489
-Node: Issues you can help with87230
-Node: Merge requests88411
-Node: Acknowledgements90673
-Node: Meta92658
-Node: External projects (ports)94325
-Node: GNU Free Documentation License95147
+Node: Overview4664
+Node: How do the themes look like5934
+Node: Learn about the latest changes6442
+Node: Installation6824
+Node: Install from the archives7272
+Node: Install on GNU/Linux7934
+Node: Debian 11 Bullseye8382
+Node: GNU Guix8791
+Node: Enable and load9014
+Node: Load automatically9806
+Node: Toggle between the themes on demand10623
+Node: Configure options prior to loading a theme11588
+Node: Sample configuration for use-package15228
+Node: Customization Options16972
+Node: Bold constructs18954
+Node: Slanted constructs19543
+Node: Syntax styles20090
+Node: No mixed fonts21605
+Node: Link styles22616
+Node: Command prompts23595
+Node: Mode line24278
+Node: Completion UIs26801
+Node: Fringes28633
+Node: Line highlighting29293
+Node: Matching parentheses29908
+Node: Active region30791
+Node: Diffs31727
+Node: Org mode blocks33999
+Node: Org agenda habits35342
+Node: Heading styles37227
+Node: Scaled headings40895
+Node: Scaled heading sizes41481
+Node: Headings' font43055
+Node: Advanced customization (do-it-yourself)43655
+Node: Simple face tweaks (DIY)44984
+Node: Face tweaks in bulk (DIY)49386
+Node: Custom coloration (DIY)54981
+Node: Font configs (DIY)59644
+Ref: Font configs (DIY)-Footnote-161934
+Node: Org user faces (DIY)62121
+Node: WCAG test (DIY)65333
+Node: Load at time (DIY)67222
+Node: Face coverage68175
+Node: Supported packages68645
+Node: Indirectly covered packages74990
+Node: Notes for individual packages75445
+Node: Note for prism75983
+Node: Note on company-mode overlay pop-up78780
+Ref: Note on company-mode overlay pop-up-Footnote-179467
+Ref: Note on company-mode overlay pop-up-Footnote-279534
+Node: Note for ERC escaped color sequences79589
+Ref: Note for ERC escaped color sequences-Footnote-181022
+Node: Note for powerline or spaceline81132
+Node: Note on SHR colors81548
+Node: Note for Helm grep81958
+Node: Note on vc-annotate-background-mode83403
+Node: Note on pdf-tools link hints84292
+Node: Contributing86723
+Node: Sources of the themes87142
+Node: Issues you can help with87883
+Node: Merge requests89064
+Node: Acknowledgements91326
+Node: Meta93311
+Node: External projects (ports)94978
+Node: GNU Free Documentation License95800
 
 End Tag Table
 
