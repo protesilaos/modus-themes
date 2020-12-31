@@ -1547,25 +1547,26 @@ it if you plan to control face attributes.
 
 [[#h:02e25930-e71a-493d-828a-8907fc80f874][Check color combinations]].
 
-** Check color combinations (DIY)
+** Measure color contrast (DIY)
 :PROPERTIES:
-:ALT_TITLE: WCAG test (DIY)
-:DESCRIPTION: Apply the WCAG formula to color values of your choosing
+:ALT_TITLE: Measure contrast (DIY)
+:DESCRIPTION: Apply the WCAG formula to color combinations of your choosing
 :CUSTOM_ID: h:02e25930-e71a-493d-828a-8907fc80f874
 :END:
 
 The themes provide the functions =modus-themes-wcag-formula= and
 =modus-themes-contrast=.  The former is a direct implementation of the
-WCAG formula: <https://www.w3.org/TR/WCAG20-TECHS/G18.html>.  It gives
-you the relative luminance of a color value that is expressed in
+WCAG formula: <https://www.w3.org/TR/WCAG20-TECHS/G18.html>.  It
+calculates the relative luminance of a color value that is expressed in
 hexadecimal RGB notation.  While the latter function is just a
-convenient wrapper for comparing the luminance of two colors.
+convenient wrapper for comparing the relative luminance between two
+colors.
 
-In practice, you only likely need =modus-themes-contrast=.  It accepts two
-color values and returns their contrast ratio.  Values range from 1 to
-21 (lowest to highest).  The themes are designed to always be equal or
-higher than 7 for each combination of background and foreground that
-they use (this is the WCAG AAA standard---the most demanding of its
+In practice, one needs to work only with =modus-themes-contrast=.  It
+accepts two color values and returns their contrast ratio.  Values range
+from 1 to 21 (lowest to highest).  The themes are designed to always be
+equal or higher than 7 for each combination of background and foreground
+that they use (this is the WCAG AAA standard---the most demanding of its
 kind).
 
 A couple of examples (rounded numbers):
@@ -1585,18 +1586,38 @@ A couple of examples (rounded numbers):
 It does not matter which color value comes first.  The ratio is always
 the same.
 
-If you do not wish to read all the decimal points, you can try something
-like this:
+If one does not wish to read all the decimal points, it is possible to
+try something like this:
 
 #+begin_src emacs-lisp
 (format "%0.2f" (modus-themes-contrast "#000000" "#00ff00"))
 #+end_src
 
-Bear in mind that the themes define an expanded palette in large part
-because certain colors are only meant to be used in combination with
-some others.  Consult the source code for relevant commentary.  And use
-the resources we covered in this section in case you plan to derive your
-own color combinations.
+While it is fine to perform such calculations on a case-by-case basis,
+it is preferable to implement formulas and tables for more demanding
+tasks.  Such instruments are provided by =org-mode= or =orgtbl-mode=, both
+of which are built into Emacs.  Below is such a table that derives the
+contrast ratio of all colors in the first column (pure red, green, blue)
+relative to the color specified in the first row of the second column
+(pure white) and rounds the results:
+
+#+begin_example
+|         | #ffffff |
+|---------+---------|
+| #ff0000 |    4.00 |
+| #00ff00 |    1.37 |
+| #0000ff |    8.59 |
+#+TBLFM: $2='(modus-themes-contrast $1 @1$2);%0.2f
+#+end_example
+
+To measure color contrast one needs to start from a known value.  This
+typically is the background.  The Modus themes define an expanded
+palette in large part because certain colors are only meant to be used
+in combination with some others.  Consult the source code for the
+minutia and relevant commentary.
+
+Such knowledge may prove valuable while attempting to override some of
+the themes' colors ([[#h:307d95dd-8dbd-4ece-a543-10ae86f155a6][Override colors]]).
 
 ** Load theme depending on time of day
 :PROPERTIES:
