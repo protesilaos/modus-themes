@@ -63,6 +63,13 @@
 ;;     modus-themes-scale-4 1.2
 ;;     modus-themes-scale-5 1.3
 ;;
+;; There also exist two unique customization options for overriding
+;; color palette values.  The specifics are documented in the manual.
+;; The symbols are:
+;;
+;;     modus-themes-operandi-color-overrides       (alist)
+;;     modus-themes-vivendi-color-overrides        (alist)
+;;
 ;; Below is the list of explicitly supported packages or face groups
 ;; (there are implicitly supported packages as well, which inherit from
 ;; font-lock or some basic group).  You are encouraged to report of any
