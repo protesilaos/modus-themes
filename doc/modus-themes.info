@@ -27,7 +27,7 @@ provides every other piece of information pertinent to them.
    The documentation furnished herein corresponds to version 1.0.2,
 released on 2020-12-06.  Any reference to a newer feature which does not
 yet form part of the latest tagged commit, is explicitly marked as such.
-Current build was done on 2020-12-31 13:03 +0200.
+Current build was done on 2020-12-31 14:36 +0200.
 
 * Menu:
 
@@ -97,10 +97,10 @@ Advanced customization (do-it-yourself)
 
 * Simple face tweaks (DIY)::     Declare your own face specs case-by-case
 * Face tweaks in bulk (DIY)::    Declare your own face specs at scale
-* Custom coloration (DIY)::      Declare your own colors to override the defaults
-* Font configs (DIY)::           Optimise for mixed typeface buffers
-* Org user faces (DIY)::         Extend styles for org-mode keywords and priorities
-* WCAG test (DIY)::              Apply the WCAG formula to color values of your choosing
+* Override colors (DIY)::        Declare your own colors to override the defaults
+* Font configurations (DIY)::    Optimise for mixed typeface buffers
+* Custom Org user faces (DIY)::  Extend styles for org-mode keywords and priorities
+* Measure contrast (DIY)::       Apply the WCAG formula to color combinations of your choosing
 * Load at time (DIY)::           Switch between the themes depending on the time of day
 
 Face coverage
@@ -596,7 +596,8 @@ configurations, rather than letting the theme do it, perhaps because a
 purpose-specific package has extra functionality.  Two possible options
 are ‘org-variable-pitch’ and ‘mixed-pitch’.
 
-   *note Font configurations for Org (and others): Font configs (DIY).
+   *note Font configurations for Org (and others): Font configurations
+(DIY).
 
 
 File: modus-themes.info,  Node: Link styles,  Next: Command prompts,  Prev: No mixed fonts,  Up: Customization Options
@@ -1120,7 +1121,7 @@ specify a number of their own.
      setting an absolute value is discouraged, as it will break the
      layout when you try to change font sizes with the built-in
      ‘text-scale-adjust’ command (see *note Font configurations: Font
-     configs (DIY).).
+     configurations (DIY).).
 
    Below are the variables in their default values, using the floating
 point paradigm.  The numbers are very conservative, but you are free to
@@ -1157,7 +1158,8 @@ monospaced.
    With a non-nil value (‘t’) apply a proportionately spaced typeface,
 else “variable-pitch”, to headings (such as in Org mode).
 
-   *note Font configurations for Org (and others): Font configs (DIY).
+   *note Font configurations for Org (and others): Font configurations
+(DIY).
 
 
 File: modus-themes.info,  Node: Advanced customization (do-it-yourself),  Next: Face coverage,  Prev: Customization Options,  Up: Top
@@ -1179,10 +1181,10 @@ such, they are labelled as “do-it-yourself” or “DIY”.
 
 * Simple face tweaks (DIY)::     Declare your own face specs case-by-case
 * Face tweaks in bulk (DIY)::    Declare your own face specs at scale
-* Custom coloration (DIY)::      Declare your own colors to override the defaults
-* Font configs (DIY)::           Optimise for mixed typeface buffers
-* Org user faces (DIY)::         Extend styles for org-mode keywords and priorities
-* WCAG test (DIY)::              Apply the WCAG formula to color values of your choosing
+* Override colors (DIY)::        Declare your own colors to override the defaults
+* Font configurations (DIY)::    Optimise for mixed typeface buffers
+* Custom Org user faces (DIY)::  Extend styles for org-mode keywords and priorities
+* Measure contrast (DIY)::       Apply the WCAG formula to color combinations of your choosing
 * Load at time (DIY)::           Switch between the themes depending on the time of day
 
 
@@ -1281,7 +1283,7 @@ first for ‘modus-operandi’ then ‘modus-vivendi’.
      (set-face-attribute 'cursor nil :background (modus-themes-color-alts 'blue 'red))
 
 
-File: modus-themes.info,  Node: Face tweaks in bulk (DIY),  Next: Custom coloration (DIY),  Prev: Simple face tweaks (DIY),  Up: Advanced customization (do-it-yourself)
+File: modus-themes.info,  Node: Face tweaks in bulk (DIY),  Next: Override colors (DIY),  Prev: Simple face tweaks (DIY),  Up: Advanced customization (do-it-yourself)
 
 5.2 Face specs at scale using the themes’ palette (DIY)
 =======================================================
@@ -1404,10 +1406,10 @@ the previous section.  Adapt the above example like this:
         ...))
 
 
-File: modus-themes.info,  Node: Custom coloration (DIY),  Next: Font configs (DIY),  Prev: Face tweaks in bulk (DIY),  Up: Advanced customization (do-it-yourself)
+File: modus-themes.info,  Node: Override colors (DIY),  Next: Font configurations (DIY),  Prev: Face tweaks in bulk (DIY),  Up: Advanced customization (do-it-yourself)
 
-5.3 Override theme colors (DIY)
-===============================
+5.3 Override colors (DIY)
+=========================
 
 NOTE: Coming in version ‘1.1.0’ of the themes.  Courtesy of Nicolas De
 Jaeghere.
@@ -1506,13 +1508,13 @@ the inline commentary: it explains what the intended use of each subset
 is.
 
    Furthermore, users may benefit from the ‘modus-themes-contrast’
-function that we provide (*note Check color combinations: WCAG test
-(DIY).). It measures the contrast ratio between two color values, so it
-can help in overriding the palette (or a subset thereof) without making
-the end result inaccessible.
+function that we provide (*note Check color combinations: Measure
+contrast (DIY).). It measures the contrast ratio between two color
+values, so it can help in overriding the palette (or a subset thereof)
+without making the end result inaccessible.
 
 
-File: modus-themes.info,  Node: Font configs (DIY),  Next: Org user faces (DIY),  Prev: Custom coloration (DIY),  Up: Advanced customization (do-it-yourself)
+File: modus-themes.info,  Node: Font configurations (DIY),  Next: Custom Org user faces (DIY),  Prev: Override colors (DIY),  Up: Advanced customization (do-it-yourself)
 
 5.4 Font configurations for Org and others (DIY)
 ================================================
@@ -1565,10 +1567,10 @@ the likes of ‘115’ are perfectly valid—some typefaces will change to
 account for those finer increments.
 
 
-File: modus-themes.info,  Node: Org user faces (DIY),  Next: WCAG test (DIY),  Prev: Font configs (DIY),  Up: Advanced customization (do-it-yourself)
+File: modus-themes.info,  Node: Custom Org user faces (DIY),  Next: Measure contrast (DIY),  Prev: Font configurations (DIY),  Up: Advanced customization (do-it-yourself)
 
-5.5 Org user faces (DIY)
-========================
+5.5 Custom Org user faces (DIY)
+===============================
 
 Users of ‘org-mode’ have the option to configure various keywords and
 priority cookies to better match their workflow.  User options are
@@ -1639,22 +1641,23 @@ Do it if you plan to control face attributes.
    *note Custom face specs using the themes’ palette: Simple face tweaks
 (DIY).
 
-   *note Check color combinations: WCAG test (DIY).
+   *note Check color combinations: Measure contrast (DIY).
 
 
-File: modus-themes.info,  Node: WCAG test (DIY),  Next: Load at time (DIY),  Prev: Org user faces (DIY),  Up: Advanced customization (do-it-yourself)
+File: modus-themes.info,  Node: Measure contrast (DIY),  Next: Load at time (DIY),  Prev: Custom Org user faces (DIY),  Up: Advanced customization (do-it-yourself)
 
-5.6 Check color combinations (DIY)
-==================================
+5.6 Measure color contrast (DIY)
+================================
 
 The themes provide the functions ‘modus-themes-wcag-formula’ and
 ‘modus-themes-contrast’.  The former is a direct implementation of the
-WCAG formula: <https://www.w3.org/TR/WCAG20-TECHS/G18.html>.  It gives
-you the relative luminance of a color value that is expressed in
+WCAG formula: <https://www.w3.org/TR/WCAG20-TECHS/G18.html>.  It
+calculates the relative luminance of a color value that is expressed in
 hexadecimal RGB notation.  While the latter function is just a
-convenient wrapper for comparing the luminance of two colors.
+convenient wrapper for comparing the relative luminance between two
+colors.
 
-   In practice, you only likely need ‘modus-themes-contrast’.  It
+   In practice, one needs to work only with ‘modus-themes-contrast’.  It
 accepts two color values and returns their contrast ratio.  Values range
 from 1 to 21 (lowest to highest).  The themes are designed to always be
 equal or higher than 7 for each combination of background and foreground
@@ -1676,19 +1679,37 @@ kind).
    It does not matter which color value comes first.  The ratio is
 always the same.
 
-   If you do not wish to read all the decimal points, you can try
-something like this:
+   If one does not wish to read all the decimal points, it is possible
+to try something like this:
 
      (format "%0.2f" (modus-themes-contrast "#000000" "#00ff00"))
 
-   Bear in mind that the themes define an expanded palette in large part
-because certain colors are only meant to be used in combination with
-some others.  Consult the source code for relevant commentary.  And use
-the resources we covered in this section in case you plan to derive your
-own color combinations.
+   While it is fine to perform such calculations on a case-by-case
+basis, it is preferable to implement formulas and tables for more
+demanding tasks.  Such instruments are provided by ‘org-mode’ or
+‘orgtbl-mode’, both of which are built into Emacs.  Below is such a
+table that derives the contrast ratio of all colors in the first column
+(pure red, green, blue) relative to the color specified in the first row
+of the second column (pure white) and rounds the results:
+
+     |         | #ffffff |
+     |---------+---------|
+     | #ff0000 |    4.00 |
+     | #00ff00 |    1.37 |
+     | #0000ff |    8.59 |
+     #+TBLFM: $2='(modus-themes-contrast $1 @1$2);%0.2f
+
+   To measure color contrast one needs to start from a known value.
+This typically is the background.  The Modus themes define an expanded
+palette in large part because certain colors are only meant to be used
+in combination with some others.  Consult the source code for the
+minutia and relevant commentary.
+
+   Such knowledge may prove valuable while attempting to override some
+of the themes’ colors (*note Override colors: Override colors (DIY).).
 
 
-File: modus-themes.info,  Node: Load at time (DIY),  Prev: WCAG test (DIY),  Up: Advanced customization (do-it-yourself)
+File: modus-themes.info,  Node: Load at time (DIY),  Prev: Measure contrast (DIY),  Up: Advanced customization (do-it-yourself)
 
 5.7 Load theme depending on time of day
 =======================================
@@ -3028,71 +3049,71 @@ Appendix A GNU Free Documentation License
 
 Tag Table:
 Node: Top581
-Node: Overview4650
-Node: How do the themes look like5920
-Node: Learn about the latest changes6428
-Node: Installation6810
-Node: Install from the archives7258
-Node: Install on GNU/Linux7920
-Node: Debian 11 Bullseye8368
-Node: GNU Guix8777
-Node: Enable and load9000
-Node: Load automatically9792
-Node: Toggle between the themes on demand10609
-Node: Configure options prior to loading a theme11574
-Node: Sample configuration for use-package15214
-Node: Customization Options16958
-Node: Bold constructs18940
-Node: Slanted constructs19529
-Node: Syntax styles20076
-Node: No mixed fonts21591
-Node: Link styles22602
-Node: Command prompts23581
-Node: Mode line24264
-Node: Completion UIs26787
-Node: Fringes28619
-Node: Line highlighting29279
-Node: Matching parentheses29894
-Node: Active region30777
-Node: Diffs31713
-Node: Org mode blocks33985
-Node: Org agenda habits35328
-Node: Heading styles37213
-Node: Scaled headings40881
-Node: Scaled heading sizes41467
-Node: Headings' font43041
-Node: Advanced customization (do-it-yourself)43641
-Node: Simple face tweaks (DIY)44970
-Node: Face tweaks in bulk (DIY)49372
-Node: Custom coloration (DIY)54967
-Node: Font configs (DIY)59630
-Ref: Font configs (DIY)-Footnote-161920
-Node: Org user faces (DIY)62107
-Node: WCAG test (DIY)65319
-Node: Load at time (DIY)67208
-Node: Face coverage68161
-Node: Supported packages68631
-Node: Indirectly covered packages74976
-Node: Notes for individual packages75431
-Node: Note for prism75969
-Node: Note on company-mode overlay pop-up78766
-Ref: Note on company-mode overlay pop-up-Footnote-179453
-Ref: Note on company-mode overlay pop-up-Footnote-279520
-Node: Note for ERC escaped color sequences79575
-Ref: Note for ERC escaped color sequences-Footnote-181008
-Node: Note for powerline or spaceline81118
-Node: Note on SHR colors81534
-Node: Note for Helm grep81944
-Node: Note on vc-annotate-background-mode83389
-Node: Note on pdf-tools link hints84278
-Node: Contributing86709
-Node: Sources of the themes87128
-Node: Issues you can help with87869
-Node: Merge requests89050
-Node: Acknowledgements91312
-Node: Meta93297
-Node: External projects (ports)94964
-Node: GNU Free Documentation License95786
+Node: Overview4656
+Node: How do the themes look like5926
+Node: Learn about the latest changes6434
+Node: Installation6816
+Node: Install from the archives7264
+Node: Install on GNU/Linux7926
+Node: Debian 11 Bullseye8374
+Node: GNU Guix8783
+Node: Enable and load9006
+Node: Load automatically9798
+Node: Toggle between the themes on demand10615
+Node: Configure options prior to loading a theme11580
+Node: Sample configuration for use-package15220
+Node: Customization Options16964
+Node: Bold constructs18946
+Node: Slanted constructs19535
+Node: Syntax styles20082
+Node: No mixed fonts21597
+Node: Link styles22615
+Node: Command prompts23594
+Node: Mode line24277
+Node: Completion UIs26800
+Node: Fringes28632
+Node: Line highlighting29292
+Node: Matching parentheses29907
+Node: Active region30790
+Node: Diffs31726
+Node: Org mode blocks33998
+Node: Org agenda habits35341
+Node: Heading styles37226
+Node: Scaled headings40894
+Node: Scaled heading sizes41480
+Node: Headings' font43061
+Node: Advanced customization (do-it-yourself)43668
+Node: Simple face tweaks (DIY)45003
+Node: Face tweaks in bulk (DIY)49405
+Node: Override colors (DIY)54998
+Node: Font configurations (DIY)59661
+Ref: Font configurations (DIY)-Footnote-161963
+Node: Custom Org user faces (DIY)62150
+Node: Measure contrast (DIY)65404
+Node: Load at time (DIY)68150
+Node: Face coverage69110
+Node: Supported packages69580
+Node: Indirectly covered packages75925
+Node: Notes for individual packages76380
+Node: Note for prism76918
+Node: Note on company-mode overlay pop-up79715
+Ref: Note on company-mode overlay pop-up-Footnote-180402
+Ref: Note on company-mode overlay pop-up-Footnote-280469
+Node: Note for ERC escaped color sequences80524
+Ref: Note for ERC escaped color sequences-Footnote-181957
+Node: Note for powerline or spaceline82067
+Node: Note on SHR colors82483
+Node: Note for Helm grep82893
+Node: Note on vc-annotate-background-mode84338
+Node: Note on pdf-tools link hints85227
+Node: Contributing87658
+Node: Sources of the themes88077
+Node: Issues you can help with88818
+Node: Merge requests89999
+Node: Acknowledgements92261
+Node: Meta94246
+Node: External projects (ports)95913
+Node: GNU Free Documentation License96735
 
 End Tag Table
 
