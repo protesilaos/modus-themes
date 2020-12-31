@@ -374,12 +374,11 @@
 
 ;;; Custom faces
 
-(defgroup modus-theme ()
-  "Custom faces for the Modus themes."
+(defgroup modus-themes ()
+  "Options for `modus-operandi', `modus-vivendi'."
   :group 'faces
-  :prefix "modus-theme-"
-  :link '(url-link :tag "GitLab" "https://gitlab.com/protesilaos/modus-themes")
-  :tag "Modus Operandi")
+  :prefix "modus-themes-"
+  :tag "Modus Themes")
 
 (defface modus-theme-subtle-red nil nil)
 (defface modus-theme-subtle-green nil nil)
@@ -474,6 +473,7 @@
 Pair is a cons cell, a pair of the same name in
 `modus-themes-operandi-colors' to overwrite.  Name is a symbol, a
 color name.  Value is a string, a hexadecimal color value."
+  :group 'modus-themes
   :package-version '(modus-themes . "1.1.0")
   :version "28.1"
   :type '(alist :key-type symbol :value-type string))
@@ -483,24 +483,28 @@ color name.  Value is a string, a hexadecimal color value."
 Pair is a cons cell, a pair of the same name in
 `modus-themes-vivendi-colors' to overwrite.  Name is a symbol, a
 color name.  Value is a string, a hexadecimal color value."
+  :group 'modus-themes
   :package-version '(modus-themes . "1.1.0")
   :version "28.1"
   :type '(alist :key-type symbol :value-type string))
 
 (defcustom modus-themes-slanted-constructs nil
   "Use slanted text in more code constructs (italics or oblique)."
+  :group 'modus-themes
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
   :type 'boolean)
 
 (defcustom modus-themes-bold-constructs nil
   "Use bold text in more code constructs."
+  :group 'modus-themes
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
   :type 'boolean)
 
 (defcustom modus-themes-variable-pitch-headings nil
   "Use proportional fonts (variable-pitch) in headings."
+  :group 'modus-themes
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
   :type 'boolean)
@@ -516,6 +520,7 @@ configure the font family of `fixed-pitch' in order to get a
 consistent experience.  That may be something they do not want to
 do.  Hence this option to disable any kind of technique for
 mixing fonts."
+  :group 'modus-themes
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
   :type 'boolean)
@@ -589,6 +594,7 @@ A description of all possible values:
 
 + `rainbow-section-no-bold' is the same as `rainbow-section'
   without a bold weight."
+  :group 'modus-themes
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
   :type
@@ -614,6 +620,7 @@ A description of all possible values:
 
 (defcustom modus-themes-scale-headings nil
   "Use font scaling for headings."
+  :group 'modus-themes
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
   :type 'boolean)
@@ -627,6 +634,7 @@ the same as setting the font at 14 point size).
 
 For more on the matter, read the documentation of
 `set-face-attribute', specifically the ':height' section."
+  :group 'modus-themes
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
   :type 'number)
@@ -640,6 +648,7 @@ the same as setting the font at 14 point size).
 
 For more on the matter, read the documentation of
 `set-face-attribute', specifically the ':height' section."
+  :group 'modus-themes
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
   :type 'number)
@@ -653,6 +662,7 @@ the same as setting the font at 14 point size).
 
 For more on the matter, read the documentation of
 `set-face-attribute', specifically the ':height' section."
+  :group 'modus-themes
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
   :type 'number)
@@ -666,6 +676,7 @@ the same as setting the font at 14 point size).
 
 For more on the matter, read the documentation of
 `set-face-attribute', specifically the ':height' section."
+  :group 'modus-themes
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
   :type 'number)
@@ -679,6 +690,7 @@ the same as setting the font at 14 point size).
 
 For more on the matter, read the documentation of
 `set-face-attribute', specifically the ':height' section."
+  :group 'modus-themes
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
   :type 'number)
@@ -690,6 +702,7 @@ Nil means the fringes have no background color.  Option `subtle'
 will apply a greyscale value that is visible yet close to the
 main buffer background color.  Option `intense' will use a more
 pronounced greyscale value."
+  :group 'modus-themes
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
   :type '(choice
@@ -714,6 +727,7 @@ of the block.  The exact color will depend on the programming
 language and is controlled by the `org-src-block-faces'
 variable (refer to the theme's source code for the current
 association list)."
+  :group 'modus-themes
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
   :type '(choice
@@ -751,6 +765,7 @@ This is meant to capture the use-case where a habit task being
 difference between ready and clear states is attenuated by
 painting both of them using shades of green.  This option thus
 highlights the alert and overdue states."
+  :group 'modus-themes
   :package-version '(modus-themes . "1.1.0")
   :version "28.1"
   :type '(choice
@@ -775,6 +790,7 @@ the box effect and rely on underline and overline properties
 instead.  It also tones down the inactive modelines.  Despite its
 intended purpose, this option can also be used without the
 `moody' library."
+  :group 'modus-themes
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
   :type '(choice
@@ -805,6 +821,7 @@ text's foreground.  This makes it suitable for a non-nil value
 passed to `diff-font-lock-syntax' (note: Magit does not support
 syntax highlighting in diffs as of 2020-11-25, version
 20201116.1057)."
+  :group 'modus-themes
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
   :type '(choice
@@ -836,6 +853,7 @@ Option `opinionated' will apply color combinations that refashion
 the completion UI.  So Icomplete et al will now use styles that
 resemble the defaults of Ivy and co., while the latter group will
 revert to an even more nuanced aesthetic."
+  :group 'modus-themes
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
   :type '(choice
@@ -851,6 +869,7 @@ Nil means to only use an accented foreground color.
 Options `subtle' and `intense' will change both the background
 and the foreground values.  The latter has a more pronounced
 effect than the former."
+  :group 'modus-themes
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
   :type '(choice
@@ -860,6 +879,7 @@ effect than the former."
 
 (defcustom modus-themes-intense-hl-line nil
   "Use a more prominent background for command `hl-line-mode'."
+  :group 'modus-themes
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
   :type 'boolean)
@@ -876,6 +896,7 @@ use of bold typographic weight (inherits the `bold' face).
 
 Option `intense-bold' is the same as `intense', while it also
 uses a bold weight."
+  :group 'modus-themes
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
   :type '(choice
@@ -911,6 +932,7 @@ tinted.  Comments are gray.
 
 Option `alt-syntax-yellow-comments' combines `alt-syntax' with
 `yellow-comments'."
+  :group 'modus-themes
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
   :type '(choice
@@ -938,6 +960,7 @@ Option `faint-neutral-underline' combines a desaturated text
 color with a subtle grey underline.
 
 Option `no-underline' removes link underlines altogether."
+  :group 'modus-themes
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
   :type '(choice
@@ -964,6 +987,7 @@ window.
 
 Option `bg-only-no-extend' is a combination of the `bg-only' and
 `no-extend' options."
+  :group 'modus-themes
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
   :type '(choice
