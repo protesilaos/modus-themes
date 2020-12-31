@@ -44,7 +44,6 @@
 ;; current item):
 ;;
 ;; - modus-themes.el            (Main code shared between the themes)
-;; - modus-themes-core.el       (Code used to produce the themes)
 ;; - modus-operandi-theme.el    (Light theme)
 
 ;;; Code:
@@ -52,15 +51,13 @@
 
 
 (require 'modus-themes)
-(eval-when-compile
-  (require 'modus-themes-core))
 
 (deftheme modus-vivendi
   "Dark theme that conforms with the highest accessibility
   standard for color contrast between background and foreground
   elements (WCAG AAA).")
 
-(modus-themes-core-theme modus-vivendi)
+(modus-themes-theme modus-vivendi)
 
 (provide-theme 'modus-vivendi)
 

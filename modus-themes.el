@@ -362,7 +362,6 @@
 ;; (should be distributed in the same repository/directory as the
 ;; current item):
 ;;
-;; - modus-themes-core.el       (Code used to produce the themes)
 ;; - modus-operandi-theme.el    (Light theme)
 ;; - modus-vivendi-theme.el     (Dark theme)
 
@@ -1534,10 +1533,6 @@ symbol and the latter as a string.")
 
 ;;; Internal functions
 
-(defun modus-themes--current-theme ()
-  "Return current theme."
-  (car custom-enabled-themes))
-
 (defun modus-themes--palette (theme)
   "Return color palette for Modus theme THEME.
 THEME is a symbol, either modus-operandi or modus-vivendi."
@@ -1550,6 +1545,33 @@ THEME is a symbol, either modus-operandi or modus-vivendi."
              modus-themes-vivendi-colors))
     (_theme
      (error "'%s' is not a Modus theme" theme))))
+
+(defvar modus-themes-faces)
+(defvar modus-themes-custom-variables)
+
+(defmacro modus-themes-theme (name)
+  "Bind NAME's color palette around face specifications.
+
+NAME should be the proper name of a Modus theme, either
+'modus-operandi or 'modus-vivendi.
+
+Face specifications are those passed to `custom-theme-set-faces'.
+They are extracted directly from variables defined in the
+`modus-themes' library.  For example, `modus-themes-faces'."
+  (declare (indent 0))
+  (let ((palette-sym (gensym))
+        (colors (mapcar #'car modus-themes-operandi-colors)))
+    `(let* ((class '((class color) (min-colors 89)))
+            (,palette-sym (modus-themes--palette ',name))
+            ,@(mapcar (lambda (color)
+                        (list color `(alist-get ',color ,palette-sym)))
+                      colors))
+       (custom-theme-set-faces ',name ,@modus-themes-faces)
+       (custom-theme-set-variables ',name ,@modus-themes-custom-variables))))
+
+(defun modus-themes--current-theme ()
+  "Return current theme."
+  (car custom-enabled-themes))
 
 ;; Helper functions that are meant to ease the implementation of the
 ;; above customization options.
@@ -5295,7 +5317,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(ztreep-leaf-face ((,class :foreground ,cyan)))
     `(ztreep-node-count-children-face ((,class :foreground ,fg-special-warm)))
     `(ztreep-node-face ((,class :foreground ,fg-main))))
-  "Face specs for use with `modus-themes-core-theme'.")
+  "Face specs for use with `modus-themes-theme'.")
 
 (defconst modus-themes-custom-variables
   '(
@@ -5390,7 +5412,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
           ("conf" modus-theme-nuanced-cyan)
           ("docker" modus-theme-nuanced-cyan)))
       `(org-src-block-faces '())))
-    "Custom variables for `modus-themes-core-theme'.")
+    "Custom variables for `modus-themes-theme'.")
 
 ;;;###autoload
 (when (and (boundp 'custom-theme-load-path) load-file-name)
