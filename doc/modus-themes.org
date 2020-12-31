@@ -1303,102 +1303,115 @@ the previous section.  Adapt the above example like this:
 ** Override theme colors (DIY)
 :PROPERTIES:
 :ALT_TITLE: Custom coloration (DIY)
-:DESCRIPTION: Declare your own colors for face specs
+:DESCRIPTION: Declare your own colors to override the defaults
 :CUSTOM_ID: h:307d95dd-8dbd-4ece-a543-10ae86f155a6
 :END:
 
-This section assumes that you are already familiar with the
-=modus-themes-with-colors= macro and understand how to make best use of
-it ([[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Face specs at scale using the themes' palette]]).
+NOTE: Coming in version =1.1.0= of the themes.  Courtesy of Nicolas De
+Jaeghere.
 
-While you may like the overall aesthetics of the Modus themes, chances
-are that you find something that does not align with your needs.  For
-example, you do not want a pure white/black background but some slightly
-tinted alternative.  To make this happen, you need to define overrides
-for color variables and then assign them to the relevant faces.
+The themes provide a mechanism for overriding their color values.  This
+is controlled by the variables =modus-themes-operandi-color-overrides= and
+=modus-themes-vivendi-color-overrides=, which are alists that should
+mirror a subset of the associations in =modus-=themes-operandi-colors= and
+=modus-themes-vivendi-colors= respectively.  As with all customisations,
+overriding must be done before loading the affected theme.
 
-This is a pair of palette alternatives:
-
-#+begin_src emacs-lisp
-(defvar my-modus-operandi-overrides
-  '((bg-main . "#fefcf4")
-    (bg-dim . "#faf6ef")
-    (bg-alt . "#f7efe5")
-    (bg-hl-line . "#f4f0e3")
-    (bg-active . "#e8dfd1")
-    (bg-inactive . "#f6ece5")
-    (bg-region . "#c6bab1")
-    (bg-header . "#ede3e0")
-    (bg-tab-bar . "#dcd3d3")
-    (bg-tab-active . "#fdf6eb")
-    (bg-tab-inactive . "#c8bab8")
-    (fg-unfocused . "#55556f")))
-
-(defvar my-modus-vivendi-overrides
-  '((bg-main . "#100b17")
-    (bg-dim . "#161129")
-    (bg-alt . "#181732")
-    (bg-hl-line . "#191628")
-    (bg-active . "#282e46")
-    (bg-inactive . "#1a1e39")
-    (bg-region . "#393a53")
-    (bg-header . "#202037")
-    (bg-tab-bar . "#262b41")
-    (bg-tab-active . "#120f18")
-    (bg-tab-inactive . "#3a3a5a")
-    (fg-unfocused . "#9a9aab")))
-#+end_src
-
-The first gives a slight sepia tone to =modus-operandi=, while the second
-adds a midnight sky feel to =modus-vivendi=.  Both are introduced without
-prejudice to the overarching accessibility standard of the themes,
-though users can always opt to use whatever colors they want.
-
-Once you have your subset of colors you want to use, you can experiment
-with this little demo:
+Let us approach the present topic one step at a time.  Here is a
+simplified excerpt of the default palette for Modus Operandi with some
+basic background values that apply to buffers and the mode line
+(remember to inspect the actual value to find out all the associations
+you can override):
 
 #+begin_src emacs-lisp
-(modus-themes-with-colors
-  (let-alist (if (eq (car custom-enabled-themes) 'modus-operandi)
-                 my-modus-operandi-overrides
-               my-modus-vivendi-overrides)
-    `(,.bg-main                  ; comma and dot read from the overrides
-      ,bg-alt                    ; comma reads from the defaults
-      ,.bg-dim)))
-;; => ("#fefcf4" "#f0f0f0" "#faf6ef")
+(defconst modus-themes-colors-operandi
+  '((bg-main . "#ffffff")
+    (bg-dim . "#f8f8f8")
+    (bg-alt . "#f0f0f0")
+    (bg-active . "#d7d7d7")
+    (bg-inactive . "#efefef")))
 #+end_src
 
-As you can tell from the inline comments, we are using the dot operator
-to extract the value from the let bound alist.  While the comma ensures
-that the variable is expanded by the macro.
-
-Once you are comfortable with this notation, you can proceed to
-customise faces.  In this example we refashion the overall presentation:
+As you can see, we bind a key to a hexadecimal RGB color value.  Now say
+you wish to override those specific values and have your changes
+propagate to all faces that use those keys.  You could write something
+like this, which adds a subtle ochre tint:
 
 #+begin_src emacs-lisp
-(defun my-modus-themes-custom-faces ()
-  (modus-themes-with-colors
-    (let-alist (if (eq (car custom-enabled-themes) 'modus-operandi)
-                   my-modus-operandi-overrides
-                 my-modus-vivendi-overrides)
-      (custom-set-faces
-       `(default ((,class :background ,.bg-main)))
-       `(fringe ((,class :background ,.bg-alt)))
-       `(region ((,class :background ,.bg-region)))
-       `(hl-line ((,class :background ,.bg-hl-line)))
-       `(header-line ((,class :background ,.bg-header)))
-       `(tab-bar ((,class :background ,.bg-tab-bar)))
-       `(mode-line ((,class :background ,.bg-active)))
-       `(mode-line-inactive ((,class :background ,.bg-active-inactive)))))))
-
-(add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
+(setq modus-themes-operandi-color-overrides
+      '((bg-main . "#fefcf4")
+        (bg-dim . "#faf6ef")
+        (bg-alt . "#f7efe5")
+        (bg-active . "#e8dfd1")
+        (bg-inactive . "#f6ece5")))
 #+end_src
 
-Please understand that you will have to identify all faces that you need
-to override, even though this should cover the general appearance.
+Once this is evaluated, any subsequent loading of =modus-operandi= will
+use those values instead of the defaults.  No further intervention is
+required.
 
-If someone knows how to override the palette and automatically reset all
-faces to the color overrides, please work with us to make it happen.
+To reset your changes, apply this and reload the theme:
+
+#+begin_src emacs-lisp
+(setq modus-themes-operandi-color-overrides nil)
+#+end_src
+
+Users who wish to leverage such a mechanism can opt to implement it
+on-demand by means of a minor mode.  The following snippet covers both
+themes and expands to some more assosiations:
+
+#+begin_src emacs-lisp
+(define-minor-mode my-modus-themes-tinted
+  "Tweak some Modus themes colors."
+  :init-value nil
+  :global t
+  (if my-modus-themes-tinted
+      (setq modus-themes-operandi-color-overrides
+            '((bg-main . "#fefcf4")
+              (bg-dim . "#faf6ef")
+              (bg-alt . "#f7efe5")
+              (bg-hl-line . "#f4f0e3")
+              (bg-active . "#e8dfd1")
+              (bg-inactive . "#f6ece5")
+              (bg-region . "#c6bab1")
+              (bg-header . "#ede3e0")
+              (bg-tab-bar . "#dcd3d3")
+              (bg-tab-active . "#fdf6eb")
+              (bg-tab-inactive . "#c8bab8")
+              (fg-unfocused . "#55556f"))
+            modus-themes-vivendi-color-overrides
+            '((bg-main . "#100b17")
+              (bg-dim . "#161129")
+              (bg-alt . "#181732")
+              (bg-hl-line . "#191628")
+              (bg-active . "#282e46")
+              (bg-inactive . "#1a1e39")
+              (bg-region . "#393a53")
+              (bg-header . "#202037")
+              (bg-tab-bar . "#262b41")
+              (bg-tab-active . "#120f18")
+              (bg-tab-inactive . "#3a3a5a")
+              (fg-unfocused . "#9a9aab")))
+    (setq modus-themes-operandi-color-overrides nil
+          modus-themes-vivendi-color-overrides nil)))
+#+end_src
+
+With this in place, one can invoke =M-x my-modus-themes-tinted= and then
+load the Modus theme of their choice.  The new colors will come into
+effect.  Switching between the themes will also use the overrides.
+
+Given that this is a user-level customisation, one is free to implement
+whatever color values they desire, even if the possible combinations
+fall below the minimum 7:1 contrast ratio that governs the design of the
+themes (the WCAG AAA legibility standard).  Preferences aside, it is
+advised to inspect the source code of =modus-themes-operandi-colors= and
+=modus-themes-vivendi-colors= to read the inline commentary: it explains
+what the intended use of each subset is.
+
+Furthermore, users may benefit from the =modus-themes-contrast= function
+that we provide ([[#h:02e25930-e71a-493d-828a-8907fc80f874][Check color combinations]]).  It measures the contrast
+ratio between two color values, so it can help in overriding the palette
+(or a subset thereof) without making the end result inaccessible.
 
 ** Font configurations for Org and others (DIY)
 :PROPERTIES:
