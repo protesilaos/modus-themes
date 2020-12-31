@@ -3,7 +3,7 @@
 #+EMAIL: info@protesilaos.com
 #+LANGUAGE: en
 #+TEXINFO_FILENAME: modus-themes.info
-#+TEXINFO_DIR_CATEGORY: Emacs misc features
+#+TEXINFO_DIR_CATEGORY: Emacs
 #+TEXINFO_DIR_TITLE: Modus Themes: (modus-themes)
 #+TEXINFO_DIR_DESC: Highly accessible themes (WCAG AAA)
 #+OPTIONS: ':t toc:nil author:t email:t
