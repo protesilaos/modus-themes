@@ -1550,14 +1550,15 @@ THEME is a symbol, either modus-operandi or modus-vivendi."
 (defvar modus-themes-custom-variables)
 
 (defmacro modus-themes-theme (name)
-  "Bind NAME's color palette around face specifications.
+  "Bind NAME's color palette around face specs and variables.
 
 NAME should be the proper name of a Modus theme, either
-'modus-operandi or 'modus-vivendi.
+`modus-operandi' or `modus-vivendi'.
 
-Face specifications are those passed to `custom-theme-set-faces'.
-They are extracted directly from variables defined in the
-`modus-themes' library.  For example, `modus-themes-faces'."
+Face specifications are passed to `custom-theme-set-faces'.
+While variables are handled by `custom-theme-set-variables'.
+Those are stored in `modus-themes-faces' and
+`modus-themes-custom-variables' respectively."
   (declare (indent 0))
   (let ((palette-sym (gensym))
         (colors (mapcar #'car modus-themes-operandi-colors)))
