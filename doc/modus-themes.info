@@ -27,7 +27,7 @@ provides every other piece of information pertinent to them.
    The documentation furnished herein corresponds to version 1.0.2,
 released on 2020-12-06.  Any reference to a newer feature which does not
 yet form part of the latest tagged commit, is explicitly marked as such.
-Current build was done on 2020-12-31 18:22 +0200.
+Current build was done on 2020-12-31 18:48 +0200.
 
 * Menu:
 
@@ -2117,67 +2117,67 @@ the themes’ palette: Face tweaks in bulk (DIY).).
      (setq prism-num-faces 16)
 
      (prism-set-colors
-      :desaturations '(0) ; may lower the contrast ratio
-      :lightens '(0)      ; same
-      :colors (modus-themes-with-colors
-                (list fg-main
-                      magenta
-                      cyan-alt-other
-                      magenta-alt-other
-                      blue
-                      magenta-alt
-                      cyan-alt
-                      red-alt-other
-                      green
-                      fg-main
-                      cyan
-                      yellow
-                      blue-alt
-                      red-alt
-                      green-alt-other
-                      fg-special-warm)))
+       :desaturations '(0) ; may lower the contrast ratio
+       :lightens '(0)      ; same
+       :colors (modus-themes-with-colors
+                 (list fg-main
+                       magenta
+                       cyan-alt-other
+                       magenta-alt-other
+                       blue
+                       magenta-alt
+                       cyan-alt
+                       red-alt-other
+                       green
+                       fg-main
+                       cyan
+                       yellow
+                       blue-alt
+                       red-alt
+                       green-alt-other
+                       fg-special-warm)))
 
    With 8 colors:
 
      (setq prism-num-faces 8)
 
      (prism-set-colors
-      :desaturations '(0) ; may lower the contrast ratio
-      :lightens '(0)      ; same
-      :colors (modus-themes-with-colors
-                (list fg-special-cold
-                      magenta
-                      magenta-alt-other
-                      cyan-alt-other
-                      fg-main
-                      blue-alt
-                      red-alt-other
-                      cyan)))
+       :desaturations '(0) ; may lower the contrast ratio
+       :lightens '(0)      ; same
+       :colors (modus-themes-with-colors
+                 (list fg-special-cold
+                       magenta
+                       magenta-alt-other
+                       cyan-alt-other
+                       fg-main
+                       blue-alt
+                       red-alt-other
+                       cyan)))
 
    With 4 colors (the closest to the themes’ default):
 
      (setq prism-num-faces 4)
 
      (prism-set-colors
-      :desaturations '(0) ; may lower the contrast ratio
-      :lightens '(0)      ; same
-      :colors (modus-themes-with-colors
-                (list fg-main
-                      cyan-alt-other
-                      magenta-alt-other
-                      magenta)))
+       :desaturations '(0) ; may lower the contrast ratio
+       :lightens '(0)      ; same
+       :colors (modus-themes-with-colors
+                 (list fg-main
+                       cyan-alt-other
+                       magenta-alt-other
+                       magenta)))
 
    If you need to apply desaturation and ligthening, you can use what
 the prism.el documentation recommends, like this:
 
      (prism-set-colors
-      :desaturations (cl-loop for i from 0 below 16 collect (* i 2.5))
-      :lightens (cl-loop for i from 0 below 16 collect (* i 2.5))
-      :colors (modus-themes-with-colors
-                (list fg-main
-                      cyan-alt-other
-                      magenta-alt-other
-                      magenta)))
+       :desaturations (cl-loop for i from 0 below 16 collect (* i 2.5))
+       :lightens (cl-loop for i from 0 below 16 collect (* i 2.5))
+       :colors (modus-themes-with-colors
+                 (list fg-main
+                       cyan-alt-other
+                       magenta-alt-other
+                       magenta)))
 
 
 File: modus-themes.info,  Node: Note on company-mode overlay pop-up,  Next: Note for ERC escaped color sequences,  Prev: Note for prism,  Up: Notes for individual packages
@@ -3096,24 +3096,24 @@ Node: Supported packages69628
 Node: Indirectly covered packages75973
 Node: Notes for individual packages76428
 Node: Note for prism76966
-Node: Note on company-mode overlay pop-up79815
-Ref: Note on company-mode overlay pop-up-Footnote-180502
-Ref: Note on company-mode overlay pop-up-Footnote-280569
-Node: Note for ERC escaped color sequences80624
-Ref: Note for ERC escaped color sequences-Footnote-182057
-Node: Note for powerline or spaceline82167
-Node: Note on SHR colors82583
-Node: Note for Helm grep82993
-Node: Note on vc-annotate-background-mode84438
-Node: Note on pdf-tools link hints85327
-Node: Contributing87758
-Node: Sources of the themes88177
-Node: Issues you can help with88918
-Node: Merge requests90099
-Node: Acknowledgements92361
-Node: Meta94346
-Node: External projects (ports)96013
-Node: GNU Free Documentation License96835
+Node: Note on company-mode overlay pop-up79859
+Ref: Note on company-mode overlay pop-up-Footnote-180546
+Ref: Note on company-mode overlay pop-up-Footnote-280613
+Node: Note for ERC escaped color sequences80668
+Ref: Note for ERC escaped color sequences-Footnote-182101
+Node: Note for powerline or spaceline82211
+Node: Note on SHR colors82627
+Node: Note for Helm grep83037
+Node: Note on vc-annotate-background-mode84482
+Node: Note on pdf-tools link hints85371
+Node: Contributing87802
+Node: Sources of the themes88221
+Node: Issues you can help with88962
+Node: Merge requests90143
+Node: Acknowledgements92405
+Node: Meta94390
+Node: External projects (ports)96057
+Node: GNU Free Documentation License96879
 
 End Tag Table
 
