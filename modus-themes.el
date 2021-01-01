@@ -474,7 +474,7 @@
 
 ;;; Customization options
 
-;;;; Current customisation options (>= 1.0.0)
+;;;; Current customization options (>= 1.0.0)
 
 (defcustom modus-themes-operandi-color-overrides nil
   "Alist of color name to color value pairs.
@@ -1486,7 +1486,9 @@ symbol and the latter as a string.")
 Each element has the form (NAME . HEX) with the former as a
 symbol and the latter as a string.")
 
-;;;; Deprecated customisation options (prior to 1.0.0)
+
+
+;;;; Deprecated customization options (prior to 1.0.0)
 
 ;;;;; Modus Operandi obsolete options
 
