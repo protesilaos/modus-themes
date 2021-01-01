@@ -3271,18 +3271,19 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; font-lock
     `(font-lock-builtin-face ((,class :inherit modus-theme-bold
                                       ,@(modus-themes--syntax-extra
-                                         magenta-alt magenta-alt-faint magenta-alt-other))))
+                                         magenta-alt magenta-alt-faint blue-alt-faint))))
     `(font-lock-comment-delimiter-face ((,class :inherit font-lock-comment-face)))
     `(font-lock-comment-face ((,class :inherit modus-theme-slant
                                       ,@(modus-themes--syntax-comment
                                          fg-alt fg-comment-yellow))))
     `(font-lock-constant-face ((,class ,@(modus-themes--syntax-extra
-                                          blue-alt-other blue-alt-other-faint magenta-alt))))
+                                          blue-alt-other blue-alt-other-faint magenta-alt-other))))
     `(font-lock-doc-face ((,class :inherit modus-theme-slant
                                   ,@(modus-themes--syntax-docstring
-                                     fg-docstring cyan-alt-other-faint green-alt-faint blue-alt-other-faint))))
+                                     fg-docstring cyan-alt-other-faint
+                                     green-alt-faint magenta-nuanced-fg))))
     `(font-lock-function-name-face ((,class ,@(modus-themes--syntax-extra
-                                               magenta magenta-faint red-alt-other))))
+                                               magenta magenta-faint magenta-alt))))
     `(font-lock-keyword-face ((,class :inherit modus-theme-bold
                                       ,@(modus-themes--syntax-extra
                                          magenta-alt-other magenta-alt-other-faint cyan-alt-other))))
@@ -3294,10 +3295,10 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(font-lock-regexp-grouping-backslash ((,class :inherit bold :foreground ,fg-escape-char-backslash)))
     `(font-lock-regexp-grouping-construct ((,class :inherit bold :foreground ,fg-escape-char-construct)))
     `(font-lock-string-face ((,class ,@(modus-themes--syntax-string
-                                        blue-alt blue-alt-faint green green))))
+                                        blue-alt blue-alt-faint green green-alt))))
     `(font-lock-type-face ((,class :inherit modus-theme-bold
                                    ,@(modus-themes--syntax-extra
-                                      cyan-alt-other magenta-alt-faint magenta-alt))))
+                                      cyan-alt-other magenta-alt-faint cyan-alt))))
     `(font-lock-variable-name-face ((,class ,@(modus-themes--syntax-extra
                                                cyan cyan-faint blue))))
     `(font-lock-warning-face ((,class :inherit modus-theme-bold
