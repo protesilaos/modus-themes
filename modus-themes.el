@@ -72,7 +72,7 @@
 ;;
 ;; Below is the list of explicitly supported packages or face groups
 ;; (there are implicitly supported packages as well, which inherit from
-;; font-lock or some basic group).  You are encouraged to report of any
+;; font-lock or some basic group).  You are encouraged to report any
 ;; missing package or change you would like to see.
 ;;
 ;;     ace-window
@@ -378,14 +378,16 @@
 
 (require 'cl-lib)
 
-;;; Custom faces
-
 (defgroup modus-themes ()
   "Options for `modus-operandi', `modus-vivendi'."
   :group 'faces
   :prefix "modus-themes-"
   :tag "Modus Themes")
 
+;;; Custom faces
+
+;; These faces are used internally to ensure consistency between various
+;; groups.  Their properties are assigned in `modus-themes-faces'.
 (defface modus-theme-subtle-red nil nil)
 (defface modus-theme-subtle-green nil nil)
 (defface modus-theme-subtle-yellow nil nil)
@@ -1004,7 +1006,7 @@ Option `bg-only-no-extend' is a combination of the `bg-only' and
 
 
 
-;;; Variables for each variant
+;;; Variables for each theme variant
 
 ;;;; Modus Operandi
 
@@ -1566,7 +1568,7 @@ symbol and the latter as a string.")
 
 (defun modus-themes--palette (theme)
   "Return color palette for Modus theme THEME.
-THEME is a symbol, either modus-operandi or modus-vivendi."
+THEME is a symbol, either `modus-operandi' or `modus-vivendi'."
   (pcase theme
     ('modus-operandi
      (append modus-themes-operandi-color-overrides
@@ -5424,27 +5426,27 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(xterm-color-names ["black" ,red ,green ,yellow ,blue ,magenta ,cyan "gray65"])
     `(xterm-color-names-bright ["gray35" ,red-alt ,green-alt ,yellow-alt ,blue-alt ,magenta-alt ,cyan-alt "white"])
     (if (eq modus-themes-org-blocks 'rainbow)
-      `(org-src-block-faces              ; TODO this list should be expanded
-        `(("emacs-lisp" modus-theme-nuanced-magenta)
-          ("elisp" modus-theme-nuanced-magenta)
-          ("clojure" modus-theme-nuanced-magenta)
-          ("clojurescript" modus-theme-nuanced-magenta)
-          ("c" modus-theme-nuanced-blue)
-          ("c++" modus-theme-nuanced-blue)
-          ("sh" modus-theme-nuanced-green)
-          ("shell" modus-theme-nuanced-green)
-          ("html" modus-theme-nuanced-yellow)
-          ("xml" modus-theme-nuanced-yellow)
-          ("css" modus-theme-nuanced-red)
-          ("scss" modus-theme-nuanced-red)
-          ("python" modus-theme-nuanced-green)
-          ("ipython" modus-theme-nuanced-magenta)
-          ("r" modus-theme-nuanced-cyan)
-          ("yaml" modus-theme-nuanced-cyan)
-          ("conf" modus-theme-nuanced-cyan)
-          ("docker" modus-theme-nuanced-cyan)))
+        `(org-src-block-faces              ; TODO this list should be expanded
+          `(("emacs-lisp" modus-theme-nuanced-magenta)
+            ("elisp" modus-theme-nuanced-magenta)
+            ("clojure" modus-theme-nuanced-magenta)
+            ("clojurescript" modus-theme-nuanced-magenta)
+            ("c" modus-theme-nuanced-blue)
+            ("c++" modus-theme-nuanced-blue)
+            ("sh" modus-theme-nuanced-green)
+            ("shell" modus-theme-nuanced-green)
+            ("html" modus-theme-nuanced-yellow)
+            ("xml" modus-theme-nuanced-yellow)
+            ("css" modus-theme-nuanced-red)
+            ("scss" modus-theme-nuanced-red)
+            ("python" modus-theme-nuanced-green)
+            ("ipython" modus-theme-nuanced-magenta)
+            ("r" modus-theme-nuanced-cyan)
+            ("yaml" modus-theme-nuanced-cyan)
+            ("conf" modus-theme-nuanced-cyan)
+            ("docker" modus-theme-nuanced-cyan)))
       `(org-src-block-faces '())))
-    "Custom variables for `modus-themes-theme'.")
+  "Custom variables for `modus-themes-theme'.")
 
 ;;;###autoload
 (when (and (boundp 'custom-theme-load-path) load-file-name)
