@@ -2244,7 +2244,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(help-argument-name ((,class :inherit modus-theme-slant :foreground ,cyan)))
     `(homoglyph ((,class :foreground ,red-alt-faint)))
     `(ibuffer-locked-buffer ((,class :foreground ,yellow-alt-other-faint)))
-    `(internal-border ((,class :background ,fg-window-divider-inner :foreground ,fg-window-divider-inner)))
     `(italic ((,class :slant italic)))
     `(nobreak-hyphen ((,class :foreground ,fg-escape-char-construct)))
     `(nobreak-space ((,class :foreground ,fg-escape-char-construct :underline t)))
