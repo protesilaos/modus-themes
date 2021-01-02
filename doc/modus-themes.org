@@ -27,7 +27,7 @@ such.  Current build was done on {{{export-date}}}.
 :COPYING: t
 :END:
 
-Copyright (C) 2020  Free Software Foundation, Inc.
+Copyright (C) 2020-2021  Free Software Foundation, Inc.
 
 #+begin_quote
 Permission is granted to copy, distribute and/or modify this
