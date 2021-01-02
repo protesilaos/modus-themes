@@ -3272,7 +3272,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; font-lock
     `(font-lock-builtin-face ((,class :inherit modus-theme-bold
                                       ,@(modus-themes--syntax-extra
-                                         magenta-alt magenta-alt-faint blue-alt-faint))))
+                                         magenta-alt magenta-alt-faint blue-alt))))
     `(font-lock-comment-delimiter-face ((,class :inherit font-lock-comment-face)))
     `(font-lock-comment-face ((,class :inherit modus-theme-slant
                                       ,@(modus-themes--syntax-comment
@@ -3301,7 +3301,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                    ,@(modus-themes--syntax-extra
                                       cyan-alt-other magenta-alt-faint cyan-alt))))
     `(font-lock-variable-name-face ((,class ,@(modus-themes--syntax-extra
-                                               cyan cyan-faint blue))))
+                                               cyan cyan-faint blue-alt-faint))))
     `(font-lock-warning-face ((,class :inherit modus-theme-bold
                                       ,@(modus-themes--syntax-foreground
                                          yellow-active yellow-alt-faint))))
