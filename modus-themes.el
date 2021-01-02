@@ -2507,7 +2507,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(log-edit-header ((,class :foreground ,fg-special-warm)))
     `(log-edit-summary ((,class :inherit bold :foreground ,blue)))
     `(log-edit-unknown-header ((,class :inherit shadow)))
-    `(log-view-commit-body ((,class :background ,bg-dim :foreground ,fg-main :extend t)))
+    `(log-view-commit-body ((,class :foreground ,blue-nuanced-fg)))
     `(log-view-file ((,class :inherit bold :foreground ,fg-special-cold)))
     `(log-view-message ((,class :foreground ,green-alt-other-faint)))
 ;;;;; cider
