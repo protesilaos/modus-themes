@@ -661,6 +661,8 @@ names imply.
 :CUSTOM_ID: h:4b13743a-8ebf-4d2c-a043-cceba10b1eb4
 :END:
 
+[Coming in version 1.1.0 of the Modus themes]
+
 Symbol: =modus-themes-lang-checkers=
 
 Possible values:
@@ -678,6 +680,9 @@ Options =subtle-foreground=, =intense-foreground= follow the same
 color-coding pattern and extend it with a corresponding foreground value
 for the affected text.  The difference between the two options is one of
 degree, as their names suggest.
+
+This option affects packages and/or face groups such as those of
+=flyspell=, =flymake=, =flycheck=, =artbollocks-mode=, =writegood-mode=.
 
 ** Option for line highlighting (hl-line-mode)
 :PROPERTIES:
