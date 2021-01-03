@@ -98,6 +98,7 @@
 ;;     calendar and diary
 ;;     calfw
 ;;     centaur-tabs
+;;     cfrs
 ;;     change-log and log-view (`vc-print-log' and `vc-print-root-log')
 ;;     cider
 ;;     circe
@@ -2563,6 +2564,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(centaur-tabs-selected-modified ((,class :inherit italic :background ,bg-tab-active :foreground ,fg-main)))
     `(centaur-tabs-unselected ((,class :background ,bg-tab-inactive :foreground ,fg-dim)))
     `(centaur-tabs-unselected-modified ((,class :inherit italic :background ,bg-tab-inactive :foreground ,fg-dim)))
+;;;;; cfrs
+    `(cfrs-border-color ((,class :background ,fg-window-divider-inner)))
 ;;;;; change-log and log-view (`vc-print-log' and `vc-print-root-log')
     `(change-log-acknowledgment ((,class :foreground ,green-alt-other-faint)))
     `(change-log-conditionals ((,class :foreground ,magenta-alt)))
