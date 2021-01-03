@@ -42,6 +42,7 @@
 ;;     modus-themes-headings                       (alist)
 ;;     modus-themes-scale-headings                 (boolean)
 ;;     modus-themes-fringes                        (choice)
+;;     modus-themes-lang-checkers                  (choice)
 ;;     modus-themes-org-blocks                     (choice)
 ;;     modus-themes-org-habit                      (choice)
 ;;     modus-themes-prompts                        (choice)
@@ -469,6 +470,9 @@
 (defface modus-theme-graph-magenta-1 nil nil)
 (defface modus-theme-graph-cyan-0 nil nil)
 (defface modus-theme-graph-cyan-1 nil nil)
+(defface modus-theme-lang-note nil nil)
+(defface modus-theme-lang-warning nil nil)
+(defface modus-theme-lang-error nil nil)
 
 
 
@@ -717,6 +721,26 @@ pronounced greyscale value."
           (const :tag "No visible fringes (default)" nil)
           (const :tag "Subtle greyscale background" subtle)
           (const :tag "Intense greyscale background" intense)))
+
+(defcustom modus-themes-lang-checkers nil
+  "Control the style of spelling and code checkers/linters.
+
+Nil (the default) applies a color-coded underline to the affected
+text, while it leaves the original foreground in tact.  If the
+display spec of Emacs has support for it, the underline's style
+is that of a wave, otherwise it is a straight line.
+
+Options `subtle-foreground' and `intense-foreground' add a
+color-coded underline while also changing the text's foreground
+accordingly.  The style of the underline is the same as with the
+default option."
+  :group 'modus-themes
+  :package-version '(modus-themes . "1.1.0")
+  :version "28.1"
+  :type '(choice
+          (const :tag "Only color-coded underline (default)" nil)
+          (const :tag "Color-coded underline; subtle foreground" subtle-foreground)
+          (const :tag "Color-coded underline; intense foreground" intense-foreground)))
 
 (defcustom modus-themes-org-blocks nil
   "Use a subtle gray or color-coded background for Org blocks.
@@ -1641,6 +1665,19 @@ value.  INTENSEBG must be a more pronounced greyscale color."
     ('subtle (list :background subtlebg))
     (_ (list :background mainbg))))
 
+(defun modus-themes--lang-check (underline subtlefg intensefg)
+  "Conditional use of foreground colors for language checkers.
+UNDERLINE is a color-code value for the affected text's underline
+property.  SUBTLEFG and INTENSEFG follow the same color-coding
+pattern and represent a value that is faint or vibrant
+respectively."
+  (pcase modus-themes-lang-checkers
+    ('intense-foreground
+     (list :underline (list :color underline :style 'wave) :foreground intensefg))
+    ('subtle-foreground
+     (list :underline (list :color underline :style 'wave) :foreground subtlefg))
+    (_ (list :underline (list :color underline :style 'wave)))))
+
 (defun modus-themes--prompt (mainfg subtlebg subtlefg intensebg intensefg)
   "Conditional use of background colors for prompts.
 MAINFG is the prompt's standard foreground.  SUBTLEBG should be a
@@ -2212,6 +2249,10 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(modus-theme-graph-magenta-1 ((,class :background ,magenta-graph-1-bg)))
     `(modus-theme-graph-cyan-0 ((,class :background ,cyan-graph-0-bg)))
     `(modus-theme-graph-cyan-1 ((,class :background ,cyan-graph-1-bg)))
+;;;;; language checkers
+    `(modus-theme-lang-error ((,class ,@(modus-themes--lang-check fg-lang-error red-faint red))))
+    `(modus-theme-lang-note ((,class ,@(modus-themes--lang-check fg-lang-note cyan-faint cyan))))
+    `(modus-theme-lang-warning ((,class ,@(modus-themes--lang-check fg-lang-warning yellow-faint yellow))))
 ;;;;; other custom faces
     `(modus-theme-bold ((,class ,@(modus-themes--bold-weight))))
     `(modus-theme-hl-line ((,class :background ,(if modus-themes-intense-hl-line
@@ -2358,10 +2399,10 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(apt-sources-list-type ((,class :foreground ,magenta)))
     `(apt-sources-list-uri ((,class :foreground ,blue)))
 ;;;;; artbollocks-mode
-    `(artbollocks-face ((,class :foreground ,cyan-nuanced-fg :underline ,fg-lang-note)))
+    `(artbollocks-face ((,class :inherit modus-theme-lang-note)))
     `(artbollocks-lexical-illusions-face ((,class :background ,bg-alt :foreground ,red-alt :underline t)))
-    `(artbollocks-passive-voice-face ((,class :foreground ,yellow-nuanced-fg :underline ,fg-lang-warning)))
-    `(artbollocks-weasel-words-face ((,class :foreground ,red-nuanced-fg :underline ,fg-lang-error)))
+    `(artbollocks-passive-voice-face ((,class :inherit modus-theme-lang-warning)))
+    `(artbollocks-weasel-words-face ((,class :inherit modus-theme-lang-error)))
 ;;;;; auctex and Tex
     `(font-latex-bold-face ((,class :inherit bold :foreground ,fg-special-calm)))
     `(font-latex-doctex-documentation-face ((,class :inherit modus-theme-slant :foreground ,fg-special-cold)))
@@ -3179,10 +3220,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(fancy-dabbrev-preview-face ((,class :inherit shadow :underline t)))
     `(fancy-dabbrev-selection-face ((,class :inherit (modus-theme-intense-cyan bold))))
 ;;;;; flycheck
-    `(flycheck-error
-      ((,(append '((supports :underline (:style wave))) class)
-        :underline (:color ,fg-lang-error :style wave))
-       (,class :foreground ,fg-lang-error :underline t)))
+    `(flycheck-error ((,class :inherit modus-theme-lang-error)))
     `(flycheck-error-list-checker-name ((,class :foreground ,magenta-active)))
     `(flycheck-error-list-column-number ((,class :foreground ,fg-special-cold)))
     `(flycheck-error-list-error ((,class :inherit modus-theme-bold :foreground ,red)))
@@ -3196,15 +3234,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(flycheck-fringe-error ((,class :inherit modus-theme-fringe-red)))
     `(flycheck-fringe-info ((,class :inherit modus-theme-fringe-cyan)))
     `(flycheck-fringe-warning ((,class :inherit modus-theme-fringe-yellow)))
-    `(flycheck-info
-      ((,(append '((supports :underline (:style wave))) class)
-        :underline (:color ,fg-lang-note :style wave))
-       (,class :foreground ,fg-lang-note :underline t)))
+    `(flycheck-info ((,class :inherit modus-theme-lang-note)))
     `(flycheck-verify-select-checker ((,class :box (:line-width 1 :color nil :style released-button))))
-    `(flycheck-warning
-      ((,(append '((supports :underline (:style wave))) class)
-        :underline (:color ,fg-lang-warning :style wave))
-       (,class :foreground ,fg-lang-warning :underline t)))
+    `(flycheck-warning ((,class :inherit modus-theme-lang-warning)))
 ;;;;; flycheck-color-mode-line
     `(flycheck-color-mode-line-error-face ((,class :inherit flycheck-fringe-error)))
     `(flycheck-color-mode-line-info-face ((,class :inherit flycheck-fringe-info)))
@@ -3225,27 +3257,12 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(flycheck-posframe-info-face ((,class :inherit bold :foreground ,cyan)))
     `(flycheck-posframe-warning-face ((,class :inherit bold :foreground ,yellow)))
 ;;;;; flymake
-    `(flymake-error
-      ((,(append '((supports :underline (:style wave))) class)
-        :underline (:color ,fg-lang-error :style wave))
-       (,class :foreground ,fg-lang-error :underline t)))
-    `(flymake-note
-      ((,(append '((supports :underline (:style wave))) class)
-        :underline (:color ,fg-lang-note :style wave))
-       (,class :foreground ,fg-lang-note :underline t)))
-    `(flymake-warning
-      ((,(append '((supports :underline (:style wave))) class)
-        :underline (:color ,fg-lang-warning :style wave))
-       (,class :foreground ,fg-lang-warning :underline t)))
+    `(flymake-error ((,class :inherit modus-theme-lang-error)))
+    `(flymake-note ((,class :inherit modus-theme-lang-note)))
+    `(flymake-warning ((,class :inherit modus-theme-lang-warning)))
 ;;;;; flyspell
-    `(flyspell-duplicate
-      ((,(append '((supports :underline (:style wave))) class)
-        :underline (:color ,fg-lang-warning :style wave))
-       (,class :foreground ,fg-lang-warning :underline t)))
-    `(flyspell-incorrect
-      ((,(append '((supports :underline (:style wave))) class)
-        :underline (:color ,fg-lang-error :style wave))
-       (,class :foreground ,fg-lang-error :underline t)))
+    `(flyspell-duplicate ((,class :inherit modus-theme-lang-warning)))
+    `(flyspell-incorrect ((,class :inherit modus-theme-lang-error)))
 ;;;;; flyspell-correct
     `(flyspell-correct-highlight-face ((,class :inherit modus-theme-refine-green)))
 ;;;;; flx
@@ -4637,7 +4654,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(phi-search-match-face ((,class :inherit modus-theme-refine-cyan)))
     `(phi-search-selection-face ((,class :inherit (modus-theme-intense-green bold))))
 ;;;;; pkgbuild-mode
-    `(pkgbuild-error-face ((,class :underline ,fg-lang-error)))
+    `(pkgbuild-error-face ((,class :inherit modus-theme-lang-error)))
 ;;;;; pomidor
     `(pomidor-break-face ((,class :foreground ,blue-alt-other)))
     `(pomidor-overwork-face ((,class :foreground ,red-alt-other)))
@@ -4689,10 +4706,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(racket-logger-info-face ((,class :foreground ,fg-lang-note)))
     `(racket-logger-topic-face ((,class :inherit modus-theme-slant :foreground ,magenta)))
     `(racket-selfeval-face ((,class :foreground ,green-alt)))
-    `(racket-xp-error-face
-      ((,(append '((supports :underline (:style wave))) class)
-        :underline (:color ,fg-lang-error :style wave))
-       (,class :foreground ,fg-lang-error :underline t)))
+    `(racket-xp-error-face ((,class :inherit modus-theme-lang-error)))
 ;;;;; rainbow-blocks
     `(rainbow-blocks-depth-1-face ((,class :foreground ,magenta-alt-other)))
     `(rainbow-blocks-depth-2-face ((,class :foreground ,blue)))
@@ -4946,10 +4960,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(speedbar-separator-face ((,class :inherit modus-theme-intense-neutral)))
     `(speedbar-tag-face ((,class :foreground ,yellow-alt-other)))
 ;;;;; spell-fu
-    `(spell-fu-incorrect-face
-      ((,(append '((supports :underline (:style wave))) class)
-        :foreground ,fg-lang-error :underline (:style wave))
-       (,class :foreground ,fg-lang-error :underline t)))
+    `(spell-fu-incorrect-face ((,class :inherit modus-theme-lang-error)))
 ;;;;; stripes
     `(stripes ((,class :inherit modus-theme-hl-line)))
 ;;;;; success
@@ -5321,8 +5332,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(winum-face ((,class :inherit modus-theme-bold :foreground ,cyan-active)))
 ;;;;; writegood-mode
     `(writegood-duplicates-face ((,class :background ,bg-alt :foreground ,red-alt :underline t)))
-    `(writegood-passive-voice-face ((,class :foreground ,yellow-nuanced-fg :underline ,fg-lang-warning)))
-    `(writegood-weasels-face ((,class :foreground ,red-nuanced-fg :underline ,fg-lang-error)))
+    `(writegood-passive-voice-face ((,class :inherit modus-theme-lang-warning)))
+    `(writegood-weasels-face ((,class :inherit modus-theme-lang-error)))
 ;;;;; woman
     `(woman-addition ((,class :foreground ,magenta-alt-other)))
     `(woman-bold ((,class :inherit bold :foreground ,magenta)))

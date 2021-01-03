@@ -225,6 +225,7 @@ each theme in order to come into effect.  For example:
 (setq modus-themes-slanted-constructs t
       modus-themes-bold-constructs nil
       modus-themes-fringes nil ; {nil,'subtle,'intense}
+      modus-themes-lang-checkers nil ; {nil,'subtle-foreground,'intense-foreground}
       modus-themes-mode-line '3d ; {nil,'3d,'moody}
       modus-themes-syntax nil ; Lots of options---continue reading the manual
       modus-themes-intense-hl-line nil
@@ -651,6 +652,31 @@ space given to them by =fringe-mode=.
 Options =subtle= and =intense= apply a gray background, making the fringes
 visible.  The difference between the two is one of degree, as their
 names imply.
+
+** Option for language checkers
+:PROPERTIES:
+:ALT_TITLE: Language checkers
+:DESCRIPTION: Control the style of language checkers/linters
+:CUSTOM_ID: h:1983c3fc-74f6-44f3-b917-967c403bebae
+:END:
+
+Symbol: =modus-themes-lang-checkers=
+
+Possible values:
+
+1. =nil= (default)
+2. =subtle-foreground=
+3. =intense-foreground=
+
+Nil (the default) applies a color-coded underline to the affected text,
+while it leaves the original foreground in tact.  If the display spec
+where Emacs runs in has support for it, the underline's style is that of
+a wave, otherwise it is a straight line.
+
+Options =subtle-foreground=, =intense-foreground= follow the same
+color-coding pattern and extend it with a corresponding foreground value
+for the affected text.  The difference between the two options is one of
+degree, as their names suggest.
 
 ** Option for line highlighting (hl-line-mode)
 :PROPERTIES:
