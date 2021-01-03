@@ -27,7 +27,7 @@ provides every other piece of information pertinent to them.
    The documentation furnished herein corresponds to version 1.0.2,
 released on 2020-12-06.  Any reference to a newer feature which does not
 yet form part of the latest tagged commit, is explicitly marked as such.
-Current build was done on 2021-01-03 14:19 +0200.
+Current build was done on 2021-01-03 14:23 +0200.
 
 * Menu:
 
@@ -793,6 +793,10 @@ File: modus-themes.info,  Node: Language checkers,  Next: Line highlighting,  Pr
   1. ‘nil’ (default)
   2. ‘subtle-foreground’
   3. ‘intense-foreground’
+  4. ‘straight-underline’
+  5. ‘subtle-foreground-straight-underline’
+  6. ‘intense-foreground-straight-underline’
+  7. ‘colored-background’
 
    Nil (the default) applies a color-coded underline to the affected
 text, while it leaves the original foreground in tact.  If the display
@@ -3120,48 +3124,48 @@ Node: Mode line24743
 Node: Completion UIs27266
 Node: Fringes29098
 Node: Language checkers29758
-Node: Line highlighting31333
-Node: Matching parentheses31958
-Node: Active region32841
-Node: Diffs33777
-Node: Org mode blocks36049
-Node: Org agenda habits37392
-Node: Heading styles39277
-Node: Scaled headings42945
-Node: Scaled heading sizes43531
-Node: Headings' font45112
-Node: Advanced customization (do-it-yourself)45719
-Node: Simple face tweaks (DIY)47054
-Node: Face tweaks in bulk (DIY)51456
-Node: Override colors (DIY)57097
-Node: Font configurations (DIY)61760
-Ref: Font configurations (DIY)-Footnote-164062
-Node: Custom Org user faces (DIY)64249
-Node: Measure contrast (DIY)67503
-Node: Load at time (DIY)70249
-Node: Face coverage71209
-Node: Supported packages71679
-Node: Indirectly covered packages78024
-Node: Notes for individual packages78479
-Node: Note for prism79017
-Node: Note on company-mode overlay pop-up81910
-Ref: Note on company-mode overlay pop-up-Footnote-182597
-Ref: Note on company-mode overlay pop-up-Footnote-282664
-Node: Note for ERC escaped color sequences82719
-Ref: Note for ERC escaped color sequences-Footnote-184152
-Node: Note for powerline or spaceline84262
-Node: Note on SHR colors84678
-Node: Note for Helm grep85088
-Node: Note on vc-annotate-background-mode86533
-Node: Note on pdf-tools link hints87422
-Node: Contributing89853
-Node: Sources of the themes90272
-Node: Issues you can help with91013
-Node: Merge requests92194
-Node: Acknowledgements94456
-Node: Meta96441
-Node: External projects (ports)98108
-Node: GNU Free Documentation License98930
+Node: Line highlighting31490
+Node: Matching parentheses32115
+Node: Active region32998
+Node: Diffs33934
+Node: Org mode blocks36206
+Node: Org agenda habits37549
+Node: Heading styles39434
+Node: Scaled headings43102
+Node: Scaled heading sizes43688
+Node: Headings' font45269
+Node: Advanced customization (do-it-yourself)45876
+Node: Simple face tweaks (DIY)47211
+Node: Face tweaks in bulk (DIY)51613
+Node: Override colors (DIY)57254
+Node: Font configurations (DIY)61917
+Ref: Font configurations (DIY)-Footnote-164219
+Node: Custom Org user faces (DIY)64406
+Node: Measure contrast (DIY)67660
+Node: Load at time (DIY)70406
+Node: Face coverage71366
+Node: Supported packages71836
+Node: Indirectly covered packages78181
+Node: Notes for individual packages78636
+Node: Note for prism79174
+Node: Note on company-mode overlay pop-up82067
+Ref: Note on company-mode overlay pop-up-Footnote-182754
+Ref: Note on company-mode overlay pop-up-Footnote-282821
+Node: Note for ERC escaped color sequences82876
+Ref: Note for ERC escaped color sequences-Footnote-184309
+Node: Note for powerline or spaceline84419
+Node: Note on SHR colors84835
+Node: Note for Helm grep85245
+Node: Note on vc-annotate-background-mode86690
+Node: Note on pdf-tools link hints87579
+Node: Contributing90010
+Node: Sources of the themes90429
+Node: Issues you can help with91170
+Node: Merge requests92351
+Node: Acknowledgements94613
+Node: Meta96598
+Node: External projects (ports)98265
+Node: GNU Free Documentation License99087
 
 End Tag Table
 
