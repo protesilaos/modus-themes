@@ -25,6 +25,7 @@ such.  Current build was done on {{{export-date}}}.
 * COPYING
 :PROPERTIES:
 :COPYING: t
+:CUSTOM_ID: h:b14c3fcb-13dd-4144-9d92-2c58b3ed16d3
 :END:
 
 Copyright (C) 2020-2021  Free Software Foundation, Inc.
@@ -657,7 +658,7 @@ names imply.
 :PROPERTIES:
 :ALT_TITLE: Language checkers
 :DESCRIPTION: Control the style of language checkers/linters
-:CUSTOM_ID: h:1983c3fc-74f6-44f3-b917-967c403bebae
+:CUSTOM_ID: h:4b13743a-8ebf-4d2c-a043-cceba10b1eb4
 :END:
 
 Symbol: =modus-themes-lang-checkers=
