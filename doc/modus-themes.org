@@ -226,7 +226,11 @@ each theme in order to come into effect.  For example:
 (setq modus-themes-slanted-constructs t
       modus-themes-bold-constructs nil
       modus-themes-fringes nil ; {nil,'subtle,'intense}
-      modus-themes-lang-checkers nil ; {nil,'subtle-foreground,'intense-foreground}
+      ;; Options for lang checkers below are: nil, 'straight-underline,
+      ;; 'subtle-foreground, 'subtle-foreground-straight-underline,
+      ;; 'intense-foreground, 'intense-foreground-straight-underline,
+      ;; 'colored-background
+      modus-themes-lang-checkers nil
       modus-themes-mode-line '3d ; {nil,'3d,'moody}
       modus-themes-syntax nil ; Lots of options---continue reading the manual
       modus-themes-intense-hl-line nil

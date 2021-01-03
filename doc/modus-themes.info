@@ -27,7 +27,7 @@ provides every other piece of information pertinent to them.
    The documentation furnished herein corresponds to version 1.0.2,
 released on 2020-12-06.  Any reference to a newer feature which does not
 yet form part of the latest tagged commit, is explicitly marked as such.
-Current build was done on 2021-01-03 14:17 +0200.
+Current build was done on 2021-01-03 14:19 +0200.
 
 * Menu:
 
@@ -340,7 +340,11 @@ each theme in order to come into effect.  For example:
      (setq modus-themes-slanted-constructs t
            modus-themes-bold-constructs nil
            modus-themes-fringes nil ; {nil,'subtle,'intense}
-           modus-themes-lang-checkers nil ; {nil,'subtle-foreground,'intense-foreground}
+           ;; Options for lang checkers below are: nil, 'straight-underline,
+           ;; 'subtle-foreground, 'subtle-foreground-straight-underline,
+           ;; 'intense-foreground, 'intense-foreground-straight-underline,
+           ;; 'colored-background
+           modus-themes-lang-checkers nil
            modus-themes-mode-line '3d ; {nil,'3d,'moody}
            modus-themes-syntax nil ; Lots of options---continue reading the manual
            modus-themes-intense-hl-line nil
@@ -3104,60 +3108,60 @@ Node: Enable and load9091
 Node: Load automatically9883
 Node: Toggle between the themes on demand10700
 Node: Configure options prior to loading a theme11665
-Node: Sample configuration for use-package15394
-Node: Customization Options17138
-Node: Bold constructs19200
-Node: Slanted constructs19789
-Node: Syntax styles20336
-Node: No mixed fonts21851
-Node: Link styles22869
-Node: Command prompts23848
-Node: Mode line24531
-Node: Completion UIs27054
-Node: Fringes28886
-Node: Language checkers29546
-Node: Line highlighting31121
-Node: Matching parentheses31746
-Node: Active region32629
-Node: Diffs33565
-Node: Org mode blocks35837
-Node: Org agenda habits37180
-Node: Heading styles39065
-Node: Scaled headings42733
-Node: Scaled heading sizes43319
-Node: Headings' font44900
-Node: Advanced customization (do-it-yourself)45507
-Node: Simple face tweaks (DIY)46842
-Node: Face tweaks in bulk (DIY)51244
-Node: Override colors (DIY)56885
-Node: Font configurations (DIY)61548
-Ref: Font configurations (DIY)-Footnote-163850
-Node: Custom Org user faces (DIY)64037
-Node: Measure contrast (DIY)67291
-Node: Load at time (DIY)70037
-Node: Face coverage70997
-Node: Supported packages71467
-Node: Indirectly covered packages77812
-Node: Notes for individual packages78267
-Node: Note for prism78805
-Node: Note on company-mode overlay pop-up81698
-Ref: Note on company-mode overlay pop-up-Footnote-182385
-Ref: Note on company-mode overlay pop-up-Footnote-282452
-Node: Note for ERC escaped color sequences82507
-Ref: Note for ERC escaped color sequences-Footnote-183940
-Node: Note for powerline or spaceline84050
-Node: Note on SHR colors84466
-Node: Note for Helm grep84876
-Node: Note on vc-annotate-background-mode86321
-Node: Note on pdf-tools link hints87210
-Node: Contributing89641
-Node: Sources of the themes90060
-Node: Issues you can help with90801
-Node: Merge requests91982
-Node: Acknowledgements94244
-Node: Meta96229
-Node: External projects (ports)97896
-Node: GNU Free Documentation License98718
+Node: Sample configuration for use-package15606
+Node: Customization Options17350
+Node: Bold constructs19412
+Node: Slanted constructs20001
+Node: Syntax styles20548
+Node: No mixed fonts22063
+Node: Link styles23081
+Node: Command prompts24060
+Node: Mode line24743
+Node: Completion UIs27266
+Node: Fringes29098
+Node: Language checkers29758
+Node: Line highlighting31333
+Node: Matching parentheses31958
+Node: Active region32841
+Node: Diffs33777
+Node: Org mode blocks36049
+Node: Org agenda habits37392
+Node: Heading styles39277
+Node: Scaled headings42945
+Node: Scaled heading sizes43531
+Node: Headings' font45112
+Node: Advanced customization (do-it-yourself)45719
+Node: Simple face tweaks (DIY)47054
+Node: Face tweaks in bulk (DIY)51456
+Node: Override colors (DIY)57097
+Node: Font configurations (DIY)61760
+Ref: Font configurations (DIY)-Footnote-164062
+Node: Custom Org user faces (DIY)64249
+Node: Measure contrast (DIY)67503
+Node: Load at time (DIY)70249
+Node: Face coverage71209
+Node: Supported packages71679
+Node: Indirectly covered packages78024
+Node: Notes for individual packages78479
+Node: Note for prism79017
+Node: Note on company-mode overlay pop-up81910
+Ref: Note on company-mode overlay pop-up-Footnote-182597
+Ref: Note on company-mode overlay pop-up-Footnote-282664
+Node: Note for ERC escaped color sequences82719
+Ref: Note for ERC escaped color sequences-Footnote-184152
+Node: Note for powerline or spaceline84262
+Node: Note on SHR colors84678
+Node: Note for Helm grep85088
+Node: Note on vc-annotate-background-mode86533
+Node: Note on pdf-tools link hints87422
+Node: Contributing89853
+Node: Sources of the themes90272
+Node: Issues you can help with91013
+Node: Merge requests92194
+Node: Acknowledgements94456
+Node: Meta96441
+Node: External projects (ports)98108
+Node: GNU Free Documentation License98930
 
 End Tag Table
 
