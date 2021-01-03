@@ -673,16 +673,26 @@ Possible values:
 
 Nil (the default) applies a color-coded underline to the affected text,
 while it leaves the original foreground in tact.  If the display spec
-where Emacs runs in has support for it, the underline's style is that of
-a wave, otherwise it is a straight line.
+where Emacs runs in has support for it (e.g. Emacs GUI), the underline's
+style is that of a wave, otherwise it is a straight line.
 
-Options =subtle-foreground=, =intense-foreground= follow the same
-color-coding pattern and extend it with a corresponding foreground value
-for the affected text.  The difference between the two options is one of
-degree, as their names suggest.
+Options =subtle-foreground= and =intense-foreground= follow the same
+color-coding pattern and wavy underline of the default, while extending
+it with a corresponding foreground value for the affected text.  The
+difference between the two options is one of degree, as their names
+suggest.
 
-This option affects packages and/or face groups such as those of
-=flyspell=, =flymake=, =flycheck=, =artbollocks-mode=, =writegood-mode=.
+Option =straight-underline= is like the default but always applies a
+straight line under the affected text.  Same principle for
+=subtle-foreground-straight-underline= and its counterpart
+=intense-foreground-straight-underline=.
+
+Option =colored-background= uses a straight underline, a tinted
+background, and a suitable foreground.  All are color-coded.  This is
+the most intense combination of face properties.
+
+The present variable affects packages and/or face groups such as those
+of =flyspell=, =flymake=, =flycheck=, =artbollocks-mode=, =writegood-mode=.
 
 ** Option for line highlighting (hl-line-mode)
 :PROPERTIES:

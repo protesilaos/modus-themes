@@ -733,14 +733,27 @@ is that of a wave, otherwise it is a straight line.
 Options `subtle-foreground' and `intense-foreground' add a
 color-coded underline while also changing the text's foreground
 accordingly.  The style of the underline is the same as with the
-default option."
+default option.
+
+Option `straight-underline' is like the default but always
+applies a straight line under the affected text.  Same principle
+for `subtle-foreground-straight-underline' and its counterpart
+`intense-foreground-straight-underline'.
+
+Option `colored-background' uses a straight underline, a
+background, and a foreground.  All are color-coded.  This is the
+most intense combination of face properties."
   :group 'modus-themes
   :package-version '(modus-themes . "1.1.0")
   :version "28.1"
   :type '(choice
-          (const :tag "Only color-coded underline (default)" nil)
-          (const :tag "Color-coded underline; subtle foreground" subtle-foreground)
-          (const :tag "Color-coded underline; intense foreground" intense-foreground)))
+          (const :tag "Only color-coded wavy underline (default)" nil)
+          (const :tag "Like the default, but with a straight underline" straight-underline)
+          (const :tag "Color-coded wavy underline; subtle foreground" subtle-foreground)
+          (const :tag "Combines `straight-underline' and `subtle-foreground'" subtle-foreground-straight-underline)
+          (const :tag "Color-coded wavy underline; intense foreground" intense-foreground)
+          (const :tag "Combines `straight-underline' and `intense-foreground'" intense-foreground-straight-underline)
+          (const :tag "Color-coded background, foreground, straight underline" colored-background)))
 
 (defcustom modus-themes-org-blocks nil
   "Use a subtle gray or color-coded background for Org blocks.
@@ -1234,6 +1247,9 @@ Option `bg-only-no-extend' is a combination of the `bg-only' and
     (fg-lang-error . "#9f004f")
     (fg-lang-warning . "#604f0f")
     (fg-lang-note . "#4040ae")
+    (fg-lang-underline-error . "#ef4f54")
+    (fg-lang-underline-warning . "#cf9f00")
+    (fg-lang-underline-note . "#3f6fef")
 
     (fg-window-divider-inner . "#888888")
     (fg-window-divider-outer . "#585858")
@@ -1473,6 +1489,9 @@ symbol and the latter as a string.")
     (fg-lang-error . "#ef8690")
     (fg-lang-warning . "#b0aa00")
     (fg-lang-note . "#9d9def")
+    (fg-lang-underline-error . "#ff4a6f")
+    (fg-lang-underline-warning . "#d0de00")
+    (fg-lang-underline-note . "#5f6fff")
 
     (fg-window-divider-inner . "#646464")
     (fg-window-divider-outer . "#969696")
@@ -1665,17 +1684,25 @@ value.  INTENSEBG must be a more pronounced greyscale color."
     ('subtle (list :background subtlebg))
     (_ (list :background mainbg))))
 
-(defun modus-themes--lang-check (underline subtlefg intensefg)
+(defun modus-themes--lang-check (underline subtlefg intensefg bg)
   "Conditional use of foreground colors for language checkers.
 UNDERLINE is a color-code value for the affected text's underline
 property.  SUBTLEFG and INTENSEFG follow the same color-coding
 pattern and represent a value that is faint or vibrant
-respectively."
+respectively.  BG is a color-coded background."
   (pcase modus-themes-lang-checkers
+    ('colored-background
+     (list :underline underline :background bg :foreground intensefg))
     ('intense-foreground
      (list :underline (list :color underline :style 'wave) :foreground intensefg))
+    ('intense-foreground-straight-underline
+     (list :underline underline :foreground intensefg))
     ('subtle-foreground
      (list :underline (list :color underline :style 'wave) :foreground subtlefg))
+    ('subtle-foreground-straight-underline
+     (list :underline underline :foreground subtlefg))
+    ('straight-underline
+     (list :underline underline))
     (_ (list :underline (list :color underline :style 'wave)))))
 
 (defun modus-themes--prompt (mainfg subtlebg subtlefg intensebg intensefg)
@@ -2250,9 +2277,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(modus-theme-graph-cyan-0 ((,class :background ,cyan-graph-0-bg)))
     `(modus-theme-graph-cyan-1 ((,class :background ,cyan-graph-1-bg)))
 ;;;;; language checkers
-    `(modus-theme-lang-error ((,class ,@(modus-themes--lang-check fg-lang-error red-faint red))))
-    `(modus-theme-lang-note ((,class ,@(modus-themes--lang-check fg-lang-note cyan-faint cyan))))
-    `(modus-theme-lang-warning ((,class ,@(modus-themes--lang-check fg-lang-warning yellow-faint yellow))))
+    `(modus-theme-lang-error ((,class ,@(modus-themes--lang-check fg-lang-underline-error fg-lang-error red red-nuanced-bg))))
+    `(modus-theme-lang-note ((,class ,@(modus-themes--lang-check fg-lang-underline-note fg-lang-note blue-alt blue-nuanced-bg))))
+    `(modus-theme-lang-warning ((,class ,@(modus-themes--lang-check fg-lang-underline-warning fg-lang-warning yellow yellow-nuanced-bg))))
 ;;;;; other custom faces
     `(modus-theme-bold ((,class ,@(modus-themes--bold-weight))))
     `(modus-theme-hl-line ((,class :background ,(if modus-themes-intense-hl-line

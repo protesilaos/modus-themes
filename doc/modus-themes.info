@@ -27,7 +27,7 @@ provides every other piece of information pertinent to them.
    The documentation furnished herein corresponds to version 1.0.2,
 released on 2020-12-06.  Any reference to a newer feature which does not
 yet form part of the latest tagged commit, is explicitly marked as such.
-Current build was done on 2021-01-03 10:59 +0200.
+Current build was done on 2021-01-03 14:17 +0200.
 
 * Menu:
 
@@ -792,16 +792,27 @@ File: modus-themes.info,  Node: Language checkers,  Next: Line highlighting,  Pr
 
    Nil (the default) applies a color-coded underline to the affected
 text, while it leaves the original foreground in tact.  If the display
-spec where Emacs runs in has support for it, the underline’s style is
-that of a wave, otherwise it is a straight line.
+spec where Emacs runs in has support for it (e.g.  Emacs GUI), the
+underline’s style is that of a wave, otherwise it is a straight line.
 
-   Options ‘subtle-foreground’, ‘intense-foreground’ follow the same
-color-coding pattern and extend it with a corresponding foreground value
-for the affected text.  The difference between the two options is one of
-degree, as their names suggest.
+   Options ‘subtle-foreground’ and ‘intense-foreground’ follow the same
+color-coding pattern and wavy underline of the default, while extending
+it with a corresponding foreground value for the affected text.  The
+difference between the two options is one of degree, as their names
+suggest.
 
-   This option affects packages and/or face groups such as those of
-‘flyspell’, ‘flymake’, ‘flycheck’, ‘artbollocks-mode’, ‘writegood-mode’.
+   Option ‘straight-underline’ is like the default but always applies a
+straight line under the affected text.  Same principle for
+‘subtle-foreground-straight-underline’ and its counterpart
+‘intense-foreground-straight-underline’.
+
+   Option ‘colored-background’ uses a straight underline, a tinted
+background, and a suitable foreground.  All are color-coded.  This is
+the most intense combination of face properties.
+
+   The present variable affects packages and/or face groups such as
+those of ‘flyspell’, ‘flymake’, ‘flycheck’, ‘artbollocks-mode’,
+‘writegood-mode’.
 
 
 File: modus-themes.info,  Node: Line highlighting,  Next: Matching parentheses,  Prev: Language checkers,  Up: Customization Options
@@ -3105,48 +3116,48 @@ Node: Mode line24531
 Node: Completion UIs27054
 Node: Fringes28886
 Node: Language checkers29546
-Node: Line highlighting30616
-Node: Matching parentheses31241
-Node: Active region32124
-Node: Diffs33060
-Node: Org mode blocks35332
-Node: Org agenda habits36675
-Node: Heading styles38560
-Node: Scaled headings42228
-Node: Scaled heading sizes42814
-Node: Headings' font44395
-Node: Advanced customization (do-it-yourself)45002
-Node: Simple face tweaks (DIY)46337
-Node: Face tweaks in bulk (DIY)50739
-Node: Override colors (DIY)56380
-Node: Font configurations (DIY)61043
-Ref: Font configurations (DIY)-Footnote-163345
-Node: Custom Org user faces (DIY)63532
-Node: Measure contrast (DIY)66786
-Node: Load at time (DIY)69532
-Node: Face coverage70492
-Node: Supported packages70962
-Node: Indirectly covered packages77307
-Node: Notes for individual packages77762
-Node: Note for prism78300
-Node: Note on company-mode overlay pop-up81193
-Ref: Note on company-mode overlay pop-up-Footnote-181880
-Ref: Note on company-mode overlay pop-up-Footnote-281947
-Node: Note for ERC escaped color sequences82002
-Ref: Note for ERC escaped color sequences-Footnote-183435
-Node: Note for powerline or spaceline83545
-Node: Note on SHR colors83961
-Node: Note for Helm grep84371
-Node: Note on vc-annotate-background-mode85816
-Node: Note on pdf-tools link hints86705
-Node: Contributing89136
-Node: Sources of the themes89555
-Node: Issues you can help with90296
-Node: Merge requests91477
-Node: Acknowledgements93739
-Node: Meta95724
-Node: External projects (ports)97391
-Node: GNU Free Documentation License98213
+Node: Line highlighting31121
+Node: Matching parentheses31746
+Node: Active region32629
+Node: Diffs33565
+Node: Org mode blocks35837
+Node: Org agenda habits37180
+Node: Heading styles39065
+Node: Scaled headings42733
+Node: Scaled heading sizes43319
+Node: Headings' font44900
+Node: Advanced customization (do-it-yourself)45507
+Node: Simple face tweaks (DIY)46842
+Node: Face tweaks in bulk (DIY)51244
+Node: Override colors (DIY)56885
+Node: Font configurations (DIY)61548
+Ref: Font configurations (DIY)-Footnote-163850
+Node: Custom Org user faces (DIY)64037
+Node: Measure contrast (DIY)67291
+Node: Load at time (DIY)70037
+Node: Face coverage70997
+Node: Supported packages71467
+Node: Indirectly covered packages77812
+Node: Notes for individual packages78267
+Node: Note for prism78805
+Node: Note on company-mode overlay pop-up81698
+Ref: Note on company-mode overlay pop-up-Footnote-182385
+Ref: Note on company-mode overlay pop-up-Footnote-282452
+Node: Note for ERC escaped color sequences82507
+Ref: Note for ERC escaped color sequences-Footnote-183940
+Node: Note for powerline or spaceline84050
+Node: Note on SHR colors84466
+Node: Note for Helm grep84876
+Node: Note on vc-annotate-background-mode86321
+Node: Note on pdf-tools link hints87210
+Node: Contributing89641
+Node: Sources of the themes90060
+Node: Issues you can help with90801
+Node: Merge requests91982
+Node: Acknowledgements94244
+Node: Meta96229
+Node: External projects (ports)97896
+Node: GNU Free Documentation License98718
 
 End Tag Table
 
