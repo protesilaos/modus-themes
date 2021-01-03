@@ -513,6 +513,11 @@ subtle gray underline.
 Option =no-underline= removes link underlines altogether, while keeping
 their text color the same as the default.
 
+NOTE: The placement of the underline, i.e. its proximity to the affected
+text, is controlled by the built-in =x-underline-at-descent-line=,
+=x-use-underline-position-properties=, =underline-minimum-offset=.  Please
+refer to their documentation strings.
+
 ** Option for command prompt styles
 :PROPERTIES:
 :ALT_TITLE: Command prompts
@@ -701,6 +706,11 @@ the most intense combination of face properties.
 
 The present variable affects packages and/or face groups such as those
 of =flyspell=, =flymake=, =flycheck=, =artbollocks-mode=, =writegood-mode=.
+
+NOTE: The placement of the straight underline, though not the wave
+style, is controlled by the built-in =x-underline-at-descent-line=,
+=x-use-underline-position-properties=, =underline-minimum-offset=.  Please
+refer to their documentation strings.
 
 ** Option for line highlighting (hl-line-mode)
 :PROPERTIES:
