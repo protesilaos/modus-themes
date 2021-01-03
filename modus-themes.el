@@ -3309,8 +3309,14 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                                yellow yellow-faint))))
     `(font-lock-preprocessor-face ((,class ,@(modus-themes--syntax-foreground
                                               red-alt-other red-alt-other-faint))))
-    `(font-lock-regexp-grouping-backslash ((,class :inherit bold :foreground ,fg-escape-char-backslash)))
-    `(font-lock-regexp-grouping-construct ((,class :inherit bold :foreground ,fg-escape-char-construct)))
+    `(font-lock-regexp-grouping-backslash ((,class :inherit bold
+                                                   ,@(modus-themes--syntax-string
+                                                      fg-escape-char-backslash yellow-alt-faint
+                                                      magenta-alt-other blue-alt))))
+    `(font-lock-regexp-grouping-construct ((,class :inherit bold
+                                                   ,@(modus-themes--syntax-string
+                                                      fg-escape-char-construct red-alt-other-faint
+                                                      red magenta-alt))))
     `(font-lock-string-face ((,class ,@(modus-themes--syntax-string
                                         blue-alt blue-alt-faint green green-alt))))
     `(font-lock-type-face ((,class :inherit modus-theme-bold
