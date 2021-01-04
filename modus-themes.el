@@ -970,24 +970,32 @@ symbol and the latter as a string.")
 ;;;; Current customization options (>= 1.0.0)
 
 (defcustom modus-themes-operandi-color-overrides nil
-  "Alist of color name to color value pairs.
-Pair is a cons cell, a pair of the same name in
-`modus-themes-operandi-colors' to overwrite.  Name is a symbol, a
-color name.  Value is a string, a hexadecimal color value."
+  "Override colors in the Modus Operandi palette.
+
+For form, see `modus-themes-operandi-colors'."
   :group 'modus-themes
   :package-version '(modus-themes . "1.1.0")
   :version "28.1"
-  :type '(alist :key-type symbol :value-type string))
+  :type '(alist :key-type symbol :value-type color))
 
 (defcustom modus-themes-vivendi-color-overrides nil
-  "Alist of color name to color value pairs.
-Pair is a cons cell, a pair of the same name in
-`modus-themes-vivendi-colors' to overwrite.  Name is a symbol, a
-color name.  Value is a string, a hexadecimal color value."
+  "Override colors in the Modus Vivendi palette.
+
+For form, see `modus-themes-vivendi-colors'."
   :group 'modus-themes
   :package-version '(modus-themes . "1.1.0")
   :version "28.1"
-  :type '(alist :key-type symbol :value-type string))
+  :type '(alist :key-type symbol :value-type color))
+
+;; The byte compiler complains when a defcustom isn't a top level form
+(let* ((names (mapcar (lambda (pair)
+                        (symbol-name (car pair)))
+                      modus-themes-operandi-colors))
+       (colors (mapcar #'intern (sort names #'string<))))
+  (put 'modus-themes-operandi-color-overrides
+       'custom-options (copy-sequence colors))
+  (put 'modus-themes-vivendi-color-overrides
+       'custom-options (copy-sequence colors)))
 
 (defcustom modus-themes-slanted-constructs nil
   "Use slanted text in more code constructs (italics or oblique)."
