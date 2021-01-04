@@ -2673,7 +2673,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; compilation feedback
     `(compilation-column-number ((,class :foreground ,magenta-alt-other)))
     `(compilation-error ((,class :inherit modus-theme-bold :foreground ,red)))
-    `(compilation-info ((,class :foreground ,fg-special-cold)))
+    `(compilation-info ((,class :inherit modus-theme-bold :foreground ,fg-special-cold)))
     `(compilation-line-number ((,class :foreground ,fg-special-warm)))
     `(compilation-mode-line-exit ((,class :inherit modus-theme-bold :foreground ,blue-active)))
     `(compilation-mode-line-fail ((,class :inherit modus-theme-bold :foreground ,red-active)))
