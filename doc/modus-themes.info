@@ -27,7 +27,7 @@ provides every other piece of information pertinent to them.
    The documentation furnished herein corresponds to version 1.0.2,
 released on 2020-12-06.  Any reference to a newer feature which does not
 yet form part of the latest tagged commit, is explicitly marked as such.
-Current build was done on 2021-01-03 17:36 +0200.
+Current build was done on 2021-01-05 07:25 +0200.
 
 * Menu:
 
@@ -1884,6 +1884,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • dired-subtree
    • diredc
    • diredfl
+   • diredp (dired+)
    • disk-usage
    • doom-modeline
    • dynamic-ruler
@@ -2559,7 +2560,7 @@ Contributions to code or documentation
      Anders Johansson, Basil L.  Contovounesios, Carlo Zancanaro, Eli
      Zaretskii, Madhavan Krishnan, Markus Beppler, Matthew Stevenson,
      Nicolas De Jaeghere, Shreyas Ragavan, Stefan Kangas, Vincent
-     Murphy.  As well as user yoctocell.
+     Murphy.  As well as users dinkonin and yoctocell.
 
 Ideas and user feedback
      Aaron Jensen, Adam Spiers, Alex Griffin, Alex Peitsinis, Alexey
@@ -2575,7 +2576,7 @@ Ideas and user feedback
      Pugnet, Tassilo Horn, Thibaut Verron, Trey Merkley, Togan
      Muftuoglu, Uri Sharf, Utkarsh Singh, Vincent Foley.  As well as
      users: Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux,
-     Fredrik, Moesasji, Nick, TheBlob42, bepolymathe, dinko, doolio,
+     Fredrik, Moesasji, Nick, TheBlob42, bepolymathe, dinkonin, doolio,
      fleimgruber, iSeeU, jixiuf, okamsn, tycho garen.
 
 Packaging
@@ -3157,27 +3158,27 @@ Node: Measure contrast (DIY)68193
 Node: Load at time (DIY)70939
 Node: Face coverage71899
 Node: Supported packages72369
-Node: Indirectly covered packages78726
-Node: Notes for individual packages79181
-Node: Note for prism79719
-Node: Note on company-mode overlay pop-up82612
-Ref: Note on company-mode overlay pop-up-Footnote-183299
-Ref: Note on company-mode overlay pop-up-Footnote-283366
-Node: Note for ERC escaped color sequences83421
-Ref: Note for ERC escaped color sequences-Footnote-184854
-Node: Note for powerline or spaceline84964
-Node: Note on SHR colors85380
-Node: Note for Helm grep85790
-Node: Note on vc-annotate-background-mode87235
-Node: Note on pdf-tools link hints88124
-Node: Contributing90555
-Node: Sources of the themes90974
-Node: Issues you can help with91715
-Node: Merge requests92896
-Node: Acknowledgements95158
-Node: Meta97143
-Node: External projects (ports)98810
-Node: GNU Free Documentation License99632
+Node: Indirectly covered packages78749
+Node: Notes for individual packages79204
+Node: Note for prism79742
+Node: Note on company-mode overlay pop-up82635
+Ref: Note on company-mode overlay pop-up-Footnote-183322
+Ref: Note on company-mode overlay pop-up-Footnote-283389
+Node: Note for ERC escaped color sequences83444
+Ref: Note for ERC escaped color sequences-Footnote-184877
+Node: Note for powerline or spaceline84987
+Node: Note on SHR colors85403
+Node: Note for Helm grep85813
+Node: Note on vc-annotate-background-mode87258
+Node: Note on pdf-tools link hints88147
+Node: Contributing90578
+Node: Sources of the themes90997
+Node: Issues you can help with91738
+Node: Merge requests92919
+Node: Acknowledgements95181
+Node: Meta97183
+Node: External projects (ports)98850
+Node: GNU Free Documentation License99672
 
 End Tag Table
 
