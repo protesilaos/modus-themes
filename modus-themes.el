@@ -2691,11 +2691,15 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                                magenta-intense-bg fg-main))))
 ;;;;; consult
     `(consult-bookmark ((,class :foreground ,blue)))
-    `(consult-file ((,class :foreground ,magenta-alt-other)))
+    `(consult-file ((,class :foreground ,fg-special-cold)))
+    `(consult-imenu-prefix ((,class :inherit bold :foreground ,fg-special-warm)))
+    `(consult-key ((,class :inherit modus-themes-bold :foreground ,magenta-alt-other)))
     `(consult-lighter ((,class :inherit shadow)))
+    `(consult-line-number ((,class :foreground ,fg-special-warm)))
     `(consult-off ((,class :inherit error)))
     `(consult-on ((,class :inherit success)))
     `(consult-preview-cursor ((,class :inherit modus-theme-intense-blue)))
+    `(consult-preview-error ((,class :inherit modus-theme-intense-red)))
     `(consult-preview-line ((,class :inherit modus-theme-special-mild)))
     `(consult-view ((,class :inherit bold :foreground ,fg-special-warm)))
 ;;;;; counsel
