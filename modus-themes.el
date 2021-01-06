@@ -2692,7 +2692,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; consult
     `(consult-bookmark ((,class :foreground ,blue)))
     `(consult-file ((,class :foreground ,fg-special-cold)))
-    `(consult-imenu-prefix ((,class :inherit bold :foreground ,fg-special-warm)))
+    `(consult-imenu-prefix ((,class :inherit bold)))
     `(consult-key ((,class :inherit modus-themes-bold :foreground ,magenta-alt-other)))
     `(consult-lighter ((,class :inherit shadow)))
     `(consult-line-number ((,class :foreground ,fg-special-warm)))
