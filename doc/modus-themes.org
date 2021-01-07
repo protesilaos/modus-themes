@@ -2432,10 +2432,10 @@ The Modus themes are a collective effort.  Every bit of work matters.
 + Author/maintainer :: Protesilaos Stavrou.
 
 + Contributions to code or documentation :: Anders Johansson, Basil
-  L. Contovounesios, Carlo Zancanaro, Eli Zaretskii, Madhavan Krishnan,
-  Markus Beppler, Matthew Stevenson, Nicolas De Jaeghere, Shreyas
-  Ragavan, Stefan Kangas, Vincent Murphy. As well as users dinkonin and
-  yoctocell.
+  L. Contovounesios, Carlo Zancanaro, Eli Zaretskii, Kostadin Ninev,
+  Madhavan Krishnan, Markus Beppler, Matthew Stevenson, Nicolas De
+  Jaeghere, Shreyas Ragavan, Stefan Kangas, Vincent Murphy. As well as
+  user yoctocell.
 
 + Ideas and user feedback :: Aaron Jensen, Adam Spiers, Alex Griffin,
   Alex Peitsinis, Alexey Shmalko, Alok Singh, Anders Johansson, André
@@ -2443,15 +2443,15 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Tietze, Christopher Dimech, Damien Cassou, Daniel Mendler, Dario
   Gjorgjevski, David Edmondson, Davor Rotim, Divan Santana, Gerry
   Agbobada, Gianluca Recchia, Gustavo Barros, Hörmetjan Yiltiz, Ilja
-  Kocken, Iris Garcia, Jeremy Friesen, John Haman, Len Trigg, Manuel
-  Uberti, Mark Burton, Markus Beppler, Michael Goldenberg, Murilo
-  Pereira, Nicolas De Jaeghere, Paul Poloskov, Pete Kazmier, Peter Wu,
-  Pierre Téchoueyres, Roman Rudakov, Ryan Phillips, Shreyas Ragavan,
-  Simon Pugnet, Tassilo Horn, Thibaut Verron, Trey Merkley, Togan
-  Muftuoglu, Uri Sharf, Utkarsh Singh, Vincent Foley.  As well as users:
-  Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik,
-  Moesasji, Nick, TheBlob42, bepolymathe, dinkonin, doolio, fleimgruber,
-  iSeeU, jixiuf, okamsn, tycho garen.
+  Kocken, Iris Garcia, Jeremy Friesen, John Haman, Kostadin Ninev, Len
+  Trigg, Manuel Uberti, Mark Burton, Markus Beppler, Michael Goldenberg,
+  Murilo Pereira, Nicolas De Jaeghere, Paul Poloskov, Pete Kazmier,
+  Peter Wu, Pierre Téchoueyres, Roman Rudakov, Ryan Phillips, Shreyas
+  Ragavan, Simon Pugnet, Tassilo Horn, Thibaut Verron, Trey Merkley,
+  Togan Muftuoglu, Uri Sharf, Utkarsh Singh, Vincent Foley.  As well as
+  users: Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik,
+  Moesasji, Nick, TheBlob42, bepolymathe, doolio, fleimgruber, iSeeU,
+  jixiuf, okamsn, tycho garen.
 
 + Packaging :: André Alexandre Gomes and Guix maintainers (Guix), Dhavan
   Vaidya (Debian), Stefan Kangas (core Emacs), Stefan Monnier (GNU
