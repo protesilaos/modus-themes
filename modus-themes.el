@@ -5426,14 +5426,14 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; which-function-mode
     `(which-func ((,class :foreground ,magenta-active)))
 ;;;;; which-key
-    `(which-key-command-description-face ((,class :foreground ,cyan)))
+    `(which-key-command-description-face ((,class :foreground ,fg-main)))
     `(which-key-group-description-face ((,class :foreground ,magenta-alt)))
-    `(which-key-highlighted-command-face ((,class :foreground ,cyan-alt :underline t)))
+    `(which-key-highlighted-command-face ((,class :foreground ,yellow :underline t)))
     `(which-key-key-face ((,class :inherit bold :foreground ,blue-intense)))
     `(which-key-local-map-description-face ((,class :foreground ,fg-main)))
-    `(which-key-note-face ((,class :background ,bg-dim :foreground ,fg-special-mild)))
+    `(which-key-note-face ((,class :foreground ,fg-special-warm)))
     `(which-key-separator-face ((,class :inherit shadow)))
-    `(which-key-special-key-face ((,class :inherit bold :foreground ,yellow-intense)))
+    `(which-key-special-key-face ((,class :inherit bold :foreground ,orange-intense)))
 ;;;;; whitespace-mode
     `(whitespace-big-indent ((,class :inherit modus-theme-subtle-red)))
     `(whitespace-empty ((,class :inherit modus-theme-intense-magenta)))
