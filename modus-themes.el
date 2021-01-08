@@ -2078,8 +2078,51 @@ For colors bound, see `modus-themes-operandi-colors' or
 
 ;;;; Commands
 
+;; The `modus-themes-load-themes' is meant to be included in user
+;; package declarations, such as those defined with `use-package'.  The
+;; idea is to add this function to the `:init' stage of the package's
+;; loading, so that subsequent calls, like `modus-themes-toggle' or
+;; `modus-themes-load-operandi', will continue to work as intended even
+;; if they are lazy-loaded (such as when they are declared in the
+;; `:config' phase).
+
+;;;###autoload
+(defun modus-themes-load-themes ()
+  "Ensure that the Modus themes are in `custom-enabled-themes'."
+  (unless (or (custom-theme-p 'modus-operandi)
+              (custom-theme-p 'modus-vivendi))
+    (load-theme 'modus-operandi t t)
+    (load-theme 'modus-vivendi t t)))
+
 (defvar modus-themes-after-load-theme-hook nil
   "Hook that runs after the `modus-themes-toggle' routines.")
+
+;; The reason we use `load-theme' instead of `enable-theme' is that the
+;; former does a kind of "reset" on the face specs.  So it plays nicely
+;; with `custom-set-faces', as well as defcustom user customizations,
+;; including the likes of `modus-themes-operandi-color-overrides'.
+;;
+;; Tests show that `enable-theme' does not re-read those variables, so
+;; it might appear to the unsuspecting user that the themes are somehow
+;; broken.
+;;
+;; This "reset", however, comes at the cost of being a bit slower than
+;; `enable-theme'.  User who have a stable setup and seldom update their
+;; variables during a given Emacs session, are better off using
+;; something like this:
+;;
+;; (defun modus-themes-toggle-enabled ()
+;;   "Toggle between `modus-operandi' and `modus-vivendi' themes.
+;; Also runs `modus-themes-after-load-theme-hook' at its last stage
+;; by virtue of calling either of `modus-themes-load-operandi' and
+;; `modus-themes-load-vivendi' functions."
+;;   (interactive)
+;;   (pcase (modus-themes--current-theme)
+;;     ('modus-operandi (progn (enable-theme 'modus-vivendi)
+;;                             (disable-theme 'modus-operandi)))
+;;     ('modus-vivendi (progn (enable-theme 'modus-operandi)
+;;                             (disable-theme 'modus-vivendi)))
+;;     (_ (error "No Modus theme is loaded; evaluate `modus-themes-load-themes' first"))))
 
 ;;;###autoload
 (defun modus-themes-load-operandi ()
@@ -2115,6 +2158,7 @@ Also runs `modus-themes-after-load-theme-hook' at its last stage
 by virtue of calling either of `modus-themes-load-operandi' and
 `modus-themes-load-vivendi' functions."
   (interactive)
+  (modus-themes-load-themes)
   (pcase (modus-themes--current-theme)
     ('modus-operandi (modus-themes-load-vivendi))
     ('modus-vivendi (modus-themes-load-operandi))
