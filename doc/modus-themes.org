@@ -157,12 +157,21 @@ This section documents how to load the theme of your choice and how to
 further control its initialization.  It also includes some sample code
 snippets that could help you in the task.
 
-Before you load a theme, it is necessary to enable the libraries:
+Before you load a theme, it is necessary to enable the main library:
 
 #+begin_src emacs-lisp
-(require 'modus-themes)                 ; common code
-(require 'modus-operandi-theme)         ; light theme
-(require 'modus-vivendi-theme)          ; dark theme
+(require 'modus-themes)
+#+end_src
+
+Then load the theme files, either individually, or with the helper
+function =modus-themes-load-themes=:
+
+#+begin_src emacs-lisp
+(modus-themes-load-themes)
+
+;; OR
+(load-theme 'modus-operandi t t)
+(load-theme 'modus-vivendi t t)
 #+end_src
 
 [[#h:e979734c-a9e1-4373-9365-0f2cd36107b8][Sample configuration for use-package]].
@@ -177,11 +186,11 @@ theme with either of the following expressions:
 
 #+begin_src emacs-lisp
 (load-theme 'modus-operandi t)          ; Light theme
-(load-theme 'modus-vivendi t)           ; Dark theme
+;; OR
+(enable-theme 'modus-operandi)
 #+end_src
 
-Make sure to remove any other theme that is being loaded, otherwise you
-might run into unexpected issues.
+[ Replace =modus-operandi= with =modus-vivendi= for the dark theme. ]
 
 Note that you can always =M-x disable-theme= and specify an item.  The
 command does exactly what its name suggests.  To deactivate all enabled
@@ -191,6 +200,8 @@ evaluate the following expression:
 #+begin_src emacs-lisp
 (mapc #'disable-theme custom-enabled-themes)
 #+end_src
+
+[[#h:e979734c-a9e1-4373-9365-0f2cd36107b8][Sample configuration for use-package]].
 
 ** Toggle between the themes on demand
 :PROPERTIES:
@@ -258,9 +269,6 @@ each theme in order to come into effect.  For example:
 
 ;; Load the light theme (`modus-operandi')
 (modus-themes-load-operandi)
-
-;; ;; Or load via a hook
-;; (add-hook 'after-init-hook #'modus-themes-load-operandi)
 #+end_src
 
 Note that in this example we use =modus-themes-load-operandi=.  Here is
@@ -318,39 +326,12 @@ package configurations in their setup.  We use this as an example:
   ;; Add all your customizations prior to loading the themes
   (setq modus-themes-slanted-constructs t
         modus-themes-bold-constructs nil)
+
+  ;; Load the theme files before enabling a theme
+  (modus-themes-load-themes)
   :config
-  ;; Load the theme of your choice
-  (modus-themes-load-operandi)
-  ;; ;; OR
-  ;; (load-theme 'modus-operandi t)
-  :bind ("<f5>" . modus-themes-toggle))
-#+end_src
-
-Note that manual installations expect that the user byte compiles all
-the relevant files and creates autoloads for them.  If, for whatever
-reason, users wish to install the theme files manually while not doing
-the requisite packaging work, then this code block must be used instead
-(but please prefer the packaged format that does proper byte compilation
-and autoloading).
-
-The following snippet is for manual installations or those that use the
-themes that are shipped with Emacs:
-
-#+begin_src emacs-lisp
-(use-package modus-themes
-  :ensure
-  :init
-  ;; Add all your customizations prior to loading the themes
-  (setq modus-themes-slanted-constructs t
-        modus-themes-bold-constructs nil)
-
-  ;; Enable the theme files
-  (use-package modus-operandi-theme)
-  (use-package modus-vivendi-theme)
-
-  :config
-  ;; Load the theme of your choice
-  (modus-themes-load-operandi)
+  ;; Load the theme of your choice:
+  (modus-themes-load-operandi) ;; OR (modus-themes-load-vivendi)
   :bind ("<f5>" . modus-themes-toggle))
 #+end_src
 

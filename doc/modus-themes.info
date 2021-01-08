@@ -27,7 +27,7 @@ provides every other piece of information pertinent to them.
    The documentation furnished herein corresponds to version 1.0.2,
 released on 2020-12-06.  Any reference to a newer feature which does not
 yet form part of the latest tagged commit, is explicitly marked as such.
-Current build was done on 2021-01-07 09:52 +0200.
+Current build was done on 2021-01-08 14:04 +0200.
 
 * Menu:
 
@@ -269,11 +269,18 @@ This section documents how to load the theme of your choice and how to
 further control its initialization.  It also includes some sample code
 snippets that could help you in the task.
 
-   Before you load a theme, it is necessary to enable the libraries:
+   Before you load a theme, it is necessary to enable the main library:
 
-     (require 'modus-themes)                 ; common code
-     (require 'modus-operandi-theme)         ; light theme
-     (require 'modus-vivendi-theme)          ; dark theme
+     (require 'modus-themes)
+
+   Then load the theme files, either individually, or with the helper
+function ‘modus-themes-load-themes’:
+
+     (modus-themes-load-themes)
+
+     ;; OR
+     (load-theme 'modus-operandi t t)
+     (load-theme 'modus-vivendi t t)
 
    *note Sample configuration for use-package::.
 
@@ -294,10 +301,11 @@ Once the libraries that define the themes are enabled, you can load a
 theme with either of the following expressions:
 
      (load-theme 'modus-operandi t)          ; Light theme
-     (load-theme 'modus-vivendi t)           ; Dark theme
+     ;; OR
+     (enable-theme 'modus-operandi)
 
-   Make sure to remove any other theme that is being loaded, otherwise
-you might run into unexpected issues.
+   [ Replace ‘modus-operandi’ with ‘modus-vivendi’ for the dark theme.
+]
 
    Note that you can always ‘M-x disable-theme’ and specify an item.
 The command does exactly what its name suggests.  To deactivate all
@@ -305,6 +313,8 @@ enabled themes at once, in case you have multiple of them enabled, you
 may evaluate the following expression:
 
      (mapc #'disable-theme custom-enabled-themes)
+
+   *note Sample configuration for use-package::.
 
 
 File: modus-themes.info,  Node: Toggle between the themes on demand,  Next: Configure options prior to loading a theme,  Prev: Load automatically,  Up: Enable and load
@@ -373,9 +383,6 @@ each theme in order to come into effect.  For example:
      ;; Load the light theme (`modus-operandi')
      (modus-themes-load-operandi)
 
-     ;; ;; Or load via a hook
-     ;; (add-hook 'after-init-hook #'modus-themes-load-operandi)
-
    Note that in this example we use ‘modus-themes-load-operandi’.  Here
 is what it does:
 
@@ -427,37 +434,12 @@ package configurations in their setup.  We use this as an example:
        ;; Add all your customizations prior to loading the themes
        (setq modus-themes-slanted-constructs t
              modus-themes-bold-constructs nil)
+
+       ;; Load the theme files before enabling a theme
+       (modus-themes-load-themes)
        :config
-       ;; Load the theme of your choice
-       (modus-themes-load-operandi)
-       ;; ;; OR
-       ;; (load-theme 'modus-operandi t)
-       :bind ("<f5>" . modus-themes-toggle))
-
-   Note that manual installations expect that the user byte compiles all
-the relevant files and creates autoloads for them.  If, for whatever
-reason, users wish to install the theme files manually while not doing
-the requisite packaging work, then this code block must be used instead
-(but please prefer the packaged format that does proper byte compilation
-and autoloading).
-
-   The following snippet is for manual installations or those that use
-the themes that are shipped with Emacs:
-
-     (use-package modus-themes
-       :ensure
-       :init
-       ;; Add all your customizations prior to loading the themes
-       (setq modus-themes-slanted-constructs t
-             modus-themes-bold-constructs nil)
-
-       ;; Enable the theme files
-       (use-package modus-operandi-theme)
-       (use-package modus-vivendi-theme)
-
-       :config
-       ;; Load the theme of your choice
-       (modus-themes-load-operandi)
+       ;; Load the theme of your choice:
+       (modus-themes-load-operandi) ;; OR (modus-themes-load-vivendi)
        :bind ("<f5>" . modus-themes-toggle))
 
 
@@ -3122,63 +3104,63 @@ Node: Install on GNU/Linux8011
 Node: Debian 11 Bullseye8459
 Node: GNU Guix8868
 Node: Enable and load9091
-Node: Load automatically9883
-Node: Toggle between the themes on demand10700
-Node: Configure options prior to loading a theme11665
-Node: Sample configuration for use-package15606
-Node: Customization Options17350
-Node: Bold constructs19412
-Node: Slanted constructs20001
-Node: Syntax styles20548
-Node: No mixed fonts22063
-Node: Link styles23081
-Node: Command prompts24330
-Node: Mode line25013
-Node: Completion UIs27536
-Node: Fringes29368
-Node: Language checkers30028
-Node: Line highlighting32023
-Node: Matching parentheses32648
-Node: Active region33531
-Node: Diffs34467
-Node: Org mode blocks36739
-Node: Org agenda habits38082
-Node: Heading styles39967
-Node: Scaled headings43635
-Node: Scaled heading sizes44221
-Node: Headings' font45802
-Node: Advanced customization (do-it-yourself)46409
-Node: Simple face tweaks (DIY)47744
-Node: Face tweaks in bulk (DIY)52146
-Node: Override colors (DIY)57787
-Node: Font configurations (DIY)62450
-Ref: Font configurations (DIY)-Footnote-164752
-Node: Custom Org user faces (DIY)64939
-Node: Measure contrast (DIY)68193
-Node: Load at time (DIY)70939
-Node: Face coverage71899
-Node: Supported packages72369
-Node: Indirectly covered packages78749
-Node: Notes for individual packages79204
-Node: Note for prism79742
-Node: Note on company-mode overlay pop-up82635
-Ref: Note on company-mode overlay pop-up-Footnote-183322
-Ref: Note on company-mode overlay pop-up-Footnote-283389
-Node: Note for ERC escaped color sequences83444
-Ref: Note for ERC escaped color sequences-Footnote-184877
-Node: Note for powerline or spaceline84987
-Node: Note on SHR colors85403
-Node: Note for Helm grep85813
-Node: Note on vc-annotate-background-mode87258
-Node: Note on pdf-tools link hints88147
-Node: Contributing90578
-Node: Sources of the themes90997
-Node: Issues you can help with91738
-Node: Merge requests92919
-Node: Acknowledgements95181
-Node: Meta97191
-Node: External projects (ports)98858
-Node: GNU Free Documentation License99680
+Node: Load automatically9971
+Node: Toggle between the themes on demand10799
+Node: Configure options prior to loading a theme11764
+Node: Sample configuration for use-package15609
+Node: Customization Options16458
+Node: Bold constructs18520
+Node: Slanted constructs19109
+Node: Syntax styles19656
+Node: No mixed fonts21171
+Node: Link styles22189
+Node: Command prompts23438
+Node: Mode line24121
+Node: Completion UIs26644
+Node: Fringes28476
+Node: Language checkers29136
+Node: Line highlighting31131
+Node: Matching parentheses31756
+Node: Active region32639
+Node: Diffs33575
+Node: Org mode blocks35847
+Node: Org agenda habits37190
+Node: Heading styles39075
+Node: Scaled headings42743
+Node: Scaled heading sizes43329
+Node: Headings' font44910
+Node: Advanced customization (do-it-yourself)45517
+Node: Simple face tweaks (DIY)46852
+Node: Face tweaks in bulk (DIY)51254
+Node: Override colors (DIY)56895
+Node: Font configurations (DIY)61558
+Ref: Font configurations (DIY)-Footnote-163860
+Node: Custom Org user faces (DIY)64047
+Node: Measure contrast (DIY)67301
+Node: Load at time (DIY)70047
+Node: Face coverage71007
+Node: Supported packages71477
+Node: Indirectly covered packages77857
+Node: Notes for individual packages78312
+Node: Note for prism78850
+Node: Note on company-mode overlay pop-up81743
+Ref: Note on company-mode overlay pop-up-Footnote-182430
+Ref: Note on company-mode overlay pop-up-Footnote-282497
+Node: Note for ERC escaped color sequences82552
+Ref: Note for ERC escaped color sequences-Footnote-183985
+Node: Note for powerline or spaceline84095
+Node: Note on SHR colors84511
+Node: Note for Helm grep84921
+Node: Note on vc-annotate-background-mode86366
+Node: Note on pdf-tools link hints87255
+Node: Contributing89686
+Node: Sources of the themes90105
+Node: Issues you can help with90846
+Node: Merge requests92027
+Node: Acknowledgements94289
+Node: Meta96299
+Node: External projects (ports)97966
+Node: GNU Free Documentation License98788
 
 End Tag Table
 
