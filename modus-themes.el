@@ -226,6 +226,7 @@
 ;;     interaction-log
 ;;     ioccur
 ;;     isearch, occur, etc.
+;;     isl (isearch-light)
 ;;     ivy
 ;;     ivy-posframe
 ;;     jira (org-jira)
@@ -3929,6 +3930,12 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(lazy-highlight ((,class :inherit modus-theme-refine-cyan)))
     `(match ((,class :inherit modus-theme-special-calm)))
     `(query-replace ((,class :inherit (modus-theme-intense-yellow bold))))
+;;;;; isl (isearch-light)
+    `(isl-line ((,class :inherit modus-theme-subtle-green)))
+    `(isl-match ((,class :inherit modus-theme-refine-cyan)))
+    `(isl-number ((,class :inherit modus-theme-bold :foreground ,green-active)))
+    `(isl-on ((,class :inherit modus-theme-intense-green)))
+    `(isl-string ((,class :inherit modus-theme-bold :foreground ,cyan-active)))
 ;;;;; ivy
     `(ivy-action ((,class :inherit bold :foreground ,red-alt)))
     `(ivy-completions-annotations ((,class :inherit completions-annotations)))

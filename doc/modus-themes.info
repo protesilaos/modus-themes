@@ -27,7 +27,7 @@ provides every other piece of information pertinent to them.
    The documentation furnished herein corresponds to version 1.0.2,
 released on 2020-12-06.  Any reference to a newer feature which does not
 yet form part of the latest tagged commit, is explicitly marked as such.
-Current build was done on 2021-01-08 14:04 +0200.
+Current build was done on 2021-01-10 13:02 +0200.
 
 * Menu:
 
@@ -1955,6 +1955,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • interaction-log
    • ioccur
    • isearch, occur, etc.
+   • isl (isearch-light)
    • ivy*
    • ivy-posframe
    • jira (org-jira)
@@ -3140,27 +3141,27 @@ Node: Measure contrast (DIY)67301
 Node: Load at time (DIY)70047
 Node: Face coverage71007
 Node: Supported packages71477
-Node: Indirectly covered packages77857
-Node: Notes for individual packages78312
-Node: Note for prism78850
-Node: Note on company-mode overlay pop-up81743
-Ref: Note on company-mode overlay pop-up-Footnote-182430
-Ref: Note on company-mode overlay pop-up-Footnote-282497
-Node: Note for ERC escaped color sequences82552
-Ref: Note for ERC escaped color sequences-Footnote-183985
-Node: Note for powerline or spaceline84095
-Node: Note on SHR colors84511
-Node: Note for Helm grep84921
-Node: Note on vc-annotate-background-mode86366
-Node: Note on pdf-tools link hints87255
-Node: Contributing89686
-Node: Sources of the themes90105
-Node: Issues you can help with90846
-Node: Merge requests92027
-Node: Acknowledgements94289
-Node: Meta96299
-Node: External projects (ports)97966
-Node: GNU Free Documentation License98788
+Node: Indirectly covered packages77884
+Node: Notes for individual packages78339
+Node: Note for prism78877
+Node: Note on company-mode overlay pop-up81770
+Ref: Note on company-mode overlay pop-up-Footnote-182457
+Ref: Note on company-mode overlay pop-up-Footnote-282524
+Node: Note for ERC escaped color sequences82579
+Ref: Note for ERC escaped color sequences-Footnote-184012
+Node: Note for powerline or spaceline84122
+Node: Note on SHR colors84538
+Node: Note for Helm grep84948
+Node: Note on vc-annotate-background-mode86393
+Node: Note on pdf-tools link hints87282
+Node: Contributing89713
+Node: Sources of the themes90132
+Node: Issues you can help with90873
+Node: Merge requests92054
+Node: Acknowledgements94316
+Node: Meta96326
+Node: External projects (ports)97993
+Node: GNU Free Documentation License98815
 
 End Tag Table
 
