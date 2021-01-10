@@ -3934,7 +3934,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(isl-line ((,class :inherit modus-theme-subtle-green)))
     `(isl-match ((,class :inherit modus-theme-refine-cyan)))
     `(isl-number ((,class :inherit modus-theme-bold :foreground ,green-active)))
-    `(isl-on ((,class :inherit modus-theme-intense-green)))
+    `(isl-on ((,class :inherit (bold modus-theme-intense-green))))
     `(isl-string ((,class :inherit modus-theme-bold :foreground ,cyan-active)))
 ;;;;; ivy
     `(ivy-action ((,class :inherit bold :foreground ,red-alt)))
