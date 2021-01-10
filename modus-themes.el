@@ -2077,6 +2077,8 @@ For colors bound, see `modus-themes-operandi-colors' or
        (ignore class ,@colors)          ; Silence unused variable warnings
        ,@body)))
 
+
+
 ;;;; Commands
 
 ;; The `modus-themes-load-themes' is meant to be included in user
@@ -2113,10 +2115,7 @@ For colors bound, see `modus-themes-operandi-colors' or
 ;; something like this:
 ;;
 ;; (defun modus-themes-toggle-enabled ()
-;;   "Toggle between `modus-operandi' and `modus-vivendi' themes.
-;; Also runs `modus-themes-after-load-theme-hook' at its last stage
-;; by virtue of calling either of `modus-themes-load-operandi' and
-;; `modus-themes-load-vivendi' functions."
+;;   "Toggle between `modus-operandi' and `modus-vivendi' themes."
 ;;   (interactive)
 ;;   (pcase (modus-themes--current-theme)
 ;;     ('modus-operandi (progn (enable-theme 'modus-vivendi)
