@@ -187,10 +187,8 @@ theme with either of the following expressions:
 #+begin_src emacs-lisp
 (load-theme 'modus-operandi t)          ; Light theme
 ;; OR
-(enable-theme 'modus-operandi)
+(load-theme 'modus-vivendi t)           ; Dark theme
 #+end_src
-
-[ Replace =modus-operandi= with =modus-vivendi= for the dark theme. ]
 
 Note that you can always =M-x disable-theme= and specify an item.  The
 command does exactly what its name suggests.  To deactivate all enabled
@@ -202,6 +200,40 @@ evaluate the following expression:
 #+end_src
 
 [[#h:e979734c-a9e1-4373-9365-0f2cd36107b8][Sample configuration for use-package]].
+
+** Differences between loading and enabling
+:PROPERTIES:
+:CUSTOM_ID: h:e68560b3-7fb0-42bc-a151-e015948f8a35
+:END:
+
+Please bear in mind that the reason we recommend =load-theme= instead of
+the other option of =enable-theme= is that the former does a kind of
+"reset" on the face specs.  It quite literally loads (or re-loads) the
+theme, whereas the latter simply puts it at the top of the list of
+enabled themes, re-using whatever state was last loaded.
+
+As such, =load-theme= reads all customizations that may happen during any
+given Emacs session (i.e. even after the initial setup of a theme).
+Examples are calls to =custom-set-faces=, as well as new values assigned
+to the options the Modus themes provide ([[#h:bf1c82f2-46c7-4eb2-ad00-dd11fdd8b53f][Customization Options]]).
+
+Our tests show that =enable-theme= does not read such variables anew, so
+it might appear to the unsuspecting user that the themes are somehow
+broken whenever they may try to assign a new value to a customization
+option.
+
+This "reset" that =load-theme= conducts does, however, come at the cost of
+being somewhat slower than =enable-theme=.  Users who have a stable setup
+and who seldom update their variables during a given Emacs session, are
+better off using something like this:
+
+#+begin_src emacs-lisp
+(require 'modus-themes)
+(require 'modus-operandi-theme)
+(require 'modus-vivendi-theme)
+
+(enable-theme 'modus-operandi) ;; OR (enable-theme 'modus-vivendi)
+#+end_src
 
 ** Toggle between the themes on demand
 :PROPERTIES:
@@ -221,7 +253,10 @@ active, a minibuffer prompt will ask the user to choose between the two.
 In this latter scenario, all other themes will first be disabled (using
 the =disable-theme= we covered before).  Lastly, the toggle calls
 =modus-themes-after-load-theme-hook= which you can use to add your tweaks
-(see [[#h:1487c631-f4fe-490d-8d58-d72ffa3bd474][Custom face specs using the themes' palette]]).
+([[#h:1487c631-f4fe-490d-8d58-d72ffa3bd474][Custom face specs using the themes' palette]]).
+
+Note that =modus-themes-toggle= uses =load-theme= internally instead of
+=enable-theme= ([[#h:e68560b3-7fb0-42bc-a151-e015948f8a35][Differences between loading and enabling]]).
 
 ** Configure options prior to loading a theme
 :PROPERTIES:
