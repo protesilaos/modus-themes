@@ -27,7 +27,7 @@ provides every other piece of information pertinent to them.
    The documentation furnished herein corresponds to version 1.0.2,
 released on 2020-12-06.  Any reference to a newer feature which does not
 yet form part of the latest tagged commit, is explicitly marked as such.
-Current build was done on 2021-01-10 13:02 +0200.
+Current build was done on 2021-01-11 10:20 +0200.
 
 * Menu:
 
@@ -2606,6 +2606,9 @@ details of this sort):
    • Modus themes: review rainbow-delimiters faces
      (https://protesilaos.com/codelog/2020-12-27-modus-themes-review-rainbow-delimiters/)
      (2020-12-27)
+   • Modus themes: review of select “faint” colours
+     (https://protesilaos.com/codelog/2021-01-11-modus-themes-review-select-faint-colours/)
+     (2021-01-11)
 
    And here are the canonical sources of this project’s documentation:
 
@@ -3160,8 +3163,8 @@ Node: Issues you can help with90873
 Node: Merge requests92054
 Node: Acknowledgements94316
 Node: Meta96326
-Node: External projects (ports)97993
-Node: GNU Free Documentation License98815
+Node: External projects (ports)98161
+Node: GNU Free Documentation License98983
 
 End Tag Table
 

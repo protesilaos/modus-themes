@@ -2465,6 +2465,7 @@ of this sort):
 + [[https://protesilaos.com/codelog/2020-07-08-modus-themes-nuanced-colours/][Modus themes: major review of "nuanced" colours]] (2020-07-08)
 + [[https://protesilaos.com/codelog/2020-09-14-modus-themes-review-blues/][Modus themes: review of blue colours]] (2020-09-14)
 + [[https://protesilaos.com/codelog/2020-12-27-modus-themes-review-rainbow-delimiters/][Modus themes: review rainbow-delimiters faces]] (2020-12-27)
++ [[https://protesilaos.com/codelog/2021-01-11-modus-themes-review-select-faint-colours/][Modus themes: review of select "faint" colours]] (2021-01-11)
 
 And here are the canonical sources of this project's documentation:
 
