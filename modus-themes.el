@@ -697,8 +697,8 @@ symbol and the latter as a string.")
     (cyan . "#00d3d0")
     (cyan-alt . "#4ae8fc")
     (cyan-alt-other . "#6ae4b9")
-    (cyan-faint . "#a0bfdf")
-    (cyan-alt-faint . "#90c4ed")
+    (cyan-faint . "#90c4ed")
+    (cyan-alt-faint . "#a0bfdf")
     (cyan-alt-other-faint . "#a4d0bb")
     ;; these foreground values can only be combined with bg-main and are
     ;; thus not suitable for general purpose highlighting
