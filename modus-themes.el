@@ -2081,17 +2081,17 @@ For colors bound, see `modus-themes-operandi-colors' or
 
 ;;;; Commands
 
-;; The `modus-themes-load-themes' is meant to be included in user
-;; package declarations, such as those defined with `use-package'.  The
-;; idea is to add this function to the `:init' stage of the package's
-;; loading, so that subsequent calls, like `modus-themes-toggle' or
-;; `modus-themes-load-operandi', will continue to work as intended even
-;; if they are lazy-loaded (such as when they are declared in the
-;; `:config' phase).
-
 ;;;###autoload
 (defun modus-themes-load-themes ()
-  "Ensure that the Modus themes are in `custom-enabled-themes'."
+  "Ensure that the Modus themes are in `custom-enabled-themes'.
+
+This function is intended for use in package declarations such as
+those defined with the help of `use-package'. The idea is to add
+this function to the `:init' stage of the package's loading, so
+that subsequent calls that assume the presence of a loaded theme,
+like `modus-themes-toggle' or `modus-themes-load-operandi', will
+continue to work as intended even if they are lazy-loaded (such
+as when they are declared in the `:config' phase)."
   (unless (or (custom-theme-p 'modus-operandi)
               (custom-theme-p 'modus-vivendi))
     (load-theme 'modus-operandi t t)
