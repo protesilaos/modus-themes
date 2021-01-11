@@ -3413,7 +3413,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                           blue-alt-other blue-alt-other-faint magenta-alt-other))))
     `(font-lock-doc-face ((,class :inherit modus-theme-slant
                                   ,@(modus-themes--syntax-docstring
-                                     fg-docstring cyan-alt-other-faint
+                                     fg-docstring green-alt-other-faint
                                      green-alt-faint magenta-nuanced-fg))))
     `(font-lock-function-name-face ((,class ,@(modus-themes--syntax-extra
                                                magenta magenta-faint magenta-alt))))
@@ -3437,7 +3437,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                         blue-alt blue-alt-faint green green-alt))))
     `(font-lock-type-face ((,class :inherit modus-theme-bold
                                    ,@(modus-themes--syntax-extra
-                                      cyan-alt-other magenta-alt-faint cyan-alt))))
+                                      cyan-alt-other cyan-alt-faint cyan-alt))))
     `(font-lock-variable-name-face ((,class ,@(modus-themes--syntax-extra
                                                cyan cyan-faint blue-alt-faint))))
     `(font-lock-warning-face ((,class :inherit modus-theme-bold
