@@ -3414,7 +3414,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(font-lock-doc-face ((,class :inherit modus-theme-slant
                                   ,@(modus-themes--syntax-docstring
                                      fg-docstring green-alt-other-faint
-                                     green-alt-faint magenta-nuanced-fg))))
+                                     green-alt-other-faint magenta-nuanced-fg))))
     `(font-lock-function-name-face ((,class ,@(modus-themes--syntax-extra
                                                magenta magenta-faint magenta-alt))))
     `(font-lock-keyword-face ((,class :inherit modus-theme-bold
