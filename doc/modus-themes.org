@@ -1282,9 +1282,6 @@ Take the previous example with the =cursor= face:
 :CUSTOM_ID: h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae
 :END:
 
-NOTE: Coming in version =1.1.0= of the themes.  The macro is courtesy of
-Nicolas De Jaeghere.
-
 The examples here are for large scale operations.  For simple, one-off
 tweaks, you may prefer the approach documented in the previous section
 ([[#h:1487c631-f4fe-490d-8d58-d72ffa3bd474][Case-by-case face specs using the themes' palette]]).
@@ -1432,9 +1429,6 @@ A complete example with some more opinionated stylistic choices:
 :PROPERTIES:
 :CUSTOM_ID: h:307d95dd-8dbd-4ece-a543-10ae86f155a6
 :END:
-
-NOTE: Coming in version =1.1.0= of the themes.  Courtesy of Nicolas De
-Jaeghere.
 
 The themes provide a mechanism for overriding their color values.  This
 is controlled by the variables =modus-themes-operandi-color-overrides= and
