@@ -4587,7 +4587,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-done ((,class :foreground ,green)))
     `(org-drawer ((,class ,@(modus-themes--mixed-fonts)
                           :foreground ,fg-alt)))
-    `(org-ellipsis ((,class :foreground nil))) ; inherits from the heading's color
+    `(org-ellipsis ((,class))) ; inherits from the heading's color
     `(org-footnote ((,class :inherit button
                             ,@(modus-themes--link-color
                                blue-alt blue-alt-faint))))
