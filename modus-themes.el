@@ -2086,7 +2086,7 @@ For colors bound, see `modus-themes-operandi-colors' or
   "Ensure that the Modus themes are in `custom-enabled-themes'.
 
 This function is intended for use in package declarations such as
-those defined with the help of `use-package'. The idea is to add
+those defined with the help of `use-package'.  The idea is to add
 this function to the `:init' stage of the package's loading, so
 that subsequent calls that assume the presence of a loaded theme,
 like `modus-themes-toggle' or `modus-themes-load-operandi', will
