@@ -38,6 +38,7 @@
 ;;     modus-themes-slanted-constructs             (boolean)
 ;;     modus-themes-bold-constructs                (boolean)
 ;;     modus-themes-variable-pitch-headings        (boolean)
+;;     modus-themes-variable-pitch-ui              (boolean)
 ;;     modus-themes-no-mixed-fonts                 (boolean)
 ;;     modus-themes-headings                       (alist)
 ;;     modus-themes-scale-headings                 (boolean)
@@ -1020,6 +1021,14 @@ For form, see `modus-themes-vivendi-colors'."
   :version "28.1"
   :type 'boolean)
 
+(defcustom modus-themes-variable-pitch-ui nil
+  "Use proportional fonts (variable-pitch) in UI elements.
+This includes the mode line, header line, tab bar, and tab line."
+  :group 'modus-themes
+  :package-version '(modus-themes . "1.1.0")
+  :version "28.1"
+  :type 'boolean)
+
 (defcustom modus-themes-no-mixed-fonts nil
   "Disable inheritance from `fixed-pitch' in some faces.
 
@@ -1684,6 +1693,11 @@ Those are stored in `modus-themes-faces' and
 (defun modus-themes--variable-pitch ()
   "Conditional use of `variable-pitch' in headings."
   (when modus-themes-variable-pitch-headings
+    (list :inherit 'variable-pitch)))
+
+(defun modus-themes--variable-pitch-ui ()
+  "Conditional use of `variable-pitch' in UI elements."
+  (when modus-themes-variable-pitch-ui
     (list :inherit 'variable-pitch)))
 
 (defun modus-themes--fringe (mainbg subtlebg intensebg)
@@ -2361,7 +2375,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(error ((,class :inherit bold :foreground ,red)))
     `(escape-glyph ((,class :foreground ,fg-escape-char-construct)))
     `(file-name-shadow ((,class :foreground ,fg-unfocused)))
-    `(header-line ((,class :background ,bg-header :foreground ,fg-header)))
+    `(header-line ((,class ,@(modus-themes--variable-pitch-ui)
+                           :background ,bg-header :foreground ,fg-header)))
     `(header-line-highlight ((,class :inherit modus-theme-active-blue)))
     `(help-argument-name ((,class :inherit modus-theme-slant :foreground ,cyan)))
     `(homoglyph ((,class :foreground ,red-alt-faint)))
@@ -4356,13 +4371,15 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(minimap-active-region-background ((,class :background ,bg-active)))
     `(minimap-current-line-face ((,class :background ,cyan-intense-bg :foreground ,fg-main)))
 ;;;;; modeline
-    `(mode-line ((,class ,@(modus-themes--mode-line-attrs
+    `(mode-line ((,class ,@(modus-themes--variable-pitch-ui)
+                         ,@(modus-themes--mode-line-attrs
                             fg-active bg-active fg-dim bg-active
                             fg-alt bg-active 'alt-style nil bg-main))))
     `(mode-line-buffer-id ((,class :inherit bold)))
     `(mode-line-emphasis ((,class :inherit bold :foreground ,blue-active)))
     `(mode-line-highlight ((,class :inherit modus-theme-active-blue :box (:line-width -1 :style pressed-button))))
-    `(mode-line-inactive ((,class ,@(modus-themes--mode-line-attrs
+    `(mode-line-inactive ((,class ,@(modus-themes--variable-pitch-ui)
+                                  ,@(modus-themes--mode-line-attrs
                                      fg-inactive bg-inactive fg-alt bg-dim
                                      bg-region bg-active))))
 ;;;;; mood-line
@@ -5163,13 +5180,15 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(syslog-su ((,class :inherit bold :foreground ,red-alt)))
     `(syslog-warn ((,class :inherit bold :foreground ,yellow)))
 ;;;;; tab-bar-mode
-    `(tab-bar ((,class :background ,bg-tab-bar :foreground ,fg-main)))
+    `(tab-bar ((,class ,@(modus-themes--variable-pitch-ui)
+                       :background ,bg-tab-bar :foreground ,fg-main)))
     `(tab-bar-tab ((,class :inherit bold :box (:line-width 2 :color ,bg-tab-active)
                            :background ,bg-tab-active :foreground ,fg-main)))
     `(tab-bar-tab-inactive ((,class :box (:line-width 2 :color ,bg-tab-inactive)
                                     :background ,bg-tab-inactive :foreground ,fg-dim)))
 ;;;;; tab-line-mode
-    `(tab-line ((,class :height 0.95 :background ,bg-tab-bar :foreground ,fg-main)))
+    `(tab-line ((,class ,@(modus-themes--variable-pitch-ui)
+                        :height 0.95 :background ,bg-tab-bar :foreground ,fg-main)))
     `(tab-line-close-highlight ((,class :foreground ,red)))
     `(tab-line-highlight ((,class :background ,blue-subtle-bg :foreground ,fg-dim)))
     `(tab-line-tab ((,class :inherit bold :box (:line-width 2 :color ,bg-tab-active)

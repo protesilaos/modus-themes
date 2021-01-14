@@ -27,7 +27,7 @@ provides every other piece of information pertinent to them.
    The documentation furnished herein corresponds to version 1.0.2,
 released on 2020-12-06.  Any reference to a newer feature which does not
 yet form part of the latest tagged commit, is explicitly marked as such.
-Current build was done on 2021-01-13 22:28 +0200.
+Current build was done on 2021-01-14 08:30 +0200.
 
 * Menu:
 
@@ -88,7 +88,8 @@ Customization Options
 * Org agenda habits::            Choose among standard, simplified, or traffic light styles
 * Heading styles::               Choose among several styles, also per heading level
 * Scaled headings::              Toggle scaling of headings
-* Headings' font::               Toggle proportionately spaced fonts in headings
+* UI typeface::                  Toggle the use of variable-pitch across the User Interface
+* Headings' typeface::           Toggle the use of variable-pitch in headings
 
 Scaled headings
 
@@ -439,6 +440,7 @@ each theme in order to come into effect.
              (3 . rainbow-line)
              (t . rainbow-line-no-bold))
 
+           modus-themes-variable-pitch-ui t
            modus-themes-variable-pitch-headings t
            modus-themes-scale-headings t
            modus-themes-scale-1 1.1
@@ -545,7 +547,8 @@ loading a theme (*note Enable and load::).
 * Org agenda habits::            Choose among standard, simplified, or traffic light styles
 * Heading styles::               Choose among several styles, also per heading level
 * Scaled headings::              Toggle scaling of headings
-* Headings' font::               Toggle proportionately spaced fonts in headings
+* UI typeface::                  Toggle the use of variable-pitch across the User Interface
+* Headings' typeface::           Toggle the use of variable-pitch in headings
 
 
 File: modus-themes.info,  Node: Bold constructs,  Next: Slanted constructs,  Up: Customization Options
@@ -1196,7 +1199,7 @@ option, just specify the value ‘t’ like this:
      a bold weight.
 
 
-File: modus-themes.info,  Node: Scaled headings,  Next: Headings' font,  Prev: Heading styles,  Up: Customization Options
+File: modus-themes.info,  Node: Scaled headings,  Next: UI typeface,  Prev: Heading styles,  Up: Customization Options
 
 4.18 Option for scaled headings
 ===============================
@@ -1254,9 +1257,36 @@ size of the heading, but not of keywords that were added to it, like
 <https://protesilaos.com/codelog/2020-09-24-org-headings-adapt/>.
 
 
-File: modus-themes.info,  Node: Headings' font,  Prev: Scaled headings,  Up: Customization Options
+File: modus-themes.info,  Node: UI typeface,  Next: Headings' typeface,  Prev: Scaled headings,  Up: Customization Options
 
-4.19 Option for variable-pitch font in headings
+4.19 Option for variable-pitch font in UI elements
+==================================================
+
+Symbol: ‘modus-themes-variable-pitch-ui’
+
+   Possible values:
+
+  1. ‘nil’ (default)
+  2. ‘t’
+
+   This option concerns User Interface elements that are under the
+direct control of Emacs.  In particular: the mode line, header line, tab
+bar, and tab line.
+
+   The default is to use the same font as the rest of Emacs, which
+usually is a monospaced family.
+
+   With a non-nil value (‘t’) apply a proportionately spaced typeface.
+This is done by assigning the ‘variable-pitch’ face to the relevant
+items.
+
+   *note Font configurations for Org and others: Font configurations for
+Org and others (DIY).
+
+
+File: modus-themes.info,  Node: Headings' typeface,  Prev: UI typeface,  Up: Customization Options
+
+4.20 Option for variable-pitch font in headings
 ===============================================
 
 Symbol: ‘modus-themes-variable-pitch-headings’
@@ -1272,8 +1302,8 @@ monospaced.
    With a non-nil value (‘t’) apply a proportionately spaced typeface,
 else “variable-pitch”, to headings (such as in Org mode).
 
-   *note Font configurations for Org (and others): Font configurations
-for Org and others (DIY).
+   *note Font configurations for Org and others: Font configurations for
+Org and others (DIY).
 
 
 File: modus-themes.info,  Node: Advanced customization (do-it-yourself),  Next: Face coverage,  Prev: Customization Options,  Up: Top
@@ -1402,7 +1432,7 @@ File: modus-themes.info,  Node: Face specs at scale using the themes' palette (D
 5.2 Face specs at scale using the themes’ palette (DIY)
 =======================================================
 
-[Coming in version ‘1.1.0’ of the themes]
+[Coming in version 1.1.0 of the Modus themes]
 
    The examples here are for large scale operations.  For simple,
 one-off tweaks, you may prefer the approach documented in the previous
@@ -1545,7 +1575,7 @@ File: modus-themes.info,  Node: Override colors (DIY),  Next: Font configuration
 5.3 Override colors (DIY)
 =========================
 
-[Coming in version ‘1.1.0’ of the themes]
+[Coming in version 1.1.0 of the Modus themes]
 
    The themes provide a mechanism for overriding their color values.
 This is controlled by the variables
@@ -3169,72 +3199,73 @@ Appendix A GNU Free Documentation License
 
 Tag Table:
 Node: Top586
-Node: Overview4471
-Node: How do the themes look like5737
-Node: Learn about the latest changes6245
-Node: Installation6627
-Node: Install from the archives7075
-Node: Install on GNU/Linux7737
-Node: Debian 11 Bullseye8185
-Node: GNU Guix8594
-Node: Enable and load8817
-Node: Load automatically9742
-Node: Differences between loading and enabling10515
-Node: Toggle between the themes on demand12579
-Node: Configure options prior to loading a theme13741
-Node: Sample configuration for use-package18041
-Node: Customization Options18944
-Node: Bold constructs21002
-Node: Slanted constructs21591
-Node: Syntax styles22138
-Node: No mixed fonts23653
-Node: Link styles24690
-Node: Command prompts25939
-Node: Mode line26622
-Node: Completion UIs29145
-Node: Fringes30977
-Node: Language checkers31637
-Node: Line highlighting33632
-Node: Matching parentheses34257
-Node: Active region35140
-Node: Diffs36076
-Node: Org mode blocks38348
-Node: Org agenda habits39691
-Node: Heading styles41576
-Node: Scaled headings45244
-Node: Scaled heading sizes45830
-Node: Headings' font47426
-Node: Advanced customization (do-it-yourself)48052
-Node: Case-by-case face specs using the themes' palette (DIY)49117
-Node: Face specs at scale using the themes' palette (DIY)53600
-Node: Override colors (DIY)60475
-Node: Font configurations for Org and others (DIY)65147
-Ref: Font configurations for Org and others (DIY)-Footnote-167470
-Node: Custom Org user faces (DIY)67657
-Node: Measure color contrast (DIY)70973
-Node: Load theme depending on time of day73740
-Node: Face coverage74723
-Node: Supported packages75193
-Node: Indirectly covered packages81596
-Node: Notes for individual packages82051
-Node: Note for prism82589
-Node: Note on company-mode overlay pop-up85502
-Ref: Note on company-mode overlay pop-up-Footnote-186189
-Ref: Note on company-mode overlay pop-up-Footnote-286256
-Node: Note for ERC escaped color sequences86311
-Ref: Note for ERC escaped color sequences-Footnote-187744
-Node: Note for powerline or spaceline87854
-Node: Note on SHR colors88270
-Node: Note for Helm grep88680
-Node: Note on vc-annotate-background-mode90125
-Node: Note on pdf-tools link hints91010
-Node: Contributing93441
-Node: Sources of the themes93841
-Node: Issues you can help with94579
-Node: Patches require copyright assignment to the FSF95779
-Node: Acknowledgements98074
-Node: Meta100084
-Node: GNU Free Documentation License101924
+Node: Overview4560
+Node: How do the themes look like5826
+Node: Learn about the latest changes6334
+Node: Installation6716
+Node: Install from the archives7164
+Node: Install on GNU/Linux7826
+Node: Debian 11 Bullseye8274
+Node: GNU Guix8683
+Node: Enable and load8906
+Node: Load automatically9831
+Node: Differences between loading and enabling10604
+Node: Toggle between the themes on demand12668
+Node: Configure options prior to loading a theme13830
+Node: Sample configuration for use-package18174
+Node: Customization Options19077
+Node: Bold constructs21224
+Node: Slanted constructs21813
+Node: Syntax styles22360
+Node: No mixed fonts23875
+Node: Link styles24912
+Node: Command prompts26161
+Node: Mode line26844
+Node: Completion UIs29367
+Node: Fringes31199
+Node: Language checkers31859
+Node: Line highlighting33854
+Node: Matching parentheses34479
+Node: Active region35362
+Node: Diffs36298
+Node: Org mode blocks38570
+Node: Org agenda habits39913
+Node: Heading styles41798
+Node: Scaled headings45466
+Node: Scaled heading sizes46049
+Node: UI typeface47645
+Node: Headings' typeface48491
+Node: Advanced customization (do-it-yourself)49115
+Node: Case-by-case face specs using the themes' palette (DIY)50180
+Node: Face specs at scale using the themes' palette (DIY)54663
+Node: Override colors (DIY)61538
+Node: Font configurations for Org and others (DIY)66210
+Ref: Font configurations for Org and others (DIY)-Footnote-168533
+Node: Custom Org user faces (DIY)68720
+Node: Measure color contrast (DIY)72036
+Node: Load theme depending on time of day74803
+Node: Face coverage75786
+Node: Supported packages76256
+Node: Indirectly covered packages82659
+Node: Notes for individual packages83114
+Node: Note for prism83652
+Node: Note on company-mode overlay pop-up86565
+Ref: Note on company-mode overlay pop-up-Footnote-187252
+Ref: Note on company-mode overlay pop-up-Footnote-287319
+Node: Note for ERC escaped color sequences87374
+Ref: Note for ERC escaped color sequences-Footnote-188807
+Node: Note for powerline or spaceline88917
+Node: Note on SHR colors89333
+Node: Note for Helm grep89743
+Node: Note on vc-annotate-background-mode91188
+Node: Note on pdf-tools link hints92073
+Node: Contributing94504
+Node: Sources of the themes94904
+Node: Issues you can help with95642
+Node: Patches require copyright assignment to the FSF96842
+Node: Acknowledgements99137
+Node: Meta101147
+Node: GNU Free Documentation License102987
 
 End Tag Table
 

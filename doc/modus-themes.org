@@ -325,6 +325,7 @@ A complete annotated sample with variables set to different values:
         (3 . rainbow-line)
         (t . rainbow-line-no-bold))
 
+      modus-themes-variable-pitch-ui t
       modus-themes-variable-pitch-headings t
       modus-themes-scale-headings t
       modus-themes-scale-1 1.1
@@ -1138,10 +1139,36 @@ size of the heading, but not of keywords that were added to it, like
 "TODO".  The issue has been fixed upstream:
 <https://protesilaos.com/codelog/2020-09-24-org-headings-adapt/>.
 
+** Option for variable-pitch font in UI elements
+:PROPERTIES:
+:ALT_TITLE: UI typeface
+:DESCRIPTION: Toggle the use of variable-pitch across the User Interface
+:CUSTOM_ID: h:16cf666c-5e65-424c-a855-7ea8a4a1fcac
+:END:
+
+Symbol: =modus-themes-variable-pitch-ui=
+
+Possible values:
+
+1. =nil= (default)
+2. =t=
+
+This option concerns User Interface elements that are under the direct
+control of Emacs.  In particular: the mode line, header line, tab bar,
+and tab line.
+
+The default is to use the same font as the rest of Emacs, which usually
+is a monospaced family.
+
+With a non-nil value (=t=) apply a proportionately spaced typeface.  This
+is done by assigning the =variable-pitch= face to the relevant items.
+
+[[#h:defcf4fc-8fa8-4c29-b12e-7119582cc929][Font configurations for Org and others]].
+
 ** Option for variable-pitch font in headings
 :PROPERTIES:
-:ALT_TITLE: Headings' font
-:DESCRIPTION: Toggle proportionately spaced fonts in headings
+:ALT_TITLE: Headings' typeface
+:DESCRIPTION: Toggle the use of variable-pitch in headings
 :CUSTOM_ID: h:97caca76-fa13-456c-aef1-a2aa165ea274
 :END:
 
@@ -1157,7 +1184,7 @@ The default is to use the main font family, which typically is monospaced.
 With a non-nil value (=t=) apply a proportionately spaced typeface, else
 "variable-pitch", to headings (such as in Org mode).
 
-[[#h:defcf4fc-8fa8-4c29-b12e-7119582cc929][Font configurations for Org (and others)]].
+[[#h:defcf4fc-8fa8-4c29-b12e-7119582cc929][Font configurations for Org and others]].
 
 * Advanced customization (do-it-yourself)
 :PROPERTIES:
