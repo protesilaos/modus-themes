@@ -308,7 +308,8 @@ A complete annotated sample with variables set to different values:
       modus-themes-paren-match 'subtle-bold ; {nil,'subtle-bold,'intense,'intense-bold}
 
       ;; Options for `modus-themes-links': nil, 'faint,
-      ;; 'neutral-underline, 'faint-neutral-underline, 'no-underline
+      ;; 'neutral-underline, 'faint-neutral-underline, 'no-underline,
+      ;; 'underline-only
       modus-themes-links 'neutral-underline
 
       modus-themes-no-mixed-fonts nil
@@ -546,6 +547,7 @@ Possible values:
 3. =neutral-underline=
 4. =faint-neutral-underline=
 5. =no-underline=
+6. =underline-only=
 
 The default style (nil) for links is to apply an underline and a
 saturated color to the affected text.  The color of the two is the same,
@@ -560,8 +562,11 @@ gray, while retaining the default text color.
 Option =faint-neutral-underline= combines a desaturated text color with a
 subtle gray underline.
 
-Option =no-underline= removes link underlines altogether, while keeping
-their text color the same as the default.
+Option =no-underline= removes link underlines altogether, while retaining
+their original fairly vivid color.
+
+Option =underline-only= applies an underline while making the affected
+text colorless (it uses the same foreground as the theme's default).
 
 NOTE: The placement of the underline, i.e. its proximity to the affected
 text, is controlled by the built-in =x-underline-at-descent-line=,

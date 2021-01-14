@@ -1512,16 +1512,22 @@ retaining the link's foreground.
 Option `faint-neutral-underline' combines a desaturated text
 color with a subtle grey underline.
 
-Option `no-underline' removes link underlines altogether."
+Option `no-underline' removes link underlines altogether, while
+retaining their original fairly vivid color.
+
+Option `underline-only' applies an underline while making the
+affected text colorless (it uses the same foreground as the
+theme's default)."
   :group 'modus-themes
-  :package-version '(modus-themes . "1.0.0")
+  :package-version '(modus-themes . "1.1.0")
   :version "28.1"
   :type '(choice
           (const :tag "Undeline link using the same color as the text (default)" nil)
           (const :tag "Like the default, but apply less intense colors to links" faint)
           (const :tag "Change the color of link underlines to a neutral grey" neutral-underline)
           (const :tag "Desaturated foreground with neutral grey underline" faint-neutral-underline)
-          (const :tag "Remove underline property from links, keeping their foreground as-is" no-underline)))
+          (const :tag "Remove underline property from links, keeping their foreground as-is" no-underline)
+          (const :tag "Apply underline only; use default foreground" underline-only)))
 
 (defcustom modus-themes-region nil
   "Change the overall appearance of the active region.
@@ -1999,6 +2005,7 @@ underline.  UNDERLINE is a grey color only for the undeline."
     ('neutral-underline (list :foreground fg :underline underline))
     ('faint-neutral-underline (list :foreground fgfaint :underline underline))
     ('no-underline (list :foreground fg :underline nil))
+    ('underline-only (list :underline t))
     (_ (list :foreground fg :underline t))))
 
 (defun modus-themes--link-color (fg fgfaint)
