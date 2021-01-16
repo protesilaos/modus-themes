@@ -1878,7 +1878,7 @@ theme's source code)."
   (if (or (eq modus-themes-org-blocks 'grayscale)
           (eq modus-themes-org-blocks 'greyscale))
       (list :background bgblk :extend t)
-    (list :background nil)))
+    (list :background 'unspecified)))
 
 (defun modus-themes--org-block-delim (bgaccent fgaccent bg fg)
   "Conditionally set the styles of Org block delimiters.
