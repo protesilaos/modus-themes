@@ -3024,7 +3024,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(diredp-flag-mark-line ((,class :inherit modus-theme-mark-sel)))
     `(diredp-ignored-file-name ((,class :inherit shadow)))
     `(diredp-link-priv ((,class :foreground ,blue-alt-other)))
-    `(diredp-mode-line-flagged ((,class :foreground ,magenta-active)))
+    `(diredp-mode-line-flagged ((,class :foreground ,red-active)))
     `(diredp-mode-line-marked ((,class :foreground ,green-active)))
     `(diredp-no-priv ((,class :inherit shadow)))
     `(diredp-number ((,class :foreground ,cyan-alt)))
