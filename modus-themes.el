@@ -1113,9 +1113,16 @@ A description of all possible values:
   colorful foreground.
 
 + `rainbow-section-no-bold' is the same as `rainbow-section'
-  without a bold weight."
+  without a bold weight.
+
++ `no-color' does not apply any color to the heading, meaning
+  that it uses the foreground of the `default' face.  It still
+  renders the text with a bold typographic weight.
+
++ `no-color-no-bold' is like `no-color' but without the bold
+  weight."
   :group 'modus-themes
-  :package-version '(modus-themes . "1.0.0")
+  :package-version '(modus-themes . "1.1.0")
   :version "28.1"
   :type
   '(alist
@@ -1136,7 +1143,9 @@ A description of all possible values:
             (const :tag "Like `highlight' plus overline" section)
             (const :tag "Like `section' without bold weight" section-no-bold)
             (const :tag "Like `section' with more colorful foreground" rainbow-section)
-            (const :tag "Like `rainbow-section' without bold weight" rainbow-section-no-bold))))
+            (const :tag "Like `rainbow-section' without bold weight" rainbow-section-no-bold)
+            (const :tag "Do not use any color; just bold weight" no-color)
+            (const :tag "Like `no-bold' but without the bold weight" no-color-no-bold))))
 
 (defcustom modus-themes-scale-headings nil
   "Use font scaling for headings."
@@ -1835,6 +1844,10 @@ background and alternative foreground."
     (pcase style
       ('no-bold
        (list :inherit `,var :foreground fg))
+      ('no-color
+       (list :inherit `,varbold))
+      ('no-color-no-bold
+       (list :inherit `,var))
       ('line
        (list :inherit `,varbold :foreground fg :overline border))
       ('line-no-bold

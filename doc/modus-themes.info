@@ -27,7 +27,7 @@ provides every other piece of information pertinent to them.
    The documentation furnished herein corresponds to version 1.0.2,
 released on 2020-12-06.  Any reference to a newer feature which does not
 yet form part of the latest tagged commit, is explicitly marked as such.
-Current build was done on 2021-01-18 19:19 +0200.
+Current build was done on 2021-01-18 19:26 +0200.
 
 * Menu:
 
@@ -1128,6 +1128,8 @@ than other customization options documented in this manual.
    • ‘section-no-bold’
    • ‘rainbow-section’
    • ‘rainbow-section-no-bold’
+   • ‘no-color’ [this one is coming in version 1.1.0]
+   • ‘no-color-no-bold’ [this one is coming in version 1.1.0]
 
    To control faces per level from 1-8, use something like this:
 
@@ -1203,6 +1205,12 @@ option, just specify the value ‘t’ like this:
 
    • ‘rainbow-section-no-bold’ is the same as ‘rainbow-section’ without
      a bold weight.
+
+   • ‘no-color’ does not apply any color to the heading, meaning that it
+     uses the foreground of the ‘default’ face.  It still renders the
+     text with a bold typographic weight.
+
+   • ‘no-color-no-bold’ is like ‘no-color’ but without the bold weight.
 
 
 File: modus-themes.info,  Node: Scaled headings,  Next: UI typeface,  Prev: Heading styles,  Up: Customization Options
@@ -3239,41 +3247,41 @@ Node: Diffs36538
 Node: Org mode blocks38810
 Node: Org agenda habits40153
 Node: Heading styles42038
-Node: Scaled headings45706
-Node: Scaled heading sizes46289
-Node: UI typeface47885
-Node: Headings' typeface48781
-Node: Advanced customization (do-it-yourself)49405
-Node: Case-by-case face specs using the themes' palette (DIY)50470
-Node: Face specs at scale using the themes' palette (DIY)54953
-Node: Override colors (DIY)61828
-Node: Font configurations for Org and others (DIY)66500
-Ref: Font configurations for Org and others (DIY)-Footnote-168823
-Node: Custom Org user faces (DIY)69010
-Node: Measure color contrast (DIY)72326
-Node: Load theme depending on time of day75093
-Node: Face coverage76076
-Node: Supported packages76546
-Node: Indirectly covered packages82949
-Node: Notes for individual packages83404
-Node: Note for prism83942
-Node: Note on company-mode overlay pop-up86855
-Ref: Note on company-mode overlay pop-up-Footnote-187542
-Ref: Note on company-mode overlay pop-up-Footnote-287609
-Node: Note for ERC escaped color sequences87664
-Ref: Note for ERC escaped color sequences-Footnote-189097
-Node: Note for powerline or spaceline89207
-Node: Note on SHR colors89623
-Node: Note for Helm grep90033
-Node: Note on vc-annotate-background-mode91478
-Node: Note on pdf-tools link hints92363
-Node: Contributing94794
-Node: Sources of the themes95194
-Node: Issues you can help with95932
-Node: Patches require copyright assignment to the FSF97132
-Node: Acknowledgements99427
-Node: Meta101437
-Node: GNU Free Documentation License103277
+Node: Scaled headings46113
+Node: Scaled heading sizes46696
+Node: UI typeface48292
+Node: Headings' typeface49188
+Node: Advanced customization (do-it-yourself)49812
+Node: Case-by-case face specs using the themes' palette (DIY)50877
+Node: Face specs at scale using the themes' palette (DIY)55360
+Node: Override colors (DIY)62235
+Node: Font configurations for Org and others (DIY)66907
+Ref: Font configurations for Org and others (DIY)-Footnote-169230
+Node: Custom Org user faces (DIY)69417
+Node: Measure color contrast (DIY)72733
+Node: Load theme depending on time of day75500
+Node: Face coverage76483
+Node: Supported packages76953
+Node: Indirectly covered packages83356
+Node: Notes for individual packages83811
+Node: Note for prism84349
+Node: Note on company-mode overlay pop-up87262
+Ref: Note on company-mode overlay pop-up-Footnote-187949
+Ref: Note on company-mode overlay pop-up-Footnote-288016
+Node: Note for ERC escaped color sequences88071
+Ref: Note for ERC escaped color sequences-Footnote-189504
+Node: Note for powerline or spaceline89614
+Node: Note on SHR colors90030
+Node: Note for Helm grep90440
+Node: Note on vc-annotate-background-mode91885
+Node: Note on pdf-tools link hints92770
+Node: Contributing95201
+Node: Sources of the themes95601
+Node: Issues you can help with96339
+Node: Patches require copyright assignment to the FSF97539
+Node: Acknowledgements99834
+Node: Meta101844
+Node: GNU Free Documentation License103684
 
 End Tag Table
 

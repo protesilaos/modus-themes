@@ -1006,6 +1006,8 @@ further below):
 + =section-no-bold=
 + =rainbow-section=
 + =rainbow-section-no-bold=
++ =no-color= [this one is coming in version 1.1.0]
++ =no-color-no-bold= [this one is coming in version 1.1.0]
 
 To control faces per level from 1-8, use something like this:
 
@@ -1086,6 +1088,12 @@ A description of all other possible styles beyond the default:
 
 + =rainbow-section-no-bold= is the same as =rainbow-section= without a bold
   weight.
+
++ =no-color= does not apply any color to the heading, meaning that it uses
+  the foreground of the =default= face.  It still renders the text with a
+  bold typographic weight.
+
++ =no-color-no-bold= is like =no-color= but without the bold weight.
 
 ** Option for scaled headings
 :PROPERTIES:
