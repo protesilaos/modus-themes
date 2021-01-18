@@ -27,7 +27,7 @@ provides every other piece of information pertinent to them.
    The documentation furnished herein corresponds to version 1.0.2,
 released on 2020-12-06.  Any reference to a newer feature which does not
 yet form part of the latest tagged commit, is explicitly marked as such.
-Current build was done on 2021-01-14 14:42 +0200.
+Current build was done on 2021-01-18 19:19 +0200.
 
 * Menu:
 
@@ -677,7 +677,7 @@ Symbol: ‘modus-themes-links’
   3. ‘neutral-underline’
   4. ‘faint-neutral-underline’
   5. ‘no-underline’
-  6. ‘underline-only’
+  6. ‘underline-only’ [this one is coming in version 1.1.0]
 
    The default style (nil) for links is to apply an underline and a
 saturated color to the affected text.  The color of the two is the same,
@@ -1268,7 +1268,9 @@ File: modus-themes.info,  Node: UI typeface,  Next: Headings' typeface,  Prev: S
 4.19 Option for variable-pitch font in UI elements
 ==================================================
 
-Symbol: ‘modus-themes-variable-pitch-ui’
+[Coming in version 1.1.0 of the Modus themes]
+
+   Symbol: ‘modus-themes-variable-pitch-ui’
 
    Possible values:
 
@@ -3225,53 +3227,53 @@ Node: Slanted constructs21844
 Node: Syntax styles22391
 Node: No mixed fonts23906
 Node: Link styles24943
-Node: Command prompts26363
-Node: Mode line27046
-Node: Completion UIs29569
-Node: Fringes31401
-Node: Language checkers32061
-Node: Line highlighting34056
-Node: Matching parentheses34681
-Node: Active region35564
-Node: Diffs36500
-Node: Org mode blocks38772
-Node: Org agenda habits40115
-Node: Heading styles42000
-Node: Scaled headings45668
-Node: Scaled heading sizes46251
-Node: UI typeface47847
-Node: Headings' typeface48693
-Node: Advanced customization (do-it-yourself)49317
-Node: Case-by-case face specs using the themes' palette (DIY)50382
-Node: Face specs at scale using the themes' palette (DIY)54865
-Node: Override colors (DIY)61740
-Node: Font configurations for Org and others (DIY)66412
-Ref: Font configurations for Org and others (DIY)-Footnote-168735
-Node: Custom Org user faces (DIY)68922
-Node: Measure color contrast (DIY)72238
-Node: Load theme depending on time of day75005
-Node: Face coverage75988
-Node: Supported packages76458
-Node: Indirectly covered packages82861
-Node: Notes for individual packages83316
-Node: Note for prism83854
-Node: Note on company-mode overlay pop-up86767
-Ref: Note on company-mode overlay pop-up-Footnote-187454
-Ref: Note on company-mode overlay pop-up-Footnote-287521
-Node: Note for ERC escaped color sequences87576
-Ref: Note for ERC escaped color sequences-Footnote-189009
-Node: Note for powerline or spaceline89119
-Node: Note on SHR colors89535
-Node: Note for Helm grep89945
-Node: Note on vc-annotate-background-mode91390
-Node: Note on pdf-tools link hints92275
-Node: Contributing94706
-Node: Sources of the themes95106
-Node: Issues you can help with95844
-Node: Patches require copyright assignment to the FSF97044
-Node: Acknowledgements99339
-Node: Meta101349
-Node: GNU Free Documentation License103189
+Node: Command prompts26401
+Node: Mode line27084
+Node: Completion UIs29607
+Node: Fringes31439
+Node: Language checkers32099
+Node: Line highlighting34094
+Node: Matching parentheses34719
+Node: Active region35602
+Node: Diffs36538
+Node: Org mode blocks38810
+Node: Org agenda habits40153
+Node: Heading styles42038
+Node: Scaled headings45706
+Node: Scaled heading sizes46289
+Node: UI typeface47885
+Node: Headings' typeface48781
+Node: Advanced customization (do-it-yourself)49405
+Node: Case-by-case face specs using the themes' palette (DIY)50470
+Node: Face specs at scale using the themes' palette (DIY)54953
+Node: Override colors (DIY)61828
+Node: Font configurations for Org and others (DIY)66500
+Ref: Font configurations for Org and others (DIY)-Footnote-168823
+Node: Custom Org user faces (DIY)69010
+Node: Measure color contrast (DIY)72326
+Node: Load theme depending on time of day75093
+Node: Face coverage76076
+Node: Supported packages76546
+Node: Indirectly covered packages82949
+Node: Notes for individual packages83404
+Node: Note for prism83942
+Node: Note on company-mode overlay pop-up86855
+Ref: Note on company-mode overlay pop-up-Footnote-187542
+Ref: Note on company-mode overlay pop-up-Footnote-287609
+Node: Note for ERC escaped color sequences87664
+Ref: Note for ERC escaped color sequences-Footnote-189097
+Node: Note for powerline or spaceline89207
+Node: Note on SHR colors89623
+Node: Note for Helm grep90033
+Node: Note on vc-annotate-background-mode91478
+Node: Note on pdf-tools link hints92363
+Node: Contributing94794
+Node: Sources of the themes95194
+Node: Issues you can help with95932
+Node: Patches require copyright assignment to the FSF97132
+Node: Acknowledgements99427
+Node: Meta101437
+Node: GNU Free Documentation License103277
 
 End Tag Table
 

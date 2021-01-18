@@ -547,7 +547,7 @@ Possible values:
 3. =neutral-underline=
 4. =faint-neutral-underline=
 5. =no-underline=
-6. =underline-only=
+6. =underline-only= [this one is coming in version 1.1.0]
 
 The default style (nil) for links is to apply an underline and a
 saturated color to the affected text.  The color of the two is the same,
@@ -1150,6 +1150,8 @@ size of the heading, but not of keywords that were added to it, like
 :DESCRIPTION: Toggle the use of variable-pitch across the User Interface
 :CUSTOM_ID: h:16cf666c-5e65-424c-a855-7ea8a4a1fcac
 :END:
+
+[Coming in version 1.1.0 of the Modus themes]
 
 Symbol: =modus-themes-variable-pitch-ui=
 
