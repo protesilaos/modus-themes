@@ -2775,6 +2775,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(consult-key ((,class :inherit modus-themes-bold :foreground ,magenta-alt-other)))
     `(consult-lighter ((,class :inherit shadow)))
     `(consult-line-number ((,class :foreground ,fg-special-warm)))
+    `(consult-line-number-prefix ((,class :foreground ,fg-unfocused)))
     `(consult-off ((,class :inherit error)))
     `(consult-on ((,class :inherit success)))
     `(consult-preview-cursor ((,class :inherit modus-theme-intense-blue)))
