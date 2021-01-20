@@ -1920,7 +1920,7 @@ refashion the =fill-column-indicator= face.  For example:
                                     :foreground ,bg-inactive)))))
 #+end_src
 
-[[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Face specs at scale using the themes' palette (DIY)]].
+[[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Face specs at scale using the themes' palette]].
 
 ** Note for prism.el
 :PROPERTIES:

@@ -27,7 +27,7 @@ provides every other piece of information pertinent to them.
    The documentation furnished herein corresponds to version 1.0.2,
 released on 2020-12-06.  Any reference to a newer feature which does not
 yet form part of the latest tagged commit, is explicitly marked as such.
-Current build was done on 2021-01-20 19:21 +0200.
+Current build was done on 2021-01-20 19:25 +0200.
 
 * Menu:
 
@@ -2045,7 +2045,8 @@ refashion the ‘fill-column-indicator’ face.  For example:
         `(fill-column-indicator ((,class :background ,bg-inactive
                                          :foreground ,bg-inactive)))))
 
-   *note Face specs at scale using the themes' palette (DIY)::.
+   *note Face specs at scale using the themes’ palette: Face specs at
+scale using the themes' palette (DIY).
 
 
 File: modus-themes.info,  Node: Note for prism,  Next: Note on company-mode overlay pop-up,  Prev: Note for display-fill-column-indicator-mode,  Up: Notes for individual packages
@@ -3035,24 +3036,24 @@ Node: Face coverage76499
 Node: Supported packages76937
 Node: Notes for individual packages78717
 Node: Note for display-fill-column-indicator-mode79303
-Node: Note for prism80195
-Node: Note on company-mode overlay pop-up83160
-Ref: Note on company-mode overlay pop-up-Footnote-183847
-Ref: Note on company-mode overlay pop-up-Footnote-283914
-Node: Note for ERC escaped color sequences83969
-Ref: Note for ERC escaped color sequences-Footnote-185402
-Node: Note for powerline or spaceline85512
-Node: Note on SHR colors85928
-Node: Note for Helm grep86338
-Node: Note on vc-annotate-background-mode87783
-Node: Note on pdf-tools link hints88668
-Node: Contributing91099
-Node: Sources of the themes91499
-Node: Issues you can help with92237
-Node: Patches require copyright assignment to the FSF93437
-Node: Acknowledgements95732
-Node: Meta97742
-Node: GNU Free Documentation License99582
+Node: Note for prism80242
+Node: Note on company-mode overlay pop-up83207
+Ref: Note on company-mode overlay pop-up-Footnote-183894
+Ref: Note on company-mode overlay pop-up-Footnote-283961
+Node: Note for ERC escaped color sequences84016
+Ref: Note for ERC escaped color sequences-Footnote-185449
+Node: Note for powerline or spaceline85559
+Node: Note on SHR colors85975
+Node: Note for Helm grep86385
+Node: Note on vc-annotate-background-mode87830
+Node: Note on pdf-tools link hints88715
+Node: Contributing91146
+Node: Sources of the themes91546
+Node: Issues you can help with92284
+Node: Patches require copyright assignment to the FSF93484
+Node: Acknowledgements95779
+Node: Meta97789
+Node: GNU Free Documentation License99629
 
 End Tag Table
 
