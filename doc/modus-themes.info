@@ -27,7 +27,7 @@ provides every other piece of information pertinent to them.
    The documentation furnished herein corresponds to version 1.0.2,
 released on 2020-12-06.  Any reference to a newer feature which does not
 yet form part of the latest tagged commit, is explicitly marked as such.
-Current build was done on 2021-01-18 19:26 +0200.
+Current build was done on 2021-01-20 17:52 +0200.
 
 * Menu:
 
@@ -2004,6 +2004,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • diredfl
    • diredp (dired+)
    • disk-usage
+   • display-fill-column-indicator-mode
    • doom-modeline
    • dynamic-ruler
    • easy-jekyll
@@ -3262,26 +3263,26 @@ Node: Measure color contrast (DIY)72733
 Node: Load theme depending on time of day75500
 Node: Face coverage76483
 Node: Supported packages76953
-Node: Indirectly covered packages83356
-Node: Notes for individual packages83811
-Node: Note for prism84349
-Node: Note on company-mode overlay pop-up87262
-Ref: Note on company-mode overlay pop-up-Footnote-187949
-Ref: Note on company-mode overlay pop-up-Footnote-288016
-Node: Note for ERC escaped color sequences88071
-Ref: Note for ERC escaped color sequences-Footnote-189504
-Node: Note for powerline or spaceline89614
-Node: Note on SHR colors90030
-Node: Note for Helm grep90440
-Node: Note on vc-annotate-background-mode91885
-Node: Note on pdf-tools link hints92770
-Node: Contributing95201
-Node: Sources of the themes95601
-Node: Issues you can help with96339
-Node: Patches require copyright assignment to the FSF97539
-Node: Acknowledgements99834
-Node: Meta101844
-Node: GNU Free Documentation License103684
+Node: Indirectly covered packages83398
+Node: Notes for individual packages83853
+Node: Note for prism84391
+Node: Note on company-mode overlay pop-up87304
+Ref: Note on company-mode overlay pop-up-Footnote-187991
+Ref: Note on company-mode overlay pop-up-Footnote-288058
+Node: Note for ERC escaped color sequences88113
+Ref: Note for ERC escaped color sequences-Footnote-189546
+Node: Note for powerline or spaceline89656
+Node: Note on SHR colors90072
+Node: Note for Helm grep90482
+Node: Note on vc-annotate-background-mode91927
+Node: Note on pdf-tools link hints92812
+Node: Contributing95243
+Node: Sources of the themes95643
+Node: Issues you can help with96381
+Node: Patches require copyright assignment to the FSF97581
+Node: Acknowledgements99876
+Node: Meta101886
+Node: GNU Free Documentation License103726
 
 End Tag Table
 

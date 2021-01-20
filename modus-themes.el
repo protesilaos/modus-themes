@@ -140,6 +140,7 @@
 ;;     diredfl
 ;;     diredp (dired+)
 ;;     disk-usage
+;;     display-fill-column-indicator-mode
 ;;     doom-modeline
 ;;     dynamic-ruler
 ;;     easy-jekyll
@@ -3056,6 +3057,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(disk-usage-size ((,class :foreground ,cyan)))
     `(disk-usage-symlink ((,class :inherit button)))
     `(disk-usage-symlink-directory ((,class :inherit bold :foreground ,blue-alt)))
+;;;;; display-fill-column-indicator-mode
+    `(fill-column-indicator ((,class :foreground ,bg-active)))
 ;;;;; doom-modeline
     `(doom-modeline-bar ((,class :inherit modus-theme-active-blue)))
     `(doom-modeline-bar-inactive ((,class :background ,fg-inactive :foreground ,bg-main)))
