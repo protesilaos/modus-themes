@@ -1892,257 +1892,6 @@ have lots of extensions, so the "full support" may not be 100% true…
 + diredp (dired+)
 + disk-usage
 + display-fill-column-indicator-mode
-+ doom-modeline
-+ dynamic-ruler
-+ easy-jekyll
-+ easy-kill
-+ ebdb
-+ ediff
-+ eglot
-+ el-search
-+ eldoc-box
-+ elfeed
-+ elfeed-score
-+ emms
-+ enhanced-ruby-mode
-+ epa
-+ equake
-+ erc
-+ eros
-+ ert
-+ eshell
-+ eshell-fringe-status
-+ eshell-git-prompt
-+ eshell-prompt-extras (epe)
-+ eshell-syntax-highlighting
-+ evil* (evil-mode)
-+ evil-goggles
-+ evil-snipe
-+ evil-visual-mark-mode
-+ eww
-+ exwm
-+ eyebrowse
-+ fancy-dabbrev
-+ flycheck
-+ flycheck-color-mode-line
-+ flycheck-indicator
-+ flycheck-posframe
-+ flymake
-+ flyspell
-+ flyspell-correct
-+ flx
-+ freeze-it
-+ frog-menu
-+ focus
-+ fold-this
-+ font-lock (generic syntax highlighting)
-+ forge
-+ fountain (fountain-mode)
-+ geiser
-+ git-commit
-+ git-gutter (and variants)
-+ git-lens
-+ git-rebase
-+ git-timemachine
-+ git-walktree
-+ gnus
-+ golden-ratio-scroll-screen
-+ helm*
-+ helm-ls-git
-+ helm-switch-shell
-+ helm-xref
-+ helpful
-+ highlight-blocks
-+ highlight-defined
-+ highlight-escape-sequences (=hes-mode=)
-+ highlight-indentation
-+ highlight-numbers
-+ highlight-symbol
-+ highlight-tail
-+ highlight-thing
-+ hl-defined
-+ hl-fill-column
-+ hl-line-mode
-+ hl-todo
-+ hydra
-+ hyperlist
-+ ibuffer
-+ icomplete
-+ icomplete-vertical
-+ ido-mode
-+ iedit
-+ iflipb
-+ imenu-list
-+ indium
-+ info
-+ info-colors
-+ interaction-log
-+ ioccur
-+ isearch, occur, etc.
-+ isl (isearch-light)
-+ ivy*
-+ ivy-posframe
-+ jira (org-jira)
-+ journalctl-mode
-+ js2-mode
-+ julia
-+ jupyter
-+ kaocha-runner
-+ keycast
-+ line numbers (=display-line-numbers-mode= and global variant)
-+ lsp-mode
-+ lsp-ui
-+ macrostep
-+ magit
-+ magit-imerge
-+ make-mode
-+ man
-+ marginalia
-+ markdown-mode
-+ markup-faces (=adoc-mode=)
-+ mentor
-+ messages
-+ minibuffer-line
-+ minimap
-+ modeline
-+ mood-line
-+ moody
-+ mpdel
-+ mu4e
-+ mu4e-conversation
-+ multiple-cursors
-+ neotree
-+ no-emoji
-+ notmuch
-+ num3-mode
-+ nxml-mode
-+ objed
-+ orderless
-+ org*
-+ org-journal
-+ org-noter
-+ org-pomodoro
-+ org-recur
-+ org-roam
-+ org-superstar
-+ org-table-sticky-header
-+ org-tree-slide
-+ org-treescope
-+ origami
-+ outline-mode
-+ outline-minor-faces
-+ package (=M-x list-packages=)
-+ page-break-lines
-+ paradox
-+ paren-face
-+ parrot
-+ pass
-+ pdf-tools
-+ persp-mode
-+ perspective
-+ phi-grep
-+ phi-search
-+ pkgbuild-mode
-+ pomidor
-+ popup
-+ powerline
-+ powerline-evil
-+ prism ([[#h:a94272e0-99da-4149-9e80-11a7e67a2cf2][Note for prism.el]])
-+ proced
-+ prodigy
-+ racket-mode
-+ rainbow-blocks
-+ rainbow-identifiers
-+ rainbow-delimiters
-+ rcirc
-+ recursion-indicator
-+ regexp-builder (also known as =re-builder=)
-+ rg (rg.el)
-+ ripgrep
-+ rmail
-+ ruler-mode
-+ sallet
-+ selectrum
-+ semantic
-+ sesman
-+ shell-script-mode
-+ show-paren-mode
-+ shr
-+ side-notes
-+ sieve-mode
-+ skewer-mode
-+ smart-mode-line
-+ smartparens
-+ smerge
-+ solaire
-+ spaceline
-+ speedbar
-+ spell-fu
-+ stripes
-+ suggest
-+ switch-window
-+ swiper
-+ swoop
-+ sx
-+ symbol-overlay
-+ syslog-mode
-+ table (built-in table.el)
-+ telephone-line
-+ term
-+ tomatinho
-+ transient (pop-up windows such as Magit's)
-+ trashed
-+ treemacs
-+ tty-menu
-+ tuareg
-+ typescript
-+ undo-tree
-+ vc (built-in mode line status for version control)
-+ vc-annotate (=C-x v g=)
-+ vdiff
-+ vimish-fold
-+ visible-mark
-+ visual-regexp
-+ volatile-highlights
-+ vterm
-+ wcheck-mode
-+ web-mode
-+ wgrep
-+ which-function-mode
-+ which-key
-+ whitespace-mode
-+ window-divider-mode
-+ winum
-+ writegood-mode
-+ woman
-+ xah-elisp-mode
-+ xref
-+ xterm-color (and ansi-colors)
-+ yaml-mode
-+ yasnippet
-+ ztree
-
-Plus many other miscellaneous faces that are provided by the upstream
-GNU Emacs distribution.
-
-** Indirectly covered packages
-:PROPERTIES:
-:CUSTOM_ID: h:2cb359c7-3a84-4262-bab3-dcdc1d0034d7
-:END:
-
-These do not require any extra styles because they are configured to
-inherit from some basic faces.  Please confirm.
-
-+ bbdb
-+ edit-indirect
-+ evil-owl
-+ fortran-mode
-+ i3wm-config-mode
-+ perl-mode
-+ php-mode
-+ rjsx-mode
-+ swift-mode
-
 * Notes for individual packages
 :PROPERTIES:
 :CUSTOM_ID: h:4c4d901a-84d7-4f20-bd99-0808c2b06eba
@@ -2150,6 +1899,28 @@ inherit from some basic faces.  Please confirm.
 
 This section covers information that may be of interest to users of
 individual packages.
+
+** Note for display-fill-column-indicator-mode
+:PROPERTIES:
+:CUSTOM_ID: h:2a602816-bc1b-45bf-9675-4cbbd7bf6cab
+:END:
+
+Users of =display-fill-column-indicator-mode= (Emacs 28) may encounter an
+issue where the indicator appears as a series of vertical dashes instead
+of a continuous line.  This might be due to the typeface of choice or
+the value assigned to =line-spacing=.
+
+Given that we cannot control such factors, it is advised that users
+refashion the =fill-column-indicator= face.  For example:
+
+#+begin_src emacs-lisp
+(modus-themes-with-colors
+  (custom-set-faces
+   `(fill-column-indicator ((,class :background ,bg-inactive
+                                    :foreground ,bg-inactive)))))
+#+end_src
+
+[[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Face specs at scale using the themes' palette (DIY)]].
 
 ** Note for prism.el
 :PROPERTIES:
