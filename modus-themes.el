@@ -2899,9 +2899,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(deft-title-face ((,class :inherit bold :foreground ,fg-main)))
 ;;;;; dictionary
     `(dictionary-button-face ((,class :inherit bold :foreground ,fg-special-cold)))
-    `(dictionary-reference-face ((,class :inherit button :foreground ,blue-alt-other)))
-    `(dictionary-word-definition-face ((,class :foreground ,fg-main)))
-    `(dictionary-word-entry-face ((,class :inherit modus-theme-slant :foreground ,fg-special-cold)))
+    `(dictionary-reference-face ((,class :inherit button)))
+    `(dictionary-word-definition-face ((,class)))
+    `(dictionary-word-entry-face ((,class :inherit font-lock-comment-face)))
 ;;;;; diff-hl
     `(diff-hl-change ((,class :inherit modus-theme-fringe-yellow)))
     `(diff-hl-delete ((,class :inherit modus-theme-fringe-red)))
