@@ -1905,13 +1905,23 @@ individual packages.
 :CUSTOM_ID: h:2a602816-bc1b-45bf-9675-4cbbd7bf6cab
 :END:
 
-Users of =display-fill-column-indicator-mode= (Emacs 28) may encounter an
-issue where the indicator appears as a series of vertical dashes instead
-of a continuous line.  This might be due to the typeface of choice or
-the value assigned to =line-spacing=.
+While designing the style for =display-fill-column-indicator-mode=, we
+stayed close to the mode's defaults: to apply a subtle foreground color
+to the =fill-column-indicator= face, which blends well with the rest of
+theme and is consistent with the role of that mode.  This is to not
+upset the expectations of users.
 
-Given that we cannot control such factors, it is advised that users
-refashion the =fill-column-indicator= face.  For example:
+Nevertheless, =display-fill-column-indicator-mode= has some known
+limitations pertaining to its choice of using typographic characters to
+draw its indicator.  What should be a continuous vertical line might
+appear as a series of dashes in certain contexts or under specific
+conditions: a non-default value for =line-spacing=, scaled and/or
+variable-pitch headings have been observed to cause this effect.
+
+Given that we cannot control such factors, it may be better for affected
+users to deviate from the default style of the =fill-column-indicator=
+face.  Instead of setting a foreground color, one could use a background
+and have the foreground be indistinguishable from it.  For example:
 
 #+begin_src emacs-lisp
 (modus-themes-with-colors
