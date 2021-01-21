@@ -2669,7 +2669,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(log-edit-unknown-header ((,class :inherit shadow)))
     `(log-view-commit-body ((,class :foreground ,blue-nuanced-fg)))
     `(log-view-file ((,class :inherit bold :foreground ,fg-special-cold)))
-    `(log-view-message ((,class :foreground ,green-alt-other-faint)))
+    `(log-view-message ((,class :background ,bg-alt :foreground ,fg-special-mild)))
 ;;;;; cider
     `(cider-debug-code-overlay-face ((,class :background ,bg-alt)))
     `(cider-debug-prompt-face ((,class :foreground ,magenta-alt :underline t)))
