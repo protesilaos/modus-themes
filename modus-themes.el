@@ -608,7 +608,7 @@
 
     (bg-header . "#e5e5e5") (fg-header . "#2a2a2a")
 
-    (bg-whitespace . "#fff8fc") (fg-whitespace . "#645060")
+    (bg-whitespace . "#f5efef") (fg-whitespace . "#624956")
 
     (bg-diff-heading . "#b7c4dd") (fg-diff-heading . "#042665")
     (bg-diff-added . "#d4fad4") (fg-diff-added . "#004500")
@@ -850,7 +850,7 @@ symbol and the latter as a string.")
 
     (bg-header . "#212121") (fg-header . "#dddddd")
 
-    (bg-whitespace . "#170016") (fg-whitespace . "#a4959f")
+    (bg-whitespace . "#101424") (fg-whitespace . "#aa9e9f")
 
     (bg-diff-heading . "#304466") (fg-diff-heading . "#dadffe")
     (bg-diff-added . "#0a280a") (fg-diff-added . "#94ba94")
@@ -1352,14 +1352,20 @@ the library of the same name.  This practically means to remove
 the box effect and rely on underline and overline properties
 instead.  It also tones down the inactive modelines.  Despite its
 intended purpose, this option can also be used without the
-`moody' library."
+`moody' library.
+
+The `borderless' option uses the same colors as the default (nil
+value), but removes the border effect.  This is done by making
+the box property use the same color as the background,
+effectively blending the two and creating some padding."
   :group 'modus-themes
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
   :type '(choice
           (const :tag "Two-dimensional box (default)" nil)
           (const :tag "Three-dimensional style for the active mode line" 3d)
-          (const :tag "No box effects, which are optimal for use with the `moody' library" moody)))
+          (const :tag "No box effects, which are optimal for use with the `moody' library" moody)
+          (const :tag "Like the default, but without border effects" borderless)))
 
 (defcustom modus-themes-diffs nil
   "Adjust the overall styles of diffs.
@@ -1943,12 +1949,15 @@ property."
   (pcase modus-themes-mode-line
     ('3d
      `(:background ,bg-alt :foreground ,fg-alt
-                   :box (:line-width ,(or border-width 1)
-                                     :color ,border-3d
-                                     :style ,(and alt-style 'released-button))))
+       :box (:line-width ,(or border-width 1)
+             :color ,border-3d
+             :style ,(and alt-style 'released-button))))
     ('moody
-     `(:background ,bg-alt :foreground ,fg-alt :underline ,border :overline ,border
-                   :distant-foreground ,fg-distant))
+     `(:background ,bg-alt :foreground ,fg-alt
+       :underline ,border :overline ,border
+       :distant-foreground ,fg-distant))
+    ('borderless
+     `(:foreground ,fg :background ,bg :box ,bg))
     (_
      `(:foreground ,fg :background ,bg :box ,border))))
 
@@ -5493,7 +5502,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(whitespace-space ((,class :background ,bg-whitespace :foreground ,fg-whitespace)))
     `(whitespace-space-after-tab ((,class :inherit modus-theme-subtle-magenta)))
     `(whitespace-space-before-tab ((,class :inherit modus-theme-subtle-cyan)))
-    `(whitespace-tab ((,class :inherit modus-theme-subtle-green)))
+    `(whitespace-tab ((,class :background ,bg-whitespace :foreground ,fg-whitespace)))
     `(whitespace-trailing ((,class :inherit modus-theme-intense-red)))
 ;;;;; window-divider-mode
     `(window-divider ((,class :foreground ,fg-window-divider-inner)))

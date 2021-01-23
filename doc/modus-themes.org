@@ -296,7 +296,7 @@ A complete annotated sample with variables set to different values:
       ;; 'intense-foreground-straight-underline, 'colored-background
       modus-themes-lang-checkers nil
 
-      modus-themes-mode-line nil ; {nil,'3d,'moody}
+      modus-themes-mode-line nil ; {nil,'3d,'moody,'borderless}
 
       ;; Options for `modus-themes-syntax': nil, 'faint,
       ;; 'yellow-comments, 'green-strings,
@@ -610,6 +610,7 @@ Possible values:
 1. =nil= (default)
 2. =3d=
 3. =moody=
+4. =borderless= [Coming in version 1.1.0]
 
 The default produces a two-dimensional effect both for the active and
 inactive modelines.  The differences between the two are limited to
@@ -627,6 +628,11 @@ underline and overline properties instead.  It also tones down a bit the
 inactive modelines.  This is meant to optimize things for use with the
 [[https://github.com/tarsius/moody][moody package]] (hereinafter referred to as "Moody"), though it can work
 fine even without it.
+
+The =borderless= option uses the same colors as the default (nil value),
+but removes the border effect.  This is done by making the box property
+use the same color as the background, effectively blending the two and
+creating some padding.
 
 Note that Moody does not expose any faces that the themes could style
 directly.  Instead it re-purposes existing ones to render its tabs and
@@ -2321,9 +2327,9 @@ The Modus themes are a collective effort.  Every bit of work matters.
 
 + Ideas and user feedback :: Aaron Jensen, Adam Spiers, Alex Griffin,
   Alex Peitsinis, Alexey Shmalko, Alok Singh, Anders Johansson, André
-  Alexandre Gomes, Arif Rezai, Basil L. Contovounesios, Christian
-  Tietze, Christopher Dimech, Damien Cassou, Daniel Mendler, Dario
-  Gjorgjevski, David Edmondson, Davor Rotim, Divan Santana, Gerry
+  Alexandre Gomes, Arif Rezai, Basil L. Contovounesios, Burgess Chang,
+  Christian Tietze, Christopher Dimech, Damien Cassou, Daniel Mendler,
+  Dario Gjorgjevski, David Edmondson, Davor Rotim, Divan Santana, Gerry
   Agbobada, Gianluca Recchia, Gustavo Barros, Hörmetjan Yiltiz, Ilja
   Kocken, Iris Garcia, Jeremy Friesen, John Haman, Kostadin Ninev, Len
   Trigg, Manuel Uberti, Mark Burton, Markus Beppler, Michael Goldenberg,

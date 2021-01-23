@@ -27,7 +27,7 @@ provides every other piece of information pertinent to them.
    The documentation furnished herein corresponds to version 1.0.2,
 released on 2020-12-06.  Any reference to a newer feature which does not
 yet form part of the latest tagged commit, is explicitly marked as such.
-Current build was done on 2021-01-20 21:41 +0200.
+Current build was done on 2021-01-23 11:20 +0200.
 
 * Menu:
 
@@ -411,7 +411,7 @@ each theme in order to come into effect.
            ;; 'intense-foreground-straight-underline, 'colored-background
            modus-themes-lang-checkers nil
 
-           modus-themes-mode-line nil ; {nil,'3d,'moody}
+           modus-themes-mode-line nil ; {nil,'3d,'moody,'borderless}
 
            ;; Options for `modus-themes-syntax': nil, 'faint,
            ;; 'yellow-comments, 'green-strings,
@@ -740,6 +740,7 @@ Symbol: ‘modus-themes-mode-line’
   1. ‘nil’ (default)
   2. ‘3d’
   3. ‘moody’
+  4. ‘borderless’ [Coming in version 1.1.0]
 
    The default produces a two-dimensional effect both for the active and
 inactive modelines.  The differences between the two are limited to
@@ -757,6 +758,11 @@ underline and overline properties instead.  It also tones down a bit the
 inactive modelines.  This is meant to optimize things for use with the
 moody package (https://github.com/tarsius/moody) (hereinafter referred
 to as “Moody”), though it can work fine even without it.
+
+   The ‘borderless’ option uses the same colors as the default (nil
+value), but removes the border effect.  This is done by making the box
+property use the same color as the background, effectively blending the
+two and creating some padding.
 
    Note that Moody does not expose any faces that the themes could style
 directly.  Instead it re-purposes existing ones to render its tabs and
@@ -2466,19 +2472,20 @@ Contributions to code or documentation
 Ideas and user feedback
      Aaron Jensen, Adam Spiers, Alex Griffin, Alex Peitsinis, Alexey
      Shmalko, Alok Singh, Anders Johansson, André Alexandre Gomes, Arif
-     Rezai, Basil L.  Contovounesios, Christian Tietze, Christopher
-     Dimech, Damien Cassou, Daniel Mendler, Dario Gjorgjevski, David
-     Edmondson, Davor Rotim, Divan Santana, Gerry Agbobada, Gianluca
-     Recchia, Gustavo Barros, Hörmetjan Yiltiz, Ilja Kocken, Iris
-     Garcia, Jeremy Friesen, John Haman, Kostadin Ninev, Len Trigg,
-     Manuel Uberti, Mark Burton, Markus Beppler, Michael Goldenberg,
-     Murilo Pereira, Nicolas De Jaeghere, Paul Poloskov, Pete Kazmier,
-     Peter Wu, Pierre Téchoueyres, Roman Rudakov, Ryan Phillips, Shreyas
-     Ragavan, Simon Pugnet, Tassilo Horn, Thibaut Verron, Trey Merkley,
-     Togan Muftuoglu, Uri Sharf, Utkarsh Singh, Vincent Foley.  As well
-     as users: Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux,
-     Fredrik, Moesasji, Nick, TheBlob42, bepolymathe, doolio,
-     fleimgruber, iSeeU, jixiuf, okamsn, tycho garen.
+     Rezai, Basil L.  Contovounesios, Burgess Chang, Christian Tietze,
+     Christopher Dimech, Damien Cassou, Daniel Mendler, Dario
+     Gjorgjevski, David Edmondson, Davor Rotim, Divan Santana, Gerry
+     Agbobada, Gianluca Recchia, Gustavo Barros, Hörmetjan Yiltiz, Ilja
+     Kocken, Iris Garcia, Jeremy Friesen, John Haman, Kostadin Ninev,
+     Len Trigg, Manuel Uberti, Mark Burton, Markus Beppler, Michael
+     Goldenberg, Murilo Pereira, Nicolas De Jaeghere, Paul Poloskov,
+     Pete Kazmier, Peter Wu, Pierre Téchoueyres, Roman Rudakov, Ryan
+     Phillips, Shreyas Ragavan, Simon Pugnet, Tassilo Horn, Thibaut
+     Verron, Trey Merkley, Togan Muftuoglu, Uri Sharf, Utkarsh Singh,
+     Vincent Foley.  As well as users: Ben, CsBigDataHub1, Emacs
+     Contrib, Eugene, Fourchaux, Fredrik, Moesasji, Nick, TheBlob42,
+     bepolymathe, doolio, fleimgruber, iSeeU, jixiuf, okamsn, tycho
+     garen.
 
 Packaging
      André Alexandre Gomes and Guix maintainers (Guix), Dhavan Vaidya
@@ -3011,60 +3018,60 @@ Node: Load automatically9847
 Node: Differences between loading and enabling10620
 Node: Toggle between the themes on demand12684
 Node: Configure options prior to loading a theme13846
-Node: Sample configuration for use-package18221
-Node: Customization Options19124
-Node: Bold constructs21271
-Node: Slanted constructs21860
-Node: Syntax styles22407
-Node: No mixed fonts23922
-Node: Link styles24959
-Node: Command prompts26417
-Node: Mode line27100
-Node: Completion UIs29623
-Node: Fringes31455
-Node: Language checkers32115
-Node: Line highlighting34110
-Node: Matching parentheses34735
-Node: Active region35618
-Node: Diffs36554
-Node: Org mode blocks38826
-Node: Org agenda habits40169
-Node: Heading styles42054
-Node: Scaled headings46129
-Node: Scaled heading sizes46712
-Node: UI typeface48308
-Node: Headings' typeface49204
-Node: Advanced customization (do-it-yourself)49828
-Node: Case-by-case face specs using the themes' palette (DIY)50893
-Node: Face specs at scale using the themes' palette (DIY)55376
-Node: Override colors (DIY)62251
-Node: Font configurations for Org and others (DIY)66923
-Ref: Font configurations for Org and others (DIY)-Footnote-169246
-Node: Custom Org user faces (DIY)69433
-Node: Measure color contrast (DIY)72749
-Node: Load theme depending on time of day75516
-Node: Face coverage76499
-Node: Supported packages76937
-Node: Notes for individual packages78717
-Node: Note for display-fill-column-indicator-mode79303
-Node: Note for prism80881
-Node: Note on company-mode overlay pop-up83846
-Ref: Note on company-mode overlay pop-up-Footnote-184533
-Ref: Note on company-mode overlay pop-up-Footnote-284600
-Node: Note for ERC escaped color sequences84655
-Ref: Note for ERC escaped color sequences-Footnote-186088
-Node: Note for powerline or spaceline86198
-Node: Note on SHR colors86614
-Node: Note for Helm grep87024
-Node: Note on vc-annotate-background-mode88469
-Node: Note on pdf-tools link hints89354
-Node: Contributing91785
-Node: Sources of the themes92185
-Node: Issues you can help with92923
-Node: Patches require copyright assignment to the FSF94123
-Node: Acknowledgements96418
-Node: Meta98428
-Node: GNU Free Documentation License100268
+Node: Sample configuration for use-package18233
+Node: Customization Options19136
+Node: Bold constructs21283
+Node: Slanted constructs21872
+Node: Syntax styles22419
+Node: No mixed fonts23934
+Node: Link styles24971
+Node: Command prompts26429
+Node: Mode line27112
+Node: Completion UIs29930
+Node: Fringes31762
+Node: Language checkers32422
+Node: Line highlighting34417
+Node: Matching parentheses35042
+Node: Active region35925
+Node: Diffs36861
+Node: Org mode blocks39133
+Node: Org agenda habits40476
+Node: Heading styles42361
+Node: Scaled headings46436
+Node: Scaled heading sizes47019
+Node: UI typeface48615
+Node: Headings' typeface49511
+Node: Advanced customization (do-it-yourself)50135
+Node: Case-by-case face specs using the themes' palette (DIY)51200
+Node: Face specs at scale using the themes' palette (DIY)55683
+Node: Override colors (DIY)62558
+Node: Font configurations for Org and others (DIY)67230
+Ref: Font configurations for Org and others (DIY)-Footnote-169553
+Node: Custom Org user faces (DIY)69740
+Node: Measure color contrast (DIY)73056
+Node: Load theme depending on time of day75823
+Node: Face coverage76806
+Node: Supported packages77244
+Node: Notes for individual packages79024
+Node: Note for display-fill-column-indicator-mode79610
+Node: Note for prism81188
+Node: Note on company-mode overlay pop-up84153
+Ref: Note on company-mode overlay pop-up-Footnote-184840
+Ref: Note on company-mode overlay pop-up-Footnote-284907
+Node: Note for ERC escaped color sequences84962
+Ref: Note for ERC escaped color sequences-Footnote-186395
+Node: Note for powerline or spaceline86505
+Node: Note on SHR colors86921
+Node: Note for Helm grep87331
+Node: Note on vc-annotate-background-mode88776
+Node: Note on pdf-tools link hints89661
+Node: Contributing92092
+Node: Sources of the themes92492
+Node: Issues you can help with93230
+Node: Patches require copyright assignment to the FSF94430
+Node: Acknowledgements96725
+Node: Meta98755
+Node: GNU Free Documentation License100595
 
 End Tag Table
 
