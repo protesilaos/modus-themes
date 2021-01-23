@@ -1357,7 +1357,14 @@ intended purpose, this option can also be used without the
 The `borderless' option uses the same colors as the default (nil
 value), but removes the border effect.  This is done by making
 the box property use the same color as the background,
-effectively blending the two and creating some padding."
+effectively blending the two and creating some padding.
+
+The `borderless-3d' and `borderless-moody' approximate the `3d'
+and `moody' options respectively, while removing the borders.
+However, to ensure that the inactive modelines remain visible,
+they apply a slightly more prominent background to them than what
+their counterparts do (same inactive background as with the
+default)."
   :group 'modus-themes
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
@@ -1365,7 +1372,9 @@ effectively blending the two and creating some padding."
           (const :tag "Two-dimensional box (default)" nil)
           (const :tag "Three-dimensional style for the active mode line" 3d)
           (const :tag "No box effects, which are optimal for use with the `moody' library" moody)
-          (const :tag "Like the default, but without border effects" borderless)))
+          (const :tag "Like the default, but without border effects" borderless)
+          (const :tag "Like `3d', but without noticeable border" borderless-3d)
+          (const :tag "Like `moody', but without noticeable border" borderless-moody)))
 
 (defcustom modus-themes-diffs nil
   "Adjust the overall styles of diffs.
@@ -1958,6 +1967,15 @@ property."
        :distant-foreground ,fg-distant))
     ('borderless
      `(:foreground ,fg :background ,bg :box ,bg))
+    ('borderless-3d
+     `(:foreground ,fg :background ,bg
+       :box (:line-width ,(or border-width 1)
+             :color ,bg
+             :style ,(and alt-style 'released-button))))
+    ('borderless-moody
+     `(:background ,bg :foreground ,fg
+       :underline ,bg :overline ,bg
+       :distant-foreground ,fg-distant))
     (_
      `(:foreground ,fg :background ,bg :box ,border))))
 

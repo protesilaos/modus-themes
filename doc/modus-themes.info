@@ -27,7 +27,7 @@ provides every other piece of information pertinent to them.
    The documentation furnished herein corresponds to version 1.0.2,
 released on 2020-12-06.  Any reference to a newer feature which does not
 yet form part of the latest tagged commit, is explicitly marked as such.
-Current build was done on 2021-01-23 11:20 +0200.
+Current build was done on 2021-01-23 12:37 +0200.
 
 * Menu:
 
@@ -411,7 +411,9 @@ each theme in order to come into effect.
            ;; 'intense-foreground-straight-underline, 'colored-background
            modus-themes-lang-checkers nil
 
-           modus-themes-mode-line nil ; {nil,'3d,'moody,'borderless}
+           ;; Options for `modus-themes-mode-line': nil, '3d, 'moody,
+           ;; 'borderless, 'borderless-3d, 'borderless-moody
+           modus-themes-mode-line nil
 
            ;; Options for `modus-themes-syntax': nil, 'faint,
            ;; 'yellow-comments, 'green-strings,
@@ -763,6 +765,12 @@ to as “Moody”), though it can work fine even without it.
 value), but removes the border effect.  This is done by making the box
 property use the same color as the background, effectively blending the
 two and creating some padding.
+
+   The ‘borderless-3d’ and ‘borderless-moody’ approximate the ‘3d’ and
+‘moody’ options respectively, while removing the borders.  However, to
+ensure that the inactive modelines remain visible, they apply a slightly
+more prominent background to them than what their counterparts do (same
+inactive background as with the default).
 
    Note that Moody does not expose any faces that the themes could style
 directly.  Instead it re-purposes existing ones to render its tabs and
@@ -3018,60 +3026,60 @@ Node: Load automatically9847
 Node: Differences between loading and enabling10620
 Node: Toggle between the themes on demand12684
 Node: Configure options prior to loading a theme13846
-Node: Sample configuration for use-package18233
-Node: Customization Options19136
-Node: Bold constructs21283
-Node: Slanted constructs21872
-Node: Syntax styles22419
-Node: No mixed fonts23934
-Node: Link styles24971
-Node: Command prompts26429
-Node: Mode line27112
-Node: Completion UIs29930
-Node: Fringes31762
-Node: Language checkers32422
-Node: Line highlighting34417
-Node: Matching parentheses35042
-Node: Active region35925
-Node: Diffs36861
-Node: Org mode blocks39133
-Node: Org agenda habits40476
-Node: Heading styles42361
-Node: Scaled headings46436
-Node: Scaled heading sizes47019
-Node: UI typeface48615
-Node: Headings' typeface49511
-Node: Advanced customization (do-it-yourself)50135
-Node: Case-by-case face specs using the themes' palette (DIY)51200
-Node: Face specs at scale using the themes' palette (DIY)55683
-Node: Override colors (DIY)62558
-Node: Font configurations for Org and others (DIY)67230
-Ref: Font configurations for Org and others (DIY)-Footnote-169553
-Node: Custom Org user faces (DIY)69740
-Node: Measure color contrast (DIY)73056
-Node: Load theme depending on time of day75823
-Node: Face coverage76806
-Node: Supported packages77244
-Node: Notes for individual packages79024
-Node: Note for display-fill-column-indicator-mode79610
-Node: Note for prism81188
-Node: Note on company-mode overlay pop-up84153
-Ref: Note on company-mode overlay pop-up-Footnote-184840
-Ref: Note on company-mode overlay pop-up-Footnote-284907
-Node: Note for ERC escaped color sequences84962
-Ref: Note for ERC escaped color sequences-Footnote-186395
-Node: Note for powerline or spaceline86505
-Node: Note on SHR colors86921
-Node: Note for Helm grep87331
-Node: Note on vc-annotate-background-mode88776
-Node: Note on pdf-tools link hints89661
-Node: Contributing92092
-Node: Sources of the themes92492
-Node: Issues you can help with93230
-Node: Patches require copyright assignment to the FSF94430
-Node: Acknowledgements96725
-Node: Meta98755
-Node: GNU Free Documentation License100595
+Node: Sample configuration for use-package18333
+Node: Customization Options19236
+Node: Bold constructs21383
+Node: Slanted constructs21972
+Node: Syntax styles22519
+Node: No mixed fonts24034
+Node: Link styles25071
+Node: Command prompts26529
+Node: Mode line27212
+Node: Completion UIs30376
+Node: Fringes32208
+Node: Language checkers32868
+Node: Line highlighting34863
+Node: Matching parentheses35488
+Node: Active region36371
+Node: Diffs37307
+Node: Org mode blocks39579
+Node: Org agenda habits40922
+Node: Heading styles42807
+Node: Scaled headings46882
+Node: Scaled heading sizes47465
+Node: UI typeface49061
+Node: Headings' typeface49957
+Node: Advanced customization (do-it-yourself)50581
+Node: Case-by-case face specs using the themes' palette (DIY)51646
+Node: Face specs at scale using the themes' palette (DIY)56129
+Node: Override colors (DIY)63004
+Node: Font configurations for Org and others (DIY)67676
+Ref: Font configurations for Org and others (DIY)-Footnote-169999
+Node: Custom Org user faces (DIY)70186
+Node: Measure color contrast (DIY)73502
+Node: Load theme depending on time of day76269
+Node: Face coverage77252
+Node: Supported packages77690
+Node: Notes for individual packages79470
+Node: Note for display-fill-column-indicator-mode80056
+Node: Note for prism81634
+Node: Note on company-mode overlay pop-up84599
+Ref: Note on company-mode overlay pop-up-Footnote-185286
+Ref: Note on company-mode overlay pop-up-Footnote-285353
+Node: Note for ERC escaped color sequences85408
+Ref: Note for ERC escaped color sequences-Footnote-186841
+Node: Note for powerline or spaceline86951
+Node: Note on SHR colors87367
+Node: Note for Helm grep87777
+Node: Note on vc-annotate-background-mode89222
+Node: Note on pdf-tools link hints90107
+Node: Contributing92538
+Node: Sources of the themes92938
+Node: Issues you can help with93676
+Node: Patches require copyright assignment to the FSF94876
+Node: Acknowledgements97171
+Node: Meta99201
+Node: GNU Free Documentation License101041
 
 End Tag Table
 

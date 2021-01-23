@@ -296,7 +296,9 @@ A complete annotated sample with variables set to different values:
       ;; 'intense-foreground-straight-underline, 'colored-background
       modus-themes-lang-checkers nil
 
-      modus-themes-mode-line nil ; {nil,'3d,'moody,'borderless}
+      ;; Options for `modus-themes-mode-line': nil, '3d, 'moody,
+      ;; 'borderless, 'borderless-3d, 'borderless-moody
+      modus-themes-mode-line nil
 
       ;; Options for `modus-themes-syntax': nil, 'faint,
       ;; 'yellow-comments, 'green-strings,
@@ -633,6 +635,12 @@ The =borderless= option uses the same colors as the default (nil value),
 but removes the border effect.  This is done by making the box property
 use the same color as the background, effectively blending the two and
 creating some padding.
+
+The =borderless-3d= and =borderless-moody= approximate the =3d= and =moody=
+options respectively, while removing the borders.  However, to ensure
+that the inactive modelines remain visible, they apply a slightly more
+prominent background to them than what their counterparts do (same
+inactive background as with the default).
 
 Note that Moody does not expose any faces that the themes could style
 directly.  Instead it re-purposes existing ones to render its tabs and
