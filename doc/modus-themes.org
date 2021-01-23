@@ -589,6 +589,10 @@ Possible values:
 1. =nil= (default)
 2. =subtle=
 3. =intense=
+4. =subtle-gray=
+5. =intense-gray=
+
+[The "gray" styles are coming in version 1.1.0]
 
 The default does not use any background for minibuffer and command line
 prompts.  It relies exclusively on an accented foreground color.
@@ -597,6 +601,9 @@ The options =subtle= and =intense= apply a combination of accented
 background and foreground to such prompts.  The difference between the
 two is that the latter has a more pronounced/noticeable effect than the
 former.
+
+Options =subtle-gray= and =intense-gray= are like their =subtle= and =intense=
+counterparts, except they use grayscale values instead of accented ones.
 
 ** Option for mode line presentation
 :PROPERTIES:
