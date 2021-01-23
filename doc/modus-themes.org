@@ -612,7 +612,11 @@ Possible values:
 1. =nil= (default)
 2. =3d=
 3. =moody=
-4. =borderless= [Coming in version 1.1.0]
+4. =borderless=
+5. =borderless-3d=
+6. =borderless-moody=
+
+[All "borderless" styles are coming in version 1.1.0]
 
 The default produces a two-dimensional effect both for the active and
 inactive modelines.  The differences between the two are limited to
