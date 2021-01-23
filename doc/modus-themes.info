@@ -27,7 +27,7 @@ provides every other piece of information pertinent to them.
    The documentation furnished herein corresponds to version 1.0.2,
 released on 2020-12-06.  Any reference to a newer feature which does not
 yet form part of the latest tagged commit, is explicitly marked as such.
-Current build was done on 2021-01-23 12:51 +0200.
+Current build was done on 2021-01-23 15:17 +0200.
 
 * Menu:
 
@@ -430,7 +430,11 @@ each theme in order to come into effect.
            modus-themes-links 'neutral-underline
 
            modus-themes-no-mixed-fonts nil
-           modus-themes-prompts nil ; {nil,'subtle,'intense}
+
+           ;; Options for `modus-themes-prompts': nil, 'subtle-accented,
+           ;; 'intense-accented, 'subtle-gray, 'intense-gray
+           modus-themes-prompts 'subtle-gray
+
            modus-themes-completions 'opinionated ; {nil,'moderate,'opinionated}
            modus-themes-region 'bg-only-no-extend ; {nil,'no-extend,'bg-only,'bg-only-no-extend}
            modus-themes-diffs 'bg-only ; {nil,'desaturated,'fg-only,'bg-only}
@@ -720,14 +724,28 @@ Symbol: ‘modus-themes-prompts’
   1. ‘nil’ (default)
   2. ‘subtle’
   3. ‘intense’
+  4. ‘subtle-gray’
+  5. ‘intense-gray’
+  6. ‘subtle-accented’
+  7. ‘intense-accented’
+
+   [The “gray” and “accented” styles are coming in version 1.1.0.  The
+latter are just the new names for ‘subtle’ and ‘intense’, though those
+will remain in place for backward compatibility.]
 
    The default does not use any background for minibuffer and command
 line prompts.  It relies exclusively on an accented foreground color.
 
-   The options ‘subtle’ and ‘intense’ apply a combination of accented
-background and foreground to such prompts.  The difference between the
-two is that the latter has a more pronounced/noticeable effect than the
-former.
+   Options ‘subtle-accented’ and ‘intense-accented’ will change both the
+background and the foreground values to use accented color combinations
+that follow the hue of the default styles’ foreground (e.g.  the default
+minibuffer prompt is cyan text, so these combinations will involved a
+cyan background and an appropriate cyan foreground).  The difference
+between the two is that the latter has a more pronounced/noticeable
+effect than the former.
+
+   Options ‘subtle-gray’, ‘intense-gray’ are like their accented
+counterparts, except they use grayscale values.
 
 
 File: modus-themes.info,  Node: Mode line,  Next: Completion UIs,  Prev: Command prompts,  Up: Customization Options
@@ -3030,60 +3048,60 @@ Node: Load automatically9847
 Node: Differences between loading and enabling10620
 Node: Toggle between the themes on demand12684
 Node: Configure options prior to loading a theme13846
-Node: Sample configuration for use-package18333
-Node: Customization Options19236
-Node: Bold constructs21383
-Node: Slanted constructs21972
-Node: Syntax styles22519
-Node: No mixed fonts24034
-Node: Link styles25071
-Node: Command prompts26529
-Node: Mode line27212
-Node: Completion UIs30465
-Node: Fringes32297
-Node: Language checkers32957
-Node: Line highlighting34952
-Node: Matching parentheses35577
-Node: Active region36460
-Node: Diffs37396
-Node: Org mode blocks39668
-Node: Org agenda habits41011
-Node: Heading styles42896
-Node: Scaled headings46971
-Node: Scaled heading sizes47554
-Node: UI typeface49150
-Node: Headings' typeface50046
-Node: Advanced customization (do-it-yourself)50670
-Node: Case-by-case face specs using the themes' palette (DIY)51735
-Node: Face specs at scale using the themes' palette (DIY)56218
-Node: Override colors (DIY)63093
-Node: Font configurations for Org and others (DIY)67765
-Ref: Font configurations for Org and others (DIY)-Footnote-170088
-Node: Custom Org user faces (DIY)70275
-Node: Measure color contrast (DIY)73591
-Node: Load theme depending on time of day76358
-Node: Face coverage77341
-Node: Supported packages77779
-Node: Notes for individual packages79559
-Node: Note for display-fill-column-indicator-mode80145
-Node: Note for prism81723
-Node: Note on company-mode overlay pop-up84688
-Ref: Note on company-mode overlay pop-up-Footnote-185375
-Ref: Note on company-mode overlay pop-up-Footnote-285442
-Node: Note for ERC escaped color sequences85497
-Ref: Note for ERC escaped color sequences-Footnote-186930
-Node: Note for powerline or spaceline87040
-Node: Note on SHR colors87456
-Node: Note for Helm grep87866
-Node: Note on vc-annotate-background-mode89311
-Node: Note on pdf-tools link hints90196
-Node: Contributing92627
-Node: Sources of the themes93027
-Node: Issues you can help with93765
-Node: Patches require copyright assignment to the FSF94965
-Node: Acknowledgements97260
-Node: Meta99290
-Node: GNU Free Documentation License101130
+Node: Sample configuration for use-package18453
+Node: Customization Options19356
+Node: Bold constructs21503
+Node: Slanted constructs22092
+Node: Syntax styles22639
+Node: No mixed fonts24154
+Node: Link styles25191
+Node: Command prompts26649
+Node: Mode line27995
+Node: Completion UIs31248
+Node: Fringes33080
+Node: Language checkers33740
+Node: Line highlighting35735
+Node: Matching parentheses36360
+Node: Active region37243
+Node: Diffs38179
+Node: Org mode blocks40451
+Node: Org agenda habits41794
+Node: Heading styles43679
+Node: Scaled headings47754
+Node: Scaled heading sizes48337
+Node: UI typeface49933
+Node: Headings' typeface50829
+Node: Advanced customization (do-it-yourself)51453
+Node: Case-by-case face specs using the themes' palette (DIY)52518
+Node: Face specs at scale using the themes' palette (DIY)57001
+Node: Override colors (DIY)63876
+Node: Font configurations for Org and others (DIY)68548
+Ref: Font configurations for Org and others (DIY)-Footnote-170871
+Node: Custom Org user faces (DIY)71058
+Node: Measure color contrast (DIY)74374
+Node: Load theme depending on time of day77141
+Node: Face coverage78124
+Node: Supported packages78562
+Node: Notes for individual packages80342
+Node: Note for display-fill-column-indicator-mode80928
+Node: Note for prism82506
+Node: Note on company-mode overlay pop-up85471
+Ref: Note on company-mode overlay pop-up-Footnote-186158
+Ref: Note on company-mode overlay pop-up-Footnote-286225
+Node: Note for ERC escaped color sequences86280
+Ref: Note for ERC escaped color sequences-Footnote-187713
+Node: Note for powerline or spaceline87823
+Node: Note on SHR colors88239
+Node: Note for Helm grep88649
+Node: Note on vc-annotate-background-mode90094
+Node: Note on pdf-tools link hints90979
+Node: Contributing93410
+Node: Sources of the themes93810
+Node: Issues you can help with94548
+Node: Patches require copyright assignment to the FSF95748
+Node: Acknowledgements98043
+Node: Meta100073
+Node: GNU Free Documentation License101913
 
 End Tag Table
 

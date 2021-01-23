@@ -1444,22 +1444,29 @@ revert to an even more nuanced aesthetic."
 
 Nil means to only use an accented foreground color.
 
-Options `subtle' and `intense' will change both the background
-and the foreground values to use accented color combinations that
-follow the hue of the default styles' foreground.
+Options `subtle-accented' and `intense-accented' will change both
+the background and the foreground values to use accented color
+combinations that follow the hue of the default styles'
+foreground (e.g. the default minibuffer prompt is cyan text, so
+these combinations will involved a cyan background and an
+appropriate cyan foreground).
 
-Options `subtle-gray' and `intense-gray' are like their `subtle'
-and `intense' counterparts, except they use grayscale values
-instead of accented ones."
+Options `subtle-gray' and `intense-gray' are like their
+`subtle-accented' and `intense-accented' counterparts, except
+they use grayscale values instead of accented ones."
   :group 'modus-themes
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
   :type '(choice
+          ;; `subtle' is the same as `subtle-accented', while `intense' is
+          ;; equal to `intense-accented' for backward compatibility
           (const :tag "No prompt background (default)" nil)
-          (const :tag "Subtle accented background for the prompt" subtle)
-          (const :tag "Intense accented background and foreground for the prompt" intense)
-          (const :tag "Like `subtle' but grayscale" subtle-gray)
-          (const :tag "Like `intense' but grayscale" intense-gray)))
+          (const :tag "Subtle accented background for the prompt" subtle-accented)
+          (const :tag "Same as `subtle-accented' for compatibility with older versions" subtle)
+          (const :tag "Intense accented background and foreground for the prompt" intense-accented)
+          (const :tag "Same as `intense-accented' for compatibility with older versions" intense)
+          (const :tag "Like `subtle-accented' but grayscale" subtle-gray)
+          (const :tag "Like `intense-accented' but grayscale" intense-gray)))
 
 (defcustom modus-themes-intense-hl-line nil
   "Use a more prominent background for command `hl-line-mode'."
@@ -1774,7 +1781,11 @@ subtle accented background that works with SUBTLEFG.  INTENSEBG
 must be a more pronounced accented color that should be
 combinable with INTENSEFG."
   (pcase modus-themes-prompts
+    ;; `subtle' is the same as `subtle-accented', while `intense' is
+    ;; equal to `intense-accented' for backward compatibility
+    ('intense-accented (list :background intensebg :foreground intensefg))
     ('intense (list :background intensebg :foreground intensefg))
+    ('subtle-accented (list :background subtlebg :foreground subtlefg))
     ('subtle (list :background subtlebg :foreground subtlefg))
     ('subtle-gray (list :inherit 'modus-theme-subtle-neutral))
     ('intense-gray (list :inherit 'modus-theme-intense-neutral))
