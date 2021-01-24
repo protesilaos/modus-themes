@@ -2074,6 +2074,7 @@ FG is the main foreground.  FGFAINT is the desaturated one."
   (pcase modus-themes-links
     ('faint (list :foreground fgfaint))
     ('faint-neutral-underline (list :foreground fgfaint))
+    ('underline-only (list :underline t))
     (_ (list :foreground fg))))
 
 (defun modus-themes--scale (amount)
