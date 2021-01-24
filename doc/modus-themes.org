@@ -2352,8 +2352,7 @@ The Modus themes are a collective effort.  Every bit of work matters.
 + Contributions to code or documentation :: Anders Johansson, Basil
   L. Contovounesios, Carlo Zancanaro, Eli Zaretskii, Kostadin Ninev,
   Madhavan Krishnan, Markus Beppler, Matthew Stevenson, Nicolas De
-  Jaeghere, Shreyas Ragavan, Stefan Kangas, Vincent Murphy. As well as
-  user yoctocell.
+  Jaeghere, Shreyas Ragavan, Stefan Kangas, Vincent Murphy, Xinglu Chen.
 
 + Ideas and user feedback :: Aaron Jensen, Adam Spiers, Alex Griffin,
   Alex Peitsinis, Alexey Shmalko, Alok Singh, Anders Johansson, André
@@ -2366,10 +2365,10 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Murilo Pereira, Nicolas De Jaeghere, Paul Poloskov, Pete Kazmier,
   Peter Wu, Pierre Téchoueyres, Roman Rudakov, Ryan Phillips, Shreyas
   Ragavan, Simon Pugnet, Tassilo Horn, Thibaut Verron, Trey Merkley,
-  Togan Muftuoglu, Uri Sharf, Utkarsh Singh, Vincent Foley.  As well as
-  users: Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik,
-  Moesasji, Nick, TheBlob42, bepolymathe, doolio, fleimgruber, iSeeU,
-  jixiuf, okamsn, tycho garen.
+  Togan Muftuoglu, Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.
+  As well as users: Ben, CsBigDataHub1, Emacs Contrib, Eugene,
+  Fourchaux, Fredrik, Moesasji, Nick, TheBlob42, bepolymathe, doolio,
+  fleimgruber, iSeeU, jixiuf, okamsn, tycho garen.
 
 + Packaging :: André Alexandre Gomes and Guix maintainers (Guix), Dhavan
   Vaidya (Debian), Stefan Kangas (core Emacs), Stefan Monnier (GNU

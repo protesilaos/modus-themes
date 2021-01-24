@@ -27,7 +27,7 @@ provides every other piece of information pertinent to them.
    The documentation furnished herein corresponds to version 1.0.2,
 released on 2020-12-06.  Any reference to a newer feature which does not
 yet form part of the latest tagged commit, is explicitly marked as such.
-Current build was done on 2021-01-23 15:17 +0200.
+Current build was done on 2021-01-24 13:44 +0200.
 
 * Menu:
 
@@ -2497,7 +2497,7 @@ Contributions to code or documentation
      Anders Johansson, Basil L.  Contovounesios, Carlo Zancanaro, Eli
      Zaretskii, Kostadin Ninev, Madhavan Krishnan, Markus Beppler,
      Matthew Stevenson, Nicolas De Jaeghere, Shreyas Ragavan, Stefan
-     Kangas, Vincent Murphy.  As well as user yoctocell.
+     Kangas, Vincent Murphy, Xinglu Chen.
 
 Ideas and user feedback
      Aaron Jensen, Adam Spiers, Alex Griffin, Alex Peitsinis, Alexey
@@ -2511,11 +2511,11 @@ Ideas and user feedback
      Goldenberg, Murilo Pereira, Nicolas De Jaeghere, Paul Poloskov,
      Pete Kazmier, Peter Wu, Pierre Téchoueyres, Roman Rudakov, Ryan
      Phillips, Shreyas Ragavan, Simon Pugnet, Tassilo Horn, Thibaut
-     Verron, Trey Merkley, Togan Muftuoglu, Uri Sharf, Utkarsh Singh,
-     Vincent Foley.  As well as users: Ben, CsBigDataHub1, Emacs
-     Contrib, Eugene, Fourchaux, Fredrik, Moesasji, Nick, TheBlob42,
-     bepolymathe, doolio, fleimgruber, iSeeU, jixiuf, okamsn, tycho
-     garen.
+     Verron, Trey Merkley, Togan Muftuoglu, Toon Claes, Uri Sharf,
+     Utkarsh Singh, Vincent Foley.  As well as users: Ben,
+     CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji,
+     Nick, TheBlob42, bepolymathe, doolio, fleimgruber, iSeeU, jixiuf,
+     okamsn, tycho garen.
 
 Packaging
      André Alexandre Gomes and Guix maintainers (Guix), Dhavan Vaidya
@@ -3100,8 +3100,8 @@ Node: Sources of the themes93810
 Node: Issues you can help with94548
 Node: Patches require copyright assignment to the FSF95748
 Node: Acknowledgements98043
-Node: Meta100073
-Node: GNU Free Documentation License101913
+Node: Meta100070
+Node: GNU Free Documentation License101910
 
 End Tag Table
 
