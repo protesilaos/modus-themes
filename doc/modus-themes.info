@@ -24,10 +24,10 @@ This manual, written by Protesilaos Stavrou, describes the customization
 options for the ‘modus-operandi’ and ‘modus-vivendi’ themes, and
 provides every other piece of information pertinent to them.
 
-   The documentation furnished herein corresponds to version 1.0.2,
-released on 2020-12-06.  Any reference to a newer feature which does not
+   The documentation furnished herein corresponds to version 1.1.0,
+released on 2021-01-24.  Any reference to a newer feature which does not
 yet form part of the latest tagged commit, is explicitly marked as such.
-Current build was done on 2021-01-24 13:44 +0200.
+Current build was done on 2021-01-24 13:53 +0200.
 
 * Menu:
 
@@ -683,7 +683,7 @@ Symbol: ‘modus-themes-links’
   3. ‘neutral-underline’
   4. ‘faint-neutral-underline’
   5. ‘no-underline’
-  6. ‘underline-only’ [this one is coming in version 1.1.0]
+  6. ‘underline-only’
 
    The default style (nil) for links is to apply an underline and a
 saturated color to the affected text.  The color of the two is the same,
@@ -722,16 +722,12 @@ Symbol: ‘modus-themes-prompts’
    Possible values:
 
   1. ‘nil’ (default)
-  2. ‘subtle’
-  3. ‘intense’
+  2. ‘subtle-accented’ (‘subtle’ value remains for backward
+     compatibility)
+  3. ‘intense-accented’ (‘intense’ value remains for backward
+     compatibility)
   4. ‘subtle-gray’
   5. ‘intense-gray’
-  6. ‘subtle-accented’
-  7. ‘intense-accented’
-
-   [The “gray” and “accented” styles are coming in version 1.1.0.  The
-latter are just the new names for ‘subtle’ and ‘intense’, though those
-will remain in place for backward compatibility.]
 
    The default does not use any background for minibuffer and command
 line prompts.  It relies exclusively on an accented foreground color.
@@ -763,8 +759,6 @@ Symbol: ‘modus-themes-mode-line’
   4. ‘borderless’
   5. ‘borderless-3d’
   6. ‘borderless-moody’
-
-   [All “borderless” styles are coming in version 1.1.0]
 
    The default produces a two-dimensional effect both for the active and
 inactive modelines.  The differences between the two are limited to
@@ -887,9 +881,7 @@ File: modus-themes.info,  Node: Language checkers,  Next: Line highlighting,  Pr
 4.10 Option for language checkers
 =================================
 
-[Coming in version 1.1.0 of the Modus themes]
-
-   Symbol: ‘modus-themes-lang-checkers’
+Symbol: ‘modus-themes-lang-checkers’
 
    Possible values:
 
@@ -1099,9 +1091,7 @@ File: modus-themes.info,  Node: Org agenda habits,  Next: Heading styles,  Prev:
 4.16 Option for org-habit graph styles
 ======================================
 
-[Coming in version 1.1.0 of the Modus themes]
-
-   Symbol: ‘modus-themes-org-habit’
+Symbol: ‘modus-themes-org-habit’
 
    Possible values:
 
@@ -1164,8 +1154,8 @@ than other customization options documented in this manual.
    • ‘section-no-bold’
    • ‘rainbow-section’
    • ‘rainbow-section-no-bold’
-   • ‘no-color’ [this one is coming in version 1.1.0]
-   • ‘no-color-no-bold’ [this one is coming in version 1.1.0]
+   • ‘no-color’
+   • ‘no-color-no-bold’
 
    To control faces per level from 1-8, use something like this:
 
@@ -1312,9 +1302,7 @@ File: modus-themes.info,  Node: UI typeface,  Next: Headings' typeface,  Prev: S
 4.19 Option for variable-pitch font in UI elements
 ==================================================
 
-[Coming in version 1.1.0 of the Modus themes]
-
-   Symbol: ‘modus-themes-variable-pitch-ui’
+Symbol: ‘modus-themes-variable-pitch-ui’
 
    Possible values:
 
@@ -1484,12 +1472,10 @@ File: modus-themes.info,  Node: Face specs at scale using the themes' palette (D
 5.2 Face specs at scale using the themes’ palette (DIY)
 =======================================================
 
-[Coming in version 1.1.0 of the Modus themes]
-
-   The examples here are for large scale operations.  For simple,
-one-off tweaks, you may prefer the approach documented in the previous
-section (*note Case-by-case face specs using the themes’ palette:
-Case-by-case face specs using the themes' palette (DIY).).
+The examples here are for large scale operations.  For simple, one-off
+tweaks, you may prefer the approach documented in the previous section
+(*note Case-by-case face specs using the themes’ palette: Case-by-case
+face specs using the themes' palette (DIY).).
 
    The ‘modus-themes-with-colors’ macro lets you retrieve multiple color
 values by employing the backquote/backtick and comma notation.  The
@@ -1627,12 +1613,9 @@ File: modus-themes.info,  Node: Override colors (DIY),  Next: Font configuration
 5.3 Override colors (DIY)
 =========================
 
-[Coming in version 1.1.0 of the Modus themes]
-
-   The themes provide a mechanism for overriding their color values.
-This is controlled by the variables
-‘modus-themes-operandi-color-overrides’ and
-‘modus-themes-vivendi-color-overrides’, which are alists that should
+The themes provide a mechanism for overriding their color values.  This
+is controlled by the variables ‘modus-themes-operandi-color-overrides’
+and ‘modus-themes-vivendi-color-overrides’, which are alists that should
 mirror a subset of the associations in ‘modus-=themes-operandi-colors’
 and ‘modus-themes-vivendi-colors’ respectively.  As with all
 customisations, overriding must be done before loading the affected
@@ -3055,53 +3038,53 @@ Node: Slanted constructs22092
 Node: Syntax styles22639
 Node: No mixed fonts24154
 Node: Link styles25191
-Node: Command prompts26649
-Node: Mode line27995
-Node: Completion UIs31248
-Node: Fringes33080
-Node: Language checkers33740
-Node: Line highlighting35735
-Node: Matching parentheses36360
-Node: Active region37243
-Node: Diffs38179
-Node: Org mode blocks40451
-Node: Org agenda habits41794
-Node: Heading styles43679
-Node: Scaled headings47754
-Node: Scaled heading sizes48337
-Node: UI typeface49933
-Node: Headings' typeface50829
-Node: Advanced customization (do-it-yourself)51453
-Node: Case-by-case face specs using the themes' palette (DIY)52518
-Node: Face specs at scale using the themes' palette (DIY)57001
-Node: Override colors (DIY)63876
-Node: Font configurations for Org and others (DIY)68548
-Ref: Font configurations for Org and others (DIY)-Footnote-170871
-Node: Custom Org user faces (DIY)71058
-Node: Measure color contrast (DIY)74374
-Node: Load theme depending on time of day77141
-Node: Face coverage78124
-Node: Supported packages78562
-Node: Notes for individual packages80342
-Node: Note for display-fill-column-indicator-mode80928
-Node: Note for prism82506
-Node: Note on company-mode overlay pop-up85471
-Ref: Note on company-mode overlay pop-up-Footnote-186158
-Ref: Note on company-mode overlay pop-up-Footnote-286225
-Node: Note for ERC escaped color sequences86280
-Ref: Note for ERC escaped color sequences-Footnote-187713
-Node: Note for powerline or spaceline87823
-Node: Note on SHR colors88239
-Node: Note for Helm grep88649
-Node: Note on vc-annotate-background-mode90094
-Node: Note on pdf-tools link hints90979
-Node: Contributing93410
-Node: Sources of the themes93810
-Node: Issues you can help with94548
-Node: Patches require copyright assignment to the FSF95748
-Node: Acknowledgements98043
-Node: Meta100070
-Node: GNU Free Documentation License101910
+Node: Command prompts26611
+Node: Mode line27834
+Node: Completion UIs31025
+Node: Fringes32857
+Node: Language checkers33517
+Node: Line highlighting35462
+Node: Matching parentheses36087
+Node: Active region36970
+Node: Diffs37906
+Node: Org mode blocks40178
+Node: Org agenda habits41521
+Node: Heading styles43356
+Node: Scaled headings47355
+Node: Scaled heading sizes47938
+Node: UI typeface49534
+Node: Headings' typeface50380
+Node: Advanced customization (do-it-yourself)51004
+Node: Case-by-case face specs using the themes' palette (DIY)52069
+Node: Face specs at scale using the themes' palette (DIY)56552
+Node: Override colors (DIY)63377
+Node: Font configurations for Org and others (DIY)68000
+Ref: Font configurations for Org and others (DIY)-Footnote-170323
+Node: Custom Org user faces (DIY)70510
+Node: Measure color contrast (DIY)73826
+Node: Load theme depending on time of day76593
+Node: Face coverage77576
+Node: Supported packages78014
+Node: Notes for individual packages79794
+Node: Note for display-fill-column-indicator-mode80380
+Node: Note for prism81958
+Node: Note on company-mode overlay pop-up84923
+Ref: Note on company-mode overlay pop-up-Footnote-185610
+Ref: Note on company-mode overlay pop-up-Footnote-285677
+Node: Note for ERC escaped color sequences85732
+Ref: Note for ERC escaped color sequences-Footnote-187165
+Node: Note for powerline or spaceline87275
+Node: Note on SHR colors87691
+Node: Note for Helm grep88101
+Node: Note on vc-annotate-background-mode89546
+Node: Note on pdf-tools link hints90431
+Node: Contributing92862
+Node: Sources of the themes93262
+Node: Issues you can help with94000
+Node: Patches require copyright assignment to the FSF95200
+Node: Acknowledgements97495
+Node: Meta99522
+Node: GNU Free Documentation License101362
 
 End Tag Table
 

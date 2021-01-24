@@ -7,8 +7,8 @@
 #+TEXINFO_DIR_TITLE: Modus Themes: (modus-themes)
 #+TEXINFO_DIR_DESC: Highly accessible themes (WCAG AAA)
 #+OPTIONS: ':t toc:nil author:t email:t
-#+MACRO: version-tag 1.0.2
-#+MACRO: release-date 2020-12-06
+#+MACRO: version-tag 1.1.0
+#+MACRO: release-date 2021-01-24
 #+MACRO: export-date (eval (format-time-string "%F %R %z" (current-time)))
 
 This manual, written by Protesilaos Stavrou, describes the customization
@@ -553,7 +553,7 @@ Possible values:
 3. =neutral-underline=
 4. =faint-neutral-underline=
 5. =no-underline=
-6. =underline-only= [this one is coming in version 1.1.0]
+6. =underline-only=
 
 The default style (nil) for links is to apply an underline and a
 saturated color to the affected text.  The color of the two is the same,
@@ -591,16 +591,10 @@ Symbol: =modus-themes-prompts=
 Possible values:
 
 1. =nil= (default)
-2. =subtle=
-3. =intense=
+2. =subtle-accented= (=subtle= value remains for backward compatibility)
+3. =intense-accented= (=intense= value remains for backward compatibility)
 4. =subtle-gray=
 5. =intense-gray=
-6. =subtle-accented=
-7. =intense-accented=
-
-[The "gray" and "accented" styles are coming in version 1.1.0.  The
-latter are just the new names for =subtle= and =intense=, though those will
-remain in place for backward compatibility.]
 
 The default does not use any background for minibuffer and command line
 prompts.  It relies exclusively on an accented foreground color.
@@ -633,8 +627,6 @@ Possible values:
 4. =borderless=
 5. =borderless-3d=
 6. =borderless-moody=
-
-[All "borderless" styles are coming in version 1.1.0]
 
 The default produces a two-dimensional effect both for the active and
 inactive modelines.  The differences between the two are limited to
@@ -760,8 +752,6 @@ names imply.
 :DESCRIPTION: Control the style of language checkers/linters
 :CUSTOM_ID: h:4b13743a-8ebf-4d2c-a043-cceba10b1eb4
 :END:
-
-[Coming in version 1.1.0 of the Modus themes]
 
 Symbol: =modus-themes-lang-checkers=
 
@@ -976,8 +966,6 @@ code block (inefficient at scale, but it still works).
 :CUSTOM_ID: h:b7e328c0-3034-4db7-9cdf-d5ba12081ca2
 :END:
 
-[Coming in version 1.1.0 of the Modus themes]
-
 Symbol: =modus-themes-org-habit=
 
 Possible values:
@@ -1042,8 +1030,8 @@ further below):
 + =section-no-bold=
 + =rainbow-section=
 + =rainbow-section-no-bold=
-+ =no-color= [this one is coming in version 1.1.0]
-+ =no-color-no-bold= [this one is coming in version 1.1.0]
++ =no-color=
++ =no-color-no-bold=
 
 To control faces per level from 1-8, use something like this:
 
@@ -1194,8 +1182,6 @@ size of the heading, but not of keywords that were added to it, like
 :DESCRIPTION: Toggle the use of variable-pitch across the User Interface
 :CUSTOM_ID: h:16cf666c-5e65-424c-a855-7ea8a4a1fcac
 :END:
-
-[Coming in version 1.1.0 of the Modus themes]
 
 Symbol: =modus-themes-variable-pitch-ui=
 
@@ -1360,8 +1346,6 @@ Take the previous example with the =cursor= face:
 :CUSTOM_ID: h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae
 :END:
 
-[Coming in version 1.1.0 of the Modus themes]
-
 The examples here are for large scale operations.  For simple, one-off
 tweaks, you may prefer the approach documented in the previous section
 ([[#h:1487c631-f4fe-490d-8d58-d72ffa3bd474][Case-by-case face specs using the themes' palette]]).
@@ -1509,8 +1493,6 @@ A complete example with some more opinionated stylistic choices:
 :PROPERTIES:
 :CUSTOM_ID: h:307d95dd-8dbd-4ece-a543-10ae86f155a6
 :END:
-
-[Coming in version 1.1.0 of the Modus themes]
 
 The themes provide a mechanism for overriding their color values.  This
 is controlled by the variables =modus-themes-operandi-color-overrides= and
