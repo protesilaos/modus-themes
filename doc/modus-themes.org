@@ -7,18 +7,22 @@
 #+TEXINFO_DIR_TITLE: Modus Themes: (modus-themes)
 #+TEXINFO_DIR_DESC: Highly accessible themes (WCAG AAA)
 #+OPTIONS: ':t toc:nil author:t email:t
-#+MACRO: version-tag 1.1.0
-#+MACRO: release-date 2021-01-24
+#+MACRO: stable-version 1.1.1
+#+MACRO: release-date 2021-01-25
+#+MACRO: development-version 1.2.0-dev
 #+MACRO: export-date (eval (format-time-string "%F %R %z" (current-time)))
 
 This manual, written by Protesilaos Stavrou, describes the customization
 options for the =modus-operandi= and =modus-vivendi= themes, and provides
 every other piece of information pertinent to them.
 
-The documentation furnished herein corresponds to version {{{version-tag}}},
-released on {{{release-date}}}.  Any reference to a newer feature which does
-not yet form part of the latest tagged commit, is explicitly marked as
-such.  Current build was done on {{{export-date}}}.
+The documentation furnished herein corresponds to stable version
+{{{stable-version}}}, released on {{{release-date}}}.  Any reference to a newer
+feature which does not yet form part of the latest tagged commit, is
+explicitly marked as such.
+
+Current development target is {{{development-version}}}.  This manual was
+rebuilt on {{{export-date}}}.
 
 #+TOC: headlines 8 insert TOC here, with eight headline levels
 
