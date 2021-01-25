@@ -4913,7 +4913,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; quick-peek
     `(quick-peek-background-face ((,class :background ,bg-alt)))
     `(quick-peek-border-face ((,class :background ,fg-window-divider-inner :height 1)))
-    `(quick-peek-padding ((,class :background ,bg-alt :height 0.15)))
+    `(quick-peek-padding-face ((,class :background ,bg-alt :height 0.15)))
 ;;;;; racket-mode
     `(racket-debug-break-face ((,class :inherit modus-theme-intense-red)))
     `(racket-debug-locals-face ((,class :box (:line-width -1 :color nil)
