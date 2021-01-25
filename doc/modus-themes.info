@@ -27,7 +27,7 @@ provides every other piece of information pertinent to them.
    The documentation furnished herein corresponds to version 1.1.0,
 released on 2021-01-24.  Any reference to a newer feature which does not
 yet form part of the latest tagged commit, is explicitly marked as such.
-Current build was done on 2021-01-24 13:53 +0200.
+Current build was done on 2021-01-25 07:52 +0200.
 
 * Menu:
 
@@ -108,6 +108,7 @@ Advanced customization (do-it-yourself)
 Face coverage
 
 * Supported packages::           Full list of covered face groups
+* Indirectly covered packages::
 
 Notes for individual packages
 
@@ -1946,9 +1947,10 @@ experience across all available interfaces.
 * Menu:
 
 * Supported packages::           Full list of covered face groups
+* Indirectly covered packages::
 
 
-File: modus-themes.info,  Node: Supported packages,  Up: Face coverage
+File: modus-themes.info,  Node: Supported packages,  Next: Indirectly covered packages,  Up: Face coverage
 
 6.1 Full support for packages or face groups
 ============================================
@@ -2023,6 +2025,257 @@ have lots of extensions, so the “full support” may not be 100% true…
    • diredp (dired+)
    • disk-usage
    • display-fill-column-indicator-mode
+   • doom-modeline
+   • dynamic-ruler
+   • easy-jekyll
+   • easy-kill
+   • ebdb
+   • ediff
+   • eglot
+   • el-search
+   • eldoc-box
+   • elfeed
+   • elfeed-score
+   • emms
+   • enhanced-ruby-mode
+   • epa
+   • equake
+   • erc
+   • eros
+   • ert
+   • eshell
+   • eshell-fringe-status
+   • eshell-git-prompt
+   • eshell-prompt-extras (epe)
+   • eshell-syntax-highlighting
+   • evil* (evil-mode)
+   • evil-goggles
+   • evil-snipe
+   • evil-visual-mark-mode
+   • eww
+   • exwm
+   • eyebrowse
+   • fancy-dabbrev
+   • flycheck
+   • flycheck-color-mode-line
+   • flycheck-indicator
+   • flycheck-posframe
+   • flymake
+   • flyspell
+   • flyspell-correct
+   • flx
+   • freeze-it
+   • frog-menu
+   • focus
+   • fold-this
+   • font-lock (generic syntax highlighting)
+   • forge
+   • fountain (fountain-mode)
+   • geiser
+   • git-commit
+   • git-gutter (and variants)
+   • git-lens
+   • git-rebase
+   • git-timemachine
+   • git-walktree
+   • gnus
+   • golden-ratio-scroll-screen
+   • helm*
+   • helm-ls-git
+   • helm-switch-shell
+   • helm-xref
+   • helpful
+   • highlight-blocks
+   • highlight-defined
+   • highlight-escape-sequences (‘hes-mode’)
+   • highlight-indentation
+   • highlight-numbers
+   • highlight-symbol
+   • highlight-tail
+   • highlight-thing
+   • hl-defined
+   • hl-fill-column
+   • hl-line-mode
+   • hl-todo
+   • hydra
+   • hyperlist
+   • ibuffer
+   • icomplete
+   • icomplete-vertical
+   • ido-mode
+   • iedit
+   • iflipb
+   • imenu-list
+   • indium
+   • info
+   • info-colors
+   • interaction-log
+   • ioccur
+   • isearch, occur, etc.
+   • isl (isearch-light)
+   • ivy*
+   • ivy-posframe
+   • jira (org-jira)
+   • journalctl-mode
+   • js2-mode
+   • julia
+   • jupyter
+   • kaocha-runner
+   • keycast
+   • line numbers (‘display-line-numbers-mode’ and global variant)
+   • lsp-mode
+   • lsp-ui
+   • macrostep
+   • magit
+   • magit-imerge
+   • make-mode
+   • man
+   • marginalia
+   • markdown-mode
+   • markup-faces (‘adoc-mode’)
+   • mentor
+   • messages
+   • minibuffer-line
+   • minimap
+   • modeline
+   • mood-line
+   • moody
+   • mpdel
+   • mu4e
+   • mu4e-conversation
+   • multiple-cursors
+   • neotree
+   • no-emoji
+   • notmuch
+   • num3-mode
+   • nxml-mode
+   • objed
+   • orderless
+   • org*
+   • org-journal
+   • org-noter
+   • org-pomodoro
+   • org-recur
+   • org-roam
+   • org-superstar
+   • org-table-sticky-header
+   • org-tree-slide
+   • org-treescope
+   • origami
+   • outline-mode
+   • outline-minor-faces
+   • package (‘M-x list-packages’)
+   • page-break-lines
+   • paradox
+   • paren-face
+   • parrot
+   • pass
+   • pdf-tools
+   • persp-mode
+   • perspective
+   • phi-grep
+   • phi-search
+   • pkgbuild-mode
+   • pomidor
+   • popup
+   • powerline
+   • powerline-evil
+   • prism (*note Note for prism.el: Note for prism.)
+   • proced
+   • prodigy
+   • racket-mode
+   • rainbow-blocks
+   • rainbow-identifiers
+   • rainbow-delimiters
+   • rcirc
+   • recursion-indicator
+   • regexp-builder (also known as ‘re-builder’)
+   • rg (rg.el)
+   • ripgrep
+   • rmail
+   • ruler-mode
+   • sallet
+   • selectrum
+   • semantic
+   • sesman
+   • shell-script-mode
+   • show-paren-mode
+   • shr
+   • side-notes
+   • sieve-mode
+   • skewer-mode
+   • smart-mode-line
+   • smartparens
+   • smerge
+   • solaire
+   • spaceline
+   • speedbar
+   • spell-fu
+   • stripes
+   • suggest
+   • switch-window
+   • swiper
+   • swoop
+   • sx
+   • symbol-overlay
+   • syslog-mode
+   • table (built-in table.el)
+   • telephone-line
+   • term
+   • tomatinho
+   • transient (pop-up windows such as Magit’s)
+   • trashed
+   • treemacs
+   • tty-menu
+   • tuareg
+   • typescript
+   • undo-tree
+   • vc (built-in mode line status for version control)
+   • vc-annotate (‘C-x v g’)
+   • vdiff
+   • vimish-fold
+   • visible-mark
+   • visual-regexp
+   • volatile-highlights
+   • vterm
+   • wcheck-mode
+   • web-mode
+   • wgrep
+   • which-function-mode
+   • which-key
+   • whitespace-mode
+   • window-divider-mode
+   • winum
+   • writegood-mode
+   • woman
+   • xah-elisp-mode
+   • xref
+   • xterm-color (and ansi-colors)
+   • yaml-mode
+   • yasnippet
+   • ztree
+
+   Plus many other miscellaneous faces that are provided by the upstream
+GNU Emacs distribution.
+
+
+File: modus-themes.info,  Node: Indirectly covered packages,  Prev: Supported packages,  Up: Face coverage
+
+6.2 Indirectly covered packages
+===============================
+
+These do not require any extra styles because they are configured to
+inherit from some basic faces.  Please confirm.
+
+   • bbdb
+   • edit-indirect
+   • evil-owl
+   • fortran-mode
+   • i3wm-config-mode
+   • perl-mode
+   • php-mode
+   • rjsx-mode
+   • swift-mode
 
 
 File: modus-themes.info,  Node: Notes for individual packages,  Next: Contributing,  Prev: Face coverage,  Up: Top
@@ -3018,73 +3271,74 @@ Appendix A GNU Free Documentation License
 
 Tag Table:
 Node: Top586
-Node: Overview4576
-Node: How do the themes look like5842
-Node: Learn about the latest changes6350
-Node: Installation6732
-Node: Install from the archives7180
-Node: Install on GNU/Linux7842
-Node: Debian 11 Bullseye8290
-Node: GNU Guix8699
-Node: Enable and load8922
-Node: Load automatically9847
-Node: Differences between loading and enabling10620
-Node: Toggle between the themes on demand12684
-Node: Configure options prior to loading a theme13846
-Node: Sample configuration for use-package18453
-Node: Customization Options19356
-Node: Bold constructs21503
-Node: Slanted constructs22092
-Node: Syntax styles22639
-Node: No mixed fonts24154
-Node: Link styles25191
-Node: Command prompts26611
-Node: Mode line27834
-Node: Completion UIs31025
-Node: Fringes32857
-Node: Language checkers33517
-Node: Line highlighting35462
-Node: Matching parentheses36087
-Node: Active region36970
-Node: Diffs37906
-Node: Org mode blocks40178
-Node: Org agenda habits41521
-Node: Heading styles43356
-Node: Scaled headings47355
-Node: Scaled heading sizes47938
-Node: UI typeface49534
-Node: Headings' typeface50380
-Node: Advanced customization (do-it-yourself)51004
-Node: Case-by-case face specs using the themes' palette (DIY)52069
-Node: Face specs at scale using the themes' palette (DIY)56552
-Node: Override colors (DIY)63377
-Node: Font configurations for Org and others (DIY)68000
-Ref: Font configurations for Org and others (DIY)-Footnote-170323
-Node: Custom Org user faces (DIY)70510
-Node: Measure color contrast (DIY)73826
-Node: Load theme depending on time of day76593
-Node: Face coverage77576
-Node: Supported packages78014
-Node: Notes for individual packages79794
-Node: Note for display-fill-column-indicator-mode80380
-Node: Note for prism81958
-Node: Note on company-mode overlay pop-up84923
-Ref: Note on company-mode overlay pop-up-Footnote-185610
-Ref: Note on company-mode overlay pop-up-Footnote-285677
-Node: Note for ERC escaped color sequences85732
-Ref: Note for ERC escaped color sequences-Footnote-187165
-Node: Note for powerline or spaceline87275
-Node: Note on SHR colors87691
-Node: Note for Helm grep88101
-Node: Note on vc-annotate-background-mode89546
-Node: Note on pdf-tools link hints90431
-Node: Contributing92862
-Node: Sources of the themes93262
-Node: Issues you can help with94000
-Node: Patches require copyright assignment to the FSF95200
-Node: Acknowledgements97495
-Node: Meta99522
-Node: GNU Free Documentation License101362
+Node: Overview4608
+Node: How do the themes look like5874
+Node: Learn about the latest changes6382
+Node: Installation6764
+Node: Install from the archives7212
+Node: Install on GNU/Linux7874
+Node: Debian 11 Bullseye8322
+Node: GNU Guix8731
+Node: Enable and load8954
+Node: Load automatically9879
+Node: Differences between loading and enabling10652
+Node: Toggle between the themes on demand12716
+Node: Configure options prior to loading a theme13878
+Node: Sample configuration for use-package18485
+Node: Customization Options19388
+Node: Bold constructs21535
+Node: Slanted constructs22124
+Node: Syntax styles22671
+Node: No mixed fonts24186
+Node: Link styles25223
+Node: Command prompts26643
+Node: Mode line27866
+Node: Completion UIs31057
+Node: Fringes32889
+Node: Language checkers33549
+Node: Line highlighting35494
+Node: Matching parentheses36119
+Node: Active region37002
+Node: Diffs37938
+Node: Org mode blocks40210
+Node: Org agenda habits41553
+Node: Heading styles43388
+Node: Scaled headings47387
+Node: Scaled heading sizes47970
+Node: UI typeface49566
+Node: Headings' typeface50412
+Node: Advanced customization (do-it-yourself)51036
+Node: Case-by-case face specs using the themes' palette (DIY)52101
+Node: Face specs at scale using the themes' palette (DIY)56584
+Node: Override colors (DIY)63409
+Node: Font configurations for Org and others (DIY)68032
+Ref: Font configurations for Org and others (DIY)-Footnote-170355
+Node: Custom Org user faces (DIY)70542
+Node: Measure color contrast (DIY)73858
+Node: Load theme depending on time of day76625
+Node: Face coverage77608
+Node: Supported packages78078
+Node: Indirectly covered packages84523
+Node: Notes for individual packages84978
+Node: Note for display-fill-column-indicator-mode85564
+Node: Note for prism87142
+Node: Note on company-mode overlay pop-up90107
+Ref: Note on company-mode overlay pop-up-Footnote-190794
+Ref: Note on company-mode overlay pop-up-Footnote-290861
+Node: Note for ERC escaped color sequences90916
+Ref: Note for ERC escaped color sequences-Footnote-192349
+Node: Note for powerline or spaceline92459
+Node: Note on SHR colors92875
+Node: Note for Helm grep93285
+Node: Note on vc-annotate-background-mode94730
+Node: Note on pdf-tools link hints95615
+Node: Contributing98046
+Node: Sources of the themes98446
+Node: Issues you can help with99184
+Node: Patches require copyright assignment to the FSF100384
+Node: Acknowledgements102679
+Node: Meta104706
+Node: GNU Free Documentation License106546
 
 End Tag Table
 
