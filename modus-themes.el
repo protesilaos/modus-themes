@@ -4643,7 +4643,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-agenda-filter-regexp ((,class :inherit bold :foreground ,magenta-active)))
     `(org-agenda-filter-tags ((,class :inherit bold :foreground ,magenta-active)))
     `(org-agenda-restriction-lock ((,class :background ,bg-dim :foreground ,fg-dim)))
-    `(org-agenda-structure ((,class :foreground ,blue-alt)))
+    `(org-agenda-structure ((,class ,@(modus-themes--scale modus-themes-scale-5)
+                                    :foreground ,blue-alt)))
     `(org-archived ((,class :background ,bg-alt :foreground ,fg-alt)))
     `(org-block ((,class ,@(modus-themes--mixed-fonts)
                          ,@(modus-themes--org-block bg-dim)
@@ -4739,7 +4740,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-quote ((,class :inherit modus-theme-slant
                          ,@(modus-themes--org-block bg-dim)
                          :foreground ,fg-special-cold)))
-    `(org-scheduled ((,class :foreground ,fg-special-warm)))
+    `(org-scheduled ((,class :foreground ,magenta-alt)))
     `(org-scheduled-previously ((,class :foreground ,yellow-alt-other)))
     `(org-scheduled-today ((,class :foreground ,magenta-alt-other)))
     `(org-sexp-date ((,class :inherit org-date)))

@@ -30,7 +30,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.2.0-dev.  This manual was rebuilt on
-2021-01-25 08:06 +0200.
+2021-01-28 23:20 +0200.
 
 * Menu:
 
@@ -2748,11 +2748,11 @@ Ideas and user feedback
      Agbobada, Gianluca Recchia, Gustavo Barros, Hörmetjan Yiltiz, Ilja
      Kocken, Iris Garcia, Jeremy Friesen, John Haman, Kostadin Ninev,
      Len Trigg, Manuel Uberti, Mark Burton, Markus Beppler, Michael
-     Goldenberg, Murilo Pereira, Nicolas De Jaeghere, Paul Poloskov,
-     Pete Kazmier, Peter Wu, Pierre Téchoueyres, Roman Rudakov, Ryan
-     Phillips, Shreyas Ragavan, Simon Pugnet, Tassilo Horn, Thibaut
-     Verron, Trey Merkley, Togan Muftuoglu, Toon Claes, Uri Sharf,
-     Utkarsh Singh, Vincent Foley.  As well as users: Ben,
+     Goldenberg, Morgan Smith, Murilo Pereira, Nicolas De Jaeghere, Paul
+     Poloskov, Pete Kazmier, Peter Wu, Pierre Téchoueyres, Roman
+     Rudakov, Ryan Phillips, Shreyas Ragavan, Simon Pugnet, Tassilo
+     Horn, Thibaut Verron, Trey Merkley, Togan Muftuoglu, Toon Claes,
+     Uri Sharf, Utkarsh Singh, Vincent Foley.  As well as users: Ben,
      CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji,
      Nick, TheBlob42, bepolymathe, doolio, fleimgruber, iSeeU, jixiuf,
      okamsn, tycho garen.
@@ -3341,8 +3341,8 @@ Node: Sources of the themes98538
 Node: Issues you can help with99276
 Node: Patches require copyright assignment to the FSF100476
 Node: Acknowledgements102771
-Node: Meta104798
-Node: GNU Free Documentation License106638
+Node: Meta104812
+Node: GNU Free Documentation License106652
 
 End Tag Table
 
