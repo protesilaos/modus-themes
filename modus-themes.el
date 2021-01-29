@@ -4548,7 +4548,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(notmuch-crypto-signature-good ((,class :inherit modus-theme-refine-green)))
     `(notmuch-crypto-signature-good-key ((,class :inherit modus-theme-refine-yellow)))
     `(notmuch-crypto-signature-unknown ((,class :inherit modus-theme-refine-red)))
-    `(notmuch-hello-logo-background ((,class :background ,bg-main)))
+    `(notmuch-hello-logo-background ((,class :background "gray50")))
     `(notmuch-message-summary-face ((,class :inherit modus-theme-nuanced-cyan)))
     `(notmuch-search-count ((,class :inherit shadow)))
     `(notmuch-search-date ((,class :foreground ,magenta-alt)))
