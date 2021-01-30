@@ -611,7 +611,7 @@
 
     (bg-whitespace . "#f5efef") (fg-whitespace . "#624956")
 
-    (bg-diff-heading . "#b7c4dd") (fg-diff-heading . "#042665")
+    (bg-diff-heading . "#b7cfe0") (fg-diff-heading . "#041645")
     (bg-diff-added . "#d4fad4") (fg-diff-added . "#004500")
     (bg-diff-changed . "#fcefcf") (fg-diff-changed . "#524200")
     (bg-diff-removed . "#ffe8ef") (fg-diff-removed . "#691616")
@@ -853,7 +853,7 @@ symbol and the latter as a string.")
 
     (bg-whitespace . "#101424") (fg-whitespace . "#aa9e9f")
 
-    (bg-diff-heading . "#304466") (fg-diff-heading . "#dadffe")
+    (bg-diff-heading . "#304466") (fg-diff-heading . "#dae7ff")
     (bg-diff-added . "#0a280a") (fg-diff-added . "#94ba94")
     (bg-diff-changed . "#2a2000") (fg-diff-changed . "#b0ba9f")
     (bg-diff-removed . "#40160f") (fg-diff-removed . "#c6adaa")
