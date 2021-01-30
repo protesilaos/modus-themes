@@ -30,7 +30,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.2.0-dev.  This manual was rebuilt on
-2021-01-30 08:23 +0200.
+2021-01-30 11:45 +0200.
 
 * Menu:
 
@@ -1019,6 +1019,7 @@ Symbol: ‘modus-themes-diffs’
   1. ‘nil’ (default)
   2. ‘desaturated’
   3. ‘fg-only’
+  4. ‘bg-only’
 
    By default the themes apply rich coloration to the output of diffs,
 such as those of ‘diff-mode’, ‘ediff’, ‘smerge-mode’, and ‘magit’.
@@ -3332,45 +3333,45 @@ Node: Line highlighting35548
 Node: Matching parentheses36173
 Node: Active region37056
 Node: Diffs37992
-Node: Org mode blocks40264
-Node: Org agenda habits41607
-Node: Heading styles43442
-Node: Scaled headings47441
-Node: Scaled heading sizes48044
-Node: UI typeface51178
-Node: Headings' typeface52024
-Node: Advanced customization (do-it-yourself)52648
-Node: Case-by-case face specs using the themes' palette (DIY)53713
-Node: Face specs at scale using the themes' palette (DIY)58196
-Node: Override colors (DIY)65021
-Node: Font configurations for Org and others (DIY)69644
-Ref: Font configurations for Org and others (DIY)-Footnote-171967
-Node: Custom Org user faces (DIY)72154
-Node: Measure color contrast (DIY)75470
-Node: Load theme depending on time of day78237
-Node: Face coverage79220
-Node: Supported packages79690
-Node: Indirectly covered packages86173
-Node: Notes for individual packages86628
-Node: Note for display-fill-column-indicator-mode87214
-Node: Note for prism88792
-Node: Note on company-mode overlay pop-up91757
-Ref: Note on company-mode overlay pop-up-Footnote-192444
-Ref: Note on company-mode overlay pop-up-Footnote-292511
-Node: Note for ERC escaped color sequences92566
-Ref: Note for ERC escaped color sequences-Footnote-193999
-Node: Note for powerline or spaceline94109
-Node: Note on SHR colors94525
-Node: Note for Helm grep94935
-Node: Note on vc-annotate-background-mode96380
-Node: Note on pdf-tools link hints97265
-Node: Contributing99696
-Node: Sources of the themes100096
-Node: Issues you can help with100834
-Node: Patches require copyright assignment to the FSF102034
-Node: Acknowledgements104329
-Node: Meta106402
-Node: GNU Free Documentation License108242
+Node: Org mode blocks40283
+Node: Org agenda habits41626
+Node: Heading styles43461
+Node: Scaled headings47460
+Node: Scaled heading sizes48063
+Node: UI typeface51197
+Node: Headings' typeface52043
+Node: Advanced customization (do-it-yourself)52667
+Node: Case-by-case face specs using the themes' palette (DIY)53732
+Node: Face specs at scale using the themes' palette (DIY)58215
+Node: Override colors (DIY)65040
+Node: Font configurations for Org and others (DIY)69663
+Ref: Font configurations for Org and others (DIY)-Footnote-171986
+Node: Custom Org user faces (DIY)72173
+Node: Measure color contrast (DIY)75489
+Node: Load theme depending on time of day78256
+Node: Face coverage79239
+Node: Supported packages79709
+Node: Indirectly covered packages86192
+Node: Notes for individual packages86647
+Node: Note for display-fill-column-indicator-mode87233
+Node: Note for prism88811
+Node: Note on company-mode overlay pop-up91776
+Ref: Note on company-mode overlay pop-up-Footnote-192463
+Ref: Note on company-mode overlay pop-up-Footnote-292530
+Node: Note for ERC escaped color sequences92585
+Ref: Note for ERC escaped color sequences-Footnote-194018
+Node: Note for powerline or spaceline94128
+Node: Note on SHR colors94544
+Node: Note for Helm grep94954
+Node: Note on vc-annotate-background-mode96399
+Node: Note on pdf-tools link hints97284
+Node: Contributing99715
+Node: Sources of the themes100115
+Node: Issues you can help with100853
+Node: Patches require copyright assignment to the FSF102053
+Node: Acknowledgements104348
+Node: Meta106421
+Node: GNU Free Documentation License108261
 
 End Tag Table
 

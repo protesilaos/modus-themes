@@ -892,7 +892,8 @@ Possible values:
 
 1. =nil= (default)
 2. =desaturated=
-2. =fg-only=
+3. =fg-only=
+4. =bg-only=
 
 By default the themes apply rich coloration to the output of diffs, such
 as those of =diff-mode=, =ediff=, =smerge-mode=, and =magit=.  These are color
