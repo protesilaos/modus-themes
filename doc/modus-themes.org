@@ -1140,7 +1140,7 @@ Possible values:
 The default is to use the same size for headings and paragraph text.
 
 With a non-nil value (=t=) make headings larger in height relative to the
-main text.  This is noticeable in modes like Org.
+main text.  This is noticeable in modes like Org, Markdown, and Info.
 
 *** Control the scale of headings
 :PROPERTIES:
@@ -1149,22 +1149,26 @@ main text.  This is noticeable in modes like Org.
 :CUSTOM_ID: h:6868baa1-beba-45ed-baa5-5fd68322ccb3
 :END:
 
-In addition to toggles for enabling scaled headings, users can also
+In addition to the toggle for enabling scaled headings, users can also
 specify a number of their own.
 
 + If it is a floating point, say, =1.5=, it is interpreted as a multiple
-  of the base font size.  This is the recommended method.
+  of the base font size.  This is the recommended method, because it
+  will always adapt to changes in the base font size, such as while
+  using the =text-scale-adjust= command.
 
-+ If it is an integer, it is read as an absolute font height.  The
-  number is basically the point size multiplied by ten.  So if you want
-  it to be =18pt= you must pass =180=.  Please understand that setting an
-  absolute value is discouraged, as it will break the layout when you
-  try to change font sizes with the built-in =text-scale-adjust= command
-  ([[#h:defcf4fc-8fa8-4c29-b12e-7119582cc929][Font configurations]]).
++ If it is an integer, it is read as an absolute font height that is
+  1/10 of the typographic point size.  Thus a value of =18pt= must be
+  expressed as =180=.  Setting an absolute value is discouraged, as it
+  will break the layout in cases where the base font size must change,
+  such as with the =text-scale-adjust= command ([[#h:defcf4fc-8fa8-4c29-b12e-7119582cc929][Font configurations]]).
+  While we discourage using absolute values, we still provide for this
+  option for users who do not need to perform text-scaling operations or
+  who are content with whatever discrepancies in height.
 
 Below are the variables in their default values, using the floating
-point paradigm.  The numbers are very conservative, but you are free to
-change them to your liking, such as =1.2=, =1.4=, =1.6=, =1.8=, =2.0=---or use a
+point paradigm.  The numbers are very conservative, but one is free to
+change them to their liking, such as =1.2=, =1.4=, =1.6=, =1.8=, =2.0=---or use a
 resource for finding a consistent scale:
 
 #+begin_src emacs-lisp
@@ -1174,6 +1178,27 @@ resource for finding a consistent scale:
       modus-themes-scale-4 1.2
       modus-themes-scale-5 1.3)
 #+end_src
+
+As for the application of that scale, the variables that range from
+=modus-themes-scale-1= up to =modus-themes-scale-4= apply to regular
+headings within the context of the given major mode.  The former is the
+smallest, while the latter is the largest.  "Regular headings" are those
+that have a standard syntax for their scale, such as Org mode's eight
+levels of asterisks or Markdown's six columns.
+
+Whereas =modus-themes-scale-5= is applied to special headings that do not
+conform with the aforementioned syntax, yet which are expected to be
+larger than the largest value on that implied scale.  Put concretely,
+Org's =#+title= meta datum is not part of the eight levels of headings in
+an Org file, yet is supposed to signify the primary header.  Similarly,
+the Org Agenda's structure headings are not part of a recognisable scale
+and so they also get =modus-themes-scale-5=.
+
+Users who wish to maintain scaled headings for the normal syntax while
+preventing special headings from standing out, can assign a value of =1.0=
+to =modus-themes-scale-5= to make it the same as body text (or whatever
+value would render it indistinguishable from the desired point of
+reference).
 
 Note that in earlier versions of Org, scaling would only increase the
 size of the heading, but not of keywords that were added to it, like

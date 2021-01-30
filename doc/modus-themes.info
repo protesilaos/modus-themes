@@ -30,7 +30,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.2.0-dev.  This manual was rebuilt on
-2021-01-29 06:26 +0200.
+2021-01-30 08:23 +0200.
 
 * Menu:
 
@@ -1258,7 +1258,8 @@ Symbol: ‘modus-themes-scale-headings’
    The default is to use the same size for headings and paragraph text.
 
    With a non-nil value (‘t’) make headings larger in height relative to
-the main text.  This is noticeable in modes like Org.
+the main text.  This is noticeable in modes like Org, Markdown, and
+Info.
 
 * Menu:
 
@@ -1270,30 +1271,56 @@ File: modus-themes.info,  Node: Scaled heading sizes,  Up: Scaled headings
 4.18.1 Control the scale of headings
 ------------------------------------
 
-In addition to toggles for enabling scaled headings, users can also
+In addition to the toggle for enabling scaled headings, users can also
 specify a number of their own.
 
    • If it is a floating point, say, ‘1.5’, it is interpreted as a
-     multiple of the base font size.  This is the recommended method.
+     multiple of the base font size.  This is the recommended method,
+     because it will always adapt to changes in the base font size, such
+     as while using the ‘text-scale-adjust’ command.
 
-   • If it is an integer, it is read as an absolute font height.  The
-     number is basically the point size multiplied by ten.  So if you
-     want it to be ‘18pt’ you must pass ‘180’.  Please understand that
-     setting an absolute value is discouraged, as it will break the
-     layout when you try to change font sizes with the built-in
-     ‘text-scale-adjust’ command (*note Font configurations: Font
-     configurations for Org and others (DIY).).
+   • If it is an integer, it is read as an absolute font height that is
+     1/10 of the typographic point size.  Thus a value of ‘18pt’ must be
+     expressed as ‘180’.  Setting an absolute value is discouraged, as
+     it will break the layout in cases where the base font size must
+     change, such as with the ‘text-scale-adjust’ command (*note Font
+     configurations: Font configurations for Org and others (DIY).).
+     While we discourage using absolute values, we still provide for
+     this option for users who do not need to perform text-scaling
+     operations or who are content with whatever discrepancies in
+     height.
 
    Below are the variables in their default values, using the floating
-point paradigm.  The numbers are very conservative, but you are free to
-change them to your liking, such as ‘1.2’, ‘1.4’, ‘1.6’, ‘1.8’, ‘2.0’—or
-use a resource for finding a consistent scale:
+point paradigm.  The numbers are very conservative, but one is free to
+change them to their liking, such as ‘1.2’, ‘1.4’, ‘1.6’, ‘1.8’,
+‘2.0’—or use a resource for finding a consistent scale:
 
      (setq modus-themes-scale-1 1.05
            modus-themes-scale-2 1.1
            modus-themes-scale-3 1.15
            modus-themes-scale-4 1.2
            modus-themes-scale-5 1.3)
+
+   As for the application of that scale, the variables that range from
+‘modus-themes-scale-1’ up to ‘modus-themes-scale-4’ apply to regular
+headings within the context of the given major mode.  The former is the
+smallest, while the latter is the largest.  “Regular headings” are those
+that have a standard syntax for their scale, such as Org mode’s eight
+levels of asterisks or Markdown’s six columns.
+
+   Whereas ‘modus-themes-scale-5’ is applied to special headings that do
+not conform with the aforementioned syntax, yet which are expected to be
+larger than the largest value on that implied scale.  Put concretely,
+Org’s ‘#+title’ meta datum is not part of the eight levels of headings
+in an Org file, yet is supposed to signify the primary header.
+Similarly, the Org Agenda’s structure headings are not part of a
+recognisable scale and so they also get ‘modus-themes-scale-5’.
+
+   Users who wish to maintain scaled headings for the normal syntax
+while preventing special headings from standing out, can assign a value
+of ‘1.0’ to ‘modus-themes-scale-5’ to make it the same as body text (or
+whatever value would render it indistinguishable from the desired point
+of reference).
 
    Note that in earlier versions of Org, scaling would only increase the
 size of the heading, but not of keywords that were added to it, like
@@ -3309,41 +3336,41 @@ Node: Org mode blocks40264
 Node: Org agenda habits41607
 Node: Heading styles43442
 Node: Scaled headings47441
-Node: Scaled heading sizes48024
-Node: UI typeface49620
-Node: Headings' typeface50466
-Node: Advanced customization (do-it-yourself)51090
-Node: Case-by-case face specs using the themes' palette (DIY)52155
-Node: Face specs at scale using the themes' palette (DIY)56638
-Node: Override colors (DIY)63463
-Node: Font configurations for Org and others (DIY)68086
-Ref: Font configurations for Org and others (DIY)-Footnote-170409
-Node: Custom Org user faces (DIY)70596
-Node: Measure color contrast (DIY)73912
-Node: Load theme depending on time of day76679
-Node: Face coverage77662
-Node: Supported packages78132
-Node: Indirectly covered packages84615
-Node: Notes for individual packages85070
-Node: Note for display-fill-column-indicator-mode85656
-Node: Note for prism87234
-Node: Note on company-mode overlay pop-up90199
-Ref: Note on company-mode overlay pop-up-Footnote-190886
-Ref: Note on company-mode overlay pop-up-Footnote-290953
-Node: Note for ERC escaped color sequences91008
-Ref: Note for ERC escaped color sequences-Footnote-192441
-Node: Note for powerline or spaceline92551
-Node: Note on SHR colors92967
-Node: Note for Helm grep93377
-Node: Note on vc-annotate-background-mode94822
-Node: Note on pdf-tools link hints95707
-Node: Contributing98138
-Node: Sources of the themes98538
-Node: Issues you can help with99276
-Node: Patches require copyright assignment to the FSF100476
-Node: Acknowledgements102771
-Node: Meta104844
-Node: GNU Free Documentation License106684
+Node: Scaled heading sizes48044
+Node: UI typeface51178
+Node: Headings' typeface52024
+Node: Advanced customization (do-it-yourself)52648
+Node: Case-by-case face specs using the themes' palette (DIY)53713
+Node: Face specs at scale using the themes' palette (DIY)58196
+Node: Override colors (DIY)65021
+Node: Font configurations for Org and others (DIY)69644
+Ref: Font configurations for Org and others (DIY)-Footnote-171967
+Node: Custom Org user faces (DIY)72154
+Node: Measure color contrast (DIY)75470
+Node: Load theme depending on time of day78237
+Node: Face coverage79220
+Node: Supported packages79690
+Node: Indirectly covered packages86173
+Node: Notes for individual packages86628
+Node: Note for display-fill-column-indicator-mode87214
+Node: Note for prism88792
+Node: Note on company-mode overlay pop-up91757
+Ref: Note on company-mode overlay pop-up-Footnote-192444
+Ref: Note on company-mode overlay pop-up-Footnote-292511
+Node: Note for ERC escaped color sequences92566
+Ref: Note for ERC escaped color sequences-Footnote-193999
+Node: Note for powerline or spaceline94109
+Node: Note on SHR colors94525
+Node: Note for Helm grep94935
+Node: Note on vc-annotate-background-mode96380
+Node: Note on pdf-tools link hints97265
+Node: Contributing99696
+Node: Sources of the themes100096
+Node: Issues you can help with100834
+Node: Patches require copyright assignment to the FSF102034
+Node: Acknowledgements104329
+Node: Meta106402
+Node: GNU Free Documentation License108242
 
 End Tag Table
 

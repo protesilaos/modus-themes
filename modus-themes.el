@@ -1150,79 +1150,127 @@ A description of all possible values:
             (const :tag "Like `no-bold' but without the bold weight" no-color-no-bold))))
 
 (defcustom modus-themes-scale-headings nil
-  "Use font scaling for headings."
+  "Use font scaling for headings.
+
+For regular headings the scale is controlled by the variables
+`modus-themes-scale-1' (smallest) and its variants all the way up
+to `modus-themes-scale-4' (larger).  While `modus-themes-scale-5'
+is reserved for special headings that must be the largest on the
+scale.
+
+A special heading is, in this context, one that does not fit into
+the syntax for heading levels that apply to the given mode.  For
+example, Org's #+title keyword lies outside the normal eight
+levels of headings.  Whereas, say, Markdown does not have such a
+special heading."
   :group 'modus-themes
-  :package-version '(modus-themes . "1.0.0")
+  :package-version '(modus-themes . "1.2.0")
   :version "28.1"
   :type 'boolean)
 
 (defcustom modus-themes-scale-1 1.05
   "Font size that is slightly larger than the base value.
-The default is a floating point that is interpreted as a multiple
-of the base font size.  However, the variable also accepts an
-integer, understood as an absolute height (e.g. a value of 140 is
-the same as setting the font at 14 point size).
 
-For more on the matter, read the documentation of
-`set-face-attribute', specifically the ':height' section."
+This size is used for level 4 headings, such as in Org and
+Markdown files.
+
+The default value is a floating point that is interpreted as a
+multiple of the base font size.  It is recommended to use such a
+value.
+
+However, the variable also accepts an integer, understood as an
+absolute height that is 1/10 of the typeface's point size (e.g. a
+value of 140 is the same as setting the font at 14 point size).
+This will ignore the base font size and, thus, will not scale in
+accordance with it in cases where it changes, such as while using
+`text-scale-adjust'."
   :group 'modus-themes
-  :package-version '(modus-themes . "1.0.0")
+  :package-version '(modus-themes . "1.2.0")
   :version "28.1"
   :type 'number)
 
 (defcustom modus-themes-scale-2 1.1
   "Font size slightly larger than `modus-themes-scale-1'.
-The default is a floating point that is interpreted as a multiple
-of the base font size.  However, the variable also accepts an
-integer, understood as an absolute height (e.g. a value of 140 is
-the same as setting the font at 14 point size).
 
-For more on the matter, read the documentation of
-`set-face-attribute', specifically the ':height' section."
+This size is used for level 3 headings, such as in Org and
+Markdown files.
+
+The default value is a floating point that is interpreted as a
+multiple of the base font size.  It is recommended to use such a
+value.
+
+However, the variable also accepts an integer, understood as an
+absolute height that is 1/10 of the typeface's point size (e.g. a
+value of 140 is the same as setting the font at 14 point size).
+This will ignore the base font size and, thus, will not scale in
+accordance with it in cases where it changes, such as while using
+`text-scale-adjust'."
   :group 'modus-themes
-  :package-version '(modus-themes . "1.0.0")
+  :package-version '(modus-themes . "1.2.0")
   :version "28.1"
   :type 'number)
 
 (defcustom modus-themes-scale-3 1.15
   "Font size slightly larger than `modus-themes-scale-2'.
-The default is a floating point that is interpreted as a multiple
-of the base font size.  However, the variable also accepts an
-integer, understood as an absolute height (e.g. a value of 140 is
-the same as setting the font at 14 point size).
 
-For more on the matter, read the documentation of
-`set-face-attribute', specifically the ':height' section."
+This size is used for level 2 headings, such as in Org and
+Markdown files.
+
+The default value is a floating point that is interpreted as a
+multiple of the base font size.  It is recommended to use such a
+value.
+
+However, the variable also accepts an integer, understood as an
+absolute height that is 1/10 of the typeface's point size (e.g. a
+value of 140 is the same as setting the font at 14 point size).
+This will ignore the base font size and, thus, will not scale in
+accordance with it in cases where it changes, such as while using
+`text-scale-adjust'."
   :group 'modus-themes
-  :package-version '(modus-themes . "1.0.0")
+  :package-version '(modus-themes . "1.2.0")
   :version "28.1"
   :type 'number)
 
 (defcustom modus-themes-scale-4 1.2
   "Font size slightly larger than `modus-themes-scale-3'.
-The default is a floating point that is interpreted as a multiple
-of the base font size.  However, the variable also accepts an
-integer, understood as an absolute height (e.g. a value of 140 is
-the same as setting the font at 14 point size).
 
-For more on the matter, read the documentation of
-`set-face-attribute', specifically the ':height' section."
+This size is used for level 1 headings, such as in Org and
+Markdown files.
+
+The default value is a floating point that is interpreted as a
+multiple of the base font size.  It is recommended to use such a
+value.
+
+However, the variable also accepts an integer, understood as an
+absolute height that is 1/10 of the typeface's point size (e.g. a
+value of 140 is the same as setting the font at 14 point size).
+This will ignore the base font size and, thus, will not scale in
+accordance with it in cases where it changes, such as while using
+`text-scale-adjust'."
   :group 'modus-themes
-  :package-version '(modus-themes . "1.0.0")
+  :package-version '(modus-themes . "1.2.0")
   :version "28.1"
   :type 'number)
 
 (defcustom modus-themes-scale-5 1.3
   "Font size slightly larger than `modus-themes-scale-4'.
-The default is a floating point that is interpreted as a multiple
-of the base font size.  However, the variable also accepts an
-integer, understood as an absolute height (e.g. a value of 140 is
-the same as setting the font at 14 point size).
 
-For more on the matter, read the documentation of
-`set-face-attribute', specifically the ':height' section."
+This size is only used for 'special' top-level headings, such as
+Org's file title heading, denoted by the #+title key word, and
+the Org agenda structure headers.
+
+The default value is a floating point that is interpreted as a
+multiple of the base font size.  It is recommended to use such a
+value.
+
+However, the variable also accepts an integer, understood as an
+absolute height that is 1/10 of the typeface's point size (e.g. a
+value of 140 is the same as setting the font at 14 point size).
+This will ignore the base font size and, thus, will not scale in
+accordance with it in cases where it changes, such as while using
+`text-scale-adjust'."
   :group 'modus-themes
-  :package-version '(modus-themes . "1.0.0")
+  :package-version '(modus-themes . "1.2.0")
   :version "28.1"
   :type 'number)
 
