@@ -3016,7 +3016,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(diff-error ((,class :inherit modus-theme-intense-red)))
     `(diff-file-header ((,class :inherit bold :foreground ,fg-main)))
     `(diff-function ((,class :inherit modus-theme-diff-heading)))
-    `(diff-header ((,class :background ,bg-dim :foreground ,fg-main)))
+    `(diff-header ((,class :foreground ,fg-main)))
     `(diff-hunk-header ((,class :inherit (bold modus-theme-diff-heading))))
     `(diff-index ((,class :inherit bold :foreground ,blue-alt)))
     `(diff-indicator-added ((,class :inherit (diff-added bold) :foreground ,green)))
