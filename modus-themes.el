@@ -2875,7 +2875,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(consult-line-number-prefix ((,class :foreground ,fg-unfocused)))
     `(consult-preview-cursor ((,class :inherit modus-theme-intense-blue)))
     `(consult-preview-error ((,class :inherit modus-theme-intense-red)))
-    `(consult-preview-line ((,class :inherit modus-theme-special-mild)))
+    `(consult-preview-line ((,class :background ,bg-hl-alt-intense)))
 ;;;;; counsel
     `(counsel-active-mode ((,class :foreground ,magenta-alt-other)))
     `(counsel-application-name ((,class :foreground ,red-alt-other)))
