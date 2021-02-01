@@ -2866,6 +2866,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                                magenta-alt blue-nuanced-bg
                                                magenta-intense-bg fg-main))))
 ;;;;; consult
+    `(consult-async-running ((,class :inherit bold :foreground ,blue)))
     `(consult-async-split ((,class :foreground ,magenta-alt)))
     `(consult-bookmark ((,class :foreground ,blue)))
     `(consult-file ((,class :foreground ,fg-special-cold)))
@@ -2873,6 +2874,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(consult-key ((,class :inherit modus-themes-bold :foreground ,magenta-alt-other)))
     `(consult-line-number ((,class :foreground ,fg-special-warm)))
     `(consult-line-number-prefix ((,class :foreground ,fg-unfocused)))
+    `(consult-narrow-indicator ((,class :inherit bold :foreground ,magenta-alt)))
     `(consult-preview-cursor ((,class :inherit modus-theme-intense-blue)))
     `(consult-preview-error ((,class :inherit modus-theme-intense-red)))
     `(consult-preview-line ((,class :background ,bg-hl-alt-intense)))
