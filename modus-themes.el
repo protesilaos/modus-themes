@@ -1255,7 +1255,7 @@ accordance with it in cases where it changes, such as while using
 (defcustom modus-themes-scale-5 1.3
   "Font size slightly larger than `modus-themes-scale-4'.
 
-This size is only used for 'special' top-level headings, such as
+This size is only used for 'special' top level headings, such as
 Org's file title heading, denoted by the #+title key word, and
 the Org agenda structure headers.
 
