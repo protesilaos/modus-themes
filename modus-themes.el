@@ -2870,7 +2870,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(consult-async-split ((,class :foreground ,magenta-alt)))
     `(consult-bookmark ((,class :foreground ,blue)))
     `(consult-file ((,class :foreground ,fg-special-cold)))
-    `(consult-imenu-prefix ((,class :foreground ,magenta-faint)))
+    `(consult-imenu-prefix ((,class :inherit shadow)))
     `(consult-key ((,class :inherit modus-themes-bold :foreground ,magenta-alt-other)))
     `(consult-line-number ((,class :foreground ,fg-special-warm)))
     `(consult-line-number-prefix ((,class :foreground ,fg-unfocused)))
