@@ -415,6 +415,12 @@ package configurations in their setup.  We use this as an example:
 
 [[#h:e68560b3-7fb0-42bc-a151-e015948f8a35][Differences between loading and enabling]].
 
+Note: make sure not to customize the variable =custom-theme-load-path= or
+=custom-theme-directory= after the themes' package declaration.  That will
+lead to failures in loading the files.  If either or both of those
+variables need to be changed, their values should be defined before the
+package declaration of the themes.
+
 * Customization Options
 :PROPERTIES:
 :CUSTOM_ID: h:bf1c82f2-46c7-4eb2-ad00-dd11fdd8b53f
@@ -2618,21 +2624,21 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Madhavan Krishnan, Markus Beppler, Matthew Stevenson, Nicolas De
   Jaeghere, Shreyas Ragavan, Stefan Kangas, Vincent Murphy, Xinglu Chen.
 
-+ Ideas and user feedback :: Aaron Jensen, Adam Spiers, Alex Griffin,
-  Alex Peitsinis, Alexey Shmalko, Alok Singh, Anders Johansson, André
-  Alexandre Gomes, Arif Rezai, Basil L. Contovounesios, Burgess Chang,
-  Christian Tietze, Christopher Dimech, Damien Cassou, Daniel Mendler,
-  Dario Gjorgjevski, David Edmondson, Davor Rotim, Divan Santana, Gerry
-  Agbobada, Gianluca Recchia, Gustavo Barros, Hörmetjan Yiltiz, Ilja
-  Kocken, Iris Garcia, Jeremy Friesen, John Haman, Kostadin Ninev, Len
-  Trigg, Manuel Uberti, Mark Burton, Markus Beppler, Michael Goldenberg,
-  Morgan Smith, Murilo Pereira, Nicolas De Jaeghere, Paul Poloskov, Pete
-  Kazmier, Peter Wu, Pierre Téchoueyres, Roman Rudakov, Ryan Phillips,
-  Shreyas Ragavan, Simon Pugnet, Tassilo Horn, Thibaut Verron, Trey
-  Merkley, Togan Muftuoglu, Toon Claes, Uri Sharf, Utkarsh Singh,
-  Vincent Foley.  As well as users: Ben, CsBigDataHub1, Emacs Contrib,
-  Eugene, Fourchaux, Fredrik, Moesasji, Nick, TheBlob42, bepolymathe,
-  doolio, fleimgruber, iSeeU, jixiuf, okamsn, tycho garen.
++ Ideas and user feedback :: Aaron Jensen, Adam Spiers, Adrian Manea,
+  Alex Griffin, Alex Peitsinis, Alexey Shmalko, Alok Singh, Anders
+  Johansson, André Alexandre Gomes, Arif Rezai, Basil L. Contovounesios,
+  Burgess Chang, Christian Tietze, Christopher Dimech, Damien Cassou,
+  Daniel Mendler, Dario Gjorgjevski, David Edmondson, Davor Rotim, Divan
+  Santana, Gerry Agbobada, Gianluca Recchia, Gustavo Barros, Hörmetjan
+  Yiltiz, Ilja Kocken, Iris Garcia, Jeremy Friesen, John Haman, Kostadin
+  Ninev, Len Trigg, Manuel Uberti, Mark Burton, Markus Beppler, Michael
+  Goldenberg, Morgan Smith, Murilo Pereira, Nicolas De Jaeghere, Paul
+  Poloskov, Pete Kazmier, Peter Wu, Pierre Téchoueyres, Roman Rudakov,
+  Ryan Phillips, Shreyas Ragavan, Simon Pugnet, Tassilo Horn, Thibaut
+  Verron, Trey Merkley, Togan Muftuoglu, Toon Claes, Uri Sharf, Utkarsh
+  Singh, Vincent Foley.  As well as users: Ben, CsBigDataHub1, Emacs
+  Contrib, Eugene, Fourchaux, Fredrik, Moesasji, Nick, TheBlob42,
+  bepolymathe, doolio, fleimgruber, iSeeU, jixiuf, okamsn, tycho garen.
 
 + Packaging :: André Alexandre Gomes, Dimakakos Dimos, Morgan Smith,
   Nicolas Goaziou (Guix), Dhavan Vaidya (Debian), Stefan Kangas (core

@@ -29,6 +29,11 @@ also distributed in several packages formats.
   :bind ("<f5>" . modus-themes-toggle))
 ```
 
+Note: make sure that you **do not customise** `custom-theme-load-path`
+or `custom-theme-directory` _after_ the themes' package declaration.
+That will lead to failures in loading the files.  If you must change
+those variables, do it before the package declaration.
+
 ## Further information
 
 Read the [Info manual HTML](https://protesilaos.com/modus-themes)

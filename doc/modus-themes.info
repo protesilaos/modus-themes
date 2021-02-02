@@ -30,7 +30,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.2.0-dev.  This manual was rebuilt on
-2021-01-30 11:45 +0200.
+2021-02-02 20:13 +0200.
 
 * Menu:
 
@@ -524,6 +524,12 @@ package configurations in their setup.  We use this as an example:
        :bind ("<f5>" . modus-themes-toggle))
 
    *note Differences between loading and enabling::.
+
+   Note: make sure not to customize the variable
+‘custom-theme-load-path’ or ‘custom-theme-directory’ after the themes’
+package declaration.  That will lead to failures in loading the files.
+If either or both of those variables need to be changed, their values
+should be defined before the package declaration of the themes.
 
 
 File: modus-themes.info,  Node: Customization Options,  Next: Advanced customization (do-it-yourself),  Prev: Enable and load,  Up: Top
@@ -2768,22 +2774,22 @@ Contributions to code or documentation
      Kangas, Vincent Murphy, Xinglu Chen.
 
 Ideas and user feedback
-     Aaron Jensen, Adam Spiers, Alex Griffin, Alex Peitsinis, Alexey
-     Shmalko, Alok Singh, Anders Johansson, André Alexandre Gomes, Arif
-     Rezai, Basil L.  Contovounesios, Burgess Chang, Christian Tietze,
-     Christopher Dimech, Damien Cassou, Daniel Mendler, Dario
-     Gjorgjevski, David Edmondson, Davor Rotim, Divan Santana, Gerry
-     Agbobada, Gianluca Recchia, Gustavo Barros, Hörmetjan Yiltiz, Ilja
-     Kocken, Iris Garcia, Jeremy Friesen, John Haman, Kostadin Ninev,
-     Len Trigg, Manuel Uberti, Mark Burton, Markus Beppler, Michael
-     Goldenberg, Morgan Smith, Murilo Pereira, Nicolas De Jaeghere, Paul
-     Poloskov, Pete Kazmier, Peter Wu, Pierre Téchoueyres, Roman
-     Rudakov, Ryan Phillips, Shreyas Ragavan, Simon Pugnet, Tassilo
-     Horn, Thibaut Verron, Trey Merkley, Togan Muftuoglu, Toon Claes,
-     Uri Sharf, Utkarsh Singh, Vincent Foley.  As well as users: Ben,
-     CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji,
-     Nick, TheBlob42, bepolymathe, doolio, fleimgruber, iSeeU, jixiuf,
-     okamsn, tycho garen.
+     Aaron Jensen, Adam Spiers, Adrian Manea, Alex Griffin, Alex
+     Peitsinis, Alexey Shmalko, Alok Singh, Anders Johansson, André
+     Alexandre Gomes, Arif Rezai, Basil L.  Contovounesios, Burgess
+     Chang, Christian Tietze, Christopher Dimech, Damien Cassou, Daniel
+     Mendler, Dario Gjorgjevski, David Edmondson, Davor Rotim, Divan
+     Santana, Gerry Agbobada, Gianluca Recchia, Gustavo Barros,
+     Hörmetjan Yiltiz, Ilja Kocken, Iris Garcia, Jeremy Friesen, John
+     Haman, Kostadin Ninev, Len Trigg, Manuel Uberti, Mark Burton,
+     Markus Beppler, Michael Goldenberg, Morgan Smith, Murilo Pereira,
+     Nicolas De Jaeghere, Paul Poloskov, Pete Kazmier, Peter Wu, Pierre
+     Téchoueyres, Roman Rudakov, Ryan Phillips, Shreyas Ragavan, Simon
+     Pugnet, Tassilo Horn, Thibaut Verron, Trey Merkley, Togan
+     Muftuoglu, Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.  As
+     well as users: Ben, CsBigDataHub1, Emacs Contrib, Eugene,
+     Fourchaux, Fredrik, Moesasji, Nick, TheBlob42, bepolymathe, doolio,
+     fleimgruber, iSeeU, jixiuf, okamsn, tycho garen.
 
 Packaging
      André Alexandre Gomes, Dimakakos Dimos, Morgan Smith, Nicolas
@@ -3318,60 +3324,60 @@ Node: Differences between loading and enabling10706
 Node: Toggle between the themes on demand12770
 Node: Configure options prior to loading a theme13932
 Node: Sample configuration for use-package18539
-Node: Customization Options19442
-Node: Bold constructs21589
-Node: Slanted constructs22178
-Node: Syntax styles22725
-Node: No mixed fonts24240
-Node: Link styles25277
-Node: Command prompts26697
-Node: Mode line27920
-Node: Completion UIs31111
-Node: Fringes32943
-Node: Language checkers33603
-Node: Line highlighting35548
-Node: Matching parentheses36173
-Node: Active region37056
-Node: Diffs37992
-Node: Org mode blocks40283
-Node: Org agenda habits41626
-Node: Heading styles43461
-Node: Scaled headings47460
-Node: Scaled heading sizes48063
-Node: UI typeface51197
-Node: Headings' typeface52043
-Node: Advanced customization (do-it-yourself)52667
-Node: Case-by-case face specs using the themes' palette (DIY)53732
-Node: Face specs at scale using the themes' palette (DIY)58215
-Node: Override colors (DIY)65040
-Node: Font configurations for Org and others (DIY)69663
-Ref: Font configurations for Org and others (DIY)-Footnote-171986
-Node: Custom Org user faces (DIY)72173
-Node: Measure color contrast (DIY)75489
-Node: Load theme depending on time of day78256
-Node: Face coverage79239
-Node: Supported packages79709
-Node: Indirectly covered packages86192
-Node: Notes for individual packages86647
-Node: Note for display-fill-column-indicator-mode87233
-Node: Note for prism88811
-Node: Note on company-mode overlay pop-up91776
-Ref: Note on company-mode overlay pop-up-Footnote-192463
-Ref: Note on company-mode overlay pop-up-Footnote-292530
-Node: Note for ERC escaped color sequences92585
-Ref: Note for ERC escaped color sequences-Footnote-194018
-Node: Note for powerline or spaceline94128
-Node: Note on SHR colors94544
-Node: Note for Helm grep94954
-Node: Note on vc-annotate-background-mode96399
-Node: Note on pdf-tools link hints97284
-Node: Contributing99715
-Node: Sources of the themes100115
-Node: Issues you can help with100853
-Node: Patches require copyright assignment to the FSF102053
-Node: Acknowledgements104348
-Node: Meta106421
-Node: GNU Free Documentation License108261
+Node: Customization Options19778
+Node: Bold constructs21925
+Node: Slanted constructs22514
+Node: Syntax styles23061
+Node: No mixed fonts24576
+Node: Link styles25613
+Node: Command prompts27033
+Node: Mode line28256
+Node: Completion UIs31447
+Node: Fringes33279
+Node: Language checkers33939
+Node: Line highlighting35884
+Node: Matching parentheses36509
+Node: Active region37392
+Node: Diffs38328
+Node: Org mode blocks40619
+Node: Org agenda habits41962
+Node: Heading styles43797
+Node: Scaled headings47796
+Node: Scaled heading sizes48399
+Node: UI typeface51533
+Node: Headings' typeface52379
+Node: Advanced customization (do-it-yourself)53003
+Node: Case-by-case face specs using the themes' palette (DIY)54068
+Node: Face specs at scale using the themes' palette (DIY)58551
+Node: Override colors (DIY)65376
+Node: Font configurations for Org and others (DIY)69999
+Ref: Font configurations for Org and others (DIY)-Footnote-172322
+Node: Custom Org user faces (DIY)72509
+Node: Measure color contrast (DIY)75825
+Node: Load theme depending on time of day78592
+Node: Face coverage79575
+Node: Supported packages80045
+Node: Indirectly covered packages86528
+Node: Notes for individual packages86983
+Node: Note for display-fill-column-indicator-mode87569
+Node: Note for prism89147
+Node: Note on company-mode overlay pop-up92112
+Ref: Note on company-mode overlay pop-up-Footnote-192799
+Ref: Note on company-mode overlay pop-up-Footnote-292866
+Node: Note for ERC escaped color sequences92921
+Ref: Note for ERC escaped color sequences-Footnote-194354
+Node: Note for powerline or spaceline94464
+Node: Note on SHR colors94880
+Node: Note for Helm grep95290
+Node: Note on vc-annotate-background-mode96735
+Node: Note on pdf-tools link hints97620
+Node: Contributing100051
+Node: Sources of the themes100451
+Node: Issues you can help with101189
+Node: Patches require copyright assignment to the FSF102389
+Node: Acknowledgements104684
+Node: Meta106771
+Node: GNU Free Documentation License108611
 
 End Tag Table
 
