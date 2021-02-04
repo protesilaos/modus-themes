@@ -3907,7 +3907,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; highlight region or ad-hoc regexp
     `(hi-aquamarine ((,class :background ,cyan-subtle-bg :foreground ,fg-main)))
     `(hi-black-b ((,class :inherit bold :background ,fg-main :foreground ,bg-main)))
-    `(hi-black-hb ((,class :inherit (hi-black-b modus-theme-variable-pitch) :height 1.67)))
+    `(hi-black-hb ((,class :inherit bold :background ,fg-alt :foreground ,bg-main)))
     `(hi-blue ((,class :background ,blue-subtle-bg :foreground ,fg-main)))
     `(hi-blue-b ((,class :inherit (bold hi-blue))))
     `(hi-green ((,class :background ,green-subtle-bg :foreground ,fg-main)))
