@@ -30,7 +30,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.2.0-dev.  This manual was rebuilt on
-2021-02-02 20:13 +0200.
+2021-02-04 21:19 +0200.
 
 * Menu:
 
@@ -2783,13 +2783,13 @@ Ideas and user feedback
      Hörmetjan Yiltiz, Ilja Kocken, Iris Garcia, Jeremy Friesen, John
      Haman, Kostadin Ninev, Len Trigg, Manuel Uberti, Mark Burton,
      Markus Beppler, Michael Goldenberg, Morgan Smith, Murilo Pereira,
-     Nicolas De Jaeghere, Paul Poloskov, Pete Kazmier, Peter Wu, Pierre
-     Téchoueyres, Roman Rudakov, Ryan Phillips, Shreyas Ragavan, Simon
-     Pugnet, Tassilo Horn, Thibaut Verron, Trey Merkley, Togan
-     Muftuoglu, Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.  As
-     well as users: Ben, CsBigDataHub1, Emacs Contrib, Eugene,
-     Fourchaux, Fredrik, Moesasji, Nick, TheBlob42, bepolymathe, doolio,
-     fleimgruber, iSeeU, jixiuf, okamsn, tycho garen.
+     Nicolas De Jaeghere, Paul Poloskov, Pete Kazmier, Peter Wu, Philip
+     K., Pierre Téchoueyres, Roman Rudakov, Ryan Phillips, Shreyas
+     Ragavan, Simon Pugnet, Tassilo Horn, Thibaut Verron, Trey Merkley,
+     Togan Muftuoglu, Toon Claes, Uri Sharf, Utkarsh Singh, Vincent
+     Foley.  As well as users: Ben, CsBigDataHub1, Emacs Contrib,
+     Eugene, Fourchaux, Fredrik, Moesasji, Nick, TheBlob42, bepolymathe,
+     doolio, fleimgruber, iSeeU, jixiuf, okamsn, tycho garen.
 
 Packaging
      André Alexandre Gomes, Dimakakos Dimos, Morgan Smith, Nicolas
@@ -3376,8 +3376,8 @@ Node: Sources of the themes100451
 Node: Issues you can help with101189
 Node: Patches require copyright assignment to the FSF102389
 Node: Acknowledgements104684
-Node: Meta106771
-Node: GNU Free Documentation License108611
+Node: Meta106782
+Node: GNU Free Documentation License108622
 
 End Tag Table
 

@@ -2633,11 +2633,11 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Yiltiz, Ilja Kocken, Iris Garcia, Jeremy Friesen, John Haman, Kostadin
   Ninev, Len Trigg, Manuel Uberti, Mark Burton, Markus Beppler, Michael
   Goldenberg, Morgan Smith, Murilo Pereira, Nicolas De Jaeghere, Paul
-  Poloskov, Pete Kazmier, Peter Wu, Pierre Téchoueyres, Roman Rudakov,
-  Ryan Phillips, Shreyas Ragavan, Simon Pugnet, Tassilo Horn, Thibaut
-  Verron, Trey Merkley, Togan Muftuoglu, Toon Claes, Uri Sharf, Utkarsh
-  Singh, Vincent Foley.  As well as users: Ben, CsBigDataHub1, Emacs
-  Contrib, Eugene, Fourchaux, Fredrik, Moesasji, Nick, TheBlob42,
+  Poloskov, Pete Kazmier, Peter Wu, Philip K., Pierre Téchoueyres, Roman
+  Rudakov, Ryan Phillips, Shreyas Ragavan, Simon Pugnet, Tassilo Horn,
+  Thibaut Verron, Trey Merkley, Togan Muftuoglu, Toon Claes, Uri Sharf,
+  Utkarsh Singh, Vincent Foley.  As well as users: Ben, CsBigDataHub1,
+  Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji, Nick, TheBlob42,
   bepolymathe, doolio, fleimgruber, iSeeU, jixiuf, okamsn, tycho garen.
 
 + Packaging :: André Alexandre Gomes, Dimakakos Dimos, Morgan Smith,
