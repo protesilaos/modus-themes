@@ -4365,6 +4365,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; marginalia
     `(marginalia-archive ((,class :foreground ,green-nuanced-fg)))
     `(marginalia-date ((,class :foreground ,blue-nuanced-fg)))
+    `(marginalia-char ((,class :foreground ,red-active)))
     `(marginalia-documentation ((,class :foreground ,fg-special-cold :inherit modus-theme-slant)))
     `(marginalia-file-modes ((,class :inherit shadow)))
     `(marginalia-file-name ((,class :foreground ,fg-special-mild)))
@@ -4374,6 +4375,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(marginalia-modified ((,class :foreground ,yellow-active)))
     `(marginalia-number ((,class :foreground ,blue-active)))
     `(marginalia-size ((,class :foreground ,green-active)))
+    `(marginalia-type ((,class :foreground ,fg-special-warm)))
     `(marginalia-variable ((,class :foreground ,yellow-nuanced-fg)))
     `(marginalia-version ((,class :foreground ,cyan-active)))
 ;;;;; markdown-mode
