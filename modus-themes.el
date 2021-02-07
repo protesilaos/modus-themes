@@ -568,7 +568,7 @@
     ;; fg-mark-sel, fg-mark-del, fg-mark-alt can be combined
     ;; with bg-main, bg-dim, bg-alt, bg-hl-line
     ;;
-    ;; fg-unfocused must be combined with fg-main
+    ;; fg-unfocused must be combined with bg-main
     ;;
     ;; fg-docstring, fg-comment-yellow can be combined with
     ;; bg-main, bg-dim, bg-alt
@@ -810,7 +810,7 @@ symbol and the latter as a string.")
     ;; fg-mark-sel, fg-mark-del, fg-mark-alt can be combined
     ;; with bg-main, bg-dim, bg-alt, bg-hl-line
     ;;
-    ;; fg-unfocused must be combined with fg-main
+    ;; fg-unfocused must be combined with bg-main
     ;;
     ;; fg-docstring, fg-comment-yellow can be combined with
     ;; bg-main, bg-dim, bg-alt
