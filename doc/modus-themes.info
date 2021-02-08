@@ -30,7 +30,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.2.0-dev.  This manual was rebuilt on
-2021-02-04 21:19 +0200.
+2021-02-08 11:07 +0200.
 
 * Menu:
 
@@ -2309,6 +2309,7 @@ inherit from some basic faces.  Please confirm.
    • edit-indirect
    • evil-owl
    • fortran-mode
+   • goggles
    • i3wm-config-mode
    • perl-mode
    • php-mode
@@ -3358,26 +3359,26 @@ Node: Load theme depending on time of day78592
 Node: Face coverage79575
 Node: Supported packages80045
 Node: Indirectly covered packages86528
-Node: Notes for individual packages86983
-Node: Note for display-fill-column-indicator-mode87569
-Node: Note for prism89147
-Node: Note on company-mode overlay pop-up92112
-Ref: Note on company-mode overlay pop-up-Footnote-192799
-Ref: Note on company-mode overlay pop-up-Footnote-292866
-Node: Note for ERC escaped color sequences92921
-Ref: Note for ERC escaped color sequences-Footnote-194354
-Node: Note for powerline or spaceline94464
-Node: Note on SHR colors94880
-Node: Note for Helm grep95290
-Node: Note on vc-annotate-background-mode96735
-Node: Note on pdf-tools link hints97620
-Node: Contributing100051
-Node: Sources of the themes100451
-Node: Issues you can help with101189
-Node: Patches require copyright assignment to the FSF102389
-Node: Acknowledgements104684
-Node: Meta106782
-Node: GNU Free Documentation License108622
+Node: Notes for individual packages86998
+Node: Note for display-fill-column-indicator-mode87584
+Node: Note for prism89162
+Node: Note on company-mode overlay pop-up92127
+Ref: Note on company-mode overlay pop-up-Footnote-192814
+Ref: Note on company-mode overlay pop-up-Footnote-292881
+Node: Note for ERC escaped color sequences92936
+Ref: Note for ERC escaped color sequences-Footnote-194369
+Node: Note for powerline or spaceline94479
+Node: Note on SHR colors94895
+Node: Note for Helm grep95305
+Node: Note on vc-annotate-background-mode96750
+Node: Note on pdf-tools link hints97635
+Node: Contributing100066
+Node: Sources of the themes100466
+Node: Issues you can help with101204
+Node: Patches require copyright assignment to the FSF102404
+Node: Acknowledgements104699
+Node: Meta106797
+Node: GNU Free Documentation License108637
 
 End Tag Table
 

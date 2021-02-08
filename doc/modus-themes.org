@@ -2192,6 +2192,7 @@ inherit from some basic faces.  Please confirm.
 + edit-indirect
 + evil-owl
 + fortran-mode
++ goggles
 + i3wm-config-mode
 + perl-mode
 + php-mode
