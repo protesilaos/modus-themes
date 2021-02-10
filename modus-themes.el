@@ -2377,8 +2377,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
       ((,class ,@(modus-themes--diff
                   bg-main yellow
                   bg-diff-focus-changed fg-diff-focus-changed
-                  yellow-nuanced-bg fg-diff-changed)
-               :extend t)))
+                  yellow-nuanced-bg fg-diff-changed))))
     `(modus-theme-diff-removed
       ((,class ,@(modus-themes--diff
                   bg-main red
@@ -3018,7 +3017,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(diff-hl-reverted-hunk-highlight ((,class :inherit (modus-theme-active-magenta bold))))
 ;;;;; diff-mode
     `(diff-added ((,class :inherit modus-theme-diff-added)))
-    `(diff-changed ((,class :inherit modus-theme-diff-changed)))
+    `(diff-changed ((,class :inherit modus-theme-diff-changed :extend t)))
     `(diff-context ((,class :foreground ,fg-unfocused)))
     `(diff-error ((,class :inherit modus-theme-intense-red)))
     `(diff-file-header ((,class :inherit bold)))
