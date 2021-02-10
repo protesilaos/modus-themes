@@ -564,6 +564,7 @@ Possible values:
 4. =faint-neutral-underline=
 5. =no-underline=
 6. =underline-only=
+7. =neutral-underline-only= (coming in version =1.2.0=)
 
 The default style (nil) for links is to apply an underline and a
 saturated color to the affected text.  The color of the two is the same,
@@ -581,8 +582,12 @@ subtle gray underline.
 Option =no-underline= removes link underlines altogether, while retaining
 their original fairly vivid color.
 
-Option =underline-only= applies an underline while making the affected
-text colorless (it uses the same foreground as the theme's default).
+Option =underline-only= applies a prominent underline while making the
+affected text colorless (it uses the same foreground as the theme's
+default).
+
+Option =neutral-underline-only= makes the text colorless while using a
+subtle gray underline below it.
 
 NOTE: The placement of the underline, i.e. its proximity to the affected
 text, is controlled by the built-in =x-underline-at-descent-line=,

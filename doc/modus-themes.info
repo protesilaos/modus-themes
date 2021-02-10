@@ -30,7 +30,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.2.0-dev.  This manual was rebuilt on
-2021-02-08 11:07 +0200.
+2021-02-10 07:34 +0200.
 
 * Menu:
 
@@ -694,6 +694,7 @@ Symbol: ‘modus-themes-links’
   4. ‘faint-neutral-underline’
   5. ‘no-underline’
   6. ‘underline-only’
+  7. ‘neutral-underline-only’ (coming in version ‘1.2.0’)
 
    The default style (nil) for links is to apply an underline and a
 saturated color to the affected text.  The color of the two is the same,
@@ -711,9 +712,12 @@ with a subtle gray underline.
    Option ‘no-underline’ removes link underlines altogether, while
 retaining their original fairly vivid color.
 
-   Option ‘underline-only’ applies an underline while making the
-affected text colorless (it uses the same foreground as the theme’s
+   Option ‘underline-only’ applies a prominent underline while making
+the affected text colorless (it uses the same foreground as the theme’s
 default).
+
+   Option ‘neutral-underline-only’ makes the text colorless while using
+a subtle gray underline below it.
 
    NOTE: The placement of the underline, i.e.  its proximity to the
 affected text, is controlled by the built-in
@@ -3331,54 +3335,54 @@ Node: Slanted constructs22514
 Node: Syntax styles23061
 Node: No mixed fonts24576
 Node: Link styles25613
-Node: Command prompts27033
-Node: Mode line28256
-Node: Completion UIs31447
-Node: Fringes33279
-Node: Language checkers33939
-Node: Line highlighting35884
-Node: Matching parentheses36509
-Node: Active region37392
-Node: Diffs38328
-Node: Org mode blocks40619
-Node: Org agenda habits41962
-Node: Heading styles43797
-Node: Scaled headings47796
-Node: Scaled heading sizes48399
-Node: UI typeface51533
-Node: Headings' typeface52379
-Node: Advanced customization (do-it-yourself)53003
-Node: Case-by-case face specs using the themes' palette (DIY)54068
-Node: Face specs at scale using the themes' palette (DIY)58551
-Node: Override colors (DIY)65376
-Node: Font configurations for Org and others (DIY)69999
-Ref: Font configurations for Org and others (DIY)-Footnote-172322
-Node: Custom Org user faces (DIY)72509
-Node: Measure color contrast (DIY)75825
-Node: Load theme depending on time of day78592
-Node: Face coverage79575
-Node: Supported packages80045
-Node: Indirectly covered packages86528
-Node: Notes for individual packages86998
-Node: Note for display-fill-column-indicator-mode87584
-Node: Note for prism89162
-Node: Note on company-mode overlay pop-up92127
-Ref: Note on company-mode overlay pop-up-Footnote-192814
-Ref: Note on company-mode overlay pop-up-Footnote-292881
-Node: Note for ERC escaped color sequences92936
-Ref: Note for ERC escaped color sequences-Footnote-194369
-Node: Note for powerline or spaceline94479
-Node: Note on SHR colors94895
-Node: Note for Helm grep95305
-Node: Note on vc-annotate-background-mode96750
-Node: Note on pdf-tools link hints97635
-Node: Contributing100066
-Node: Sources of the themes100466
-Node: Issues you can help with101204
-Node: Patches require copyright assignment to the FSF102404
-Node: Acknowledgements104699
-Node: Meta106797
-Node: GNU Free Documentation License108637
+Node: Command prompts27219
+Node: Mode line28442
+Node: Completion UIs31633
+Node: Fringes33465
+Node: Language checkers34125
+Node: Line highlighting36070
+Node: Matching parentheses36695
+Node: Active region37578
+Node: Diffs38514
+Node: Org mode blocks40805
+Node: Org agenda habits42148
+Node: Heading styles43983
+Node: Scaled headings47982
+Node: Scaled heading sizes48585
+Node: UI typeface51719
+Node: Headings' typeface52565
+Node: Advanced customization (do-it-yourself)53189
+Node: Case-by-case face specs using the themes' palette (DIY)54254
+Node: Face specs at scale using the themes' palette (DIY)58737
+Node: Override colors (DIY)65562
+Node: Font configurations for Org and others (DIY)70185
+Ref: Font configurations for Org and others (DIY)-Footnote-172508
+Node: Custom Org user faces (DIY)72695
+Node: Measure color contrast (DIY)76011
+Node: Load theme depending on time of day78778
+Node: Face coverage79761
+Node: Supported packages80231
+Node: Indirectly covered packages86714
+Node: Notes for individual packages87184
+Node: Note for display-fill-column-indicator-mode87770
+Node: Note for prism89348
+Node: Note on company-mode overlay pop-up92313
+Ref: Note on company-mode overlay pop-up-Footnote-193000
+Ref: Note on company-mode overlay pop-up-Footnote-293067
+Node: Note for ERC escaped color sequences93122
+Ref: Note for ERC escaped color sequences-Footnote-194555
+Node: Note for powerline or spaceline94665
+Node: Note on SHR colors95081
+Node: Note for Helm grep95491
+Node: Note on vc-annotate-background-mode96936
+Node: Note on pdf-tools link hints97821
+Node: Contributing100252
+Node: Sources of the themes100652
+Node: Issues you can help with101390
+Node: Patches require copyright assignment to the FSF102590
+Node: Acknowledgements104885
+Node: Meta106983
+Node: GNU Free Documentation License108823
 
 End Tag Table
 

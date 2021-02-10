@@ -1604,9 +1604,12 @@ retaining their original fairly vivid color.
 
 Option `underline-only' applies an underline while making the
 affected text colorless (it uses the same foreground as the
-theme's default)."
+theme's default).
+
+Option `neutral-underline-only' makes the text colorless while
+using a subtle underline below it."
   :group 'modus-themes
-  :package-version '(modus-themes . "1.1.0")
+  :package-version '(modus-themes . "1.2.0")
   :version "28.1"
   :type '(choice
           (const :tag "Undeline link using the same color as the text (default)" nil)
@@ -1614,7 +1617,8 @@ theme's default)."
           (const :tag "Change the color of link underlines to a neutral grey" neutral-underline)
           (const :tag "Desaturated foreground with neutral grey underline" faint-neutral-underline)
           (const :tag "Remove underline property from links, keeping their foreground as-is" no-underline)
-          (const :tag "Apply underline only; use default foreground" underline-only)))
+          (const :tag "Apply underline only; use default foreground" underline-only)
+          (const :tag "Like `underline-only' but with a subtle underline" neutral-underline-only)))
 
 (defcustom modus-themes-region nil
   "Change the overall appearance of the active region.
@@ -2115,15 +2119,18 @@ underline.  UNDERLINE is a grey color only for the undeline."
     ('faint-neutral-underline (list :foreground fgfaint :underline underline))
     ('no-underline (list :foreground fg :underline nil))
     ('underline-only (list :underline t))
+    ('neutral-underline-only (list :underline underline))
     (_ (list :foreground fg :underline t))))
 
-(defun modus-themes--link-color (fg fgfaint)
+(defun modus-themes--link-color (fg fgfaint &optional neutralfg)
   "Extends `modus-themes--link'.
-FG is the main foreground.  FGFAINT is the desaturated one."
+FG is the main accented foreground.  FGFAINT is also accented,
+yet desaturated.  Optional NEUTRALFG is a gray value."
   (pcase modus-themes-links
     ('faint (list :foreground fgfaint))
     ('faint-neutral-underline (list :foreground fgfaint))
-    ('underline-only (list :underline t))
+    ('underline-only (list :underline t :foreground (or neutralfg 'unspecified)))
+    ('neutral-underline-only (list :underline 'unspecified :foreground (or neutralfg 'unspecified)))
     (_ (list :foreground fg))))
 
 (defun modus-themes--scale (amount)
@@ -2521,7 +2528,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(link ((,class :inherit button)))
     `(link-visited ((,class :inherit button
                             ,@(modus-themes--link-color
-                               magenta-alt-other magenta-alt-other-faint))))
+                               magenta-alt-other magenta-alt-other-faint fg-alt))))
     `(tooltip ((,class :background ,bg-special-cold :foreground ,fg-main)))
     `(widget-button ((,class :inherit button)))
     `(widget-button-pressed ((,class :inherit button
