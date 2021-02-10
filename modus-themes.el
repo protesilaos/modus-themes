@@ -2377,7 +2377,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
       ((,class ,@(modus-themes--diff
                   bg-main yellow
                   bg-diff-focus-changed fg-diff-focus-changed
-                  yellow-nuanced-bg fg-diff-changed))))
+                  yellow-nuanced-bg fg-diff-changed)
+               :extend t)))
     `(modus-theme-diff-removed
       ((,class ,@(modus-themes--diff
                   bg-main red
