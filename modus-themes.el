@@ -2074,6 +2074,16 @@ unspecified."
     ('bg-only (list :background altbg :foreground (if bg-only-fg altfg 'unspecified)))
     (_ (list :background mainbg :foreground mainfg))))
 
+(defun modus-themes--diff-text (fg-only-fg default-fg)
+  "Like `modus-themes--diff', but only for foregrounds.
+FG-ONLY-FG is the foreground that is used when diffs are styled
+using only foreground colors.  DEFAULT-FG covers all other
+cases."
+  (pcase modus-themes-diffs
+    ('fg-only (list :foreground fg-only-fg))
+    ('bg-only (list :foreground 'unspecified))
+    (_ (list :foreground default-fg))))
+
 (defun modus-themes--standard-completions (mainfg subtlebg intensebg intensefg)
   "Combinations for `modus-themes-completions'.
 
@@ -2415,7 +2425,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                   bg-diff-removed fg-diff-removed))))
     `(modus-theme-diff-heading
       ((,class ,@(modus-themes--diff
-                  bg-alt blue-alt
+                  bg-main blue
                   bg-diff-heading fg-diff-heading
                   cyan-nuanced-bg cyan-nuanced-fg t))))
 ;;;;; mark indicators
@@ -3018,11 +3028,11 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; diff-mode
     `(diff-added ((,class :inherit modus-theme-diff-added)))
     `(diff-changed ((,class :inherit modus-theme-diff-changed :extend t)))
-    `(diff-context ((,class :foreground ,fg-unfocused)))
+    `(diff-context ((,class ,@(modus-themes--diff-text fg-main fg-unfocused))))
     `(diff-error ((,class :inherit modus-theme-intense-red)))
-    `(diff-file-header ((,class :inherit bold)))
+    `(diff-file-header ((,class :inherit (bold diff-header))))
     `(diff-function ((,class :inherit modus-theme-diff-heading)))
-    `(diff-header ((,class :foreground ,fg-main)))
+    `(diff-header ((,class ,@(modus-themes--diff-text cyan-faint fg-main))))
     `(diff-hunk-header ((,class :inherit (bold modus-theme-diff-heading))))
     `(diff-index ((,class :inherit bold :foreground ,blue-alt)))
     `(diff-indicator-added ((,class :inherit (diff-added bold) :foreground ,green)))
