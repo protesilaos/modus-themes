@@ -830,6 +830,36 @@ With a non-nil value (=t=) use a more prominent background color instead.
 This affects several packages that enable =hl-line-mode=, such as =elfeed=
 and =mu4e=.
 
+** Option for line numbers (display-line-numbers-mode)
+:PROPERTIES:
+:ALT_TITLE: Line numbers
+:DESCRIPTION: Toggle subtle style for line numbers
+:CUSTOM_ID: h:8c4a6230-2e43-4aa2-a631-3b7179392e09
+:END:
+
+(coming in version =1.2.0=)
+
+Symbol: =modus-themes-subtle-line-numbers=
+
+Possible value:
+
+1. =nil= (default)
+2. =t=
+
+The default style for =display-line-numbers-mode= and its global variant
+is to apply a subtle gray background to the line numbers.  The current
+line has a more pronounced background and foreground combination to
+bring more attention to itself.
+
+Similarly, the faces for =display-line-numbers-major-tick= and its
+counterpart =display-line-numbers-minor-tick= use appropriate styles that
+involve a bespoke background and foreground combination.
+
+With a non-nil value (=t=), line numbers have no background of their own.
+Instead they retain the primary background of the theme, blending with
+the rest of the buffer.  Foreground values for all relevant faces are
+updated to accommodate this aesthetic.
+
 ** Option for parenthesis matching (show-paren-mode)
 :PROPERTIES:
 :ALT_TITLE: Matching parentheses

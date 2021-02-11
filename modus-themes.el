@@ -51,6 +51,7 @@
 ;;     modus-themes-diffs                          (choice)
 ;;     modus-themes-syntax                         (choice)
 ;;     modus-themes-intense-hl-line                (boolean)
+;;     modus-themes-subtle-line-numbers            (boolean)
 ;;     modus-themes-paren-match                    (choice)
 ;;     modus-themes-region                         (choice)
 ;;     modus-themes-links                          (choice)
@@ -1524,6 +1525,13 @@ they use grayscale values instead of accented ones."
   :version "28.1"
   :type 'boolean)
 
+(defcustom modus-themes-subtle-line-numbers nil
+  "Use more subtle style for command `display-line-numbers-mode'."
+  :group 'modus-themes
+  :package-version '(modus-themes . "1.2.0")
+  :version "28.1"
+  :type 'boolean)
+
 (defcustom modus-themes-paren-match nil
   "Choose the style of matching parentheses or delimiters.
 
@@ -1805,6 +1813,14 @@ value.  INTENSEBG must be a more pronounced greyscale color."
     ('intense (list :background intensebg))
     ('subtle (list :background subtlebg))
     (_ (list :background mainbg))))
+
+(defun modus-themes--line-numbers (mainfg mainbg altfg &optional altbg)
+  "Conditional use of colors for line numbers.
+MAINBG and MAINFG are the default colors.  ALTFG is a color that
+combines with the theme's primary background (white/black)."
+  (if modus-themes-subtle-line-numbers
+      (list :background (or altbg 'unspecified) :foreground altfg)
+    (list :background mainbg :foreground mainfg)))
 
 (defun modus-themes--lang-check (underline subtlefg intensefg bg)
   "Conditional use of foreground colors for language checkers.
@@ -4204,14 +4220,26 @@ by virtue of calling either of `modus-themes-load-operandi' and
                               blue-active blue-intense
                               'alt-style -3))))
 ;;;;; line numbers (display-line-numbers-mode and global variant)
-    `(line-number ((,class :inherit default :background ,bg-dim :foreground ,fg-alt)))
-    `(line-number-current-line ((,class :inherit default :background ,bg-active :foreground ,fg-main)))
-    `(line-number-major-tick ((,class :inherit (bold default)
-                                      :background ,yellow-nuanced-bg
-                                      :foreground ,yellow-nuanced-fg)))
-    `(line-number-minor-tick ((,class :inherit (bold default)
-                                      :background ,bg-inactive
-                                      :foreground ,fg-inactive)))
+    `(line-number
+      ((,class :inherit default
+               ,@(modus-themes--line-numbers
+                  fg-alt bg-dim
+                  fg-unfocused))))
+    `(line-number-current-line
+      ((,class :inherit (bold default)
+               ,@(modus-themes--line-numbers
+                  fg-main bg-active
+                  blue-alt-other))))
+    `(line-number-major-tick
+      ((,class :inherit (bold default)
+               ,@(modus-themes--line-numbers
+                  yellow-nuanced-fg yellow-nuanced-bg
+                  red-alt))))
+    `(line-number-minor-tick
+      ((,class :inherit (bold default)
+               ,@(modus-themes--line-numbers
+                  fg-alt bg-inactive
+                  fg-inactive))))
 ;;;;; lsp-mode
     `(lsp-face-highlight-read ((,class :inherit modus-theme-subtle-blue :underline t)))
     `(lsp-face-highlight-textual ((,class :inherit modus-theme-subtle-blue)))
