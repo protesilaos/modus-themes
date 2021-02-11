@@ -311,6 +311,7 @@ A complete annotated sample with variables set to different values:
       modus-themes-syntax nil
 
       modus-themes-intense-hl-line nil
+      modus-themes-subtle-line-numbers t
       modus-themes-paren-match 'subtle-bold ; {nil,'subtle-bold,'intense,'intense-bold}
 
       ;; Options for `modus-themes-links': nil, 'faint,
