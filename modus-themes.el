@@ -339,6 +339,7 @@
 ;;     syslog-mode
 ;;     table (built-in table.el)
 ;;     telephone-line
+;;     terraform-mode
 ;;     term
 ;;     tomatinho
 ;;     transient (pop-up windows like Magit's)
@@ -5388,6 +5389,13 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(telephone-line-projectile ((,class :foreground ,cyan-active)))
     `(telephone-line-unimportant ((,class :foreground ,fg-inactive)))
     `(telephone-line-warning ((,class :inherit bold :foreground ,yellow-active)))
+;;;;; terraform-mode
+    `(terraform--resource-name-face ((,class ,@(modus-themes--syntax-string
+                                                magenta-alt-other magenta-alt-other-faint
+                                                red-alt red-alt))))
+    `(terraform--resource-type-face ((,class ,@(modus-themes--syntax-string
+                                                green green-faint
+                                                blue-alt magenta-alt))))
 ;;;;; term
     `(term ((,class :background ,bg-main :foreground ,fg-main)))
     `(term-bold ((,class :inherit bold)))

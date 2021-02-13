@@ -2179,6 +2179,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + syslog-mode
 + table (built-in table.el)
 + telephone-line
++ terraform-mode
 + term
 + tomatinho
 + transient (pop-up windows such as Magit's)
@@ -2667,15 +2668,16 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Burgess Chang, Christian Tietze, Christopher Dimech, Damien Cassou,
   Daniel Mendler, Dario Gjorgjevski, David Edmondson, Davor Rotim, Divan
   Santana, Gerry Agbobada, Gianluca Recchia, Gustavo Barros, Hörmetjan
-  Yiltiz, Ilja Kocken, Iris Garcia, Jeremy Friesen, John Haman, Kostadin
-  Ninev, Len Trigg, Manuel Uberti, Mark Burton, Markus Beppler, Michael
-  Goldenberg, Morgan Smith, Murilo Pereira, Nicolas De Jaeghere, Paul
-  Poloskov, Pete Kazmier, Peter Wu, Philip K., Pierre Téchoueyres, Roman
-  Rudakov, Ryan Phillips, Shreyas Ragavan, Simon Pugnet, Tassilo Horn,
-  Thibaut Verron, Trey Merkley, Togan Muftuoglu, Toon Claes, Uri Sharf,
-  Utkarsh Singh, Vincent Foley.  As well as users: Ben, CsBigDataHub1,
-  Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji, Nick, TheBlob42,
-  bepolymathe, doolio, fleimgruber, iSeeU, jixiuf, okamsn, tycho garen.
+  Yiltiz, Ilja Kocken, Iris Garcia, Jeremy Friesen, John Haman, Kevin
+  Fleming, Kostadin Ninev, Len Trigg, Manuel Uberti, Mark Burton, Markus
+  Beppler, Michael Goldenberg, Morgan Smith, Murilo Pereira, Nicolas De
+  Jaeghere, Paul Poloskov, Pete Kazmier, Peter Wu, Philip K., Pierre
+  Téchoueyres, Roman Rudakov, Ryan Phillips, Shreyas Ragavan, Simon
+  Pugnet, Tassilo Horn, Thibaut Verron, Trey Merkley, Togan Muftuoglu,
+  Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.  As well as
+  users: Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik,
+  Moesasji, Nick, TheBlob42, bepolymathe, doolio, fleimgruber, iSeeU,
+  jixiuf, okamsn, tycho garen.
 
 + Packaging :: André Alexandre Gomes, Dimakakos Dimos, Morgan Smith,
   Nicolas Goaziou (Guix), Dhavan Vaidya (Debian), Stefan Kangas (core
