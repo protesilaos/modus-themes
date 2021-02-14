@@ -633,7 +633,7 @@
     (bg-mark-sel . "#a0f0cf") (fg-mark-sel . "#005040")
     (bg-mark-del . "#ffccbb") (fg-mark-del . "#840040")
     (bg-mark-alt . "#f5d88f") (fg-mark-alt . "#782900"))
-  "The entire palette of `modus-themes'.
+  "The entire palette of `modus-operandi' theme.
 Each element has the form (NAME . HEX) with the former as a
 symbol and the latter as a string.")
 
@@ -875,7 +875,7 @@ symbol and the latter as a string.")
     (bg-mark-sel . "#002f2f") (fg-mark-sel . "#60cfa2")
     (bg-mark-del . "#5a0000") (fg-mark-del . "#ff99aa")
     (bg-mark-alt . "#3f2210") (fg-mark-alt . "#f0aa20"))
-  "The entire palette of `modus-vivendi-theme'.
+  "The entire palette of `modus-vivendi' theme.
 Each element has the form (NAME . HEX) with the former as a
 symbol and the latter as a string.")
 
