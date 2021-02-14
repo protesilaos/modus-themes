@@ -1580,9 +1580,12 @@ color combinations.  Strings are green.  Doc strings are magenta
 tinted.  Comments are gray.
 
 Option `alt-syntax-yellow-comments' combines `alt-syntax' with
+`yellow-comments'.
+
+Option `faint-yellow-comments' combines the `faint' style with
 `yellow-comments'."
   :group 'modus-themes
-  :package-version '(modus-themes . "1.0.0")
+  :package-version '(modus-themes . "1.2.0")
   :version "28.1"
   :type '(choice
           (const :tag "Balanced use of blue, cyan, magenta, purple variants (default)" nil)
@@ -1591,7 +1594,8 @@ Option `alt-syntax-yellow-comments' combines `alt-syntax' with
           (const :tag "Use green for strings, keep the default style for the rest" green-strings)
           (const :tag "Use green for strings, yellow for comments, keep the default style for the rest" yellow-comments-green-strings)
           (const :tag "Refashion syntax highlighting with more colors, gray comments" alt-syntax)
-          (const :tag "Like `alt-syntax' but with yellow comments" alt-syntax-yellow-comments)))
+          (const :tag "Like `alt-syntax' but with yellow comments" alt-syntax-yellow-comments)
+          (const :tag "Like `faint' but with yellow comments" faint-yellow-comments)))
 
 (defcustom modus-themes-links nil
   "Set the style of links.
@@ -1879,6 +1883,7 @@ FG is the default.  FAINT is typically the same color in its
 desaturated version."
   (pcase modus-themes-syntax
     ('faint (list :foreground faint))
+    ('faint-yellow-comments (list :foreground faint))
     (_ (list :foreground fg))))
 
 (defun modus-themes--syntax-extra (fg faint alt)
@@ -1887,6 +1892,7 @@ FG is the default.  FAINT is typically the same color in its
 desaturated version.  ALT is another hue."
   (pcase modus-themes-syntax
     ('faint (list :foreground faint))
+    ('faint-yellow-comments (list :foreground faint))
     ('alt-syntax (list :foreground alt))
     ('alt-syntax-yellow-comments (list :foreground alt))
     (_ (list :foreground fg))))
@@ -1898,6 +1904,7 @@ desaturated version.  GREEN is a color variant in that side of
 the spectrum.  ALT is another hue."
   (pcase modus-themes-syntax
     ('faint (list :foreground faint))
+    ('faint-yellow-comments (list :foreground faint))
     ('green-strings (list :foreground green))
     ('yellow-comments-green-strings (list :foreground alt))
     ('alt-syntax (list :foreground alt))
@@ -1911,6 +1918,7 @@ desaturated version.  GREEN is a color variant in that side of
 the spectrum.  ALT is another hue."
   (pcase modus-themes-syntax
     ('faint (list :foreground faint))
+    ('faint-yellow-comments (list :foreground faint))
     ('green-strings (list :foreground green))
     ('yellow-comments-green-strings (list :foreground green))
     ('alt-syntax (list :foreground alt))
@@ -1924,6 +1932,7 @@ FG is the default.  YELLOW is a color variant of that name."
     ('yellow-comments (list :foreground yellow))
     ('yellow-comments-green-strings (list :foreground yellow))
     ('alt-syntax-yellow-comments (list :foreground yellow))
+    ('faint-yellow-comments (list :foreground yellow))
     (_ (list :foreground fg))))
 
 (defun modus-themes--heading-p (key)

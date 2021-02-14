@@ -30,7 +30,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.2.0-dev.  This manual was rebuilt on
-2021-02-13 07:49 +0200.
+2021-02-14 06:23 +0200.
 
 * Menu:
 
@@ -627,6 +627,7 @@ Symbol: ‘modus-themes-syntax’
   5. ‘yellow-comments-green-strings’
   6. ‘alt-syntax’
   7. ‘alt-syntax-yellow-comments’
+  8. ‘faint-yellow-comments’ (coming in version ‘1.2.0’)
 
    The default style (nil) for code syntax highlighting is a balanced
 combination of colors on the cyan-blue-magenta side of the spectrum.
@@ -651,6 +652,9 @@ combinations with more contrasting hues between them.  Expect to find
 more red and green variants in addition to cyan, blue, magenta.
 
    Option ‘alt-syntax-yellow-comments’ combines ‘alt-syntax’ with
+‘yellow-comments’.
+
+   Option ‘faint-yellow-comments’ combines the ‘faint’ style with
 ‘yellow-comments’.
 
 
@@ -3367,57 +3371,57 @@ Node: Customization Options19894
 Node: Bold constructs22111
 Node: Slanted constructs22700
 Node: Syntax styles23247
-Node: No mixed fonts24762
-Node: Link styles25799
-Node: Command prompts27405
-Node: Mode line28628
-Node: Completion UIs31819
-Node: Fringes33651
-Node: Language checkers34311
-Node: Line highlighting36256
-Node: Line numbers36873
-Node: Matching parentheses37987
-Node: Active region38865
-Node: Diffs39801
-Node: Org mode blocks42092
-Node: Org agenda habits43435
-Node: Heading styles45270
-Node: Scaled headings49269
-Node: Scaled heading sizes49872
-Node: UI typeface53006
-Node: Headings' typeface53852
-Node: Advanced customization (do-it-yourself)54476
-Node: Case-by-case face specs using the themes' palette (DIY)55541
-Node: Face specs at scale using the themes' palette (DIY)60024
-Node: Override colors (DIY)66849
-Node: Font configurations for Org and others (DIY)71472
-Ref: Font configurations for Org and others (DIY)-Footnote-173795
-Node: Custom Org user faces (DIY)73982
-Node: Measure color contrast (DIY)77298
-Node: Load theme depending on time of day80065
-Node: Face coverage81048
-Node: Supported packages81518
-Node: Indirectly covered packages88023
-Node: Notes for individual packages88493
-Node: Note for display-fill-column-indicator-mode89079
-Node: Note for prism90657
-Node: Note on company-mode overlay pop-up93622
-Ref: Note on company-mode overlay pop-up-Footnote-194309
-Ref: Note on company-mode overlay pop-up-Footnote-294376
-Node: Note for ERC escaped color sequences94431
-Ref: Note for ERC escaped color sequences-Footnote-195864
-Node: Note for powerline or spaceline95974
-Node: Note on SHR colors96390
-Node: Note for Helm grep96800
-Node: Note on vc-annotate-background-mode98245
-Node: Note on pdf-tools link hints99130
-Node: Contributing101561
-Node: Sources of the themes101961
-Node: Issues you can help with102699
-Node: Patches require copyright assignment to the FSF103899
-Node: Acknowledgements106194
-Node: Meta108312
-Node: GNU Free Documentation License110152
+Node: No mixed fonts24925
+Node: Link styles25962
+Node: Command prompts27568
+Node: Mode line28791
+Node: Completion UIs31982
+Node: Fringes33814
+Node: Language checkers34474
+Node: Line highlighting36419
+Node: Line numbers37036
+Node: Matching parentheses38150
+Node: Active region39028
+Node: Diffs39964
+Node: Org mode blocks42255
+Node: Org agenda habits43598
+Node: Heading styles45433
+Node: Scaled headings49432
+Node: Scaled heading sizes50035
+Node: UI typeface53169
+Node: Headings' typeface54015
+Node: Advanced customization (do-it-yourself)54639
+Node: Case-by-case face specs using the themes' palette (DIY)55704
+Node: Face specs at scale using the themes' palette (DIY)60187
+Node: Override colors (DIY)67012
+Node: Font configurations for Org and others (DIY)71635
+Ref: Font configurations for Org and others (DIY)-Footnote-173958
+Node: Custom Org user faces (DIY)74145
+Node: Measure color contrast (DIY)77461
+Node: Load theme depending on time of day80228
+Node: Face coverage81211
+Node: Supported packages81681
+Node: Indirectly covered packages88186
+Node: Notes for individual packages88656
+Node: Note for display-fill-column-indicator-mode89242
+Node: Note for prism90820
+Node: Note on company-mode overlay pop-up93785
+Ref: Note on company-mode overlay pop-up-Footnote-194472
+Ref: Note on company-mode overlay pop-up-Footnote-294539
+Node: Note for ERC escaped color sequences94594
+Ref: Note for ERC escaped color sequences-Footnote-196027
+Node: Note for powerline or spaceline96137
+Node: Note on SHR colors96553
+Node: Note for Helm grep96963
+Node: Note on vc-annotate-background-mode98408
+Node: Note on pdf-tools link hints99293
+Node: Contributing101724
+Node: Sources of the themes102124
+Node: Issues you can help with102862
+Node: Patches require copyright assignment to the FSF104062
+Node: Acknowledgements106357
+Node: Meta108475
+Node: GNU Free Documentation License110315
 
 End Tag Table
 

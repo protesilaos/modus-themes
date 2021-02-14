@@ -494,6 +494,7 @@ Possible values:
 5. =yellow-comments-green-strings=
 6. =alt-syntax=
 7. =alt-syntax-yellow-comments=
+8. =faint-yellow-comments= (coming in version =1.2.0=)
 
 The default style (nil) for code syntax highlighting is a balanced
 combination of colors on the cyan-blue-magenta side of the spectrum.
@@ -518,6 +519,9 @@ combinations with more contrasting hues between them.  Expect to find
 more red and green variants in addition to cyan, blue, magenta.
 
 Option =alt-syntax-yellow-comments= combines =alt-syntax= with
+=yellow-comments=.
+
+Option =faint-yellow-comments= combines the =faint= style with
 =yellow-comments=.
 
 ** Option for no font mixing
