@@ -885,91 +885,597 @@ symbol and the latter as a string.")
 ;;; Custom faces
 
 ;; These faces are used internally to ensure consistency between various
-;; groups.  Their properties are assigned in `modus-themes-faces'.
-(defface modus-theme-subtle-red nil nil)
-(defface modus-theme-subtle-green nil nil)
-(defface modus-theme-subtle-yellow nil nil)
-(defface modus-theme-subtle-blue nil nil)
-(defface modus-theme-subtle-magenta nil nil)
-(defface modus-theme-subtle-cyan nil nil)
-(defface modus-theme-subtle-neutral nil nil)
-(defface modus-theme-intense-red nil nil)
-(defface modus-theme-intense-green nil nil)
-(defface modus-theme-intense-yellow nil nil)
-(defface modus-theme-intense-blue nil nil)
-(defface modus-theme-intense-magenta nil nil)
-(defface modus-theme-intense-cyan nil nil)
-(defface modus-theme-intense-neutral nil nil)
-(defface modus-theme-refine-red nil nil)
-(defface modus-theme-refine-green nil nil)
-(defface modus-theme-refine-yellow nil nil)
-(defface modus-theme-refine-blue nil nil)
-(defface modus-theme-refine-magenta nil nil)
-(defface modus-theme-refine-cyan nil nil)
-(defface modus-theme-active-red nil nil)
-(defface modus-theme-active-green nil nil)
-(defface modus-theme-active-yellow nil nil)
-(defface modus-theme-active-blue nil nil)
-(defface modus-theme-active-magenta nil nil)
-(defface modus-theme-active-cyan nil nil)
-(defface modus-theme-fringe-red nil nil)
-(defface modus-theme-fringe-green nil nil)
-(defface modus-theme-fringe-yellow nil nil)
-(defface modus-theme-fringe-blue nil nil)
-(defface modus-theme-fringe-magenta nil nil)
-(defface modus-theme-fringe-cyan nil nil)
-(defface modus-theme-nuanced-red nil nil)
-(defface modus-theme-nuanced-green nil nil)
-(defface modus-theme-nuanced-yellow nil nil)
-(defface modus-theme-nuanced-blue nil nil)
-(defface modus-theme-nuanced-magenta nil nil)
-(defface modus-theme-nuanced-cyan nil nil)
-(defface modus-theme-special-cold nil nil)
-(defface modus-theme-special-mild nil nil)
-(defface modus-theme-special-warm nil nil)
-(defface modus-theme-special-calm nil nil)
-(defface modus-theme-diff-added nil nil)
-(defface modus-theme-diff-changed nil nil)
-(defface modus-theme-diff-removed nil nil)
-(defface modus-theme-diff-refine-added nil nil)
-(defface modus-theme-diff-refine-changed nil nil)
-(defface modus-theme-diff-refine-removed nil nil)
-(defface modus-theme-diff-focus-added nil nil)
-(defface modus-theme-diff-focus-changed nil nil)
-(defface modus-theme-diff-focus-removed nil nil)
-(defface modus-theme-diff-heading nil nil)
-(defface modus-theme-pseudo-header nil nil)
-(defface modus-theme-mark-alt nil nil)
-(defface modus-theme-mark-del nil nil)
-(defface modus-theme-mark-sel nil nil)
-(defface modus-theme-mark-symbol nil nil)
-(defface modus-theme-heading-1 nil nil)
-(defface modus-theme-heading-2 nil nil)
-(defface modus-theme-heading-3 nil nil)
-(defface modus-theme-heading-4 nil nil)
-(defface modus-theme-heading-5 nil nil)
-(defface modus-theme-heading-6 nil nil)
-(defface modus-theme-heading-7 nil nil)
-(defface modus-theme-heading-8 nil nil)
-(defface modus-theme-hl-line nil nil)
-(defface modus-theme-bold nil nil)
-(defface modus-theme-slant nil nil)
-(defface modus-theme-variable-pitch nil nil)
-(defface modus-theme-graph-red-0 nil nil)
-(defface modus-theme-graph-red-1 nil nil)
-(defface modus-theme-graph-green-0 nil nil)
-(defface modus-theme-graph-green-1 nil nil)
-(defface modus-theme-graph-yellow-0 nil nil)
-(defface modus-theme-graph-yellow-1 nil nil)
-(defface modus-theme-graph-blue-0 nil nil)
-(defface modus-theme-graph-blue-1 nil nil)
-(defface modus-theme-graph-magenta-0 nil nil)
-(defface modus-theme-graph-magenta-1 nil nil)
-(defface modus-theme-graph-cyan-0 nil nil)
-(defface modus-theme-graph-cyan-1 nil nil)
-(defface modus-theme-lang-note nil nil)
-(defface modus-theme-lang-warning nil nil)
-(defface modus-theme-lang-error nil nil)
+;; groups and to streamline the evaluation of relevant customization
+;; options.
+(defface modus-theme-subtle-red nil
+  "Subtle red background combined with a dimmed foreground.
+This is used for general purpose highlighting, mostly in buffers
+or for completion interfaces.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-subtle-green nil
+  "Subtle green background combined with a dimmed foreground.
+This is used for general purpose highlighting, mostly in buffers
+or for completion interfaces.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-subtle-yellow nil
+  "Subtle yellow background combined with a dimmed foreground.
+This is used for general purpose highlighting, mostly in buffers
+or for completion interfaces.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-subtle-blue nil
+  "Subtle blue background combined with a dimmed foreground.
+This is used for general purpose highlighting, mostly in buffers
+or for completion interfaces.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-subtle-magenta nil
+  "Subtle magenta background combined with a dimmed foreground.
+This is used for general purpose highlighting, mostly in buffers
+or for completion interfaces.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-subtle-cyan nil
+  "Subtle cyan background combined with a dimmed foreground.
+This is used for general purpose highlighting, mostly in buffers
+or for completion interfaces.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-subtle-neutral nil
+  "Subtle gray background combined with a dimmed foreground.
+This is used for general purpose highlighting, mostly in buffers
+or for completion interfaces.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-intense-red nil
+  "Intense red background combined with the main foreground.
+This is used for general purpose highlighting, mostly in buffers
+or for completion interfaces.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-intense-green nil
+  "Intense green background combined with the main foreground.
+This is used for general purpose highlighting, mostly in buffers
+or for completion interfaces.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-intense-yellow nil
+  "Intense yellow background combined with the main foreground.
+This is used for general purpose highlighting, mostly in buffers
+or for completion interfaces.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-intense-blue nil
+  "Intense blue background combined with the main foreground.
+This is used for general purpose highlighting, mostly in buffers
+or for completion interfaces.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-intense-magenta nil
+  "Intense magenta background combined with the main foreground.
+This is used for general purpose highlighting, mostly in buffers
+or for completion interfaces.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-intense-cyan nil
+  "Intense cyan background combined with the main foreground.
+This is used for general purpose highlighting, mostly in buffers
+or for completion interfaces.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-intense-neutral nil
+  "Intense gray background combined with the main foreground.
+This is used for general purpose highlighting, mostly in buffers
+or for completion interfaces.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-refine-red nil
+  "Combination of accented red background and foreground.
+This is used for general purpose highlighting, mostly in buffers
+or for completion interfaces.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-refine-green nil
+  "Combination of accented green background and foreground.
+This is used for general purpose highlighting, mostly in buffers
+or for completion interfaces.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-refine-yellow nil
+  "Combination of accented yellow background and foreground.
+This is used for general purpose highlighting, mostly in buffers
+or for completion interfaces.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-refine-blue nil
+  "Combination of accented blue background and foreground.
+This is used for general purpose highlighting, mostly in buffers
+or for completion interfaces.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-refine-magenta nil
+  "Combination of accented magenta background and foreground.
+This is used for general purpose highlighting, mostly in buffers
+or for completion interfaces.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-refine-cyan nil
+  "Combination of accented cyan background and foreground.
+This is used for general purpose highlighting, mostly in buffers
+or for completion interfaces.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-active-red nil
+  "A red background meant for use on the modeline or similar.
+This is combined with the modelines primary foreground value.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-active-green nil
+  "A green background meant for use on the modeline or similar.
+This is combined with the modelines primary foreground value.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-active-yellow nil
+  "A yellow background meant for use on the modeline or similar.
+This is combined with the modelines primary foreground value.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-active-blue nil
+  "A blue background meant for use on the modeline or similar.
+This is combined with the modelines primary foreground value.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-active-magenta nil
+  "A magenta background meant for use on the modeline or similar.
+This is combined with the modelines primary foreground value.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-active-cyan nil
+  "A cyan background meant for use on the modeline or similar.
+This is combined with the modelines primary foreground value.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-fringe-red nil
+  "A red background meant for use on the fringe or similar.
+This is combined with the main foreground value.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-fringe-green nil
+  "A green background meant for use on the fringe or similar.
+This is combined with the main foreground value.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-fringe-yellow nil
+  "A yellow background meant for use on the fringe or similar.
+This is combined with the main foreground value.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-fringe-blue nil
+  "A blue background meant for use on the fringe or similar.
+This is combined with the main foreground value.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-fringe-magenta nil
+  "A magenta background meant for use on the fringe or similar.
+This is combined with the main foreground value.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-fringe-cyan nil
+  "A cyan background meant for use on the fringe or similar.
+This is combined with the main foreground value.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-nuanced-red nil
+  "A nuanced red background.
+This does not specify a foreground of its own.  Instead it is meant to
+serve as the backdrop for elements such as Org blocks, headings, and any
+other surface that needs to retain the colors on display.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-nuanced-green nil
+  "A nuanced green background.
+This does not specify a foreground of its own.  Instead it is meant to
+serve as the backdrop for elements such as Org blocks, headings, and any
+other surface that needs to retain the colors on display.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-nuanced-yellow nil
+  "A nuanced yellow background.
+This does not specify a foreground of its own.  Instead it is meant to
+serve as the backdrop for elements such as Org blocks, headings, and any
+other surface that needs to retain the colors on display.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-nuanced-blue nil
+  "A nuanced blue background.
+This does not specify a foreground of its own.  Instead it is meant to
+serve as the backdrop for elements such as Org blocks, headings, and any
+other surface that needs to retain the colors on display.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-nuanced-magenta nil
+  "A nuanced magenta background.
+This does not specify a foreground of its own.  Instead it is meant to
+serve as the backdrop for elements such as Org blocks, headings, and any
+other surface that needs to retain the colors on display.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-nuanced-cyan nil
+  "A nuanced cyan background.
+This does not specify a foreground of its own.  Instead it is meant to
+serve as the backdrop for elements such as Org blocks, headings, and any
+other surface that needs to retain the colors on display.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-special-cold nil
+  "Combines the 'special cold' background and foreground values.
+This is intended for cases when a neutral gray background is not
+suitable and where a combination of more saturated colors would not be
+appropriate.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-special-mild nil
+  "Combines the 'special mild' background and foreground values.
+This is intended for cases when a neutral gray background is not
+suitable and where a combination of more saturated colors would not be
+appropriate.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-special-warm nil
+  "Combines the 'special warm' background and foreground values.
+This is intended for cases when a neutral gray background is not
+suitable and where a combination of more saturated colors would not be
+appropriate.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-special-calm nil
+  "Combines the 'special calm' background and foreground values.
+This is intended for cases when a neutral gray background is not
+suitable and where a combination of more saturated colors would not be
+appropriate.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-diff-added nil
+  "Combines green colors for the 'added' state in diffs.
+The applied colors are contingent on the value assigned to
+`modus-themes-diffs'.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-diff-changed nil
+  "Combines yellow colors for the 'changed' state in diffs.
+The applied colors are contingent on the value assigned to
+`modus-themes-diffs'.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-diff-removed nil
+  "Combines red colors for the 'removed' state in diffs.
+The applied colors are contingent on the value assigned to
+`modus-themes-diffs'.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-diff-refine-added nil
+  "Combines green colors for word-wise 'added' state in diffs.
+The applied colors are contingent on the value assigned to
+`modus-themes-diffs'.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-diff-refine-changed nil
+  "Combines yellow colors for word-wise 'changed' state in diffs.
+The applied colors are contingent on the value assigned to
+`modus-themes-diffs'.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-diff-refine-removed nil
+  "Combines red colors for word-wise 'removed' state in diffs.
+The applied colors are contingent on the value assigned to
+`modus-themes-diffs'.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-diff-focus-added nil
+  "Combines green colors for the focused 'added' state in diffs.
+The applied colors are contingent on the value assigned to
+`modus-themes-diffs'.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-diff-focus-changed nil
+  "Combines yellow colors for the focused 'changed' state in.
+The applied colors are contingent on the value assigned to
+`modus-themes-diffs'.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-diff-focus-removed nil
+  "Combines red colors for the focused 'removed' state in diffs.
+The applied colors are contingent on the value assigned to
+`modus-themes-diffs'.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-diff-heading nil
+  "Combines blue colors for the diff hunk heading.
+The applied colors are contingent on the value assigned to
+`modus-themes-diffs'.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-pseudo-header nil
+  "Generic style for some elements that function like headings.
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-mark-alt nil
+  "Combines yellow colors for marking special lines
+This is intended for use in modes such as Dired, Ibuffer, Proced.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-mark-del nil
+  "Combines red colors for marking deletable lines
+This is intended for use in modes such as Dired, Ibuffer, Proced.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-mark-sel nil
+  "Combines green colors for marking lines
+This is intended for use in modes such as Dired, Ibuffer, Proced.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-mark-symbol nil
+  "Applies a blue color and other styles for mark indicators.
+This is intended for use in modes such as Dired, Ibuffer, Proced.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-heading-1 nil
+  "General purpose face for use in headings level 1
+The exact attributes assigned to this face are contingent on the values
+assigned to the `modus-themes-headings' variable.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-heading-2 nil
+  "General purpose face for use in headings level 2.
+The exact attributes assigned to this face are contingent on the values
+assigned to the `modus-themes-headings' variable.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-heading-3 nil
+  "General purpose face for use in headings level 3.
+The exact attributes assigned to this face are contingent on the values
+assigned to the `modus-themes-headings' variable.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-heading-4 nil
+  "General purpose face for use in headings level 4.
+The exact attributes assigned to this face are contingent on the values
+assigned to the `modus-themes-headings' variable.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-heading-5 nil
+  "General purpose face for use in headings level 5.
+The exact attributes assigned to this face are contingent on the values
+assigned to the `modus-themes-headings' variable.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-heading-6 nil
+  "General purpose face for use in headings level 6.
+The exact attributes assigned to this face are contingent on the values
+assigned to the `modus-themes-headings' variable.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-heading-7 nil
+  "General purpose face for use in headings level 7.
+The exact attributes assigned to this face are contingent on the values
+assigned to the `modus-themes-headings' variable.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-heading-8 nil
+  "General purpose face for use in headings level 8.
+The exact attributes assigned to this face are contingent on the values
+assigned to the `modus-themes-headings' variable.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-hl-line nil
+  "General purpose face for the current line.
+The exact attributes assigned to this face are contingent on the values
+assigned to the `modus-themes-intense-hl-line' variable.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-bold nil
+  "Generic face for applying a conditional bold weight.
+This behaves in accordance with `modus-themes-bold-constructs'.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-slant nil
+  "Generic face for applying a conditional slant (italics).
+This behaves in accordance with `modus-themes-slanted-constructs'.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-variable-pitch nil
+  "Generic face for applying a conditional `variable-pitch'.
+This behaves in accordance with `modus-themes-no-mixed-fonts',
+`modus-themes-variable-pitch-headings' for all heading levels, and
+`modus-themes-variable-pitch-ui'.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-graph-red-0 nil
+  "Special subdued red face for use in graphs.
+This is intended to be applied in contexts such as the Org agenda habit
+graph where faithfulness to the semantics of a color value is of
+paramount importance.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-graph-red-1 nil
+  "Special prominent red face for use in graphs.
+This is intended to be applied in contexts such as the Org agenda habit
+graph where faithfulness to the semantics of a color value is of
+paramount importance.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-graph-green-0 nil
+  "Special subdued green face for use in graphs.
+This is intended to be applied in contexts such as the Org agenda habit
+graph where faithfulness to the semantics of a color value is of
+paramount importance.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-graph-green-1 nil
+  "Special prominent green face for use in graphs.
+This is intended to be applied in contexts such as the Org agenda habit
+graph where faithfulness to the semantics of a color value is of
+paramount importance.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-graph-yellow-0 nil
+  "Special subdued yellow face for use in graphs.
+This is intended to be applied in contexts such as the Org agenda habit
+graph where faithfulness to the semantics of a color value is of
+paramount importance.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-graph-yellow-1 nil
+  "Special prominent yellow face for use in graphs.
+This is intended to be applied in contexts such as the Org agenda habit
+graph where faithfulness to the semantics of a color value is of
+paramount importance.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-graph-blue-0 nil
+  "Special subdued blue face for use in graphs.
+This is intended to be applied in contexts such as the Org agenda habit
+graph where faithfulness to the semantics of a color value is of
+paramount importance.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-graph-blue-1 nil
+  "Special prominent blue face for use in graphs.
+This is intended to be applied in contexts such as the Org agenda habit
+graph where faithfulness to the semantics of a color value is of
+paramount importance.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-graph-magenta-0 nil
+  "Special subdued magenta face for use in graphs.
+This is intended to be applied in contexts such as the Org agenda habit
+graph where faithfulness to the semantics of a color value is of
+paramount importance.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-graph-magenta-1 nil
+  "Special prominent magenta face for use in graphs.
+This is intended to be applied in contexts such as the Org agenda habit
+graph where faithfulness to the semantics of a color value is of
+paramount importance.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-graph-cyan-0 nil
+  "Special subdued cyan face for use in graphs.
+This is intended to be applied in contexts such as the Org agenda habit
+graph where faithfulness to the semantics of a color value is of
+paramount importance.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-graph-cyan-1 nil
+  "Special prominent cyan face for use in graphs.
+This is intended to be applied in contexts such as the Org agenda habit
+graph where faithfulness to the semantics of a color value is of
+paramount importance.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-lang-note nil
+  "Generic face for linter or spell checker notes.
+The exact attributes and color combinations are controlled by
+`modus-themes-lang-checkers'.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-lang-warning nil
+  "Generic face for linter or spell checker warnings.
+The exact attributes and color combinations are controlled by
+`modus-themes-lang-checkers'.
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-theme-lang-error nil
+  "Generic face for linter or spell checker errors.
+The exact attributes and color combinations are controlled by
+`modus-themes-lang-checkers'.
+
+The actual styling of the face is done by `modus-themes-faces'.")
 
 
 
