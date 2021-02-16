@@ -390,6 +390,7 @@
 (defgroup modus-themes ()
   "Options for `modus-operandi', `modus-vivendi'."
   :group 'faces
+  :link '(info-link "(modus-themes) Top")
   :prefix "modus-themes-"
   :tag "Modus Themes")
 
@@ -983,7 +984,8 @@ For form, see `modus-themes-operandi-colors'."
   :group 'modus-themes
   :package-version '(modus-themes . "1.1.0")
   :version "28.1"
-  :type '(alist :key-type symbol :value-type color))
+  :type '(alist :key-type symbol :value-type color)
+  :link '(info-link "(modus-themes) Override colors (DIY)"))
 
 (defcustom modus-themes-vivendi-color-overrides nil
   "Override colors in the Modus Vivendi palette.
@@ -992,7 +994,8 @@ For form, see `modus-themes-vivendi-colors'."
   :group 'modus-themes
   :package-version '(modus-themes . "1.1.0")
   :version "28.1"
-  :type '(alist :key-type symbol :value-type color))
+  :type '(alist :key-type symbol :value-type color)
+  :link '(info-link "(modus-themes) Override colors (DIY)"))
 
 ;; The byte compiler complains when a defcustom isn't a top level form
 (let* ((names (mapcar (lambda (pair)
@@ -1009,21 +1012,24 @@ For form, see `modus-themes-vivendi-colors'."
   :group 'modus-themes
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
-  :type 'boolean)
+  :type 'boolean
+  :link '(info-link "(modus-themes) Slanted constructs"))
 
 (defcustom modus-themes-bold-constructs nil
   "Use bold text in more code constructs."
   :group 'modus-themes
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
-  :type 'boolean)
+  :type 'boolean
+  :link '(info-link "(modus-themes) Bold constructs"))
 
 (defcustom modus-themes-variable-pitch-headings nil
   "Use proportional fonts (variable-pitch) in headings."
   :group 'modus-themes
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
-  :type 'boolean)
+  :type 'boolean
+  :link '(info-link "(modus-themes) Headings' typeface"))
 
 (defcustom modus-themes-variable-pitch-ui nil
   "Use proportional fonts (variable-pitch) in UI elements.
@@ -1031,7 +1037,8 @@ This includes the mode line, header line, tab bar, and tab line."
   :group 'modus-themes
   :package-version '(modus-themes . "1.1.0")
   :version "28.1"
-  :type 'boolean)
+  :type 'boolean
+  :link '(info-link "(modus-themes) UI typeface"))
 
 (defcustom modus-themes-no-mixed-fonts nil
   "Disable inheritance from `fixed-pitch' in some faces.
@@ -1047,7 +1054,8 @@ mixing fonts."
   :group 'modus-themes
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
-  :type 'boolean)
+  :type 'boolean
+  :link '(info-link "(modus-themes) No mixed fonts"))
 
 (defcustom modus-themes-headings
   '((t . nil))
@@ -1149,7 +1157,8 @@ A description of all possible values:
             (const :tag "Like `section' with more colorful foreground" rainbow-section)
             (const :tag "Like `rainbow-section' without bold weight" rainbow-section-no-bold)
             (const :tag "Do not use any color; just bold weight" no-color)
-            (const :tag "Like `no-bold' but without the bold weight" no-color-no-bold))))
+            (const :tag "Like `no-bold' but without the bold weight" no-color-no-bold)))
+  :link '(info-link "(modus-themes) Heading styles"))
 
 (defcustom modus-themes-scale-headings nil
   "Use font scaling for headings.
@@ -1168,7 +1177,8 @@ special heading."
   :group 'modus-themes
   :package-version '(modus-themes . "1.2.0")
   :version "28.1"
-  :type 'boolean)
+  :type 'boolean
+  :link '(info-link "(modus-themes) Scaled headings"))
 
 (defcustom modus-themes-scale-1 1.05
   "Font size that is slightly larger than the base value.
@@ -1189,7 +1199,8 @@ accordance with it in cases where it changes, such as while using
   :group 'modus-themes
   :package-version '(modus-themes . "1.2.0")
   :version "28.1"
-  :type 'number)
+  :type 'number
+  :link '(info-link "(modus-themes) Scaled heading sizes"))
 
 (defcustom modus-themes-scale-2 1.1
   "Font size slightly larger than `modus-themes-scale-1'.
@@ -1210,7 +1221,8 @@ accordance with it in cases where it changes, such as while using
   :group 'modus-themes
   :package-version '(modus-themes . "1.2.0")
   :version "28.1"
-  :type 'number)
+  :type 'number
+  :link '(info-link "(modus-themes) Scaled heading sizes"))
 
 (defcustom modus-themes-scale-3 1.15
   "Font size slightly larger than `modus-themes-scale-2'.
@@ -1231,7 +1243,8 @@ accordance with it in cases where it changes, such as while using
   :group 'modus-themes
   :package-version '(modus-themes . "1.2.0")
   :version "28.1"
-  :type 'number)
+  :type 'number
+  :link '(info-link "(modus-themes) Scaled heading sizes"))
 
 (defcustom modus-themes-scale-4 1.2
   "Font size slightly larger than `modus-themes-scale-3'.
@@ -1252,7 +1265,8 @@ accordance with it in cases where it changes, such as while using
   :group 'modus-themes
   :package-version '(modus-themes . "1.2.0")
   :version "28.1"
-  :type 'number)
+  :type 'number
+  :link '(info-link "(modus-themes) Scaled heading sizes"))
 
 (defcustom modus-themes-scale-5 1.3
   "Font size slightly larger than `modus-themes-scale-4'.
@@ -1274,7 +1288,8 @@ accordance with it in cases where it changes, such as while using
   :group 'modus-themes
   :package-version '(modus-themes . "1.2.0")
   :version "28.1"
-  :type 'number)
+  :type 'number
+  :link '(info-link "(modus-themes) Scaled heading sizes"))
 
 (defcustom modus-themes-fringes nil
   "Define the visibility of fringes.
@@ -1289,7 +1304,8 @@ pronounced greyscale value."
   :type '(choice
           (const :tag "No visible fringes (default)" nil)
           (const :tag "Subtle greyscale background" subtle)
-          (const :tag "Intense greyscale background" intense)))
+          (const :tag "Intense greyscale background" intense))
+  :link '(info-link "(modus-themes) Fringes"))
 
 (defcustom modus-themes-lang-checkers nil
   "Control the style of spelling and code checkers/linters.
@@ -1322,7 +1338,8 @@ most intense combination of face properties."
           (const :tag "Combines `straight-underline' and `subtle-foreground'" subtle-foreground-straight-underline)
           (const :tag "Color-coded wavy underline; intense foreground" intense-foreground)
           (const :tag "Combines `straight-underline' and `intense-foreground'" intense-foreground-straight-underline)
-          (const :tag "Color-coded background, foreground, straight underline" colored-background)))
+          (const :tag "Color-coded background, foreground, straight underline" colored-background))
+  :link '(info-link "(modus-themes) Language checkers"))
 
 (defcustom modus-themes-org-blocks nil
   "Use a subtle gray or color-coded background for Org blocks.
@@ -1348,7 +1365,8 @@ association list)."
           (const :tag "No Org block background (default)" nil)
           (const :tag "Subtle gray block background" grayscale)
           (const :tag "Subtle gray block background (alt spelling)" greyscale)
-          (const :tag "Color-coded background per programming language" rainbow)))
+          (const :tag "Color-coded background per programming language" rainbow))
+  :link '(info-link "(modus-themes) Org mode blocks"))
 
 (defcustom modus-themes-org-habit nil
   "Control the presentation of the `org-habit' graph.
@@ -1385,7 +1403,8 @@ highlights the alert and overdue states."
   :type '(choice
           (const :tag "Respect the original design of org-habit (default)" nil)
           (const :tag "Like the default, but do not distinguish between present and future variants" simplified)
-          (const :tag "Like `simplified', but only use red, yellow, green" traffic-light)))
+          (const :tag "Like `simplified', but only use red, yellow, green" traffic-light))
+  :link '(info-link "(modus-themes) Org agenda habits"))
 
 (defcustom modus-themes-mode-line nil
   "Adjust the overall style of the mode line.
@@ -1425,7 +1444,8 @@ default)."
           (const :tag "No box effects, which are optimal for use with the `moody' library" moody)
           (const :tag "Like the default, but without border effects" borderless)
           (const :tag "Like `3d', but without noticeable border" borderless-3d)
-          (const :tag "Like `moody', but without noticeable border" borderless-moody)))
+          (const :tag "Like `moody', but without noticeable border" borderless-moody))
+  :link '(info-link "(modus-themes) Mode line"))
 
 (defcustom modus-themes-diffs nil
   "Adjust the overall styles of diffs.
@@ -1457,7 +1477,8 @@ syntax highlighting in diffs as of 2020-11-25, version
           (const :tag "Intensely colored backgrounds (default)" nil)
           (const :tag "Slightly accented backgrounds with tinted text" desaturated)
           (const :tag "No backgrounds, except for refined diffs" fg-only)
-          (const :tag "Apply color-coded backgrounds; keep syntax colors in tact" bg-only)))
+          (const :tag "Apply color-coded backgrounds; keep syntax colors in tact" bg-only))
+  :link '(info-link "(modus-themes) Diffs"))
 
 (defcustom modus-themes-completions nil
   "Apply special styles to the UI of completion frameworks.
@@ -1488,7 +1509,8 @@ revert to an even more nuanced aesthetic."
   :type '(choice
           (const :tag "Respect the framework's established aesthetic (default)" nil)
           (const :tag "Subtle backgrounds for various elements" moderate)
-          (const :tag "Radical alternative to the framework's looks" opinionated)))
+          (const :tag "Radical alternative to the framework's looks" opinionated))
+  :link '(info-link "(modus-themes) Completion UIs"))
 
 (defcustom modus-themes-prompts nil
   "Use subtle or intense styles for minibuffer and REPL prompts.
@@ -1517,21 +1539,24 @@ they use grayscale values instead of accented ones."
           (const :tag "Intense accented background and foreground for the prompt" intense-accented)
           (const :tag "Same as `intense-accented' for compatibility with older versions" intense)
           (const :tag "Like `subtle-accented' but grayscale" subtle-gray)
-          (const :tag "Like `intense-accented' but grayscale" intense-gray)))
+          (const :tag "Like `intense-accented' but grayscale" intense-gray))
+  :link '(info-link "(modus-themes) Command prompts"))
 
 (defcustom modus-themes-intense-hl-line nil
   "Use a more prominent background for command `hl-line-mode'."
   :group 'modus-themes
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
-  :type 'boolean)
+  :type 'boolean
+  :link '(info-link "(modus-themes) Line highlighting"))
 
 (defcustom modus-themes-subtle-line-numbers nil
   "Use more subtle style for command `display-line-numbers-mode'."
   :group 'modus-themes
   :package-version '(modus-themes . "1.2.0")
   :version "28.1"
-  :type 'boolean)
+  :type 'boolean
+  :link '(info-link "(modus-themes) Line numbers"))
 
 (defcustom modus-themes-paren-match nil
   "Choose the style of matching parentheses or delimiters.
@@ -1552,7 +1577,8 @@ uses a bold weight."
           (const :tag "Sublte tinted background (default)" nil)
           (const :tag "Like the default, but also use bold typographic weight" subtle-bold)
           (const :tag "Intense saturated background" intense)
-          (const :tag "Like `intense' but with bold weight" intense-bold)))
+          (const :tag "Like `intense' but with bold weight" intense-bold))
+  :link '(info-link "(modus-themes) Matching parentheses"))
 
 (defcustom modus-themes-syntax nil
   "Control the overall style of code syntax highlighting.
@@ -1595,7 +1621,8 @@ Option `faint-yellow-comments' combines the `faint' style with
           (const :tag "Use green for strings, yellow for comments, keep the default style for the rest" yellow-comments-green-strings)
           (const :tag "Refashion syntax highlighting with more colors, gray comments" alt-syntax)
           (const :tag "Like `alt-syntax' but with yellow comments" alt-syntax-yellow-comments)
-          (const :tag "Like `faint' but with yellow comments" faint-yellow-comments)))
+          (const :tag "Like `faint' but with yellow comments" faint-yellow-comments))
+  :link '(info-link "(modus-themes) Syntax styles"))
 
 (defcustom modus-themes-links nil
   "Set the style of links.
@@ -1631,7 +1658,8 @@ using a subtle underline below it."
           (const :tag "Desaturated foreground with neutral grey underline" faint-neutral-underline)
           (const :tag "Remove underline property from links, keeping their foreground as-is" no-underline)
           (const :tag "Apply underline only; use default foreground" underline-only)
-          (const :tag "Like `underline-only' but with a subtle underline" neutral-underline-only)))
+          (const :tag "Like `underline-only' but with a subtle underline" neutral-underline-only))
+  :link '(info-link "(modus-themes) Link styles"))
 
 (defcustom modus-themes-region nil
   "Change the overall appearance of the active region.
@@ -1657,7 +1685,8 @@ Option `bg-only-no-extend' is a combination of the `bg-only' and
           (const :tag "Intense background; overrides colors; extends to edge of window (default)" nil)
           (const :tag "As with the default, but does not extend" no-extend)
           (const :tag "Subtle background; preserves colors; extends to edge of window" bg-only)
-          (const :tag "As with the `subtle' option, but does not extend" bg-only-no-extend)))
+          (const :tag "As with the `subtle' option, but does not extend" bg-only-no-extend))
+  :link '(info-link "(modus-themes) Active region"))
 
 
 
