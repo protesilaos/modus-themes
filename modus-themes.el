@@ -3787,7 +3787,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(ebdb-mail-default ((,class :foreground ,fg-main)))
     `(ebdb-mail-primary ((,class :foreground ,magenta-alt)))
     `(ebdb-marked ((,class :background ,cyan-intense-bg)))
-    `(ebdb-organization-name ((,class :foreground ,fg-special-warm)))
+    `(ebdb-organization-name ((,class :foreground ,red-alt-other)))
     `(ebdb-person-name ((,class :foreground ,magenta-alt-other)))
     `(ebdb-phone-default ((,class :foreground ,cyan)))
     `(eieio-custom-slot-tag-face ((,class :foreground ,red-alt)))
