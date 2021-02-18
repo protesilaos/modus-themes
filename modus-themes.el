@@ -3780,19 +3780,16 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(easy-kill-origin ((,class :inherit modus-theme-subtle-red)))
     `(easy-kill-selection ((,class :inherit modus-theme-subtle-yellow)))
 ;;;;; ebdb
-    `(ebdb-address-default ((,class :foreground ,fg-main)))
-    `(ebdb-db-char ((,class :foreground ,fg-special-cold)))
+    `(ebdb-address-default ((,class :foreground ,fg-special-calm)))
     `(ebdb-defunct ((,class :inherit shadow)))
     `(ebdb-field-hidden ((,class :foreground ,magenta)))
-    `(ebdb-field-url ((,class :foreground ,blue)))
     `(ebdb-label ((,class :foreground ,cyan-alt-other)))
     `(ebdb-mail-default ((,class :foreground ,fg-main)))
-    `(ebdb-mail-primary ((,class :foreground ,blue-alt)))
+    `(ebdb-mail-primary ((,class :foreground ,magenta-alt)))
     `(ebdb-marked ((,class :background ,cyan-intense-bg)))
-    `(ebdb-organization-name ((,class :foreground ,fg-special-calm)))
+    `(ebdb-organization-name ((,class :foreground ,fg-special-warm)))
     `(ebdb-person-name ((,class :foreground ,magenta-alt-other)))
-    `(ebdb-phone-default ((,class :foreground ,fg-special-warm)))
-    `(ebdb-role-defunct ((,class :inherit shadow)))
+    `(ebdb-phone-default ((,class :foreground ,cyan)))
     `(eieio-custom-slot-tag-face ((,class :foreground ,red-alt)))
 ;;;;; ediff
     ;; NOTE: here we break from the pattern of inheriting from the
