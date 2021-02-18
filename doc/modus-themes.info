@@ -30,7 +30,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.2.0-dev.  This manual was rebuilt on
-2021-02-14 06:28 +0200.
+2021-02-18 10:18 +0200.
 
 * Menu:
 
@@ -2050,6 +2050,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • auto-dim-other-buffers
    • avy
    • awesome-tray
+   • bbdb
    • binder
    • bm
    • bongo
@@ -2346,7 +2347,6 @@ File: modus-themes.info,  Node: Indirectly covered packages,  Prev: Supported pa
 These do not require any extra styles because they are configured to
 inherit from some basic faces.  Please confirm.
 
-   • bbdb
    • edit-indirect
    • evil-owl
    • fortran-mode
@@ -3401,7 +3401,7 @@ Node: Measure color contrast (DIY)77485
 Node: Load theme depending on time of day80252
 Node: Face coverage81235
 Node: Supported packages81705
-Node: Indirectly covered packages88210
+Node: Indirectly covered packages88222
 Node: Notes for individual packages88680
 Node: Note for display-fill-column-indicator-mode89266
 Node: Note for prism90844

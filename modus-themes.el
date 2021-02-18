@@ -91,6 +91,7 @@
 ;;     auto-dim-other-buffers
 ;;     avy
 ;;     awesome-tray
+;;     bbdb
 ;;     binder
 ;;     bm
 ;;     bongo
@@ -3250,6 +3251,10 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(awesome-tray-module-mode-name-face ((,class :inherit bold :foreground ,green)))
     `(awesome-tray-module-parent-dir-face ((,class :inherit bold :foreground ,cyan)))
     `(awesome-tray-module-rvm-face ((,class :inherit bold :foreground ,magenta-alt-other)))
+;;;;; bbdb
+    `(bbdb-name ((,class :foreground ,magenta-alt-other)))
+    `(bbdb-organization ((,class :foreground ,red-alt-other)))
+    `(bbdb-field-name ((,class :foreground ,cyan-alt-other)))
 ;;;;; binder
     `(binder-sidebar-highlight ((,class :inherit modus-theme-subtle-cyan)))
     `(binder-sidebar-marked ((,class :inherit modus-theme-mark-sel)))
