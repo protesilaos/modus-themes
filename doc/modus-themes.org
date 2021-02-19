@@ -2239,6 +2239,7 @@ inherit from some basic faces.  Please confirm.
 + php-mode
 + rjsx-mode
 + swift-mode
++ tab-bar-echo-area
 
 * Notes for individual packages
 :PROPERTIES:

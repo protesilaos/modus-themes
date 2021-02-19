@@ -30,7 +30,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.2.0-dev.  This manual was rebuilt on
-2021-02-18 10:18 +0200.
+2021-02-19 07:07 +0200.
 
 * Menu:
 
@@ -2356,6 +2356,7 @@ inherit from some basic faces.  Please confirm.
    • php-mode
    • rjsx-mode
    • swift-mode
+   • tab-bar-echo-area
 
 
 File: modus-themes.info,  Node: Notes for individual packages,  Next: Contributing,  Prev: Face coverage,  Up: Top
@@ -3402,26 +3403,26 @@ Node: Load theme depending on time of day80252
 Node: Face coverage81235
 Node: Supported packages81705
 Node: Indirectly covered packages88222
-Node: Notes for individual packages88680
-Node: Note for display-fill-column-indicator-mode89266
-Node: Note for prism90844
-Node: Note on company-mode overlay pop-up93809
-Ref: Note on company-mode overlay pop-up-Footnote-194496
-Ref: Note on company-mode overlay pop-up-Footnote-294563
-Node: Note for ERC escaped color sequences94618
-Ref: Note for ERC escaped color sequences-Footnote-196051
-Node: Note for powerline or spaceline96161
-Node: Note on SHR colors96577
-Node: Note for Helm grep96987
-Node: Note on vc-annotate-background-mode98432
-Node: Note on pdf-tools link hints99317
-Node: Contributing101748
-Node: Sources of the themes102148
-Node: Issues you can help with102886
-Node: Patches require copyright assignment to the FSF104086
-Node: Acknowledgements106381
-Node: Meta108499
-Node: GNU Free Documentation License110339
+Node: Notes for individual packages88705
+Node: Note for display-fill-column-indicator-mode89291
+Node: Note for prism90869
+Node: Note on company-mode overlay pop-up93834
+Ref: Note on company-mode overlay pop-up-Footnote-194521
+Ref: Note on company-mode overlay pop-up-Footnote-294588
+Node: Note for ERC escaped color sequences94643
+Ref: Note for ERC escaped color sequences-Footnote-196076
+Node: Note for powerline or spaceline96186
+Node: Note on SHR colors96602
+Node: Note for Helm grep97012
+Node: Note on vc-annotate-background-mode98457
+Node: Note on pdf-tools link hints99342
+Node: Contributing101773
+Node: Sources of the themes102173
+Node: Issues you can help with102911
+Node: Patches require copyright assignment to the FSF104111
+Node: Acknowledgements106406
+Node: Meta108524
+Node: GNU Free Documentation License110364
 
 End Tag Table
 
