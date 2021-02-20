@@ -5118,7 +5118,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(mu4e-cited-4-face ((,class :foreground ,cyan)))
     `(mu4e-cited-5-face ((,class :foreground ,yellow-alt)))
     `(mu4e-cited-6-face ((,class :foreground ,magenta)))
-    `(mu4e-cited-7-face ((,class :foreground ,green-alt-other)))
+    `(mu4e-cited-7-face ((,class :foreground ,green-alt)))
     `(mu4e-compose-header-face ((,class :inherit mu4e-compose-separator-face)))
     `(mu4e-compose-separator-face ((,class :inherit modus-theme-intense-neutral)))
     `(mu4e-contact-face ((,class :inherit message-header-to)))
