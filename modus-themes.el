@@ -4598,8 +4598,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(indium-repl-prompt-face ((,class :foreground ,cyan-alt-other)))
     `(indium-repl-stdout-face ((,class :foreground ,fg-main)))
 ;;;;; info
-    `(Info-quoted ((,class ,@(modus-themes--mixed-fonts)
-                           :foreground ,magenta))) ; the capitalization is canonical
+    `(Info-quoted ((,class ,@(modus-themes--mixed-fonts) ; the capitalization is canonical
+                           :background ,bg-alt :foreground ,fg-special-calm)))
     `(info-header-node ((,class :inherit bold :foreground ,fg-alt)))
     `(info-header-xref ((,class :foreground ,blue-active)))
     `(info-index-match ((,class :inherit match)))
