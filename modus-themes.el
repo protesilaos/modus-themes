@@ -314,6 +314,7 @@
 ;;     ruler-mode
 ;;     sallet
 ;;     selectrum
+;;     selectrum-prescient
 ;;     semantic
 ;;     sesman
 ;;     shell-script-mode
@@ -5698,19 +5699,36 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                          'modus-theme-nuanced-blue
                                          blue-alt-other))))
 ;;;;; selectrum
+;; NOTE 2021-02-22: The `selectrum-primary-highlight' and
+;; `selectrum-secondary-highlight' are deprecated upstream in favour of
+;; their selectrum-prescient counterparts.  We shall remove those faces
+;; from the themes once we are certain that they are no longer relevant.
     `(selectrum-current-candidate
       ((,class :inherit bold :foreground ,fg-main
                :background ,@(pcase modus-themes-completions
                                ('opinionated (list bg-active))
                                (_ (list bg-inactive))))))
-    `(selectrum-primary-highlight ((,class :inherit bold
-                                           ,@(modus-themes--standard-completions
-                                              magenta-alt magenta-nuanced-bg
-                                              magenta-refine-bg magenta-refine-fg))))
-    `(selectrum-secondary-highlight ((,class :inherit bold
-                                             ,@(modus-themes--standard-completions
-                                                cyan-alt-other cyan-nuanced-bg
-                                                cyan-refine-bg cyan-refine-fg))))
+    `(selectrum-primary-highlight
+      ((,class :inherit bold
+               ,@(modus-themes--standard-completions
+                  magenta-alt magenta-nuanced-bg
+                  magenta-refine-bg magenta-refine-fg))))
+    `(selectrum-secondary-highlight
+      ((,class :inherit bold
+               ,@(modus-themes--standard-completions
+                  cyan-alt-other cyan-nuanced-bg
+                  cyan-refine-bg cyan-refine-fg))))
+;;;;; selectrum-prescient
+    `(selectrum-prescient-primary-highlight
+      ((,class :inherit bold
+               ,@(modus-themes--standard-completions
+                  magenta-alt magenta-nuanced-bg
+                  magenta-refine-bg magenta-refine-fg))))
+    `(selectrum-prescient-secondary-highlight
+      ((,class :inherit bold
+               ,@(modus-themes--standard-completions
+                  cyan-alt-other cyan-nuanced-bg
+                  cyan-refine-bg cyan-refine-fg))))
 ;;;;; semantic
     `(semantic-complete-inline-face ((,class :foreground ,fg-special-warm :underline t)))
     `(semantic-decoration-on-fileless-includes ((,class :inherit modus-theme-refine-green)))

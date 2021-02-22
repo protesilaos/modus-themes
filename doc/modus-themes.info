@@ -30,7 +30,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.2.0-dev.  This manual was rebuilt on
-2021-02-19 07:07 +0200.
+2021-02-22 21:07 +0200.
 
 * Menu:
 
@@ -2275,6 +2275,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • ruler-mode
    • sallet
    • selectrum
+   • selectrum-prescient (Part of 1.2.0-dev)
    • semantic
    • sesman
    • shell-script-mode
@@ -3402,27 +3403,27 @@ Node: Measure color contrast (DIY)77485
 Node: Load theme depending on time of day80252
 Node: Face coverage81235
 Node: Supported packages81705
-Node: Indirectly covered packages88222
-Node: Notes for individual packages88705
-Node: Note for display-fill-column-indicator-mode89291
-Node: Note for prism90869
-Node: Note on company-mode overlay pop-up93834
-Ref: Note on company-mode overlay pop-up-Footnote-194521
-Ref: Note on company-mode overlay pop-up-Footnote-294588
-Node: Note for ERC escaped color sequences94643
-Ref: Note for ERC escaped color sequences-Footnote-196076
-Node: Note for powerline or spaceline96186
-Node: Note on SHR colors96602
-Node: Note for Helm grep97012
-Node: Note on vc-annotate-background-mode98457
-Node: Note on pdf-tools link hints99342
-Node: Contributing101773
-Node: Sources of the themes102173
-Node: Issues you can help with102911
-Node: Patches require copyright assignment to the FSF104111
-Node: Acknowledgements106406
-Node: Meta108524
-Node: GNU Free Documentation License110364
+Node: Indirectly covered packages88269
+Node: Notes for individual packages88752
+Node: Note for display-fill-column-indicator-mode89338
+Node: Note for prism90916
+Node: Note on company-mode overlay pop-up93881
+Ref: Note on company-mode overlay pop-up-Footnote-194568
+Ref: Note on company-mode overlay pop-up-Footnote-294635
+Node: Note for ERC escaped color sequences94690
+Ref: Note for ERC escaped color sequences-Footnote-196123
+Node: Note for powerline or spaceline96233
+Node: Note on SHR colors96649
+Node: Note for Helm grep97059
+Node: Note on vc-annotate-background-mode98504
+Node: Note on pdf-tools link hints99389
+Node: Contributing101820
+Node: Sources of the themes102220
+Node: Issues you can help with102958
+Node: Patches require copyright assignment to the FSF104158
+Node: Acknowledgements106453
+Node: Meta108571
+Node: GNU Free Documentation License110411
 
 End Tag Table
 
