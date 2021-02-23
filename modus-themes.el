@@ -5005,7 +5005,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(markdown-language-info-face ((,class ,@(modus-themes--mixed-fonts)
                                            :foreground ,fg-special-cold)))
     `(markdown-language-keyword-face ((,class ,@(modus-themes--mixed-fonts)
-                                              :foreground ,green-alt-other)))
+                                              :background ,bg-alt
+                                              :foreground ,fg-alt)))
     `(markdown-line-break-face ((,class :inherit modus-theme-refine-cyan :underline t)))
     `(markdown-link-face ((,class :inherit button)))
     `(markdown-link-title-face ((,class :inherit modus-theme-slant :foreground ,fg-special-cold)))
