@@ -1642,7 +1642,7 @@ A description of all possible values:
 + `no-color-no-bold' is like `no-color' but without the bold
   weight."
   :group 'modus-themes
-  :package-version '(modus-themes . "1.1.0")
+  :package-version '(modus-themes . "1.2.0")
   :version "28.1"
   :type
   '(alist
@@ -1664,8 +1664,8 @@ A description of all possible values:
             (const :tag "Like `section' without bold weight" section-no-bold)
             (const :tag "Like `section' with more colorful foreground" rainbow-section)
             (const :tag "Like `rainbow-section' without bold weight" rainbow-section-no-bold)
-            (const :tag "Do not use any color; just bold weight" no-color)
-            (const :tag "Like `no-bold' but without the bold weight" no-color-no-bold)))
+            (const :tag "Do not use any distinct foreground color; just bold weight" no-color)
+            (const :tag "Like `no-bold' but without the distinct foreground color" no-color-no-bold)))
   :link '(info-link "(modus-themes) Heading styles"))
 
 (defcustom modus-themes-scale-headings nil
