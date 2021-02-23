@@ -30,7 +30,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.2.0-dev.  This manual was rebuilt on
-2021-02-22 21:07 +0200.
+2021-02-23 13:31 +0200.
 
 * Menu:
 
@@ -55,6 +55,7 @@ Overview
 
 Installation
 
+* Install manually from source::
 * Install from the archives::
 * Install on GNU/Linux::
 
@@ -65,11 +66,8 @@ Install on GNU/Linux
 
 Enable and load
 
-* Load automatically::
-* Differences between loading and enabling::
-* Toggle between the themes on demand::
-* Configure options prior to loading a theme::
 * Sample configuration for use-package::
+* Differences between loading and enabling::
 
 Customization Options
 
@@ -101,6 +99,7 @@ Scaled headings
 
 Advanced customization (do-it-yourself)
 
+* Per-theme customization settings (DIY)::
 * Case-by-case face specs using the themes' palette (DIY)::
 * Face specs at scale using the themes' palette (DIY)::
 * Override colors (DIY)::
@@ -108,6 +107,7 @@ Advanced customization (do-it-yourself)
 * Custom Org user faces (DIY)::
 * Measure color contrast (DIY)::
 * Load theme depending on time of day::
+* A theme-agnostic hook for theme loading::
 
 Face coverage
 
@@ -205,13 +205,36 @@ packages for distributions of GNU/Linux.
 
 * Menu:
 
+* Install manually from source::
 * Install from the archives::
 * Install on GNU/Linux::
 
 
-File: modus-themes.info,  Node: Install from the archives,  Next: Install on GNU/Linux,  Up: Installation
+File: modus-themes.info,  Node: Install manually from source,  Next: Install from the archives,  Up: Installation
 
-2.1 Install from the archives
+2.1 Install manually from source
+================================
+
+In the following example, we are assuming that your Emacs files are
+stored in ‘~/.emacs.d’ and that you want to place the Modus themes in
+‘~/.emacs.d/modus-themes’.
+
+  1. Get the source and store it in the desired path by running the
+     following in the command line shell:
+
+     git clone https://gitlab.com/protesilaos/modus-themes.git ~/.emacs.d/modus-themes
+
+  1. Add that path to your known Elisp libraries’ list, by placing this
+     snippet of Emacs Lisp in your init file (say, your ‘init.el’):
+
+     (add-to-list 'load-path "~/.emacs.d/modus-themes")
+
+   The themes are now ready to be used: *note Enable and load::.
+
+
+File: modus-themes.info,  Node: Install from the archives,  Next: Install on GNU/Linux,  Prev: Install manually from source,  Up: Installation
+
+2.2 Install from the archives
 =============================
 
 The ‘modus-themes’ package is available from the GNU ELPA archive, which
@@ -225,10 +248,13 @@ type ‘M-x package-install’ and specify the ‘modus-themes’.
 standalone packages.  This practice has been discontinued starting with
 version 1.0.0 of this project.
 
+   Once installed, the themes are ready to be used: *note Enable and
+load::.
+
 
 File: modus-themes.info,  Node: Install on GNU/Linux,  Prev: Install from the archives,  Up: Installation
 
-2.2 Install on GNU/Linux
+2.3 Install on GNU/Linux
 ========================
 
 The themes are also available from the archives of some distributions of
@@ -244,7 +270,7 @@ distro’s packaging policies.
 
 File: modus-themes.info,  Node: Debian 11 Bullseye,  Next: GNU Guix,  Up: Install on GNU/Linux
 
-2.2.1 Debian 11 Bullseye
+2.3.1 Debian 11 Bullseye
 ------------------------
 
 The two themes are distributed as a single package for Debian and its
@@ -255,15 +281,19 @@ available in time for Debian 11 Bullseye (next stable).
 
      sudo apt install elpa-modus-themes
 
+   The themes are now ready to be used: *note Enable and load::.
+
 
 File: modus-themes.info,  Node: GNU Guix,  Prev: Debian 11 Bullseye,  Up: Install on GNU/Linux
 
-2.2.2 GNU Guix
+2.3.2 GNU Guix
 --------------
 
 Users of Guix can get the themes with this command:
 
      guix package -i emacs-modus-themes
+
+   The themes are now ready to be used: *note Enable and load::.
 
 
 File: modus-themes.info,  Node: Enable and load,  Next: Customization Options,  Prev: Installation,  Up: Top
@@ -271,57 +301,97 @@ File: modus-themes.info,  Node: Enable and load,  Next: Customization Options,  
 3 Enable and load
 *****************
 
-This section documents how to load the theme of your choice and how to
-further control its initialization.  It also includes some sample code
-snippets that could help you in the task.
-
-   Before you load a theme, it is necessary to enable the main library:
+Before you load a theme, it is necessary to require the main library:
 
      (require 'modus-themes)
 
-   Then load the theme files, either individually, or with the helper
-function ‘modus-themes-load-themes’:
+   Then load the individual theme files with the helper function
+‘modus-themes-load-themes’:
 
+     ;; Load the theme files before enabling a theme (else you get an error).
      (modus-themes-load-themes)
 
+   Once the libraries that define the themes are enabled, you can load a
+theme with either of the following expressions:
+
+     (modus-themes-load-operandi)            ; Light theme
      ;; OR
-     (load-theme 'modus-operandi t t)
-     (load-theme 'modus-vivendi t t)
+     (modus-themes-load-vivendi)             ; Dark theme
+
+   You may want to make some changes to the available customization
+options before loading a theme (*note Customization Options::).  So this
+is how a basic setup should look like:
+
+     (require 'modus-themes)
+
+     ;; Your customisations here.  For example:
+     (setq modus-themes-bold-constructs t
+           modus-themes-mode-line '3d)
+
+     ;; Load the theme files before enabling a theme (else you get an error).
+     (modus-themes-load-themes)
+
+     ;; Enable the theme of your preference:
+     (modus-themes-load-operandi)
+
+     ;; Optionally add a key binding for the toggle between the themes:
+     (define-key global-map (kbd "<f5>") #'modus-themes-toggle)
 
    *note Sample configuration for use-package::.
+
+   With those granted, bear in mind a couple of technical points on
+‘modus-themes-load-operandi’ and ‘modus-themes-load-vivendi’, as well as
+‘modus-themes-toggle’ which relies on them:
+
+  1. Those functions use ‘load-theme’.  Some users may not want that,
+     opting for ‘enable-theme’ instead (*note Differences between
+     loading and enabling::).
+
+  2. The functions will run the ‘modus-themes-after-load-theme-hook’ as
+     their final step.  This can be employed for bespoke configurations
+     (*note Advanced customization (do-it-yourself)::).  Experienced
+     users may not wish to rely on such a hook and the functions that
+     run it: they may prefer a custom solution (*note A theme-agnostic
+     hook for theme loading::).
 
 * Menu:
 
-* Load automatically::
-* Differences between loading and enabling::
-* Toggle between the themes on demand::
-* Configure options prior to loading a theme::
 * Sample configuration for use-package::
+* Differences between loading and enabling::
 
 
-File: modus-themes.info,  Node: Load automatically,  Next: Differences between loading and enabling,  Up: Enable and load
+File: modus-themes.info,  Node: Sample configuration for use-package,  Next: Differences between loading and enabling,  Up: Enable and load
 
-3.1 Load automatically
-======================
+3.1 Sample configuration for use-package
+========================================
 
-Once the libraries that define the themes are enabled, you can load a
-theme with either of the following expressions:
+It is common for Emacs users to rely on ‘use-package’ for declaring
+package configurations in their setup.  We use this as an example:
 
-     (load-theme 'modus-operandi t)          ; Light theme
-     ;; OR
-     (load-theme 'modus-vivendi t)           ; Dark theme
+     (use-package modus-themes
+       :ensure
+       :init
+       ;; Add all your customizations prior to loading the themes
+       (setq modus-themes-slanted-constructs t
+             modus-themes-bold-constructs nil)
 
-   Note that you can always ‘M-x disable-theme’ and specify an item.
-The command does exactly what its name suggests.  To deactivate all
-enabled themes at once, in case you have multiple of them enabled, you
-may evaluate the following expression:
+       ;; Load the theme files before enabling a theme (else you get an error).
+       (modus-themes-load-themes)
+       :config
+       ;; Load the theme of your choice:
+       (modus-themes-load-operandi) ;; OR (modus-themes-load-vivendi)
+       :bind ("<f5>" . modus-themes-toggle))
 
-     (mapc #'disable-theme custom-enabled-themes)
+   *note Differences between loading and enabling::.
 
-   *note Sample configuration for use-package::.
+   Note: make sure not to customize the variable
+‘custom-theme-load-path’ or ‘custom-theme-directory’ after the themes’
+package declaration.  That will lead to failures in loading the files.
+If either or both of those variables need to be changed, their values
+should be defined before the package declaration of the themes.
 
 
-File: modus-themes.info,  Node: Differences between loading and enabling,  Next: Toggle between the themes on demand,  Prev: Load automatically,  Up: Enable and load
+File: modus-themes.info,  Node: Differences between loading and enabling,  Prev: Sample configuration for use-package,  Up: Enable and load
 
 3.2 Differences between loading and enabling
 ============================================
@@ -364,174 +434,6 @@ face specs using the themes' palette (DIY).
 
    *note Face specs at scale using the themes’ palette: Face specs at
 scale using the themes' palette (DIY).
-
-
-File: modus-themes.info,  Node: Toggle between the themes on demand,  Next: Configure options prior to loading a theme,  Prev: Differences between loading and enabling,  Up: Enable and load
-
-3.3 Toggle between the themes on demand
-=======================================
-
-The themes provide the ‘modus-themes-toggle’ command that you can bind
-to a key of your preference.  For example:
-
-     (global-set-key (kbd "<f5>") #'modus-themes-toggle)
-
-   What this toggle does is check if either ‘modus-operandi’ or
-‘modus-vivendi’ is active and proceeds to cycle between them.  If none
-of them are active, a minibuffer prompt will ask the user to choose
-between the two.  In this latter scenario, all other themes will first
-be disabled (using the ‘disable-theme’ we covered before).
-
-   Note that ‘modus-themes-toggle’ uses ‘load-theme’ internally instead
-of ‘enable-theme’ (*note Differences between loading and enabling::).
-
-   The toggle calls ‘modus-themes-after-load-theme-hook’ which you can
-use to add your tweaks: *note Custom face specs using the themes’
-palette: Case-by-case face specs using the themes' palette (DIY).
-
-
-File: modus-themes.info,  Node: Configure options prior to loading a theme,  Next: Sample configuration for use-package,  Prev: Toggle between the themes on demand,  Up: Enable and load
-
-3.4 Configure options prior to loading a theme
-==============================================
-
-The themes provide a unified customization framework.  This is why you
-need ‘(require 'modus-themes)’.  All options must be set before loading
-each theme in order to come into effect.
-
-   *note Load automatically::.
-
-   *note Differences between loading and enabling::.
-
-   A complete annotated sample with variables set to different values:
-
-     ;; Set customization options to values of your choice
-     (setq modus-themes-slanted-constructs t
-           modus-themes-bold-constructs nil
-           modus-themes-fringes 'subtle ; {nil,'subtle,'intense}
-
-           ;; Options for `modus-themes-lang-checkers': nil,
-           ;; 'straight-underline, 'subtle-foreground,
-           ;; 'subtle-foreground-straight-underline, 'intense-foreground,
-           ;; 'intense-foreground-straight-underline, 'colored-background
-           modus-themes-lang-checkers nil
-
-           ;; Options for `modus-themes-mode-line': nil, '3d, 'moody,
-           ;; 'borderless, 'borderless-3d, 'borderless-moody
-           modus-themes-mode-line nil
-
-           ;; Options for `modus-themes-syntax': nil, 'faint,
-           ;; 'yellow-comments, 'green-strings,
-           ;; 'yellow-comments-green-strings, 'alt-syntax,
-           ;; 'alt-syntax-yellow-comments, 'faint-yellow-comments
-           modus-themes-syntax nil
-
-           modus-themes-intense-hl-line nil
-           modus-themes-subtle-line-numbers t
-           modus-themes-paren-match 'subtle-bold ; {nil,'subtle-bold,'intense,'intense-bold}
-
-           ;; Options for `modus-themes-links': nil, 'faint,
-           ;; 'neutral-underline, 'faint-neutral-underline, 'no-underline,
-           ;; 'underline-only
-           modus-themes-links 'neutral-underline
-
-           modus-themes-no-mixed-fonts nil
-
-           ;; Options for `modus-themes-prompts': nil, 'subtle-accented,
-           ;; 'intense-accented, 'subtle-gray, 'intense-gray
-           modus-themes-prompts 'subtle-gray
-
-           modus-themes-completions 'opinionated ; {nil,'moderate,'opinionated}
-           modus-themes-region 'bg-only-no-extend ; {nil,'no-extend,'bg-only,'bg-only-no-extend}
-           modus-themes-diffs 'bg-only ; {nil,'desaturated,'fg-only,'bg-only}
-           modus-themes-org-blocks nil ; {nil,'grayscale,'rainbow}
-           modus-themes-org-habit nil ; {nil,'simplified,'traffic-light}
-
-           modus-themes-headings ; Lots of options---continue reading the manual
-           '((1 . section)
-             (2 . section-no-bold)
-             (3 . rainbow-line)
-             (t . rainbow-line-no-bold))
-
-           modus-themes-variable-pitch-ui t
-           modus-themes-variable-pitch-headings t
-           modus-themes-scale-headings t
-           modus-themes-scale-1 1.1
-           modus-themes-scale-2 1.15
-           modus-themes-scale-3 1.21
-           modus-themes-scale-4 1.27
-           modus-themes-scale-5 1.33)
-
-     ;; Load the light theme: `modus-operandi'
-     (modus-themes-load-operandi)
-
-   Note that in this example we use ‘modus-themes-load-operandi’.  Here
-is what it does:
-
-     (defun modus-themes-load-operandi ()
-       "Load `modus-operandi' and disable `modus-vivendi'.
-     Also run `modus-themes-after-load-theme-hook'."
-       (disable-theme 'modus-vivendi)
-       (load-theme 'modus-operandi t)
-       (run-hooks 'modus-themes-after-load-theme-hook))
-
-   Same principle, inverse effect, for ‘modus-themes-load-vivendi’.
-
-   If you prefer to maintain different customization options between the
-two themes, it is best you write your own functions that first set those
-options and then load the themes.  The following code does exactly that
-by simply differentiating the two themes on the choice of bold
-constructs in code syntax (enabled for one, disabled for the other).
-
-     (defun my-demo-modus-operandi ()
-       (interactive)
-       (setq modus-themes-bold-constructs t) ; ENABLE bold
-       (modus-themes-load-operandi))
-
-     (defun my-demo-modus-vivendi ()
-       (interactive)
-       (setq modus-themes-bold-constructs nil) ; DISABLE bold
-       (modus-themes-load-vivendi))
-
-     (defun my-demo-modus-themes-toggle ()
-       (if (eq (car custom-enabled-themes) 'modus-operandi)
-           (my-demo-modus-vivendi)
-         (my-demo-modus-operandi)))
-
-   Then assign ‘my-demo-modus-themes-toggle’ to a key instead of the
-equivalent the themes provide (*note Toggle between the themes on
-demand::).
-
-
-File: modus-themes.info,  Node: Sample configuration for use-package,  Prev: Configure options prior to loading a theme,  Up: Enable and load
-
-3.5 Sample configuration for use-package
-========================================
-
-It is common for Emacs users to rely on ‘use-package’ for declaring
-package configurations in their setup.  We use this as an example:
-
-     (use-package modus-themes
-       :ensure
-       :init
-       ;; Add all your customizations prior to loading the themes
-       (setq modus-themes-slanted-constructs t
-             modus-themes-bold-constructs nil)
-
-       ;; Load the theme files before enabling a theme
-       (modus-themes-load-themes)
-       :config
-       ;; Load the theme of your choice:
-       (modus-themes-load-operandi) ;; OR (modus-themes-load-vivendi)
-       :bind ("<f5>" . modus-themes-toggle))
-
-   *note Differences between loading and enabling::.
-
-   Note: make sure not to customize the variable
-‘custom-theme-load-path’ or ‘custom-theme-directory’ after the themes’
-package declaration.  That will lead to failures in loading the files.
-If either or both of those variables need to be changed, their values
-should be defined before the package declaration of the themes.
 
 
 File: modus-themes.info,  Node: Customization Options,  Next: Advanced customization (do-it-yourself),  Prev: Enable and load,  Up: Top
@@ -1441,6 +1343,7 @@ such, they are labelled as “do-it-yourself” or “DIY”.
 
 * Menu:
 
+* Per-theme customization settings (DIY)::
 * Case-by-case face specs using the themes' palette (DIY)::
 * Face specs at scale using the themes' palette (DIY)::
 * Override colors (DIY)::
@@ -1448,11 +1351,46 @@ such, they are labelled as “do-it-yourself” or “DIY”.
 * Custom Org user faces (DIY)::
 * Measure color contrast (DIY)::
 * Load theme depending on time of day::
+* A theme-agnostic hook for theme loading::
 
 
-File: modus-themes.info,  Node: Case-by-case face specs using the themes' palette (DIY),  Next: Face specs at scale using the themes' palette (DIY),  Up: Advanced customization (do-it-yourself)
+File: modus-themes.info,  Node: Per-theme customization settings (DIY),  Next: Case-by-case face specs using the themes' palette (DIY),  Up: Advanced customization (do-it-yourself)
 
-5.1 Case-by-case face specs using the themes’ palette (DIY)
+5.1 Per-theme customization settings (DIY)
+==========================================
+
+If you prefer to maintain different customization options between the
+two themes, it is best you write your own functions that first set those
+options and then load the relevant theme.  The following code does
+exactly that by simply differentiating the two themes on the choice of
+bold constructs in code syntax (enabled for one, disabled for the
+other).
+
+     (defun my-demo-modus-operandi ()
+       (interactive)
+       (setq modus-themes-bold-constructs t) ; ENABLE bold
+       (modus-themes-load-operandi))
+
+     (defun my-demo-modus-vivendi ()
+       (interactive)
+       (setq modus-themes-bold-constructs nil) ; DISABLE bold
+       (modus-themes-load-vivendi))
+
+     (defun my-demo-modus-themes-toggle ()
+       (if (eq (car custom-enabled-themes) 'modus-operandi)
+           (my-demo-modus-vivendi)
+         (my-demo-modus-operandi)))
+
+   Then assign ‘my-demo-modus-themes-toggle’ to a key instead of the
+equivalent the themes provide.
+
+   For a more elaborate design, it is better to inspect the source code
+of ‘modus-themes-toggle’ and relevant functions.
+
+
+File: modus-themes.info,  Node: Case-by-case face specs using the themes' palette (DIY),  Next: Face specs at scale using the themes' palette (DIY),  Prev: Per-theme customization settings (DIY),  Up: Advanced customization (do-it-yourself)
+
+5.2 Case-by-case face specs using the themes’ palette (DIY)
 ===========================================================
 
 This section is about tweaking individual faces.  If you plan to do
@@ -1463,11 +1401,6 @@ Face specs at scale using the themes' palette (DIY).
 themes and how to configure options prior to loading.  We also explained
 that some of the functions made available to users will fire up a hook
 that can be used to pass tweaks in the post-theme-load phase.
-
-   *note Toggle between the themes: Toggle between the themes on demand.
-
-   *note Configure options prior to loading: Configure options prior to
-loading a theme.
 
    Now assume you wish to change a single face, say, the ‘cursor’.  And
 you would like to get the standard “blue” color value of the active
@@ -1547,7 +1480,7 @@ first for ‘modus-operandi’ then ‘modus-vivendi’.
 
 File: modus-themes.info,  Node: Face specs at scale using the themes' palette (DIY),  Next: Override colors (DIY),  Prev: Case-by-case face specs using the themes' palette (DIY),  Up: Advanced customization (do-it-yourself)
 
-5.2 Face specs at scale using the themes’ palette (DIY)
+5.3 Face specs at scale using the themes’ palette (DIY)
 =======================================================
 
 The examples here are for large scale operations.  For simple, one-off
@@ -1688,7 +1621,7 @@ the previous section.  Adapt the above example like this:
 
 File: modus-themes.info,  Node: Override colors (DIY),  Next: Font configurations for Org and others (DIY),  Prev: Face specs at scale using the themes' palette (DIY),  Up: Advanced customization (do-it-yourself)
 
-5.3 Override colors (DIY)
+5.4 Override colors (DIY)
 =========================
 
 The themes provide a mechanism for overriding their color values.  This
@@ -1792,7 +1725,7 @@ making the end result inaccessible.
 
 File: modus-themes.info,  Node: Font configurations for Org and others (DIY),  Next: Custom Org user faces (DIY),  Prev: Override colors (DIY),  Up: Advanced customization (do-it-yourself)
 
-5.4 Font configurations for Org and others (DIY)
+5.5 Font configurations for Org and others (DIY)
 ================================================
 
 The themes are designed to cope well with mixed font configurations.
@@ -1846,7 +1779,7 @@ account for those finer increments.
 
 File: modus-themes.info,  Node: Custom Org user faces (DIY),  Next: Measure color contrast (DIY),  Prev: Font configurations for Org and others (DIY),  Up: Advanced customization (do-it-yourself)
 
-5.5 Custom Org user faces (DIY)
+5.6 Custom Org user faces (DIY)
 ===============================
 
 Users of ‘org-mode’ have the option to configure various keywords and
@@ -1923,7 +1856,7 @@ specs using the themes' palette (DIY).
 
 File: modus-themes.info,  Node: Measure color contrast (DIY),  Next: Load theme depending on time of day,  Prev: Custom Org user faces (DIY),  Up: Advanced customization (do-it-yourself)
 
-5.6 Measure color contrast (DIY)
+5.7 Measure color contrast (DIY)
 ================================
 
 The themes provide the functions ‘modus-themes-wcag-formula’ and
@@ -1986,9 +1919,9 @@ minutia and relevant commentary.
 of the themes’ colors: *note Override colors: Override colors (DIY).
 
 
-File: modus-themes.info,  Node: Load theme depending on time of day,  Prev: Measure color contrast (DIY),  Up: Advanced customization (do-it-yourself)
+File: modus-themes.info,  Node: Load theme depending on time of day,  Next: A theme-agnostic hook for theme loading,  Prev: Measure color contrast (DIY),  Up: Advanced customization (do-it-yourself)
 
-5.7 Load theme depending on time of day
+5.8 Load theme depending on time of day
 =======================================
 
 While we do provide ‘modus-themes-toggle’ to manually switch between the
@@ -2010,6 +1943,54 @@ location using the built-in ‘solar.el’ and then configuring the
        (setq circadian-themes '((:sunrise . modus-operandi)
                                 (:sunset  . modus-vivendi)))
        (circadian-setup))
+
+
+File: modus-themes.info,  Node: A theme-agnostic hook for theme loading,  Prev: Load theme depending on time of day,  Up: Advanced customization (do-it-yourself)
+
+5.9 A theme-agnostic hook for theme loading
+===========================================
+
+The themes are designed with the intent to be useful to Emacs users of
+varying skill levels, from beginners to experts.  This means that we try
+to make things easier by not expecting anyone reading this document to
+be proficient in Emacs Lisp or programming in general.
+
+   One such case is with the use of the
+‘modus-themes-after-load-theme-hook’, which runs every time
+‘modus-themes-toggle,’ ‘modus-themes-load-operandi’, or
+‘modus-themes-load-vivendi’ is evaluated.  We recommend using that hook
+for advanced customizations, because (1) we know for sure that it is
+available once the themes are loaded, and (2) anyone consulting this
+manual, especially the sections on enabling and loading the themes, will
+be in a good position to benefit from that hook.
+
+   Advanced users who have a need to switch between the Modus themes and
+other items will find that such a hook does not meet their requirements:
+it only works with the Modus themes and only with the aforementioned
+functions.
+
+   A theme-agnostic setup can be configured thus:
+
+     (defvar after-enable-theme-hook nil
+       "Normal hook run after enabling a theme.")
+
+     (define-advice enable-theme (:after (&rest _args) run-after-enable-theme-hook)
+       "Run `after-enable-theme-hook'."
+       (run-hooks 'after-enable-theme-hook))
+
+   This creates the ‘after-enable-theme-hook’ and makes it run after
+each call to ‘enable-theme’, which means that it will work for all
+themes and also has the benefit that it does not depend on functions
+such as ‘modus-themes-toggle’ and the others mentioned above.
+‘enable-theme’ is called internally by ‘load-theme’, so the hook works
+everywhere.
+
+   Now this specific piece of Elisp may be simple for experienced users,
+but it is not easy to read for newcomers, including the author of the
+Modus themes for the first several months of their time as an Emacs
+user.  Hence our hesitation to recommend it as part of the standard
+setup of the Modus themes (it is generally a good idea to understand
+what the implications are of advising a function).
 
 
 File: modus-themes.info,  Node: Face coverage,  Next: Notes for individual packages,  Prev: Advanced customization (do-it-yourself),  Up: Top
@@ -3355,75 +3336,75 @@ Appendix A GNU Free Documentation License
 
 Tag Table:
 Node: Top586
-Node: Overview4732
-Node: How do the themes look like5998
-Node: Learn about the latest changes6506
-Node: Installation6888
-Node: Install from the archives7336
-Node: Install on GNU/Linux7998
-Node: Debian 11 Bullseye8446
-Node: GNU Guix8855
-Node: Enable and load9078
-Node: Load automatically10003
-Node: Differences between loading and enabling10776
-Node: Toggle between the themes on demand12840
-Node: Configure options prior to loading a theme14002
-Node: Sample configuration for use-package18679
-Node: Customization Options19918
-Node: Bold constructs22135
-Node: Slanted constructs22724
-Node: Syntax styles23271
-Node: No mixed fonts24949
-Node: Link styles25986
-Node: Command prompts27592
-Node: Mode line28815
-Node: Completion UIs32006
-Node: Fringes33838
-Node: Language checkers34498
-Node: Line highlighting36443
-Node: Line numbers37060
-Node: Matching parentheses38174
-Node: Active region39052
-Node: Diffs39988
-Node: Org mode blocks42279
-Node: Org agenda habits43622
-Node: Heading styles45457
-Node: Scaled headings49456
-Node: Scaled heading sizes50059
-Node: UI typeface53193
-Node: Headings' typeface54039
-Node: Advanced customization (do-it-yourself)54663
-Node: Case-by-case face specs using the themes' palette (DIY)55728
-Node: Face specs at scale using the themes' palette (DIY)60211
-Node: Override colors (DIY)67036
-Node: Font configurations for Org and others (DIY)71659
-Ref: Font configurations for Org and others (DIY)-Footnote-173982
-Node: Custom Org user faces (DIY)74169
-Node: Measure color contrast (DIY)77485
-Node: Load theme depending on time of day80252
-Node: Face coverage81235
-Node: Supported packages81705
-Node: Indirectly covered packages88269
-Node: Notes for individual packages88752
-Node: Note for display-fill-column-indicator-mode89338
-Node: Note for prism90916
-Node: Note on company-mode overlay pop-up93881
-Ref: Note on company-mode overlay pop-up-Footnote-194568
-Ref: Note on company-mode overlay pop-up-Footnote-294635
-Node: Note for ERC escaped color sequences94690
-Ref: Note for ERC escaped color sequences-Footnote-196123
-Node: Note for powerline or spaceline96233
-Node: Note on SHR colors96649
-Node: Note for Helm grep97059
-Node: Note on vc-annotate-background-mode98504
-Node: Note on pdf-tools link hints99389
-Node: Contributing101820
-Node: Sources of the themes102220
-Node: Issues you can help with102958
-Node: Patches require copyright assignment to the FSF104158
-Node: Acknowledgements106453
-Node: Meta108571
-Node: GNU Free Documentation License110411
+Node: Overview4742
+Node: How do the themes look like6008
+Node: Learn about the latest changes6516
+Node: Installation6898
+Node: Install manually from source7379
+Node: Install from the archives8206
+Node: Install on GNU/Linux8983
+Node: Debian 11 Bullseye9431
+Node: GNU Guix9906
+Node: Enable and load10195
+Node: Sample configuration for use-package12484
+Node: Differences between loading and enabling13746
+Node: Customization Options15784
+Node: Bold constructs18001
+Node: Slanted constructs18590
+Node: Syntax styles19137
+Node: No mixed fonts20815
+Node: Link styles21852
+Node: Command prompts23458
+Node: Mode line24681
+Node: Completion UIs27872
+Node: Fringes29704
+Node: Language checkers30364
+Node: Line highlighting32309
+Node: Line numbers32926
+Node: Matching parentheses34040
+Node: Active region34918
+Node: Diffs35854
+Node: Org mode blocks38145
+Node: Org agenda habits39488
+Node: Heading styles41323
+Node: Scaled headings45322
+Node: Scaled heading sizes45925
+Node: UI typeface49059
+Node: Headings' typeface49905
+Node: Advanced customization (do-it-yourself)50529
+Node: Per-theme customization settings (DIY)51681
+Node: Case-by-case face specs using the themes' palette (DIY)53027
+Node: Face specs at scale using the themes' palette (DIY)57393
+Node: Override colors (DIY)64218
+Node: Font configurations for Org and others (DIY)68841
+Ref: Font configurations for Org and others (DIY)-Footnote-171164
+Node: Custom Org user faces (DIY)71351
+Node: Measure color contrast (DIY)74667
+Node: Load theme depending on time of day77434
+Node: A theme-agnostic hook for theme loading78465
+Node: Face coverage80806
+Node: Supported packages81276
+Node: Indirectly covered packages87840
+Node: Notes for individual packages88323
+Node: Note for display-fill-column-indicator-mode88909
+Node: Note for prism90487
+Node: Note on company-mode overlay pop-up93452
+Ref: Note on company-mode overlay pop-up-Footnote-194139
+Ref: Note on company-mode overlay pop-up-Footnote-294206
+Node: Note for ERC escaped color sequences94261
+Ref: Note for ERC escaped color sequences-Footnote-195694
+Node: Note for powerline or spaceline95804
+Node: Note on SHR colors96220
+Node: Note for Helm grep96630
+Node: Note on vc-annotate-background-mode98075
+Node: Note on pdf-tools link hints98960
+Node: Contributing101391
+Node: Sources of the themes101791
+Node: Issues you can help with102529
+Node: Patches require copyright assignment to the FSF103729
+Node: Acknowledgements106024
+Node: Meta108142
+Node: GNU Free Documentation License109982
 
 End Tag Table
 

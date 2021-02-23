@@ -100,6 +100,31 @@ On older versions of Emacs, they can be installed using Emacs' package
 manager or manually from their code repository.  There also exist
 packages for distributions of GNU/Linux.
 
+** Install manually from source
+:PROPERTIES:
+:CUSTOM_ID: h:da3414b7-1426-46b8-8e76-47b845b76fd0
+:END:
+
+In the following example, we are assuming that your Emacs files are
+stored in =~/.emacs.d= and that you want to place the Modus themes in
+=~/.emacs.d/modus-themes=.
+
+1. Get the source and store it in the desired path by running the
+   following in the command line shell:
+
+#+begin_src sh
+git clone https://gitlab.com/protesilaos/modus-themes.git ~/.emacs.d/modus-themes
+#+end_src
+
+2. Add that path to your known Elisp libraries' list, by placing this
+   snippet of Emacs Lisp in your init file (say, your =init.el=):
+
+#+begin_src emacs-lisp
+(add-to-list 'load-path "~/.emacs.d/modus-themes")
+#+end_src
+
+The themes are now ready to be used: [[#h:3f3c3728-1b34-437d-9d0c-b110f5b161a9][Enable and load]].
+
 ** Install from the archives
 :PROPERTIES:
 :CUSTOM_ID: h:c4b10085-149f-43e2-bd4d-347f33aee054
@@ -115,6 +140,8 @@ type =M-x package-install= and specify the =modus-themes=.
 Note that older versions of the themes used to be distributed as
 standalone packages.  This practice has been discontinued starting with
 version 1.0.0 of this project.
+
+Once installed, the themes are ready to be used: [[#h:3f3c3728-1b34-437d-9d0c-b110f5b161a9][Enable and load]].
 
 ** Install on GNU/Linux
 :PROPERTIES:
@@ -141,6 +168,8 @@ Get them with:
 sudo apt install elpa-modus-themes
 #+end_src
 
+The themes are now ready to be used: [[#h:3f3c3728-1b34-437d-9d0c-b110f5b161a9][Enable and load]].
+
 *** GNU Guix
 :PROPERTIES:
 :CUSTOM_ID: h:a4ca52cd-869f-46a5-9e16-4d9665f5b88e
@@ -152,58 +181,103 @@ Users of Guix can get the themes with this command:
 guix package -i emacs-modus-themes
 #+end_src
 
+The themes are now ready to be used: [[#h:3f3c3728-1b34-437d-9d0c-b110f5b161a9][Enable and load]].
+
 * Enable and load
 :PROPERTIES:
 :CUSTOM_ID: h:3f3c3728-1b34-437d-9d0c-b110f5b161a9
 :END:
 
-This section documents how to load the theme of your choice and how to
-further control its initialization.  It also includes some sample code
-snippets that could help you in the task.
-
-Before you load a theme, it is necessary to enable the main library:
+Before you load a theme, it is necessary to require the main library:
 
 #+begin_src emacs-lisp
 (require 'modus-themes)
 #+end_src
 
-Then load the theme files, either individually, or with the helper
-function =modus-themes-load-themes=:
+Then load the individual theme files with the helper function
+=modus-themes-load-themes=:
 
 #+begin_src emacs-lisp
+;; Load the theme files before enabling a theme (else you get an error).
 (modus-themes-load-themes)
-
-;; OR
-(load-theme 'modus-operandi t t)
-(load-theme 'modus-vivendi t t)
 #+end_src
-
-[[#h:e979734c-a9e1-4373-9365-0f2cd36107b8][Sample configuration for use-package]].
-
-** Load automatically
-:PROPERTIES:
-:CUSTOM_ID: h:1777c247-1b56-46b7-a4ce-54e720b33d06
-:END:
 
 Once the libraries that define the themes are enabled, you can load a
 theme with either of the following expressions:
 
 #+begin_src emacs-lisp
-(load-theme 'modus-operandi t)          ; Light theme
+(modus-themes-load-operandi)            ; Light theme
 ;; OR
-(load-theme 'modus-vivendi t)           ; Dark theme
+(modus-themes-load-vivendi)             ; Dark theme
 #+end_src
 
-Note that you can always =M-x disable-theme= and specify an item.  The
-command does exactly what its name suggests.  To deactivate all enabled
-themes at once, in case you have multiple of them enabled, you may
-evaluate the following expression:
+You may want to make some changes to the available customization options
+before loading a theme ([[#h:bf1c82f2-46c7-4eb2-ad00-dd11fdd8b53f][Customization Options]]).  So this is how a basic
+setup should look like:
 
 #+begin_src emacs-lisp
-(mapc #'disable-theme custom-enabled-themes)
+(require 'modus-themes)
+
+;; Your customisations here.  For example:
+(setq modus-themes-bold-constructs t
+      modus-themes-mode-line '3d)
+
+;; Load the theme files before enabling a theme (else you get an error).
+(modus-themes-load-themes)
+
+;; Enable the theme of your preference:
+(modus-themes-load-operandi)
+
+;; Optionally add a key binding for the toggle between the themes:
+(define-key global-map (kbd "<f5>") #'modus-themes-toggle)
 #+end_src
 
 [[#h:e979734c-a9e1-4373-9365-0f2cd36107b8][Sample configuration for use-package]].
+
+With those granted, bear in mind a couple of technical points on
+=modus-themes-load-operandi= and =modus-themes-load-vivendi=, as well as
+=modus-themes-toggle= which relies on them:
+
+1. Those functions use =load-theme=.  Some users may not want that, opting
+   for =enable-theme= instead ([[#h:e68560b3-7fb0-42bc-a151-e015948f8a35][Differences between loading and enabling]]).
+
+2. The functions will run the =modus-themes-after-load-theme-hook= as
+   their final step.  This can be employed for bespoke configurations
+   ([[#h:f4651d55-8c07-46aa-b52b-bed1e53463bb][Advanced customization (do-it-yourself)]]).  Experienced users may not
+   wish to rely on such a hook and the functions that run it: they may
+   prefer a custom solution ([[#h:86f6906b-f090-46cc-9816-1fe8aeb38776][A theme-agnostic hook for theme loading]]).
+
+** Sample configuration for use-package
+:PROPERTIES:
+:CUSTOM_ID: h:e979734c-a9e1-4373-9365-0f2cd36107b8
+:END:
+
+It is common for Emacs users to rely on =use-package= for declaring
+package configurations in their setup.  We use this as an example:
+
+#+begin_src emacs-lisp
+(use-package modus-themes
+  :ensure
+  :init
+  ;; Add all your customizations prior to loading the themes
+  (setq modus-themes-slanted-constructs t
+        modus-themes-bold-constructs nil)
+
+  ;; Load the theme files before enabling a theme (else you get an error).
+  (modus-themes-load-themes)
+  :config
+  ;; Load the theme of your choice:
+  (modus-themes-load-operandi) ;; OR (modus-themes-load-vivendi)
+  :bind ("<f5>" . modus-themes-toggle))
+#+end_src
+
+[[#h:e68560b3-7fb0-42bc-a151-e015948f8a35][Differences between loading and enabling]].
+
+Note: make sure not to customize the variable =custom-theme-load-path= or
+=custom-theme-directory= after the themes' package declaration.  That will
+lead to failures in loading the files.  If either or both of those
+variables need to be changed, their values should be defined before the
+package declaration of the themes.
 
 ** Differences between loading and enabling
 :PROPERTIES:
@@ -248,179 +322,6 @@ configure custom faces, where =load-theme= is expected, though
 [[#h:1487c631-f4fe-490d-8d58-d72ffa3bd474][Case-by-case face specs using the themes' palette]].
 
 [[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Face specs at scale using the themes' palette]].
-
-** Toggle between the themes on demand
-:PROPERTIES:
-:CUSTOM_ID: h:2a0895a6-3281-4e55-8aa1-8a737555821e
-:END:
-
-The themes provide the =modus-themes-toggle= command that you can bind to
-a key of your preference.  For example:
-
-#+begin_src emacs-lisp
-(global-set-key (kbd "<f5>") #'modus-themes-toggle)
-#+end_src
-
-What this toggle does is check if either =modus-operandi= or =modus-vivendi=
-is active and proceeds to cycle between them.  If none of them are
-active, a minibuffer prompt will ask the user to choose between the two.
-In this latter scenario, all other themes will first be disabled (using
-the =disable-theme= we covered before).
-
-Note that =modus-themes-toggle= uses =load-theme= internally instead of
-=enable-theme= ([[#h:e68560b3-7fb0-42bc-a151-e015948f8a35][Differences between loading and enabling]]).
-
-The toggle calls =modus-themes-after-load-theme-hook= which you can use to
-add your tweaks: [[#h:1487c631-f4fe-490d-8d58-d72ffa3bd474][Custom face specs using the themes' palette]].
-
-** Configure options prior to loading a theme
-:PROPERTIES:
-:CUSTOM_ID: h:a897b302-8e10-4a26-beab-3caaee1e1193
-:END:
-
-The themes provide a unified customization framework.  This is why you
-need =(require 'modus-themes)=.  All options must be set before loading
-each theme in order to come into effect.
-
-[[#h:1777c247-1b56-46b7-a4ce-54e720b33d06][Load automatically]].
-
-[[#h:e68560b3-7fb0-42bc-a151-e015948f8a35][Differences between loading and enabling]].
-
-A complete annotated sample with variables set to different values:
-
-#+begin_src emacs-lisp
-;; Set customization options to values of your choice
-(setq modus-themes-slanted-constructs t
-      modus-themes-bold-constructs nil
-      modus-themes-fringes 'subtle ; {nil,'subtle,'intense}
-
-      ;; Options for `modus-themes-lang-checkers': nil,
-      ;; 'straight-underline, 'subtle-foreground,
-      ;; 'subtle-foreground-straight-underline, 'intense-foreground,
-      ;; 'intense-foreground-straight-underline, 'colored-background
-      modus-themes-lang-checkers nil
-
-      ;; Options for `modus-themes-mode-line': nil, '3d, 'moody,
-      ;; 'borderless, 'borderless-3d, 'borderless-moody
-      modus-themes-mode-line nil
-
-      ;; Options for `modus-themes-syntax': nil, 'faint,
-      ;; 'yellow-comments, 'green-strings,
-      ;; 'yellow-comments-green-strings, 'alt-syntax,
-      ;; 'alt-syntax-yellow-comments, 'faint-yellow-comments
-      modus-themes-syntax nil
-
-      modus-themes-intense-hl-line nil
-      modus-themes-subtle-line-numbers t
-      modus-themes-paren-match 'subtle-bold ; {nil,'subtle-bold,'intense,'intense-bold}
-
-      ;; Options for `modus-themes-links': nil, 'faint,
-      ;; 'neutral-underline, 'faint-neutral-underline, 'no-underline,
-      ;; 'underline-only
-      modus-themes-links 'neutral-underline
-
-      modus-themes-no-mixed-fonts nil
-
-      ;; Options for `modus-themes-prompts': nil, 'subtle-accented,
-      ;; 'intense-accented, 'subtle-gray, 'intense-gray
-      modus-themes-prompts 'subtle-gray
-
-      modus-themes-completions 'opinionated ; {nil,'moderate,'opinionated}
-      modus-themes-region 'bg-only-no-extend ; {nil,'no-extend,'bg-only,'bg-only-no-extend}
-      modus-themes-diffs 'bg-only ; {nil,'desaturated,'fg-only,'bg-only}
-      modus-themes-org-blocks nil ; {nil,'grayscale,'rainbow}
-      modus-themes-org-habit nil ; {nil,'simplified,'traffic-light}
-
-      modus-themes-headings ; Lots of options---continue reading the manual
-      '((1 . section)
-        (2 . section-no-bold)
-        (3 . rainbow-line)
-        (t . rainbow-line-no-bold))
-
-      modus-themes-variable-pitch-ui t
-      modus-themes-variable-pitch-headings t
-      modus-themes-scale-headings t
-      modus-themes-scale-1 1.1
-      modus-themes-scale-2 1.15
-      modus-themes-scale-3 1.21
-      modus-themes-scale-4 1.27
-      modus-themes-scale-5 1.33)
-
-;; Load the light theme: `modus-operandi'
-(modus-themes-load-operandi)
-#+end_src
-
-Note that in this example we use =modus-themes-load-operandi=.  Here is
-what it does:
-
-#+begin_src emacs-lisp
-(defun modus-themes-load-operandi ()
-  "Load `modus-operandi' and disable `modus-vivendi'.
-Also run `modus-themes-after-load-theme-hook'."
-  (disable-theme 'modus-vivendi)
-  (load-theme 'modus-operandi t)
-  (run-hooks 'modus-themes-after-load-theme-hook))
-#+end_src
-
-Same principle, inverse effect, for =modus-themes-load-vivendi=.
-
-If you prefer to maintain different customization options between the
-two themes, it is best you write your own functions that first set those
-options and then load the themes.  The following code does exactly that
-by simply differentiating the two themes on the choice of bold
-constructs in code syntax (enabled for one, disabled for the other).
-
-#+begin_src emacs-lisp
-(defun my-demo-modus-operandi ()
-  (interactive)
-  (setq modus-themes-bold-constructs t) ; ENABLE bold
-  (modus-themes-load-operandi))
-
-(defun my-demo-modus-vivendi ()
-  (interactive)
-  (setq modus-themes-bold-constructs nil) ; DISABLE bold
-  (modus-themes-load-vivendi))
-
-(defun my-demo-modus-themes-toggle ()
-  (if (eq (car custom-enabled-themes) 'modus-operandi)
-      (my-demo-modus-vivendi)
-    (my-demo-modus-operandi)))
-#+end_src
-
-Then assign =my-demo-modus-themes-toggle= to a key instead of the
-equivalent the themes provide ([[#h:2a0895a6-3281-4e55-8aa1-8a737555821e][Toggle between the themes on demand]]).
-
-** Sample configuration for use-package
-:PROPERTIES:
-:CUSTOM_ID: h:e979734c-a9e1-4373-9365-0f2cd36107b8
-:END:
-
-It is common for Emacs users to rely on =use-package= for declaring
-package configurations in their setup.  We use this as an example:
-
-#+begin_src emacs-lisp
-(use-package modus-themes
-  :ensure
-  :init
-  ;; Add all your customizations prior to loading the themes
-  (setq modus-themes-slanted-constructs t
-        modus-themes-bold-constructs nil)
-
-  ;; Load the theme files before enabling a theme
-  (modus-themes-load-themes)
-  :config
-  ;; Load the theme of your choice:
-  (modus-themes-load-operandi) ;; OR (modus-themes-load-vivendi)
-  :bind ("<f5>" . modus-themes-toggle))
-#+end_src
-
-[[#h:e68560b3-7fb0-42bc-a151-e015948f8a35][Differences between loading and enabling]].
-
-Note: make sure not to customize the variable =custom-theme-load-path= or
-=custom-theme-directory= after the themes' package declaration.  That will
-lead to failures in loading the files.  If either or both of those
-variables need to be changed, their values should be defined before the
-package declaration of the themes.
 
 * Customization Options
 :PROPERTIES:
@@ -1314,6 +1215,41 @@ their own local tweaks and who are willing to deal with any possible
 incompatibilities between versioned releases of the themes.  As such,
 they are labelled as "do-it-yourself" or "DIY".
 
+** Per-theme customization settings (DIY)
+:PROPERTIES:
+:CUSTOM_ID: h:a897b302-8e10-4a26-beab-3caaee1e1193
+:END:
+
+If you prefer to maintain different customization options between the
+two themes, it is best you write your own functions that first set those
+options and then load the relevant theme.  The following code does
+exactly that by simply differentiating the two themes on the choice of
+bold constructs in code syntax (enabled for one, disabled for the
+other).
+
+#+begin_src emacs-lisp
+(defun my-demo-modus-operandi ()
+  (interactive)
+  (setq modus-themes-bold-constructs t) ; ENABLE bold
+  (modus-themes-load-operandi))
+
+(defun my-demo-modus-vivendi ()
+  (interactive)
+  (setq modus-themes-bold-constructs nil) ; DISABLE bold
+  (modus-themes-load-vivendi))
+
+(defun my-demo-modus-themes-toggle ()
+  (if (eq (car custom-enabled-themes) 'modus-operandi)
+      (my-demo-modus-vivendi)
+    (my-demo-modus-operandi)))
+#+end_src
+
+Then assign =my-demo-modus-themes-toggle= to a key instead of the
+equivalent the themes provide.
+
+For a more elaborate design, it is better to inspect the source code of
+=modus-themes-toggle= and relevant functions.
+
 ** Case-by-case face specs using the themes' palette (DIY)
 :PROPERTIES:
 :CUSTOM_ID: h:1487c631-f4fe-490d-8d58-d72ffa3bd474
@@ -1326,10 +1262,6 @@ We already covered in previous sections how to toggle between the themes
 and how to configure options prior to loading.  We also explained that
 some of the functions made available to users will fire up a hook that
 can be used to pass tweaks in the post-theme-load phase.
-
-[[#h:2a0895a6-3281-4e55-8aa1-8a737555821e][Toggle between the themes]].
-
-[[#h:a897b302-8e10-4a26-beab-3caaee1e1193][Configure options prior to loading]].
 
 Now assume you wish to change a single face, say, the =cursor=.  And you
 would like to get the standard "blue" color value of the active Modus
@@ -1900,6 +1832,53 @@ using the built-in =solar.el= and then configuring the =circadian= library:
                            (:sunset  . modus-vivendi)))
   (circadian-setup))
 #+end_src
+
+** A theme-agnostic hook for theme loading (DIY)
+:PROPERTIES:
+:CUSTOM_ID: h:86f6906b-f090-46cc-9816-1fe8aeb38776
+:END:
+
+The themes are designed with the intent to be useful to Emacs users of
+varying skill levels, from beginners to experts.  This means that we try
+to make things easier by not expecting anyone reading this document to
+be proficient in Emacs Lisp or programming in general.
+
+One such case is with the use of the =modus-themes-after-load-theme-hook=,
+which runs every time =modus-themes-toggle,= =modus-themes-load-operandi=,
+or =modus-themes-load-vivendi= is evaluated.  We recommend using that hook
+for advanced customizations, because (1) we know for sure that it is
+available once the themes are loaded, and (2) anyone consulting this
+manual, especially the sections on enabling and loading the themes, will
+be in a good position to benefit from that hook.
+
+Advanced users who have a need to switch between the Modus themes and
+other items will find that such a hook does not meet their requirements:
+it only works with the Modus themes and only with the aforementioned
+functions.
+
+A theme-agnostic setup can be configured thus:
+
+#+begin_src emacs-lisp
+(defvar after-enable-theme-hook nil
+  "Normal hook run after enabling a theme.")
+
+(define-advice enable-theme (:after (&rest _args) run-after-enable-theme-hook)
+  "Run `after-enable-theme-hook'."
+  (run-hooks 'after-enable-theme-hook))
+#+end_src
+
+This creates the =after-enable-theme-hook= and makes it run after each
+call to =enable-theme=, which means that it will work for all themes and
+also has the benefit that it does not depend on functions such as
+=modus-themes-toggle= and the others mentioned above.  =enable-theme= is
+called internally by =load-theme=, so the hook works everywhere.
+
+Now this specific piece of Elisp may be simple for experienced users,
+but it is not easy to read for newcomers, including the author of the
+Modus themes for the first several months of their time as an Emacs
+user.  Hence our hesitation to recommend it as part of the standard
+setup of the Modus themes (it is generally a good idea to understand
+what the implications are of advising a function).
 
 * Face coverage
 :PROPERTIES:
