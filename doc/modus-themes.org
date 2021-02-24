@@ -74,6 +74,7 @@ Emacs.
 :PROPERTIES:
 :CUSTOM_ID: h:69b92089-069c-4ba1-9d94-cc3415fc4f87
 :END:
+#+CINDEX: Screenshots
 
 Check the web page with [[https://protesilaos.com/modus-themes-pictures/][the screen shots]].  There are lots of scenarios
 on display that draw attention to details and important aspects in the
@@ -86,6 +87,7 @@ options.
 :PROPERTIES:
 :CUSTOM_ID: h:2cc37c36-6c1a-48b2-a010-1050b270ee18
 :END:
+#+CINDEX: Changelog
 
 Please refer to the [[https://protesilaos.com/modus-themes-changelog][web page with the change log]].  It is comprehensive
 and covers everything that goes into every tagged release of the themes.
@@ -187,6 +189,12 @@ The themes are now ready to be used: [[#h:3f3c3728-1b34-437d-9d0c-b110f5b161a9][
 :PROPERTIES:
 :CUSTOM_ID: h:3f3c3728-1b34-437d-9d0c-b110f5b161a9
 :END:
+#+FINDEX: modus-themes-load-themes
+#+FINDEX: modus-themes-toggle
+#+FINDEX: modus-themes-load-operandi
+#+FINDEX: modus-themes-load-vivendi
+#+CINDEX: Essential configuration
+#+VINDEX: modus-themes-after-load-theme-hook
 
 Before you load a theme, it is necessary to require the main library:
 
@@ -251,6 +259,7 @@ With those granted, bear in mind a couple of technical points on
 :PROPERTIES:
 :CUSTOM_ID: h:e979734c-a9e1-4373-9365-0f2cd36107b8
 :END:
+#+CINDEX: use-package configuration
 
 It is common for Emacs users to rely on =use-package= for declaring
 package configurations in their setup.  We use this as an example:
@@ -283,6 +292,7 @@ package declaration of the themes.
 :PROPERTIES:
 :CUSTOM_ID: h:e68560b3-7fb0-42bc-a151-e015948f8a35
 :END:
+#+CINDEX: load-theme VS enable-theme
 
 The reason we recommend =load-theme= instead of the other option of
 =enable-theme= is that the former does a kind of "reset" on the face
@@ -341,6 +351,7 @@ a theme ([[#h:3f3c3728-1b34-437d-9d0c-b110f5b161a9][Enable and load]]).
 :DESCRIPTION: Toggle bold constructs in code
 :CUSTOM_ID: h:b25714f6-0fbe-41f6-89b5-6912d304091e
 :END:
+#+VINDEX: modus-themes-bold-constructs
 
 Symbol: =modus-themes-bold-constructs=
 
@@ -363,6 +374,7 @@ prompts.
 :DESCRIPTION: Toggle slanted constructs (italics) in code
 :CUSTOM_ID: h:977c900d-0d6d-4dbb-82d9-c2aae69543d6
 :END:
+#+VINDEX: modus-themes-slanted-constructs
 
 Symbol: =modus-themes-slanted-constructs=
 
@@ -383,6 +395,7 @@ This typically affects documentation strings and code comments.
 :DESCRIPTION: Choose the overall aesthetic of code syntax
 :CUSTOM_ID: h:c119d7b2-fcd4-4e44-890e-5e25733d5e52
 :END:
+#+VINDEX: modus-themes-syntax
 
 Symbol: =modus-themes-syntax=
 
@@ -431,6 +444,7 @@ Option =faint-yellow-comments= combines the =faint= style with
 :DESCRIPTION: Toggle mixing of font families
 :CUSTOM_ID: h:115e6c23-ee35-4a16-8cef-e2fcbb08e28b
 :END:
+#+VINDEX: modus-themes-no-mixed-fonts
 
 Symbol: =modus-themes-no-mixed-fonts=
 
@@ -459,6 +473,7 @@ are =org-variable-pitch= and =mixed-pitch=.
 :DESCRIPTION: Choose link color intensity for the text or underline, or no underline at all
 :CUSTOM_ID: h:c119d7b2-fcd4-4e44-890e-5e25733d5e52
 :END:
+#+VINDEX: modus-themes-links
 
 Symbol: =modus-themes-links=
 
@@ -506,6 +521,7 @@ refer to their documentation strings.
 :DESCRIPTION: Choose among plain, subtle, or intense prompts
 :CUSTOM_ID: h:db5a9a7c-2928-4a28-b0f0-6f2b9bd52ba1
 :END:
+#+VINDEX: modus-themes-prompts
 
 Symbol: =modus-themes-prompts=
 
@@ -537,6 +553,7 @@ except they use grayscale values.
 :DESCRIPTION: Choose among plain, three-dimensional, or Moody-compliant styles
 :CUSTOM_ID: h:27943af6-d950-42d0-bc23-106e43f50a24
 :END:
+#+VINDEX: modus-themes-mode-line
 
 Symbol: =modus-themes-mode-line=
 
@@ -607,6 +624,7 @@ a box style, it is advised you include this in your setup:
 :DESCRIPTION: Choose among standard, moderate, or opinionated looks
 :CUSTOM_ID: h:f1c20c02-7b34-4c35-9c65-99170efb2882
 :END:
+#+VINDEX: modus-themes-completions
 
 Symbol: =modus-themes-completions=
 
@@ -650,6 +668,7 @@ possibilities.
 :DESCRIPTION: Choose among invisible, subtle, or intense fringe visibility
 :CUSTOM_ID: h:1983c3fc-74f6-44f3-b917-967c403bebae
 :END:
+#+VINDEX: modus-themes-fringes
 
 Symbol: =modus-themes-fringes=
 
@@ -673,6 +692,7 @@ names imply.
 :DESCRIPTION: Control the style of language checkers/linters
 :CUSTOM_ID: h:4b13743a-8ebf-4d2c-a043-cceba10b1eb4
 :END:
+#+VINDEX: modus-themes-lang-checkers
 
 Symbol: =modus-themes-lang-checkers=
 
@@ -720,6 +740,7 @@ refer to their documentation strings.
 :DESCRIPTION: Toggle intense style for current line highlighting
 :CUSTOM_ID: h:1dba1cfe-d079-4c13-a810-f768e8789177
 :END:
+#+VINDEX: modus-themes-intense-hl-line
 
 Symbol: =modus-themes-intense-hl-line=
 
@@ -742,6 +763,7 @@ and =mu4e=.
 :DESCRIPTION: Toggle subtle style for line numbers
 :CUSTOM_ID: h:8c4a6230-2e43-4aa2-a631-3b7179392e09
 :END:
+#+VINDEX: modus-themes-subtle-line-numbers
 
 (coming in version =1.2.0=)
 
@@ -772,6 +794,7 @@ updated to accommodate this aesthetic.
 :DESCRIPTION: Choose between various styles for matching delimiters/parentheses
 :CUSTOM_ID: h:e66a7e4d-a512-4bc7-9f86-fbbb5923bf37
 :END:
+#+VINDEX: modus-themes-paren-match
 
 Symbol: =modus-themes-paren-match=
 
@@ -802,6 +825,7 @@ This customization variable affects tools such as the built-in
 :DESCRIPTION: Choose between various styles for the active region
 :CUSTOM_ID: h:60798063-b4ad-45ea-b9a7-ff7b5c0ab74c
 :END:
+#+VINDEX: modus-themes-region
 
 Symbol: =modus-themes-region=
 
@@ -832,6 +856,7 @@ Option =bg-only-no-extend= is a combination of the =bg-only= and
 :DESCRIPTION: Choose among intense, desaturated, or text-only diffs
 :CUSTOM_ID: h:ea7ac54f-5827-49bd-b09f-62424b3b6427
 :END:
+#+VINDEX: modus-themes-diffs
 
 Symbol: =modus-themes-diffs=
 
@@ -882,6 +907,7 @@ such a feature---this entry shall be updated accordingly).
 :DESCRIPTION: Choose among plain, grayscale, or rainbow styles
 :CUSTOM_ID: h:b7e328c0-3034-4db7-9cdf-d5ba12081ca2
 :END:
+#+VINDEX: modus-themes-org-blocks
 
 Symbol: =modus-themes-org-blocks=
 
@@ -917,6 +943,7 @@ code block (inefficient at scale, but it still works).
 :DESCRIPTION: Choose among standard, simplified, or traffic light styles
 :CUSTOM_ID: h:b7e328c0-3034-4db7-9cdf-d5ba12081ca2
 :END:
+#+VINDEX: modus-themes-org-habit
 
 Symbol: =modus-themes-org-habit=
 
@@ -957,6 +984,7 @@ thus highlights the alert and overdue states.
 :DESCRIPTION: Choose among several styles, also per heading level
 :CUSTOM_ID: h:271eff19-97aa-4090-9415-a6463c2f9ae1
 :END:
+#+VINDEX: modus-themes-headings
 
 This is defined as an alist and, therefore, uses a different approach
 than other customization options documented in this manual.
@@ -1077,6 +1105,7 @@ A description of all other possible styles beyond the default:
 :DESCRIPTION: Toggle scaling of headings
 :CUSTOM_ID: h:075eb022-37a6-41a4-a040-cc189f6bfa1f
 :END:
+#+VINDEX: modus-themes-scale-headings
 
 Symbol: =modus-themes-scale-headings=
 
@@ -1159,6 +1188,7 @@ size of the heading, but not of keywords that were added to it, like
 :DESCRIPTION: Toggle the use of variable-pitch across the User Interface
 :CUSTOM_ID: h:16cf666c-5e65-424c-a855-7ea8a4a1fcac
 :END:
+#+VINDEX: modus-themes-variable-pitch-ui
 
 Symbol: =modus-themes-variable-pitch-ui=
 
@@ -1185,6 +1215,7 @@ is done by assigning the =variable-pitch= face to the relevant items.
 :DESCRIPTION: Toggle the use of variable-pitch in headings
 :CUSTOM_ID: h:97caca76-fa13-456c-aef1-a2aa165ea274
 :END:
+#+VINDEX: modus-themes-variable-pitch-headings
 
 Symbol: =modus-themes-variable-pitch-headings=
 
@@ -1254,6 +1285,9 @@ For a more elaborate design, it is better to inspect the source code of
 :PROPERTIES:
 :CUSTOM_ID: h:1487c631-f4fe-490d-8d58-d72ffa3bd474
 :END:
+#+FINDEX: modus-themes-color
+#+FINDEX: modus-themes-color-alts
+#+CINDEX: Extracting individual colors
 
 This section is about tweaking individual faces.  If you plan to do
 things at scale, consult the next section: [[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Set multiple faces]].
@@ -1353,6 +1387,8 @@ Take the previous example with the =cursor= face:
 :PROPERTIES:
 :CUSTOM_ID: h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae
 :END:
+#+FINDEX: modus-themes-with-colors
+#+CINDEX: Extracting colors en masse
 
 The examples here are for large scale operations.  For simple, one-off
 tweaks, you may prefer the approach documented in the previous section
@@ -1501,6 +1537,9 @@ A complete example with some more opinionated stylistic choices:
 :PROPERTIES:
 :CUSTOM_ID: h:307d95dd-8dbd-4ece-a543-10ae86f155a6
 :END:
+#+VINDEX: modus-themes-operandi-color-overrides
+#+VINDEX: modus-themes-vivendi-color-overrides
+#+CINDEX: Change a theme's colors
 
 The themes provide a mechanism for overriding their color values.  This
 is controlled by the variables =modus-themes-operandi-color-overrides= and
@@ -1609,6 +1648,7 @@ ratio between two color values, so it can help in overriding the palette
 :PROPERTIES:
 :CUSTOM_ID: h:defcf4fc-8fa8-4c29-b12e-7119582cc929
 :END:
+#+CINDEX: Font configurations
 
 The themes are designed to cope well with mixed font configurations.
 
@@ -1660,6 +1700,7 @@ base font size (i.e. the =default= face's absolute height).
 :PROPERTIES:
 :CUSTOM_ID: h:89f0678d-c5c3-4a57-a526-668b2bb2d7ad
 :END:
+#+CINDEX: Org extra faces
 
 Users of =org-mode= have the option to configure various keywords and
 priority cookies to better match their workflow.  User options are
@@ -1741,6 +1782,8 @@ it if you plan to control face attributes.
 :PROPERTIES:
 :CUSTOM_ID: h:02e25930-e71a-493d-828a-8907fc80f874
 :END:
+#+FINDEX: modus-themes-contrast
+#+CINDEX: Color contrast
 
 The themes provide the functions =modus-themes-wcag-formula= and
 =modus-themes-contrast=.  The former is a direct implementation of the
@@ -1895,6 +1938,7 @@ experience across all available interfaces.
 :DESCRIPTION: Full list of covered face groups
 :CUSTOM_ID: h:60ed4275-60d6-49f8-9287-9a64e54bea0e
 :END:
+#+CINDEX: Explicitly supported packages
 
 This list will always be updated to reflect the current state of the
 project.  The idea is to offer an overview of the known status of all
@@ -2206,6 +2250,7 @@ GNU Emacs distribution.
 :PROPERTIES:
 :CUSTOM_ID: h:2cb359c7-3a84-4262-bab3-dcdc1d0034d7
 :END:
+#+CINDEX: Implicitly supported packages
 
 These do not require any extra styles because they are configured to
 inherit from some basic faces.  Please confirm.
@@ -2532,6 +2577,7 @@ in which you can contribute to their ongoing development.
 :PROPERTIES:
 :CUSTOM_ID: h:89504f1c-c9a1-4bd9-ab39-78fd0eddb47c
 :END:
+#+CINDEX: Sources of the themes
 
 The =modus-operandi= and =modus-vivendi= themes are built into Emacs.
 Currently they are in Emacs' git main branch (trunk), which is tracking
@@ -2547,6 +2593,7 @@ An HTML version of this manual is provided as an extension of the
 :PROPERTIES:
 :CUSTOM_ID: h:6536c8d5-3f98-43ab-a787-b94120e735e8
 :END:
+#+CINDEX: Contributing
 
 A few tasks you can help with:
 
@@ -2637,6 +2684,7 @@ so far?]
 :PROPERTIES:
 :CUSTOM_ID: h:95c3da23-217f-404e-b5f3-56c75760ebcf
 :END:
+#+CINDEX: Contributors
 
 The Modus themes are a collective effort.  Every bit of work matters.
 
@@ -2679,6 +2727,7 @@ commentary.
 :PROPERTIES:
 :CUSTOM_ID: h:13752581-4378-478c-af17-165b6e76bc1b
 :END:
+#+CINDEX: Development notes
 
 If you are curious about the principles that govern the development of
 this project read the essay [[https://protesilaos.com/codelog/2020-03-17-design-modus-themes-emacs/][On the design of the Modus themes]]
@@ -3160,3 +3209,26 @@ recommend releasing these examples in parallel under your choice of
 free software license, such as the GNU General Public License,
 to permit their use in free software.
 #+end_src
+
+#+html: <!--
+
+* Indices
+:PROPERTIES:
+:END:
+
+** Function index
+:PROPERTIES:
+:INDEX:    fn
+:END:
+
+** Variable index
+:PROPERTIES:
+:INDEX:    vr
+:END:
+
+** Concept index
+:PROPERTIES:
+:INDEX:    cp
+:END:
+
+#+html: -->

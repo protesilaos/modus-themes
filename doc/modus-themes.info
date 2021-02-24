@@ -30,7 +30,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.2.0-dev.  This manual was rebuilt on
-2021-02-23 13:31 +0200.
+2021-02-24 07:47 +0200.
 
 * Menu:
 
@@ -45,6 +45,7 @@ as such.
 * Acknowledgements::
 * Meta::
 * GNU Free Documentation License::
+* Indices::
 
 — The Detailed Node Listing —
 
@@ -107,7 +108,7 @@ Advanced customization (do-it-yourself)
 * Custom Org user faces (DIY)::
 * Measure color contrast (DIY)::
 * Load theme depending on time of day::
-* A theme-agnostic hook for theme loading::
+* A theme-agnostic hook for theme loading (DIY)::
 
 Face coverage
 
@@ -131,6 +132,12 @@ Contributing
 * Sources of the themes::
 * Issues you can help with::
 * Patches require copyright assignment to the FSF::
+
+Indices
+
+* Function index::
+* Variable index::
+* Concept index::
 
 
 
@@ -352,7 +359,8 @@ is how a basic setup should look like:
      (*note Advanced customization (do-it-yourself)::).  Experienced
      users may not wish to rely on such a hook and the functions that
      run it: they may prefer a custom solution (*note A theme-agnostic
-     hook for theme loading::).
+     hook for theme loading: A theme-agnostic hook for theme loading
+     (DIY).).
 
 * Menu:
 
@@ -1351,7 +1359,7 @@ such, they are labelled as “do-it-yourself” or “DIY”.
 * Custom Org user faces (DIY)::
 * Measure color contrast (DIY)::
 * Load theme depending on time of day::
-* A theme-agnostic hook for theme loading::
+* A theme-agnostic hook for theme loading (DIY)::
 
 
 File: modus-themes.info,  Node: Per-theme customization settings (DIY),  Next: Case-by-case face specs using the themes' palette (DIY),  Up: Advanced customization (do-it-yourself)
@@ -1919,7 +1927,7 @@ minutia and relevant commentary.
 of the themes’ colors: *note Override colors: Override colors (DIY).
 
 
-File: modus-themes.info,  Node: Load theme depending on time of day,  Next: A theme-agnostic hook for theme loading,  Prev: Measure color contrast (DIY),  Up: Advanced customization (do-it-yourself)
+File: modus-themes.info,  Node: Load theme depending on time of day,  Next: A theme-agnostic hook for theme loading (DIY),  Prev: Measure color contrast (DIY),  Up: Advanced customization (do-it-yourself)
 
 5.8 Load theme depending on time of day
 =======================================
@@ -1945,10 +1953,10 @@ location using the built-in ‘solar.el’ and then configuring the
        (circadian-setup))
 
 
-File: modus-themes.info,  Node: A theme-agnostic hook for theme loading,  Prev: Load theme depending on time of day,  Up: Advanced customization (do-it-yourself)
+File: modus-themes.info,  Node: A theme-agnostic hook for theme loading (DIY),  Prev: Load theme depending on time of day,  Up: Advanced customization (do-it-yourself)
 
-5.9 A theme-agnostic hook for theme loading
-===========================================
+5.9 A theme-agnostic hook for theme loading (DIY)
+=================================================
 
 The themes are designed with the intent to be useful to Emacs users of
 varying skill levels, from beginners to experts.  This means that we try
@@ -2876,7 +2884,7 @@ Screenshots
      <https://protesilaos.com/modus-themes-pictures>
 
 
-File: modus-themes.info,  Node: GNU Free Documentation License,  Prev: Meta,  Up: Top
+File: modus-themes.info,  Node: GNU Free Documentation License,  Next: Indices,  Prev: Meta,  Up: Top
 
 Appendix A GNU Free Documentation License
 *****************************************
@@ -3332,79 +3340,189 @@ Appendix A GNU Free Documentation License
      free software license, such as the GNU General Public License,
      to permit their use in free software.
 
+
+File: modus-themes.info,  Node: Indices,  Prev: GNU Free Documentation License,  Up: Top
+
+B Indices
+*********
+
+* Menu:
+
+* Function index::
+* Variable index::
+* Concept index::
+
+
+File: modus-themes.info,  Node: Function index,  Next: Variable index,  Up: Indices
+
+B.1 Function index
+==================
+
+ [index ]
+* Menu:
+
+* modus-themes-color:                    Case-by-case face specs using the themes' palette (DIY).
+                                                                (line 6)
+* modus-themes-color-alts:               Case-by-case face specs using the themes' palette (DIY).
+                                                                (line 6)
+* modus-themes-contrast:                 Measure color contrast (DIY).
+                                                                (line 6)
+* modus-themes-load-operandi:            Enable and load.       (line 6)
+* modus-themes-load-themes:              Enable and load.       (line 6)
+* modus-themes-load-vivendi:             Enable and load.       (line 6)
+* modus-themes-toggle:                   Enable and load.       (line 6)
+* modus-themes-with-colors:              Face specs at scale using the themes' palette (DIY).
+                                                                (line 6)
+
+
+File: modus-themes.info,  Node: Variable index,  Next: Concept index,  Prev: Function index,  Up: Indices
+
+B.2 Variable index
+==================
+
+ [index ]
+* Menu:
+
+* modus-themes-after-load-theme-hook:    Enable and load.       (line 6)
+* modus-themes-bold-constructs:          Bold constructs.       (line 6)
+* modus-themes-completions:              Completion UIs.        (line 6)
+* modus-themes-diffs:                    Diffs.                 (line 6)
+* modus-themes-fringes:                  Fringes.               (line 6)
+* modus-themes-headings:                 Heading styles.        (line 6)
+* modus-themes-intense-hl-line:          Line highlighting.     (line 6)
+* modus-themes-lang-checkers:            Language checkers.     (line 6)
+* modus-themes-links:                    Link styles.           (line 6)
+* modus-themes-mode-line:                Mode line.             (line 6)
+* modus-themes-no-mixed-fonts:           No mixed fonts.        (line 6)
+* modus-themes-operandi-color-overrides: Override colors (DIY). (line 6)
+* modus-themes-org-blocks:               Org mode blocks.       (line 6)
+* modus-themes-org-habit:                Org agenda habits.     (line 6)
+* modus-themes-paren-match:              Matching parentheses.  (line 6)
+* modus-themes-prompts:                  Command prompts.       (line 6)
+* modus-themes-region:                   Active region.         (line 6)
+* modus-themes-scale-headings:           Scaled headings.       (line 6)
+* modus-themes-slanted-constructs:       Slanted constructs.    (line 6)
+* modus-themes-subtle-line-numbers:      Line numbers.          (line 6)
+* modus-themes-syntax:                   Syntax styles.         (line 6)
+* modus-themes-variable-pitch-headings:  Headings' typeface.    (line 6)
+* modus-themes-variable-pitch-ui:        UI typeface.           (line 6)
+* modus-themes-vivendi-color-overrides:  Override colors (DIY). (line 6)
+
+
+File: modus-themes.info,  Node: Concept index,  Prev: Variable index,  Up: Indices
+
+B.3 Concept index
+=================
+
+ [index ]
+* Menu:
+
+* Change a theme’s colors:               Override colors (DIY). (line 6)
+* Changelog:                             Learn about the latest changes.
+                                                                (line 6)
+* Color contrast:                        Measure color contrast (DIY).
+                                                                (line 6)
+* Contributing:                          Issues you can help with.
+                                                                (line 6)
+* Contributors:                          Acknowledgements.      (line 6)
+* Development notes:                     Meta.                  (line 6)
+* Essential configuration:               Enable and load.       (line 6)
+* Explicitly supported packages:         Supported packages.    (line 6)
+* Extracting colors en masse:            Face specs at scale using the themes' palette (DIY).
+                                                                (line 6)
+* Extracting individual colors:          Case-by-case face specs using the themes' palette (DIY).
+                                                                (line 6)
+* Font configurations:                   Font configurations for Org and others (DIY).
+                                                                (line 6)
+* Implicitly supported packages:         Indirectly covered packages.
+                                                                (line 6)
+* load-theme VS enable-theme:            Differences between loading and enabling.
+                                                                (line 6)
+* Org extra faces:                       Custom Org user faces (DIY).
+                                                                (line 6)
+* Screenshots:                           How do the themes look like.
+                                                                (line 6)
+* Sources of the themes:                 Sources of the themes. (line 6)
+* use-package configuration:             Sample configuration for use-package.
+                                                                (line 6)
+
 
 
 Tag Table:
 Node: Top586
-Node: Overview4742
-Node: How do the themes look like6008
-Node: Learn about the latest changes6516
-Node: Installation6898
-Node: Install manually from source7379
-Node: Install from the archives8206
-Node: Install on GNU/Linux8983
-Node: Debian 11 Bullseye9431
-Node: GNU Guix9906
-Node: Enable and load10195
-Node: Sample configuration for use-package12484
-Node: Differences between loading and enabling13746
-Node: Customization Options15784
-Node: Bold constructs18001
-Node: Slanted constructs18590
-Node: Syntax styles19137
-Node: No mixed fonts20815
-Node: Link styles21852
-Node: Command prompts23458
-Node: Mode line24681
-Node: Completion UIs27872
-Node: Fringes29704
-Node: Language checkers30364
-Node: Line highlighting32309
-Node: Line numbers32926
-Node: Matching parentheses34040
-Node: Active region34918
-Node: Diffs35854
-Node: Org mode blocks38145
-Node: Org agenda habits39488
-Node: Heading styles41323
-Node: Scaled headings45322
-Node: Scaled heading sizes45925
-Node: UI typeface49059
-Node: Headings' typeface49905
-Node: Advanced customization (do-it-yourself)50529
-Node: Per-theme customization settings (DIY)51681
-Node: Case-by-case face specs using the themes' palette (DIY)53027
-Node: Face specs at scale using the themes' palette (DIY)57393
-Node: Override colors (DIY)64218
-Node: Font configurations for Org and others (DIY)68841
-Ref: Font configurations for Org and others (DIY)-Footnote-171164
-Node: Custom Org user faces (DIY)71351
-Node: Measure color contrast (DIY)74667
-Node: Load theme depending on time of day77434
-Node: A theme-agnostic hook for theme loading78465
-Node: Face coverage80806
-Node: Supported packages81276
-Node: Indirectly covered packages87840
-Node: Notes for individual packages88323
-Node: Note for display-fill-column-indicator-mode88909
-Node: Note for prism90487
-Node: Note on company-mode overlay pop-up93452
-Ref: Note on company-mode overlay pop-up-Footnote-194139
-Ref: Note on company-mode overlay pop-up-Footnote-294206
-Node: Note for ERC escaped color sequences94261
-Ref: Note for ERC escaped color sequences-Footnote-195694
-Node: Note for powerline or spaceline95804
-Node: Note on SHR colors96220
-Node: Note for Helm grep96630
-Node: Note on vc-annotate-background-mode98075
-Node: Note on pdf-tools link hints98960
-Node: Contributing101391
-Node: Sources of the themes101791
-Node: Issues you can help with102529
-Node: Patches require copyright assignment to the FSF103729
-Node: Acknowledgements106024
-Node: Meta108142
-Node: GNU Free Documentation License109982
+Node: Overview4826
+Node: How do the themes look like6092
+Node: Learn about the latest changes6600
+Node: Installation6982
+Node: Install manually from source7463
+Node: Install from the archives8290
+Node: Install on GNU/Linux9067
+Node: Debian 11 Bullseye9515
+Node: GNU Guix9990
+Node: Enable and load10279
+Node: Sample configuration for use-package12619
+Node: Differences between loading and enabling13881
+Node: Customization Options15919
+Node: Bold constructs18136
+Node: Slanted constructs18725
+Node: Syntax styles19272
+Node: No mixed fonts20950
+Node: Link styles21987
+Node: Command prompts23593
+Node: Mode line24816
+Node: Completion UIs28007
+Node: Fringes29839
+Node: Language checkers30499
+Node: Line highlighting32444
+Node: Line numbers33061
+Node: Matching parentheses34175
+Node: Active region35053
+Node: Diffs35989
+Node: Org mode blocks38280
+Node: Org agenda habits39623
+Node: Heading styles41458
+Node: Scaled headings45457
+Node: Scaled heading sizes46060
+Node: UI typeface49194
+Node: Headings' typeface50040
+Node: Advanced customization (do-it-yourself)50664
+Node: Per-theme customization settings (DIY)51822
+Node: Case-by-case face specs using the themes' palette (DIY)53168
+Node: Face specs at scale using the themes' palette (DIY)57534
+Node: Override colors (DIY)64359
+Node: Font configurations for Org and others (DIY)68982
+Ref: Font configurations for Org and others (DIY)-Footnote-171305
+Node: Custom Org user faces (DIY)71492
+Node: Measure color contrast (DIY)74808
+Node: Load theme depending on time of day77575
+Node: A theme-agnostic hook for theme loading (DIY)78612
+Node: Face coverage80971
+Node: Supported packages81441
+Node: Indirectly covered packages88005
+Node: Notes for individual packages88488
+Node: Note for display-fill-column-indicator-mode89074
+Node: Note for prism90652
+Node: Note on company-mode overlay pop-up93617
+Ref: Note on company-mode overlay pop-up-Footnote-194304
+Ref: Note on company-mode overlay pop-up-Footnote-294371
+Node: Note for ERC escaped color sequences94426
+Ref: Note for ERC escaped color sequences-Footnote-195859
+Node: Note for powerline or spaceline95969
+Node: Note on SHR colors96385
+Node: Note for Helm grep96795
+Node: Note on vc-annotate-background-mode98240
+Node: Note on pdf-tools link hints99125
+Node: Contributing101556
+Node: Sources of the themes101956
+Node: Issues you can help with102694
+Node: Patches require copyright assignment to the FSF103894
+Node: Acknowledgements106189
+Node: Meta108307
+Node: GNU Free Documentation License110147
+Node: Indices135157
+Node: Function index135336
+Node: Variable index136429
+Node: Concept index138351
 
 End Tag Table
 
