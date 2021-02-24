@@ -1,5 +1,4 @@
 *.elc
 *-autoloads.el
 *-pkg.el
-*.texi
 doc/fdl-1.3.txt

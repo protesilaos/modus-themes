@@ -20,9 +20,17 @@ File: modus-themes.info,  Node: Top,  Next: Overview,  Up: (dir)
 Modus themes for GNU Emacs
 **************************
 
-This manual, written by Protesilaos Stavrou, describes the customization
-options for the ‘modus-operandi’ and ‘modus-vivendi’ themes, and
-provides every other piece of information pertinent to them.
+Copyright (C) 2020-2021 Free Software Foundation, Inc.
+
+     Permission is granted to copy, distribute and/or modify this
+     document under the terms of the GNU Free Documentation License,
+     Version 1.3 or any later version published by the Free Software
+     Foundation; with no Invariant Sections, with no Front-Cover Texts,
+     and with no Back-Cover Texts.
+
+   This manual, written by Protesilaos Stavrou, describes the
+customization options for the ‘modus-operandi’ and ‘modus-vivendi’
+themes, and provides every other piece of information pertinent to them.
 
    The documentation furnished herein corresponds to stable version
 1.1.1, released on 2021-01-25.  Any reference to a newer feature which
@@ -30,7 +38,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.2.0-dev.  This manual was rebuilt on
-2021-02-24 07:47 +0200.
+2021-02-24 09:09 +0200.
 
 * Menu:
 
@@ -76,11 +84,11 @@ Customization Options
 * Slanted constructs::           Toggle slanted constructs (italics) in code
 * Syntax styles::                Choose the overall aesthetic of code syntax
 * No mixed fonts::               Toggle mixing of font families
-* Link styles::                  Choose link color intensity for the text or underline, or no underline at all
+* Link styles::                  Choose among several styles, with or without underline
 * Command prompts::              Choose among plain, subtle, or intense prompts
-* Mode line::                    Choose among plain, three-dimensional, or Moody-compliant styles
+* Mode line::                    Choose among several styles, with or without borders
 * Completion UIs::               Choose among standard, moderate, or opinionated looks
-* Fringes::                      Choose among invisible, subtle, or intense fringe visibility
+* Fringes::                      Choose among invisible, subtle, or intense fringe styles
 * Language checkers::            Control the style of language checkers/linters
 * Line highlighting::            Toggle intense style for current line highlighting
 * Line numbers::                 Toggle subtle style for line numbers
@@ -229,10 +237,10 @@ stored in ‘~/.emacs.d’ and that you want to place the Modus themes in
   1. Get the source and store it in the desired path by running the
      following in the command line shell:
 
-     git clone https://gitlab.com/protesilaos/modus-themes.git ~/.emacs.d/modus-themes
+     $ git clone https://gitlab.com/protesilaos/modus-themes.git ~/.emacs.d/modus-themes
 
   1. Add that path to your known Elisp libraries’ list, by placing this
-     snippet of Emacs Lisp in your init file (say, your ‘init.el’):
+     snippet of Emacs Lisp in your init file (e.g.  ‘init.el’):
 
      (add-to-list 'load-path "~/.emacs.d/modus-themes")
 
@@ -350,9 +358,9 @@ is how a basic setup should look like:
 ‘modus-themes-load-operandi’ and ‘modus-themes-load-vivendi’, as well as
 ‘modus-themes-toggle’ which relies on them:
 
-  1. Those functions use ‘load-theme’.  Some users may not want that,
-     opting for ‘enable-theme’ instead (*note Differences between
-     loading and enabling::).
+  1. Those functions use ‘load-theme’.  Some users prefer opting for
+     ‘enable-theme’ instead (*note Differences between loading and
+     enabling::).
 
   2. The functions will run the ‘modus-themes-after-load-theme-hook’ as
      their final step.  This can be employed for bespoke configurations
@@ -451,7 +459,7 @@ File: modus-themes.info,  Node: Customization Options,  Next: Advanced customiza
 
 The Modus themes are highly configurable, though they should work well
 without any further tweaks.  By default, all customization options are
-set to ‘nil’.
+set to nil.
 
    Remember that all customization options must be evaluated before
 loading a theme (*note Enable and load::).
@@ -462,11 +470,11 @@ loading a theme (*note Enable and load::).
 * Slanted constructs::           Toggle slanted constructs (italics) in code
 * Syntax styles::                Choose the overall aesthetic of code syntax
 * No mixed fonts::               Toggle mixing of font families
-* Link styles::                  Choose link color intensity for the text or underline, or no underline at all
+* Link styles::                  Choose among several styles, with or without underline
 * Command prompts::              Choose among plain, subtle, or intense prompts
-* Mode line::                    Choose among plain, three-dimensional, or Moody-compliant styles
+* Mode line::                    Choose among several styles, with or without borders
 * Completion UIs::               Choose among standard, moderate, or opinionated looks
-* Fringes::                      Choose among invisible, subtle, or intense fringe visibility
+* Fringes::                      Choose among invisible, subtle, or intense fringe styles
 * Language checkers::            Control the style of language checkers/linters
 * Line highlighting::            Toggle intense style for current line highlighting
 * Line numbers::                 Toggle subtle style for line numbers
@@ -580,12 +588,13 @@ Symbol: ‘modus-themes-no-mixed-fonts’
   1. ‘nil’ (default)
   2. ‘t’
 
-   By default, the themes configure some spacing-sensitive faces, such
-as Org tables and code blocks, to always inherit from the ‘fixed-pitch’
-face.  This is to ensure that those constructs remain monospaced when
-users opt for something like the built-in ‘M-x variable-pitch-mode’.
-Otherwise the layout would appear broken.  To disable this behaviour,
-set the option to ‘t’.
+   By default, the themes configure some spacing-sensitive faces like
+Org tables and code blocks to always inherit from the ‘fixed-pitch’
+face.  This is to ensure that those constructs remain monospaced even
+when users opt for a mode that remaps typeface families, such as the
+built-in ‘M-x variable-pitch-mode’.  Otherwise the layout would appear
+broken, due to how spacing is done.  To disable this behaviour, set the
+option to ‘t’.
 
    Users may prefer to use another package for handling mixed typeface
 configurations, rather than letting the theme do it, perhaps because a
@@ -653,10 +662,8 @@ Symbol: ‘modus-themes-prompts’
    Possible values:
 
   1. ‘nil’ (default)
-  2. ‘subtle-accented’ (‘subtle’ value remains for backward
-     compatibility)
-  3. ‘intense-accented’ (‘intense’ value remains for backward
-     compatibility)
+  2. ‘subtle-accented’ (‘subtle’ remains for backward compatibility)
+  3. ‘intense-accented’ (‘intense’ remains for backward compatibility)
   4. ‘subtle-gray’
   5. ‘intense-gray’
 
@@ -845,7 +852,7 @@ background, and a suitable foreground.  All are color-coded.  This is
 the most intense combination of face properties.
 
    The present variable affects packages and/or face groups such as
-those of ‘flyspell’, ‘flymake’, ‘flycheck’, ‘artbollocks-mode’,
+those of ‘flyspell’, ‘flymake’, ‘flycheck’, ‘artbollocks-mode’, and
 ‘writegood-mode’.
 
    NOTE: The placement of the straight underline, though not the wave
@@ -931,7 +938,7 @@ of bold typographic weight (inherits the ‘bold’ face).
 bold weight.
 
    This customization variable affects tools such as the built-in
-‘show-paren-mode’ and ‘smartparens’.
+‘show-paren-mode’ and the ‘smartparens’ package.
 
 
 File: modus-themes.info,  Node: Active region,  Next: Diffs,  Prev: Matching parentheses,  Up: Customization Options
@@ -978,10 +985,10 @@ Symbol: ‘modus-themes-diffs’
   4. ‘bg-only’
 
    By default the themes apply rich coloration to the output of diffs,
-such as those of ‘diff-mode’, ‘ediff’, ‘smerge-mode’, and ‘magit’.
-These are color combinations of an accented background and foreground so
-that, for example, added lines have a pronounced green background with
-an appropriate shade of green for the affected text.  Word-wise or
+such as those of ‘diff-mode’, ‘ediff’, ‘smerge-mode’, and Magit.  These
+are color combinations of an accented background and foreground so that,
+for example, added lines have a pronounced green background with an
+appropriate shade of green for the affected text.  Word-wise or
 “refined” changes follow this pattern but use different shades of those
 colors to remain distinct.
 
@@ -1042,9 +1049,10 @@ for users who work on literate programming documents that mix and match
 several languages.
 
    Note that the “rainbow” blocks may require you to also reload the
-major-mode so that the colors are applied properly: use ‘M-x org-mode’
-or ‘M-x org-mode-restart’ to refresh the buffer.  Or start typing in
-each code block (inefficient at scale, but it still works).
+major-mode so that the colors are applied consistently throughout: use
+‘M-x org-mode’ or ‘M-x org-mode-restart’ to refresh the buffer.  Or
+start typing in each code block (inefficient at scale, but it still
+works).
 
 
 File: modus-themes.info,  Node: Org agenda habits,  Next: Heading styles,  Prev: Org mode blocks,  Up: Customization Options
@@ -1635,7 +1643,7 @@ File: modus-themes.info,  Node: Override colors (DIY),  Next: Font configuration
 The themes provide a mechanism for overriding their color values.  This
 is controlled by the variables ‘modus-themes-operandi-color-overrides’
 and ‘modus-themes-vivendi-color-overrides’, which are alists that should
-mirror a subset of the associations in ‘modus-=themes-operandi-colors’
+mirror a subset of the associations in ‘modus-themes-operandi-colors’
 and ‘modus-themes-vivendi-colors’ respectively.  As with all
 customisations, overriding must be done before loading the affected
 theme.
@@ -1802,8 +1810,8 @@ themes.
 
    Please bear in mind that the end result of those is not controlled by
 the active Modus theme but by how Org maps faces to its constructs.
-Editing those while ‘org-mode’ is active requires ‘M-x org-mode-restart’
-for changes to take effect.
+Editing those while ‘org-mode’ is active requires re-initialization of
+the mode with ‘M-x org-mode-restart’ for changes to take effect.
 
    Let us assume you wish to visually differentiate your keywords.  You
 have something like this:
@@ -1849,8 +1857,8 @@ configuration of the priority cookies:
              (?C . '(shadow org-priority))))
 
    To find all the faces that are loaded in your current Emacs session,
-use ‘M-x list-faces-display’.  Also try ‘M-x describe-variable’ and then
-specify the name of each of those Org variables demonstrated above.
+use ‘M-x list-faces-display’.  Try ‘M-x describe-variable’ as well and
+then specify the name of each of those Org variables demonstrated above.
 Their documentation strings will offer you further guidance.
 
    Recall that the themes let you retrieve a color from their palette.
@@ -1938,7 +1946,7 @@ automatically at sunrise and sunset.
 
    This can be accomplished by specifying the coordinates of one’s
 location using the built-in ‘solar.el’ and then configuring the
-‘circadian’ library:
+‘circadian’ package:
 
      (use-package solar                      ; built-in
        :config
@@ -1963,9 +1971,9 @@ varying skill levels, from beginners to experts.  This means that we try
 to make things easier by not expecting anyone reading this document to
 be proficient in Emacs Lisp or programming in general.
 
-   One such case is with the use of the
-‘modus-themes-after-load-theme-hook’, which runs every time
-‘modus-themes-toggle,’ ‘modus-themes-load-operandi’, or
+   Such a case is with the use of the
+‘modus-themes-after-load-theme-hook’, which runs after
+‘modus-themes-toggle’, ‘modus-themes-load-operandi’, or
 ‘modus-themes-load-vivendi’ is evaluated.  We recommend using that hook
 for advanced customizations, because (1) we know for sure that it is
 available once the themes are loaded, and (2) anyone consulting this
@@ -2050,7 +2058,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • calfw
    • centaur-tabs
    • cfrs
-   • change-log and log-view (such as ‘vc-print-log’ and
+   • change-log and log-view (such as ‘vc-print-log’,
      ‘vc-print-root-log’)
    • cider
    • circe
@@ -2069,7 +2077,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • cperl-mode
    • csv-mode
    • ctrlf
-   • custom (‘M-x customize’)
+   • custom (what you get with ‘M-x customize’)
    • dap-mode
    • dashboard (emacs-dashboard)
    • deadgrep
@@ -2231,7 +2239,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • origami
    • outline-mode
    • outline-minor-faces
-   • package (‘M-x list-packages’)
+   • package (what you get with ‘M-x list-packages’)
    • page-break-lines
    • paradox
    • paren-face
@@ -2301,7 +2309,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • typescript
    • undo-tree
    • vc (built-in mode line status for version control)
-   • vc-annotate (‘C-x v g’)
+   • vc-annotate (the out put of ‘C-x v g’)
    • vdiff
    • vimish-fold
    • visible-mark
@@ -2408,7 +2416,7 @@ File: modus-themes.info,  Node: Note for prism,  Next: Note on company-mode over
 7.2 Note for prism.el
 =====================
 
-This library by Adam Porter, aka “alphapapa” or “github-alphapapa”,
+This package by Adam Porter, aka “alphapapa” or “github-alphapapa”,
 implements an alternative to the typical coloration of code.  Instead of
 highligting the syntactic constructs, it applies color to different
 levels of depth in the code.
@@ -2533,7 +2541,7 @@ accessibility standard of the themes:
 
 Modus Operandi
      Use foreground color 1 for all backgrounds from 2-15.  Like so:
-     ‘C-q C-c1,N’ where ‘N’ is the background.
+     ‘C-q C-c1’ where ‘N’ is the background.
 
 Modus Vivendi
      Use foreground color 0 for all backgrounds from 2-13.  Use
@@ -2565,7 +2573,9 @@ File: modus-themes.info,  Node: Note on SHR colors,  Next: Note for Helm grep,  
 
 Emacs’ HTML rendering library (‘shr.el’) may need explicit configuration
 to respect the theme’s colors instead of whatever specifications the
-webpage provides.  Consult ‘C-h v shr-use-colors’.
+webpage provides.
+
+   Consult ‘C-h v shr-use-colors’.
 
 
 File: modus-themes.info,  Node: Note for Helm grep,  Next: Note on vc-annotate-background-mode,  Prev: Note on SHR colors,  Up: Notes for individual packages
@@ -2579,7 +2589,8 @@ matches of a grep or grep-like command (‘ag’ or ‘ripgrep’).  It is
 not pass ‘--color=always’ as a command-line option for their command.
 
    Here is the docstring for that face, which is defined in the
-‘helm-grep.el’ library (view a library with ‘M-x find-library’).
+‘helm-grep.el’ library (you can visit the source code with ‘M-x
+find-library’).
 
      Face used to highlight grep matches.  Have no effect when grep
      backend use “–color=”
@@ -3371,6 +3382,8 @@ B.1 Function index
 * modus-themes-load-themes:              Enable and load.       (line 6)
 * modus-themes-load-vivendi:             Enable and load.       (line 6)
 * modus-themes-toggle:                   Enable and load.       (line 6)
+* modus-themes-wcag-formula:             Measure color contrast (DIY).
+                                                                (line 6)
 * modus-themes-with-colors:              Face specs at scale using the themes' palette (DIY).
                                                                 (line 6)
 
@@ -3450,79 +3463,79 @@ B.3 Concept index
 
 Tag Table:
 Node: Top586
-Node: Overview4826
-Node: How do the themes look like6092
-Node: Learn about the latest changes6600
-Node: Installation6982
-Node: Install manually from source7463
-Node: Install from the archives8290
-Node: Install on GNU/Linux9067
-Node: Debian 11 Bullseye9515
-Node: GNU Guix9990
-Node: Enable and load10279
-Node: Sample configuration for use-package12619
-Node: Differences between loading and enabling13881
-Node: Customization Options15919
-Node: Bold constructs18136
-Node: Slanted constructs18725
-Node: Syntax styles19272
-Node: No mixed fonts20950
-Node: Link styles21987
-Node: Command prompts23593
-Node: Mode line24816
-Node: Completion UIs28007
-Node: Fringes29839
-Node: Language checkers30499
-Node: Line highlighting32444
-Node: Line numbers33061
-Node: Matching parentheses34175
-Node: Active region35053
-Node: Diffs35989
-Node: Org mode blocks38280
-Node: Org agenda habits39623
-Node: Heading styles41458
-Node: Scaled headings45457
-Node: Scaled heading sizes46060
-Node: UI typeface49194
-Node: Headings' typeface50040
-Node: Advanced customization (do-it-yourself)50664
-Node: Per-theme customization settings (DIY)51822
-Node: Case-by-case face specs using the themes' palette (DIY)53168
-Node: Face specs at scale using the themes' palette (DIY)57534
-Node: Override colors (DIY)64359
-Node: Font configurations for Org and others (DIY)68982
-Ref: Font configurations for Org and others (DIY)-Footnote-171305
-Node: Custom Org user faces (DIY)71492
-Node: Measure color contrast (DIY)74808
-Node: Load theme depending on time of day77575
-Node: A theme-agnostic hook for theme loading (DIY)78612
-Node: Face coverage80971
-Node: Supported packages81441
-Node: Indirectly covered packages88005
-Node: Notes for individual packages88488
-Node: Note for display-fill-column-indicator-mode89074
-Node: Note for prism90652
-Node: Note on company-mode overlay pop-up93617
-Ref: Note on company-mode overlay pop-up-Footnote-194304
-Ref: Note on company-mode overlay pop-up-Footnote-294371
-Node: Note for ERC escaped color sequences94426
-Ref: Note for ERC escaped color sequences-Footnote-195859
-Node: Note for powerline or spaceline95969
-Node: Note on SHR colors96385
-Node: Note for Helm grep96795
-Node: Note on vc-annotate-background-mode98240
-Node: Note on pdf-tools link hints99125
-Node: Contributing101556
-Node: Sources of the themes101956
-Node: Issues you can help with102694
-Node: Patches require copyright assignment to the FSF103894
-Node: Acknowledgements106189
-Node: Meta108307
-Node: GNU Free Documentation License110147
-Node: Indices135157
-Node: Function index135336
-Node: Variable index136429
-Node: Concept index138351
+Node: Overview5158
+Node: How do the themes look like6424
+Node: Learn about the latest changes6932
+Node: Installation7314
+Node: Install manually from source7795
+Node: Install from the archives8620
+Node: Install on GNU/Linux9397
+Node: Debian 11 Bullseye9845
+Node: GNU Guix10320
+Node: Enable and load10609
+Node: Sample configuration for use-package12937
+Node: Differences between loading and enabling14199
+Node: Customization Options16237
+Node: Bold constructs18409
+Node: Slanted constructs18998
+Node: Syntax styles19545
+Node: No mixed fonts21223
+Node: Link styles22320
+Node: Command prompts23926
+Node: Mode line25127
+Node: Completion UIs28318
+Node: Fringes30150
+Node: Language checkers30810
+Node: Line highlighting32759
+Node: Line numbers33376
+Node: Matching parentheses34490
+Node: Active region35380
+Node: Diffs36316
+Node: Org mode blocks38602
+Node: Org agenda habits39960
+Node: Heading styles41795
+Node: Scaled headings45794
+Node: Scaled heading sizes46397
+Node: UI typeface49531
+Node: Headings' typeface50377
+Node: Advanced customization (do-it-yourself)51001
+Node: Per-theme customization settings (DIY)52159
+Node: Case-by-case face specs using the themes' palette (DIY)53505
+Node: Face specs at scale using the themes' palette (DIY)57871
+Node: Override colors (DIY)64696
+Node: Font configurations for Org and others (DIY)69318
+Ref: Font configurations for Org and others (DIY)-Footnote-171641
+Node: Custom Org user faces (DIY)71828
+Node: Measure color contrast (DIY)75182
+Node: Load theme depending on time of day77949
+Node: A theme-agnostic hook for theme loading (DIY)78986
+Node: Face coverage81338
+Node: Supported packages81808
+Node: Indirectly covered packages88420
+Node: Notes for individual packages88903
+Node: Note for display-fill-column-indicator-mode89489
+Node: Note for prism91067
+Node: Note on company-mode overlay pop-up94032
+Ref: Note on company-mode overlay pop-up-Footnote-194719
+Ref: Note on company-mode overlay pop-up-Footnote-294786
+Node: Note for ERC escaped color sequences94841
+Ref: Note for ERC escaped color sequences-Footnote-196272
+Node: Note for powerline or spaceline96382
+Node: Note on SHR colors96798
+Node: Note for Helm grep97211
+Node: Note on vc-annotate-background-mode98671
+Node: Note on pdf-tools link hints99556
+Node: Contributing101987
+Node: Sources of the themes102387
+Node: Issues you can help with103125
+Node: Patches require copyright assignment to the FSF104325
+Node: Acknowledgements106620
+Node: Meta108738
+Node: GNU Free Documentation License110578
+Node: Indices135588
+Node: Function index135767
+Node: Variable index137004
+Node: Concept index138926
 
 End Tag Table
 
