@@ -3236,7 +3236,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; aw (ace-window)
     `(aw-background-face ((,class :background ,bg-dim :foreground ,fg-dim)))
     `(aw-key-face ((,class :inherit bold :foreground ,blue-intense)))
-    `(aw-leading-char-face ((,class :inherit bold :height 1.5 :background ,bg-main :foreground ,red-intense)))
+    `(aw-leading-char-face ((,class :inherit bold :height 1.5 :slant normal :background ,bg-main :foreground ,red-intense)))
     `(aw-minibuffer-leading-char-face ((,class :foreground ,magenta-active)))
     `(aw-mode-line-face ((,class :inherit bold)))
 ;;;;; awesome-tray
