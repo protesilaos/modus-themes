@@ -3251,6 +3251,8 @@ free software license, such as the GNU General Public License,
 to permit their use in free software.
 #+end_src
 
+#+html: <!--
+
 * Indices
 :PROPERTIES:
 :END:
@@ -3269,3 +3271,5 @@ to permit their use in free software.
 :PROPERTIES:
 :INDEX:    cp
 :END:
+
+#+html: -->
