@@ -5440,7 +5440,10 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; org-table-sticky-header
     `(org-table-sticky-header-face ((,class :inherit modus-theme-intense-neutral)))
 ;;;;; org-tree-slide
-    `(org-tree-slide-header-overlay-face ((,class :background ,bg-main :foreground ,fg-main)))
+    `(org-tree-slide-header-overlay-face
+      ((,class :inherit (bold modus-theme-variable-pitch) :background ,bg-main
+               :foreground ,fg-special-cold :overline nil
+               ,@(modus-themes--scale modus-themes-scale-5))))
 ;;;;; org-treescope
     `(org-treescope-faces--markerinternal-midday ((,class :inherit modus-theme-intense-blue)))
     `(org-treescope-faces--markerinternal-range ((,class :inherit modus-theme-special-mild)))
