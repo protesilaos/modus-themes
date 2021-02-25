@@ -38,7 +38,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.2.0-dev.  This manual was rebuilt on
-2021-02-25 06:54 +0200.
+2021-02-25 07:02 +0200.
 
 * Menu:
 
@@ -1464,6 +1464,9 @@ that tweaks two faces and then gets added to the hook:
 
      (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
 
+   *note A theme-agnostic hook for theme loading: A theme-agnostic hook
+for theme loading (DIY).
+
    Using this principle, it is possible to override the styles of faces
 without having to find color values for each case.
 
@@ -1591,6 +1594,9 @@ function and then assign that function to the hook.  Thus:
                                               :foreground ,red-alt-other))))))
 
      (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
+
+   *note A theme-agnostic hook for theme loading: A theme-agnostic hook
+for theme loading (DIY).
 
    To discover the faces defined by all loaded libraries, you may invoke
 ‘M-x list-faces-display’.  Be warned that when you ‘:inherit’ a face you
@@ -3502,41 +3508,41 @@ Node: Headings' typeface50377
 Node: Advanced customization (do-it-yourself)51001
 Node: Per-theme customization settings (DIY)52159
 Node: Case-by-case face specs using the themes' palette (DIY)53505
-Node: Face specs at scale using the themes' palette (DIY)57871
-Node: Override colors (DIY)64696
-Node: Font configurations for Org and others (DIY)69318
-Ref: Font configurations for Org and others (DIY)-Footnote-171641
-Node: Custom Org user faces (DIY)71828
-Node: Measure color contrast (DIY)75182
-Node: Load theme depending on time of day77949
-Node: A theme-agnostic hook for theme loading (DIY)78986
-Node: Face coverage81338
-Node: Supported packages81808
-Node: Indirectly covered packages88456
-Node: Notes for individual packages88939
-Node: Note for display-fill-column-indicator-mode89525
-Node: Note for prism91103
-Node: Note on company-mode overlay pop-up94068
-Ref: Note on company-mode overlay pop-up-Footnote-194755
-Ref: Note on company-mode overlay pop-up-Footnote-294822
-Node: Note for ERC escaped color sequences94877
-Ref: Note for ERC escaped color sequences-Footnote-196308
-Node: Note for powerline or spaceline96418
-Node: Note on SHR colors96834
-Node: Note for Helm grep97247
-Node: Note on vc-annotate-background-mode98707
-Node: Note on pdf-tools link hints99592
-Node: Contributing102023
-Node: Sources of the themes102423
-Node: Issues you can help with103161
-Node: Patches require copyright assignment to the FSF104361
-Node: Acknowledgements106656
-Node: Meta108774
-Node: GNU Free Documentation License110614
-Node: Indices135624
-Node: Function index135803
-Node: Variable index137040
-Node: Concept index138962
+Node: Face specs at scale using the themes' palette (DIY)57969
+Node: Override colors (DIY)64892
+Node: Font configurations for Org and others (DIY)69514
+Ref: Font configurations for Org and others (DIY)-Footnote-171837
+Node: Custom Org user faces (DIY)72024
+Node: Measure color contrast (DIY)75378
+Node: Load theme depending on time of day78145
+Node: A theme-agnostic hook for theme loading (DIY)79182
+Node: Face coverage81534
+Node: Supported packages82004
+Node: Indirectly covered packages88652
+Node: Notes for individual packages89135
+Node: Note for display-fill-column-indicator-mode89721
+Node: Note for prism91299
+Node: Note on company-mode overlay pop-up94264
+Ref: Note on company-mode overlay pop-up-Footnote-194951
+Ref: Note on company-mode overlay pop-up-Footnote-295018
+Node: Note for ERC escaped color sequences95073
+Ref: Note for ERC escaped color sequences-Footnote-196504
+Node: Note for powerline or spaceline96614
+Node: Note on SHR colors97030
+Node: Note for Helm grep97443
+Node: Note on vc-annotate-background-mode98903
+Node: Note on pdf-tools link hints99788
+Node: Contributing102219
+Node: Sources of the themes102619
+Node: Issues you can help with103357
+Node: Patches require copyright assignment to the FSF104557
+Node: Acknowledgements106852
+Node: Meta108970
+Node: GNU Free Documentation License110810
+Node: Indices135820
+Node: Function index135999
+Node: Variable index137236
+Node: Concept index139158
 
 End Tag Table
 

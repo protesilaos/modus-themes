@@ -53,7 +53,7 @@ a newer feature which does not yet form part of the latest tagged
 commit, is explicitly marked as such.
 
 Current development target is 1.2.0-dev.  This manual
-was rebuilt on 2021-02-25 06:54 +0200.
+was rebuilt on 2021-02-25 07:02 +0200.
 
 @end ifnottex
 
@@ -1618,6 +1618,8 @@ that tweaks two faces and then gets added to the hook:
 (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
 @end lisp
 
+@ref{A theme-agnostic hook for theme loading (DIY), , A theme-agnostic hook for theme loading}.
+
 Using this principle, it is possible to override the styles of faces
 without having to find color values for each case.
 
@@ -1753,6 +1755,8 @@ hook.  Thus:
 
 (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
 @end lisp
+
+@ref{A theme-agnostic hook for theme loading (DIY), , A theme-agnostic hook for theme loading}.
 
 To discover the faces defined by all loaded libraries, you may invoke
 @kbd{M-x list-faces-display}.  Be warned that when you @samp{:inherit} a

@@ -1368,6 +1368,8 @@ that tweaks two faces and then gets added to the hook:
 (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
 #+end_src
 
+[[#h:86f6906b-f090-46cc-9816-1fe8aeb38776][A theme-agnostic hook for theme loading]].
+
 Using this principle, it is possible to override the styles of faces
 without having to find color values for each case.
 
@@ -1504,6 +1506,8 @@ hook.  Thus:
 
 (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
 #+end_src
+
+[[#h:86f6906b-f090-46cc-9816-1fe8aeb38776][A theme-agnostic hook for theme loading]].
 
 To discover the faces defined by all loaded libraries, you may invoke
 {{{kbd(M-x list-faces-display)}}}.  Be warned that when you =:inherit= a
