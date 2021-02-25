@@ -318,6 +318,7 @@
 ;;     semantic
 ;;     sesman
 ;;     shell-script-mode
+;;     shortdoc
 ;;     show-paren-mode
 ;;     shr
 ;;     side-notes
@@ -5754,6 +5755,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; shell-script-mode
     `(sh-heredoc ((,class :foreground ,blue-alt)))
     `(sh-quoted-exec ((,class :inherit modus-theme-bold :foreground ,magenta-alt)))
+;;;;; shortdoc
+    `(shortdoc-heading ((,class :inherit modus-theme-pseudo-header)))
+    `(shortdoc-section ((,class))) ; remove the default's variable-pitch style
 ;;;;; show-paren-mode
     `(show-paren-match ((,class ,@(modus-themes--paren bg-paren-match
                                                        bg-paren-match-intense)

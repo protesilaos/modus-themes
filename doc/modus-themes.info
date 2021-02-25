@@ -38,7 +38,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.2.0-dev.  This manual was rebuilt on
-2021-02-24 09:09 +0200.
+2021-02-25 06:54 +0200.
 
 * Menu:
 
@@ -2276,6 +2276,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • semantic
    • sesman
    • shell-script-mode
+   • shortdoc (Part of 1.2.0-dev)
    • show-paren-mode
    • shr
    • side-notes
@@ -3511,31 +3512,31 @@ Node: Load theme depending on time of day77949
 Node: A theme-agnostic hook for theme loading (DIY)78986
 Node: Face coverage81338
 Node: Supported packages81808
-Node: Indirectly covered packages88420
-Node: Notes for individual packages88903
-Node: Note for display-fill-column-indicator-mode89489
-Node: Note for prism91067
-Node: Note on company-mode overlay pop-up94032
-Ref: Note on company-mode overlay pop-up-Footnote-194719
-Ref: Note on company-mode overlay pop-up-Footnote-294786
-Node: Note for ERC escaped color sequences94841
-Ref: Note for ERC escaped color sequences-Footnote-196272
-Node: Note for powerline or spaceline96382
-Node: Note on SHR colors96798
-Node: Note for Helm grep97211
-Node: Note on vc-annotate-background-mode98671
-Node: Note on pdf-tools link hints99556
-Node: Contributing101987
-Node: Sources of the themes102387
-Node: Issues you can help with103125
-Node: Patches require copyright assignment to the FSF104325
-Node: Acknowledgements106620
-Node: Meta108738
-Node: GNU Free Documentation License110578
-Node: Indices135588
-Node: Function index135767
-Node: Variable index137004
-Node: Concept index138926
+Node: Indirectly covered packages88456
+Node: Notes for individual packages88939
+Node: Note for display-fill-column-indicator-mode89525
+Node: Note for prism91103
+Node: Note on company-mode overlay pop-up94068
+Ref: Note on company-mode overlay pop-up-Footnote-194755
+Ref: Note on company-mode overlay pop-up-Footnote-294822
+Node: Note for ERC escaped color sequences94877
+Ref: Note for ERC escaped color sequences-Footnote-196308
+Node: Note for powerline or spaceline96418
+Node: Note on SHR colors96834
+Node: Note for Helm grep97247
+Node: Note on vc-annotate-background-mode98707
+Node: Note on pdf-tools link hints99592
+Node: Contributing102023
+Node: Sources of the themes102423
+Node: Issues you can help with103161
+Node: Patches require copyright assignment to the FSF104361
+Node: Acknowledgements106656
+Node: Meta108774
+Node: GNU Free Documentation License110614
+Node: Indices135624
+Node: Function index135803
+Node: Variable index137040
+Node: Concept index138962
 
 End Tag Table
 

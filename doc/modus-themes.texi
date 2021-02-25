@@ -53,7 +53,7 @@ a newer feature which does not yet form part of the latest tagged
 commit, is explicitly marked as such.
 
 Current development target is 1.2.0-dev.  This manual
-was rebuilt on 2021-02-24 09:09 +0200.
+was rebuilt on 2021-02-25 06:54 +0200.
 
 @end ifnottex
 
@@ -2693,6 +2693,8 @@ semantic
 sesman
 @item
 shell-script-mode
+@item
+shortdoc (Part of 1.2.0-dev)
 @item
 show-paren-mode
 @item
