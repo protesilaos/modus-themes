@@ -38,7 +38,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.2.0-dev.  This manual was rebuilt on
-2021-02-25 07:02 +0200.
+2021-02-25 07:05 +0200.
 
 * Menu:
 
@@ -1994,11 +1994,13 @@ functions.
    A theme-agnostic setup can be configured thus:
 
      (defvar after-enable-theme-hook nil
-       "Normal hook run after enabling a theme.")
+        "Normal hook run after enabling a theme.")
 
-     (define-advice enable-theme (:after (&rest _args) run-after-enable-theme-hook)
-       "Run `after-enable-theme-hook'."
-       (run-hooks 'after-enable-theme-hook))
+     (defun run-after-enable-theme-hook (&rest _args)
+        "Run `after-enable-theme-hook'."
+        (run-hooks 'after-enable-theme-hook))
+
+     (advice-add 'enable-theme :after #'run-after-enable-theme-hook)
 
    This creates the ‘after-enable-theme-hook’ and makes it run after
 each call to ‘enable-theme’, which means that it will work for all
@@ -3516,33 +3518,33 @@ Node: Custom Org user faces (DIY)72024
 Node: Measure color contrast (DIY)75378
 Node: Load theme depending on time of day78145
 Node: A theme-agnostic hook for theme loading (DIY)79182
-Node: Face coverage81534
-Node: Supported packages82004
-Node: Indirectly covered packages88652
-Node: Notes for individual packages89135
-Node: Note for display-fill-column-indicator-mode89721
-Node: Note for prism91299
-Node: Note on company-mode overlay pop-up94264
-Ref: Note on company-mode overlay pop-up-Footnote-194951
-Ref: Note on company-mode overlay pop-up-Footnote-295018
-Node: Note for ERC escaped color sequences95073
-Ref: Note for ERC escaped color sequences-Footnote-196504
-Node: Note for powerline or spaceline96614
-Node: Note on SHR colors97030
-Node: Note for Helm grep97443
-Node: Note on vc-annotate-background-mode98903
-Node: Note on pdf-tools link hints99788
-Node: Contributing102219
-Node: Sources of the themes102619
-Node: Issues you can help with103357
-Node: Patches require copyright assignment to the FSF104557
-Node: Acknowledgements106852
-Node: Meta108970
-Node: GNU Free Documentation License110810
-Node: Indices135820
-Node: Function index135999
-Node: Variable index137236
-Node: Concept index139158
+Node: Face coverage81577
+Node: Supported packages82047
+Node: Indirectly covered packages88695
+Node: Notes for individual packages89178
+Node: Note for display-fill-column-indicator-mode89764
+Node: Note for prism91342
+Node: Note on company-mode overlay pop-up94307
+Ref: Note on company-mode overlay pop-up-Footnote-194994
+Ref: Note on company-mode overlay pop-up-Footnote-295061
+Node: Note for ERC escaped color sequences95116
+Ref: Note for ERC escaped color sequences-Footnote-196547
+Node: Note for powerline or spaceline96657
+Node: Note on SHR colors97073
+Node: Note for Helm grep97486
+Node: Note on vc-annotate-background-mode98946
+Node: Note on pdf-tools link hints99831
+Node: Contributing102262
+Node: Sources of the themes102662
+Node: Issues you can help with103400
+Node: Patches require copyright assignment to the FSF104600
+Node: Acknowledgements106895
+Node: Meta109013
+Node: GNU Free Documentation License110853
+Node: Indices135863
+Node: Function index136042
+Node: Variable index137279
+Node: Concept index139201
 
 End Tag Table
 

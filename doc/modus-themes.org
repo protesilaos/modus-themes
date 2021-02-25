@@ -1932,11 +1932,13 @@ A theme-agnostic setup can be configured thus:
 
 #+begin_src emacs-lisp
 (defvar after-enable-theme-hook nil
-  "Normal hook run after enabling a theme.")
+   "Normal hook run after enabling a theme.")
 
-(define-advice enable-theme (:after (&rest _args) run-after-enable-theme-hook)
-  "Run `after-enable-theme-hook'."
-  (run-hooks 'after-enable-theme-hook))
+(defun run-after-enable-theme-hook (&rest _args)
+   "Run `after-enable-theme-hook'."
+   (run-hooks 'after-enable-theme-hook))
+
+(advice-add 'enable-theme :after #'run-after-enable-theme-hook)
 #+end_src
 
 This creates the ~after-enable-theme-hook~ and makes it run after each

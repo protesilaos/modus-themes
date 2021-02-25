@@ -53,7 +53,7 @@ a newer feature which does not yet form part of the latest tagged
 commit, is explicitly marked as such.
 
 Current development target is 1.2.0-dev.  This manual
-was rebuilt on 2021-02-25 07:02 +0200.
+was rebuilt on 2021-02-25 07:05 +0200.
 
 @end ifnottex
 
@@ -2172,11 +2172,13 @@ A theme-agnostic setup can be configured thus:
 
 @lisp
 (defvar after-enable-theme-hook nil
-  "Normal hook run after enabling a theme.")
+   "Normal hook run after enabling a theme.")
 
-(define-advice enable-theme (:after (&rest _args) run-after-enable-theme-hook)
-  "Run `after-enable-theme-hook'."
-  (run-hooks 'after-enable-theme-hook))
+(defun run-after-enable-theme-hook (&rest _args)
+   "Run `after-enable-theme-hook'."
+   (run-hooks 'after-enable-theme-hook))
+
+(advice-add 'enable-theme :after #'run-after-enable-theme-hook)
 @end lisp
 
 This creates the @code{after-enable-theme-hook} and makes it run after each
