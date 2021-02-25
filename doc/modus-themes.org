@@ -880,6 +880,7 @@ Possible values:
 2. ~desaturated~
 3. ~fg-only~
 4. ~bg-only~
+5. ~deuteranopia~ (coming in version =1.2.0=)
 
 By default the themes apply rich coloration to the output of diffs, such
 as those of ~diff-mode~, ~ediff~, ~smerge-mode~, and Magit.  These are
@@ -905,6 +906,11 @@ Option ~bg-only~ applies color-coded backgrounds but does not override
 any syntax highlighting that may be present.  This makes it suitable for
 use with a non-nil value for ~diff-font-lock-syntax~ (which is the
 default for ~diff-mode~ buffers in Emacs 27 or higher).
+
+Option ~deuteranopia~ optimizes for red-green color deficiency.  It
+replaces all instances of green with blue variants.  This is to ensure
+that indicators for "removed" and "added" states are not mistaken for
+each other.
 
 Concerning Magit, an extra set of tweaks are introduced for the effect
 of highlighting the current diff hunk, so as to remain aligned with the

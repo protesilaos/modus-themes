@@ -53,7 +53,7 @@ a newer feature which does not yet form part of the latest tagged
 commit, is explicitly marked as such.
 
 Current development target is 1.2.0-dev.  This manual
-was rebuilt on 2021-02-25 07:05 +0200.
+was rebuilt on 2021-02-25 14:01 +0200.
 
 @end ifnottex
 
@@ -1076,6 +1076,8 @@ Possible values:
 @code{fg-only}
 @item
 @code{bg-only}
+@item
+@code{deuteranopia} (coming in version @samp{1.2.0})
 @end enumerate
 
 By default the themes apply rich coloration to the output of diffs, such
@@ -1102,6 +1104,11 @@ Option @code{bg-only} applies color-coded backgrounds but does not override
 any syntax highlighting that may be present.  This makes it suitable for
 use with a non-nil value for @code{diff-font-lock-syntax} (which is the
 default for @code{diff-mode} buffers in Emacs 27 or higher).
+
+Option @code{deuteranopia} optimizes for red-green color deficiency.  It
+replaces all instances of green with blue variants.  This is to ensure
+that indicators for ``removed'' and ``added'' states are not mistaken for
+each other.
 
 Concerning Magit, an extra set of tweaks are introduced for the effect
 of highlighting the current diff hunk, so as to remain aligned with the
