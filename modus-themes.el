@@ -556,7 +556,8 @@
     ;;
     ;; bg-paren-match, bg-paren-match-intense, bg-region and
     ;; bg-tab-active must be combined with fg-main, while
-    ;; bg-tab-inactive should be combined with fg-dim
+    ;; bg-tab-inactive should be combined with fg-dim, whereas
+    ;; bg-tab-inactive-alt goes together with fg-main
     ;;
     ;; bg-tab-bar is only intended for the bar that holds the tabs and
     ;; can only be combined with fg-main
@@ -593,6 +594,7 @@
     (bg-tab-bar . "#d5d5d5")
     (bg-tab-active . "#f6f6f6")
     (bg-tab-inactive . "#bdbdbd")
+    (bg-tab-inactive-alt . "#999999")
     (fg-tab-active . "#30169e")
 
     (fg-escape-char-construct . "#8b1030")
@@ -801,7 +803,8 @@ symbol and the latter as a string.")
     ;;
     ;; bg-paren-match, bg-paren-match-intense, bg-region and
     ;; bg-tab-active must be combined with fg-main, while
-    ;; bg-tab-inactive should be combined with fg-dim
+    ;; bg-tab-inactive should be combined with fg-dim, whereas
+    ;; bg-tab-inactive-alt goes together with fg-main
     ;;
     ;; bg-tab-bar is only intended for the bar that holds the tabs and
     ;; can only be combined with fg-main
@@ -838,6 +841,7 @@ symbol and the latter as a string.")
     (bg-tab-bar . "#2c2c2c")
     (bg-tab-active . "#0e0e0e")
     (bg-tab-inactive . "#3d3d3d")
+    (bg-tab-inactive-alt . "#595959")
     (fg-tab-active . "#5ac3cf")
 
     (fg-escape-char-construct . "#e7a59a")
@@ -5980,6 +5984,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(tab-line-tab-current ((,class :inherit tab-line-tab)))
     `(tab-line-tab-inactive ((,class :box (:line-width 2 :color ,bg-tab-inactive)
                                      :background ,bg-tab-inactive :foreground ,fg-dim)))
+    `(tab-line-tab-inactive-alternate ((,class :box (:line-width 2 :color ,bg-tab-inactive-alt)
+                                               :background ,bg-tab-inactive-alt :foreground ,fg-main)))
 ;;;;; table (built-in table.el)
     `(table-cell ((,class :background ,blue-nuanced-bg)))
 ;;;;; telephone-line
