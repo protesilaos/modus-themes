@@ -38,7 +38,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.2.0-dev.  This manual was rebuilt on
-2021-02-28 19:00 +0200.
+2021-02-28 21:48 +0200.
 
 * Menu:
 
@@ -2486,23 +2486,24 @@ File: modus-themes.info,  Node: Note for prism,  Next: Note on company-mode over
 
 This package by Adam Porter, aka “alphapapa” or “github-alphapapa”,
 implements an alternative to the typical coloration of code.  Instead of
-highligting the syntactic constructs, it applies color to different
-levels of depth in the code.
+highlighting the syntactic constructs, it applies color to different
+levels of depth in the code structure.
 
-   As ‘prism.el’ is highly configurable, we cannot style it directly at
-the theme level.  Instead, we may offer sample presets.  Those should
+   As ‘prism.el’ offers a broad range of customisations, we cannot style
+it directly at the theme level: that would run contrary to the spirit of
+the package.  Instead, we may offer preset color schemes.  Those should
 offer a starting point for users to adapt to their needs.
 
    In the following code snippets, we employ the
 ‘modus-themes-with-colors’ macro: *note Face specs at scale using the
 themes’ palette: Face specs at scale using the themes' palette (DIY).
 
-   With 16 colors:
+   These are the minimum recommended settings with 16 colors:
 
      (setq prism-num-faces 16)
 
      (prism-set-colors
-       :desaturations '(0) ; may lower the contrast ratio
+       :desaturations '(0) ; do not change---may lower the contrast ratio
        :lightens '(0)      ; same
        :colors (modus-themes-with-colors
                  (list fg-main
@@ -2527,7 +2528,7 @@ themes’ palette: Face specs at scale using the themes' palette (DIY).
      (setq prism-num-faces 8)
 
      (prism-set-colors
-       :desaturations '(0) ; may lower the contrast ratio
+       :desaturations '(0) ; do not change---may lower the contrast ratio
        :lightens '(0)      ; same
        :colors (modus-themes-with-colors
                  (list fg-special-cold
@@ -2539,12 +2540,13 @@ themes’ palette: Face specs at scale using the themes' palette (DIY).
                        red-alt-other
                        cyan)))
 
-   With 4 colors (the closest to the themes’ default):
+   And this is with 4 colors, which produces results that are the
+closest to the themes’ default aesthetic:
 
      (setq prism-num-faces 4)
 
      (prism-set-colors
-       :desaturations '(0) ; may lower the contrast ratio
+       :desaturations '(0) ; do not change---may lower the contrast ratio
        :lightens '(0)      ; same
        :colors (modus-themes-with-colors
                  (list fg-main
@@ -2552,8 +2554,9 @@ themes’ palette: Face specs at scale using the themes' palette (DIY).
                        magenta-alt-other
                        magenta)))
 
-   If you need to apply desaturation and ligthening, you can use what
-the prism.el documentation recommends, like this:
+   If you need to apply desaturation and lightening, you can use what
+the ‘prism.el’ documentation recommends, like this (adapting to the
+examples with the 4, 8, 16 colors):
 
      (prism-set-colors
        :desaturations (cl-loop for i from 0 below 16 collect (* i 2.5))
@@ -3584,27 +3587,27 @@ Node: Notes for individual packages89588
 Node: Note for display-fill-column-indicator-mode90255
 Node: Note for mmm-modeel background colors91856
 Node: Note for prism94240
-Node: Note on company-mode overlay pop-up97199
-Ref: Note on company-mode overlay pop-up-Footnote-197886
-Ref: Note on company-mode overlay pop-up-Footnote-297953
-Node: Note for ERC escaped color sequences98008
-Ref: Note for ERC escaped color sequences-Footnote-199439
-Node: Note for powerline or spaceline99549
-Node: Note on SHR colors99965
-Node: Note for Helm grep100378
-Node: Note on vc-annotate-background-mode101838
-Node: Note on pdf-tools link hints102723
-Node: Contributing105156
-Node: Sources of the themes105556
-Node: Issues you can help with106294
-Node: Patches require copyright assignment to the FSF107494
-Node: Acknowledgements109789
-Node: Meta111907
-Node: GNU Free Documentation License113747
-Node: Indices138757
-Node: Function index138936
-Node: Variable index140173
-Node: Concept index142095
+Node: Note on company-mode overlay pop-up97488
+Ref: Note on company-mode overlay pop-up-Footnote-198175
+Ref: Note on company-mode overlay pop-up-Footnote-298242
+Node: Note for ERC escaped color sequences98297
+Ref: Note for ERC escaped color sequences-Footnote-199728
+Node: Note for powerline or spaceline99838
+Node: Note on SHR colors100254
+Node: Note for Helm grep100667
+Node: Note on vc-annotate-background-mode102127
+Node: Note on pdf-tools link hints103012
+Node: Contributing105445
+Node: Sources of the themes105845
+Node: Issues you can help with106583
+Node: Patches require copyright assignment to the FSF107783
+Node: Acknowledgements110078
+Node: Meta112196
+Node: GNU Free Documentation License114036
+Node: Indices139046
+Node: Function index139225
+Node: Variable index140462
+Node: Concept index142384
 
 End Tag Table
 

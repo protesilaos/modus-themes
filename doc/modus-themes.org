@@ -2403,23 +2403,24 @@ very high cost of degraded legibility.
 
 This package by Adam Porter, aka "alphapapa" or "github-alphapapa",
 implements an alternative to the typical coloration of code.  Instead of
-highligting the syntactic constructs, it applies color to different
-levels of depth in the code.
+highlighting the syntactic constructs, it applies color to different
+levels of depth in the code structure.
 
-As {{{file(prism.el)}}} is highly configurable, we cannot style it
-directly at the theme level.  Instead, we may offer sample presets.
+As {{{file(prism.el)}}} offers a broad range of customisations, we cannot
+style it directly at the theme level: that would run contrary to the
+spirit of the package.  Instead, we may offer preset color schemes.
 Those should offer a starting point for users to adapt to their needs.
 
 In the following code snippets, we employ the ~modus-themes-with-colors~
 macro: [[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Face specs at scale using the themes' palette]].
 
-With 16 colors:
+These are the minimum recommended settings with 16 colors:
 
 #+begin_src emacs-lisp
 (setq prism-num-faces 16)
 
 (prism-set-colors
-  :desaturations '(0) ; may lower the contrast ratio
+  :desaturations '(0) ; do not change---may lower the contrast ratio
   :lightens '(0)      ; same
   :colors (modus-themes-with-colors
             (list fg-main
@@ -2446,7 +2447,7 @@ With 8 colors:
 (setq prism-num-faces 8)
 
 (prism-set-colors
-  :desaturations '(0) ; may lower the contrast ratio
+  :desaturations '(0) ; do not change---may lower the contrast ratio
   :lightens '(0)      ; same
   :colors (modus-themes-with-colors
             (list fg-special-cold
@@ -2459,13 +2460,14 @@ With 8 colors:
                   cyan)))
 #+end_src
 
-With 4 colors (the closest to the themes' default):
+And this is with 4 colors, which produces results that are the closest
+to the themes' default aesthetic:
 
 #+begin_src emacs-lisp
 (setq prism-num-faces 4)
 
 (prism-set-colors
-  :desaturations '(0) ; may lower the contrast ratio
+  :desaturations '(0) ; do not change---may lower the contrast ratio
   :lightens '(0)      ; same
   :colors (modus-themes-with-colors
             (list fg-main
@@ -2474,8 +2476,9 @@ With 4 colors (the closest to the themes' default):
                   magenta)))
 #+end_src
 
-If you need to apply desaturation and ligthening, you can use what the
-prism.el documentation recommends, like this:
+If you need to apply desaturation and lightening, you can use what the
+{{{file(prism.el)}}} documentation recommends, like this (adapting to the
+examples with the 4, 8, 16 colors):
 
 #+begin_src emacs-lisp
 (prism-set-colors
