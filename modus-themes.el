@@ -255,6 +255,7 @@
 ;;     messages
 ;;     minibuffer-line
 ;;     minimap
+;;     mmm-mode
 ;;     modeline
 ;;     mood-line
 ;;     mpdel
@@ -5130,6 +5131,15 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; minimap
     `(minimap-active-region-background ((,class :background ,bg-active)))
     `(minimap-current-line-face ((,class :background ,cyan-intense-bg :foreground ,fg-main)))
+;;;;; mmm-mode
+    `(mmm-cleanup-submode-face ((,class :background ,yellow-nuanced-bg)))
+    `(mmm-code-submode-face ((,class :background ,bg-alt)))
+    `(mmm-comment-submode-face ((,class :background ,blue-nuanced-bg)))
+    `(mmm-declaration-submode-face ((,class :background ,cyan-nuanced-bg)))
+    `(mmm-default-submode-face ((,class :background ,bg-dim)))
+    `(mmm-init-submode-face ((,class :background ,magenta-nuanced-bg)))
+    `(mmm-output-submode-face ((,class :background ,red-nuanced-bg)))
+    `(mmm-special-submode-face ((,class :background ,green-nuanced-bg)))
 ;;;;; modeline
     `(mode-line ((,class ,@(modus-themes--variable-pitch-ui)
                          ,@(modus-themes--mode-line-attrs

@@ -53,7 +53,7 @@ a newer feature which does not yet form part of the latest tagged
 commit, is explicitly marked as such.
 
 Current development target is 1.2.0-dev.  This manual
-was rebuilt on 2021-02-25 21:13 +0200.
+was rebuilt on 2021-02-28 16:52 +0200.
 
 @end ifnottex
 
@@ -2578,6 +2578,8 @@ messages
 minibuffer-line
 @item
 minimap
+@item
+mmm-mode (Part of 1.2.0-dev)
 @item
 modeline
 @item
