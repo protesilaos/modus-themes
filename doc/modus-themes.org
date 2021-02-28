@@ -170,17 +170,13 @@ distro's packaging policies.
 :CUSTOM_ID: h:7e570360-9ee6-4bc5-8c04-9dc11418a3e4
 :END:
 
-The two themes are distributed as a single package for Debian and its
-derivatives.  Currently in the unstable and testing suites and should be
-available in time for Debian 11 Bullseye (next stable).
-
-Get them with:
+The themes are part of Debian 11 Bullseye.  Get them with:
 
 #+begin_src sh
 sudo apt install elpa-modus-themes
 #+end_src
 
-The themes are now ready to be used: [[#h:3f3c3728-1b34-437d-9d0c-b110f5b161a9][Enable and load]].
+They are now ready to be used: [[#h:3f3c3728-1b34-437d-9d0c-b110f5b161a9][Enable and load]].
 
 *** GNU Guix
 :PROPERTIES:
@@ -193,7 +189,7 @@ Users of Guix can get the themes with this command:
 guix package -i emacs-modus-themes
 #+end_src
 
-The themes are now ready to be used: [[#h:3f3c3728-1b34-437d-9d0c-b110f5b161a9][Enable and load]].
+They are now ready to be used: [[#h:3f3c3728-1b34-437d-9d0c-b110f5b161a9][Enable and load]].
 
 * Enable and load
 :PROPERTIES:
@@ -256,7 +252,7 @@ With those granted, bear in mind a couple of technical points on
 ~modus-themes-load-operandi~ and ~modus-themes-load-vivendi~, as well as
 ~modus-themes-toggle~ which relies on them:
 
-1. Those functions use ~load-theme~.  Some users prefer opting for
+1. Those functions call ~load-theme~.  Some users prefer to opt for
    ~enable-theme~ instead ([[#h:e68560b3-7fb0-42bc-a151-e015948f8a35][Differences between loading and enabling]]).
 
 2. The functions will run the ~modus-themes-after-load-theme-hook~ as
@@ -418,7 +414,7 @@ Possible values:
 5. ~yellow-comments-green-strings~
 6. ~alt-syntax~
 7. ~alt-syntax-yellow-comments~
-8. ~faint-yellow-comments~ (coming in version =1.2.0=)
+8. ~faint-yellow-comments~ (Part of {{{development-version}}})
 
 The default style (nil) for code syntax highlighting is a balanced
 combination of colors on the cyan-blue-magenta side of the spectrum.
@@ -428,8 +424,8 @@ necessary.
 Option ~faint~ is like the default in terms of the choice of palette but
 applies desaturated color values.
 
-Option ~yellow-comments~ applies a yellow tint to comments.  The rest of
-the syntax is the same as the default.
+Option ~yellow-comments~ adds a yellow tint to comments.  The rest of the
+syntax is the same as the default.
 
 Option ~green-strings~ replaces the blue/cyan/cold color variants in
 strings with greener alternatives.  The rest of the syntax remains the
@@ -440,7 +436,7 @@ green strings and the rest of the default syntax highlighting style.
 
 Option ~alt-syntax~ expands the active spectrum by applying color
 combinations with more contrasting hues between them.  Expect to find
-more red and green variants in addition to cyan, blue, magenta.
+red and green variants in addition to cyan, blue, magenta.
 
 Option ~alt-syntax-yellow-comments~ combines ~alt-syntax~ with
 ~yellow-comments~.
@@ -496,7 +492,7 @@ Possible values:
 4. ~faint-neutral-underline~
 5. ~no-underline~
 6. ~underline-only~
-7. ~neutral-underline-only~ (coming in version =1.2.0=)
+7. ~neutral-underline-only~ (Part of {{{development-version}}})
 
 The default style (nil) for links is to apply an underline and a
 saturated color to the affected text.  The color of the two is the same,
@@ -779,7 +775,7 @@ This affects several packages that enable ~hl-line-mode~, such as
 :END:
 #+VINDEX: modus-themes-subtle-line-numbers
 
-(coming in version =1.2.0=)
+(Part of {{{development-version}}})
 
 Symbol: ~modus-themes-subtle-line-numbers~
 
@@ -880,7 +876,7 @@ Possible values:
 2. ~desaturated~
 3. ~fg-only~
 4. ~bg-only~
-5. ~deuteranopia~ (coming in version =1.2.0=)
+5. ~deuteranopia~ (Part of {{{development-version}}})
 
 By default the themes apply rich coloration to the output of diffs, such
 as those of ~diff-mode~, ~ediff~, ~smerge-mode~, and Magit.  These are

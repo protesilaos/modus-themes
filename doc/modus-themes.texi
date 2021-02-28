@@ -53,7 +53,7 @@ a newer feature which does not yet form part of the latest tagged
 commit, is explicitly marked as such.
 
 Current development target is 1.2.0-dev.  This manual
-was rebuilt on 2021-02-28 21:48 +0200.
+was rebuilt on 2021-02-28 22:12 +0200.
 
 @end ifnottex
 
@@ -296,17 +296,13 @@ distro's packaging policies.
 @node Debian 11 Bullseye
 @subsection Debian 11 Bullseye
 
-The two themes are distributed as a single package for Debian and its
-derivatives.  Currently in the unstable and testing suites and should be
-available in time for Debian 11 Bullseye (next stable).
-
-Get them with:
+The themes are part of Debian 11 Bullseye.  Get them with:
 
 @example
 sudo apt install elpa-modus-themes
 @end example
 
-The themes are now ready to be used: @ref{Enable and load}.
+They are now ready to be used: @ref{Enable and load}.
 
 @node GNU Guix
 @subsection GNU Guix
@@ -317,7 +313,7 @@ Users of Guix can get the themes with this command:
 guix package -i emacs-modus-themes
 @end example
 
-The themes are now ready to be used: @ref{Enable and load}.
+They are now ready to be used: @ref{Enable and load}.
 
 @node Enable and load
 @chapter Enable and load
@@ -381,7 +377,7 @@ With those granted, bear in mind a couple of technical points on
 
 @enumerate
 @item
-Those functions use @code{load-theme}.  Some users prefer opting for
+Those functions call @code{load-theme}.  Some users prefer to opt for
 @code{enable-theme} instead (@ref{Differences between loading and enabling}).
 
 @item
@@ -578,7 +574,7 @@ Possible values:
 @item
 @code{alt-syntax-yellow-comments}
 @item
-@code{faint-yellow-comments} (coming in version @samp{1.2.0})
+@code{faint-yellow-comments} (Part of 1.2.0-dev)
 @end enumerate
 
 The default style (nil) for code syntax highlighting is a balanced
@@ -589,8 +585,8 @@ necessary.
 Option @code{faint} is like the default in terms of the choice of palette but
 applies desaturated color values.
 
-Option @code{yellow-comments} applies a yellow tint to comments.  The rest of
-the syntax is the same as the default.
+Option @code{yellow-comments} adds a yellow tint to comments.  The rest of the
+syntax is the same as the default.
 
 Option @code{green-strings} replaces the blue/cyan/cold color variants in
 strings with greener alternatives.  The rest of the syntax remains the
@@ -601,7 +597,7 @@ green strings and the rest of the default syntax highlighting style.
 
 Option @code{alt-syntax} expands the active spectrum by applying color
 combinations with more contrasting hues between them.  Expect to find
-more red and green variants in addition to cyan, blue, magenta.
+red and green variants in addition to cyan, blue, magenta.
 
 Option @code{alt-syntax-yellow-comments} combines @code{alt-syntax} with
 @code{yellow-comments}.
@@ -663,7 +659,7 @@ Possible values:
 @item
 @code{underline-only}
 @item
-@code{neutral-underline-only} (coming in version @samp{1.2.0})
+@code{neutral-underline-only} (Part of 1.2.0-dev)
 @end enumerate
 
 The default style (nil) for links is to apply an underline and a
@@ -964,7 +960,7 @@ This affects several packages that enable @code{hl-line-mode}, such as
 
 @vindex modus-themes-subtle-line-numbers
 
-(coming in version @samp{1.2.0})
+(Part of 1.2.0-dev)
 
 Symbol: @code{modus-themes-subtle-line-numbers}
 
@@ -1078,7 +1074,7 @@ Possible values:
 @item
 @code{bg-only}
 @item
-@code{deuteranopia} (coming in version @samp{1.2.0})
+@code{deuteranopia} (Part of 1.2.0-dev)
 @end enumerate
 
 By default the themes apply rich coloration to the output of diffs, such

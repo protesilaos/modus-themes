@@ -38,7 +38,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.2.0-dev.  This manual was rebuilt on
-2021-02-28 21:48 +0200.
+2021-02-28 22:12 +0200.
 
 * Menu:
 
@@ -289,15 +289,11 @@ File: modus-themes.info,  Node: Debian 11 Bullseye,  Next: GNU Guix,  Up: Instal
 2.3.1 Debian 11 Bullseye
 ------------------------
 
-The two themes are distributed as a single package for Debian and its
-derivatives.  Currently in the unstable and testing suites and should be
-available in time for Debian 11 Bullseye (next stable).
-
-   Get them with:
+The themes are part of Debian 11 Bullseye.  Get them with:
 
      sudo apt install elpa-modus-themes
 
-   The themes are now ready to be used: *note Enable and load::.
+   They are now ready to be used: *note Enable and load::.
 
 
 File: modus-themes.info,  Node: GNU Guix,  Prev: Debian 11 Bullseye,  Up: Install on GNU/Linux
@@ -309,7 +305,7 @@ Users of Guix can get the themes with this command:
 
      guix package -i emacs-modus-themes
 
-   The themes are now ready to be used: *note Enable and load::.
+   They are now ready to be used: *note Enable and load::.
 
 
 File: modus-themes.info,  Node: Enable and load,  Next: Customization Options,  Prev: Installation,  Up: Top
@@ -359,7 +355,7 @@ is how a basic setup should look like:
 ‘modus-themes-load-operandi’ and ‘modus-themes-load-vivendi’, as well as
 ‘modus-themes-toggle’ which relies on them:
 
-  1. Those functions use ‘load-theme’.  Some users prefer opting for
+  1. Those functions call ‘load-theme’.  Some users prefer to opt for
      ‘enable-theme’ instead (*note Differences between loading and
      enabling::).
 
@@ -546,7 +542,7 @@ Symbol: ‘modus-themes-syntax’
   5. ‘yellow-comments-green-strings’
   6. ‘alt-syntax’
   7. ‘alt-syntax-yellow-comments’
-  8. ‘faint-yellow-comments’ (coming in version ‘1.2.0’)
+  8. ‘faint-yellow-comments’ (Part of 1.2.0-dev)
 
    The default style (nil) for code syntax highlighting is a balanced
 combination of colors on the cyan-blue-magenta side of the spectrum.
@@ -556,8 +552,8 @@ necessary.
    Option ‘faint’ is like the default in terms of the choice of palette
 but applies desaturated color values.
 
-   Option ‘yellow-comments’ applies a yellow tint to comments.  The rest
-of the syntax is the same as the default.
+   Option ‘yellow-comments’ adds a yellow tint to comments.  The rest of
+the syntax is the same as the default.
 
    Option ‘green-strings’ replaces the blue/cyan/cold color variants in
 strings with greener alternatives.  The rest of the syntax remains the
@@ -568,7 +564,7 @@ green strings and the rest of the default syntax highlighting style.
 
    Option ‘alt-syntax’ expands the active spectrum by applying color
 combinations with more contrasting hues between them.  Expect to find
-more red and green variants in addition to cyan, blue, magenta.
+red and green variants in addition to cyan, blue, magenta.
 
    Option ‘alt-syntax-yellow-comments’ combines ‘alt-syntax’ with
 ‘yellow-comments’.
@@ -621,7 +617,7 @@ Symbol: ‘modus-themes-links’
   4. ‘faint-neutral-underline’
   5. ‘no-underline’
   6. ‘underline-only’
-  7. ‘neutral-underline-only’ (coming in version ‘1.2.0’)
+  7. ‘neutral-underline-only’ (Part of 1.2.0-dev)
 
    The default style (nil) for links is to apply an underline and a
 saturated color to the affected text.  The color of the two is the same,
@@ -889,7 +885,7 @@ File: modus-themes.info,  Node: Line numbers,  Next: Matching parentheses,  Prev
 4.12 Option for line numbers (display-line-numbers-mode)
 ========================================================
 
-(coming in version ‘1.2.0’)
+(Part of 1.2.0-dev)
 
    Symbol: ‘modus-themes-subtle-line-numbers’
 
@@ -984,7 +980,7 @@ Symbol: ‘modus-themes-diffs’
   2. ‘desaturated’
   3. ‘fg-only’
   4. ‘bg-only’
-  5. ‘deuteranopia’ (coming in version ‘1.2.0’)
+  5. ‘deuteranopia’ (Part of 1.2.0-dev)
 
    By default the themes apply rich coloration to the output of diffs,
 such as those of ‘diff-mode’, ‘ediff’, ‘smerge-mode’, and Magit.  These
@@ -3542,72 +3538,72 @@ Node: Install manually from source7876
 Node: Install from the archives8701
 Node: Install on GNU/Linux9478
 Node: Debian 11 Bullseye9926
-Node: GNU Guix10401
-Node: Enable and load10690
-Node: Sample configuration for use-package13018
-Node: Differences between loading and enabling14280
-Node: Customization Options16318
-Node: Bold constructs18490
-Node: Slanted constructs19079
-Node: Syntax styles19626
-Node: No mixed fonts21304
-Node: Link styles22401
-Node: Command prompts24007
-Node: Mode line25208
-Node: Completion UIs28399
-Node: Fringes30231
-Node: Language checkers30891
-Node: Line highlighting32840
-Node: Line numbers33457
-Node: Matching parentheses34571
-Node: Active region35461
-Node: Diffs36397
-Node: Org mode blocks38976
-Node: Org agenda habits40334
-Node: Heading styles42169
-Node: Scaled headings46168
-Node: Scaled heading sizes46771
-Node: UI typeface49905
-Node: Headings' typeface50751
-Node: Advanced customization (do-it-yourself)51375
-Node: Per-theme customization settings (DIY)52533
-Node: Case-by-case face specs using the themes' palette (DIY)53879
-Node: Face specs at scale using the themes' palette (DIY)58343
-Node: Override colors (DIY)65266
-Node: Font configurations for Org and others (DIY)69888
-Ref: Font configurations for Org and others (DIY)-Footnote-172211
-Node: Custom Org user faces (DIY)72398
-Node: Measure color contrast (DIY)75752
-Node: Load theme depending on time of day78519
-Node: A theme-agnostic hook for theme loading (DIY)79556
-Node: Face coverage81951
-Node: Supported packages82421
-Node: Indirectly covered packages89105
-Node: Notes for individual packages89588
-Node: Note for display-fill-column-indicator-mode90255
-Node: Note for mmm-modeel background colors91856
-Node: Note for prism94240
-Node: Note on company-mode overlay pop-up97488
-Ref: Note on company-mode overlay pop-up-Footnote-198175
-Ref: Note on company-mode overlay pop-up-Footnote-298242
-Node: Note for ERC escaped color sequences98297
-Ref: Note for ERC escaped color sequences-Footnote-199728
-Node: Note for powerline or spaceline99838
-Node: Note on SHR colors100254
-Node: Note for Helm grep100667
-Node: Note on vc-annotate-background-mode102127
-Node: Note on pdf-tools link hints103012
-Node: Contributing105445
-Node: Sources of the themes105845
-Node: Issues you can help with106583
-Node: Patches require copyright assignment to the FSF107783
-Node: Acknowledgements110078
-Node: Meta112196
-Node: GNU Free Documentation License114036
-Node: Indices139046
-Node: Function index139225
-Node: Variable index140462
-Node: Concept index142384
+Node: GNU Guix10236
+Node: Enable and load10519
+Node: Sample configuration for use-package12848
+Node: Differences between loading and enabling14110
+Node: Customization Options16148
+Node: Bold constructs18320
+Node: Slanted constructs18909
+Node: Syntax styles19456
+Node: No mixed fonts21114
+Node: Link styles22211
+Node: Command prompts23805
+Node: Mode line25006
+Node: Completion UIs28197
+Node: Fringes30029
+Node: Language checkers30689
+Node: Line highlighting32638
+Node: Line numbers33255
+Node: Matching parentheses34357
+Node: Active region35247
+Node: Diffs36183
+Node: Org mode blocks38750
+Node: Org agenda habits40108
+Node: Heading styles41943
+Node: Scaled headings45942
+Node: Scaled heading sizes46545
+Node: UI typeface49679
+Node: Headings' typeface50525
+Node: Advanced customization (do-it-yourself)51149
+Node: Per-theme customization settings (DIY)52307
+Node: Case-by-case face specs using the themes' palette (DIY)53653
+Node: Face specs at scale using the themes' palette (DIY)58117
+Node: Override colors (DIY)65040
+Node: Font configurations for Org and others (DIY)69662
+Ref: Font configurations for Org and others (DIY)-Footnote-171985
+Node: Custom Org user faces (DIY)72172
+Node: Measure color contrast (DIY)75526
+Node: Load theme depending on time of day78293
+Node: A theme-agnostic hook for theme loading (DIY)79330
+Node: Face coverage81725
+Node: Supported packages82195
+Node: Indirectly covered packages88879
+Node: Notes for individual packages89362
+Node: Note for display-fill-column-indicator-mode90029
+Node: Note for mmm-modeel background colors91630
+Node: Note for prism94014
+Node: Note on company-mode overlay pop-up97262
+Ref: Note on company-mode overlay pop-up-Footnote-197949
+Ref: Note on company-mode overlay pop-up-Footnote-298016
+Node: Note for ERC escaped color sequences98071
+Ref: Note for ERC escaped color sequences-Footnote-199502
+Node: Note for powerline or spaceline99612
+Node: Note on SHR colors100028
+Node: Note for Helm grep100441
+Node: Note on vc-annotate-background-mode101901
+Node: Note on pdf-tools link hints102786
+Node: Contributing105219
+Node: Sources of the themes105619
+Node: Issues you can help with106357
+Node: Patches require copyright assignment to the FSF107557
+Node: Acknowledgements109852
+Node: Meta111970
+Node: GNU Free Documentation License113810
+Node: Indices138820
+Node: Function index138999
+Node: Variable index140236
+Node: Concept index142158
 
 End Tag Table
 
