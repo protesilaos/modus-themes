@@ -53,7 +53,7 @@ a newer feature which does not yet form part of the latest tagged
 commit, is explicitly marked as such.
 
 Current development target is 1.2.0-dev.  This manual
-was rebuilt on 2021-02-28 16:52 +0200.
+was rebuilt on 2021-02-28 19:00 +0200.
 
 @end ifnottex
 
@@ -143,6 +143,7 @@ Face coverage
 Notes for individual packages
 
 * Note for display-fill-column-indicator-mode::
+* Note for mmm-mode.el background colors: Note for mmm-modeel background colors. 
 * Note for prism::
 * Note on company-mode overlay pop-up::
 * Note for ERC escaped color sequences::
@@ -2866,6 +2867,7 @@ individual packages.
 
 @menu
 * Note for display-fill-column-indicator-mode::
+* Note for mmm-mode.el background colors: Note for mmm-modeel background colors. 
 * Note for prism::
 * Note on company-mode overlay pop-up::
 * Note for ERC escaped color sequences::
@@ -2905,6 +2907,58 @@ and have the foreground be indistinguishable from it.  For example:
 @end lisp
 
 @ref{Face specs at scale using the themes' palette (DIY), , Face specs at scale using the themes' palette}.
+
+@node Note for mmm-modeel background colors
+@section Note for mmm-mode.el background colors
+
+The faces used by @file{mmm-mode.el} are expected to have a colorful
+background, while they should not touch any foreground value.  The idea
+is that they must not interfere with existing fontification.  Those
+background colors need to be distinct from each other, such as an
+unambiguous red juxtaposed with a clear blue.
+
+While this design may be internally consistent with the raison d'être of
+that library, it inevitably produces inaccessible color combinations.
+
+There are two competing goals at play:
+
+@enumerate
+@item
+Legibility of the text, understood as the contrast ratio between the
+background and the foreground.
+
+@item
+Semantic precision of each face which entails faithfulness to
+color-coding of the underlying background.
+@end enumerate
+
+As the Modus themes are designed with the express purpose of conforming
+with the first point, we have to forgo the apparent color-coding of the
+background elements.  Instead we use subtle colors that do not undermine
+the legibility of the affected text while they still offer a sense of
+added context.
+
+Users who might prefer to fall below the minimum 7:1 contrast ratio in
+relative luminance (the accessibility target we conform with), can opt
+to configure the relevant faces on their own.
+
+@ref{Face specs at scale using the themes' palette (DIY), , Face specs at scale using the themes' palette}.
+
+This example uses more vivid background colors, though it comes at the
+very high cost of degraded legibility.
+
+@lisp
+(modus-themes-with-colors
+  (custom-set-faces
+   `(mmm-cleanup-submode-face ((,class :background ,yellow-refine-bg)))
+   `(mmm-code-submode-face ((,class :background ,bg-active)))
+   `(mmm-comment-submode-face ((,class :background ,blue-refine-bg)))
+   `(mmm-declaration-submode-face ((,class :background ,cyan-refine-bg)))
+   `(mmm-default-submode-face ((,class :background ,bg-alt)))
+   `(mmm-init-submode-face ((,class :background ,magenta-refine-bg)))
+   `(mmm-output-submode-face ((,class :background ,red-refine-bg)))
+   `(mmm-special-submode-face ((,class :background ,green-refine-bg)))))
+@end lisp
 
 @node Note for prism
 @section Note for prism.el

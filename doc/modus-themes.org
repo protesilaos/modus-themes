@@ -2345,6 +2345,56 @@ and have the foreground be indistinguishable from it.  For example:
 
 [[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Face specs at scale using the themes' palette]].
 
+** Note for mmm-mode.el background colors
+:PROPERTIES:
+:CUSTOM_ID: h:99cf0d6c-e478-4e26-9932-3bf3427d13f6
+:END:
+
+The faces used by {{{file(mmm-mode.el)}}} are expected to have a colorful
+background, while they should not touch any foreground value.  The idea
+is that they must not interfere with existing fontification.  Those
+background colors need to be distinct from each other, such as an
+unambiguous red juxtaposed with a clear blue.
+
+While this design may be internally consistent with the raison d'être of
+that library, it inevitably produces inaccessible color combinations.
+
+There are two competing goals at play:
+
+1. Legibility of the text, understood as the contrast ratio between the
+   background and the foreground.
+
+2. Semantic precision of each face which entails faithfulness to
+   color-coding of the underlying background.
+
+As the Modus themes are designed with the express purpose of conforming
+with the first point, we have to forgo the apparent color-coding of the
+background elements.  Instead we use subtle colors that do not undermine
+the legibility of the affected text while they still offer a sense of
+added context.
+
+Users who might prefer to fall below the minimum 7:1 contrast ratio in
+relative luminance (the accessibility target we conform with), can opt
+to configure the relevant faces on their own.
+
+[[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Face specs at scale using the themes' palette]].
+
+This example uses more vivid background colors, though it comes at the
+very high cost of degraded legibility.
+
+#+begin_src emacs-lisp
+(modus-themes-with-colors
+  (custom-set-faces
+   `(mmm-cleanup-submode-face ((,class :background ,yellow-refine-bg)))
+   `(mmm-code-submode-face ((,class :background ,bg-active)))
+   `(mmm-comment-submode-face ((,class :background ,blue-refine-bg)))
+   `(mmm-declaration-submode-face ((,class :background ,cyan-refine-bg)))
+   `(mmm-default-submode-face ((,class :background ,bg-alt)))
+   `(mmm-init-submode-face ((,class :background ,magenta-refine-bg)))
+   `(mmm-output-submode-face ((,class :background ,red-refine-bg)))
+   `(mmm-special-submode-face ((,class :background ,green-refine-bg)))))
+#+end_src
+
 ** Note for prism.el
 :PROPERTIES:
 :ALT_TITLE: Note for prism
@@ -3256,21 +3306,25 @@ to permit their use in free software.
 
 * Indices
 :PROPERTIES:
+:CUSTOM_ID: h:55104b26-8e94-46cf-9975-43ea00316489
 :END:
 
 ** Function index
 :PROPERTIES:
 :INDEX:    fn
+:CUSTOM_ID: h:6bec5005-529c-4521-ae05-3d990baffb5b
 :END:
 
 ** Variable index
 :PROPERTIES:
 :INDEX:    vr
+:CUSTOM_ID: h:16ad8df6-b015-40a9-9259-03d4f7a23ee4
 :END:
 
 ** Concept index
 :PROPERTIES:
 :INDEX:    cp
+:CUSTOM_ID: h:6aa7a656-884b-4c39-b759-087e412eec13
 :END:
 
 #+html: -->
