@@ -3302,7 +3302,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(bm-fringe-persistent-face ((,class :inherit modus-theme-fringe-blue)))
     `(bm-persistent-face ((,class :inherit modus-theme-intense-blue :extend t)))
 ;;;;; bongo
-    `(bongo-album-title ((,class :foreground ,green-active)))
+    `(bongo-album-title ((,class :foreground ,yellow-active)))
     `(bongo-artist ((,class :foreground ,magenta-active)))
     `(bongo-currently-playing-track ((,class :inherit bold)))
     `(bongo-elapsed-track-part ((,class :inherit modus-theme-subtle-magenta :underline t)))
