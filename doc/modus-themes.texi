@@ -53,7 +53,7 @@ feature which does not yet form part of the latest tagged commit, is
 explicitly marked as such.
 
 Current development target is 1.2.0-dev.  This manual was
-built on 2021-03-03 19:11 +0200.
+built on 2021-03-03 20:34 +0200.
 
 @end ifnottex
 
@@ -1706,29 +1706,20 @@ This is how it works:
 
 @lisp
 (modus-themes-with-colors
-    (custom-set-faces
-     `(cursor ((,class :background ,blue)))
-     `(mode-line ((,class :inherit variable-pitch
-                          :background ,yellow-nuanced-bg
-                          :foreground ,yellow-nuanced-fg)))
-     `(mode-line-inactive ((,class :inherit variable-pitch
-                                   :background ,blue-nuanced-bg
-                                   :foreground ,blue-nuanced-fg)))
-     `(line-number ((,class :background unspecified :foreground ,fg-unfocused)))
-     `(line-number-current-line ((,class :background unspecified
-                                         :foreground ,red-alt-other)))))
+  (custom-set-faces
+   `(cursor ((,class :background ,blue)))
+   `(mode-line ((,class :background ,yellow-nuanced-bg
+                        :foreground ,yellow-nuanced-fg)))
+   `(mode-line-inactive ((,class :background ,blue-nuanced-bg
+                                 :foreground ,blue-nuanced-fg)))))
 @end lisp
 
-We are showing some uses of @samp{:inherit} and of the special @samp{unspecified}
-value so that you can appreciate how a theme can be written.  Otherwise
-you can identify the color variables by the comma prefixed to them.
-
 The above snippet will immediately refashion the faces it names once it
-is evaluated.  However, if you switch themes, say, from @code{modus-operandi}
-to @code{modus-vivendi}, the colors will not get updated to match those of the
-new theme.  To make things work across themes, we need to employ the
-same technique we discussed in the previous section, namely, to pass our
-changes at the post-theme-load phase via a hook.
+is evaluated.  However, if you switch between the Modus themes, say,
+from @code{modus-operandi} to @code{modus-vivendi}, the colors will not get updated to
+match those of the new theme.  To make things work across the themes, we
+need to employ the same technique we discussed in the previous section,
+namely, to pass our changes at the post-theme-load phase via a hook.
 
 The themes provide the @code{modus-themes-after-load-theme-hook}, which gets
 called from @code{modus-themes-load-operandi}, @code{modus-themes-load-vivendi}, as
@@ -1741,22 +1732,17 @@ Thus:
   (modus-themes-with-colors
     (custom-set-faces
      `(cursor ((,class :background ,blue)))
-     `(mode-line ((,class :inherit variable-pitch
-                          :background ,yellow-nuanced-bg
+     `(mode-line ((,class :background ,yellow-nuanced-bg
                           :foreground ,yellow-nuanced-fg)))
-     `(mode-line-inactive ((,class :inherit variable-pitch
-                                   :background ,blue-nuanced-bg
-                                   :foreground ,blue-nuanced-fg)))
-     `(line-number ((,class :background unspecified :foreground ,fg-unfocused)))
-     `(line-number-current-line ((,class :background unspecified
-                                         :foreground ,red-alt-other))))))
+     `(mode-line-inactive ((,class :background ,blue-nuanced-bg
+                                   :foreground ,blue-nuanced-fg))))))
 
 (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
 @end lisp
 
 @ref{A theme-agnostic hook for theme loading (DIY), , A theme-agnostic hook for theme loading}.
 
-To discover the faces defined by all loaded libraries, you may invoke
+To discover the faces defined by all loaded libraries, you may do
 @kbd{M-x list-faces-display}.  Be warned that when you @samp{:inherit} a face
 you are introducing an implicit dependency, so try to avoid doing so for
 libraries other than the built-in @file{faces.el} (or at least understand
@@ -1779,29 +1765,6 @@ the previous section.  Adapt the above example like this:
    ...))
 @end lisp
 
-A complete example with some more opinionated stylistic choices:
-
-@lisp
-(defun my-modus-themes-custom-faces ()
-  (modus-themes-with-colors
-    (custom-set-faces
-     `(cursor ((,class :background ,(modus-themes-color-alts 'blue 'green))))
-     `(header-line ((,class :inherit variable-pitch)))
-     `(tab-bar ((,class :inherit variable-pitch)))
-     `(mode-line
-       ((,class :inherit variable-pitch
-                :box ,(modus-themes-color-alts 'yellow-subtle-bg 'magenta-subtle-bg)
-                :background ,(modus-themes-color-alts 'yellow-nuanced-bg 'magenta-nuanced-bg)
-                :foreground ,(modus-themes-color-alts 'yellow-nuanced-fg 'magenta-nuanced-fg))))
-     `(mode-line-inactive ((,class :inherit variable-pitch)))
-     `(line-number ((,class :background unspecified :foreground ,fg-unfocused)))
-     `(line-number-current-line
-       ((,class :background ,(modus-themes-color-alts 'yellow-nuanced-bg 'magenta-nuanced-bg)
-                :foreground ,(modus-themes-color-alts 'red-alt 'magenta-alt-other)))))))
-
-(add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
-@end lisp
-
 @node Override colors (DIY)
 @section Override colors (DIY)
 
@@ -1820,7 +1783,7 @@ Let us approach the present topic one step at a time.  Here is a
 simplified excerpt of the default palette for Modus Operandi with some
 basic background values that apply to buffers and the mode line
 (remember to inspect the actual value to find out all the associations
-you can override):
+that can be overridden):
 
 @lisp
 (defconst modus-themes-colors-operandi
@@ -1831,9 +1794,9 @@ you can override):
     (bg-inactive . "#efefef")))
 @end lisp
 
-As you can see, we bind a key to a hexadecimal RGB color value.  Now say
-you wish to override those specific values and have your changes
-propagate to all faces that use those keys.  You could write something
+As one can tell, we bind a key to a hexadecimal RGB color value.  Now
+say we wish to override those specific values and have our changes
+propagate to all faces that use those keys.  We could write something
 like this, which adds a subtle ochre tint:
 
 @lisp
@@ -1849,15 +1812,15 @@ Once this is evaluated, any subsequent loading of @code{modus-operandi} will
 use those values instead of the defaults.  No further intervention is
 required.
 
-To reset your changes, apply this and reload the theme:
+To reset the changes, we apply this and reload the theme:
 
 @lisp
 (setq modus-themes-operandi-color-overrides nil)
 @end lisp
 
 Users who wish to leverage such a mechanism can opt to implement it
-on-demand by means of a minor mode.  The following snippet covers both
-themes and expands to some more assosiations:
+on-demand by means of a global minor mode.  The following snippet covers
+both themes and expands to some more assosiations in the palette:
 
 @lisp
 (define-minor-mode my-modus-themes-tinted
@@ -1896,8 +1859,10 @@ themes and expands to some more assosiations:
 @end lisp
 
 With this in place, one can invoke @kbd{M-x my-modus-themes-tinted} and
-then load the Modus theme of their choice.  The new colors will come
-into effect.  Switching between the themes will also use the overrides.
+then load the Modus theme of their choice.  The new palette subset will
+come into effect: subtle ochre tints for Modus Operandi and night sky
+shades for Modus Vivendi.  Switching between the two themes, such as
+with @kbd{M-x modus-themes-toggle} will also use the overrides.
 
 Given that this is a user-level customisation, one is free to implement
 whatever color values they desire, even if the possible combinations
@@ -1905,7 +1870,7 @@ fall below the minimum 7:1 contrast ratio that governs the design of the
 themes (the WCAG AAA legibility standard).  Preferences aside, it is
 advised to inspect the source code of @code{modus-themes-operandi-colors} and
 @code{modus-themes-vivendi-colors} to read the inline commentary: it explains
-what the intended use of each subset is.
+what the intended use of each palette subset is.
 
 Furthermore, users may benefit from the @code{modus-themes-contrast} function
 that we provide: @ref{Measure color contrast (DIY), , test color combinations}.  It measures the contrast

@@ -38,7 +38,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.2.0-dev.  This manual was built on
-2021-03-03 19:11 +0200.
+2021-03-03 20:34 +0200.
 
 * Menu:
 
@@ -1552,29 +1552,20 @@ themes like ‘modus-operandi’ and ‘modus-vivendi’.
    This is how it works:
 
      (modus-themes-with-colors
-         (custom-set-faces
-          `(cursor ((,class :background ,blue)))
-          `(mode-line ((,class :inherit variable-pitch
-                               :background ,yellow-nuanced-bg
-                               :foreground ,yellow-nuanced-fg)))
-          `(mode-line-inactive ((,class :inherit variable-pitch
-                                        :background ,blue-nuanced-bg
-                                        :foreground ,blue-nuanced-fg)))
-          `(line-number ((,class :background unspecified :foreground ,fg-unfocused)))
-          `(line-number-current-line ((,class :background unspecified
-                                              :foreground ,red-alt-other)))))
-
-   We are showing some uses of ‘:inherit’ and of the special
-‘unspecified’ value so that you can appreciate how a theme can be
-written.  Otherwise you can identify the color variables by the comma
-prefixed to them.
+       (custom-set-faces
+        `(cursor ((,class :background ,blue)))
+        `(mode-line ((,class :background ,yellow-nuanced-bg
+                             :foreground ,yellow-nuanced-fg)))
+        `(mode-line-inactive ((,class :background ,blue-nuanced-bg
+                                      :foreground ,blue-nuanced-fg)))))
 
    The above snippet will immediately refashion the faces it names once
-it is evaluated.  However, if you switch themes, say, from
-‘modus-operandi’ to ‘modus-vivendi’, the colors will not get updated to
-match those of the new theme.  To make things work across themes, we
-need to employ the same technique we discussed in the previous section,
-namely, to pass our changes at the post-theme-load phase via a hook.
+it is evaluated.  However, if you switch between the Modus themes, say,
+from ‘modus-operandi’ to ‘modus-vivendi’, the colors will not get
+updated to match those of the new theme.  To make things work across the
+themes, we need to employ the same technique we discussed in the
+previous section, namely, to pass our changes at the post-theme-load
+phase via a hook.
 
    The themes provide the ‘modus-themes-after-load-theme-hook’, which
 gets called from ‘modus-themes-load-operandi’,
@@ -1586,22 +1577,17 @@ function and then assign that function to the hook.  Thus:
        (modus-themes-with-colors
          (custom-set-faces
           `(cursor ((,class :background ,blue)))
-          `(mode-line ((,class :inherit variable-pitch
-                               :background ,yellow-nuanced-bg
+          `(mode-line ((,class :background ,yellow-nuanced-bg
                                :foreground ,yellow-nuanced-fg)))
-          `(mode-line-inactive ((,class :inherit variable-pitch
-                                        :background ,blue-nuanced-bg
-                                        :foreground ,blue-nuanced-fg)))
-          `(line-number ((,class :background unspecified :foreground ,fg-unfocused)))
-          `(line-number-current-line ((,class :background unspecified
-                                              :foreground ,red-alt-other))))))
+          `(mode-line-inactive ((,class :background ,blue-nuanced-bg
+                                        :foreground ,blue-nuanced-fg))))))
 
      (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
 
    *note A theme-agnostic hook for theme loading: A theme-agnostic hook
 for theme loading (DIY).
 
-   To discover the faces defined by all loaded libraries, you may invoke
+   To discover the faces defined by all loaded libraries, you may do
 ‘M-x list-faces-display’.  Be warned that when you ‘:inherit’ a face you
 are introducing an implicit dependency, so try to avoid doing so for
 libraries other than the built-in ‘faces.el’ (or at least understand
@@ -1622,27 +1608,6 @@ the previous section.  Adapt the above example like this:
         `(cursor ((,class :background ,(modus-themes-color-alts 'blue 'green))))
         ...))
 
-   A complete example with some more opinionated stylistic choices:
-
-     (defun my-modus-themes-custom-faces ()
-       (modus-themes-with-colors
-         (custom-set-faces
-          `(cursor ((,class :background ,(modus-themes-color-alts 'blue 'green))))
-          `(header-line ((,class :inherit variable-pitch)))
-          `(tab-bar ((,class :inherit variable-pitch)))
-          `(mode-line
-            ((,class :inherit variable-pitch
-                     :box ,(modus-themes-color-alts 'yellow-subtle-bg 'magenta-subtle-bg)
-                     :background ,(modus-themes-color-alts 'yellow-nuanced-bg 'magenta-nuanced-bg)
-                     :foreground ,(modus-themes-color-alts 'yellow-nuanced-fg 'magenta-nuanced-fg))))
-          `(mode-line-inactive ((,class :inherit variable-pitch)))
-          `(line-number ((,class :background unspecified :foreground ,fg-unfocused)))
-          `(line-number-current-line
-            ((,class :background ,(modus-themes-color-alts 'yellow-nuanced-bg 'magenta-nuanced-bg)
-                     :foreground ,(modus-themes-color-alts 'red-alt 'magenta-alt-other)))))))
-
-     (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
-
 
 File: modus-themes.info,  Node: Override colors (DIY),  Next: Font configurations for Org and others (DIY),  Prev: Face specs at scale using the themes' palette (DIY),  Up: Advanced customization (do-it-yourself)
 
@@ -1661,7 +1626,7 @@ theme.
 simplified excerpt of the default palette for Modus Operandi with some
 basic background values that apply to buffers and the mode line
 (remember to inspect the actual value to find out all the associations
-you can override):
+that can be overridden):
 
      (defconst modus-themes-colors-operandi
        '((bg-main . "#ffffff")
@@ -1670,9 +1635,9 @@ you can override):
          (bg-active . "#d7d7d7")
          (bg-inactive . "#efefef")))
 
-   As you can see, we bind a key to a hexadecimal RGB color value.  Now
-say you wish to override those specific values and have your changes
-propagate to all faces that use those keys.  You could write something
+   As one can tell, we bind a key to a hexadecimal RGB color value.  Now
+say we wish to override those specific values and have our changes
+propagate to all faces that use those keys.  We could write something
 like this, which adds a subtle ochre tint:
 
      (setq modus-themes-operandi-color-overrides
@@ -1686,13 +1651,13 @@ like this, which adds a subtle ochre tint:
 will use those values instead of the defaults.  No further intervention
 is required.
 
-   To reset your changes, apply this and reload the theme:
+   To reset the changes, we apply this and reload the theme:
 
      (setq modus-themes-operandi-color-overrides nil)
 
    Users who wish to leverage such a mechanism can opt to implement it
-on-demand by means of a minor mode.  The following snippet covers both
-themes and expands to some more assosiations:
+on-demand by means of a global minor mode.  The following snippet covers
+both themes and expands to some more assosiations in the palette:
 
      (define-minor-mode my-modus-themes-tinted
        "Tweak some Modus themes colors."
@@ -1729,8 +1694,10 @@ themes and expands to some more assosiations:
                modus-themes-vivendi-color-overrides nil)))
 
    With this in place, one can invoke ‘M-x my-modus-themes-tinted’ and
-then load the Modus theme of their choice.  The new colors will come
-into effect.  Switching between the themes will also use the overrides.
+then load the Modus theme of their choice.  The new palette subset will
+come into effect: subtle ochre tints for Modus Operandi and night sky
+shades for Modus Vivendi.  Switching between the two themes, such as
+with ‘M-x modus-themes-toggle’ will also use the overrides.
 
    Given that this is a user-level customisation, one is free to
 implement whatever color values they desire, even if the possible
@@ -1738,8 +1705,8 @@ combinations fall below the minimum 7:1 contrast ratio that governs the
 design of the themes (the WCAG AAA legibility standard).  Preferences
 aside, it is advised to inspect the source code of
 ‘modus-themes-operandi-colors’ and ‘modus-themes-vivendi-colors’ to read
-the inline commentary: it explains what the intended use of each subset
-is.
+the inline commentary: it explains what the intended use of each palette
+subset is.
 
    Furthermore, users may benefit from the ‘modus-themes-contrast’
 function that we provide: *note test color combinations: Measure color
@@ -3598,41 +3565,41 @@ Node: Advanced customization (do-it-yourself)51145
 Node: Per-theme customization settings (DIY)52303
 Node: Case-by-case face specs using the themes' palette (DIY)53649
 Node: Face specs at scale using the themes' palette (DIY)58113
-Node: Override colors (DIY)65036
-Node: Font configurations for Org and others (DIY)69658
-Ref: Font configurations for Org and others (DIY)-Footnote-171981
-Node: Custom Org user faces (DIY)72168
-Node: Measure color contrast (DIY)75522
-Node: Load theme depending on time of day78289
-Node: A theme-agnostic hook for theme loading (DIY)79326
-Node: Face coverage81721
-Node: Supported packages82191
-Node: Indirectly covered packages88875
-Node: Notes for individual packages89358
-Node: Note for display-fill-column-indicator-mode90025
-Node: Note for mmm-modeel background colors91626
-Node: Note for prism94010
-Node: Note on company-mode overlay pop-up97258
-Ref: Note on company-mode overlay pop-up-Footnote-197945
-Ref: Note on company-mode overlay pop-up-Footnote-298012
-Node: Note for ERC escaped color sequences98067
-Ref: Note for ERC escaped color sequences-Footnote-199498
-Node: Note for powerline or spaceline99608
-Node: Note on SHR colors100024
-Node: Note for Helm grep100437
-Node: Note on vc-annotate-background-mode101904
-Node: Note on pdf-tools link hints102789
-Node: Contributing105222
-Node: Sources of the themes105622
-Node: Issues you can help with106360
-Node: Patches require copyright assignment to the FSF107560
-Node: Acknowledgements109855
-Node: Meta112066
-Node: GNU Free Documentation License114063
-Node: Indices139415
-Node: Function index139594
-Node: Variable index140831
-Node: Concept index142753
+Node: Override colors (DIY)62918
+Node: Font configurations for Org and others (DIY)67710
+Ref: Font configurations for Org and others (DIY)-Footnote-170033
+Node: Custom Org user faces (DIY)70220
+Node: Measure color contrast (DIY)73574
+Node: Load theme depending on time of day76341
+Node: A theme-agnostic hook for theme loading (DIY)77378
+Node: Face coverage79773
+Node: Supported packages80243
+Node: Indirectly covered packages86927
+Node: Notes for individual packages87410
+Node: Note for display-fill-column-indicator-mode88077
+Node: Note for mmm-modeel background colors89678
+Node: Note for prism92062
+Node: Note on company-mode overlay pop-up95310
+Ref: Note on company-mode overlay pop-up-Footnote-195997
+Ref: Note on company-mode overlay pop-up-Footnote-296064
+Node: Note for ERC escaped color sequences96119
+Ref: Note for ERC escaped color sequences-Footnote-197550
+Node: Note for powerline or spaceline97660
+Node: Note on SHR colors98076
+Node: Note for Helm grep98489
+Node: Note on vc-annotate-background-mode99956
+Node: Note on pdf-tools link hints100841
+Node: Contributing103274
+Node: Sources of the themes103674
+Node: Issues you can help with104412
+Node: Patches require copyright assignment to the FSF105612
+Node: Acknowledgements107907
+Node: Meta110118
+Node: GNU Free Documentation License112115
+Node: Indices137467
+Node: Function index137646
+Node: Variable index138883
+Node: Concept index140805
 
 End Tag Table
 

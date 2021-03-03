@@ -1457,29 +1457,20 @@ This is how it works:
 
 #+begin_src emacs-lisp
 (modus-themes-with-colors
-    (custom-set-faces
-     `(cursor ((,class :background ,blue)))
-     `(mode-line ((,class :inherit variable-pitch
-                          :background ,yellow-nuanced-bg
-                          :foreground ,yellow-nuanced-fg)))
-     `(mode-line-inactive ((,class :inherit variable-pitch
-                                   :background ,blue-nuanced-bg
-                                   :foreground ,blue-nuanced-fg)))
-     `(line-number ((,class :background unspecified :foreground ,fg-unfocused)))
-     `(line-number-current-line ((,class :background unspecified
-                                         :foreground ,red-alt-other)))))
+  (custom-set-faces
+   `(cursor ((,class :background ,blue)))
+   `(mode-line ((,class :background ,yellow-nuanced-bg
+                        :foreground ,yellow-nuanced-fg)))
+   `(mode-line-inactive ((,class :background ,blue-nuanced-bg
+                                 :foreground ,blue-nuanced-fg)))))
 #+end_src
 
-We are showing some uses of =:inherit= and of the special =unspecified=
-value so that you can appreciate how a theme can be written.  Otherwise
-you can identify the color variables by the comma prefixed to them.
-
 The above snippet will immediately refashion the faces it names once it
-is evaluated.  However, if you switch themes, say, from ~modus-operandi~
-to ~modus-vivendi~, the colors will not get updated to match those of the
-new theme.  To make things work across themes, we need to employ the
-same technique we discussed in the previous section, namely, to pass our
-changes at the post-theme-load phase via a hook.
+is evaluated.  However, if you switch between the Modus themes, say,
+from ~modus-operandi~ to ~modus-vivendi~, the colors will not get updated to
+match those of the new theme.  To make things work across the themes, we
+need to employ the same technique we discussed in the previous section,
+namely, to pass our changes at the post-theme-load phase via a hook.
 
 The themes provide the ~modus-themes-after-load-theme-hook~, which gets
 called from ~modus-themes-load-operandi~, ~modus-themes-load-vivendi~, as
@@ -1492,22 +1483,17 @@ Thus:
   (modus-themes-with-colors
     (custom-set-faces
      `(cursor ((,class :background ,blue)))
-     `(mode-line ((,class :inherit variable-pitch
-                          :background ,yellow-nuanced-bg
+     `(mode-line ((,class :background ,yellow-nuanced-bg
                           :foreground ,yellow-nuanced-fg)))
-     `(mode-line-inactive ((,class :inherit variable-pitch
-                                   :background ,blue-nuanced-bg
-                                   :foreground ,blue-nuanced-fg)))
-     `(line-number ((,class :background unspecified :foreground ,fg-unfocused)))
-     `(line-number-current-line ((,class :background unspecified
-                                         :foreground ,red-alt-other))))))
+     `(mode-line-inactive ((,class :background ,blue-nuanced-bg
+                                   :foreground ,blue-nuanced-fg))))))
 
 (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
 #+end_src
 
 [[#h:86f6906b-f090-46cc-9816-1fe8aeb38776][A theme-agnostic hook for theme loading]].
 
-To discover the faces defined by all loaded libraries, you may invoke
+To discover the faces defined by all loaded libraries, you may do
 {{{kbd(M-x list-faces-display)}}}.  Be warned that when you =:inherit= a face
 you are introducing an implicit dependency, so try to avoid doing so for
 libraries other than the built-in {{{file(faces.el)}}} (or at least understand
@@ -1530,29 +1516,6 @@ the previous section.  Adapt the above example like this:
    ...))
 #+end_src
 
-A complete example with some more opinionated stylistic choices:
-
-#+begin_src emacs-lisp
-(defun my-modus-themes-custom-faces ()
-  (modus-themes-with-colors
-    (custom-set-faces
-     `(cursor ((,class :background ,(modus-themes-color-alts 'blue 'green))))
-     `(header-line ((,class :inherit variable-pitch)))
-     `(tab-bar ((,class :inherit variable-pitch)))
-     `(mode-line
-       ((,class :inherit variable-pitch
-                :box ,(modus-themes-color-alts 'yellow-subtle-bg 'magenta-subtle-bg)
-                :background ,(modus-themes-color-alts 'yellow-nuanced-bg 'magenta-nuanced-bg)
-                :foreground ,(modus-themes-color-alts 'yellow-nuanced-fg 'magenta-nuanced-fg))))
-     `(mode-line-inactive ((,class :inherit variable-pitch)))
-     `(line-number ((,class :background unspecified :foreground ,fg-unfocused)))
-     `(line-number-current-line
-       ((,class :background ,(modus-themes-color-alts 'yellow-nuanced-bg 'magenta-nuanced-bg)
-                :foreground ,(modus-themes-color-alts 'red-alt 'magenta-alt-other)))))))
-
-(add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
-#+end_src
-
 ** Override colors (DIY)
 :properties:
 :custom_id: h:307d95dd-8dbd-4ece-a543-10ae86f155a6
@@ -1572,7 +1535,7 @@ Let us approach the present topic one step at a time.  Here is a
 simplified excerpt of the default palette for Modus Operandi with some
 basic background values that apply to buffers and the mode line
 (remember to inspect the actual value to find out all the associations
-you can override):
+that can be overridden):
 
 #+begin_src emacs-lisp
 (defconst modus-themes-colors-operandi
@@ -1583,9 +1546,9 @@ you can override):
     (bg-inactive . "#efefef")))
 #+end_src
 
-As you can see, we bind a key to a hexadecimal RGB color value.  Now say
-you wish to override those specific values and have your changes
-propagate to all faces that use those keys.  You could write something
+As one can tell, we bind a key to a hexadecimal RGB color value.  Now
+say we wish to override those specific values and have our changes
+propagate to all faces that use those keys.  We could write something
 like this, which adds a subtle ochre tint:
 
 #+begin_src emacs-lisp
@@ -1601,15 +1564,15 @@ Once this is evaluated, any subsequent loading of ~modus-operandi~ will
 use those values instead of the defaults.  No further intervention is
 required.
 
-To reset your changes, apply this and reload the theme:
+To reset the changes, we apply this and reload the theme:
 
 #+begin_src emacs-lisp
 (setq modus-themes-operandi-color-overrides nil)
 #+end_src
 
 Users who wish to leverage such a mechanism can opt to implement it
-on-demand by means of a minor mode.  The following snippet covers both
-themes and expands to some more assosiations:
+on-demand by means of a global minor mode.  The following snippet covers
+both themes and expands to some more assosiations in the palette:
 
 #+begin_src emacs-lisp
 (define-minor-mode my-modus-themes-tinted
@@ -1648,8 +1611,10 @@ themes and expands to some more assosiations:
 #+end_src
 
 With this in place, one can invoke {{{kbd(M-x my-modus-themes-tinted)}}} and
-then load the Modus theme of their choice.  The new colors will come
-into effect.  Switching between the themes will also use the overrides.
+then load the Modus theme of their choice.  The new palette subset will
+come into effect: subtle ochre tints for Modus Operandi and night sky
+shades for Modus Vivendi.  Switching between the two themes, such as
+with {{{kbd(M-x modus-themes-toggle)}}} will also use the overrides.
 
 Given that this is a user-level customisation, one is free to implement
 whatever color values they desire, even if the possible combinations
@@ -1657,7 +1622,7 @@ fall below the minimum 7:1 contrast ratio that governs the design of the
 themes (the WCAG AAA legibility standard).  Preferences aside, it is
 advised to inspect the source code of ~modus-themes-operandi-colors~ and
 ~modus-themes-vivendi-colors~ to read the inline commentary: it explains
-what the intended use of each subset is.
+what the intended use of each palette subset is.
 
 Furthermore, users may benefit from the ~modus-themes-contrast~ function
 that we provide: [[#h:02e25930-e71a-493d-828a-8907fc80f874][test color combinations]].  It measures the contrast
