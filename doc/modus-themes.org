@@ -35,7 +35,7 @@ feature which does not yet form part of the latest tagged commit, is
 explicitly marked as such.
 
 Current development target is {{{development-version}}}.  This manual was
-rebuilt on {{{export-date}}}.
+built on {{{export-date}}}.
 
 #+toc: headlines 8 insert TOC here, with eight headline levels
 

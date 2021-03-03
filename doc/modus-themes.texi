@@ -53,7 +53,7 @@ feature which does not yet form part of the latest tagged commit, is
 explicitly marked as such.
 
 Current development target is 1.2.0-dev.  This manual was
-rebuilt on 2021-03-03 11:22 +0200.
+built on 2021-03-03 19:11 +0200.
 
 @end ifnottex
 
@@ -2104,7 +2104,7 @@ relative to the color specified in the first row of the second column
 | #ff0000 |    4.00 |
 | #00ff00 |    1.37 |
 | #0000ff |    8.59 |
-#+TBLFM: $2='(modus-themes-contrast $1 @@1$2);%0.2f
+#+tblfm: $2='(modus-themes-contrast $1 @@1$2);%0.2f
 @end example
 
 To measure color contrast one needs to start from a known value.  This
