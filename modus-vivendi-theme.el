@@ -50,7 +50,9 @@
 
 
 
-(require 'modus-themes)
+(if (>= emacs-major-version 28)
+    (require-theme 'modus-themes)
+  (require 'modus-themes))
 
 (deftheme modus-vivendi
   "Accessible and customizable light theme (WCAG AAA standard).
