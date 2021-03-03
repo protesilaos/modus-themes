@@ -24,16 +24,16 @@
 #+TEXINFO: @insertcopying
 
 This manual, written by Protesilaos Stavrou, describes the customization
-options for the ~modus-operandi~ and ~modus-vivendi~ themes, and
-provides every other piece of information pertinent to them.
+options for the ~modus-operandi~ and ~modus-vivendi~ themes, and provides
+every other piece of information pertinent to them.
 
 The documentation furnished herein corresponds to stable version
-{{{stable-version}}}, released on {{{release-date}}}.  Any reference to
-a newer feature which does not yet form part of the latest tagged
-commit, is explicitly marked as such.
+{{{stable-version}}}, released on {{{release-date}}}.  Any reference to a newer
+feature which does not yet form part of the latest tagged commit, is
+explicitly marked as such.
 
-Current development target is {{{development-version}}}.  This manual
-was rebuilt on {{{export-date}}}.
+Current development target is {{{development-version}}}.  This manual was
+rebuilt on {{{export-date}}}.
 
 #+TOC: headlines 8 insert TOC here, with eight headline levels
 
@@ -65,8 +65,8 @@ the WCAG AAA standard, which specifies a minimum rate of distance in
 relative luminance of 7:1.
 
 Modus Operandi (~modus-operandi~) is a light theme, while Modus Vivendi
-(~modus-vivendi~) is dark.  Each theme's color palette is designed to
-meet the needs of the numerous interfaces that are possible in the Emacs
+(~modus-vivendi~) is dark.  Each theme's color palette is designed to meet
+the needs of the numerous interfaces that are possible in the Emacs
 computing environment.
 
 The overarching objective of this project is to always offer accessible
@@ -145,9 +145,8 @@ The =modus-themes= package is available from the GNU ELPA archive, which
 is configured by default.
 
 Prior to querying any package archive, make sure to have updated the
-index, with {{{kbd(M-x package-refresh-contents)}}}.  Then all you need
-to do is type {{{kbd(M-x package-install)}}} and specify the
-~modus-themes~.
+index, with {{{kbd(M-x package-refresh-contents)}}}.  Then all you need to do
+is type {{{kbd(M-x package-install)}}} and specify the ~modus-themes~.
 
 Note that older versions of the themes used to be distributed as
 standalone packages.  This practice has been discontinued starting with
@@ -431,8 +430,8 @@ Option ~green-strings~ replaces the blue/cyan/cold color variants in
 strings with greener alternatives.  The rest of the syntax remains the
 same.
 
-Option ~yellow-comments-green-strings~ combines yellow comments with
-green strings and the rest of the default syntax highlighting style.
+Option ~yellow-comments-green-strings~ combines yellow comments with green
+strings and the rest of the default syntax highlighting style.
 
 Option ~alt-syntax~ expands the active spectrum by applying color
 combinations with more contrasting hues between them.  Expect to find
@@ -501,14 +500,14 @@ which makes the link fairly prominent.
 Option ~faint~ follows the same approach as the default, but uses less
 intense colors.
 
-Option ~neutral-underline~ changes the underline's color to a subtle
-gray, while retaining the default text color.
+Option ~neutral-underline~ changes the underline's color to a subtle gray,
+while retaining the default text color.
 
-Option ~faint-neutral-underline~ combines a desaturated text color with
-a subtle gray underline.
+Option ~faint-neutral-underline~ combines a desaturated text color with a
+subtle gray underline.
 
-Option ~no-underline~ removes link underlines altogether, while
-retaining their original fairly vivid color.
+Option ~no-underline~ removes link underlines altogether, while retaining
+their original fairly vivid color.
 
 Option ~underline-only~ applies a prominent underline while making the
 affected text colorless (it uses the same foreground as the theme's
@@ -519,8 +518,8 @@ subtle gray underline below it.
 
 NOTE: The placement of the underline, i.e. its proximity to the affected
 text, is controlled by the built-in ~x-underline-at-descent-line~,
-~x-use-underline-position-properties~, ~underline-minimum-offset~.
-Please refer to their documentation strings.
+~x-use-underline-position-properties~, ~underline-minimum-offset~.  Please
+refer to their documentation strings.
 
 ** Option for command prompt styles
 :PROPERTIES:
@@ -535,8 +534,8 @@ Symbol: ~modus-themes-prompts~
 Possible values:
 
 1. =nil= (default)
-2. ~subtle-accented~ (~subtle~ remains for backward compatibility)
-3. ~intense-accented~ (~intense~ remains for backward compatibility)
+2. ~subtle-accented~ (~subtle~ exists for backward compatibility)
+3. ~intense-accented~ (~intense~ exists for backward compatibility)
 4. ~subtle-gray~
 5. ~intense-gray~
 
@@ -551,8 +550,8 @@ cyan background and an appropriate cyan foreground).  The difference
 between the two is that the latter has a more pronounced/noticeable
 effect than the former.
 
-Options ~subtle-gray~, ~intense-gray~ are like their accented
-counterparts, except they use grayscale values.
+Options ~subtle-gray~, ~intense-gray~ are like their accented counterparts,
+except they use grayscale values.
 
 ** Option for mode line presentation
 :PROPERTIES:
@@ -581,8 +580,8 @@ than the inactive.
 Option ~3d~ will make the active modeline look like a three-dimensional
 rectangle.  Inactive modelines remain 2D, though they are slightly toned
 down relative to the default.  This aesthetic is virtually the same as
-what you get when you run Emacs without any customizations (=emacs -Q=
-on the command line).
+what you get when you run Emacs without any customizations (=emacs -Q= on
+the command line).
 
 While ~moody~ removes all box effects from the modelines and applies
 underline and overline properties instead.  It also tones down a bit the
@@ -595,10 +594,10 @@ but removes the border effect.  This is done by making the box property
 use the same color as the background, effectively blending the two and
 creating some padding.
 
-The ~borderless-3d~ and ~borderless-moody~ approximate the ~3d~ and
-~moody~ options respectively, while removing the borders.  However, to
-ensure that the inactive modelines remain visible, they apply a slightly
-more prominent background to them than what their counterparts do (same
+The ~borderless-3d~ and ~borderless-moody~ approximate the ~3d~ and ~moody~
+options respectively, while removing the borders.  However, to ensure
+that the inactive modelines remain visible, they apply a slightly more
+prominent background to them than what their counterparts do (same
 inactive background as with the default).
 
 Note that Moody does not expose any faces that the themes could style
@@ -608,15 +607,15 @@ below the 7:1 target that the themes conform with (WCAG AAA).  To hedge
 against this, we configure a fallback foreground for the ~moody~ option,
 which will come into effect when the background of the modeline changes
 to something less accessible, such as Moody ribbons (read the doc string
-of ~set-face-attribute~, specifically ~:distant-foreground~).  This
-fallback is activated when Emacs determines that the background and
-foreground of the given construct are too close to each other in terms
-of color distance.  In effect, users would need to experiment with the
-variable ~face-near-same-color-threshold~ to trigger the effect.  We
-find that a value of =45000= will suffice, contrary to the default
-=30000=.  Do not set the value too high, because that would have the
-adverse effect of always overriding the default color (which has been
-carefully designed to be highly accessible).
+of ~set-face-attribute~, specifically ~:distant-foreground~).  This fallback
+is activated when Emacs determines that the background and foreground of
+the given construct are too close to each other in terms of color
+distance.  In effect, users would need to experiment with the variable
+~face-near-same-color-threshold~ to trigger the effect.  We find that a
+value of =45000= will suffice, contrary to the default =30000=.  Do not set
+the value too high, because that would have the adverse effect of always
+overriding the default color (which has been carefully designed to be
+highly accessible).
 
 Furthermore, because Moody expects an underline and overline instead of
 a box style, it is advised you include this in your setup:
@@ -650,25 +649,24 @@ The former category encompasses Icomplete, Ido, Selectrum as well as
 pattern matching styles like Orderless and Flx.  The latter covers Helm,
 Ivy, and similar.
 
-A value of =nil= will respect the metaphors of each completion
-framework.
+A value of =nil= will respect the metaphors of each completion framework.
 
-Option ~moderate~ applies a combination of background and foreground
-that is fairly subtle.  For Icomplete and friends this constitutes a
+Option ~moderate~ applies a combination of background and foreground that
+is fairly subtle.  For Icomplete and friends this constitutes a
 departure from their default aesthetics, however the difference is
 small.  While Helm, Ivy et al appear slightly different than their
 original looks, as they are toned down a bit.
 
-Option ~opinionated~ uses color combinations that refashion the
-completion UI.  For the Icomplete camp this means that intense
-background and foreground combinations are used: in effect their looks
-emulate those of Helm, Ivy and co. in their original style.  Whereas the
-other group of packages will revert to an even more nuanced aesthetic
-with some additional changes to the choice of hues.
+Option ~opinionated~ uses color combinations that refashion the completion
+UI.  For the Icomplete camp this means that intense background and
+foreground combinations are used: in effect their looks emulate those of
+Helm, Ivy and co. in their original style.  Whereas the other group of
+packages will revert to an even more nuanced aesthetic with some
+additional changes to the choice of hues.
 
 To appreciate the scope of this customization option, you should spend
-some time with every one of the =nil= (default), ~moderate~, and
-~opinionated~ possibilities.
+some time with every one of the =nil= (default), ~moderate~, and ~opinionated~
+possibilities.
 
 ** Option for fringe visibility
 :PROPERTIES:
@@ -690,9 +688,9 @@ The default is to use the same color as that of the main background,
 meaning that the fringes are not obvious though they still occupy the
 space given to them by ~fringe-mode~.
 
-Options ~subtle~ and ~intense~ apply a gray background, making the
-fringes visible.  The difference between the two is one of degree, as
-their names imply.
+Options ~subtle~ and ~intense~ apply a gray background, making the fringes
+visible.  The difference between the two is one of degree, as their
+names imply.
 
 ** Option for language checkers
 :PROPERTIES:
@@ -735,13 +733,12 @@ background, and a suitable foreground.  All are color-coded.  This is
 the most intense combination of face properties.
 
 The present variable affects packages and/or face groups such as those
-of =flyspell=, =flymake=, =flycheck=, ~artbollocks-mode~, and
-~writegood-mode~.
+of =flyspell=, =flymake=, =flycheck=, ~artbollocks-mode~, and ~writegood-mode~.
 
 NOTE: The placement of the straight underline, though not the wave
 style, is controlled by the built-in ~x-underline-at-descent-line~,
-~x-use-underline-position-properties~, ~underline-minimum-offset~.
-Please refer to their documentation strings.
+~x-use-underline-position-properties~, ~underline-minimum-offset~.  Please
+refer to their documentation strings.
 
 ** Option for line highlighting (hl-line-mode)
 :PROPERTIES:
@@ -758,14 +755,13 @@ Possible values:
 1. =nil= (default)
 2. =t=
 
-The default is to use a subtle gray background for ~hl-line-mode~ and
-its global equivalent.
+The default is to use a subtle gray background for ~hl-line-mode~ and its
+global equivalent.
 
-With a non-nil value (=t=) use a more prominent background color
-instead.
+With a non-nil value (=t=) use a more prominent background color instead.
 
-This affects several packages that enable ~hl-line-mode~, such as
-=elfeed= and =mu4e=.
+This affects several packages that enable ~hl-line-mode~, such as =elfeed=
+and =mu4e=.
 
 ** Option for line numbers (display-line-numbers-mode)
 :PROPERTIES:
@@ -790,13 +786,13 @@ line has a more pronounced background and foreground combination to
 bring more attention to itself.
 
 Similarly, the faces for ~display-line-numbers-major-tick~ and its
-counterpart ~display-line-numbers-minor-tick~ use appropriate styles
-that involve a bespoke background and foreground combination.
+counterpart ~display-line-numbers-minor-tick~ use appropriate styles that
+involve a bespoke background and foreground combination.
 
-With a non-nil value (=t=), line numbers have no background of their
-own.  Instead they retain the primary background of the theme, blending
-with the rest of the buffer.  Foreground values for all relevant faces
-are updated to accommodate this aesthetic.
+With a non-nil value (=t=), line numbers have no background of their own.
+Instead they retain the primary background of the theme, blending with
+the rest of the buffer.  Foreground values for all relevant faces are
+updated to accommodate this aesthetic.
 
 ** Option for parenthesis matching (show-paren-mode)
 :PROPERTIES:
@@ -823,8 +819,8 @@ Option ~intense~ applies a saturated background color.
 Option ~subtle-bold~ is the same as the default, but also makes use of
 bold typographic weight (inherits the ~bold~ face).
 
-Option ~intense-bold~ is the same as ~intense~, while it also uses a
-bold weight.
+Option ~intense-bold~ is the same as ~intense~, while it also uses a bold
+weight.
 
 This customization variable affects tools such as the built-in
 ~show-paren-mode~ and the =smartparens= package.
@@ -850,15 +846,15 @@ Nil means to only use a prominent gray background with a neutral
 foreground.  The foreground overrides all syntax highlighting.  The
 region extends to the edge of the window.
 
-Option ~no-extend~ preserves the default aesthetic but prevents the
-region from extending to the edge of the window.
+Option ~no-extend~ preserves the default aesthetic but prevents the region
+from extending to the edge of the window.
 
 Option ~bg-only~ applies a faint tinted background that is distinct from
 all others used in the theme, while it does not override any existing
 colors.  It extends to the edge of the window.
 
-Option ~bg-only-no-extend~ is a combination of the ~bg-only~ and
-~no-extend~ options.
+Option ~bg-only-no-extend~ is a combination of the ~bg-only~ and ~no-extend~
+options.
 
 ** Option for diff buffer looks
 :PROPERTIES:
@@ -936,10 +932,10 @@ Possible values:
 The default is to use the same background as the rest of the buffer for
 the contents of the block.
 
-Option ~grayscale~ applies a subtle neutral gray background to the
-block's contents.  It will also extend to the edge of the window the
-background of the "begin" and "end" block delimiter lines (only relevant
-for Emacs versions >= 27 where the 'extend' keyword is part of the face
+Option ~grayscale~ applies a subtle neutral gray background to the block's
+contents.  It will also extend to the edge of the window the background
+of the "begin" and "end" block delimiter lines (only relevant for Emacs
+versions >= 27 where the 'extend' keyword is part of the face
 specifications).
 
 Option ~rainbow~ uses an accented background for the contents of the
@@ -950,9 +946,9 @@ several languages.
 
 Note that the "rainbow" blocks may require you to also reload the
 major-mode so that the colors are applied consistently throughout: use
-{{{kbd(M-x org-mode)}}} or {{{kbd(M-x org-mode-restart)}}} to refresh
-the buffer.  Or start typing in each code block (inefficient at scale,
-but it still works).
+{{{kbd(M-x org-mode)}}} or {{{kbd(M-x org-mode-restart)}}} to refresh the buffer.
+Or start typing in each code block (inefficient at scale, but it still
+works).
 
 ** Option for org-habit graph styles
 :PROPERTIES:
@@ -987,11 +983,11 @@ towards the distinction between the four states of a habit task, rather
 than each state's present/future outlook.
 
 Option ~traffic-light~ further reduces the available colors to red,
-yellow, and green.  As in ~simplified~, present and future variants
-appear uniformly, but differently from it, the 'clear' state is rendered
-in a green hue, instead of the original blue.  This is meant to capture
-the use-case where a habit task being "too early" is less important than
-it being "too late".  The difference between ready and clear states is
+yellow, and green.  As in ~simplified~, present and future variants appear
+uniformly, but differently from it, the 'clear' state is rendered in a
+green hue, instead of the original blue.  This is meant to capture the
+use-case where a habit task being "too early" is less important than it
+being "too late".  The difference between ready and clear states is
 attenuated by painting both of them using shades of green.  This option
 thus highlights the alert and overdue states.
 
@@ -1040,9 +1036,9 @@ To control faces per level from 1-8, use something like this:
         (t . rainbow-line-no-bold)))
 #+end_src
 
-The above uses the ~section~ value for heading levels 1,
-~section-no-bold~ for headings 2, ~rainbow-line~ for 3.  All other
-levels fall back to ~rainbow-line-no-bold~.
+The above uses the ~section~ value for heading levels 1, ~section-no-bold~
+for headings 2, ~rainbow-line~ for 3.  All other levels fall back to
+~rainbow-line-no-bold~.
 
 To set a uniform value for all heading levels, use this pattern:
 
@@ -1133,9 +1129,8 @@ Possible values:
 
 The default is to use the same size for headings and paragraph text.
 
-With a non-nil value (=t=) make headings larger in height relative to
-the main text.  This is noticeable in modes like Org, Markdown, and
-Info.
+With a non-nil value (=t=) make headings larger in height relative to the
+main text.  This is noticeable in modes like Org, Markdown, and Info.
 
 *** Control the scale of headings
 :PROPERTIES:
@@ -1163,8 +1158,8 @@ specify a number of their own.
 
 Below are the variables in their default values, using the floating
 point paradigm.  The numbers are very conservative, but one is free to
-change them to their liking, such as =1.2=, =1.4=, =1.6=, =1.8=,
-=2.0=---or use a resource for finding a consistent scale:
+change them to their liking, such as =1.2=, =1.4=, =1.6=, =1.8=, =2.0=---or use a
+resource for finding a consistent scale:
 
 #+begin_src emacs-lisp
 (setq modus-themes-scale-1 1.05
@@ -1181,19 +1176,19 @@ smallest, while the latter is the largest.  "Regular headings" are those
 that have a standard syntax for their scale, such as Org mode's eight
 levels of asterisks or Markdown's six columns.
 
-Whereas ~modus-themes-scale-5~ is applied to special headings that do
-not conform with the aforementioned syntax, yet which are expected to be
+Whereas ~modus-themes-scale-5~ is applied to special headings that do not
+conform with the aforementioned syntax, yet which are expected to be
 larger than the largest value on that implied scale.  Put concretely,
-Org's =#+title= meta datum is not part of the eight levels of headings
-in an Org file, yet is supposed to signify the primary header.
-Similarly, the Org Agenda's structure headings are not part of a
-recognisable scale and so they also get ~modus-themes-scale-5~.
+Org's =#+title= meta datum is not part of the eight levels of headings in
+an Org file, yet is supposed to signify the primary header.  Similarly,
+the Org Agenda's structure headings are not part of a recognisable scale
+and so they also get ~modus-themes-scale-5~.
 
 Users who wish to maintain scaled headings for the normal syntax while
-preventing special headings from standing out, can assign a value of
-=1.0= to ~modus-themes-scale-5~ to make it the same as body text (or
-whatever value would render it indistinguishable from the desired point
-of reference).
+preventing special headings from standing out, can assign a value of =1.0=
+to ~modus-themes-scale-5~ to make it the same as body text (or whatever
+value would render it indistinguishable from the desired point of
+reference).
 
 Note that in earlier versions of Org, scaling would only increase the
 size of the heading, but not of keywords that were added to it, like
@@ -1222,9 +1217,8 @@ and tab line.
 The default is to use the same font as the rest of Emacs, which usually
 is a monospaced family.
 
-With a non-nil value (=t=) apply a proportionately spaced typeface.
-This is done by assigning the ~variable-pitch~ face to the relevant
-items.
+With a non-nil value (=t=) apply a proportionately spaced typeface.  This
+is done by assigning the ~variable-pitch~ face to the relevant items.
 
 [[#h:defcf4fc-8fa8-4c29-b12e-7119582cc929][Font configurations for Org and others]].
 
@@ -1340,8 +1334,8 @@ The function always extracts the color value of the active Modus theme.
   (modus-themes-color 'blue))           ; "#2fafff" for `modus-vivendi'
 #+end_src
 
-Do {{{kbd(C-h v)}}} on the aforementioned variables to check all the
-available symbols that can be passed to this function.
+Do {{{kbd(C-h v)}}} on the aforementioned variables to check all the available
+symbols that can be passed to this function.
 
 With that granted, let us expand the example to actually change the
 ~cursor~ face's background property.  We employ the built-in function of
@@ -1358,9 +1352,9 @@ attribute you had assigned to that face.
 
 For such changes to persist, we need to make them after loading the
 theme.  So we rely on ~modus-themes-after-load-theme-hook~, which gets
-called from ~modus-themes-load-operandi~, ~modus-themes-load-vivendi~,
-as well as the command ~modus-themes-toggle~.  Here is a sample function
-that tweaks two faces and then gets added to the hook:
+called from ~modus-themes-load-operandi~, ~modus-themes-load-vivendi~, as
+well as the command ~modus-themes-toggle~.  Here is a sample function that
+tweaks two faces and then gets added to the hook:
 
 #+begin_src emacs-lisp
 (defun my-modus-themes-custom-faces ()
@@ -1419,8 +1413,8 @@ tweaks, you may prefer the approach documented in the previous section
 The ~modus-themes-with-colors~ macro lets you retrieve multiple color
 values by employing the backquote/backtick and comma notation.  The
 values are stored in the alists ~modus-themes-operandi-colors~ and
-~modus-themes-vivendi-colors~, while the macro always queries that of
-the active Modus theme.
+~modus-themes-vivendi-colors~, while the macro always queries that of the
+active Modus theme.
 
 Here is an abstract example that just returns a list of color values
 while ~modus-operandi~ is enabled:
@@ -1454,8 +1448,8 @@ Getting a list of colors may have its applications, though what you are
 most likely interested in is how to use those variables to configure
 several faces at once.  To do so we can rely on the built-in
 ~custom-set-faces~ function, which sets face specifications for the
-special =user= theme.  That "theme" gets applied on top of regular
-themes like ~modus-operandi~ and ~modus-vivendi~.
+special =user= theme.  That "theme" gets applied on top of regular themes
+like ~modus-operandi~ and ~modus-vivendi~.
 
 This is how it works:
 
@@ -1480,16 +1474,16 @@ you can identify the color variables by the comma prefixed to them.
 
 The above snippet will immediately refashion the faces it names once it
 is evaluated.  However, if you switch themes, say, from ~modus-operandi~
-to ~modus-vivendi~, the colors will not get updated to match those of
-the new theme.  To make things work across themes, we need to employ the
+to ~modus-vivendi~, the colors will not get updated to match those of the
+new theme.  To make things work across themes, we need to employ the
 same technique we discussed in the previous section, namely, to pass our
 changes at the post-theme-load phase via a hook.
 
 The themes provide the ~modus-themes-after-load-theme-hook~, which gets
-called from ~modus-themes-load-operandi~, ~modus-themes-load-vivendi~,
-as well as the command ~modus-themes-toggle~.  With this knowledge, you
-can wrap the macro in a function and then assign that function to the
-hook.  Thus:
+called from ~modus-themes-load-operandi~, ~modus-themes-load-vivendi~, as
+well as the command ~modus-themes-toggle~.  With this knowledge, you can
+wrap the macro in a function and then assign that function to the hook.
+Thus:
 
 #+begin_src emacs-lisp
 (defun my-modus-themes-custom-faces ()
@@ -1512,11 +1506,10 @@ hook.  Thus:
 [[#h:86f6906b-f090-46cc-9816-1fe8aeb38776][A theme-agnostic hook for theme loading]].
 
 To discover the faces defined by all loaded libraries, you may invoke
-{{{kbd(M-x list-faces-display)}}}.  Be warned that when you =:inherit= a
-face you are introducing an implicit dependency, so try to avoid doing
-so for libraries other than the built-in {{{file(faces.el)}}} (or at
-least understand that things may break if you inherit from a
-yet-to-be-loaded face).
+{{{kbd(M-x list-faces-display)}}}.  Be warned that when you =:inherit= a face
+you are introducing an implicit dependency, so try to avoid doing so for
+libraries other than the built-in {{{file(faces.el)}}} (or at least understand
+that things may break if you inherit from a yet-to-be-loaded face).
 
 Also bear in mind that these examples are meant to work with the Modus
 themes.  If you are cycling between multiple themes you may encounter
@@ -1567,12 +1560,11 @@ A complete example with some more opinionated stylistic choices:
 #+CINDEX: Change a theme's colors
 
 The themes provide a mechanism for overriding their color values.  This
-is controlled by the variables ~modus-themes-operandi-color-overrides~
-and ~modus-themes-vivendi-color-overrides~, which are alists that should
-mirror a subset of the associations in ~modus-themes-operandi-colors~
-and ~modus-themes-vivendi-colors~ respectively.  As with all
-customisations, overriding must be done before loading the affected
-theme.
+is controlled by the variables ~modus-themes-operandi-color-overrides~ and
+~modus-themes-vivendi-color-overrides~, which are alists that should
+mirror a subset of the associations in ~modus-themes-operandi-colors~ and
+~modus-themes-vivendi-colors~ respectively.  As with all customisations,
+overriding must be done before loading the affected theme.
 
 Let us approach the present topic one step at a time.  Here is a
 simplified excerpt of the default palette for Modus Operandi with some
@@ -1653,8 +1645,8 @@ themes and expands to some more assosiations:
           modus-themes-vivendi-color-overrides nil)))
 #+end_src
 
-With this in place, one can invoke {{{kbd(M-x my-modus-themes-tinted)}}}
-and then load the Modus theme of their choice.  The new colors will come
+With this in place, one can invoke {{{kbd(M-x my-modus-themes-tinted)}}} and
+then load the Modus theme of their choice.  The new colors will come
 into effect.  Switching between the themes will also use the overrides.
 
 Given that this is a user-level customisation, one is free to implement
@@ -1680,8 +1672,8 @@ The themes are designed to cope well with mixed font configurations.
 
 [[#h:115e6c23-ee35-4a16-8cef-e2fcbb08e28b][Option for no font mixing]].
 
-This mostly concerns ~org-mode~ and ~markdown-mode~, though expect to
-find it elsewhere like in ~Info-mode~.
+This mostly concerns ~org-mode~ and ~markdown-mode~, though expect to find
+it elsewhere like in ~Info-mode~.
 
 In practice it means that the user can safely opt for a more
 prose-friendly proportionately spaced typeface as their default, while
@@ -1692,9 +1684,9 @@ Users can try the built-in {{{kbd(M-x variable-pitch-mode)}}} to see the
 effect in action.
 
 To make everything use your desired font families, you need to configure
-the ~variable-pitch~ (proportional spacing) and ~fixed-pitch~
-(monospaced) faces respectively.  It may also be convenient to set your
-main typeface by configuring the ~default~ face the same way.
+the ~variable-pitch~ (proportional spacing) and ~fixed-pitch~ (monospaced)
+faces respectively.  It may also be convenient to set your main typeface
+by configuring the ~default~ face the same way.
 
 Put something like this in your initialization file (also consider
 reading the doc string of ~set-face-attribute~):
@@ -1712,16 +1704,15 @@ reading the doc string of ~set-face-attribute~):
 
 Note the differences in the =:height= property.  The =default= face must
 specify an absolute value, which is the point size × 10.  So if you want
-to use a font at point size =11=, you set the height to =110=.[fn::
-=:height= values do not need to be rounded to multiples of ten: the
-likes of =115= are perfectly valid—some typefaces will change to account
-for those finer increments.]  Whereas every other face must have a value
-that is relative to the default, represented as a floating point (if you
-use an integer, then that means an absolute height).  This is of
-paramount importance: it ensures that all fonts can scale gracefully
-when using something like the ~text-scale-adjust~ command which only
-operates on the base font size (i.e. the ~default~ face's absolute
-height).
+to use a font at point size =11=, you set the height to =110=.[fn:: =:height=
+values do not need to be rounded to multiples of ten: the likes of =115=
+are perfectly valid—some typefaces will change to account for those
+finer increments.]  Whereas every other face must have a value that is
+relative to the default, represented as a floating point (if you use an
+integer, then that means an absolute height).  This is of paramount
+importance: it ensures that all fonts can scale gracefully when using
+something like the ~text-scale-adjust~ command which only operates on the
+base font size (i.e. the ~default~ face's absolute height).
 
 ** Custom Org user faces (DIY)
 :PROPERTIES:
@@ -1740,9 +1731,8 @@ liking with the intent of retaining the overall aesthetic of the themes.
 
 Please bear in mind that the end result of those is not controlled by
 the active Modus theme but by how Org maps faces to its constructs.
-Editing those while ~org-mode~ is active requires re-initialization of
-the mode with {{{kbd(M-x org-mode-restart)}}} for changes to take
-effect.
+Editing those while ~org-mode~ is active requires re-initialization of the
+mode with {{{kbd(M-x org-mode-restart)}}} for changes to take effect.
 
 Let us assume you wish to visually differentiate your keywords.  You
 have something like this:
@@ -1767,8 +1757,8 @@ applied by the ~org-todo~ face:
 #+end_src
 
 This will refashion the keywords you specify, while letting the other
-items in ~org-todo-keywords~ use their original styles (which are
-defined in the ~org-todo~ and ~org-done~ faces).
+items in ~org-todo-keywords~ use their original styles (which are defined
+in the ~org-todo~ and ~org-done~ faces).
 
 If you want back the defaults, try specifying just the ~org-todo~ face:
 
@@ -1795,10 +1785,9 @@ configuration of the priority cookies:
 #+end_src
 
 To find all the faces that are loaded in your current Emacs session, use
-{{{kbd(M-x list-faces-display)}}}.  Try {{{kbd(M-x describe-variable)}}}
-as well and then specify the name of each of those Org variables
-demonstrated above.  Their documentation strings will offer you further
-guidance.
+{{{kbd(M-x list-faces-display)}}}.  Try {{{kbd(M-x describe-variable)}}} as well and
+then specify the name of each of those Org variables demonstrated above.
+Their documentation strings will offer you further guidance.
 
 Recall that the themes let you retrieve a color from their palette.  Do
 it if you plan to control face attributes.
@@ -1856,11 +1845,11 @@ try something like this:
 
 While it is fine to perform such calculations on a case-by-case basis,
 it is preferable to implement formulas and tables for more demanding
-tasks.  Such instruments are provided by ~org-mode~ or ~orgtbl-mode~,
-both of which are built into Emacs.  Below is such a table that derives
-the contrast ratio of all colors in the first column (pure red, green,
-blue) relative to the color specified in the first row of the second
-column (pure white) and rounds the results:
+tasks.  Such instruments are provided by ~org-mode~ or ~orgtbl-mode~, both
+of which are built into Emacs.  Below is such a table that derives the
+contrast ratio of all colors in the first column (pure red, green, blue)
+relative to the color specified in the first row of the second column
+(pure white) and rounds the results:
 
 #+begin_example
 |         | #ffffff |
@@ -1890,8 +1879,8 @@ themes, users may also set up their system to perform such a task
 automatically at sunrise and sunset.
 
 This can be accomplished by specifying the coordinates of one's location
-using the built-in {{{file(solar.el)}}} and then configuring the
-=circadian= package:
+using the built-in {{{file(solar.el)}}} and then configuring the =circadian=
+package:
 
 #+begin_src emacs-lisp
 (use-package solar                      ; built-in
@@ -2492,9 +2481,9 @@ examples with the 4, 8, 16 colors):
 :CUSTOM_ID: h:20cef8c4-d11f-4053-8b2c-2872925780b1
 :END:
 
-By default, the ~company-mode~ pop-up that lists completion candidates
-is drawn using an overlay.  This creates alignment issues every time it
-is placed above a piece of text that has a different height than the
+By default, the ~company-mode~ pop-up that lists completion candidates is
+drawn using an overlay.  This creates alignment issues every time it is
+placed above a piece of text that has a different height than the
 default.
 
 The solution recommended by the project's maintainer is to use an
@@ -2509,9 +2498,9 @@ https://github.com/tumashu/company-posframe/]
 :END:
 
 The built-in IRC client ~erc~ has the ability to colorise any text using
-escape sequences that start with =^C= (inserted with {{{kbd(C-q C-c)}}})
-and are followed by a number for the foreground and background.[fn::
-This page explains the basics, though it is not specific to Emacs:
+escape sequences that start with =^C= (inserted with {{{kbd(C-q C-c)}}}) and are
+followed by a number for the foreground and background.[fn:: This page
+explains the basics, though it is not specific to Emacs:
 https://www.mirc.com/colors.html] Possible numbers are 0-15, with the
 first entry being the foreground and the second the background,
 separated by a comma.  Like this =^C1,6=.  The minimum setup is this:
@@ -2567,7 +2556,7 @@ matches of a grep or grep-like command (=ag= or =ripgrep=).  It is
 not pass =--color=always= as a command-line option for their command.
 
 Here is the docstring for that face, which is defined in the
-{{{file(helm-grep.el)}}} library (you can visit the source code with
+{{{file(helm-grep.el)}}} library (you can always visit the source code with
 {{{kbd(M-x find-library)}}}).
 
 #+begin_quote
@@ -2593,9 +2582,9 @@ ANSI color number 1 (red) from the already-supported array of
 :CUSTOM_ID: h:5095cbd1-e17a-419c-93e8-951c186362a3
 :END:
 
-Due to the unique way ~vc-annotate~ ({{{kbd(C-x v g)}}}) applies colors,
-support for its background mode (~vc-annotate-background-mode~) is
-disabled at the theme level.
+Due to the unique way ~vc-annotate~ ({{{kbd(C-x v g)}}}) applies colors, support
+for its background mode (~vc-annotate-background-mode~) is disabled at the
+theme level.
 
 Normally, such a drastic measure should not belong in a theme: assuming
 the user's preferences is bad practice.  However, it has been deemed
@@ -2614,10 +2603,10 @@ report as much or send patches ([[#h:9c3cd842-14b7-44d7-84b2-a5c8bc3fc3b1][Contr
 Hints are drawn by [[https://imagemagick.org/][ImageMagick]], not Emacs, i.e., ImageMagick doesn't
 know about the hint face unless you tell ImageMagick about it. By
 default, only the foreground and background color attributes are
-passed. The below snippet adds to those the various font attributes.
-As it queries various faces, specifically ~pdf-links-read-link~ and the
-faces it inherits, it needs to be added to your initialization file
-after you've customized any faces.
+passed. The below snippet adds to those the various font attributes.  As
+it queries various faces, specifically ~pdf-links-read-link~ and the faces
+it inherits, it needs to be added to your initialization file after
+you've customized any faces.
 
 #+begin_src emacs-lisp
 (use-package pdf-links
@@ -2796,16 +2785,17 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Fleming, Kostadin Ninev, Len Trigg, Manuel Uberti, Mark Burton, Markus
   Beppler, Michael Goldenberg, Morgan Smith, Murilo Pereira, Nicolas De
   Jaeghere, Paul Poloskov, Pete Kazmier, Peter Wu, Philip K., Pierre
-  Téchoueyres, Roman Rudakov, Ryan Phillips, Shreyas Ragavan, Simon
-  Pugnet, Tassilo Horn, Thibaut Verron, Trey Merkley, Togan Muftuoglu,
-  Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.  As well as
-  users: Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik,
-  Moesasji, Nick, TheBlob42, bepolymathe, doolio, fleimgruber, iSeeU,
-  jixiuf, okamsn, tycho garen.
+  Téchoueyres, Roman Rudakov, Ryan Phillips, Sam Kleinman, Shreyas
+  Ragavan, Simon Pugnet, Tassilo Horn, Thibaut Verron, Trey Merkley,
+  Togan Muftuoglu, Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.
+  As well as users: Ben, CsBigDataHub1, Emacs Contrib, Eugene,
+  Fourchaux, Fredrik, Moesasji, Nick, TheBlob42, bepolymathe, doolio,
+  fleimgruber, iSeeU, jixiuf, okamsn.
 
-+ Packaging :: André Alexandre Gomes, Dimakakos Dimos, Morgan Smith,
-  Nicolas Goaziou (Guix), Dhavan Vaidya (Debian), Stefan Kangas (core
-  Emacs), Stefan Monnier (GNU Elpa).
++ Packaging :: Basil L. Contovounesios, Eli Zaretskii, Glenn Morris,
+  Mauro Amanda, Richard Stallman, Stefan Kangas (core Emacs), Stefan
+  Monnier (GNU Elpa), André Alexandre Gomes, Dimakakos Dimos, Morgan
+  Smith, Nicolas Goaziou (Guix), Dhavan Vaidya (Debian).
 
 + Inspiration for certain features :: Bozhidar Batsov (zenburn-theme),
   Fabrice Niessen (leuven-theme).
@@ -2849,7 +2839,10 @@ And here are the canonical sources of this project's documentation:
 :CUSTOM_ID: h:3077c3d2-7f90-4228-8f0a-73124f4026f6
 :END:
 
-#+begin_src txt
+#+TEXINFO: @include doclicense.texi
+
+#+begin_export html
+
                 GNU Free Documentation License
                  Version 1.3, 3 November 2008
 
@@ -3252,19 +3245,19 @@ public wiki that anybody can edit is an example of such a server.  A
 "Massive Multiauthor Collaboration" (or "MMC") contained in the site
 means any set of copyrightable works thus published on the MMC site.
 
-"CC-BY-SA" means the Creative Commons Attribution-Share Alike 3.0
-license published by Creative Commons Corporation, a not-for-profit
-corporation with a principal place of business in San Francisco,
-California, as well as future copyleft versions of that license
+"CC-BY-SA" means the Creative Commons Attribution-Share Alike 3.0 
+license published by Creative Commons Corporation, a not-for-profit 
+corporation with a principal place of business in San Francisco, 
+California, as well as future copyleft versions of that license 
 published by that same organization.
 
-"Incorporate" means to publish or republish a Document, in whole or in
+"Incorporate" means to publish or republish a Document, in whole or in 
 part, as part of another Document.
 
-An MMC is "eligible for relicensing" if it is licensed under this
-License, and if all works that were first published under this License
-somewhere other than this MMC, and subsequently incorporated in whole or
-in part into the MMC, (1) had no cover texts or invariant sections, and
+An MMC is "eligible for relicensing" if it is licensed under this 
+License, and if all works that were first published under this License 
+somewhere other than this MMC, and subsequently incorporated in whole or 
+in part into the MMC, (1) had no cover texts or invariant sections, and 
 (2) were thus incorporated prior to November 1, 2008.
 
 The operator of an MMC Site may republish an MMC contained in the site
@@ -3300,9 +3293,9 @@ If your document contains nontrivial examples of program code, we
 recommend releasing these examples in parallel under your choice of
 free software license, such as the GNU General Public License,
 to permit their use in free software.
-#+end_src
+#+end_export
 
-#+html: <!--
+#+HTML: <!--
 
 * Indices
 :PROPERTIES:
@@ -3327,4 +3320,4 @@ to permit their use in free software.
 :CUSTOM_ID: h:6aa7a656-884b-4c39-b759-087e412eec13
 :END:
 
-#+html: -->
+#+HTML: -->
