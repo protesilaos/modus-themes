@@ -5358,7 +5358,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-checkbox-statistics-done ((,class :inherit org-done)))
     `(org-checkbox-statistics-todo ((,class :inherit org-todo)))
     `(org-clock-overlay ((,class :inherit modus-theme-special-cold)))
-    `(org-code ((,class ,@(modus-themes--mixed-fonts) :foreground ,magenta)))
+    `(org-code ((,class ,@(modus-themes--mixed-fonts)
+                        :background ,red-nuanced-bg :foreground ,magenta)))
     `(org-column ((,class :background ,bg-alt)))
     `(org-column-title ((,class :inherit bold :underline t :background ,bg-alt)))
     `(org-date ((,class :inherit ,(if modus-themes-no-mixed-fonts
