@@ -3304,19 +3304,19 @@ to permit their use in free software.
 
 ** Function index
 :PROPERTIES:
-:INDEX:    fn
+:INDEX: fn
 :CUSTOM_ID: h:6bec5005-529c-4521-ae05-3d990baffb5b
 :END:
 
 ** Variable index
 :PROPERTIES:
-:INDEX:    vr
+:INDEX: vr
 :CUSTOM_ID: h:16ad8df6-b015-40a9-9259-03d4f7a23ee4
 :END:
 
 ** Concept index
 :PROPERTIES:
-:INDEX:    cp
+:INDEX: cp
 :CUSTOM_ID: h:6aa7a656-884b-4c39-b759-087e412eec13
 :END:
 
