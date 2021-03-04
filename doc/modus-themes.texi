@@ -53,7 +53,7 @@ feature which does not yet form part of the latest tagged commit, is
 explicitly marked as such.
 
 Current development target is 1.2.0-dev.  This manual was
-built on 2021-03-04 07:13 +0200.
+built on 2021-03-04 11:00 +0200.
 
 @end ifnottex
 
@@ -2686,6 +2686,8 @@ spaceline
 speedbar
 @item
 spell-fu
+@item
+spray
 @item
 stripes
 @item

@@ -331,6 +331,7 @@
 ;;     spaceline
 ;;     speedbar
 ;;     spell-fu
+;;     spray
 ;;     stripes
 ;;     suggest
 ;;     switch-window
@@ -5907,6 +5908,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(speedbar-tag-face ((,class :foreground ,yellow-alt-other)))
 ;;;;; spell-fu
     `(spell-fu-incorrect-face ((,class :inherit modus-theme-lang-error)))
+;;;;; spray
+    `(spray-accent-face ((,class :foreground ,red-intense)))
+    `(spray-base-face ((,class :inherit default :foreground ,fg-special-cold)))
 ;;;;; stripes
     `(stripes ((,class :inherit modus-theme-hl-line)))
 ;;;;; success
