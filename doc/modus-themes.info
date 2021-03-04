@@ -38,7 +38,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.2.0-dev.  This manual was built on
-2021-03-03 20:34 +0200.
+2021-03-04 07:13 +0200.
 
 * Menu:
 
@@ -2872,7 +2872,7 @@ Ideas and user feedback
 
 Packaging
      Basil L.  Contovounesios, Eli Zaretskii, Glenn Morris, Mauro
-     Amanda, Richard Stallman, Stefan Kangas (core Emacs), Stefan
+     Aranda, Richard Stallman, Stefan Kangas (core Emacs), Stefan
      Monnier (GNU Elpa), André Alexandre Gomes, Dimakakos Dimos, Morgan
      Smith, Nicolas Goaziou (Guix), Dhavan Vaidya (Debian).
 

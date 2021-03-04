@@ -2760,7 +2760,7 @@ The Modus themes are a collective effort.  Every bit of work matters.
   fleimgruber, iSeeU, jixiuf, okamsn.
 
 + Packaging :: Basil L. Contovounesios, Eli Zaretskii, Glenn Morris,
-  Mauro Amanda, Richard Stallman, Stefan Kangas (core Emacs), Stefan
+  Mauro Aranda, Richard Stallman, Stefan Kangas (core Emacs), Stefan
   Monnier (GNU Elpa), André Alexandre Gomes, Dimakakos Dimos, Morgan
   Smith, Nicolas Goaziou (Guix), Dhavan Vaidya (Debian).
 
