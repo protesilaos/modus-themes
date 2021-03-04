@@ -50,7 +50,8 @@
 
 
 
-(if (>= emacs-major-version 28)
+(if (and (>= emacs-major-version 28)
+         (functionp 'require-theme))
     (require-theme 'modus-themes)
   (require 'modus-themes))
 
