@@ -53,7 +53,7 @@
 (require 'modus-themes)
 
 (deftheme modus-vivendi
-  "Accessible and customizable light theme (WCAG AAA standard).
+  "Accessible and customizable dark theme (WCAG AAA standard).
 Conforms with the highest legibility standard for color contrast
 between background and foreground in any given piece of text,
 which corresponds to a minimum contrast in relative luminance of
