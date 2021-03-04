@@ -4,9 +4,9 @@
 #+language: en
 #+options: ':t toc:nil author:t email:t
 
-#+macro: stable-version 1.1.1
-#+macro: release-date 2021-01-25
-#+macro: development-version 1.2.0-dev
+#+macro: stable-version 1.2.0
+#+macro: release-date 2021-03-04
+#+macro: development-version 1.3.0-dev
 #+macro: export-date (eval (format-time-string "%F %R %z" (current-time)))
 #+macro: file @@texinfo:@file{@@$1@@texinfo:}@@
 # The "kbd" macro turns KBD into @kbd{KBD}.  Additionally, it
@@ -415,7 +415,7 @@ Possible values:
 5. ~yellow-comments-green-strings~
 6. ~alt-syntax~
 7. ~alt-syntax-yellow-comments~
-8. ~faint-yellow-comments~ (Part of {{{development-version}}})
+8. ~faint-yellow-comments~
 
 The default style (nil) for code syntax highlighting is a balanced
 combination of colors on the cyan-blue-magenta side of the spectrum.
@@ -493,7 +493,7 @@ Possible values:
 4. ~faint-neutral-underline~
 5. ~no-underline~
 6. ~underline-only~
-7. ~neutral-underline-only~ (Part of {{{development-version}}})
+7. ~neutral-underline-only~
 
 The default style (nil) for links is to apply an underline and a
 saturated color to the affected text.  The color of the two is the same,
@@ -773,8 +773,6 @@ and =mu4e=.
 :end:
 #+vindex: modus-themes-subtle-line-numbers
 
-(Part of {{{development-version}}})
-
 Symbol: ~modus-themes-subtle-line-numbers~
 
 Possible value:
@@ -874,7 +872,7 @@ Possible values:
 2. ~desaturated~
 3. ~fg-only~
 4. ~bg-only~
-5. ~deuteranopia~ (Part of {{{development-version}}})
+5. ~deuteranopia~
 
 By default the themes apply rich coloration to the output of diffs, such
 as those of ~diff-mode~, ~ediff~, ~smerge-mode~, and Magit.  These are
@@ -2111,7 +2109,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + messages
 + minibuffer-line
 + minimap
-+ mmm-mode (Part of {{{development-version}}})
++ mmm-mode
 + modeline
 + mood-line
 + moody
@@ -2158,7 +2156,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + prism ([[#h:a94272e0-99da-4149-9e80-11a7e67a2cf2][Note for prism.el]])
 + proced
 + prodigy
-+ quick-peek (Part of {{{development-version}}})
++ quick-peek
 + racket-mode
 + rainbow-blocks
 + rainbow-identifiers
@@ -2172,11 +2170,11 @@ have lots of extensions, so the "full support" may not be 100% true…
 + ruler-mode
 + sallet
 + selectrum
-+ selectrum-prescient (Part of {{{development-version}}})
++ selectrum-prescient
 + semantic
 + sesman
 + shell-script-mode
-+ shortdoc (Part of {{{development-version}}})
++ shortdoc
 + show-paren-mode
 + shr
 + side-notes
