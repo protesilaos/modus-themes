@@ -53,7 +53,7 @@ feature which does not yet form part of the latest tagged commit, is
 explicitly marked as such.
 
 Current development target is 1.3.0-dev.  This manual was
-built on 2021-03-04 22:00 +0200.
+built on 2021-03-04 22:27 +0200.
 
 @end ifnottex
 
@@ -324,22 +324,34 @@ They are now ready to be used: @ref{Enable and load}.
 @cindex Essential configuration
 @vindex modus-themes-after-load-theme-hook
 
-Before you load a theme, it is necessary to require the main library:
+Users of the built-in themes can load and automatically enable the theme
+of their preference by adding either form to their init file:
+
+@lisp
+(load-theme 'modus-operandi)            ; Light theme
+(load-theme 'modus-vivendi)             ; Dark theme
+@end lisp
+
+This is all one needs.
+
+Users of packaged variants of the themes must add a few more lines to
+ensure that everything works as intended.  First, one has to require the
+main library before loading either theme:
 
 @lisp
 (require 'modus-themes)
 @end lisp
 
-Then load the individual theme files with the helper function
-@code{modus-themes-load-themes}:
+Then it is recommended to load the individual theme files with the
+helper function @code{modus-themes-load-themes}:
 
 @lisp
 ;; Load the theme files before enabling a theme (else you get an error).
 (modus-themes-load-themes)
 @end lisp
 
-Once the libraries that define the themes are enabled, you can load a
-theme with either of the following expressions:
+Once the libraries that define the themes are enabled, one can activate
+a theme with either of the following expressions:
 
 @lisp
 (modus-themes-load-operandi)            ; Light theme
@@ -347,9 +359,9 @@ theme with either of the following expressions:
 (modus-themes-load-vivendi)             ; Dark theme
 @end lisp
 
-You may want to make some changes to the available customization options
-before loading a theme (@ref{Customization Options}).  So this is how a basic
-setup should look like:
+Changes to the available customization options must always be evaluated
+before loading a theme (@ref{Customization Options}).  This is how a basic
+setup could look like:
 
 @lisp
 (require 'modus-themes)
@@ -402,7 +414,7 @@ package configurations in their setup.  We use this as an example:
 
 @lisp
 (use-package modus-themes
-  :ensure
+  :ensure                         ; omit this to use the built-in themes
   :init
   ;; Add all your customizations prior to loading the themes
   (setq modus-themes-slanted-constructs t
@@ -452,8 +464,8 @@ session, are better off using something like this:
 
 @lisp
 (require 'modus-themes)
-(require 'modus-operandi-theme)
-(require 'modus-vivendi-theme)
+(load-theme 'modus-operandi t t)
+(load-theme 'modus-vivendi t t)
 
 (enable-theme 'modus-operandi) ;; OR (enable-theme 'modus-vivendi)
 @end lisp

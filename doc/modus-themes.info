@@ -38,7 +38,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.3.0-dev.  This manual was built on
-2021-03-04 22:00 +0200.
+2021-03-04 22:27 +0200.
 
 * Menu:
 
@@ -313,26 +313,36 @@ File: modus-themes.info,  Node: Enable and load,  Next: Customization Options,  
 3 Enable and load
 *****************
 
-Before you load a theme, it is necessary to require the main library:
+Users of the built-in themes can load and automatically enable the theme
+of their preference by adding either form to their init file:
+
+     (load-theme 'modus-operandi)            ; Light theme
+     (load-theme 'modus-vivendi)             ; Dark theme
+
+   This is all one needs.
+
+   Users of packaged variants of the themes must add a few more lines to
+ensure that everything works as intended.  First, one has to require the
+main library before loading either theme:
 
      (require 'modus-themes)
 
-   Then load the individual theme files with the helper function
-‘modus-themes-load-themes’:
+   Then it is recommended to load the individual theme files with the
+helper function ‘modus-themes-load-themes’:
 
      ;; Load the theme files before enabling a theme (else you get an error).
      (modus-themes-load-themes)
 
-   Once the libraries that define the themes are enabled, you can load a
-theme with either of the following expressions:
+   Once the libraries that define the themes are enabled, one can
+activate a theme with either of the following expressions:
 
      (modus-themes-load-operandi)            ; Light theme
      ;; OR
      (modus-themes-load-vivendi)             ; Dark theme
 
-   You may want to make some changes to the available customization
-options before loading a theme (*note Customization Options::).  So this
-is how a basic setup should look like:
+   Changes to the available customization options must always be
+evaluated before loading a theme (*note Customization Options::).  This
+is how a basic setup could look like:
 
      (require 'modus-themes)
 
@@ -382,7 +392,7 @@ It is common for Emacs users to rely on ‘use-package’ for declaring
 package configurations in their setup.  We use this as an example:
 
      (use-package modus-themes
-       :ensure
+       :ensure                         ; omit this to use the built-in themes
        :init
        ;; Add all your customizations prior to loading the themes
        (setq modus-themes-slanted-constructs t
@@ -431,8 +441,8 @@ stable setup and who seldom update their variables during a given Emacs
 session, are better off using something like this:
 
      (require 'modus-themes)
-     (require 'modus-operandi-theme)
-     (require 'modus-vivendi-theme)
+     (load-theme 'modus-operandi t t)
+     (load-theme 'modus-vivendi t t)
 
      (enable-theme 'modus-operandi) ;; OR (enable-theme 'modus-vivendi)
 
@@ -3535,70 +3545,70 @@ Node: Install on GNU/Linux9476
 Node: Debian 11 Bullseye9924
 Node: GNU Guix10234
 Node: Enable and load10517
-Node: Sample configuration for use-package12846
-Node: Differences between loading and enabling14108
-Node: Customization Options16146
-Node: Bold constructs18318
-Node: Slanted constructs18907
-Node: Syntax styles19454
-Node: No mixed fonts21092
-Node: Link styles22189
-Node: Command prompts23763
-Node: Mode line24962
-Node: Completion UIs28153
-Node: Fringes29985
-Node: Language checkers30645
-Node: Line highlighting32594
-Node: Line numbers33211
-Node: Matching parentheses34289
-Node: Active region35179
-Node: Diffs36115
-Node: Org mode blocks38662
-Node: Org agenda habits40020
-Node: Heading styles41855
-Node: Scaled headings45854
-Node: Scaled heading sizes46457
-Node: UI typeface49591
-Node: Headings' typeface50437
-Node: Advanced customization (do-it-yourself)51061
-Node: Per-theme customization settings (DIY)52219
-Node: Case-by-case face specs using the themes' palette (DIY)53565
-Node: Face specs at scale using the themes' palette (DIY)58029
-Node: Override colors (DIY)62834
-Node: Font configurations for Org and others (DIY)67626
-Ref: Font configurations for Org and others (DIY)-Footnote-169949
-Node: Custom Org user faces (DIY)70136
-Node: Measure color contrast (DIY)73490
-Node: Load theme depending on time of day76257
-Node: A theme-agnostic hook for theme loading (DIY)77294
-Node: Face coverage79689
-Node: Supported packages80159
-Node: Indirectly covered packages86776
-Node: Notes for individual packages87259
-Node: Note for display-fill-column-indicator-mode87926
-Node: Note for mmm-modeel background colors89527
-Node: Note for prism91911
-Node: Note on company-mode overlay pop-up95159
-Ref: Note on company-mode overlay pop-up-Footnote-195846
-Ref: Note on company-mode overlay pop-up-Footnote-295913
-Node: Note for ERC escaped color sequences95968
-Ref: Note for ERC escaped color sequences-Footnote-197399
-Node: Note for powerline or spaceline97509
-Node: Note on SHR colors97925
-Node: Note for Helm grep98338
-Node: Note on vc-annotate-background-mode99805
-Node: Note on pdf-tools link hints100690
-Node: Contributing103123
-Node: Sources of the themes103523
-Node: Issues you can help with104261
-Node: Patches require copyright assignment to the FSF105461
-Node: Acknowledgements107756
-Node: Meta109986
-Node: GNU Free Documentation License111983
-Node: Indices137335
-Node: Function index137514
-Node: Variable index138751
-Node: Concept index140673
+Node: Sample configuration for use-package13265
+Node: Differences between loading and enabling14590
+Node: Customization Options16630
+Node: Bold constructs18802
+Node: Slanted constructs19391
+Node: Syntax styles19938
+Node: No mixed fonts21576
+Node: Link styles22673
+Node: Command prompts24247
+Node: Mode line25446
+Node: Completion UIs28637
+Node: Fringes30469
+Node: Language checkers31129
+Node: Line highlighting33078
+Node: Line numbers33695
+Node: Matching parentheses34773
+Node: Active region35663
+Node: Diffs36599
+Node: Org mode blocks39146
+Node: Org agenda habits40504
+Node: Heading styles42339
+Node: Scaled headings46338
+Node: Scaled heading sizes46941
+Node: UI typeface50075
+Node: Headings' typeface50921
+Node: Advanced customization (do-it-yourself)51545
+Node: Per-theme customization settings (DIY)52703
+Node: Case-by-case face specs using the themes' palette (DIY)54049
+Node: Face specs at scale using the themes' palette (DIY)58513
+Node: Override colors (DIY)63318
+Node: Font configurations for Org and others (DIY)68110
+Ref: Font configurations for Org and others (DIY)-Footnote-170433
+Node: Custom Org user faces (DIY)70620
+Node: Measure color contrast (DIY)73974
+Node: Load theme depending on time of day76741
+Node: A theme-agnostic hook for theme loading (DIY)77778
+Node: Face coverage80173
+Node: Supported packages80643
+Node: Indirectly covered packages87260
+Node: Notes for individual packages87743
+Node: Note for display-fill-column-indicator-mode88410
+Node: Note for mmm-modeel background colors90011
+Node: Note for prism92395
+Node: Note on company-mode overlay pop-up95643
+Ref: Note on company-mode overlay pop-up-Footnote-196330
+Ref: Note on company-mode overlay pop-up-Footnote-296397
+Node: Note for ERC escaped color sequences96452
+Ref: Note for ERC escaped color sequences-Footnote-197883
+Node: Note for powerline or spaceline97993
+Node: Note on SHR colors98409
+Node: Note for Helm grep98822
+Node: Note on vc-annotate-background-mode100289
+Node: Note on pdf-tools link hints101174
+Node: Contributing103607
+Node: Sources of the themes104007
+Node: Issues you can help with104745
+Node: Patches require copyright assignment to the FSF105945
+Node: Acknowledgements108240
+Node: Meta110470
+Node: GNU Free Documentation License112467
+Node: Indices137819
+Node: Function index137998
+Node: Variable index139235
+Node: Concept index141157
 
 End Tag Table
 
