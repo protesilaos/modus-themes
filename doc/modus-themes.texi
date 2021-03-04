@@ -53,7 +53,7 @@ feature which does not yet form part of the latest tagged commit, is
 explicitly marked as such.
 
 Current development target is 1.3.0-dev.  This manual was
-built on 2021-03-04 15:05 +0200.
+built on 2021-03-04 22:00 +0200.
 
 @end ifnottex
 
@@ -3310,16 +3310,16 @@ Johansson, André Alexandre Gomes, Arif Rezai, Basil L@. Contovounesios,
 Burgess Chang, Christian Tietze, Christopher Dimech, Damien Cassou,
 Daniel Mendler, Dario Gjorgjevski, David Edmondson, Davor Rotim, Divan
 Santana, Gerry Agbobada, Gianluca Recchia, Gustavo Barros, Hörmetjan
-Yiltiz, Ilja Kocken, Iris Garcia, Jeremy Friesen, John Haman, Kevin
-Fleming, Kostadin Ninev, Len Trigg, Manuel Uberti, Mark Burton, Markus
-Beppler, Michael Goldenberg, Morgan Smith, Murilo Pereira, Nicolas De
-Jaeghere, Paul Poloskov, Pete Kazmier, Peter Wu, Philip K., Pierre
-Téchoueyres, Roman Rudakov, Ryan Phillips, Sam Kleinman, Shreyas
-Ragavan, Simon Pugnet, Tassilo Horn, Thibaut Verron, Trey Merkley,
-Togan Muftuoglu, Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.
-As well as users: Ben, CsBigDataHub1, Emacs Contrib, Eugene,
-Fourchaux, Fredrik, Moesasji, Nick, TheBlob42, bepolymathe, doolio,
-fleimgruber, iSeeU, jixiuf, okamsn.
+Yiltiz, Ilja Kocken, Iris Garcia, Jeremy Friesen, John Haman, Joshua
+O'Connor, Kevin Fleming, Kostadin Ninev, Len Trigg, Manuel Uberti,
+Mark Burton, Markus Beppler, Michael Goldenberg, Morgan Smith, Murilo
+Pereira, Nicolas De Jaeghere, Paul Poloskov, Pete Kazmier, Peter Wu,
+Philip K., Pierre Téchoueyres, Roman Rudakov, Ryan Phillips, Sam
+Kleinman, Shreyas Ragavan, Simon Pugnet, Tassilo Horn, Thibaut Verron,
+Trey Merkley, Togan Muftuoglu, Toon Claes, Uri Sharf, Utkarsh Singh,
+Vincent Foley.  As well as users: Ben, CsBigDataHub1, Emacs Contrib,
+Eugene, Fourchaux, Fredrik, Moesasji, Nick, TheBlob42, bepolymathe,
+doolio, fleimgruber, iSeeU, jixiuf, okamsn.
 
 @item Packaging
 Basil L@. Contovounesios, Eli Zaretskii, Glenn Morris,

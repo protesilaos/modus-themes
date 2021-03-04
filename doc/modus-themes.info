@@ -38,7 +38,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.3.0-dev.  This manual was built on
-2021-03-04 15:05 +0200.
+2021-03-04 22:00 +0200.
 
 * Menu:
 
@@ -2858,16 +2858,16 @@ Ideas and user feedback
      Mendler, Dario Gjorgjevski, David Edmondson, Davor Rotim, Divan
      Santana, Gerry Agbobada, Gianluca Recchia, Gustavo Barros,
      Hörmetjan Yiltiz, Ilja Kocken, Iris Garcia, Jeremy Friesen, John
-     Haman, Kevin Fleming, Kostadin Ninev, Len Trigg, Manuel Uberti,
-     Mark Burton, Markus Beppler, Michael Goldenberg, Morgan Smith,
-     Murilo Pereira, Nicolas De Jaeghere, Paul Poloskov, Pete Kazmier,
-     Peter Wu, Philip K., Pierre Téchoueyres, Roman Rudakov, Ryan
-     Phillips, Sam Kleinman, Shreyas Ragavan, Simon Pugnet, Tassilo
-     Horn, Thibaut Verron, Trey Merkley, Togan Muftuoglu, Toon Claes,
-     Uri Sharf, Utkarsh Singh, Vincent Foley.  As well as users: Ben,
-     CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji,
-     Nick, TheBlob42, bepolymathe, doolio, fleimgruber, iSeeU, jixiuf,
-     okamsn.
+     Haman, Joshua O’Connor, Kevin Fleming, Kostadin Ninev, Len Trigg,
+     Manuel Uberti, Mark Burton, Markus Beppler, Michael Goldenberg,
+     Morgan Smith, Murilo Pereira, Nicolas De Jaeghere, Paul Poloskov,
+     Pete Kazmier, Peter Wu, Philip K., Pierre Téchoueyres, Roman
+     Rudakov, Ryan Phillips, Sam Kleinman, Shreyas Ragavan, Simon
+     Pugnet, Tassilo Horn, Thibaut Verron, Trey Merkley, Togan
+     Muftuoglu, Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.  As
+     well as users: Ben, CsBigDataHub1, Emacs Contrib, Eugene,
+     Fourchaux, Fredrik, Moesasji, Nick, TheBlob42, bepolymathe, doolio,
+     fleimgruber, iSeeU, jixiuf, okamsn.
 
 Packaging
      Basil L.  Contovounesios, Eli Zaretskii, Glenn Morris, Mauro
@@ -3593,12 +3593,12 @@ Node: Sources of the themes103523
 Node: Issues you can help with104261
 Node: Patches require copyright assignment to the FSF105461
 Node: Acknowledgements107756
-Node: Meta109967
-Node: GNU Free Documentation License111964
-Node: Indices137316
-Node: Function index137495
-Node: Variable index138732
-Node: Concept index140654
+Node: Meta109986
+Node: GNU Free Documentation License111983
+Node: Indices137335
+Node: Function index137514
+Node: Variable index138751
+Node: Concept index140673
 
 End Tag Table
 
