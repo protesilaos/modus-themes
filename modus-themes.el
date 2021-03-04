@@ -390,7 +390,7 @@
 
 
 
-(require 'cl-lib)
+(eval-when-compile (require 'cl-lib))
 
 (defgroup modus-themes ()
   "Options for `modus-operandi', `modus-vivendi'."
