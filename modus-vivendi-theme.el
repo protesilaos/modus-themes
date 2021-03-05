@@ -66,6 +66,4 @@ which corresponds to a minimum contrast in relative luminance of
 
 (provide-theme 'modus-vivendi)
 
-(provide 'modus-vivendi-theme)
-
 ;;; modus-vivendi-theme.el ends here
