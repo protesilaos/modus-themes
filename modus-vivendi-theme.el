@@ -50,7 +50,10 @@
 
 
 
-(require 'modus-themes)
+(eval-and-compile
+  (unless (and (fboundp 'require-theme)
+               (require-theme 'modus-themes t))
+    (require 'modus-themes)))
 
 (deftheme modus-vivendi
   "Accessible and customizable dark theme (WCAG AAA standard).
