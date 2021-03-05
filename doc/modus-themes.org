@@ -9,13 +9,14 @@
 #+macro: development-version 1.3.0-dev
 #+macro: export-date (eval (format-time-string "%F %R %z" (current-time)))
 #+macro: file @@texinfo:@file{@@$1@@texinfo:}@@
+#+macro: space @@texinfo:@: @@
 # The "kbd" macro turns KBD into @kbd{KBD}.  Additionally, it
 # encloses case-sensitive special keys (SPC, RET...) within @key{...}.
 # I got this from the Org source code.
 #+macro: kbd (eval (let ((case-fold-search nil) (regexp (regexp-opt '("SPC" "RET" "LFD" "TAB" "BS" "ESC" "DELETE" "SHIFT" "Ctrl" "Meta" "Alt" "Cmd" "Super" "UP" "LEFT" "RIGHT" "DOWN") 'words))) (format "@@texinfo:@kbd{@@%s@@texinfo:}@@" (replace-regexp-in-string regexp "@@texinfo:@key{@@\\&@@texinfo:}@@" $1 t))))
 
 #+texinfo_filename: modus-themes.info
-#+texinfo_dir_category: Emacs
+#+texinfo_dir_category: Emacs misc features
 #+texinfo_dir_title: Modus Themes: (modus-themes)
 #+texinfo_dir_desc: Highly accessible themes (WCAG AAA)
 #+texinfo_header: @set MAINTAINERSITE @uref{https://protesilaos.com,maintainer webpage}
@@ -2749,31 +2750,32 @@ The Modus themes are a collective effort.  Every bit of work matters.
 + Author/maintainer :: Protesilaos Stavrou.
 
 + Contributions to code or documentation :: Anders Johansson, Basil
-  L. Contovounesios, Carlo Zancanaro, Eli Zaretskii, Kostadin Ninev,
-  Madhavan Krishnan, Markus Beppler, Matthew Stevenson, Nicolas De
-  Jaeghere, Shreyas Ragavan, Stefan Kangas, Vincent Murphy, Xinglu Chen.
+  L.{{{space()}}} Contovounesios, Carlo Zancanaro, Eli Zaretskii, Kostadin
+  Ninev, Madhavan Krishnan, Markus Beppler, Matthew Stevenson, Nicolas
+  De Jaeghere, Shreyas Ragavan, Stefan Kangas, Vincent Murphy, Xinglu
+  Chen.
 
 + Ideas and user feedback :: Aaron Jensen, Adam Spiers, Adrian Manea,
   Alex Griffin, Alex Peitsinis, Alexey Shmalko, Alok Singh, Anders
-  Johansson, André Alexandre Gomes, Arif Rezai, Basil L. Contovounesios,
-  Burgess Chang, Christian Tietze, Christopher Dimech, Damien Cassou,
-  Daniel Mendler, Dario Gjorgjevski, David Edmondson, Davor Rotim, Divan
-  Santana, Gerry Agbobada, Gianluca Recchia, Gustavo Barros, Hörmetjan
-  Yiltiz, Ilja Kocken, Iris Garcia, Jeremy Friesen, John Haman, Joshua
-  O'Connor, Kevin Fleming, Kostadin Ninev, Len Trigg, Manuel Uberti,
-  Mark Burton, Markus Beppler, Michael Goldenberg, Morgan Smith, Murilo
-  Pereira, Nicolas De Jaeghere, Paul Poloskov, Pete Kazmier, Peter Wu,
-  Philip K., Pierre Téchoueyres, Roman Rudakov, Ryan Phillips, Sam
-  Kleinman, Shreyas Ragavan, Simon Pugnet, Tassilo Horn, Thibaut Verron,
-  Trey Merkley, Togan Muftuoglu, Toon Claes, Uri Sharf, Utkarsh Singh,
-  Vincent Foley.  As well as users: Ben, CsBigDataHub1, Emacs Contrib,
-  Eugene, Fourchaux, Fredrik, Moesasji, Nick, TheBlob42, bepolymathe,
-  doolio, fleimgruber, iSeeU, jixiuf, okamsn.
+  Johansson, André Alexandre Gomes, Arif Rezai, Basil L.{{{space()}}}
+  Contovounesios, Burgess Chang, Christian Tietze, Christopher Dimech,
+  Damien Cassou, Daniel Mendler, Dario Gjorgjevski, David Edmondson,
+  Davor Rotim, Divan Santana, Gerry Agbobada, Gianluca Recchia, Gustavo
+  Barros, Hörmetjan Yiltiz, Ilja Kocken, Iris Garcia, Jeremy Friesen,
+  John Haman, Joshua O'Connor, Kevin Fleming, Kostadin Ninev, Len Trigg,
+  Manuel Uberti, Mark Burton, Markus Beppler, Michael Goldenberg, Morgan
+  Smith, Murilo Pereira, Nicolas De Jaeghere, Paul Poloskov, Pete
+  Kazmier, Peter Wu, Philip K., Pierre Téchoueyres, Roman Rudakov, Ryan
+  Phillips, Sam Kleinman, Shreyas Ragavan, Simon Pugnet, Tassilo Horn,
+  Thibaut Verron, Trey Merkley, Togan Muftuoglu, Toon Claes, Uri Sharf,
+  Utkarsh Singh, Vincent Foley.  As well as users: Ben, CsBigDataHub1,
+  Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji, Nick, TheBlob42,
+  bepolymathe, doolio, fleimgruber, iSeeU, jixiuf, okamsn.
 
-+ Packaging :: Basil L. Contovounesios, Eli Zaretskii, Glenn Morris,
-  Mauro Aranda, Richard Stallman, Stefan Kangas (core Emacs), Stefan
-  Monnier (GNU Elpa), André Alexandre Gomes, Dimakakos Dimos, Morgan
-  Smith, Nicolas Goaziou (Guix), Dhavan Vaidya (Debian).
++ Packaging :: Basil L.{{{space()}}} Contovounesios, Eli Zaretskii, Glenn
+  Morris, Mauro Aranda, Richard Stallman, Stefan Kangas (core Emacs),
+  Stefan Monnier (GNU Elpa), André Alexandre Gomes, Dimakakos Dimos,
+  Morgan Smith, Nicolas Goaziou (Guix), Dhavan Vaidya (Debian).
 
 + Inspiration for certain features :: Bozhidar Batsov (zenburn-theme),
   Fabrice Niessen (leuven-theme).
@@ -3223,19 +3225,19 @@ public wiki that anybody can edit is an example of such a server.  A
 "Massive Multiauthor Collaboration" (or "MMC") contained in the site
 means any set of copyrightable works thus published on the MMC site.
 
-"CC-BY-SA" means the Creative Commons Attribution-Share Alike 3.0 
-license published by Creative Commons Corporation, a not-for-profit 
-corporation with a principal place of business in San Francisco, 
-California, as well as future copyleft versions of that license 
+"CC-BY-SA" means the Creative Commons Attribution-Share Alike 3.0
+license published by Creative Commons Corporation, a not-for-profit
+corporation with a principal place of business in San Francisco,
+California, as well as future copyleft versions of that license
 published by that same organization.
 
-"Incorporate" means to publish or republish a Document, in whole or in 
+"Incorporate" means to publish or republish a Document, in whole or in
 part, as part of another Document.
 
-An MMC is "eligible for relicensing" if it is licensed under this 
-License, and if all works that were first published under this License 
-somewhere other than this MMC, and subsequently incorporated in whole or 
-in part into the MMC, (1) had no cover texts or invariant sections, and 
+An MMC is "eligible for relicensing" if it is licensed under this
+License, and if all works that were first published under this License
+somewhere other than this MMC, and subsequently incorporated in whole or
+in part into the MMC, (1) had no cover texts or invariant sections, and
 (2) were thus incorporated prior to November 1, 2008.
 
 The operator of an MMC Site may republish an MMC contained in the site
