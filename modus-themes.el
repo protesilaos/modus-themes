@@ -3918,8 +3918,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(epa-field-name ((,class :inherit bold :foreground ,fg-dim)))
     `(epa-mark ((,class :inherit bold :foreground ,magenta)))
     `(epa-string ((,class :foreground ,blue-alt)))
-    `(epa-validity-disabled ((,class :inherit modus-theme-refine-red)))
-    `(epa-validity-high ((,class :inherit bold :foreground ,green-alt-other)))
+    `(epa-validity-disabled ((,class :foreground ,red)))
+    `(epa-validity-high ((,class :inherit bold :foreground ,cyan)))
     `(epa-validity-low ((,class :inherit shadow)))
     `(epa-validity-medium ((,class :foreground ,green-alt)))
 ;;;;; equake
