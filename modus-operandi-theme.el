@@ -66,6 +66,4 @@ which corresponds to a minimum contrast in relative luminance of
 
 (provide-theme 'modus-operandi)
 
-(provide 'modus-operandi-theme)
-
 ;;; modus-operandi-theme.el ends here
