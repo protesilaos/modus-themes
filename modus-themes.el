@@ -6433,9 +6433,10 @@ by virtue of calling either of `modus-themes-load-operandi' and
   "Custom variables for `modus-themes-theme'.")
 
 ;;;###autoload
-(when (and (boundp 'custom-theme-load-path) load-file-name)
-  (add-to-list 'custom-theme-load-path
-               (expand-file-name (file-name-directory load-file-name))))
+(when load-file-name
+  (let ((dir (file-name-directory load-file-name)))
+    (unless (equal dir (expand-file-name "themes/" data-directory))
+      (add-to-list 'custom-theme-load-path dir))))
 
 (provide 'modus-themes)
 ;;; modus-themes.el ends here
