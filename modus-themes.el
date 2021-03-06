@@ -1661,25 +1661,25 @@ A description of all other possible values:
   '(alist
     :key-type symbol
     :value-type
-    (choice (const :tag "Fairly desaturated foreground with bold weight (default)" nil)
-            (const :tag "Same as the default (backward-compatible)" t)
-            (const :tag "Like the default without bold weight" no-bold)
-            (const :tag "Like the default plus overline" line)
-            (const :tag "Like `line' without bold weight" line-no-bold)
-            (const :tag "Like the default but with more colorful foreground" rainbow)
-            (const :tag "Like `rainbow' plus overline" rainbow-line)
-            (const :tag "Like `rainbow' without bold weight" rainbow-no-bold)
-            (const :tag "Like `rainbow-line' without bold weight" rainbow-line-no-bold)
-            (const :tag "Like the default plus subtle background" highlight)
-            (const :tag "Like `highlight' without bold weight" highlight-no-bold)
-            (const :tag "Like `highlight' with more colorful foreground" rainbow-highlight)
-            (const :tag "Like `rainbow-highlight' without bold weight" rainbow-highlight-no-bold)
-            (const :tag "Like `highlight' plus overline" section)
-            (const :tag "Like `section' without bold weight" section-no-bold)
-            (const :tag "Like `section' with more colorful foreground" rainbow-section)
-            (const :tag "Like `rainbow-section' without bold weight" rainbow-section-no-bold)
-            (const :tag "Do not use any distinct foreground color; just bold weight" no-color)
-            (const :tag "Like `no-bold' but without the distinct foreground color" no-color-no-bold)))
+    (choice (const :format "[%v] %t\n" :tag "Fairly desaturated foreground with bold weight (default)" nil)
+            (const :format "[%v] %t\n" :tag "Same as the default (backward-compatible)" t)
+            (const :format "[%v] %t\n" :tag "Like the default without bold weight" no-bold)
+            (const :format "[%v] %t\n" :tag "Like the default plus overline" line)
+            (const :format "[%v] %t\n" :tag "Like `line' without bold weight" line-no-bold)
+            (const :format "[%v] %t\n" :tag "Like the default but with more colorful foreground" rainbow)
+            (const :format "[%v] %t\n" :tag "Like `rainbow' plus overline" rainbow-line)
+            (const :format "[%v] %t\n" :tag "Like `rainbow' without bold weight" rainbow-no-bold)
+            (const :format "[%v] %t\n" :tag "Like `rainbow-line' without bold weight" rainbow-line-no-bold)
+            (const :format "[%v] %t\n" :tag "Like the default plus subtle background" highlight)
+            (const :format "[%v] %t\n" :tag "Like `highlight' without bold weight" highlight-no-bold)
+            (const :format "[%v] %t\n" :tag "Like `highlight' with more colorful foreground" rainbow-highlight)
+            (const :format "[%v] %t\n" :tag "Like `rainbow-highlight' without bold weight" rainbow-highlight-no-bold)
+            (const :format "[%v] %t\n" :tag "Like `highlight' plus overline" section)
+            (const :format "[%v] %t\n" :tag "Like `section' without bold weight" section-no-bold)
+            (const :format "[%v] %t\n" :tag "Like `section' with more colorful foreground" rainbow-section)
+            (const :format "[%v] %t\n" :tag "Like `rainbow-section' without bold weight" rainbow-section-no-bold)
+            (const :format "[%v] %t\n" :tag "Do not use any distinct foreground color; just bold weight" no-color)
+            (const :format "[%v] %t\n" :tag "Like `no-bold' but without the distinct foreground color" no-color-no-bold)))
   :link '(info-link "(modus-themes) Heading styles"))
 
 (defcustom modus-themes-scale-headings nil
@@ -1824,9 +1824,9 @@ pronounced greyscale value."
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
   :type '(choice
-          (const :tag "No visible fringes (default)" nil)
-          (const :tag "Subtle greyscale background" subtle)
-          (const :tag "Intense greyscale background" intense))
+          (const :format "[%v] %t\n" :tag "No visible fringes (default)" nil)
+          (const :format "[%v] %t\n" :tag "Subtle greyscale background" subtle)
+          (const :format "[%v] %t\n" :tag "Intense greyscale background" intense))
   :link '(info-link "(modus-themes) Fringes"))
 
 (defcustom modus-themes-lang-checkers nil
@@ -1854,13 +1854,13 @@ most intense combination of face properties."
   :package-version '(modus-themes . "1.1.0")
   :version "28.1"
   :type '(choice
-          (const :tag "Only color-coded wavy underline (default)" nil)
-          (const :tag "Like the default, but with a straight underline" straight-underline)
-          (const :tag "Color-coded wavy underline; subtle foreground" subtle-foreground)
-          (const :tag "Combines `straight-underline' and `subtle-foreground'" subtle-foreground-straight-underline)
-          (const :tag "Color-coded wavy underline; intense foreground" intense-foreground)
-          (const :tag "Combines `straight-underline' and `intense-foreground'" intense-foreground-straight-underline)
-          (const :tag "Color-coded background, foreground, straight underline" colored-background))
+          (const :format "[%v] %t\n" :tag "Only color-coded wavy underline (default)" nil)
+          (const :format "[%v] %t\n" :tag "Like the default, but with a straight underline" straight-underline)
+          (const :format "[%v] %t\n" :tag "Color-coded wavy underline; subtle foreground" subtle-foreground)
+          (const :format "[%v] %t\n" :tag "Combines `straight-underline' and `subtle-foreground'" subtle-foreground-straight-underline)
+          (const :format "[%v] %t\n" :tag "Color-coded wavy underline; intense foreground" intense-foreground)
+          (const :format "[%v] %t\n" :tag "Combines `straight-underline' and `intense-foreground'" intense-foreground-straight-underline)
+          (const :format "[%v] %t\n" :tag "Color-coded background, foreground, straight underline" colored-background))
   :link '(info-link "(modus-themes) Language checkers"))
 
 (defcustom modus-themes-org-blocks nil
@@ -1884,10 +1884,10 @@ association list)."
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
   :type '(choice
-          (const :tag "No Org block background (default)" nil)
-          (const :tag "Subtle gray block background" grayscale)
-          (const :tag "Subtle gray block background (alt spelling)" greyscale)
-          (const :tag "Color-coded background per programming language" rainbow))
+          (const :format "[%v] %t\n" :tag "No Org block background (default)" nil)
+          (const :format "[%v] %t\n" :tag "Subtle gray block background" grayscale)
+          (const :format "[%v] %t\n" :tag "Subtle gray block background (alt spelling)" greyscale)
+          (const :format "[%v] %t\n" :tag "Color-coded background per programming language" rainbow))
   :link '(info-link "(modus-themes) Org mode blocks"))
 
 (defcustom modus-themes-org-habit nil
@@ -1923,9 +1923,9 @@ highlights the alert and overdue states."
   :package-version '(modus-themes . "1.1.0")
   :version "28.1"
   :type '(choice
-          (const :tag "Respect the original design of org-habit (default)" nil)
-          (const :tag "Like the default, but do not distinguish between present and future variants" simplified)
-          (const :tag "Like `simplified', but only use red, yellow, green" traffic-light))
+          (const :format "[%v] %t\n" :tag "Respect the original design of org-habit (default)" nil)
+          (const :format "[%v] %t\n" :tag "Like the default, but do not distinguish between present and future variants" simplified)
+          (const :format "[%v] %t\n" :tag "Like `simplified', but only use red, yellow, green" traffic-light))
   :link '(info-link "(modus-themes) Org agenda habits"))
 
 (defcustom modus-themes-mode-line nil
@@ -1961,12 +1961,12 @@ default)."
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
   :type '(choice
-          (const :tag "Two-dimensional box (default)" nil)
-          (const :tag "Three-dimensional style for the active mode line" 3d)
-          (const :tag "No box effects, which are optimal for use with the `moody' library" moody)
-          (const :tag "Like the default, but without border effects" borderless)
-          (const :tag "Like `3d', but without noticeable border" borderless-3d)
-          (const :tag "Like `moody', but without noticeable border" borderless-moody))
+          (const :format "[%v] %t\n" :tag "Two-dimensional box (default)" nil)
+          (const :format "[%v] %t\n" :tag "Three-dimensional style for the active mode line" 3d)
+          (const :format "[%v] %t\n" :tag "No box effects, which are optimal for use with the `moody' library" moody)
+          (const :format "[%v] %t\n" :tag "Like the default, but without border effects" borderless)
+          (const :format "[%v] %t\n" :tag "Like `3d', but without noticeable border" borderless-3d)
+          (const :format "[%v] %t\n" :tag "Like `moody', but without noticeable border" borderless-moody))
   :link '(info-link "(modus-themes) Mode line"))
 
 (defcustom modus-themes-diffs nil
@@ -2001,11 +2001,11 @@ of optimizing for such a use-case."
   :package-version '(modus-themes . "1.2.0")
   :version "28.1"
   :type '(choice
-          (const :tag "Intensely colored backgrounds (default)" nil)
-          (const :tag "Slightly accented backgrounds with tinted text" desaturated)
-          (const :tag "No backgrounds, except for refined diffs" fg-only)
-          (const :tag "Apply color-coded backgrounds; keep syntax colors in tact" bg-only)
-          (const :tag "Optimized for red-green color defficiency" deuteranopia))
+          (const :format "[%v] %t\n" :tag "Intensely colored backgrounds (default)" nil)
+          (const :format "[%v] %t\n" :tag "Slightly accented backgrounds with tinted text" desaturated)
+          (const :format "[%v] %t\n" :tag "No backgrounds, except for refined diffs" fg-only)
+          (const :format "[%v] %t\n" :tag "Apply color-coded backgrounds; keep syntax colors in tact" bg-only)
+          (const :format "[%v] %t\n" :tag "Optimized for red-green color defficiency" deuteranopia))
   :link '(info-link "(modus-themes) Diffs"))
 
 (defcustom modus-themes-completions nil
@@ -2035,9 +2035,9 @@ revert to an even more nuanced aesthetic."
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
   :type '(choice
-          (const :tag "Respect the framework's established aesthetic (default)" nil)
-          (const :tag "Subtle backgrounds for various elements" moderate)
-          (const :tag "Radical alternative to the framework's looks" opinionated))
+          (const :format "[%v] %t\n" :tag "Respect the framework's established aesthetic (default)" nil)
+          (const :format "[%v] %t\n" :tag "Subtle backgrounds for various elements" moderate)
+          (const :format "[%v] %t\n" :tag "Radical alternative to the framework's looks" opinionated))
   :link '(info-link "(modus-themes) Completion UIs"))
 
 (defcustom modus-themes-prompts nil
@@ -2061,13 +2061,13 @@ they use grayscale values instead of accented ones."
   :type '(choice
           ;; `subtle' is the same as `subtle-accented', while `intense' is
           ;; equal to `intense-accented' for backward compatibility
-          (const :tag "No prompt background (default)" nil)
-          (const :tag "Subtle accented background for the prompt" subtle-accented)
-          (const :tag "Same as `subtle-accented' for compatibility with older versions" subtle)
-          (const :tag "Intense accented background and foreground for the prompt" intense-accented)
-          (const :tag "Same as `intense-accented' for compatibility with older versions" intense)
-          (const :tag "Like `subtle-accented' but grayscale" subtle-gray)
-          (const :tag "Like `intense-accented' but grayscale" intense-gray))
+          (const :format "[%v] %t\n" :tag "No prompt background (default)" nil)
+          (const :format "[%v] %t\n" :tag "Subtle accented background for the prompt" subtle-accented)
+          (const :format "[%v] %t\n" :tag "Same as `subtle-accented' for compatibility with older versions" subtle)
+          (const :format "[%v] %t\n" :tag "Intense accented background and foreground for the prompt" intense-accented)
+          (const :format "[%v] %t\n" :tag "Same as `intense-accented' for compatibility with older versions" intense)
+          (const :format "[%v] %t\n" :tag "Like `subtle-accented' but grayscale" subtle-gray)
+          (const :format "[%v] %t\n" :tag "Like `intense-accented' but grayscale" intense-gray))
   :link '(info-link "(modus-themes) Command prompts"))
 
 (defcustom modus-themes-intense-hl-line nil
@@ -2102,10 +2102,10 @@ uses a bold weight."
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
   :type '(choice
-          (const :tag "Sublte tinted background (default)" nil)
-          (const :tag "Like the default, but also use bold typographic weight" subtle-bold)
-          (const :tag "Intense saturated background" intense)
-          (const :tag "Like `intense' but with bold weight" intense-bold))
+          (const :format "[%v] %t\n" :tag "Sublte tinted background (default)" nil)
+          (const :format "[%v] %t\n" :tag "Like the default, but also use bold typographic weight" subtle-bold)
+          (const :format "[%v] %t\n" :tag "Intense saturated background" intense)
+          (const :format "[%v] %t\n" :tag "Like `intense' but with bold weight" intense-bold))
   :link '(info-link "(modus-themes) Matching parentheses"))
 
 (defcustom modus-themes-syntax nil
@@ -2142,14 +2142,14 @@ Option `faint-yellow-comments' combines the `faint' style with
   :package-version '(modus-themes . "1.2.0")
   :version "28.1"
   :type '(choice
-          (const :tag "Balanced use of blue, cyan, magenta, purple variants (default)" nil)
-          (const :tag "Like the default, but with desaturated color values" faint)
-          (const :tag "Apply yellow tint to comments, keep the default style for the rest" yellow-comments)
-          (const :tag "Use green for strings, keep the default style for the rest" green-strings)
-          (const :tag "Use green for strings, yellow for comments, keep the default style for the rest" yellow-comments-green-strings)
-          (const :tag "Refashion syntax highlighting with more colors, gray comments" alt-syntax)
-          (const :tag "Like `alt-syntax' but with yellow comments" alt-syntax-yellow-comments)
-          (const :tag "Like `faint' but with yellow comments" faint-yellow-comments))
+          (const :format "[%v] %t\n" :tag "Balanced use of blue, cyan, magenta, purple variants (default)" nil)
+          (const :format "[%v] %t\n" :tag "Like the default, but with desaturated color values" faint)
+          (const :format "[%v] %t\n" :tag "Apply yellow tint to comments, keep the default style for the rest" yellow-comments)
+          (const :format "[%v] %t\n" :tag "Use green for strings, keep the default style for the rest" green-strings)
+          (const :format "[%v] %t\n" :tag "Use green for strings, yellow for comments, keep the default style for the rest" yellow-comments-green-strings)
+          (const :format "[%v] %t\n" :tag "Refashion syntax highlighting with more colors, gray comments" alt-syntax)
+          (const :format "[%v] %t\n" :tag "Like `alt-syntax' but with yellow comments" alt-syntax-yellow-comments)
+          (const :format "[%v] %t\n" :tag "Like `faint' but with yellow comments" faint-yellow-comments))
   :link '(info-link "(modus-themes) Syntax styles"))
 
 (defcustom modus-themes-links nil
@@ -2180,13 +2180,13 @@ using a subtle underline below it."
   :package-version '(modus-themes . "1.2.0")
   :version "28.1"
   :type '(choice
-          (const :tag "Undeline link using the same color as the text (default)" nil)
-          (const :tag "Like the default, but apply less intense colors to links" faint)
-          (const :tag "Change the color of link underlines to a neutral grey" neutral-underline)
-          (const :tag "Desaturated foreground with neutral grey underline" faint-neutral-underline)
-          (const :tag "Remove underline property from links, keeping their foreground as-is" no-underline)
-          (const :tag "Apply underline only; use default foreground" underline-only)
-          (const :tag "Like `underline-only' but with a subtle underline" neutral-underline-only))
+          (const :format "[%v] %t\n" :tag "Undeline link using the same color as the text (default)" nil)
+          (const :format "[%v] %t\n" :tag "Like the default, but apply less intense colors to links" faint)
+          (const :format "[%v] %t\n" :tag "Change the color of link underlines to a neutral grey" neutral-underline)
+          (const :format "[%v] %t\n" :tag "Desaturated foreground with neutral grey underline" faint-neutral-underline)
+          (const :format "[%v] %t\n" :tag "Remove underline property from links, keeping their foreground as-is" no-underline)
+          (const :format "[%v] %t\n" :tag "Apply underline only; use default foreground" underline-only)
+          (const :format "[%v] %t\n" :tag "Like `underline-only' but with a subtle underline" neutral-underline-only))
   :link '(info-link "(modus-themes) Link styles"))
 
 (defcustom modus-themes-region nil
@@ -2210,10 +2210,10 @@ Option `bg-only-no-extend' is a combination of the `bg-only' and
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
   :type '(choice
-          (const :tag "Intense background; overrides colors; extends to edge of window (default)" nil)
-          (const :tag "As with the default, but does not extend" no-extend)
-          (const :tag "Subtle background; preserves colors; extends to edge of window" bg-only)
-          (const :tag "As with the `subtle' option, but does not extend" bg-only-no-extend))
+          (const :format "[%v] %t\n" :tag "Intense background; overrides colors; extends to edge of window (default)" nil)
+          (const :format "[%v] %t\n" :tag "As with the default, but does not extend" no-extend)
+          (const :format "[%v] %t\n" :tag "Subtle background; preserves colors; extends to edge of window" bg-only)
+          (const :format "[%v] %t\n" :tag "As with the `subtle' option, but does not extend" bg-only-no-extend))
   :link '(info-link "(modus-themes) Active region"))
 
 
