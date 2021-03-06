@@ -1578,6 +1578,30 @@ mixing fonts."
   :type 'boolean
   :link '(info-link "(modus-themes) No mixed fonts"))
 
+(defconst modus-themes--headings-choice
+  '(choice
+    (const :format "[%v] %t\n" :tag "Fairly desaturated foreground with bold weight (default)" nil)
+    (const :format "[%v] %t\n" :tag "Same as the default (backward-compatible)" t)
+    (const :format "[%v] %t\n" :tag "Like the default without bold weight" no-bold)
+    (const :format "[%v] %t\n" :tag "Like the default plus overline" line)
+    (const :format "[%v] %t\n" :tag "Like `line' without bold weight" line-no-bold)
+    (const :format "[%v] %t\n" :tag "Like the default but with more colorful foreground" rainbow)
+    (const :format "[%v] %t\n" :tag "Like `rainbow' plus overline" rainbow-line)
+    (const :format "[%v] %t\n" :tag "Like `rainbow' without bold weight" rainbow-no-bold)
+    (const :format "[%v] %t\n" :tag "Like `rainbow-line' without bold weight" rainbow-line-no-bold)
+    (const :format "[%v] %t\n" :tag "Like the default plus subtle background" highlight)
+    (const :format "[%v] %t\n" :tag "Like `highlight' without bold weight" highlight-no-bold)
+    (const :format "[%v] %t\n" :tag "Like `highlight' with more colorful foreground" rainbow-highlight)
+    (const :format "[%v] %t\n" :tag "Like `rainbow-highlight' without bold weight" rainbow-highlight-no-bold)
+    (const :format "[%v] %t\n" :tag "Like `highlight' plus overline" section)
+    (const :format "[%v] %t\n" :tag "Like `section' without bold weight" section-no-bold)
+    (const :format "[%v] %t\n" :tag "Like `section' with more colorful foreground" rainbow-section)
+    (const :format "[%v] %t\n" :tag "Like `rainbow-section' without bold weight" rainbow-section-no-bold)
+    (const :format "[%v] %t\n" :tag "Do not use any distinct foreground color; just bold weight" no-color)
+    (const :format "[%v] %t\n" :tag "Like `no-bold' but without the distinct foreground color" no-color-no-bold))
+  "Refer to the doc string of `modus-themes-headings'.
+This is a helper variable intended for internal use.")
+
 (defcustom modus-themes-headings nil
   "Alist of styles for headings, with optional value per level.
 
@@ -1657,29 +1681,12 @@ A description of all other possible values:
   :group 'modus-themes
   :package-version '(modus-themes . "1.3.0")
   :version "28.1"
-  :type
-  '(alist
-    :key-type symbol
-    :value-type
-    (choice (const :format "[%v] %t\n" :tag "Fairly desaturated foreground with bold weight (default)" nil)
-            (const :format "[%v] %t\n" :tag "Same as the default (backward-compatible)" t)
-            (const :format "[%v] %t\n" :tag "Like the default without bold weight" no-bold)
-            (const :format "[%v] %t\n" :tag "Like the default plus overline" line)
-            (const :format "[%v] %t\n" :tag "Like `line' without bold weight" line-no-bold)
-            (const :format "[%v] %t\n" :tag "Like the default but with more colorful foreground" rainbow)
-            (const :format "[%v] %t\n" :tag "Like `rainbow' plus overline" rainbow-line)
-            (const :format "[%v] %t\n" :tag "Like `rainbow' without bold weight" rainbow-no-bold)
-            (const :format "[%v] %t\n" :tag "Like `rainbow-line' without bold weight" rainbow-line-no-bold)
-            (const :format "[%v] %t\n" :tag "Like the default plus subtle background" highlight)
-            (const :format "[%v] %t\n" :tag "Like `highlight' without bold weight" highlight-no-bold)
-            (const :format "[%v] %t\n" :tag "Like `highlight' with more colorful foreground" rainbow-highlight)
-            (const :format "[%v] %t\n" :tag "Like `rainbow-highlight' without bold weight" rainbow-highlight-no-bold)
-            (const :format "[%v] %t\n" :tag "Like `highlight' plus overline" section)
-            (const :format "[%v] %t\n" :tag "Like `section' without bold weight" section-no-bold)
-            (const :format "[%v] %t\n" :tag "Like `section' with more colorful foreground" rainbow-section)
-            (const :format "[%v] %t\n" :tag "Like `rainbow-section' without bold weight" rainbow-section-no-bold)
-            (const :format "[%v] %t\n" :tag "Do not use any distinct foreground color; just bold weight" no-color)
-            (const :format "[%v] %t\n" :tag "Like `no-bold' but without the distinct foreground color" no-color-no-bold)))
+  :type `(alist
+          :options ,(mapcar (lambda (el)
+                              (list el modus-themes--headings-choice))
+                            '(1 2 3 4 5 6 7 8 t))
+          :key-type symbol
+          :value-type ,modus-themes--headings-choice)
   :link '(info-link "(modus-themes) Heading styles"))
 
 (defcustom modus-themes-scale-headings nil
