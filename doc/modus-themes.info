@@ -38,7 +38,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.3.0-dev.  This manual was built on
-2021-03-06 12:55 +0200.
+2021-03-06 16:06 +0200.
 
 * Menu:
 
@@ -2856,8 +2856,8 @@ Author/maintainer
 Contributions to code or documentation
      Anders Johansson, Basil L. Contovounesios, Carlo Zancanaro, Eli
      Zaretskii, Kostadin Ninev, Madhavan Krishnan, Markus Beppler,
-     Matthew Stevenson, Nicolas De Jaeghere, Shreyas Ragavan, Stefan
-     Kangas, Vincent Murphy, Xinglu Chen.
+     Matthew Stevenson, Mauro Aranda, Nicolas De Jaeghere, Shreyas
+     Ragavan, Stefan Kangas, Vincent Murphy, Xinglu Chen.
 
 Ideas and user feedback
      Aaron Jensen, Adam Spiers, Adrian Manea, Alex Griffin, Alex
@@ -2868,10 +2868,10 @@ Ideas and user feedback
      Santana, Gerry Agbobada, Gianluca Recchia, Gustavo Barros,
      Hörmetjan Yiltiz, Ilja Kocken, Iris Garcia, Jeremy Friesen, John
      Haman, Joshua O’Connor, Kevin Fleming, Kostadin Ninev, Len Trigg,
-     Manuel Uberti, Mark Burton, Markus Beppler, Michael Goldenberg,
-     Morgan Smith, Murilo Pereira, Nicolas De Jaeghere, Paul Poloskov,
-     Pete Kazmier, Peter Wu, Philip K., Pierre Téchoueyres, Roman
-     Rudakov, Ryan Phillips, Sam Kleinman, Shreyas Ragavan, Simon
+     Manuel Uberti, Mark Burton, Markus Beppler, Mauro Aranda, Michael
+     Goldenberg, Morgan Smith, Murilo Pereira, Nicolas De Jaeghere, Paul
+     Poloskov, Pete Kazmier, Peter Wu, Philip K., Pierre Téchoueyres,
+     Roman Rudakov, Ryan Phillips, Sam Kleinman, Shreyas Ragavan, Simon
      Pugnet, Tassilo Horn, Thibaut Verron, Trey Merkley, Togan
      Muftuoglu, Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.  As
      well as users: Ben, CsBigDataHub1, Emacs Contrib, Eugene,
@@ -3602,12 +3602,12 @@ Node: Sources of the themes103974
 Node: Issues you can help with104712
 Node: Patches require copyright assignment to the FSF105912
 Node: Acknowledgements108207
-Node: Meta110434
-Node: GNU Free Documentation License112431
-Node: Indices137783
-Node: Function index137962
-Node: Variable index139199
-Node: Concept index141121
+Node: Meta110462
+Node: GNU Free Documentation License112459
+Node: Indices137811
+Node: Function index137990
+Node: Variable index139227
+Node: Concept index141149
 
 End Tag Table
 
