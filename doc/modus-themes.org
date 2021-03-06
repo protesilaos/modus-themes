@@ -1017,11 +1017,10 @@ than other customization options documented in this manual.
 
 Symbol: ~modus-themes-headings~
 
-Possible values, which can be specified for each heading level (examples
-further below):
+Possible values, which can be specified for each heading level N
+(examples further below):
 
-+ nil (default fallback option---covers all heading levels)
-+ =t= (default style for a single heading, when the fallback differs)
++ =nil= (=t= is also available for backward compatibility)
 + ~no-bold~
 + ~line~
 + ~line-no-bold~
@@ -1061,19 +1060,19 @@ To set a uniform value for all heading levels, use this pattern:
       '((t . section)))
 
 ;; Default aesthetic for every heading
-(setq modus-themes-headings
-      '())
+(setq modus-themes-headings nil)
 #+end_src
 
 The default style for headings uses a fairly desaturated foreground
-value in combination with bold typographic weight.  To specify this
+color in combination with bold typographic weight.  To specify this
 style for a given level N, assuming you wish to have another fallback
-option, just specify the value =t= like this:
+option, just assign the value =nil= like this:
 
 #+begin_src emacs-lisp
 (setq modus-themes-headings
-      '((1 . t)
+      '((1 . nil)
         (2 . line)
+        (3) ; same as nil
         (t . rainbow-line-no-bold)))
 #+end_src
 

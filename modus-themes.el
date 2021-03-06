@@ -1578,8 +1578,7 @@ mixing fonts."
   :type 'boolean
   :link '(info-link "(modus-themes) No mixed fonts"))
 
-(defcustom modus-themes-headings
-  '((t . nil))
+(defcustom modus-themes-headings nil
   "Alist of styles for headings, with optional value per level.
 
 To control faces per level from 1-8, use something like this:
@@ -1594,17 +1593,18 @@ To set a uniform value for all heading levels, use this pattern:
   (setq modus-themes-headings
         '((t . rainbow-line-no-bold)))
 
-The default uses a fairly desaturated foreground value in
+The default value uses a fairly desaturated foreground color in
 combination with a bold typographic weight.  To specify this
 style for a given level N (assuming you wish to have another
-fallback option), just specify the value t like this:
+fallback option), just specify the value nil like this:
 
   (setq modus-themes-headings
-        '((1 . t)
+        '((1 . nil)
           (2 . line)
+          (3) ; same as nil
           (t . rainbow-line-no-bold)))
 
-A description of all possible values:
+A description of all other possible values:
 
 + `no-bold' retains the default text color while removing the
   typographic weight.
@@ -1655,13 +1655,14 @@ A description of all possible values:
 + `no-color-no-bold' is like `no-color' but without the bold
   weight."
   :group 'modus-themes
-  :package-version '(modus-themes . "1.2.0")
+  :package-version '(modus-themes . "1.3.0")
   :version "28.1"
   :type
   '(alist
     :key-type symbol
     :value-type
-    (choice (const :tag "Fairly desaturated foreground with bold weight (default)" t)
+    (choice (const :tag "Fairly desaturated foreground with bold weight (default)" nil)
+            (const :tag "Same as the default (backward-compatible)" t)
             (const :tag "Like the default without bold weight" no-bold)
             (const :tag "Like the default plus overline" line)
             (const :tag "Like `line' without bold weight" line-no-bold)

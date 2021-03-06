@@ -38,7 +38,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.3.0-dev.  This manual was built on
-2021-03-05 19:43 +0200.
+2021-03-06 12:55 +0200.
 
 * Menu:
 
@@ -1115,11 +1115,10 @@ than other customization options documented in this manual.
 
    Symbol: ‘modus-themes-headings’
 
-   Possible values, which can be specified for each heading level
+   Possible values, which can be specified for each heading level N
 (examples further below):
 
-   • nil (default fallback option—covers all heading levels)
-   • ‘t’ (default style for a single heading, when the fallback differs)
+   • ‘nil’ (‘t’ is also available for backward compatibility)
    • ‘no-bold’
    • ‘line’
    • ‘line-no-bold’
@@ -1156,17 +1155,17 @@ levels fall back to ‘rainbow-line-no-bold’.
            '((t . section)))
 
      ;; Default aesthetic for every heading
-     (setq modus-themes-headings
-           '())
+     (setq modus-themes-headings nil)
 
    The default style for headings uses a fairly desaturated foreground
-value in combination with bold typographic weight.  To specify this
+color in combination with bold typographic weight.  To specify this
 style for a given level N, assuming you wish to have another fallback
-option, just specify the value ‘t’ like this:
+option, just assign the value ‘nil’ like this:
 
      (setq modus-themes-headings
-           '((1 . t)
+           '((1 . nil)
              (2 . line)
+             (3) ; same as nil
              (t . rainbow-line-no-bold)))
 
    A description of all other possible styles beyond the default:
@@ -3566,49 +3565,49 @@ Node: Diffs36613
 Node: Org mode blocks39160
 Node: Org agenda habits40518
 Node: Heading styles42353
-Node: Scaled headings46352
-Node: Scaled heading sizes46955
-Node: UI typeface50089
-Node: Headings' typeface50935
-Node: Advanced customization (do-it-yourself)51559
-Node: Per-theme customization settings (DIY)52717
-Node: Case-by-case face specs using the themes' palette (DIY)54063
-Node: Face specs at scale using the themes' palette (DIY)58527
-Node: Override colors (DIY)63332
-Node: Font configurations for Org and others (DIY)68124
-Ref: Font configurations for Org and others (DIY)-Footnote-170447
-Node: Custom Org user faces (DIY)70634
-Node: Measure color contrast (DIY)73988
-Node: Load theme depending on time of day76755
-Node: A theme-agnostic hook for theme loading (DIY)77792
-Node: Face coverage80187
-Node: Supported packages80657
-Node: Indirectly covered packages87274
-Node: Notes for individual packages87757
-Node: Note for display-fill-column-indicator-mode88424
-Node: Note for mmm-modeel background colors90025
-Node: Note for prism92409
-Node: Note on company-mode overlay pop-up95657
-Ref: Note on company-mode overlay pop-up-Footnote-196344
-Ref: Note on company-mode overlay pop-up-Footnote-296411
-Node: Note for ERC escaped color sequences96466
-Ref: Note for ERC escaped color sequences-Footnote-197897
-Node: Note for powerline or spaceline98007
-Node: Note on SHR colors98423
-Node: Note for Helm grep98836
-Node: Note on vc-annotate-background-mode100303
-Node: Note on pdf-tools link hints101188
-Node: Contributing103621
-Node: Sources of the themes104021
-Node: Issues you can help with104759
-Node: Patches require copyright assignment to the FSF105959
-Node: Acknowledgements108254
-Node: Meta110481
-Node: GNU Free Documentation License112478
-Node: Indices137830
-Node: Function index138009
-Node: Variable index139246
-Node: Concept index141168
+Node: Scaled headings46305
+Node: Scaled heading sizes46908
+Node: UI typeface50042
+Node: Headings' typeface50888
+Node: Advanced customization (do-it-yourself)51512
+Node: Per-theme customization settings (DIY)52670
+Node: Case-by-case face specs using the themes' palette (DIY)54016
+Node: Face specs at scale using the themes' palette (DIY)58480
+Node: Override colors (DIY)63285
+Node: Font configurations for Org and others (DIY)68077
+Ref: Font configurations for Org and others (DIY)-Footnote-170400
+Node: Custom Org user faces (DIY)70587
+Node: Measure color contrast (DIY)73941
+Node: Load theme depending on time of day76708
+Node: A theme-agnostic hook for theme loading (DIY)77745
+Node: Face coverage80140
+Node: Supported packages80610
+Node: Indirectly covered packages87227
+Node: Notes for individual packages87710
+Node: Note for display-fill-column-indicator-mode88377
+Node: Note for mmm-modeel background colors89978
+Node: Note for prism92362
+Node: Note on company-mode overlay pop-up95610
+Ref: Note on company-mode overlay pop-up-Footnote-196297
+Ref: Note on company-mode overlay pop-up-Footnote-296364
+Node: Note for ERC escaped color sequences96419
+Ref: Note for ERC escaped color sequences-Footnote-197850
+Node: Note for powerline or spaceline97960
+Node: Note on SHR colors98376
+Node: Note for Helm grep98789
+Node: Note on vc-annotate-background-mode100256
+Node: Note on pdf-tools link hints101141
+Node: Contributing103574
+Node: Sources of the themes103974
+Node: Issues you can help with104712
+Node: Patches require copyright assignment to the FSF105912
+Node: Acknowledgements108207
+Node: Meta110434
+Node: GNU Free Documentation License112431
+Node: Indices137783
+Node: Function index137962
+Node: Variable index139199
+Node: Concept index141121
 
 End Tag Table
 
