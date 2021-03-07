@@ -38,7 +38,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.3.0-dev.  This manual was built on
-2021-03-06 16:06 +0200.
+2021-03-07 19:24 +0200.
 
 * Menu:
 
@@ -90,7 +90,7 @@ Customization Options
 * Completion UIs::               Choose among standard, moderate, or opinionated looks
 * Fringes::                      Choose among invisible, subtle, or intense fringe styles
 * Language checkers::            Control the style of language checkers/linters
-* Line highlighting::            Toggle intense style for current line highlighting
+* Line highlighting::            Choose style of current line (hl-line-mode)
 * Line numbers::                 Toggle subtle style for line numbers
 * Matching parentheses::         Choose between various styles for matching delimiters/parentheses
 * Active region::                Choose between various styles for the active region
@@ -483,7 +483,7 @@ loading a theme (*note Enable and load::).
 * Completion UIs::               Choose among standard, moderate, or opinionated looks
 * Fringes::                      Choose among invisible, subtle, or intense fringe styles
 * Language checkers::            Control the style of language checkers/linters
-* Line highlighting::            Toggle intense style for current line highlighting
+* Line highlighting::            Choose style of current line (hl-line-mode)
 * Line numbers::                 Toggle subtle style for line numbers
 * Matching parentheses::         Choose between various styles for matching delimiters/parentheses
 * Active region::                Choose between various styles for the active region
@@ -873,21 +873,31 @@ File: modus-themes.info,  Node: Line highlighting,  Next: Line numbers,  Prev: L
 4.11 Option for line highlighting (hl-line-mode)
 ================================================
 
-Symbol: ‘modus-themes-intense-hl-line’
+[Part of 1.3.0-dev.  Supersedes ‘modus-themes-intense-hl-line’.]
+
+   Symbol: ‘modus-themes-hl-line’
 
    Possible values:
 
   1. ‘nil’ (default)
-  2. ‘t’
+  2. ‘intense-background’
+  3. ‘underline-accented’
 
-   The default is to use a subtle gray background for ‘hl-line-mode’ and
-its global equivalent.
+   The default is to use a subtle gray background for the current line
+when ‘hl-line-mode’ is enabled.
 
-   With a non-nil value (‘t’) use a more prominent background color
-instead.
+   The ‘intense-background’ applies a more prominent gray to the
+background of the current line.
 
-   This affects several packages that enable ‘hl-line-mode’, such as
-‘elfeed’ and ‘mu4e’.
+   The ‘underline-accented’ renders the background of the current line
+in a subtle colored background, while it also draws an accented
+underline.
+
+   Consider settings the variable ‘x-underline-at-descent-line’ to a
+non-nil value for better results with underlines.
+
+   This style affects several packages that enable ‘hl-line-mode’, such
+as ‘elfeed’ and ‘mu4e’.
 
 
 File: modus-themes.info,  Node: Line numbers,  Next: Matching parentheses,  Prev: Line highlighting,  Up: Customization Options
@@ -3473,7 +3483,7 @@ B.2 Variable index
 * modus-themes-diffs:                    Diffs.                 (line 6)
 * modus-themes-fringes:                  Fringes.               (line 6)
 * modus-themes-headings:                 Heading styles.        (line 6)
-* modus-themes-intense-hl-line:          Line highlighting.     (line 6)
+* modus-themes-hl-line:                  Line highlighting.     (line 6)
 * modus-themes-lang-checkers:            Language checkers.     (line 6)
 * modus-themes-links:                    Link styles.           (line 6)
 * modus-themes-mode-line:                Mode line.             (line 6)
@@ -3534,80 +3544,80 @@ B.3 Concept index
 
 Tag Table:
 Node: Top600
-Node: Overview5251
-Node: How do the themes look like6517
-Node: Learn about the latest changes7025
-Node: Installation7407
-Node: Install manually from source7888
-Node: Install from the archives8713
-Node: Install on GNU/Linux9490
-Node: Debian 11 Bullseye9938
-Node: GNU Guix10248
-Node: Enable and load10531
-Node: Sample configuration for use-package13279
-Node: Differences between loading and enabling14604
-Node: Customization Options16644
-Node: Bold constructs18816
-Node: Slanted constructs19405
-Node: Syntax styles19952
-Node: No mixed fonts21590
-Node: Link styles22687
-Node: Command prompts24261
-Node: Mode line25460
-Node: Completion UIs28651
-Node: Fringes30483
-Node: Language checkers31143
-Node: Line highlighting33092
-Node: Line numbers33709
-Node: Matching parentheses34787
-Node: Active region35677
-Node: Diffs36613
-Node: Org mode blocks39160
-Node: Org agenda habits40518
-Node: Heading styles42353
-Node: Scaled headings46305
-Node: Scaled heading sizes46908
-Node: UI typeface50042
-Node: Headings' typeface50888
-Node: Advanced customization (do-it-yourself)51512
-Node: Per-theme customization settings (DIY)52670
-Node: Case-by-case face specs using the themes' palette (DIY)54016
-Node: Face specs at scale using the themes' palette (DIY)58480
-Node: Override colors (DIY)63285
-Node: Font configurations for Org and others (DIY)68077
-Ref: Font configurations for Org and others (DIY)-Footnote-170400
-Node: Custom Org user faces (DIY)70587
-Node: Measure color contrast (DIY)73941
-Node: Load theme depending on time of day76708
-Node: A theme-agnostic hook for theme loading (DIY)77745
-Node: Face coverage80140
-Node: Supported packages80610
-Node: Indirectly covered packages87227
-Node: Notes for individual packages87710
-Node: Note for display-fill-column-indicator-mode88377
-Node: Note for mmm-modeel background colors89978
-Node: Note for prism92362
-Node: Note on company-mode overlay pop-up95610
-Ref: Note on company-mode overlay pop-up-Footnote-196297
-Ref: Note on company-mode overlay pop-up-Footnote-296364
-Node: Note for ERC escaped color sequences96419
-Ref: Note for ERC escaped color sequences-Footnote-197850
-Node: Note for powerline or spaceline97960
-Node: Note on SHR colors98376
-Node: Note for Helm grep98789
-Node: Note on vc-annotate-background-mode100256
-Node: Note on pdf-tools link hints101141
-Node: Contributing103574
-Node: Sources of the themes103974
-Node: Issues you can help with104712
-Node: Patches require copyright assignment to the FSF105912
-Node: Acknowledgements108207
-Node: Meta110462
-Node: GNU Free Documentation License112459
-Node: Indices137811
-Node: Function index137990
-Node: Variable index139227
-Node: Concept index141149
+Node: Overview5244
+Node: How do the themes look like6510
+Node: Learn about the latest changes7018
+Node: Installation7400
+Node: Install manually from source7881
+Node: Install from the archives8706
+Node: Install on GNU/Linux9483
+Node: Debian 11 Bullseye9931
+Node: GNU Guix10241
+Node: Enable and load10524
+Node: Sample configuration for use-package13272
+Node: Differences between loading and enabling14597
+Node: Customization Options16637
+Node: Bold constructs18802
+Node: Slanted constructs19391
+Node: Syntax styles19938
+Node: No mixed fonts21576
+Node: Link styles22673
+Node: Command prompts24247
+Node: Mode line25446
+Node: Completion UIs28637
+Node: Fringes30469
+Node: Language checkers31129
+Node: Line highlighting33078
+Node: Line numbers34115
+Node: Matching parentheses35193
+Node: Active region36083
+Node: Diffs37019
+Node: Org mode blocks39566
+Node: Org agenda habits40924
+Node: Heading styles42759
+Node: Scaled headings46711
+Node: Scaled heading sizes47314
+Node: UI typeface50448
+Node: Headings' typeface51294
+Node: Advanced customization (do-it-yourself)51918
+Node: Per-theme customization settings (DIY)53076
+Node: Case-by-case face specs using the themes' palette (DIY)54422
+Node: Face specs at scale using the themes' palette (DIY)58886
+Node: Override colors (DIY)63691
+Node: Font configurations for Org and others (DIY)68483
+Ref: Font configurations for Org and others (DIY)-Footnote-170806
+Node: Custom Org user faces (DIY)70993
+Node: Measure color contrast (DIY)74347
+Node: Load theme depending on time of day77114
+Node: A theme-agnostic hook for theme loading (DIY)78151
+Node: Face coverage80546
+Node: Supported packages81016
+Node: Indirectly covered packages87633
+Node: Notes for individual packages88116
+Node: Note for display-fill-column-indicator-mode88783
+Node: Note for mmm-modeel background colors90384
+Node: Note for prism92768
+Node: Note on company-mode overlay pop-up96016
+Ref: Note on company-mode overlay pop-up-Footnote-196703
+Ref: Note on company-mode overlay pop-up-Footnote-296770
+Node: Note for ERC escaped color sequences96825
+Ref: Note for ERC escaped color sequences-Footnote-198256
+Node: Note for powerline or spaceline98366
+Node: Note on SHR colors98782
+Node: Note for Helm grep99195
+Node: Note on vc-annotate-background-mode100662
+Node: Note on pdf-tools link hints101547
+Node: Contributing103980
+Node: Sources of the themes104380
+Node: Issues you can help with105118
+Node: Patches require copyright assignment to the FSF106318
+Node: Acknowledgements108613
+Node: Meta110868
+Node: GNU Free Documentation License112865
+Node: Indices138217
+Node: Function index138396
+Node: Variable index139633
+Node: Concept index141555
 
 End Tag Table
 

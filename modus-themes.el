@@ -50,7 +50,7 @@
 ;;     modus-themes-mode-line                      (choice)
 ;;     modus-themes-diffs                          (choice)
 ;;     modus-themes-syntax                         (choice)
-;;     modus-themes-intense-hl-line                (boolean)
+;;     modus-themes-hl-line                        (choice)
 ;;     modus-themes-subtle-line-numbers            (boolean)
 ;;     modus-themes-paren-match                    (choice)
 ;;     modus-themes-region                         (choice)
@@ -1351,7 +1351,7 @@ The actual styling of the face is done by `modus-themes-faces'.")
 (defface modus-theme-hl-line nil
   "General purpose face for the current line.
 The exact attributes assigned to this face are contingent on the values
-assigned to the `modus-themes-intense-hl-line' variable.
+assigned to the `modus-themes-hl-line' variable.
 
 The actual styling of the face is done by `modus-themes-faces'.")
 
@@ -2094,6 +2094,28 @@ they use grayscale values instead of accented ones."
   :type 'boolean
   :link '(info-link "(modus-themes) Line highlighting"))
 
+(make-obsolete 'modus-themes-intense-hl-line 'modus-themes-hl-line "1.3.0")
+
+(defcustom modus-themes-hl-line nil
+  "Control the current line highlight of HL-line mode.
+
+The default (nil) is to apply a subtle neutral background to the
+current line.
+
+Option `intense-background' uses a prominent neutral background.
+
+Option `underline-accented' draws an underline while applying a
+subtle colored background.  Set `x-underline-at-descent-line' to
+a non-nil value for better results with underlines."
+  :group 'modus-themes
+  :package-version '(modus-themes . "1.3.0")
+  :version "28.1"
+  :type '(choice
+          (const :format "[%v] %t\n" :tag "Subtle neutral background (default)" nil)
+          (const :format "[%v] %t\n" :tag "Prominent neutral background" intense-background)
+          (const :format "[%v] %t\n" :tag "Underline with a subtle colored background" underline-accented))
+  :link '(info-link "(modus-themes) Line highlighting"))
+
 (defcustom modus-themes-subtle-line-numbers nil
   "Use more subtle style for command `display-line-numbers-mode'."
   :group 'modus-themes
@@ -2772,6 +2794,18 @@ used to fontify text and code syntax."
     ('no-extend (list :background bg :foreground fg :extend nil))
     (_ (list :background bg :foreground fg))))
 
+(defun modus-themes--hl-line (bgdefault bgintense bgaccent line)
+  "Apply `modus-themes-hl-line' styles.
+
+BGDEFAULT is a subtle neutral background.  BGINTENSE is like the
+default, but more prominent.  BGACCENT is a subtle accented
+background.  LINE is a color value that can remain distinct
+against the buffer's possible backgrounds."
+  (pcase modus-themes-hl-line
+    ('intense-background (list :background bgintense))
+    ('underline-accented (list :background bgaccent :underline line))
+    (_ (list :background bgdefault))))
+
 
 
 ;;;; Utilities for DIY users
@@ -3100,8 +3134,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(modus-theme-lang-warning ((,class ,@(modus-themes--lang-check fg-lang-underline-warning fg-lang-warning yellow yellow-nuanced-bg))))
 ;;;;; other custom faces
     `(modus-theme-bold ((,class ,@(modus-themes--bold-weight))))
-    `(modus-theme-hl-line ((,class :background ,(if modus-themes-intense-hl-line
-                                                    bg-hl-line-intense bg-hl-line)
+    `(modus-theme-hl-line ((,class ,@(modus-themes--hl-line bg-hl-line bg-hl-line-intense
+                                                            blue-nuanced-bg blue-intense-bg)
                                    :extend t)))
     `(modus-theme-slant ((,class :inherit italic :slant ,@(modus-themes--slant))))
     `(modus-theme-variable-pitch ((,class ,@(modus-themes--variable-pitch))))
@@ -5325,8 +5359,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(nxml-ref ((,class :inherit modus-theme-bold :foreground ,fg-special-mild)))
     `(rng-error ((,class :inherit error)))
 ;;;;; objed
-    `(objed-hl ((,class :background ,(if modus-themes-intense-hl-line
-                                         bg-hl-alt-intense bg-hl-alt))))
+    `(objed-hl ((,class :background ,(if modus-themes-hl-line bg-hl-alt-intense bg-hl-alt))))
     `(objed-mark ((,class :background ,bg-active)))
     `(objed-mode-line ((,class :foreground ,cyan-active)))
 ;;;;; orderless

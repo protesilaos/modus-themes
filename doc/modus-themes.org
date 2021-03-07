@@ -758,25 +758,35 @@ refer to their documentation strings.
 ** Option for line highlighting (hl-line-mode)
 :properties:
 :alt_title: Line highlighting
-:description: Toggle intense style for current line highlighting
+:description: Choose style of current line (hl-line-mode)
 :custom_id: h:1dba1cfe-d079-4c13-a810-f768e8789177
 :end:
-#+vindex: modus-themes-intense-hl-line
+#+vindex: modus-themes-hl-line
 
-Symbol: ~modus-themes-intense-hl-line~
+[Part of {{{development-version}}}.  Supersedes ~modus-themes-intense-hl-line~.]
+
+Symbol: ~modus-themes-hl-line~
 
 Possible values:
 
 1. =nil= (default)
-2. =t=
+2. ~intense-background~
+3. ~underline-accented~
 
-The default is to use a subtle gray background for ~hl-line-mode~ and its
-global equivalent.
+The default is to use a subtle gray background for the current line when
+~hl-line-mode~ is enabled.
 
-With a non-nil value (=t=) use a more prominent background color instead.
+The ~intense-background~ applies a more prominent gray to the background
+of the current line.
 
-This affects several packages that enable ~hl-line-mode~, such as =elfeed=
-and =mu4e=.
+The ~underline-accented~ renders the background of the current line in a
+subtle colored background, while it also draws an accented underline.
+
+Consider settings the variable ~x-underline-at-descent-line~ to a non-nil
+value for better results with underlines.
+
+This style affects several packages that enable ~hl-line-mode~, such as
+=elfeed= and =mu4e=.
 
 ** Option for line numbers (display-line-numbers-mode)
 :properties:
