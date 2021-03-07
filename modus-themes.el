@@ -5413,7 +5413,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-checkbox-statistics-todo ((,class :inherit org-todo)))
     `(org-clock-overlay ((,class :inherit modus-theme-special-cold)))
     `(org-code ((,class ,@(modus-themes--mixed-fonts)
-                        :background ,red-nuanced-bg :foreground ,magenta)))
+                        :background ,magenta-nuanced-bg :foreground ,magenta-nuanced-fg)))
     `(org-column ((,class :background ,bg-alt)))
     `(org-column-title ((,class :inherit bold :underline t :background ,bg-alt)))
     `(org-date ((,class :inherit ,(if modus-themes-no-mixed-fonts
@@ -5485,7 +5485,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-link ((,class :inherit button)))
     `(org-list-dt ((,class :inherit bold)))
     `(org-macro ((,class ,@(modus-themes--mixed-fonts)
-                         :background ,blue-nuanced-bg :foreground ,magenta-alt-other)))
+                         :background ,blue-nuanced-bg :foreground ,blue-nuanced-fg)))
     `(org-meta-line ((,class ,@(modus-themes--mixed-fonts) :foreground ,fg-alt)))
     `(org-mode-line-clock ((,class :foreground ,fg-main)))
     `(org-mode-line-clock-overrun ((,class :inherit modus-theme-active-red)))
