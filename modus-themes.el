@@ -1492,6 +1492,15 @@ The exact attributes and color combinations are controlled by
 
 The actual styling of the face is done by `modus-themes-faces'.")
 
+(defface modus-theme-reset nil
+  "Generic face to set all face properties to nil.
+
+This is intended to be inherited by faces that should not retain
+properties from their context (e.g. an overlay over an underlined text
+should not be underlined as well).
+
+The actual styling of the face is done by `modus-themes-faces'.")
+
 
 
 ;;; Customization options
@@ -3096,6 +3105,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                    :extend t)))
     `(modus-theme-slant ((,class :inherit italic :slant ,@(modus-themes--slant))))
     `(modus-theme-variable-pitch ((,class ,@(modus-themes--variable-pitch))))
+    `(modus-theme-reset ((,class :inherit default :weight normal :slant normal :strike-through nil
+                                 :box nil :underline nil :overline nil :extend nil)))
 ;;;; standard faces
 ;;;;; absolute essentials
     `(default ((,class :background ,bg-main :foreground ,fg-main)))
@@ -3280,7 +3291,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; aw (ace-window)
     `(aw-background-face ((,class :background ,bg-dim :foreground ,fg-dim)))
     `(aw-key-face ((,class :inherit bold :foreground ,blue-intense)))
-    `(aw-leading-char-face ((,class :inherit bold :height 1.5 :slant normal :background ,bg-main :foreground ,red-intense)))
+    `(aw-leading-char-face ((,class :inherit (bold modus-theme-reset) :height 1.5
+                                    :background ,bg-main :foreground ,red-intense)))
     `(aw-minibuffer-leading-char-face ((,class :foreground ,magenta-active)))
     `(aw-mode-line-face ((,class :inherit bold)))
 ;;;;; awesome-tray
