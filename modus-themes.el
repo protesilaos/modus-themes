@@ -3289,11 +3289,11 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(avy-lead-face-1 ((,class :inherit (modus-theme-intense-red bold))))
     `(avy-lead-face-2 ((,class :inherit (modus-theme-intense-green bold))))
 ;;;;; aw (ace-window)
-    `(aw-background-face ((,class :background ,bg-dim :foreground ,fg-dim)))
+    `(aw-background-face ((,class :foreground ,fg-unfocused)))
     `(aw-key-face ((,class :inherit bold :foreground ,blue-intense)))
     `(aw-leading-char-face ((,class :inherit (bold modus-theme-reset) :height 1.5
-                                    :background ,bg-main :foreground ,red-intense)))
-    `(aw-minibuffer-leading-char-face ((,class :foreground ,magenta-active)))
+                                    :foreground ,red-intense)))
+    `(aw-minibuffer-leading-char-face ((,class :inherit (modus-theme-intense-red bold))))
     `(aw-mode-line-face ((,class :inherit bold)))
 ;;;;; awesome-tray
     `(awesome-tray-module-awesome-tab-face ((,class :inherit bold :foreground ,red-alt-other)))
