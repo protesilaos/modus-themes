@@ -2286,7 +2286,7 @@ inherit from some basic faces.  Please confirm.
 This section covers information that may be of interest to users of
 individual packages.
 
-** Note for  dimmer.el
+** Note for dimmer.el
 :properties:
 :custom_id: h:8eb4b758-d318-4480-9ead-357a571beb93
 :end:
