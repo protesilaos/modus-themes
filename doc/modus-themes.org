@@ -2286,6 +2286,42 @@ inherit from some basic faces.  Please confirm.
 This section covers information that may be of interest to users of
 individual packages.
 
+** Note for  dimmer.el
+:properties:
+:custom_id: h:8eb4b758-d318-4480-9ead-357a571beb93
+:end:
+
+The {{{file(dimmer.el)}}} library by Neil Okamoto can be configured to
+automatically dim the colors of inactive Emacs windows.  To guarantee
+consistent results with the Modus themes, we suggest some tweaks to the
+default styles, such as in this minimal setup:
+
+#+begin_src emacs-lisp
+(use-package dimmer
+  :config 
+  (setq dimmer-fraction 0.3)
+  (setq dimmer-adjustment-mode :foreground)
+  (setq dimmer-use-colorspace :rgb)
+
+  (dimmer-mode 1))
+#+end_src
+
+Of the above, we strongly recommend the RGB color space because it is
+the one that remains faithful to the hueness of the colors used by the
+themes.  Whereas the default CIELAB space has a tendency to distort
+colors in addition to applying the dim effect, which can be somewhat
+disorienting.
+
+The value of the ~dimmer-fraction~ has been selected empirically.  Users
+might prefer to tweak it further (increasing it makes the dim effect
+more pronounced).
+
+Changing the ~dimmer-adjustment-mode~ is a matter of preference.  Though
+because the Modus themes use black and white as their base colors, any
+other value for that variable will turn the main background gray.  This
+inadvertently leads to the opposite of the intended utility of this
+package: it draws too much attention to unfocused windows.
+
 ** Note for display-fill-column-indicator-mode
 :properties:
 :custom_id: h:2a602816-bc1b-45bf-9675-4cbbd7bf6cab
@@ -2773,14 +2809,14 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Barros, Hörmetjan Yiltiz, Ilja Kocken, Iris Garcia, Jeremy Friesen,
   John Haman, Joshua O'Connor, Kevin Fleming, Kostadin Ninev, Len Trigg,
   Manuel Uberti, Mark Burton, Markus Beppler, Mauro Aranda, Michael
-  Goldenberg, Morgan Smith, Murilo Pereira, Nicolas De Jaeghere, Paul
-  Poloskov, Pete Kazmier, Peter Wu, Philip K., Pierre Téchoueyres, Roman
-  Rudakov, Ryan Phillips, Sam Kleinman, Shreyas Ragavan, Simon Pugnet,
-  Tassilo Horn, Thibaut Verron, Trey Merkley, Togan Muftuoglu, Toon
-  Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.  As well as users:
-  Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik,
-  Moesasji, Nick, TheBlob42, bepolymathe, doolio, fleimgruber, iSeeU,
-  jixiuf, okamsn.
+  Goldenberg, Morgan Smith, Murilo Pereira, Nicky van Foreest, Nicolas
+  De Jaeghere, Paul Poloskov, Pete Kazmier, Peter Wu, Philip K., Pierre
+  Téchoueyres, Roman Rudakov, Ryan Phillips, Sam Kleinman, Shreyas
+  Ragavan, Simon Pugnet, Tassilo Horn, Thibaut Verron, Trey Merkley,
+  Togan Muftuoglu, Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.
+  As well as users: Ben, CsBigDataHub1, Emacs Contrib, Eugene,
+  Fourchaux, Fredrik, Moesasji, Nick, TheBlob42, bepolymathe, doolio,
+  fleimgruber, iSeeU, jixiuf, okamsn.
 
 + Packaging :: Basil L.{{{space()}}} Contovounesios, Eli Zaretskii, Glenn
   Morris, Mauro Aranda, Richard Stallman, Stefan Kangas (core Emacs),
