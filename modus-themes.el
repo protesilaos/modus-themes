@@ -3105,8 +3105,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                    :extend t)))
     `(modus-theme-slant ((,class :inherit italic :slant ,@(modus-themes--slant))))
     `(modus-theme-variable-pitch ((,class ,@(modus-themes--variable-pitch))))
-    `(modus-theme-reset ((,class :inherit default :weight normal :slant normal :strike-through nil
-                                 :box nil :underline nil :overline nil :extend nil)))
+    `(modus-theme-reset ((,class :inherit default :background nil :weight normal :slant normal
+                                 :strike-through nil :box nil :underline nil :overline nil :extend nil)))
 ;;;; standard faces
 ;;;;; absolute essentials
     `(default ((,class :background ,bg-main :foreground ,fg-main)))
