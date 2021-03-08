@@ -1501,6 +1501,10 @@ should not be underlined as well).
 
 The actual styling of the face is done by `modus-themes-faces'.")
 
+(defface modus-themes-key-binding nil
+  "Generic face for key bindings.
+The actual styling of the face is done by `modus-themes-faces'.")
+
 
 
 ;;; Customization options
@@ -3136,7 +3140,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(modus-themes-bold ((,class ,@(modus-themes--bold-weight))))
     `(modus-themes-hl-line ((,class ,@(modus-themes--hl-line bg-hl-line bg-hl-line-intense
                                                             blue-nuanced-bg blue-intense-bg)
-                                   :extend t)))
+                                    :extend t)))
+    `(modus-themes-key-binding ((,class :inherit bold :foreground ,blue-alt-other)))
     `(modus-themes-slant ((,class :inherit italic :slant ,@(modus-themes--slant))))
     `(modus-themes-variable-pitch ((,class ,@(modus-themes--variable-pitch))))
     `(modus-themes-reset ((,class :inherit default :background nil :weight normal :slant normal
