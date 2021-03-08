@@ -155,6 +155,7 @@
 ;;     eldoc-box
 ;;     elfeed
 ;;     elfeed-score
+;;     embark
 ;;     emms
 ;;     enhanced-ruby-mode
 ;;     epa
@@ -3962,6 +3963,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(elfeed-score-error-level-face ((,class :foreground ,red)))
     `(elfeed-score-info-level-face ((,class :foreground ,cyan)))
     `(elfeed-score-warn-level-face ((,class :foreground ,yellow)))
+;;;;; embark
+    `(embark-keybinding ((,class :inherit modus-themes-key-binding)))
 ;;;;; emms
     `(emms-playlist-track-face ((,class :foreground ,blue)))
     `(emms-playlist-selected-face ((,class :inherit bold :foreground ,magenta)))
