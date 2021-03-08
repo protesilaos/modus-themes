@@ -2109,16 +2109,33 @@ current line.
 
 Option `intense-background' uses a prominent neutral background.
 
+Option `accented-background' uses a subtle colored background.
+
+Option `underline-neutral' combines a subtle neutral background
+with a gray underline.
+
 Option `underline-accented' draws an underline while applying a
-subtle colored background.  Set `x-underline-at-descent-line' to
-a non-nil value for better results with underlines."
+subtle colored background.
+
+Option `underline-only-neutral' uses just a neutral underline,
+without any added change to the background.
+
+Option `underline-only-accented' uses just a colored underline,
+without any added change to the background.
+
+Set `x-underline-at-descent-line' to a non-nil value for better
+results with underlines."
   :group 'modus-themes
   :package-version '(modus-themes . "1.3.0")
   :version "28.1"
   :type '(choice
           (const :format "[%v] %t\n" :tag "Subtle neutral background (default)" nil)
           (const :format "[%v] %t\n" :tag "Prominent neutral background" intense-background)
-          (const :format "[%v] %t\n" :tag "Underline with a subtle colored background" underline-accented))
+          (const :format "[%v] %t\n" :tag "Subtle colored background" accented-background)
+          (const :format "[%v] %t\n" :tag "Underline with a subtle neutral background" underline-neutral)
+          (const :format "[%v] %t\n" :tag "Underline with a subtle colored background" underline-accented)
+          (const :format "[%v] %t\n" :tag "Just a neutral underline, without a background" underline-only-neutral)
+          (const :format "[%v] %t\n" :tag "Just an accented underline, without a background" underline-only-accented))
   :link '(info-link "(modus-themes) Line highlighting"))
 
 (defcustom modus-themes-subtle-line-numbers nil
@@ -2799,16 +2816,22 @@ used to fontify text and code syntax."
     ('no-extend (list :background bg :foreground fg :extend nil))
     (_ (list :background bg :foreground fg))))
 
-(defun modus-themes--hl-line (bgdefault bgintense bgaccent line)
+(defun modus-themes--hl-line (bgdefault bgintense bgaccent lineneutral lineaccent)
   "Apply `modus-themes-hl-line' styles.
 
 BGDEFAULT is a subtle neutral background.  BGINTENSE is like the
 default, but more prominent.  BGACCENT is a subtle accented
-background.  LINE is a color value that can remain distinct
-against the buffer's possible backgrounds."
+background.  LINENEUTRAL and LINEACCENT are a color values that
+can remain distinct against the buffer's possible backgrounds:
+the former is neutral, the latter is accented.  LINEONLY must be
+a prominent neutral color."
   (pcase modus-themes-hl-line
     ('intense-background (list :background bgintense))
-    ('underline-accented (list :background bgaccent :underline line))
+    ('accented-background (list :background bgaccent))
+    ('underline-neutral (list :background bgdefault :underline lineneutral))
+    ('underline-accented (list :background bgaccent :underline lineaccent))
+    ('underline-only-neutral (list :background nil :underline lineneutral))
+    ('underline-only-accented (list :background nil :underline lineaccent))
     (_ (list :background bgdefault))))
 
 
@@ -3139,8 +3162,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(modus-themes-lang-warning ((,class ,@(modus-themes--lang-check fg-lang-underline-warning fg-lang-warning yellow yellow-nuanced-bg))))
 ;;;;; other custom faces
     `(modus-themes-bold ((,class ,@(modus-themes--bold-weight))))
-    `(modus-themes-hl-line ((,class ,@(modus-themes--hl-line bg-hl-line bg-hl-line-intense
-                                                             blue-nuanced-bg blue-intense-bg)
+    `(modus-themes-hl-line ((,class ,@(modus-themes--hl-line bg-hl-line bg-hl-line-intense blue-nuanced-bg
+                                                             bg-region blue-intense-bg)
                                     :extend t)))
     `(modus-themes-key-binding ((,class :inherit bold :foreground ,blue-alt-other)))
     `(modus-themes-slant ((,class :inherit italic :slant ,@(modus-themes--slant))))

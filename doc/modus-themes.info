@@ -38,7 +38,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.3.0-dev.  This manual was built on
-2021-03-08 13:19 +0200.
+2021-03-08 16:18 +0200.
 
 * Menu:
 
@@ -882,7 +882,11 @@ File: modus-themes.info,  Node: Line highlighting,  Next: Line numbers,  Prev: L
 
   1. ‘nil’ (default)
   2. ‘intense-background’
-  3. ‘underline-accented’
+  3. ‘accented-background’
+  4. ‘underline-neutral’
+  5. ‘underline-accented’
+  6. ‘underline-only-neutral’
+  7. ‘underline-only-accented’
 
    The default is to use a subtle gray background for the current line
 when ‘hl-line-mode’ is enabled.
@@ -890,11 +894,23 @@ when ‘hl-line-mode’ is enabled.
    The ‘intense-background’ applies a more prominent gray to the
 background of the current line.
 
-   The ‘underline-accented’ renders the background of the current line
-in a subtle colored background, while it also draws an accented
-underline.
+   With ‘accented-background’ the default’s subtle aesthetic is
+retained, but the background has a more colored hint.
 
-   Consider settings the variable ‘x-underline-at-descent-line’ to a
+   The ‘underline-neutral’ combines the default subtle neutral
+background with a gray underline.
+
+   Similarly, the ‘underline-accented’ renders the background of the
+current line in a subtle colored background, while it also draws an
+accented underline.
+
+   Option ‘underline-only-neutral’ produces a neutral underline, but
+does not use any background.
+
+   While ‘underline-only-accented’ also uses just an underline, only
+this one is colored.
+
+   Consider setting the variable ‘x-underline-at-descent-line’ to a
 non-nil value for better results with underlines.
 
    This style affects several packages that enable ‘hl-line-mode’, such
@@ -3606,57 +3622,57 @@ Node: Completion UIs28678
 Node: Fringes30510
 Node: Language checkers31170
 Node: Line highlighting33119
-Node: Line numbers34156
-Node: Matching parentheses35234
-Node: Active region36124
-Node: Diffs37060
-Node: Org mode blocks39607
-Node: Org agenda habits40965
-Node: Heading styles42800
-Node: Scaled headings46752
-Node: Scaled heading sizes47355
-Node: UI typeface50489
-Node: Headings' typeface51335
-Node: Advanced customization (do-it-yourself)51959
-Node: Per-theme customization settings (DIY)53117
-Node: Case-by-case face specs using the themes' palette (DIY)54463
-Node: Face specs at scale using the themes' palette (DIY)58927
-Node: Override colors (DIY)63732
-Node: Font configurations for Org and others (DIY)68524
-Ref: Font configurations for Org and others (DIY)-Footnote-170847
-Node: Custom Org user faces (DIY)71034
-Node: Measure color contrast (DIY)74388
-Node: Load theme depending on time of day77155
-Node: A theme-agnostic hook for theme loading (DIY)78192
-Node: Face coverage80587
-Node: Supported packages81057
-Node: Indirectly covered packages87688
-Node: Notes for individual packages88171
-Node: Note for dimmerel88879
-Node: Note for display-fill-column-indicator-mode90325
-Node: Note for mmm-modeel background colors91952
-Node: Note for prism94336
-Node: Note on company-mode overlay pop-up97584
-Ref: Note on company-mode overlay pop-up-Footnote-198271
-Ref: Note on company-mode overlay pop-up-Footnote-298338
-Node: Note for ERC escaped color sequences98393
-Ref: Note for ERC escaped color sequences-Footnote-199824
-Node: Note for powerline or spaceline99934
-Node: Note on SHR colors100350
-Node: Note for Helm grep100763
-Node: Note on vc-annotate-background-mode102230
-Node: Note on pdf-tools link hints103117
-Node: Contributing105550
-Node: Sources of the themes105950
-Node: Issues you can help with106688
-Node: Patches require copyright assignment to the FSF107888
-Node: Acknowledgements110183
-Node: Meta112457
-Node: GNU Free Documentation License114454
-Node: Indices139806
-Node: Function index139985
-Node: Variable index141222
-Node: Concept index143144
+Node: Line numbers34720
+Node: Matching parentheses35798
+Node: Active region36688
+Node: Diffs37624
+Node: Org mode blocks40171
+Node: Org agenda habits41529
+Node: Heading styles43364
+Node: Scaled headings47316
+Node: Scaled heading sizes47919
+Node: UI typeface51053
+Node: Headings' typeface51899
+Node: Advanced customization (do-it-yourself)52523
+Node: Per-theme customization settings (DIY)53681
+Node: Case-by-case face specs using the themes' palette (DIY)55027
+Node: Face specs at scale using the themes' palette (DIY)59491
+Node: Override colors (DIY)64296
+Node: Font configurations for Org and others (DIY)69088
+Ref: Font configurations for Org and others (DIY)-Footnote-171411
+Node: Custom Org user faces (DIY)71598
+Node: Measure color contrast (DIY)74952
+Node: Load theme depending on time of day77719
+Node: A theme-agnostic hook for theme loading (DIY)78756
+Node: Face coverage81151
+Node: Supported packages81621
+Node: Indirectly covered packages88252
+Node: Notes for individual packages88735
+Node: Note for dimmerel89443
+Node: Note for display-fill-column-indicator-mode90889
+Node: Note for mmm-modeel background colors92516
+Node: Note for prism94900
+Node: Note on company-mode overlay pop-up98148
+Ref: Note on company-mode overlay pop-up-Footnote-198835
+Ref: Note on company-mode overlay pop-up-Footnote-298902
+Node: Note for ERC escaped color sequences98957
+Ref: Note for ERC escaped color sequences-Footnote-1100388
+Node: Note for powerline or spaceline100498
+Node: Note on SHR colors100914
+Node: Note for Helm grep101327
+Node: Note on vc-annotate-background-mode102794
+Node: Note on pdf-tools link hints103681
+Node: Contributing106114
+Node: Sources of the themes106514
+Node: Issues you can help with107252
+Node: Patches require copyright assignment to the FSF108452
+Node: Acknowledgements110747
+Node: Meta113021
+Node: GNU Free Documentation License115018
+Node: Indices140370
+Node: Function index140549
+Node: Variable index141786
+Node: Concept index143708
 
 End Tag Table
 

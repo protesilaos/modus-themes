@@ -771,7 +771,11 @@ Possible values:
 
 1. =nil= (default)
 2. ~intense-background~
-3. ~underline-accented~
+3. ~accented-background~
+4. ~underline-neutral~
+5. ~underline-accented~
+6. ~underline-only-neutral~
+7. ~underline-only-accented~
 
 The default is to use a subtle gray background for the current line when
 ~hl-line-mode~ is enabled.
@@ -779,10 +783,23 @@ The default is to use a subtle gray background for the current line when
 The ~intense-background~ applies a more prominent gray to the background
 of the current line.
 
-The ~underline-accented~ renders the background of the current line in a
-subtle colored background, while it also draws an accented underline.
+With ~accented-background~ the default's subtle aesthetic is retained, but
+the background has a more colored hint.
 
-Consider settings the variable ~x-underline-at-descent-line~ to a non-nil
+The ~underline-neutral~ combines the default subtle neutral background
+with a gray underline.
+
+Similarly, the ~underline-accented~ renders the background of the current
+line in a subtle colored background, while it also draws an accented
+underline.
+
+Option ~underline-only-neutral~ produces a neutral underline, but does not
+use any background.
+
+While ~underline-only-accented~ also uses just an underline, only this one
+is colored.
+
+Consider setting the variable ~x-underline-at-descent-line~ to a non-nil
 value for better results with underlines.
 
 This style affects several packages that enable ~hl-line-mode~, such as
