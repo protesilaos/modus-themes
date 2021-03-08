@@ -3269,12 +3269,12 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(apropos-function-button ((,class :inherit button
                                        ,@(modus-themes--link-color
                                           magenta-alt-other magenta-alt-other-faint))))
-    `(apropos-keybinding ((,class :inherit bold :foreground ,cyan)))
+    `(apropos-keybinding ((,class :inherit modus-themes-key-binding)))
     `(apropos-misc-button ((,class :inherit button
                                    ,@(modus-themes--link-color
                                       cyan-alt-other cyan-alt-other-faint))))
     `(apropos-property ((,class :inherit modus-themes-bold :foreground ,magenta-alt)))
-    `(apropos-symbol ((,class :inherit modus-themes-bold :foreground ,blue-alt-other)))
+    `(apropos-symbol ((,class :inherit modus-themes-bold :foreground ,magenta)))
     `(apropos-user-option-button ((,class :inherit button
                                           ,@(modus-themes--link-color
                                              green-alt-other green-alt-other-faint))))
@@ -3331,7 +3331,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(avy-lead-face-2 ((,class :inherit (modus-themes-intense-green bold))))
 ;;;;; aw (ace-window)
     `(aw-background-face ((,class :foreground ,fg-unfocused)))
-    `(aw-key-face ((,class :inherit bold :foreground ,blue-intense)))
+    `(aw-key-face ((,class :inherit modus-themes-key-binding)))
     `(aw-leading-char-face ((,class :inherit (bold modus-themes-reset) :height 1.5
                                     :foreground ,red-intense)))
     `(aw-minibuffer-leading-char-face ((,class :inherit (modus-themes-intense-red bold))))
@@ -3552,7 +3552,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(consult-bookmark ((,class :foreground ,blue)))
     `(consult-file ((,class :foreground ,fg-special-cold)))
     `(consult-imenu-prefix ((,class :inherit shadow)))
-    `(consult-key ((,class :inherit modus-themes-bold :foreground ,magenta-alt-other)))
+    `(consult-key ((,class :inherit modus-themes-key-binding)))
     `(consult-line-number ((,class :foreground ,fg-special-warm)))
     `(consult-line-number-prefix ((,class :foreground ,fg-unfocused)))
     `(consult-narrow-indicator ((,class :foreground ,magenta-alt)))
@@ -3562,7 +3562,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; counsel
     `(counsel-active-mode ((,class :foreground ,magenta-alt-other)))
     `(counsel-application-name ((,class :foreground ,red-alt-other)))
-    `(counsel-key-binding ((,class :inherit bold :foreground ,blue-alt-other)))
+    `(counsel-key-binding ((,class :inherit modus-themes-key-binding)))
     `(counsel-outline-1 ((,class :inherit org-level-1)))
     `(counsel-outline-2 ((,class :inherit org-level-2)))
     `(counsel-outline-3 ((,class :inherit org-level-3)))
@@ -4210,7 +4210,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; freeze-it
     `(freeze-it-show ((,class :background ,bg-dim :foreground ,fg-special-warm)))
 ;;;;; frog-menu
-    `(frog-menu-action-keybinding-face ((,class :foreground ,blue-alt-other)))
+    `(frog-menu-action-keybinding-face ((,class :inherit modus-themes-key-binding)))
     `(frog-menu-actions-face ((,class :foreground ,magenta)))
     `(frog-menu-border ((,class :background ,bg-active)))
     `(frog-menu-candidates-face ((,class :foreground ,fg-main)))
@@ -4438,7 +4438,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; golden-ratio-scroll-screen
     `(golden-ratio-scroll-highlight-line-face ((,class :background ,cyan-subtle-bg :foreground ,fg-main)))
 ;;;;; helm
-    `(helm-M-x-key ((,class :inherit bold :foreground ,magenta-alt-other)))
+    `(helm-M-x-key ((,class :inherit modus-themes-key-binding)))
     `(helm-action ((,class :underline t)))
     `(helm-bookmark-addressbook ((,class :foreground ,green-alt)))
     `(helm-bookmark-directory ((,class :inherit bold :foreground ,blue)))
@@ -5009,7 +5009,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(magit-hash ((,class :inherit shadow)))
     `(magit-head ((,class :inherit magit-branch-local)))
     `(magit-header-line ((,class :inherit bold :foreground ,magenta-active)))
-    `(magit-header-line-key ((,class :inherit bold :foreground ,blue-active)))
+    `(magit-header-line-key ((,class :inherit modus-themes-key-binding)))
     `(magit-header-line-log-select ((,class :inherit bold :foreground ,fg-main)))
     `(magit-keyword ((,class :foreground ,magenta)))
     `(magit-keyword-squash ((,class :inherit bold :foreground ,yellow-alt-other)))
@@ -5070,6 +5070,12 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(marginalia-file-modes ((,class :inherit shadow)))
     `(marginalia-file-name ((,class :foreground ,fg-special-mild)))
     `(marginalia-file-owner ((,class :foreground ,red-nuanced-fg)))
+    ;; Here we make an exception of not applying the bespoke
+    ;; `modus-themes-key-binding' for two reasons: (1) completion
+    ;; highlights can be fairly intense, so we do not want more
+    ;; components to compete with them for attention, (2) the
+    ;; `marginalia-key' may not be used for key bindings specifically,
+    ;; so we might end up applying styles in places we should not.
     `(marginalia-key ((,class :foreground ,magenta-active)))
     `(marginalia-mode ((,class :foreground ,cyan-active)))
     `(marginalia-modified ((,class :foreground ,yellow-active)))
@@ -5251,7 +5257,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(mu4e-header-marks-face ((,class :inherit mu4e-special-header-value-face)))
     `(mu4e-header-title-face ((,class :foreground ,fg-special-mild)))
     `(mu4e-header-value-face ((,class :inherit message-header-other)))
-    `(mu4e-highlight-face ((,class :inherit bold :foreground ,blue-alt-other)))
+    `(mu4e-highlight-face ((,class :inherit modus-themes-key-binding)))
     `(mu4e-link-face ((,class :inherit button)))
     `(mu4e-modeline-face ((,class :foreground ,magenta-active)))
     `(mu4e-moved-face ((,class :inherit modus-themes-slant :foreground ,yellow)))
@@ -6115,7 +6121,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(transient-heading ((,class :inherit bold :foreground ,fg-main)))
     `(transient-inactive-argument ((,class :inherit shadow)))
     `(transient-inactive-value ((,class :inherit shadow)))
-    `(transient-key ((,class :inherit bold :foreground ,blue)))
+    `(transient-key ((,class :inherit modus-themes-key-binding)))
     `(transient-mismatched-key ((,class :underline t)))
     `(transient-nonstandard-key ((,class :underline t)))
     `(transient-pink ((,class :inherit bold :foreground ,magenta)))
@@ -6339,7 +6345,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(which-key-command-description-face ((,class :foreground ,fg-main)))
     `(which-key-group-description-face ((,class :foreground ,magenta-alt)))
     `(which-key-highlighted-command-face ((,class :foreground ,yellow :underline t)))
-    `(which-key-key-face ((,class :inherit bold :foreground ,blue-intense)))
+    `(which-key-key-face ((,class :inherit modus-themes-key-binding)))
     `(which-key-local-map-description-face ((,class :foreground ,fg-main)))
     `(which-key-note-face ((,class :foreground ,fg-special-warm)))
     `(which-key-separator-face ((,class :inherit shadow)))
