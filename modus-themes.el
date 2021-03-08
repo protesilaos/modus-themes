@@ -3171,7 +3171,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                            :background ,bg-header :foreground ,fg-header)))
     `(header-line-highlight ((,class :inherit modus-themes-active-blue)))
     `(help-argument-name ((,class :inherit modus-themes-slant :foreground ,cyan)))
-    `(help-key-binding ((,class :inherit bold :foreground ,blue-intense)))
+    `(help-key-binding ((,class :inherit modus-themes-key-binding)))
     `(homoglyph ((,class :foreground ,red-alt-faint)))
     `(ibuffer-locked-buffer ((,class :foreground ,yellow-alt-other-faint)))
     `(italic ((,class :slant italic)))
