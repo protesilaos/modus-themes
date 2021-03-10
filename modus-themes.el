@@ -664,8 +664,8 @@ symbol and the latter as a string.")
 (defconst modus-themes-vivendi-colors
   '(;; base values
     (bg-main . "#000000") (fg-main . "#ffffff")
-    (bg-dim . "#110b11") (fg-dim . "#e0e6f0")
-    (bg-alt . "#181a20") (fg-alt . "#a8a8a8")
+    (bg-dim . "#100f10") (fg-dim . "#e0e6f0")
+    (bg-alt . "#191a1b") (fg-alt . "#a8a8a8")
     ;; specifically for on/off states and must be combined with
     ;; themselves, though the backgrounds are also meant to be used with
     ;; other "active" values, defined further below
