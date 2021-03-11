@@ -1270,19 +1270,19 @@ The actual styling of the face is done by `modus-themes-faces'.")
 The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-mark-alt nil
-  "Combines yellow colors for marking special lines
+  "Combines yellow colors for marking special lines.
 This is intended for use in modes such as Dired, Ibuffer, Proced.
 
 The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-mark-del nil
-  "Combines red colors for marking deletable lines
+  "Combines red colors for marking deletable lines.
 This is intended for use in modes such as Dired, Ibuffer, Proced.
 
 The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-mark-sel nil
-  "Combines green colors for marking lines
+  "Combines green colors for marking lines.
 This is intended for use in modes such as Dired, Ibuffer, Proced.
 
 The actual styling of the face is done by `modus-themes-faces'.")
@@ -1294,7 +1294,7 @@ This is intended for use in modes such as Dired, Ibuffer, Proced.
 The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-heading-1 nil
-  "General purpose face for use in headings level 1
+  "General purpose face for use in headings level 1.
 The exact attributes assigned to this face are contingent on the values
 assigned to the `modus-themes-headings' variable.
 
