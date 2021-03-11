@@ -5965,7 +5965,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; smerge
     `(smerge-base ((,class :inherit modus-themes-diff-changed)))
     `(smerge-lower ((,class :inherit modus-themes-diff-added)))
-    `(smerge-markers ((,class :background ,bg-diff-neutral-2 :foreground ,fg-diff-neutral-2)))
+    `(smerge-markers ((,class :inherit diff-header)))
     `(smerge-refined-added ((,class :inherit modus-themes-diff-refine-added)))
     `(smerge-refined-changed (()))
     `(smerge-refined-removed ((,class :inherit modus-themes-diff-refine-removed)))
@@ -6245,7 +6245,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; vdiff
     `(vdiff-addition-face ((,class :inherit modus-themes-diff-added)))
     `(vdiff-change-face ((,class :inherit modus-themes-diff-changed)))
-    `(vdiff-closed-fold-face ((,class :background ,bg-diff-neutral-1 :foreground ,fg-diff-neutral-1)))
+    `(vdiff-closed-fold-face ((,class :inherit diff-header)))
     `(vdiff-refine-added ((,class :inherit modus-themes-diff-refine-added)))
     `(vdiff-refine-changed ((,class :inherit modus-themes-diff-refine-changed)))
     `(vdiff-subtraction-face ((,class :inherit modus-themes-diff-removed)))
