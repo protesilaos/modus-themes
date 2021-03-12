@@ -2831,16 +2831,16 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Damien Cassou, Daniel Mendler, Dario Gjorgjevski, David Edmondson,
   Davor Rotim, Divan Santana, Gerry Agbobada, Gianluca Recchia, Gustavo
   Barros, Hörmetjan Yiltiz, Ilja Kocken, Iris Garcia, Jeremy Friesen,
-  John Haman, Joshua O'Connor, Kevin Fleming, Kostadin Ninev, Len Trigg,
-  Manuel Uberti, Mark Burton, Markus Beppler, Mauro Aranda, Michael
-  Goldenberg, Morgan Smith, Murilo Pereira, Nicky van Foreest, Nicolas
-  De Jaeghere, Paul Poloskov, Pete Kazmier, Peter Wu, Philip K., Pierre
-  Téchoueyres, Roman Rudakov, Ryan Phillips, Sam Kleinman, Shreyas
-  Ragavan, Simon Pugnet, Tassilo Horn, Thibaut Verron, Trey Merkley,
-  Togan Muftuoglu, Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.
-  As well as users: Ben, CsBigDataHub1, Emacs Contrib, Eugene,
-  Fourchaux, Fredrik, Moesasji, Nick, TheBlob42, bepolymathe, doolio,
-  fleimgruber, iSeeU, jixiuf, okamsn.
+  John Haman, Joshua O'Connor, Kevin Fleming, Kévin Le Gouguec, Kostadin
+  Ninev, Len Trigg, Manuel Uberti, Mark Burton, Markus Beppler, Mauro
+  Aranda, Michael Goldenberg, Morgan Smith, Murilo Pereira, Nicky van
+  Foreest, Nicolas De Jaeghere, Paul Poloskov, Pete Kazmier, Peter Wu,
+  Philip K., Pierre Téchoueyres, Roman Rudakov, Ryan Phillips, Sam
+  Kleinman, Shreyas Ragavan, Simon Pugnet, Tassilo Horn, Thibaut Verron,
+  Trey Merkley, Togan Muftuoglu, Toon Claes, Uri Sharf, Utkarsh Singh,
+  Vincent Foley.  As well as users: Ben, CsBigDataHub1, Emacs Contrib,
+  Eugene, Fourchaux, Fredrik, Moesasji, Nick, TheBlob42, Trey,
+  bepolymathe, doolio, fleimgruber, iSeeU, jixiuf, okamsn.
 
 + Packaging :: Basil L.{{{space()}}} Contovounesios, Eli Zaretskii, Glenn
   Morris, Mauro Aranda, Richard Stallman, Stefan Kangas (core Emacs),

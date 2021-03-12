@@ -38,7 +38,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.3.0-dev.  This manual was built on
-2021-03-12 10:44 +0200.
+2021-03-12 21:54 +0200.
 
 * Menu:
 
@@ -2937,16 +2937,17 @@ Ideas and user feedback
      Mendler, Dario Gjorgjevski, David Edmondson, Davor Rotim, Divan
      Santana, Gerry Agbobada, Gianluca Recchia, Gustavo Barros,
      Hörmetjan Yiltiz, Ilja Kocken, Iris Garcia, Jeremy Friesen, John
-     Haman, Joshua O’Connor, Kevin Fleming, Kostadin Ninev, Len Trigg,
-     Manuel Uberti, Mark Burton, Markus Beppler, Mauro Aranda, Michael
-     Goldenberg, Morgan Smith, Murilo Pereira, Nicky van Foreest,
-     Nicolas De Jaeghere, Paul Poloskov, Pete Kazmier, Peter Wu, Philip
-     K., Pierre Téchoueyres, Roman Rudakov, Ryan Phillips, Sam Kleinman,
-     Shreyas Ragavan, Simon Pugnet, Tassilo Horn, Thibaut Verron, Trey
-     Merkley, Togan Muftuoglu, Toon Claes, Uri Sharf, Utkarsh Singh,
-     Vincent Foley.  As well as users: Ben, CsBigDataHub1, Emacs
-     Contrib, Eugene, Fourchaux, Fredrik, Moesasji, Nick, TheBlob42,
-     bepolymathe, doolio, fleimgruber, iSeeU, jixiuf, okamsn.
+     Haman, Joshua O’Connor, Kevin Fleming, Kévin Le Gouguec, Kostadin
+     Ninev, Len Trigg, Manuel Uberti, Mark Burton, Markus Beppler, Mauro
+     Aranda, Michael Goldenberg, Morgan Smith, Murilo Pereira, Nicky van
+     Foreest, Nicolas De Jaeghere, Paul Poloskov, Pete Kazmier, Peter
+     Wu, Philip K., Pierre Téchoueyres, Roman Rudakov, Ryan Phillips,
+     Sam Kleinman, Shreyas Ragavan, Simon Pugnet, Tassilo Horn, Thibaut
+     Verron, Trey Merkley, Togan Muftuoglu, Toon Claes, Uri Sharf,
+     Utkarsh Singh, Vincent Foley.  As well as users: Ben,
+     CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji,
+     Nick, TheBlob42, Trey, bepolymathe, doolio, fleimgruber, iSeeU,
+     jixiuf, okamsn.
 
 Packaging
      Basil L. Contovounesios, Eli Zaretskii, Glenn Morris, Mauro Aranda,
@@ -3673,12 +3674,12 @@ Node: Sources of the themes106784
 Node: Issues you can help with107522
 Node: Patches require copyright assignment to the FSF108722
 Node: Acknowledgements111017
-Node: Meta113291
-Node: GNU Free Documentation License115288
-Node: Indices140640
-Node: Function index140819
-Node: Variable index142056
-Node: Concept index143978
+Node: Meta113321
+Node: GNU Free Documentation License115318
+Node: Indices140670
+Node: Function index140849
+Node: Variable index142086
+Node: Concept index144008
 
 End Tag Table
 
