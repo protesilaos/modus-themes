@@ -4419,7 +4419,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(gnus-server-opened ((,class :inherit bold :foreground ,green)))
     `(gnus-signature ((,class :inherit italic :foreground ,fg-special-cold)))
     `(gnus-splash ((,class :inherit shadow)))
-    `(gnus-summary-cancelled ((,class :inherit modus-themes-mark-alt)))
+    `(gnus-summary-cancelled ((,class :inherit modus-themes-mark-alt :extend t)))
     `(gnus-summary-high-ancient ((,class :inherit bold :foreground ,fg-alt)))
     `(gnus-summary-high-read ((,class :inherit bold :foreground ,fg-special-cold)))
     `(gnus-summary-high-ticked ((,class :inherit bold :foreground ,red-alt-other)))
@@ -4435,7 +4435,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(gnus-summary-normal-ticked ((,class :foreground ,red-alt-other)))
     `(gnus-summary-normal-undownloaded ((,class :foreground ,yellow)))
     `(gnus-summary-normal-unread ((,class :foreground ,fg-main)))
-    `(gnus-summary-selected ((,class :inherit modus-themes-subtle-blue)))
+    `(gnus-summary-selected ((,class :inherit modus-themes-subtle-blue :extend t)))
 ;;;;; golden-ratio-scroll-screen
     `(golden-ratio-scroll-highlight-line-face ((,class :background ,cyan-subtle-bg :foreground ,fg-main)))
 ;;;;; helm
