@@ -990,6 +990,9 @@ major-mode so that the colors are applied consistently throughout: use
 Or start typing in each code block (inefficient at scale, but it still
 works).
 
+The extent of Org block delimiter lines is controlled by the variable
+~org-fontify-whole-block-delimiter-line~.
+
 ** Option for org-habit graph styles
 :properties:
 :alt_title: Org agenda habits
@@ -1150,6 +1153,9 @@ A description of all other possible styles beyond the default:
   with a bold typographic weight.
 
 + ~no-color-no-bold~ is like ~no-color~ but without the bold weight.
+
+Remember to also inspect relevant variables that Org provides, such as:
+~org-fontify-whole-heading-line~ and ~org-fontify-done-headline~.
 
 ** Option for scaled headings
 :properties:
