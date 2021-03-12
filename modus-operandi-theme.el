@@ -52,6 +52,9 @@
 
 (eval-and-compile
   (unless (and (fboundp 'require-theme)
+               (when load-file-name
+                 (equal (file-name-directory load-file-name)
+                        (expand-file-name "themes/" data-directory)))
                (require-theme 'modus-themes t))
     (require 'modus-themes)))
 
