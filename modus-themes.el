@@ -5,6 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.2.3
+;; Last-Modified: <2021-03-17 18:34:45 +0200>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -6524,4 +6525,11 @@ by virtue of calling either of `modus-themes-load-operandi' and
       (add-to-list 'custom-theme-load-path dir))))
 
 (provide 'modus-themes)
+
+;; Local Variables:
+;; time-stamp-start: "Last-Modified:[ \t]+\\\\?[\"<]"
+;; time-stamp-end: "\\\\?[\">]"
+;; time-stamp-format: "%Y-%02m-%02d %02H:%02M:%02S %5z"
+;; End:
+
 ;;; modus-themes.el ends here
