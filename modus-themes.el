@@ -4618,8 +4618,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(hi-salmon ((,class :background ,red-subtle-bg :foreground ,fg-main)))
     `(hi-yellow ((,class :background ,yellow-subtle-bg :foreground ,fg-main)))
     `(highlight ((,class :inherit modus-themes-subtle-blue)))
-    `(highlight-changes ((,class :foreground ,yellow-alt-other)))
-    `(highlight-changes-delete ((,class :foreground ,red-alt-other :underline t)))
+    `(highlight-changes ((,class :foreground ,red-alt :underline nil)))
+    `(highlight-changes-delete ((,class :background ,red-nuanced-bg
+                                        :foreground ,red :underline t)))
     `(hl-line ((,class :inherit modus-themes-hl-line)))
 ;;;;; highlight-blocks
     `(highlight-blocks-depth-1-face ((,class :background ,bg-dim :foreground ,fg-main)))
