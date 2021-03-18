@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.2.3
-;; Last-Modified: <2021-03-17 18:34:45 +0200>
+;; Last-Modified: <2021-03-18 12:04:50 +0200>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -341,9 +341,10 @@
 ;;     swoop
 ;;     sx
 ;;     symbol-overlay
+;;     syslog-mode
+;;     tab-bar-groups
 ;;     tab-bar-mode
 ;;     tab-line-mode
-;;     syslog-mode
 ;;     table (built-in table.el)
 ;;     telephone-line
 ;;     terraform-mode
@@ -6070,6 +6071,23 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(syslog-ip ((,class :inherit bold :foreground ,fg-special-mild :underline t)))
     `(syslog-su ((,class :inherit bold :foreground ,red-alt)))
     `(syslog-warn ((,class :inherit bold :foreground ,yellow)))
+;;;;; tab-bar-groups
+    `(tab-bar-groups-1 ((,class ,@(modus-themes--variable-pitch-ui) :foreground ,blue-faint)))
+    `(tab-bar-groups-1-group-name ((,class :inherit tab-bar-groups-1 :inverse-video t)))
+    `(tab-bar-groups-2 ((,class ,@(modus-themes--variable-pitch-ui) :foreground ,red-faint)))
+    `(tab-bar-groups-2-group-name ((,class :inherit tab-bar-groups-2 :inverse-video t)))
+    `(tab-bar-groups-3 ((,class ,@(modus-themes--variable-pitch-ui) :foreground ,green-faint)))
+    `(tab-bar-groups-3-group-name ((,class :inherit tab-bar-groups-3 :inverse-video t)))
+    `(tab-bar-groups-4 ((,class ,@(modus-themes--variable-pitch-ui) :foreground ,red-alt-faint)))
+    `(tab-bar-groups-4-group-name ((,class :inherit tab-bar-groups-4 :inverse-video t)))
+    `(tab-bar-groups-5 ((,class ,@(modus-themes--variable-pitch-ui) :foreground ,magenta-alt-other-faint)))
+    `(tab-bar-groups-5-group-name ((,class :inherit tab-bar-groups-5 :inverse-video t)))
+    `(tab-bar-groups-6 ((,class ,@(modus-themes--variable-pitch-ui) :foreground ,cyan-alt-faint)))
+    `(tab-bar-groups-6-group-name ((,class :inherit tab-bar-groups-6 :inverse-video t)))
+    `(tab-bar-groups-7 ((,class ,@(modus-themes--variable-pitch-ui) :foreground ,yellow-alt-faint)))
+    `(tab-bar-groups-7-group-name ((,class :inherit tab-bar-groups-7 :inverse-video t)))
+    `(tab-bar-groups-8 ((,class ,@(modus-themes--variable-pitch-ui) :foreground ,magenta-alt-faint)))
+    `(tab-bar-groups-8-group-name ((,class :inherit tab-bar-groups-8 :inverse-video t)))
 ;;;;; tab-bar-mode
     `(tab-bar ((,class ,@(modus-themes--variable-pitch-ui)
                        :background ,bg-tab-bar :foreground ,fg-main)))
