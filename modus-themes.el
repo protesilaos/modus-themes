@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.2.3
-;; Last-Modified: <2021-03-18 12:04:50 +0200>
+;; Last-Modified: <2021-03-18 17:18:17 +0200>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -581,7 +581,7 @@
     ;; bg-tab-bar is only intended for the bar that holds the tabs and
     ;; can only be combined with fg-main
     ;;
-    ;; fg-tab-active is meant to be combined with bg-tab-active,
+    ;; fg-tab-accent is meant to be combined with bg-tab-active,
     ;; though only for styling special elements, such as underlining
     ;; the current tab
     ;;
@@ -614,7 +614,16 @@
     (bg-tab-active . "#f6f6f6")
     (bg-tab-inactive . "#bdbdbd")
     (bg-tab-inactive-alt . "#999999")
-    (fg-tab-active . "#30169e")
+    (fg-tab-accent . "#30169e")
+
+    (red-tab . "#680000")
+    (green-tab . "#003900")
+    (yellow-tab . "#393000")
+    (orange-tab . "#502300")
+    (blue-tab . "#000080")
+    (cyan-tab . "#052f60")
+    (magenta-tab . "#5f004d")
+    (purple-tab . "#400487")
 
     (fg-escape-char-construct . "#8b1030")
     (fg-escape-char-backslash . "#654d0f")
@@ -824,7 +833,7 @@ symbol and the latter as a string.")
     ;; bg-tab-bar is only intended for the bar that holds the tabs and
     ;; can only be combined with fg-main
     ;;
-    ;; fg-tab-active is meant to be combined with bg-tab-active,
+    ;; fg-tab-accent is meant to be combined with bg-tab-active,
     ;; though only for styling special elements, such as underlining
     ;; the current tab
     ;;
@@ -857,8 +866,17 @@ symbol and the latter as a string.")
     (bg-tab-active . "#0e0e0e")
     (bg-tab-inactive . "#3d3d3d")
     (bg-tab-inactive-alt . "#595959")
-    (fg-tab-active . "#5ac3cf")
+    (fg-tab-accent . "#5ac3cf")
 
+    (red-tab . "#ffc0bf")
+    (green-tab . "#88ef88")
+    (yellow-tab . "#d2e580")
+    (orange-tab . "#f5ca80")
+    (blue-tab . "#92d9ff")
+    (cyan-tab . "#60e7e0")
+    (magenta-tab . "#ffb8ff")
+    (purple-tab . "#cfcaff")
+    
     (fg-escape-char-construct . "#e7a59a")
     (fg-escape-char-backslash . "#abab00")
 
@@ -3450,7 +3468,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(cfw:face-toolbar-button-on ((,class :inherit bold :background ,blue-nuanced-bg
                                           :foreground ,blue-alt)))
 ;;;;; centaur-tabs
-    `(centaur-tabs-active-bar-face ((,class :background ,fg-tab-active)))
+    `(centaur-tabs-active-bar-face ((,class :background ,fg-tab-accent)))
     `(centaur-tabs-close-mouse-face ((,class :inherit bold :foreground ,red-active :underline t)))
     `(centaur-tabs-close-selected ((,class :inherit centaur-tabs-selected)))
     `(centaur-tabs-close-unselected ((,class :inherit centaur-tabs-unselected)))
@@ -6072,21 +6090,21 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(syslog-su ((,class :inherit bold :foreground ,red-alt)))
     `(syslog-warn ((,class :inherit bold :foreground ,yellow)))
 ;;;;; tab-bar-groups
-    `(tab-bar-groups-1 ((,class ,@(modus-themes--variable-pitch-ui) :foreground ,blue-faint)))
+    `(tab-bar-groups-1 ((,class ,@(modus-themes--variable-pitch-ui) :foreground ,blue-tab)))
     `(tab-bar-groups-1-group-name ((,class :inherit tab-bar-groups-1 :inverse-video t)))
-    `(tab-bar-groups-2 ((,class ,@(modus-themes--variable-pitch-ui) :foreground ,red-faint)))
+    `(tab-bar-groups-2 ((,class ,@(modus-themes--variable-pitch-ui) :foreground ,red-tab)))
     `(tab-bar-groups-2-group-name ((,class :inherit tab-bar-groups-2 :inverse-video t)))
-    `(tab-bar-groups-3 ((,class ,@(modus-themes--variable-pitch-ui) :foreground ,green-faint)))
+    `(tab-bar-groups-3 ((,class ,@(modus-themes--variable-pitch-ui) :foreground ,green-tab)))
     `(tab-bar-groups-3-group-name ((,class :inherit tab-bar-groups-3 :inverse-video t)))
-    `(tab-bar-groups-4 ((,class ,@(modus-themes--variable-pitch-ui) :foreground ,red-alt-faint)))
+    `(tab-bar-groups-4 ((,class ,@(modus-themes--variable-pitch-ui) :foreground ,orange-tab)))
     `(tab-bar-groups-4-group-name ((,class :inherit tab-bar-groups-4 :inverse-video t)))
-    `(tab-bar-groups-5 ((,class ,@(modus-themes--variable-pitch-ui) :foreground ,magenta-alt-other-faint)))
+    `(tab-bar-groups-5 ((,class ,@(modus-themes--variable-pitch-ui) :foreground ,purple-tab)))
     `(tab-bar-groups-5-group-name ((,class :inherit tab-bar-groups-5 :inverse-video t)))
-    `(tab-bar-groups-6 ((,class ,@(modus-themes--variable-pitch-ui) :foreground ,cyan-alt-faint)))
+    `(tab-bar-groups-6 ((,class ,@(modus-themes--variable-pitch-ui) :foreground ,cyan-tab)))
     `(tab-bar-groups-6-group-name ((,class :inherit tab-bar-groups-6 :inverse-video t)))
-    `(tab-bar-groups-7 ((,class ,@(modus-themes--variable-pitch-ui) :foreground ,yellow-alt-faint)))
+    `(tab-bar-groups-7 ((,class ,@(modus-themes--variable-pitch-ui) :foreground ,yellow-tab)))
     `(tab-bar-groups-7-group-name ((,class :inherit tab-bar-groups-7 :inverse-video t)))
-    `(tab-bar-groups-8 ((,class ,@(modus-themes--variable-pitch-ui) :foreground ,magenta-alt-faint)))
+    `(tab-bar-groups-8 ((,class ,@(modus-themes--variable-pitch-ui) :foreground ,magenta-tab)))
     `(tab-bar-groups-8-group-name ((,class :inherit tab-bar-groups-8 :inverse-video t)))
 ;;;;; tab-bar-mode
     `(tab-bar ((,class ,@(modus-themes--variable-pitch-ui)
