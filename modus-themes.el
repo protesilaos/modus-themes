@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.2.3
-;; Last-Modified: <2021-03-19 07:42:09 +0200>
+;; Last-Modified: <2021-03-21 10:42:23 +0200>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -5883,6 +5883,10 @@ by virtue of calling either of `modus-themes-load-operandi' and
                ,@(modus-themes--standard-completions
                   cyan-alt-other cyan-nuanced-bg
                   cyan-refine-bg cyan-refine-fg))))
+    `(selectrum-quick-keys-highlight
+      ((,class :inherit modus-themes-refine-red)))
+    `(selectrum-quick-keys-match
+      ((,class :inherit (bold modus-themes-intense-green))))
 ;;;;; selectrum-prescient
     `(selectrum-prescient-primary-highlight
       ((,class :inherit bold
