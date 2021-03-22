@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.2.3
-;; Last-Modified: <2021-03-21 10:42:23 +0200>
+;; Last-Modified: <2021-03-22 09:42:17 +0200>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -3962,10 +3962,10 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(ediff-fine-diff-Ancestor ((,class :inherit modus-themes-refine-cyan)))
     `(ediff-fine-diff-B ((,class :inherit modus-themes-diff-refine-added)))
     `(ediff-fine-diff-C ((,class :inherit modus-themes-diff-refine-changed)))
-    `(ediff-odd-diff-A ((,class :background ,bg-inactive :foreground ,fg-inactive)))
-    `(ediff-odd-diff-Ancestor ((,class :background ,bg-inactive :foreground ,fg-inactive)))
-    `(ediff-odd-diff-B ((,class :background ,bg-inactive :foreground ,fg-inactive)))
-    `(ediff-odd-diff-C ((,class :background ,bg-inactive :foreground ,fg-inactive)))
+    `(ediff-odd-diff-A ((,class :inherit ediff-even-diff-A)))
+    `(ediff-odd-diff-Ancestor ((,class :inherit ediff-even-diff-Ancestor)))
+    `(ediff-odd-diff-B ((,class :inherit ediff-even-diff-B)))
+    `(ediff-odd-diff-C ((,class :inherit ediff-even-diff-C)))
 ;;;;; eglot
     `(eglot-mode-line ((,class :inherit modus-themes-bold :foreground ,magenta-active)))
 ;;;;; el-search
