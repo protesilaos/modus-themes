@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.2.3
-;; Last-Modified: <2021-03-22 10:38:59 +0200>
+;; Last-Modified: <2021-03-22 19:23:05 +0200>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -346,6 +346,7 @@
 ;;     tab-bar-mode
 ;;     tab-line-mode
 ;;     table (built-in table.el)
+;;     telega
 ;;     telephone-line
 ;;     terraform-mode
 ;;     term
@@ -6132,6 +6133,29 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                                :background ,bg-tab-inactive-alt :foreground ,fg-main)))
 ;;;;; table (built-in table.el)
     `(table-cell ((,class :background ,blue-nuanced-bg)))
+;;;;; telega
+    ;; TODO 2021-03-22: Some aspects of `telega' are not fully
+    ;; supported or have not been tested thoroughly.  Please understand
+    ;; that I do not use that service.  Help is appreciated.
+    `(telega-button ((,class :box t :foreground ,blue)))
+    `(telega-button-active ((,class :box ,blue-intense-bg :background ,blue-intense-bg :foreground ,fg-main)))
+    `(telega-button-highlight ((,class :inherit modus-themes-subtle-magenta)))
+    `(telega-chat-prompt ((,class :inherit bold)))
+    `(telega-entity-type-code ((,class :inherit fixed-pitch)))
+    `(telega-entity-type-mention ((,class :foreground ,cyan)))
+    `(telega-entity-type-pre ((,class :inherit fixed-pitch)))
+    `(telega-msg-heading ((,class :background ,bg-dim)))
+    `(telega-msg-self-title ((,class :inherit bold)))
+    `(telega-root-heading ((,class :inherit modus-themes-subtle-neutral)))
+    `(telega-secret-title ((,class :foreground ,magenta-alt)))
+    `(telega-unmuted-count ((,class :foreground ,blue-alt-other)))
+    `(telega-user-online-status ((,class :foreground ,cyan-active)))
+    `(telega-username ((,class :foreground ,cyan-alt-other)))
+    `(telega-webpage-chat-link ((,class :background ,bg-alt)))
+    `(telega-webpage-fixed ((,class :inherit fixed-pitch :height 0.85)))
+    `(telega-webpage-header ((,class :inherit modus-themes-variable-pitch :height 1.3)))
+    `(telega-webpage-preformatted ((,class :inherit fixed-pitch :background ,bg-alt)))
+    `(telega-webpage-subheader ((,class :inherit modus-themes-variable-pitch :height 1.15)))
 ;;;;; telephone-line
     `(telephone-line-accent-active ((,class :background ,fg-inactive :foreground ,bg-inactive)))
     `(telephone-line-accent-inactive ((,class :background ,bg-active :foreground ,fg-active)))
