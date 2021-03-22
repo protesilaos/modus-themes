@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.2.3
-;; Last-Modified: <2021-03-22 09:42:17 +0200>
+;; Last-Modified: <2021-03-22 10:38:59 +0200>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -3949,15 +3949,15 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; ediff
     `(ediff-current-diff-A ((,class :inherit modus-themes-diff-removed)))
     `(ediff-current-diff-Ancestor ((,class ,@(modus-themes--diff
-                                              bg-inactive fg-special-cold
+                                              bg-alt fg-special-cold
                                               bg-special-cold fg-special-cold
                                               blue-nuanced-bg blue))))
     `(ediff-current-diff-B ((,class :inherit modus-themes-diff-added)))
     `(ediff-current-diff-C ((,class :inherit modus-themes-diff-changed)))
-    `(ediff-even-diff-A ((,class :background ,bg-inactive :foreground ,fg-inactive)))
-    `(ediff-even-diff-Ancestor ((,class :background ,bg-inactive :foreground ,fg-inactive)))
-    `(ediff-even-diff-B ((,class :background ,bg-inactive :foreground ,fg-inactive)))
-    `(ediff-even-diff-C ((,class :background ,bg-inactive :foreground ,fg-inactive)))
+    `(ediff-even-diff-A ((,class :background ,bg-alt)))
+    `(ediff-even-diff-Ancestor ((,class :background ,bg-alt)))
+    `(ediff-even-diff-B ((,class :background ,bg-alt)))
+    `(ediff-even-diff-C ((,class :background ,bg-alt)))
     `(ediff-fine-diff-A ((,class :inherit modus-themes-diff-refine-removed)))
     `(ediff-fine-diff-Ancestor ((,class :inherit modus-themes-refine-cyan)))
     `(ediff-fine-diff-B ((,class :inherit modus-themes-diff-refine-added)))
