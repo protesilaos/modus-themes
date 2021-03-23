@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.2.3
-;; Last-Modified: <2021-03-23 15:09:14 +0200>
+;; Last-Modified: <2021-03-23 21:09:45 +0200>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -3374,12 +3374,12 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; auto-dim-other-buffers
     `(auto-dim-other-buffers-face ((,class :background ,bg-alt)))
 ;;;;; avy
-    `(avy-background-face ((,class :background ,bg-dim :foreground ,fg-dim)))
-    `(avy-goto-char-timer-face ((,class :inherit (modus-themes-intense-yellow bold))))
-    `(avy-lead-face ((,class :inherit (modus-themes-intense-magenta bold))))
-    `(avy-lead-face-0 ((,class :inherit (modus-themes-intense-blue bold))))
-    `(avy-lead-face-1 ((,class :inherit (modus-themes-intense-red bold))))
-    `(avy-lead-face-2 ((,class :inherit (modus-themes-intense-green bold))))
+    `(avy-background-face ((,class :background ,bg-dim :foreground ,fg-dim :extend t)))
+    `(avy-goto-char-timer-face ((,class :inherit (modus-themes-intense-yellow bold modus-themes-reset))))
+    `(avy-lead-face ((,class :inherit (modus-themes-intense-magenta bold modus-themes-reset))))
+    `(avy-lead-face-0 ((,class :inherit (modus-themes-refine-cyan bold modus-themes-reset))))
+    `(avy-lead-face-1 ((,class :inherit (modus-themes-intense-neutral bold modus-themes-reset))))
+    `(avy-lead-face-2 ((,class :inherit (modus-themes-refine-red bold modus-themes-reset))))
 ;;;;; aw (ace-window)
     `(aw-background-face ((,class :foreground ,fg-unfocused)))
     `(aw-key-face ((,class :inherit modus-themes-key-binding)))
