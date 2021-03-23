@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.2.3
-;; Last-Modified: <2021-03-22 19:52:51 +0200>
+;; Last-Modified: <2021-03-23 15:09:14 +0200>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -4177,8 +4177,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; evil-visual-mark-mode
     `(evil-visual-mark-face ((,class :inherit modus-themes-intense-magenta)))
 ;;;;; eww
-    `(eww-invalid-certificate ((,class :foreground ,red-active)))
-    `(eww-valid-certificate ((,class :foreground ,green-active)))
+    `(eww-invalid-certificate ((,class :foreground ,red-faint)))
+    `(eww-valid-certificate ((,class :foreground ,blue-faint)))
     `(eww-form-checkbox ((,class :box (:line-width 1 :color ,fg-inactive :style released-button) :background ,bg-inactive :foreground ,fg-main)))
     `(eww-form-file ((,class :box (:line-width 1 :color ,fg-inactive :style released-button) :background ,bg-active :foreground ,fg-main)))
     `(eww-form-select ((,class :inherit eww-form-checkbox)))
