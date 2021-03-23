@@ -6,8 +6,13 @@ Copyright (C) 2020-2021 Free Software Foundation, Inc.
      Permission is granted to copy, distribute and/or modify this
      document under the terms of the GNU Free Documentation License,
      Version 1.3 or any later version published by the Free Software
-     Foundation; with no Invariant Sections, with no Front-Cover Texts,
-     and with no Back-Cover Texts.
+     Foundation; with no Invariant Sections, with the Front-Cover Texts
+     being “A GNU Manual,” and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     “GNU Free Documentation License.”
+
+     (a) The FSF’s Back-Cover Text is: “You have the freedom to copy and
+     modify this GNU manual.”
 
 INFO-DIR-SECTION Emacs misc features
 START-INFO-DIR-ENTRY
@@ -25,8 +30,13 @@ Copyright (C) 2020-2021 Free Software Foundation, Inc.
      Permission is granted to copy, distribute and/or modify this
      document under the terms of the GNU Free Documentation License,
      Version 1.3 or any later version published by the Free Software
-     Foundation; with no Invariant Sections, with no Front-Cover Texts,
-     and with no Back-Cover Texts.
+     Foundation; with no Invariant Sections, with the Front-Cover Texts
+     being “A GNU Manual,” and with the Back-Cover Texts as in (a)
+     below.  A copy of the license is included in the section entitled
+     “GNU Free Documentation License.”
+
+     (a) The FSF’s Back-Cover Text is: “You have the freedom to copy and
+     modify this GNU manual.”
 
    This manual, written by Protesilaos Stavrou, describes the
 customization options for the ‘modus-operandi’ and ‘modus-vivendi’
@@ -38,7 +48,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.3.0-dev.  This manual was built on
-2021-03-22 19:54 +0200.
+2021-03-23 10:16 +0200.
 
 * Menu:
 
@@ -3608,82 +3618,82 @@ B.3 Concept index
 
 
 Tag Table:
-Node: Top600
-Node: Overview5285
-Node: How do the themes look like6551
-Node: Learn about the latest changes7059
-Node: Installation7441
-Node: Install manually from source7922
-Node: Install from the archives8747
-Node: Install on GNU/Linux9524
-Node: Debian 11 Bullseye9972
-Node: GNU Guix10282
-Node: Enable and load10565
-Node: Sample configuration for use-package13313
-Node: Differences between loading and enabling14638
-Node: Customization Options16678
-Node: Bold constructs18843
-Node: Slanted constructs19432
-Node: Syntax styles19979
-Node: No mixed fonts21617
-Node: Link styles22714
-Node: Command prompts24288
-Node: Mode line25487
-Node: Completion UIs28678
-Node: Fringes30510
-Node: Language checkers31170
-Node: Line highlighting33119
-Node: Line numbers34720
-Node: Matching parentheses35798
-Node: Active region36688
-Node: Diffs37624
-Node: Org mode blocks40171
-Node: Org agenda habits41649
-Node: Heading styles43484
-Node: Scaled headings47586
-Node: Scaled heading sizes48189
-Node: UI typeface51323
-Node: Headings' typeface52169
-Node: Advanced customization (do-it-yourself)52793
-Node: Per-theme customization settings (DIY)53951
-Node: Case-by-case face specs using the themes' palette (DIY)55297
-Node: Face specs at scale using the themes' palette (DIY)59761
-Node: Override colors (DIY)64566
-Node: Font configurations for Org and others (DIY)69358
-Ref: Font configurations for Org and others (DIY)-Footnote-171681
-Node: Custom Org user faces (DIY)71868
-Node: Measure color contrast (DIY)75222
-Node: Load theme depending on time of day77989
-Node: A theme-agnostic hook for theme loading (DIY)79026
-Node: Face coverage81421
-Node: Supported packages81891
-Node: Indirectly covered packages88619
-Node: Notes for individual packages89102
-Node: Note for dimmerel89810
-Node: Note for display-fill-column-indicator-mode91256
-Node: Note for mmm-modeel background colors92883
-Node: Note for prism95267
-Node: Note on company-mode overlay pop-up98515
-Ref: Note on company-mode overlay pop-up-Footnote-199202
-Ref: Note on company-mode overlay pop-up-Footnote-299269
-Node: Note for ERC escaped color sequences99324
-Ref: Note for ERC escaped color sequences-Footnote-1100755
-Node: Note for powerline or spaceline100865
-Node: Note on SHR colors101281
-Node: Note for Helm grep101694
-Node: Note on vc-annotate-background-mode103161
-Node: Note on pdf-tools link hints104048
-Node: Contributing106481
-Node: Sources of the themes106881
-Node: Issues you can help with107619
-Node: Patches require copyright assignment to the FSF108819
-Node: Acknowledgements111114
-Node: Meta113455
-Node: GNU Free Documentation License115452
-Node: Indices140804
-Node: Function index140983
-Node: Variable index142220
-Node: Concept index144142
+Node: Top860
+Node: Overview5805
+Node: How do the themes look like7071
+Node: Learn about the latest changes7579
+Node: Installation7961
+Node: Install manually from source8442
+Node: Install from the archives9267
+Node: Install on GNU/Linux10044
+Node: Debian 11 Bullseye10492
+Node: GNU Guix10802
+Node: Enable and load11085
+Node: Sample configuration for use-package13833
+Node: Differences between loading and enabling15158
+Node: Customization Options17198
+Node: Bold constructs19363
+Node: Slanted constructs19952
+Node: Syntax styles20499
+Node: No mixed fonts22137
+Node: Link styles23234
+Node: Command prompts24808
+Node: Mode line26007
+Node: Completion UIs29198
+Node: Fringes31030
+Node: Language checkers31690
+Node: Line highlighting33639
+Node: Line numbers35240
+Node: Matching parentheses36318
+Node: Active region37208
+Node: Diffs38144
+Node: Org mode blocks40691
+Node: Org agenda habits42169
+Node: Heading styles44004
+Node: Scaled headings48106
+Node: Scaled heading sizes48709
+Node: UI typeface51843
+Node: Headings' typeface52689
+Node: Advanced customization (do-it-yourself)53313
+Node: Per-theme customization settings (DIY)54471
+Node: Case-by-case face specs using the themes' palette (DIY)55817
+Node: Face specs at scale using the themes' palette (DIY)60281
+Node: Override colors (DIY)65086
+Node: Font configurations for Org and others (DIY)69878
+Ref: Font configurations for Org and others (DIY)-Footnote-172201
+Node: Custom Org user faces (DIY)72388
+Node: Measure color contrast (DIY)75742
+Node: Load theme depending on time of day78509
+Node: A theme-agnostic hook for theme loading (DIY)79546
+Node: Face coverage81941
+Node: Supported packages82411
+Node: Indirectly covered packages89139
+Node: Notes for individual packages89622
+Node: Note for dimmerel90330
+Node: Note for display-fill-column-indicator-mode91776
+Node: Note for mmm-modeel background colors93403
+Node: Note for prism95787
+Node: Note on company-mode overlay pop-up99035
+Ref: Note on company-mode overlay pop-up-Footnote-199722
+Ref: Note on company-mode overlay pop-up-Footnote-299789
+Node: Note for ERC escaped color sequences99844
+Ref: Note for ERC escaped color sequences-Footnote-1101275
+Node: Note for powerline or spaceline101385
+Node: Note on SHR colors101801
+Node: Note for Helm grep102214
+Node: Note on vc-annotate-background-mode103681
+Node: Note on pdf-tools link hints104568
+Node: Contributing107001
+Node: Sources of the themes107401
+Node: Issues you can help with108139
+Node: Patches require copyright assignment to the FSF109339
+Node: Acknowledgements111634
+Node: Meta113975
+Node: GNU Free Documentation License115972
+Node: Indices141324
+Node: Function index141503
+Node: Variable index142740
+Node: Concept index144662
 
 End Tag Table
 
