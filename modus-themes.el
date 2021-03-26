@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.2.3
-;; Last-Modified: <2021-03-25 22:20:53 +0200>
+;; Last-Modified: <2021-03-26 12:55:53 +0200>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -5932,7 +5932,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
       ((,(append '((supports :underline (:style wave))) class)
         :foreground ,fg-docstring :underline (:color ,fg-alt :style wave))
        (,class :foreground ,fg-docstring :underline t)))
-    `(shr-selected-link ((,class :inherit modus-themes-subtle-cyan)))
+    `(shr-selected-link ((,class :inherit modus-themes-subtle-red)))
 ;;;;; side-notes
     `(side-notes ((,class :background ,bg-dim :foreground ,fg-dim)))
 ;;;;; sieve-mode
