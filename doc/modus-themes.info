@@ -48,7 +48,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.3.0-dev.  This manual was built on
-2021-03-23 10:16 +0200.
+2021-03-26 21:15 +0200.
 
 * Menu:
 
@@ -2271,6 +2271,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • outline-minor-faces
    • package (what you get with ‘M-x list-packages’)
    • page-break-lines
+   • pandoc-mode
    • paradox
    • paren-face
    • parrot
@@ -2949,10 +2950,10 @@ Ideas and user feedback
      Alexandre Gomes, Arif Rezai, Basil L. Contovounesios, Burgess
      Chang, Christian Tietze, Christopher Dimech, Damien Cassou, Daniel
      Mendler, Dario Gjorgjevski, David Edmondson, Davor Rotim, Divan
-     Santana, Emanuele Michele Alberto Monterosso, Gerry Agbobada,
-     Gianluca Recchia, Gustavo Barros, Hörmetjan Yiltiz, Ilja Kocken,
-     Iris Garcia, Jeremy Friesen, John Haman, Joshua O’Connor, Kevin
-     Fleming, Kévin Le Gouguec, Kostadin Ninev, Len Trigg, Manuel
+     Santana, Emanuele Michele Alberto Monterosso, Farasha Euker, Gerry
+     Agbobada, Gianluca Recchia, Gustavo Barros, Hörmetjan Yiltiz, Ilja
+     Kocken, Iris Garcia, Jeremy Friesen, John Haman, Joshua O’Connor,
+     Kevin Fleming, Kévin Le Gouguec, Kostadin Ninev, Len Trigg, Manuel
      Uberti, Mark Burton, Markus Beppler, Mauro Aranda, Michael
      Goldenberg, Morgan Smith, Murilo Pereira, Nicky van Foreest,
      Nicolas De Jaeghere, Paul Poloskov, Pete Kazmier, Peter Wu, Philip
@@ -3667,33 +3668,33 @@ Node: Load theme depending on time of day78509
 Node: A theme-agnostic hook for theme loading (DIY)79546
 Node: Face coverage81941
 Node: Supported packages82411
-Node: Indirectly covered packages89139
-Node: Notes for individual packages89622
-Node: Note for dimmerel90330
-Node: Note for display-fill-column-indicator-mode91776
-Node: Note for mmm-modeel background colors93403
-Node: Note for prism95787
-Node: Note on company-mode overlay pop-up99035
-Ref: Note on company-mode overlay pop-up-Footnote-199722
-Ref: Note on company-mode overlay pop-up-Footnote-299789
-Node: Note for ERC escaped color sequences99844
-Ref: Note for ERC escaped color sequences-Footnote-1101275
-Node: Note for powerline or spaceline101385
-Node: Note on SHR colors101801
-Node: Note for Helm grep102214
-Node: Note on vc-annotate-background-mode103681
-Node: Note on pdf-tools link hints104568
-Node: Contributing107001
-Node: Sources of the themes107401
-Node: Issues you can help with108139
-Node: Patches require copyright assignment to the FSF109339
-Node: Acknowledgements111634
-Node: Meta113975
-Node: GNU Free Documentation License115972
-Node: Indices141324
-Node: Function index141503
-Node: Variable index142740
-Node: Concept index144662
+Node: Indirectly covered packages89158
+Node: Notes for individual packages89641
+Node: Note for dimmerel90349
+Node: Note for display-fill-column-indicator-mode91795
+Node: Note for mmm-modeel background colors93422
+Node: Note for prism95806
+Node: Note on company-mode overlay pop-up99054
+Ref: Note on company-mode overlay pop-up-Footnote-199741
+Ref: Note on company-mode overlay pop-up-Footnote-299808
+Node: Note for ERC escaped color sequences99863
+Ref: Note for ERC escaped color sequences-Footnote-1101294
+Node: Note for powerline or spaceline101404
+Node: Note on SHR colors101820
+Node: Note for Helm grep102233
+Node: Note on vc-annotate-background-mode103700
+Node: Note on pdf-tools link hints104587
+Node: Contributing107020
+Node: Sources of the themes107420
+Node: Issues you can help with108158
+Node: Patches require copyright assignment to the FSF109358
+Node: Acknowledgements111653
+Node: Meta114009
+Node: GNU Free Documentation License116006
+Node: Indices141358
+Node: Function index141537
+Node: Variable index142774
+Node: Concept index144696
 
 End Tag Table
 

@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.2.3
-;; Last-Modified: <2021-03-26 12:55:53 +0200>
+;; Last-Modified: <2021-03-26 21:13:24 +0200>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -286,6 +286,7 @@
 ;;     outline-minor-faces
 ;;     package (M-x list-packages)
 ;;     page-break-lines
+;;     pandoc-mode
 ;;     paradox
 ;;     paren-face
 ;;     parrot
@@ -5637,6 +5638,12 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(package-status-unsigned ((,class :inherit bold :foreground ,red-alt)))
 ;;;;; page-break-lines
     `(page-break-lines ((,class :inherit default :foreground ,fg-window-divider-outer)))
+;;;;; pandoc-mode
+    `(pandoc-citation-key-face ((,class :background ,bg-dim :foreground ,magenta-alt)))
+    `(pandoc-directive-@@-face ((,class :background ,bg-dim  :foreground ,blue-alt-other)))
+    `(pandoc-directive-braces-face ((,class :foreground ,blue-alt-other)))
+    `(pandoc-directive-contents-face ((,class :foreground ,cyan-alt-other)))
+    `(pandoc-directive-type-face ((,class :foreground ,magenta)))
 ;;;;; paradox
     `(paradox-archive-face ((,class :foreground ,fg-special-mild)))
     `(paradox-comment-face ((,class :inherit font-lock-comment-face)))
