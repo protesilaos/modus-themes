@@ -3196,7 +3196,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(modus-themes-key-binding ((,class :inherit bold :foreground ,blue-alt-other)))
     `(modus-themes-slant ((,class :inherit italic :slant ,@(modus-themes--slant))))
     `(modus-themes-variable-pitch ((,class ,@(modus-themes--variable-pitch))))
-    `(modus-themes-reset ((,class :inherit default :background nil :weight normal :slant normal
+    `(modus-themes-reset ((,class :inherit fixed-pitch :background nil :weight normal :slant normal
                                   :strike-through nil :box nil :underline nil :overline nil :extend nil)))
 ;;;; standard faces
 ;;;;; absolute essentials
