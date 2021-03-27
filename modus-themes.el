@@ -3416,7 +3416,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(bm-fringe-persistent-face ((,class :inherit modus-themes-fringe-blue)))
     `(bm-persistent-face ((,class :inherit modus-themes-intense-blue :extend t)))
 ;;;;; bongo
-    `(bongo-album-title ((,class :foreground ,yellow-active)))
+    `(bongo-album-title ((,class :foreground ,fg-active)))
     `(bongo-artist ((,class :foreground ,magenta-active)))
     `(bongo-currently-playing-track ((,class :inherit bold)))
     `(bongo-elapsed-track-part ((,class :inherit modus-themes-subtle-magenta :underline t)))
@@ -3424,8 +3424,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(bongo-marked-track ((,class :foreground ,fg-mark-alt)))
     `(bongo-marked-track-line ((,class :background ,bg-mark-alt)))
     `(bongo-played-track ((,class :foreground ,fg-unfocused :strike-through t)))
-    `(bongo-track-length ((,class :foreground ,fg-active)))
-    `(bongo-track-title ((,class :foreground ,cyan-active)))
+    `(bongo-track-length ((,class :foreground ,fg-alt)))
+    `(bongo-track-title ((,class :foreground ,blue-active)))
     `(bongo-unfilled-seek-bar ((,class :background ,bg-special-cold :foreground ,fg-main)))
 ;;;;; boon
     `(boon-modeline-cmd ((,class :inherit modus-themes-active-blue)))
