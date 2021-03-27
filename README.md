@@ -19,7 +19,8 @@ also distributed in several packages formats.
   :init
   ;; Add all your customizations prior to loading the themes
   (setq modus-themes-slanted-constructs t
-        modus-themes-bold-constructs nil)
+        modus-themes-bold-constructs nil
+        modus-themes-region 'no-extend)
 
   ;; Load the theme files before enabling a theme
   (modus-themes-load-themes)
