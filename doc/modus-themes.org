@@ -883,6 +883,8 @@ Possible values:
 2. ~no-extend~
 3. ~bg-only~
 4. ~bg-only-no-extend~
+5. ~accent~ (part of {{{development-version}}})
+6. ~accent-no-extend~ (part of {{{development-version}}})
 
 Nil means to only use a prominent gray background with a neutral
 foreground.  The foreground overrides all syntax highlighting.  The
@@ -897,6 +899,11 @@ colors.  It extends to the edge of the window.
 
 Option ~bg-only-no-extend~ is a combination of the ~bg-only~ and ~no-extend~
 options.
+
+Option ~accent~ is like the default, though it uses a more colorful
+background, while ~accent-no-extend~ is the same except it draws the
+region only up to the end of each line instead of extending to the edge
+of the window.
 
 ** Option for diff buffer looks
 :properties:

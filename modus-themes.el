@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.2.3
-;; Last-Modified: <2021-03-26 21:13:24 +0200>
+;; Last-Modified: <2021-03-28 08:25:41 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -575,9 +575,9 @@
     ;; can be combined with any of the "active" values, plus the
     ;; "special" and base foreground colors
     ;;
-    ;; bg-paren-match, bg-paren-match-intense, bg-region and
-    ;; bg-tab-active must be combined with fg-main, while
-    ;; bg-tab-inactive should be combined with fg-dim, whereas
+    ;; bg-paren-match, bg-paren-match-intense, bg-region,
+    ;; bg-region-accent and bg-tab-active must be combined with fg-main,
+    ;; while bg-tab-inactive should be combined with fg-dim, whereas
     ;; bg-tab-inactive-alt goes together with fg-main
     ;;
     ;; bg-tab-bar is only intended for the bar that holds the tabs and
@@ -611,6 +611,7 @@
     (bg-paren-match . "#e0af82")
     (bg-paren-match-intense . "#c488ff")
     (bg-region . "#bcbcbc")
+    (bg-region-accent . "#af9fdf")
 
     (bg-tab-bar . "#d5d5d5")
     (bg-tab-active . "#f6f6f6")
@@ -827,9 +828,9 @@ symbol and the latter as a string.")
     ;; can be combined with any of the "active" values, plus the
     ;; "special" and base foreground colors
     ;;
-    ;; bg-paren-match, bg-paren-match-intense, bg-region and
-    ;; bg-tab-active must be combined with fg-main, while
-    ;; bg-tab-inactive should be combined with fg-dim, whereas
+    ;; bg-paren-match, bg-paren-match-intense, bg-region,
+    ;; bg-region-accent and bg-tab-active must be combined with fg-main,
+    ;; while bg-tab-inactive should be combined with fg-dim, whereas
     ;; bg-tab-inactive-alt goes together with fg-main
     ;;
     ;; bg-tab-bar is only intended for the bar that holds the tabs and
@@ -863,6 +864,7 @@ symbol and the latter as a string.")
     (bg-paren-match . "#5f362f")
     (bg-paren-match-intense . "#7416b5")
     (bg-region . "#3c3c3c")
+    (bg-region-accent . "#4f3d88")
 
     (bg-tab-bar . "#2c2c2c")
     (bg-tab-active . "#0e0e0e")
@@ -2293,15 +2295,24 @@ override any existing colors.  It extends to the edge of the
 window.
 
 Option `bg-only-no-extend' is a combination of the `bg-only' and
-`no-extend' options."
+`no-extend' options.
+
+Option `accent' uses a more colorful background with a neutral
+foreground.  It overrides all syntax highlighting and extends to
+the edge of the window.
+
+Option `accent-no-extend' is like the above, but stretches only
+to the end of each line within the region."
   :group 'modus-themes
-  :package-version '(modus-themes . "1.0.0")
+  :package-version '(modus-themes . "1.3.0")
   :version "28.1"
   :type '(choice
           (const :format "[%v] %t\n" :tag "Intense background; overrides colors; extends to edge of window (default)" nil)
           (const :format "[%v] %t\n" :tag "As with the default, but does not extend" no-extend)
           (const :format "[%v] %t\n" :tag "Subtle background; preserves colors; extends to edge of window" bg-only)
-          (const :format "[%v] %t\n" :tag "As with the `subtle' option, but does not extend" bg-only-no-extend))
+          (const :format "[%v] %t\n" :tag "As with the `subtle' option, but does not extend" bg-only-no-extend)
+          (const :format "[%v] %t\n" :tag "Like the default, but with an accented background" accent)
+          (const :format "[%v] %t\n" :tag "As with the `accent' option, but does not extend" accent-no-extend))
   :link '(info-link "(modus-themes) Active region"))
 
 
@@ -2832,16 +2843,19 @@ AMOUNT is a customization option."
   (when modus-themes-scale-headings
     (list :height amount)))
 
-(defun modus-themes--region (bg fg bgsubtle)
+(defun modus-themes--region (bg fg bgsubtle bgaccent)
   "Apply `modus-themes-region' styles.
 
 BG and FG are the main values that are used by default.  BGSUBTLE
 is a subtle background value that can be combined with all colors
-used to fontify text and code syntax."
+used to fontify text and code syntax.  BGACCENT is a colored
+background that combines well with FG."
   (pcase modus-themes-region
     ('bg-only (list :background bgsubtle))
     ('bg-only-no-extend (list :background bgsubtle :extend nil))
     ('no-extend (list :background bg :foreground fg :extend nil))
+    ('accent (list :background bgaccent :foreground fg))
+    ('accent-no-extend (list :background bgaccent :foreground fg :extend nil))
     (_ (list :background bg :foreground fg))))
 
 (defun modus-themes--hl-line (bgdefault bgintense bgaccent lineneutral lineaccent)
@@ -3237,7 +3251,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(mm-uu-extract ((,class :background ,bg-dim :foreground ,fg-special-mild)))
     `(next-error ((,class :inherit modus-themes-subtle-red)))
     `(rectangle-preview ((,class :inherit modus-themes-special-mild)))
-    `(region ((,class ,@(modus-themes--region bg-region fg-main bg-hl-alt-intense))))
+    `(region ((,class ,@(modus-themes--region bg-region fg-main bg-hl-alt-intense bg-region-accent))))
     `(secondary-selection ((,class :inherit modus-themes-special-cold)))
     `(shadow ((,class :foreground ,fg-alt)))
     `(success ((,class :inherit bold :foreground ,green)))
