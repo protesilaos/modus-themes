@@ -1568,6 +1568,69 @@ the previous section.  Adapt the above example like this:
    ...))
 #+end_src
 
+** Remap face with local value (DIY)
+:properties:
+:custom_id: h:7a93cb6f-4eca-4d56-a85c-9dcd813d6b0f
+:end:
+#+cindex: Remapping faces
+
+There are cases where we need to change the buffer-local attributes of a
+face.  This might be because we have our own minor mode that re-uses a
+face for a particular purpose, such as a line selection tool that
+activates ~hl-line-mode~, but we wish to keep distinct it from other
+buffers.  This is where ~face-remap-add-relative~ can be applied and may
+be combined with ~modus-themes-with-colors~ to deliver consistent results.
+
+[[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Face specs at scale using the themes' palette (DIY)]].
+
+In this example we will write a simple interactive function that adjusts
+the background color of the ~region~ face.  This is the sample code:
+
+#+begin_src emacs-lisp
+(defvar my-rainbow-region-colors
+  (modus-themes-with-colors
+    `((red . ,red-subtle-bg)
+      (green . ,green-subtle-bg)
+      (yellow . ,yellow-subtle-bg)
+      (blue . ,blue-subtle-bg)
+      (magenta . ,magenta-subtle-bg)
+      (cyan . ,cyan-subtle-bg)))
+  "Sample list of color values for `my-rainbow-region'.")
+
+(defun my-rainbow-region (color)
+  "Remap buffer-local attribute of `region' using COLOR."
+  (interactive
+   (list
+    (completing-read "Pick a color: "
+                     (mapcar #'car my-rainbow-region-colors))))
+  (face-remap-add-relative
+   'region
+   `( :background ,(alist-get (intern color) my-rainbow-region-colors)
+      :foreground ,(face-attribute 'default :foreground))))
+#+end_src
+
+When ~my-rainbow-region~ is called interactively, it prompts for a color
+to use.  The list of candidates is drawn from the car of each
+association in ~my-rainbow-region-colors~ (so "red", "green", etc.).
+
+To extend this principle, we may write wrapper functions that pass a
+color directly.  Those can be useful in tandem with hooks.  Consider
+this example:
+
+#+begin_src emacs-lisp
+(defun my-rainbow-region-magenta ()
+  (my-rainbow-region 'magenta))
+
+(add-hook 'diff-mode-hook #'my-rainbow-region-magenta)
+#+end_src
+
+Whenever we enter a ~diff-mode~ buffer, we now get a magenta-colored
+region.
+
+Perhaps you may wish to generalise those findings in to a set of
+functions that also accept an arbitrary face.  We shall leave the
+experimentation up to you.
+
 ** Override colors (DIY)
 :properties:
 :custom_id: h:307d95dd-8dbd-4ece-a543-10ae86f155a6
