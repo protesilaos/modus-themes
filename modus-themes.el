@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.2.3
-;; Last-Modified: <2021-03-28 08:25:41 +0300>
+;; Last-Modified: <2021-03-28 17:53:37 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -6153,9 +6153,10 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; table (built-in table.el)
     `(table-cell ((,class :background ,blue-nuanced-bg)))
 ;;;;; telega
-    ;; TODO 2021-03-22: Some aspects of `telega' are not fully
+    ;; FIXME 2021-03-28: Some aspects of `telega' are not fully
     ;; supported or have not been tested thoroughly.  Please understand
-    ;; that I do not use that service.  Help is appreciated.
+    ;; that I do not use that service because it requires a smartphone
+    ;; and I have none.  Help with testing is appreciated.
     `(telega-button ((,class :box t :foreground ,blue)))
     `(telega-button-active ((,class :box ,blue-intense-bg :background ,blue-intense-bg :foreground ,fg-main)))
     `(telega-button-highlight ((,class :inherit modus-themes-subtle-magenta)))
@@ -6163,7 +6164,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(telega-entity-type-code ((,class :inherit fixed-pitch)))
     `(telega-entity-type-mention ((,class :foreground ,cyan)))
     `(telega-entity-type-pre ((,class :inherit fixed-pitch)))
-    `(telega-msg-heading ((,class :background ,bg-dim)))
+    `(telega-msg-heading ((,class :background ,bg-alt)))
     `(telega-msg-self-title ((,class :inherit bold)))
     `(telega-root-heading ((,class :inherit modus-themes-subtle-neutral)))
     `(telega-secret-title ((,class :foreground ,magenta-alt)))
