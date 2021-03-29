@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.2.3
-;; Last-Modified: <2021-03-29 20:17:59 +0300>
+;; Last-Modified: <2021-03-29 21:42:14 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -4020,14 +4020,14 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; emms
     `(emms-playlist-track-face ((,class :foreground ,blue)))
     `(emms-playlist-selected-face ((,class :inherit bold :foreground ,magenta)))
-    `(enh-ruby-heredoc-delimiter-face ((,class :foreground ,blue-alt-other)))
 ;;;;; enh-ruby-mode (enhanced-ruby-mode)
+    `(enh-ruby-heredoc-delimiter-face ((,class :inherit font-lock-constant-face)))
     `(enh-ruby-op-face ((,class :foreground ,fg-main)))
-    `(enh-ruby-regexp-delimiter-face ((,class :foreground ,green)))
-    `(enh-ruby-regexp-face ((,class :foreground ,magenta)))
-    `(enh-ruby-string-delimiter-face ((,class :foreground ,blue-alt)))
-    `(erm-syn-errline ((,class :foreground ,red :underline t)))
-    `(erm-syn-warnline ((,class :foreground ,yellow :underline t)))
+    `(enh-ruby-regexp-delimiter-face ((,class :inherit font-lock-regexp-grouping-construct)))
+    `(enh-ruby-regexp-face ((,class :inherit font-lock-string-face)))
+    `(enh-ruby-string-delimiter-face ((,class :inherit font-lock-string-face)))
+    `(erm-syn-errline ((,class :inherit modus-themes-lang-error)))
+    `(erm-syn-warnline ((,class :inherit modus-themes-lang-warning)))
 ;;;;; epa
     `(epa-field-body ((,class :foreground ,fg-main)))
     `(epa-field-name ((,class :inherit bold :foreground ,fg-dim)))
