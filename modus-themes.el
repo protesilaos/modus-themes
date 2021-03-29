@@ -4770,7 +4770,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(info-title-4 ((,class :inherit modus-themes-heading-4)))
 ;;;;; info-colors
     `(info-colors-lisp-code-block ((,class :inherit fixed-pitch)))
-    `(info-colors-ref-item-command ((,class :foreground ,magenta)))
+    `(info-colors-ref-item-command ((,class :inherit font-lock-function-name-face)))
     `(info-colors-ref-item-constant ((,class :inherit font-lock-constant-face)))
     `(info-colors-ref-item-function ((,class :inherit font-lock-function-name-face)))
     `(info-colors-ref-item-macro ((,class :inherit font-lock-keyword-face)))
