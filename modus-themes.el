@@ -4882,13 +4882,13 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(jiralib-link-issue-face ((,class :underline t)))
     `(jiralib-link-project-face ((,class :underline t)))
 ;;;;; journalctl-mode
-    `(journalctl-error-face ((,class :inherit bold :foreground ,red)))
-    `(journalctl-finished-face ((,class :inherit bold :foreground ,green)))
+    `(journalctl-error-face ((,class :inherit error)))
+    `(journalctl-finished-face ((,class :inherit success)))
     `(journalctl-host-face ((,class :foreground ,blue)))
     `(journalctl-process-face ((,class :foreground ,cyan-alt-other)))
     `(journalctl-starting-face ((,class :foreground ,green)))
     `(journalctl-timestamp-face ((,class :foreground ,fg-special-cold)))
-    `(journalctl-warning-face ((,class :inherit bold :foreground ,yellow)))
+    `(journalctl-warning-face ((,class :inherit warning)))
 ;;;;; js2-mode
     `(js2-error ((,class :inherit modus-themes-lang-error)))
     `(js2-external-variable ((,class :inherit font-lock-variable-name-face)))
