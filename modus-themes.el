@@ -6293,9 +6293,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(tuareg-opam-error-face ((,class :inherit error)))
     `(tuareg-opam-pkg-variable-name-face ((,class :inherit font-lock-variable-name-face)))
 ;;;;; typescript
-    `(typescript-jsdoc-tag ((,class :inherit modus-themes-slant :foreground ,fg-special-mild)))
-    `(typescript-jsdoc-type ((,class :inherit modus-themes-slant :foreground ,fg-special-calm)))
-    `(typescript-jsdoc-value ((,class :inherit modus-themes-slant :foreground ,fg-special-cold)))
+    `(typescript-jsdoc-tag ((,class :inherit (font-lock-builtin-face font-lock-comment-face) :weight normal)))
+    `(typescript-jsdoc-type ((,class :inherit (font-lock-type-face font-lock-comment-face) :weight normal)))
+    `(typescript-jsdoc-value ((,class :inherit (font-lock-constant-face font-lock-comment-face) :weight normal)))
 ;;;;; undo-tree
     `(undo-tree-visualizer-active-branch-face ((,class :inherit bold :foreground ,fg-main)))
     `(undo-tree-visualizer-current-face ((,class :foreground ,blue-intense)))
