@@ -4750,9 +4750,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; indium
     `(indium-breakpoint-face ((,class :foreground ,red-active)))
     `(indium-frame-url-face ((,class :inherit button :foreground ,fg-alt)))
-    `(indium-keyword-face ((,class :foreground ,magenta-alt-other)))
+    `(indium-keyword-face ((,class :inherit font-lock-keyword-face)))
     `(indium-litable-face ((,class :inherit modus-themes-slant :foreground ,fg-special-warm)))
-    `(indium-repl-error-face ((,class :inherit bold :foreground ,red)))
+    `(indium-repl-error-face ((,class :inherit error)))
     `(indium-repl-prompt-face ((,class :inherit comint-highlight-prompt)))
     `(indium-repl-stdout-face ((,class :foreground ,fg-main)))
 ;;;;; info
