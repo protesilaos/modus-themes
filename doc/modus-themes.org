@@ -2399,7 +2399,7 @@ default styles, such as in this minimal setup:
 
 #+begin_src emacs-lisp
 (use-package dimmer
-  :config 
+  :config
   (setq dimmer-fraction 0.3)
   (setq dimmer-adjustment-mode :foreground)
   (setq dimmer-use-colorspace :rgb)
