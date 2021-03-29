@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.2.3
-;; Last-Modified: <2021-03-29 19:46:24 +0300>
+;; Last-Modified: <2021-03-29 20:17:59 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -611,7 +611,7 @@
     (bg-paren-match . "#e0af82")
     (bg-paren-match-intense . "#c488ff")
     (bg-region . "#bcbcbc")
-    (bg-region-accent . "#af9fdf")
+    (bg-region-accent . "#afafef")
 
     (bg-tab-bar . "#d5d5d5")
     (bg-tab-active . "#f6f6f6")
