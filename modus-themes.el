@@ -4906,8 +4906,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(js2-private-member ((,class :inherit font-lock-warning-face)))
     `(js2-warning ((,class :inherit modus-themes-lang-warning)))
 ;;;;; julia
-    `(julia-macro-face ((,class :inherit modus-themes-bold :foreground ,magenta)))
-    `(julia-quoted-symbol-face ((,class :foreground ,blue-alt-other)))
+    `(julia-macro-face ((,class :inherit font-lock-builtin-face)))
+    `(julia-quoted-symbol-face ((,class :inherit font-lock-constant-face)))
 ;;;;; jupyter
     `(jupyter-eval-overlay ((,class :inherit bold :foreground ,blue)))
     `(jupyter-repl-input-prompt ((,class :foreground ,cyan-alt-other)))
