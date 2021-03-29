@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.2.3
-;; Last-Modified: <2021-03-28 17:53:37 +0300>
+;; Last-Modified: <2021-03-29 19:46:24 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -4890,21 +4890,21 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(journalctl-timestamp-face ((,class :foreground ,fg-special-cold)))
     `(journalctl-warning-face ((,class :inherit bold :foreground ,yellow)))
 ;;;;; js2-mode
-    `(js2-error ((,class :foreground ,red)))
-    `(js2-external-variable ((,class :foreground ,cyan-alt-other)))
-    `(js2-function-call ((,class :foreground ,magenta)))
-    `(js2-function-param ((,class :foreground ,blue)))
-    `(js2-instance-member ((,class :foreground ,magenta-alt-other)))
+    `(js2-error ((,class :inherit modus-themes-lang-error)))
+    `(js2-external-variable ((,class :inherit font-lock-variable-name-face)))
+    `(js2-function-call ((,class :inherit font-lock-function-name-face)))
+    `(js2-function-param ((,class :inherit font-lock-constant-face)))
+    `(js2-instance-member ((,class :inherit font-lock-keyword-face)))
     `(js2-jsdoc-html-tag-delimiter ((,class :foreground ,fg-main)))
-    `(js2-jsdoc-html-tag-name ((,class :foreground ,cyan)))
-    `(js2-jsdoc-tag ((,class :foreground ,fg-special-calm)))
-    `(js2-jsdoc-type ((,class :foreground ,fg-special-cold)))
-    `(js2-jsdoc-value ((,class :foreground ,fg-special-warm)))
+    `(js2-jsdoc-html-tag-name ((,class :inherit font-lock-function-name-face)))
+    `(js2-jsdoc-tag ((,class :inherit (font-lock-builtin-face font-lock-comment-face) :weight normal)))
+    `(js2-jsdoc-type ((,class :inherit (font-lock-type-face font-lock-comment-face) :weight normal)))
+    `(js2-jsdoc-value ((,class :inherit (font-lock-constant-face font-lock-comment-face) :weight normal)))
     `(js2-object-property ((,class :foreground ,fg-main)))
     `(js2-object-property-access ((,class :foreground ,fg-main)))
-    `(js2-private-function-call ((,class :foreground ,green-alt-other)))
-    `(js2-private-member ((,class :foreground ,fg-special-mild)))
-    `(js2-warning ((,class :foreground ,yellow-alt :underline t)))
+    `(js2-private-function-call ((,class :inherit font-lock-preprocessor-face)))
+    `(js2-private-member ((,class :inherit font-lock-warning-face)))
+    `(js2-warning ((,class :inherit modus-themes-lang-warning)))
 ;;;;; julia
     `(julia-macro-face ((,class :inherit modus-themes-bold :foreground ,magenta)))
     `(julia-quoted-symbol-face ((,class :foreground ,blue-alt-other)))
