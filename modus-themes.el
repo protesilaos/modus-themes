@@ -158,7 +158,7 @@
 ;;     elfeed-score
 ;;     embark
 ;;     emms
-;;     enhanced-ruby-mode
+;;     enh-ruby-mode (enhanced-ruby-mode)
 ;;     epa
 ;;     equake
 ;;     erc
@@ -4020,8 +4020,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; emms
     `(emms-playlist-track-face ((,class :foreground ,blue)))
     `(emms-playlist-selected-face ((,class :inherit bold :foreground ,magenta)))
-;;;;; enhanced-ruby-mode
     `(enh-ruby-heredoc-delimiter-face ((,class :foreground ,blue-alt-other)))
+;;;;; enh-ruby-mode (enhanced-ruby-mode)
     `(enh-ruby-op-face ((,class :foreground ,fg-main)))
     `(enh-ruby-regexp-delimiter-face ((,class :foreground ,green)))
     `(enh-ruby-regexp-face ((,class :foreground ,magenta)))

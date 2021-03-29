@@ -48,7 +48,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.3.0-dev.  This manual was built on
-2021-03-28 09:23 +0300.
+2021-03-29 21:43 +0300.
 
 * Menu:
 
@@ -2212,7 +2212,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • elfeed-score
    • embark
    • emms
-   • enhanced-ruby-mode
+   • enh-ruby-mode (enhanced-ruby-mode)
    • epa
    • equake
    • erc
@@ -3742,33 +3742,33 @@ Node: Load theme depending on time of day81449
 Node: A theme-agnostic hook for theme loading (DIY)82486
 Node: Face coverage84883
 Node: Supported packages85353
-Node: Indirectly covered packages92100
-Node: Notes for individual packages92583
-Node: Note for dimmerel93291
-Node: Note for display-fill-column-indicator-mode94737
-Node: Note for mmm-modeel background colors96364
-Node: Note for prism98748
-Node: Note on company-mode overlay pop-up101996
-Ref: Note on company-mode overlay pop-up-Footnote-1102683
-Ref: Note on company-mode overlay pop-up-Footnote-2102750
-Node: Note for ERC escaped color sequences102805
-Ref: Note for ERC escaped color sequences-Footnote-1104236
-Node: Note for powerline or spaceline104346
-Node: Note on SHR colors104762
-Node: Note for Helm grep105175
-Node: Note on vc-annotate-background-mode106642
-Node: Note on pdf-tools link hints107529
-Node: Contributing109962
-Node: Sources of the themes110362
-Node: Issues you can help with111100
-Node: Patches require copyright assignment to the FSF112300
-Node: Acknowledgements114595
-Node: Meta116951
-Node: GNU Free Documentation License118948
-Node: Indices144300
-Node: Function index144479
-Node: Variable index145716
-Node: Concept index147638
+Node: Indirectly covered packages92116
+Node: Notes for individual packages92599
+Node: Note for dimmerel93307
+Node: Note for display-fill-column-indicator-mode94753
+Node: Note for mmm-modeel background colors96380
+Node: Note for prism98764
+Node: Note on company-mode overlay pop-up102012
+Ref: Note on company-mode overlay pop-up-Footnote-1102699
+Ref: Note on company-mode overlay pop-up-Footnote-2102766
+Node: Note for ERC escaped color sequences102821
+Ref: Note for ERC escaped color sequences-Footnote-1104252
+Node: Note for powerline or spaceline104362
+Node: Note on SHR colors104778
+Node: Note for Helm grep105191
+Node: Note on vc-annotate-background-mode106658
+Node: Note on pdf-tools link hints107545
+Node: Contributing109978
+Node: Sources of the themes110378
+Node: Issues you can help with111116
+Node: Patches require copyright assignment to the FSF112316
+Node: Acknowledgements114611
+Node: Meta116967
+Node: GNU Free Documentation License118964
+Node: Indices144316
+Node: Function index144495
+Node: Variable index145732
+Node: Concept index147654
 
 End Tag Table
 
