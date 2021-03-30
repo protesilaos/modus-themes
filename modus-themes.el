@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.2.3
-;; Last-Modified: <2021-03-29 21:42:14 +0300>
+;; Last-Modified: <2021-03-30 14:50:46 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -6496,12 +6496,12 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; ztree
     `(ztreep-arrow-face ((,class :foreground ,fg-inactive)))
     `(ztreep-diff-header-face ((,class :inherit bold :height 1.2 :foreground ,fg-special-cold)))
-    `(ztreep-diff-header-small-face ((,class :inherit bold :foreground ,fg-special-mild)))
-    `(ztreep-diff-model-add-face ((,class :foreground ,green)))
+    `(ztreep-diff-header-small-face ((,class :foreground ,fg-main)))
+    `(ztreep-diff-model-add-face ((,class :foreground ,@(modus-themes--diff-deuteran blue green))))
     `(ztreep-diff-model-diff-face ((,class :foreground ,red)))
     `(ztreep-diff-model-ignored-face ((,class :inherit shadow :strike-through t)))
     `(ztreep-diff-model-normal-face ((,class :inherit shadow)))
-    `(ztreep-expand-sign-face ((,class :foreground ,blue)))
+    `(ztreep-expand-sign-face ((,class :inherit ztreep-arrow-face)))
     `(ztreep-header-face ((,class :inherit bold :height 1.2 :foreground ,fg-special-cold)))
     `(ztreep-leaf-face ((,class :foreground ,cyan)))
     `(ztreep-node-count-children-face ((,class :foreground ,fg-special-warm)))
