@@ -394,7 +394,7 @@
 ;;; News:
 ;;
 ;; Users updating from older versions to >= 1.0.0, are advised to read
-;; the anouncement on the emacs-devel mailing list:
+;; the announcement on the emacs-devel mailing list:
 ;; <https://lists.gnu.org/archive/html/emacs-devel/2021-03/msg00300.html>.
 ;;
 ;; The web page of the change log is also available:
