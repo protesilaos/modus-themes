@@ -1978,6 +1978,68 @@ package:
   (circadian-setup))
 #+end_src
 
+** Backdrop for pdf-tools (DIY)
+:properties:
+:custom_id: h:ff69dfe1-29c0-447a-915c-b5ff7c5509cd
+:end:
+#+cindex: Remapping pdf-tools backdrop
+
+Most PDF files use a white background for their page, making it
+impossible to discern the file's boundaries in the buffer while using
+the Modus Operandi theme.  To introduce a distinction between the
+buffer's backdrop and the PDF page's background, the former must be
+rendered as some shade of gray.  Ideally, ~pdf-tools~ would provide a face
+that the themes could support directly, though this does not seem to be
+the case for the time being.  We must thus employ the face remapping
+technique that is documented elsewhere in this document to change the
+buffer-local value of the ~default~ face.
+
+[[#h:7a93cb6f-4eca-4d56-a85c-9dcd813d6b0f][Remap face with local value (DIY)]].
+
+To remap the buffer's backdrop, we start with a function like this one:
+
+#+begin_src emacs-lisp
+(defun my-pdf-tools-backdrop ()
+  (face-remap-add-relative
+   'default
+   `(:background ,(modus-themes-color 'bg-alt))))
+
+(add-hook 'pdf-tools-enabled-hook #'my-pdf-tools-backdrop)
+#+end_src
+
+The idea is to assign that function to a hook that gets called when
+~pdf-tools~ renders the document: ~pdf-tools-enabled-hook~.  This is enough
+when you only use one theme.  However it has the downside of setting the
+background color value only at render time.  In other words, the face
+remapping function does not get evaluated anew whenever the theme
+changes, such upon invoking {{{kbd(M-x modus-themes-toggle)}}}.
+
+To have our face remapping adapt gracefully while switching between the
+Modus themes, we need to also account for the current theme and control
+the activation of ~pdf-view-midnight-minor-mode~.  To which end we arrive
+at something like the following, which builds on the above example:
+
+#+begin_src emacs-lisp
+(defun my-pdf-tools-backdrop ()
+  (face-remap-add-relative
+   'default
+   `(:background ,(modus-themes-color 'bg-alt))))
+
+(defun my-pdf-tools-midnight-mode-toggle ()
+  (when (eq major-mode 'pdf-view-mode)
+    (if (eq (car custom-enabled-themes) 'modus-vivendi)
+        (pdf-view-midnight-minor-mode 1)
+      (pdf-view-midnight-minor-mode -1))
+    (my-pdf-tools-backdrop)))
+
+(add-hook 'pdf-tools-enabled-hook #'my-pdf-tools-midnight-mode-toggle)
+(add-hook 'modus-themes-after-load-theme-hook #'my-pdf-tools-midnight-mode-toggle)
+#+end_src
+
+With those in place, PDFs have a distinct backdrop for their page, while
+they automatically switch to their dark mode when ~modus-themes-toggle~ is
+called from inside a buffer whose major-mode is ~pdf-view-mode~.
+
 ** A theme-agnostic hook for theme loading (DIY)
 :properties:
 :custom_id: h:86f6906b-f090-46cc-9816-1fe8aeb38776
