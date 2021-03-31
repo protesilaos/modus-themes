@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.2.3
-;; Last-Modified: <2021-03-30 14:50:46 +0300>
+;; Last-Modified: <2021-03-31 17:57:29 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -5654,7 +5654,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(page-break-lines ((,class :inherit default :foreground ,fg-window-divider-outer)))
 ;;;;; pandoc-mode
     `(pandoc-citation-key-face ((,class :background ,bg-dim :foreground ,magenta-alt)))
-    `(pandoc-directive-@@-face ((,class :background ,bg-dim  :foreground ,blue-alt-other)))
+    `(pandoc-directive-@@-face ((,class :background ,bg-dim :foreground ,blue-alt-other)))
     `(pandoc-directive-braces-face ((,class :foreground ,blue-alt-other)))
     `(pandoc-directive-contents-face ((,class :foreground ,cyan-alt-other)))
     `(pandoc-directive-type-face ((,class :foreground ,magenta)))
