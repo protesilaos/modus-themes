@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.2.3
-;; Last-Modified: <2021-03-31 17:57:29 +0300>
+;; Last-Modified: <2021-04-04 16:00:34 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -3813,9 +3813,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                 cyan-alt cyan-alt-faint))))
     `(dired-warning ((,class :inherit bold :foreground ,yellow)))
 ;;;;; dired-async
-    `(dired-async-failures ((,class :inherit modus-themes-bold :foreground ,red-active)))
-    `(dired-async-message ((,class :inherit modus-themes-bold :foreground ,green-active)))
-    `(dired-async-mode-message ((,class :inherit modus-themes-bold :foreground ,cyan-active)))
+    `(dired-async-failures ((,class :inherit bold :foreground ,red-active)))
+    `(dired-async-message ((,class :inherit bold :foreground ,blue-active)))
+    `(dired-async-mode-message ((,class :inherit bold :foreground ,cyan-active)))
 ;;;;; dired-git
     `(dired-git-branch-else ((,class :inherit bold :foreground ,magenta-alt)))
     `(dired-git-branch-master ((,class :inherit bold :foreground ,magenta-alt-other)))
