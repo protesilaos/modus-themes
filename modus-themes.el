@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.2.3
-;; Last-Modified: <2021-04-05 18:25:03 +0300>
+;; Last-Modified: <2021-04-05 21:06:08 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -2530,7 +2530,7 @@ combinable with INTENSEFG."
     ('subtle (list :background subtlebg :foreground subtlefg))
     ('subtle-gray (list :inherit 'modus-themes-subtle-neutral))
     ('intense-gray (list :inherit 'modus-themes-intense-neutral))
-    (_ (list :background nil :foreground mainfg))))
+    (_ (list :background 'unspecified :foreground mainfg))))
 
 (defun modus-themes--paren (normalbg intensebg)
   "Conditional use of intense colors for matching parentheses.
@@ -2883,8 +2883,8 @@ a prominent neutral color."
     ('accented-background (list :background bgaccent))
     ('underline-neutral (list :background bgdefault :underline lineneutral))
     ('underline-accented (list :background bgaccent :underline lineaccent))
-    ('underline-only-neutral (list :background nil :underline lineneutral))
-    ('underline-only-accented (list :background nil :underline lineaccent))
+    ('underline-only-neutral (list :background 'unspecified :underline lineneutral))
+    ('underline-only-accented (list :background 'unspecified :underline lineaccent))
     (_ (list :background bgdefault))))
 
 
