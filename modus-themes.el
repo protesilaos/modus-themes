@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.2.3
-;; Last-Modified: <2021-04-04 16:00:34 +0300>
+;; Last-Modified: <2021-04-05 18:25:03 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -2009,7 +2009,7 @@ they apply a slightly more prominent background to them than what
 their counterparts do (same inactive background as with the
 default)."
   :group 'modus-themes
-  :package-version '(modus-themes . "1.0.0")
+  :package-version '(modus-themes . "1.1.0")
   :version "28.1"
   :type '(choice
           (const :format "[%v] %t\n" :tag "Two-dimensional box (default)" nil)
@@ -2107,7 +2107,7 @@ Options `subtle-gray' and `intense-gray' are like their
 `subtle-accented' and `intense-accented' counterparts, except
 they use grayscale values instead of accented ones."
   :group 'modus-themes
-  :package-version '(modus-themes . "1.0.0")
+  :package-version '(modus-themes . "1.1.0")
   :version "28.1"
   :type '(choice
           ;; `subtle' is the same as `subtle-accented', while `intense' is
