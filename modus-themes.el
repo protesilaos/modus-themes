@@ -3221,7 +3221,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(modus-themes-key-binding ((,class :inherit bold :foreground ,blue-alt-other)))
     `(modus-themes-slant ((,class :inherit italic :slant ,@(modus-themes--slant))))
     `(modus-themes-variable-pitch ((,class ,@(modus-themes--variable-pitch))))
-    `(modus-themes-reset-soft ((,class :background nil :weight normal :slant normal :strike-through nil
+    `(modus-themes-reset-soft ((,class :background ,bg-main :foreground ,fg-main
+                                       :weight normal :slant normal :strike-through nil
                                        :box nil :underline nil :overline nil :extend nil)))
     `(modus-themes-reset-hard ((,class :inherit (fixed-pitch modus-themes-reset-soft))))
 ;;;; standard faces
