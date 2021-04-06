@@ -145,7 +145,7 @@ The themes are now ready to be used: [[#h:3f3c3728-1b34-437d-9d0c-b110f5b161a9][
 :custom_id: h:c4b10085-149f-43e2-bd4d-347f33aee054
 :end:
 
-The =modus-themes= package is available from the GNU ELPA archive, which
+The ~modus-themes~ package is available from the GNU ELPA archive, which
 is configured by default.
 
 Prior to querying any package archive, make sure to have updated the
@@ -379,13 +379,13 @@ Symbol: ~modus-themes-bold-constructs~
 
 Possible values:
 
-1. =nil= (default)
-2. =t=
+1. ~nil~ (default)
+2. ~t~
 
 The default is to use a bold typographic weight only when it is
 required.
 
-With a non-nil value (=t=) display several syntactic constructs in bold
+With a non-nil value (~t~) display several syntactic constructs in bold
 weight.  This concerns keywords and other important aspects of code
 syntax.  It also affects certain mode line indicators and command-line
 prompts.
@@ -402,13 +402,13 @@ Symbol: ~modus-themes-slanted-constructs~
 
 Possible values:
 
-1. =nil= (default)
-2. =t=
+1. ~nil~ (default)
+2. ~t~
 
 The default is to not use slanted text (italics) unless it is absolutely
 necessary.
 
-With a non-nil value (=t=) choose to render more faces in slanted text.
+With a non-nil value (~t~) choose to render more faces in slanted text.
 This typically affects documentation strings and code comments.
 
 ** Option for syntax highlighting
@@ -423,7 +423,7 @@ Symbol: ~modus-themes-syntax~
 
 Possible values:
 
-1. =nil= (default)
+1. ~nil~ (default)
 2. ~faint~
 3. ~yellow-comments~
 4. ~green-strings~
@@ -472,8 +472,8 @@ Symbol: ~modus-themes-no-mixed-fonts~
 
 Possible values:
 
-1. =nil= (default)
-2. =t=
+1. ~nil~ (default)
+2. ~t~
 
 By default, the themes configure some spacing-sensitive faces like Org
 tables and code blocks to always inherit from the ~fixed-pitch~ face.
@@ -481,7 +481,7 @@ This is to ensure that those constructs remain monospaced even when
 users opt for a mode that remaps typeface families, such as the built-in
 {{{kbd(M-x variable-pitch-mode)}}}.  Otherwise the layout would appear
 broken, due to how spacing is done.  To disable this behaviour, set the
-option to =t=.
+option to ~t~.
 
 Users may prefer to use another package for handling mixed typeface
 configurations, rather than letting the theme do it, perhaps because a
@@ -502,7 +502,7 @@ Symbol: ~modus-themes-links~
 
 Possible values:
 
-1. =nil= (default)
+1. ~nil~ (default)
 2. ~faint~
 3. ~neutral-underline~
 4. ~faint-neutral-underline~
@@ -550,7 +550,7 @@ Symbol: ~modus-themes-prompts~
 
 Possible values:
 
-1. =nil= (default)
+1. ~nil~ (default)
 2. ~subtle-accented~ (~subtle~ exists for backward compatibility)
 3. ~intense-accented~ (~intense~ exists for backward compatibility)
 4. ~subtle-gray~
@@ -582,7 +582,7 @@ Symbol: ~modus-themes-mode-line~
 
 Possible values:
 
-1. =nil= (default)
+1. ~nil~ (default)
 2. ~3d~
 3. ~moody~
 4. ~borderless~
@@ -653,7 +653,7 @@ Symbol: ~modus-themes-completions~
 
 Possible values:
 
-1. =nil= (default)
+1. ~nil~ (default)
 2. ~moderate~
 3. ~opinionated~
 
@@ -666,7 +666,7 @@ The former category encompasses Icomplete, Ido, Selectrum as well as
 pattern matching styles like Orderless and Flx.  The latter covers Helm,
 Ivy, and similar.
 
-A value of =nil= will respect the metaphors of each completion framework.
+A value of ~nil~ will respect the metaphors of each completion framework.
 
 Option ~moderate~ applies a combination of background and foreground that
 is fairly subtle.  For Icomplete and friends this constitutes a
@@ -682,7 +682,7 @@ packages will revert to an even more nuanced aesthetic with some
 additional changes to the choice of hues.
 
 To appreciate the scope of this customization option, you should spend
-some time with every one of the =nil= (default), ~moderate~, and ~opinionated~
+some time with every one of the ~nil~ (default), ~moderate~, and ~opinionated~
 possibilities.
 
 ** Option for fringe visibility
@@ -697,7 +697,7 @@ Symbol: ~modus-themes-fringes~
 
 Possible values:
 
-1. =nil= (default)
+1. ~nil~ (default)
 2. ~subtle~
 3. ~intense~
 
@@ -721,7 +721,7 @@ Symbol: ~modus-themes-lang-checkers~
 
 Possible values:
 
-1. =nil= (default)
+1. ~nil~ (default)
 2. ~subtle-foreground~
 3. ~intense-foreground~
 4. ~straight-underline~
@@ -771,7 +771,7 @@ Symbol: ~modus-themes-hl-line~
 
 Possible values:
 
-1. =nil= (default)
+1. ~nil~ (default)
 2. ~intense-background~
 3. ~accented-background~
 4. ~underline-neutral~
@@ -819,8 +819,8 @@ Symbol: ~modus-themes-subtle-line-numbers~
 
 Possible value:
 
-1. =nil= (default)
-2. =t=
+1. ~nil~ (default)
+2. ~t~
 
 The default style for ~display-line-numbers-mode~ and its global variant
 is to apply a subtle gray background to the line numbers.  The current
@@ -831,7 +831,7 @@ Similarly, the faces for ~display-line-numbers-major-tick~ and its
 counterpart ~display-line-numbers-minor-tick~ use appropriate styles that
 involve a bespoke background and foreground combination.
 
-With a non-nil value (=t=), line numbers have no background of their own.
+With a non-nil value (~t~), line numbers have no background of their own.
 Instead they retain the primary background of the theme, blending with
 the rest of the buffer.  Foreground values for all relevant faces are
 updated to accommodate this aesthetic.
@@ -848,7 +848,7 @@ Symbol: ~modus-themes-paren-match~
 
 Possible values:
 
-1. =nil= (default)
+1. ~nil~ (default)
 2. ~subtle-bold~
 3. ~intense~
 4. ~intense-bold~
@@ -879,7 +879,7 @@ Symbol: ~modus-themes-region~
 
 Possible values:
 
-1. =nil= (default)
+1. ~nil~ (default)
 2. ~no-extend~
 3. ~bg-only~
 4. ~bg-only-no-extend~
@@ -917,7 +917,7 @@ Symbol: ~modus-themes-diffs~
 
 Possible values:
 
-1. =nil= (default)
+1. ~nil~ (default)
 2. ~desaturated~
 3. ~fg-only~
 4. ~bg-only~
@@ -974,7 +974,7 @@ Symbol: ~modus-themes-org-blocks~
 
 Possible values:
 
-1. =nil= (default)
+1. ~nil~ (default)
 2. ~grayscale~
 3. ~rainbow~
 
@@ -1014,7 +1014,7 @@ Symbol: ~modus-themes-org-habit~
 
 Possible values:
 
-1. =nil= (default)
+1. ~nil~ (default)
 2. ~simplified~
 3. ~traffic-light~
 
@@ -1059,7 +1059,7 @@ Symbol: ~modus-themes-headings~
 Possible values, which can be specified for each heading level N
 (examples further below):
 
-+ =nil= (=t= is also available for backward compatibility)
++ ~nil~ (~t~ is also available for backward compatibility)
 + ~no-bold~
 + ~line~
 + ~line-no-bold~
@@ -1105,7 +1105,7 @@ To set a uniform value for all heading levels, use this pattern:
 The default style for headings uses a fairly desaturated foreground
 color in combination with bold typographic weight.  To specify this
 style for a given level N, assuming you wish to have another fallback
-option, just assign the value =nil= like this:
+option, just assign the value ~nil~ like this:
 
 #+begin_src emacs-lisp
 (setq modus-themes-headings
@@ -1178,12 +1178,12 @@ Symbol: ~modus-themes-scale-headings~
 
 Possible values:
 
-1. =nil= (default)
-2. =t=
+1. ~nil~ (default)
+2. ~t~
 
 The default is to use the same size for headings and paragraph text.
 
-With a non-nil value (=t=) make headings larger in height relative to the
+With a non-nil value (~t~) make headings larger in height relative to the
 main text.  This is noticeable in modes like Org, Markdown, and Info.
 
 *** Control the scale of headings
@@ -1261,8 +1261,8 @@ Symbol: ~modus-themes-variable-pitch-ui~
 
 Possible values:
 
-1. =nil= (default)
-2. =t=
+1. ~nil~ (default)
+2. ~t~
 
 This option concerns User Interface elements that are under the direct
 control of Emacs.  In particular: the mode line, header line, tab bar,
@@ -1271,7 +1271,7 @@ and tab line.
 The default is to use the same font as the rest of Emacs, which usually
 is a monospaced family.
 
-With a non-nil value (=t=) apply a proportionately spaced typeface.  This
+With a non-nil value (~t~) apply a proportionately spaced typeface.  This
 is done by assigning the ~variable-pitch~ face to the relevant items.
 
 [[#h:defcf4fc-8fa8-4c29-b12e-7119582cc929][Font configurations for Org and others]].
@@ -1288,13 +1288,13 @@ Symbol: ~modus-themes-variable-pitch-headings~
 
 Possible values:
 
-1. =nil= (default)
-2. =t=
+1. ~nil~ (default)
+2. ~t~
 
 The default is to use the main font family, which typically is
 monospaced.
 
-With a non-nil value (=t=) apply a proportionately spaced typeface, else
+With a non-nil value (~t~) apply a proportionately spaced typeface, else
 "variable-pitch", to headings (such as in Org mode).
 
 [[#h:defcf4fc-8fa8-4c29-b12e-7119582cc929][Font configurations for Org and others]].
@@ -1401,7 +1401,7 @@ With that granted, let us expand the example to actually change the
 
 If you evaluate this form, your cursor will become blue.  But if you
 change themes, such as with ~modus-themes-toggle~, your edits will be
-lost, because the newly loaded theme will override the =:background=
+lost, because the newly loaded theme will override the ~:background~
 attribute you had assigned to that face.
 
 For such changes to persist, we need to make them after loading the
@@ -1502,7 +1502,7 @@ Getting a list of colors may have its applications, though what you are
 most likely interested in is how to use those variables to configure
 several faces at once.  To do so we can rely on the built-in
 ~custom-set-faces~ function, which sets face specifications for the
-special =user= theme.  That "theme" gets applied on top of regular themes
+special ~user~ theme.  That "theme" gets applied on top of regular themes
 like ~modus-operandi~ and ~modus-vivendi~.
 
 This is how it works:
@@ -1546,7 +1546,7 @@ Thus:
 [[#h:86f6906b-f090-46cc-9816-1fe8aeb38776][A theme-agnostic hook for theme loading]].
 
 To discover the faces defined by all loaded libraries, you may do
-{{{kbd(M-x list-faces-display)}}}.  Be warned that when you =:inherit= a face
+{{{kbd(M-x list-faces-display)}}}.  Be warned that when you ~:inherit~ a face
 you are introducing an implicit dependency, so try to avoid doing so for
 libraries other than the built-in {{{file(faces.el)}}} (or at least understand
 that things may break if you inherit from a yet-to-be-loaded face).
@@ -1784,9 +1784,9 @@ reading the doc string of ~set-face-attribute~):
 (set-face-attribute 'fixed-pitch nil :family "DejaVu Sans Mono" :height 1.0)
 #+end_src
 
-Note the differences in the =:height= property.  The =default= face must
+Note the differences in the ~:height~ property.  The ~default~ face must
 specify an absolute value, which is the point size × 10.  So if you want
-to use a font at point size =11=, you set the height to =110=.[fn:: =:height=
+to use a font at point size =11=, you set the height to =110=.[fn:: ~:height~
 values do not need to be rounded to multiples of ten: the likes of =115=
 are perfectly valid—some typefaces will change to account for those
 finer increments.]  Whereas every other face must have a value that is
