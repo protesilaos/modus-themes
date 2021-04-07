@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.2.3
-;; Last-Modified: <2021-04-07 09:04:47 +0300>
+;; Last-Modified: <2021-04-07 13:04:23 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -4208,12 +4208,13 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; eww
     `(eww-invalid-certificate ((,class :foreground ,red-faint)))
     `(eww-valid-certificate ((,class :foreground ,blue-faint)))
-    `(eww-form-checkbox ((,class :box (:line-width 1 :color ,fg-inactive :style released-button) :background ,bg-inactive :foreground ,fg-main)))
-    `(eww-form-file ((,class :box (:line-width 1 :color ,fg-inactive :style released-button) :background ,bg-active :foreground ,fg-main)))
-    `(eww-form-select ((,class :inherit eww-form-checkbox)))
-    `(eww-form-submit ((,class :inherit eww-form-file)))
-    `(eww-form-text ((,class :box (:line-width 1 :color ,fg-inactive :style none) :background ,bg-active :foreground ,fg-active)))
-    `(eww-form-textarea ((,class :background ,bg-alt :foreground ,fg-main)))
+    `(eww-form-checkbox ((,class :inherit eww-form-text)))
+    `(eww-form-file ((,class :inherit eww-form-submit)))
+    `(eww-form-select ((,class :inherit eww-form-submit)))
+    `(eww-form-submit ((,class :box (:line-width 2 :style released-button)
+                               :background ,bg-active)))
+    `(eww-form-text ((,class :box ,bg-active :background ,bg-alt)))
+    `(eww-form-textarea ((,class :background ,bg-alt)))
 ;;;;; eyebrowse
     `(eyebrowse-mode-line-active ((,class :inherit bold :foreground ,blue-active)))
 ;;;;; fancy-dabbrev
