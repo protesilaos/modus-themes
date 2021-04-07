@@ -48,7 +48,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.3.0-dev.  This manual was built on
-2021-04-06 08:49 +0300.
+2021-04-07 09:23 +0300.
 
 * Menu:
 
@@ -2482,6 +2482,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • vc (built-in mode line status for version control)
    • vc-annotate (the out put of ‘C-x v g’)
    • vdiff
+   • vertico
    • vimish-fold
    • visible-mark
    • visual-regexp
@@ -3808,33 +3809,33 @@ Node: Backdrop for pdf-tools (DIY)82535
 Node: A theme-agnostic hook for theme loading (DIY)85287
 Node: Face coverage87677
 Node: Supported packages88147
-Node: Indirectly covered packages94910
-Node: Notes for individual packages95393
-Node: Note for dimmerel96101
-Node: Note for display-fill-column-indicator-mode97547
-Node: Note for mmm-modeel background colors99174
-Node: Note for prism101558
-Node: Note on company-mode overlay pop-up104806
-Ref: Note on company-mode overlay pop-up-Footnote-1105493
-Ref: Note on company-mode overlay pop-up-Footnote-2105560
-Node: Note for ERC escaped color sequences105615
-Ref: Note for ERC escaped color sequences-Footnote-1107046
-Node: Note for powerline or spaceline107156
-Node: Note on SHR colors107572
-Node: Note for Helm grep107985
-Node: Note on vc-annotate-background-mode109452
-Node: Note on pdf-tools link hints110339
-Node: Contributing112772
-Node: Sources of the themes113172
-Node: Issues you can help with113910
-Node: Patches require copyright assignment to the FSF115110
-Node: Acknowledgements117405
-Node: Meta119761
-Node: GNU Free Documentation License121758
-Node: Indices147110
-Node: Function index147289
-Node: Variable index148526
-Node: Concept index150448
+Node: Indirectly covered packages94925
+Node: Notes for individual packages95408
+Node: Note for dimmerel96116
+Node: Note for display-fill-column-indicator-mode97562
+Node: Note for mmm-modeel background colors99189
+Node: Note for prism101573
+Node: Note on company-mode overlay pop-up104821
+Ref: Note on company-mode overlay pop-up-Footnote-1105508
+Ref: Note on company-mode overlay pop-up-Footnote-2105575
+Node: Note for ERC escaped color sequences105630
+Ref: Note for ERC escaped color sequences-Footnote-1107061
+Node: Note for powerline or spaceline107171
+Node: Note on SHR colors107587
+Node: Note for Helm grep108000
+Node: Note on vc-annotate-background-mode109467
+Node: Note on pdf-tools link hints110354
+Node: Contributing112787
+Node: Sources of the themes113187
+Node: Issues you can help with113925
+Node: Patches require copyright assignment to the FSF115125
+Node: Acknowledgements117420
+Node: Meta119776
+Node: GNU Free Documentation License121773
+Node: Indices147125
+Node: Function index147304
+Node: Variable index148541
+Node: Concept index150463
 
 End Tag Table
 
