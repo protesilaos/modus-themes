@@ -509,13 +509,13 @@
     ;; the "subtle" values below be combined with fg-dim, while the
     ;; "intense" should be paired with fg-main
     (red-subtle-bg . "#f2b0a2")
-    (red-intense-bg . "#ff8892")
+    (red-intense-bg . "#ff9f9f")
     (green-subtle-bg . "#aecf90")
     (green-intense-bg . "#5ada88")
     (yellow-subtle-bg . "#e4c340")
     (yellow-intense-bg . "#f5df23")
     (blue-subtle-bg . "#b5d0ff")
-    (blue-intense-bg . "#6aaeff")
+    (blue-intense-bg . "#77baff")
     (magenta-subtle-bg . "#f0d3ff")
     (magenta-intense-bg . "#d5baff")
     (cyan-subtle-bg . "#c0efff")
@@ -550,7 +550,7 @@
     (red-refine-bg . "#ffcccc") (red-refine-fg . "#780000")
     (green-refine-bg . "#aceaac") (green-refine-fg . "#004c00")
     (yellow-refine-bg . "#fff29a") (yellow-refine-fg . "#604000")
-    (blue-refine-bg . "#8ac7ff") (blue-refine-fg . "#002288")
+    (blue-refine-bg . "#8fcfff") (blue-refine-fg . "#002f88")
     (magenta-refine-bg . "#ffccff") (magenta-refine-fg . "#770077")
     (cyan-refine-bg . "#8eecf4") (cyan-refine-fg . "#004850")
     ;; the "nuanced" backgrounds can be combined with all of the above
@@ -803,7 +803,7 @@ symbol and the latter as a string.")
     (red-refine-bg . "#77002a") (red-refine-fg . "#ffb9ab")
     (green-refine-bg . "#00422a") (green-refine-fg . "#9ff0cf")
     (yellow-refine-bg . "#693200") (yellow-refine-fg . "#e2d980")
-    (blue-refine-bg . "#242679") (blue-refine-fg . "#8ec6ff")
+    (blue-refine-bg . "#242679") (blue-refine-fg . "#8ecfff")
     (magenta-refine-bg . "#71206a") (magenta-refine-fg . "#ffcaf0")
     (cyan-refine-bg . "#004065") (cyan-refine-fg . "#8ae4f2")
     ;; the "nuanced" backgrounds can be combined with all of the above
