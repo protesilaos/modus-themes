@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.2.3
-;; Last-Modified: <2021-04-09 10:59:47 +0300>
+;; Last-Modified: <2021-04-09 11:19:33 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -4965,10 +4965,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(lsp-face-highlight-textual ((,class :inherit modus-themes-subtle-blue)))
     `(lsp-face-highlight-write ((,class :inherit (modus-themes-refine-blue bold))))
     `(lsp-face-semhl-constant ((,class :foreground ,blue-alt-other)))
-    `(lsp-face-semhl-deprecated
-      ((,(append '((supports :underline (:style wave))) class)
-        :foreground ,yellow :underline (:style wave))
-       (,class :foreground ,yellow :underline t)))
+    `(lsp-face-semhl-deprecated ((,class :inherit modus-themes-lang-warning)))
     `(lsp-face-semhl-enummember ((,class :foreground ,blue-alt-other)))
     `(lsp-face-semhl-field ((,class :foreground ,cyan-alt)))
     `(lsp-face-semhl-field-static ((,class :inherit modus-themes-slant :foreground ,cyan-alt)))
@@ -5394,14 +5391,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(notmuch-search-non-matching-authors ((,class :inherit shadow)))
     `(notmuch-search-subject ((,class :foreground ,fg-dim)))
     `(notmuch-search-unread-face ((,class :inherit bold)))
-    `(notmuch-tag-added
-      ((,(append '((supports :underline (:style wave))) class)
-        :underline (:color ,green :style wave))
-       (,class :foreground ,green :underline t)))
-    `(notmuch-tag-deleted
-      ((,(append '((supports :underline (:style wave))) class)
-        :underline (:color ,red :style wave))
-       (,class :foreground ,red :underline t)))
+    `(notmuch-tag-added ((,class :inherit modus-themes-lang-note)))
+    `(notmuch-tag-deleted ((,class :inherit modus-themes-lang-error)))
     `(notmuch-tag-face ((,class :inherit bold :foreground ,blue-alt)))
     `(notmuch-tag-flagged ((,class :foreground ,red-alt)))
     `(notmuch-tag-unread ((,class :foreground ,magenta-alt)))
@@ -5964,10 +5955,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(show-paren-match-expression ((,class :inherit modus-themes-special-calm)))
     `(show-paren-mismatch ((,class :inherit modus-themes-intense-red)))
 ;;;;; shr
-    `(shr-abbreviation
-      ((,(append '((supports :underline (:style wave))) class)
-        :foreground ,fg-docstring :underline (:color ,fg-alt :style wave))
-       (,class :foreground ,fg-docstring :underline t)))
+    `(shr-abbreviation ((,class :inherit modus-themes-lang-note)))
     `(shr-selected-link ((,class :inherit modus-themes-subtle-red)))
 ;;;;; side-notes
     `(side-notes ((,class :background ,bg-dim :foreground ,fg-dim)))
