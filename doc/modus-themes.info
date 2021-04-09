@@ -48,7 +48,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.3.0-dev.  This manual was built on
-2021-04-08 22:48 +0300.
+2021-04-09 09:54 +0300.
 
 * Menu:
 
@@ -145,6 +145,7 @@ Notes for individual packages
 * Note for ERC escaped color sequences::
 * Note for powerline or spaceline::
 * Note on SHR colors::
+* Note for EWW and Elfeed fonts (SHR fonts)::
 * Note for Helm grep::
 * Note on vc-annotate-background-mode::
 * Note on pdf-tools link hints::
@@ -622,8 +623,8 @@ configurations, rather than letting the theme do it, perhaps because a
 purpose-specific package has extra functionality.  Two possible options
 are ‘org-variable-pitch’ and ‘mixed-pitch’.
 
-   *note Font configurations for Org (and others): Font configurations
-for Org and others (DIY).
+   *note Font configurations for Org and others: Font configurations for
+Org and others (DIY).
 
 
 File: modus-themes.info,  Node: Link styles,  Next: Command prompts,  Prev: No mixed fonts,  Up: Customization Options
@@ -1885,6 +1886,8 @@ ensures that all fonts can scale gracefully when using something like
 the ‘text-scale-adjust’ command which only operates on the base font
 size (i.e.  the ‘default’ face’s absolute height).
 
+   *note Note for EWW and Elfeed fonts (SHR fonts)::.
+
    ---------- Footnotes ----------
 
    (1) ‘:height’ values do not need to be rounded to multiples of ten:
@@ -2547,6 +2550,7 @@ individual packages.
 * Note for ERC escaped color sequences::
 * Note for powerline or spaceline::
 * Note on SHR colors::
+* Note for EWW and Elfeed fonts (SHR fonts)::
 * Note for Helm grep::
 * Note on vc-annotate-background-mode::
 * Note on pdf-tools link hints::
@@ -2828,7 +2832,7 @@ command ‘powerline-reset’ whenever they make changes to their themes
 and/or modeline setup.
 
 
-File: modus-themes.info,  Node: Note on SHR colors,  Next: Note for Helm grep,  Prev: Note for powerline or spaceline,  Up: Notes for individual packages
+File: modus-themes.info,  Node: Note on SHR colors,  Next: Note for EWW and Elfeed fonts (SHR fonts),  Prev: Note for powerline or spaceline,  Up: Notes for individual packages
 
 7.8 Note on SHR colors
 ======================
@@ -2840,10 +2844,26 @@ webpage provides.
    Consult ‘C-h v shr-use-colors’.
 
 
-File: modus-themes.info,  Node: Note for Helm grep,  Next: Note on vc-annotate-background-mode,  Prev: Note on SHR colors,  Up: Notes for individual packages
+File: modus-themes.info,  Node: Note for EWW and Elfeed fonts (SHR fonts),  Next: Note for Helm grep,  Prev: Note on SHR colors,  Up: Notes for individual packages
 
-7.9 Note for Helm grep
-======================
+7.9 Note for EWW and Elfeed fonts (SHR fonts)
+=============================================
+
+EWW and Elfeed rely on the Simple HTML Renderer to display their
+content.  The ‘shr.el’ library contains the variable ‘shr-use-fonts’
+that controls whether the text in the buffer is set to a
+‘variable-pitch’ typeface (proportionately spaced) or if just retains
+whatever the default font family is.  Its default value is non-nil,
+which means that ‘variable-pitch’ is applied.
+
+   *note Font configurations for Org and others: Font configurations for
+Org and others (DIY).
+
+
+File: modus-themes.info,  Node: Note for Helm grep,  Next: Note on vc-annotate-background-mode,  Prev: Note for EWW and Elfeed fonts (SHR fonts),  Up: Notes for individual packages
+
+7.10 Note for Helm grep
+=======================
 
 There is one face from the Helm package that is meant to highlight the
 matches of a grep or grep-like command (‘ag’ or ‘ripgrep’).  It is
@@ -2873,7 +2893,7 @@ ANSI color number 1 (red) from the already-supported array of
 
 File: modus-themes.info,  Node: Note on vc-annotate-background-mode,  Next: Note on pdf-tools link hints,  Prev: Note for Helm grep,  Up: Notes for individual packages
 
-7.10 Note on vc-annotate-background-mode
+7.11 Note on vc-annotate-background-mode
 ========================================
 
 Due to the unique way ‘vc-annotate’ (‘C-x v g’) applies colors, support
@@ -2892,7 +2912,7 @@ report as much or send patches (*note Contributing::).
 
 File: modus-themes.info,  Node: Note on pdf-tools link hints,  Prev: Note on vc-annotate-background-mode,  Up: Notes for individual packages
 
-7.11 Note on pdf-tools link hints
+7.12 Note on pdf-tools link hints
 =================================
 
 Hints are drawn by ImageMagick (https://imagemagick.org/), not Emacs,
@@ -3759,83 +3779,84 @@ B.3 Concept index
 
 Tag Table:
 Node: Top860
-Node: Overview5876
-Node: How do the themes look like7142
-Node: Learn about the latest changes7650
-Node: Installation8032
-Node: Install manually from source8513
-Node: Install from the archives9338
-Node: Install on GNU/Linux10115
-Node: Debian 11 Bullseye10563
-Node: GNU Guix10873
-Node: Enable and load11156
-Node: Sample configuration for use-package13904
-Node: Differences between loading and enabling15273
-Node: Customization Options17313
-Node: Bold constructs19478
-Node: Slanted constructs20067
-Node: Syntax styles20614
-Node: No mixed fonts22252
-Node: Link styles23349
-Node: Command prompts24923
-Node: Mode line26122
-Node: Completion UIs29313
-Node: Fringes31145
-Node: Language checkers31805
-Node: Line highlighting33754
-Node: Line numbers35355
-Node: Matching parentheses36433
-Node: Active region37323
-Node: Diffs38581
-Node: Org mode blocks41128
-Node: Org agenda habits42606
-Node: Heading styles44441
-Node: Scaled headings48543
-Node: Scaled heading sizes49146
-Node: UI typeface52280
-Node: Headings' typeface53126
-Node: Advanced customization (do-it-yourself)53750
-Node: Per-theme customization settings (DIY)54979
-Node: Case-by-case face specs using the themes' palette (DIY)56325
-Node: Face specs at scale using the themes' palette (DIY)60789
-Node: Remap face with local value (DIY)65606
-Node: Override colors (DIY)68110
-Node: Font configurations for Org and others (DIY)72884
-Ref: Font configurations for Org and others (DIY)-Footnote-175207
-Node: Custom Org user faces (DIY)75394
-Node: Measure color contrast (DIY)78748
-Node: Load theme depending on time of day81515
-Node: Backdrop for pdf-tools (DIY)82535
-Node: A theme-agnostic hook for theme loading (DIY)85287
-Node: Face coverage87677
-Node: Supported packages88147
-Node: Indirectly covered packages94925
-Node: Notes for individual packages95408
-Node: Note for dimmerel96116
-Node: Note for display-fill-column-indicator-mode97562
-Node: Note for mmm-modeel background colors99189
-Node: Note for prism101573
-Node: Note on company-mode overlay pop-up104821
-Ref: Note on company-mode overlay pop-up-Footnote-1105508
-Ref: Note on company-mode overlay pop-up-Footnote-2105575
-Node: Note for ERC escaped color sequences105630
-Ref: Note for ERC escaped color sequences-Footnote-1107061
-Node: Note for powerline or spaceline107171
-Node: Note on SHR colors107587
-Node: Note for Helm grep108000
-Node: Note on vc-annotate-background-mode109467
-Node: Note on pdf-tools link hints110354
-Node: Contributing112787
-Node: Sources of the themes113187
-Node: Issues you can help with113925
-Node: Patches require copyright assignment to the FSF115125
-Node: Acknowledgements117420
-Node: Meta119776
-Node: GNU Free Documentation License121773
-Node: Indices147125
-Node: Function index147304
-Node: Variable index148541
-Node: Concept index150463
+Node: Overview5922
+Node: How do the themes look like7188
+Node: Learn about the latest changes7696
+Node: Installation8078
+Node: Install manually from source8559
+Node: Install from the archives9384
+Node: Install on GNU/Linux10161
+Node: Debian 11 Bullseye10609
+Node: GNU Guix10919
+Node: Enable and load11202
+Node: Sample configuration for use-package13950
+Node: Differences between loading and enabling15319
+Node: Customization Options17359
+Node: Bold constructs19524
+Node: Slanted constructs20113
+Node: Syntax styles20660
+Node: No mixed fonts22298
+Node: Link styles23393
+Node: Command prompts24967
+Node: Mode line26166
+Node: Completion UIs29357
+Node: Fringes31189
+Node: Language checkers31849
+Node: Line highlighting33798
+Node: Line numbers35399
+Node: Matching parentheses36477
+Node: Active region37367
+Node: Diffs38625
+Node: Org mode blocks41172
+Node: Org agenda habits42650
+Node: Heading styles44485
+Node: Scaled headings48587
+Node: Scaled heading sizes49190
+Node: UI typeface52324
+Node: Headings' typeface53170
+Node: Advanced customization (do-it-yourself)53794
+Node: Per-theme customization settings (DIY)55023
+Node: Case-by-case face specs using the themes' palette (DIY)56369
+Node: Face specs at scale using the themes' palette (DIY)60833
+Node: Remap face with local value (DIY)65650
+Node: Override colors (DIY)68154
+Node: Font configurations for Org and others (DIY)72928
+Ref: Font configurations for Org and others (DIY)-Footnote-175306
+Node: Custom Org user faces (DIY)75493
+Node: Measure color contrast (DIY)78847
+Node: Load theme depending on time of day81614
+Node: Backdrop for pdf-tools (DIY)82634
+Node: A theme-agnostic hook for theme loading (DIY)85386
+Node: Face coverage87776
+Node: Supported packages88246
+Node: Indirectly covered packages95024
+Node: Notes for individual packages95507
+Node: Note for dimmerel96261
+Node: Note for display-fill-column-indicator-mode97707
+Node: Note for mmm-modeel background colors99334
+Node: Note for prism101718
+Node: Note on company-mode overlay pop-up104966
+Ref: Note on company-mode overlay pop-up-Footnote-1105653
+Ref: Note on company-mode overlay pop-up-Footnote-2105720
+Node: Note for ERC escaped color sequences105775
+Ref: Note for ERC escaped color sequences-Footnote-1107206
+Node: Note for powerline or spaceline107316
+Node: Note on SHR colors107732
+Node: Note for EWW and Elfeed fonts (SHR fonts)108168
+Node: Note for Helm grep108916
+Node: Note on vc-annotate-background-mode110408
+Node: Note on pdf-tools link hints111295
+Node: Contributing113728
+Node: Sources of the themes114128
+Node: Issues you can help with114866
+Node: Patches require copyright assignment to the FSF116066
+Node: Acknowledgements118361
+Node: Meta120717
+Node: GNU Free Documentation License122714
+Node: Indices148066
+Node: Function index148245
+Node: Variable index149482
+Node: Concept index151404
 
 End Tag Table
 
