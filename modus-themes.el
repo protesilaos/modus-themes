@@ -4934,11 +4934,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(kaocha-runner-warning-face ((,class :foreground ,yellow)))
 ;;;;; keycast
     `(keycast-command ((,class :inherit bold :foreground ,blue-active)))
-    `(keycast-key ((,class ,@(modus-themes--mode-line-attrs
-                              bg-main blue-active
-                              bg-main blue-active
-                              blue-active blue-intense
-                              'alt-style -3))))
+    `(keycast-key ((,class :background ,blue-active :foreground ,bg-main)))
 ;;;;; line numbers (display-line-numbers-mode and global variant)
     `(line-number
       ((,class :inherit default
