@@ -502,7 +502,7 @@
     ;; those foregrounds are meant exclusively for bg-active, bg-inactive
     (red-active . "#8a0000")
     (green-active . "#004c2e")
-    (yellow-active . "#702d1f")
+    (yellow-active . "#702f00")
     (blue-active . "#0030b4")
     (magenta-active . "#5c2092")
     (cyan-active . "#003f8a")
