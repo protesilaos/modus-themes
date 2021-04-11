@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.2.3
-;; Last-Modified: <2021-04-11 10:25:33 +0300>
+;; Last-Modified: <2021-04-11 10:49:50 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -571,7 +571,7 @@
     ;; work with all accents that cover those two, plus bg-main
     ;;
     ;; bg-hl-alt and bg-hl-alt-intense should only be used when no
-    ;; other greyscale or fairly neutral background is available to
+    ;; other grayscale or fairly neutral background is available to
     ;; properly draw attention to a given construct
     ;;
     ;; bg-header is between bg-active and bg-inactive, so it
@@ -826,7 +826,7 @@ symbol and the latter as a string.")
     ;; work with all accents that cover those two, plus bg-main
     ;;
     ;; bg-hl-alt and bg-hl-alt-intense should only be used when no
-    ;; other greyscale or fairly neutral background is available to
+    ;; other grayscale or fairly neutral background is available to
     ;; properly draw attention to a given construct
     ;;
     ;; bg-header is between bg-active and bg-inactive, so it
@@ -1884,16 +1884,16 @@ accordance with it in cases where it changes, such as while using
   "Define the visibility of fringes.
 
 Nil means the fringes have no background color.  Option `subtle'
-will apply a greyscale value that is visible yet close to the
+will apply a grayscale value that is visible yet close to the
 main buffer background color.  Option `intense' will use a more
-pronounced greyscale value."
+pronounced grayscale value."
   :group 'modus-themes
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
   :type '(choice
           (const :format "[%v] %t\n" :tag "No visible fringes (default)" nil)
-          (const :format "[%v] %t\n" :tag "Subtle greyscale background" subtle)
-          (const :format "[%v] %t\n" :tag "Intense greyscale background" intense))
+          (const :format "[%v] %t\n" :tag "Subtle grayscale background" subtle)
+          (const :format "[%v] %t\n" :tag "Intense grayscale background" intense))
   :link '(info-link "(modus-themes) Fringes"))
 
 (defcustom modus-themes-lang-checkers nil
@@ -2060,7 +2060,7 @@ Option `fg-only' will remove all accented backgrounds, except
 from word-wise changes.  It instead uses color-coded foreground
 values to differentiate between added/removed/changed lines.  If
 a background is necessary, such as with `ediff', then a subtle
-greyscale value is used.
+grayscale value is used.
 
 Option `bg-only' applies a background but does not override the
 text's foreground.  This makes it suitable for a non-nil value
@@ -2275,11 +2275,11 @@ foreground.
 Option `faint' applies desaturated colors to the link's text and
 underline.
 
-Option `neutral-underline' applies a subtle grey underline, while
+Option `neutral-underline' applies a subtle gray underline, while
 retaining the link's foreground.
 
 Option `faint-neutral-underline' combines a desaturated text
-color with a subtle grey underline.
+color with a subtle gray underline.
 
 Option `no-underline' removes link underlines altogether, while
 retaining their original fairly vivid color.
@@ -2296,8 +2296,8 @@ using a subtle underline below it."
   :type '(choice
           (const :format "[%v] %t\n" :tag "Undeline link using the same color as the text (default)" nil)
           (const :format "[%v] %t\n" :tag "Like the default, but apply less intense colors to links" faint)
-          (const :format "[%v] %t\n" :tag "Change the color of link underlines to a neutral grey" neutral-underline)
-          (const :format "[%v] %t\n" :tag "Desaturated foreground with neutral grey underline" faint-neutral-underline)
+          (const :format "[%v] %t\n" :tag "Change the color of link underlines to a neutral gray" neutral-underline)
+          (const :format "[%v] %t\n" :tag "Desaturated foreground with neutral gray underline" faint-neutral-underline)
           (const :format "[%v] %t\n" :tag "Remove underline property from links, keeping their foreground as-is" no-underline)
           (const :format "[%v] %t\n" :tag "Apply underline only; use default foreground" underline-only)
           (const :format "[%v] %t\n" :tag "Like `underline-only' but with a subtle underline" neutral-underline-only))
@@ -2492,8 +2492,8 @@ Those are stored in `modus-themes-faces' and
 
 (defun modus-themes--fringe (mainbg subtlebg intensebg)
   "Conditional use of background colors for fringes.
-MAINBG is the default.  SUBTLEBG should be a subtle greyscale
-value.  INTENSEBG must be a more pronounced greyscale color."
+MAINBG is the default.  SUBTLEBG should be a subtle grayscale
+value.  INTENSEBG must be a more pronounced grayscale color."
   (pcase modus-themes-fringes
     ('intense (list :background intensebg))
     ('subtle (list :background subtlebg))
@@ -2692,10 +2692,10 @@ theme's source code)."
 BG, FG, BGACCENT, FGACCENT apply a background and foreground
 color respectively.
 
-The former pair is a greyscale combination that should be more
+The former pair is a grayscale combination that should be more
 distinct than the background of the block.  It is applied to the
 default styles or when `modus-themes-org-blocks' is set
-to `greyscale'.
+to `grayscale' (or `greyscale').
 
 The latter pair should be more subtle than the background of the
 block, as it is used when `modus-themes-org-blocks' is
@@ -2852,7 +2852,7 @@ These are intended for Helm, Ivy, etc."
   "Conditional application of link styles.
 FG is the link's default color for its text and underline
 property.  FGFAINT is a desaturated color for the text and
-underline.  UNDERLINE is a grey color only for the undeline."
+underline.  UNDERLINE is a gray color only for the undeline."
   (pcase modus-themes-links
     ('faint (list :foreground fgfaint :underline t))
     ('neutral-underline (list :foreground fg :underline underline))
@@ -3122,7 +3122,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; special base values
     ;; these are closer to the grayscale than the accents defined above
     ;; and should only be used when the next closest alternative would be
-    ;; a greyscale value than an accented one
+    ;; a grayscale value than an accented one
     `(modus-themes-special-cold ((,class :background ,bg-special-cold :foreground ,fg-special-cold)))
     `(modus-themes-special-mild ((,class :background ,bg-special-mild :foreground ,fg-special-mild)))
     `(modus-themes-special-warm ((,class :background ,bg-special-warm :foreground ,fg-special-warm)))
