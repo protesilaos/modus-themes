@@ -1742,15 +1742,88 @@ with {{{kbd(M-x modus-themes-toggle)}}} will also use the overrides.
 Given that this is a user-level customisation, one is free to implement
 whatever color values they desire, even if the possible combinations
 fall below the minimum 7:1 contrast ratio that governs the design of the
-themes (the WCAG AAA legibility standard).  Preferences aside, it is
-advised to inspect the source code of ~modus-themes-operandi-colors~ and
-~modus-themes-vivendi-colors~ to read the inline commentary: it explains
-what the intended use of each palette subset is.
+themes (the WCAG AAA legibility standard).  Alternatively, this can also
+be done programmatically ([[#h:4589acdc-2505-41fc-9f5e-699cfc45ab00][Override color saturation]]).
+
+For manual interventions it is advised to inspect the source code of
+~modus-themes-operandi-colors~ and ~modus-themes-vivendi-colors~ for the
+inline commentary: it explains what the intended use of each palette
+subset is.
 
 Furthermore, users may benefit from the ~modus-themes-contrast~ function
 that we provide: [[#h:02e25930-e71a-493d-828a-8907fc80f874][test color combinations]].  It measures the contrast
 ratio between two color values, so it can help in overriding the palette
 (or a subset thereof) without making the end result inaccessible.
+
+** Override color saturation (DIY)
+:properties:
+:custom_id: h:4589acdc-2505-41fc-9f5e-699cfc45ab00
+:end:
+#+cindex: Change a theme's color saturation
+
+In the previous section we documented how one can override color values
+manually ([[#h:307d95dd-8dbd-4ece-a543-10ae86f155a6][Override colors]]).  Here we use a programmatic approach which
+leverages the built-in ~color-saturate-name~ function to adjust the
+saturation of all color values used by the active Modus theme.  Our goal
+is to prepare a counterpart of the active theme's palette that holds
+modified color values, adjusted for a percent change in saturation.  A
+positive number amplifies the effect, while a negative one will move
+towards a grayscale spectrum.
+
+We start with a function that can be either called from Lisp or invoked
+interactively.  In the former scenario, we pass to it the rate of change
+we want.  While in the latter, a minibuffer prompt asks for a number to
+apply the desired effect.  In either case, we intend to assign anew the
+value of ~modus-themes-operandi-color-overrides~ (light theme) and the
+same for ~modus-themes-vivendi-color-overrides~ (dark theme).
+
+#+begin_src emacs-lisp
+(defun my-modus-themes-saturate (percent)
+  "Saturate current Modus theme palette overrides by PERCENT."
+  (interactive
+   (list (read-number "Saturation by percent: ")))
+  (let* ((theme (modus-themes--current-theme))
+         (palette (pcase theme
+                    ('modus-operandi modus-themes-operandi-colors)
+                    ('modus-vivendi modus-themes-vivendi-colors)
+                    (_ (error "No Modus theme is active"))))
+         (overrides (pcase theme
+                      ('modus-operandi 'modus-themes-operandi-color-overrides)
+                      ('modus-vivendi 'modus-themes-vivendi-color-overrides)
+                      (_ (error "No Modus theme is active")))))
+    (let (name cons colors)
+      (dolist (cons palette)
+	    (setq name (color-saturate-name (cdr cons) percent))
+	    (setq name (format "%s" name))
+	    (setq cons `(,(car cons) . ,name))
+	    (push cons colors))
+      (set overrides colors))
+    (pcase theme
+      ('modus-operandi (modus-themes-load-operandi))
+      ('modus-vivendi (modus-themes-load-vivendi)))))
+
+;; sample Elisp calls (or call `my-modus-themes-saturate' interactively)
+(my-modus-themes-saturate 50)
+(my-modus-themes-saturate -75)
+#+end_src
+
+Using the above has an immediate effect, as it reloads the active Modus
+theme.
+
+To disable the effect, one must reset the aforementioned variables to
+~nil~.  Or specify a command for it, such as by taking inspiration from
+the ~modus-themes-toggle~ we already provide:
+
+#+begin_src emacs-lisp
+(defun my-modus-themes-revert-overrides ()
+  "Reset palette overrides and reload active Modus theme."
+  (interactive)
+  (setq modus-themes-operandi-color-overrides nil
+        modus-themes-vivendi-color-overrides nil)
+  (pcase (modus-themes--current-theme)
+    ('modus-operandi (modus-themes-load-operandi))
+    ('modus-vivendi (modus-themes-load-vivendi))))
+#+end_src
 
 ** Font configurations for Org and others (DIY)
 :properties:
@@ -3006,7 +3079,7 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Trey Merkley, Togan Muftuoglu, Toon Claes, Uri Sharf, Utkarsh Singh,
   Vincent Foley.  As well as users: Ben, CsBigDataHub1, Emacs Contrib,
   Eugene, Fourchaux, Fredrik, Moesasji, Nick, TheBlob42, Trey,
-  bepolymathe, doolio, fleimgruber, iSeeU, jixiuf, okamsn.
+  bepolymathe, doolio, fleimgruber, iSeeU, jixiuf, okamsn, pRot0ta1p.
 
 + Packaging :: Basil L.{{{space()}}} Contovounesios, Eli Zaretskii, Glenn
   Morris, Mauro Aranda, Richard Stallman, Stefan Kangas (core Emacs),
