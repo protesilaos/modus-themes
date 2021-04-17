@@ -638,7 +638,7 @@ the given construct are too close to each other in terms of color
 distance.  In effect, users would need to experiment with the variable
 ~face-near-same-color-threshold~ to trigger the effect.  We find that a
 value of =45000= will suffice, contrary to the default =30000=.  Though for
-the "accented" variants mentioned above, that should be raised up to
+the ~accented-moody~ value mentioned above, that should be raised up to
 =70000=.  Do not set it too high, because it has the adverse effect of
 always overriding the default colors (which has been carefully designed
 to be highly accessible).
