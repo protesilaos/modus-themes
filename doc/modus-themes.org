@@ -2229,6 +2229,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + compilation-mode
 + completions
 + consult
++ corfu
 + counsel*
 + counsel-css
 + counsel-notmuch
