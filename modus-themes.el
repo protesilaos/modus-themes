@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.2.3
-;; Last-Modified: <2021-04-14 08:34:57 +0300>
+;; Last-Modified: <2021-04-17 11:00:13 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -5838,7 +5838,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(rcirc-nick-in-message ((,class :foreground ,magenta-alt-other)))
     `(rcirc-nick-in-message-full-line ((,class :inherit bold :foreground ,fg-special-mild)))
     `(rcirc-other-nick ((,class :inherit bold :foreground ,fg-special-cold)))
-    `(rcirc-prompt ((,class :inherit bold :foreground ,cyan-alt-other)))
+    `(rcirc-prompt ((,class :inherit comint-highlight-prompt)))
     `(rcirc-server ((,class :foreground ,fg-unfocused)))
     `(rcirc-timestamp ((,class :foreground ,blue-nuanced-fg)))
     `(rcirc-url ((,class :foreground ,blue :underline t)))
