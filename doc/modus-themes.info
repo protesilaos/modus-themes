@@ -43,12 +43,12 @@ customization options for the ‘modus-operandi’ and ‘modus-vivendi’
 themes, and provides every other piece of information pertinent to them.
 
    The documentation furnished herein corresponds to stable version
-1.2.3, released on 2021-03-05.  Any reference to a newer feature which
+1.3.0, released on 2021-04-17.  Any reference to a newer feature which
 does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
-   Current development target is 1.3.0-dev.  This manual was built on
-2021-04-14 13:22 +0300.
+   Current development target is 1.4.0-dev.  This manual was built on
+2021-04-17 18:31 +0300.
 
 * Menu:
 
@@ -720,9 +720,9 @@ Symbol: ‘modus-themes-mode-line’
   4. ‘borderless’
   5. ‘borderless-3d’
   6. ‘borderless-moody’
-  7. ‘accented’ (part of 1.3.0-dev)
-  8. ‘accented-3d’ (part of 1.3.0-dev)
-  9. ‘accented-moody’ (part of 1.3.0-dev)
+  7. ‘accented’
+  8. ‘accented-3d’
+  9. ‘accented-moody’
 
    The default produces a two-dimensional effect both for the active and
 inactive modelines.  The differences between the two are limited to
@@ -770,7 +770,7 @@ foreground of the given construct are too close to each other in terms
 of color distance.  In effect, users would need to experiment with the
 variable ‘face-near-same-color-threshold’ to trigger the effect.  We
 find that a value of ‘45000’ will suffice, contrary to the default
-‘30000’.  Though for the “accented” variants mentioned above, that
+‘30000’.  Though for the ‘accented-moody’ value mentioned above, that
 should be raised up to ‘70000’.  Do not set it too high, because it has
 the adverse effect of always overriding the default colors (which has
 been carefully designed to be highly accessible).
@@ -898,9 +898,7 @@ File: modus-themes.info,  Node: Line highlighting,  Next: Line numbers,  Prev: L
 4.11 Option for line highlighting (hl-line-mode)
 ================================================
 
-[Part of 1.3.0-dev.  Supersedes ‘modus-themes-intense-hl-line’.]
-
-   Symbol: ‘modus-themes-hl-line’
+Symbol: ‘modus-themes-hl-line’
 
    Possible values:
 
@@ -1010,8 +1008,8 @@ Symbol: ‘modus-themes-region’
   2. ‘no-extend’
   3. ‘bg-only’
   4. ‘bg-only-no-extend’
-  5. ‘accent’ (part of 1.3.0-dev)
-  6. ‘accent-no-extend’ (part of 1.3.0-dev)
+  5. ‘accent’
+  6. ‘accent-no-extend’
 
    Nil means to only use a prominent gray background with a neutral
 foreground.  The foreground overrides all syntax highlighting.  The
@@ -2314,6 +2312,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • compilation-mode
    • completions
    • consult
+   • corfu
    • counsel*
    • counsel-css
    • counsel-notmuch
@@ -2550,7 +2549,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • tab-bar-mode
    • tab-line-mode
    • table (built-in table.el)
-   • telega (part of 1.3.0-dev)
+   • telega (part of 1.4.0-dev)
    • telephone-line
    • terraform-mode
    • term
@@ -3882,65 +3881,65 @@ Node: No mixed fonts22334
 Node: Link styles23429
 Node: Command prompts25003
 Node: Mode line26202
-Node: Completion UIs29864
-Node: Fringes31696
-Node: Language checkers32356
-Node: Line highlighting34305
-Node: Line numbers35906
-Node: Matching parentheses36984
-Node: Active region37874
-Node: Diffs39132
-Node: Org mode blocks41679
-Node: Org agenda habits43157
-Node: Heading styles44992
-Node: Scaled headings49094
-Node: Scaled heading sizes49697
-Node: UI typeface52831
-Node: Headings' typeface53677
-Node: Advanced customization (do-it-yourself)54301
-Node: Per-theme customization settings (DIY)55566
-Node: Case-by-case face specs using the themes' palette (DIY)56912
-Node: Face specs at scale using the themes' palette (DIY)61376
-Node: Remap face with local value (DIY)66193
-Node: Override colors (DIY)68697
-Node: Override color saturation (DIY)73587
-Node: Font configurations for Org and others (DIY)76875
-Ref: Font configurations for Org and others (DIY)-Footnote-179263
-Node: Custom Org user faces (DIY)79450
-Node: Measure color contrast (DIY)82804
-Node: Load theme depending on time of day85571
-Node: Backdrop for pdf-tools (DIY)86593
-Node: A theme-agnostic hook for theme loading (DIY)89345
-Node: Face coverage91735
-Node: Supported packages92205
-Node: Indirectly covered packages98983
-Node: Notes for individual packages99466
-Node: Note for dimmerel100220
-Node: Note for display-fill-column-indicator-mode101666
-Node: Note for mmm-modeel background colors103293
-Node: Note for prism105677
-Node: Note on company-mode overlay pop-up108925
-Ref: Note on company-mode overlay pop-up-Footnote-1109612
-Ref: Note on company-mode overlay pop-up-Footnote-2109679
-Node: Note for ERC escaped color sequences109734
-Ref: Note for ERC escaped color sequences-Footnote-1111165
-Node: Note for powerline or spaceline111275
-Node: Note on SHR colors111691
-Node: Note for EWW and Elfeed fonts (SHR fonts)112127
-Node: Note for Helm grep112875
-Node: Note on vc-annotate-background-mode114367
-Node: Note on pdf-tools link hints115254
-Node: Contributing117687
-Node: Sources of the themes118087
-Node: Issues you can help with118825
-Node: Patches require copyright assignment to the FSF120025
-Node: Acknowledgements122320
-Node: Meta124692
-Node: GNU Free Documentation License126689
-Node: Indices152041
-Node: Function index152220
-Node: Variable index153457
-Node: Concept index155379
+Node: Completion UIs29807
+Node: Fringes31639
+Node: Language checkers32299
+Node: Line highlighting34248
+Node: Line numbers35776
+Node: Matching parentheses36854
+Node: Active region37744
+Node: Diffs38962
+Node: Org mode blocks41509
+Node: Org agenda habits42987
+Node: Heading styles44822
+Node: Scaled headings48924
+Node: Scaled heading sizes49527
+Node: UI typeface52661
+Node: Headings' typeface53507
+Node: Advanced customization (do-it-yourself)54131
+Node: Per-theme customization settings (DIY)55396
+Node: Case-by-case face specs using the themes' palette (DIY)56742
+Node: Face specs at scale using the themes' palette (DIY)61206
+Node: Remap face with local value (DIY)66023
+Node: Override colors (DIY)68527
+Node: Override color saturation (DIY)73417
+Node: Font configurations for Org and others (DIY)76705
+Ref: Font configurations for Org and others (DIY)-Footnote-179093
+Node: Custom Org user faces (DIY)79280
+Node: Measure color contrast (DIY)82634
+Node: Load theme depending on time of day85401
+Node: Backdrop for pdf-tools (DIY)86423
+Node: A theme-agnostic hook for theme loading (DIY)89175
+Node: Face coverage91565
+Node: Supported packages92035
+Node: Indirectly covered packages98826
+Node: Notes for individual packages99309
+Node: Note for dimmerel100063
+Node: Note for display-fill-column-indicator-mode101509
+Node: Note for mmm-modeel background colors103136
+Node: Note for prism105520
+Node: Note on company-mode overlay pop-up108768
+Ref: Note on company-mode overlay pop-up-Footnote-1109455
+Ref: Note on company-mode overlay pop-up-Footnote-2109522
+Node: Note for ERC escaped color sequences109577
+Ref: Note for ERC escaped color sequences-Footnote-1111008
+Node: Note for powerline or spaceline111118
+Node: Note on SHR colors111534
+Node: Note for EWW and Elfeed fonts (SHR fonts)111970
+Node: Note for Helm grep112718
+Node: Note on vc-annotate-background-mode114210
+Node: Note on pdf-tools link hints115097
+Node: Contributing117530
+Node: Sources of the themes117930
+Node: Issues you can help with118668
+Node: Patches require copyright assignment to the FSF119868
+Node: Acknowledgements122163
+Node: Meta124535
+Node: GNU Free Documentation License126532
+Node: Indices151884
+Node: Function index152063
+Node: Variable index153300
+Node: Concept index155222
 
 End Tag Table
 

@@ -4,9 +4,9 @@
 #+language: en
 #+options: ':t toc:nil author:t email:t
 
-#+macro: stable-version 1.2.3
-#+macro: release-date 2021-03-05
-#+macro: development-version 1.3.0-dev
+#+macro: stable-version 1.3.0
+#+macro: release-date 2021-04-17
+#+macro: development-version 1.4.0-dev
 #+macro: export-date (eval (format-time-string "%F %R %z" (current-time)))
 #+macro: file @@texinfo:@file{@@$1@@texinfo:}@@
 #+macro: space @@texinfo:@: @@
@@ -588,9 +588,9 @@ Possible values:
 4. ~borderless~
 5. ~borderless-3d~
 6. ~borderless-moody~
-7. ~accented~ (part of {{{development-version}}})
-8. ~accented-3d~ (part of {{{development-version}}})
-9. ~accented-moody~ (part of {{{development-version}}})
+7. ~accented~
+8. ~accented-3d~
+9. ~accented-moody~
 
 The default produces a two-dimensional effect both for the active and
 inactive modelines.  The differences between the two are limited to
@@ -774,8 +774,6 @@ refer to their documentation strings.
 :end:
 #+vindex: modus-themes-hl-line
 
-[Part of {{{development-version}}}.  Supersedes ~modus-themes-intense-hl-line~.]
-
 Symbol: ~modus-themes-hl-line~
 
 Possible values:
@@ -892,8 +890,8 @@ Possible values:
 2. ~no-extend~
 3. ~bg-only~
 4. ~bg-only-no-extend~
-5. ~accent~ (part of {{{development-version}}})
-6. ~accent-no-extend~ (part of {{{development-version}}})
+5. ~accent~
+6. ~accent-no-extend~
 
 Nil means to only use a prominent gray background with a neutral
 foreground.  The foreground overrides all syntax highlighting.  The
