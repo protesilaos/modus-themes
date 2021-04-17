@@ -43,12 +43,12 @@ customization options for the ‘modus-operandi’ and ‘modus-vivendi’
 themes, and provides every other piece of information pertinent to them.
 
    The documentation furnished herein corresponds to stable version
-1.3.0, released on 2021-04-17.  Any reference to a newer feature which
+1.3.1, released on 2021-04-17.  Any reference to a newer feature which
 does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.4.0-dev.  This manual was built on
-2021-04-17 18:31 +0300.
+2021-04-17 18:59 +0300.
 
 * Menu:
 
@@ -2549,7 +2549,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • tab-bar-mode
    • tab-line-mode
    • table (built-in table.el)
-   • telega (part of 1.4.0-dev)
+   • telega
    • telephone-line
    • terraform-mode
    • term
@@ -3912,34 +3912,34 @@ Node: Backdrop for pdf-tools (DIY)86423
 Node: A theme-agnostic hook for theme loading (DIY)89175
 Node: Face coverage91565
 Node: Supported packages92035
-Node: Indirectly covered packages98826
-Node: Notes for individual packages99309
-Node: Note for dimmerel100063
-Node: Note for display-fill-column-indicator-mode101509
-Node: Note for mmm-modeel background colors103136
-Node: Note for prism105520
-Node: Note on company-mode overlay pop-up108768
-Ref: Note on company-mode overlay pop-up-Footnote-1109455
-Ref: Note on company-mode overlay pop-up-Footnote-2109522
-Node: Note for ERC escaped color sequences109577
-Ref: Note for ERC escaped color sequences-Footnote-1111008
-Node: Note for powerline or spaceline111118
-Node: Note on SHR colors111534
-Node: Note for EWW and Elfeed fonts (SHR fonts)111970
-Node: Note for Helm grep112718
-Node: Note on vc-annotate-background-mode114210
-Node: Note on pdf-tools link hints115097
-Node: Contributing117530
-Node: Sources of the themes117930
-Node: Issues you can help with118668
-Node: Patches require copyright assignment to the FSF119868
-Node: Acknowledgements122163
-Node: Meta124535
-Node: GNU Free Documentation License126532
-Node: Indices151884
-Node: Function index152063
-Node: Variable index153300
-Node: Concept index155222
+Node: Indirectly covered packages98806
+Node: Notes for individual packages99289
+Node: Note for dimmerel100043
+Node: Note for display-fill-column-indicator-mode101489
+Node: Note for mmm-modeel background colors103116
+Node: Note for prism105500
+Node: Note on company-mode overlay pop-up108748
+Ref: Note on company-mode overlay pop-up-Footnote-1109435
+Ref: Note on company-mode overlay pop-up-Footnote-2109502
+Node: Note for ERC escaped color sequences109557
+Ref: Note for ERC escaped color sequences-Footnote-1110988
+Node: Note for powerline or spaceline111098
+Node: Note on SHR colors111514
+Node: Note for EWW and Elfeed fonts (SHR fonts)111950
+Node: Note for Helm grep112698
+Node: Note on vc-annotate-background-mode114190
+Node: Note on pdf-tools link hints115077
+Node: Contributing117510
+Node: Sources of the themes117910
+Node: Issues you can help with118648
+Node: Patches require copyright assignment to the FSF119848
+Node: Acknowledgements122143
+Node: Meta124515
+Node: GNU Free Documentation License126512
+Node: Indices151864
+Node: Function index152043
+Node: Variable index153280
+Node: Concept index155202
 
 End Tag Table
 
