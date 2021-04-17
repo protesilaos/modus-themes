@@ -886,7 +886,7 @@ symbol and the latter as a string.")
     (cyan-tab . "#60e7e0")
     (magenta-tab . "#ffb8ff")
     (purple-tab . "#cfcaff")
-    
+
     (fg-escape-char-construct . "#e7a59a")
     (fg-escape-char-backslash . "#abab00")
 
