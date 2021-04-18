@@ -772,7 +772,7 @@ variable ‘face-near-same-color-threshold’ to trigger the effect.  We
 find that a value of ‘45000’ will suffice, contrary to the default
 ‘30000’.  Though for the ‘accented-moody’ value mentioned above, that
 should be raised up to ‘70000’.  Do not set it too high, because it has
-the adverse effect of always overriding the default colors (which has
+the adverse effect of always overriding the default colors (which have
 been carefully designed to be highly accessible).
 
    Furthermore, because Moody expects an underline and overline instead
@@ -1689,7 +1689,7 @@ File: modus-themes.info,  Node: Remap face with local value (DIY),  Next: Overri
 There are cases where we need to change the buffer-local attributes of a
 face.  This might be because we have our own minor mode that re-uses a
 face for a particular purpose, such as a line selection tool that
-activates ‘hl-line-mode’, but we wish to keep distinct it from other
+activates ‘hl-line-mode’, but we wish to keep it distinct from other
 buffers.  This is where ‘face-remap-add-relative’ can be applied and may
 be combined with ‘modus-themes-with-colors’ to deliver consistent
 results.
@@ -1714,8 +1714,7 @@ code:
        "Remap buffer-local attribute of `region' using COLOR."
        (interactive
         (list
-         (completing-read "Pick a color: "
-                          (mapcar #'car my-rainbow-region-colors))))
+         (completing-read "Pick a color: " my-rainbow-region-colors)))
        (face-remap-add-relative
         'region
         `( :background ,(alist-get (intern color) my-rainbow-region-colors)
@@ -2173,7 +2172,7 @@ one:
 enough when you only use one theme.  However it has the downside of
 setting the background color value only at render time.  In other words,
 the face remapping function does not get evaluated anew whenever the
-theme changes, such upon invoking ‘M-x modus-themes-toggle’.
+theme changes, such as upon invoking ‘M-x modus-themes-toggle’.
 
    To have our face remapping adapt gracefully while switching between
 the Modus themes, we need to also account for the current theme and
@@ -2187,7 +2186,7 @@ example:
         `(:background ,(modus-themes-color 'bg-alt))))
 
      (defun my-pdf-tools-midnight-mode-toggle ()
-       (when (eq major-mode 'pdf-view-mode)
+       (when (derived-mode-p 'pdf-view-mode)
          (if (eq (car custom-enabled-themes) 'modus-vivendi)
              (pdf-view-midnight-minor-mode 1)
            (pdf-view-midnight-minor-mode -1))
@@ -3881,65 +3880,65 @@ Node: No mixed fonts22334
 Node: Link styles23429
 Node: Command prompts25003
 Node: Mode line26202
-Node: Completion UIs29807
-Node: Fringes31639
-Node: Language checkers32299
-Node: Line highlighting34248
-Node: Line numbers35776
-Node: Matching parentheses36854
-Node: Active region37744
-Node: Diffs38962
-Node: Org mode blocks41509
-Node: Org agenda habits42987
-Node: Heading styles44822
-Node: Scaled headings48924
-Node: Scaled heading sizes49527
-Node: UI typeface52661
-Node: Headings' typeface53507
-Node: Advanced customization (do-it-yourself)54131
-Node: Per-theme customization settings (DIY)55396
-Node: Case-by-case face specs using the themes' palette (DIY)56742
-Node: Face specs at scale using the themes' palette (DIY)61206
-Node: Remap face with local value (DIY)66023
-Node: Override colors (DIY)68527
-Node: Override color saturation (DIY)73417
-Node: Font configurations for Org and others (DIY)76705
-Ref: Font configurations for Org and others (DIY)-Footnote-179093
-Node: Custom Org user faces (DIY)79280
-Node: Measure color contrast (DIY)82634
-Node: Load theme depending on time of day85401
-Node: Backdrop for pdf-tools (DIY)86423
-Node: A theme-agnostic hook for theme loading (DIY)89175
-Node: Face coverage91565
-Node: Supported packages92035
-Node: Indirectly covered packages98806
-Node: Notes for individual packages99289
-Node: Note for dimmerel100043
-Node: Note for display-fill-column-indicator-mode101489
-Node: Note for mmm-modeel background colors103116
-Node: Note for prism105500
-Node: Note on company-mode overlay pop-up108748
-Ref: Note on company-mode overlay pop-up-Footnote-1109435
-Ref: Note on company-mode overlay pop-up-Footnote-2109502
-Node: Note for ERC escaped color sequences109557
-Ref: Note for ERC escaped color sequences-Footnote-1110988
-Node: Note for powerline or spaceline111098
-Node: Note on SHR colors111514
-Node: Note for EWW and Elfeed fonts (SHR fonts)111950
-Node: Note for Helm grep112698
-Node: Note on vc-annotate-background-mode114190
-Node: Note on pdf-tools link hints115077
-Node: Contributing117510
-Node: Sources of the themes117910
-Node: Issues you can help with118648
-Node: Patches require copyright assignment to the FSF119848
-Node: Acknowledgements122143
-Node: Meta124515
-Node: GNU Free Documentation License126512
-Node: Indices151864
-Node: Function index152043
-Node: Variable index153280
-Node: Concept index155202
+Node: Completion UIs29808
+Node: Fringes31640
+Node: Language checkers32300
+Node: Line highlighting34249
+Node: Line numbers35777
+Node: Matching parentheses36855
+Node: Active region37745
+Node: Diffs38963
+Node: Org mode blocks41510
+Node: Org agenda habits42988
+Node: Heading styles44823
+Node: Scaled headings48925
+Node: Scaled heading sizes49528
+Node: UI typeface52662
+Node: Headings' typeface53508
+Node: Advanced customization (do-it-yourself)54132
+Node: Per-theme customization settings (DIY)55397
+Node: Case-by-case face specs using the themes' palette (DIY)56743
+Node: Face specs at scale using the themes' palette (DIY)61207
+Node: Remap face with local value (DIY)66024
+Node: Override colors (DIY)68487
+Node: Override color saturation (DIY)73377
+Node: Font configurations for Org and others (DIY)76665
+Ref: Font configurations for Org and others (DIY)-Footnote-179053
+Node: Custom Org user faces (DIY)79240
+Node: Measure color contrast (DIY)82594
+Node: Load theme depending on time of day85361
+Node: Backdrop for pdf-tools (DIY)86383
+Node: A theme-agnostic hook for theme loading (DIY)89139
+Node: Face coverage91529
+Node: Supported packages91999
+Node: Indirectly covered packages98770
+Node: Notes for individual packages99253
+Node: Note for dimmerel100007
+Node: Note for display-fill-column-indicator-mode101453
+Node: Note for mmm-modeel background colors103080
+Node: Note for prism105464
+Node: Note on company-mode overlay pop-up108712
+Ref: Note on company-mode overlay pop-up-Footnote-1109399
+Ref: Note on company-mode overlay pop-up-Footnote-2109466
+Node: Note for ERC escaped color sequences109521
+Ref: Note for ERC escaped color sequences-Footnote-1110952
+Node: Note for powerline or spaceline111062
+Node: Note on SHR colors111478
+Node: Note for EWW and Elfeed fonts (SHR fonts)111914
+Node: Note for Helm grep112662
+Node: Note on vc-annotate-background-mode114154
+Node: Note on pdf-tools link hints115041
+Node: Contributing117474
+Node: Sources of the themes117874
+Node: Issues you can help with118612
+Node: Patches require copyright assignment to the FSF119812
+Node: Acknowledgements122107
+Node: Meta124479
+Node: GNU Free Documentation License126476
+Node: Indices151828
+Node: Function index152007
+Node: Variable index153244
+Node: Concept index155166
 
 End Tag Table
 

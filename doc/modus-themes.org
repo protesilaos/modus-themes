@@ -640,7 +640,7 @@ distance.  In effect, users would need to experiment with the variable
 value of =45000= will suffice, contrary to the default =30000=.  Though for
 the ~accented-moody~ value mentioned above, that should be raised up to
 =70000=.  Do not set it too high, because it has the adverse effect of
-always overriding the default colors (which has been carefully designed
+always overriding the default colors (which have been carefully designed
 to be highly accessible).
 
 Furthermore, because Moody expects an underline and overline instead of
@@ -1584,7 +1584,7 @@ the previous section.  Adapt the above example like this:
 There are cases where we need to change the buffer-local attributes of a
 face.  This might be because we have our own minor mode that re-uses a
 face for a particular purpose, such as a line selection tool that
-activates ~hl-line-mode~, but we wish to keep distinct it from other
+activates ~hl-line-mode~, but we wish to keep it distinct from other
 buffers.  This is where ~face-remap-add-relative~ can be applied and may
 be combined with ~modus-themes-with-colors~ to deliver consistent results.
 
@@ -1608,8 +1608,7 @@ the background color of the ~region~ face.  This is the sample code:
   "Remap buffer-local attribute of `region' using COLOR."
   (interactive
    (list
-    (completing-read "Pick a color: "
-                     (mapcar #'car my-rainbow-region-colors))))
+    (completing-read "Pick a color: " my-rainbow-region-colors)))
   (face-remap-add-relative
    'region
    `( :background ,(alist-get (intern color) my-rainbow-region-colors)
@@ -1792,10 +1791,10 @@ same for ~modus-themes-vivendi-color-overrides~ (dark theme).
                       (_ (error "No Modus theme is active")))))
     (let (name cons colors)
       (dolist (cons palette)
-	    (setq name (color-saturate-name (cdr cons) percent))
-	    (setq name (format "%s" name))
-	    (setq cons `(,(car cons) . ,name))
-	    (push cons colors))
+        (setq name (color-saturate-name (cdr cons) percent))
+        (setq name (format "%s" name))
+        (setq cons `(,(car cons) . ,name))
+        (push cons colors))
       (set overrides colors))
     (pcase theme
       ('modus-operandi (modus-themes-load-operandi))
@@ -2094,7 +2093,7 @@ The idea is to assign that function to a hook that gets called when
 when you only use one theme.  However it has the downside of setting the
 background color value only at render time.  In other words, the face
 remapping function does not get evaluated anew whenever the theme
-changes, such upon invoking {{{kbd(M-x modus-themes-toggle)}}}.
+changes, such as upon invoking {{{kbd(M-x modus-themes-toggle)}}}.
 
 To have our face remapping adapt gracefully while switching between the
 Modus themes, we need to also account for the current theme and control
@@ -2108,7 +2107,7 @@ at something like the following, which builds on the above example:
    `(:background ,(modus-themes-color 'bg-alt))))
 
 (defun my-pdf-tools-midnight-mode-toggle ()
-  (when (eq major-mode 'pdf-view-mode)
+  (when (derived-mode-p 'pdf-view-mode)
     (if (eq (car custom-enabled-themes) 'modus-vivendi)
         (pdf-view-midnight-minor-mode 1)
       (pdf-view-midnight-minor-mode -1))
