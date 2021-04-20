@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.3.2
-;; Last-Modified: <2021-04-18 06:25:05 +0300>
+;; Last-Modified: <2021-04-20 16:24:50 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -2339,84 +2339,6 @@ to the end of each line within the region."
           (const :format "[%v] %t\n" :tag "Like the default, but with an accented background" accent)
           (const :format "[%v] %t\n" :tag "As with the `accent' option, but does not extend" accent-no-extend))
   :link '(info-link "(modus-themes) Active region"))
-
-
-
-;;;; Deprecated customization options (prior to 1.0.0)
-
-;;;;; Modus Operandi obsolete options
-
-(make-obsolete 'modus-operandi-theme-override-colors-alist nil "1.0.0")
-(make-obsolete 'modus-operandi-theme-slanted-constructs 'modus-themes-slanted-constructs "1.0.0")
-(make-obsolete 'modus-operandi-theme-bold-constructs 'modus-themes-bold-constructs "1.0.0")
-(make-obsolete 'modus-operandi-theme-proportional-fonts 'modus-themes-variable-pitch-headings "1.0.0")
-(make-obsolete 'modus-operandi-theme-variable-pitch-headings 'modus-themes-variable-pitch-headings "1.0.0")
-(make-obsolete 'modus-operandi-theme-no-mixed-fonts 'modus-themes-no-mixed-fonts "1.0.0")
-(make-obsolete 'modus-operandi-theme-rainbow-headings 'modus-themes-headings "1.0.0")
-(make-obsolete 'modus-operandi-theme-section-headings 'modus-themes-headings "1.0.0")
-(make-obsolete 'modus-operandi-theme-headings 'modus-themes-headings "1.0.0")
-(make-obsolete 'modus-operandi-theme-scale-headings 'modus-themes-scale-headings "1.0.0")
-(make-obsolete 'modus-operandi-theme-scale-1 'modus-themes-scale-1 "1.0.0")
-(make-obsolete 'modus-operandi-theme-scale-2 'modus-themes-scale-2 "1.0.0")
-(make-obsolete 'modus-operandi-theme-scale-3 'modus-themes-scale-3 "1.0.0")
-(make-obsolete 'modus-operandi-theme-scale-4 'modus-themes-scale-4 "1.0.0")
-(make-obsolete 'modus-operandi-theme-scale-5 'modus-themes-scale-5 "1.0.0")
-(make-obsolete 'modus-operandi-theme-visible-fringes 'modus-themes-fringes "1.0.0")
-(make-obsolete 'modus-operandi-theme-fringes 'modus-themes-fringes "1.0.0")
-(make-obsolete 'modus-operandi-theme-distinct-org-blocks 'modus-themes-org-blocks "1.0.0")
-(make-obsolete 'modus-operandi-theme-rainbow-org-src-blocks 'modus-themes-org-blocks "1.0.0")
-(make-obsolete 'modus-operandi-theme-org-blocks 'modus-themes-org-blocks "1.0.0")
-(make-obsolete 'modus-operandi-theme-3d-modeline 'modus-themes-mode-line "1.0.0")
-(make-obsolete 'modus-operandi-theme-mode-line 'modus-themes-mode-line "1.0.0")
-(make-obsolete 'modus-operandi-theme-subtle-diffs 'modus-themes-diffs "1.0.0")
-(make-obsolete 'modus-operandi-theme-diffs 'modus-themes-diffs "1.0.0")
-(make-obsolete 'modus-operandi-theme-intense-standard-completions 'modus-themes-completions "1.0.0")
-(make-obsolete 'modus-operandi-theme-completions 'modus-themes-completions "1.0.0")
-(make-obsolete 'modus-operandi-theme-prompts 'modus-themes-prompts "1.0.0")
-(make-obsolete 'modus-operandi-theme-intense-hl-line 'modus-themes-intense-hl-line "1.0.0")
-(make-obsolete 'modus-operandi-theme-intense-paren-match 'modus-themes-paren-match "1.0.0")
-(make-obsolete 'modus-operandi-theme-faint-syntax 'modus-themes-syntax "1.0.0")
-(make-obsolete 'modus-operandi-theme-comments 'modus-themes-syntax "1.0.0")
-(make-obsolete 'modus-operandi-theme-syntax 'modus-themes-syntax "1.0.0")
-(make-obsolete 'modus-operandi-theme-no-link-underline 'modus-themes-links "1.0.0")
-(make-obsolete 'modus-operandi-theme-links 'modus-themes-links "1.0.0")
-
-;;;;; Modus Vivendi obsolete options
-
-(make-obsolete 'modus-vivendi-theme-override-colors-alist nil "1.0.0")
-(make-obsolete 'modus-vivendi-theme-slanted-constructs 'modus-themes-slanted-constructs "1.0.0")
-(make-obsolete 'modus-vivendi-theme-bold-constructs 'modus-themes-bold-constructs "1.0.0")
-(make-obsolete 'modus-vivendi-theme-proportional-fonts 'modus-themes-variable-pitch-headings "1.0.0")
-(make-obsolete 'modus-vivendi-theme-variable-pitch-headings 'modus-themes-variable-pitch-headings "1.0.0")
-(make-obsolete 'modus-vivendi-theme-no-mixed-fonts 'modus-themes-no-mixed-fonts "1.0.0")
-(make-obsolete 'modus-vivendi-theme-rainbow-headings 'modus-themes-headings "1.0.0")
-(make-obsolete 'modus-vivendi-theme-section-headings 'modus-themes-headings "1.0.0")
-(make-obsolete 'modus-vivendi-theme-headings 'modus-themes-headings "1.0.0")
-(make-obsolete 'modus-vivendi-theme-scale-headings 'modus-themes-scale-headings "1.0.0")
-(make-obsolete 'modus-vivendi-theme-scale-1 'modus-themes-scale-1 "1.0.0")
-(make-obsolete 'modus-vivendi-theme-scale-2 'modus-themes-scale-2 "1.0.0")
-(make-obsolete 'modus-vivendi-theme-scale-3 'modus-themes-scale-3 "1.0.0")
-(make-obsolete 'modus-vivendi-theme-scale-4 'modus-themes-scale-4 "1.0.0")
-(make-obsolete 'modus-vivendi-theme-scale-5 'modus-themes-scale-5 "1.0.0")
-(make-obsolete 'modus-vivendi-theme-visible-fringes 'modus-themes-fringes "1.0.0")
-(make-obsolete 'modus-vivendi-theme-fringes 'modus-themes-fringes "1.0.0")
-(make-obsolete 'modus-vivendi-theme-distinct-org-blocks 'modus-themes-org-blocks "1.0.0")
-(make-obsolete 'modus-vivendi-theme-rainbow-org-src-blocks 'modus-themes-org-blocks "1.0.0")
-(make-obsolete 'modus-vivendi-theme-org-blocks 'modus-themes-org-blocks "1.0.0")
-(make-obsolete 'modus-vivendi-theme-3d-modeline 'modus-themes-mode-line "1.0.0")
-(make-obsolete 'modus-vivendi-theme-mode-line 'modus-themes-mode-line "1.0.0")
-(make-obsolete 'modus-vivendi-theme-subtle-diffs 'modus-themes-diffs "1.0.0")
-(make-obsolete 'modus-vivendi-theme-diffs 'modus-themes-diffs "1.0.0")
-(make-obsolete 'modus-vivendi-theme-intense-standard-completions 'modus-themes-completions "1.0.0")
-(make-obsolete 'modus-vivendi-theme-completions 'modus-themes-completions "1.0.0")
-(make-obsolete 'modus-vivendi-theme-prompts 'modus-themes-prompts "1.0.0")
-(make-obsolete 'modus-vivendi-theme-intense-hl-line 'modus-themes-intense-hl-line "1.0.0")
-(make-obsolete 'modus-vivendi-theme-intense-paren-match 'modus-themes-paren-match "1.0.0")
-(make-obsolete 'modus-vivendi-theme-faint-syntax 'modus-themes-syntax "1.0.0")
-(make-obsolete 'modus-vivendi-theme-comments 'modus-themes-syntax "1.0.0")
-(make-obsolete 'modus-vivendi-theme-syntax 'modus-themes-syntax "1.0.0")
-(make-obsolete 'modus-vivendi-theme-no-link-underline 'modus-themes-links "1.0.0")
-(make-obsolete 'modus-vivendi-theme-links 'modus-themes-links "1.0.0")
 
 
 
