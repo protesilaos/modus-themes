@@ -35,6 +35,83 @@ or `custom-theme-directory` _after_ the themes' package declaration.
 That will lead to failures in loading the files.  If you must change
 those variables, do it before the package declaration.
 
+## All customisations in short
+
+While you should read the manual for all the details (see next section),
+here is a snippet with all current customisation options and their
+possible values.  Note that those settings are only for purposes of
+demonstration:
+
+```elisp
+(setq modus-themes-slanted-constructs t
+      modus-themes-bold-constructs nil
+      modus-themes-no-mixed-fonts nil
+      modus-themes-subtle-line-numbers nil
+
+      modus-themes-fringes nil ; {nil,'subtle,'intense}
+
+      ;; Options for `modus-themes-lang-checkers': nil,
+      ;; 'straight-underline, 'subtle-foreground,
+      ;; 'subtle-foreground-straight-underline, 'intense-foreground,
+      ;; 'intense-foreground-straight-underline, 'colored-background
+      modus-themes-lang-checkers nil
+
+      ;; Options for `modus-themes-mode-line': nil, '3d, 'moody,
+      ;; 'borderless, 'borderless-3d, 'borderless-moody, 'accented,
+      ;; 'accented-3d, 'accented-moody
+      modus-themes-mode-line '3d
+
+      ;; Options for `modus-themes-syntax': nil, 'faint,
+      ;; 'yellow-comments, 'green-strings,
+      ;; 'yellow-comments-green-strings, 'alt-syntax,
+      ;; 'alt-syntax-yellow-comments, 'faint-yellow-comments
+      modus-themes-syntax nil
+
+      ;; Options for `modus-themes-hl-line': nil, 'intense-background,
+      ;; 'accented-background, 'underline-neutral,
+      ;; 'underline-accented, 'underline-only-neutral,
+      ;; 'underline-only-accented
+      modus-themes-hl-line 'underline-neutral
+
+      modus-themes-paren-match 'subtle-bold ; {nil,'subtle-bold,'intense,'intense-bold}
+
+      ;; Options for `modus-themes-links': nil, 'faint,
+      ;; 'neutral-underline, 'faint-neutral-underline, 'no-underline,
+      ;; 'underline-only, 'neutral-underline-only
+      modus-themes-links 'neutral-underline
+
+      ;; Options for `modus-themes-prompts': nil, 'subtle-accented,
+      ;; 'intense-accented, 'subtle-gray, 'intense-gray
+      modus-themes-prompts 'subtle-gray
+
+      modus-themes-completions 'moderate ; {nil,'moderate,'opinionated}
+
+      ;; Options for `modus-themes-region': nil, 'no-extend, 'bg-only,
+      ;; 'bg-only-no-extend, 'accent, 'accent-no-extend
+      modus-themes-region 'bg-only-no-extend
+
+      ;; Options for `modus-themes-diffs': nil, 'desaturated,
+      ;; 'fg-only, 'bg-only, 'deuteranopia,
+      modus-themes-diffs 'fg-only
+
+      modus-themes-org-blocks nil ; {nil,'grayscale,'rainbow}
+      modus-themes-org-habit nil ; {nil,'simplified,'traffic-light}
+
+      modus-themes-headings ; this is an alist: read the manual or its doc string
+      '((1 . line)
+        (2 . rainbow-line-no-bold)
+        (t . no-bold))
+
+      modus-themes-variable-pitch-ui nil
+      modus-themes-variable-pitch-headings t
+      modus-themes-scale-headings t
+      modus-themes-scale-1 1.1
+      modus-themes-scale-2 1.15
+      modus-themes-scale-3 1.21
+      modus-themes-scale-4 1.27
+      modus-themes-scale-5 1.33)
+```
+
 ## Further information
 
 Read the [Info manual HTML](https://protesilaos.com/modus-themes)

@@ -48,7 +48,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.4.0-dev.  This manual was built on
-2021-04-18 06:26 +0300.
+2021-04-20 16:46 +0300.
 
 * Menu:
 
@@ -486,6 +486,77 @@ set to nil.
 
    Remember that all customization options must be evaluated before
 loading a theme (*note Enable and load::).
+
+   Below is a summary of what you will learn in the subsequent sections
+of this manual.
+
+     (setq modus-themes-slanted-constructs t
+           modus-themes-bold-constructs nil
+           modus-themes-no-mixed-fonts nil
+           modus-themes-subtle-line-numbers nil
+
+           modus-themes-fringes nil ; {nil,'subtle,'intense}
+
+           ;; Options for `modus-themes-lang-checkers': nil,
+           ;; 'straight-underline, 'subtle-foreground,
+           ;; 'subtle-foreground-straight-underline, 'intense-foreground,
+           ;; 'intense-foreground-straight-underline, 'colored-background
+           modus-themes-lang-checkers nil
+
+           ;; Options for `modus-themes-mode-line': nil, '3d, 'moody,
+           ;; 'borderless, 'borderless-3d, 'borderless-moody, 'accented,
+           ;; 'accented-3d, 'accented-moody
+           modus-themes-mode-line '3d
+
+           ;; Options for `modus-themes-syntax': nil, 'faint,
+           ;; 'yellow-comments, 'green-strings,
+           ;; 'yellow-comments-green-strings, 'alt-syntax,
+           ;; 'alt-syntax-yellow-comments, 'faint-yellow-comments
+           modus-themes-syntax nil
+
+           ;; Options for `modus-themes-hl-line': nil, 'intense-background,
+           ;; 'accented-background, 'underline-neutral,
+           ;; 'underline-accented, 'underline-only-neutral,
+           ;; 'underline-only-accented
+           modus-themes-hl-line 'underline-neutral
+
+           modus-themes-paren-match 'subtle-bold ; {nil,'subtle-bold,'intense,'intense-bold}
+
+           ;; Options for `modus-themes-links': nil, 'faint,
+           ;; 'neutral-underline, 'faint-neutral-underline, 'no-underline,
+           ;; 'underline-only, 'neutral-underline-only
+           modus-themes-links 'neutral-underline
+
+           ;; Options for `modus-themes-prompts': nil, 'subtle-accented,
+           ;; 'intense-accented, 'subtle-gray, 'intense-gray
+           modus-themes-prompts 'subtle-gray
+
+           modus-themes-completions 'moderate ; {nil,'moderate,'opinionated}
+
+           ;; Options for `modus-themes-region': nil, 'no-extend, 'bg-only,
+           ;; 'bg-only-no-extend, 'accent, 'accent-no-extend
+           modus-themes-region 'bg-only-no-extend
+
+           ;; Options for `modus-themes-diffs': nil, 'desaturated,
+           ;; 'fg-only, 'bg-only, 'deuteranopia,
+           modus-themes-diffs 'fg-only
+
+           modus-themes-org-blocks nil ; {nil,'grayscale,'rainbow}
+           modus-themes-org-habit nil ; {nil,'simplified,'traffic-light}
+
+           modus-themes-headings ; this is an alist: read the manual or its doc string
+           '((1 . line)
+             (2 . rainbow-line-no-bold)
+             (t . no-bold))
+
+           modus-themes-variable-pitch-ui nil
+           modus-themes-variable-pitch-headings t
+           modus-themes-scale-headings t
+           modus-themes-scale-1 1.1
+           modus-themes-scale-2 1.15
+           modus-themes-scale-3 1.21
+           modus-themes-scale-4 1.27
+           modus-themes-scale-5 1.33)
 
 * Menu:
 
@@ -3873,72 +3944,72 @@ Node: Enable and load11238
 Node: Sample configuration for use-package13986
 Node: Differences between loading and enabling15355
 Node: Customization Options17395
-Node: Bold constructs19560
-Node: Slanted constructs20149
-Node: Syntax styles20696
-Node: No mixed fonts22334
-Node: Link styles23429
-Node: Command prompts25003
-Node: Mode line26202
-Node: Completion UIs29808
-Node: Fringes31640
-Node: Language checkers32300
-Node: Line highlighting34249
-Node: Line numbers35777
-Node: Matching parentheses36855
-Node: Active region37745
-Node: Diffs38963
-Node: Org mode blocks41510
-Node: Org agenda habits42988
-Node: Heading styles44823
-Node: Scaled headings48925
-Node: Scaled heading sizes49528
-Node: UI typeface52662
-Node: Headings' typeface53508
-Node: Advanced customization (do-it-yourself)54132
-Node: Per-theme customization settings (DIY)55397
-Node: Case-by-case face specs using the themes' palette (DIY)56743
-Node: Face specs at scale using the themes' palette (DIY)61207
-Node: Remap face with local value (DIY)66024
-Node: Override colors (DIY)68487
-Node: Override color saturation (DIY)73377
-Node: Font configurations for Org and others (DIY)76665
-Ref: Font configurations for Org and others (DIY)-Footnote-179053
-Node: Custom Org user faces (DIY)79240
-Node: Measure color contrast (DIY)82594
-Node: Load theme depending on time of day85361
-Node: Backdrop for pdf-tools (DIY)86383
-Node: A theme-agnostic hook for theme loading (DIY)89139
-Node: Face coverage91529
-Node: Supported packages91999
-Node: Indirectly covered packages98770
-Node: Notes for individual packages99253
-Node: Note for dimmerel100007
-Node: Note for display-fill-column-indicator-mode101453
-Node: Note for mmm-modeel background colors103080
-Node: Note for prism105464
-Node: Note on company-mode overlay pop-up108712
-Ref: Note on company-mode overlay pop-up-Footnote-1109399
-Ref: Note on company-mode overlay pop-up-Footnote-2109466
-Node: Note for ERC escaped color sequences109521
-Ref: Note for ERC escaped color sequences-Footnote-1110952
-Node: Note for powerline or spaceline111062
-Node: Note on SHR colors111478
-Node: Note for EWW and Elfeed fonts (SHR fonts)111914
-Node: Note for Helm grep112662
-Node: Note on vc-annotate-background-mode114154
-Node: Note on pdf-tools link hints115041
-Node: Contributing117474
-Node: Sources of the themes117874
-Node: Issues you can help with118612
-Node: Patches require copyright assignment to the FSF119812
-Node: Acknowledgements122107
-Node: Meta124479
-Node: GNU Free Documentation License126476
-Node: Indices151828
-Node: Function index152007
-Node: Variable index153244
-Node: Concept index155166
+Node: Bold constructs22560
+Node: Slanted constructs23149
+Node: Syntax styles23696
+Node: No mixed fonts25334
+Node: Link styles26429
+Node: Command prompts28003
+Node: Mode line29202
+Node: Completion UIs32808
+Node: Fringes34640
+Node: Language checkers35300
+Node: Line highlighting37249
+Node: Line numbers38777
+Node: Matching parentheses39855
+Node: Active region40745
+Node: Diffs41963
+Node: Org mode blocks44510
+Node: Org agenda habits45988
+Node: Heading styles47823
+Node: Scaled headings51925
+Node: Scaled heading sizes52528
+Node: UI typeface55662
+Node: Headings' typeface56508
+Node: Advanced customization (do-it-yourself)57132
+Node: Per-theme customization settings (DIY)58397
+Node: Case-by-case face specs using the themes' palette (DIY)59743
+Node: Face specs at scale using the themes' palette (DIY)64207
+Node: Remap face with local value (DIY)69024
+Node: Override colors (DIY)71487
+Node: Override color saturation (DIY)76377
+Node: Font configurations for Org and others (DIY)79665
+Ref: Font configurations for Org and others (DIY)-Footnote-182053
+Node: Custom Org user faces (DIY)82240
+Node: Measure color contrast (DIY)85594
+Node: Load theme depending on time of day88361
+Node: Backdrop for pdf-tools (DIY)89383
+Node: A theme-agnostic hook for theme loading (DIY)92139
+Node: Face coverage94529
+Node: Supported packages94999
+Node: Indirectly covered packages101770
+Node: Notes for individual packages102253
+Node: Note for dimmerel103007
+Node: Note for display-fill-column-indicator-mode104453
+Node: Note for mmm-modeel background colors106080
+Node: Note for prism108464
+Node: Note on company-mode overlay pop-up111712
+Ref: Note on company-mode overlay pop-up-Footnote-1112399
+Ref: Note on company-mode overlay pop-up-Footnote-2112466
+Node: Note for ERC escaped color sequences112521
+Ref: Note for ERC escaped color sequences-Footnote-1113952
+Node: Note for powerline or spaceline114062
+Node: Note on SHR colors114478
+Node: Note for EWW and Elfeed fonts (SHR fonts)114914
+Node: Note for Helm grep115662
+Node: Note on vc-annotate-background-mode117154
+Node: Note on pdf-tools link hints118041
+Node: Contributing120474
+Node: Sources of the themes120874
+Node: Issues you can help with121612
+Node: Patches require copyright assignment to the FSF122812
+Node: Acknowledgements125107
+Node: Meta127479
+Node: GNU Free Documentation License129476
+Node: Indices154828
+Node: Function index155007
+Node: Variable index156244
+Node: Concept index158166
 
 End Tag Table
 
