@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.3.2
-;; Last-Modified: <2021-04-21 12:46:54 +0300>
+;; Last-Modified: <2021-04-21 13:47:05 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -2091,28 +2091,39 @@ interest of backward compatibility."
   :link '(info-link "(modus-themes) Diffs"))
 
 (defcustom modus-themes-completions nil
-  "Apply special styles to the UI of completion frameworks.
+  "Control the style of the completion framework's interface.
 
-This concerns Icomplete, Ivy, Helm, Selectrum, Ido, as well as
-any other tool meant to enhance their experience.  The effect
-will vary depending on the completion framework.
+This is a special option that has different effects depending on
+the completion UI.  The interfaces can be grouped in two
+categories, based on their default aesthetics: (i) those that
+only or mostly use foreground colors for their interaction model,
+and (ii) those that combine background and foreground values for
+some of their metaphors.  The former category encompasses
+Icomplete, Ido, Selectrum, Vertico, as well as pattern matching
+styles like Orderless and Flx.  The latter covers Helm, Ivy, and
+Sallet.
 
-Nil means to remain faithful to the metaphors that each UI
-establishes.  For example, Icomplete and Ido only use foreground
-colors to style their matches, whereas Ivy or Helm rely on an
-aesthetic that combines colored backgrounds with appropriate text
-color.
+A value of nil (the default) will simply respect the metaphors of
+each completion framework.
 
-Option `moderate' will apply a combination of background and
-foreground that is fairly subtle.  For Icomplete and the like,
-this constitutes a departure from their standard style.  While
-Ivy, Helm, and the others, will use less pronounced colors for
-applicable contexts.
+Option `moderate' applies a combination of background and
+foreground that is fairly subtle.  For Icomplete and friends this
+constitutes a departure from their default aesthetics, however
+the difference is small.  While Helm, Ivy et al appear slightly
+different than their original looks, as they are toned down a
+bit.
 
-Option `opinionated' will apply color combinations that refashion
-the completion UI.  So Icomplete et al will now use styles that
-resemble the defaults of Ivy and co., while the latter group will
-revert to an even more nuanced aesthetic."
+Option `opinionated' uses color combinations that refashion the
+completion UI.  For the Icomplete camp this means that intense
+background and foreground combinations are used: in effect their
+looks emulate those of Helm, Ivy and company in their original
+style.  Whereas the other group of packages will revert to an
+even more nuanced aesthetic with some additional changes to the
+choice of hues.
+
+To appreciate the scope of this customization option, you should
+spend some time with every one of the nil (default), `moderate',
+and `opinionated' possibilities."
   :group 'modus-themes
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"

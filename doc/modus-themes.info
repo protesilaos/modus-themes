@@ -48,7 +48,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.4.0-dev.  This manual was built on
-2021-04-21 12:47 +0300.
+2021-04-21 13:49 +0300.
 
 * Menu:
 
@@ -870,12 +870,12 @@ completion UI.  The interfaces can be grouped in two categories, based
 on their default aesthetics: (i) those that only or mostly use
 foreground colors for their interaction model, and (ii) those that
 combine background and foreground values for some of their metaphors.
-The former category encompasses Icomplete, Ido, Selectrum as well as
-pattern matching styles like Orderless and Flx.  The latter covers Helm,
-Ivy, and similar.
+The former category encompasses Icomplete, Ido, Selectrum, Vertico, as
+well as pattern matching styles like Orderless and Flx.  The latter
+covers Helm, Ivy, and Sallet.
 
-   A value of ‘nil’ will respect the metaphors of each completion
-framework.
+   A value of ‘nil’ (the default) will simply respect the metaphors of
+each completion framework.
 
    Option ‘moderate’ applies a combination of background and foreground
 that is fairly subtle.  For Icomplete and friends this constitutes a
@@ -3943,64 +3943,64 @@ Node: Link styles26454
 Node: Command prompts28028
 Node: Mode line29227
 Node: Completion UIs32833
-Node: Fringes34665
-Node: Language checkers35325
-Node: Line highlighting37274
-Node: Line numbers38802
-Node: Matching parentheses39880
-Node: Active region40770
-Node: Diffs41988
-Node: Org mode blocks44039
-Node: Org agenda habits45517
-Node: Heading styles47352
-Node: Scaled headings51454
-Node: Scaled heading sizes52057
-Node: UI typeface55191
-Node: Headings' typeface56037
-Node: Advanced customization (do-it-yourself)56661
-Node: Per-theme customization settings (DIY)57926
-Node: Case-by-case face specs using the themes' palette (DIY)59272
-Node: Face specs at scale using the themes' palette (DIY)63736
-Node: Remap face with local value (DIY)68553
-Node: Override colors (DIY)71016
-Node: Override color saturation (DIY)75906
-Node: Font configurations for Org and others (DIY)79194
-Ref: Font configurations for Org and others (DIY)-Footnote-181582
-Node: Custom Org user faces (DIY)81769
-Node: Measure color contrast (DIY)85123
-Node: Load theme depending on time of day87890
-Node: Backdrop for pdf-tools (DIY)88912
-Node: A theme-agnostic hook for theme loading (DIY)91668
-Node: Face coverage94058
-Node: Supported packages94528
-Node: Indirectly covered packages101299
-Node: Notes for individual packages101782
-Node: Note for dimmerel102536
-Node: Note for display-fill-column-indicator-mode103982
-Node: Note for mmm-modeel background colors105609
-Node: Note for prism107993
-Node: Note on company-mode overlay pop-up111241
-Ref: Note on company-mode overlay pop-up-Footnote-1111928
-Ref: Note on company-mode overlay pop-up-Footnote-2111995
-Node: Note for ERC escaped color sequences112050
-Ref: Note for ERC escaped color sequences-Footnote-1113481
-Node: Note for powerline or spaceline113591
-Node: Note on SHR colors114007
-Node: Note for EWW and Elfeed fonts (SHR fonts)114443
-Node: Note for Helm grep115191
-Node: Note on vc-annotate-background-mode116683
-Node: Note on pdf-tools link hints117570
-Node: Contributing120003
-Node: Sources of the themes120403
-Node: Issues you can help with121141
-Node: Patches require copyright assignment to the FSF122341
-Node: Acknowledgements124636
-Node: Meta127008
-Node: GNU Free Documentation License129005
-Node: Indices154357
-Node: Function index154536
-Node: Variable index155773
-Node: Concept index157695
+Node: Fringes34695
+Node: Language checkers35355
+Node: Line highlighting37304
+Node: Line numbers38832
+Node: Matching parentheses39910
+Node: Active region40800
+Node: Diffs42018
+Node: Org mode blocks44069
+Node: Org agenda habits45547
+Node: Heading styles47382
+Node: Scaled headings51484
+Node: Scaled heading sizes52087
+Node: UI typeface55221
+Node: Headings' typeface56067
+Node: Advanced customization (do-it-yourself)56691
+Node: Per-theme customization settings (DIY)57956
+Node: Case-by-case face specs using the themes' palette (DIY)59302
+Node: Face specs at scale using the themes' palette (DIY)63766
+Node: Remap face with local value (DIY)68583
+Node: Override colors (DIY)71046
+Node: Override color saturation (DIY)75936
+Node: Font configurations for Org and others (DIY)79224
+Ref: Font configurations for Org and others (DIY)-Footnote-181612
+Node: Custom Org user faces (DIY)81799
+Node: Measure color contrast (DIY)85153
+Node: Load theme depending on time of day87920
+Node: Backdrop for pdf-tools (DIY)88942
+Node: A theme-agnostic hook for theme loading (DIY)91698
+Node: Face coverage94088
+Node: Supported packages94558
+Node: Indirectly covered packages101329
+Node: Notes for individual packages101812
+Node: Note for dimmerel102566
+Node: Note for display-fill-column-indicator-mode104012
+Node: Note for mmm-modeel background colors105639
+Node: Note for prism108023
+Node: Note on company-mode overlay pop-up111271
+Ref: Note on company-mode overlay pop-up-Footnote-1111958
+Ref: Note on company-mode overlay pop-up-Footnote-2112025
+Node: Note for ERC escaped color sequences112080
+Ref: Note for ERC escaped color sequences-Footnote-1113511
+Node: Note for powerline or spaceline113621
+Node: Note on SHR colors114037
+Node: Note for EWW and Elfeed fonts (SHR fonts)114473
+Node: Note for Helm grep115221
+Node: Note on vc-annotate-background-mode116713
+Node: Note on pdf-tools link hints117600
+Node: Contributing120033
+Node: Sources of the themes120433
+Node: Issues you can help with121171
+Node: Patches require copyright assignment to the FSF122371
+Node: Acknowledgements124666
+Node: Meta127038
+Node: GNU Free Documentation License129035
+Node: Indices154387
+Node: Function index154566
+Node: Variable index155803
+Node: Concept index157725
 
 End Tag Table
 
