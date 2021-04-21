@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.3.2
-;; Last-Modified: <2021-04-20 16:24:50 +0300>
+;; Last-Modified: <2021-04-21 12:46:54 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -2046,42 +2046,48 @@ background instead of the standard shade of gray."
   :link '(info-link "(modus-themes) Mode line"))
 
 (defcustom modus-themes-diffs nil
-  "Adjust the overall styles of diffs.
+  "Adjust the overall style of diffs.
 
-Nil means to use fairly intense color combinations for diffs.
-For example, you get a rich green background with a green
-foreground for added lines.  Word-wise or 'refined' diffs follow
-the same pattern but use different shades of those colors to
-remain distinct.
+The default (nil) uses fairly intense color combinations for
+diffs, by applying prominently colored backgrounds, with
+appropriate foregrounds.
 
-A `desaturated' value follows the same principles as with the nil
-option, while it tones down all relevant colors.
-
-Option `fg-only' will remove all accented backgrounds, except
-from word-wise changes.  It instead uses color-coded foreground
-values to differentiate between added/removed/changed lines.  If
-a background is necessary, such as with `ediff', then a subtle
-grayscale value is used.
+Option `desaturated' follows the same principles as with the
+default (nil), though it tones down all relevant colors.
 
 Option `bg-only' applies a background but does not override the
 text's foreground.  This makes it suitable for a non-nil value
 passed to `diff-font-lock-syntax' (note: Magit does not support
-syntax highlighting in diffs as of 2020-11-25, version
-20201116.1057).
+syntax highlighting in diffs---last checked on 2021-04-21).
 
-Option `deuteranopia' accounts for red-green color defficiency by
-replacing all instances of green with colors on the blue side of
-the spectrum.  Other stylistic changes are made in the interest
-of optimizing for such a use-case."
+Option `deuteranopia' is like the default (nil) in terms of using
+prominently colored backgrounds, except that it also accounts for
+red-green color defficiency by replacing all instances of green
+with colors on the blue side of the spectrum.  Other stylistic
+changes are made in the interest of optimizing for such a
+use-case.
+
+Option `fg-only-deuteranopia' removes all colored backgrounds,
+except from word-wise or refined changes.  Instead, it only uses
+color-coded foreground values to differentiate between added,
+removed, and changed lines.  If a background is necessary to
+denote context, a subtle grayscale value is applied.  The color
+used for added lines is a variant of blue to account for
+red-green color defficiency but also because green text alone is
+hard to discern in the diff's context (hard for our accessibility
+purposes).  The `fg-only' option that existed in older versions
+of the themes is now an alias of `fg-only-deuteranopia', in the
+interest of backward compatibility."
   :group 'modus-themes
-  :package-version '(modus-themes . "1.2.0")
+  :package-version '(modus-themes . "1.4.0")
   :version "28.1"
   :type '(choice
           (const :format "[%v] %t\n" :tag "Intensely colored backgrounds (default)" nil)
           (const :format "[%v] %t\n" :tag "Slightly accented backgrounds with tinted text" desaturated)
-          (const :format "[%v] %t\n" :tag "No backgrounds, except for refined diffs" fg-only)
           (const :format "[%v] %t\n" :tag "Apply color-coded backgrounds; keep syntax colors in tact" bg-only)
-          (const :format "[%v] %t\n" :tag "Optimized for red-green color defficiency" deuteranopia))
+          (const :format "[%v] %t\n" :tag "Like the default (nil), though optimized for red-green color defficiency" deuteranopia)
+          (const :format "[%v] %t\n" :tag "No backgrounds, except for refined diffs" fg-only-deuteranopia)
+          (const :format "[%v] %t\n" :tag "Alias of `fg-only-deuteranopia' for backward compatibility" fg-only))
   :link '(info-link "(modus-themes) Diffs"))
 
 (defcustom modus-themes-completions nil
@@ -2714,6 +2720,7 @@ Optional BG-ONLY-FG applies ALTFG else leaves the foreground
 unspecified."
   (pcase modus-themes-diffs
     ('fg-only (list :background fg-only-bg :foreground fg-only-fg))
+    ('fg-only-deuteranopia (list :background fg-only-bg :foreground fg-only-fg))
     ('desaturated (list :background altbg :foreground altfg))
     ('deuteranopia (list :background (or deuteranbg mainbg) :foreground (or deuteranfg mainfg)))
     ('bg-only (list :background altbg :foreground (if bg-only-fg altfg 'unspecified)))
@@ -2723,19 +2730,11 @@ unspecified."
   "Determine whether the DEUTERAN or MAIN color should be used.
 This is based on whether `modus-themes-diffs' has the value
 `deuteranopia'."
-  (if (eq modus-themes-diffs 'deuteranopia)
+  (if (or (eq modus-themes-diffs 'deuteranopia)
+          (eq modus-themes-diffs 'fg-only-deuteranopia)
+          (eq modus-themes-diffs 'fg-only))
       (list deuteran)
     (list main)))
-
-(defun modus-themes--diff-text (fg-only-fg default-fg)
-  "Like `modus-themes--diff', but only for foregrounds.
-FG-ONLY-FG is the foreground that is used when diffs are styled
-using only foreground colors.  DEFAULT-FG covers all other
-cases."
-  (pcase modus-themes-diffs
-    ('fg-only (list :foreground fg-only-fg))
-    ('bg-only (list :foreground 'unspecified))
-    (_ (list :foreground default-fg))))
 
 (defun modus-themes--standard-completions (mainfg subtlebg intensebg intensefg)
   "Combinations for `modus-themes-completions'.
@@ -3054,7 +3053,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     ;; intended for `diff-mode' or equivalent
     `(modus-themes-diff-added
       ((,class ,@(modus-themes--diff
-                  bg-main green
+                  bg-main blue-alt-other
                   bg-diff-focus-added fg-diff-focus-added
                   green-nuanced-bg fg-diff-added
                   bg-diff-focus-added-deuteran fg-diff-focus-added-deuteran))))
@@ -3070,7 +3069,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                   red-nuanced-bg fg-diff-removed))))
     `(modus-themes-diff-refine-added
       ((,class ,@(modus-themes--diff
-                  bg-diff-added fg-diff-added
+                  bg-diff-added-deuteran fg-diff-added-deuteran
                   bg-diff-refine-added fg-diff-refine-added
                   bg-diff-focus-added fg-diff-focus-added
                   bg-diff-refine-added-deuteran fg-diff-refine-added-deuteran))))
@@ -3086,7 +3085,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                   bg-diff-focus-removed fg-diff-focus-removed))))
     `(modus-themes-diff-focus-added
       ((,class ,@(modus-themes--diff
-                  bg-dim green
+                  bg-dim blue-alt-other
                   bg-diff-focus-added fg-diff-focus-added
                   bg-diff-added fg-diff-added
                   bg-diff-focus-added-deuteran fg-diff-focus-added-deuteran))))
@@ -3102,7 +3101,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                   bg-diff-removed fg-diff-removed))))
     `(modus-themes-diff-heading
       ((,class ,@(modus-themes--diff
-                  bg-main blue
+                  bg-alt fg-main
                   bg-diff-heading fg-diff-heading
                   cyan-nuanced-bg cyan-nuanced-fg
                   bg-header fg-main
@@ -3724,11 +3723,11 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; diff-mode
     `(diff-added ((,class :inherit modus-themes-diff-added)))
     `(diff-changed ((,class :inherit modus-themes-diff-changed :extend t)))
-    `(diff-context ((,class ,@(modus-themes--diff-text fg-main fg-unfocused))))
+    `(diff-context ((,class :foreground ,fg-alt)))
     `(diff-error ((,class :inherit modus-themes-intense-red)))
     `(diff-file-header ((,class :inherit (bold diff-header))))
     `(diff-function ((,class :inherit modus-themes-diff-heading)))
-    `(diff-header ((,class ,@(modus-themes--diff-text cyan-faint fg-main))))
+    `(diff-header ((,class :foreground ,fg-main)))
     `(diff-hunk-header ((,class :inherit (bold modus-themes-diff-heading))))
     `(diff-index ((,class :inherit bold :foreground ,blue-alt)))
     `(diff-indicator-added ((,class :inherit (diff-added bold)
@@ -4980,7 +4979,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     ;; not the highlighted ones.  This is because Magit's interaction
     ;; model relies on highlighting the current diff hunk.
     `(magit-diff-added ((,class ,@(modus-themes--diff
-                                   bg-main green
+                                   bg-main blue-alt-other
                                    bg-diff-added fg-diff-added
                                    green-nuanced-bg fg-diff-added
                                    bg-diff-added-deuteran fg-diff-added-deuteran))))
@@ -4994,17 +4993,23 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(magit-diff-context-highlight ((,class ,@(modus-themes--diff
                                                bg-dim fg-dim
                                                bg-inactive fg-inactive
+                                               bg-dim fg-alt
                                                bg-dim fg-alt))))
     `(magit-diff-file-heading ((,class :inherit bold :foreground ,fg-special-cold)))
     `(magit-diff-file-heading-highlight ((,class :inherit (modus-themes-special-cold bold))))
     `(magit-diff-file-heading-selection ((,class :inherit modus-themes-refine-cyan)))
     ;; NOTE: here we break from the pattern of inheriting from the
     ;; modus-themes-diff-* faces.
-    `(magit-diff-hunk-heading ((,class :inherit bold :background ,bg-active
-                                       :foreground ,fg-inactive)))
+    `(magit-diff-hunk-heading ((,class :inherit bold
+                                       ,@(modus-themes--diff
+                                          bg-alt fg-alt
+                                          bg-active fg-inactive
+                                          bg-inactive fg-inactive
+                                          bg-inactive fg-inactive
+                                          t))))
     `(magit-diff-hunk-heading-highlight
       ((,class :inherit bold
-               :background ,@(modus-themes--diff-deuteran bg-region bg-diff-heading)
+               :background ,@(modus-themes--diff-deuteran bg-active bg-diff-heading)
                :foreground ,@(modus-themes--diff-deuteran fg-main fg-diff-heading))))
     `(magit-diff-hunk-heading-selection ((,class :inherit modus-themes-refine-blue)))
     `(magit-diff-hunk-region ((,class :inherit bold)))

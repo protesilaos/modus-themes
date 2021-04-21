@@ -91,8 +91,8 @@ demonstration:
       modus-themes-region 'bg-only-no-extend
 
       ;; Options for `modus-themes-diffs': nil, 'desaturated,
-      ;; 'fg-only, 'bg-only, 'deuteranopia,
-      modus-themes-diffs 'fg-only
+      ;; 'bg-only, 'deuteranopia, 'fg-only-deuteranopia
+      modus-themes-diffs 'fg-only-deuteranopia
 
       modus-themes-org-blocks nil ; {nil,'grayscale,'rainbow}
       modus-themes-org-habit nil ; {nil,'simplified,'traffic-light}
@@ -141,5 +141,5 @@ An Info manual should be distributed with the `modus-themes` package.
 Evaluate this form to access it directly:
 
     (info "(modus-themes) Top")
-    
+
 Or visit it at: <https://protesilaos.com/modus-themes>.

@@ -419,8 +419,8 @@ this manual.
       modus-themes-region 'bg-only-no-extend
 
       ;; Options for `modus-themes-diffs': nil, 'desaturated,
-      ;; 'fg-only, 'bg-only, 'deuteranopia,
-      modus-themes-diffs 'fg-only
+      ;; 'bg-only, 'deuteranopia, 'fg-only-deuteranopia
+      modus-themes-diffs 'fg-only-deuteranopia
 
       modus-themes-org-blocks nil ; {nil,'grayscale,'rainbow}
       modus-themes-org-habit nil ; {nil,'simplified,'traffic-light}
@@ -999,48 +999,39 @@ Possible values:
 
 1. ~nil~ (default)
 2. ~desaturated~
-3. ~fg-only~
-4. ~bg-only~
-5. ~deuteranopia~
+3. ~bg-only~
+4. ~deuteranopia~
+5. ~fg-only-deuteranopia~ (part of {{{development-version}}})
+6. ~fg-only~ (became an alias of ~fg-only-deuteranopia~---part of
+   {{{development-version}}})
 
-By default the themes apply rich coloration to the output of diffs, such
-as those of ~diff-mode~, ~ediff~, ~smerge-mode~, and Magit.  These are
-color combinations of an accented background and foreground so that, for
-example, added lines have a pronounced green background with an
-appropriate shade of green for the affected text.  Word-wise or
-"refined" changes follow this pattern but use different shades of those
-colors to remain distinct.
+The default (~nil~) uses fairly intense color combinations for diffs, by
+applying prominently colored backgrounds, with appropriate foregrounds.
 
-Option ~desaturated~ tones down all relevant color values.  It still
-combines an accented background with an appropriate foreground, yet its
-overall impression is fairly subtle.  Refined changes are a bit more
-intense to fulfil their intended function, though still less saturated
-than default.
+Option ~desaturated~ follows the same principles as with the default
+(~nil~), though it tones down all relevant colors.
 
-Option ~fg-only~ will remove most accented backgrounds and instead rely
-on color-coded text to denote changes.  For instance, added lines use a
-green foreground, while their background is the same as the rest of the
-buffer.  Word-wise highlights still use a background value which is,
-nonetheless, more subtle than its default equivalent.
+Option ~bg-only~ applies a background but does not override the text's
+foreground.  This makes it suitable for a non-nil value passed to
+~diff-font-lock-syntax~ (note: Magit does not support syntax highlighting
+in diffs---last checked on 2021-04-21).
 
-Option ~bg-only~ applies color-coded backgrounds but does not override
-any syntax highlighting that may be present.  This makes it suitable for
-use with a non-nil value for ~diff-font-lock-syntax~ (which is the
-default for ~diff-mode~ buffers in Emacs 27 or higher).
+Option ~deuteranopia~ is like the default (~nil~) in terms of using
+prominently colored backgrounds, except that it also accounts for
+red-green color defficiency by replacing all instances of green with
+colors on the blue side of the spectrum.  Other stylistic changes are
+made in the interest of optimizing for such a use-case.
 
-Option ~deuteranopia~ optimizes for red-green color deficiency.  It
-replaces all instances of green with blue variants.  This is to ensure
-that indicators for "removed" and "added" states are not mistaken for
-each other.
-
-Concerning Magit, an extra set of tweaks are introduced for the effect
-of highlighting the current diff hunk, so as to remain aligned with the
-overall experience of that mode.  Expect changes that are consistent
-with the overall intent of the aforementioned.  Note, however, that the
-~bg-only~ option will not deliver the intended results in Magit diffs
-because no syntax highlighting is used there (last checked with Magit
-version 20201116.1057, though upstream has a plan to eventually support
-such a feature---this entry shall be updated accordingly).
+Option ~fg-only-deuteranopia~ removes all colored backgrounds, except from
+word-wise or refined changes.  Instead, it only uses color-coded
+foreground values to differentiate between added, removed, and changed
+lines.  If a background is necessary to denote context, a subtle
+grayscale value is applied.  The color used for added lines is a variant
+of blue to account for red-green color defficiency but also because
+green text alone is hard to discern in the diff's context (hard for our
+accessibility purposes).  The ~fg-only~ option that existed in older
+versions of the themes is now an alias of ~fg-only-deuteranopia~, in the
+interest of backward compatibility.
 
 ** Option for org-mode block styles
 :properties:
