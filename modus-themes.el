@@ -4131,14 +4131,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(epe-status-face ((,class :foreground ,magenta-alt-other)))
     `(epe-venv-face ((,class :inherit (shadow modus-themes-slant))))
 ;;;;; eshell-syntax-highlighting
-    `(eshell-syntax-highlighting-alias-face ((,class :foreground ,cyan)))
-    `(eshell-syntax-highlighting-comment-face ((,class :inherit shadow)))
-    `(eshell-syntax-highlighting-directory-face ((,class :foreground ,blue)))
-    `(eshell-syntax-highlighting-envvar-face ((,class :foreground ,magenta-alt)))
+    `(eshell-syntax-highlighting-directory-face ((,class :inherit eshell-ls-directory)))
     `(eshell-syntax-highlighting-invalid-face ((,class :foreground ,red)))
-    `(eshell-syntax-highlighting-lisp-function-face ((,class :foreground ,magenta)))
-    `(eshell-syntax-highlighting-shell-command-face ((,class :foreground ,cyan-alt-other)))
-    `(eshell-syntax-highlighting-string-face ((,class :foreground ,blue-alt)))
+    `(eshell-syntax-highlighting-shell-command-face ((,class :foreground ,fg-main)))
 ;;;;; evil-mode
     `(evil-ex-commands ((,class :foreground ,magenta-alt-other)))
     `(evil-ex-info ((,class :foreground ,cyan-alt-other)))
