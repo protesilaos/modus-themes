@@ -3,7 +3,9 @@
 A pair of highly accessible themes that conform with the WCAG AAA
 standard for colour contrast between background and foreground
 combinations (a minimum contrast of 7:1---the highest standard of its
-kind).
+kind).  The Modus themes are also striving to empower users with
+red-green color deficiency: this is achieved through customisation
+options that replace all relevant instances of green with blue.
 
 The themes are built into GNU Emacs 28 (development target).  They are
 also distributed in several packages formats.
@@ -47,6 +49,7 @@ demonstration:
       modus-themes-bold-constructs nil
       modus-themes-no-mixed-fonts nil
       modus-themes-subtle-line-numbers nil
+      modus-themes-success-deuteranopia t
 
       modus-themes-fringes nil ; {nil,'subtle,'intense}
 

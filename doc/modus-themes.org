@@ -82,6 +82,11 @@ To ensure that users have a consistently accessible experience, the
 themes strive to achieve as close to full face coverage as possible
 ([[#h:a9c8f29d-7f72-4b54-b74b-ddefe15d6a19][Face coverage]]).
 
+Furthermore, the themes are designed to empower users with red-green
+color deficiency (deuteranopia).  This is achieved through customization
+options which have the effect of replacing all relevant instances of
+green with a variant of blue ([[#h:bf1c82f2-46c7-4eb2-ad00-dd11fdd8b53f][Customization Options]]).
+
 Starting with version 0.12.0 and onwards, the themes are built into GNU
 Emacs.
 
@@ -375,6 +380,7 @@ this manual.
       modus-themes-bold-constructs nil
       modus-themes-no-mixed-fonts nil
       modus-themes-subtle-line-numbers nil
+      modus-themes-success-deuteranopia t
 
       modus-themes-fringes nil ; {nil,'subtle,'intense}
 
@@ -439,6 +445,36 @@ this manual.
       modus-themes-scale-4 1.27
       modus-themes-scale-5 1.33)
 #+end_src
+
+** Option for color-coding success state (deuteranopia)
+:properties:
+:alt_title: Success' color-code
+:description: Toggle blue color for success or done states
+:custom_id: h:3ed03a48-20d8-4ce7-b214-0eb7e4c79abe
+:end:
+#+vindex: modus-themes-success-deuteranopia
+
+Symbol: ~modus-themes-success-deuteranopia~
+
+Possible values:
+
+1. ~nil~ (default)
+2. ~t~
+
+The default is to colorise all faces that denote "success", "done", or
+similar with a variant of green.
+
+With a non-nil value (~t~), use variants of blue instead of green.  This
+is meant to empower users with red-green color deficiency.
+
+The present customization option should apply to all contexts where
+there can be a color-coded distinction between success and failure,
+to-do and done, and so on.
+
+Diffs, which have a red/green dichotomy by default, can also be
+configured to conform with deuteranopia.
+
+[[#h:ea7ac54f-5827-49bd-b09f-62424b3b6427][Option for diff buffer looks]].
 
 ** Option for more bold constructs
 :properties:

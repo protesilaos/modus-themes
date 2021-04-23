@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.3.2
-;; Last-Modified: <2021-04-23 18:10:45 +0300>
+;; Last-Modified: <2021-04-23 19:23:39 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -57,6 +57,7 @@
 ;;     modus-themes-region                         (choice)
 ;;     modus-themes-links                          (choice)
 ;;     modus-themes-completions                    (choice)
+;;     modus-themes-success-deuteranopia           (boolean)
 ;;
 ;; The default scale for headings is as follows (it can be customized as
 ;; well---remember, no scaling takes place by default):
@@ -2357,6 +2358,23 @@ to the end of each line within the region."
           (const :format "[%v] %t\n" :tag "As with the `accent' option, but does not extend" accent-no-extend))
   :link '(info-link "(modus-themes) Active region"))
 
+(defcustom modus-themes-success-deuteranopia nil
+  "Color-code 'success' or 'done' as blue instead of green.
+
+This is to account for red-green color deficiency.
+
+The present customization option should apply to all contexts where
+there can be a color-coded distinction between success and failure,
+to-do and done, and so on.
+
+Diffs, which have a red/green dichotomy by default, can also be
+configured to conform with deuteranopia: `modus-themes-diffs'."
+  :group 'modus-themes
+  :package-version '(modus-themes . "1.4.0")
+  :version "28.1"
+  :type 'boolean
+  :link '(info-link "(modus-themes) Success' color-code"))
+
 
 
 ;;; Internal functions
@@ -2744,6 +2762,12 @@ This is based on whether `modus-themes-diffs' has the value
   (if (or (eq modus-themes-diffs 'deuteranopia)
           (eq modus-themes-diffs 'fg-only-deuteranopia)
           (eq modus-themes-diffs 'fg-only))
+      (list deuteran)
+    (list main)))
+
+(defun modus-themes--success-deuteran (deuteran main)
+  "Determine whether to color-code success as DEUTERAN or MAIN."
+  (if modus-themes-success-deuteranopia
       (list deuteran)
     (list main)))
 
@@ -3225,7 +3249,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(region ((,class ,@(modus-themes--region bg-region fg-main bg-hl-alt-intense bg-region-accent))))
     `(secondary-selection ((,class :inherit modus-themes-special-cold)))
     `(shadow ((,class :foreground ,fg-alt)))
-    `(success ((,class :inherit bold :foreground ,green)))
+    `(success ((,class :inherit bold :foreground ,@(modus-themes--success-deuteran blue green))))
     `(trailing-whitespace ((,class :background ,red-intense-bg)))
     `(warning ((,class :inherit bold :foreground ,yellow)))
 ;;;;; buttons, links, widgets
@@ -3516,7 +3540,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                                        :background ,bg-alt :foreground ,fg-alt)))
     `(cider-test-error-face ((,class :inherit modus-themes-subtle-red)))
     `(cider-test-failure-face ((,class :inherit (modus-themes-intense-red bold))))
-    `(cider-test-success-face ((,class :inherit modus-themes-intense-green)))
+    `(cider-test-success-face ((,class :inherit ,@(modus-themes--success-deuteran
+                                                   'modus-themes-intense-blue
+                                                   'modus-themes-intense-green))))
     `(cider-traced-face ((,class :box (:line-width -1 :color ,cyan :style nil) :background ,bg-dim)))
     `(cider-warning-highlight-face ((,class :foreground ,yellow :underline t)))
 ;;;;; circe (and lui)
@@ -3696,7 +3722,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(debbugs-gnu-archived ((,class :inverse-video t)))
     `(debbugs-gnu-done ((,class :inherit shadow)))
     `(debbugs-gnu-forwarded ((,class :foreground ,fg-special-warm)))
-    `(debbugs-gnu-handled ((,class :foreground ,green)))
+    `(debbugs-gnu-handled ((,class :foreground ,blue)))
     `(debbugs-gnu-new ((,class :foreground ,red)))
     `(debbugs-gnu-pending ((,class :foreground ,cyan)))
     `(debbugs-gnu-stale-1 ((,class :foreground ,yellow-nuanced-fg)))
@@ -3909,7 +3935,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(doom-modeline-host ((,class :inherit italic)))
     `(doom-modeline-info ((,class :foreground ,green-active)))
     `(doom-modeline-lsp-error ((,class :inherit bold :foreground ,red-active)))
-    `(doom-modeline-lsp-success ((,class :inherit bold :foreground ,green-active)))
+    `(doom-modeline-lsp-success ((,class :inherit bold :foreground ,@(modus-themes--success-deuteran
+                                                                      blue-active
+                                                                      green-active))))
     `(doom-modeline-lsp-warning ((,class :inherit bold :foreground ,yellow-active)))
     `(doom-modeline-panel ((,class :inherit modus-themes-active-blue)))
     `(doom-modeline-persp-buffer-not-in-persp ((,class :inherit italic :foreground ,yellow-active)))
@@ -4100,14 +4128,14 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(eshell-ls-unreadable ((,class :background ,bg-inactive :foreground ,fg-inactive)))
     `(eshell-prompt ((,class :inherit comint-highlight-prompt)))
 ;;;;; eshell-fringe-status
-    `(eshell-fringe-status-failure ((,class :foreground ,red)))
-    `(eshell-fringe-status-success ((,class :foreground ,blue)))
+    `(eshell-fringe-status-failure ((,class :inherit error)))
+    `(eshell-fringe-status-success ((,class :inherit success)))
 ;;;;; eshell-git-prompt
     `(eshell-git-prompt-add-face ((,class :foreground ,magenta-alt-other)))
     `(eshell-git-prompt-branch-face ((,class :foreground ,magenta-alt)))
     `(eshell-git-prompt-directory-face ((,class :inherit bold :foreground ,blue)))
-    `(eshell-git-prompt-exit-fail-face ((,class :foreground ,red)))
-    `(eshell-git-prompt-exit-success-face ((,class :foreground ,blue-alt-other)))
+    `(eshell-git-prompt-exit-fail-face ((,class :inherit error)))
+    `(eshell-git-prompt-exit-success-face ((,class :inherit success)))
     `(eshell-git-prompt-modified-face ((,class :foreground ,yellow)))
     `(eshell-git-prompt-powerline-clean-face ((,class :background ,green-refine-bg)))
     `(eshell-git-prompt-powerline-dir-face ((,class :background ,blue-refine-bg)))
@@ -4202,7 +4230,10 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(flycheck-indicator-error ((,class :inherit modus-themes-bold :foreground ,red-active)))
     `(flycheck-indicator-info ((,class :inherit modus-themes-bold :foreground ,blue-active)))
     `(flycheck-indicator-running ((,class :inherit modus-themes-bold :foreground ,magenta-active)))
-    `(flycheck-indicator-success ((,class :inherit modus-themes-bold :foreground ,green-active)))
+    `(flycheck-indicator-success ((,class :inherit modus-themes-bold
+                                          :foreground ,@(modus-themes--success-deuteran
+                                                         blue-active
+                                                         green-active))))
     `(flycheck-indicator-warning ((,class :inherit modus-themes-bold :foreground ,yellow-active)))
 ;;;;; flycheck-posframe
     `(flycheck-posframe-background-face ((,class :background ,bg-alt)))
@@ -4888,9 +4919,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(jupyter-repl-output-prompt ((,class :foreground ,magenta-alt-other)))
     `(jupyter-repl-traceback ((,class :inherit modus-themes-intense-red)))
 ;;;;; kaocha-runner
-    `(kaocha-runner-error-face ((,class :foreground ,red)))
-    `(kaocha-runner-success-face ((,class :foreground ,green)))
-    `(kaocha-runner-warning-face ((,class :foreground ,yellow)))
+    `(kaocha-runner-error-face ((,class :inherit error)))
+    `(kaocha-runner-success-face ((,class :inherit success)))
+    `(kaocha-runner-warning-face ((,class :inherit warning)))
 ;;;;; keycast
     `(keycast-command ((,class :inherit bold :foreground ,blue-active)))
     `(keycast-key ((,class :background ,blue-active :foreground ,bg-main)))
@@ -5063,7 +5094,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(magit-section-heading ((,class :inherit bold :foreground ,cyan)))
     `(magit-section-heading-selection ((,class :inherit (modus-themes-refine-cyan bold))))
     `(magit-section-highlight ((,class :background ,bg-alt)))
-    `(magit-sequence-done ((,class :foreground ,green-alt)))
+    `(magit-sequence-done ((,class :foreground ,@(modus-themes--success-deuteran
+                                                  blue
+                                                  green))))
     `(magit-sequence-drop ((,class :foreground ,red-alt)))
     `(magit-sequence-exec ((,class :foreground ,magenta-alt)))
     `(magit-sequence-head ((,class :foreground ,cyan-alt)))
@@ -5075,7 +5108,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(magit-signature-error ((,class :foreground ,red-alt)))
     `(magit-signature-expired ((,class :foreground ,yellow)))
     `(magit-signature-expired-key ((,class :foreground ,yellow)))
-    `(magit-signature-good ((,class :foreground ,green)))
+    `(magit-signature-good ((,class :foreground ,@(modus-themes--success-deuteran
+                                                   blue
+                                                   green))))
     `(magit-signature-revoked ((,class :foreground ,magenta)))
     `(magit-signature-untrusted ((,class :foreground ,cyan)))
     `(magit-tag ((,class :foreground ,yellow-alt-other)))
@@ -5259,7 +5294,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(mood-line-status-error ((,class :inherit bold :foreground ,red-active)))
     `(mood-line-status-info ((,class :foreground ,cyan-active)))
     `(mood-line-status-neutral ((,class :foreground ,blue-active)))
-    `(mood-line-status-success ((,class :foreground ,green-active)))
+    `(mood-line-status-success ((,class :foreground ,@(modus-themes--success-deuteran
+                                                       blue-active
+                                                       green-active))))
     `(mood-line-status-warning ((,class :inherit bold :foreground ,yellow-active)))
     `(mood-line-unimportant ((,class :foreground ,fg-inactive)))
 ;;;;; mpdel
@@ -5468,7 +5505,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                          :foreground ,fg-alt)))
     `(org-document-title ((,class :inherit (bold modus-themes-variable-pitch) :foreground ,fg-special-cold
                                   ,@(modus-themes--scale modus-themes-scale-5))))
-    `(org-done ((,class :foreground ,green)))
+    `(org-done ((,class :foreground ,@(modus-themes--success-deuteran blue green))))
     `(org-drawer ((,class ,@(modus-themes--mixed-fonts)
                           :foreground ,fg-alt)))
     `(org-ellipsis (())) ; inherits from the heading's color
@@ -5509,7 +5546,10 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                               green-graph-1-bg
                                               green-graph-0-bg
                                               green-graph-1-bg))))
-    `(org-headline-done ((,class :inherit modus-themes-variable-pitch :foreground ,green-nuanced-fg)))
+    `(org-headline-done ((,class :inherit modus-themes-variable-pitch
+                                 :foreground ,@(modus-themes--success-deuteran
+                                                blue-nuanced-fg
+                                                green-nuanced-fg))))
     `(org-headline-todo ((,class :inherit modus-themes-variable-pitch :foreground ,red-nuanced-fg)))
     `(org-hide ((,class :foreground ,bg-main)))
     `(org-indent ((,class :inherit (fixed-pitch org-hide))))
@@ -5679,7 +5719,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(pomidor-break-face ((,class :foreground ,blue-alt-other)))
     `(pomidor-overwork-face ((,class :foreground ,red-alt-other)))
     `(pomidor-skip-face ((,class :inherit modus-themes-slant :foreground ,fg-alt)))
-    `(pomidor-work-face ((,class :foreground ,green-alt-other)))
+    `(pomidor-work-face ((,class :foreground ,@(modus-themes--success-deuteran
+                                                blue-alt
+                                                green-alt-other))))
 ;;;;; popup
     `(popup-face ((,class :background ,bg-alt :foreground ,fg-main)))
     `(popup-isearch-match ((,class :inherit (modus-themes-refine-cyan bold))))
@@ -6226,7 +6268,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(treemacs-help-column-face ((,class :inherit modus-themes-bold :foreground ,magenta-alt-other :underline t)))
     `(treemacs-help-title-face ((,class :foreground ,blue-alt-other)))
     `(treemacs-on-failure-pulse-face ((,class :inherit modus-themes-intense-red)))
-    `(treemacs-on-success-pulse-face ((,class :inherit modus-themes-intense-green)))
+    `(treemacs-on-success-pulse-face ((,class :inherit ,@(modus-themes--success-deuteran
+                                                          'modus-themes-intense-blue
+                                                          'modus-themes-intense-green))))
     `(treemacs-root-face ((,class :inherit bold :foreground ,blue-alt-other :height 1.2 :underline t)))
     `(treemacs-root-remote-disconnected-face ((,class :inherit treemacs-root-remote-face :foreground ,yellow)))
     `(treemacs-root-remote-face ((,class :inherit treemacs-root-face :foreground ,magenta)))
