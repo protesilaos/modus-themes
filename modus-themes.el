@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.3.2
-;; Last-Modified: <2021-04-21 13:47:05 +0300>
+;; Last-Modified: <2021-04-23 18:10:45 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -4085,24 +4085,18 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(ert-test-result-expected ((,class :inherit modus-themes-intense-green)))
     `(ert-test-result-unexpected ((,class :inherit modus-themes-intense-red)))
 ;;;;; eshell
-    `(eshell-ls-archive ((,class :inherit bold :foreground ,cyan-alt)))
-    `(eshell-ls-backup ((,class :foreground ,yellow-alt)))
+    `(eshell-ls-archive ((,class :foreground ,cyan-alt)))
+    `(eshell-ls-backup ((,class :inherit shadow)))
     `(eshell-ls-clutter ((,class :foreground ,red-alt)))
-    `(eshell-ls-directory ((,class :inherit bold :foreground ,blue-alt)))
+    `(eshell-ls-directory ((,class :foreground ,blue-alt)))
     `(eshell-ls-executable ((,class :foreground ,magenta-alt)))
     `(eshell-ls-missing ((,class :inherit modus-themes-intense-red)))
-    `(eshell-ls-product ((,class :foreground ,fg-special-warm)))
-    `(eshell-ls-readonly ((,class :foreground ,fg-special-cold)))
-    `(eshell-ls-special ((,class :inherit bold :foreground ,magenta)))
-    `(eshell-ls-symlink ((,class :inherit button
-                                 ,@(modus-themes--link-color
-                                    cyan cyan-faint))))
+    `(eshell-ls-product ((,class :inherit shadow)))
+    `(eshell-ls-readonly ((,class :foreground ,yellow-faint)))
+    `(eshell-ls-special ((,class :foreground ,magenta)))
+    `(eshell-ls-symlink ((,class :foreground ,cyan)))
     `(eshell-ls-unreadable ((,class :background ,bg-inactive :foreground ,fg-inactive)))
-    `(eshell-prompt ((,class :inherit modus-themes-bold
-                             ,@(modus-themes--prompt
-                                green-alt-other
-                                green-nuanced-bg green-alt
-                                green-refine-bg fg-main))))
+    `(eshell-prompt ((,class :inherit comint-highlight-prompt)))
 ;;;;; eshell-fringe-status
     `(eshell-fringe-status-failure ((,class :foreground ,red)))
     `(eshell-fringe-status-success ((,class :foreground ,blue)))
