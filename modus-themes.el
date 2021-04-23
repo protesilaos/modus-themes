@@ -4015,7 +4015,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(epa-validity-medium ((,class :foreground ,green-alt)))
 ;;;;; equake
     `(equake-buffer-face ((,class :background ,bg-main :foreground ,fg-main)))
-    `(equake-shell-type-eshell ((,class :background ,bg-inactive :foreground ,green-active)))
+    `(equake-shell-type-eshell ((,class :background ,bg-inactive :foreground ,blue-active)))
     `(equake-shell-type-rash ((,class :background ,bg-inactive :foreground ,red-active)))
     `(equake-shell-type-shell ((,class :background ,bg-inactive :foreground ,cyan-active)))
     `(equake-shell-type-term ((,class :background ,bg-inactive :foreground ,yellow-active)))
