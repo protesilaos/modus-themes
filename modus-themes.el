@@ -4105,7 +4105,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                 green-refine-bg fg-main))))
 ;;;;; eshell-fringe-status
     `(eshell-fringe-status-failure ((,class :foreground ,red)))
-    `(eshell-fringe-status-success ((,class :foreground ,green)))
+    `(eshell-fringe-status-success ((,class :foreground ,blue)))
 ;;;;; eshell-git-prompt
     `(eshell-git-prompt-add-face ((,class :inherit shadow)))
     `(eshell-git-prompt-branch-face ((,class :inherit shadow)))
