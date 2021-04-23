@@ -3729,7 +3729,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(diff-hl-dired-ignored ((,class :inherit dired-ignored)))
     `(diff-hl-dired-insert ((,class :inherit diff-hl-insert)))
     `(diff-hl-dired-unknown ((,class :inherit dired-ignored)))
-    `(diff-hl-insert ((,class :inherit modus-themes-fringe-green)))
+    `(diff-hl-insert ((,class :inherit ,@(modus-themes--diff-deuteran
+                                          'modus-themes-fringe-blue
+                                          'modus-themes-fringe-green))))
     `(diff-hl-reverted-hunk-highlight ((,class :inherit (modus-themes-active-magenta bold))))
 ;;;;; diff-mode
     `(diff-added ((,class :inherit modus-themes-diff-added)))
@@ -4338,17 +4340,23 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(git-commit-pseudo-header ((,class :foreground ,blue)))
     `(git-commit-summary ((,class :inherit bold :foreground ,cyan)))
 ;;;;; git-gutter
-    `(git-gutter:added ((,class :inherit modus-themes-fringe-green)))
+    `(git-gutter:added ((,class :inherit ,@(modus-themes--diff-deuteran
+                                            'modus-themes-fringe-blue
+                                            'modus-themes-fringe-green))))
     `(git-gutter:deleted ((,class :inherit modus-themes-fringe-red)))
     `(git-gutter:modified ((,class :inherit modus-themes-fringe-yellow)))
     `(git-gutter:separator ((,class :inherit modus-themes-fringe-cyan)))
     `(git-gutter:unchanged ((,class :inherit modus-themes-fringe-magenta)))
 ;;;;; git-gutter-fr
-    `(git-gutter-fr:added ((,class :inherit modus-themes-fringe-green)))
+    `(git-gutter-fr:added ((,class :inherit ,@(modus-themes--diff-deuteran
+                                               'modus-themes-fringe-blue
+                                               'modus-themes-fringe-green))))
     `(git-gutter-fr:deleted ((,class :inherit modus-themes-fringe-red)))
     `(git-gutter-fr:modified ((,class :inherit modus-themes-fringe-yellow)))
 ;;;;; git-{gutter,fringe}+
-    `(git-gutter+-added ((,class :inherit modus-themes-fringe-green)))
+    `(git-gutter+-added ((,class :inherit ,@(modus-themes--diff-deuteran
+                                          'modus-themes-fringe-blue
+                                          'modus-themes-fringe-green))))
     `(git-gutter+-deleted ((,class :inherit modus-themes-fringe-red)))
     `(git-gutter+-modified ((,class :inherit modus-themes-fringe-yellow)))
     `(git-gutter+-separator ((,class :inherit modus-themes-fringe-cyan)))
@@ -4357,7 +4365,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(git-gutter-fr+-deleted ((,class :inherit modus-themes-fringe-red)))
     `(git-gutter-fr+-modified ((,class :inherit modus-themes-fringe-yellow)))
 ;;;;; git-lens
-    `(git-lens-added ((,class :inherit bold :foreground ,green)))
+    `(git-lens-added ((,class :inherit bold :foreground ,@(modus-themes--diff-deuteran blue green))))
     `(git-lens-deleted ((,class :inherit bold :foreground ,red)))
     `(git-lens-header ((,class :inherit bold :height 1.1 :foreground ,cyan)))
     `(git-lens-modified ((,class :inherit bold :foreground ,yellow)))
@@ -5319,7 +5327,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(neo-file-link-face ((,class :foreground ,fg-main)))
     `(neo-header-face ((,class :inherit bold :foreground ,fg-main)))
     `(neo-root-dir-face ((,class :inherit bold :foreground ,cyan-alt)))
-    `(neo-vc-added-face ((,class :foreground ,green)))
+    `(neo-vc-added-face ((,class :foreground ,@(modus-themes--diff-deuteran blue green))))
     `(neo-vc-conflict-face ((,class :inherit bold :foreground ,red)))
     `(neo-vc-default-face ((,class :foreground ,fg-main)))
     `(neo-vc-edited-face ((,class :foreground ,yellow)))
