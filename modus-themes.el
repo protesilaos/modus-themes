@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.3.2
-;; Last-Modified: <2021-04-23 19:23:39 +0300>
+;; Last-Modified: <2021-04-25 18:42:42 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -611,6 +611,7 @@
     ;; all pairs are combinable with themselves
     (bg-hl-line . "#f2eff3")
     (bg-hl-line-intense . "#e0e0e0")
+    (bg-hl-line-intense-accent . "#b9e1ef")
     (bg-hl-alt . "#fbeee0")
     (bg-hl-alt-intense . "#e8dfd1")
     (bg-paren-match . "#e0af82")
@@ -866,6 +867,7 @@ symbol and the latter as a string.")
     ;; all pairs are combinable with themselves
     (bg-hl-line . "#151823")
     (bg-hl-line-intense . "#2f2f2f")
+    (bg-hl-line-intense-accent . "#00353f")
     (bg-hl-alt . "#181732")
     (bg-hl-alt-intense . "#282e46")
     (bg-paren-match . "#5f362f")
@@ -2182,7 +2184,8 @@ current line.
 
 Option `intense-background' uses a prominent neutral background.
 
-Option `accented-background' uses a subtle colored background.
+Option `accented-background' is like the `intense-background' but
+with a more colorful background.
 
 Option `underline-neutral' combines a subtle neutral background
 with a gray underline.
@@ -2199,7 +2202,7 @@ without any added change to the background.
 Set `x-underline-at-descent-line' to a non-nil value for better
 results with underlines."
   :group 'modus-themes
-  :package-version '(modus-themes . "1.3.0")
+  :package-version '(modus-themes . "1.4.0")
   :version "28.1"
   :type '(choice
           (const :format "[%v] %t\n" :tag "Subtle neutral background (default)" nil)
@@ -2851,20 +2854,21 @@ background that combines well with FG."
     ('accent-no-extend (list :background bgaccent :foreground fg :extend nil))
     (_ (list :background bg :foreground fg))))
 
-(defun modus-themes--hl-line (bgdefault bgintense bgaccent lineneutral lineaccent)
+(defun modus-themes--hl-line (bgdefault bgintense bgaccent bgaccentul lineneutral lineaccent)
   "Apply `modus-themes-hl-line' styles.
 
 BGDEFAULT is a subtle neutral background.  BGINTENSE is like the
-default, but more prominent.  BGACCENT is a subtle accented
-background.  LINENEUTRAL and LINEACCENT are a color values that
-can remain distinct against the buffer's possible backgrounds:
-the former is neutral, the latter is accented.  LINEONLY must be
-a prominent neutral color."
+default, but more prominent.  BGACCENT is a prominent accented
+background, while BGACCENTUL is more subtle and is meant to be
+used in tandem with an underline.  LINENEUTRAL and LINEACCENT are
+a color values that can remain distinct against the buffer's
+possible backgrounds: the former is neutral, the latter is
+accented."
   (pcase modus-themes-hl-line
     ('intense-background (list :background bgintense))
     ('accented-background (list :background bgaccent))
     ('underline-neutral (list :background bgdefault :underline lineneutral))
-    ('underline-accented (list :background bgaccent :underline lineaccent))
+    ('underline-accented (list :background bgaccentul :underline lineaccent))
     ('underline-only-neutral (list :background 'unspecified :underline lineneutral))
     ('underline-only-accented (list :background 'unspecified :underline lineaccent))
     (_ (list :background bgdefault))))
@@ -3197,8 +3201,10 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(modus-themes-lang-warning ((,class ,@(modus-themes--lang-check fg-lang-underline-warning fg-lang-warning yellow yellow-nuanced-bg))))
 ;;;;; other custom faces
     `(modus-themes-bold ((,class ,@(modus-themes--bold-weight))))
-    `(modus-themes-hl-line ((,class ,@(modus-themes--hl-line bg-hl-line bg-hl-line-intense blue-nuanced-bg
-                                                             bg-region blue-intense-bg)
+    `(modus-themes-hl-line ((,class ,@(modus-themes--hl-line
+                                       bg-hl-line bg-hl-line-intense
+                                       bg-hl-line-intense-accent blue-nuanced-bg
+                                       bg-region blue-intense-bg)
                                     :extend t)))
     `(modus-themes-key-binding ((,class :inherit bold :foreground ,blue-alt-other)))
     `(modus-themes-slant ((,class :inherit italic :slant ,@(modus-themes--slant))))

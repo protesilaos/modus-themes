@@ -890,7 +890,7 @@ Possible values:
 
 1. ~nil~ (default)
 2. ~intense-background~
-3. ~accented-background~
+3. ~accented-background~ (made more prominent for {{{development-version}}})
 4. ~underline-neutral~
 5. ~underline-accented~
 6. ~underline-only-neutral~
@@ -902,8 +902,8 @@ The default is to use a subtle gray background for the current line when
 The ~intense-background~ applies a more prominent gray to the background
 of the current line.
 
-With ~accented-background~ the default's subtle aesthetic is retained, but
-the background has a more colored hint.
+With ~accented-background~ the background gets a colored hint and is more
+prominent than the default.
 
 The ~underline-neutral~ combines the default subtle neutral background
 with a gray underline.
