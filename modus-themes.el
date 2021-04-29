@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.3.2
-;; Last-Modified: <2021-04-29 08:10:44 +0300>
+;; Last-Modified: <2021-04-29 21:45:44 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -5763,8 +5763,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(prodigy-red-face ((,class :foreground ,red)))
     `(prodigy-yellow-face ((,class :foreground ,yellow)))
 ;;;;; pulse
-    `(pulse-highlight-face ((,class :background ,cyan-refine-bg :extend t)))
-    `(pulse-highlight-start-face ((,class :background ,cyan-refine-bg :extend t)))
+    `(pulse-highlight-face ((,class :background ,bg-active-accent :extend t)))
+    `(pulse-highlight-start-face ((,class :background ,bg-active-accent :extend t)))
 ;;;;; quick-peek
     `(quick-peek-background-face ((,class :background ,bg-alt)))
     `(quick-peek-border-face ((,class :background ,fg-window-divider-inner :height 1)))
