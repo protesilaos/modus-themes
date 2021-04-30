@@ -48,7 +48,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.4.0-dev.  This manual was built on
-2021-04-30 09:59 +0300.
+2021-04-30 15:06 +0300.
 
 * Menu:
 
@@ -1920,13 +1920,14 @@ active Modus theme):
      (defvar my-modus-themes-comment-colors
        '((light . ((low . "gray75")
                    (medium . "gray50")
-                   (high . "gray25")))
+                   (high . "#505050")))      ; the default for `modus-operandi'
 
          (dark . ((low . "gray25")
                   (medium . "gray50")
-                  (high . "gray75"))))
+                  (high . "#a8a8a8"))))      ; the default for `modus-vivendi'
        "Alist of levels of intensity mapped to color values.
-     For such colors, consult the command `list-colors-display'.")
+     For such colors, consult the command `list-colors-display'.  Pass
+     the name of a color or its hex value.")
 
      (defvar my-modus-themes--adjust-comment-color-state nil
        "The cyclic state of `my-modus-themes-adjust-comment-color'.
@@ -1959,6 +1960,43 @@ active Modus theme):
           (my-modus-themes--comment-foreground 'medium 2))
          (_
           (my-modus-themes--comment-foreground 'high nil))))
+
+   The effect of the above configurations on ‘font-lock-comment-face’ is
+global.  To make it buffer-local, one must tweak the code to employ the
+function ‘face-remap-add-relative’ (*note Remap face with local value:
+Remap face with local value (DIY).).
+
+   So this form in ‘my-modus-themes--comment-foreground’:
+
+     ;; example 1
+     (...
+      (set-face-foreground
+       'font-lock-comment-face
+       (modus-themes-color (alist-get degree palette-colors)))
+      ...)
+
+     ;; example 2
+     (...
+      (set-face-foreground
+       'font-lock-comment-face
+       (alist-get degree levels))
+      ...)
+
+   Must become this:
+
+     ;; example 1
+     (...
+      (face-remap-add-relative
+       'font-lock-comment-face
+       `(:foreground ,(modus-themes-color (alist-get degree palette-colors))))
+      ...)
+
+     ;; example 2
+     (...
+      (face-remap-add-relative
+       'font-lock-comment-face
+       `(:foreground ,(alist-get degree levels)))
+      ...)
 
 
 File: modus-themes.info,  Node: Override colors (DIY),  Next: Override color saturation (DIY),  Prev: Cycle through arbitrary colors (DIY),  Up: Advanced customization (do-it-yourself)
@@ -4126,45 +4164,45 @@ Node: Case-by-case face specs using the themes' palette (DIY)60824
 Node: Face specs at scale using the themes' palette (DIY)65288
 Node: Remap face with local value (DIY)70105
 Node: Cycle through arbitrary colors (DIY)72583
-Node: Override colors (DIY)78046
-Node: Override color saturation (DIY)82939
-Node: Font configurations for Org and others (DIY)86227
-Ref: Font configurations for Org and others (DIY)-Footnote-188615
-Node: Custom Org user faces (DIY)88802
-Node: Measure color contrast (DIY)92156
-Node: Load theme depending on time of day94925
-Node: Backdrop for pdf-tools (DIY)95947
-Node: A theme-agnostic hook for theme loading (DIY)98703
-Node: Face coverage101093
-Node: Supported packages101563
-Node: Indirectly covered packages108367
-Node: Notes for individual packages108850
-Node: Note for dimmerel109604
-Node: Note for display-fill-column-indicator-mode111050
-Node: Note for mmm-modeel background colors112677
-Node: Note for prism115061
-Node: Note on company-mode overlay pop-up118309
-Ref: Note on company-mode overlay pop-up-Footnote-1118996
-Ref: Note on company-mode overlay pop-up-Footnote-2119063
-Node: Note for ERC escaped color sequences119118
-Ref: Note for ERC escaped color sequences-Footnote-1120549
-Node: Note for powerline or spaceline120659
-Node: Note on SHR colors121075
-Node: Note for EWW and Elfeed fonts (SHR fonts)121511
-Node: Note for Helm grep122259
-Node: Note on vc-annotate-background-mode123751
-Node: Note on pdf-tools link hints124638
-Node: Contributing127071
-Node: Sources of the themes127471
-Node: Issues you can help with128209
-Node: Patches require copyright assignment to the FSF129409
-Node: Acknowledgements131704
-Node: Meta134076
-Node: GNU Free Documentation License136073
-Node: Indices161425
-Node: Function index161604
-Node: Variable index162841
-Node: Concept index164836
+Node: Override colors (DIY)79149
+Node: Override color saturation (DIY)84042
+Node: Font configurations for Org and others (DIY)87330
+Ref: Font configurations for Org and others (DIY)-Footnote-189718
+Node: Custom Org user faces (DIY)89905
+Node: Measure color contrast (DIY)93259
+Node: Load theme depending on time of day96028
+Node: Backdrop for pdf-tools (DIY)97050
+Node: A theme-agnostic hook for theme loading (DIY)99806
+Node: Face coverage102196
+Node: Supported packages102666
+Node: Indirectly covered packages109470
+Node: Notes for individual packages109953
+Node: Note for dimmerel110707
+Node: Note for display-fill-column-indicator-mode112153
+Node: Note for mmm-modeel background colors113780
+Node: Note for prism116164
+Node: Note on company-mode overlay pop-up119412
+Ref: Note on company-mode overlay pop-up-Footnote-1120099
+Ref: Note on company-mode overlay pop-up-Footnote-2120166
+Node: Note for ERC escaped color sequences120221
+Ref: Note for ERC escaped color sequences-Footnote-1121652
+Node: Note for powerline or spaceline121762
+Node: Note on SHR colors122178
+Node: Note for EWW and Elfeed fonts (SHR fonts)122614
+Node: Note for Helm grep123362
+Node: Note on vc-annotate-background-mode124854
+Node: Note on pdf-tools link hints125741
+Node: Contributing128174
+Node: Sources of the themes128574
+Node: Issues you can help with129312
+Node: Patches require copyright assignment to the FSF130512
+Node: Acknowledgements132807
+Node: Meta135179
+Node: GNU Free Documentation License137176
+Node: Indices162528
+Node: Function index162707
+Node: Variable index163944
+Node: Concept index165939
 
 End Tag Table
 

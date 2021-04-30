@@ -1820,13 +1820,14 @@ active Modus theme):
 (defvar my-modus-themes-comment-colors
   '((light . ((low . "gray75")
               (medium . "gray50")
-              (high . "gray25")))
+              (high . "#505050")))      ; the default for `modus-operandi'
 
     (dark . ((low . "gray25")
              (medium . "gray50")
-             (high . "gray75"))))
+             (high . "#a8a8a8"))))      ; the default for `modus-vivendi'
   "Alist of levels of intensity mapped to color values.
-For such colors, consult the command `list-colors-display'.")
+For such colors, consult the command `list-colors-display'.  Pass
+the name of a color or its hex value.")
 
 (defvar my-modus-themes--adjust-comment-color-state nil
   "The cyclic state of `my-modus-themes-adjust-comment-color'.
@@ -1859,6 +1860,46 @@ The levels are determined by `my-modus-themes-comment-colors'."
      (my-modus-themes--comment-foreground 'medium 2))
     (_
      (my-modus-themes--comment-foreground 'high nil))))
+#+end_src
+
+The effect of the above configurations on ~font-lock-comment-face~ is
+global.  To make it buffer-local, one must tweak the code to employ the
+function ~face-remap-add-relative~ ([[#h:7a93cb6f-4eca-4d56-a85c-9dcd813d6b0f][Remap face with local value]]).
+
+So this form in ~my-modus-themes--comment-foreground~:
+
+#+begin_src emacs-lisp
+;; example 1
+(...
+ (set-face-foreground
+  'font-lock-comment-face
+  (modus-themes-color (alist-get degree palette-colors)))
+ ...)
+
+;; example 2
+(...
+ (set-face-foreground
+  'font-lock-comment-face
+  (alist-get degree levels))
+ ...)
+#+end_src
+
+Must become this:
+
+#+begin_src emacs-lisp
+;; example 1
+(...
+ (face-remap-add-relative
+  'font-lock-comment-face
+  `(:foreground ,(modus-themes-color (alist-get degree palette-colors))))
+ ...)
+
+;; example 2
+(...
+ (face-remap-add-relative
+  'font-lock-comment-face
+  `(:foreground ,(alist-get degree levels)))
+ ...)
 #+end_src
 
 ** Override colors (DIY)
