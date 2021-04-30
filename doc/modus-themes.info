@@ -48,7 +48,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.4.0-dev.  This manual was built on
-2021-04-29 08:25 +0300.
+2021-04-30 09:59 +0300.
 
 * Menu:
 
@@ -123,6 +123,7 @@ Advanced customization (do-it-yourself)
 * Case-by-case face specs using the themes' palette (DIY)::
 * Face specs at scale using the themes' palette (DIY)::
 * Remap face with local value (DIY)::
+* Cycle through arbitrary colors (DIY)::
 * Override colors (DIY)::
 * Override color saturation (DIY)::
 * Font configurations for Org and others (DIY)::
@@ -1533,6 +1534,7 @@ such, they are labelled as “do-it-yourself” or “DIY”.
 * Case-by-case face specs using the themes' palette (DIY)::
 * Face specs at scale using the themes' palette (DIY)::
 * Remap face with local value (DIY)::
+* Cycle through arbitrary colors (DIY)::
 * Override colors (DIY)::
 * Override color saturation (DIY)::
 * Font configurations for Org and others (DIY)::
@@ -1779,7 +1781,7 @@ the previous section.  Adapt the above example like this:
         ...))
 
 
-File: modus-themes.info,  Node: Remap face with local value (DIY),  Next: Override colors (DIY),  Prev: Face specs at scale using the themes' palette (DIY),  Up: Advanced customization (do-it-yourself)
+File: modus-themes.info,  Node: Remap face with local value (DIY),  Next: Cycle through arbitrary colors (DIY),  Prev: Face specs at scale using the themes' palette (DIY),  Up: Advanced customization (do-it-yourself)
 
 5.4 Remap face with local value (DIY)
 =====================================
@@ -1839,9 +1841,129 @@ functions that also accept an arbitrary face.  We shall leave the
 experimentation up to you.
 
 
-File: modus-themes.info,  Node: Override colors (DIY),  Next: Override color saturation (DIY),  Prev: Remap face with local value (DIY),  Up: Advanced customization (do-it-yourself)
+File: modus-themes.info,  Node: Cycle through arbitrary colors (DIY),  Next: Override colors (DIY),  Prev: Remap face with local value (DIY),  Up: Advanced customization (do-it-yourself)
 
-5.5 Override colors (DIY)
+5.5 Cycle through arbitrary colors (DIY)
+========================================
+
+Users may opt to customize individual faces of the themes to accommodate
+their particular needs.  One such case is with the color intensity of
+comments, specifically the foreground of ‘font-lock-comment-face’.  The
+Modus themes set that to a readable value, in accordance with their
+accessibility objective, though users may prefer to lower the overall
+contrast on an on-demand basis.
+
+   One way to achieve this is to design a command that cycles through
+three distinct levels of intensity, though the following can be adapted
+to any kind of cyclic behaviour, such as to switch between red, green,
+and blue.
+
+   In the following example, we employ the ‘modus-themes-color’ function
+which reads a symbol that represents an entry in the active theme’s
+color palette (*note Case-by-case face specs using the themes’ palette:
+Case-by-case face specs using the themes' palette (DIY).). Those are
+stored in ‘my-modus-themes-comment-colors’.
+
+     (defvar my-modus-themes-comment-colors
+       ;; We are abusing the palette here, as those colors have their own
+       ;; purpose in the palette, so please ignore the semantics of their
+       ;; names.
+       '((low . bg-region)
+         (medium . bg-tab-inactive-alt)
+         (high . fg-alt))
+       "Alist of levels of intensity mapped to color palette entries.
+     The entries are found in `modus-themes-operandi-colors' or
+     `modus-themes-vivendi-colors'.")
+
+     (defvar my-modus-themes--adjust-comment-color-state nil
+       "The cyclic state of `my-modus-themes-adjust-comment-color'.
+     For internal use.")
+
+     (defun my-modus-themes--comment-foreground (degree state)
+       "Set `font-lock-comment-face' foreground.
+     Use `my-modus-themes-comment-colors' to extract the color value
+     for each level of intensity.
+
+     This is complementary to `my-modus-themes-adjust-comment-color'."
+       (let ((palette-colors my-modus-themes-comment-colors))
+         (set-face-foreground
+          'font-lock-comment-face
+          (modus-themes-color (alist-get degree palette-colors)))
+         (setq my-modus-themes--adjust-comment-color-state state)
+         (message "Comments are set to %s contrast" degree)))
+
+     (defun my-modus-themes-adjust-comment-color ()
+       "Cycle through levels of intensity for comments.
+     The levels are determined by `my-modus-themes-comment-colors'."
+       (interactive)
+       (pcase my-modus-themes--adjust-comment-color-state
+         ('nil
+          (my-modus-themes--comment-foreground 'low 1))
+         (1
+          (my-modus-themes--comment-foreground 'medium 2))
+         (_
+          (my-modus-themes--comment-foreground 'high nil))))
+
+   With the above, ‘M-x my-modus-themes-adjust-comment-color’ will cycle
+through the three levels of intensity that have been specified.
+
+   Another approach is to not read from the active theme’s color palette
+and instead provide explicit color values, either in hexadecimal RGB
+notation (like ‘#123456’) or as the names that are displayed in the
+output of ‘M-x list-colors-display’.  In this case, the alist with the
+colors will have to account for the active theme, so as to set the
+appropriate colors.  While this introduces a bit more complexity, it
+ultimately offers greater flexibility on the choice of colors for such a
+niche functionality (so there is no need to abuse the palette of the
+active Modus theme):
+
+     (defvar my-modus-themes-comment-colors
+       '((light . ((low . "gray75")
+                   (medium . "gray50")
+                   (high . "gray25")))
+
+         (dark . ((low . "gray25")
+                  (medium . "gray50")
+                  (high . "gray75"))))
+       "Alist of levels of intensity mapped to color values.
+     For such colors, consult the command `list-colors-display'.")
+
+     (defvar my-modus-themes--adjust-comment-color-state nil
+       "The cyclic state of `my-modus-themes-adjust-comment-color'.
+     For internal use.")
+
+     (defun my-modus-themes--comment-foreground (degree state)
+         "Set `font-lock-comment-face' foreground.
+     Use `my-modus-themes-comment-colors' to extract the color value
+     for each level of intensity.
+
+     This is complementary to `my-modus-themes-adjust-comment-color'."
+       (let* ((colors my-modus-themes-comment-colors)
+              (levels (pcase (car custom-enabled-themes)
+                        ('modus-operandi (alist-get 'light colors))
+                        ('modus-vivendi (alist-get 'dark colors)))))
+         (set-face-foreground
+          'font-lock-comment-face
+          (alist-get degree levels))
+         (setq my-modus-themes--adjust-comment-color-state state)
+         (message "Comments are set to %s contrast" degree)))
+
+     (defun my-modus-themes-adjust-comment-color ()
+       "Cycle through levels of intensity for comments.
+     The levels are determined by `my-modus-themes-comment-colors'."
+       (interactive)
+       (pcase my-modus-themes--adjust-comment-color-state
+         ('nil
+          (my-modus-themes--comment-foreground 'low 1))
+         (1
+          (my-modus-themes--comment-foreground 'medium 2))
+         (_
+          (my-modus-themes--comment-foreground 'high nil))))
+
+
+File: modus-themes.info,  Node: Override colors (DIY),  Next: Override color saturation (DIY),  Prev: Cycle through arbitrary colors (DIY),  Up: Advanced customization (do-it-yourself)
+
+5.6 Override colors (DIY)
 =========================
 
 The themes provide a mechanism for overriding their color values.  This
@@ -1950,7 +2072,7 @@ making the end result inaccessible.
 
 File: modus-themes.info,  Node: Override color saturation (DIY),  Next: Font configurations for Org and others (DIY),  Prev: Override colors (DIY),  Up: Advanced customization (do-it-yourself)
 
-5.6 Override color saturation (DIY)
+5.7 Override color saturation (DIY)
 ===================================
 
 In the previous section we documented how one can override color values
@@ -2016,7 +2138,7 @@ the ‘modus-themes-toggle’ we already provide:
 
 File: modus-themes.info,  Node: Font configurations for Org and others (DIY),  Next: Custom Org user faces (DIY),  Prev: Override color saturation (DIY),  Up: Advanced customization (do-it-yourself)
 
-5.7 Font configurations for Org and others (DIY)
+5.8 Font configurations for Org and others (DIY)
 ================================================
 
 The themes are designed to cope well with mixed font configurations.
@@ -2072,7 +2194,7 @@ account for those finer increments.
 
 File: modus-themes.info,  Node: Custom Org user faces (DIY),  Next: Measure color contrast (DIY),  Prev: Font configurations for Org and others (DIY),  Up: Advanced customization (do-it-yourself)
 
-5.8 Custom Org user faces (DIY)
+5.9 Custom Org user faces (DIY)
 ===============================
 
 Users of ‘org-mode’ have the option to configure various keywords and
@@ -2149,8 +2271,8 @@ specs using the themes' palette (DIY).
 
 File: modus-themes.info,  Node: Measure color contrast (DIY),  Next: Load theme depending on time of day,  Prev: Custom Org user faces (DIY),  Up: Advanced customization (do-it-yourself)
 
-5.9 Measure color contrast (DIY)
-================================
+5.10 Measure color contrast (DIY)
+=================================
 
 The themes provide the functions ‘modus-themes-wcag-formula’ and
 ‘modus-themes-contrast’.  The former is a direct implementation of the
@@ -2214,7 +2336,7 @@ of the themes’ colors: *note Override colors: Override colors (DIY).
 
 File: modus-themes.info,  Node: Load theme depending on time of day,  Next: Backdrop for pdf-tools (DIY),  Prev: Measure color contrast (DIY),  Up: Advanced customization (do-it-yourself)
 
-5.10 Load theme depending on time of day
+5.11 Load theme depending on time of day
 ========================================
 
 While we do provide ‘modus-themes-toggle’ to manually switch between the
@@ -2240,7 +2362,7 @@ location using the built-in ‘solar.el’ and then configuring the
 
 File: modus-themes.info,  Node: Backdrop for pdf-tools (DIY),  Next: A theme-agnostic hook for theme loading (DIY),  Prev: Load theme depending on time of day,  Up: Advanced customization (do-it-yourself)
 
-5.11 Backdrop for pdf-tools (DIY)
+5.12 Backdrop for pdf-tools (DIY)
 =================================
 
 Most PDF files use a white background for their page, making it
@@ -2301,7 +2423,7 @@ while they automatically switch to their dark mode when
 
 File: modus-themes.info,  Node: A theme-agnostic hook for theme loading (DIY),  Prev: Backdrop for pdf-tools (DIY),  Up: Advanced customization (do-it-yourself)
 
-5.12 A theme-agnostic hook for theme loading (DIY)
+5.13 A theme-agnostic hook for theme loading (DIY)
 ==================================================
 
 The themes are designed with the intent to be useful to Emacs users of
@@ -3931,6 +4053,8 @@ B.3 Concept index
 * Contributing:                          Issues you can help with.
                                                                 (line 6)
 * Contributors:                          Acknowledgements.      (line 6)
+* Cycle colors:                          Cycle through arbitrary colors (DIY).
+                                                                (line 6)
 * Development notes:                     Meta.                  (line 6)
 * Essential configuration:               Enable and load.       (line 6)
 * Explicitly supported packages:         Supported packages.    (line 6)
@@ -3960,86 +4084,87 @@ B.3 Concept index
 
 Tag Table:
 Node: Top860
-Node: Overview6036
-Node: How do the themes look like7579
-Node: Learn about the latest changes8087
-Node: Installation8469
-Node: Install manually from source8950
-Node: Install from the archives9775
-Node: Install on GNU/Linux10552
-Node: Debian 11 Bullseye11000
-Node: GNU Guix11310
-Node: Enable and load11593
-Node: Sample configuration for use-package14341
-Node: Differences between loading and enabling15710
-Node: Customization Options17750
-Node: Success' color-code23065
-Node: Bold constructs23974
-Node: Slanted constructs24591
-Node: Syntax styles25138
-Node: No mixed fonts26776
-Node: Link styles27871
-Node: Command prompts29445
-Node: Mode line30644
-Node: Completion UIs34250
-Node: Fringes36112
-Node: Language checkers36774
-Node: Line highlighting38723
-Node: Line numbers40272
-Node: Matching parentheses41350
-Node: Active region42240
-Node: Diffs43458
-Node: Org mode blocks45509
-Node: Org agenda habits46987
-Node: Heading styles48822
-Node: Scaled headings52924
-Node: Scaled heading sizes53527
-Node: UI typeface56661
-Node: Headings' typeface57507
-Node: Advanced customization (do-it-yourself)58131
-Node: Per-theme customization settings (DIY)59396
-Node: Case-by-case face specs using the themes' palette (DIY)60742
-Node: Face specs at scale using the themes' palette (DIY)65206
-Node: Remap face with local value (DIY)70023
-Node: Override colors (DIY)72486
-Node: Override color saturation (DIY)77376
-Node: Font configurations for Org and others (DIY)80664
-Ref: Font configurations for Org and others (DIY)-Footnote-183052
-Node: Custom Org user faces (DIY)83239
-Node: Measure color contrast (DIY)86593
-Node: Load theme depending on time of day89360
-Node: Backdrop for pdf-tools (DIY)90382
-Node: A theme-agnostic hook for theme loading (DIY)93138
-Node: Face coverage95528
-Node: Supported packages95998
-Node: Indirectly covered packages102802
-Node: Notes for individual packages103285
-Node: Note for dimmerel104039
-Node: Note for display-fill-column-indicator-mode105485
-Node: Note for mmm-modeel background colors107112
-Node: Note for prism109496
-Node: Note on company-mode overlay pop-up112744
-Ref: Note on company-mode overlay pop-up-Footnote-1113431
-Ref: Note on company-mode overlay pop-up-Footnote-2113498
-Node: Note for ERC escaped color sequences113553
-Ref: Note for ERC escaped color sequences-Footnote-1114984
-Node: Note for powerline or spaceline115094
-Node: Note on SHR colors115510
-Node: Note for EWW and Elfeed fonts (SHR fonts)115946
-Node: Note for Helm grep116694
-Node: Note on vc-annotate-background-mode118186
-Node: Note on pdf-tools link hints119073
-Node: Contributing121506
-Node: Sources of the themes121906
-Node: Issues you can help with122644
-Node: Patches require copyright assignment to the FSF123844
-Node: Acknowledgements126139
-Node: Meta128511
-Node: GNU Free Documentation License130508
-Node: Indices155860
-Node: Function index156039
-Node: Variable index157276
-Node: Concept index159271
+Node: Overview6077
+Node: How do the themes look like7620
+Node: Learn about the latest changes8128
+Node: Installation8510
+Node: Install manually from source8991
+Node: Install from the archives9816
+Node: Install on GNU/Linux10593
+Node: Debian 11 Bullseye11041
+Node: GNU Guix11351
+Node: Enable and load11634
+Node: Sample configuration for use-package14382
+Node: Differences between loading and enabling15751
+Node: Customization Options17791
+Node: Success' color-code23106
+Node: Bold constructs24015
+Node: Slanted constructs24632
+Node: Syntax styles25179
+Node: No mixed fonts26817
+Node: Link styles27912
+Node: Command prompts29486
+Node: Mode line30685
+Node: Completion UIs34291
+Node: Fringes36153
+Node: Language checkers36815
+Node: Line highlighting38764
+Node: Line numbers40313
+Node: Matching parentheses41391
+Node: Active region42281
+Node: Diffs43499
+Node: Org mode blocks45550
+Node: Org agenda habits47028
+Node: Heading styles48863
+Node: Scaled headings52965
+Node: Scaled heading sizes53568
+Node: UI typeface56702
+Node: Headings' typeface57548
+Node: Advanced customization (do-it-yourself)58172
+Node: Per-theme customization settings (DIY)59478
+Node: Case-by-case face specs using the themes' palette (DIY)60824
+Node: Face specs at scale using the themes' palette (DIY)65288
+Node: Remap face with local value (DIY)70105
+Node: Cycle through arbitrary colors (DIY)72583
+Node: Override colors (DIY)78046
+Node: Override color saturation (DIY)82939
+Node: Font configurations for Org and others (DIY)86227
+Ref: Font configurations for Org and others (DIY)-Footnote-188615
+Node: Custom Org user faces (DIY)88802
+Node: Measure color contrast (DIY)92156
+Node: Load theme depending on time of day94925
+Node: Backdrop for pdf-tools (DIY)95947
+Node: A theme-agnostic hook for theme loading (DIY)98703
+Node: Face coverage101093
+Node: Supported packages101563
+Node: Indirectly covered packages108367
+Node: Notes for individual packages108850
+Node: Note for dimmerel109604
+Node: Note for display-fill-column-indicator-mode111050
+Node: Note for mmm-modeel background colors112677
+Node: Note for prism115061
+Node: Note on company-mode overlay pop-up118309
+Ref: Note on company-mode overlay pop-up-Footnote-1118996
+Ref: Note on company-mode overlay pop-up-Footnote-2119063
+Node: Note for ERC escaped color sequences119118
+Ref: Note for ERC escaped color sequences-Footnote-1120549
+Node: Note for powerline or spaceline120659
+Node: Note on SHR colors121075
+Node: Note for EWW and Elfeed fonts (SHR fonts)121511
+Node: Note for Helm grep122259
+Node: Note on vc-annotate-background-mode123751
+Node: Note on pdf-tools link hints124638
+Node: Contributing127071
+Node: Sources of the themes127471
+Node: Issues you can help with128209
+Node: Patches require copyright assignment to the FSF129409
+Node: Acknowledgements131704
+Node: Meta134076
+Node: GNU Free Documentation License136073
+Node: Indices161425
+Node: Function index161604
+Node: Variable index162841
+Node: Concept index164836
 
 End Tag Table
 

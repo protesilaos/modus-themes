@@ -1738,6 +1738,129 @@ Perhaps you may wish to generalise those findings in to a set of
 functions that also accept an arbitrary face.  We shall leave the
 experimentation up to you.
 
+** Cycle through arbitrary colors (DIY)
+:properties:
+:custom_id: h:77dc4a30-b96a-4849-85a8-fee3c2995305
+:end:
+#+cindex: Cycle colors
+
+Users may opt to customize individual faces of the themes to accommodate
+their particular needs.  One such case is with the color intensity of
+comments, specifically the foreground of ~font-lock-comment-face~.  The
+Modus themes set that to a readable value, in accordance with their
+accessibility objective, though users may prefer to lower the overall
+contrast on an on-demand basis.
+
+One way to achieve this is to design a command that cycles through three
+distinct levels of intensity, though the following can be adapted to any
+kind of cyclic behaviour, such as to switch between red, green, and
+blue.
+
+In the following example, we employ the ~modus-themes-color~ function
+which reads a symbol that represents an entry in the active theme's
+color palette ([[#h:1487c631-f4fe-490d-8d58-d72ffa3bd474][Case-by-case face specs using the themes' palette]]).
+Those are stored in ~my-modus-themes-comment-colors~.
+
+#+begin_src emacs-lisp
+(defvar my-modus-themes-comment-colors
+  ;; We are abusing the palette here, as those colors have their own
+  ;; purpose in the palette, so please ignore the semantics of their
+  ;; names.
+  '((low . bg-region)
+    (medium . bg-tab-inactive-alt)
+    (high . fg-alt))
+  "Alist of levels of intensity mapped to color palette entries.
+The entries are found in `modus-themes-operandi-colors' or
+`modus-themes-vivendi-colors'.")
+
+(defvar my-modus-themes--adjust-comment-color-state nil
+  "The cyclic state of `my-modus-themes-adjust-comment-color'.
+For internal use.")
+
+(defun my-modus-themes--comment-foreground (degree state)
+  "Set `font-lock-comment-face' foreground.
+Use `my-modus-themes-comment-colors' to extract the color value
+for each level of intensity.
+
+This is complementary to `my-modus-themes-adjust-comment-color'."
+  (let ((palette-colors my-modus-themes-comment-colors))
+    (set-face-foreground
+     'font-lock-comment-face
+     (modus-themes-color (alist-get degree palette-colors)))
+    (setq my-modus-themes--adjust-comment-color-state state)
+    (message "Comments are set to %s contrast" degree)))
+
+(defun my-modus-themes-adjust-comment-color ()
+  "Cycle through levels of intensity for comments.
+The levels are determined by `my-modus-themes-comment-colors'."
+  (interactive)
+  (pcase my-modus-themes--adjust-comment-color-state
+    ('nil
+     (my-modus-themes--comment-foreground 'low 1))
+    (1
+     (my-modus-themes--comment-foreground 'medium 2))
+    (_
+     (my-modus-themes--comment-foreground 'high nil))))
+#+end_src
+
+With the above, {{{kbd(M-x my-modus-themes-adjust-comment-color)}}} will cycle
+through the three levels of intensity that have been specified.
+
+Another approach is to not read from the active theme's color palette
+and instead provide explicit color values, either in hexadecimal RGB
+notation (like =#123456=) or as the names that are displayed in the output
+of {{{kbd(M-x list-colors-display)}}}.  In this case, the alist with the
+colors will have to account for the active theme, so as to set the
+appropriate colors.  While this introduces a bit more complexity, it
+ultimately offers greater flexibility on the choice of colors for such a
+niche functionality (so there is no need to abuse the palette of the
+active Modus theme):
+
+#+begin_src emacs-lisp
+(defvar my-modus-themes-comment-colors
+  '((light . ((low . "gray75")
+              (medium . "gray50")
+              (high . "gray25")))
+
+    (dark . ((low . "gray25")
+             (medium . "gray50")
+             (high . "gray75"))))
+  "Alist of levels of intensity mapped to color values.
+For such colors, consult the command `list-colors-display'.")
+
+(defvar my-modus-themes--adjust-comment-color-state nil
+  "The cyclic state of `my-modus-themes-adjust-comment-color'.
+For internal use.")
+
+(defun my-modus-themes--comment-foreground (degree state)
+    "Set `font-lock-comment-face' foreground.
+Use `my-modus-themes-comment-colors' to extract the color value
+for each level of intensity.
+
+This is complementary to `my-modus-themes-adjust-comment-color'."
+  (let* ((colors my-modus-themes-comment-colors)
+         (levels (pcase (car custom-enabled-themes)
+                   ('modus-operandi (alist-get 'light colors))
+                   ('modus-vivendi (alist-get 'dark colors)))))
+    (set-face-foreground
+     'font-lock-comment-face
+     (alist-get degree levels))
+    (setq my-modus-themes--adjust-comment-color-state state)
+    (message "Comments are set to %s contrast" degree)))
+
+(defun my-modus-themes-adjust-comment-color ()
+  "Cycle through levels of intensity for comments.
+The levels are determined by `my-modus-themes-comment-colors'."
+  (interactive)
+  (pcase my-modus-themes--adjust-comment-color-state
+    ('nil
+     (my-modus-themes--comment-foreground 'low 1))
+    (1
+     (my-modus-themes--comment-foreground 'medium 2))
+    (_
+     (my-modus-themes--comment-foreground 'high nil))))
+#+end_src
+
 ** Override colors (DIY)
 :properties:
 :custom_id: h:307d95dd-8dbd-4ece-a543-10ae86f155a6
