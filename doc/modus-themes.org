@@ -3012,6 +3012,42 @@ examples with the 4, 8, 16 colors):
                   magenta)))
 #+end_src
 
+** Note for god-mode.el
+:properties:
+:alt_title: Note for god-mode
+:custom_id: h:4da1d515-3e05-47ef-9e45-8251fc7e986a
+:end:
+
+The ~god-mode~ library does not provide faces that could be configured by
+the Modus themes.  Users who would like to get some visual feedback on
+the status of {{{kbd(M-x god-mode)}}} are instead encouraged by upstream to
+set up their own configurations, such as by changing the ~mode-line~ face
+([[#h:f4651d55-8c07-46aa-b52b-bed1e53463bb][Advanced customization (do-it-yourself)]]).
+
+#+begin_src emacs-lisp
+(defun my-god-mode-update-modeline ()
+  "Make `mode-line' blue if God local mode is active."
+  (modus-themes-with-colors
+    (if god-local-mode
+        (set-face-attribute 'mode-line nil
+                            :foreground blue-active
+                            :background bg-active-accent
+                            :box blue)
+      (set-face-attribute 'mode-line nil
+                          :foreground fg-active
+                          :background bg-active
+                          :box fg-alt))))
+
+(add-hook 'god-mode-enabled-hook #'my-god-mode-update-modeline)
+(add-hook 'god-mode-disabled-hook #'my-god-mode-update-modeline)
+#+end_src
+
+We employ the ~modus-themes-with-colors~ which provides access to color
+variables defined by the active theme.  Its use is covered elsewhere in
+this manual ([[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Face specs at scale using the themes' palette]]).  As for the
+attributes that can be passed to each face, start by consulting the
+documentation string of ~set-face-attribute~.
+
 ** Note on company-mode overlay pop-up
 :properties:
 :custom_id: h:20cef8c4-d11f-4053-8b2c-2872925780b1
@@ -3339,12 +3375,13 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Ninev, Len Trigg, Manuel Uberti, Mark Burton, Markus Beppler, Mauro
   Aranda, Michael Goldenberg, Morgan Smith, Murilo Pereira, Nicky van
   Foreest, Nicolas De Jaeghere, Paul Poloskov, Pete Kazmier, Peter Wu,
-  Philip K., Pierre Téchoueyres, Roman Rudakov, Ryan Phillips, Sam
-  Kleinman, Shreyas Ragavan, Simon Pugnet, Tassilo Horn, Thibaut Verron,
-  Trey Merkley, Togan Muftuoglu, Toon Claes, Uri Sharf, Utkarsh Singh,
-  Vincent Foley.  As well as users: Ben, CsBigDataHub1, Emacs Contrib,
-  Eugene, Fourchaux, Fredrik, Moesasji, Nick, TheBlob42, Trey,
-  bepolymathe, doolio, fleimgruber, iSeeU, jixiuf, okamsn, pRot0ta1p.
+  Philip K., Pierre Téchoueyres, Roman Rudakov, Ryan Phillips, Rudolf
+  Adamkovič, Sam Kleinman, Shreyas Ragavan, Simon Pugnet, Tassilo Horn,
+  Thibaut Verron, Trey Merkley, Togan Muftuoglu, Toon Claes, Uri Sharf,
+  Utkarsh Singh, Vincent Foley.  As well as users: Ben, CsBigDataHub1,
+  Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji, Nick, TheBlob42,
+  Trey, bepolymathe, doolio, fleimgruber, iSeeU, jixiuf, okamsn,
+  pRot0ta1p.
 
 + Packaging :: Basil L.{{{space()}}} Contovounesios, Eli Zaretskii, Glenn
   Morris, Mauro Aranda, Richard Stallman, Stefan Kangas (core Emacs),
