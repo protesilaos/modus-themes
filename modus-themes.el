@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.3.2
-;; Last-Modified: <2021-05-03 10:35:46 +0300>
+;; Last-Modified: <2021-05-03 22:19:48 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -1555,6 +1555,18 @@ The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-key-binding nil
   "Generic face for key bindings.
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-themes-search-success nil
+  "Generic face for successful search.
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-themes-search-success-modeline nil
+  "Generic modeline indicator for successful search.
+The actual styling of the face is done by `modus-themes-faces'.")
+
+(defface modus-themes-search-success-lazy nil
+  "Generic face for successful, lazily highlighted search.
 The actual styling of the face is done by `modus-themes-faces'.")
 
 
@@ -3208,6 +3220,15 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                        bg-region blue-intense-bg)
                                     :extend t)))
     `(modus-themes-key-binding ((,class :inherit bold :foreground ,blue-alt-other)))
+    `(modus-themes-search-success ((,class :inherit ,@(modus-themes--success-deuteran
+                                                       'modus-themes-intense-blue
+                                                       'modus-themes-intense-green))))
+    `(modus-themes-search-success-lazy ((,class :inherit ,@(modus-themes--success-deuteran
+                                                            'modus-themes-subtle-cyan
+                                                            'modus-themes-refine-cyan))))
+    `(modus-themes-search-success-modeline ((,class :foreground ,@(modus-themes--success-deuteran
+                                                                   blue-active
+                                                                   green-active))))
     `(modus-themes-slant ((,class :inherit italic :slant ,@(modus-themes--slant))))
     `(modus-themes-variable-pitch ((,class ,@(modus-themes--variable-pitch))))
     `(modus-themes-reset-soft ((,class :background ,bg-main :foreground ,fg-main
@@ -3327,12 +3348,12 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(annotate-highlight-secondary ((,class :background ,green-nuanced-bg :underline ,green-intense)))
 ;;;;; anzu
     `(anzu-match-1 ((,class :inherit modus-themes-subtle-cyan)))
-    `(anzu-match-2 ((,class :inherit modus-themes-subtle-green)))
+    `(anzu-match-2 ((,class :inherit modus-themes-search-success)))
     `(anzu-match-3 ((,class :inherit modus-themes-subtle-yellow)))
-    `(anzu-mode-line ((,class :inherit bold :foreground ,green-active)))
+    `(anzu-mode-line ((,class :inherit (bold modus-themes-search-success-modeline))))
     `(anzu-mode-line-no-match ((,class :inherit bold :foreground ,red-active)))
     `(anzu-replace-highlight ((,class :inherit modus-themes-refine-yellow :underline t)))
-    `(anzu-replace-to ((,class :inherit (modus-themes-intense-green bold))))
+    `(anzu-replace-to ((,class :inherit (modus-themes-search-success bold))))
 ;;;;; apropos
     `(apropos-function-button ((,class :inherit button
                                        ,@(modus-themes--link-color
@@ -3591,8 +3612,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(company-tooltip-common ((,class :inherit bold :foreground ,blue-alt)))
     `(company-tooltip-common-selection ((,class :foreground ,fg-main)))
     `(company-tooltip-mouse ((,class :inherit modus-themes-intense-blue)))
-    `(company-tooltip-search ((,class :inherit (modus-themes-refine-cyan bold))))
-    `(company-tooltip-search-selection ((,class :inherit (modus-themes-intense-green bold) :underline t)))
+    `(company-tooltip-search ((,class :inherit (modus-themes-search-success-lazy bold))))
+    `(company-tooltip-search-selection ((,class :inherit (modus-themes-search-success bold) :underline t)))
     `(company-tooltip-selection ((,class :inherit (modus-themes-subtle-cyan bold))))
 ;;;;; company-posframe
     `(company-posframe-active-backend-name ((,class :inherit bold :background ,bg-active :foreground ,blue-active)))
@@ -3676,9 +3697,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; csv-mode
     `(csv-separator-face ((,class :background ,bg-special-cold :foreground ,fg-main)))
 ;;;;; ctrlf
-    `(ctrlf-highlight-active ((,class :inherit (modus-themes-intense-green bold))))
+    `(ctrlf-highlight-active ((,class :inherit (modus-themes-search-success bold))))
     `(ctrlf-highlight-line ((,class :inherit modus-themes-hl-line)))
-    `(ctrlf-highlight-passive ((,class :inherit modus-themes-refine-cyan)))
+    `(ctrlf-highlight-passive ((,class :inherit modus-themes-search-success-lazy)))
 ;;;;; custom (M-x customize)
     `(custom-button ((,class :box (:line-width 2 :color nil :style released-button)
                              :background ,bg-active :foreground ,fg-main)))
@@ -3999,7 +4020,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(eglot-mode-line ((,class :inherit modus-themes-bold :foreground ,magenta-active)))
 ;;;;; el-search
     `(el-search-highlight-in-prompt-face ((,class :inherit bold :foreground ,magenta-alt)))
-    `(el-search-match ((,class :inherit modus-themes-intense-green)))
+    `(el-search-match ((,class :inherit modus-themes-search-success)))
     `(el-search-other-match ((,class :inherit modus-themes-special-mild)))
     `(el-search-occur-match ((,class :inherit modus-themes-special-calm)))
 ;;;;; eldoc
@@ -4168,10 +4189,10 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; evil-mode
     `(evil-ex-commands ((,class :foreground ,magenta-alt-other)))
     `(evil-ex-info ((,class :foreground ,cyan-alt-other)))
-    `(evil-ex-lazy-highlight ((,class :inherit modus-themes-refine-cyan)))
-    `(evil-ex-search ((,class :inherit modus-themes-intense-green)))
+    `(evil-ex-lazy-highlight ((,class :inherit modus-themes-search-success-lazy)))
+    `(evil-ex-search ((,class :inherit modus-themes-search-success)))
     `(evil-ex-substitute-matches ((,class :inherit modus-themes-refine-yellow :underline t)))
-    `(evil-ex-substitute-replacement ((,class :inherit (modus-themes-intense-green bold))))
+    `(evil-ex-substitute-replacement ((,class :inherit (modus-themes-search-success bold))))
 ;;;;; evil-goggles
     `(evil-goggles-change-face ((,class :inherit modus-themes-refine-yellow)))
     `(evil-goggles-commentary-face ((,class :inherit (modus-themes-subtle-neutral modus-themes-slant))))
@@ -4810,18 +4831,20 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(ioccur-title-face ((,class :inherit bold :foreground ,red-alt
                                  ,@(modus-themes--scale modus-themes-scale-4))))
 ;;;;; isearch, occur, and the like
-    `(isearch ((,class :inherit (modus-themes-intense-green bold))))
+    `(isearch ((,class :inherit (modus-themes-search-success bold))))
     `(isearch-fail ((,class :inherit modus-themes-refine-red)))
-    `(isearch-group-1 ((,class :inherit modus-themes-intense-blue)))
-    `(isearch-group-2 ((,class :inherit modus-themes-intense-magenta)))
-    `(lazy-highlight ((,class :inherit modus-themes-refine-cyan)))
+    `(isearch-group-1 ((,class :inherit modus-themes-refine-blue)))
+    `(isearch-group-2 ((,class :inherit modus-themes-refine-magenta)))
+    `(lazy-highlight ((,class :inherit modus-themes-search-success-lazy)))
     `(match ((,class :inherit modus-themes-special-calm)))
     `(query-replace ((,class :inherit (modus-themes-intense-yellow bold))))
 ;;;;; isl (isearch-light)
-    `(isl-line ((,class :inherit modus-themes-subtle-green)))
-    `(isl-match ((,class :inherit modus-themes-refine-cyan)))
-    `(isl-number ((,class :inherit modus-themes-bold :foreground ,green-active)))
-    `(isl-on ((,class :inherit (bold modus-themes-intense-green))))
+    `(isl-line ((,class :inherit ,@(modus-themes--success-deuteran
+                                    'modus-themes-subtle-blue
+                                    'modus-themes-subtle-green))))
+    `(isl-match ((,class :inherit modus-themes-search-success-lazy)))
+    `(isl-number ((,class :inherit (modus-themes-bold modus-themes-search-success-modeline))))
+    `(isl-on ((,class :inherit (bold modus-themes-search-success))))
     `(isl-string ((,class :inherit modus-themes-bold :foreground ,cyan-active)))
 ;;;;; ivy
     `(ivy-action ((,class :inherit bold :foreground ,red-alt)))
@@ -5718,8 +5741,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; phi-search
     `(phi-replace-preview-face ((,class :inherit modus-themes-intense-magenta)))
     `(phi-search-failpart-face ((,class :inherit modus-themes-refine-red)))
-    `(phi-search-match-face ((,class :inherit modus-themes-refine-cyan)))
-    `(phi-search-selection-face ((,class :inherit (modus-themes-intense-green bold))))
+    `(phi-search-match-face ((,class :inherit modus-themes-search-success-lazy)))
+    `(phi-search-selection-face ((,class :inherit (modus-themes-search-success bold))))
 ;;;;; pkgbuild-mode
     `(pkgbuild-error-face ((,class :inherit modus-themes-lang-error)))
 ;;;;; pomidor
@@ -5930,7 +5953,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(selectrum-quick-keys-highlight
       ((,class :inherit modus-themes-refine-red)))
     `(selectrum-quick-keys-match
-      ((,class :inherit (bold modus-themes-intense-green))))
+      ((,class :inherit (bold modus-themes-search-success))))
 ;;;;; selectrum-prescient
     `(selectrum-prescient-primary-highlight
       ((,class :inherit bold
