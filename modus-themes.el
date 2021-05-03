@@ -6241,7 +6241,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(transient-argument ((,class :inherit bold :foreground ,red-alt)))
     `(transient-blue ((,class :inherit bold :foreground ,blue)))
     `(transient-disabled-suffix ((,class :inherit modus-themes-intense-red)))
-    `(transient-enabled-suffix ((,class :inherit modus-themes-intense-green)))
+    `(transient-enabled-suffix ((,class :inherit ,@(modus-themes--success-deuteran
+                                                    'modus-themes-subtle-blue
+                                                    'modus-themes-subtle-green))))
     `(transient-heading ((,class :inherit bold :foreground ,fg-main)))
     `(transient-inactive-argument ((,class :inherit shadow)))
     `(transient-inactive-value ((,class :inherit shadow)))
