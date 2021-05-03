@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.3.2
-;; Last-Modified: <2021-05-03 22:19:48 +0300>
+;; Last-Modified: <2021-05-03 22:40:18 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -3224,7 +3224,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                                        'modus-themes-intense-blue
                                                        'modus-themes-intense-green))))
     `(modus-themes-search-success-lazy ((,class :inherit ,@(modus-themes--success-deuteran
-                                                            'modus-themes-subtle-cyan
+                                                            'modus-themes-special-mild
                                                             'modus-themes-refine-cyan))))
     `(modus-themes-search-success-modeline ((,class :foreground ,@(modus-themes--success-deuteran
                                                                    blue-active
