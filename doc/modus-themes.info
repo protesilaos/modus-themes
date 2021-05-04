@@ -3113,7 +3113,7 @@ on the status of ‘M-x god-mode’ are instead encouraged by upstream to
 set up their own configurations, such as by changing the ‘mode-line’
 face (*note Advanced customization (do-it-yourself)::).
 
-     (defun my-god-mode-update-modeline ()
+     (defun my-god-mode-update-mode-line ()
        "Make `mode-line' blue if God local mode is active."
        (modus-themes-with-colors
          (if god-local-mode
@@ -3126,8 +3126,8 @@ face (*note Advanced customization (do-it-yourself)::).
                                :background bg-active
                                :box fg-alt))))
 
-     (add-hook 'god-mode-enabled-hook #'my-god-mode-update-modeline)
-     (add-hook 'god-mode-disabled-hook #'my-god-mode-update-modeline)
+     (add-hook 'god-mode-enabled-hook #'my-god-mode-update-mode-line)
+     (add-hook 'god-mode-disabled-hook #'my-god-mode-update-mode-line)
 
    We employ the ‘modus-themes-with-colors’ which provides access to
 color variables defined by the active theme.  Its use is covered

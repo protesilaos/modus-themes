@@ -3025,7 +3025,7 @@ set up their own configurations, such as by changing the ~mode-line~ face
 ([[#h:f4651d55-8c07-46aa-b52b-bed1e53463bb][Advanced customization (do-it-yourself)]]).
 
 #+begin_src emacs-lisp
-(defun my-god-mode-update-modeline ()
+(defun my-god-mode-update-mode-line ()
   "Make `mode-line' blue if God local mode is active."
   (modus-themes-with-colors
     (if god-local-mode
@@ -3038,8 +3038,8 @@ set up their own configurations, such as by changing the ~mode-line~ face
                           :background bg-active
                           :box fg-alt))))
 
-(add-hook 'god-mode-enabled-hook #'my-god-mode-update-modeline)
-(add-hook 'god-mode-disabled-hook #'my-god-mode-update-modeline)
+(add-hook 'god-mode-enabled-hook #'my-god-mode-update-mode-line)
+(add-hook 'god-mode-disabled-hook #'my-god-mode-update-mode-line)
 #+end_src
 
 We employ the ~modus-themes-with-colors~ which provides access to color
