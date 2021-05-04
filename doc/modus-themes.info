@@ -48,7 +48,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.4.0-dev.  This manual was built on
-2021-05-02 19:13 +0300.
+2021-05-04 19:54 +0300.
 
 * Menu:
 
@@ -834,19 +834,19 @@ Symbol: ‘modus-themes-mode-line’
   9. ‘accented-moody’
 
    The default produces a two-dimensional effect both for the active and
-inactive modelines.  The differences between the two are limited to
+inactive mode lines.  The differences between the two are limited to
 distinct shades of grayscale values, with the active being more intense
 than the inactive.
 
-   Option ‘3d’ will make the active modeline look like a
-three-dimensional rectangle.  Inactive modelines remain 2D, though they
+   Option ‘3d’ will make the active mode line look like a
+three-dimensional rectangle.  Inactive mode lines remain 2D, though they
 are slightly toned down relative to the default.  This aesthetic is
 virtually the same as what you get when you run Emacs without any
 customizations (‘emacs -Q’ on the command line).
 
-   While ‘moody’ removes all box effects from the modelines and applies
+   While ‘moody’ removes all box effects from the mode lines and applies
 underline and overline properties instead.  It also tones down a bit the
-inactive modelines.  This is meant to optimize things for use with the
+inactive mode lines.  This is meant to optimize things for use with the
 moody package (https://github.com/tarsius/moody) (hereinafter referred
 to as “Moody”), though it can work fine even without it.
 
@@ -857,9 +857,9 @@ two and creating some padding.
 
    The ‘borderless-3d’ and ‘borderless-moody’ approximate the ‘3d’ and
 ‘moody’ options respectively, while removing the borders.  However, to
-ensure that the inactive modelines remain visible, they apply a slightly
-more prominent background to them than what their counterparts do (same
-inactive background as with the default).
+ensure that the inactive mode lines remain visible, they apply a
+slightly more prominent background to them than what their counterparts
+do (same inactive background as with the default).
 
    Similarly, ‘accented’, ‘accented-3d’, and ‘accented-moody’ correspond
 to the default (‘nil’), ‘3d’, and ‘moody’ styles respectively, except
@@ -871,7 +871,7 @@ directly.  Instead it re-purposes existing ones to render its tabs and
 ribbons.  As such, there may be cases where the contrast ratio falls
 below the 7:1 target that the themes conform with (WCAG AAA). To hedge
 against this, we configure a fallback foreground for the ‘moody’ option,
-which will come into effect when the background of the modeline changes
+which will come into effect when the background of the mode line changes
 to something less accessible, such as Moody ribbons (read the doc string
 of ‘set-face-attribute’, specifically ‘:distant-foreground’).  This
 fallback is activated when Emacs determines that the background and
@@ -2716,7 +2716,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • minibuffer-line
    • minimap
    • mmm-mode
-   • modeline
+   • mode-line
    • mood-line
    • moody
    • mpdel
@@ -3203,7 +3203,7 @@ File: modus-themes.info,  Node: Note for powerline or spaceline,  Next: Note on 
 
 Both Powerline and Spaceline package users will likely need to use the
 command ‘powerline-reset’ whenever they make changes to their themes
-and/or modeline setup.
+and/or mode line setup.
 
 
 File: modus-themes.info,  Node: Note on SHR colors,  Next: Note for EWW and Elfeed fonts (SHR fonts),  Prev: Note for powerline or spaceline,  Up: Notes for individual packages
@@ -3470,8 +3470,9 @@ Author/maintainer
 Contributions to code or documentation
      Anders Johansson, Basil L. Contovounesios, Carlo Zancanaro, Eli
      Zaretskii, Kostadin Ninev, Madhavan Krishnan, Markus Beppler,
-     Matthew Stevenson, Mauro Aranda, Nicolas De Jaeghere, Shreyas
-     Ragavan, Stefan Kangas, Vincent Murphy, Xinglu Chen.
+     Matthew Stevenson, Mauro Aranda, Nicolas De Jaeghere, Rudolf
+     Adamkovič, Shreyas Ragavan, Stefan Kangas, Vincent Murphy, Xinglu
+     Chen.
 
 Ideas and user feedback
      Aaron Jensen, Adam Spiers, Adrian Manea, Alex Griffin, Alex
@@ -4180,67 +4181,67 @@ Node: No mixed fonts26839
 Node: Link styles27934
 Node: Command prompts29508
 Node: Mode line30707
-Node: Completion UIs34313
-Node: Fringes36175
-Node: Language checkers36837
-Node: Line highlighting38786
-Node: Line numbers40335
-Node: Matching parentheses41413
-Node: Active region42303
-Node: Diffs43521
-Node: Org mode blocks45572
-Node: Org agenda habits47050
-Node: Heading styles48885
-Node: Scaled headings52987
-Node: Scaled heading sizes53590
-Node: UI typeface56724
-Node: Headings' typeface57570
-Node: Advanced customization (do-it-yourself)58194
-Node: Per-theme customization settings (DIY)59500
-Node: Case-by-case face specs using the themes' palette (DIY)60846
-Node: Face specs at scale using the themes' palette (DIY)65310
-Node: Remap face with local value (DIY)70127
-Node: Cycle through arbitrary colors (DIY)72605
-Node: Override colors (DIY)79171
-Node: Override color saturation (DIY)84064
-Node: Font configurations for Org and others (DIY)87352
-Ref: Font configurations for Org and others (DIY)-Footnote-189740
-Node: Custom Org user faces (DIY)89927
-Node: Measure color contrast (DIY)93281
-Node: Load theme depending on time of day96050
-Node: Backdrop for pdf-tools (DIY)97072
-Node: A theme-agnostic hook for theme loading (DIY)99828
-Node: Face coverage102218
-Node: Supported packages102688
-Node: Indirectly covered packages109492
-Node: Notes for individual packages109975
-Node: Note for dimmerel110751
-Node: Note for display-fill-column-indicator-mode112197
-Node: Note for mmm-modeel background colors113824
-Node: Note for prism116208
-Node: Note for god-mode119438
-Node: Note on company-mode overlay pop-up121114
-Ref: Note on company-mode overlay pop-up-Footnote-1121804
-Ref: Note on company-mode overlay pop-up-Footnote-2121871
-Node: Note for ERC escaped color sequences121926
-Ref: Note for ERC escaped color sequences-Footnote-1123357
-Node: Note for powerline or spaceline123467
-Node: Note on SHR colors123883
-Node: Note for EWW and Elfeed fonts (SHR fonts)124319
-Node: Note for Helm grep125069
-Node: Note on vc-annotate-background-mode126561
-Node: Note on pdf-tools link hints127448
-Node: Contributing129881
-Node: Sources of the themes130281
-Node: Issues you can help with131019
-Node: Patches require copyright assignment to the FSF132219
-Node: Acknowledgements134514
-Node: Meta136905
-Node: GNU Free Documentation License138902
-Node: Indices164254
-Node: Function index164433
-Node: Variable index165670
-Node: Concept index167665
+Node: Completion UIs34320
+Node: Fringes36182
+Node: Language checkers36844
+Node: Line highlighting38793
+Node: Line numbers40342
+Node: Matching parentheses41420
+Node: Active region42310
+Node: Diffs43528
+Node: Org mode blocks45579
+Node: Org agenda habits47057
+Node: Heading styles48892
+Node: Scaled headings52994
+Node: Scaled heading sizes53597
+Node: UI typeface56731
+Node: Headings' typeface57577
+Node: Advanced customization (do-it-yourself)58201
+Node: Per-theme customization settings (DIY)59507
+Node: Case-by-case face specs using the themes' palette (DIY)60853
+Node: Face specs at scale using the themes' palette (DIY)65317
+Node: Remap face with local value (DIY)70134
+Node: Cycle through arbitrary colors (DIY)72612
+Node: Override colors (DIY)79178
+Node: Override color saturation (DIY)84071
+Node: Font configurations for Org and others (DIY)87359
+Ref: Font configurations for Org and others (DIY)-Footnote-189747
+Node: Custom Org user faces (DIY)89934
+Node: Measure color contrast (DIY)93288
+Node: Load theme depending on time of day96057
+Node: Backdrop for pdf-tools (DIY)97079
+Node: A theme-agnostic hook for theme loading (DIY)99835
+Node: Face coverage102225
+Node: Supported packages102695
+Node: Indirectly covered packages109500
+Node: Notes for individual packages109983
+Node: Note for dimmerel110759
+Node: Note for display-fill-column-indicator-mode112205
+Node: Note for mmm-modeel background colors113832
+Node: Note for prism116216
+Node: Note for god-mode119446
+Node: Note on company-mode overlay pop-up121125
+Ref: Note on company-mode overlay pop-up-Footnote-1121815
+Ref: Note on company-mode overlay pop-up-Footnote-2121882
+Node: Note for ERC escaped color sequences121937
+Ref: Note for ERC escaped color sequences-Footnote-1123368
+Node: Note for powerline or spaceline123478
+Node: Note on SHR colors123895
+Node: Note for EWW and Elfeed fonts (SHR fonts)124331
+Node: Note for Helm grep125081
+Node: Note on vc-annotate-background-mode126573
+Node: Note on pdf-tools link hints127460
+Node: Contributing129893
+Node: Sources of the themes130293
+Node: Issues you can help with131031
+Node: Patches require copyright assignment to the FSF132231
+Node: Acknowledgements134526
+Node: Meta136941
+Node: GNU Free Documentation License138938
+Node: Indices164290
+Node: Function index164469
+Node: Variable index165706
+Node: Concept index167701
 
 End Tag Table
 

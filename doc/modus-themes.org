@@ -702,19 +702,19 @@ Possible values:
 9. ~accented-moody~
 
 The default produces a two-dimensional effect both for the active and
-inactive modelines.  The differences between the two are limited to
+inactive mode lines.  The differences between the two are limited to
 distinct shades of grayscale values, with the active being more intense
 than the inactive.
 
-Option ~3d~ will make the active modeline look like a three-dimensional
-rectangle.  Inactive modelines remain 2D, though they are slightly toned
-down relative to the default.  This aesthetic is virtually the same as
-what you get when you run Emacs without any customizations (=emacs -Q= on
-the command line).
+Option ~3d~ will make the active mode line look like a three-dimensional
+rectangle.  Inactive mode lines remain 2D, though they are slightly
+toned down relative to the default.  This aesthetic is virtually the
+same as what you get when you run Emacs without any customizations
+(=emacs -Q= on the command line).
 
-While ~moody~ removes all box effects from the modelines and applies
+While ~moody~ removes all box effects from the mode lines and applies
 underline and overline properties instead.  It also tones down a bit the
-inactive modelines.  This is meant to optimize things for use with the
+inactive mode lines.  This is meant to optimize things for use with the
 [[https://github.com/tarsius/moody][moody package]] (hereinafter referred to as "Moody"), though it can work
 fine even without it.
 
@@ -725,7 +725,7 @@ creating some padding.
 
 The ~borderless-3d~ and ~borderless-moody~ approximate the ~3d~ and ~moody~
 options respectively, while removing the borders.  However, to ensure
-that the inactive modelines remain visible, they apply a slightly more
+that the inactive mode lines remain visible, they apply a slightly more
 prominent background to them than what their counterparts do (same
 inactive background as with the default).
 
@@ -739,7 +739,7 @@ directly.  Instead it re-purposes existing ones to render its tabs and
 ribbons.  As such, there may be cases where the contrast ratio falls
 below the 7:1 target that the themes conform with (WCAG AAA).  To hedge
 against this, we configure a fallback foreground for the ~moody~ option,
-which will come into effect when the background of the modeline changes
+which will come into effect when the background of the mode line changes
 to something less accessible, such as Moody ribbons (read the doc string
 of ~set-face-attribute~, specifically ~:distant-foreground~).  This fallback
 is activated when Emacs determines that the background and foreground of
@@ -2637,7 +2637,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + minibuffer-line
 + minimap
 + mmm-mode
-+ modeline
++ mode-line
 + mood-line
 + moody
 + mpdel
@@ -3104,7 +3104,7 @@ together, if you must.
 
 Both Powerline and Spaceline package users will likely need to use the
 command ~powerline-reset~ whenever they make changes to their themes
-and/or modeline setup.
+and/or mode line setup.
 
 ** Note on SHR colors
 :properties:
@@ -3360,8 +3360,8 @@ The Modus themes are a collective effort.  Every bit of work matters.
 + Contributions to code or documentation :: Anders Johansson, Basil
   L.{{{space()}}} Contovounesios, Carlo Zancanaro, Eli Zaretskii, Kostadin
   Ninev, Madhavan Krishnan, Markus Beppler, Matthew Stevenson, Mauro
-  Aranda, Nicolas De Jaeghere, Shreyas Ragavan, Stefan Kangas, Vincent
-  Murphy, Xinglu Chen.
+  Aranda, Nicolas De Jaeghere, Rudolf Adamkovič, Shreyas Ragavan, Stefan
+  Kangas, Vincent Murphy, Xinglu Chen.
 
 + Ideas and user feedback :: Aaron Jensen, Adam Spiers, Adrian Manea,
   Alex Griffin, Alex Peitsinis, Alexey Shmalko, Alok Singh, Anders

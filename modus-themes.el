@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.3.2
-;; Last-Modified: <2021-05-04 11:59:33 +0300>
+;; Last-Modified: <2021-05-04 19:51:18 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -260,7 +260,7 @@
 ;;     minibuffer-line
 ;;     minimap
 ;;     mmm-mode
-;;     modeline
+;;     mode-line
 ;;     mood-line
 ;;     mpdel
 ;;     mu4e
@@ -1064,38 +1064,38 @@ or for completion interfaces.
 The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-active-red nil
-  "A red background meant for use on the modeline or similar.
-This is combined with the modelines primary foreground value.
+  "A red background meant for use on the mode line or similar.
+This is combined with the mode lines primary foreground value.
 
 The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-active-green nil
-  "A green background meant for use on the modeline or similar.
-This is combined with the modelines primary foreground value.
+  "A green background meant for use on the mode line or similar.
+This is combined with the mode lines primary foreground value.
 
 The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-active-yellow nil
-  "A yellow background meant for use on the modeline or similar.
-This is combined with the modelines primary foreground value.
+  "A yellow background meant for use on the mode line or similar.
+This is combined with the mode lines primary foreground value.
 
 The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-active-blue nil
-  "A blue background meant for use on the modeline or similar.
-This is combined with the modelines primary foreground value.
+  "A blue background meant for use on the mode line or similar.
+This is combined with the mode lines primary foreground value.
 
 The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-active-magenta nil
-  "A magenta background meant for use on the modeline or similar.
-This is combined with the modelines primary foreground value.
+  "A magenta background meant for use on the mode line or similar.
+This is combined with the mode lines primary foreground value.
 
 The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-active-cyan nil
-  "A cyan background meant for use on the modeline or similar.
-This is combined with the modelines primary foreground value.
+  "A cyan background meant for use on the mode line or similar.
+This is combined with the mode lines primary foreground value.
 
 The actual styling of the face is done by `modus-themes-faces'.")
 
@@ -1542,7 +1542,7 @@ The actual styling of the face is done by `modus-themes-faces'.")
 The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-search-success-modeline nil
-  "Generic modeline indicator for successful search.
+  "Generic mode line indicator for successful search.
 The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-search-success-lazy nil
@@ -1996,19 +1996,19 @@ highlights the alert and overdue states."
   "Adjust the overall style of the mode line.
 
 The default (nil) is a two-dimensional rectangle with a border
-around it.  The active and the inactive modelines use different
+around it.  The active and the inactive mode lines use different
 shades of grayscale values for the background and foreground.
 
 A `3d' value will apply a three-dimensional effect to the active
-modeline.  The inactive modelines remain two-dimensional and are
-toned down a bit, relative to the nil value.
+mode line.  The inactive mode lines remain two-dimensional and
+are toned down a bit, relative to the nil value.
 
-The `moody' option is meant to optimize the modeline for use with
-the library of the same name.  This practically means to remove
-the box effect and rely on underline and overline properties
-instead.  It also tones down the inactive modelines.  Despite its
-intended purpose, this option can also be used without the
-`moody' library.
+The `moody' option is meant to optimize the mode line for use
+with the library of the same name.  This practically means to
+remove the box effect and rely on underline and overline
+properties instead.  It also tones down the inactive mode lines.
+Despite its intended purpose, this option can also be used
+without the `moody' library.
 
 The `borderless' option uses the same colors as the default (nil
 value), but removes the border effect.  This is done by making
@@ -2017,7 +2017,7 @@ effectively blending the two and creating some padding.
 
 The `borderless-3d' and `borderless-moody' approximate the `3d'
 and `moody' options respectively, while removing the borders.
-However, to ensure that the inactive modelines remain visible,
+However, to ensure that the inactive mode lines remain visible,
 they apply a slightly more prominent background to them than what
 their counterparts do (same inactive background as with the
 default).
@@ -2674,9 +2674,9 @@ instead.  Same for SIMPLE."
   "Color combinations for `modus-themes-mode-line'.
 
 FG and BG are the default colors.  FG-ALT and BG-ALT are meant to
-accommodate the options for a 3D modeline or a `moody' compliant
+accommodate the options for a 3D mode line or a `moody' compliant
 one.  FG-ACCENT and BG-ACCENT are used for all variants.  BORDER
-applies to all permutations of the modeline, except the
+applies to all permutations of the mode line, except the
 three-dimensional effect, where BORDER-3D is used instead.
 
 Optional ALT-STYLE applies an appropriate style to the mode
@@ -5282,7 +5282,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(mmm-init-submode-face ((,class :background ,magenta-nuanced-bg)))
     `(mmm-output-submode-face ((,class :background ,red-nuanced-bg)))
     `(mmm-special-submode-face ((,class :background ,green-nuanced-bg)))
-;;;;; modeline
+;;;;; mode-line
     `(mode-line ((,class ,@(modus-themes--variable-pitch-ui)
                          ,@(modus-themes--mode-line-attrs
                             fg-active bg-active
