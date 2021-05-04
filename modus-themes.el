@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.3.2
-;; Last-Modified: <2021-05-03 22:40:18 +0300>
+;; Last-Modified: <2021-05-04 11:48:14 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -4485,8 +4485,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(gnus-group-news-4-empty ((,class :foreground ,cyan-nuanced-fg)))
     `(gnus-group-news-5 ((,class :inherit bold :foreground ,red-nuanced-fg)))
     `(gnus-group-news-5-empty ((,class :foreground ,red-nuanced-fg)))
-    `(gnus-group-news-6 ((,class :inherit bold :foreground ,fg-alt)))
-    `(gnus-group-news-6-empty ((,class :inherit shadow)))
+    `(gnus-group-news-6 ((,class :inherit bold :foreground ,fg-unfocused)))
+    `(gnus-group-news-6-empty ((,class :foreground ,fg-unfocused)))
     `(gnus-group-news-low ((,class :inherit bold :foreground ,green-nuanced-fg)))
     `(gnus-group-news-low-empty ((,class :foreground ,green-nuanced-fg)))
     `(gnus-header-content ((,class :inherit message-header-other)))
