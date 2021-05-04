@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.3.2
-;; Last-Modified: <2021-05-04 11:48:14 +0300>
+;; Last-Modified: <2021-05-04 11:59:33 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -426,16 +426,6 @@
 
 ;;;; Modus Operandi
 
-(define-obsolete-variable-alias
-  'modus-operandi-theme-default-colors-alist
-  'modus-themes-colors-operandi
-  "1.0.0")
-
-(define-obsolete-variable-alias
-  'modus-themes-colors-operandi
-  'modus-themes-operandi-colors
-  "1.1.0")
-
 (defconst modus-themes-operandi-colors
   '(;; base values
     (bg-main . "#ffffff") (fg-main . "#000000")
@@ -681,16 +671,6 @@ Each element has the form (NAME . HEX) with the former as a
 symbol and the latter as a string.")
 
 ;;;; Modus Vivendi
-
-(define-obsolete-variable-alias
-  'modus-vivendi-theme-default-colors-alist
-  'modus-themes-colors-vivendi
-  "1.0.0")
-
-(define-obsolete-variable-alias
-  'modus-themes-colors-vivendi
-  'modus-themes-vivendi-colors
-  "1.1.0")
 
 (defconst modus-themes-vivendi-colors
   '(;; base values
