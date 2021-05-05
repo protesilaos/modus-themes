@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.3.2
-;; Last-Modified: <2021-05-05 09:04:22 +0300>
+;; Last-Modified: <2021-05-05 09:11:09 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -98,6 +98,7 @@
 ;;     bm
 ;;     bongo
 ;;     boon
+;;     bookmark
 ;;     breakpoint (provided by built-in gdb-mi.el)
 ;;     buffer-expose
 ;;     calendar and diary
