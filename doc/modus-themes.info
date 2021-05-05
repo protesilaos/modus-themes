@@ -48,7 +48,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.4.0-dev.  This manual was built on
-2021-05-05 09:11 +0300.
+2021-05-05 13:57 +0300.
 
 * Menu:
 
@@ -3112,7 +3112,8 @@ The ‘god-mode’ library does not provide faces that could be configured
 by the Modus themes.  Users who would like to get some visual feedback
 on the status of ‘M-x god-mode’ are instead encouraged by upstream to
 set up their own configurations, such as by changing the ‘mode-line’
-face (*note Advanced customization (do-it-yourself)::).
+face (*note Advanced customization (do-it-yourself)::).  This is an
+adaptation of the approach followed in the upstream README:
 
      (defun my-god-mode-update-mode-line ()
        "Make `mode-line' blue if God local mode is active."
@@ -4220,28 +4221,28 @@ Node: Note for display-fill-column-indicator-mode112221
 Node: Note for mmm-modeel background colors113848
 Node: Note for prism116232
 Node: Note for god-mode119462
-Node: Note on company-mode overlay pop-up121141
-Ref: Note on company-mode overlay pop-up-Footnote-1121831
-Ref: Note on company-mode overlay pop-up-Footnote-2121898
-Node: Note for ERC escaped color sequences121953
-Ref: Note for ERC escaped color sequences-Footnote-1123384
-Node: Note for powerline or spaceline123494
-Node: Note on SHR colors123911
-Node: Note for EWW and Elfeed fonts (SHR fonts)124347
-Node: Note for Helm grep125097
-Node: Note on vc-annotate-background-mode126589
-Node: Note on pdf-tools link hints127476
-Node: Contributing129909
-Node: Sources of the themes130309
-Node: Issues you can help with131047
-Node: Patches require copyright assignment to the FSF132247
-Node: Acknowledgements134542
-Node: Meta136957
-Node: GNU Free Documentation License138954
-Node: Indices164306
-Node: Function index164485
-Node: Variable index165722
-Node: Concept index167717
+Node: Note on company-mode overlay pop-up121137
+Ref: Note on company-mode overlay pop-up-Footnote-1121827
+Ref: Note on company-mode overlay pop-up-Footnote-2121894
+Node: Note for ERC escaped color sequences121949
+Ref: Note for ERC escaped color sequences-Footnote-1123380
+Node: Note for powerline or spaceline123490
+Node: Note on SHR colors123907
+Node: Note for EWW and Elfeed fonts (SHR fonts)124343
+Node: Note for Helm grep125093
+Node: Note on vc-annotate-background-mode126585
+Node: Note on pdf-tools link hints127472
+Node: Contributing129905
+Node: Sources of the themes130305
+Node: Issues you can help with131043
+Node: Patches require copyright assignment to the FSF132243
+Node: Acknowledgements134538
+Node: Meta136953
+Node: GNU Free Documentation License138950
+Node: Indices164302
+Node: Function index164481
+Node: Variable index165718
+Node: Concept index167713
 
 End Tag Table
 

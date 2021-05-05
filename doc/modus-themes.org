@@ -3023,7 +3023,8 @@ The ~god-mode~ library does not provide faces that could be configured by
 the Modus themes.  Users who would like to get some visual feedback on
 the status of {{{kbd(M-x god-mode)}}} are instead encouraged by upstream to
 set up their own configurations, such as by changing the ~mode-line~ face
-([[#h:f4651d55-8c07-46aa-b52b-bed1e53463bb][Advanced customization (do-it-yourself)]]).
+([[#h:f4651d55-8c07-46aa-b52b-bed1e53463bb][Advanced customization (do-it-yourself)]]).  This is an adaptation of the
+approach followed in the upstream README:
 
 #+begin_src emacs-lisp
 (defun my-god-mode-update-mode-line ()
