@@ -3127,8 +3127,7 @@ face (*note Advanced customization (do-it-yourself)::).
                                :background bg-active
                                :box fg-alt))))
 
-     (add-hook 'god-mode-enabled-hook #'my-god-mode-update-mode-line)
-     (add-hook 'god-mode-disabled-hook #'my-god-mode-update-mode-line)
+     (add-hook 'post-command-hook 'my-god-mode-update-mode-line)
 
    We employ the ‘modus-themes-with-colors’ which provides access to
 color variables defined by the active theme.  Its use is covered
