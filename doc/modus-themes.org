@@ -1107,8 +1107,11 @@ major-mode so that the colors are applied consistently throughout: use
 Or start typing in each code block (inefficient at scale, but it still
 works).
 
-The extent of Org block delimiter lines is controlled by the variable
-~org-fontify-whole-block-delimiter-line~.
+Code blocks use their major mode's colors only when the variable
+~org-src-fontify-natively~ is non-nil.  The extent of Org block delimiter
+lines is controlled by ~org-fontify-whole-block-delimiter-line~.  While
+quote/verse blocks require setting ~org-fontify-quote-and-verse-blocks~ to
+a non-nil value.
 
 ** Option for org-habit graph styles
 :properties:
