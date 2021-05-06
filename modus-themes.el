@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.3.2
-;; Last-Modified: <2021-05-05 09:11:09 +0300>
+;; Last-Modified: <2021-05-06 10:37:06 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -3190,9 +3190,18 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(modus-themes-graph-cyan-0 ((,class :background ,cyan-graph-0-bg)))
     `(modus-themes-graph-cyan-1 ((,class :background ,cyan-graph-1-bg)))
 ;;;;; language checkers
-    `(modus-themes-lang-error ((,class ,@(modus-themes--lang-check fg-lang-underline-error fg-lang-error red red-nuanced-bg))))
-    `(modus-themes-lang-note ((,class ,@(modus-themes--lang-check fg-lang-underline-note fg-lang-note blue-alt blue-nuanced-bg))))
-    `(modus-themes-lang-warning ((,class ,@(modus-themes--lang-check fg-lang-underline-warning fg-lang-warning yellow yellow-nuanced-bg))))
+    `(modus-themes-lang-error ((,class ,@(modus-themes--lang-check
+                                          fg-lang-underline-error
+                                          fg-lang-error
+                                          red red-nuanced-bg))))
+    `(modus-themes-lang-note ((,class ,@(modus-themes--lang-check
+                                         fg-lang-underline-note
+                                         fg-lang-note
+                                         blue-alt blue-nuanced-bg))))
+    `(modus-themes-lang-warning ((,class ,@(modus-themes--lang-check
+                                            fg-lang-underline-warning
+                                            fg-lang-warning
+                                            yellow yellow-nuanced-bg))))
 ;;;;; other custom faces
     `(modus-themes-bold ((,class ,@(modus-themes--bold-weight))))
     `(modus-themes-hl-line ((,class ,@(modus-themes--hl-line
