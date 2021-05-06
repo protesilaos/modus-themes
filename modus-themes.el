@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.3.2
-;; Last-Modified: <2021-05-06 18:09:50 +0300>
+;; Last-Modified: <2021-05-06 19:12:13 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -608,6 +608,7 @@
     (bg-hl-alt-intense . "#e8dfd1")
     (bg-paren-match . "#e0af82")
     (bg-paren-match-intense . "#c488ff")
+    (bg-paren-expression . "#dff0ff")
     (bg-region . "#bcbcbc")
     (bg-region-accent . "#afafef")
 
@@ -854,6 +855,7 @@ symbol and the latter as a string.")
     (bg-hl-alt-intense . "#282e46")
     (bg-paren-match . "#5f362f")
     (bg-paren-match-intense . "#7416b5")
+    (bg-paren-expression . "#221044")
     (bg-region . "#3c3c3c")
     (bg-region-accent . "#4f3d88")
 
@@ -6003,7 +6005,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(show-paren-match ((,class ,@(modus-themes--paren bg-paren-match
                                                        bg-paren-match-intense)
                                 :foreground ,fg-main)))
-    `(show-paren-match-expression ((,class :inherit modus-themes-special-calm)))
+    `(show-paren-match-expression ((,class :background ,bg-paren-expression)))
     `(show-paren-mismatch ((,class :inherit modus-themes-intense-red)))
 ;;;;; shr
     `(shr-abbreviation ((,class :inherit modus-themes-lang-note)))
