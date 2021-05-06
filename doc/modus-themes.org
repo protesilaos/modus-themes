@@ -3118,7 +3118,6 @@ specifications the webpage provides.
 
 Consult {{{kbd(C-h v shr-use-colors)}}}.
 
-
 ** Note for EWW and Elfeed fonts (SHR fonts)
 :properties:
 :custom_id: h:e6c5451f-6763-4be7-8fdb-b4706a422a4c
