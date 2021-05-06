@@ -4693,8 +4693,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(highlight-defined-special-form-name-face ((,class :foreground ,magenta-alt-other)))
     `(highlight-defined-variable-name-face ((,class :foreground ,cyan)))
 ;;;;; highlight-escape-sequences (`hes-mode')
-    `(hes-escape-backslash-face ((,class :inherit bold :foreground ,fg-escape-char-construct)))
-    `(hes-escape-sequence-face ((,class :inherit bold :foreground ,fg-escape-char-backslash)))
+    `(hes-escape-backslash-face ((,class :inherit font-lock-regexp-grouping-construct)))
+    `(hes-escape-sequence-face ((,class :inherit font-lock-regexp-grouping-backslash)))
 ;;;;; highlight-indentation
     `(highlight-indentation-face ((,class :inherit modus-themes-hl-line)))
     `(highlight-indentation-current-column-face ((,class :background ,bg-active)))
