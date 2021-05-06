@@ -2799,6 +2799,21 @@ inherit from some basic faces.  Please confirm.
 This section covers information that may be of interest to users of
 individual packages.
 
+** Note for inline Latex in Org buffers
+:properties:
+:custom_id: h:dd8478da-f56a-45cd-b199-b836c85c3c5a
+:end:
+
+Org can work with inline latex and related syntax.  To actually fontify
+those constructs, set the variable ~org-highlight-latex-and-related~ to
+the desired list of values (per its doc string).  For example:
+
+#+begin_src emacs-lisp
+(setq org-highlight-latex-and-related '(latex script))
+#+end_src
+
+Remember to use {{{kbd(M-x org-mode-restart)}}} for changes to take effect.
+
 ** Note for dimmer.el
 :properties:
 :custom_id: h:8eb4b758-d318-4480-9ead-357a571beb93
