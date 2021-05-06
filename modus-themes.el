@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.3.2
-;; Last-Modified: <2021-05-06 10:37:06 +0300>
+;; Last-Modified: <2021-05-06 16:13:33 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -2628,19 +2628,21 @@ background and alternative foreground."
       (_
        (list :inherit `,varbold :foreground fg)))))
 
-(defun modus-themes--org-block (bgblk)
+(defun modus-themes--org-block (bgblk fgdefault &optional fgblk)
   "Conditionally set the background of Org blocks.
 BGBLK applies to a distinct neutral background.  Else blocks have
 no background of their own (the default), so they look the same
-as the rest of the buffer.
+as the rest of the buffer.  FGDEFAULT is used when no distinct
+background is present.  While optional FGBLK specifies a
+foreground value that can be combined with BGBLK.
 
 `modus-themes-org-blocks' also accepts a `rainbow' option
 which is applied conditionally to `org-src-block-faces' (see the
 theme's source code)."
   (if (or (eq modus-themes-org-blocks 'grayscale)
           (eq modus-themes-org-blocks 'greyscale))
-      (list :background bgblk :extend t)
-    (list :background 'unspecified)))
+      (list :background bgblk :foreground (or fgblk fgdefault) :extend t)
+    (list :background 'unspecified :foreground fgdefault)))
 
 (defun modus-themes--org-block-delim (bgaccent fgaccent bg fg)
   "Conditionally set the styles of Org block delimiters.
@@ -5499,8 +5501,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                     :foreground ,blue-alt)))
     `(org-archived ((,class :background ,bg-alt :foreground ,fg-alt)))
     `(org-block ((,class ,@(modus-themes--mixed-fonts)
-                         ,@(modus-themes--org-block bg-dim)
-                         :foreground ,fg-main)))
+                         ,@(modus-themes--org-block bg-dim fg-main))))
     `(org-block-begin-line ((,class ,@(modus-themes--mixed-fonts)
                                     ,@(modus-themes--org-block-delim
                                        bg-dim fg-special-cold
@@ -5594,7 +5595,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-priority ((,class :foreground ,magenta)))
     `(org-property-value ((,class ,@(modus-themes--mixed-fonts)
                                   :foreground ,fg-special-cold)))
-    `(org-quote ((,class ,@(modus-themes--org-block bg-dim))))
+    `(org-quote ((,class ,@(modus-themes--org-block bg-dim fg-special-cold fg-main))))
     `(org-scheduled ((,class :foreground ,magenta-alt)))
     `(org-scheduled-previously ((,class :foreground ,yellow-alt-other)))
     `(org-scheduled-today ((,class :foreground ,magenta-alt-other)))
