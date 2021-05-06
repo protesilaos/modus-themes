@@ -1,17 +1,24 @@
-# Modus themes (Modus Operandi and Modus Vivendi)
+# Modus themes for GNU Emacs (Modus Operandi and Modus Vivendi)
 
 A pair of highly accessible themes that conform with the WCAG AAA
 standard for colour contrast between background and foreground
 combinations (a minimum contrast of 7:1---the highest standard of its
-kind).  The Modus themes are also striving to empower users with
-red-green color deficiency: this is achieved through customisation
-options that replace all relevant instances of green with blue.
+kind).  The Modus themes also strive to empower users with red-green
+color deficiency: this is achieved through customisation options that
+replace all relevant instances of green with blue, as well as the
+overall design of the themes which relies mostly on colours that cover
+the blue-cyan-magenta side of the spectrum.
 
 The themes are built into GNU Emacs 28 (development target).  They are
 also distributed in several packages formats.
 
-+ `modus-operandi` is light
-+ `modus-vivendi` is dark
++ `modus-operandi` is light.
++ `modus-vivendi` is dark.
+
+For some demo content, check:
+
++ The screenshots of the themes <https://protesilaos.com/modus-themes-pictures/>.
++ My videos on Emacs <https://protesilaos.com/code-casts/>.
 
 ## Quick setup for the latest version
 
@@ -124,11 +131,6 @@ manual installed: evaluate `(info "(modus-themes) Top")` to start
 reading it.
 
 The themes cover a broad range of packages and are highly customisable.
-
-For some demo content, check:
-
-+ the screenshots https://protesilaos.com/modus-themes-pictures/
-+ my videos https://protesilaos.com/code-casts/
 
 ## NOTE about old packages
 
