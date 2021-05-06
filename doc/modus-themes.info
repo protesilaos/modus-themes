@@ -48,7 +48,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.4.0-dev.  This manual was built on
-2021-05-06 16:45 +0300.
+2021-05-06 18:12 +0300.
 
 * Menu:
 
@@ -106,7 +106,7 @@ Customization Options
 * Matching parentheses::         Choose between various styles for matching delimiters/parentheses
 * Active region::                Choose between various styles for the active region
 * Diffs::                        Choose among intense, desaturated, or text-only diffs
-* Org mode blocks::              Choose among plain, grayscale, or rainbow styles
+* Org mode blocks::              Choose among plain, gray, or tinted backgrounds
 * Org agenda habits::            Choose among standard, simplified, or traffic light styles
 * Heading styles::               Choose among several styles, also per heading level
 * Scaled headings::              Toggle scaling of headings
@@ -551,7 +551,7 @@ of this manual.
            ;; 'bg-only, 'deuteranopia, 'fg-only-deuteranopia
            modus-themes-diffs 'fg-only-deuteranopia
 
-           modus-themes-org-blocks nil ; {nil,'grayscale,'rainbow}
+           modus-themes-org-blocks 'gray-background ; {nil,'gray-background,'tinted-background}
            modus-themes-org-habit nil ; {nil,'simplified,'traffic-light}
 
            modus-themes-headings ; this is an alist: read the manual or its doc string
@@ -586,7 +586,7 @@ of this manual.
 * Matching parentheses::         Choose between various styles for matching delimiters/parentheses
 * Active region::                Choose between various styles for the active region
 * Diffs::                        Choose among intense, desaturated, or text-only diffs
-* Org mode blocks::              Choose among plain, grayscale, or rainbow styles
+* Org mode blocks::              Choose among plain, gray, or tinted backgrounds
 * Org agenda habits::            Choose among standard, simplified, or traffic light styles
 * Heading styles::               Choose among several styles, also per heading level
 * Scaled headings::              Toggle scaling of headings
@@ -1198,35 +1198,34 @@ Symbol: ‘modus-themes-org-blocks’
    Possible values:
 
   1. ‘nil’ (default)
-  2. ‘grayscale’
-  3. ‘rainbow’
+  2. ‘gray-background’ (part of 1.4.0-dev—value ‘grayscale’ exists for
+     backward compatibility)
+  3. ‘~tinted-background’ (part of 1.4.0-dev—value ‘rainbow’ exists for
+     backward compatibility)
 
-   The default is to use the same background as the rest of the buffer
-for the contents of the block.
+   The default means that the block has no distinct background of its
+own and uses the one that applies to the rest of the buffer.
 
-   Option ‘grayscale’ applies a subtle neutral gray background to the
-block’s contents.  It will also extend to the edge of the window the
-background of the “begin” and “end” block delimiter lines (only relevant
-for Emacs versions >= 27 where the ’extend’ keyword is part of the face
-specifications).
+   Option ‘gray-background’ applies a subtle gray background to the
+block’s contents.  It also affects the begin and end lines of the block:
+their background extends to the edge of the window for Emacs version >=
+27 where the ‘:extend’ keyword is recognized by ‘set-face-attribute’
+(this is contingent on the variable
+‘org-fontify-whole-block-delimiter-line’).
 
-   Option ‘rainbow’ uses an accented background for the contents of the
-block.  The exact color will depend on the programming language and is
-controlled by the ‘org-src-block-faces’ variable.  This is most suitable
-for users who work on literate programming documents that mix and match
-several languages.
-
-   Note that the “rainbow” blocks may require you to also reload the
-major-mode so that the colors are applied consistently throughout: use
-‘M-x org-mode’ or ‘M-x org-mode-restart’ to refresh the buffer.  Or
-start typing in each code block (inefficient at scale, but it still
-works).
+   Option ‘tinted-background’ uses a slightly colored background for the
+contents of the block.  The exact color will depend on the programming
+language and is controlled by the variable ‘org-src-block-faces’ (refer
+to the theme’s source code for the current association list).  For this
+to take effect, Org must be restarted with ‘M-x org-mode-restart’.
 
    Code blocks use their major mode’s colors only when the variable
-‘org-src-fontify-natively’ is non-nil.  The extent of Org block
-delimiter lines is controlled by
-‘org-fontify-whole-block-delimiter-line’.  While quote/verse blocks
-require setting ‘org-fontify-quote-and-verse-blocks’ to a non-nil value.
+‘org-src-fontify-natively’ is non-nil.  While quote/verse blocks require
+setting ‘org-fontify-quote-and-verse-blocks’ to a non-nil value.
+
+   Older versions of the themes provided options ‘grayscale’ (or
+‘greyscale’) and ‘rainbow’.  Those will continue to work as they are
+aliases for ‘gray-background’ and ‘tinted-background’, respectively.
 
 
 File: modus-themes.info,  Node: Org agenda habits,  Next: Heading styles,  Prev: Org mode blocks,  Up: Customization Options
@@ -4180,89 +4179,89 @@ B.3 Concept index
 
 Tag Table:
 Node: Top860
-Node: Overview6140
-Node: How do the themes look like7683
-Node: Learn about the latest changes8191
-Node: Installation8573
-Node: Install manually from source9054
-Node: Install from the archives9879
-Node: Install on GNU/Linux10656
-Node: Debian 11 Bullseye11104
-Node: GNU Guix11414
-Node: Enable and load11697
-Node: Sample configuration for use-package14445
-Node: Differences between loading and enabling15814
-Node: Customization Options17854
-Node: Success' color-code23169
-Node: Bold constructs24078
-Node: Slanted constructs24695
-Node: Syntax styles25242
-Node: No mixed fonts26880
-Node: Link styles27975
-Node: Command prompts29549
-Node: Mode line30748
-Node: Completion UIs34361
-Node: Fringes36223
-Node: Language checkers36885
-Node: Line highlighting38834
-Node: Line numbers40383
-Node: Matching parentheses41461
-Node: Active region42351
-Node: Diffs43569
-Node: Org mode blocks45620
-Node: Org agenda habits47299
-Node: Heading styles49134
-Node: Scaled headings53236
-Node: Scaled heading sizes53839
-Node: UI typeface56973
-Node: Headings' typeface57819
-Node: Advanced customization (do-it-yourself)58443
-Node: Per-theme customization settings (DIY)59749
-Node: Case-by-case face specs using the themes' palette (DIY)61095
-Node: Face specs at scale using the themes' palette (DIY)65559
-Node: Remap face with local value (DIY)70376
-Node: Cycle through arbitrary colors (DIY)72854
-Node: Override colors (DIY)79420
-Node: Override color saturation (DIY)84313
-Node: Font configurations for Org and others (DIY)87601
-Ref: Font configurations for Org and others (DIY)-Footnote-189989
-Node: Custom Org user faces (DIY)90176
-Node: Measure color contrast (DIY)93530
-Node: Load theme depending on time of day96299
-Node: Backdrop for pdf-tools (DIY)97321
-Node: A theme-agnostic hook for theme loading (DIY)100077
-Node: Face coverage102467
-Node: Supported packages102937
-Node: Indirectly covered packages109758
-Node: Notes for individual packages110241
-Node: Note for inline Latex in Org buffers111058
-Node: Note for dimmerel111623
-Node: Note for display-fill-column-indicator-mode113114
-Node: Note for mmm-modeel background colors114741
-Node: Note for prism117125
-Node: Note for god-mode120355
-Node: Note on company-mode overlay pop-up122030
-Ref: Note on company-mode overlay pop-up-Footnote-1122720
-Ref: Note on company-mode overlay pop-up-Footnote-2122787
-Node: Note for ERC escaped color sequences122842
-Ref: Note for ERC escaped color sequences-Footnote-1124273
-Node: Note for powerline or spaceline124383
-Node: Note on SHR colors124800
-Node: Note for EWW and Elfeed fonts (SHR fonts)125238
-Node: Note for Helm grep125988
-Node: Note on vc-annotate-background-mode127480
-Node: Note on pdf-tools link hints128367
-Node: Contributing130800
-Node: Sources of the themes131200
-Node: Issues you can help with131938
-Node: Patches require copyright assignment to the FSF133138
-Node: Acknowledgements135433
-Node: Meta137848
-Node: GNU Free Documentation License139845
-Node: Indices165197
-Node: Function index165376
-Node: Variable index166613
-Node: Concept index168608
+Node: Overview6139
+Node: How do the themes look like7682
+Node: Learn about the latest changes8190
+Node: Installation8572
+Node: Install manually from source9053
+Node: Install from the archives9878
+Node: Install on GNU/Linux10655
+Node: Debian 11 Bullseye11103
+Node: GNU Guix11413
+Node: Enable and load11696
+Node: Sample configuration for use-package14444
+Node: Differences between loading and enabling15813
+Node: Customization Options17853
+Node: Success' color-code23196
+Node: Bold constructs24105
+Node: Slanted constructs24722
+Node: Syntax styles25269
+Node: No mixed fonts26907
+Node: Link styles28002
+Node: Command prompts29576
+Node: Mode line30775
+Node: Completion UIs34388
+Node: Fringes36250
+Node: Language checkers36912
+Node: Line highlighting38861
+Node: Line numbers40410
+Node: Matching parentheses41488
+Node: Active region42378
+Node: Diffs43596
+Node: Org mode blocks45647
+Node: Org agenda habits47473
+Node: Heading styles49308
+Node: Scaled headings53410
+Node: Scaled heading sizes54013
+Node: UI typeface57147
+Node: Headings' typeface57993
+Node: Advanced customization (do-it-yourself)58617
+Node: Per-theme customization settings (DIY)59923
+Node: Case-by-case face specs using the themes' palette (DIY)61269
+Node: Face specs at scale using the themes' palette (DIY)65733
+Node: Remap face with local value (DIY)70550
+Node: Cycle through arbitrary colors (DIY)73028
+Node: Override colors (DIY)79594
+Node: Override color saturation (DIY)84487
+Node: Font configurations for Org and others (DIY)87775
+Ref: Font configurations for Org and others (DIY)-Footnote-190163
+Node: Custom Org user faces (DIY)90350
+Node: Measure color contrast (DIY)93704
+Node: Load theme depending on time of day96473
+Node: Backdrop for pdf-tools (DIY)97495
+Node: A theme-agnostic hook for theme loading (DIY)100251
+Node: Face coverage102641
+Node: Supported packages103111
+Node: Indirectly covered packages109932
+Node: Notes for individual packages110415
+Node: Note for inline Latex in Org buffers111232
+Node: Note for dimmerel111797
+Node: Note for display-fill-column-indicator-mode113288
+Node: Note for mmm-modeel background colors114915
+Node: Note for prism117299
+Node: Note for god-mode120529
+Node: Note on company-mode overlay pop-up122204
+Ref: Note on company-mode overlay pop-up-Footnote-1122894
+Ref: Note on company-mode overlay pop-up-Footnote-2122961
+Node: Note for ERC escaped color sequences123016
+Ref: Note for ERC escaped color sequences-Footnote-1124447
+Node: Note for powerline or spaceline124557
+Node: Note on SHR colors124974
+Node: Note for EWW and Elfeed fonts (SHR fonts)125412
+Node: Note for Helm grep126162
+Node: Note on vc-annotate-background-mode127654
+Node: Note on pdf-tools link hints128541
+Node: Contributing130974
+Node: Sources of the themes131374
+Node: Issues you can help with132112
+Node: Patches require copyright assignment to the FSF133312
+Node: Acknowledgements135607
+Node: Meta138022
+Node: GNU Free Documentation License140019
+Node: Indices165371
+Node: Function index165550
+Node: Variable index166787
+Node: Concept index168782
 
 End Tag Table
 

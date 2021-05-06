@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.3.2
-;; Last-Modified: <2021-05-06 16:13:33 +0300>
+;; Last-Modified: <2021-05-06 18:09:50 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -1931,28 +1931,43 @@ most intense combination of face properties."
 (defcustom modus-themes-org-blocks nil
   "Use a subtle gray or color-coded background for Org blocks.
 
-Nil means that the block will have no background of its own and
-will use the default that applies to the rest of the buffer.
+Nil (the default) means that the block has no distinct background
+of its own and uses the one that applies to the rest of the
+buffer.
 
-Option `grayscale' (or `greyscale') will apply a subtle neutral
-gray background to the block's contents.  It also affects the
-begin and end lines of the block: their background will be
-extended to the edge of the window for Emacs version >= 27 where
-the ':extend' keyword is recognized by `set-face-attribute'.
+Option `gray-background' applies a subtle gray background to the
+block's contents.  It also affects the begin and end lines of the
+block: their background extends to the edge of the window for
+Emacs version >= 27 where the ':extend' keyword is recognized by
+`set-face-attribute' (this is contingent on the variable
+`org-fontify-whole-block-delimiter-line').
 
-Option `rainbow' will use an accented background for the contents
-of the block.  The exact color will depend on the programming
-language and is controlled by the `org-src-block-faces'
-variable (refer to the theme's source code for the current
-association list)."
+Option `tinted-background' uses a slightly colored background for
+the contents of the block.  The exact color will depend on the
+programming language and is controlled by the variable
+`org-src-block-faces' (refer to the theme's source code for the
+current association list).  For this to take effect, the Org
+buffer needs to be restarted with `org-mode-restart'.
+
+Code blocks use their major mode's colors only when the variable
+`org-src-fontify-natively' is non-nil.  While quote/verse blocks
+require setting `org-fontify-quote-and-verse-blocks' to a non-nil
+value.
+
+Older versions of the themes provided options `grayscale' (or
+`greyscale') and `rainbow'.  Those will continue to work as they
+are aliases for `gray-background' and `tinted-background',
+respectively."
   :group 'modus-themes
-  :package-version '(modus-themes . "1.0.0")
+  :package-version '(modus-themes . "1.4.0")
   :version "28.1"
   :type '(choice
           (const :format "[%v] %t\n" :tag "No Org block background (default)" nil)
-          (const :format "[%v] %t\n" :tag "Subtle gray block background" grayscale)
-          (const :format "[%v] %t\n" :tag "Subtle gray block background (alt spelling)" greyscale)
-          (const :format "[%v] %t\n" :tag "Color-coded background per programming language" rainbow))
+          (const :format "[%v] %t\n" :tag "Subtle gray block background" gray-background)
+          (const :format "[%v] %t\n" :tag "Alias for `gray-background'" grayscale) ; for backward compatibility
+          (const :format "[%v] %t\n" :tag "Alias for `gray-background'" greyscale)
+          (const :format "[%v] %t\n" :tag "Color-coded background per programming language" tinted-background)
+          (const :format "[%v] %t\n" :tag "Alias for `tinted-background'" rainbow)) ; back compat
   :link '(info-link "(modus-themes) Org mode blocks"))
 
 (defcustom modus-themes-org-habit nil
@@ -2636,10 +2651,11 @@ as the rest of the buffer.  FGDEFAULT is used when no distinct
 background is present.  While optional FGBLK specifies a
 foreground value that can be combined with BGBLK.
 
-`modus-themes-org-blocks' also accepts a `rainbow' option
-which is applied conditionally to `org-src-block-faces' (see the
-theme's source code)."
-  (if (or (eq modus-themes-org-blocks 'grayscale)
+`modus-themes-org-blocks' also accepts `tinted-background' (alias
+`rainbow') as a value which applies to `org-src-block-faces' (see
+the theme's source code)."
+  (if (or (eq modus-themes-org-blocks 'gray-background)
+          (eq modus-themes-org-blocks 'grayscale)
           (eq modus-themes-org-blocks 'greyscale))
       (list :background bgblk :foreground (or fgblk fgdefault) :extend t)
     (list :background 'unspecified :foreground fgdefault)))
@@ -2658,6 +2674,7 @@ The latter pair should be more subtle than the background of the
 block, as it is used when `modus-themes-org-blocks' is
 set to `rainbow'."
   (pcase modus-themes-org-blocks
+    ('gray-background (list :background bg :foreground fg :extend t))
     ('grayscale (list :background bg :foreground fg :extend t))
     ('greyscale (list :background bg :foreground fg :extend t))
     ('rainbow (list :background bgaccent :foreground fgaccent))
@@ -6626,7 +6643,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;; xterm-color
     `(xterm-color-names ["black" ,red ,green ,yellow ,blue ,magenta ,cyan "gray65"])
     `(xterm-color-names-bright ["gray35" ,red-alt ,green-alt ,yellow-alt ,blue-alt ,magenta-alt ,cyan-alt "white"])
-    (if (eq modus-themes-org-blocks 'rainbow)
+    (if (or (eq modus-themes-org-blocks 'tinted-background)
+            (eq modus-themes-org-blocks 'rainbow))
         `(org-src-block-faces              ; TODO this list should be expanded
           `(("emacs-lisp" modus-themes-nuanced-magenta)
             ("elisp" modus-themes-nuanced-magenta)

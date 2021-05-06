@@ -428,7 +428,7 @@ this manual.
       ;; 'bg-only, 'deuteranopia, 'fg-only-deuteranopia
       modus-themes-diffs 'fg-only-deuteranopia
 
-      modus-themes-org-blocks nil ; {nil,'grayscale,'rainbow}
+      modus-themes-org-blocks 'gray-background ; {nil,'gray-background,'tinted-background}
       modus-themes-org-habit nil ; {nil,'simplified,'traffic-light}
 
       modus-themes-headings ; this is an alist: read the manual or its doc string
@@ -1073,7 +1073,7 @@ interest of backward compatibility.
 ** Option for org-mode block styles
 :properties:
 :alt_title: Org mode blocks
-:description: Choose among plain, grayscale, or rainbow styles
+:description: Choose among plain, gray, or tinted backgrounds
 :custom_id: h:b7e328c0-3034-4db7-9cdf-d5ba12081ca2
 :end:
 #+vindex: modus-themes-org-blocks
@@ -1083,35 +1083,33 @@ Symbol: ~modus-themes-org-blocks~
 Possible values:
 
 1. ~nil~ (default)
-2. ~grayscale~
-3. ~rainbow~
+2. ~gray-background~ (part of {{{development-version}}}---value ~grayscale~ exists
+   for backward compatibility)
+3. ~~tinted-background~ (part of {{{development-version}}}---value ~rainbow~
+   exists for backward compatibility)
 
-The default is to use the same background as the rest of the buffer for
-the contents of the block.
+The default means that the block has no distinct background of its own
+and uses the one that applies to the rest of the buffer.
 
-Option ~grayscale~ applies a subtle neutral gray background to the block's
-contents.  It will also extend to the edge of the window the background
-of the "begin" and "end" block delimiter lines (only relevant for Emacs
-versions >= 27 where the 'extend' keyword is part of the face
-specifications).
+Option ~gray-background~ applies a subtle gray background to the block's
+contents.  It also affects the begin and end lines of the block: their
+background extends to the edge of the window for Emacs version >= 27
+where the ~:extend~ keyword is recognized by ~set-face-attribute~ (this is
+contingent on the variable ~org-fontify-whole-block-delimiter-line~).
 
-Option ~rainbow~ uses an accented background for the contents of the
-block.  The exact color will depend on the programming language and is
-controlled by the ~org-src-block-faces~ variable.  This is most suitable
-for users who work on literate programming documents that mix and match
-several languages.
-
-Note that the "rainbow" blocks may require you to also reload the
-major-mode so that the colors are applied consistently throughout: use
-{{{kbd(M-x org-mode)}}} or {{{kbd(M-x org-mode-restart)}}} to refresh the buffer.
-Or start typing in each code block (inefficient at scale, but it still
-works).
+Option ~tinted-background~ uses a slightly colored background for the
+contents of the block.  The exact color will depend on the programming
+language and is controlled by the variable ~org-src-block-faces~ (refer to
+the theme's source code for the current association list).  For this to
+take effect, Org must be restarted with {{{kbd(M-x org-mode-restart)}}}.
 
 Code blocks use their major mode's colors only when the variable
-~org-src-fontify-natively~ is non-nil.  The extent of Org block delimiter
-lines is controlled by ~org-fontify-whole-block-delimiter-line~.  While
-quote/verse blocks require setting ~org-fontify-quote-and-verse-blocks~ to
-a non-nil value.
+~org-src-fontify-natively~ is non-nil.  While quote/verse blocks require
+setting ~org-fontify-quote-and-verse-blocks~ to a non-nil value.
+
+Older versions of the themes provided options ~grayscale~ (or ~greyscale~)
+and ~rainbow~.  Those will continue to work as they are aliases for
+~gray-background~ and ~tinted-background~, respectively.
 
 ** Option for org-habit graph styles
 :properties:
