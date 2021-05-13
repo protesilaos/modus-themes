@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.3.2
-;; Last-Modified: <2021-05-13 15:44:57 +0300>
+;; Last-Modified: <2021-05-13 23:28:13 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -3299,10 +3299,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
                             ,@(modus-themes--link-color
                                magenta-alt-other magenta-alt-other-faint fg-alt))))
     `(tooltip ((,class :background ,bg-special-cold :foreground ,fg-main)))
-    `(widget-button ((,class :inherit button)))
-    `(widget-button-pressed ((,class :inherit button
-                                     ,@(modus-themes--link-color
-                                        magenta magenta-faint))))
+    `(widget-button ((,class :inherit bold :foreground ,blue-alt)))
+    `(widget-button-pressed ((,class :inherit widget-button :foreground ,magenta)))
     `(widget-documentation ((,class :foreground ,green)))
     `(widget-field ((,class :background ,bg-alt :foreground ,fg-dim)))
     `(widget-inactive ((,class :background ,bg-inactive :foreground ,fg-inactive)))
