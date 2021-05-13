@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.3.2
-;; Last-Modified: <2021-05-12 14:57:51 +0300>
+;; Last-Modified: <2021-05-13 15:44:57 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -5448,7 +5448,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(notmuch-tree-match-tag-face ((,class :inherit bold :foreground ,blue-alt)))
     `(notmuch-tree-no-match-face ((,class :inherit shadow)))
     `(notmuch-tree-no-match-date-face ((,class :inherit shadow)))
-    `(notmuch-wash-cited-text ((,class :foreground ,cyan)))
+    `(notmuch-wash-cited-text ((,class :foreground ,blue-faint)))
     `(notmuch-wash-toggle-button ((,class :background ,bg-alt :foreground ,fg-alt)))
 ;;;;; num3-mode
     `(num3-face-even ((,class :inherit bold :background ,bg-alt)))
