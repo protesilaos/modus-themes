@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.3.2
-;; Last-Modified: <2021-05-14 23:24:45 +0300>
+;; Last-Modified: <2021-05-14 23:36:21 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -362,7 +362,7 @@
 ;;     tuareg
 ;;     typescript
 ;;     undo-tree
-;;     vc (built-in mode line status for version control)
+;;     vc (vc-dir.el, vc-hooks.el)
 ;;     vc-annotate (C-x v g)
 ;;     vdiff
 ;;     vertico
