@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.3.2
-;; Last-Modified: <2021-05-13 23:55:23 +0300>
+;; Last-Modified: <2021-05-14 19:02:25 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -697,8 +697,8 @@ symbol and the latter as a string.")
     (bg-special-calm . "#392a48") (fg-special-calm . "#fbd6f4")
     ;; foregrounds that can be combined with bg-main, bg-dim, bg-alt
     (red . "#ff8059")
-    (red-alt . "#f4923b")
-    (red-alt-other . "#ff9977")
+    (red-alt . "#ef8b50")
+    (red-alt-other . "#ff9077")
     (red-faint . "#ffa0a0")
     (red-alt-faint . "#f5aa80")
     (red-alt-other-faint . "#ff9fbf")
