@@ -48,7 +48,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.4.0-dev.  This manual was built on
-2021-05-06 18:12 +0300.
+2021-05-14 23:26 +0300.
 
 * Menu:
 
@@ -2577,7 +2577,6 @@ have lots of extensions, so the “full support” may not be 100% true…
    • corfu
    • counsel*
    • counsel-css
-   • counsel-notmuch
    • counsel-org-capture-string
    • cov
    • cperl-mode
@@ -2860,8 +2859,10 @@ File: modus-themes.info,  Node: Indirectly covered packages,  Prev: Supported pa
 ===============================
 
 These do not require any extra styles because they are configured to
-inherit from some basic faces.  Please confirm.
+inherit from some basic faces or their dependencies which are directly
+supported by the themes.
 
+   • counsel-notmuch
    • edit-indirect
    • evil-owl
    • fortran-mode
@@ -4232,36 +4233,36 @@ Node: Backdrop for pdf-tools (DIY)97495
 Node: A theme-agnostic hook for theme loading (DIY)100251
 Node: Face coverage102641
 Node: Supported packages103111
-Node: Indirectly covered packages109932
-Node: Notes for individual packages110415
-Node: Note for inline Latex in Org buffers111232
-Node: Note for dimmerel111797
-Node: Note for display-fill-column-indicator-mode113288
-Node: Note for mmm-modeel background colors114915
-Node: Note for prism117299
-Node: Note for god-mode120529
-Node: Note on company-mode overlay pop-up122204
-Ref: Note on company-mode overlay pop-up-Footnote-1122894
-Ref: Note on company-mode overlay pop-up-Footnote-2122961
-Node: Note for ERC escaped color sequences123016
-Ref: Note for ERC escaped color sequences-Footnote-1124447
-Node: Note for powerline or spaceline124557
-Node: Note on SHR colors124974
-Node: Note for EWW and Elfeed fonts (SHR fonts)125412
-Node: Note for Helm grep126162
-Node: Note on vc-annotate-background-mode127654
-Node: Note on pdf-tools link hints128541
-Node: Contributing130974
-Node: Sources of the themes131374
-Node: Issues you can help with132112
-Node: Patches require copyright assignment to the FSF133312
-Node: Acknowledgements135607
-Node: Meta138022
-Node: GNU Free Documentation License140019
-Node: Indices165371
-Node: Function index165550
-Node: Variable index166787
-Node: Concept index168782
+Node: Indirectly covered packages109909
+Node: Notes for individual packages110463
+Node: Note for inline Latex in Org buffers111280
+Node: Note for dimmerel111845
+Node: Note for display-fill-column-indicator-mode113336
+Node: Note for mmm-modeel background colors114963
+Node: Note for prism117347
+Node: Note for god-mode120577
+Node: Note on company-mode overlay pop-up122252
+Ref: Note on company-mode overlay pop-up-Footnote-1122942
+Ref: Note on company-mode overlay pop-up-Footnote-2123009
+Node: Note for ERC escaped color sequences123064
+Ref: Note for ERC escaped color sequences-Footnote-1124495
+Node: Note for powerline or spaceline124605
+Node: Note on SHR colors125022
+Node: Note for EWW and Elfeed fonts (SHR fonts)125460
+Node: Note for Helm grep126210
+Node: Note on vc-annotate-background-mode127702
+Node: Note on pdf-tools link hints128589
+Node: Contributing131022
+Node: Sources of the themes131422
+Node: Issues you can help with132160
+Node: Patches require copyright assignment to the FSF133360
+Node: Acknowledgements135655
+Node: Meta138070
+Node: GNU Free Documentation License140067
+Node: Indices165419
+Node: Function index165598
+Node: Variable index166835
+Node: Concept index168830
 
 End Tag Table
 
