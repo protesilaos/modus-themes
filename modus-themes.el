@@ -5297,7 +5297,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(message-header-subject ((,class :inherit bold :foreground ,magenta-alt)))
     `(message-header-to ((,class :inherit bold :foreground ,magenta-alt-other)))
     `(message-header-xheader ((,class :foreground ,blue-alt)))
-    `(message-mml ((,class :background ,bg-alt :foreground ,fg-alt)))
+    `(message-mml ((,class :foreground ,cyan-alt-other)))
     `(message-separator ((,class :inherit modus-themes-intense-neutral)))
 ;;;;; minibuffer-line
     `(minibuffer-line ((,class :foreground ,fg-main)))
