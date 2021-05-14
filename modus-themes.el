@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.3.2
-;; Last-Modified: <2021-05-14 19:02:25 +0300>
+;; Last-Modified: <2021-05-14 23:17:13 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -5420,12 +5420,12 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; no-emoji
     `(no-emoji ((,class :foreground ,cyan)))
 ;;;;; notmuch
-    `(notmuch-crypto-decryption ((,class :inherit modus-themes-special-mild)))
+    `(notmuch-crypto-decryption ((,class :inherit (shadow bold))))
     `(notmuch-crypto-part-header ((,class :foreground ,magenta-alt-other)))
-    `(notmuch-crypto-signature-bad ((,class :inherit modus-themes-intense-red)))
-    `(notmuch-crypto-signature-good ((,class :inherit modus-themes-refine-blue)))
-    `(notmuch-crypto-signature-good-key ((,class :inherit modus-themes-refine-cyan)))
-    `(notmuch-crypto-signature-unknown ((,class :inherit modus-themes-refine-red)))
+    `(notmuch-crypto-signature-bad ((,class :inherit error)))
+    `(notmuch-crypto-signature-good ((,class :inherit success)))
+    `(notmuch-crypto-signature-good-key ((,class :inherit bold :foreground ,cyan)))
+    `(notmuch-crypto-signature-unknown ((,class :inherit warning)))
     `(notmuch-hello-logo-background ((,class :background "gray50")))
     `(notmuch-message-summary-face ((,class :inherit modus-themes-nuanced-cyan)))
     `(notmuch-search-count ((,class :inherit shadow)))
