@@ -5437,7 +5437,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(notmuch-search-unread-face ((,class :inherit bold)))
     `(notmuch-tag-added ((,class :underline ,blue)))
     `(notmuch-tag-deleted ((,class :strike-through ,red)))
-    `(notmuch-tag-face ((,class :inherit bold :foreground ,blue-alt)))
+    `(notmuch-tag-face ((,class :foreground ,blue)))
     `(notmuch-tag-flagged ((,class :foreground ,red-alt)))
     `(notmuch-tag-unread ((,class :foreground ,magenta-alt)))
     `(notmuch-tree-match-author-face ((,class :inherit notmuch-search-matching-authors)))
