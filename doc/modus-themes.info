@@ -48,7 +48,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.4.0-dev.  This manual was built on
-2021-05-14 23:37 +0300.
+2021-05-16 23:20 +0300.
 
 * Menu:
 
@@ -2164,9 +2164,57 @@ and the same for ‘modus-themes-vivendi-color-overrides’ (dark theme).
    Using the above has an immediate effect, as it reloads the active
 Modus theme.
 
-   To disable the effect, one must reset the aforementioned variables to
-‘nil’.  Or specify a command for it, such as by taking inspiration from
-the ‘modus-themes-toggle’ we already provide:
+   The ‘my-modus-themes-saturate’ function stores new color values in
+the variables ‘modus-themes-operandi-color-overrides’ and
+‘modus-themes-vivendi-color-overrides’, meaning that it undoes changes
+implemented by the user on individual colors.  To have both automatic
+saturation adjustment across the board and retain per-case edits to the
+palette, some tweaks to the above function are required.  For example:
+
+     (defvar my-modus-themes-vivendi-extra-color-overrides
+       '((fg-main . "#ead0c0")
+         (bg-main . "#050515"))
+       "My bespoke colors for `modus-vivendi'.")
+
+     (defvar my-modus-themes-operandi-extra-color-overrides
+       '((fg-main . "#1a1a1a")
+         (bg-main . "#fefcf4"))
+       "My bespoke colors for `modus-operandi'.")
+
+     (defun my-modus-themes-saturate (percent)
+       "Saturate current Modus theme palette overrides by PERCENT.
+     Preserve the color values stored in
+     `my-modus-themes-operandi-extra-color-overrides',
+     `my-modus-themes-vivendi-extra-color-overrides'."
+       (interactive
+        (list (read-number "Saturation by percent: ")))
+       (let* ((theme (modus-themes--current-theme))
+              (palette (pcase theme
+                         ('modus-operandi modus-themes-operandi-colors)
+                         ('modus-vivendi modus-themes-vivendi-colors)
+                         (_ (error "No Modus theme is active"))))
+              (overrides (pcase theme
+                           ('modus-operandi 'modus-themes-operandi-color-overrides)
+                           ('modus-vivendi 'modus-themes-vivendi-color-overrides)
+                           (_ (error "No Modus theme is active"))))
+              (extra-overrides (pcase theme
+                                 ('modus-operandi my-modus-themes-operandi-extra-color-overrides)
+                                 ('modus-vivendi my-modus-themes-vivendi-extra-color-overrides)
+                                 (_ (error "No Modus theme is active")))))
+         (let (name cons colors)
+           (dolist (cons palette)
+             (setq name (color-saturate-name (cdr cons) percent))
+             (setq name (format "%s" name))
+             (setq cons `(,(car cons) . ,name))
+             (push cons colors))
+           (set overrides (append extra-overrides colors)))
+         (pcase theme
+           ('modus-operandi (modus-themes-load-operandi))
+           ('modus-vivendi (modus-themes-load-vivendi)))))
+
+   To disable the effect, one must reset the aforementioned variables of
+the themes to ‘nil’.  Or specify a command for it, such as by taking
+inspiration from the ‘modus-themes-toggle’ we already provide:
 
      (defun my-modus-themes-revert-overrides ()
        "Reset palette overrides and reload active Modus theme."
@@ -4224,45 +4272,45 @@ Node: Remap face with local value (DIY)70550
 Node: Cycle through arbitrary colors (DIY)73028
 Node: Override colors (DIY)79594
 Node: Override color saturation (DIY)84487
-Node: Font configurations for Org and others (DIY)87775
-Ref: Font configurations for Org and others (DIY)-Footnote-190163
-Node: Custom Org user faces (DIY)90350
-Node: Measure color contrast (DIY)93704
-Node: Load theme depending on time of day96473
-Node: Backdrop for pdf-tools (DIY)97495
-Node: A theme-agnostic hook for theme loading (DIY)100251
-Node: Face coverage102641
-Node: Supported packages103111
-Node: Indirectly covered packages109885
-Node: Notes for individual packages110439
-Node: Note for inline Latex in Org buffers111256
-Node: Note for dimmerel111821
-Node: Note for display-fill-column-indicator-mode113312
-Node: Note for mmm-modeel background colors114939
-Node: Note for prism117323
-Node: Note for god-mode120553
-Node: Note on company-mode overlay pop-up122228
-Ref: Note on company-mode overlay pop-up-Footnote-1122918
-Ref: Note on company-mode overlay pop-up-Footnote-2122985
-Node: Note for ERC escaped color sequences123040
-Ref: Note for ERC escaped color sequences-Footnote-1124471
-Node: Note for powerline or spaceline124581
-Node: Note on SHR colors124998
-Node: Note for EWW and Elfeed fonts (SHR fonts)125436
-Node: Note for Helm grep126186
-Node: Note on vc-annotate-background-mode127678
-Node: Note on pdf-tools link hints128565
-Node: Contributing130998
-Node: Sources of the themes131398
-Node: Issues you can help with132136
-Node: Patches require copyright assignment to the FSF133336
-Node: Acknowledgements135631
-Node: Meta138046
-Node: GNU Free Documentation License140043
-Node: Indices165395
-Node: Function index165574
-Node: Variable index166811
-Node: Concept index168806
+Node: Font configurations for Org and others (DIY)90240
+Ref: Font configurations for Org and others (DIY)-Footnote-192628
+Node: Custom Org user faces (DIY)92815
+Node: Measure color contrast (DIY)96169
+Node: Load theme depending on time of day98938
+Node: Backdrop for pdf-tools (DIY)99960
+Node: A theme-agnostic hook for theme loading (DIY)102716
+Node: Face coverage105106
+Node: Supported packages105576
+Node: Indirectly covered packages112350
+Node: Notes for individual packages112904
+Node: Note for inline Latex in Org buffers113721
+Node: Note for dimmerel114286
+Node: Note for display-fill-column-indicator-mode115777
+Node: Note for mmm-modeel background colors117404
+Node: Note for prism119788
+Node: Note for god-mode123018
+Node: Note on company-mode overlay pop-up124693
+Ref: Note on company-mode overlay pop-up-Footnote-1125383
+Ref: Note on company-mode overlay pop-up-Footnote-2125450
+Node: Note for ERC escaped color sequences125505
+Ref: Note for ERC escaped color sequences-Footnote-1126936
+Node: Note for powerline or spaceline127046
+Node: Note on SHR colors127463
+Node: Note for EWW and Elfeed fonts (SHR fonts)127901
+Node: Note for Helm grep128651
+Node: Note on vc-annotate-background-mode130143
+Node: Note on pdf-tools link hints131030
+Node: Contributing133463
+Node: Sources of the themes133863
+Node: Issues you can help with134601
+Node: Patches require copyright assignment to the FSF135801
+Node: Acknowledgements138096
+Node: Meta140511
+Node: GNU Free Documentation License142508
+Node: Indices167860
+Node: Function index168039
+Node: Variable index169276
+Node: Concept index171271
 
 End Tag Table
 

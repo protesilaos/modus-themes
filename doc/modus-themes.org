@@ -2074,9 +2074,59 @@ same for ~modus-themes-vivendi-color-overrides~ (dark theme).
 Using the above has an immediate effect, as it reloads the active Modus
 theme.
 
-To disable the effect, one must reset the aforementioned variables to
-~nil~.  Or specify a command for it, such as by taking inspiration from
-the ~modus-themes-toggle~ we already provide:
+The =my-modus-themes-saturate= function stores new color values in the
+variables =modus-themes-operandi-color-overrides= and
+=modus-themes-vivendi-color-overrides=, meaning that it undoes changes
+implemented by the user on individual colors.  To have both automatic
+saturation adjustment across the board and retain per-case edits to the
+palette, some tweaks to the above function are required.  For example:
+
+#+begin_src emacs-lisp
+(defvar my-modus-themes-vivendi-extra-color-overrides
+  '((fg-main . "#ead0c0")
+    (bg-main . "#050515"))
+  "My bespoke colors for `modus-vivendi'.")
+
+(defvar my-modus-themes-operandi-extra-color-overrides
+  '((fg-main . "#1a1a1a")
+    (bg-main . "#fefcf4"))
+  "My bespoke colors for `modus-operandi'.")
+
+(defun my-modus-themes-saturate (percent)
+  "Saturate current Modus theme palette overrides by PERCENT.
+Preserve the color values stored in
+`my-modus-themes-operandi-extra-color-overrides',
+`my-modus-themes-vivendi-extra-color-overrides'."
+  (interactive
+   (list (read-number "Saturation by percent: ")))
+  (let* ((theme (modus-themes--current-theme))
+         (palette (pcase theme
+                    ('modus-operandi modus-themes-operandi-colors)
+                    ('modus-vivendi modus-themes-vivendi-colors)
+                    (_ (error "No Modus theme is active"))))
+         (overrides (pcase theme
+                      ('modus-operandi 'modus-themes-operandi-color-overrides)
+                      ('modus-vivendi 'modus-themes-vivendi-color-overrides)
+                      (_ (error "No Modus theme is active"))))
+         (extra-overrides (pcase theme
+                            ('modus-operandi my-modus-themes-operandi-extra-color-overrides)
+                            ('modus-vivendi my-modus-themes-vivendi-extra-color-overrides)
+                            (_ (error "No Modus theme is active")))))
+    (let (name cons colors)
+      (dolist (cons palette)
+        (setq name (color-saturate-name (cdr cons) percent))
+        (setq name (format "%s" name))
+        (setq cons `(,(car cons) . ,name))
+        (push cons colors))
+      (set overrides (append extra-overrides colors)))
+    (pcase theme
+      ('modus-operandi (modus-themes-load-operandi))
+      ('modus-vivendi (modus-themes-load-vivendi)))))
+#+end_src
+
+To disable the effect, one must reset the aforementioned variables of
+the themes to ~nil~.  Or specify a command for it, such as by taking
+inspiration from the ~modus-themes-toggle~ we already provide:
 
 #+begin_src emacs-lisp
 (defun my-modus-themes-revert-overrides ()
