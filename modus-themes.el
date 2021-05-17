@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.3.2
-;; Last-Modified: <2021-05-14 23:36:21 +0300>
+;; Last-Modified: <2021-05-17 07:27:48 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -3700,7 +3700,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(cperl-array-face ((,class :inherit font-lock-keyword-face)))
     `(cperl-hash-face ((,class :inherit font-lock-variable-name-face)))
 ;;;;; csv-mode
-    `(csv-separator-face ((,class :background ,bg-special-cold :foreground ,fg-main)))
+    `(csv-separator-face ((,class :foreground ,red-intense)))
 ;;;;; ctrlf
     `(ctrlf-highlight-active ((,class :inherit (modus-themes-search-success bold))))
     `(ctrlf-highlight-line ((,class :inherit modus-themes-hl-line)))
