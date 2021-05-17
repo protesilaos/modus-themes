@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.3.2
-;; Last-Modified: <2021-05-17 07:27:48 +0300>
+;; Last-Modified: <2021-05-17 09:56:29 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -57,6 +57,7 @@
 ;;     modus-themes-region                         (choice)
 ;;     modus-themes-links                          (choice)
 ;;     modus-themes-completions                    (choice)
+;;     modus-themes-mail-citations                 (choice)
 ;;     modus-themes-success-deuteranopia           (boolean)
 ;;
 ;; The default scale for headings is as follows (it can be customized as
@@ -2388,6 +2389,28 @@ configured to conform with deuteranopia: `modus-themes-diffs'."
   :type 'boolean
   :link '(info-link "(modus-themes) Success' color-code"))
 
+(defcustom modus-themes-mail-citations nil
+  "Control the color of citations in messages or email clients.
+
+Nil (the default) means to use a variety of contrasting hues to
+denote depth in nested citations.  Colors are fairly easy to tell
+apart.
+
+Option `desaturated' maintains a color-based distinction between
+citation levels but the colors it applies have very subtle
+differences between them.
+
+Option `monochrome' turns all citations that would otherwise be
+colored into a uniform shade of shade of gray."
+  :group 'modus-themes
+  :package-version '(modus-themes . "1.4.0")
+  :version "28.1"
+  :type '(choice
+          (const :format "[%v] %t\n" :tag "Colorful mail citations with contrasting hues (default)" nil)
+          (const :format "[%v] %t\n" :tag "Like the default, but with less saturated colors" desaturated)
+          (const :format "[%v] %t\n" :tag "Uniformly gray mail citations" monochrome))
+  :link '(info-link "(modus-themes) Mail citations"))
+
 
 
 ;;; Internal functions
@@ -2886,6 +2909,16 @@ accented."
     ('underline-only-neutral (list :background 'unspecified :underline lineneutral))
     ('underline-only-accented (list :background 'unspecified :underline lineaccent))
     (_ (list :background bgdefault))))
+
+(defun modus-themes--mail-cite (mainfg subtlefg)
+  "Combinations for `modus-themes-mail-citations'.
+
+MAINFG is an accented foreground value.  SUBTLEFG is its
+desaturated counterpart."
+  (pcase modus-themes-mail-citations
+    ('monochrome (list :inherit 'shadow))
+    ('desaturated (list :foreground subtlefg))
+    (_ (list :foreground mainfg))))
 
 
 
@@ -5280,10 +5313,10 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(mentor-highlight-face ((,class :inherit modus-themes-subtle-blue)))
     `(mentor-tracker-name ((,class :foreground ,magenta-alt)))
 ;;;;; messages
-    `(message-cited-text-1 ((,class :foreground ,blue-faint)))
-    `(message-cited-text-2 ((,class :foreground ,green-alt-other)))
-    `(message-cited-text-3 ((,class :foreground ,red-alt-other)))
-    `(message-cited-text-4 ((,class :foreground ,cyan)))
+    `(message-cited-text-1 ((,class ,@(modus-themes--mail-cite blue-faint fg-special-cold))))
+    `(message-cited-text-2 ((,class ,@(modus-themes--mail-cite green-faint fg-special-mild))))
+    `(message-cited-text-3 ((,class ,@(modus-themes--mail-cite red-faint fg-special-calm))))
+    `(message-cited-text-4 ((,class ,@(modus-themes--mail-cite yellow-faint fg-special-warm))))
     `(message-header-cc ((,class :foreground ,blue-alt-other)))
     `(message-header-name ((,class :inherit bold :foreground ,cyan)))
     `(message-header-newsgroups ((,class :inherit message-header-other)))

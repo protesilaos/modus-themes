@@ -420,6 +420,8 @@ this manual.
 
       modus-themes-completions 'moderate ; {nil,'moderate,'opinionated}
 
+      modus-themes-mail-citations nil ; {nil,'desaturated,'monochrome}
+
       ;; Options for `modus-themes-region': nil, 'no-extend, 'bg-only,
       ;; 'bg-only-no-extend, 'accent, 'accent-no-extend
       modus-themes-region 'bg-only-no-extend
@@ -803,6 +805,36 @@ additional changes to the choice of hues.
 To appreciate the scope of this customization option, you should spend
 some time with every one of the ~nil~ (default), ~moderate~, and ~opinionated~
 possibilities.
+
+** Option for mail citations
+:properties:
+:alt_title: Mail citations
+:description: Choose among colorful, desaturated, monochrome citations
+:custom_id: h:5a12765d-0ba0-4a75-ab11-e35d3bbb317d
+:end:
+#+vindex: modus-themes-mail-citations
+
+Symbol: ~modus-themes-mail-citations~
+
+Possible values:
+
+1. ~nil~ (default)
+2. ~desaturated~
+3. ~monochrome~
+
+By default, citations in email-related buffers apply contrasting hues to
+different levels of depth in cited text.  The colors are fairly easy to
+tell apart.
+
+A value of ~desaturated~ makes all citation levels less intense, while
+retaining the default style of contrasting hues (albeit very subtle
+ones).
+
+Option ~monochrome~ turns all citations in to a uniform shade of gray.
+
+Whatever the value assigned to this variable, citations in emails are
+controlled by typographic elements or indentation, which the themes do
+not touch.
 
 ** Option for fringe visibility
 :properties:

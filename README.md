@@ -96,6 +96,8 @@ demonstration:
 
       modus-themes-completions 'moderate ; {nil,'moderate,'opinionated}
 
+      modus-themes-mail-citations nil ; {nil,'desaturated,'monochrome}
+
       ;; Options for `modus-themes-region': nil, 'no-extend, 'bg-only,
       ;; 'bg-only-no-extend, 'accent, 'accent-no-extend
       modus-themes-region 'bg-only-no-extend
