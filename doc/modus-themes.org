@@ -3,6 +3,7 @@
 #+email: info@protesilaos.com
 #+language: en
 #+options: ':t toc:nil author:t email:t
+#+startup: content
 
 #+macro: stable-version 1.3.2
 #+macro: release-date 2021-04-18
