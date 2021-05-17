@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.3.2
-;; Last-Modified: <2021-05-17 09:56:29 +0300>
+;; Last-Modified: <2021-05-17 18:45:13 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -5313,10 +5313,10 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(mentor-highlight-face ((,class :inherit modus-themes-subtle-blue)))
     `(mentor-tracker-name ((,class :foreground ,magenta-alt)))
 ;;;;; messages
-    `(message-cited-text-1 ((,class ,@(modus-themes--mail-cite blue-faint fg-special-cold))))
-    `(message-cited-text-2 ((,class ,@(modus-themes--mail-cite green-faint fg-special-mild))))
-    `(message-cited-text-3 ((,class ,@(modus-themes--mail-cite red-faint fg-special-calm))))
-    `(message-cited-text-4 ((,class ,@(modus-themes--mail-cite yellow-faint fg-special-warm))))
+    `(message-cited-text-1 ((,class ,@(modus-themes--mail-cite blue-faint fg-alt))))
+    `(message-cited-text-2 ((,class ,@(modus-themes--mail-cite green-faint fg-comment-yellow))))
+    `(message-cited-text-3 ((,class ,@(modus-themes--mail-cite red-faint fg-special-cold))))
+    `(message-cited-text-4 ((,class ,@(modus-themes--mail-cite yellow-faint fg-special-calm))))
     `(message-header-cc ((,class :foreground ,blue-alt-other)))
     `(message-header-name ((,class :inherit bold :foreground ,cyan)))
     `(message-header-newsgroups ((,class :inherit message-header-other)))
