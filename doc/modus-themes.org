@@ -1140,6 +1140,8 @@ Code blocks use their major mode's colors only when the variable
 ~org-src-fontify-natively~ is non-nil.  While quote/verse blocks require
 setting ~org-fontify-quote-and-verse-blocks~ to a non-nil value.
 
+[[#h:f44cc6e3-b0f1-4a5e-8a90-9e48fa557b50][Update Org block delimiter fontification]].
+
 Older versions of the themes provided options ~grayscale~ (or ~greyscale~)
 and ~rainbow~.  Those will continue to work as they are aliases for
 ~gray-background~ and ~tinted-background~, respectively.
@@ -2307,6 +2309,48 @@ it if you plan to control face attributes.
 [[#h:1487c631-f4fe-490d-8d58-d72ffa3bd474][Custom face specs using the themes' palette]].
 
 [[#h:02e25930-e71a-493d-828a-8907fc80f874][Check color combinations]].
+
+** Update Org block delimiter fontification (DIY)
+:properties:
+:custom_id: h:f44cc6e3-b0f1-4a5e-8a90-9e48fa557b50
+:end:
+
+As noted in the section about ~modus-themes-org-blocks~, Org contains a
+variable that determines whether the block's begin and end lines are
+extended to the edge of the window ([[#h:b7e328c0-3034-4db7-9cdf-d5ba12081ca2][Option for org-mode block styles]]).
+The variable is ~org-fontify-whole-block-delimiter-line~.
+
+Users who change the style of Org blocks from time to time may prefer to
+automatically update delimiter line fontification, such as with the
+following setup:
+
+#+begin_src emacs-lisp
+(defun my-modus-themes-org-fontify-block-delimiter-lines ()
+  "Match `org-fontify-whole-block-delimiter-line' to theme style.
+Run this function at the post theme load phase, such as with the
+`modus-themes-after-load-theme-hook'."
+  (if (eq modus-themes-org-blocks 'gray-background)
+      (setq org-fontify-whole-block-delimiter-line t)
+    (setq org-fontify-whole-block-delimiter-line nil)))
+
+(add-hook 'modus-themes-after-load-theme-hook
+          #'my-modus-themes-org-fontify-block-delimiter-lines)
+#+end_src
+
+Then {{{kbd(M-x org-mode-restart)}}} for changes to take effect, though manual
+intervention can be circumvented by tweaking the function thus:
+
+#+begin_src emacs-lisp
+(defun my-modus-themes-org-fontify-block-delimiter-lines ()
+  "Match `org-fontify-whole-block-delimiter-line' to theme style.
+Run this function at the post theme load phase, such as with the
+`modus-themes-after-load-theme-hook'."
+  (if (eq modus-themes-org-blocks 'gray-background)
+      (setq org-fontify-whole-block-delimiter-line t)
+    (setq org-fontify-whole-block-delimiter-line nil))
+  (when (derived-mode-p 'org-mode)
+    (font-lock-flush)))
+#+end_src
 
 ** Measure color contrast (DIY)
 :properties:
