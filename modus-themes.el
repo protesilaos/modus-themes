@@ -1554,6 +1554,21 @@ The actual styling of the face is done by `modus-themes-faces'.")
 
 ;;; Customization options
 
+(defvar modus-themes--recursive-flag nil
+  "Non-nil means the theme is being reloaded.
+In that case `modus-themes--set-option' will not reload the
+theme, to prevent infinite recursion.")
+
+(defun modus-themes--set-option (sym val)
+  "Custom setter for theme related user options.
+Will set SYM to VAL, and reload the current theme."
+  (set-default sym val)
+  (unless modus-themes--recursive-flag
+    (let ((modus-themes--recursive-flag t))
+      (pcase (modus-themes--current-theme)
+	('modus-operandi (modus-themes-load-operandi))
+	('modus-vivendi (modus-themes-load-vivendi))))))
+
 ;;;; Current customization options (>= 1.0.0)
 
 (defcustom modus-themes-operandi-color-overrides nil
@@ -1564,6 +1579,7 @@ For form, see `modus-themes-operandi-colors'."
   :package-version '(modus-themes . "1.1.0")
   :version "28.1"
   :type '(alist :key-type symbol :value-type color)
+  :set #'modus-themes--set-option
   :link '(info-link "(modus-themes) Override colors (DIY)"))
 
 (defcustom modus-themes-vivendi-color-overrides nil
@@ -1574,6 +1590,7 @@ For form, see `modus-themes-vivendi-colors'."
   :package-version '(modus-themes . "1.1.0")
   :version "28.1"
   :type '(alist :key-type symbol :value-type color)
+  :set #'modus-themes--set-option
   :link '(info-link "(modus-themes) Override colors (DIY)"))
 
 ;; The byte compiler complains when a defcustom isn't a top level form
@@ -1592,6 +1609,7 @@ For form, see `modus-themes-vivendi-colors'."
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
   :type 'boolean
+  :set #'modus-themes--set-option
   :link '(info-link "(modus-themes) Slanted constructs"))
 
 (defcustom modus-themes-bold-constructs nil
@@ -1600,6 +1618,7 @@ For form, see `modus-themes-vivendi-colors'."
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
   :type 'boolean
+  :set #'modus-themes--set-option
   :link '(info-link "(modus-themes) Bold constructs"))
 
 (defcustom modus-themes-variable-pitch-headings nil
@@ -1608,6 +1627,7 @@ For form, see `modus-themes-vivendi-colors'."
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
   :type 'boolean
+  :set #'modus-themes--set-option
   :link '(info-link "(modus-themes) Headings' typeface"))
 
 (defcustom modus-themes-variable-pitch-ui nil
@@ -1617,6 +1637,7 @@ This includes the mode line, header line, tab bar, and tab line."
   :package-version '(modus-themes . "1.1.0")
   :version "28.1"
   :type 'boolean
+  :set #'modus-themes--set-option
   :link '(info-link "(modus-themes) UI typeface"))
 
 (defcustom modus-themes-no-mixed-fonts nil
@@ -1634,6 +1655,7 @@ mixing fonts."
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
   :type 'boolean
+  :set #'modus-themes--set-option
   :link '(info-link "(modus-themes) No mixed fonts"))
 
 (defconst modus-themes--headings-choice
@@ -1745,6 +1767,7 @@ A description of all other possible values:
                             '(1 2 3 4 5 6 7 8 t))
           :key-type symbol
           :value-type ,modus-themes--headings-choice)
+  :set #'modus-themes--set-option
   :link '(info-link "(modus-themes) Heading styles"))
 
 (defcustom modus-themes-scale-headings nil
@@ -1765,6 +1788,7 @@ special heading."
   :package-version '(modus-themes . "1.2.0")
   :version "28.1"
   :type 'boolean
+  :set #'modus-themes--set-option
   :link '(info-link "(modus-themes) Scaled headings"))
 
 (defcustom modus-themes-scale-1 1.05
@@ -1787,6 +1811,7 @@ accordance with it in cases where it changes, such as while using
   :package-version '(modus-themes . "1.2.0")
   :version "28.1"
   :type 'number
+  :set #'modus-themes--set-option
   :link '(info-link "(modus-themes) Scaled heading sizes"))
 
 (defcustom modus-themes-scale-2 1.1
@@ -1809,6 +1834,7 @@ accordance with it in cases where it changes, such as while using
   :package-version '(modus-themes . "1.2.0")
   :version "28.1"
   :type 'number
+  :set #'modus-themes--set-option
   :link '(info-link "(modus-themes) Scaled heading sizes"))
 
 (defcustom modus-themes-scale-3 1.15
@@ -1831,6 +1857,7 @@ accordance with it in cases where it changes, such as while using
   :package-version '(modus-themes . "1.2.0")
   :version "28.1"
   :type 'number
+  :set #'modus-themes--set-option
   :link '(info-link "(modus-themes) Scaled heading sizes"))
 
 (defcustom modus-themes-scale-4 1.2
@@ -1853,6 +1880,7 @@ accordance with it in cases where it changes, such as while using
   :package-version '(modus-themes . "1.2.0")
   :version "28.1"
   :type 'number
+  :set #'modus-themes--set-option
   :link '(info-link "(modus-themes) Scaled heading sizes"))
 
 (defcustom modus-themes-scale-5 1.3
@@ -1876,6 +1904,7 @@ accordance with it in cases where it changes, such as while using
   :package-version '(modus-themes . "1.2.0")
   :version "28.1"
   :type 'number
+  :set #'modus-themes--set-option
   :link '(info-link "(modus-themes) Scaled heading sizes"))
 
 (defcustom modus-themes-fringes nil
@@ -1892,6 +1921,7 @@ pronounced grayscale value."
           (const :format "[%v] %t\n" :tag "No visible fringes (default)" nil)
           (const :format "[%v] %t\n" :tag "Subtle grayscale background" subtle)
           (const :format "[%v] %t\n" :tag "Intense grayscale background" intense))
+  :set #'modus-themes--set-option
   :link '(info-link "(modus-themes) Fringes"))
 
 (defcustom modus-themes-lang-checkers nil
@@ -1926,6 +1956,7 @@ most intense combination of face properties."
           (const :format "[%v] %t\n" :tag "Color-coded wavy underline; intense foreground" intense-foreground)
           (const :format "[%v] %t\n" :tag "Combines `straight-underline' and `intense-foreground'" intense-foreground-straight-underline)
           (const :format "[%v] %t\n" :tag "Color-coded background, foreground, straight underline" colored-background))
+  :set #'modus-themes--set-option
   :link '(info-link "(modus-themes) Language checkers"))
 
 (defcustom modus-themes-org-blocks nil
@@ -1968,6 +1999,7 @@ respectively."
           (const :format "[%v] %t\n" :tag "Alias for `gray-background'" greyscale)
           (const :format "[%v] %t\n" :tag "Color-coded background per programming language" tinted-background)
           (const :format "[%v] %t\n" :tag "Alias for `tinted-background'" rainbow)) ; back compat
+  :set #'modus-themes--set-option
   :link '(info-link "(modus-themes) Org mode blocks"))
 
 (defcustom modus-themes-org-habit nil
@@ -2006,6 +2038,7 @@ highlights the alert and overdue states."
           (const :format "[%v] %t\n" :tag "Respect the original design of org-habit (default)" nil)
           (const :format "[%v] %t\n" :tag "Like the default, but do not distinguish between present and future variants" simplified)
           (const :format "[%v] %t\n" :tag "Like `simplified', but only use red, yellow, green" traffic-light))
+  :set #'modus-themes--set-option
   :link '(info-link "(modus-themes) Org agenda habits"))
 
 (defcustom modus-themes-mode-line nil
@@ -2055,6 +2088,7 @@ background instead of the standard shade of gray."
           (const :format "[%v] %t\n" :tag "Two-dimensional box with a colored background" accented)
           (const :format "[%v] %t\n" :tag "Like `3d', but with a colored background" accented-3d)
           (const :format "[%v] %t\n" :tag "Like `moody', but with a colored background" accented-moody))
+  :set #'modus-themes--set-option
   :link '(info-link "(modus-themes) Mode line"))
 
 (defcustom modus-themes-diffs nil
@@ -2100,6 +2134,7 @@ interest of backward compatibility."
           (const :format "[%v] %t\n" :tag "Like the default (nil), though optimized for red-green color defficiency" deuteranopia)
           (const :format "[%v] %t\n" :tag "No backgrounds, except for refined diffs" fg-only-deuteranopia)
           (const :format "[%v] %t\n" :tag "Alias of `fg-only-deuteranopia' for backward compatibility" fg-only))
+  :set #'modus-themes--set-option
   :link '(info-link "(modus-themes) Diffs"))
 
 (defcustom modus-themes-completions nil
@@ -2143,6 +2178,7 @@ and `opinionated' possibilities."
           (const :format "[%v] %t\n" :tag "Respect the framework's established aesthetic (default)" nil)
           (const :format "[%v] %t\n" :tag "Subtle backgrounds for various elements" moderate)
           (const :format "[%v] %t\n" :tag "Radical alternative to the framework's looks" opinionated))
+  :set #'modus-themes--set-option
   :link '(info-link "(modus-themes) Completion UIs"))
 
 (defcustom modus-themes-prompts nil
@@ -2173,6 +2209,7 @@ they use grayscale values instead of accented ones."
           (const :format "[%v] %t\n" :tag "Same as `intense-accented' for compatibility with older versions" intense)
           (const :format "[%v] %t\n" :tag "Like `subtle-accented' but grayscale" subtle-gray)
           (const :format "[%v] %t\n" :tag "Like `intense-accented' but grayscale" intense-gray))
+  :set #'modus-themes--set-option
   :link '(info-link "(modus-themes) Command prompts"))
 
 (defcustom modus-themes-intense-hl-line nil
@@ -2181,6 +2218,7 @@ they use grayscale values instead of accented ones."
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
   :type 'boolean
+  :set #'modus-themes--set-option
   :link '(info-link "(modus-themes) Line highlighting"))
 
 (make-obsolete 'modus-themes-intense-hl-line 'modus-themes-hl-line "1.3.0")
@@ -2221,6 +2259,7 @@ results with underlines."
           (const :format "[%v] %t\n" :tag "Underline with a subtle colored background" underline-accented)
           (const :format "[%v] %t\n" :tag "Just a neutral underline, without a background" underline-only-neutral)
           (const :format "[%v] %t\n" :tag "Just an accented underline, without a background" underline-only-accented))
+  :set #'modus-themes--set-option
   :link '(info-link "(modus-themes) Line highlighting"))
 
 (defcustom modus-themes-subtle-line-numbers nil
@@ -2229,6 +2268,7 @@ results with underlines."
   :package-version '(modus-themes . "1.2.0")
   :version "28.1"
   :type 'boolean
+  :set #'modus-themes--set-option
   :link '(info-link "(modus-themes) Line numbers"))
 
 (defcustom modus-themes-paren-match nil
@@ -2251,6 +2291,7 @@ uses a bold weight."
           (const :format "[%v] %t\n" :tag "Like the default, but also use bold typographic weight" subtle-bold)
           (const :format "[%v] %t\n" :tag "Intense saturated background" intense)
           (const :format "[%v] %t\n" :tag "Like `intense' but with bold weight" intense-bold))
+  :set #'modus-themes--set-option
   :link '(info-link "(modus-themes) Matching parentheses"))
 
 (defcustom modus-themes-syntax nil
@@ -2295,6 +2336,7 @@ Option `faint-yellow-comments' combines the `faint' style with
           (const :format "[%v] %t\n" :tag "Refashion syntax highlighting with more colors, gray comments" alt-syntax)
           (const :format "[%v] %t\n" :tag "Like `alt-syntax' but with yellow comments" alt-syntax-yellow-comments)
           (const :format "[%v] %t\n" :tag "Like `faint' but with yellow comments" faint-yellow-comments))
+  :set #'modus-themes--set-option
   :link '(info-link "(modus-themes) Syntax styles"))
 
 (defcustom modus-themes-links nil
@@ -2332,6 +2374,7 @@ using a subtle underline below it."
           (const :format "[%v] %t\n" :tag "Remove underline property from links, keeping their foreground as-is" no-underline)
           (const :format "[%v] %t\n" :tag "Apply underline only; use default foreground" underline-only)
           (const :format "[%v] %t\n" :tag "Like `underline-only' but with a subtle underline" neutral-underline-only))
+  :set #'modus-themes--set-option
   :link '(info-link "(modus-themes) Link styles"))
 
 (defcustom modus-themes-region nil
@@ -2368,6 +2411,7 @@ to the end of each line within the region."
           (const :format "[%v] %t\n" :tag "As with the `subtle' option, but does not extend" bg-only-no-extend)
           (const :format "[%v] %t\n" :tag "Like the default, but with an accented background" accent)
           (const :format "[%v] %t\n" :tag "As with the `accent' option, but does not extend" accent-no-extend))
+  :set #'modus-themes--set-option
   :link '(info-link "(modus-themes) Active region"))
 
 (defcustom modus-themes-success-deuteranopia nil
@@ -2385,6 +2429,7 @@ configured to conform with deuteranopia: `modus-themes-diffs'."
   :package-version '(modus-themes . "1.4.0")
   :version "28.1"
   :type 'boolean
+  :set #'modus-themes--set-option
   :link '(info-link "(modus-themes) Success' color-code"))
 
 (defcustom modus-themes-mail-citations nil
@@ -2407,6 +2452,7 @@ colored into a uniform shade of shade of gray."
           (const :format "[%v] %t\n" :tag "Colorful mail citations with contrasting hues (default)" nil)
           (const :format "[%v] %t\n" :tag "Like the default, but with less saturated colors" desaturated)
           (const :format "[%v] %t\n" :tag "Uniformly gray mail citations" monochrome))
+  :set #'modus-themes--set-option
   :link '(info-link "(modus-themes) Mail citations"))
 
 
