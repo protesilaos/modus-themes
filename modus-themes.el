@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.3.2
-;; Last-Modified: <2021-05-19 07:56:54 +0300>
+;; Last-Modified: <2021-05-19 08:05:35 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -588,10 +588,6 @@ cover the blue-cyan-magenta side of the spectrum."
     ;; bg-tab-bar is only intended for the bar that holds the tabs and
     ;; can only be combined with fg-main
     ;;
-    ;; fg-tab-accent is meant to be combined with bg-tab-active,
-    ;; though only for styling special elements, such as underlining
-    ;; the current tab
-    ;;
     ;; fg-escape-char-construct and fg-escape-char-backslash can
     ;; be combined bg-main, bg-dim, bg-alt
     ;;
@@ -624,7 +620,6 @@ cover the blue-cyan-magenta side of the spectrum."
     (bg-tab-active . "#f6f6f6")
     (bg-tab-inactive . "#bdbdbd")
     (bg-tab-inactive-alt . "#999999")
-    (fg-tab-accent . "#30169e")
 
     (red-tab . "#680000")
     (green-tab . "#003900")
@@ -835,10 +830,6 @@ symbol and the latter as a string.")
     ;; bg-tab-bar is only intended for the bar that holds the tabs and
     ;; can only be combined with fg-main
     ;;
-    ;; fg-tab-accent is meant to be combined with bg-tab-active,
-    ;; though only for styling special elements, such as underlining
-    ;; the current tab
-    ;;
     ;; fg-escape-char-construct and fg-escape-char-backslash can
     ;; be combined bg-main, bg-dim, bg-alt
     ;;
@@ -871,7 +862,6 @@ symbol and the latter as a string.")
     (bg-tab-active . "#0e0e0e")
     (bg-tab-inactive . "#3d3d3d")
     (bg-tab-inactive-alt . "#595959")
-    (fg-tab-accent . "#5ac3cf")
 
     (red-tab . "#ffc0bf")
     (green-tab . "#88ef88")
@@ -3559,7 +3549,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(cfw:face-toolbar-button-on ((,class :inherit bold :background ,blue-nuanced-bg
                                           :foreground ,blue-alt)))
 ;;;;; centaur-tabs
-    `(centaur-tabs-active-bar-face ((,class :background ,fg-tab-accent)))
+    `(centaur-tabs-active-bar-face ((,class :background ,blue-active)))
     `(centaur-tabs-close-mouse-face ((,class :inherit bold :foreground ,red-active :underline t)))
     `(centaur-tabs-close-selected ((,class :inherit centaur-tabs-selected)))
     `(centaur-tabs-close-unselected ((,class :inherit centaur-tabs-unselected)))
