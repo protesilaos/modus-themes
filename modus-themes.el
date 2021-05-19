@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.3.2
-;; Last-Modified: <2021-05-19 08:43:57 +0300>
+;; Last-Modified: <2021-05-19 08:51:39 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -3822,7 +3822,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(diff-hl-insert ((,class :inherit ,@(modus-themes--diff-deuteran
                                           'modus-themes-fringe-blue
                                           'modus-themes-fringe-green))))
-    `(diff-hl-reverted-hunk-highlight ((,class :inherit (modus-themes-active-magenta bold))))
+    `(diff-hl-reverted-hunk-highlight ((,class :background ,fg-main :foreground ,bg-main)))
 ;;;;; diff-mode
     `(diff-added ((,class :inherit modus-themes-diff-added)))
     `(diff-changed ((,class :inherit modus-themes-diff-changed :extend t)))
