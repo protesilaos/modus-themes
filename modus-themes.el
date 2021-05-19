@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.3.2
-;; Last-Modified: <2021-05-17 18:45:13 +0300>
+;; Last-Modified: <2021-05-19 07:56:54 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -417,7 +417,15 @@
 (eval-when-compile (require 'cl-lib))
 
 (defgroup modus-themes ()
-  "Options for `modus-operandi', `modus-vivendi'."
+  "Options for `modus-operandi', `modus-vivendi'.
+The Modus themes conform with the WCAG AAA standard for color
+contrast between background and foreground combinations (a
+minimum contrast of 7:1---the highest standard of its kind).  The
+themes also strive to empower users with red-green color
+deficiency: this is achieved through customization options that
+replace all relevant instances of green with blue, as well as the
+overall design of the themes which relies mostly on colors that
+cover the blue-cyan-magenta side of the spectrum."
   :group 'faces
   :link '(info-link "(modus-themes) Top")
   :prefix "modus-themes-"
