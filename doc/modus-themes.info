@@ -48,7 +48,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.4.0-dev.  This manual was built on
-2021-05-18 15:30 +0300.
+2021-05-19 13:26 +0300.
 
 * Menu:
 
@@ -2060,7 +2060,7 @@ basic background values that apply to buffers and the mode line
 (remember to inspect the actual value to find out all the associations
 that can be overridden):
 
-     (defconst modus-themes-colors-operandi
+     (defconst modus-themes-operandi-colors
        '((bg-main . "#ffffff")
          (bg-dim . "#f8f8f8")
          (bg-alt . "#f0f0f0")

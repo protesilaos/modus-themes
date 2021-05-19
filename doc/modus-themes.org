@@ -1960,7 +1960,7 @@ basic background values that apply to buffers and the mode line
 that can be overridden):
 
 #+begin_src emacs-lisp
-(defconst modus-themes-colors-operandi
+(defconst modus-themes-operandi-colors
   '((bg-main . "#ffffff")
     (bg-dim . "#f8f8f8")
     (bg-alt . "#f0f0f0")
