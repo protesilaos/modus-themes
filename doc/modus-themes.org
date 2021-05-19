@@ -421,7 +421,7 @@ this manual.
 
       modus-themes-completions 'moderate ; {nil,'moderate,'opinionated}
 
-      modus-themes-mail-citations nil ; {nil,'desaturated,'monochrome}
+      modus-themes-mail-citations nil ; {nil,'faint,'monochrome}
 
       ;; Options for `modus-themes-region': nil, 'no-extend, 'bg-only,
       ;; 'bg-only-no-extend, 'accent, 'accent-no-extend
@@ -822,16 +822,15 @@ Symbol: ~modus-themes-mail-citations~
 Possible values:
 
 1. ~nil~ (default)
-2. ~desaturated~
+2. ~faint~
 3. ~monochrome~
 
 By default, citations in email-related buffers apply contrasting hues to
 different levels of depth in cited text.  The colors are fairly easy to
 tell apart.
 
-A value of ~desaturated~ makes all citation levels less intense, while
-retaining the default style of contrasting hues (albeit very subtle
-ones).
+A value of ~faint~ makes all citation levels less intense, while retaining
+the default style of contrasting hues (albeit very subtle ones).
 
 Option ~monochrome~ turns all citations in to a uniform shade of gray.
 

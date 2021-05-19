@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.3.2
-;; Last-Modified: <2021-05-19 08:51:39 +0300>
+;; Last-Modified: <2021-05-19 21:22:57 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -2394,7 +2394,7 @@ Nil (the default) means to use a variety of contrasting hues to
 denote depth in nested citations.  Colors are fairly easy to tell
 apart.
 
-Option `desaturated' maintains a color-based distinction between
+Option `faint' maintains a color-based distinction between
 citation levels but the colors it applies have very subtle
 differences between them.
 
@@ -2405,7 +2405,8 @@ colored into a uniform shade of shade of gray."
   :version "28.1"
   :type '(choice
           (const :format "[%v] %t\n" :tag "Colorful mail citations with contrasting hues (default)" nil)
-          (const :format "[%v] %t\n" :tag "Like the default, but with less saturated colors" desaturated)
+          (const :format "[%v] %t\n" :tag "Like the default, but with less saturated colors" faint)
+          (const :format "[%v] %t\n" :tag "Deprecated alias of `faint'" desaturated)
           (const :format "[%v] %t\n" :tag "Uniformly gray mail citations" monochrome))
   :link '(info-link "(modus-themes) Mail citations"))
 
@@ -2915,6 +2916,7 @@ MAINFG is an accented foreground value.  SUBTLEFG is its
 desaturated counterpart."
   (pcase modus-themes-mail-citations
     ('monochrome (list :inherit 'shadow))
+    ('faint (list :foreground subtlefg))
     ('desaturated (list :foreground subtlefg))
     (_ (list :foreground mainfg))))
 
