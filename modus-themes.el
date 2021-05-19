@@ -6606,9 +6606,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(flymake-note-bitmap '(exclamation-mark modus-themes-fringe-cyan))
 ;;;; ibuffer
     `(ibuffer-deletion-face 'modus-themes-mark-del)
-    `(ibuffer-filter-group-name-face 'modus-themes-mark-symbol)
+    `(ibuffer-filter-group-name-face 'modus-themes-pseudo-header)
     `(ibuffer-marked-face 'modus-themes-mark-sel)
-    `(ibuffer-title-face 'modus-themes-pseudo-header)
+    `(ibuffer-title-face 'default)
 ;;;; highlight-tail
     `(highlight-tail-colors
       '((,green-subtle-bg . 0)
