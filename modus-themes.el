@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.3.2
-;; Last-Modified: <2021-05-19 08:05:35 +0300>
+;; Last-Modified: <2021-05-19 08:43:57 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -2049,7 +2049,7 @@ background instead of the standard shade of gray."
           (const :format "[%v] %t\n" :tag "Two-dimensional box (default)" nil)
           (const :format "[%v] %t\n" :tag "Three-dimensional style for the active mode line" 3d)
           (const :format "[%v] %t\n" :tag "No box effects, which are optimal for use with the `moody' library" moody)
-          (const :format "[%v] %t\n" :tag "Like the default, but without border effects" borderless)
+          (const :format "[%v] %t\n" :tag "Like the default, but without discernible border effects" borderless)
           (const :format "[%v] %t\n" :tag "Like `3d', but without noticeable border" borderless-3d)
           (const :format "[%v] %t\n" :tag "Like `moody', but without noticeable border" borderless-moody)
           (const :format "[%v] %t\n" :tag "Two-dimensional box with a colored background" accented)
