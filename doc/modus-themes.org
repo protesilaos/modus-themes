@@ -815,6 +815,8 @@ possibilities.
 :end:
 #+vindex: modus-themes-mail-citations
 
+[ Part of {{{development-version}}} ]
+
 Symbol: ~modus-themes-mail-citations~
 
 Possible values:
