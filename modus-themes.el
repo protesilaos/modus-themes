@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.3.2
-;; Last-Modified: <2021-05-20 19:39:00 +0300>
+;; Last-Modified: <2021-05-20 19:43:09 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -2621,7 +2621,7 @@ than the default.  BG is a nuanced, typically accented,
 background that can work well with either of the foreground
 values.  BORDER is a color value that combines well with the
 background and alternative foreground."
-  (let* ((key (modus-themes--heading-p `,level))
+  (let* ((key (modus-themes--heading-p level))
          (style (or key (modus-themes--heading-p t)))
          (var (when modus-themes-variable-pitch-headings
                 'variable-pitch))
@@ -2630,41 +2630,41 @@ background and alternative foreground."
                     'bold)))
     (pcase style
       ('no-bold
-       (list :inherit `,var :foreground fg))
+       (list :inherit var :foreground fg))
       ('no-color
-       (list :inherit `,varbold))
+       (list :inherit varbold))
       ('no-color-no-bold
-       (list :inherit `,var))
+       (list :inherit var))
       ('line
-       (list :inherit `,varbold :foreground fg :overline border))
+       (list :inherit varbold :foreground fg :overline border))
       ('line-no-bold
-       (list :inherit `,var :foreground fg :overline border))
+       (list :inherit var :foreground fg :overline border))
       ('rainbow
-       (list :inherit `,varbold :foreground fg-alt))
+       (list :inherit varbold :foreground fg-alt))
       ('rainbow-no-bold
-       (list :inherit `,var :foreground fg-alt))
+       (list :inherit var :foreground fg-alt))
       ('rainbow-line
-       (list :inherit `,varbold :foreground fg-alt :overline border))
+       (list :inherit varbold :foreground fg-alt :overline border))
       ('rainbow-line-no-bold
-       (list :inherit `,var :foreground fg-alt :overline border))
+       (list :inherit var :foreground fg-alt :overline border))
       ('highlight
-       (list :inherit `,varbold :background bg :foreground fg))
+       (list :inherit varbold :background bg :foreground fg))
       ('highlight-no-bold
-       (list :inherit `,var :background bg :foreground fg))
+       (list :inherit var :background bg :foreground fg))
       ('rainbow-highlight
-       (list :inherit `,varbold :background bg :foreground fg-alt))
+       (list :inherit varbold :background bg :foreground fg-alt))
       ('rainbow-highlight-no-bold
-       (list :inherit `,var :background bg :foreground fg-alt))
+       (list :inherit var :background bg :foreground fg-alt))
       ('section
-       (list :inherit `,varbold :background bg :foreground fg :overline border :extend t))
+       (list :inherit varbold :background bg :foreground fg :overline border :extend t))
       ('section-no-bold
-       (list :inherit `,var :background bg :foreground fg :overline border :extend t))
+       (list :inherit var :background bg :foreground fg :overline border :extend t))
       ('rainbow-section
-       (list :inherit `,varbold :background bg :foreground fg-alt :overline border :extend t))
+       (list :inherit varbold :background bg :foreground fg-alt :overline border :extend t))
       ('rainbow-section-no-bold
-       (list :inherit `,var :background bg :foreground fg-alt :overline border :extend t))
+       (list :inherit var :background bg :foreground fg-alt :overline border :extend t))
       (_
-       (list :inherit `,varbold :foreground fg)))))
+       (list :inherit varbold :foreground fg)))))
 
 (defun modus-themes--org-block (bgblk fgdefault &optional fgblk)
   "Conditionally set the background of Org blocks.
