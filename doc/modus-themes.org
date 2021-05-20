@@ -2426,7 +2426,7 @@ minutia and relevant commentary.
 Such knowledge may prove valuable while attempting to override some of
 the themes' colors: [[#h:307d95dd-8dbd-4ece-a543-10ae86f155a6][Override colors]].
 
-** Load theme depending on time of day
+** Load theme depending on time of day (DIY)
 :properties:
 :custom_id: h:1d1ef4b4-8600-4a09-993c-6de3af0ddd26
 :end:

@@ -48,7 +48,7 @@ does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
    Current development target is 1.4.0-dev.  This manual was built on
-2021-05-20 09:23 +0300.
+2021-05-20 19:27 +0300.
 
 * Menu:
 
@@ -131,7 +131,7 @@ Advanced customization (do-it-yourself)
 * Custom Org user faces (DIY)::
 * Update Org block delimiter fontification (DIY)::
 * Measure color contrast (DIY)::
-* Load theme depending on time of day::
+* Load theme depending on time of day (DIY)::
 * Backdrop for pdf-tools (DIY)::
 * A theme-agnostic hook for theme loading (DIY)::
 
@@ -1584,7 +1584,7 @@ such, they are labelled as “do-it-yourself” or “DIY”.
 * Custom Org user faces (DIY)::
 * Update Org block delimiter fontification (DIY)::
 * Measure color contrast (DIY)::
-* Load theme depending on time of day::
+* Load theme depending on time of day (DIY)::
 * Backdrop for pdf-tools (DIY)::
 * A theme-agnostic hook for theme loading (DIY)::
 
@@ -2440,7 +2440,7 @@ intervention can be circumvented by tweaking the function thus:
          (font-lock-flush)))
 
 
-File: modus-themes.info,  Node: Measure color contrast (DIY),  Next: Load theme depending on time of day,  Prev: Update Org block delimiter fontification (DIY),  Up: Advanced customization (do-it-yourself)
+File: modus-themes.info,  Node: Measure color contrast (DIY),  Next: Load theme depending on time of day (DIY),  Prev: Update Org block delimiter fontification (DIY),  Up: Advanced customization (do-it-yourself)
 
 5.11 Measure color contrast (DIY)
 =================================
@@ -2505,10 +2505,10 @@ minutia and relevant commentary.
 of the themes’ colors: *note Override colors: Override colors (DIY).
 
 
-File: modus-themes.info,  Node: Load theme depending on time of day,  Next: Backdrop for pdf-tools (DIY),  Prev: Measure color contrast (DIY),  Up: Advanced customization (do-it-yourself)
+File: modus-themes.info,  Node: Load theme depending on time of day (DIY),  Next: Backdrop for pdf-tools (DIY),  Prev: Measure color contrast (DIY),  Up: Advanced customization (do-it-yourself)
 
-5.12 Load theme depending on time of day
-========================================
+5.12 Load theme depending on time of day (DIY)
+==============================================
 
 While we do provide ‘modus-themes-toggle’ to manually switch between the
 themes, users may also set up their system to perform such a task
@@ -2531,7 +2531,7 @@ location using the built-in ‘solar.el’ and then configuring the
        (circadian-setup))
 
 
-File: modus-themes.info,  Node: Backdrop for pdf-tools (DIY),  Next: A theme-agnostic hook for theme loading (DIY),  Prev: Load theme depending on time of day,  Up: Advanced customization (do-it-yourself)
+File: modus-themes.info,  Node: Backdrop for pdf-tools (DIY),  Next: A theme-agnostic hook for theme loading (DIY),  Prev: Load theme depending on time of day (DIY),  Up: Advanced customization (do-it-yourself)
 
 5.13 Backdrop for pdf-tools (DIY)
 =================================
@@ -4310,91 +4310,91 @@ B.3 Concept index
 
 Tag Table:
 Node: Top860
-Node: Overview6268
-Node: How do the themes look like7811
-Node: Learn about the latest changes8319
-Node: Installation8701
-Node: Install manually from source9182
-Node: Install from the archives10007
-Node: Install on GNU/Linux10784
-Node: Debian 11 Bullseye11232
-Node: GNU Guix11542
-Node: Enable and load11825
-Node: Sample configuration for use-package14573
-Node: Differences between loading and enabling15942
-Node: Customization Options17982
-Node: Success' color-code23486
-Node: Bold constructs24395
-Node: Slanted constructs25012
-Node: Syntax styles25559
-Node: No mixed fonts27197
-Node: Link styles28292
-Node: Command prompts29866
-Node: Mode line31065
-Node: Completion UIs34678
-Node: Mail citations36547
-Node: Fringes37426
-Node: Language checkers38088
-Node: Line highlighting40037
-Node: Line numbers41586
-Node: Matching parentheses42664
-Node: Active region43554
-Node: Diffs44772
-Node: Org mode blocks46823
-Node: Org agenda habits48748
-Node: Heading styles50583
-Node: Scaled headings54685
-Node: Scaled heading sizes55288
-Node: UI typeface58422
-Node: Headings' typeface59268
-Node: Advanced customization (do-it-yourself)59892
-Node: Per-theme customization settings (DIY)61249
-Node: Case-by-case face specs using the themes' palette (DIY)62595
-Node: Face specs at scale using the themes' palette (DIY)67059
-Node: Remap face with local value (DIY)71876
-Node: Cycle through arbitrary colors (DIY)74354
-Node: Override colors (DIY)80920
-Node: Override color saturation (DIY)85813
-Node: Font configurations for Org and others (DIY)91566
-Ref: Font configurations for Org and others (DIY)-Footnote-193994
-Node: Custom Org user faces (DIY)94181
-Node: Update Org block delimiter fontification (DIY)97553
-Node: Measure color contrast (DIY)99513
-Node: Load theme depending on time of day102301
-Node: Backdrop for pdf-tools (DIY)103323
-Node: A theme-agnostic hook for theme loading (DIY)106079
-Node: Face coverage108469
-Node: Supported packages108938
-Node: Indirectly covered packages115712
-Node: Notes on individual packages116266
-Node: Note on inline Latex in Org buffers117070
-Node: Note on dimmerel117630
-Node: Note on display-fill-column-indicator-mode119115
-Node: Note on mmm-modeel background colors120736
-Node: Note for prism123115
-Node: Note for god-mode126341
-Node: Note on company-mode overlay pop-up128013
-Ref: Note on company-mode overlay pop-up-Footnote-1128701
-Ref: Note on company-mode overlay pop-up-Footnote-2128768
-Node: Note on ERC escaped color sequences128823
-Ref: Note on ERC escaped color sequences-Footnote-1130249
-Node: Note on powerline or spaceline130359
-Node: Note on SHR colors130771
-Node: Note on EWW and Elfeed fonts (SHR fonts)131206
-Node: Note on Helm grep131951
-Node: Note on vc-annotate-background-mode133438
-Node: Note on pdf-tools link hints134323
-Node: Contributing136755
-Node: Sources of the themes137154
-Node: Issues you can help with137892
-Node: Patches require copyright assignment to the FSF139092
-Node: Acknowledgements141387
-Node: Meta143815
-Node: GNU Free Documentation License145812
-Node: Indices171164
-Node: Function index171343
-Node: Variable index172580
-Node: Concept index174648
+Node: Overview6274
+Node: How do the themes look like7817
+Node: Learn about the latest changes8325
+Node: Installation8707
+Node: Install manually from source9188
+Node: Install from the archives10013
+Node: Install on GNU/Linux10790
+Node: Debian 11 Bullseye11238
+Node: GNU Guix11548
+Node: Enable and load11831
+Node: Sample configuration for use-package14579
+Node: Differences between loading and enabling15948
+Node: Customization Options17988
+Node: Success' color-code23492
+Node: Bold constructs24401
+Node: Slanted constructs25018
+Node: Syntax styles25565
+Node: No mixed fonts27203
+Node: Link styles28298
+Node: Command prompts29872
+Node: Mode line31071
+Node: Completion UIs34684
+Node: Mail citations36553
+Node: Fringes37432
+Node: Language checkers38094
+Node: Line highlighting40043
+Node: Line numbers41592
+Node: Matching parentheses42670
+Node: Active region43560
+Node: Diffs44778
+Node: Org mode blocks46829
+Node: Org agenda habits48754
+Node: Heading styles50589
+Node: Scaled headings54691
+Node: Scaled heading sizes55294
+Node: UI typeface58428
+Node: Headings' typeface59274
+Node: Advanced customization (do-it-yourself)59898
+Node: Per-theme customization settings (DIY)61261
+Node: Case-by-case face specs using the themes' palette (DIY)62607
+Node: Face specs at scale using the themes' palette (DIY)67071
+Node: Remap face with local value (DIY)71888
+Node: Cycle through arbitrary colors (DIY)74366
+Node: Override colors (DIY)80932
+Node: Override color saturation (DIY)85825
+Node: Font configurations for Org and others (DIY)91578
+Ref: Font configurations for Org and others (DIY)-Footnote-194006
+Node: Custom Org user faces (DIY)94193
+Node: Update Org block delimiter fontification (DIY)97565
+Node: Measure color contrast (DIY)99525
+Node: Load theme depending on time of day (DIY)102319
+Node: Backdrop for pdf-tools (DIY)103359
+Node: A theme-agnostic hook for theme loading (DIY)106121
+Node: Face coverage108511
+Node: Supported packages108980
+Node: Indirectly covered packages115754
+Node: Notes on individual packages116308
+Node: Note on inline Latex in Org buffers117112
+Node: Note on dimmerel117672
+Node: Note on display-fill-column-indicator-mode119157
+Node: Note on mmm-modeel background colors120778
+Node: Note for prism123157
+Node: Note for god-mode126383
+Node: Note on company-mode overlay pop-up128055
+Ref: Note on company-mode overlay pop-up-Footnote-1128743
+Ref: Note on company-mode overlay pop-up-Footnote-2128810
+Node: Note on ERC escaped color sequences128865
+Ref: Note on ERC escaped color sequences-Footnote-1130291
+Node: Note on powerline or spaceline130401
+Node: Note on SHR colors130813
+Node: Note on EWW and Elfeed fonts (SHR fonts)131248
+Node: Note on Helm grep131993
+Node: Note on vc-annotate-background-mode133480
+Node: Note on pdf-tools link hints134365
+Node: Contributing136797
+Node: Sources of the themes137196
+Node: Issues you can help with137934
+Node: Patches require copyright assignment to the FSF139134
+Node: Acknowledgements141429
+Node: Meta143857
+Node: GNU Free Documentation License145854
+Node: Indices171206
+Node: Function index171385
+Node: Variable index172622
+Node: Concept index174690
 
 End Tag Table
 
