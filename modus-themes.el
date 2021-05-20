@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.3.2
-;; Last-Modified: <2021-05-19 21:22:57 +0300>
+;; Last-Modified: <2021-05-20 19:39:00 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -2733,38 +2733,38 @@ values.  It is intended to be used as a distant-foreground
 property."
   (pcase modus-themes-mode-line
     ('3d
-     `(:background ,bg-alt :foreground ,fg-alt
-       :box (:line-width ,(or border-width 1)
-             :color ,border-3d
-             :style ,(and alt-style 'released-button))))
+     `( :background ,bg-alt :foreground ,fg-alt
+        :box ( :line-width ,(or border-width 1)
+               :color ,border-3d
+               :style ,(and alt-style 'released-button))))
     ('moody
-     `(:background ,bg-alt :foreground ,fg-alt
-       :underline ,border :overline ,border
-       :distant-foreground ,fg-distant))
+     `( :background ,bg-alt :foreground ,fg-alt
+        :underline ,border :overline ,border
+        :distant-foreground ,fg-distant))
     ('borderless
-     `(:foreground ,fg :background ,bg :box ,bg))
+     `(:background ,bg :foreground ,fg :box ,bg))
     ('borderless-3d
-     `(:foreground ,fg :background ,bg
-       :box (:line-width ,(or border-width 1)
-             :color ,bg
-             :style ,(and alt-style 'released-button))))
+     `( :background ,bg :foreground ,fg
+        :box ( :line-width ,(or border-width 1)
+               :color ,bg
+               :style ,(and alt-style 'released-button))))
     ('borderless-moody
-     `(:background ,bg :foreground ,fg
-       :underline ,bg :overline ,bg
-       :distant-foreground ,fg-distant))
+     `( :background ,bg :foreground ,fg
+        :underline ,bg :overline ,bg
+        :distant-foreground ,fg-distant))
     ('accented
-     `(:foreground ,fg-accent :background ,bg-accent :box ,border))
+     `(:background ,bg-accent :foreground ,fg-accent :box ,border))
     ('accented-3d
-     `(:background ,bg-accent :foreground ,fg-accent
-       :box (:line-width ,(or border-width 1)
-             :color ,border-3d
-             :style ,(and alt-style 'released-button))))
+     `( :background ,bg-accent :foreground ,fg-accent
+        :box ( :line-width ,(or border-width 1)
+               :color ,border-3d
+               :style ,(and alt-style 'released-button))))
     ('accented-moody
-     `(:background ,bg-accent :foreground ,fg-accent
-       :underline ,border :overline ,border
-       :distant-foreground ,fg-distant))
+     `( :background ,bg-accent :foreground ,fg-accent
+        :underline ,border :overline ,border
+        :distant-foreground ,fg-distant))
     (_
-     `(:foreground ,fg :background ,bg :box ,border))))
+     `(:background ,bg :foreground ,fg :box ,border))))
 
 (defun modus-themes--diff
     (fg-only-bg fg-only-fg mainbg mainfg altbg altfg &optional deuteranbg deuteranfg  bg-only-fg)
