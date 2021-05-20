@@ -2921,7 +2921,7 @@ supported by the themes.
 + swift-mode
 + tab-bar-echo-area
 
-* Notes for individual packages
+* Notes on individual packages
 :properties:
 :custom_id: h:4c4d901a-84d7-4f20-bd99-0808c2b06eba
 :end:
@@ -2929,7 +2929,7 @@ supported by the themes.
 This section covers information that may be of interest to users of
 individual packages.
 
-** Note for inline Latex in Org buffers
+** Note on inline Latex in Org buffers
 :properties:
 :custom_id: h:dd8478da-f56a-45cd-b199-b836c85c3c5a
 :end:
@@ -2944,7 +2944,7 @@ the desired list of values (per its doc string).  For example:
 
 Remember to use {{{kbd(M-x org-mode-restart)}}} for changes to take effect.
 
-** Note for dimmer.el
+** Note on dimmer.el
 :properties:
 :custom_id: h:8eb4b758-d318-4480-9ead-357a571beb93
 :end:
@@ -2980,7 +2980,7 @@ other value for that variable will turn the main background gray.  This
 inadvertently leads to the opposite of the intended utility of this
 package: it draws too much attention to unfocused windows.
 
-** Note for display-fill-column-indicator-mode
+** Note on display-fill-column-indicator-mode
 :properties:
 :custom_id: h:2a602816-bc1b-45bf-9675-4cbbd7bf6cab
 :end:
@@ -3012,7 +3012,7 @@ and have the foreground be indistinguishable from it.  For example:
 
 [[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Face specs at scale using the themes' palette]].
 
-** Note for mmm-mode.el background colors
+** Note on mmm-mode.el background colors
 :properties:
 :custom_id: h:99cf0d6c-e478-4e26-9932-3bf3427d13f6
 :end:
@@ -3062,7 +3062,7 @@ very high cost of degraded legibility.
    `(mmm-special-submode-face ((,class :background ,green-refine-bg)))))
 #+end_src
 
-** Note for prism.el
+** Note on prism.el
 :properties:
 :alt_title: Note for prism
 :custom_id: h:a94272e0-99da-4149-9e80-11a7e67a2cf2
@@ -3158,7 +3158,7 @@ examples with the 4, 8, 16 colors):
                   magenta)))
 #+end_src
 
-** Note for god-mode.el
+** Note on god-mode.el
 :properties:
 :alt_title: Note for god-mode
 :custom_id: h:4da1d515-3e05-47ef-9e45-8251fc7e986a
@@ -3210,7 +3210,7 @@ instead of overlays.[fn::
 https://github.com/company-mode/company-mode/issues/1010][fn::
 https://github.com/tumashu/company-posframe/]
 
-** Note for ERC escaped color sequences
+** Note on ERC escaped color sequences
 :properties:
 :custom_id: h:98bdf319-1e32-4469-8a01-771200fba65c
 :end:
@@ -3243,7 +3243,7 @@ accessibility standard of the themes:
 Colors 0 and 1 are white and black respectively.  So combine them
 together, if you must.
 
-** Note for powerline or spaceline
+** Note on powerline or spaceline
 :properties:
 :custom_id: h:9130a8ba-d8e3-41be-a58b-3cb1eb7b6d17
 :end:
@@ -3263,7 +3263,7 @@ specifications the webpage provides.
 
 Consult {{{kbd(C-h v shr-use-colors)}}}.
 
-** Note for EWW and Elfeed fonts (SHR fonts)
+** Note on EWW and Elfeed fonts (SHR fonts)
 :properties:
 :custom_id: h:e6c5451f-6763-4be7-8fdb-b4706a422a4c
 :end:
@@ -3277,7 +3277,7 @@ default font family is.  Its default value is non-nil, which means that
 
 [[#h:defcf4fc-8fa8-4c29-b12e-7119582cc929][Font configurations for Org and others]].
 
-** Note for Helm grep
+** Note on Helm grep
 :properties:
 :custom_id: h:d28879a2-8e4b-4525-986e-14c0f873d229
 :end:
