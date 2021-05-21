@@ -3385,6 +3385,34 @@ you've customized any faces.
 In this section we provide answers related to some aspects of the Modus
 themes' design and application.
 
+** Is the contrast ratio about adjacent colors?
+:properties:
+:custom_id: h:5ce7ae2e-9348-4e55-b4cf-9302345b1826
+:end:
+#+cindex: Contrast between adjacent colors
+
+The minimum contrast ratio in relative luminance that the themes conform
+with always refers to any given combination of background and foreground
+colors.  If we have some blue colored text next to a magenta one, both
+against a white background, we do not mean to imply that blue:magenta is
+7:1 in terms of relative luminance.  Rather, we state that blue:white
+and magenta:white each are 7:1 or higher.
+
+The point of reference is always the background.  Because colors have
+about the same minimum distance in luminance from their backdrop, they
+necessarily are fairly close to each other in this measure.  A possible
+blue:magenta combination would naturally be around 1:1 in contrast of
+the sort here considered.
+
+To differentiate between sequential colors, we rely on hueness by
+mapping contrasting hues to adjacent constructs, while avoiding
+exaggerations.  A blue next to a magenta can be told apart regardless of
+their respective contrast ratio against their common background.
+Exceptions would be tiny characters in arguably not so realistic cases,
+such as two dots drawn side-by-side which for some reason would need to
+be colored differently.  They would still be legible though, which is
+the primary objective of the Modus themes.
+
 * Contributing
 :properties:
 :custom_id: h:9c3cd842-14b7-44d7-84b2-a5c8bc3fc3b1
