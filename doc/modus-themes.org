@@ -3446,6 +3446,97 @@ piece of text to the next.  Whereas multiple shades of, say, blue and
 magenta can suffice to tell things apart and avoid excess coloration: a
 harmonious rhythm.
 
+** Why are colors mostly variants of blue, magenta, cyan?
+:properties:
+:custom_id: h:0b26cb47-9733-4cb1-87d9-50850cb0386e
+:end:
+#+cindex: Innate color qualities of the palette
+
+Due to the innate properties of color, some options are better than
+others for the accessibility purposes of the themes, the stylistic
+consistency between ~modus-operandi~ and ~modus-vivendi~, and the avoidance
+of exaggerations in design.
+
+[[#h:44284e1f-fab8-4c4f-92f0-544728a7c91e][What does it mean to avoid exaggerations?]]
+
+What we describe as color is a function of three distinct channels of
+light: red, green, blue.  In hexadecimal RGB notation, a color value is
+read as three pairs of red, green, and blue light: =#RRGGBB=.  Of those
+three, the most luminant is green, while the least luminant is blue.
+
+The three basic colors represent each of the three channels of light.
+They can be intermixed to give us six colors: red and green derive
+yellow, green and blue make cyan, red and blue turn into magenta.
+
+We can test the luminance of each of those against white and black to
+get a sense of how not all colors are equally good for accessibility
+(white is =#ffffff=, which means that all three light channels are fully
+luminated, while black is =#000000= meaning that no light is present
+(notwithstanding display technology)).
+
+#+begin_example
+| Name    |         | #ffffff | #000000 |
+|---------+---------+---------+---------|
+| red     | #ff0000 |    4.00 |    5.25 |
+| yellow  | #ffff00 |    1.07 |   19.56 |
+| green   | #00ff00 |    1.37 |   15.30 |
+| cyan    | #00ffff |    1.25 |   16.75 |
+| blue    | #0000ff |    8.59 |    2.44 |
+| magenta | #ff00ff |    3.14 |    6.70 |
+#+end_example
+
+[[#h:02e25930-e71a-493d-828a-8907fc80f874][Measure color contrast]].
+
+By reading this table we learn that every color that has a high level of
+green light (green, yellow, cyan) is virtually unreadable against a
+white background and, conversely, can be easily read against black.
+
+We can then infer that red and blue, in different combinations, with
+green acting as calibrator for luminance, will give us fairly moderate
+colors that pass the 7:1 target.  Blue with a bit of green produce
+appropriate variants of cyan.  Similarly, blue combined with some red
+and hints of green give us suitable shades of purple.
+
+Due to the need of maintaining some difference in hueness between
+adjacent colors, it is not possible to make red, green, and yellow the
+primary colors, because blue could not be used to control their
+luminance and, thus the relevant space shrinks considerably.
+
+[[#h:5ce7ae2e-9348-4e55-b4cf-9302345b1826][Is the contrast ratio about adjacent colors?]]
+
+This phenomenon is best illustrated by the following table that measures
+the relative luminance of shades of red, yellow, magenta against white:
+
+#+begin_example
+|         | #ffffff |
+|---------+---------|
+| #990000 |    8.92 |
+| #995500 |    5.75 |
+| #990099 |    7.46 |
+#+end_example
+
+We notice that equal values of red and blue light in =#990099= (magenta
+shade) do not lead to a considerable change in luminance compared with
+=#990000= (red variant).  Whereas less amount of green light in =#995500=
+leads to a major drop in luminance relative to white.  It follows that
+using the green channel of light to calibrate the luminance of colors is
+more effective than trying to do the same with either red or blue (the
+latter is the least effective in that regard).
+
+When we need to work with several colors, it is always better to have
+sufficient manoeuvring space, especially since we cannot pick arbitrary
+colors but only those that satisfy the accessibility objectives of the
+themes.
+
+As for why we do not mostly use green, yellow, cyan for the dark theme,
+it is because those colors are far more luminant than their counterparts
+on the other side of the spectrum, so to ensure that they all have about
+the same contrast ratios we would have to alter their hueness
+considerably.  In short, the effect would not be optimal as it would
+lead to exaggerations.  Plus, it would make ~modus-vivendi~ look
+completely different than ~modus-operandi~, to the effect that the two
+could not be properly considered part of the same project.
+
 * Contributing
 :properties:
 :custom_id: h:9c3cd842-14b7-44d7-84b2-a5c8bc3fc3b1
