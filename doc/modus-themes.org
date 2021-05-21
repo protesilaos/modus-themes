@@ -3413,6 +3413,39 @@ such as two dots drawn side-by-side which for some reason would need to
 be colored differently.  They would still be legible though, which is
 the primary objective of the Modus themes.
 
+** What does it mean to avoid exaggerations?
+:properties:
+:custom_id: h:44284e1f-fab8-4c4f-92f0-544728a7c91e
+:end:
+#+cindex: Avoiding exaggerations in design
+
+The Modus themes are designed with restraint, so that their default
+looks do not overdo it with the application of color.
+
+[[#h:bf1c82f2-46c7-4eb2-ad00-dd11fdd8b53f][Customization Options]].
+
+This is the non-quantifiable aspect of the themes' design: the artistic
+part, if you will.  There are a lot of cases where color can be used
+inconsiderately, without accounting for layout, typographic, or other
+properties of the presentation.  For example, two headings with distinct
+markers, such as leading asterisks in Org buffers, do not have to have
+highly contrasting hues between them in order to be told apart: the
+added element of contrast in hueness does not contribute significantly
+more to the distinction between the headings than colors whose hues are
+relatively closer to each other in the color space.
+
+Exaggerations can be hard to anticipate or identify.  Multiple shades of
+blue and magenta in the same context may not seem optimal: one might
+think that it would be better to use highly contrasting hues to ensure
+that all colors stand out, such as by placing blue next to yellow, next
+to magenta, and green.  That would, however, be a case of design for its
+own sake; a case where color is being applied without consideration of
+its end results in the given context.  Too many contrasting hues in
+close proximity force an erratic rate to how the eye jumps from one
+piece of text to the next.  Whereas multiple shades of, say, blue and
+magenta can suffice to tell things apart and avoid excess coloration: a
+harmonious rhythm.
+
 * Contributing
 :properties:
 :custom_id: h:9c3cd842-14b7-44d7-84b2-a5c8bc3fc3b1
