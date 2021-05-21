@@ -3377,6 +3377,14 @@ you've customized any faces.
             "-draw"       "text %X,%Y '%c'"))))
 #+end_src
 
+* Frequently Asked Questions
+:properties:
+:custom_id: h:b3384767-30d3-4484-ba7f-081729f03a47
+:end:
+
+In this section we provide answers related to some aspects of the Modus
+themes' design and application.
+
 * Contributing
 :properties:
 :custom_id: h:9c3cd842-14b7-44d7-84b2-a5c8bc3fc3b1
