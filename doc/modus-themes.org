@@ -3537,6 +3537,56 @@ lead to exaggerations.  Plus, it would make ~modus-vivendi~ look
 completely different than ~modus-operandi~, to the effect that the two
 could not be properly considered part of the same project.
 
+** What is the best setup for legibility?
+:properties:
+:custom_id: h:f60cc2ae-129d-47c0-9849-4f6bbd87d8be
+:end:
+#+cindex: General setup for readability
+
+The Modus themes can be conceptually simplified as combinations of color
+values that account for relative luminance and inner harmony.  Those
+qualities do not guarantee that every end-user will have the same
+experience, due to differences between people, but also because of
+variances in hardware capabilities and configurations.  For the purposes
+of this document, we may only provide suggestions pertaining to the
+latter case.
+
+~modus-operandi~ is best used outdoors or in a room that either gets
+direct sunlight or has plenty of light.  Whereas ~modus-vivendi~ works
+better when there is not a lot of sunshine or the room has a source of
+light, preferably a faint or warm one.  It is possible to use
+~modus-operandi~ at night and ~modus-vivendi~ during the day, though that
+will depend on several variables, such as one's overall perception of
+color, the paint on the walls and how that contributes to the impression
+of lightness in the room, the sense of space within the eye's peripheral
+vision, and environmental factors.
+
+In general, an additional source of light other than that of the monitor
+can help reduce eye strain: the eyes are more relaxed when they do not
+have to focus on one point to gather light.
+
+The monitor's display settings must be accounted for.  Gamma ray values,
+in particular, need to be calibrated to neither amplify nor distort the
+perception of black.  Same principle for sharpness, brightness, and
+contrast as determined by the hardware, which all have an effect on how
+text is read on the screen.
+
+There are software level methods on offer, such as the XrandR utility
+for the X Window System (X.org), which can make gamma corrections for
+each of the three channels of light (red, green, blue).  For example:
+
+: xrandr --output LVDS1 --brightness 1.0 --gamma 0.76:0.75:0.68
+
+Typography is another variable.  Some font families are blurry at small
+point sizes.  Others may have a regular weight that is lighter (thiner)
+than that of their peers which may, under certain circumstances, cause a
+halo effect around each glyph.
+
+The gist is that legibility cannot be fully solved at the theme level.
+The color combinations may have been optimized for accessibility, though
+the remaining contributing factors in each case need to be considered in
+full.
+
 * Contributing
 :properties:
 :custom_id: h:9c3cd842-14b7-44d7-84b2-a5c8bc3fc3b1
