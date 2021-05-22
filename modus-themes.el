@@ -1552,8 +1552,6 @@ The actual styling of the face is done by `modus-themes-faces'.")
 
 
 
-
-;;;; Current customization options (>= 1.0.0)
 ;;; Customization variables
 
 (defcustom modus-themes-operandi-color-overrides nil
