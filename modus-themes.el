@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.3.2
-;; Last-Modified: <2021-05-22 09:09:46 +0300>
+;; Last-Modified: <2021-05-22 09:19:54 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -3232,7 +3232,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                   7 red-nuanced-fg red-alt red-nuanced-bg bg-region))))
     `(modus-themes-heading-8
       ((,class ,@(modus-themes--heading
-                  8 fg-dim magenta bg-alt bg-region))))
+                  8 magenta-nuanced-fg magenta bg-alt bg-region))))
 ;;;;; graph-specific faces
     `(modus-themes-graph-red-0 ((,class :background ,red-graph-0-bg)))
     `(modus-themes-graph-red-1 ((,class :background ,red-graph-1-bg)))
