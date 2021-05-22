@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.3.2
-;; Last-Modified: <2021-05-22 20:13:38 +0300>
+;; Last-Modified: <2021-05-22 20:26:41 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -40,9 +40,11 @@
 ;;     modus-themes-bold-constructs                (boolean)
 ;;     modus-themes-variable-pitch-headings        (boolean)
 ;;     modus-themes-variable-pitch-ui              (boolean)
+;;     modus-themes-scale-headings                 (boolean)
+;;     modus-themes-subtle-line-numbers            (boolean)
+;;     modus-themes-success-deuteranopia           (boolean)
 ;;     modus-themes-no-mixed-fonts                 (boolean)
 ;;     modus-themes-headings                       (alist)
-;;     modus-themes-scale-headings                 (boolean)
 ;;     modus-themes-fringes                        (choice)
 ;;     modus-themes-lang-checkers                  (choice)
 ;;     modus-themes-org-blocks                     (choice)
@@ -52,13 +54,11 @@
 ;;     modus-themes-diffs                          (choice)
 ;;     modus-themes-syntax                         (choice)
 ;;     modus-themes-hl-line                        (choice)
-;;     modus-themes-subtle-line-numbers            (boolean)
 ;;     modus-themes-paren-match                    (choice)
 ;;     modus-themes-region                         (choice)
 ;;     modus-themes-links                          (choice)
 ;;     modus-themes-completions                    (choice)
 ;;     modus-themes-mail-citations                 (choice)
-;;     modus-themes-success-deuteranopia           (boolean)
 ;;
 ;; The default scale for headings is as follows (it can be customized as
 ;; well---remember, no scaling takes place by default):
