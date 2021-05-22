@@ -28,12 +28,12 @@
 ;;
 ;; The Modus themes conform with the highest standard for color-contrast
 ;; accessibility between background and foreground values (WCAG AAA).
-;; This file contains all customization options, helper functions,
+;; This file contains all customization variables, helper functions,
 ;; interactive commands, and face specifications.  Please refer to the
 ;; official Info manual for further documentation (distributed with the
 ;; themes, or available at: <https://protesilaos.com/modus-themes>).
 ;;
-;; The themes share the following customization options, all of which
+;; The themes share the following customization variables, all of which
 ;; are disabled by default (nil):
 ;;
 ;;     modus-themes-slanted-constructs             (boolean)
@@ -69,7 +69,7 @@
 ;;     modus-themes-scale-4 1.2
 ;;     modus-themes-scale-5 1.3
 ;;
-;; There also exist two unique customization options for overriding
+;; There also exist two unique customization variables for overriding
 ;; color palette values.  The specifics are documented in the manual.
 ;; The symbols are:
 ;;
@@ -422,7 +422,7 @@ The Modus themes conform with the WCAG AAA standard for color
 contrast between background and foreground combinations (a
 minimum contrast of 7:1---the highest standard of its kind).  The
 themes also strive to empower users with red-green color
-deficiency: this is achieved through customization options that
+deficiency: this is achieved through customization variables that
 replace all relevant instances of green with blue, as well as the
 overall design of the themes which relies mostly on colors that
 cover the blue-cyan-magenta side of the spectrum."
@@ -1552,9 +1552,9 @@ The actual styling of the face is done by `modus-themes-faces'.")
 
 
 
-;;; Customization options
 
 ;;;; Current customization options (>= 1.0.0)
+;;; Customization variables
 
 (defcustom modus-themes-operandi-color-overrides nil
   "Override colors in the Modus Operandi palette.
@@ -2456,7 +2456,7 @@ Those are stored in `modus-themes-faces' and
   (car custom-enabled-themes))
 
 ;; Helper functions that are meant to ease the implementation of the
-;; above customization options.
+;; above customization variables.
 (defun modus-themes--bold-weight ()
   "Conditional use of a heavier text weight."
   (when modus-themes-bold-constructs
