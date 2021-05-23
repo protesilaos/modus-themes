@@ -68,7 +68,8 @@ demonstration:
 
       ;; Options for `modus-themes-mode-line': nil, '3d, 'moody,
       ;; 'borderless, 'borderless-3d, 'borderless-moody, 'accented,
-      ;; 'accented-3d, 'accented-moody
+      ;; 'accented-3d, 'accented-moody, 'borderless-accented,
+      ;; 'borderless-accented-3d, 'borderless-accented-moody
       modus-themes-mode-line '3d
 
       ;; Options for `modus-themes-syntax': nil, 'faint,
