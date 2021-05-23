@@ -703,6 +703,9 @@ Possible values:
 7. ~accented~
 8. ~accented-3d~
 9. ~accented-moody~
+10. ~borderless-accented~ [ part of {{{development-version}}} ]
+11. ~borderless-accented-3d~ [ part of {{{development-version}}} ]
+12. ~borderless-accented-moody~ [ part of {{{development-version}}} ]
 
 The default produces a two-dimensional effect both for the active and
 inactive mode lines.  The differences between the two are limited to
@@ -736,6 +739,11 @@ Similarly, ~accented~, ~accented-3d~, and ~accented-moody~ correspond to the
 default (~nil~), ~3d~, and ~moody~ styles respectively, except that the active
 mode line uses a colored background instead of the standard shade of
 gray.
+
+Same principle for ~borderless-accented~, ~borderless-accented-3d~, and
+~borderless-accented-moody~ which use a colored background for the active
+mode line and have no discernible borders around both the active and
+inactive the mode lines.
 
 Note that Moody does not expose any faces that the themes could style
 directly.  Instead it re-purposes existing ones to render its tabs and

@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.3.2
-;; Last-Modified: <2021-05-23 10:04:57 +0300>
+;; Last-Modified: <2021-05-23 23:13:55 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -2045,9 +2045,15 @@ default).
 Similarly, `accented', `accented-3d', and `accented-moody'
 correspond to the default (nil), `3d', and `moody' styles
 respectively, except that the active mode line uses a colored
-background instead of the standard shade of gray."
+background instead of the standard shade of gray.
+
+Same principle for styles `borderless-accented',
+`borderless-accented-3d', `borderless-accented-moody', which
+apply a colored background to the active mode line, while they
+remove any noticeable border around both the active and inactive
+the mode lines."
   :group 'modus-themes
-  :package-version '(modus-themes . "1.3.0")
+  :package-version '(modus-themes . "1.4.0")
   :version "28.1"
   :type '(choice
           (const :format "[%v] %t\n" :tag "Two-dimensional box (default)" nil)
@@ -2058,7 +2064,10 @@ background instead of the standard shade of gray."
           (const :format "[%v] %t\n" :tag "Like `moody', but without noticeable border" borderless-moody)
           (const :format "[%v] %t\n" :tag "Two-dimensional box with a colored background" accented)
           (const :format "[%v] %t\n" :tag "Like `3d', but with a colored background" accented-3d)
-          (const :format "[%v] %t\n" :tag "Like `moody', but with a colored background" accented-moody))
+          (const :format "[%v] %t\n" :tag "Like `moody', but with a colored background" accented-moody)
+          (const :format "[%v] %t\n" :tag "Like `accented', but without a noticeable border" borderless-accented)
+          (const :format "[%v] %t\n" :tag "Like `accented-3d', but with a noticeable border" borderless-accented-3d)
+          (const :format "[%v] %t\n" :tag "Like `accented-moody', but with a noticeable border" borderless-accented-moody))
   :link '(info-link "(modus-themes) Mode line"))
 
 (defcustom modus-themes-diffs nil
@@ -2766,6 +2775,17 @@ property."
     ('accented-moody
      `( :background ,bg-accent :foreground ,fg-accent
         :underline ,border :overline ,border
+        :distant-foreground ,fg-distant))
+    ('borderless-accented
+     `(:background ,bg-accent :foreground ,fg-accent :box ,bg-accent))
+    ('borderless-accented-3d
+     `( :background ,bg-accent :foreground ,fg-accent
+        :box ( :line-width ,(or border-width 1)
+               :color ,bg-accent
+               :style ,(and alt-style 'released-button))))
+    ('borderless-accented-moody
+     `( :background ,bg-accent :foreground ,fg-accent
+        :underline ,bg-accent :overline ,bg-accent
         :distant-foreground ,fg-distant))
     (_
      `(:background ,bg :foreground ,fg :box ,border))))
