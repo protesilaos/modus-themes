@@ -1573,8 +1573,6 @@ Will set SYM to VAL, and reload the current theme."
       ('modus-operandi (modus-themes-load-operandi))
       ('modus-vivendi (modus-themes-load-vivendi)))))
 
-;;;; Current customization options (>= 1.0.0)
-
 (defcustom modus-themes-operandi-color-overrides nil
   "Override colors in the Modus Operandi palette.
 
