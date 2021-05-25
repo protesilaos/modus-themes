@@ -3389,6 +3389,7 @@ you've customized any faces.
 :properties:
 :custom_id: h:b3384767-30d3-4484-ba7f-081729f03a47
 :end:
+#+cindex: Frequently Asked Questions (FAQ)
 
 In this section we provide answers related to some aspects of the Modus
 themes' design and application.
