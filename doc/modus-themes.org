@@ -247,8 +247,11 @@ a theme with either of the following expressions:
 #+end_src
 
 Changes to the available customization options must always be evaluated
-before loading a theme ([[#h:bf1c82f2-46c7-4eb2-ad00-dd11fdd8b53f][Customization Options]]).  This is how a basic
-setup could look like:
+before loading a theme ([[#h:bf1c82f2-46c7-4eb2-ad00-dd11fdd8b53f][Customization Options]]).  An exception to this
+norm is when using the various Custom interfaces or with commands like
+{{{kbd(M-x customize-set-variable)}}}, which automatically reload the theme by
+default ([[#h:9001527a-4e2c-43e0-98e8-3ef72d770639][Option for inhibiting theme reload]]).  This is how a basic setup
+could look like:
 
 #+begin_src emacs-lisp
 (require 'modus-themes)
@@ -382,6 +385,7 @@ this manual.
       modus-themes-no-mixed-fonts nil
       modus-themes-subtle-line-numbers nil
       modus-themes-success-deuteranopia t
+      modus-themes-inhibit-reload nil ; only applies to `customize-set-variable' and related
 
       modus-themes-fringes nil ; {nil,'subtle,'intense}
 
@@ -449,6 +453,29 @@ this manual.
       modus-themes-scale-4 1.27
       modus-themes-scale-5 1.33)
 #+end_src
+
+** Option for inhibiting theme reload
+:properties:
+:alt_title: Custom reload theme
+:description: Toggle auto-reload of the theme when setting custom variables
+:custom_id: h:9001527a-4e2c-43e0-98e8-3ef72d770639
+:end:
+#+vindex: modus-themes-inhibit-reload
+
+[ Part of {{{development-version}}} ]
+
+Symbol: ~modus-themes-inhibit-reload~
+
+Possible values:
+
+1. ~nil~ (default)
+2. ~t~
+
+By default, setting a value to a user-facing variable through the Custom
+interfaces or with {{{kbd(M-x customize-set-variable)}}} will automatically
+reload the active Modus theme in order to apply the effect.
+
+With a non-nil value (~t~), prevent such behaviour.
 
 ** Option for color-coding success state (deuteranopia)
 :properties:

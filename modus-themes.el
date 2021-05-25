@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-05-25 11:57:50 +0200>
+;; Last-Modified: <2021-05-25 15:14:04 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -36,6 +36,7 @@
 ;; The themes share the following customization variables, all of which
 ;; are disabled by default (nil):
 ;;
+;;     modus-themes-inhibit-reload                 (boolean)
 ;;     modus-themes-slanted-constructs             (boolean)
 ;;     modus-themes-bold-constructs                (boolean)
 ;;     modus-themes-variable-pitch-headings        (boolean)
@@ -1657,14 +1658,18 @@ The actual styling of the face is done by `modus-themes-faces'."
 ;;; Customization variables
 
 (defcustom modus-themes-inhibit-reload nil
-  "Prevent customizing a user option from reloading the theme.
+  "Control theme reload when setting options with Customize.
 
-If non-nil, prevent customizing a theme-related user option from
-reloading the currently active modus theme."
+By default, customizing a theme-related user option through the
+Custom interfaces or with `customize-set-variable' reloads the
+currently active Modus theme.
+
+Disable this behaviour with a non-nil value."
   :group 'modus-themes
   :package-version '(modus-themes . "1.5.0")
   :version "28.1"
-  :type 'boolean)
+  :type 'boolean
+  :link '(info-link "(modus-themes) Custom reload theme"))
 
 (defun modus-themes--set-option (sym val)
   "Custom setter for theme related user options.
