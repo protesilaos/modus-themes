@@ -917,7 +917,7 @@ Possible values:
 7. ~colored-background~
 
 Nil (the default) applies a color-coded underline to the affected text,
-while it leaves the original foreground in tact.  If the display spec
+while it leaves the original foreground intact.  If the display spec
 where Emacs runs in has support for it (e.g. Emacs GUI), the underline's
 style is that of a wave, otherwise it is a straight line.
 
@@ -1239,6 +1239,7 @@ Possible values, which can be specified for each heading level N
 + ~line~
 + ~line-no-bold~
 + ~rainbow~
++ ~rainbow-no-bold~
 + ~rainbow-line~
 + ~rainbow-line-no-bold~
 + ~highlight~
@@ -1302,6 +1303,9 @@ A description of all other possible styles beyond the default:
 
 + ~rainbow~ uses a more colorful foreground in combination with bold
   typographic weight.
+
++ ~rainbow-no-bold~ is the same as ~rainbow~ without a bold typographic
+  weight.
 
 + ~rainbow-line~ is the same as ~rainbow~ plus an overline.
 
