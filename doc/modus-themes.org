@@ -5,9 +5,9 @@
 #+options: ':t toc:nil author:t email:t
 #+startup: content
 
-#+macro: stable-version 1.3.2
-#+macro: release-date 2021-04-18
-#+macro: development-version 1.4.0-dev
+#+macro: stable-version 1.4.0
+#+macro: release-date 2021-05-25
+#+macro: development-version 1.5.0-dev
 #+macro: export-date (eval (format-time-string "%F %R %z" (current-time)))
 #+macro: file @@texinfo:@file{@@$1@@texinfo:}@@
 #+macro: space @@texinfo:@: @@
@@ -393,7 +393,8 @@ this manual.
 
       ;; Options for `modus-themes-mode-line': nil, '3d, 'moody,
       ;; 'borderless, 'borderless-3d, 'borderless-moody, 'accented,
-      ;; 'accented-3d, 'accented-moody
+      ;; 'accented-3d, 'accented-moody, 'borderless-accented,
+      ;; 'borderless-accented-3d, 'borderless-accented-moody
       modus-themes-mode-line '3d
 
       ;; Options for `modus-themes-syntax': nil, 'faint,
@@ -421,7 +422,7 @@ this manual.
 
       modus-themes-completions 'moderate ; {nil,'moderate,'opinionated}
 
-      modus-themes-mail-citations nil ; {nil,'desaturated,'monochrome}
+      modus-themes-mail-citations nil ; {nil,'faint,'monochrome}
 
       ;; Options for `modus-themes-region': nil, 'no-extend, 'bg-only,
       ;; 'bg-only-no-extend, 'accent, 'accent-no-extend
@@ -703,6 +704,9 @@ Possible values:
 7. ~accented~
 8. ~accented-3d~
 9. ~accented-moody~
+10. ~borderless-accented~
+11. ~borderless-accented-3d~
+12. ~borderless-accented-moody~
 
 The default produces a two-dimensional effect both for the active and
 inactive mode lines.  The differences between the two are limited to
@@ -736,6 +740,11 @@ Similarly, ~accented~, ~accented-3d~, and ~accented-moody~ correspond to the
 default (~nil~), ~3d~, and ~moody~ styles respectively, except that the active
 mode line uses a colored background instead of the standard shade of
 gray.
+
+Same principle for ~borderless-accented~, ~borderless-accented-3d~, and
+~borderless-accented-moody~ which use a colored background for the active
+mode line and have no discernible borders around both the active and
+inactive the mode lines.
 
 Note that Moody does not expose any faces that the themes could style
 directly.  Instead it re-purposes existing ones to render its tabs and
@@ -820,16 +829,15 @@ Symbol: ~modus-themes-mail-citations~
 Possible values:
 
 1. ~nil~ (default)
-2. ~desaturated~
+2. ~faint~
 3. ~monochrome~
 
 By default, citations in email-related buffers apply contrasting hues to
 different levels of depth in cited text.  The colors are fairly easy to
 tell apart.
 
-A value of ~desaturated~ makes all citation levels less intense, while
-retaining the default style of contrasting hues (albeit very subtle
-ones).
+A value of ~faint~ makes all citation levels less intense, while retaining
+the default style of contrasting hues (albeit very subtle ones).
 
 Option ~monochrome~ turns all citations in to a uniform shade of gray.
 
@@ -923,7 +931,7 @@ Possible values:
 
 1. ~nil~ (default)
 2. ~intense-background~
-3. ~accented-background~ (made more prominent for {{{development-version}}})
+3. ~accented-background~
 4. ~underline-neutral~
 5. ~underline-accented~
 6. ~underline-only-neutral~
@@ -1071,9 +1079,7 @@ Possible values:
 2. ~desaturated~
 3. ~bg-only~
 4. ~deuteranopia~
-5. ~fg-only-deuteranopia~ (part of {{{development-version}}})
-6. ~fg-only~ (became an alias of ~fg-only-deuteranopia~---part of
-   {{{development-version}}})
+5. ~fg-only-deuteranopia~
 
 The default (~nil~) uses fairly intense color combinations for diffs, by
 applying prominently colored backgrounds, with appropriate foregrounds.
@@ -1116,10 +1122,8 @@ Symbol: ~modus-themes-org-blocks~
 Possible values:
 
 1. ~nil~ (default)
-2. ~gray-background~ (part of {{{development-version}}}---value ~grayscale~ exists
-   for backward compatibility)
-3. ~tinted-background~ (part of {{{development-version}}}---value ~rainbow~
-   exists for backward compatibility)
+2. ~gray-background~ (value ~grayscale~ exists for backward compatibility)
+3. ~tinted-background~ (value ~rainbow~ exists for backward compatibility)
 
 The default means that the block has no distinct background of its own
 and uses the one that applies to the rest of the buffer.
@@ -2425,7 +2429,7 @@ minutia and relevant commentary.
 Such knowledge may prove valuable while attempting to override some of
 the themes' colors: [[#h:307d95dd-8dbd-4ece-a543-10ae86f155a6][Override colors]].
 
-** Load theme depending on time of day
+** Load theme depending on time of day (DIY)
 :properties:
 :custom_id: h:1d1ef4b4-8600-4a09-993c-6de3af0ddd26
 :end:
@@ -2812,7 +2816,6 @@ have lots of extensions, so the "full support" may not be 100% true…
 + prism ([[#h:a94272e0-99da-4149-9e80-11a7e67a2cf2][Note for prism.el]])
 + proced
 + prodigy
-+ pulse (part of {{{development-version}}})
 + quick-peek
 + racket-mode
 + rainbow-blocks
@@ -2920,7 +2923,7 @@ supported by the themes.
 + swift-mode
 + tab-bar-echo-area
 
-* Notes for individual packages
+* Notes on individual packages
 :properties:
 :custom_id: h:4c4d901a-84d7-4f20-bd99-0808c2b06eba
 :end:
@@ -2928,7 +2931,7 @@ supported by the themes.
 This section covers information that may be of interest to users of
 individual packages.
 
-** Note for inline Latex in Org buffers
+** Note on inline Latex in Org buffers
 :properties:
 :custom_id: h:dd8478da-f56a-45cd-b199-b836c85c3c5a
 :end:
@@ -2943,7 +2946,7 @@ the desired list of values (per its doc string).  For example:
 
 Remember to use {{{kbd(M-x org-mode-restart)}}} for changes to take effect.
 
-** Note for dimmer.el
+** Note on dimmer.el
 :properties:
 :custom_id: h:8eb4b758-d318-4480-9ead-357a571beb93
 :end:
@@ -2979,7 +2982,7 @@ other value for that variable will turn the main background gray.  This
 inadvertently leads to the opposite of the intended utility of this
 package: it draws too much attention to unfocused windows.
 
-** Note for display-fill-column-indicator-mode
+** Note on display-fill-column-indicator-mode
 :properties:
 :custom_id: h:2a602816-bc1b-45bf-9675-4cbbd7bf6cab
 :end:
@@ -3011,7 +3014,7 @@ and have the foreground be indistinguishable from it.  For example:
 
 [[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Face specs at scale using the themes' palette]].
 
-** Note for mmm-mode.el background colors
+** Note on mmm-mode.el background colors
 :properties:
 :custom_id: h:99cf0d6c-e478-4e26-9932-3bf3427d13f6
 :end:
@@ -3061,7 +3064,7 @@ very high cost of degraded legibility.
    `(mmm-special-submode-face ((,class :background ,green-refine-bg)))))
 #+end_src
 
-** Note for prism.el
+** Note on prism.el
 :properties:
 :alt_title: Note for prism
 :custom_id: h:a94272e0-99da-4149-9e80-11a7e67a2cf2
@@ -3157,7 +3160,7 @@ examples with the 4, 8, 16 colors):
                   magenta)))
 #+end_src
 
-** Note for god-mode.el
+** Note on god-mode.el
 :properties:
 :alt_title: Note for god-mode
 :custom_id: h:4da1d515-3e05-47ef-9e45-8251fc7e986a
@@ -3209,7 +3212,7 @@ instead of overlays.[fn::
 https://github.com/company-mode/company-mode/issues/1010][fn::
 https://github.com/tumashu/company-posframe/]
 
-** Note for ERC escaped color sequences
+** Note on ERC escaped color sequences
 :properties:
 :custom_id: h:98bdf319-1e32-4469-8a01-771200fba65c
 :end:
@@ -3242,7 +3245,7 @@ accessibility standard of the themes:
 Colors 0 and 1 are white and black respectively.  So combine them
 together, if you must.
 
-** Note for powerline or spaceline
+** Note on powerline or spaceline
 :properties:
 :custom_id: h:9130a8ba-d8e3-41be-a58b-3cb1eb7b6d17
 :end:
@@ -3262,7 +3265,7 @@ specifications the webpage provides.
 
 Consult {{{kbd(C-h v shr-use-colors)}}}.
 
-** Note for EWW and Elfeed fonts (SHR fonts)
+** Note on EWW and Elfeed fonts (SHR fonts)
 :properties:
 :custom_id: h:e6c5451f-6763-4be7-8fdb-b4706a422a4c
 :end:
@@ -3276,7 +3279,7 @@ default font family is.  Its default value is non-nil, which means that
 
 [[#h:defcf4fc-8fa8-4c29-b12e-7119582cc929][Font configurations for Org and others]].
 
-** Note for Helm grep
+** Note on Helm grep
 :properties:
 :custom_id: h:d28879a2-8e4b-4525-986e-14c0f873d229
 :end:
@@ -3375,6 +3378,217 @@ you've customized any faces.
             "-fill"       "%b"
             "-draw"       "text %X,%Y '%c'"))))
 #+end_src
+
+* Frequently Asked Questions (FAQ)
+:properties:
+:custom_id: h:b3384767-30d3-4484-ba7f-081729f03a47
+:end:
+#+cindex: Frequently Asked Questions (FAQ)
+
+In this section we provide answers related to some aspects of the Modus
+themes' design and application.
+
+** Is the contrast ratio about adjacent colors?
+:properties:
+:custom_id: h:5ce7ae2e-9348-4e55-b4cf-9302345b1826
+:end:
+#+cindex: Contrast between adjacent colors
+
+The minimum contrast ratio in relative luminance that the themes conform
+with always refers to any given combination of background and foreground
+colors.  If we have some blue colored text next to a magenta one, both
+against a white background, we do not mean to imply that blue:magenta is
+7:1 in terms of relative luminance.  Rather, we state that blue:white
+and magenta:white each are 7:1 or higher.
+
+The point of reference is always the background.  Because colors have
+about the same minimum distance in luminance from their backdrop, they
+necessarily are fairly close to each other in this measure.  A possible
+blue:magenta combination would naturally be around 1:1 in contrast of
+the sort here considered.
+
+To differentiate between sequential colors, we rely on hueness by
+mapping contrasting hues to adjacent constructs, while avoiding
+exaggerations.  A blue next to a magenta can be told apart regardless of
+their respective contrast ratio against their common background.
+Exceptions would be tiny characters in arguably not so realistic cases,
+such as two dots drawn side-by-side which for some reason would need to
+be colored differently.  They would still be legible though, which is
+the primary objective of the Modus themes.
+
+** What does it mean to avoid exaggerations?
+:properties:
+:custom_id: h:44284e1f-fab8-4c4f-92f0-544728a7c91e
+:end:
+#+cindex: Avoiding exaggerations in design
+
+The Modus themes are designed with restraint, so that their default
+looks do not overdo it with the application of color.
+
+[[#h:bf1c82f2-46c7-4eb2-ad00-dd11fdd8b53f][Customization Options]].
+
+This is the non-quantifiable aspect of the themes' design: the artistic
+part, if you will.  There are a lot of cases where color can be used
+inconsiderately, without accounting for layout, typographic, or other
+properties of the presentation.  For example, two headings with distinct
+markers, such as leading asterisks in Org buffers, do not have to have
+highly contrasting hues between them in order to be told apart: the
+added element of contrast in hueness does not contribute significantly
+more to the distinction between the headings than colors whose hues are
+relatively closer to each other in the color space.
+
+Exaggerations can be hard to anticipate or identify.  Multiple shades of
+blue and magenta in the same context may not seem optimal: one might
+think that it would be better to use highly contrasting hues to ensure
+that all colors stand out, such as by placing blue next to yellow, next
+to magenta, and green.  That would, however, be a case of design for its
+own sake; a case where color is being applied without consideration of
+its end results in the given context.  Too many contrasting hues in
+close proximity force an erratic rate to how the eye jumps from one
+piece of text to the next.  Whereas multiple shades of, say, blue and
+magenta can suffice to tell things apart and avoid excess coloration: a
+harmonious rhythm.
+
+** Why are colors mostly variants of blue, magenta, cyan?
+:properties:
+:custom_id: h:0b26cb47-9733-4cb1-87d9-50850cb0386e
+:end:
+#+cindex: Innate color qualities of the palette
+
+Due to the innate properties of color, some options are better than
+others for the accessibility purposes of the themes, the stylistic
+consistency between ~modus-operandi~ and ~modus-vivendi~, and the avoidance
+of exaggerations in design.
+
+[[#h:44284e1f-fab8-4c4f-92f0-544728a7c91e][What does it mean to avoid exaggerations?]]
+
+What we describe as color is a function of three distinct channels of
+light: red, green, blue.  In hexadecimal RGB notation, a color value is
+read as three pairs of red, green, and blue light: =#RRGGBB=.  Of those
+three, the most luminant is green, while the least luminant is blue.
+
+The three basic colors represent each of the channels of light.  They
+can be intermixed to give us six colors: red and green derive yellow,
+green and blue make cyan, red and blue turn into magenta.
+
+We can test the luminance of each of those against white and black to
+get a sense of how not all colors are equally good for accessibility
+(white is =#ffffff=, which means that all three light channels are fully
+luminated, while black is =#000000= meaning that no light is present
+(notwithstanding display technology)).
+
+#+begin_example
+| Name    |         | #ffffff | #000000 |
+|---------+---------+---------+---------|
+| red     | #ff0000 |    4.00 |    5.25 |
+| yellow  | #ffff00 |    1.07 |   19.56 |
+| green   | #00ff00 |    1.37 |   15.30 |
+| cyan    | #00ffff |    1.25 |   16.75 |
+| blue    | #0000ff |    8.59 |    2.44 |
+| magenta | #ff00ff |    3.14 |    6.70 |
+#+end_example
+
+[[#h:02e25930-e71a-493d-828a-8907fc80f874][Measure color contrast]].
+
+By reading this table we learn that every color that has a high level of
+green light (green, yellow, cyan) is virtually unreadable against a
+white background and, conversely, can be easily read against black.
+
+We can then infer that red and blue, in different combinations, with
+green acting as calibrator for luminance, will give us fairly moderate
+colors that pass the 7:1 target.  Blue with a bit of green produce
+appropriate variants of cyan.  Similarly, blue combined with some red
+and hints of green give us suitable shades of purple.
+
+Due to the need of maintaining some difference in hueness between
+adjacent colors, it is not possible to make red, green, and yellow the
+primary colors, because blue could not be used to control their
+luminance and, thus the relevant space would shrink considerably.
+
+[[#h:5ce7ae2e-9348-4e55-b4cf-9302345b1826][Is the contrast ratio about adjacent colors?]]
+
+This phenomenon is best illustrated by the following table that measures
+the relative luminance of shades of red, yellow, magenta against white:
+
+#+begin_example
+|         | #ffffff |
+|---------+---------|
+| #990000 |    8.92 |
+| #995500 |    5.75 |
+| #990099 |    7.46 |
+#+end_example
+
+We notice that equal values of red and blue light in =#990099= (magenta
+shade) do not lead to a considerable change in luminance compared with
+=#990000= (red variant).  Whereas less amount of green light in =#995500=
+leads to a major drop in luminance relative to white.  It follows that
+using the green channel of light to calibrate the luminance of colors is
+more effective than trying to do the same with either red or blue (the
+latter is the least effective in that regard).
+
+When we need to work with several colors, it is always better to have
+sufficient manoeuvring space, especially since we cannot pick arbitrary
+colors but only those that satisfy the accessibility objectives of the
+themes.
+
+As for why we do not mostly use green, yellow, cyan for the dark theme,
+it is because those colors are far more luminant than their counterparts
+on the other side of the spectrum, so to ensure that they all have about
+the same contrast ratios we would have to alter their hueness
+considerably.  In short, the effect would not be optimal as it would
+lead to exaggerations.  Plus, it would make ~modus-vivendi~ look
+completely different than ~modus-operandi~, to the effect that the two
+could not be properly considered part of the same project.
+
+** What is the best setup for legibility?
+:properties:
+:custom_id: h:f60cc2ae-129d-47c0-9849-4f6bbd87d8be
+:end:
+#+cindex: General setup for readability
+
+The Modus themes can be conceptually simplified as combinations of color
+values that account for relative luminance and inner harmony.  Those
+qualities do not guarantee that every end-user will have the same
+experience, due to differences between people, but also because of
+variances in hardware capabilities and configurations.  For the purposes
+of this document, we may only provide suggestions pertaining to the
+latter case.
+
+~modus-operandi~ is best used outdoors or in a room that either gets
+direct sunlight or has plenty of light.  Whereas ~modus-vivendi~ works
+better when there is not a lot of sunshine or the room has a source of
+light, preferably a faint or warm one.  It is possible to use
+~modus-operandi~ at night and ~modus-vivendi~ during the day, though that
+will depend on several variables, such as one's overall perception of
+color, the paint on the walls and how that contributes to the impression
+of lightness in the room, the sense of space within the eye's peripheral
+vision, hardware specifications, and environmental factors.
+
+In general, an additional source of light other than that of the monitor
+can help reduce eye strain: the eyes are more relaxed when they do not
+have to focus on one point to gather light.
+
+The monitor's display settings must be accounted for.  Gamma ray values,
+in particular, need to be calibrated to neither amplify nor distort the
+perception of black.  Same principle for sharpness, brightness, and
+contrast as determined by the hardware, which all have an effect on how
+text is read on the screen.
+
+There are software level methods on offer, such as the XrandR utility
+for the X Window System (X.org), which can make gamma corrections for
+each of the three channels of light (red, green, blue).  For example:
+
+: xrandr --output LVDS1 --brightness 1.0 --gamma 0.76:0.75:0.68
+
+Typography is another variable.  Some font families are blurry at small
+point sizes.  Others may have a regular weight that is lighter (thiner)
+than that of their peers which may, under certain circumstances, cause a
+halo effect around each glyph.
+
+The gist is that legibility cannot be fully solved at the theme level.
+The color combinations may have been optimized for accessibility, though
+the remaining contributing factors in each case need to be considered in
+full.
 
 * Contributing
 :properties:

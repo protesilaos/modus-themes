@@ -4,8 +4,8 @@
 
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
-;; Version: 1.3.2
-;; Last-Modified: <2021-05-19 08:51:39 +0300>
+;; Version: 1.4.0
+;; Last-Modified: <2021-05-25 11:57:50 +0200>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -28,21 +28,23 @@
 ;;
 ;; The Modus themes conform with the highest standard for color-contrast
 ;; accessibility between background and foreground values (WCAG AAA).
-;; This file contains all customization options, helper functions,
+;; This file contains all customization variables, helper functions,
 ;; interactive commands, and face specifications.  Please refer to the
 ;; official Info manual for further documentation (distributed with the
 ;; themes, or available at: <https://protesilaos.com/modus-themes>).
 ;;
-;; The themes share the following customization options, all of which
+;; The themes share the following customization variables, all of which
 ;; are disabled by default (nil):
 ;;
 ;;     modus-themes-slanted-constructs             (boolean)
 ;;     modus-themes-bold-constructs                (boolean)
 ;;     modus-themes-variable-pitch-headings        (boolean)
 ;;     modus-themes-variable-pitch-ui              (boolean)
+;;     modus-themes-scale-headings                 (boolean)
+;;     modus-themes-subtle-line-numbers            (boolean)
+;;     modus-themes-success-deuteranopia           (boolean)
 ;;     modus-themes-no-mixed-fonts                 (boolean)
 ;;     modus-themes-headings                       (alist)
-;;     modus-themes-scale-headings                 (boolean)
 ;;     modus-themes-fringes                        (choice)
 ;;     modus-themes-lang-checkers                  (choice)
 ;;     modus-themes-org-blocks                     (choice)
@@ -52,13 +54,11 @@
 ;;     modus-themes-diffs                          (choice)
 ;;     modus-themes-syntax                         (choice)
 ;;     modus-themes-hl-line                        (choice)
-;;     modus-themes-subtle-line-numbers            (boolean)
 ;;     modus-themes-paren-match                    (choice)
 ;;     modus-themes-region                         (choice)
 ;;     modus-themes-links                          (choice)
 ;;     modus-themes-completions                    (choice)
 ;;     modus-themes-mail-citations                 (choice)
-;;     modus-themes-success-deuteranopia           (boolean)
 ;;
 ;; The default scale for headings is as follows (it can be customized as
 ;; well---remember, no scaling takes place by default):
@@ -69,7 +69,7 @@
 ;;     modus-themes-scale-4 1.2
 ;;     modus-themes-scale-5 1.3
 ;;
-;; There also exist two unique customization options for overriding
+;; There also exist two unique customization variables for overriding
 ;; color palette values.  The specifics are documented in the manual.
 ;; The symbols are:
 ;;
@@ -307,7 +307,6 @@
 ;;     prism (see "Note for prism.el" in the manual)
 ;;     proced
 ;;     prodigy
-;;     pulse
 ;;     quick-peek
 ;;     racket-mode
 ;;     rainbow-blocks
@@ -422,7 +421,7 @@ The Modus themes conform with the WCAG AAA standard for color
 contrast between background and foreground combinations (a
 minimum contrast of 7:1---the highest standard of its kind).  The
 themes also strive to empower users with red-green color
-deficiency: this is achieved through customization options that
+deficiency: this is achieved through customization variables that
 replace all relevant instances of green with blue, as well as the
 overall design of the themes which relies mostly on colors that
 cover the blue-cyan-magenta side of the spectrum."
@@ -671,7 +670,7 @@ cover the blue-cyan-magenta side of the spectrum."
     (bg-mark-sel . "#a0f0cf") (fg-mark-sel . "#005040")
     (bg-mark-del . "#ffccbb") (fg-mark-del . "#840040")
     (bg-mark-alt . "#f5d88f") (fg-mark-alt . "#782900"))
-  "The entire palette of `modus-operandi' theme.
+  "The entire palette of the `modus-operandi' theme.
 Each element has the form (NAME . HEX) with the former as a
 symbol and the latter as a string.")
 
@@ -913,7 +912,7 @@ symbol and the latter as a string.")
     (bg-mark-sel . "#002f2f") (fg-mark-sel . "#60cfa2")
     (bg-mark-del . "#5a0000") (fg-mark-del . "#ff99aa")
     (bg-mark-alt . "#3f2210") (fg-mark-alt . "#f0aa20"))
-  "The entire palette of `modus-vivendi' theme.
+  "The entire palette of the `modus-vivendi' theme.
 Each element has the form (NAME . HEX) with the former as a
 symbol and the latter as a string.")
 
@@ -1138,81 +1137,87 @@ The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-nuanced-red nil
   "A nuanced red background.
-This does not specify a foreground of its own.  Instead it is meant to
-serve as the backdrop for elements such as Org blocks, headings, and any
-other surface that needs to retain the colors on display.
+This does not specify a foreground of its own.  Instead it is
+meant to serve as the backdrop for elements such as Org blocks,
+headings, and any other surface that needs to retain the colors
+on display.
 
 The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-nuanced-green nil
   "A nuanced green background.
-This does not specify a foreground of its own.  Instead it is meant to
-serve as the backdrop for elements such as Org blocks, headings, and any
-other surface that needs to retain the colors on display.
+This does not specify a foreground of its own.  Instead it is
+meant to serve as the backdrop for elements such as Org blocks,
+headings, and any other surface that needs to retain the colors
+on display.
 
 The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-nuanced-yellow nil
   "A nuanced yellow background.
-This does not specify a foreground of its own.  Instead it is meant to
-serve as the backdrop for elements such as Org blocks, headings, and any
-other surface that needs to retain the colors on display.
+This does not specify a foreground of its own.  Instead it is
+meant to serve as the backdrop for elements such as Org blocks,
+headings, and any other surface that needs to retain the colors
+on display.
 
 The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-nuanced-blue nil
   "A nuanced blue background.
-This does not specify a foreground of its own.  Instead it is meant to
-serve as the backdrop for elements such as Org blocks, headings, and any
-other surface that needs to retain the colors on display.
+This does not specify a foreground of its own.  Instead it is
+meant to serve as the backdrop for elements such as Org blocks,
+headings, and any other surface that needs to retain the colors
+on display.
 
 The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-nuanced-magenta nil
   "A nuanced magenta background.
-This does not specify a foreground of its own.  Instead it is meant to
-serve as the backdrop for elements such as Org blocks, headings, and any
-other surface that needs to retain the colors on display.
+This does not specify a foreground of its own.  Instead it is
+meant to serve as the backdrop for elements such as Org blocks,
+headings, and any other surface that needs to retain the colors
+on display.
 
 The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-nuanced-cyan nil
   "A nuanced cyan background.
-This does not specify a foreground of its own.  Instead it is meant to
-serve as the backdrop for elements such as Org blocks, headings, and any
-other surface that needs to retain the colors on display.
+This does not specify a foreground of its own.  Instead it is
+meant to serve as the backdrop for elements such as Org blocks,
+headings, and any other surface that needs to retain the colors
+on display.
 
 The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-special-cold nil
   "Combines the 'special cold' background and foreground values.
 This is intended for cases when a neutral gray background is not
-suitable and where a combination of more saturated colors would not be
-appropriate.
+suitable and where a combination of more saturated colors would
+not be appropriate.
 
 The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-special-mild nil
   "Combines the 'special mild' background and foreground values.
 This is intended for cases when a neutral gray background is not
-suitable and where a combination of more saturated colors would not be
-appropriate.
+suitable and where a combination of more saturated colors would
+not be appropriate.
 
 The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-special-warm nil
   "Combines the 'special warm' background and foreground values.
 This is intended for cases when a neutral gray background is not
-suitable and where a combination of more saturated colors would not be
-appropriate.
+suitable and where a combination of more saturated colors would
+not be appropriate.
 
 The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-special-calm nil
   "Combines the 'special calm' background and foreground values.
 This is intended for cases when a neutral gray background is not
-suitable and where a combination of more saturated colors would not be
-appropriate.
+suitable and where a combination of more saturated colors would
+not be appropriate.
 
 The actual styling of the face is done by `modus-themes-faces'.")
 
@@ -1316,64 +1321,64 @@ The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-heading-1 nil
   "General purpose face for use in headings level 1.
-The exact attributes assigned to this face are contingent on the values
-assigned to the `modus-themes-headings' variable.
+The exact attributes assigned to this face are contingent on the
+values assigned to the `modus-themes-headings' variable.
 
 The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-heading-2 nil
   "General purpose face for use in headings level 2.
-The exact attributes assigned to this face are contingent on the values
-assigned to the `modus-themes-headings' variable.
+The exact attributes assigned to this face are contingent on the
+values assigned to the `modus-themes-headings' variable.
 
 The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-heading-3 nil
   "General purpose face for use in headings level 3.
-The exact attributes assigned to this face are contingent on the values
-assigned to the `modus-themes-headings' variable.
+The exact attributes assigned to this face are contingent on the
+values assigned to the `modus-themes-headings' variable.
 
 The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-heading-4 nil
   "General purpose face for use in headings level 4.
-The exact attributes assigned to this face are contingent on the values
-assigned to the `modus-themes-headings' variable.
+The exact attributes assigned to this face are contingent on the
+values assigned to the `modus-themes-headings' variable.
 
 The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-heading-5 nil
   "General purpose face for use in headings level 5.
-The exact attributes assigned to this face are contingent on the values
-assigned to the `modus-themes-headings' variable.
+The exact attributes assigned to this face are contingent on the
+values assigned to the `modus-themes-headings' variable.
 
 The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-heading-6 nil
   "General purpose face for use in headings level 6.
-The exact attributes assigned to this face are contingent on the values
-assigned to the `modus-themes-headings' variable.
+The exact attributes assigned to this face are contingent on the
+values assigned to the `modus-themes-headings' variable.
 
 The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-heading-7 nil
   "General purpose face for use in headings level 7.
-The exact attributes assigned to this face are contingent on the values
-assigned to the `modus-themes-headings' variable.
+The exact attributes assigned to this face are contingent on the
+values assigned to the `modus-themes-headings' variable.
 
 The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-heading-8 nil
   "General purpose face for use in headings level 8.
-The exact attributes assigned to this face are contingent on the values
-assigned to the `modus-themes-headings' variable.
+The exact attributes assigned to this face are contingent on the
+values assigned to the `modus-themes-headings' variable.
 
 The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-hl-line nil
   "General purpose face for the current line.
-The exact attributes assigned to this face are contingent on the values
-assigned to the `modus-themes-hl-line' variable.
+The exact attributes assigned to this face are contingent on the
+values assigned to the `modus-themes-hl-line' variable.
 
 The actual styling of the face is done by `modus-themes-faces'.")
 
@@ -1399,97 +1404,97 @@ The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-graph-red-0 nil
   "Special subdued red face for use in graphs.
-This is intended to be applied in contexts such as the Org agenda habit
-graph where faithfulness to the semantics of a color value is of
-paramount importance.
+This is intended to be applied in contexts such as the Org agenda
+habit graph where faithfulness to the semantics of a color value
+is of paramount importance.
 
 The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-graph-red-1 nil
   "Special prominent red face for use in graphs.
-This is intended to be applied in contexts such as the Org agenda habit
-graph where faithfulness to the semantics of a color value is of
-paramount importance.
+This is intended to be applied in contexts such as the Org agenda
+habit graph where faithfulness to the semantics of a color value
+is of paramount importance.
 
 The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-graph-green-0 nil
   "Special subdued green face for use in graphs.
-This is intended to be applied in contexts such as the Org agenda habit
-graph where faithfulness to the semantics of a color value is of
-paramount importance.
+This is intended to be applied in contexts such as the Org agenda
+habit graph where faithfulness to the semantics of a color value
+is of paramount importance.
 
 The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-graph-green-1 nil
   "Special prominent green face for use in graphs.
-This is intended to be applied in contexts such as the Org agenda habit
-graph where faithfulness to the semantics of a color value is of
-paramount importance.
+This is intended to be applied in contexts such as the Org agenda
+habit graph where faithfulness to the semantics of a color value
+is of paramount importance.
 
 The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-graph-yellow-0 nil
   "Special subdued yellow face for use in graphs.
-This is intended to be applied in contexts such as the Org agenda habit
-graph where faithfulness to the semantics of a color value is of
-paramount importance.
+This is intended to be applied in contexts such as the Org agenda
+habit graph where faithfulness to the semantics of a color value
+is of paramount importance.
 
 The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-graph-yellow-1 nil
   "Special prominent yellow face for use in graphs.
-This is intended to be applied in contexts such as the Org agenda habit
-graph where faithfulness to the semantics of a color value is of
-paramount importance.
+This is intended to be applied in contexts such as the Org agenda
+habit graph where faithfulness to the semantics of a color value
+is of paramount importance.
 
 The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-graph-blue-0 nil
   "Special subdued blue face for use in graphs.
-This is intended to be applied in contexts such as the Org agenda habit
-graph where faithfulness to the semantics of a color value is of
-paramount importance.
+This is intended to be applied in contexts such as the Org agenda
+habit graph where faithfulness to the semantics of a color value
+is of paramount importance.
 
 The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-graph-blue-1 nil
   "Special prominent blue face for use in graphs.
-This is intended to be applied in contexts such as the Org agenda habit
-graph where faithfulness to the semantics of a color value is of
-paramount importance.
+This is intended to be applied in contexts such as the Org agenda
+habit graph where faithfulness to the semantics of a color value
+is of paramount importance.
 
 The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-graph-magenta-0 nil
   "Special subdued magenta face for use in graphs.
-This is intended to be applied in contexts such as the Org agenda habit
-graph where faithfulness to the semantics of a color value is of
-paramount importance.
+This is intended to be applied in contexts such as the Org agenda
+habit graph where faithfulness to the semantics of a color value
+is of paramount importance.
 
 The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-graph-magenta-1 nil
   "Special prominent magenta face for use in graphs.
-This is intended to be applied in contexts such as the Org agenda habit
-graph where faithfulness to the semantics of a color value is of
-paramount importance.
+This is intended to be applied in contexts such as the Org agenda
+habit graph where faithfulness to the semantics of a color value
+is of paramount importance.
 
 The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-graph-cyan-0 nil
   "Special subdued cyan face for use in graphs.
-This is intended to be applied in contexts such as the Org agenda habit
-graph where faithfulness to the semantics of a color value is of
-paramount importance.
+This is intended to be applied in contexts such as the Org agenda
+habit graph where faithfulness to the semantics of a color value
+is of paramount importance.
 
 The actual styling of the face is done by `modus-themes-faces'.")
 
 (defface modus-themes-graph-cyan-1 nil
   "Special prominent cyan face for use in graphs.
-This is intended to be applied in contexts such as the Org agenda habit
-graph where faithfulness to the semantics of a color value is of
-paramount importance.
+This is intended to be applied in contexts such as the Org agenda
+habit graph where faithfulness to the semantics of a color value
+is of paramount importance.
 
 The actual styling of the face is done by `modus-themes-faces'.")
 
@@ -1552,7 +1557,7 @@ The actual styling of the face is done by `modus-themes-faces'.")
 
 
 
-;;; Customization options
+;;; Customization variables
 
 (defvar modus-themes--recursive-flag nil
   "Non-nil means the theme is being reloaded.
@@ -2074,9 +2079,15 @@ default).
 Similarly, `accented', `accented-3d', and `accented-moody'
 correspond to the default (nil), `3d', and `moody' styles
 respectively, except that the active mode line uses a colored
-background instead of the standard shade of gray."
+background instead of the standard shade of gray.
+
+Same principle for styles `borderless-accented',
+`borderless-accented-3d', `borderless-accented-moody', which
+apply a colored background to the active mode line, while they
+remove any noticeable border around both the active and inactive
+the mode lines."
   :group 'modus-themes
-  :package-version '(modus-themes . "1.3.0")
+  :package-version '(modus-themes . "1.4.0")
   :version "28.1"
   :type '(choice
           (const :format "[%v] %t\n" :tag "Two-dimensional box (default)" nil)
@@ -2087,7 +2098,10 @@ background instead of the standard shade of gray."
           (const :format "[%v] %t\n" :tag "Like `moody', but without noticeable border" borderless-moody)
           (const :format "[%v] %t\n" :tag "Two-dimensional box with a colored background" accented)
           (const :format "[%v] %t\n" :tag "Like `3d', but with a colored background" accented-3d)
-          (const :format "[%v] %t\n" :tag "Like `moody', but with a colored background" accented-moody))
+          (const :format "[%v] %t\n" :tag "Like `moody', but with a colored background" accented-moody)
+          (const :format "[%v] %t\n" :tag "Like `accented', but without a noticeable border" borderless-accented)
+          (const :format "[%v] %t\n" :tag "Like `accented-3d', but with a noticeable border" borderless-accented-3d)
+          (const :format "[%v] %t\n" :tag "Like `accented-moody', but with a noticeable border" borderless-accented-moody))
   :set #'modus-themes--set-option
   :link '(info-link "(modus-themes) Mode line"))
 
@@ -2439,7 +2453,7 @@ Nil (the default) means to use a variety of contrasting hues to
 denote depth in nested citations.  Colors are fairly easy to tell
 apart.
 
-Option `desaturated' maintains a color-based distinction between
+Option `faint' maintains a color-based distinction between
 citation levels but the colors it applies have very subtle
 differences between them.
 
@@ -2450,7 +2464,8 @@ colored into a uniform shade of shade of gray."
   :version "28.1"
   :type '(choice
           (const :format "[%v] %t\n" :tag "Colorful mail citations with contrasting hues (default)" nil)
-          (const :format "[%v] %t\n" :tag "Like the default, but with less saturated colors" desaturated)
+          (const :format "[%v] %t\n" :tag "Like the default, but with less saturated colors" faint)
+          (const :format "[%v] %t\n" :tag "Deprecated alias of `faint'" desaturated)
           (const :format "[%v] %t\n" :tag "Uniformly gray mail citations" monochrome))
   :set #'modus-themes--set-option
   :link '(info-link "(modus-themes) Mail citations"))
@@ -2501,7 +2516,7 @@ Those are stored in `modus-themes-faces' and
   (car custom-enabled-themes))
 
 ;; Helper functions that are meant to ease the implementation of the
-;; above customization options.
+;; above customization variables.
 (defun modus-themes--bold-weight ()
   "Conditional use of a heavier text weight."
   (when modus-themes-bold-constructs
@@ -2666,7 +2681,7 @@ than the default.  BG is a nuanced, typically accented,
 background that can work well with either of the foreground
 values.  BORDER is a color value that combines well with the
 background and alternative foreground."
-  (let* ((key (modus-themes--heading-p `,level))
+  (let* ((key (modus-themes--heading-p level))
          (style (or key (modus-themes--heading-p t)))
          (var (when modus-themes-variable-pitch-headings
                 'variable-pitch))
@@ -2675,41 +2690,41 @@ background and alternative foreground."
                     'bold)))
     (pcase style
       ('no-bold
-       (list :inherit `,var :foreground fg))
+       (list :inherit var :foreground fg))
       ('no-color
-       (list :inherit `,varbold))
+       (list :inherit varbold))
       ('no-color-no-bold
-       (list :inherit `,var))
+       (list :inherit var))
       ('line
-       (list :inherit `,varbold :foreground fg :overline border))
+       (list :inherit varbold :foreground fg :overline border))
       ('line-no-bold
-       (list :inherit `,var :foreground fg :overline border))
+       (list :inherit var :foreground fg :overline border))
       ('rainbow
-       (list :inherit `,varbold :foreground fg-alt))
+       (list :inherit varbold :foreground fg-alt))
       ('rainbow-no-bold
-       (list :inherit `,var :foreground fg-alt))
+       (list :inherit var :foreground fg-alt))
       ('rainbow-line
-       (list :inherit `,varbold :foreground fg-alt :overline border))
+       (list :inherit varbold :foreground fg-alt :overline border))
       ('rainbow-line-no-bold
-       (list :inherit `,var :foreground fg-alt :overline border))
+       (list :inherit var :foreground fg-alt :overline border))
       ('highlight
-       (list :inherit `,varbold :background bg :foreground fg))
+       (list :inherit varbold :background bg :foreground fg))
       ('highlight-no-bold
-       (list :inherit `,var :background bg :foreground fg))
+       (list :inherit var :background bg :foreground fg))
       ('rainbow-highlight
-       (list :inherit `,varbold :background bg :foreground fg-alt))
+       (list :inherit varbold :background bg :foreground fg-alt))
       ('rainbow-highlight-no-bold
-       (list :inherit `,var :background bg :foreground fg-alt))
+       (list :inherit var :background bg :foreground fg-alt))
       ('section
-       (list :inherit `,varbold :background bg :foreground fg :overline border :extend t))
+       (list :inherit varbold :background bg :foreground fg :overline border :extend t))
       ('section-no-bold
-       (list :inherit `,var :background bg :foreground fg :overline border :extend t))
+       (list :inherit var :background bg :foreground fg :overline border :extend t))
       ('rainbow-section
-       (list :inherit `,varbold :background bg :foreground fg-alt :overline border :extend t))
+       (list :inherit varbold :background bg :foreground fg-alt :overline border :extend t))
       ('rainbow-section-no-bold
-       (list :inherit `,var :background bg :foreground fg-alt :overline border :extend t))
+       (list :inherit var :background bg :foreground fg-alt :overline border :extend t))
       (_
-       (list :inherit `,varbold :foreground fg)))))
+       (list :inherit varbold :foreground fg)))))
 
 (defun modus-themes--org-block (bgblk fgdefault &optional fgblk)
   "Conditionally set the background of Org blocks.
@@ -2778,38 +2793,49 @@ values.  It is intended to be used as a distant-foreground
 property."
   (pcase modus-themes-mode-line
     ('3d
-     `(:background ,bg-alt :foreground ,fg-alt
-       :box (:line-width ,(or border-width 1)
-             :color ,border-3d
-             :style ,(and alt-style 'released-button))))
+     `( :background ,bg-alt :foreground ,fg-alt
+        :box ( :line-width ,(or border-width 1)
+               :color ,border-3d
+               :style ,(and alt-style 'released-button))))
     ('moody
-     `(:background ,bg-alt :foreground ,fg-alt
-       :underline ,border :overline ,border
-       :distant-foreground ,fg-distant))
+     `( :background ,bg-alt :foreground ,fg-alt
+        :underline ,border :overline ,border
+        :distant-foreground ,fg-distant))
     ('borderless
-     `(:foreground ,fg :background ,bg :box ,bg))
+     `(:background ,bg :foreground ,fg :box ,bg))
     ('borderless-3d
-     `(:foreground ,fg :background ,bg
-       :box (:line-width ,(or border-width 1)
-             :color ,bg
-             :style ,(and alt-style 'released-button))))
+     `( :background ,bg :foreground ,fg
+        :box ( :line-width ,(or border-width 1)
+               :color ,bg
+               :style ,(and alt-style 'released-button))))
     ('borderless-moody
-     `(:background ,bg :foreground ,fg
-       :underline ,bg :overline ,bg
-       :distant-foreground ,fg-distant))
+     `( :background ,bg :foreground ,fg
+        :underline ,bg :overline ,bg
+        :distant-foreground ,fg-distant))
     ('accented
-     `(:foreground ,fg-accent :background ,bg-accent :box ,border))
+     `(:background ,bg-accent :foreground ,fg-accent :box ,border))
     ('accented-3d
-     `(:background ,bg-accent :foreground ,fg-accent
-       :box (:line-width ,(or border-width 1)
-             :color ,border-3d
-             :style ,(and alt-style 'released-button))))
+     `( :background ,bg-accent :foreground ,fg-accent
+        :box ( :line-width ,(or border-width 1)
+               :color ,border-3d
+               :style ,(and alt-style 'released-button))))
     ('accented-moody
-     `(:background ,bg-accent :foreground ,fg-accent
-       :underline ,border :overline ,border
-       :distant-foreground ,fg-distant))
+     `( :background ,bg-accent :foreground ,fg-accent
+        :underline ,border :overline ,border
+        :distant-foreground ,fg-distant))
+    ('borderless-accented
+     `(:background ,bg-accent :foreground ,fg-accent :box ,bg-accent))
+    ('borderless-accented-3d
+     `( :background ,bg-accent :foreground ,fg-accent
+        :box ( :line-width ,(or border-width 1)
+               :color ,bg-accent
+               :style ,(and alt-style 'released-button))))
+    ('borderless-accented-moody
+     `( :background ,bg-accent :foreground ,fg-accent
+        :underline ,bg-accent :overline ,bg-accent
+        :distant-foreground ,fg-distant))
     (_
-     `(:foreground ,fg :background ,bg :box ,border))))
+     `(:background ,bg :foreground ,fg :box ,border))))
 
 (defun modus-themes--diff
     (fg-only-bg fg-only-fg mainbg mainfg altbg altfg &optional deuteranbg deuteranfg  bg-only-fg)
@@ -2961,6 +2987,7 @@ MAINFG is an accented foreground value.  SUBTLEFG is its
 desaturated counterpart."
   (pcase modus-themes-mail-citations
     ('monochrome (list :inherit 'shadow))
+    ('faint (list :foreground subtlefg))
     ('desaturated (list :foreground subtlefg))
     (_ (list :foreground mainfg))))
 
@@ -3272,7 +3299,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                   7 red-nuanced-fg red-alt red-nuanced-bg bg-region))))
     `(modus-themes-heading-8
       ((,class ,@(modus-themes--heading
-                  8 fg-dim magenta bg-alt bg-region))))
+                  8 magenta-nuanced-fg magenta bg-alt bg-region))))
 ;;;;; graph-specific faces
     `(modus-themes-graph-red-0 ((,class :background ,red-graph-0-bg)))
     `(modus-themes-graph-red-1 ((,class :background ,red-graph-1-bg)))
@@ -5498,7 +5525,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(notmuch-crypto-signature-good-key ((,class :inherit bold :foreground ,cyan)))
     `(notmuch-crypto-signature-unknown ((,class :inherit warning)))
     `(notmuch-hello-logo-background ((,class :background "gray50")))
-    `(notmuch-message-summary-face ((,class :inherit modus-themes-nuanced-cyan)))
+    `(notmuch-message-summary-face ((,class :inherit (bold modus-themes-nuanced-cyan))))
     `(notmuch-search-count ((,class :inherit shadow)))
     `(notmuch-search-date ((,class :foreground ,cyan)))
     `(notmuch-search-flagged-face ((,class :foreground ,red-alt)))
@@ -5866,9 +5893,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(prodigy-green-face ((,class :foreground ,green)))
     `(prodigy-red-face ((,class :foreground ,red)))
     `(prodigy-yellow-face ((,class :foreground ,yellow)))
-;;;;; pulse
-    `(pulse-highlight-face ((,class :background ,bg-active-accent :extend t)))
-    `(pulse-highlight-start-face ((,class :background ,bg-active-accent :extend t)))
 ;;;;; quick-peek
     `(quick-peek-background-face ((,class :background ,bg-alt)))
     `(quick-peek-border-face ((,class :background ,fg-window-divider-inner :height 1)))

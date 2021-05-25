@@ -43,12 +43,12 @@ customization options for the ‘modus-operandi’ and ‘modus-vivendi’
 themes, and provides every other piece of information pertinent to them.
 
    The documentation furnished herein corresponds to stable version
-1.3.2, released on 2021-04-18.  Any reference to a newer feature which
+1.4.0, released on 2021-05-25.  Any reference to a newer feature which
 does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
-   Current development target is 1.4.0-dev.  This manual was built on
-2021-05-19 13:26 +0300.
+   Current development target is 1.5.0-dev.  This manual was built on
+2021-05-25 12:25 +0300.
 
 * Menu:
 
@@ -58,7 +58,8 @@ as such.
 * Customization Options::
 * Advanced customization (do-it-yourself)::
 * Face coverage::
-* Notes for individual packages::
+* Notes on individual packages::
+* Frequently Asked Questions (FAQ)::
 * Contributing::
 * Acknowledgements::
 * Meta::
@@ -131,7 +132,7 @@ Advanced customization (do-it-yourself)
 * Custom Org user faces (DIY)::
 * Update Org block delimiter fontification (DIY)::
 * Measure color contrast (DIY)::
-* Load theme depending on time of day::
+* Load theme depending on time of day (DIY)::
 * Backdrop for pdf-tools (DIY)::
 * A theme-agnostic hook for theme loading (DIY)::
 
@@ -140,22 +141,29 @@ Face coverage
 * Supported packages::           Full list of covered face groups
 * Indirectly covered packages::
 
-Notes for individual packages
+Notes on individual packages
 
-* Note for inline Latex in Org buffers::
-* Note for dimmer.el: Note for dimmerel.
-* Note for display-fill-column-indicator-mode::
-* Note for mmm-mode.el background colors: Note for mmm-modeel background colors.
+* Note on inline Latex in Org buffers::
+* Note on dimmer.el: Note on dimmerel.
+* Note on display-fill-column-indicator-mode::
+* Note on mmm-mode.el background colors: Note on mmm-modeel background colors.
 * Note for prism::
 * Note for god-mode::
 * Note on company-mode overlay pop-up::
-* Note for ERC escaped color sequences::
-* Note for powerline or spaceline::
+* Note on ERC escaped color sequences::
+* Note on powerline or spaceline::
 * Note on SHR colors::
-* Note for EWW and Elfeed fonts (SHR fonts)::
-* Note for Helm grep::
+* Note on EWW and Elfeed fonts (SHR fonts)::
+* Note on Helm grep::
 * Note on vc-annotate-background-mode::
 * Note on pdf-tools link hints::
+
+Frequently Asked Questions (FAQ)
+
+* Is the contrast ratio about adjacent colors?::
+* What does it mean to avoid exaggerations?::
+* Why are colors mostly variants of blue, magenta, cyan?: Why are colors mostly variants of blue magenta cyan?.
+* What is the best setup for legibility?::
 
 Contributing
 
@@ -517,7 +525,8 @@ of this manual.
 
            ;; Options for `modus-themes-mode-line': nil, '3d, 'moody,
            ;; 'borderless, 'borderless-3d, 'borderless-moody, 'accented,
-           ;; 'accented-3d, 'accented-moody
+           ;; 'accented-3d, 'accented-moody, 'borderless-accented,
+           ;; 'borderless-accented-3d, 'borderless-accented-moody
            modus-themes-mode-line '3d
 
            ;; Options for `modus-themes-syntax': nil, 'faint,
@@ -545,7 +554,7 @@ of this manual.
 
            modus-themes-completions 'moderate ; {nil,'moderate,'opinionated}
 
-           modus-themes-mail-citations nil ; {nil,'desaturated,'monochrome}
+           modus-themes-mail-citations nil ; {nil,'faint,'monochrome}
 
            ;; Options for `modus-themes-region': nil, 'no-extend, 'bg-only,
            ;; 'bg-only-no-extend, 'accent, 'accent-no-extend
@@ -838,6 +847,9 @@ Symbol: ‘modus-themes-mode-line’
   7. ‘accented’
   8. ‘accented-3d’
   9. ‘accented-moody’
+  10. ‘borderless-accented’
+  11. ‘borderless-accented-3d’
+  12. ‘borderless-accented-moody’
 
    The default produces a two-dimensional effect both for the active and
 inactive mode lines.  The differences between the two are limited to
@@ -871,6 +883,11 @@ do (same inactive background as with the default).
 to the default (‘nil’), ‘3d’, and ‘moody’ styles respectively, except
 that the active mode line uses a colored background instead of the
 standard shade of gray.
+
+   Same principle for ‘borderless-accented’, ‘borderless-accented-3d’,
+and ‘borderless-accented-moody’ which use a colored background for the
+active mode line and have no discernible borders around both the active
+and inactive the mode lines.
 
    Note that Moody does not expose any faces that the themes could style
 directly.  Instead it re-purposes existing ones to render its tabs and
@@ -949,16 +966,16 @@ Symbol: ‘modus-themes-mail-citations’
    Possible values:
 
   1. ‘nil’ (default)
-  2. ‘desaturated’
+  2. ‘faint’
   3. ‘monochrome’
 
    By default, citations in email-related buffers apply contrasting hues
 to different levels of depth in cited text.  The colors are fairly easy
 to tell apart.
 
-   A value of ‘desaturated’ makes all citation levels less intense,
-while retaining the default style of contrasting hues (albeit very
-subtle ones).
+   A value of ‘faint’ makes all citation levels less intense, while
+retaining the default style of contrasting hues (albeit very subtle
+ones).
 
    Option ‘monochrome’ turns all citations in to a uniform shade of
 gray.
@@ -1048,7 +1065,7 @@ Symbol: ‘modus-themes-hl-line’
 
   1. ‘nil’ (default)
   2. ‘intense-background’
-  3. ‘accented-background’ (made more prominent for 1.4.0-dev)
+  3. ‘accented-background’
   4. ‘underline-neutral’
   5. ‘underline-accented’
   6. ‘underline-only-neutral’
@@ -1188,9 +1205,7 @@ Symbol: ‘modus-themes-diffs’
   2. ‘desaturated’
   3. ‘bg-only’
   4. ‘deuteranopia’
-  5. ‘fg-only-deuteranopia’ (part of 1.4.0-dev)
-  6. ‘fg-only’ (became an alias of ‘fg-only-deuteranopia’—part of
-     1.4.0-dev)
+  5. ‘fg-only-deuteranopia’
 
    The default (‘nil’) uses fairly intense color combinations for diffs,
 by applying prominently colored backgrounds, with appropriate
@@ -1232,10 +1247,10 @@ Symbol: ‘modus-themes-org-blocks’
    Possible values:
 
   1. ‘nil’ (default)
-  2. ‘gray-background’ (part of 1.4.0-dev—value ‘grayscale’ exists for
-     backward compatibility)
-  3. ‘tinted-background’ (part of 1.4.0-dev—value ‘rainbow’ exists for
-     backward compatibility)
+  2. ‘gray-background’ (value ‘grayscale’ exists for backward
+     compatibility)
+  3. ‘tinted-background’ (value ‘rainbow’ exists for backward
+     compatibility)
 
    The default means that the block has no distinct background of its
 own and uses the one that applies to the rest of the buffer.
@@ -1582,7 +1597,7 @@ such, they are labelled as “do-it-yourself” or “DIY”.
 * Custom Org user faces (DIY)::
 * Update Org block delimiter fontification (DIY)::
 * Measure color contrast (DIY)::
-* Load theme depending on time of day::
+* Load theme depending on time of day (DIY)::
 * Backdrop for pdf-tools (DIY)::
 * A theme-agnostic hook for theme loading (DIY)::
 
@@ -2311,7 +2326,8 @@ ensures that all fonts can scale gracefully when using something like
 the ‘text-scale-adjust’ command which only operates on the base font
 size (i.e.  the ‘default’ face’s absolute height).
 
-   *note Note for EWW and Elfeed fonts (SHR fonts)::.
+   *note Note for EWW and Elfeed fonts (SHR fonts): Note on EWW and
+Elfeed fonts (SHR fonts).
 
    ---------- Footnotes ----------
 
@@ -2437,7 +2453,7 @@ intervention can be circumvented by tweaking the function thus:
          (font-lock-flush)))
 
 
-File: modus-themes.info,  Node: Measure color contrast (DIY),  Next: Load theme depending on time of day,  Prev: Update Org block delimiter fontification (DIY),  Up: Advanced customization (do-it-yourself)
+File: modus-themes.info,  Node: Measure color contrast (DIY),  Next: Load theme depending on time of day (DIY),  Prev: Update Org block delimiter fontification (DIY),  Up: Advanced customization (do-it-yourself)
 
 5.11 Measure color contrast (DIY)
 =================================
@@ -2502,10 +2518,10 @@ minutia and relevant commentary.
 of the themes’ colors: *note Override colors: Override colors (DIY).
 
 
-File: modus-themes.info,  Node: Load theme depending on time of day,  Next: Backdrop for pdf-tools (DIY),  Prev: Measure color contrast (DIY),  Up: Advanced customization (do-it-yourself)
+File: modus-themes.info,  Node: Load theme depending on time of day (DIY),  Next: Backdrop for pdf-tools (DIY),  Prev: Measure color contrast (DIY),  Up: Advanced customization (do-it-yourself)
 
-5.12 Load theme depending on time of day
-========================================
+5.12 Load theme depending on time of day (DIY)
+==============================================
 
 While we do provide ‘modus-themes-toggle’ to manually switch between the
 themes, users may also set up their system to perform such a task
@@ -2528,7 +2544,7 @@ location using the built-in ‘solar.el’ and then configuring the
        (circadian-setup))
 
 
-File: modus-themes.info,  Node: Backdrop for pdf-tools (DIY),  Next: A theme-agnostic hook for theme loading (DIY),  Prev: Load theme depending on time of day,  Up: Advanced customization (do-it-yourself)
+File: modus-themes.info,  Node: Backdrop for pdf-tools (DIY),  Next: A theme-agnostic hook for theme loading (DIY),  Prev: Load theme depending on time of day (DIY),  Up: Advanced customization (do-it-yourself)
 
 5.13 Backdrop for pdf-tools (DIY)
 =================================
@@ -2639,7 +2655,7 @@ setup of the Modus themes (it is generally a good idea to understand
 what the implications are of advising a function).
 
 
-File: modus-themes.info,  Node: Face coverage,  Next: Notes for individual packages,  Prev: Advanced customization (do-it-yourself),  Up: Top
+File: modus-themes.info,  Node: Face coverage,  Next: Notes on individual packages,  Prev: Advanced customization (do-it-yourself),  Up: Top
 
 6 Face coverage
 ***************
@@ -2892,7 +2908,6 @@ have lots of extensions, so the “full support” may not be 100% true…
    • prism (*note Note for prism.el: Note for prism.)
    • proced
    • prodigy
-   • pulse (part of 1.4.0-dev)
    • quick-peek
    • racket-mode
    • rainbow-blocks
@@ -3001,36 +3016,36 @@ supported by the themes.
    • tab-bar-echo-area
 
 
-File: modus-themes.info,  Node: Notes for individual packages,  Next: Contributing,  Prev: Face coverage,  Up: Top
+File: modus-themes.info,  Node: Notes on individual packages,  Next: Frequently Asked Questions (FAQ),  Prev: Face coverage,  Up: Top
 
-7 Notes for individual packages
-*******************************
+7 Notes on individual packages
+******************************
 
 This section covers information that may be of interest to users of
 individual packages.
 
 * Menu:
 
-* Note for inline Latex in Org buffers::
-* Note for dimmer.el: Note for dimmerel.
-* Note for display-fill-column-indicator-mode::
-* Note for mmm-mode.el background colors: Note for mmm-modeel background colors.
+* Note on inline Latex in Org buffers::
+* Note on dimmer.el: Note on dimmerel.
+* Note on display-fill-column-indicator-mode::
+* Note on mmm-mode.el background colors: Note on mmm-modeel background colors.
 * Note for prism::
 * Note for god-mode::
 * Note on company-mode overlay pop-up::
-* Note for ERC escaped color sequences::
-* Note for powerline or spaceline::
+* Note on ERC escaped color sequences::
+* Note on powerline or spaceline::
 * Note on SHR colors::
-* Note for EWW and Elfeed fonts (SHR fonts)::
-* Note for Helm grep::
+* Note on EWW and Elfeed fonts (SHR fonts)::
+* Note on Helm grep::
 * Note on vc-annotate-background-mode::
 * Note on pdf-tools link hints::
 
 
-File: modus-themes.info,  Node: Note for inline Latex in Org buffers,  Next: Note for dimmerel,  Up: Notes for individual packages
+File: modus-themes.info,  Node: Note on inline Latex in Org buffers,  Next: Note on dimmerel,  Up: Notes on individual packages
 
-7.1 Note for inline Latex in Org buffers
-========================================
+7.1 Note on inline Latex in Org buffers
+=======================================
 
 Org can work with inline latex and related syntax.  To actually fontify
 those constructs, set the variable ‘org-highlight-latex-and-related’ to
@@ -3041,10 +3056,10 @@ the desired list of values (per its doc string).  For example:
    Remember to use ‘M-x org-mode-restart’ for changes to take effect.
 
 
-File: modus-themes.info,  Node: Note for dimmerel,  Next: Note for display-fill-column-indicator-mode,  Prev: Note for inline Latex in Org buffers,  Up: Notes for individual packages
+File: modus-themes.info,  Node: Note on dimmerel,  Next: Note on display-fill-column-indicator-mode,  Prev: Note on inline Latex in Org buffers,  Up: Notes on individual packages
 
-7.2 Note for dimmer.el
-======================
+7.2 Note on dimmer.el
+=====================
 
 The ‘dimmer.el’ library by Neil Okamoto can be configured to
 automatically dim the colors of inactive Emacs windows.  To guarantee
@@ -3076,10 +3091,10 @@ gray.  This inadvertently leads to the opposite of the intended utility
 of this package: it draws too much attention to unfocused windows.
 
 
-File: modus-themes.info,  Node: Note for display-fill-column-indicator-mode,  Next: Note for mmm-modeel background colors,  Prev: Note for dimmerel,  Up: Notes for individual packages
+File: modus-themes.info,  Node: Note on display-fill-column-indicator-mode,  Next: Note on mmm-modeel background colors,  Prev: Note on dimmerel,  Up: Notes on individual packages
 
-7.3 Note for display-fill-column-indicator-mode
-===============================================
+7.3 Note on display-fill-column-indicator-mode
+==============================================
 
 While designing the style for ‘display-fill-column-indicator-mode’, we
 stayed close to the mode’s defaults: to apply a subtle foreground color
@@ -3109,10 +3124,10 @@ from it.  For example:
 scale using the themes' palette (DIY).
 
 
-File: modus-themes.info,  Node: Note for mmm-modeel background colors,  Next: Note for prism,  Prev: Note for display-fill-column-indicator-mode,  Up: Notes for individual packages
+File: modus-themes.info,  Node: Note on mmm-modeel background colors,  Next: Note for prism,  Prev: Note on display-fill-column-indicator-mode,  Up: Notes on individual packages
 
-7.4 Note for mmm-mode.el background colors
-==========================================
+7.4 Note on mmm-mode.el background colors
+=========================================
 
 The faces used by ‘mmm-mode.el’ are expected to have a colorful
 background, while they should not touch any foreground value.  The idea
@@ -3159,10 +3174,10 @@ the very high cost of degraded legibility.
         `(mmm-special-submode-face ((,class :background ,green-refine-bg)))))
 
 
-File: modus-themes.info,  Node: Note for prism,  Next: Note for god-mode,  Prev: Note for mmm-modeel background colors,  Up: Notes for individual packages
+File: modus-themes.info,  Node: Note for prism,  Next: Note for god-mode,  Prev: Note on mmm-modeel background colors,  Up: Notes on individual packages
 
-7.5 Note for prism.el
-=====================
+7.5 Note on prism.el
+====================
 
 This package by Adam Porter, aka “alphapapa” or “github-alphapapa”,
 implements an alternative to the typical coloration of code.  Instead of
@@ -3248,10 +3263,10 @@ examples with the 4, 8, 16 colors):
                        magenta)))
 
 
-File: modus-themes.info,  Node: Note for god-mode,  Next: Note on company-mode overlay pop-up,  Prev: Note for prism,  Up: Notes for individual packages
+File: modus-themes.info,  Node: Note for god-mode,  Next: Note on company-mode overlay pop-up,  Prev: Note for prism,  Up: Notes on individual packages
 
-7.6 Note for god-mode.el
-========================
+7.6 Note on god-mode.el
+=======================
 
 The ‘god-mode’ library does not provide faces that could be configured
 by the Modus themes.  Users who would like to get some visual feedback
@@ -3283,7 +3298,7 @@ the attributes that can be passed to each face, start by consulting the
 documentation string of ‘set-face-attribute’.
 
 
-File: modus-themes.info,  Node: Note on company-mode overlay pop-up,  Next: Note for ERC escaped color sequences,  Prev: Note for god-mode,  Up: Notes for individual packages
+File: modus-themes.info,  Node: Note on company-mode overlay pop-up,  Next: Note on ERC escaped color sequences,  Prev: Note for god-mode,  Up: Notes on individual packages
 
 7.7 Note on company-mode overlay pop-up
 =======================================
@@ -3304,10 +3319,10 @@ instead of overlays.(1)(2)
    (2) <https://github.com/tumashu/company-posframe/>
 
 
-File: modus-themes.info,  Node: Note for ERC escaped color sequences,  Next: Note for powerline or spaceline,  Prev: Note on company-mode overlay pop-up,  Up: Notes for individual packages
+File: modus-themes.info,  Node: Note on ERC escaped color sequences,  Next: Note on powerline or spaceline,  Prev: Note on company-mode overlay pop-up,  Up: Notes on individual packages
 
-7.8 Note for ERC escaped color sequences
-========================================
+7.8 Note on ERC escaped color sequences
+=======================================
 
 The built-in IRC client ‘erc’ has the ability to colorise any text using
 escape sequences that start with ‘^C’ (inserted with ‘C-q C-c’) and are
@@ -3342,17 +3357,17 @@ together, if you must.
 Emacs: <https://www.mirc.com/colors.html>
 
 
-File: modus-themes.info,  Node: Note for powerline or spaceline,  Next: Note on SHR colors,  Prev: Note for ERC escaped color sequences,  Up: Notes for individual packages
+File: modus-themes.info,  Node: Note on powerline or spaceline,  Next: Note on SHR colors,  Prev: Note on ERC escaped color sequences,  Up: Notes on individual packages
 
-7.9 Note for powerline or spaceline
-===================================
+7.9 Note on powerline or spaceline
+==================================
 
 Both Powerline and Spaceline package users will likely need to use the
 command ‘powerline-reset’ whenever they make changes to their themes
 and/or mode line setup.
 
 
-File: modus-themes.info,  Node: Note on SHR colors,  Next: Note for EWW and Elfeed fonts (SHR fonts),  Prev: Note for powerline or spaceline,  Up: Notes for individual packages
+File: modus-themes.info,  Node: Note on SHR colors,  Next: Note on EWW and Elfeed fonts (SHR fonts),  Prev: Note on powerline or spaceline,  Up: Notes on individual packages
 
 7.10 Note on SHR colors
 =======================
@@ -3364,10 +3379,10 @@ webpage provides.
    Consult ‘C-h v shr-use-colors’.
 
 
-File: modus-themes.info,  Node: Note for EWW and Elfeed fonts (SHR fonts),  Next: Note for Helm grep,  Prev: Note on SHR colors,  Up: Notes for individual packages
+File: modus-themes.info,  Node: Note on EWW and Elfeed fonts (SHR fonts),  Next: Note on Helm grep,  Prev: Note on SHR colors,  Up: Notes on individual packages
 
-7.11 Note for EWW and Elfeed fonts (SHR fonts)
-==============================================
+7.11 Note on EWW and Elfeed fonts (SHR fonts)
+=============================================
 
 EWW and Elfeed rely on the Simple HTML Renderer to display their
 content.  The ‘shr.el’ library contains the variable ‘shr-use-fonts’
@@ -3380,10 +3395,10 @@ which means that ‘variable-pitch’ is applied.
 Org and others (DIY).
 
 
-File: modus-themes.info,  Node: Note for Helm grep,  Next: Note on vc-annotate-background-mode,  Prev: Note for EWW and Elfeed fonts (SHR fonts),  Up: Notes for individual packages
+File: modus-themes.info,  Node: Note on Helm grep,  Next: Note on vc-annotate-background-mode,  Prev: Note on EWW and Elfeed fonts (SHR fonts),  Up: Notes on individual packages
 
-7.12 Note for Helm grep
-=======================
+7.12 Note on Helm grep
+======================
 
 There is one face from the Helm package that is meant to highlight the
 matches of a grep or grep-like command (‘ag’ or ‘ripgrep’).  It is
@@ -3411,7 +3426,7 @@ ANSI color number 1 (red) from the already-supported array of
 ‘ansi-color-names-vector’.
 
 
-File: modus-themes.info,  Node: Note on vc-annotate-background-mode,  Next: Note on pdf-tools link hints,  Prev: Note for Helm grep,  Up: Notes for individual packages
+File: modus-themes.info,  Node: Note on vc-annotate-background-mode,  Next: Note on pdf-tools link hints,  Prev: Note on Helm grep,  Up: Notes on individual packages
 
 7.13 Note on vc-annotate-background-mode
 ========================================
@@ -3430,7 +3445,7 @@ prejudice to the accessibility standard of this project, then please
 report as much or send patches (*note Contributing::).
 
 
-File: modus-themes.info,  Node: Note on pdf-tools link hints,  Prev: Note on vc-annotate-background-mode,  Up: Notes for individual packages
+File: modus-themes.info,  Node: Note on pdf-tools link hints,  Prev: Note on vc-annotate-background-mode,  Up: Notes on individual packages
 
 7.14 Note on pdf-tools link hints
 =================================
@@ -3479,9 +3494,224 @@ your initialization file after you’ve customized any faces.
                  "-draw"       "text %X,%Y '%c'"))))
 
 
-File: modus-themes.info,  Node: Contributing,  Next: Acknowledgements,  Prev: Notes for individual packages,  Up: Top
+File: modus-themes.info,  Node: Frequently Asked Questions (FAQ),  Next: Contributing,  Prev: Notes on individual packages,  Up: Top
 
-8 Contributing
+8 Frequently Asked Questions (FAQ)
+**********************************
+
+In this section we provide answers related to some aspects of the Modus
+themes’ design and application.
+
+* Menu:
+
+* Is the contrast ratio about adjacent colors?::
+* What does it mean to avoid exaggerations?::
+* Why are colors mostly variants of blue, magenta, cyan?: Why are colors mostly variants of blue magenta cyan?.
+* What is the best setup for legibility?::
+
+
+File: modus-themes.info,  Node: Is the contrast ratio about adjacent colors?,  Next: What does it mean to avoid exaggerations?,  Up: Frequently Asked Questions (FAQ)
+
+8.1 Is the contrast ratio about adjacent colors?
+================================================
+
+The minimum contrast ratio in relative luminance that the themes conform
+with always refers to any given combination of background and foreground
+colors.  If we have some blue colored text next to a magenta one, both
+against a white background, we do not mean to imply that blue:magenta is
+7:1 in terms of relative luminance.  Rather, we state that blue:white
+and magenta:white each are 7:1 or higher.
+
+   The point of reference is always the background.  Because colors have
+about the same minimum distance in luminance from their backdrop, they
+necessarily are fairly close to each other in this measure.  A possible
+blue:magenta combination would naturally be around 1:1 in contrast of
+the sort here considered.
+
+   To differentiate between sequential colors, we rely on hueness by
+mapping contrasting hues to adjacent constructs, while avoiding
+exaggerations.  A blue next to a magenta can be told apart regardless of
+their respective contrast ratio against their common background.
+Exceptions would be tiny characters in arguably not so realistic cases,
+such as two dots drawn side-by-side which for some reason would need to
+be colored differently.  They would still be legible though, which is
+the primary objective of the Modus themes.
+
+
+File: modus-themes.info,  Node: What does it mean to avoid exaggerations?,  Next: Why are colors mostly variants of blue magenta cyan?,  Prev: Is the contrast ratio about adjacent colors?,  Up: Frequently Asked Questions (FAQ)
+
+8.2 What does it mean to avoid exaggerations?
+=============================================
+
+The Modus themes are designed with restraint, so that their default
+looks do not overdo it with the application of color.
+
+   *note Customization Options::.
+
+   This is the non-quantifiable aspect of the themes’ design: the
+artistic part, if you will.  There are a lot of cases where color can be
+used inconsiderately, without accounting for layout, typographic, or
+other properties of the presentation.  For example, two headings with
+distinct markers, such as leading asterisks in Org buffers, do not have
+to have highly contrasting hues between them in order to be told apart:
+the added element of contrast in hueness does not contribute
+significantly more to the distinction between the headings than colors
+whose hues are relatively closer to each other in the color space.
+
+   Exaggerations can be hard to anticipate or identify.  Multiple shades
+of blue and magenta in the same context may not seem optimal: one might
+think that it would be better to use highly contrasting hues to ensure
+that all colors stand out, such as by placing blue next to yellow, next
+to magenta, and green.  That would, however, be a case of design for its
+own sake; a case where color is being applied without consideration of
+its end results in the given context.  Too many contrasting hues in
+close proximity force an erratic rate to how the eye jumps from one
+piece of text to the next.  Whereas multiple shades of, say, blue and
+magenta can suffice to tell things apart and avoid excess coloration: a
+harmonious rhythm.
+
+
+File: modus-themes.info,  Node: Why are colors mostly variants of blue magenta cyan?,  Next: What is the best setup for legibility?,  Prev: What does it mean to avoid exaggerations?,  Up: Frequently Asked Questions (FAQ)
+
+8.3 Why are colors mostly variants of blue, magenta, cyan?
+==========================================================
+
+Due to the innate properties of color, some options are better than
+others for the accessibility purposes of the themes, the stylistic
+consistency between ‘modus-operandi’ and ‘modus-vivendi’, and the
+avoidance of exaggerations in design.
+
+   *note What does it mean to avoid exaggerations?::
+
+   What we describe as color is a function of three distinct channels of
+light: red, green, blue.  In hexadecimal RGB notation, a color value is
+read as three pairs of red, green, and blue light: ‘#RRGGBB’.  Of those
+three, the most luminant is green, while the least luminant is blue.
+
+   The three basic colors represent each of the channels of light.  They
+can be intermixed to give us six colors: red and green derive yellow,
+green and blue make cyan, red and blue turn into magenta.
+
+   We can test the luminance of each of those against white and black to
+get a sense of how not all colors are equally good for accessibility
+(white is ‘#ffffff’, which means that all three light channels are fully
+luminated, while black is ‘#000000’ meaning that no light is present
+(notwithstanding display technology)).
+
+     | Name    |         | #ffffff | #000000 |
+     |---------+---------+---------+---------|
+     | red     | #ff0000 |    4.00 |    5.25 |
+     | yellow  | #ffff00 |    1.07 |   19.56 |
+     | green   | #00ff00 |    1.37 |   15.30 |
+     | cyan    | #00ffff |    1.25 |   16.75 |
+     | blue    | #0000ff |    8.59 |    2.44 |
+     | magenta | #ff00ff |    3.14 |    6.70 |
+
+   *note Measure color contrast: Measure color contrast (DIY).
+
+   By reading this table we learn that every color that has a high level
+of green light (green, yellow, cyan) is virtually unreadable against a
+white background and, conversely, can be easily read against black.
+
+   We can then infer that red and blue, in different combinations, with
+green acting as calibrator for luminance, will give us fairly moderate
+colors that pass the 7:1 target.  Blue with a bit of green produce
+appropriate variants of cyan.  Similarly, blue combined with some red
+and hints of green give us suitable shades of purple.
+
+   Due to the need of maintaining some difference in hueness between
+adjacent colors, it is not possible to make red, green, and yellow the
+primary colors, because blue could not be used to control their
+luminance and, thus the relevant space would shrink considerably.
+
+   *note Is the contrast ratio about adjacent colors?::
+
+   This phenomenon is best illustrated by the following table that
+measures the relative luminance of shades of red, yellow, magenta
+against white:
+
+     |         | #ffffff |
+     |---------+---------|
+     | #990000 |    8.92 |
+     | #995500 |    5.75 |
+     | #990099 |    7.46 |
+
+   We notice that equal values of red and blue light in ‘#990099’
+(magenta shade) do not lead to a considerable change in luminance
+compared with ‘#990000’ (red variant).  Whereas less amount of green
+light in ‘#995500’ leads to a major drop in luminance relative to white.
+It follows that using the green channel of light to calibrate the
+luminance of colors is more effective than trying to do the same with
+either red or blue (the latter is the least effective in that regard).
+
+   When we need to work with several colors, it is always better to have
+sufficient manoeuvring space, especially since we cannot pick arbitrary
+colors but only those that satisfy the accessibility objectives of the
+themes.
+
+   As for why we do not mostly use green, yellow, cyan for the dark
+theme, it is because those colors are far more luminant than their
+counterparts on the other side of the spectrum, so to ensure that they
+all have about the same contrast ratios we would have to alter their
+hueness considerably.  In short, the effect would not be optimal as it
+would lead to exaggerations.  Plus, it would make ‘modus-vivendi’ look
+completely different than ‘modus-operandi’, to the effect that the two
+could not be properly considered part of the same project.
+
+
+File: modus-themes.info,  Node: What is the best setup for legibility?,  Prev: Why are colors mostly variants of blue magenta cyan?,  Up: Frequently Asked Questions (FAQ)
+
+8.4 What is the best setup for legibility?
+==========================================
+
+The Modus themes can be conceptually simplified as combinations of color
+values that account for relative luminance and inner harmony.  Those
+qualities do not guarantee that every end-user will have the same
+experience, due to differences between people, but also because of
+variances in hardware capabilities and configurations.  For the purposes
+of this document, we may only provide suggestions pertaining to the
+latter case.
+
+   ‘modus-operandi’ is best used outdoors or in a room that either gets
+direct sunlight or has plenty of light.  Whereas ‘modus-vivendi’ works
+better when there is not a lot of sunshine or the room has a source of
+light, preferably a faint or warm one.  It is possible to use
+‘modus-operandi’ at night and ‘modus-vivendi’ during the day, though
+that will depend on several variables, such as one’s overall perception
+of color, the paint on the walls and how that contributes to the
+impression of lightness in the room, the sense of space within the eye’s
+peripheral vision, hardware specifications, and environmental factors.
+
+   In general, an additional source of light other than that of the
+monitor can help reduce eye strain: the eyes are more relaxed when they
+do not have to focus on one point to gather light.
+
+   The monitor’s display settings must be accounted for.  Gamma ray
+values, in particular, need to be calibrated to neither amplify nor
+distort the perception of black.  Same principle for sharpness,
+brightness, and contrast as determined by the hardware, which all have
+an effect on how text is read on the screen.
+
+   There are software level methods on offer, such as the XrandR utility
+for the X Window System (X.org), which can make gamma corrections for
+each of the three channels of light (red, green, blue).  For example:
+
+     xrandr --output LVDS1 --brightness 1.0 --gamma 0.76:0.75:0.68
+
+   Typography is another variable.  Some font families are blurry at
+small point sizes.  Others may have a regular weight that is lighter
+(thiner) than that of their peers which may, under certain
+circumstances, cause a halo effect around each glyph.
+
+   The gist is that legibility cannot be fully solved at the theme
+level.  The color combinations may have been optimized for
+accessibility, though the remaining contributing factors in each case
+need to be considered in full.
+
+
+File: modus-themes.info,  Node: Contributing,  Next: Acknowledgements,  Prev: Frequently Asked Questions (FAQ),  Up: Top
+
+9 Contributing
 **************
 
 This section documents the canonical sources of the themes and the ways
@@ -3496,7 +3726,7 @@ in which you can contribute to their ongoing development.
 
 File: modus-themes.info,  Node: Sources of the themes,  Next: Issues you can help with,  Up: Contributing
 
-8.1 Sources of the themes
+9.1 Sources of the themes
 =========================
 
 The ‘modus-operandi’ and ‘modus-vivendi’ themes are built into Emacs.
@@ -3515,7 +3745,7 @@ not rely on any non-free code).
 
 File: modus-themes.info,  Node: Issues you can help with,  Next: Patches require copyright assignment to the FSF,  Prev: Sources of the themes,  Up: Contributing
 
-8.2 Issues you can help with
+9.2 Issues you can help with
 ============================
 
 A few tasks you can help with:
@@ -3543,7 +3773,7 @@ interest of the latter.
 
 File: modus-themes.info,  Node: Patches require copyright assignment to the FSF,  Prev: Issues you can help with,  Up: Contributing
 
-8.3 Patches require copyright assignment to the FSF
+9.3 Patches require copyright assignment to the FSF
 ===================================================
 
 Code contributions are most welcome.  For any major edit (more than 15
@@ -3605,8 +3835,8 @@ you to make contributions to Emacs in general.
 
 File: modus-themes.info,  Node: Acknowledgements,  Next: Meta,  Prev: Contributing,  Up: Top
 
-9 Acknowledgements
-******************
+10 Acknowledgements
+*******************
 
 The Modus themes are a collective effort.  Every bit of work matters.
 
@@ -3657,7 +3887,7 @@ commentary.
 
 File: modus-themes.info,  Node: Meta,  Next: GNU Free Documentation License,  Prev: Acknowledgements,  Up: Top
 
-10 Meta
+11 Meta
 *******
 
 If you are curious about the principles that govern the development of
@@ -4266,12 +4496,16 @@ B.3 Concept index
  [index ]
 * Menu:
 
+* Avoiding exaggerations in design:      What does it mean to avoid exaggerations?.
+                                                                (line 6)
 * Change a theme’s color saturation:     Override color saturation (DIY).
                                                                 (line 6)
 * Change a theme’s colors:               Override colors (DIY). (line 6)
 * Changelog:                             Learn about the latest changes.
                                                                 (line 6)
 * Color contrast:                        Measure color contrast (DIY).
+                                                                (line 6)
+* Contrast between adjacent colors:      Is the contrast ratio about adjacent colors?.
                                                                 (line 6)
 * Contributing:                          Issues you can help with.
                                                                 (line 6)
@@ -4287,7 +4521,13 @@ B.3 Concept index
                                                                 (line 6)
 * Font configurations:                   Font configurations for Org and others (DIY).
                                                                 (line 6)
+* Frequently Asked Questions (FAQ):      Frequently Asked Questions (FAQ).
+                                                                (line 6)
+* General setup for readability:         What is the best setup for legibility?.
+                                                                (line 6)
 * Implicitly supported packages:         Indirectly covered packages.
+                                                                (line 6)
+* Innate color qualities of the palette: Why are colors mostly variants of blue magenta cyan?.
                                                                 (line 6)
 * load-theme VS enable-theme:            Differences between loading and enabling.
                                                                 (line 6)
@@ -4307,91 +4547,96 @@ B.3 Concept index
 
 Tag Table:
 Node: Top860
-Node: Overview6280
-Node: How do the themes look like7823
-Node: Learn about the latest changes8331
-Node: Installation8713
-Node: Install manually from source9194
-Node: Install from the archives10019
-Node: Install on GNU/Linux10796
-Node: Debian 11 Bullseye11244
-Node: GNU Guix11554
-Node: Enable and load11837
-Node: Sample configuration for use-package14585
-Node: Differences between loading and enabling15954
-Node: Customization Options17994
-Node: Success' color-code23504
-Node: Bold constructs24413
-Node: Slanted constructs25030
-Node: Syntax styles25577
-Node: No mixed fonts27215
-Node: Link styles28310
-Node: Command prompts29884
-Node: Mode line31083
-Node: Completion UIs34696
-Node: Mail citations36565
-Node: Fringes37430
-Node: Language checkers38092
-Node: Line highlighting40041
-Node: Line numbers41590
-Node: Matching parentheses42668
-Node: Active region43558
-Node: Diffs44776
-Node: Org mode blocks46827
-Node: Org agenda habits48752
-Node: Heading styles50587
-Node: Scaled headings54689
-Node: Scaled heading sizes55292
-Node: UI typeface58426
-Node: Headings' typeface59272
-Node: Advanced customization (do-it-yourself)59896
-Node: Per-theme customization settings (DIY)61253
-Node: Case-by-case face specs using the themes' palette (DIY)62599
-Node: Face specs at scale using the themes' palette (DIY)67063
-Node: Remap face with local value (DIY)71880
-Node: Cycle through arbitrary colors (DIY)74358
-Node: Override colors (DIY)80924
-Node: Override color saturation (DIY)85817
-Node: Font configurations for Org and others (DIY)91570
-Ref: Font configurations for Org and others (DIY)-Footnote-193958
-Node: Custom Org user faces (DIY)94145
-Node: Update Org block delimiter fontification (DIY)97517
-Node: Measure color contrast (DIY)99477
-Node: Load theme depending on time of day102265
-Node: Backdrop for pdf-tools (DIY)103287
-Node: A theme-agnostic hook for theme loading (DIY)106043
-Node: Face coverage108433
-Node: Supported packages108903
-Node: Indirectly covered packages115677
-Node: Notes for individual packages116231
-Node: Note for inline Latex in Org buffers117048
-Node: Note for dimmerel117613
-Node: Note for display-fill-column-indicator-mode119104
-Node: Note for mmm-modeel background colors120731
-Node: Note for prism123115
-Node: Note for god-mode126345
-Node: Note on company-mode overlay pop-up128020
-Ref: Note on company-mode overlay pop-up-Footnote-1128710
-Ref: Note on company-mode overlay pop-up-Footnote-2128777
-Node: Note for ERC escaped color sequences128832
-Ref: Note for ERC escaped color sequences-Footnote-1130263
-Node: Note for powerline or spaceline130373
-Node: Note on SHR colors130790
-Node: Note for EWW and Elfeed fonts (SHR fonts)131228
-Node: Note for Helm grep131978
-Node: Note on vc-annotate-background-mode133470
-Node: Note on pdf-tools link hints134357
-Node: Contributing136790
-Node: Sources of the themes137190
-Node: Issues you can help with137928
-Node: Patches require copyright assignment to the FSF139128
-Node: Acknowledgements141423
-Node: Meta143851
-Node: GNU Free Documentation License145848
-Node: Indices171200
-Node: Function index171379
-Node: Variable index172616
-Node: Concept index174684
+Node: Overview6596
+Node: How do the themes look like8139
+Node: Learn about the latest changes8647
+Node: Installation9029
+Node: Install manually from source9510
+Node: Install from the archives10335
+Node: Install on GNU/Linux11112
+Node: Debian 11 Bullseye11560
+Node: GNU Guix11870
+Node: Enable and load12153
+Node: Sample configuration for use-package14901
+Node: Differences between loading and enabling16270
+Node: Customization Options18310
+Node: Success' color-code23903
+Node: Bold constructs24812
+Node: Slanted constructs25429
+Node: Syntax styles25976
+Node: No mixed fonts27614
+Node: Link styles28709
+Node: Command prompts30283
+Node: Mode line31482
+Node: Completion UIs35456
+Node: Mail citations37325
+Node: Fringes38178
+Node: Language checkers38840
+Node: Line highlighting40789
+Node: Line numbers42302
+Node: Matching parentheses43380
+Node: Active region44270
+Node: Diffs45488
+Node: Org mode blocks47427
+Node: Org agenda habits49312
+Node: Heading styles51147
+Node: Scaled headings55249
+Node: Scaled heading sizes55852
+Node: UI typeface58986
+Node: Headings' typeface59832
+Node: Advanced customization (do-it-yourself)60456
+Node: Per-theme customization settings (DIY)61819
+Node: Case-by-case face specs using the themes' palette (DIY)63165
+Node: Face specs at scale using the themes' palette (DIY)67629
+Node: Remap face with local value (DIY)72446
+Node: Cycle through arbitrary colors (DIY)74924
+Node: Override colors (DIY)81490
+Node: Override color saturation (DIY)86383
+Node: Font configurations for Org and others (DIY)92136
+Ref: Font configurations for Org and others (DIY)-Footnote-194564
+Node: Custom Org user faces (DIY)94751
+Node: Update Org block delimiter fontification (DIY)98123
+Node: Measure color contrast (DIY)100083
+Node: Load theme depending on time of day (DIY)102877
+Node: Backdrop for pdf-tools (DIY)103917
+Node: A theme-agnostic hook for theme loading (DIY)106679
+Node: Face coverage109069
+Node: Supported packages109538
+Node: Indirectly covered packages116279
+Node: Notes on individual packages116833
+Node: Note on inline Latex in Org buffers117657
+Node: Note on dimmerel118217
+Node: Note on display-fill-column-indicator-mode119702
+Node: Note on mmm-modeel background colors121323
+Node: Note for prism123702
+Node: Note for god-mode126928
+Node: Note on company-mode overlay pop-up128600
+Ref: Note on company-mode overlay pop-up-Footnote-1129288
+Ref: Note on company-mode overlay pop-up-Footnote-2129355
+Node: Note on ERC escaped color sequences129410
+Ref: Note on ERC escaped color sequences-Footnote-1130836
+Node: Note on powerline or spaceline130946
+Node: Note on SHR colors131358
+Node: Note on EWW and Elfeed fonts (SHR fonts)131793
+Node: Note on Helm grep132538
+Node: Note on vc-annotate-background-mode134025
+Node: Note on pdf-tools link hints134910
+Node: Frequently Asked Questions (FAQ)137342
+Node: Is the contrast ratio about adjacent colors?137916
+Node: What does it mean to avoid exaggerations?139429
+Node: Why are colors mostly variants of blue magenta cyan?141264
+Node: What is the best setup for legibility?145611
+Node: Contributing148222
+Node: Sources of the themes148625
+Node: Issues you can help with149363
+Node: Patches require copyright assignment to the FSF150563
+Node: Acknowledgements152858
+Node: Meta155288
+Node: GNU Free Documentation License157285
+Node: Indices182637
+Node: Function index182816
+Node: Variable index184053
+Node: Concept index186121
 
 End Tag Table
 
