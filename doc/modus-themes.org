@@ -3385,7 +3385,7 @@ you've customized any faces.
             "-draw"       "text %X,%Y '%c'"))))
 #+end_src
 
-* Frequently Asked Questions
+* Frequently Asked Questions (FAQ)
 :properties:
 :custom_id: h:b3384767-30d3-4484-ba7f-081729f03a47
 :end:
