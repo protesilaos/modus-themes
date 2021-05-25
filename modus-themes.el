@@ -1559,7 +1559,7 @@ The actual styling of the face is done by `modus-themes-faces'.")
 
 ;;; Customization variables
 
-(defvar modus-themes--recursive-flag nil
+(defvar modus-themes--inhibit-reload nil
   "Non-nil means the theme is being reloaded.
 In that case `modus-themes--set-option' will not reload the
 theme, to prevent infinite recursion.")
@@ -1568,11 +1568,10 @@ theme, to prevent infinite recursion.")
   "Custom setter for theme related user options.
 Will set SYM to VAL, and reload the current theme."
   (set-default sym val)
-  (unless modus-themes--recursive-flag
-    (let ((modus-themes--recursive-flag t))
-      (pcase (modus-themes--current-theme)
-	('modus-operandi (modus-themes-load-operandi))
-	('modus-vivendi (modus-themes-load-vivendi))))))
+  (unless modus-themes--inhibit-reload
+    (pcase (modus-themes--current-theme)
+      ('modus-operandi (modus-themes-load-operandi))
+      ('modus-vivendi (modus-themes-load-vivendi)))))
 
 ;;;; Current customization options (>= 1.0.0)
 
@@ -3106,17 +3105,19 @@ as when they are declared in the `:config' phase)."
 (defun modus-themes-load-operandi ()
   "Load `modus-operandi' and disable `modus-vivendi'.
 Also run `modus-themes-after-load-theme-hook'."
-  (disable-theme 'modus-vivendi)
-  (load-theme 'modus-operandi t)
-  (run-hooks 'modus-themes-after-load-theme-hook))
+  (let ((modus-themes--inhibit-reload t))
+    (disable-theme 'modus-vivendi)
+    (load-theme 'modus-operandi t)
+    (run-hooks 'modus-themes-after-load-theme-hook)))
 
 ;;;###autoload
 (defun modus-themes-load-vivendi ()
   "Load `modus-vivendi' and disable `modus-operandi'.
 Also run `modus-themes-after-load-theme-hook'."
-  (disable-theme 'modus-operandi)
-  (load-theme 'modus-vivendi t)
-  (run-hooks 'modus-themes-after-load-theme-hook))
+  (let ((modus-themes--inhibit-reload t))
+    (disable-theme 'modus-operandi)
+    (load-theme 'modus-vivendi t)
+    (run-hooks 'modus-themes-after-load-theme-hook)))
 
 (defun modus-themes--load-prompt ()
   "Helper for `modus-themes-toggle'."
