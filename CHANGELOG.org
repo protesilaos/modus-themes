@@ -15,6 +15,322 @@ For further details, please consult these additional resources:
 + Manual :: <https://protesilaos.com/modus-themes>
 + Screenshots :: <https://protesilaos.com/modus-themes-pictures>
 
+* 1.4.0
+
+#+begin_src text
+Modus themes version 1.4.0
+
+By Protesilaos Stavrou <info@protesilaos.com> on 2021-05-25
+
+This entry records the changes made to the project since the release of
+version 1.3.0 on 2021-04-17.  There have been around 100 commits in the
+meantime, as is the norm.
+
+If you are coming from older versions, please consult the change log
+entry for version 1.0.0 with regard to the breaking changes that were
+introduced.
+
+Every colour-related modification is always done in accordance with the
+overarching accessibility objective of the themes for a minimum contrast
+ratio of 7:1 between background and foreground values in their given
+combination (the WCAG AAA standard).
+
+URL of the official manual: <https://protesilaos.com/modus-themes>.  Or
+read it with Emacs' Info reader by evaluating this form:
+
+    (info "(modus-themes) Top")
+
+Remember that the themes are built into Emacs version 28 (current
+development target), and are available on GNU ELPA, as well as other
+archives.
+
+
+Customisations variables
+------------------------
+
++ Redefined the style of 'fg-only' that 'modus-themes-diffs' accepts, so
+  that it no longer uses a red-green colour coding, but applies a
+  red-blue distinction instead.  The symbol 'fg-only' is a deprecated
+  alias for the more descriptive 'fg-only-deuteranopia'.
+
+  This is done because green text on a light background is one of the
+  worst combinations for the purposes of legibility, as it does not
+  stand out in its context and thus forces undesirable compromises.
+  Whereas red and blue work well in this case, while making the style
+  accessible to users with red-green colour deficiency (deuteranopia).
+  To avoid inconsistencies between Modus Operandi and Modus Vivendi, we
+  replace green with blue in both themes.  A full report is available in
+  issue 183 which was created on April 21, 2021:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/183>.
+
++ Introduced the boolean 'modus-themes-success-deuteranopia' which
+  replaces all instances of green with blue in contexts where a
+  red-green colour coding is in effect (e.g. Org TODO vs DONE keywords,
+  isearch current match...).
+
++ Implemented 'modus-themes-mail-citations' to control the colouration
+  of cited text in email-related buffers, such as Gnus or message.el.
+  It accepts values nil, 'faint', and 'monochrome'.  By default (the nil
+  value) the text of citations cycles through blue, green, red, yellow
+  depending on the level of depth.
+
++ Expanded the set of options for 'modus-themes-mode-line' to encompass
+  the values 'borderless-accented', 'borderless-accented-3d', and
+  'borderless-accented-moody'.  Those are variations of existing styles.
+  The complete list:
+
+  - nil (default)
+  - 3d
+  - moody
+  - borderless
+  - borderless-3d
+  - borderless-moody
+  - accented
+  - accented-3d
+  - accented-moody
+  - borderless-accented
+  - borderless-accented-3d
+  - borderless-accented-moody
+
++ Renamed the non-nil values that 'modus-themes-org-blocks' accepts from
+  'grayscale', 'rainbow' to 'gray-background' and 'tinted-background',
+  respectively.  The new symbols better describe their effect on Org
+  source blocks, namely, that they affect the background of the block
+  rather than the foreground.  The old symbols will still work but are
+  considered deprecated aliases of the newer ones.
+
++ Altered the intensity of the 'modus-themes-hl-line' option
+  'accented-background' to a more noticeable shade of cyan/teal.  The
+  old style was too subtle to have the desired effect.  The value
+  'underline-accented' is not affected by this change, as it still uses
+  the same subtle background it did before in combination with a more
+  pronounced underline colour.
+
++ Deleted all deprecation warnings that concerned the transition from
+  version 0.13.0 of the themes to 1.0.0.  Those had been in effect for
+  several months, spanning four tagged releases.
+
+
+Faces or face groups
+--------------------
+
++ Reconsidered the use of colour in all email-related citation faces to
+  avoid exaggerations and reduce complexity.  Colour values have been
+  tweaked to tone down their overall intensity, while the number of
+  colours has been reduced to four.  Gnus and Mu4e have faces for more
+  levels of citation depth, though those will simply repeat the
+  four-colour cycle.
+
++ Made the 'message-mml' face look consistent with the rest of the
+  buffer while composing an email by changing its foreground colour from
+  a yellow to a cyan variant.
+
++ Refined several faces in the Notmuch group in the interest of harmony:
+
+  - Individual message headers in 'notmuch-show-mode' use bold text in
+    addition to their existing subtle background to better stand out in
+    their context. The face is 'notmuch-message-summary-face'.
+
+  - Tags are no longer set unconditionally to a bold typographic weight.
+    They become such for unread threads in 'notmuch-search-mode'
+    buffers, as well as for headers of 'notmuch-show-mode'.
+
+  - Removal and addition of tags is now denoted by a strike-through and
+    an underline effect, respectively, whereas before they both used
+    underlines with the only difference being their colour.
+
+  - The subject line in 'notmuch-search-mode' buffers uses the main
+    foreground instead of a dimmed one.  The field of matching authors
+    has a tweaked foreground to keep the tabular view easy to read.
+
+  - All cryptography-related faces are simplified to not show a coloured
+    background but only use a foreground colour instead.
+
++ Removed direct support for 'counsel-notmuch' as it already inherits
+  from the relevant notmuch faces.  The package is thus considered
+  indirectly supported.
+
++ Refrained from setting a background to the 'csv-separator-face' as it
+  would inevitably colourise the negative space in the tabular view
+  created by 'csv-align-mode'.  A red text colour is used instead, even
+  though this is not common practice: it is easier to spot for small,
+  single characters, such as a comma or a semicolon that is meant to
+  have a special meaning.  Thanks to Kevin Fleming for reporting the
+  problem and for offering feedback on the choice of colour in issue
+  194: <https://gitlab.com/protesilaos/modus-themes/-/issues/194>.
+
++ Distinguished between ordinary links and widget buttons by removing
+  the underline from the latter (the 'widget-button' face) and altering
+  the shade of its foreground colour.  Such widgets are used in Emacs'
+  Custom interfaces and can also be found in the default Notmuch "hello"
+  buffer that runs 'notmuch-hello-mode'.
+
++ Tweaked the Ediff current faces to be consistent with 'diff-mode' and
+  related.  In practice, this only applies when 'modus-themes-diffs' is
+  set to a value of 'fg-only-deuteranopia', as it adds a dim background
+  to the current diff hunk.  All other styles of 'modus-themes-diffs'
+  look the same as before while using Ediff.
+
++ Simplified the faces of 'corfu' to match the current state of the
+  upstream project.  Thanks to Daniel Mendler (its developer) for
+  reporting this in issue 184:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/184>.
+
++ Refined all Eshell faces so that the output of 'ls' is consistent with
+  the overall aesthetic of the themes.  Also made 'eshell-prompt'
+  inherit from 'comint-highlight-prompt' to look the same as other such
+  prompts (all are configurable by 'modus-themes-prompts').
+
++ Revised 'eshell-prompt-extras' and 'eshell-git-prompt' to use colours
+  and typographic weight that better match the style of the various
+  configurations they offer.
+
++ Simplified 'eshell-syntax-highlighting' to inherit from the standard
+  Eshell faces, where appropriate.
+
++ Adjusted the colour of 'centaur-tabs-active-bar-face' and removed the
+  bespoke 'fg-tab-accent' colour from 'modus-themes-operandi-colors' and
+  'modus-themes-vivendi-colors' that was only used by it (and which
+  should have never been introduced to begin with).
+
++ Updated the 'tab-bar-groups' faces to match changes upstream.  Thanks
+  to Fritz Grabo (its developer) for the patch in merge request 35:
+  <https://gitlab.com/protesilaos/modus-themes/-/merge_requests/35>.
+
++ Changed the Ibuffer title and group faces to better differentiate
+  between group titles and special or non-file-visiting buffers.  Thanks
+  to Nicolas De Jaeghere for the patch in merge request 37:
+  <https://gitlab.com/protesilaos/modus-themes/-/merge_requests/37>.
+
++ Ensured that all faces that denote a "success" state, or which are
+  expected to be coloured in green in a red-green binary, can use an
+  appropriate blue colour (or colour combination that involves blue)
+  instead when 'modus-themes-success-deuteranopia' is set to a non-nil
+  value.
+
++ Added support for the new 'bookmark-face' in Emacs version 28.  This
+  means that the built-in bookmark.el library is directly supported by
+  the themes.  This face can be disabled by setting 'bookmark-fontify'
+  to nil.  Thanks to Mark Barton for reporting the presence of this new
+  face and for providing feedback on its style in issue 189:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/189>.
+
++ Aligned 'hes-mode' ('highlight-escape-sequences') with the standard
+  font-lock faces for regexp grouping.  This means that it conforms with
+  changes to the 'modus-themes-syntax' variable.
+
++ Reconfigured the 'org-quote' face to adapt its style depending on the
+  value of 'modus-themes-org-blocks'.  The default is a subtle blue/cold
+  foreground colour against the main background.  When a value of
+  'gray-background' is assigned to 'modus-themes-org-blocks', the text's
+  colour becomes that of the main foreground in order to maintain a good
+  level of legibility.  Thanks to Rudolf Adamkovič for the feedback in
+  issue 190: <https://gitlab.com/protesilaos/modus-themes/-/issues/190>.
+
++ Refashioned the 'show-paren-match-expression' face to make it apply a
+  bespoke background colour and not override the expression's foreground
+  colours.  This face is used by 'show-paren-mode' when the
+  customisation variable 'show-paren-style' is set to the 'expression'
+  value.  Thanks to Rudolf Adamkovič for the feedback in issue 191:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/191>.
+
++ Made headings level 8 use a fine shade of magenta by default instead
+  of gray (notwithstanding user changes to 'modus-themes-headings').
+  This should have a negligible difference in Org or Outline buffers,
+  but is more noticeable when editing Elisp in Emacs28 while also using
+  'outline-minor-mode' and with 'outline-minor-mode-highlight' set to
+  'override'.  That is because several top-level forms use that heading
+  level with those configurations.
+
+
+Documentation (the manual)
+--------------------------
+
++ Incorporated a sample configuration block with all customisation
+  variables and with comment annotations of their available options, in
+  an attempt to make it easier for users to discover what the themes
+  provide.
+
++ Replaced all instances of "modeline" with "mode line" for consistency
+  with the Emacs style.  Thanks to Rudolf Adamkovič for the patch that
+  started this process in merge request 33:
+  <https://gitlab.com/protesilaos/modus-themes/-/merge_requests/33>.
+
++ Wrote note on setting mode line faces that indicate the state of
+  'god-mode'.  Thanks to Rudolf Adamkovič for the feedback in issue 187:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/187>.  Also
+  thanks to Rudolf for updating the applicable hook in merge request 34:
+  <https://gitlab.com/protesilaos/modus-themes/-/merge_requests/34>.
+
++ Listed 'org-mode' variables that affect fontification in blocks:
+  'org-src-fontify-natively', 'org-fontify-whole-block-delimiter-line',
+  and 'org-fontify-quote-and-verse-blocks'.  This complements the
+  already documented variables 'org-fontify-whole-heading-line' and
+  'org-fontify-done-headline' that pertain to headings.
+
++ Included note on fontifying inline Latex expressions in Org buffers.
+  Thanks to Rudolf Adamkovič for the feedback in issue 190:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/190>.
+
++ Elaborated on the use of 'face-remap-add-relative' by means of sample
+  code that cycles through arbitrary colours for the 'region' face.
+  This is filed under the "Do It Yourself" (DIY) section.
+
++ Provided a DIY method for adapting the fontification of Org source
+  block delimiter lines to the value of 'modus-themes-org-blocks'.
+
++ Expanded the DIY entry on overriding the saturation of the active
+  theme's colours with a method that combines the programmatic approach
+  with manual overrides.  The user can thus specify the colour values
+  they want to override and let the rest be handled by Elisp.
+
++ Introduced a section with answers to Frequently Asked Questions (FAQ)
+  about the design of the themes as well as recommendations on how to
+  ensure optimal reading conditions or start thinking about them.  The
+  questions are:
+
+  - Is the contrast ratio about adjacent colors?
+  - What does it mean to avoid exaggerations?
+  - Why are colors mostly variants of blue, magenta, cyan?
+  - What is the best setup for legibility?
+
+
+Miscellaneous
+-------------
+
++ Removed superfluous code from internal functions and adapted their
+  indentation to make them easier to read.
+
++ Recalibrated some values in 'modus-themes-vivendi-colors' to ensure
+  consistency in luminance with other colours that are used in their
+  context.  Those are subtle changes that can only be discerned in
+  side-by-side comparisons of the before and after states.  Thanks to
+  André Alexandre Gomes for the feedback in issue 193:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/193>.
+
++ Changed the saturation and hueness of the bespoke 'fg-comment-yellow'
+  in 'modus-themes-operandi-colors' and 'modus-themes-vivendi-colors' to
+  better contrast with its context, while still keeping its luminance
+  consistent with its role as a colour for comments in code.  This is
+  used when 'modus-themes-syntax' is configured appropriately (read its
+  doc string or consult the manual).
+
++ Attempted to add explicit support for the faces of the built-in
+  pulse.el library, but ultimately opted against them as the doc string
+  of 'pulse-highlight-face' advises against customising it, even though
+  it is not clear from the source code in emacs.git what the problem
+  could be.  We shall reconsider this case for the next release cycle.
+  Thanks to Gustavo Barros for the feedback on several aspects of this
+  topic in issues 185 and 200:
+
+  - <https://gitlab.com/protesilaos/modus-themes/-/issues/185>
+  - <https://gitlab.com/protesilaos/modus-themes/-/issues/200>
+
++ Took the feedback of John Haman in issue 199 as a reminder to complete
+  the set of possible values for the 'modus-themes-mode-line' variable:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/199>.
+#+end_src
+
 * 1.3.0
 
 #+begin_src text
