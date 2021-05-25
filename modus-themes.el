@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-05-25 15:14:04 +0300>
+;; Last-Modified: <2021-05-25 23:17:25 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -5922,7 +5922,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(outline-7 ((,class :inherit modus-themes-heading-7)))
     `(outline-8 ((,class :inherit modus-themes-heading-8)))
 ;;;;; outline-minor-faces
-    `(outline-minor-0 ((,class :background ,bg-alt)))
+    `(outline-minor-0 (()))
 ;;;;; package (M-x list-packages)
     `(package-description ((,class :foreground ,fg-special-cold)))
     `(package-help-section-name ((,class :inherit bold :foreground ,magenta-alt-other)))
