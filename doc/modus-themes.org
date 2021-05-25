@@ -3467,9 +3467,9 @@ light: red, green, blue.  In hexadecimal RGB notation, a color value is
 read as three pairs of red, green, and blue light: =#RRGGBB=.  Of those
 three, the most luminant is green, while the least luminant is blue.
 
-The three basic colors represent each of the three channels of light.
-They can be intermixed to give us six colors: red and green derive
-yellow, green and blue make cyan, red and blue turn into magenta.
+The three basic colors represent each of the channels of light.  They
+can be intermixed to give us six colors: red and green derive yellow,
+green and blue make cyan, red and blue turn into magenta.
 
 We can test the luminance of each of those against white and black to
 get a sense of how not all colors are equally good for accessibility
@@ -3503,7 +3503,7 @@ and hints of green give us suitable shades of purple.
 Due to the need of maintaining some difference in hueness between
 adjacent colors, it is not possible to make red, green, and yellow the
 primary colors, because blue could not be used to control their
-luminance and, thus the relevant space shrinks considerably.
+luminance and, thus the relevant space would shrink considerably.
 
 [[#h:5ce7ae2e-9348-4e55-b4cf-9302345b1826][Is the contrast ratio about adjacent colors?]]
 
@@ -3562,7 +3562,7 @@ light, preferably a faint or warm one.  It is possible to use
 will depend on several variables, such as one's overall perception of
 color, the paint on the walls and how that contributes to the impression
 of lightness in the room, the sense of space within the eye's peripheral
-vision, and environmental factors.
+vision, hardware specifications, and environmental factors.
 
 In general, an additional source of light other than that of the monitor
 can help reduce eye strain: the eyes are more relaxed when they do not
