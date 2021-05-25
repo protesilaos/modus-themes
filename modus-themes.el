@@ -1559,16 +1559,22 @@ The actual styling of the face is done by `modus-themes-faces'.")
 
 ;;; Customization variables
 
-(defvar modus-themes--inhibit-reload nil
-  "Non-nil means the theme is being reloaded.
-In that case `modus-themes--set-option' will not reload the
-theme, to prevent infinite recursion.")
+(defcustom modus-themes-inhibit-reload nil
+  "Prevent customizing a user option from reloading the theme.
+
+If non-nil, prevent customizing a theme-related user option from
+reloading the currently active modus theme."
+  :group 'modus-themes
+  :package-version '(modus-themes . "1.5.0")
+  :version "28.1"
+  :type 'boolean)
 
 (defun modus-themes--set-option (sym val)
   "Custom setter for theme related user options.
-Will set SYM to VAL, and reload the current theme."
+Will set SYM to VAL, and reload the current theme, unless
+`modus-themes-inhibit-reload' is non-nil."
   (set-default sym val)
-  (unless modus-themes--inhibit-reload
+  (unless modus-themes-inhibit-reload
     (pcase (modus-themes--current-theme)
       ('modus-operandi (modus-themes-load-operandi))
       ('modus-vivendi (modus-themes-load-vivendi)))))
@@ -3134,7 +3140,7 @@ as when they are declared in the `:config' phase)."
 (defun modus-themes-load-operandi ()
   "Load `modus-operandi' and disable `modus-vivendi'.
 Also run `modus-themes-after-load-theme-hook'."
-  (let ((modus-themes--inhibit-reload t))
+  (let ((modus-themes-inhibit-reload t))
     (disable-theme 'modus-vivendi)
     (load-theme 'modus-operandi t)
     (run-hooks 'modus-themes-after-load-theme-hook)))
@@ -3143,7 +3149,7 @@ Also run `modus-themes-after-load-theme-hook'."
 (defun modus-themes-load-vivendi ()
   "Load `modus-vivendi' and disable `modus-operandi'.
 Also run `modus-themes-after-load-theme-hook'."
-  (let ((modus-themes--inhibit-reload t))
+  (let ((modus-themes-inhibit-reload t))
     (disable-theme 'modus-operandi)
     (load-theme 'modus-vivendi t)
     (run-hooks 'modus-themes-after-load-theme-hook)))
