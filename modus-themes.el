@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-05-26 17:38:42 +0300>
+;; Last-Modified: <2021-05-26 19:04:12 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -246,6 +246,7 @@
 ;;     jupyter
 ;;     kaocha-runner
 ;;     keycast
+;;     ledger-mode
 ;;     line numbers (`display-line-numbers-mode' and global variant)
 ;;     lsp-mode
 ;;     lsp-ui
@@ -5202,6 +5203,17 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; keycast
     `(keycast-command ((,class :inherit bold :foreground ,blue-active)))
     `(keycast-key ((,class :background ,blue-active :foreground ,bg-main)))
+;;;;; ledger-mode
+    `(ledger-font-auto-xact-face ((,class :foreground ,magenta)))
+    `(ledger-font-account-name-face ((,class :foreground ,fg-special-cold)))
+    `(ledger-font-directive-face ((,class :foreground ,magenta-alt-other)))
+    `(ledger-font-posting-date-face ((,class :inherit bold :foreground ,fg-main)))
+    `(ledger-font-periodic-xact-face ((,class :foreground ,cyan-alt-other)))
+    `(ledger-font-posting-amount-face ((,class :foreground ,fg-special-mild)))
+    `(ledger-font-payee-cleared-face ((,class :foreground ,blue-alt)))
+    `(ledger-font-payee-pending-face ((,class :foreground ,yellow)))
+    `(ledger-font-payee-uncleared-face ((,class :foreground ,red-alt-other)))
+    `(ledger-font-xact-highlight-face ((,class :background ,bg-hl-alt)))
 ;;;;; line numbers (display-line-numbers-mode and global variant)
     `(line-number
       ((,class :inherit default

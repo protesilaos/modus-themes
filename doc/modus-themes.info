@@ -47,8 +47,7 @@ themes, and provides every other piece of information pertinent to them.
 does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
-   Current development target is 1.5.0-dev.  This manual was built on
-2021-05-25 20:26 +0300.
+   Current development target is 1.5.0-dev.
 
 * Menu:
 
@@ -2877,6 +2876,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • jupyter
    • kaocha-runner
    • keycast
+   • ledger-mode
    • line numbers (‘display-line-numbers-mode’ and global variant)
    • lsp-mode
    • lsp-ui
@@ -3894,14 +3894,14 @@ Ideas and user feedback
      Kevin Fleming, Kévin Le Gouguec, Kostadin Ninev, Len Trigg, Manuel
      Uberti, Mark Burton, Markus Beppler, Mauro Aranda, Michael
      Goldenberg, Morgan Smith, Murilo Pereira, Nicky van Foreest,
-     Nicolas De Jaeghere, Paul Poloskov, Pete Kazmier, Peter Wu, Philip
-     K., Pierre Téchoueyres, Roman Rudakov, Ryan Phillips, Rudolf
-     Adamkovič, Sam Kleinman, Shreyas Ragavan, Simon Pugnet, Tassilo
-     Horn, Thibaut Verron, Trey Merkley, Togan Muftuoglu, Toon Claes,
-     Uri Sharf, Utkarsh Singh, Vincent Foley.  As well as users: Ben,
-     CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji,
-     Nick, TheBlob42, Trey, bepolymathe, doolio, fleimgruber, iSeeU,
-     jixiuf, okamsn, pRot0ta1p.
+     Nicolas De Jaeghere, Paul Poloskov, Pengji Zhang, Pete Kazmier,
+     Peter Wu, Philip K., Pierre Téchoueyres, Roman Rudakov, Ryan
+     Phillips, Rudolf Adamkovič, Sam Kleinman, Shreyas Ragavan, Simon
+     Pugnet, Tassilo Horn, Thibaut Verron, Trey Merkley, Togan
+     Muftuoglu, Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.  As
+     well as users: Ben, CsBigDataHub1, Emacs Contrib, Eugene,
+     Fourchaux, Fredrik, Moesasji, Nick, TheBlob42, Trey, bepolymathe,
+     doolio, fleimgruber, iSeeU, jixiuf, okamsn, pRot0ta1p.
 
 Packaging
      Basil L. Contovounesios, Eli Zaretskii, Glenn Morris, Mauro Aranda,
@@ -4580,97 +4580,97 @@ B.3 Concept index
 
 Tag Table:
 Node: Top860
-Node: Overview6691
-Node: How do the themes look like8234
-Node: Learn about the latest changes8742
-Node: Installation9124
-Node: Install manually from source9605
-Node: Install from the archives10430
-Node: Install on GNU/Linux11207
-Node: Debian 11 Bullseye11655
-Node: GNU Guix11965
-Node: Enable and load12248
-Node: Sample configuration for use-package15237
-Node: Differences between loading and enabling16606
-Node: Customization Options18646
-Node: Custom reload theme24432
-Node: Success' color-code25019
-Node: Bold constructs25956
-Node: Slanted constructs26573
-Node: Syntax styles27120
-Node: No mixed fonts28758
-Node: Link styles29853
-Node: Command prompts31427
-Node: Mode line32626
-Node: Completion UIs36600
-Node: Mail citations38471
-Node: Fringes39324
-Node: Language checkers39986
-Node: Line highlighting41934
-Node: Line numbers43447
-Node: Matching parentheses44525
-Node: Active region45415
-Node: Diffs46633
-Node: Org mode blocks48572
-Node: Org agenda habits50457
-Node: Heading styles52292
-Node: Scaled headings56522
-Node: Scaled heading sizes57125
-Node: UI typeface60259
-Node: Headings' typeface61105
-Node: Advanced customization (do-it-yourself)61729
-Node: Per-theme customization settings (DIY)63092
-Node: Case-by-case face specs using the themes' palette (DIY)64438
-Node: Face specs at scale using the themes' palette (DIY)68902
-Node: Remap face with local value (DIY)73719
-Node: Cycle through arbitrary colors (DIY)76197
-Node: Override colors (DIY)82763
-Node: Override color saturation (DIY)87656
-Node: Font configurations for Org and others (DIY)93409
-Ref: Font configurations for Org and others (DIY)-Footnote-195837
-Node: Custom Org user faces (DIY)96024
-Node: Update Org block delimiter fontification (DIY)99396
-Node: Measure color contrast (DIY)101356
-Node: Load theme depending on time of day (DIY)104150
-Node: Backdrop for pdf-tools (DIY)105190
-Node: A theme-agnostic hook for theme loading (DIY)107952
-Node: Face coverage110342
-Node: Supported packages110811
-Node: Indirectly covered packages117552
-Node: Notes on individual packages118106
-Node: Note on inline Latex in Org buffers118930
-Node: Note on dimmerel119490
-Node: Note on display-fill-column-indicator-mode120975
-Node: Note on mmm-modeel background colors122596
-Node: Note for prism124975
-Node: Note for god-mode128201
-Node: Note on company-mode overlay pop-up129873
-Ref: Note on company-mode overlay pop-up-Footnote-1130561
-Ref: Note on company-mode overlay pop-up-Footnote-2130628
-Node: Note on ERC escaped color sequences130683
-Ref: Note on ERC escaped color sequences-Footnote-1132109
-Node: Note on powerline or spaceline132219
-Node: Note on SHR colors132631
-Node: Note on EWW and Elfeed fonts (SHR fonts)133066
-Node: Note on Helm grep133811
-Node: Note on vc-annotate-background-mode135298
-Node: Note on pdf-tools link hints136183
-Node: Frequently Asked Questions (FAQ)138615
-Node: Is the contrast ratio about adjacent colors?139189
-Node: What does it mean to avoid exaggerations?140702
-Node: Why are colors mostly variants of blue magenta cyan?142537
-Node: What is the best setup for legibility?146884
-Node: Contributing149495
-Node: Sources of the themes149898
-Node: Issues you can help with150636
-Node: Patches require copyright assignment to the FSF151836
-Node: Acknowledgements154131
-Node: Meta156561
-Node: GNU Free Documentation License158558
-Node: Indices183910
-Node: Function index184089
-Node: Variable index185326
-Node: Concept index187467
+Node: Overview6641
+Node: How do the themes look like8184
+Node: Learn about the latest changes8692
+Node: Installation9074
+Node: Install manually from source9555
+Node: Install from the archives10380
+Node: Install on GNU/Linux11157
+Node: Debian 11 Bullseye11605
+Node: GNU Guix11915
+Node: Enable and load12198
+Node: Sample configuration for use-package15187
+Node: Differences between loading and enabling16556
+Node: Customization Options18596
+Node: Custom reload theme24382
+Node: Success' color-code24969
+Node: Bold constructs25906
+Node: Slanted constructs26523
+Node: Syntax styles27070
+Node: No mixed fonts28708
+Node: Link styles29803
+Node: Command prompts31377
+Node: Mode line32576
+Node: Completion UIs36550
+Node: Mail citations38421
+Node: Fringes39274
+Node: Language checkers39936
+Node: Line highlighting41884
+Node: Line numbers43397
+Node: Matching parentheses44475
+Node: Active region45365
+Node: Diffs46583
+Node: Org mode blocks48522
+Node: Org agenda habits50407
+Node: Heading styles52242
+Node: Scaled headings56472
+Node: Scaled heading sizes57075
+Node: UI typeface60209
+Node: Headings' typeface61055
+Node: Advanced customization (do-it-yourself)61679
+Node: Per-theme customization settings (DIY)63042
+Node: Case-by-case face specs using the themes' palette (DIY)64388
+Node: Face specs at scale using the themes' palette (DIY)68852
+Node: Remap face with local value (DIY)73669
+Node: Cycle through arbitrary colors (DIY)76147
+Node: Override colors (DIY)82713
+Node: Override color saturation (DIY)87606
+Node: Font configurations for Org and others (DIY)93359
+Ref: Font configurations for Org and others (DIY)-Footnote-195787
+Node: Custom Org user faces (DIY)95974
+Node: Update Org block delimiter fontification (DIY)99346
+Node: Measure color contrast (DIY)101306
+Node: Load theme depending on time of day (DIY)104100
+Node: Backdrop for pdf-tools (DIY)105140
+Node: A theme-agnostic hook for theme loading (DIY)107902
+Node: Face coverage110292
+Node: Supported packages110761
+Node: Indirectly covered packages117521
+Node: Notes on individual packages118075
+Node: Note on inline Latex in Org buffers118899
+Node: Note on dimmerel119459
+Node: Note on display-fill-column-indicator-mode120944
+Node: Note on mmm-modeel background colors122565
+Node: Note for prism124944
+Node: Note for god-mode128170
+Node: Note on company-mode overlay pop-up129842
+Ref: Note on company-mode overlay pop-up-Footnote-1130530
+Ref: Note on company-mode overlay pop-up-Footnote-2130597
+Node: Note on ERC escaped color sequences130652
+Ref: Note on ERC escaped color sequences-Footnote-1132078
+Node: Note on powerline or spaceline132188
+Node: Note on SHR colors132600
+Node: Note on EWW and Elfeed fonts (SHR fonts)133035
+Node: Note on Helm grep133780
+Node: Note on vc-annotate-background-mode135267
+Node: Note on pdf-tools link hints136152
+Node: Frequently Asked Questions (FAQ)138584
+Node: Is the contrast ratio about adjacent colors?139158
+Node: What does it mean to avoid exaggerations?140671
+Node: Why are colors mostly variants of blue magenta cyan?142506
+Node: What is the best setup for legibility?146853
+Node: Contributing149464
+Node: Sources of the themes149867
+Node: Issues you can help with150605
+Node: Patches require copyright assignment to the FSF151805
+Node: Acknowledgements154100
+Node: Meta156544
+Node: GNU Free Documentation License158541
+Node: Indices183893
+Node: Function index184072
+Node: Variable index185309
+Node: Concept index187450
 
 End Tag Table
 
