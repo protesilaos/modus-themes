@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-05-26 19:31:56 +0300>
+;; Last-Modified: <2021-05-26 20:29:36 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -4978,11 +4978,11 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; hl-todo
     `(hl-todo ((,class :inherit (bold modus-themes-slant) :foreground ,red-alt-other)))
 ;;;;; hydra
-    `(hydra-face-amaranth ((,class :inherit bold :foreground ,yellow)))
-    `(hydra-face-blue ((,class :inherit bold :foreground ,blue-alt)))
-    `(hydra-face-pink ((,class :inherit bold :foreground ,magenta-alt)))
-    `(hydra-face-red ((,class :inherit bold :foreground ,red)))
-    `(hydra-face-teal ((,class :inherit bold :foreground ,cyan)))
+    `(hydra-face-amaranth ((,class :inherit bold :foreground ,yellow-alt)))
+    `(hydra-face-blue ((,class :inherit bold :foreground ,blue)))
+    `(hydra-face-pink ((,class :inherit bold :foreground ,magenta-alt-faint)))
+    `(hydra-face-red ((,class :inherit bold :foreground ,red-faint)))
+    `(hydra-face-teal ((,class :inherit bold :foreground ,cyan-alt-other)))
 ;;;;; hyperlist
     `(hyperlist-condition ((,class :foreground ,green)))
     `(hyperlist-hashtag ((,class :foreground ,yellow)))
@@ -6508,7 +6508,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(tomatinho-reset-face ((,class :inherit shadow)))
 ;;;;; transient
     `(transient-active-infix ((,class :inherit modus-themes-special-mild)))
-    `(transient-amaranth ((,class :inherit bold :foreground ,yellow)))
+    `(transient-amaranth ((,class :inherit bold :foreground ,yellow-alt)))
     `(transient-argument ((,class :inherit bold :foreground ,red-alt)))
     `(transient-blue ((,class :inherit bold :foreground ,blue)))
     `(transient-disabled-suffix ((,class :inherit modus-themes-intense-red)))
@@ -6521,8 +6521,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(transient-key ((,class :inherit modus-themes-key-binding)))
     `(transient-mismatched-key ((,class :underline t)))
     `(transient-nonstandard-key ((,class :underline t)))
-    `(transient-pink ((,class :inherit bold :foreground ,magenta)))
-    `(transient-red ((,class :inherit bold :foreground ,red-intense)))
+    `(transient-pink ((,class :inherit bold :foreground ,magenta-alt-faint)))
+    `(transient-red ((,class :inherit bold :foreground ,red-faint)))
     `(transient-teal ((,class :inherit bold :foreground ,cyan-alt-other)))
     `(transient-unreachable ((,class :foreground ,fg-unfocused)))
     `(transient-unreachable-key ((,class :foreground ,fg-unfocused)))
