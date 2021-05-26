@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-05-26 10:06:30 +0300>
+;; Last-Modified: <2021-05-26 16:51:56 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -718,9 +718,9 @@ symbol and the latter as a string.")
     (green-faint . "#78bf78")
     (green-alt-faint . "#99b56f")
     (green-alt-other-faint . "#88bf99")
-    (yellow . "#e0cc00")
-    (yellow-alt . "#c4d030")
-    (yellow-alt-other . "#e3c55f")
+    (yellow . "#d0bc00")
+    (yellow-alt . "#c0c530")
+    (yellow-alt-other . "#d3b55f")
     (yellow-faint . "#d2b580")
     (yellow-alt-faint . "#cabf77")
     (yellow-alt-other-faint . "#d0ba95")
