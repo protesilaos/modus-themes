@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-05-26 19:04:12 +0300>
+;; Last-Modified: <2021-05-26 19:31:56 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -6759,7 +6759,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(whitespace-empty ((,class :inherit modus-themes-intense-magenta)))
     `(whitespace-hspace ((,class :background ,bg-whitespace :foreground ,fg-whitespace)))
     `(whitespace-indentation ((,class :background ,bg-whitespace :foreground ,fg-whitespace)))
-    `(whitespace-line ((,class :background ,bg-alt)))
+    `(whitespace-line ((,class :inherit modus-themes-subtle-yellow)))
     `(whitespace-newline ((,class :background ,bg-whitespace :foreground ,fg-whitespace)))
     `(whitespace-space ((,class :background ,bg-whitespace :foreground ,fg-whitespace)))
     `(whitespace-space-after-tab ((,class :inherit modus-themes-subtle-magenta)))
