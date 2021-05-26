@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-05-25 23:17:25 +0300>
+;; Last-Modified: <2021-05-26 10:06:30 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -6183,6 +6183,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                :background ,@(pcase modus-themes-completions
                                ('opinionated (list bg-active))
                                (_ (list bg-inactive))))))
+    `(selectrum-mouse-highlight ((,class :inherit highlight)))
     `(selectrum-primary-highlight
       ((,class :inherit bold
                ,@(modus-themes--standard-completions
