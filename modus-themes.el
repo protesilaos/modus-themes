@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-05-26 20:35:24 +0300>
+;; Last-Modified: <2021-05-27 15:13:25 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -1474,8 +1474,15 @@ The actual styling of the face is done by `modus-themes-faces'."
 (defface modus-themes-variable-pitch nil
   "Generic face for applying a conditional `variable-pitch'.
 This behaves in accordance with `modus-themes-no-mixed-fonts',
-`modus-themes-variable-pitch-headings' for all heading levels, and
-`modus-themes-variable-pitch-ui'.
+`modus-themes-variable-pitch-headings' for all heading levels,
+and `modus-themes-variable-pitch-ui'.
+
+The actual styling of the face is done by `modus-themes-faces'."
+  :group 'modus-theme-faces)
+
+(defface modus-themes-fixed-pitch nil
+  "Generic face for applying a conditional `fixed-pitch'.
+This behaves in accordance with `modus-themes-no-mixed-fonts'.
 
 The actual styling of the face is done by `modus-themes-faces'."
   :group 'modus-theme-faces)
@@ -2659,16 +2666,16 @@ Those are stored in `modus-themes-faces' and
   (when modus-themes-bold-constructs
     (list :inherit 'bold)))
 
-(defun modus-themes--mixed-fonts ()
-  "Conditional application of `fixed-pitch' inheritance."
-  (unless modus-themes-no-mixed-fonts
-    (list :inherit 'fixed-pitch)))
-
 (defun modus-themes--slant ()
   "Conditional use of italics for slant attribute."
   (if modus-themes-slanted-constructs
       (list 'italic)
     (list 'normal)))
+
+(defun modus-themes--fixed-pitch ()
+  "Conditional application of `fixed-pitch' inheritance."
+  (unless modus-themes-no-mixed-fonts
+    (list :inherit 'fixed-pitch)))
 
 (defun modus-themes--variable-pitch ()
   "Conditional use of `variable-pitch' in headings."
@@ -3488,6 +3495,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                                                    green-active))))
     `(modus-themes-slant ((,class :inherit italic :slant ,@(modus-themes--slant))))
     `(modus-themes-variable-pitch ((,class ,@(modus-themes--variable-pitch))))
+    `(modus-themes-fixed-pitch ((,class ,@(modus-themes--fixed-pitch))))
 ;;;; standard faces
 ;;;;; absolute essentials
     `(default ((,class :background ,bg-main :foreground ,fg-main)))
@@ -5037,7 +5045,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(indium-repl-prompt-face ((,class :inherit comint-highlight-prompt)))
     `(indium-repl-stdout-face ((,class :foreground ,fg-main)))
 ;;;;; info
-    `(Info-quoted ((,class ,@(modus-themes--mixed-fonts) ; the capitalization is canonical
+    `(Info-quoted ((,class :inherit modus-themes-fixed-pitch ; the capitalization is canonical
                            :background ,bg-alt :foreground ,fg-special-calm)))
     `(info-header-node ((,class :inherit bold :foreground ,fg-alt)))
     `(info-header-xref ((,class :foreground ,blue-active)))
@@ -5437,7 +5445,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; markdown-mode
     `(markdown-blockquote-face ((,class :inherit modus-themes-slant :foreground ,fg-special-cold)))
     `(markdown-bold-face ((,class :inherit bold)))
-    `(markdown-code-face ((,class ,@(modus-themes--mixed-fonts) :background ,bg-dim :extend t)))
+    `(markdown-code-face ((,class :inherit modus-themes-fixed-pitch :background ,bg-dim :extend t)))
     `(markdown-comment-face ((,class :inherit font-lock-comment-face)))
     `(markdown-footnote-marker-face ((,class :inherit bold :foreground ,cyan-alt)))
     `(markdown-footnote-text-face ((,class :inherit modus-themes-slant :foreground ,fg-main)))
@@ -5452,22 +5460,22 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(markdown-header-face-6 ((,class :inherit modus-themes-heading-6)))
     `(markdown-header-rule-face ((,class :inherit bold :foreground ,fg-special-warm)))
     `(markdown-hr-face ((,class :inherit bold :foreground ,fg-special-warm)))
-    `(markdown-html-attr-name-face ((,class ,@(modus-themes--mixed-fonts)
+    `(markdown-html-attr-name-face ((,class :inherit modus-themes-fixed-pitch
                                             :foreground ,cyan)))
-    `(markdown-html-attr-value-face ((,class ,@(modus-themes--mixed-fonts)
+    `(markdown-html-attr-value-face ((,class :inherit modus-themes-fixed-pitch
                                              :foreground ,blue)))
-    `(markdown-html-entity-face ((,class ,@(modus-themes--mixed-fonts)
+    `(markdown-html-entity-face ((,class :inherit modus-themes-fixed-pitch
                                          :foreground ,cyan)))
-    `(markdown-html-tag-delimiter-face ((,class ,@(modus-themes--mixed-fonts)
+    `(markdown-html-tag-delimiter-face ((,class :inherit modus-themes-fixed-pitch
                                                 :foreground ,fg-special-mild)))
-    `(markdown-html-tag-name-face ((,class ,@(modus-themes--mixed-fonts)
+    `(markdown-html-tag-name-face ((,class :inherit modus-themes-fixed-pitch
                                            :foreground ,magenta-alt)))
-    `(markdown-inline-code-face ((,class ,@(modus-themes--mixed-fonts)
+    `(markdown-inline-code-face ((,class :inherit modus-themes-fixed-pitch
                                          :background ,bg-alt :foreground ,fg-special-calm)))
     `(markdown-italic-face ((,class :inherit italic :foreground ,fg-special-cold)))
-    `(markdown-language-info-face ((,class ,@(modus-themes--mixed-fonts)
+    `(markdown-language-info-face ((,class :inherit modus-themes-fixed-pitch
                                            :foreground ,fg-special-cold)))
-    `(markdown-language-keyword-face ((,class ,@(modus-themes--mixed-fonts)
+    `(markdown-language-keyword-face ((,class :inherit modus-themes-fixed-pitch
                                               :background ,bg-alt
                                               :foreground ,fg-alt)))
     `(markdown-line-break-face ((,class :inherit modus-themes-refine-cyan :underline t)))
@@ -5483,7 +5491,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(markdown-pre-face ((,class :inherit markdown-code-face :foreground ,fg-special-mild)))
     `(markdown-reference-face ((,class :inherit markdown-markup-face)))
     `(markdown-strike-through-face ((,class :strike-through t)))
-    `(markdown-table-face ((,class ,@(modus-themes--mixed-fonts)
+    `(markdown-table-face ((,class :inherit modus-themes-fixed-pitch
                                    :foreground ,fg-special-cold)))
     `(markdown-url-face ((,class :foreground ,blue-alt)))
 ;;;;; markup-faces (`adoc-mode')
@@ -5765,9 +5773,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-agenda-structure ((,class ,@(modus-themes--scale modus-themes-scale-5)
                                     :foreground ,blue-alt)))
     `(org-archived ((,class :background ,bg-alt :foreground ,fg-alt)))
-    `(org-block ((,class ,@(modus-themes--mixed-fonts)
+    `(org-block ((,class :inherit modus-themes-fixed-pitch
                          ,@(modus-themes--org-block bg-dim fg-main))))
-    `(org-block-begin-line ((,class ,@(modus-themes--mixed-fonts)
+    `(org-block-begin-line ((,class :inherit modus-themes-fixed-pitch
                                     ,@(modus-themes--org-block-delim
                                        bg-dim fg-special-cold
                                        bg-alt fg-special-mild))))
@@ -5777,7 +5785,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-checkbox-statistics-done ((,class :inherit org-done)))
     `(org-checkbox-statistics-todo ((,class :inherit org-todo)))
     `(org-clock-overlay ((,class :inherit modus-themes-special-cold)))
-    `(org-code ((,class ,@(modus-themes--mixed-fonts)
+    `(org-code ((,class :inherit modus-themes-fixed-pitch
                         :background ,bg-alt :foreground ,yellow-alt-other)))
     `(org-column ((,class :background ,bg-alt)))
     `(org-column-title ((,class :inherit bold :underline t :background ,bg-alt)))
@@ -5789,19 +5797,16 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-date-selected ((,class :inherit bold :foreground ,blue-alt :inverse-video t)))
     `(org-dispatcher-highlight ((,class :inherit (bold modus-themes-mark-alt))))
     `(org-document-info ((,class :foreground ,fg-special-cold)))
-    `(org-document-info-keyword ((,class ,@(modus-themes--mixed-fonts)
-                                         :foreground ,fg-alt)))
+    `(org-document-info-keyword ((,class :inherit modus-themes-fixed-pitch :foreground ,fg-alt)))
     `(org-document-title ((,class :inherit (bold modus-themes-variable-pitch) :foreground ,fg-special-cold
                                   ,@(modus-themes--scale modus-themes-scale-5))))
     `(org-done ((,class :foreground ,@(modus-themes--success-deuteran blue green))))
-    `(org-drawer ((,class ,@(modus-themes--mixed-fonts)
-                          :foreground ,fg-alt)))
+    `(org-drawer ((,class :inherit modus-themes-fixed-pitch :foreground ,fg-alt)))
     `(org-ellipsis (())) ; inherits from the heading's color
     `(org-footnote ((,class :inherit button
                             ,@(modus-themes--link-color
                                blue-alt blue-alt-faint))))
-    `(org-formula ((,class ,@(modus-themes--mixed-fonts)
-                           :foreground ,red-alt)))
+    `(org-formula ((,class :inherit modus-themes-fixed-pitch :foreground ,red-alt)))
     `(org-habit-alert-face ((,class ,@(modus-themes--org-habit
                                        yellow-graph-0-bg
                                        yellow-graph-0-bg
@@ -5852,23 +5857,20 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-level-8 ((,class :inherit modus-themes-heading-8)))
     `(org-link ((,class :inherit button)))
     `(org-list-dt ((,class :inherit bold)))
-    `(org-macro ((,class ,@(modus-themes--mixed-fonts)
+    `(org-macro ((,class :inherit modus-themes-fixed-pitch
                          :background ,cyan-nuanced-bg :foreground ,cyan-nuanced-fg)))
-    `(org-meta-line ((,class ,@(modus-themes--mixed-fonts) :foreground ,fg-alt)))
+    `(org-meta-line ((,class :inherit modus-themes-fixed-pitch :foreground ,fg-alt)))
     `(org-mode-line-clock ((,class :foreground ,fg-main)))
     `(org-mode-line-clock-overrun ((,class :inherit modus-themes-active-red)))
     `(org-priority ((,class :foreground ,magenta)))
-    `(org-property-value ((,class ,@(modus-themes--mixed-fonts)
-                                  :foreground ,fg-special-cold)))
+    `(org-property-value ((,class :inherit modus-themes-fixed-pitch :foreground ,fg-special-cold)))
     `(org-quote ((,class ,@(modus-themes--org-block bg-dim fg-special-cold fg-main))))
     `(org-scheduled ((,class :foreground ,magenta-alt)))
     `(org-scheduled-previously ((,class :foreground ,yellow-alt-other)))
     `(org-scheduled-today ((,class :foreground ,magenta-alt-other)))
     `(org-sexp-date ((,class :inherit org-date)))
-    `(org-special-keyword ((,class ,@(modus-themes--mixed-fonts)
-                                   :foreground ,fg-alt)))
-    `(org-table ((,class ,@(modus-themes--mixed-fonts)
-                         :foreground ,fg-special-cold)))
+    `(org-special-keyword ((,class :inherit modus-themes-fixed-pitch :foreground ,fg-alt)))
+    `(org-table ((,class :inherit modus-themes-fixed-pitch :foreground ,fg-special-cold)))
     `(org-table-header ((,class :inherit (fixed-pitch modus-themes-intense-neutral))))
     `(org-tag ((,class :foreground ,magenta-nuanced-fg)))
     `(org-tag-group ((,class :inherit bold :foreground ,cyan-nuanced-fg)))
@@ -5877,7 +5879,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-todo ((,class :foreground ,red)))
     `(org-upcoming-deadline ((,class :foreground ,red-alt-other)))
     `(org-upcoming-distant-deadline ((,class :foreground ,red-nuanced-fg)))
-    `(org-verbatim ((,class ,@(modus-themes--mixed-fonts)
+    `(org-verbatim ((,class :inherit modus-themes-fixed-pitch
                             :background ,bg-alt :foreground ,fg-special-calm)))
     `(org-verse ((,class :inherit org-quote)))
     `(org-warning ((,class :inherit bold :foreground ,red-alt-other)))
