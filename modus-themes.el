@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-05-27 15:13:25 +0300>
+;; Last-Modified: <2021-05-28 23:51:44 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -5861,7 +5861,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                          :background ,cyan-nuanced-bg :foreground ,cyan-nuanced-fg)))
     `(org-meta-line ((,class :inherit modus-themes-fixed-pitch :foreground ,fg-alt)))
     `(org-mode-line-clock ((,class :foreground ,fg-main)))
-    `(org-mode-line-clock-overrun ((,class :inherit modus-themes-active-red)))
+    `(org-mode-line-clock-overrun ((,class :inherit bold :foreground ,red-active)))
     `(org-priority ((,class :foreground ,magenta)))
     `(org-property-value ((,class :inherit modus-themes-fixed-pitch :foreground ,fg-special-cold)))
     `(org-quote ((,class ,@(modus-themes--org-block bg-dim fg-special-cold fg-main))))
