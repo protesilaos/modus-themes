@@ -5778,7 +5778,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-block-begin-line ((,class :inherit modus-themes-fixed-pitch
                                     ,@(modus-themes--org-block-delim
                                        bg-dim fg-special-cold
-                                       bg-alt fg-special-mild))))
+                                       bg-alt fg-alt))))
     `(org-block-end-line ((,class :inherit org-block-begin-line)))
     `(org-checkbox ((,class :box (:line-width 1 :color ,bg-active)
                             :background ,bg-inactive :foreground ,fg-active)))
