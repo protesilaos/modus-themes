@@ -5764,11 +5764,13 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-agenda-date-weekend ((,class :foreground ,cyan-alt-other)))
     `(org-agenda-diary ((,class :foreground ,fg-main)))
     `(org-agenda-dimmed-todo-face ((,class :inherit bold :foreground ,fg-alt)))
-    `(org-agenda-done ((,class :foreground ,green-alt)))
     `(org-agenda-filter-category ((,class :inherit bold :foreground ,magenta-active)))
     `(org-agenda-filter-effort ((,class :inherit bold :foreground ,magenta-active)))
     `(org-agenda-filter-regexp ((,class :inherit bold :foreground ,magenta-active)))
     `(org-agenda-filter-tags ((,class :inherit bold :foreground ,magenta-active)))
+    `(org-agenda-done ((,class :foreground ,@(modus-themes--success-deuteran
+                                              blue-nuanced-fg
+                                              green-nuanced-fg))))
     `(org-agenda-restriction-lock ((,class :background ,bg-dim :foreground ,fg-dim)))
     `(org-agenda-structure ((,class ,@(modus-themes--scale modus-themes-scale-5)
                                     :foreground ,blue-alt)))
