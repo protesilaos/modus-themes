@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-05-30 19:39:36 +0300>
+;; Last-Modified: <2021-05-30 21:05:35 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -1935,15 +1935,41 @@ background.  This key accepts values of:
   with an added bold weight for the current day.
 
 A `scheduled' key applies to tasks with a scheduled date.  By
-default, these use varying colors to denote a (i) past or current
-and (ii) future date.  Valid values are:
+default, these use varying yellow colors to denote a (i) past or
+current and (ii) future date.  Valid values are:
 
 - nil (default);
 - `uniform' to make all scheduled dates the same color;
-- `rainbow' to use various colours for past, present, future
+- `rainbow' to use contrasting colours for past, present, future
   scheduled dates.
 
-WORK-IN-PROGRESS."
+A `habit' key applies to the `org-habit' graph.
+
+- The default (nil) is meant to conform with the original
+  aesthetic of `org-habit'.  It employs all four color codes that
+  correspond to the org-habit states---clear, ready, alert, and
+  overdue---while distinguishing between their present and future
+  variants.  This results in a total of eight colors in use: red,
+  yellow, green, blue, in tinted and shaded versions.  They cover
+  the full set of information provided by the `org-habit'
+  consistency graph.
+- `simplified' is like the default except that it removes the
+  dichotomy between current and future variants by applying
+  uniform color-coded values.  It applies a total of four colors:
+  red, yellow, green, blue.  They produce a simplified
+  consistency graph that is more legible (or less \"busy\") than
+  the default.  The intent is to shift focus towards the
+  distinction between the four states of a habit task, rather
+  than each state's present/future outlook.
+- `traffic-light' further reduces the available colors to red,
+  yellow, and green.  As in `simplified', present and future
+  variants appear uniformly, but differently from it, the 'clear'
+  state is rendered in a green hue, instead of the original blue.
+  This is meant to capture the use-case where a habit task being
+  \"too early\" is less important than it being \"too late\".
+  The difference between ready and clear states is attenuated by
+  painting both of them using shades of green.  This option thus
+  highlights the alert and overdue states."
   :group 'modus-themes
   :package-version '(modus-themes . "1.5.0")
   :version "28.1"
@@ -2194,7 +2220,9 @@ respectively."
   :link '(info-link "(modus-themes) Org mode blocks"))
 
 (defcustom modus-themes-org-habit nil
-  "Control the presentation of the `org-habit' graph.
+  "Deprecated in version 1.5.0 favor of `modus-themes-org-agenda'.
+
+Control the presentation of the `org-habit' graph.
 
 The default is meant to conform with the original aesthetic of
 `org-habit'.  It employs all four color codes that correspond to
@@ -2232,6 +2260,8 @@ highlights the alert and overdue states."
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Org agenda habits"))
+
+(make-obsolete 'modus-themes-org-habit 'modus-themes-org-agenda "1.5.0")
 
 (defcustom modus-themes-mode-line nil
   "Adjust the overall style of the mode line.
@@ -2966,6 +2996,15 @@ clearly distinguishes past, present, future tasks."
     ('rainbow (list :foreground rainbowfg))
     (_ (list :foreground defaultfg))))
 
+(defun modus-themes--agenda-habit (default &optional traffic simple)
+  "Specify background values for `modus-themes-org-habit'.
+If no optional TRAFFIC argument is supplied, the DEFAULT is used
+instead.  Same for SIMPLE."
+  (pcase (modus-themes--key-cdr 'habit modus-themes-org-agenda)
+    ('traffic-light (list :background (or traffic default)))
+    ('simplified (list :background (or simple default)))
+    (_ (list :background default))))
+
 (defun modus-themes--org-block (bgblk fgdefault &optional fgblk)
   "Conditionally set the background of Org blocks.
 BGBLK applies to a distinct neutral background.  Else blocks have
@@ -3002,15 +3041,6 @@ set to `rainbow'."
     ('greyscale (list :background bg :foreground fg :extend t))
     ('rainbow (list :background bgaccent :foreground fgaccent))
     (_ (list :background bg :foreground fg))))
-
-(defun modus-themes--org-habit (default &optional traffic simple)
-  "Specify background values for `modus-themes-org-habit'.
-If no optional TRAFFIC argument is supplied, the DEFAULT is used
-instead.  Same for SIMPLE."
-  (pcase modus-themes-org-habit
-    ('traffic-light (list :background (or traffic default)))
-    ('simplified (list :background (or simple default)))
-    (_ (list :background default))))
 
 (defun modus-themes--mode-line-attrs
     (fg bg fg-alt bg-alt fg-accent bg-accent border border-3d &optional alt-style border-width fg-distant)
@@ -5905,35 +5935,35 @@ by virtue of calling either of `modus-themes-load-operandi' and
                             ,@(modus-themes--link-color
                                blue-alt blue-alt-faint))))
     `(org-formula ((,class :inherit modus-themes-fixed-pitch :foreground ,red-alt)))
-    `(org-habit-alert-face ((,class ,@(modus-themes--org-habit
+    `(org-habit-alert-face ((,class ,@(modus-themes--agenda-habit
                                        yellow-graph-0-bg
                                        yellow-graph-0-bg
                                        yellow-graph-1-bg))))
-    `(org-habit-alert-future-face ((,class ,@(modus-themes--org-habit
+    `(org-habit-alert-future-face ((,class ,@(modus-themes--agenda-habit
                                               yellow-graph-1-bg
                                               yellow-graph-0-bg
                                               yellow-graph-1-bg))))
-    `(org-habit-clear-face ((,class ,@(modus-themes--org-habit
+    `(org-habit-clear-face ((,class ,@(modus-themes--agenda-habit
                                        blue-graph-0-bg
                                        green-graph-1-bg
                                        blue-graph-1-bg))))
-    `(org-habit-clear-future-face ((,class ,@(modus-themes--org-habit
+    `(org-habit-clear-future-face ((,class ,@(modus-themes--agenda-habit
                                               blue-graph-1-bg
                                               green-graph-1-bg
                                               blue-graph-1-bg))))
-    `(org-habit-overdue-face ((,class ,@(modus-themes--org-habit
+    `(org-habit-overdue-face ((,class ,@(modus-themes--agenda-habit
                                          red-graph-0-bg
                                          red-graph-0-bg
                                          red-graph-1-bg))))
-    `(org-habit-overdue-future-face ((,class ,@(modus-themes--org-habit
+    `(org-habit-overdue-future-face ((,class ,@(modus-themes--agenda-habit
                                                 red-graph-1-bg
                                                 red-graph-0-bg
                                                 red-graph-1-bg))))
-    `(org-habit-ready-face ((,class ,@(modus-themes--org-habit
+    `(org-habit-ready-face ((,class ,@(modus-themes--agenda-habit
                                        green-graph-0-bg
                                        green-graph-0-bg
                                        green-graph-1-bg))))
-    `(org-habit-ready-future-face ((,class ,@(modus-themes--org-habit
+    `(org-habit-ready-future-face ((,class ,@(modus-themes--agenda-habit
                                               green-graph-1-bg
                                               green-graph-0-bg
                                               green-graph-1-bg))))
