@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-05-30 11:05:04 +0300>
+;; Last-Modified: <2021-05-30 16:43:12 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -1925,13 +1925,13 @@ background.  This key accepts values of:
   weekdays and weekends the same color.
 
 A `scheduled' key applies to tasks with a scheduled date.  By
-default, these use varying colors to denote a past or future
-date, or one that is for the current day.  Valid values are:
+default, these use varying colors to denote a (i) past or current
+and (ii) future date.  Valid values are:
 
 - nil (default);
 - `uniform' to make all scheduled dates the same color;
-- `uniform-bold-today' to also add a bold weight to the current
-  day's scheduled task.
+- `rainbow' to use various colours for past, present, future
+  scheduled dates.
 
 WORK-IN-PROGRESS."
   :group 'modus-themes
@@ -2938,17 +2938,18 @@ neutral color that complements WORKAHOLICFG."
     ('workaholic-no-bold (list :foreground workaholicfg))
     (_ (list :foreground defaultfg))))
 
-(defun modus-themes--agenda-scheduled (defaultfg uniformfg &optional bold)
+(defun modus-themes--agenda-scheduled (defaultfg uniformfg rainbowfg)
   "Control the style of the Org agenda scheduled tasks.
-DEFAULTFG is a prominently accented foreground color that is
-meant to differentiate between past, present, future tasks.
+DEFAULTFG is an accented foreground color that is meant to
+differentiate between past or present and future tasks.
 UNIFORMFG is a more subtle color that eliminates the color coding
-for scheduled tasks.
+for scheduled tasks.  RAINBOWFG is a prominent accent value that
+clearly distinguishes past, present, future tasks.
 
 Optional BOLD is a toggle to enable a heavy typographic weight."
   (pcase (modus-themes--key-cdr 'scheduled modus-themes-org-agenda)
     ('uniform (list :foreground uniformfg))
-    ('uniform-bold-today (list :inherit (when bold 'bold) :foreground uniformfg))
+    ('rainbow (list :foreground rainbowfg))
     (_ (list :foreground defaultfg))))
 
 (defun modus-themes--org-block (bgblk fgdefault &optional fgblk)
@@ -5947,9 +5948,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-priority ((,class :foreground ,magenta)))
     `(org-property-value ((,class :inherit modus-themes-fixed-pitch :foreground ,fg-special-cold)))
     `(org-quote ((,class ,@(modus-themes--org-block bg-dim fg-special-cold fg-main))))
-    `(org-scheduled ((,class ,@(modus-themes--agenda-scheduled magenta-alt fg-special-warm))))
-    `(org-scheduled-previously ((,class ,@(modus-themes--agenda-scheduled yellow-alt-other fg-special-warm))))
-    `(org-scheduled-today ((,class ,@(modus-themes--agenda-scheduled magenta-alt-other fg-special-warm t))))
+    `(org-scheduled ((,class ,@(modus-themes--agenda-scheduled yellow-faint fg-special-warm magenta-alt))))
+    `(org-scheduled-previously ((,class ,@(modus-themes--agenda-scheduled yellow fg-special-warm yellow-alt-other))))
+    `(org-scheduled-today ((,class ,@(modus-themes--agenda-scheduled yellow fg-special-warm magenta-alt-other))))
     `(org-sexp-date ((,class :inherit org-date)))
     `(org-special-keyword ((,class :inherit modus-themes-fixed-pitch :foreground ,fg-alt)))
     `(org-table ((,class :inherit modus-themes-fixed-pitch :foreground ,fg-special-cold)))
