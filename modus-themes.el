@@ -2960,9 +2960,7 @@ DEFAULTFG is an accented foreground color that is meant to
 differentiate between past or present and future tasks.
 UNIFORMFG is a more subtle color that eliminates the color coding
 for scheduled tasks.  RAINBOWFG is a prominent accent value that
-clearly distinguishes past, present, future tasks.
-
-Optional BOLD is a toggle to enable a heavy typographic weight."
+clearly distinguishes past, present, future tasks."
   (pcase (modus-themes--key-cdr 'scheduled modus-themes-org-agenda)
     ('uniform (list :foreground uniformfg))
     ('rainbow (list :foreground rainbowfg))
