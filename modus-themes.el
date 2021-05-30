@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-05-30 16:43:12 +0300>
+;; Last-Modified: <2021-05-30 19:39:36 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -1916,13 +1916,23 @@ background.  This key accepts values of:
 
 - nil (default);
 - `grayscale' to make weekdays use the main foreground color and
-  weekends a more subtle gray, while applying a bold weight;
-- `grayscale-no-bold' to remove the bold weight from date
-  headings while coloring them with neutral colors.
+  weekends a more subtle gray;
+- `grayscale-bold-all' which is like `grayscale' with an added
+  bold weight for all date headings;
+- `grayscale-bold-today' which is like `grayscale' with only the
+  current date rendered in bold;
 - `workaholic' to make weekdays and weekends look the same in
-  terms of colour and apply a bold weight to them.
-- `workaholic-no-bold' to remove the bold weight but keep
-  weekdays and weekends the same color.
+  terms of colour;
+- `workaholic-bold-all' to apply a bold weight to all heading
+  dates and do not differentate between weekends and weekdays;
+- `workaholic-bold-today' to only use bold for the current date
+  while keeping the `workaholic' style;
+- `grayscale-workaholic' to use only the main foreground color
+  for date headings;
+- `grayscale-workaholic-bold-all' like the above, but with an add
+  bold weight for all dates;
+- `grayscale-workaholic-bold-today' like `grayscale-workaholic'
+  with an added bold weight for the current day.
 
 A `scheduled' key applies to tasks with a scheduled date.  By
 default, these use varying colors to denote a (i) past or current
@@ -2926,16 +2936,22 @@ FG is the foreground color to use."
      (list :inherit 'variable-pitch :foreground fg :height modus-themes-scale-5))
     (_ (list :foreground fg))))
 
-(defun modus-themes--agenda-date (defaultfg workaholicfg &optional grayscalefg)
+(defun modus-themes--agenda-date (defaultfg grayscalefg &optional bold workaholicfg grayscaleworkaholicfg)
   "Control the style of date headings in Org agenda buffers.
 DEFAULTFG is the original accent color for the foreground.
-WORKAHOLICFG is a neutral alternative.  Optional GRAYSCALEFG is
-neutral color that complements WORKAHOLICFG."
+GRAYSCALEFG is a neutral color.  Optional BOLD applies a bold
+weight.  Optional WORKAHOLICFG and GRAYSCALEWORKAHOLICFG are
+alternative foreground colors."
   (pcase (modus-themes--key-cdr 'header-date modus-themes-org-agenda)
-    ('grayscale (list :inherit 'bold :foreground (or grayscalefg workaholicfg)))
-    ('grayscale-no-bold (list :foreground (or grayscalefg workaholicfg)))
-    ('workaholic (list :inherit 'bold :foreground workaholicfg))
-    ('workaholic-no-bold (list :foreground workaholicfg))
+    ('grayscale (list :foreground grayscalefg))
+    ('grayscale-bold-all (list :inherit 'bold :foreground grayscalefg))
+    ('grayscale-bold-today (list :inherit (when bold 'bold) :foreground grayscalefg))
+    ('workaholic (list :foreground (or workaholicfg defaultfg)))
+    ('workaholic-bold-all (list :inherit 'bold :foreground (or workaholicfg defaultfg)))
+    ('workaholic-bold-today (list :inherit (when bold 'bold) :foreground (or workaholicfg defaultfg)))
+    ('grayscale-workaholic (list :foreground (or grayscaleworkaholicfg grayscalefg)))
+    ('grayscale-workaholic-bold-all (list :inherit 'bold :foreground (or grayscaleworkaholicfg grayscalefg)))
+    ('grayscale-workaholic-bold-today (list :inherit (when bold 'bold) :foreground (or grayscaleworkaholicfg grayscalefg)))
     (_ (list :foreground defaultfg))))
 
 (defun modus-themes--agenda-scheduled (defaultfg uniformfg rainbowfg)
@@ -5841,9 +5857,10 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-agenda-clocking ((,class :inherit modus-themes-special-cold :extend t)))
     `(org-agenda-column-dateline ((,class :background ,bg-alt)))
     `(org-agenda-current-time ((,class :foreground ,blue-alt-other-faint)))
-    `(org-agenda-date ((,class ,@(modus-themes--agenda-date cyan fg-main))))
-    `(org-agenda-date-today ((,class :background ,bg-active ,@(modus-themes--agenda-date blue-active fg-main))))
-    `(org-agenda-date-weekend ((,class ,@(modus-themes--agenda-date cyan-alt-other fg-main fg-alt))))
+    `(org-agenda-date ((,class ,@(modus-themes--agenda-date cyan fg-main nil))))
+    `(org-agenda-date-today ((,class :background ,bg-active
+                                     ,@(modus-themes--agenda-date blue-active fg-main t cyan-active))))
+    `(org-agenda-date-weekend ((,class ,@(modus-themes--agenda-date cyan-alt-other fg-alt nil cyan fg-main))))
     `(org-agenda-diary ((,class :inherit shadow)))
     `(org-agenda-dimmed-todo-face ((,class :inherit shadow)))
     `(org-agenda-done ((,class :foreground ,@(modus-themes--success-deuteran
