@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-05-30 11:05:04 +0300>
+;; Last-Modified: <2021-05-28 23:51:44 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -1896,52 +1896,6 @@ A description of all other possible values:
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Heading styles"))
 
-(defcustom modus-themes-org-agenda nil
-  "Control the style of individual Org agenda constructs.
-
-This is an alist that accepts a (key . value) combination.
-
-A `header-block' key applies to elements that concern the overall
-structure of the agenda.  It accepts values of:
-
-- nil (default);
-- `variable-pitch' to use a proportionately spaced typeface;
-- `scaled' to increase the size up to `modus-themes-scale-5';
-- `variable-pitch-scaled' to combine the above two.
-
-A `header-date' key covers date headings.  Dates use only a
-foreground colour by default, with weekdays and weekends having a
-slight difference in hueness.  The current date has an added gray
-background.  This key accepts values of:
-
-- nil (default);
-- `grayscale' to make weekdays use the main foreground color and
-  weekends a more subtle gray, while applying a bold weight;
-- `grayscale-no-bold' to remove the bold weight from date
-  headings while coloring them with neutral colors.
-- `workaholic' to make weekdays and weekends look the same in
-  terms of colour and apply a bold weight to them.
-- `workaholic-no-bold' to remove the bold weight but keep
-  weekdays and weekends the same color.
-
-A `scheduled' key applies to tasks with a scheduled date.  By
-default, these use varying colors to denote a past or future
-date, or one that is for the current day.  Valid values are:
-
-- nil (default);
-- `uniform' to make all scheduled dates the same color;
-- `uniform-bold-today' to also add a bold weight to the current
-  day's scheduled task.
-
-WORK-IN-PROGRESS."
-  :group 'modus-themes
-  :package-version '(modus-themes . "1.5.0")
-  :version "28.1"
-  :type 'alist          ; TODO 2021-05-30: Make this work with Customize
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
-  :link '(info-link "(modus-themes) Heading styles"))
-
 (defcustom modus-themes-scale-headings nil
   "Use font scaling for headings.
 
@@ -2858,9 +2812,9 @@ FG is the default.  YELLOW is a color variant of that name."
     ('faint-yellow-comments (list :foreground yellow))
     (_ (list :foreground fg))))
 
-(defun modus-themes--key-cdr (key alist)
-  "Get cdr of KEY in ALIST."
-  (cdr (assoc key alist)))
+(defun modus-themes--heading-p (key)
+  "Query style of KEY in `modus-themes-headings'."
+  (cdr (assoc key modus-themes-headings)))
 
 (defun modus-themes--heading (level fg fg-alt bg border)
   "Conditional styles for `modus-themes-headings'.
@@ -2871,8 +2825,8 @@ than the default.  BG is a nuanced, typically accented,
 background that can work well with either of the foreground
 values.  BORDER is a color value that combines well with the
 background and alternative foreground."
-  (let* ((key (modus-themes--key-cdr level modus-themes-headings))
-         (style (or key (modus-themes--key-cdr t modus-themes-headings)))
+  (let* ((key (modus-themes--heading-p level))
+         (style (or key (modus-themes--heading-p t)))
          (var (when modus-themes-variable-pitch-headings
                 'variable-pitch))
          (varbold (if var
@@ -2915,41 +2869,6 @@ background and alternative foreground."
        (list :inherit var :background bg :foreground fg-alt :overline border :extend t))
       (_
        (list :inherit varbold :foreground fg)))))
-
-(defun modus-themes--agenda-structure (fg)
-  "Control the style of the Org agenda structure.
-FG is the foreground color to use."
-  (pcase (modus-themes--key-cdr 'header-block modus-themes-org-agenda)
-    ('variable-pitch (list :inherit '(variable-pitch bold) :foreground fg))
-    ('scaled (list :foreground fg :height modus-themes-scale-5))
-    ('variable-pitch-scaled
-     (list :inherit 'variable-pitch :foreground fg :height modus-themes-scale-5))
-    (_ (list :foreground fg))))
-
-(defun modus-themes--agenda-date (defaultfg workaholicfg &optional grayscalefg)
-  "Control the style of date headings in Org agenda buffers.
-DEFAULTFG is the original accent color for the foreground.
-WORKAHOLICFG is a neutral alternative.  Optional GRAYSCALEFG is
-neutral color that complements WORKAHOLICFG."
-  (pcase (modus-themes--key-cdr 'header-date modus-themes-org-agenda)
-    ('grayscale (list :inherit 'bold :foreground (or grayscalefg workaholicfg)))
-    ('grayscale-no-bold (list :foreground (or grayscalefg workaholicfg)))
-    ('workaholic (list :inherit 'bold :foreground workaholicfg))
-    ('workaholic-no-bold (list :foreground workaholicfg))
-    (_ (list :foreground defaultfg))))
-
-(defun modus-themes--agenda-scheduled (defaultfg uniformfg &optional bold)
-  "Control the style of the Org agenda scheduled tasks.
-DEFAULTFG is a prominently accented foreground color that is
-meant to differentiate between past, present, future tasks.
-UNIFORMFG is a more subtle color that eliminates the color coding
-for scheduled tasks.
-
-Optional BOLD is a toggle to enable a heavy typographic weight."
-  (pcase (modus-themes--key-cdr 'scheduled modus-themes-org-agenda)
-    ('uniform (list :foreground uniformfg))
-    ('uniform-bold-today (list :inherit (when bold 'bold) :foreground uniformfg))
-    (_ (list :foreground defaultfg))))
 
 (defun modus-themes--org-block (bgblk fgdefault &optional fgblk)
   "Conditionally set the background of Org blocks.
@@ -5839,10 +5758,10 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-agenda-calendar-sexp ((,class :inherit (modus-themes-slant shadow))))
     `(org-agenda-clocking ((,class :inherit modus-themes-special-cold :extend t)))
     `(org-agenda-column-dateline ((,class :background ,bg-alt)))
+    `(org-agenda-date ((,class :foreground ,cyan)))
+    `(org-agenda-date-today ((,class :inherit bold :foreground ,fg-main :underline t)))
+    `(org-agenda-date-weekend ((,class :foreground ,cyan-alt-other)))
     `(org-agenda-current-time ((,class :foreground ,blue-alt-other-faint)))
-    `(org-agenda-date ((,class ,@(modus-themes--agenda-date cyan fg-main))))
-    `(org-agenda-date-today ((,class :background ,bg-active ,@(modus-themes--agenda-date blue-active fg-main))))
-    `(org-agenda-date-weekend ((,class ,@(modus-themes--agenda-date cyan-alt-other fg-main fg-alt))))
     `(org-agenda-diary ((,class :inherit shadow)))
     `(org-agenda-dimmed-todo-face ((,class :inherit shadow)))
     `(org-agenda-done ((,class :foreground ,@(modus-themes--success-deuteran
@@ -5853,7 +5772,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-agenda-filter-regexp ((,class :inherit bold :foreground ,cyan-active)))
     `(org-agenda-filter-tags ((,class :inherit bold :foreground ,cyan-active)))
     `(org-agenda-restriction-lock ((,class :background ,bg-dim :foreground ,fg-dim)))
-    `(org-agenda-structure ((,class ,@(modus-themes--agenda-structure blue-alt))))
+    `(org-agenda-structure ((,class ,@(modus-themes--scale modus-themes-scale-5)
+                                    :foreground ,blue-alt)))
     `(org-archived ((,class :background ,bg-alt :foreground ,fg-alt)))
     `(org-block ((,class :inherit modus-themes-fixed-pitch
                          ,@(modus-themes--org-block bg-dim fg-main))))
@@ -5947,9 +5867,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-priority ((,class :foreground ,magenta)))
     `(org-property-value ((,class :inherit modus-themes-fixed-pitch :foreground ,fg-special-cold)))
     `(org-quote ((,class ,@(modus-themes--org-block bg-dim fg-special-cold fg-main))))
-    `(org-scheduled ((,class ,@(modus-themes--agenda-scheduled magenta-alt fg-special-warm))))
-    `(org-scheduled-previously ((,class ,@(modus-themes--agenda-scheduled yellow-alt-other fg-special-warm))))
-    `(org-scheduled-today ((,class ,@(modus-themes--agenda-scheduled magenta-alt-other fg-special-warm t))))
+    `(org-scheduled ((,class :foreground ,magenta-alt)))
+    `(org-scheduled-previously ((,class :foreground ,yellow-alt-other)))
+    `(org-scheduled-today ((,class :foreground ,magenta-alt-other)))
     `(org-sexp-date ((,class :inherit org-date)))
     `(org-special-keyword ((,class :inherit modus-themes-fixed-pitch :foreground ,fg-alt)))
     `(org-table ((,class :inherit modus-themes-fixed-pitch :foreground ,fg-special-cold)))
