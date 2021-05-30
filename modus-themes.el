@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-05-30 23:08:13 +0300>
+;; Last-Modified: <2021-05-30 23:28:42 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -2961,10 +2961,10 @@ background and alternative foreground."
 FG is the foreground color to use."
   (pcase (modus-themes--key-cdr 'header-block modus-themes-org-agenda)
     ('variable-pitch (list :inherit '(variable-pitch bold) :foreground fg))
-    ('scaled (list :foreground fg :height modus-themes-scale-5))
+    ('scaled (list :inherit 'bold :foreground fg :height modus-themes-scale-5))
     ('variable-pitch-scaled
-     (list :inherit 'variable-pitch :foreground fg :height modus-themes-scale-5))
-    (_ (list :foreground fg))))
+     (list :inherit '(variable-pitch bold) :foreground fg :height modus-themes-scale-5))
+    (_ (list :inherit 'bold :foreground fg))))
 
 (defun modus-themes--agenda-date (defaultfg grayscalefg &optional bold workaholicfg grayscaleworkaholicfg)
   "Control the style of date headings in Org agenda buffers.
@@ -5899,7 +5899,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-agenda-filter-regexp ((,class :inherit bold :foreground ,cyan-active)))
     `(org-agenda-filter-tags ((,class :inherit bold :foreground ,cyan-active)))
     `(org-agenda-restriction-lock ((,class :background ,bg-dim :foreground ,fg-dim)))
-    `(org-agenda-structure ((,class :inherit bold ,@(modus-themes--agenda-structure blue-alt))))
+    `(org-agenda-structure ((,class ,@(modus-themes--agenda-structure blue-alt))))
     `(org-archived ((,class :background ,bg-alt :foreground ,fg-alt)))
     `(org-block ((,class :inherit modus-themes-fixed-pitch
                          ,@(modus-themes--org-block bg-dim fg-main))))
