@@ -2180,59 +2180,39 @@ highlights the alert and overdue states."
 (defcustom modus-themes-mode-line nil
   "Adjust the overall style of the mode line.
 
+The value is a list of properties, each designated by a symbol.
 The default (nil) is a two-dimensional rectangle with a border
 around it.  The active and the inactive mode lines use different
 shades of grayscale values for the background and foreground.
 
-A `3d' value will apply a three-dimensional effect to the active
-mode line.  The inactive mode lines remain two-dimensional and
-are toned down a bit, relative to the nil value.
+The `3d' property will apply a three-dimensional effect to the
+active mode line.  The inactive mode lines remain two-dimensional
+and are toned down a bit, relative to the nil value.
 
-The `moody' option is meant to optimize the mode line for use
+The `moody' property is meant to optimize the mode line for use
 with the library of the same name.  This practically means to
 remove the box effect and rely on underline and overline
 properties instead.  It also tones down the inactive mode lines.
 Despite its intended purpose, this option can also be used
 without the `moody' library.
 
-The `borderless' option uses the same colors as the default (nil
-value), but removes the border effect.  This is done by making
-the box property use the same color as the background,
-effectively blending the two and creating some padding.
+The `borderless' property removes the border effect.  This is
+done by making the box property use the same color as the
+background, effectively blending the two and creating some
+padding.
 
-The `borderless-3d' and `borderless-moody' approximate the `3d'
-and `moody' options respectively, while removing the borders.
-However, to ensure that the inactive mode lines remain visible,
-they apply a slightly more prominent background to them than what
-their counterparts do (same inactive background as with the
-default).
-
-Similarly, `accented', `accented-3d', and `accented-moody'
-correspond to the default (nil), `3d', and `moody' styles
-respectively, except that the active mode line uses a colored
-background instead of the standard shade of gray.
-
-Same principle for styles `borderless-accented',
-`borderless-accented-3d', `borderless-accented-moody', which
-apply a colored background to the active mode line, while they
-remove any noticeable border around both the active and inactive
-the mode lines."
+The `accented' property ensures that the active mode line uses a
+colored background instead of the standard shade of gray."
   :group 'modus-themes
-  :package-version '(modus-themes . "1.4.0")
+  :package-version '(modus-themes . "1.5.0")
   :version "28.1"
-  :type '(choice
-          (const :format "[%v] %t\n" :tag "Two-dimensional box (default)" nil)
-          (const :format "[%v] %t\n" :tag "Three-dimensional style for the active mode line" 3d)
-          (const :format "[%v] %t\n" :tag "No box effects, which are optimal for use with the `moody' library" moody)
-          (const :format "[%v] %t\n" :tag "Like the default, but without discernible border effects" borderless)
-          (const :format "[%v] %t\n" :tag "Like `3d', but without noticeable border" borderless-3d)
-          (const :format "[%v] %t\n" :tag "Like `moody', but without noticeable border" borderless-moody)
-          (const :format "[%v] %t\n" :tag "Two-dimensional box with a colored background" accented)
-          (const :format "[%v] %t\n" :tag "Like `3d', but with a colored background" accented-3d)
-          (const :format "[%v] %t\n" :tag "Like `moody', but with a colored background" accented-moody)
-          (const :format "[%v] %t\n" :tag "Like `accented', but without a noticeable border" borderless-accented)
-          (const :format "[%v] %t\n" :tag "Like `accented-3d', but with a noticeable border" borderless-accented-3d)
-          (const :format "[%v] %t\n" :tag "Like `accented-moody', but with a noticeable border" borderless-accented-moody))
+  :type '(set :tag "Properties" :greedy t
+	      (choice :tag "Border effects"
+		      (const :tag "Rectangular Border" nil)
+		      (const :tag "3d borders" 3d)
+		      (const :tag "No box effects" moody))
+	      (const :tag "Coloured background" accented)
+	      (const :tag "Without noticeable border" borderless))
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Mode line"))
@@ -2935,51 +2915,58 @@ rectangle that produces the box effect.
 Optional FG-DISTANT should be close to the main background
 values.  It is intended to be used as a distant-foreground
 property."
-  (pcase modus-themes-mode-line
-    ('3d
-     `( :background ,bg-alt :foreground ,fg-alt
-        :box ( :line-width ,(or border-width 1)
-               :color ,border-3d
-               :style ,(and alt-style 'released-button))))
-    ('moody
-     `( :background ,bg-alt :foreground ,fg-alt
-        :underline ,border :overline ,border
-        :distant-foreground ,fg-distant))
-    ('borderless
-     `(:background ,bg :foreground ,fg :box ,bg))
-    ('borderless-3d
-     `( :background ,bg :foreground ,fg
-        :box ( :line-width ,(or border-width 1)
-               :color ,bg
-               :style ,(and alt-style 'released-button))))
-    ('borderless-moody
-     `( :background ,bg :foreground ,fg
-        :underline ,bg :overline ,bg
-        :distant-foreground ,fg-distant))
-    ('accented
-     `(:background ,bg-accent :foreground ,fg-accent :box ,border))
-    ('accented-3d
-     `( :background ,bg-accent :foreground ,fg-accent
-        :box ( :line-width ,(or border-width 1)
-               :color ,border-3d
-               :style ,(and alt-style 'released-button))))
-    ('accented-moody
-     `( :background ,bg-accent :foreground ,fg-accent
-        :underline ,border :overline ,border
-        :distant-foreground ,fg-distant))
-    ('borderless-accented
-     `(:background ,bg-accent :foreground ,fg-accent :box ,bg-accent))
-    ('borderless-accented-3d
-     `( :background ,bg-accent :foreground ,fg-accent
-        :box ( :line-width ,(or border-width 1)
-               :color ,bg-accent
-               :style ,(and alt-style 'released-button))))
-    ('borderless-accented-moody
-     `( :background ,bg-accent :foreground ,fg-accent
-        :underline ,bg-accent :overline ,bg-accent
-        :distant-foreground ,fg-distant))
-    (_
-     `(:background ,bg :foreground ,fg :box ,border))))
+  (let ((modus-themes-mode-line
+	 (if (listp modus-themes-mode-line)
+	     modus-themes-mode-line
+	   ;; translation layer for legacy values
+	   (alist-get modus-themes-mode-line
+		      '((3d . (3d))
+			(moody . (moody))
+			(borderless . (borderless))
+			(borderless-3d . (borderless 3d))
+			(borderless-moody . (borderless moody))
+			(accented . (accented))
+			(accented-3d . (accented 3d))
+			(accented-moody . (accented moody))
+			(borderless-accented . (borderless accented))
+			(borderless-accented-3d . (borderless accented 3d))
+			(borderless-accented-moody . (borderless accented moody)))))))
+    (let ((base (cond ((memq 'accented modus-themes-mode-line)
+		       (cons fg-accent bg-accent))
+		      ((and (or (memq 'moody modus-themes-mode-line)
+				(memq '3d modus-themes-mode-line))
+			    (not (memq 'borderless modus-themes-mode-line)))
+		       (cons fg-alt bg-alt))
+		      ((cons fg bg))))
+	  (box (cond ((memq '3d modus-themes-mode-line)
+		      (list :line-width (or border-width 1)
+			    :color
+			    (cond ((and (memq 'accented modus-themes-mode-line)
+					(memq 'borderless modus-themes-mode-line))
+				   bg-accent)
+				  ((memq 'borderless modus-themes-mode-line) bg)
+				  (border-3d))
+			    :style (and alt-style 'released-button)))
+		     ((or (memq 'borderless modus-themes-mode-line)
+			  (memq 'moody modus-themes-mode-line))
+		      bg)
+		     (border)))
+	  (line (cond ((not (memq 'moody modus-themes-mode-line))
+		       nil)
+		      ((and (memq 'borderless modus-themes-mode-line)
+			    (memq 'accented modus-themes-mode-line))
+		       bg-accent)
+		      ((memq 'borderless modus-themes-mode-line)
+		       bg)
+		      (border))))
+      (list :foreground (car base)
+	    :background (cdr base)
+	    :box box
+	    :overline line
+	    :underline line
+	    :distant-foreground
+	    (and (memq 'moody modus-themes-mode-line)
+		 fg-distant)))))
 
 (defun modus-themes--diff
     (fg-only-bg fg-only-fg mainbg mainfg altbg altfg &optional deuteranbg deuteranfg  bg-only-fg)
