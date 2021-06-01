@@ -3780,9 +3780,9 @@ The Modus themes are a collective effort.  Every bit of work matters.
 + Inspiration for certain features :: Bozhidar Batsov (zenburn-theme),
   Fabrice Niessen (leuven-theme).
 
-Special thanks, in no particular order, to Manuel Uberti and Omar
-Antolín Camarena for their long time contributions and insightful
-commentary.
+Special thanks, in no particular order, to Manuel Uberti, Gustavo
+Barros, and Omar Antolín Camarena for their long time contributions and
+insightful commentary.
 
 * Meta
 :properties:
