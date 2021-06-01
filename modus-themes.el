@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-06-01 19:46:54 +0300>
+;; Last-Modified: <2021-06-01 20:41:47 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -3104,17 +3104,16 @@ clearly distinguishes past, present, future tasks."
     ('rainbow (list :foreground rainbowfg))
     (_ (list :foreground defaultfg))))
 
-(defun modus-themes--agenda-habit (default &optional traffic simple traffic-deuteran)
-  "Specify background values for `modus-themes-org-habit'.
-If no optional TRAFFIC argument is supplied, the DEFAULT is used
-instead.  Same for SIMPLE.
-
-Optional TRAFFIC-DEUTERAN is an alternative to TRAFFIC, meant for
-deuteranopia."
+(defun modus-themes--agenda-habit (default traffic simple &optional traffic-deuteran)
+  "Specify background values for `modus-themes-org-agenda' habits.
+DEFAULT is the original foregrounc color.  TRAFFIC is to be used
+when the 'traffic-light' style is applied, while SIMPLE
+corresponds to the 'simplified style'.  Optional TRAFFIC-DEUTERAN
+is an alternative to TRAFFIC, meant for deuteranopia."
   (pcase (modus-themes--key-cdr 'habit modus-themes-org-agenda)
-    ('traffic-light (list :background (or traffic default)))
+    ('traffic-light (list :background traffic))
     ('traffic-light-deuteranopia (list :background (or traffic-deuteran traffic)))
-    ('simplified (list :background (or simple default)))
+    ('simplified (list :background simple))
     (_ (list :background default))))
 
 (defun modus-themes--org-block (bgblk fgdefault &optional fgblk)
