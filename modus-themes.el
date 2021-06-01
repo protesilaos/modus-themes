@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-06-01 22:46:02 +0300>
+;; Last-Modified: <2021-06-02 00:15:34 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -2010,9 +2010,9 @@ For example:
   :package-version '(modus-themes . "1.5.0")
   :version "28.1"
   :type '(set
-          (cons :tag "Header block"
-                (const header-date)
-                (set :tag "Heading presentation" :greedy t
+          (cons :tag "Block header"
+                (const header-block)
+                (set :tag "Header presentation" :greedy t
                      (choice :tag "Font style"
                              (const :tag "Use the original typeface (default)" nil)
                              (const :tag "Use `variable-pitch' font" variable-pitch))
@@ -2020,20 +2020,20 @@ For example:
                              (const :tag "Slight increase in height (default)" nil)
                              (const :tag "Do not scale" no-scale)
                              (const :tag "Scale to match `modus-themes-scale-title'" scale-title))))
-          (cons :tag "Header date" :greedy t
+          (cons :tag "Date header" :greedy t
                 (const header-date)
-                (set :tag "Color styles" :greedy t
-                     (const :tag "Grayscale to differentiate weekdays from weekends" grayscale)
+                (set :tag "Header presentation" :greedy t
+                     (const :tag "Use grayscale for date headers" grayscale)
                      (const :tag "Do not differentiate weekdays from weekends" workaholic)
-                     (const :tag "Make all dates bold" bold-all)
-                     (const :tag "Make only today bold" bold-today)))
+                     (const :tag "Make today bold" bold-today)
+                     (const :tag "Make all dates bold" bold-all)))
           (cons :tag "Scheduled tasks"
-                (const header-block)
+                (const scheduled)
                 (choice (const :tag "Yellow colors to distinguish current and future tasks (default)" nil)
                         (const :tag "Uniform subtle warm color for all scheduled tasks" uniform)
                         (const :tag "Rainbow-colored scheduled tasks" rainbow)))
           (cons :tag "Habit graph"
-                (const header-block)
+                (const habit)
                 (choice (const :tag "Follow the original design of `org-habit' (default)" nil)
                         (const :tag "Do not distinguish between present and future variants" simplified)
                         (const :tag "Use only red, yellow, green" traffic-light)
