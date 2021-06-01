@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-06-01 09:45:56 +0300>
+;; Last-Modified: <2021-06-01 10:03:57 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -1904,7 +1904,7 @@ is a sample, followed by a description of all possible
 combinations:
 
     (setq modus-themes-org-agenda
-          '((header-block . (scale variable-pitch))
+          '((header-block . (variable-pitch scale))
             (header-date . (grayscale workaholic bold-today))
             (scheduled . uniform)
             (habit . traffic-light)))
@@ -1916,9 +1916,13 @@ weight.  Acceptable values come in the form of a list that can
 include either or both of those properties:
 
 - `variable-pitch' to use a proportionately spaced typeface;
-- `scaled' to increase the size to `modus-themes-scale-5';
+- `scale' to increase the size to `modus-themes-scale-5';
 
-For example: (header-block . (variable-pitch scale))
+For example:
+
+    (header-block . nil)
+    (header-block . (scale))
+    (header-block . (variable-pitch scale))
 
 A `header-date' key covers date headings.  Dates use only a
 foreground color by default (a nil value), with weekdays and
@@ -1929,28 +1933,37 @@ that can include any of the following properties:
 - `grayscale' to make weekdays use the main foreground color and
   weekends a more subtle gray;
 - `workaholic' to make weekdays and weekends look the same in
-  terms of colour;
+  terms of color;
 - `bold-today' to apply a bold typographic weight to the current
   date;
 - `bold-all' to render all date headings in a bold weight.
 
-For example: (header-date . (grayscale workaholic bold-all))
+For example:
+
+    (header-date . nil)
+    (header-date . (grayscale))
+    (header-date . (grayscale workaholic))
+    (header-date . (grayscale workaholic bold-all))
+    (header-date . (grayscale workaholic bold-today))
 
 A `scheduled' key applies to tasks with a scheduled date.  By
-default (a nil value), these use varying yellow colors to denote
-a (i) past or current and (ii) future date.  Valid values are
-symbols:
+default (a nil value), these use varying yellow shades to denote
+a (i) past or current date and (ii) future date.  Valid values
+are symbols:
 
 - nil (default);
 - `uniform' to make all scheduled dates the same color;
-- `rainbow' to use contrasting colours for past, present, future
+- `rainbow' to use contrasting colors for past, present, future
   scheduled dates.
 
-For example: (scheduled . uniform)
+For example:
+
+    (scheduled . nil)
+    (scheduled . uniform)
+    (scheduled . rainbow)
 
 A `habit' key applies to the `org-habit' graph.  All possible
-value are passed as a symbol, such as (habit . simplified).
-Those values are:
+value are passed as a symbol.  Those values are:
 
 - The default (nil) is meant to conform with the original
   aesthetic of `org-habit'.  It employs all four color codes that
@@ -1976,7 +1989,13 @@ Those values are:
   \"too early\" is less important than it being \"too late\".
   The difference between ready and clear states is attenuated by
   painting both of them using shades of green.  This option thus
-  highlights the alert and overdue states."
+  highlights the alert and overdue states.
+
+For example:
+
+    (habit . nil)
+    (habit . simplified)
+    (habit . traffic-light)"
   :group 'modus-themes
   :package-version '(modus-themes . "1.5.0")
   :version "28.1"
