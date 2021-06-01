@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-05-28 23:51:44 +0300>
+;; Last-Modified: <2021-06-01 12:52:58 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -4308,8 +4308,10 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; embark
     `(embark-keybinding ((,class :inherit modus-themes-key-binding)))
 ;;;;; emms
-    `(emms-playlist-track-face ((,class :foreground ,blue)))
-    `(emms-playlist-selected-face ((,class :inherit bold :foreground ,magenta)))
+    `(emms-playlist-track-face ((,class :foreground ,blue-alt)))
+    `(emms-playlist-selected-face ((,class :inherit bold :foreground ,blue-alt-other)))
+    `(emms-metaplaylist-mode-current-face ((,class :inherit emms-playlist-selected-face)))
+    `(emms-metaplaylist-mode-face ((,class :foreground ,cyan)))
 ;;;;; enh-ruby-mode (enhanced-ruby-mode)
     `(enh-ruby-heredoc-delimiter-face ((,class :inherit font-lock-constant-face)))
     `(enh-ruby-op-face ((,class :foreground ,fg-main)))
