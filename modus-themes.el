@@ -2014,19 +2014,19 @@ For example:
                 (const header-date)
                 (set :tag "Heading presentation" :greedy t
                      (choice :tag "Font style"
-		                     (const :tag "Use the original typeface (default)" nil)
-		                     (const :tag "Use `variable-pitch' font" variable-pitch))
+                             (const :tag "Use the original typeface (default)" nil)
+                             (const :tag "Use `variable-pitch' font" variable-pitch))
                      (choice :tag "Scaling"
-                          (const :tag "Slight increase in height (default)" nil)
-                          (const :tag "Do not scale" no-scale)
-                          (const :tag "Scale to match `modus-themes-scale-5'" scale-title))))
+                             (const :tag "Slight increase in height (default)" nil)
+                             (const :tag "Do not scale" no-scale)
+                             (const :tag "Scale to match `modus-themes-scale-5'" scale-title))))
           (cons :tag "Header date" :greedy t
                 (const header-date)
                 (set :tag "Color styles" :greedy t
-		                (const :tag "Grayscale to differentiate weekdays from weekends" grayscale)
-		                (const :tag "Do not differentiate weekdays from weekends" workaholic)
-		                (const :tag "Make all dates bold" bold-all)
-		                (const :tag "Make only today bold" bold-today)))
+                     (const :tag "Grayscale to differentiate weekdays from weekends" grayscale)
+                     (const :tag "Do not differentiate weekdays from weekends" workaholic)
+                     (const :tag "Make all dates bold" bold-all)
+                     (const :tag "Make only today bold" bold-today)))
           (cons :tag "Scheduled tasks"
                 (const header-block)
                 (choice (const :tag "Yellow colors to distinguish current and future tasks (default)" nil)
