@@ -2202,7 +2202,19 @@ background, effectively blending the two and creating some
 padding.
 
 The `accented' property ensures that the active mode line uses a
-colored background instead of the standard shade of gray."
+colored background instead of the standard shade of gray.
+
+Valid combinations are:
+- (3d)
+- (moody)
+- (borderless)
+- (accented)
+- (3d borderless)
+- (3d accented)
+- (3d borderless accented)
+- (moody borderless)
+- (moody accented)
+- (moody borderless accented)"
   :group 'modus-themes
   :package-version '(modus-themes . "1.5.0")
   :version "28.1"
