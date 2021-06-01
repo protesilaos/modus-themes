@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-06-01 11:58:29 +0300>
+;; Last-Modified: <2021-06-01 14:39:17 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -1904,7 +1904,7 @@ is a sample, followed by a description of all possible
 combinations:
 
     (setq modus-themes-org-agenda
-          '((header-block . (variable-pitch scale))
+          '((header-block . (variable-pitch scale-title))
             (header-date . (grayscale workaholic bold-today))
             (scheduled . uniform)
             (habit . traffic-light)))
@@ -1912,17 +1912,24 @@ combinations:
 A `header-block' key applies to elements that concern the
 headings which demarcate blocks in the structure of the agenda.
 By default (a nil value) those are rendered in a bold typographic
-weight.  Acceptable values come in the form of a list that can
+weight, plus a height that is slightly taller than the default
+font size.  Acceptable values come in the form of a list that can
 include either or both of those properties:
 
 - `variable-pitch' to use a proportionately spaced typeface;
-- `scale' to increase the size to `modus-themes-scale-5';
+- `scale-title' to increase the size to `modus-themes-scale-5' OR
+  `no-scale' to set the font to the same height as the rest of
+  the buffer.
 
-For example:
+In case both `scale-title' and `no-scale' are in the list, the
+latter takes precedence.
+
+Example usage:
 
     (header-block . nil)
-    (header-block . (scale))
-    (header-block . (variable-pitch scale))
+    (header-block . (scale-title))
+    (header-block . (no-scale))
+    (header-block . (variable-pitch scale-title))
 
 A `header-date' key covers date headings.  Dates use only a
 foreground color by default (a nil value), with weekdays and
@@ -2006,10 +2013,13 @@ For example:
           (cons :tag "Header block"
                 (const header-date)
                 (set :tag "Heading presentation" :greedy t
-                 (choice :tag "Font style"
-		                 (const :tag "Use the original typeface (default)" nil)
-		                 (const :tag "Use `variable-pitch' font" variable-pitch))
-                 (const :tag "Scale title to match `modus-themes-scale-5'" scale)))
+                     (choice :tag "Font style"
+		                     (const :tag "Use the original typeface (default)" nil)
+		                     (const :tag "Use `variable-pitch' font" variable-pitch))
+                     (choice :tag "Scaling"
+                          (const :tag "Slight increase in height (default)" nil)
+                          (const :tag "Do not scale" no-scale)
+                          (const :tag "Scale to match `modus-themes-scale-5'" scale-title))))
           (cons :tag "Header date" :greedy t
                 (const header-date)
                 (set :tag "Color styles" :greedy t
@@ -3017,7 +3027,11 @@ FG is the foreground color to use."
          (inherit (cond ((memq 'variable-pitch properties)
                          (list 'bold 'variable-pitch))
                         ('bold)))
-         (height (if (memq 'scale properties) modus-themes-scale-5 1.1)))
+         (height (cond ((memq 'no-scale properties)
+                        1.0)
+                       ((memq 'scale-title properties)
+                        modus-themes-scale-5)
+                       (1.1))))
     (list :inherit inherit
           :height height
           :foreground fg)))
