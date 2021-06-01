@@ -1284,6 +1284,9 @@ passed as a symbol.  Those are:
   being too late.  The difference between ready and clear states is
   attenuated by painting both of them using shades of green.  This
   option thus highlights the alert and overdue states.
+- ~traffic-light-deuteranopia~ is like the ~traffic-light~ except its three
+  colors are red, yellow, and blue to be suitable for users with
+  red-green color deficiency (deuteranopia).
 
 For example:
 

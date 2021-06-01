@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-06-01 10:53:49 +0300>
+;; Last-Modified: <2021-06-01 11:58:29 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -1990,6 +1990,9 @@ value are passed as a symbol.  Those are:
   The difference between ready and clear states is attenuated by
   painting both of them using shades of green.  This option thus
   highlights the alert and overdue states.
+- `traffic-light-deuteranopia' is like the `traffic-light' except
+  its three colors are red, yellow, and blue to be suitable for
+  users with red-green color deficiency (deuteranopia).
 
 For example:
 
@@ -2023,7 +2026,8 @@ For example:
                 (const header-block)
                 (choice (const :tag "Follow the original design of `org-habit' (default)" nil)
                         (const :tag "Do not distinguish between present and future variants" simplified)
-                        (const :tag "Use only red, yellow, green" traffic-light))))
+                        (const :tag "Use only red, yellow, green" traffic-light)
+                        (const :tag "Use only red, yellow, blue" traffic-light-deuteranopia))))
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Org agenda"))
@@ -3057,12 +3061,16 @@ clearly distinguishes past, present, future tasks."
     ('rainbow (list :foreground rainbowfg))
     (_ (list :foreground defaultfg))))
 
-(defun modus-themes--agenda-habit (default &optional traffic simple)
+(defun modus-themes--agenda-habit (default &optional traffic simple traffic-deuteran)
   "Specify background values for `modus-themes-org-habit'.
 If no optional TRAFFIC argument is supplied, the DEFAULT is used
-instead.  Same for SIMPLE."
+instead.  Same for SIMPLE.
+
+Optional TRAFFIC-DEUTERAN is an alternative to TRAFFIC, meant for
+deuteranopia."
   (pcase (modus-themes--key-cdr 'habit modus-themes-org-agenda)
     ('traffic-light (list :background (or traffic default)))
+    ('traffic-light-deuteranopia (list :background (or traffic-deuteran traffic)))
     ('simplified (list :background (or simple default)))
     (_ (list :background default))))
 
@@ -6007,10 +6015,12 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-habit-clear-face ((,class ,@(modus-themes--agenda-habit
                                        blue-graph-0-bg
                                        green-graph-1-bg
+                                       blue-graph-1-bg
                                        blue-graph-1-bg))))
     `(org-habit-clear-future-face ((,class ,@(modus-themes--agenda-habit
                                               blue-graph-1-bg
                                               green-graph-1-bg
+                                              blue-graph-1-bg
                                               blue-graph-1-bg))))
     `(org-habit-overdue-face ((,class ,@(modus-themes--agenda-habit
                                          red-graph-0-bg
@@ -6023,11 +6033,13 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-habit-ready-face ((,class ,@(modus-themes--agenda-habit
                                        green-graph-0-bg
                                        green-graph-0-bg
-                                       green-graph-1-bg))))
+                                       green-graph-1-bg
+                                       blue-graph-1-bg))))
     `(org-habit-ready-future-face ((,class ,@(modus-themes--agenda-habit
                                               green-graph-1-bg
                                               green-graph-0-bg
-                                              green-graph-1-bg))))
+                                              green-graph-1-bg
+                                              blue-graph-0-bg))))
     `(org-headline-done ((,class :inherit modus-themes-variable-pitch
                                  :foreground ,@(modus-themes--success-deuteran
                                                 blue-nuanced-fg
