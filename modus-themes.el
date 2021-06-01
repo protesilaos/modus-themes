@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-06-01 14:49:02 +0300>
+;; Last-Modified: <2021-06-01 15:02:56 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -64,11 +64,11 @@
 ;; The default scale for headings is as follows (it can be customized as
 ;; well---remember, no scaling takes place by default):
 ;;
-;;     modus-themes-scale-1 1.05
-;;     modus-themes-scale-2 1.1
-;;     modus-themes-scale-3 1.15
-;;     modus-themes-scale-4 1.2
-;;     modus-themes-scale-5 1.3
+;;     modus-themes-scale-1                        1.05
+;;     modus-themes-scale-2                        1.1
+;;     modus-themes-scale-3                        1.15
+;;     modus-themes-scale-4                        1.2
+;;     modus-themes-scale-title                    1.3
 ;;
 ;; There also exist two unique customization variables for overriding
 ;; color palette values.  The specifics are documented in the manual.
@@ -1917,8 +1917,8 @@ font size.  Acceptable values come in the form of a list that can
 include either or both of those properties:
 
 - `variable-pitch' to use a proportionately spaced typeface;
-- `scale-title' to increase the size to `modus-themes-scale-5' OR
-  `no-scale' to set the font to the same height as the rest of
+- `scale-title' to increase height to `modus-themes-scale-title'
+  OR `no-scale' to set the font to the same height as the rest of
   the buffer.
 
 In case both `scale-title' and `no-scale' are in the list, the
@@ -2019,7 +2019,7 @@ For example:
                      (choice :tag "Scaling"
                              (const :tag "Slight increase in height (default)" nil)
                              (const :tag "Do not scale" no-scale)
-                             (const :tag "Scale to match `modus-themes-scale-5'" scale-title))))
+                             (const :tag "Scale to match `modus-themes-scale-title'" scale-title))))
           (cons :tag "Header date" :greedy t
                 (const header-date)
                 (set :tag "Color styles" :greedy t
@@ -2047,9 +2047,11 @@ For example:
 
 For regular headings the scale is controlled by the variables
 `modus-themes-scale-1' (smallest) and its variants all the way up
-to `modus-themes-scale-4' (larger).  While `modus-themes-scale-5'
-is reserved for special headings that must be the largest on the
-scale.
+to `modus-themes-scale-4' (larger).
+
+While `modus-themes-scale-title' is reserved for special headings
+that nominally are the largest on the scale (though that is not a
+requirement).
 
 A special heading is, in this context, one that does not fit into
 the syntax for heading levels that apply to the given mode.  For
@@ -2179,6 +2181,33 @@ accordance with it in cases where it changes, such as while using
 `text-scale-adjust'."
   :group 'modus-themes
   :package-version '(modus-themes . "1.2.0")
+  :version "28.1"
+  :type 'number
+  :set #'modus-themes--set-option
+  :initialize #'custom-initialize-default
+  :link '(info-link "(modus-themes) Scaled heading sizes"))
+
+(define-obsolete-variable-alias 'modus-themes-scale-5 'modus-themes-scale-title "1.5.0")
+
+(defcustom modus-themes-scale-title 1.3
+  "Font size slightly larger than `modus-themes-scale-4'.
+
+This size is only used for 'special' top level headings, such as
+Org's file title heading, denoted by the #+title key word, and
+the Org agenda structure headers (see `modus-themes-org-agenda').
+
+The default value is a floating point that is interpreted as a
+multiple of the base font size.  It is recommended to use such a
+value.
+
+However, the variable also accepts an integer, understood as an
+absolute height that is 1/10 of the typeface's point size (e.g. a
+value of 140 is the same as setting the font at 14 point size).
+This will ignore the base font size and, thus, will not scale in
+accordance with it in cases where it changes, such as while using
+`text-scale-adjust'."
+  :group 'modus-themes
+  :package-version '(modus-themes . "1.5.0")
   :version "28.1"
   :type 'number
   :set #'modus-themes--set-option
@@ -3030,7 +3059,7 @@ FG is the foreground color to use."
          (height (cond ((memq 'no-scale properties)
                         1.0)
                        ((memq 'scale-title properties)
-                        modus-themes-scale-5)
+                        modus-themes-scale-title)
                        (1.1))))
     (list :inherit inherit
           :height height
@@ -3970,7 +3999,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(cfw:face-sunday ((,class :inherit bold :foreground ,cyan-alt-other)))
     `(cfw:face-title ((,class :inherit modus-themes-variable-pitch
                               :foreground ,fg-special-cold
-                              ,@(modus-themes--scale modus-themes-scale-5))))
+                              ,@(modus-themes--scale modus-themes-scale-title))))
     `(cfw:face-today ((,class :background ,bg-inactive)))
     `(cfw:face-today-title ((,class :background ,bg-active)))
     `(cfw:face-toolbar ((,class :background ,bg-alt :foreground ,bg-alt)))
@@ -6010,7 +6039,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-document-info ((,class :foreground ,fg-special-cold)))
     `(org-document-info-keyword ((,class :inherit modus-themes-fixed-pitch :foreground ,fg-alt)))
     `(org-document-title ((,class :inherit (bold modus-themes-variable-pitch) :foreground ,fg-special-cold
-                                  ,@(modus-themes--scale modus-themes-scale-5))))
+                                  ,@(modus-themes--scale modus-themes-scale-title))))
     `(org-done ((,class :foreground ,@(modus-themes--success-deuteran blue green))))
     `(org-drawer ((,class :inherit modus-themes-fixed-pitch :foreground ,fg-alt)))
     `(org-ellipsis (())) ; inherits from the heading's color
@@ -6134,7 +6163,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-tree-slide-header-overlay-face
       ((,class :inherit (bold modus-themes-variable-pitch) :background ,bg-main
                :foreground ,fg-special-cold :overline nil
-               ,@(modus-themes--scale modus-themes-scale-5))))
+               ,@(modus-themes--scale modus-themes-scale-title))))
 ;;;;; org-treescope
     `(org-treescope-faces--markerinternal-midday ((,class :inherit modus-themes-intense-blue)))
     `(org-treescope-faces--markerinternal-range ((,class :inherit modus-themes-special-mild)))

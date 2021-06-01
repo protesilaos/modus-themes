@@ -449,7 +449,7 @@ this manual.
       modus-themes-scale-2 1.15
       modus-themes-scale-3 1.21
       modus-themes-scale-4 1.27
-      modus-themes-scale-5 1.33)
+      modus-themes-scale-title 1.33)
 #+end_src
 
 ** Option for inhibiting theme reload
@@ -1209,8 +1209,8 @@ properties:
 
 - ~variable-pitch~ to use a proportionately spaced typeface;
 - ~scale-title~ to increase the size to the number assigned to
-  ~modus-themes-scale-5~ ([[#h:6868baa1-beba-45ed-baa5-5fd68322ccb3][Control the scale of headings]]) or ~no-scale~ to
-  make the font use the same height as the rest of the buffer.
+  ~modus-themes-scale-title~ ([[#h:6868baa1-beba-45ed-baa5-5fd68322ccb3][Control the scale of headings]]) or ~no-scale~
+  to make the font use the same height as the rest of the buffer.
 
 In case both ~scale-title~ and ~no-scale~ are in the list, the latter takes
 precedence.
@@ -1543,7 +1543,7 @@ resource for finding a consistent scale:
       modus-themes-scale-2 1.1
       modus-themes-scale-3 1.15
       modus-themes-scale-4 1.2
-      modus-themes-scale-5 1.3)
+      modus-themes-scale-title 1.3)
 #+end_src
 
 As for the application of that scale, the variables that range from
@@ -1553,19 +1553,20 @@ smallest, while the latter is the largest.  "Regular headings" are those
 that have a standard syntax for their scale, such as Org mode's eight
 levels of asterisks or Markdown's six columns.
 
-Whereas ~modus-themes-scale-5~ is applied to special headings that do not
-conform with the aforementioned syntax, yet which are expected to be
-larger than the largest value on that implied scale.  Put concretely,
-Org's =#+title= meta datum is not part of the eight levels of headings in
-an Org file, yet is supposed to signify the primary header.  Similarly,
-the Org Agenda's structure headings are not part of a recognisable scale
-and so they also get ~modus-themes-scale-5~.
+Whereas ~modus-themes-scale-title~ is applied to special headings that do
+not conform with the aforementioned syntax, yet which are expected to be
+larger than the largest value on that implied scale or at least have
+some unique purpose in the buffer.  Put concretely, Org's =#+title= meta
+datum is not part of the eight levels of headings in an Org file, yet is
+supposed to signify the primary header.  Similarly, the Org Agenda's
+structure headings are not part of a recognisable scale and so they also
+get ~modus-themes-scale-title~ ([[#h:68f481bc-5904-4725-a3e6-d7ecfa7c3dbc][Option for Org agenda constructs]]).
 
 Users who wish to maintain scaled headings for the normal syntax while
 preventing special headings from standing out, can assign a value of =1.0=
-to ~modus-themes-scale-5~ to make it the same as body text (or whatever
-value would render it indistinguishable from the desired point of
-reference).
+to ~modus-themes-scale-title~ to make it the same as body text (or
+whatever value would render it indistinguishable from the desired point
+of reference).
 
 Note that in earlier versions of Org, scaling would only increase the
 size of the heading, but not of keywords that were added to it, like
