@@ -127,7 +127,7 @@ demonstration:
       modus-themes-scale-2 1.15
       modus-themes-scale-3 1.21
       modus-themes-scale-4 1.27
-      modus-themes-scale-5 1.33)
+      modus-themes-scale-title 1.33)
 ```
 
 ## Further information
