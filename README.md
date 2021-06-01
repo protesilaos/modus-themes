@@ -109,7 +109,11 @@ demonstration:
       modus-themes-diffs 'fg-only-deuteranopia
 
       modus-themes-org-blocks 'gray-background ; {nil,'gray-background,'tinted-background}
-      modus-themes-org-habit nil ; {nil,'simplified,'traffic-light}
+      modus-themes-org-agenda ; this is an alist: read the manual or its doc string
+      '((header-block . (variable-pitch scale-title))
+        (header-date . (grayscale workaholic bold-today))
+        (scheduled . uniform)
+        (habit . traffic-light-deuteranopia))
 
       modus-themes-headings ; this is an alist: read the manual or its doc string
       '((1 . line)
