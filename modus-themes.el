@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-06-01 16:59:41 +0300>
+;; Last-Modified: <2021-06-02 00:18:23 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -48,8 +48,8 @@
 ;;     modus-themes-headings                       (alist)
 ;;     modus-themes-fringes                        (choice)
 ;;     modus-themes-lang-checkers                  (choice)
+;;     modus-themes-org-agenda                     (alist)
 ;;     modus-themes-org-blocks                     (choice)
-;;     modus-themes-org-habit                      (choice)
 ;;     modus-themes-prompts                        (choice)
 ;;     modus-themes-mode-line                      (choice)
 ;;     modus-themes-diffs                          (choice)
@@ -64,11 +64,11 @@
 ;; The default scale for headings is as follows (it can be customized as
 ;; well---remember, no scaling takes place by default):
 ;;
-;;     modus-themes-scale-1 1.05
-;;     modus-themes-scale-2 1.1
-;;     modus-themes-scale-3 1.15
-;;     modus-themes-scale-4 1.2
-;;     modus-themes-scale-5 1.3
+;;     modus-themes-scale-1                        1.05
+;;     modus-themes-scale-2                        1.1
+;;     modus-themes-scale-3                        1.15
+;;     modus-themes-scale-4                        1.2
+;;     modus-themes-scale-title                    1.3
 ;;
 ;; There also exist two unique customization variables for overriding
 ;; color palette values.  The specifics are documented in the manual.
@@ -1896,14 +1896,162 @@ A description of all other possible values:
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Heading styles"))
 
+(defcustom modus-themes-org-agenda nil
+  "Control the style of individual Org agenda constructs.
+
+This is an alist that accepts a (key . value) combination.  Here
+is a sample, followed by a description of all possible
+combinations:
+
+    (setq modus-themes-org-agenda
+          '((header-block . (variable-pitch scale-title))
+            (header-date . (grayscale workaholic bold-today))
+            (scheduled . uniform)
+            (habit . traffic-light)))
+
+A `header-block' key applies to elements that concern the
+headings which demarcate blocks in the structure of the agenda.
+By default (a nil value) those are rendered in a bold typographic
+weight, plus a height that is slightly taller than the default
+font size.  Acceptable values come in the form of a list that can
+include either or both of those properties:
+
+- `variable-pitch' to use a proportionately spaced typeface;
+- `scale-title' to increase height to `modus-themes-scale-title'
+  OR `no-scale' to set the font to the same height as the rest of
+  the buffer.
+
+In case both `scale-title' and `no-scale' are in the list, the
+latter takes precedence.
+
+Example usage:
+
+    (header-block . nil)
+    (header-block . (scale-title))
+    (header-block . (no-scale))
+    (header-block . (variable-pitch scale-title))
+
+A `header-date' key covers date headings.  Dates use only a
+foreground color by default (a nil value), with weekdays and
+weekends having a slight difference in hueness.  The current date
+has an added gray background.  This key accepts a list of values
+that can include any of the following properties:
+
+- `grayscale' to make weekdays use the main foreground color and
+  weekends a more subtle gray;
+- `workaholic' to make weekdays and weekends look the same in
+  terms of color;
+- `bold-today' to apply a bold typographic weight to the current
+  date;
+- `bold-all' to render all date headings in a bold weight.
+
+For example:
+
+    (header-date . nil)
+    (header-date . (workaholic))
+    (header-date . (grayscale bold-all))
+    (header-date . (grayscale workaholic))
+    (header-date . (grayscale workaholic bold-today))
+
+A `scheduled' key applies to tasks with a scheduled date.  By
+default (a nil value), these use varying shades of yellow to
+denote (i) a past or current date and (ii) a future date.  Valid
+values are symbols:
+
+- nil (default);
+- `uniform' to make all scheduled dates the same color;
+- `rainbow' to use contrasting colors for past, present, future
+  scheduled dates.
+
+For example:
+
+    (scheduled . nil)
+    (scheduled . uniform)
+    (scheduled . rainbow)
+
+A `habit' key applies to the `org-habit' graph.  All possible
+value are passed as a symbol.  Those are:
+
+- The default (nil) is meant to conform with the original
+  aesthetic of `org-habit'.  It employs all four color codes that
+  correspond to the org-habit states---clear, ready, alert, and
+  overdue---while distinguishing between their present and future
+  variants.  This results in a total of eight colors in use: red,
+  yellow, green, blue, in tinted and shaded versions.  They cover
+  the full set of information provided by the `org-habit'
+  consistency graph.
+- `simplified' is like the default except that it removes the
+  dichotomy between current and future variants by applying
+  uniform color-coded values.  It applies a total of four colors:
+  red, yellow, green, blue.  They produce a simplified
+  consistency graph that is more legible (or less \"busy\") than
+  the default.  The intent is to shift focus towards the
+  distinction between the four states of a habit task, rather
+  than each state's present/future outlook.
+- `traffic-light' further reduces the available colors to red,
+  yellow, and green.  As in `simplified', present and future
+  variants appear uniformly, but differently from it, the 'clear'
+  state is rendered in a green hue, instead of the original blue.
+  This is meant to capture the use-case where a habit task being
+  \"too early\" is less important than it being \"too late\".
+  The difference between ready and clear states is attenuated by
+  painting both of them using shades of green.  This option thus
+  highlights the alert and overdue states.
+- `traffic-light-deuteranopia' is like the `traffic-light' except
+  its three colors are red, yellow, and blue to be suitable for
+  users with red-green color deficiency (deuteranopia).
+
+For example:
+
+    (habit . nil)
+    (habit . simplified)
+    (habit . traffic-light)"
+  :group 'modus-themes
+  :package-version '(modus-themes . "1.5.0")
+  :version "28.1"
+  :type '(set
+          (cons :tag "Block header"
+                (const header-block)
+                (set :tag "Header presentation" :greedy t
+                     (choice :tag "Font style"
+                             (const :tag "Use the original typeface (default)" nil)
+                             (const :tag "Use `variable-pitch' font" variable-pitch))
+                     (choice :tag "Scaling"
+                             (const :tag "Slight increase in height (default)" nil)
+                             (const :tag "Do not scale" no-scale)
+                             (const :tag "Scale to match `modus-themes-scale-title'" scale-title))))
+          (cons :tag "Date header" :greedy t
+                (const header-date)
+                (set :tag "Header presentation" :greedy t
+                     (const :tag "Use grayscale for date headers" grayscale)
+                     (const :tag "Do not differentiate weekdays from weekends" workaholic)
+                     (const :tag "Make today bold" bold-today)
+                     (const :tag "Make all dates bold" bold-all)))
+          (cons :tag "Scheduled tasks"
+                (const scheduled)
+                (choice (const :tag "Yellow colors to distinguish current and future tasks (default)" nil)
+                        (const :tag "Uniform subtle warm color for all scheduled tasks" uniform)
+                        (const :tag "Rainbow-colored scheduled tasks" rainbow)))
+          (cons :tag "Habit graph"
+                (const habit)
+                (choice (const :tag "Follow the original design of `org-habit' (default)" nil)
+                        (const :tag "Do not distinguish between present and future variants" simplified)
+                        (const :tag "Use only red, yellow, green" traffic-light)
+                        (const :tag "Use only red, yellow, blue" traffic-light-deuteranopia))))
+  :set #'modus-themes--set-option
+  :initialize #'custom-initialize-default
+  :link '(info-link "(modus-themes) Org agenda"))
+
 (defcustom modus-themes-scale-headings nil
   "Use font scaling for headings.
 
 For regular headings the scale is controlled by the variables
 `modus-themes-scale-1' (smallest) and its variants all the way up
-to `modus-themes-scale-4' (larger).  While `modus-themes-scale-5'
-is reserved for special headings that must be the largest on the
-scale.
+to `modus-themes-scale-4' (larger).
+
+While `modus-themes-scale-title' is reserved for special headings
+that nominally are the largest on the scale (though that is not a
+requirement).
 
 A special heading is, in this context, one that does not fit into
 the syntax for heading levels that apply to the given mode.  For
@@ -2039,6 +2187,33 @@ accordance with it in cases where it changes, such as while using
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Scaled heading sizes"))
 
+(define-obsolete-variable-alias 'modus-themes-scale-5 'modus-themes-scale-title "1.5.0")
+
+(defcustom modus-themes-scale-title 1.3
+  "Font size slightly larger than `modus-themes-scale-4'.
+
+This size is only used for 'special' top level headings, such as
+Org's file title heading, denoted by the #+title key word, and
+the Org agenda structure headers (see `modus-themes-org-agenda').
+
+The default value is a floating point that is interpreted as a
+multiple of the base font size.  It is recommended to use such a
+value.
+
+However, the variable also accepts an integer, understood as an
+absolute height that is 1/10 of the typeface's point size (e.g. a
+value of 140 is the same as setting the font at 14 point size).
+This will ignore the base font size and, thus, will not scale in
+accordance with it in cases where it changes, such as while using
+`text-scale-adjust'."
+  :group 'modus-themes
+  :package-version '(modus-themes . "1.5.0")
+  :version "28.1"
+  :type 'number
+  :set #'modus-themes--set-option
+  :initialize #'custom-initialize-default
+  :link '(info-link "(modus-themes) Scaled heading sizes"))
+
 (defcustom modus-themes-fringes nil
   "Define the visibility of fringes.
 
@@ -2138,7 +2313,9 @@ respectively."
   :link '(info-link "(modus-themes) Org mode blocks"))
 
 (defcustom modus-themes-org-habit nil
-  "Control the presentation of the `org-habit' graph.
+  "Deprecated in version 1.5.0 favor of `modus-themes-org-agenda'.
+
+Control the presentation of the `org-habit' graph.
 
 The default is meant to conform with the original aesthetic of
 `org-habit'.  It employs all four color codes that correspond to
@@ -2176,6 +2353,8 @@ highlights the alert and overdue states."
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Org agenda habits"))
+
+(make-obsolete 'modus-themes-org-habit 'modus-themes-org-agenda "1.5.0")
 
 (defcustom modus-themes-mode-line nil
   "Adjust the overall style of the mode line.
@@ -2812,9 +2991,9 @@ FG is the default.  YELLOW is a color variant of that name."
     ('faint-yellow-comments (list :foreground yellow))
     (_ (list :foreground fg))))
 
-(defun modus-themes--heading-p (key)
-  "Query style of KEY in `modus-themes-headings'."
-  (cdr (assoc key modus-themes-headings)))
+(defun modus-themes--key-cdr (key alist)
+  "Get cdr of KEY in ALIST."
+  (cdr (assoc key alist)))
 
 (defun modus-themes--heading (level fg fg-alt bg border)
   "Conditional styles for `modus-themes-headings'.
@@ -2825,8 +3004,8 @@ than the default.  BG is a nuanced, typically accented,
 background that can work well with either of the foreground
 values.  BORDER is a color value that combines well with the
 background and alternative foreground."
-  (let* ((key (modus-themes--heading-p level))
-         (style (or key (modus-themes--heading-p t)))
+  (let* ((key (modus-themes--key-cdr level modus-themes-headings))
+         (style (or key (modus-themes--key-cdr t modus-themes-headings)))
          (var (when modus-themes-variable-pitch-headings
                 'variable-pitch))
          (varbold (if var
@@ -2870,6 +3049,71 @@ background and alternative foreground."
       (_
        (list :inherit varbold :foreground fg)))))
 
+(defun modus-themes--agenda-structure (fg)
+  "Control the style of the Org agenda structure.
+FG is the foreground color to use."
+  (let* ((properties (modus-themes--key-cdr 'header-block modus-themes-org-agenda))
+         (inherit (cond ((memq 'variable-pitch properties)
+                         (list 'bold 'variable-pitch))
+                        ('bold)))
+         (height (cond ((memq 'no-scale properties)
+                        1.0)
+                       ((memq 'scale-title properties)
+                        modus-themes-scale-title)
+                       (1.15))))
+    (list :inherit inherit
+          :height height
+          :foreground fg)))
+
+(defun modus-themes--agenda-date (defaultfg grayscalefg &optional bold workaholicfg grayscaleworkaholicfg)
+  "Control the style of date headings in Org agenda buffers.
+DEFAULTFG is the original accent color for the foreground.
+GRAYSCALEFG is a neutral color.  Optional BOLD applies a bold
+weight.  Optional WORKAHOLICFG and GRAYSCALEWORKAHOLICFG are
+alternative foreground colors."
+  (let* ((properties (modus-themes--key-cdr 'header-date modus-themes-org-agenda))
+         (weight (cond ((memq 'bold-all properties)
+                        'bold)
+                       ((and bold (memq 'bold-today properties))
+                        'bold)
+                       (t
+                        nil)))
+         (fg (cond ((and (memq 'grayscale properties)
+                         (memq 'workaholic properties))
+                    (or grayscaleworkaholicfg grayscalefg))
+                   ((memq 'grayscale properties)
+                    grayscalefg)
+                   ((memq 'workaholic properties)
+                    (or workaholicfg defaultfg))
+                   (t
+                    defaultfg))))
+    (list :inherit weight
+          :foreground fg)))
+
+(defun modus-themes--agenda-scheduled (defaultfg uniformfg rainbowfg)
+  "Control the style of the Org agenda scheduled tasks.
+DEFAULTFG is an accented foreground color that is meant to
+differentiate between past or present and future tasks.
+UNIFORMFG is a more subtle color that eliminates the color coding
+for scheduled tasks.  RAINBOWFG is a prominent accent value that
+clearly distinguishes past, present, future tasks."
+  (pcase (modus-themes--key-cdr 'scheduled modus-themes-org-agenda)
+    ('uniform (list :foreground uniformfg))
+    ('rainbow (list :foreground rainbowfg))
+    (_ (list :foreground defaultfg))))
+
+(defun modus-themes--agenda-habit (default traffic simple &optional traffic-deuteran)
+  "Specify background values for `modus-themes-org-agenda' habits.
+DEFAULT is the original foregrounc color.  TRAFFIC is to be used
+when the 'traffic-light' style is applied, while SIMPLE
+corresponds to the 'simplified style'.  Optional TRAFFIC-DEUTERAN
+is an alternative to TRAFFIC, meant for deuteranopia."
+  (pcase (modus-themes--key-cdr 'habit modus-themes-org-agenda)
+    ('traffic-light (list :background traffic))
+    ('traffic-light-deuteranopia (list :background (or traffic-deuteran traffic)))
+    ('simplified (list :background simple))
+    (_ (list :background default))))
+
 (defun modus-themes--org-block (bgblk fgdefault &optional fgblk)
   "Conditionally set the background of Org blocks.
 BGBLK applies to a distinct neutral background.  Else blocks have
@@ -2906,15 +3150,6 @@ set to `rainbow'."
     ('greyscale (list :background bg :foreground fg :extend t))
     ('rainbow (list :background bgaccent :foreground fgaccent))
     (_ (list :background bg :foreground fg))))
-
-(defun modus-themes--org-habit (default &optional traffic simple)
-  "Specify background values for `modus-themes-org-habit'.
-If no optional TRAFFIC argument is supplied, the DEFAULT is used
-instead.  Same for SIMPLE."
-  (pcase modus-themes-org-habit
-    ('traffic-light (list :background (or traffic default)))
-    ('simplified (list :background (or simple default)))
-    (_ (list :background default))))
 
 (defun modus-themes--mode-line-attrs
     (fg bg fg-alt bg-alt fg-accent bg-accent border border-3d &optional alt-style border-width fg-distant)
@@ -3761,7 +3996,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(cfw:face-sunday ((,class :inherit bold :foreground ,cyan-alt-other)))
     `(cfw:face-title ((,class :inherit modus-themes-variable-pitch
                               :foreground ,fg-special-cold
-                              ,@(modus-themes--scale modus-themes-scale-5))))
+                              ,@(modus-themes--scale modus-themes-scale-title))))
     `(cfw:face-today ((,class :background ,bg-inactive)))
     `(cfw:face-today-title ((,class :background ,bg-active)))
     `(cfw:face-toolbar ((,class :background ,bg-alt :foreground ,bg-alt)))
@@ -5760,10 +5995,11 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-agenda-calendar-sexp ((,class :inherit (modus-themes-slant shadow))))
     `(org-agenda-clocking ((,class :inherit modus-themes-special-cold :extend t)))
     `(org-agenda-column-dateline ((,class :background ,bg-alt)))
-    `(org-agenda-date ((,class :foreground ,cyan)))
-    `(org-agenda-date-today ((,class :inherit bold :foreground ,fg-main :underline t)))
-    `(org-agenda-date-weekend ((,class :foreground ,cyan-alt-other)))
     `(org-agenda-current-time ((,class :foreground ,blue-alt-other-faint)))
+    `(org-agenda-date ((,class ,@(modus-themes--agenda-date cyan fg-main nil))))
+    `(org-agenda-date-today ((,class :background ,bg-active
+                                     ,@(modus-themes--agenda-date blue-active fg-main t cyan-active))))
+    `(org-agenda-date-weekend ((,class ,@(modus-themes--agenda-date cyan-alt-other fg-alt nil cyan fg-main))))
     `(org-agenda-diary ((,class :inherit shadow)))
     `(org-agenda-dimmed-todo-face ((,class :inherit shadow)))
     `(org-agenda-done ((,class :foreground ,@(modus-themes--success-deuteran
@@ -5774,8 +6010,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-agenda-filter-regexp ((,class :inherit bold :foreground ,cyan-active)))
     `(org-agenda-filter-tags ((,class :inherit bold :foreground ,cyan-active)))
     `(org-agenda-restriction-lock ((,class :background ,bg-dim :foreground ,fg-dim)))
-    `(org-agenda-structure ((,class ,@(modus-themes--scale modus-themes-scale-5)
-                                    :foreground ,blue-alt)))
+    `(org-agenda-structure ((,class ,@(modus-themes--agenda-structure blue-alt))))
     `(org-archived ((,class :background ,bg-alt :foreground ,fg-alt)))
     `(org-block ((,class :inherit modus-themes-fixed-pitch
                          ,@(modus-themes--org-block bg-dim fg-main))))
@@ -5803,7 +6038,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-document-info ((,class :foreground ,fg-special-cold)))
     `(org-document-info-keyword ((,class :inherit modus-themes-fixed-pitch :foreground ,fg-alt)))
     `(org-document-title ((,class :inherit (bold modus-themes-variable-pitch) :foreground ,fg-special-cold
-                                  ,@(modus-themes--scale modus-themes-scale-5))))
+                                  ,@(modus-themes--scale modus-themes-scale-title))))
     `(org-done ((,class :foreground ,@(modus-themes--success-deuteran blue green))))
     `(org-drawer ((,class :inherit modus-themes-fixed-pitch :foreground ,fg-alt)))
     `(org-ellipsis (())) ; inherits from the heading's color
@@ -5811,38 +6046,42 @@ by virtue of calling either of `modus-themes-load-operandi' and
                             ,@(modus-themes--link-color
                                blue-alt blue-alt-faint))))
     `(org-formula ((,class :inherit modus-themes-fixed-pitch :foreground ,red-alt)))
-    `(org-habit-alert-face ((,class ,@(modus-themes--org-habit
+    `(org-habit-alert-face ((,class ,@(modus-themes--agenda-habit
                                        yellow-graph-0-bg
                                        yellow-graph-0-bg
                                        yellow-graph-1-bg))))
-    `(org-habit-alert-future-face ((,class ,@(modus-themes--org-habit
+    `(org-habit-alert-future-face ((,class ,@(modus-themes--agenda-habit
                                               yellow-graph-1-bg
                                               yellow-graph-0-bg
                                               yellow-graph-1-bg))))
-    `(org-habit-clear-face ((,class ,@(modus-themes--org-habit
+    `(org-habit-clear-face ((,class ,@(modus-themes--agenda-habit
                                        blue-graph-0-bg
                                        green-graph-1-bg
+                                       blue-graph-1-bg
                                        blue-graph-1-bg))))
-    `(org-habit-clear-future-face ((,class ,@(modus-themes--org-habit
+    `(org-habit-clear-future-face ((,class ,@(modus-themes--agenda-habit
                                               blue-graph-1-bg
                                               green-graph-1-bg
+                                              blue-graph-1-bg
                                               blue-graph-1-bg))))
-    `(org-habit-overdue-face ((,class ,@(modus-themes--org-habit
+    `(org-habit-overdue-face ((,class ,@(modus-themes--agenda-habit
                                          red-graph-0-bg
                                          red-graph-0-bg
                                          red-graph-1-bg))))
-    `(org-habit-overdue-future-face ((,class ,@(modus-themes--org-habit
+    `(org-habit-overdue-future-face ((,class ,@(modus-themes--agenda-habit
                                                 red-graph-1-bg
                                                 red-graph-0-bg
                                                 red-graph-1-bg))))
-    `(org-habit-ready-face ((,class ,@(modus-themes--org-habit
+    `(org-habit-ready-face ((,class ,@(modus-themes--agenda-habit
                                        green-graph-0-bg
                                        green-graph-0-bg
-                                       green-graph-1-bg))))
-    `(org-habit-ready-future-face ((,class ,@(modus-themes--org-habit
+                                       green-graph-1-bg
+                                       blue-graph-0-bg))))
+    `(org-habit-ready-future-face ((,class ,@(modus-themes--agenda-habit
                                               green-graph-1-bg
                                               green-graph-0-bg
-                                              green-graph-1-bg))))
+                                              green-graph-1-bg
+                                              blue-graph-0-bg))))
     `(org-headline-done ((,class :inherit modus-themes-variable-pitch
                                  :foreground ,@(modus-themes--success-deuteran
                                                 blue-nuanced-fg
@@ -5869,9 +6108,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-priority ((,class :foreground ,magenta)))
     `(org-property-value ((,class :inherit modus-themes-fixed-pitch :foreground ,fg-special-cold)))
     `(org-quote ((,class ,@(modus-themes--org-block bg-dim fg-special-cold fg-main))))
-    `(org-scheduled ((,class :foreground ,magenta-alt)))
-    `(org-scheduled-previously ((,class :foreground ,yellow-alt-other)))
-    `(org-scheduled-today ((,class :foreground ,magenta-alt-other)))
+    `(org-scheduled ((,class ,@(modus-themes--agenda-scheduled yellow-faint fg-special-warm magenta-alt))))
+    `(org-scheduled-previously ((,class ,@(modus-themes--agenda-scheduled yellow fg-special-warm yellow-alt-other))))
+    `(org-scheduled-today ((,class ,@(modus-themes--agenda-scheduled yellow fg-special-warm magenta-alt-other))))
     `(org-sexp-date ((,class :inherit org-date)))
     `(org-special-keyword ((,class :inherit modus-themes-fixed-pitch :foreground ,fg-alt)))
     `(org-table ((,class :inherit modus-themes-fixed-pitch :foreground ,fg-special-cold)))
@@ -5923,7 +6162,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-tree-slide-header-overlay-face
       ((,class :inherit (bold modus-themes-variable-pitch) :background ,bg-main
                :foreground ,fg-special-cold :overline nil
-               ,@(modus-themes--scale modus-themes-scale-5))))
+               ,@(modus-themes--scale modus-themes-scale-title))))
 ;;;;; org-treescope
     `(org-treescope-faces--markerinternal-midday ((,class :inherit modus-themes-intense-blue)))
     `(org-treescope-faces--markerinternal-range ((,class :inherit modus-themes-special-mild)))
