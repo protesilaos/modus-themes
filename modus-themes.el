@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-05-30 23:28:42 +0300>
+;; Last-Modified: <2021-06-01 09:34:39 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -1899,51 +1899,58 @@ A description of all other possible values:
 (defcustom modus-themes-org-agenda nil
   "Control the style of individual Org agenda constructs.
 
-This is an alist that accepts a (key . value) combination.
+This is an alist that accepts a (key . value) combination.  Here
+is a sample, followed by a description of all possible
+combinations:
 
-A `header-block' key applies to elements that concern the overall
-structure of the agenda.  It accepts values of:
+    (setq modus-themes-org-agenda
+          '((header-block . (scaled))
+            (header-date . (grayscale workaholic bold-today))
+            (scheduled . uniform)
+            (habit . traffic-light)))
 
-- nil (default);
+A `header-block' key applies to elements that concern the
+headings that demarcate blocks in the structure of the agenda.
+By default (a nil value) those are rendered in a bold typographic
+weight.  Acceptable values come in the form of a list that can
+include either or both of those properties:
+
 - `variable-pitch' to use a proportionately spaced typeface;
-- `scaled' to increase the size up to `modus-themes-scale-5';
-- `variable-pitch-scaled' to combine the above two.
+- `scale' to increase the size to `modus-themes-scale-5';
+
+For example: (header-block . (variable-pitch scale))
 
 A `header-date' key covers date headings.  Dates use only a
-foreground colour by default, with weekdays and weekends having a
-slight difference in hueness.  The current date has an added gray
-background.  This key accepts values of:
+foreground color by default (a nil value), with weekdays and
+weekends having a slight difference in hueness.  The current date
+has an added gray background.  This key accepts a list of values
+that can include any of the following properties:
 
-- nil (default);
 - `grayscale' to make weekdays use the main foreground color and
   weekends a more subtle gray;
-- `grayscale-bold-all' which is like `grayscale' with an added
-  bold weight for all date headings;
-- `grayscale-bold-today' which is like `grayscale' with only the
-  current date rendered in bold;
 - `workaholic' to make weekdays and weekends look the same in
   terms of colour;
-- `workaholic-bold-all' to apply a bold weight to all heading
-  dates and do not differentate between weekends and weekdays;
-- `workaholic-bold-today' to only use bold for the current date
-  while keeping the `workaholic' style;
-- `grayscale-workaholic' to use only the main foreground color
-  for date headings;
-- `grayscale-workaholic-bold-all' like the above, but with an add
-  bold weight for all dates;
-- `grayscale-workaholic-bold-today' like `grayscale-workaholic'
-  with an added bold weight for the current day.
+- `bold-today' to apply a bold typographic weight to the current
+  date;
+- `bold-all' to render all date headings in a bold weight.
+
+For example: (header-date . (grayscale workaholic bold-all))
 
 A `scheduled' key applies to tasks with a scheduled date.  By
-default, these use varying yellow colors to denote a (i) past or
-current and (ii) future date.  Valid values are:
+default (a nil value), these use varying yellow colors to denote
+a (i) past or current and (ii) future date.  Valid values are
+symbols:
 
 - nil (default);
 - `uniform' to make all scheduled dates the same color;
 - `rainbow' to use contrasting colours for past, present, future
   scheduled dates.
 
-A `habit' key applies to the `org-habit' graph.
+For example: (scheduled . uniform)
+
+A `habit' key applies to the `org-habit' graph.  All possible
+value are passed as a symbol, such as (habit . simplified).
+Those values are:
 
 - The default (nil) is meant to conform with the original
   aesthetic of `org-habit'.  It employs all four color codes that
@@ -1973,7 +1980,31 @@ A `habit' key applies to the `org-habit' graph.
   :group 'modus-themes
   :package-version '(modus-themes . "1.5.0")
   :version "28.1"
-  :type 'alist          ; TODO 2021-05-30: Make this work with Customize
+  :type '(set
+          (cons :tag "Header block"
+                (const header-date)
+                (set :tag "Heading presentation" :greedy t
+                 (choice :tag "Font style"
+		                 (const :tag "Use the original typeface (default)" nil)
+		                 (const :tag "Use `variable-pitch' font" variable-pitch))
+                 (const :tag "Scale title to match `modus-themes-scale-5'" scale)))
+          (cons :tag "Header date" :greedy t
+                (const header-date)
+                (set :tag "Color styles" :greedy t
+		                (const :tag "Grayscale to differentiate weekdays from weekends" grayscale)
+		                (const :tag "Do not differentiate weekdays from weekends" workaholic)
+		                (const :tag "Make all dates bold" bold-all)
+		                (const :tag "Make only today bold" bold-today)))
+          (cons :tag "Scheduled tasks"
+                (const header-block)
+                (choice (const :tag "Yellow colors to distinguish current and future tasks (default)" nil)
+                        (const :tag "Uniform subtle warm color for all scheduled tasks" uniform)
+                        (const :tag "Rainbow-colored scheduled tasks" rainbow)))
+          (cons :tag "Habit graph"
+                (const header-block)
+                (choice (const :tag "Follow the original design of `org-habit' (default)" nil)
+                        (const :tag "Do not distinguish between present and future variants" simplified)
+                        (const :tag "Use only red, yellow, green" traffic-light))))
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Heading styles"))
@@ -2959,12 +2990,14 @@ background and alternative foreground."
 (defun modus-themes--agenda-structure (fg)
   "Control the style of the Org agenda structure.
 FG is the foreground color to use."
-  (pcase (modus-themes--key-cdr 'header-block modus-themes-org-agenda)
-    ('variable-pitch (list :inherit '(variable-pitch bold) :foreground fg))
-    ('scaled (list :inherit 'bold :foreground fg :height modus-themes-scale-5))
-    ('variable-pitch-scaled
-     (list :inherit '(variable-pitch bold) :foreground fg :height modus-themes-scale-5))
-    (_ (list :inherit 'bold :foreground fg))))
+  (let* ((properties (modus-themes--key-cdr 'header-block modus-themes-org-agenda))
+         (inherit (cond ((memq 'variable-pitch properties)
+                         (list 'bold 'variable-pitch))
+                        ('bold)))
+         (height (if (memq 'scaled properties) modus-themes-scale-5 1.1)))
+    (list :inherit inherit
+          :height height
+          :foreground fg)))
 
 (defun modus-themes--agenda-date (defaultfg grayscalefg &optional bold workaholicfg grayscaleworkaholicfg)
   "Control the style of date headings in Org agenda buffers.
@@ -2972,17 +3005,26 @@ DEFAULTFG is the original accent color for the foreground.
 GRAYSCALEFG is a neutral color.  Optional BOLD applies a bold
 weight.  Optional WORKAHOLICFG and GRAYSCALEWORKAHOLICFG are
 alternative foreground colors."
-  (pcase (modus-themes--key-cdr 'header-date modus-themes-org-agenda)
-    ('grayscale (list :foreground grayscalefg))
-    ('grayscale-bold-all (list :inherit 'bold :foreground grayscalefg))
-    ('grayscale-bold-today (list :inherit (when bold 'bold) :foreground grayscalefg))
-    ('workaholic (list :foreground (or workaholicfg defaultfg)))
-    ('workaholic-bold-all (list :inherit 'bold :foreground (or workaholicfg defaultfg)))
-    ('workaholic-bold-today (list :inherit (when bold 'bold) :foreground (or workaholicfg defaultfg)))
-    ('grayscale-workaholic (list :foreground (or grayscaleworkaholicfg grayscalefg)))
-    ('grayscale-workaholic-bold-all (list :inherit 'bold :foreground (or grayscaleworkaholicfg grayscalefg)))
-    ('grayscale-workaholic-bold-today (list :inherit (when bold 'bold) :foreground (or grayscaleworkaholicfg grayscalefg)))
-    (_ (list :foreground defaultfg))))
+  (let* ((properties (modus-themes--key-cdr 'header-date modus-themes-org-agenda))
+         (weight (cond ((memq 'bold-all properties)
+                        'bold)
+                       ((and bold (memq 'bold-today properties))
+                        'bold)
+                       (t
+                        nil)))
+         (fg (cond ((and (memq 'grayscale properties)
+                         (memq 'workaholic properties))
+                    (or grayscaleworkaholicfg grayscalefg))
+                   ((memq 'grayscale properties)
+                    grayscalefg)
+                   ((memq 'workaholic properties)
+                    workaholicfg)
+                   ((memq 'bold-all properties)
+                    bold)
+                   (t
+                    defaultfg))))
+    (list :inherit weight
+          :foreground fg)))
 
 (defun modus-themes--agenda-scheduled (defaultfg uniformfg rainbowfg)
   "Control the style of the Org agenda scheduled tasks.
