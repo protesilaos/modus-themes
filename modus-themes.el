@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-06-01 14:39:17 +0300>
+;; Last-Modified: <2021-06-01 14:49:02 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -48,8 +48,8 @@
 ;;     modus-themes-headings                       (alist)
 ;;     modus-themes-fringes                        (choice)
 ;;     modus-themes-lang-checkers                  (choice)
+;;     modus-themes-org-agenda                     (alist)
 ;;     modus-themes-org-blocks                     (choice)
-;;     modus-themes-org-habit                      (choice)
 ;;     modus-themes-prompts                        (choice)
 ;;     modus-themes-mode-line                      (choice)
 ;;     modus-themes-diffs                          (choice)
