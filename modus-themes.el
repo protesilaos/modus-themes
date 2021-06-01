@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-06-01 20:41:47 +0300>
+;; Last-Modified: <2021-06-01 22:37:29 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -3085,8 +3085,6 @@ alternative foreground colors."
                     grayscalefg)
                    ((memq 'workaholic properties)
                     workaholicfg)
-                   ((memq 'bold-all properties)
-                    bold)
                    (t
                     defaultfg))))
     (list :inherit weight
