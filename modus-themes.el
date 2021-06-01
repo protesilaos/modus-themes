@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-06-01 09:34:39 +0300>
+;; Last-Modified: <2021-06-01 09:45:56 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -1904,7 +1904,7 @@ is a sample, followed by a description of all possible
 combinations:
 
     (setq modus-themes-org-agenda
-          '((header-block . (scaled))
+          '((header-block . (scale variable-pitch))
             (header-date . (grayscale workaholic bold-today))
             (scheduled . uniform)
             (habit . traffic-light)))
@@ -1916,7 +1916,7 @@ weight.  Acceptable values come in the form of a list that can
 include either or both of those properties:
 
 - `variable-pitch' to use a proportionately spaced typeface;
-- `scale' to increase the size to `modus-themes-scale-5';
+- `scaled' to increase the size to `modus-themes-scale-5';
 
 For example: (header-block . (variable-pitch scale))
 
@@ -2994,7 +2994,7 @@ FG is the foreground color to use."
          (inherit (cond ((memq 'variable-pitch properties)
                          (list 'bold 'variable-pitch))
                         ('bold)))
-         (height (if (memq 'scaled properties) modus-themes-scale-5 1.1)))
+         (height (if (memq 'scale properties) modus-themes-scale-5 1.1)))
     (list :inherit inherit
           :height height
           :foreground fg)))
