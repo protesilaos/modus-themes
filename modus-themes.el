@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-06-01 10:03:57 +0300>
+;; Last-Modified: <2021-06-01 10:53:49 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -1910,7 +1910,7 @@ combinations:
             (habit . traffic-light)))
 
 A `header-block' key applies to elements that concern the
-headings that demarcate blocks in the structure of the agenda.
+headings which demarcate blocks in the structure of the agenda.
 By default (a nil value) those are rendered in a bold typographic
 weight.  Acceptable values come in the form of a list that can
 include either or both of those properties:
@@ -1941,15 +1941,15 @@ that can include any of the following properties:
 For example:
 
     (header-date . nil)
-    (header-date . (grayscale))
+    (header-date . (workaholic))
+    (header-date . (grayscale bold-all))
     (header-date . (grayscale workaholic))
-    (header-date . (grayscale workaholic bold-all))
     (header-date . (grayscale workaholic bold-today))
 
 A `scheduled' key applies to tasks with a scheduled date.  By
-default (a nil value), these use varying yellow shades to denote
-a (i) past or current date and (ii) future date.  Valid values
-are symbols:
+default (a nil value), these use varying shades of yellow to
+denote (i) a past or current date and (ii) a future date.  Valid
+values are symbols:
 
 - nil (default);
 - `uniform' to make all scheduled dates the same color;
@@ -1963,7 +1963,7 @@ For example:
     (scheduled . rainbow)
 
 A `habit' key applies to the `org-habit' graph.  All possible
-value are passed as a symbol.  Those values are:
+value are passed as a symbol.  Those are:
 
 - The default (nil) is meant to conform with the original
   aesthetic of `org-habit'.  It employs all four color codes that
@@ -2026,7 +2026,7 @@ For example:
                         (const :tag "Use only red, yellow, green" traffic-light))))
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
-  :link '(info-link "(modus-themes) Heading styles"))
+  :link '(info-link "(modus-themes) Org agenda"))
 
 (defcustom modus-themes-scale-headings nil
   "Use font scaling for headings.
