@@ -109,6 +109,7 @@ Customization Options
 * Active region::                Choose between various styles for the active region
 * Diffs::                        Choose among intense, desaturated, or text-only diffs
 * Org mode blocks::              Choose among plain, gray, or tinted backgrounds
+* Org agenda::                   Control each element in the presentation of the agenda
 * Org agenda habits::            Choose among standard, simplified, or traffic light styles
 * Heading styles::               Choose among several styles, also per heading level
 * Scaled headings::              Toggle scaling of headings
@@ -569,7 +570,11 @@ of this manual.
            modus-themes-diffs 'fg-only-deuteranopia
 
            modus-themes-org-blocks 'gray-background ; {nil,'gray-background,'tinted-background}
-           modus-themes-org-habit nil ; {nil,'simplified,'traffic-light}
+           modus-themes-org-agenda ; this is an alist: read the manual or its doc string
+           '((header-block . (variable-pitch scale-title))
+             (header-date . (grayscale workaholic bold-today))
+             (scheduled . uniform)
+             (habit . traffic-light-deuteranopia))
 
            modus-themes-headings ; this is an alist: read the manual or its doc string
            '((1 . line)
@@ -583,7 +588,7 @@ of this manual.
            modus-themes-scale-2 1.15
            modus-themes-scale-3 1.21
            modus-themes-scale-4 1.27
-           modus-themes-scale-5 1.33)
+           modus-themes-scale-title 1.33)
 
 * Menu:
 
@@ -606,6 +611,7 @@ of this manual.
 * Active region::                Choose between various styles for the active region
 * Diffs::                        Choose among intense, desaturated, or text-only diffs
 * Org mode blocks::              Choose among plain, gray, or tinted backgrounds
+* Org agenda::                   Control each element in the presentation of the agenda
 * Org agenda habits::            Choose among standard, simplified, or traffic light styles
 * Heading styles::               Choose among several styles, also per heading level
 * Scaled headings::              Toggle scaling of headings
@@ -1264,7 +1270,7 @@ versions of the themes is now an alias of ‘fg-only-deuteranopia’, in the
 interest of backward compatibility.
 
 
-File: modus-themes.info,  Node: Org mode blocks,  Next: Org agenda habits,  Prev: Diffs,  Up: Customization Options
+File: modus-themes.info,  Node: Org mode blocks,  Next: Org agenda,  Prev: Diffs,  Up: Customization Options
 
 4.19 Option for org-mode block styles
 =====================================
@@ -1307,12 +1313,146 @@ delimiter fontification (DIY).
 aliases for ‘gray-background’ and ‘tinted-background’, respectively.
 
 
-File: modus-themes.info,  Node: Org agenda habits,  Next: Heading styles,  Prev: Org mode blocks,  Up: Customization Options
+File: modus-themes.info,  Node: Org agenda,  Next: Org agenda habits,  Prev: Org mode blocks,  Up: Customization Options
 
-4.20 Option for org-habit graph styles
+4.20 Option for Org agenda constructs
+=====================================
+
+[ Part of 1.5.0-dev.  Supersedes ‘modus-themes-org-habit’ (*note Option
+for org-habit graph styles: Org agenda habits.).  ]
+
+   Symbol: ‘modus-themes-org-agenda’
+
+   This is an alist that accepts a ‘(key . value)’ combination.  Some
+values are specified as a list.  Here is a sample, followed by a
+description of all possible combinations:
+
+     (setq modus-themes-org-agenda
+           '((header-block . (variable-pitch scale-title))
+             (header-date . (grayscale workaholic bold-today))
+             (scheduled . uniform)
+             (habit . traffic-light)))
+
+   A ‘header-block’ key applies to elements that concern the headings
+which demarcate blocks in the structure of the agenda.  By default (a
+‘nil’ value) those are rendered in a bold typographic weight, plus a
+height that is slightly taller than the default font size.  Acceptable
+values come in the form of a list that can include either or both of
+those properties:
+
+   • ‘variable-pitch’ to use a proportionately spaced typeface;
+   • ‘scale-title’ to increase the size to the number assigned to
+     ‘modus-themes-scale-title’ (*note Control the scale of headings:
+     Scaled heading sizes.) or ‘no-scale’ to make the font use the same
+     height as the rest of the buffer.
+
+   In case both ‘scale-title’ and ‘no-scale’ are in the list, the latter
+takes precedence.
+
+   Example usage:
+
+     (header-block . nil)
+     (header-block . (scale-title))
+     (header-block . (no-scale))
+     (header-block . (variable-pitch scale-title))
+
+   A ‘header-date’ key covers date headings.  Dates use only a
+foreground color by default (a ‘nil’ value), with weekdays and weekends
+having a slight difference in hueness.  The current date has an added
+gray background.  This key accepts a list of values that can include any
+of the following properties:
+
+   • ‘grayscale’ to make weekdays use the main foreground color and
+     weekends a more subtle gray;
+   • ‘workaholic’ to make weekdays and weekends look the same in terms
+     of color;
+   • ‘bold-today’ to apply a bold typographic weight to the current
+     date;
+   • ‘bold-all’ to render all date headings in a bold weight.
+
+   For example:
+
+     (header-date . nil)
+     (header-date . (workaholic))
+     (header-date . (grayscale bold-all))
+     (header-date . (grayscale workaholic))
+     (header-date . (grayscale workaholic bold-today))
+
+   A ‘scheduled’ key applies to tasks with a scheduled date.  By default
+(a ‘nil’ value), those use varying shades of yellow to denote (i) a past
+or current date and (ii) a future date.  Valid values are symbols:
+
+   • nil (default);
+   • ‘uniform’ to make all scheduled dates the same color;
+   • ‘rainbow’ to use contrasting colors for past, present, future
+     scheduled dates.
+
+   For example:
+
+     (scheduled . nil)
+     (scheduled . uniform)
+     (scheduled . rainbow)
+
+   A ‘habit’ key applies to the ‘org-habit’ graph.  All possible value
+are passed as a symbol.  Those are:
+
+   • The default (‘nil’) is meant to conform with the original aesthetic
+     of ‘org-habit’.  It employs all four color codes that correspond to
+     the org-habit states—clear, ready, alert, and overdue—while
+     distinguishing between their present and future variants.  This
+     results in a total of eight colors in use: red, yellow, green,
+     blue, in tinted and shaded versions.  They cover the full set of
+     information provided by the ‘org-habit’ consistency graph.
+   • ‘simplified’ is like the default except that it removes the
+     dichotomy between current and future variants by applying uniform
+     color-coded values.  It applies a total of four colors: red,
+     yellow, green, blue.  They produce a simplified consistency graph
+     that is more legible (or less busy) than the default.  The intent
+     is to shift focus towards the distinction between the four states
+     of a habit task, rather than each state’s present/future outlook.
+   • ‘traffic-light’ further reduces the available colors to red,
+     yellow, and green.  As in ‘simplified’, present and future variants
+     appear uniformly, but differently from it, the ‘clear’ state is
+     rendered in a green hue, instead of the original blue.  This is
+     meant to capture the use-case where a habit task being too early is
+     less important than it being too late.  The difference between
+     ready and clear states is attenuated by painting both of them using
+     shades of green.  This option thus highlights the alert and overdue
+     states.
+   • ‘traffic-light-deuteranopia’ is like the ‘traffic-light’ except its
+     three colors are red, yellow, and blue to be suitable for users
+     with red-green color deficiency (deuteranopia).
+
+   For example:
+
+     (habit . nil)
+     (habit . simplified)
+     (habit . traffic-light)
+
+   Putting it all together, the alist can look like this:
+
+     '((header-block . (scale-title variable-pitch))
+       (header-date . (grayscale workaholic bold-today))
+       (scheduled . uniform)
+       (habit . traffic-light))
+
+     ;; Or else:
+     (setq modus-themes-org-agenda
+           '((header-block . (scale-title variable-pitch))
+             (header-date . (grayscale workaholic bold-today))
+             (scheduled . uniform)
+             (habit . traffic-light)))
+
+
+File: modus-themes.info,  Node: Org agenda habits,  Next: Heading styles,  Prev: Org agenda,  Up: Customization Options
+
+4.21 Option for org-habit graph styles
 ======================================
 
-Symbol: ‘modus-themes-org-habit’
+[ Deprecated and superseded by ‘modus-themes-org-agenda’ in 1.5.0-dev
+(*note Option for Org agenda constructs: Org agenda.).  ]
+
+   Symbol: ‘modus-themes-org-habit’
 
    Possible values:
 
@@ -1348,7 +1488,7 @@ thus highlights the alert and overdue states.
 
 File: modus-themes.info,  Node: Heading styles,  Next: Scaled headings,  Prev: Org agenda habits,  Up: Customization Options
 
-4.21 Option for the headings’ overall style
+4.22 Option for the headings’ overall style
 ===========================================
 
 This is defined as an alist and, therefore, uses a different approach
@@ -1468,7 +1608,7 @@ as: ‘org-fontify-whole-heading-line’ and ‘org-fontify-done-headline’.
 
 File: modus-themes.info,  Node: Scaled headings,  Next: UI typeface,  Prev: Heading styles,  Up: Customization Options
 
-4.22 Option for scaled headings
+4.23 Option for scaled headings
 ===============================
 
 Symbol: ‘modus-themes-scale-headings’
@@ -1491,7 +1631,7 @@ Info.
 
 File: modus-themes.info,  Node: Scaled heading sizes,  Up: Scaled headings
 
-4.22.1 Control the scale of headings
+4.23.1 Control the scale of headings
 ------------------------------------
 
 In addition to the toggle for enabling scaled headings, users can also
@@ -1522,7 +1662,7 @@ change them to their liking, such as ‘1.2’, ‘1.4’, ‘1.6’, ‘1.8’,
            modus-themes-scale-2 1.1
            modus-themes-scale-3 1.15
            modus-themes-scale-4 1.2
-           modus-themes-scale-5 1.3)
+           modus-themes-scale-title 1.3)
 
    As for the application of that scale, the variables that range from
 ‘modus-themes-scale-1’ up to ‘modus-themes-scale-4’ apply to regular
@@ -1531,19 +1671,21 @@ smallest, while the latter is the largest.  “Regular headings” are those
 that have a standard syntax for their scale, such as Org mode’s eight
 levels of asterisks or Markdown’s six columns.
 
-   Whereas ‘modus-themes-scale-5’ is applied to special headings that do
-not conform with the aforementioned syntax, yet which are expected to be
-larger than the largest value on that implied scale.  Put concretely,
-Org’s ‘#+title’ meta datum is not part of the eight levels of headings
-in an Org file, yet is supposed to signify the primary header.
-Similarly, the Org Agenda’s structure headings are not part of a
-recognisable scale and so they also get ‘modus-themes-scale-5’.
+   Whereas ‘modus-themes-scale-title’ is applied to special headings
+that do not conform with the aforementioned syntax, yet which are
+expected to be larger than the largest value on that implied scale or at
+least have some unique purpose in the buffer.  Put concretely, Org’s
+‘#+title’ meta datum is not part of the eight levels of headings in an
+Org file, yet is supposed to signify the primary header.  Similarly, the
+Org Agenda’s structure headings are not part of a recognisable scale and
+so they also get ‘modus-themes-scale-title’ (*note Option for Org agenda
+constructs: Org agenda.).
 
    Users who wish to maintain scaled headings for the normal syntax
 while preventing special headings from standing out, can assign a value
-of ‘1.0’ to ‘modus-themes-scale-5’ to make it the same as body text (or
-whatever value would render it indistinguishable from the desired point
-of reference).
+of ‘1.0’ to ‘modus-themes-scale-title’ to make it the same as body text
+(or whatever value would render it indistinguishable from the desired
+point of reference).
 
    Note that in earlier versions of Org, scaling would only increase the
 size of the heading, but not of keywords that were added to it, like
@@ -1553,7 +1695,7 @@ size of the heading, but not of keywords that were added to it, like
 
 File: modus-themes.info,  Node: UI typeface,  Next: Headings' typeface,  Prev: Scaled headings,  Up: Customization Options
 
-4.23 Option for variable-pitch font in UI elements
+4.24 Option for variable-pitch font in UI elements
 ==================================================
 
 Symbol: ‘modus-themes-variable-pitch-ui’
@@ -1580,7 +1722,7 @@ Org and others (DIY).
 
 File: modus-themes.info,  Node: Headings' typeface,  Prev: UI typeface,  Up: Customization Options
 
-4.24 Option for variable-pitch font in headings
+4.25 Option for variable-pitch font in headings
 ===============================================
 
 Symbol: ‘modus-themes-variable-pitch-headings’
@@ -4506,6 +4648,7 @@ B.2 Variable index
 * modus-themes-mode-line:                Mode line.             (line 6)
 * modus-themes-no-mixed-fonts:           No mixed fonts.        (line 6)
 * modus-themes-operandi-color-overrides: Override colors (DIY). (line 6)
+* modus-themes-org-agenda:               Org agenda.            (line 6)
 * modus-themes-org-blocks:               Org mode blocks.       (line 6)
 * modus-themes-org-habit:                Org agenda habits.     (line 6)
 * modus-themes-paren-match:              Matching parentheses.  (line 6)
@@ -4580,97 +4723,98 @@ B.3 Concept index
 
 Tag Table:
 Node: Top860
-Node: Overview6641
-Node: How do the themes look like8184
-Node: Learn about the latest changes8692
-Node: Installation9074
-Node: Install manually from source9555
-Node: Install from the archives10380
-Node: Install on GNU/Linux11157
-Node: Debian 11 Bullseye11605
-Node: GNU Guix11915
-Node: Enable and load12198
-Node: Sample configuration for use-package15187
-Node: Differences between loading and enabling16556
-Node: Customization Options18596
-Node: Custom reload theme24382
-Node: Success' color-code24969
-Node: Bold constructs25906
-Node: Slanted constructs26523
-Node: Syntax styles27070
-Node: No mixed fonts28708
-Node: Link styles29803
-Node: Command prompts31377
-Node: Mode line32576
-Node: Completion UIs36550
-Node: Mail citations38421
-Node: Fringes39274
-Node: Language checkers39936
-Node: Line highlighting41884
-Node: Line numbers43397
-Node: Matching parentheses44475
-Node: Active region45365
-Node: Diffs46583
-Node: Org mode blocks48522
-Node: Org agenda habits50407
-Node: Heading styles52242
-Node: Scaled headings56472
-Node: Scaled heading sizes57075
-Node: UI typeface60209
-Node: Headings' typeface61055
-Node: Advanced customization (do-it-yourself)61679
-Node: Per-theme customization settings (DIY)63042
-Node: Case-by-case face specs using the themes' palette (DIY)64388
-Node: Face specs at scale using the themes' palette (DIY)68852
-Node: Remap face with local value (DIY)73669
-Node: Cycle through arbitrary colors (DIY)76147
-Node: Override colors (DIY)82713
-Node: Override color saturation (DIY)87606
-Node: Font configurations for Org and others (DIY)93359
-Ref: Font configurations for Org and others (DIY)-Footnote-195787
-Node: Custom Org user faces (DIY)95974
-Node: Update Org block delimiter fontification (DIY)99346
-Node: Measure color contrast (DIY)101306
-Node: Load theme depending on time of day (DIY)104100
-Node: Backdrop for pdf-tools (DIY)105140
-Node: A theme-agnostic hook for theme loading (DIY)107902
-Node: Face coverage110292
-Node: Supported packages110761
-Node: Indirectly covered packages117521
-Node: Notes on individual packages118075
-Node: Note on inline Latex in Org buffers118899
-Node: Note on dimmerel119459
-Node: Note on display-fill-column-indicator-mode120944
-Node: Note on mmm-modeel background colors122565
-Node: Note for prism124944
-Node: Note for god-mode128170
-Node: Note on company-mode overlay pop-up129842
-Ref: Note on company-mode overlay pop-up-Footnote-1130530
-Ref: Note on company-mode overlay pop-up-Footnote-2130597
-Node: Note on ERC escaped color sequences130652
-Ref: Note on ERC escaped color sequences-Footnote-1132078
-Node: Note on powerline or spaceline132188
-Node: Note on SHR colors132600
-Node: Note on EWW and Elfeed fonts (SHR fonts)133035
-Node: Note on Helm grep133780
-Node: Note on vc-annotate-background-mode135267
-Node: Note on pdf-tools link hints136152
-Node: Frequently Asked Questions (FAQ)138584
-Node: Is the contrast ratio about adjacent colors?139158
-Node: What does it mean to avoid exaggerations?140671
-Node: Why are colors mostly variants of blue magenta cyan?142506
-Node: What is the best setup for legibility?146853
-Node: Contributing149464
-Node: Sources of the themes149867
-Node: Issues you can help with150605
-Node: Patches require copyright assignment to the FSF151805
-Node: Acknowledgements154100
-Node: Meta156588
-Node: GNU Free Documentation License158585
-Node: Indices183937
-Node: Function index184116
-Node: Variable index185353
-Node: Concept index187494
+Node: Overview6729
+Node: How do the themes look like8272
+Node: Learn about the latest changes8780
+Node: Installation9162
+Node: Install manually from source9643
+Node: Install from the archives10468
+Node: Install on GNU/Linux11245
+Node: Debian 11 Bullseye11693
+Node: GNU Guix12003
+Node: Enable and load12286
+Node: Sample configuration for use-package15275
+Node: Differences between loading and enabling16644
+Node: Customization Options18684
+Node: Custom reload theme24786
+Node: Success' color-code25373
+Node: Bold constructs26310
+Node: Slanted constructs26927
+Node: Syntax styles27474
+Node: No mixed fonts29112
+Node: Link styles30207
+Node: Command prompts31781
+Node: Mode line32980
+Node: Completion UIs36954
+Node: Mail citations38825
+Node: Fringes39678
+Node: Language checkers40340
+Node: Line highlighting42288
+Node: Line numbers43801
+Node: Matching parentheses44879
+Node: Active region45769
+Node: Diffs46987
+Node: Org mode blocks48926
+Node: Org agenda50804
+Node: Org agenda habits56431
+Node: Heading styles58397
+Node: Scaled headings62627
+Node: Scaled heading sizes63230
+Node: UI typeface66486
+Node: Headings' typeface67332
+Node: Advanced customization (do-it-yourself)67956
+Node: Per-theme customization settings (DIY)69319
+Node: Case-by-case face specs using the themes' palette (DIY)70665
+Node: Face specs at scale using the themes' palette (DIY)75129
+Node: Remap face with local value (DIY)79946
+Node: Cycle through arbitrary colors (DIY)82424
+Node: Override colors (DIY)88990
+Node: Override color saturation (DIY)93883
+Node: Font configurations for Org and others (DIY)99636
+Ref: Font configurations for Org and others (DIY)-Footnote-1102064
+Node: Custom Org user faces (DIY)102251
+Node: Update Org block delimiter fontification (DIY)105623
+Node: Measure color contrast (DIY)107583
+Node: Load theme depending on time of day (DIY)110377
+Node: Backdrop for pdf-tools (DIY)111417
+Node: A theme-agnostic hook for theme loading (DIY)114179
+Node: Face coverage116569
+Node: Supported packages117038
+Node: Indirectly covered packages123798
+Node: Notes on individual packages124352
+Node: Note on inline Latex in Org buffers125176
+Node: Note on dimmerel125736
+Node: Note on display-fill-column-indicator-mode127221
+Node: Note on mmm-modeel background colors128842
+Node: Note for prism131221
+Node: Note for god-mode134447
+Node: Note on company-mode overlay pop-up136119
+Ref: Note on company-mode overlay pop-up-Footnote-1136807
+Ref: Note on company-mode overlay pop-up-Footnote-2136874
+Node: Note on ERC escaped color sequences136929
+Ref: Note on ERC escaped color sequences-Footnote-1138355
+Node: Note on powerline or spaceline138465
+Node: Note on SHR colors138877
+Node: Note on EWW and Elfeed fonts (SHR fonts)139312
+Node: Note on Helm grep140057
+Node: Note on vc-annotate-background-mode141544
+Node: Note on pdf-tools link hints142429
+Node: Frequently Asked Questions (FAQ)144861
+Node: Is the contrast ratio about adjacent colors?145435
+Node: What does it mean to avoid exaggerations?146948
+Node: Why are colors mostly variants of blue magenta cyan?148783
+Node: What is the best setup for legibility?153130
+Node: Contributing155741
+Node: Sources of the themes156144
+Node: Issues you can help with156882
+Node: Patches require copyright assignment to the FSF158082
+Node: Acknowledgements160377
+Node: Meta162865
+Node: GNU Free Documentation License164862
+Node: Indices190214
+Node: Function index190393
+Node: Variable index191630
+Node: Concept index193844
 
 End Tag Table
 
