@@ -3060,7 +3060,7 @@ FG is the foreground color to use."
                         1.0)
                        ((memq 'scale-title properties)
                         modus-themes-scale-title)
-                       (1.1))))
+                       (1.15))))
     (list :inherit inherit
           :height height
           :foreground fg)))
