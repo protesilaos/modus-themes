@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-06-02 00:18:23 +0300>
+;; Last-Modified: <2021-06-07 10:53:54 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -3163,57 +3163,59 @@ Optional FG-DISTANT should be close to the main background
 values.  It is intended to be used as a distant-foreground
 property."
   (let ((modus-themes-mode-line
-	 (if (listp modus-themes-mode-line)
-	     modus-themes-mode-line
-	   ;; translation layer for legacy values
-	   (alist-get modus-themes-mode-line
-		      '((3d . (3d))
-			(moody . (moody))
-			(borderless . (borderless))
-			(borderless-3d . (borderless 3d))
-			(borderless-moody . (borderless moody))
-			(accented . (accented))
-			(accented-3d . (accented 3d))
-			(accented-moody . (accented moody))
-			(borderless-accented . (borderless accented))
-			(borderless-accented-3d . (borderless accented 3d))
-			(borderless-accented-moody . (borderless accented moody)))))))
+         (if (listp modus-themes-mode-line)
+             modus-themes-mode-line
+           ;; translation layer for legacy values
+           (alist-get modus-themes-mode-line
+                      '((3d . (3d))
+                        (moody . (moody))
+                        (borderless . (borderless))
+                        (borderless-3d . (borderless 3d))
+                        (borderless-moody . (borderless moody))
+                        (accented . (accented))
+                        (accented-3d . (accented 3d))
+                        (accented-moody . (accented moody))
+                        (borderless-accented . (borderless accented))
+                        (borderless-accented-3d . (borderless accented 3d))
+                        (borderless-accented-moody . (borderless accented moody)))))))
     (let ((base (cond ((memq 'accented modus-themes-mode-line)
-		       (cons fg-accent bg-accent))
-		      ((and (or (memq 'moody modus-themes-mode-line)
-				(memq '3d modus-themes-mode-line))
-			    (not (memq 'borderless modus-themes-mode-line)))
-		       (cons fg-alt bg-alt))
-		      ((cons fg bg))))
-	  (box (cond ((memq '3d modus-themes-mode-line)
-		      (list :line-width (or border-width 1)
-			    :color
-			    (cond ((and (memq 'accented modus-themes-mode-line)
-					(memq 'borderless modus-themes-mode-line))
-				   bg-accent)
-				  ((memq 'borderless modus-themes-mode-line) bg)
-				  (border-3d))
-			    :style (and alt-style 'released-button)))
-		     ((or (memq 'borderless modus-themes-mode-line)
-			  (memq 'moody modus-themes-mode-line))
-		      bg)
-		     (border)))
-	  (line (cond ((not (memq 'moody modus-themes-mode-line))
-		       nil)
-		      ((and (memq 'borderless modus-themes-mode-line)
-			    (memq 'accented modus-themes-mode-line))
-		       bg-accent)
-		      ((memq 'borderless modus-themes-mode-line)
-		       bg)
-		      (border))))
+                       (cons fg-accent bg-accent))
+                      ((and (or (memq 'moody modus-themes-mode-line)
+                                (memq '3d modus-themes-mode-line))
+                            (not (memq 'borderless modus-themes-mode-line)))
+                       (cons fg-alt bg-alt))
+                      ((cons fg bg))))
+          (box (cond ((memq 'moody modus-themes-mode-line)
+                      nil)
+                     ((memq '3d modus-themes-mode-line)
+                      (list :line-width (or border-width 1)
+                            :color
+                            (cond ((and (memq 'accented modus-themes-mode-line)
+                                        (memq 'borderless modus-themes-mode-line))
+                                   bg-accent)
+                                  ((memq 'borderless modus-themes-mode-line) bg)
+                                  (border-3d))
+                            :style (and alt-style 'released-button)))
+                     ((or (memq 'borderless modus-themes-mode-line)
+                          (memq 'moody modus-themes-mode-line))
+                      bg)
+                     (border)))
+          (line (cond ((not (memq 'moody modus-themes-mode-line))
+                       nil)
+                      ((and (memq 'borderless modus-themes-mode-line)
+                            (memq 'accented modus-themes-mode-line))
+                       bg-accent)
+                      ((memq 'borderless modus-themes-mode-line)
+                       bg)
+                      (border))))
       (list :foreground (car base)
-	    :background (cdr base)
-	    :box box
-	    :overline line
-	    :underline line
-	    :distant-foreground
-	    (and (memq 'moody modus-themes-mode-line)
-		 fg-distant)))))
+            :background (cdr base)
+            :box box
+            :overline line
+            :underline line
+            :distant-foreground
+            (and (memq 'moody modus-themes-mode-line)
+                 fg-distant)))))
 
 (defun modus-themes--diff
     (fg-only-bg fg-only-fg mainbg mainfg altbg altfg &optional deuteranbg deuteranfg  bg-only-fg)
