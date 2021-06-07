@@ -2401,7 +2401,7 @@ Valid combinations are:
 	      (choice :tag "Border effects"
 		      (const :tag "Rectangular Border" nil)
 		      (const :tag "3d borders" 3d)
-		      (const :tag "No box effects" moody))
+		      (const :tag "No box effects (Moody-compatible)" moody))
 	      (const :tag "Coloured background" accented)
 	      (const :tag "Without noticeable border" borderless))
   :set #'modus-themes--set-option
