@@ -2552,7 +2552,8 @@ have something like this:
 
    You could then use a variant of the following to inherit from a face
 that uses the styles you want and also to preserve the properties
-applied by the ‘org-todo’ face:
+applied by the ‘org-todo’ face (in case there is a difference between
+the two):
 
      (setq org-todo-keyword-faces
            '(("MEET" . '(font-lock-preprocessor-face org-todo))
@@ -2572,9 +2573,14 @@ face:
              ("WRITE" . org-todo)))
 
    When you inherit from multiple faces, you need to quote the list as
-shown further above.  The order is important: the last item is applied
-over the previous ones.  If you do not want to blend multiple faces, you
-do not need a quoted list.  A pattern of ‘keyword . face’ will suffice.
+shown further above.  The order is significant: the first entry is
+applied on top of the second, overriding any properties that are
+explicitly set for both of them: any property that is not specified is
+not overridden, so, for example, if ‘org-todo’ has a background and a
+foreground, while ‘font-lock-type-face’ only has a foreground, the
+merged face will include the background of the former and the foreground
+of the latter.  If you do not want to blend multiple faces, you do not
+need a quoted list.  A pattern of ‘keyword . face’ will suffice.
 
    Both approaches can be used simultaneously, as illustrated in this
 configuration of the priority cookies:
@@ -4785,48 +4791,48 @@ Node: Override color saturation (DIY)93989
 Node: Font configurations for Org and others (DIY)99742
 Ref: Font configurations for Org and others (DIY)-Footnote-1102170
 Node: Custom Org user faces (DIY)102357
-Node: Update Org block delimiter fontification (DIY)105729
-Node: Measure color contrast (DIY)107689
-Node: Load theme depending on time of day (DIY)110483
-Node: Backdrop for pdf-tools (DIY)111523
-Node: A theme-agnostic hook for theme loading (DIY)114285
-Node: Face coverage116675
-Node: Supported packages117144
-Node: Indirectly covered packages123904
-Node: Notes on individual packages124458
-Node: Note on inline Latex in Org buffers125282
-Node: Note on dimmerel125842
-Node: Note on display-fill-column-indicator-mode127327
-Node: Note on mmm-modeel background colors128948
-Node: Note for prism131327
-Node: Note for god-mode134553
-Node: Note on company-mode overlay pop-up136225
-Ref: Note on company-mode overlay pop-up-Footnote-1136913
-Ref: Note on company-mode overlay pop-up-Footnote-2136980
-Node: Note on ERC escaped color sequences137035
-Ref: Note on ERC escaped color sequences-Footnote-1138461
-Node: Note on powerline or spaceline138571
-Node: Note on SHR colors138983
-Node: Note on EWW and Elfeed fonts (SHR fonts)139418
-Node: Note on Helm grep140163
-Node: Note on vc-annotate-background-mode141650
-Node: Note on pdf-tools link hints142535
-Node: Frequently Asked Questions (FAQ)144967
-Node: Is the contrast ratio about adjacent colors?145541
-Node: What does it mean to avoid exaggerations?147054
-Node: Why are colors mostly variants of blue magenta cyan?148889
-Node: What is the best setup for legibility?153236
-Node: Contributing155847
-Node: Sources of the themes156250
-Node: Issues you can help with156988
-Node: Patches require copyright assignment to the FSF158188
-Node: Acknowledgements160483
-Node: Meta162971
-Node: GNU Free Documentation License164968
-Node: Indices190320
-Node: Function index190499
-Node: Variable index191736
-Node: Concept index193950
+Node: Update Org block delimiter fontification (DIY)106118
+Node: Measure color contrast (DIY)108078
+Node: Load theme depending on time of day (DIY)110872
+Node: Backdrop for pdf-tools (DIY)111912
+Node: A theme-agnostic hook for theme loading (DIY)114674
+Node: Face coverage117064
+Node: Supported packages117533
+Node: Indirectly covered packages124293
+Node: Notes on individual packages124847
+Node: Note on inline Latex in Org buffers125671
+Node: Note on dimmerel126231
+Node: Note on display-fill-column-indicator-mode127716
+Node: Note on mmm-modeel background colors129337
+Node: Note for prism131716
+Node: Note for god-mode134942
+Node: Note on company-mode overlay pop-up136614
+Ref: Note on company-mode overlay pop-up-Footnote-1137302
+Ref: Note on company-mode overlay pop-up-Footnote-2137369
+Node: Note on ERC escaped color sequences137424
+Ref: Note on ERC escaped color sequences-Footnote-1138850
+Node: Note on powerline or spaceline138960
+Node: Note on SHR colors139372
+Node: Note on EWW and Elfeed fonts (SHR fonts)139807
+Node: Note on Helm grep140552
+Node: Note on vc-annotate-background-mode142039
+Node: Note on pdf-tools link hints142924
+Node: Frequently Asked Questions (FAQ)145356
+Node: Is the contrast ratio about adjacent colors?145930
+Node: What does it mean to avoid exaggerations?147443
+Node: Why are colors mostly variants of blue magenta cyan?149278
+Node: What is the best setup for legibility?153625
+Node: Contributing156236
+Node: Sources of the themes156639
+Node: Issues you can help with157377
+Node: Patches require copyright assignment to the FSF158577
+Node: Acknowledgements160872
+Node: Meta163360
+Node: GNU Free Documentation License165357
+Node: Indices190709
+Node: Function index190888
+Node: Variable index192125
+Node: Concept index194339
 
 End Tag Table
 

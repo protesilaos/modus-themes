@@ -2456,7 +2456,8 @@ have something like this:
 
 You could then use a variant of the following to inherit from a face
 that uses the styles you want and also to preserve the properties
-applied by the ~org-todo~ face:
+applied by the ~org-todo~ face (in case there is a difference between the
+two):
 
 #+begin_src emacs-lisp
 (setq org-todo-keyword-faces
@@ -2479,9 +2480,14 @@ If you want back the defaults, try specifying just the ~org-todo~ face:
 #+end_src
 
 When you inherit from multiple faces, you need to quote the list as
-shown further above.  The order is important: the last item is applied
-over the previous ones.  If you do not want to blend multiple faces, you
-do not need a quoted list.  A pattern of =keyword . face= will suffice.
+shown further above.  The order is significant: the first entry is
+applied on top of the second, overriding any properties that are
+explicitly set for both of them: any property that is not specified is
+not overridden, so, for example, if ~org-todo~ has a background and a
+foreground, while ~font-lock-type-face~ only has a foreground, the merged
+face will include the background of the former and the foreground of the
+latter.  If you do not want to blend multiple faces, you do not need a
+quoted list.  A pattern of =keyword . face= will suffice.
 
 Both approaches can be used simultaneously, as illustrated in this
 configuration of the priority cookies:
