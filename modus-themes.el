@@ -2508,31 +2508,33 @@ and `opinionated' possibilities."
 (defcustom modus-themes-prompts nil
   "Use subtle or intense styles for minibuffer and REPL prompts.
 
+The value is a list of properties, each designated by a symbol.
 Nil means to only use an accented foreground color.
 
-Options `subtle-accented' and `intense-accented' will change both
-the background and the foreground values to use accented color
-combinations that follow the hue of the default styles'
+The property `background' applies a subtle background to all
+prompts, that follow the hue of the default styles'
 foreground (e.g. the default minibuffer prompt is cyan text, so
 these combinations will involved a cyan background and an
 appropriate cyan foreground).
 
-Options `subtle-gray' and `intense-gray' are like their
-`subtle-accented' and `intense-accented' counterparts, except
-they use grayscale values instead of accented ones."
+The property `intense' increases the saturation of the
+foreground, and the background, if `backgrounds' is also set.
+
+The property `gray' applies a grayscale filter to the prompt.
+
+Valid combinations are:
+- (intense)
+- (gray)
+- (intense gray)
+- (background)
+- (background intense)"
   :group 'modus-themes
-  :package-version '(modus-themes . "1.1.0")
+  :package-version '(modus-themes . "1.5.0")
   :version "28.1"
-  :type '(choice
-          ;; `subtle' is the same as `subtle-accented', while `intense' is
-          ;; equal to `intense-accented' for backward compatibility
-          (const :format "[%v] %t\n" :tag "No prompt background (default)" nil)
-          (const :format "[%v] %t\n" :tag "Subtle accented background for the prompt" subtle-accented)
-          (const :format "[%v] %t\n" :tag "Same as `subtle-accented' for compatibility with older versions" subtle)
-          (const :format "[%v] %t\n" :tag "Intense accented background and foreground for the prompt" intense-accented)
-          (const :format "[%v] %t\n" :tag "Same as `intense-accented' for compatibility with older versions" intense)
-          (const :format "[%v] %t\n" :tag "Like `subtle-accented' but grayscale" subtle-gray)
-          (const :format "[%v] %t\n" :tag "Like `intense-accented' but grayscale" intense-gray))
+  :type '(set :tag "Properties" :greedy t
+              (const :tag "With Background" background)
+              (const :tag "Intense" intense)
+	      (const :tag "Grayscale" gray))
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Command prompts"))
@@ -2907,16 +2909,39 @@ MAINFG is the prompt's standard foreground.  SUBTLEBG should be a
 subtle accented background that works with SUBTLEFG.  INTENSEBG
 must be a more pronounced accented color that should be
 combinable with INTENSEFG."
-  (pcase modus-themes-prompts
-    ;; `subtle' is the same as `subtle-accented', while `intense' is
-    ;; equal to `intense-accented' for backward compatibility
-    ('intense-accented (list :background intensebg :foreground intensefg))
-    ('intense (list :background intensebg :foreground intensefg))
-    ('subtle-accented (list :background subtlebg :foreground subtlefg))
-    ('subtle (list :background subtlebg :foreground subtlefg))
-    ('subtle-gray (list :inherit 'modus-themes-subtle-neutral))
-    ('intense-gray (list :inherit 'modus-themes-intense-neutral))
-    (_ (list :background 'unspecified :foreground mainfg))))
+  (let ((modus-themes-prompts
+	 (if (listp modus-themes-prompts)
+	     modus-themes-prompts
+	   ;; translation layer for legacy values
+	   (pcase modus-themes-prompts
+	     ;; `subtle' is the same as `subtle-accented', while `intense' is
+	     ;; equal to `intense-accented' for backward compatibility
+	     ('subtle '(background))
+	     ('subtle-accented '(background))
+	     ('subtle-gray '(background gray))
+	     ('intense '(background intense))
+	     ('intense-accented '(background intense))
+	     ('intense-gray '(background intense gray))))))
+    (list :foreground
+	  (cond ((memq 'gray modus-themes-prompts)
+                 'unspecified)
+		((memq 'intense modus-themes-prompts)
+		 intensefg)
+		((memq 'background modus-themes-prompts)
+		 subtlefg)
+		(mainfg))
+	  :background
+	  (cond ((or (not (memq 'background modus-themes-prompts))
+                     (memq 'gray modus-themes-prompts))
+                 'unspecified)
+                ((memq 'intense modus-themes-prompts)
+		 intensebg)
+		(subtlebg))
+	  :inherit
+	  (cond ((not (memq 'gray modus-themes-prompts)) nil)
+		((memq 'intense modus-themes-prompts)
+		 'modus-themes-intense-neutral)
+                ('modus-themes-subtle-neutral)))))
 
 (defun modus-themes--paren (normalbg intensebg)
   "Conditional use of intense colors for matching parentheses.
