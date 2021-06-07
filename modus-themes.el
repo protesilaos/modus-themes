@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-06-07 10:53:54 +0300>
+;; Last-Modified: <2021-06-07 11:37:13 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -2373,7 +2373,8 @@ with the library of the same name.  This practically means to
 remove the box effect and rely on underline and overline
 properties instead.  It also tones down the inactive mode lines.
 Despite its intended purpose, this option can also be used
-without the `moody' library.
+without the `moody' library (please consult the themes' manual on
+this point for more details).
 
 The `borderless' property removes the border effect.  This is
 done by making the box property use the same color as the
@@ -2388,12 +2389,15 @@ Valid combinations are:
 - (moody)
 - (borderless)
 - (accented)
+- (borderless accented)
 - (3d borderless)
 - (3d accented)
 - (3d borderless accented)
 - (moody borderless)
 - (moody accented)
-- (moody borderless accented)"
+- (moody borderless accented)
+
+The order of items in those lists is not significant."
   :group 'modus-themes
   :package-version '(modus-themes . "1.5.0")
   :version "28.1"
