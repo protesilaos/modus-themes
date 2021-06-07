@@ -67,11 +67,11 @@ demonstration:
       ;; 'intense-foreground-straight-underline, 'colored-background
       modus-themes-lang-checkers nil
 
-      ;; Options for `modus-themes-mode-line': nil, '3d, 'moody,
-      ;; 'borderless, 'borderless-3d, 'borderless-moody, 'accented,
-      ;; 'accented-3d, 'accented-moody, 'borderless-accented,
-      ;; 'borderless-accented-3d, 'borderless-accented-moody
-      modus-themes-mode-line '3d
+      ;; Options for `modus-themes-mode-line' are either nil, or a list
+      ;; that can combine any of `3d' OR `moody', `borderless',
+      ;; `accented'.  The variable's doc string shows all possible
+      ;; combinations.
+      modus-themes-mode-line '(3d accented)
 
       ;; Options for `modus-themes-syntax': nil, 'faint,
       ;; 'yellow-comments, 'green-strings,
