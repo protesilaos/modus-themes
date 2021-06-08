@@ -3878,11 +3878,11 @@ peripheral vision, hardware specifications, and environmental factors.
 monitor can help reduce eye strain: the eyes are more relaxed when they
 do not have to focus on one point to gather light.
 
-   The monitor’s display settings must be accounted for.  Gamma ray
-values, in particular, need to be calibrated to neither amplify nor
-distort the perception of black.  Same principle for sharpness,
-brightness, and contrast as determined by the hardware, which all have
-an effect on how text is read on the screen.
+   The monitor’s display settings must be accounted for.  Gamma values,
+in particular, need to be calibrated to neither amplify nor distort the
+perception of black.  Same principle for sharpness, brightness, and
+contrast as determined by the hardware, which all have an effect on how
+text is read on the screen.
 
    There are software level methods on offer, such as the XrandR utility
 for the X Window System (X.org), which can make gamma corrections for
@@ -4822,17 +4822,17 @@ Node: Is the contrast ratio about adjacent colors?145930
 Node: What does it mean to avoid exaggerations?147443
 Node: Why are colors mostly variants of blue magenta cyan?149278
 Node: What is the best setup for legibility?153625
-Node: Contributing156236
-Node: Sources of the themes156639
-Node: Issues you can help with157377
-Node: Patches require copyright assignment to the FSF158577
-Node: Acknowledgements160872
-Node: Meta163360
-Node: GNU Free Documentation License165357
-Node: Indices190709
-Node: Function index190888
-Node: Variable index192125
-Node: Concept index194339
+Node: Contributing156232
+Node: Sources of the themes156635
+Node: Issues you can help with157373
+Node: Patches require copyright assignment to the FSF158573
+Node: Acknowledgements160868
+Node: Meta163356
+Node: GNU Free Documentation License165353
+Node: Indices190705
+Node: Function index190884
+Node: Variable index192121
+Node: Concept index194335
 
 End Tag Table
 
