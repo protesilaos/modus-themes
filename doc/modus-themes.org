@@ -2,7 +2,7 @@
 #+author: Protesilaos Stavrou
 #+email: info@protesilaos.com
 #+language: en
-#+options: ':t toc:nil author:t email:t
+#+options: ':t toc:nil author:t email:t num:t
 #+startup: content
 
 #+macro: stable-version 1.4.0
@@ -3766,9 +3766,9 @@ In general, an additional source of light other than that of the monitor
 can help reduce eye strain: the eyes are more relaxed when they do not
 have to focus on one point to gather light.
 
-The monitor's display settings must be accounted for.  Gamma ray values,
-in particular, need to be calibrated to neither amplify nor distort the
-perception of black.  Same principle for sharpness, brightness, and
+The monitor's display settings must be accounted for. Gamma values, in
+particular, need to be calibrated to neither amplify nor distort the
+perception of black. Same principle for sharpness, brightness, and
 contrast as determined by the hardware, which all have an effect on how
 text is read on the screen.
 
