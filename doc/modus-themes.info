@@ -3100,6 +3100,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • prism (*note Note for prism.el: Note for prism.)
    • proced
    • prodigy
+   • pulse
    • quick-peek
    • racket-mode
    • rainbow-blocks
@@ -4798,41 +4799,41 @@ Node: Backdrop for pdf-tools (DIY)111912
 Node: A theme-agnostic hook for theme loading (DIY)114674
 Node: Face coverage117064
 Node: Supported packages117533
-Node: Indirectly covered packages124293
-Node: Notes on individual packages124847
-Node: Note on inline Latex in Org buffers125671
-Node: Note on dimmerel126231
-Node: Note on display-fill-column-indicator-mode127716
-Node: Note on mmm-modeel background colors129337
-Node: Note for prism131716
-Node: Note for god-mode134942
-Node: Note on company-mode overlay pop-up136614
-Ref: Note on company-mode overlay pop-up-Footnote-1137302
-Ref: Note on company-mode overlay pop-up-Footnote-2137369
-Node: Note on ERC escaped color sequences137424
-Ref: Note on ERC escaped color sequences-Footnote-1138850
-Node: Note on powerline or spaceline138960
-Node: Note on SHR colors139372
-Node: Note on EWW and Elfeed fonts (SHR fonts)139807
-Node: Note on Helm grep140552
-Node: Note on vc-annotate-background-mode142039
-Node: Note on pdf-tools link hints142924
-Node: Frequently Asked Questions (FAQ)145356
-Node: Is the contrast ratio about adjacent colors?145930
-Node: What does it mean to avoid exaggerations?147443
-Node: Why are colors mostly variants of blue magenta cyan?149278
-Node: What is the best setup for legibility?153625
-Node: Contributing156232
-Node: Sources of the themes156635
-Node: Issues you can help with157373
-Node: Patches require copyright assignment to the FSF158573
-Node: Acknowledgements160868
-Node: Meta163356
-Node: GNU Free Documentation License165353
-Node: Indices190705
-Node: Function index190884
-Node: Variable index192121
-Node: Concept index194335
+Node: Indirectly covered packages124306
+Node: Notes on individual packages124860
+Node: Note on inline Latex in Org buffers125684
+Node: Note on dimmerel126244
+Node: Note on display-fill-column-indicator-mode127729
+Node: Note on mmm-modeel background colors129350
+Node: Note for prism131729
+Node: Note for god-mode134955
+Node: Note on company-mode overlay pop-up136627
+Ref: Note on company-mode overlay pop-up-Footnote-1137315
+Ref: Note on company-mode overlay pop-up-Footnote-2137382
+Node: Note on ERC escaped color sequences137437
+Ref: Note on ERC escaped color sequences-Footnote-1138863
+Node: Note on powerline or spaceline138973
+Node: Note on SHR colors139385
+Node: Note on EWW and Elfeed fonts (SHR fonts)139820
+Node: Note on Helm grep140565
+Node: Note on vc-annotate-background-mode142052
+Node: Note on pdf-tools link hints142937
+Node: Frequently Asked Questions (FAQ)145369
+Node: Is the contrast ratio about adjacent colors?145943
+Node: What does it mean to avoid exaggerations?147456
+Node: Why are colors mostly variants of blue magenta cyan?149291
+Node: What is the best setup for legibility?153638
+Node: Contributing156245
+Node: Sources of the themes156648
+Node: Issues you can help with157386
+Node: Patches require copyright assignment to the FSF158586
+Node: Acknowledgements160881
+Node: Meta163369
+Node: GNU Free Documentation License165366
+Node: Indices190718
+Node: Function index190897
+Node: Variable index192134
+Node: Concept index194348
 
 End Tag Table
 
