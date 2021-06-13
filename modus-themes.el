@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-06-10 13:33:00 +0300>
+;; Last-Modified: <2021-06-13 08:46:08 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -5186,7 +5186,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(hi-red-b ((,class :inherit bold :background ,red-intense-bg :foreground ,fg-main)))
     `(hi-salmon ((,class :background ,red-subtle-bg :foreground ,fg-main)))
     `(hi-yellow ((,class :background ,yellow-subtle-bg :foreground ,fg-main)))
-    `(highlight ((,class :inherit modus-themes-subtle-blue)))
+    `(highlight ((,class :background ,blue-subtle-bg :foreground ,fg-main)))
     `(highlight-changes ((,class :foreground ,red-alt :underline nil)))
     `(highlight-changes-delete ((,class :background ,red-nuanced-bg
                                         :foreground ,red :underline t)))
