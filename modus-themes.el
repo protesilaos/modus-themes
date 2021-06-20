@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-06-13 09:14:34 +0300>
+;; Last-Modified: <2021-06-20 08:37:07 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -5860,7 +5860,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(mu4e-footer-face ((,class :inherit modus-themes-slant :foreground ,fg-special-cold)))
     `(mu4e-forwarded-face ((,class :foreground ,magenta-alt-other)))
     `(mu4e-header-face ((,class :inherit shadow)))
-    `(mu4e-header-highlight-face ((,class :inherit highlight :extend t)))
+    `(mu4e-header-highlight-face ((,class :inherit modus-themes-hl-line)))
     `(mu4e-header-key-face ((,class :inherit message-header-name)))
     `(mu4e-header-marks-face ((,class :inherit mu4e-special-header-value-face)))
     `(mu4e-header-title-face ((,class :foreground ,fg-special-mild)))
