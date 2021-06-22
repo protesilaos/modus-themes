@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-06-20 15:35:06 +0300>
+;; Last-Modified: <2021-06-22 18:34:57 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -3857,19 +3857,19 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; apropos
     `(apropos-function-button ((,class :inherit button
                                        ,@(modus-themes--link-color
-                                          magenta-alt-other magenta-alt-other-faint))))
+                                          magenta magenta-faint))))
     `(apropos-keybinding ((,class :inherit modus-themes-key-binding)))
     `(apropos-misc-button ((,class :inherit button
                                    ,@(modus-themes--link-color
                                       cyan-alt-other cyan-alt-other-faint))))
     `(apropos-property ((,class :inherit modus-themes-bold :foreground ,magenta-alt)))
-    `(apropos-symbol ((,class :inherit modus-themes-bold :foreground ,magenta)))
+    `(apropos-symbol ((,class :inherit modus-themes-pseudo-header)))
     `(apropos-user-option-button ((,class :inherit button
                                           ,@(modus-themes--link-color
-                                             green-alt-other green-alt-other-faint))))
+                                             cyan cyan-faint))))
     `(apropos-variable-button ((,class :inherit button
                                        ,@(modus-themes--link-color
-                                          blue blue-faint))))
+                                          blue-alt blue-alt-faint))))
 ;;;;; apt-sources-list
     `(apt-sources-list-components ((,class :foreground ,cyan)))
     `(apt-sources-list-options ((,class :foreground ,yellow)))
