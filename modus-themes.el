@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-06-22 18:34:57 +0300>
+;; Last-Modified: <2021-06-23 19:34:28 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -3855,6 +3855,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(anzu-replace-highlight ((,class :inherit modus-themes-refine-yellow :underline t)))
     `(anzu-replace-to ((,class :inherit (modus-themes-search-success bold))))
 ;;;;; apropos
+    `(apropos-button ((,class :inherit button
+                              ,@(modus-themes--link-color
+                                 magenta-alt-other magenta-alt-other-faint))))
     `(apropos-function-button ((,class :inherit button
                                        ,@(modus-themes--link-color
                                           magenta magenta-faint))))
