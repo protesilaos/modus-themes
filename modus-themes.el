@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-06-30 09:37:59 +0300>
+;; Last-Modified: <2021-06-30 15:48:13 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -1659,6 +1659,11 @@ The actual styling of the face is done by `modus-themes-faces'."
 
 (defface modus-themes-search-success-lazy nil
   "Generic face for successful, lazily highlighted search.
+The actual styling of the face is done by `modus-themes-faces'."
+  :group 'modus-theme-faces)
+
+(defface modus-themes-prompt nil
+  "Generic face for command prompts.
 The actual styling of the face is done by `modus-themes-faces'."
   :group 'modus-theme-faces)
 
@@ -3781,6 +3786,10 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                        bg-region blue-intense-bg)
                                     :extend t)))
     `(modus-themes-key-binding ((,class :inherit bold :foreground ,blue-alt-other)))
+    `(modus-themes-prompt ((,class ,@(modus-themes--prompt
+                                      cyan-alt-other blue-alt-other fg-alt
+                                      cyan-nuanced-bg blue-refine-bg fg-main
+                                      bg-alt bg-active))))
     `(modus-themes-reset-hard ((,class :inherit (fixed-pitch modus-themes-reset-soft))))
     `(modus-themes-reset-soft ((,class :background ,bg-main :foreground ,fg-main
                                        :weight normal :slant normal :strike-through nil
@@ -3809,7 +3818,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(bold-italic ((,class :inherit (bold italic))))
     `(buffer-menu-buffer ((,class :inherit bold)))
     `(comint-highlight-input ((,class :inherit bold)))
-    `(comint-highlight-prompt ((,class :inherit minibuffer-prompt)))
+    `(comint-highlight-prompt ((,class :inherit modus-themes-prompt)))
     `(error ((,class :inherit bold :foreground ,red)))
     `(escape-glyph ((,class :foreground ,fg-escape-char-construct)))
     `(file-name-shadow ((,class :foreground ,fg-unfocused)))
@@ -3824,10 +3833,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(italic ((,class :slant italic)))
     `(nobreak-hyphen ((,class :foreground ,fg-escape-char-construct)))
     `(nobreak-space ((,class :foreground ,fg-escape-char-construct :underline t)))
-    `(minibuffer-prompt ((,class ,@(modus-themes--prompt
-                                    cyan-alt-other blue-alt-other fg-alt
-                                    cyan-nuanced-bg blue-refine-bg fg-main
-                                    bg-alt bg-active))))
+    `(minibuffer-prompt ((,class :inherit modus-themes-prompt)))
     `(mm-command-output ((,class :foreground ,red-alt-other)))
     `(mm-uu-extract ((,class :background ,bg-dim :foreground ,fg-special-mild)))
     `(next-error ((,class :inherit modus-themes-subtle-red :extend t)))
@@ -4113,7 +4119,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(cider-instrumented-face ((,class :box (:line-width -1 :color ,red :style nil) :background ,bg-dim)))
     `(cider-reader-conditional-face ((,class :inherit italic :foreground ,fg-special-warm)))
     `(cider-repl-input-face ((,class :inherit bold)))
-    `(cider-repl-prompt-face ((,class :inherit comint-highlight-prompt)))
+    `(cider-repl-prompt-face ((,class :inherit modus-themes-prompt)))
     `(cider-repl-stderr-face ((,class :inherit bold :foreground ,red)))
     `(cider-repl-stdout-face ((,class :foreground ,blue)))
     `(cider-result-overlay-face ((,class :box (:line-width -1 :color ,blue :style nil) :background ,bg-dim)))
@@ -4137,7 +4143,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; circe (and lui)
     `(circe-fool-face ((,class :inherit shadow)))
     `(circe-highlight-nick-face ((,class :inherit bold :foreground ,blue)))
-    `(circe-prompt-face ((,class :inherit comint-highlight-prompt)))
+    `(circe-prompt-face ((,class :inherit modus-themes-prompt)))
     `(circe-server-face ((,class :foreground ,fg-unfocused)))
     `(lui-button-face ((,class :inherit button)))
     `(lui-highlight-face ((,class :foreground ,magenta-alt)))
@@ -4659,7 +4665,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(erc-nick-prefix-face ((,class :inherit erc-nick-default-face)))
     `(erc-notice-face ((,class :foreground ,fg-unfocused)))
     `(erc-pal-face ((,class :inherit bold :foreground ,red-alt)))
-    `(erc-prompt-face ((,class :inherit comint-highlight-prompt)))
+    `(erc-prompt-face ((,class :inherit modus-themes-prompt)))
     `(erc-timestamp-face ((,class :foreground ,blue-nuanced-fg)))
     `(erc-underline-face ((,class :underline t)))
     `(bg:erc-color-face0 ((,class :background "white")))
@@ -4712,7 +4718,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(eshell-ls-special ((,class :foreground ,magenta)))
     `(eshell-ls-symlink ((,class :foreground ,cyan)))
     `(eshell-ls-unreadable ((,class :background ,bg-inactive :foreground ,fg-inactive)))
-    `(eshell-prompt ((,class :inherit comint-highlight-prompt)))
+    `(eshell-prompt ((,class :inherit modus-themes-prompt)))
 ;;;;; eshell-fringe-status
     `(eshell-fringe-status-failure ((,class :inherit error)))
     `(eshell-fringe-status-success ((,class :inherit success)))
@@ -4936,7 +4942,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(geiser-font-lock-image-button ((,class :inherit button :foreground ,green-alt)))
     `(geiser-font-lock-repl-input ((,class :inherit bold)))
     `(geiser-font-lock-repl-output ((,class :inherit font-lock-keyword-face)))
-    `(geiser-font-lock-repl-prompt ((,class :inherit comint-highlight-prompt)))
+    `(geiser-font-lock-repl-prompt ((,class :inherit modus-themes-prompt)))
     `(geiser-font-lock-xref-header ((,class :inherit bold)))
     `(geiser-font-lock-xref-link ((,class :inherit button)))
 ;;;;; git-commit
@@ -5178,7 +5184,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                   'modus-themes-subtle-cyan
                                   'modus-themes-nuanced-cyan
                                   cyan-alt-other))))
-    `(helm-minibuffer-prompt ((,class :inherit comint-highlight-prompt)))
+    `(helm-minibuffer-prompt ((,class :inherit modus-themes-prompt)))
     `(helm-moccur-buffer ((,class :inherit button
                                   ,@(modus-themes--link-color
                                      cyan-alt-other cyan-alt-other-faint))))
@@ -5344,7 +5350,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(indium-keyword-face ((,class :inherit font-lock-keyword-face)))
     `(indium-litable-face ((,class :inherit modus-themes-slant :foreground ,fg-special-warm)))
     `(indium-repl-error-face ((,class :inherit error)))
-    `(indium-repl-prompt-face ((,class :inherit comint-highlight-prompt)))
+    `(indium-repl-prompt-face ((,class :inherit modus-themes-prompt)))
     `(indium-repl-stdout-face ((,class :foreground ,fg-main)))
 ;;;;; info
     `(Info-quoted ((,class :inherit modus-themes-fixed-pitch ; the capitalization is canonical
@@ -6421,7 +6427,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(rcirc-nick-in-message ((,class :foreground ,magenta-alt-other)))
     `(rcirc-nick-in-message-full-line ((,class :inherit bold :foreground ,fg-special-mild)))
     `(rcirc-other-nick ((,class :inherit bold :foreground ,fg-special-cold)))
-    `(rcirc-prompt ((,class :inherit comint-highlight-prompt)))
+    `(rcirc-prompt ((,class :inherit modus-themes-prompt)))
     `(rcirc-server ((,class :foreground ,fg-unfocused)))
     `(rcirc-timestamp ((,class :foreground ,blue-nuanced-fg)))
     `(rcirc-url ((,class :foreground ,blue :underline t)))
