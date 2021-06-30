@@ -418,9 +418,10 @@ this manual.
       ;; 'underline-only, 'neutral-underline-only
       modus-themes-links 'neutral-underline
 
-      ;; Options for `modus-themes-prompts': nil, 'subtle-accented,
-      ;; 'intense-accented, 'subtle-gray, 'intense-gray
-      modus-themes-prompts 'subtle-gray
+      ;; Options for `modus-themes-prompts' are either nil (the
+      ;; default), or a list of properties that may include any of those
+      ;; symbols: `background', `bold', `gray', `intense'
+      modus-themes-prompts '(intense bold)
 
       modus-themes-completions 'moderate ; {nil,'moderate,'opinionated}
 
@@ -691,27 +692,48 @@ refer to their documentation strings.
 
 Symbol: ~modus-themes-prompts~
 
-Possible values:
+Possible values are expressed as a list of properties.  The list can
+include any of the following symbols:
 
-1. ~nil~ (default)
-2. ~subtle-accented~ (~subtle~ exists for backward compatibility)
-3. ~intense-accented~ (~intense~ exists for backward compatibility)
-4. ~subtle-gray~
-5. ~intense-gray~
++ ~background~
++ ~bold~
++ ~gray~
++ ~intense~
 
-The default does not use any background for minibuffer and command line
-prompts.  It relies exclusively on an accented foreground color.
+The default (a ~nil~ value or an empty list) means to only use a subtle
+accented foreground color.
 
-Options ~subtle-accented~ and ~intense-accented~ will change both the
-background and the foreground values to use accented color combinations
-that follow the hue of the default styles' foreground (e.g. the default
-minibuffer prompt is cyan text, so these combinations will involved a
-cyan background and an appropriate cyan foreground).  The difference
-between the two is that the latter has a more pronounced/noticeable
-effect than the former.
+The property ~background~ applies a background color to the prompt's text.
+By default, this is a subtle accented value.
 
-Options ~subtle-gray~, ~intense-gray~ are like their accented counterparts,
-except they use grayscale values.
+The property ~intense~ makes the foreground color more prominent.  If the
+~background~ property is also set, it amplifies the value of the
+background as well.
+
+The property ~gray~ changes the prompt's colors to grayscale.  This
+affects the foreground and, if the ~background~ property is also set, the
+background.  Its effect is subtle, unless it is combined with the
+~intense~ property.
+
+The property ~bold~ makes the text use a bold typographic weight.
+
+Combinations of any of those properties can be expressed in a list, as
+in those examples:
+
+#+begin_src emacs-lisp
+(intense)
+(bold intense)
+(intense bold gray)
+(intense background gray bold)
+#+end_src
+
+The order in which the properties are set is not significant.
+
+In user configuration files the form may look like this:
+
+#+begin_src emacs-lisp
+(setq modus-themes-prompts '(background gray))
+#+end_src
 
 ** Option for mode line presentation
 :properties:

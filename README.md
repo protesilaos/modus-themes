@@ -92,9 +92,10 @@ demonstration:
       ;; 'underline-only, 'neutral-underline-only
       modus-themes-links 'neutral-underline
 
-      ;; Options for `modus-themes-prompts': nil, 'subtle-accented,
-      ;; 'intense-accented, 'subtle-gray, 'intense-gray
-      modus-themes-prompts 'subtle-gray
+      ;; Options for `modus-themes-prompts' are either nil (the
+      ;; default), or a list of properties that may include any of those
+      ;; symbols: `background', `bold', `gray', `intense'
+      modus-themes-prompts '(intense bold)
 
       modus-themes-completions 'moderate ; {nil,'moderate,'opinionated}
 

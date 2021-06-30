@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-06-23 19:34:28 +0300>
+;; Last-Modified: <2021-06-30 08:48:46 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -2509,32 +2509,44 @@ and `opinionated' possibilities."
   "Use subtle or intense styles for minibuffer and REPL prompts.
 
 The value is a list of properties, each designated by a symbol.
-Nil means to only use an accented foreground color.
+The default (nil) means to only use a subtle accented foreground
+color.
 
-The property `background' applies a subtle background to all
-prompts, that follow the hue of the default styles'
-foreground (e.g. the default minibuffer prompt is cyan text, so
-these combinations will involved a cyan background and an
-appropriate cyan foreground).
+The property `background' applies a background color to the
+prompt's text.  By default, this is a subtle accented value.
 
-The property `intense' increases the saturation of the
-foreground, and the background, if `backgrounds' is also set.
+The property `intense' makes the foreground color more prominent.
+If the `background' property is also set, it amplifies the value
+of the background as well.
 
-The property `gray' applies a grayscale filter to the prompt.
+The property `gray' changes the prompt's colors to grayscale.
+This affects the foreground and, if the `background' property is
+also set, the background.  Its effect is subtle, unless it is
+combined with the `intense' property.
 
-Valid combinations are:
-- (intense)
-- (gray)
-- (intense gray)
-- (background)
-- (background intense)"
+The property `bold' makes the text use a bold typographic weight.
+
+Combinations of any of those properties can be expressed in a
+list, as in those examples:
+
+    (intense)
+    (bold intense)
+    (intense bold gray)
+    (intense background gray bold)
+
+The order in which the properties are set is not significant.
+
+In user configuration files the form may look like this:
+
+    (setq modus-themes-prompts '(background gray))"
   :group 'modus-themes
   :package-version '(modus-themes . "1.5.0")
   :version "28.1"
   :type '(set :tag "Properties" :greedy t
               (const :tag "With Background" background)
               (const :tag "Intense" intense)
-	      (const :tag "Grayscale" gray))
+              (const :tag "Grayscale" gray)
+              (const :tag "Bold font weight" bold))
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Command prompts"))
@@ -2903,45 +2915,67 @@ respectively.  BG is a color-coded background."
      (list :underline underline))
     (_ (list :underline (list :color underline :style 'wave)))))
 
-(defun modus-themes--prompt (mainfg subtlebg subtlefg intensebg intensefg)
-  "Conditional use of background colors for prompts.
-MAINFG is the prompt's standard foreground.  SUBTLEBG should be a
-subtle accented background that works with SUBTLEFG.  INTENSEBG
-must be a more pronounced accented color that should be
-combinable with INTENSEFG."
+(defun modus-themes--prompt (mainfg intensefg grayfg subtlebg intensebg intensebg-fg subtlebggray intensebggray)
+  "Conditional use of colors for prompts.
+MAINFG is the prompt's standard foreground.  INTENSEFG is a more
+prominent alternative to the main foreground, while GRAYFG is a
+less luminant shade of gray.
+
+SUBTLEBG is a subtle accented background that works with either
+MAINFG or INTENSEFG.
+
+INTENSEBG is a more pronounced accented background color that
+should be combinable with INTENSEBG-FG.
+
+SUBTLEBGGRAY and INTENSEBGGRAY are background values.  The former
+can be combined with GRAYFG, while the latter only works with the
+theme's fallback text color."
   (let ((modus-themes-prompts
-	 (if (listp modus-themes-prompts)
-	     modus-themes-prompts
-	   ;; translation layer for legacy values
-	   (pcase modus-themes-prompts
-	     ;; `subtle' is the same as `subtle-accented', while `intense' is
-	     ;; equal to `intense-accented' for backward compatibility
-	     ('subtle '(background))
-	     ('subtle-accented '(background))
-	     ('subtle-gray '(background gray))
-	     ('intense '(background intense))
-	     ('intense-accented '(background intense))
-	     ('intense-gray '(background intense gray))))))
+         (if (listp modus-themes-prompts)
+             modus-themes-prompts
+           ;; translation layer for legacy values
+           (pcase modus-themes-prompts
+             ;; `subtle' is the same as `subtle-accented', while `intense' is
+             ;; equal to `intense-accented' for backward compatibility
+             ('subtle '(background))
+             ('subtle-accented '(background))
+             ('subtle-gray '(background gray))
+             ('intense '(background intense))
+             ('intense-accented '(background intense))
+             ('intense-gray '(background intense gray))))))
     (list :foreground
-	  (cond ((memq 'gray modus-themes-prompts)
-                 'unspecified)
-		((memq 'intense modus-themes-prompts)
-		 intensefg)
-		((memq 'background modus-themes-prompts)
-		 subtlefg)
-		(mainfg))
-	  :background
-	  (cond ((or (not (memq 'background modus-themes-prompts))
-                     (memq 'gray modus-themes-prompts))
-                 'unspecified)
-                ((memq 'intense modus-themes-prompts)
-		 intensebg)
-		(subtlebg))
-	  :inherit
-	  (cond ((not (memq 'gray modus-themes-prompts)) nil)
-		((memq 'intense modus-themes-prompts)
-		 'modus-themes-intense-neutral)
-                ('modus-themes-subtle-neutral)))))
+          (cond
+           ((and (memq 'gray modus-themes-prompts)
+                 (memq 'intense modus-themes-prompts))
+            'unspecified)
+           ((memq 'gray modus-themes-prompts)
+            grayfg)
+           ((and (memq 'background modus-themes-prompts)
+                 (memq 'intense modus-themes-prompts))
+            intensebg-fg)
+           ((memq 'intense modus-themes-prompts)
+            intensefg)
+           (mainfg))
+          :background
+          (cond
+           ((and (memq 'gray modus-themes-prompts)
+                 (memq 'background modus-themes-prompts)
+                 (memq 'intense modus-themes-prompts))
+            intensebggray)
+           ((and (memq 'gray modus-themes-prompts)
+                 (memq 'background modus-themes-prompts))
+            subtlebggray)
+           ((and (memq 'background modus-themes-prompts)
+                 (memq 'intense modus-themes-prompts))
+            intensebg)
+           ((memq 'background modus-themes-prompts)
+            subtlebg)
+           ('unspecified))
+          :inherit
+          (cond
+           ((memq 'bold modus-themes-prompts)
+            'bold)
+           ('unspecified)))))
 
 (defun modus-themes--paren (normalbg intensebg)
   "Conditional use of intense colors for matching parentheses.
@@ -3774,11 +3808,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(bold-italic ((,class :inherit (bold italic))))
     `(buffer-menu-buffer ((,class :inherit bold)))
     `(comint-highlight-input ((,class :inherit bold)))
-    `(comint-highlight-prompt ((,class :inherit modus-themes-bold
-                                       ,@(modus-themes--prompt
-                                          cyan
-                                          blue-nuanced-bg blue-alt
-                                          blue-refine-bg fg-main))))
+    `(comint-highlight-prompt ((,class :inherit minibuffer-prompt)))
     `(error ((,class :inherit bold :foreground ,red)))
     `(escape-glyph ((,class :foreground ,fg-escape-char-construct)))
     `(file-name-shadow ((,class :foreground ,fg-unfocused)))
@@ -3794,9 +3824,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(nobreak-hyphen ((,class :foreground ,fg-escape-char-construct)))
     `(nobreak-space ((,class :foreground ,fg-escape-char-construct :underline t)))
     `(minibuffer-prompt ((,class ,@(modus-themes--prompt
-                                    cyan-alt-other
-                                    cyan-nuanced-bg cyan
-                                    cyan-refine-bg fg-main))))
+                                    cyan-alt-other blue-alt-other fg-alt
+                                    cyan-nuanced-bg blue-refine-bg fg-main
+                                    bg-alt bg-active))))
     `(mm-command-output ((,class :foreground ,red-alt-other)))
     `(mm-uu-extract ((,class :background ,bg-dim :foreground ,fg-special-mild)))
     `(next-error ((,class :inherit modus-themes-subtle-red :extend t)))
@@ -4905,7 +4935,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(geiser-font-lock-image-button ((,class :inherit button :foreground ,green-alt)))
     `(geiser-font-lock-repl-input ((,class :inherit bold)))
     `(geiser-font-lock-repl-output ((,class :inherit font-lock-keyword-face)))
-    `(geiser-font-lock-repl-prompt ((,class :inherit minibuffer-prompt)))
+    `(geiser-font-lock-repl-prompt ((,class :inherit comint-highlight-prompt)))
     `(geiser-font-lock-xref-header ((,class :inherit bold)))
     `(geiser-font-lock-xref-link ((,class :inherit button)))
 ;;;;; git-commit
@@ -5147,7 +5177,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                   'modus-themes-subtle-cyan
                                   'modus-themes-nuanced-cyan
                                   cyan-alt-other))))
-    `(helm-minibuffer-prompt ((,class :inherit minibuffer-prompt)))
+    `(helm-minibuffer-prompt ((,class :inherit comint-highlight-prompt)))
     `(helm-moccur-buffer ((,class :inherit button
                                   ,@(modus-themes--link-color
                                      cyan-alt-other cyan-alt-other-faint))))

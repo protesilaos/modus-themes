@@ -553,9 +553,10 @@ of this manual.
            ;; 'underline-only, 'neutral-underline-only
            modus-themes-links 'neutral-underline
 
-           ;; Options for `modus-themes-prompts': nil, 'subtle-accented,
-           ;; 'intense-accented, 'subtle-gray, 'intense-gray
-           modus-themes-prompts 'subtle-gray
+           ;; Options for `modus-themes-prompts' are either nil (the
+           ;; default), or a list of properties that may include any of those
+           ;; symbols: `background', `bold', `gray', `intense'
+           modus-themes-prompts '(intense bold)
 
            modus-themes-completions 'moderate ; {nil,'moderate,'opinionated}
 
@@ -840,27 +841,44 @@ File: modus-themes.info,  Node: Command prompts,  Next: Mode line,  Prev: Link s
 
 Symbol: ‘modus-themes-prompts’
 
-   Possible values:
+   Possible values are expressed as a list of properties.  The list can
+include any of the following symbols:
 
-  1. ‘nil’ (default)
-  2. ‘subtle-accented’ (‘subtle’ exists for backward compatibility)
-  3. ‘intense-accented’ (‘intense’ exists for backward compatibility)
-  4. ‘subtle-gray’
-  5. ‘intense-gray’
+   • ‘background’
+   • ‘bold’
+   • ‘gray’
+   • ‘intense’
 
-   The default does not use any background for minibuffer and command
-line prompts.  It relies exclusively on an accented foreground color.
+   The default (a ‘nil’ value or an empty list) means to only use a
+subtle accented foreground color.
 
-   Options ‘subtle-accented’ and ‘intense-accented’ will change both the
-background and the foreground values to use accented color combinations
-that follow the hue of the default styles’ foreground (e.g.  the default
-minibuffer prompt is cyan text, so these combinations will involved a
-cyan background and an appropriate cyan foreground).  The difference
-between the two is that the latter has a more pronounced/noticeable
-effect than the former.
+   The property ‘background’ applies a background color to the prompt’s
+text.  By default, this is a subtle accented value.
 
-   Options ‘subtle-gray’, ‘intense-gray’ are like their accented
-counterparts, except they use grayscale values.
+   The property ‘intense’ makes the foreground color more prominent.  If
+the ‘background’ property is also set, it amplifies the value of the
+background as well.
+
+   The property ‘gray’ changes the prompt’s colors to grayscale.  This
+affects the foreground and, if the ‘background’ property is also set,
+the background.  Its effect is subtle, unless it is combined with the
+‘intense’ property.
+
+   The property ‘bold’ makes the text use a bold typographic weight.
+
+   Combinations of any of those properties can be expressed in a list,
+as in those examples:
+
+     (intense)
+     (bold intense)
+     (intense bold gray)
+     (intense background gray bold)
+
+   The order in which the properties are set is not significant.
+
+   In user configuration files the form may look like this:
+
+     (setq modus-themes-prompts '(background gray))
 
 
 File: modus-themes.info,  Node: Mode line,  Next: Completion UIs,  Prev: Command prompts,  Up: Customization Options
@@ -4755,85 +4773,85 @@ Node: Enable and load12286
 Node: Sample configuration for use-package15275
 Node: Differences between loading and enabling16644
 Node: Customization Options18684
-Node: Custom reload theme24768
-Node: Success' color-code25355
-Node: Bold constructs26292
-Node: Slanted constructs26909
-Node: Syntax styles27456
-Node: No mixed fonts29094
-Node: Link styles30189
-Node: Command prompts31763
-Node: Mode line32962
-Node: Completion UIs37060
-Node: Mail citations38931
-Node: Fringes39784
-Node: Language checkers40446
-Node: Line highlighting42394
-Node: Line numbers43907
-Node: Matching parentheses44985
-Node: Active region45875
-Node: Diffs47093
-Node: Org mode blocks49032
-Node: Org agenda50910
-Node: Org agenda habits56537
-Node: Heading styles58503
-Node: Scaled headings62733
-Node: Scaled heading sizes63336
-Node: UI typeface66592
-Node: Headings' typeface67438
-Node: Advanced customization (do-it-yourself)68062
-Node: Per-theme customization settings (DIY)69425
-Node: Case-by-case face specs using the themes' palette (DIY)70771
-Node: Face specs at scale using the themes' palette (DIY)75235
-Node: Remap face with local value (DIY)80052
-Node: Cycle through arbitrary colors (DIY)82530
-Node: Override colors (DIY)89096
-Node: Override color saturation (DIY)93989
-Node: Font configurations for Org and others (DIY)99742
-Ref: Font configurations for Org and others (DIY)-Footnote-1102170
-Node: Custom Org user faces (DIY)102357
-Node: Update Org block delimiter fontification (DIY)106118
-Node: Measure color contrast (DIY)108078
-Node: Load theme depending on time of day (DIY)110872
-Node: Backdrop for pdf-tools (DIY)111912
-Node: A theme-agnostic hook for theme loading (DIY)114674
-Node: Face coverage117064
-Node: Supported packages117533
-Node: Indirectly covered packages124306
-Node: Notes on individual packages124860
-Node: Note on inline Latex in Org buffers125684
-Node: Note on dimmerel126244
-Node: Note on display-fill-column-indicator-mode127729
-Node: Note on mmm-modeel background colors129350
-Node: Note for prism131729
-Node: Note for god-mode134955
-Node: Note on company-mode overlay pop-up136627
-Ref: Note on company-mode overlay pop-up-Footnote-1137315
-Ref: Note on company-mode overlay pop-up-Footnote-2137382
-Node: Note on ERC escaped color sequences137437
-Ref: Note on ERC escaped color sequences-Footnote-1138863
-Node: Note on powerline or spaceline138973
-Node: Note on SHR colors139385
-Node: Note on EWW and Elfeed fonts (SHR fonts)139820
-Node: Note on Helm grep140565
-Node: Note on vc-annotate-background-mode142052
-Node: Note on pdf-tools link hints142937
-Node: Frequently Asked Questions (FAQ)145369
-Node: Is the contrast ratio about adjacent colors?145943
-Node: What does it mean to avoid exaggerations?147456
-Node: Why are colors mostly variants of blue magenta cyan?149291
-Node: What is the best setup for legibility?153638
-Node: Contributing156245
-Node: Sources of the themes156648
-Node: Issues you can help with157386
-Node: Patches require copyright assignment to the FSF158586
-Node: Acknowledgements160881
-Node: Meta163369
-Node: GNU Free Documentation License165366
-Node: Indices190718
-Node: Function index190897
-Node: Variable index192134
-Node: Concept index194348
+Node: Custom reload theme24847
+Node: Success' color-code25434
+Node: Bold constructs26371
+Node: Slanted constructs26988
+Node: Syntax styles27535
+Node: No mixed fonts29173
+Node: Link styles30268
+Node: Command prompts31842
+Node: Mode line33363
+Node: Completion UIs37461
+Node: Mail citations39332
+Node: Fringes40185
+Node: Language checkers40847
+Node: Line highlighting42795
+Node: Line numbers44308
+Node: Matching parentheses45386
+Node: Active region46276
+Node: Diffs47494
+Node: Org mode blocks49433
+Node: Org agenda51311
+Node: Org agenda habits56938
+Node: Heading styles58904
+Node: Scaled headings63134
+Node: Scaled heading sizes63737
+Node: UI typeface66993
+Node: Headings' typeface67839
+Node: Advanced customization (do-it-yourself)68463
+Node: Per-theme customization settings (DIY)69826
+Node: Case-by-case face specs using the themes' palette (DIY)71172
+Node: Face specs at scale using the themes' palette (DIY)75636
+Node: Remap face with local value (DIY)80453
+Node: Cycle through arbitrary colors (DIY)82931
+Node: Override colors (DIY)89497
+Node: Override color saturation (DIY)94390
+Node: Font configurations for Org and others (DIY)100143
+Ref: Font configurations for Org and others (DIY)-Footnote-1102571
+Node: Custom Org user faces (DIY)102758
+Node: Update Org block delimiter fontification (DIY)106519
+Node: Measure color contrast (DIY)108479
+Node: Load theme depending on time of day (DIY)111273
+Node: Backdrop for pdf-tools (DIY)112313
+Node: A theme-agnostic hook for theme loading (DIY)115075
+Node: Face coverage117465
+Node: Supported packages117934
+Node: Indirectly covered packages124707
+Node: Notes on individual packages125261
+Node: Note on inline Latex in Org buffers126085
+Node: Note on dimmerel126645
+Node: Note on display-fill-column-indicator-mode128130
+Node: Note on mmm-modeel background colors129751
+Node: Note for prism132130
+Node: Note for god-mode135356
+Node: Note on company-mode overlay pop-up137028
+Ref: Note on company-mode overlay pop-up-Footnote-1137716
+Ref: Note on company-mode overlay pop-up-Footnote-2137783
+Node: Note on ERC escaped color sequences137838
+Ref: Note on ERC escaped color sequences-Footnote-1139264
+Node: Note on powerline or spaceline139374
+Node: Note on SHR colors139786
+Node: Note on EWW and Elfeed fonts (SHR fonts)140221
+Node: Note on Helm grep140966
+Node: Note on vc-annotate-background-mode142453
+Node: Note on pdf-tools link hints143338
+Node: Frequently Asked Questions (FAQ)145770
+Node: Is the contrast ratio about adjacent colors?146344
+Node: What does it mean to avoid exaggerations?147857
+Node: Why are colors mostly variants of blue magenta cyan?149692
+Node: What is the best setup for legibility?154039
+Node: Contributing156646
+Node: Sources of the themes157049
+Node: Issues you can help with157787
+Node: Patches require copyright assignment to the FSF158987
+Node: Acknowledgements161282
+Node: Meta163770
+Node: GNU Free Documentation License165767
+Node: Indices191119
+Node: Function index191298
+Node: Variable index192535
+Node: Concept index194749
 
 End Tag Table
 
