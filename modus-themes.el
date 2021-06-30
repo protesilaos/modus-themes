@@ -2361,9 +2361,10 @@ highlights the alert and overdue states."
   "Adjust the overall style of the mode line.
 
 The value is a list of properties, each designated by a symbol.
-The default (nil) is a two-dimensional rectangle with a border
-around it.  The active and the inactive mode lines use different
-shades of grayscale values for the background and foreground.
+The default (a nil value or an empty list) is a two-dimensional
+rectangle with a border around it.  The active and the inactive
+mode lines use different shades of grayscale values for the
+background and foreground.
 
 The `3d' property will apply a three-dimensional effect to the
 active mode line.  The inactive mode lines remain two-dimensional
@@ -2509,8 +2510,8 @@ and `opinionated' possibilities."
   "Use subtle or intense styles for minibuffer and REPL prompts.
 
 The value is a list of properties, each designated by a symbol.
-The default (nil) means to only use a subtle accented foreground
-color.
+The default (a nil value or an empty list) means to only use a
+subtle accented foreground color.
 
 The property `background' applies a background color to the
 prompt's text.  By default, this is a subtle accented value.
