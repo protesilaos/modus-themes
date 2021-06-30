@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-06-30 08:48:46 +0300>
+;; Last-Modified: <2021-06-30 09:37:59 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -2404,12 +2404,12 @@ The order of items in those lists is not significant."
   :package-version '(modus-themes . "1.5.0")
   :version "28.1"
   :type '(set :tag "Properties" :greedy t
-	      (choice :tag "Border effects"
-		      (const :tag "Rectangular Border" nil)
-		      (const :tag "3d borders" 3d)
-		      (const :tag "No box effects (Moody-compatible)" moody))
-	      (const :tag "Coloured background" accented)
-	      (const :tag "Without noticeable border" borderless))
+              (choice :tag "Border effects"
+                      (const :tag "Rectangular Border" nil)
+                      (const :tag "3d borders" 3d)
+                      (const :tag "No box effects (Moody-compatible)" moody))
+              (const :tag "Coloured background" accented)
+              (const :tag "Without noticeable border" borderless))
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Mode line"))
