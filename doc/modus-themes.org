@@ -420,7 +420,7 @@ this manual.
 
       ;; Options for `modus-themes-prompts' are either nil (the
       ;; default), or a list of properties that may include any of those
-      ;; symbols: `background', `bold', `gray', `intense'
+      ;; symbols: `background', `bold', `gray', `intense', `italic'
       modus-themes-prompts '(intense bold)
 
       modus-themes-completions 'moderate ; {nil,'moderate,'opinionated}
@@ -699,6 +699,7 @@ include any of the following symbols:
 + ~bold~
 + ~gray~
 + ~intense~
++ ~italic~
 
 The default (a ~nil~ value or an empty list) means to only use a subtle
 accented foreground color.
@@ -716,6 +717,8 @@ background.  Its effect is subtle, unless it is combined with the
 ~intense~ property.
 
 The property ~bold~ makes the text use a bold typographic weight.
+Similarly, ~italic~ adds a slant to the font's forms (italic or oblique
+forms, depending on the typeface).
 
 Combinations of any of those properties can be expressed in a list, as
 in those examples:

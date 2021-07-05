@@ -93,8 +93,9 @@ demonstration:
       modus-themes-links 'neutral-underline
 
       ;; Options for `modus-themes-prompts' are either nil (the
-      ;; default), or a list of properties that may include any of those
-      ;; symbols: `background', `bold', `gray', `intense'
+      ;; default), or a list of properties that may include any of
+      ;; those symbols: `background', `bold', `gray', `intense',
+      ;; `italic'
       modus-themes-prompts '(intense bold)
 
       modus-themes-completions 'moderate ; {nil,'moderate,'opinionated}
