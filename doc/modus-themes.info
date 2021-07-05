@@ -1114,10 +1114,14 @@ the most intense combination of face properties.
 those of ‘flyspell’, ‘flymake’, ‘flycheck’, ‘artbollocks-mode’, and
 ‘writegood-mode’.
 
+   To disable fringe indicators for Flymake or Flycheck, refer to
+variables ‘flymake-fringe-indicator-position’ and
+‘flycheck-indication-mode’, respectively.
+
    NOTE: The placement of the straight underline, though not the wave
-style, is controlled by the built-in ‘x-underline-at-descent-line’,
-‘x-use-underline-position-properties’, ‘underline-minimum-offset’.
-Please refer to their documentation strings.
+style, is controlled by the built-in variables
+‘underline-minimum-offset’, ‘x-underline-at-descent-line’,
+‘x-use-underline-position-properties’.
 
 
 File: modus-themes.info,  Node: Line highlighting,  Next: Line numbers,  Prev: Language checkers,  Up: Customization Options
@@ -4789,72 +4793,72 @@ Node: Completion UIs37584
 Node: Mail citations39455
 Node: Fringes40308
 Node: Language checkers40970
-Node: Line highlighting42918
-Node: Line numbers44431
-Node: Matching parentheses45509
-Node: Active region46399
-Node: Diffs47617
-Node: Org mode blocks49556
-Node: Org agenda51434
-Node: Org agenda habits57061
-Node: Heading styles59027
-Node: Scaled headings63257
-Node: Scaled heading sizes63860
-Node: UI typeface67116
-Node: Headings' typeface67962
-Node: Advanced customization (do-it-yourself)68586
-Node: Per-theme customization settings (DIY)69949
-Node: Case-by-case face specs using the themes' palette (DIY)71295
-Node: Face specs at scale using the themes' palette (DIY)75759
-Node: Remap face with local value (DIY)80576
-Node: Cycle through arbitrary colors (DIY)83054
-Node: Override colors (DIY)89620
-Node: Override color saturation (DIY)94513
-Node: Font configurations for Org and others (DIY)100266
-Ref: Font configurations for Org and others (DIY)-Footnote-1102694
-Node: Custom Org user faces (DIY)102881
-Node: Update Org block delimiter fontification (DIY)106642
-Node: Measure color contrast (DIY)108602
-Node: Load theme depending on time of day (DIY)111396
-Node: Backdrop for pdf-tools (DIY)112436
-Node: A theme-agnostic hook for theme loading (DIY)115198
-Node: Face coverage117588
-Node: Supported packages118057
-Node: Indirectly covered packages124830
-Node: Notes on individual packages125384
-Node: Note on inline Latex in Org buffers126208
-Node: Note on dimmerel126768
-Node: Note on display-fill-column-indicator-mode128253
-Node: Note on mmm-modeel background colors129874
-Node: Note for prism132253
-Node: Note for god-mode135479
-Node: Note on company-mode overlay pop-up137151
-Ref: Note on company-mode overlay pop-up-Footnote-1137839
-Ref: Note on company-mode overlay pop-up-Footnote-2137906
-Node: Note on ERC escaped color sequences137961
-Ref: Note on ERC escaped color sequences-Footnote-1139387
-Node: Note on powerline or spaceline139497
-Node: Note on SHR colors139909
-Node: Note on EWW and Elfeed fonts (SHR fonts)140344
-Node: Note on Helm grep141089
-Node: Note on vc-annotate-background-mode142576
-Node: Note on pdf-tools link hints143461
-Node: Frequently Asked Questions (FAQ)145893
-Node: Is the contrast ratio about adjacent colors?146467
-Node: What does it mean to avoid exaggerations?147980
-Node: Why are colors mostly variants of blue magenta cyan?149815
-Node: What is the best setup for legibility?154162
-Node: Contributing156769
-Node: Sources of the themes157172
-Node: Issues you can help with157910
-Node: Patches require copyright assignment to the FSF159110
-Node: Acknowledgements161405
-Node: Meta163893
-Node: GNU Free Documentation License165890
-Node: Indices191242
-Node: Function index191421
-Node: Variable index192658
-Node: Concept index194872
+Node: Line highlighting43050
+Node: Line numbers44563
+Node: Matching parentheses45641
+Node: Active region46531
+Node: Diffs47749
+Node: Org mode blocks49688
+Node: Org agenda51566
+Node: Org agenda habits57193
+Node: Heading styles59159
+Node: Scaled headings63389
+Node: Scaled heading sizes63992
+Node: UI typeface67248
+Node: Headings' typeface68094
+Node: Advanced customization (do-it-yourself)68718
+Node: Per-theme customization settings (DIY)70081
+Node: Case-by-case face specs using the themes' palette (DIY)71427
+Node: Face specs at scale using the themes' palette (DIY)75891
+Node: Remap face with local value (DIY)80708
+Node: Cycle through arbitrary colors (DIY)83186
+Node: Override colors (DIY)89752
+Node: Override color saturation (DIY)94645
+Node: Font configurations for Org and others (DIY)100398
+Ref: Font configurations for Org and others (DIY)-Footnote-1102826
+Node: Custom Org user faces (DIY)103013
+Node: Update Org block delimiter fontification (DIY)106774
+Node: Measure color contrast (DIY)108734
+Node: Load theme depending on time of day (DIY)111528
+Node: Backdrop for pdf-tools (DIY)112568
+Node: A theme-agnostic hook for theme loading (DIY)115330
+Node: Face coverage117720
+Node: Supported packages118189
+Node: Indirectly covered packages124962
+Node: Notes on individual packages125516
+Node: Note on inline Latex in Org buffers126340
+Node: Note on dimmerel126900
+Node: Note on display-fill-column-indicator-mode128385
+Node: Note on mmm-modeel background colors130006
+Node: Note for prism132385
+Node: Note for god-mode135611
+Node: Note on company-mode overlay pop-up137283
+Ref: Note on company-mode overlay pop-up-Footnote-1137971
+Ref: Note on company-mode overlay pop-up-Footnote-2138038
+Node: Note on ERC escaped color sequences138093
+Ref: Note on ERC escaped color sequences-Footnote-1139519
+Node: Note on powerline or spaceline139629
+Node: Note on SHR colors140041
+Node: Note on EWW and Elfeed fonts (SHR fonts)140476
+Node: Note on Helm grep141221
+Node: Note on vc-annotate-background-mode142708
+Node: Note on pdf-tools link hints143593
+Node: Frequently Asked Questions (FAQ)146025
+Node: Is the contrast ratio about adjacent colors?146599
+Node: What does it mean to avoid exaggerations?148112
+Node: Why are colors mostly variants of blue magenta cyan?149947
+Node: What is the best setup for legibility?154294
+Node: Contributing156901
+Node: Sources of the themes157304
+Node: Issues you can help with158042
+Node: Patches require copyright assignment to the FSF159242
+Node: Acknowledgements161537
+Node: Meta164025
+Node: GNU Free Documentation License166022
+Node: Indices191374
+Node: Function index191553
+Node: Variable index192790
+Node: Concept index195004
 
 End Tag Table
 

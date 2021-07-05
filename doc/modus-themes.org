@@ -977,10 +977,13 @@ the most intense combination of face properties.
 The present variable affects packages and/or face groups such as those
 of =flyspell=, =flymake=, =flycheck=, ~artbollocks-mode~, and ~writegood-mode~.
 
+To disable fringe indicators for Flymake or Flycheck, refer to variables
+~flymake-fringe-indicator-position~ and ~flycheck-indication-mode~,
+respectively.
+
 NOTE: The placement of the straight underline, though not the wave
-style, is controlled by the built-in ~x-underline-at-descent-line~,
-~x-use-underline-position-properties~, ~underline-minimum-offset~.  Please
-refer to their documentation strings.
+style, is controlled by the built-in variables ~underline-minimum-offset~,
+~x-underline-at-descent-line~, ~x-use-underline-position-properties~.
 
 ** Option for line highlighting (hl-line-mode)
 :properties:
