@@ -27,7 +27,7 @@ For some demo content, check:
   :ensure
   :init
   ;; Add all your customizations prior to loading the themes
-  (setq modus-themes-slanted-constructs t
+  (setq modus-themes-italic-constructs t
         modus-themes-bold-constructs nil
         modus-themes-region 'no-extend)
 
@@ -52,7 +52,7 @@ possible values.  Note that those settings are only for purposes of
 demonstration:
 
 ```elisp
-(setq modus-themes-slanted-constructs t
+(setq modus-themes-italic-constructs t
       modus-themes-bold-constructs nil
       modus-themes-no-mixed-fonts nil
       modus-themes-subtle-line-numbers nil

@@ -297,7 +297,7 @@ package configurations in their setup.  We use this as an example:
   :ensure                         ; omit this to use the built-in themes
   :init
   ;; Add all your customizations prior to loading the themes
-  (setq modus-themes-slanted-constructs t
+  (setq modus-themes-italic-constructs t
         modus-themes-bold-constructs nil
         modus-themes-region 'no-extend)
 
@@ -378,7 +378,7 @@ Below is a summary of what you will learn in the subsequent sections of
 this manual.
 
 #+begin_src emacs-lisp
-(setq modus-themes-slanted-constructs t
+(setq modus-themes-italic-constructs t
       modus-themes-bold-constructs nil
       modus-themes-no-mixed-fonts nil
       modus-themes-subtle-line-numbers nil
@@ -534,26 +534,26 @@ weight.  This concerns keywords and other important aspects of code
 syntax.  It also affects certain mode line indicators and command-line
 prompts.
 
-** Option for more slanted constructs
+** Option for more italic constructs
 :properties:
-:alt_title: Slanted constructs
-:description: Toggle slanted constructs (italics) in code
+:alt_title: Italic constructs
+:description: Toggle italic font constructs in code
 :custom_id: h:977c900d-0d6d-4dbb-82d9-c2aae69543d6
 :end:
-#+vindex: modus-themes-slanted-constructs
+#+vindex: modus-themes-italic-constructs
 
-Symbol: ~modus-themes-slanted-constructs~
+Symbol: ~modus-themes-italic-constructs~
 
 Possible values:
 
 1. ~nil~ (default)
 2. ~t~
 
-The default is to not use slanted text (italics) unless it is absolutely
-necessary.
+The default is to not use slanted text forms (italics) unless it is
+absolutely necessary.
 
-With a non-nil value (~t~) choose to render more faces in slanted text.
-This typically affects documentation strings and code comments.
+With a non-nil value (~t~) choose to render more faces in italics.  This
+typically affects documentation strings and code comments.
 
 ** Option for syntax highlighting
 :properties:

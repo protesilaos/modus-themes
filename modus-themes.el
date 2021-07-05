@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-07-05 08:46:27 +0300>
+;; Last-Modified: <2021-07-05 08:57:05 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -37,7 +37,7 @@
 ;; are disabled by default (nil):
 ;;
 ;;     modus-themes-inhibit-reload                 (boolean)
-;;     modus-themes-slanted-constructs             (boolean)
+;;     modus-themes-italic-constructs              (boolean)
 ;;     modus-themes-bold-constructs                (boolean)
 ;;     modus-themes-variable-pitch-headings        (boolean)
 ;;     modus-themes-variable-pitch-ui              (boolean)
@@ -1467,7 +1467,7 @@ The actual styling of the face is done by `modus-themes-faces'."
 
 (defface modus-themes-slant nil
   "Generic face for applying a conditional slant (italics).
-This behaves in accordance with `modus-themes-slanted-constructs'.
+This behaves in accordance with `modus-themes-italic-constructs'.
 
 The actual styling of the face is done by `modus-themes-faces'."
   :group 'modus-theme-faces)
@@ -1738,6 +1738,21 @@ For form, see `modus-themes-vivendi-colors'."
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Slanted constructs"))
+
+(define-obsolete-variable-alias
+  'modus-themes-slanted-constructs
+  'modus-themes-italic-constructs
+  "1.5.0")
+
+(defcustom modus-themes-italic-constructs nil
+  "Use italic font forms in more code constructs."
+  :group 'modus-themes
+  :package-version '(modus-themes . "1.5.0")
+  :version "28.1"
+  :type 'boolean
+  :set #'modus-themes--set-option
+  :initialize #'custom-initialize-default
+  :link '(info-link "(modus-themes) Italic constructs"))
 
 (defcustom modus-themes-bold-constructs nil
   "Use bold text in more code constructs."
@@ -2535,7 +2550,7 @@ Similarly, `italic' adds a slant to the font's forms (italic or
 oblique forms, depending on the typeface).
 
 Combinations of any of those properties can be expressed in a
-list, as in those examples:
+list, as in thosep examples:
 
     (intense)
     (bold intense)
@@ -2867,7 +2882,7 @@ Those are stored in `modus-themes-faces' and
 
 (defun modus-themes--slant ()
   "Conditional use of italics for slant attribute."
-  (if modus-themes-slanted-constructs
+  (if modus-themes-italic-constructs
       (list 'italic)
     (list 'normal)))
 
