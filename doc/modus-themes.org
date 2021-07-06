@@ -3963,11 +3963,11 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Foreest, Nicolas De Jaeghere, Paul Poloskov, Pengji Zhang, Pete
   Kazmier, Peter Wu, Philip Kaludercic, Pierre Téchoueyres, Roman
   Rudakov, Ryan Phillips, Rudolf Adamkovič, Sam Kleinman, Shreyas
-  Ragavan, Simon Pugnet, Tassilo Horn, Thibaut Verron, Trey Merkley,
-  Togan Muftuoglu, Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.
-  As well as users: Ben, CsBigDataHub1, Emacs Contrib, Eugene,
-  Fourchaux, Fredrik, Moesasji, Nick, TheBlob42, Trey, bepolymathe,
-  doolio, fleimgruber, iSeeU, jixiuf, okamsn, pRot0ta1p.
+  Ragavan, Simon Pugnet, Tassilo Horn, Thibaut Verron, Thomas Heartman,
+  Trey Merkley, Togan Muftuoglu, Toon Claes, Uri Sharf, Utkarsh Singh,
+  Vincent Foley.  As well as users: Ben, CsBigDataHub1, Emacs Contrib,
+  Eugene, Fourchaux, Fredrik, Moesasji, Nick, TheBlob42, Trey,
+  bepolymathe, doolio, fleimgruber, iSeeU, jixiuf, okamsn, pRot0ta1p.
 
 + Packaging :: Basil L.{{{space()}}} Contovounesios, Eli Zaretskii, Glenn
   Morris, Mauro Aranda, Richard Stallman, Stefan Kangas (core Emacs),

@@ -4083,11 +4083,12 @@ Ideas and user feedback
      Nicolas De Jaeghere, Paul Poloskov, Pengji Zhang, Pete Kazmier,
      Peter Wu, Philip Kaludercic, Pierre Téchoueyres, Roman Rudakov,
      Ryan Phillips, Rudolf Adamkovič, Sam Kleinman, Shreyas Ragavan,
-     Simon Pugnet, Tassilo Horn, Thibaut Verron, Trey Merkley, Togan
-     Muftuoglu, Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.  As
-     well as users: Ben, CsBigDataHub1, Emacs Contrib, Eugene,
-     Fourchaux, Fredrik, Moesasji, Nick, TheBlob42, Trey, bepolymathe,
-     doolio, fleimgruber, iSeeU, jixiuf, okamsn, pRot0ta1p.
+     Simon Pugnet, Tassilo Horn, Thibaut Verron, Thomas Heartman, Trey
+     Merkley, Togan Muftuoglu, Toon Claes, Uri Sharf, Utkarsh Singh,
+     Vincent Foley.  As well as users: Ben, CsBigDataHub1, Emacs
+     Contrib, Eugene, Fourchaux, Fredrik, Moesasji, Nick, TheBlob42,
+     Trey, bepolymathe, doolio, fleimgruber, iSeeU, jixiuf, okamsn,
+     pRot0ta1p.
 
 Packaging
      Basil L. Contovounesios, Eli Zaretskii, Glenn Morris, Mauro Aranda,
@@ -4853,12 +4854,12 @@ Node: Sources of the themes157304
 Node: Issues you can help with158042
 Node: Patches require copyright assignment to the FSF159242
 Node: Acknowledgements161537
-Node: Meta164025
-Node: GNU Free Documentation License166022
-Node: Indices191374
-Node: Function index191553
-Node: Variable index192790
-Node: Concept index195004
+Node: Meta164047
+Node: GNU Free Documentation License166044
+Node: Indices191396
+Node: Function index191575
+Node: Variable index192812
+Node: Concept index195026
 
 End Tag Table
 
