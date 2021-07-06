@@ -694,8 +694,8 @@ refer to their documentation strings.
 
 Symbol: ~modus-themes-prompts~
 
-Possible values are expressed as a list of properties.  The list can
-include any of the following symbols:
+Possible values are expressed as a list of properties (default is ~nil~ or
+an empty list).  The list can include any of the following symbols:
 
 + ~background~
 + ~bold~
