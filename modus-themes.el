@@ -2559,7 +2559,7 @@ Similarly, `italic' adds a slant to the font's forms (italic or
 oblique forms, depending on the typeface).
 
 Combinations of any of those properties can be expressed in a
-list, as in thosep examples:
+list, as in those examples:
 
     (intense)
     (bold intense)
