@@ -690,6 +690,8 @@ refer to their documentation strings.
 :end:
 #+vindex: modus-themes-prompts
 
+[ Refactored as part of {{{development-version}}} ]
+
 Symbol: ~modus-themes-prompts~
 
 Possible values are expressed as a list of properties.  The list can
