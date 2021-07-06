@@ -73,10 +73,9 @@ demonstration:
       ;; combinations.
       modus-themes-mode-line '(3d accented)
 
-      ;; Options for `modus-themes-syntax': nil, 'faint,
-      ;; 'yellow-comments, 'green-strings,
-      ;; 'yellow-comments-green-strings, 'alt-syntax,
-      ;; 'alt-syntax-yellow-comments, 'faint-yellow-comments
+      ;; Options for `modus-themes-syntax' are either nil (the default),
+      ;; or a list of properties that may include any of those symbols:
+      ;; `faint', `yellow-comments', `green-strings', `alt-syntax'
       modus-themes-syntax nil
 
       ;; Options for `modus-themes-hl-line': nil, 'intense-background,

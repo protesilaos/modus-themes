@@ -399,10 +399,9 @@ this manual.
       ;; combinations.
       modus-themes-mode-line '(3d accented)
 
-      ;; Options for `modus-themes-syntax': nil, 'faint,
-      ;; 'yellow-comments, 'green-strings,
-      ;; 'yellow-comments-green-strings, 'alt-syntax,
-      ;; 'alt-syntax-yellow-comments, 'faint-yellow-comments
+      ;; Options for `modus-themes-syntax' are either nil (the default),
+      ;; or a list of properties that may include any of those symbols:
+      ;; `faint', `yellow-comments', `green-strings', `alt-syntax'
       modus-themes-syntax nil
 
       ;; Options for `modus-themes-hl-line': nil, 'intense-background,
@@ -563,46 +562,62 @@ typically affects documentation strings and code comments.
 :end:
 #+vindex: modus-themes-syntax
 
+[ Refactored as part of {{{development-version}}} ]
+
 Symbol: ~modus-themes-syntax~
 
-Possible values:
+Possible values are expressed as a list of properties (default is ~nil~ or
+an empty list).  The list can include any of the following symbols:
 
-1. ~nil~ (default)
-2. ~faint~
-3. ~yellow-comments~
-4. ~green-strings~
-5. ~yellow-comments-green-strings~
-6. ~alt-syntax~
-7. ~alt-syntax-yellow-comments~
-8. ~faint-yellow-comments~
++ ~faint~
++ ~yellow-comments~
++ ~green-strings~
++ ~alt-syntax~
 
-The default style (nil) for code syntax highlighting is a balanced
-combination of colors on the cyan-blue-magenta side of the spectrum.
-There is little to no use of greens, yellows, or reds, except when it is
-necessary.
+The value is a list of properties, each designated by a symbol.  The
+default (a nil value or an empty list) is to use a balanced combination
+of colors on the cyan-blue-magenta side of the spectrum.  There is
+little to no use of greens, yellows, and reds.  Comments are gray,
+strings are blue colored, doc strings are a shade of cyan, while color
+combinations are designed to avoid exaggerations.
 
-Option ~faint~ is like the default in terms of the choice of palette but
-applies desaturated color values.
+The property ~faint~ fades the saturation of all applicable colors, where
+that is possible or appropriate.
 
-Option ~yellow-comments~ adds a yellow tint to comments.  The rest of the
-syntax is the same as the default.
+The property ~yellow-comments~ applies a yellow color to comments.
 
-Option ~green-strings~ replaces the blue/cyan/cold color variants in
-strings with greener alternatives.  The rest of the syntax remains the
-same.
+The property ~green-strings~ applies a green color to strings and a green
+tint to doc strings.
 
-Option ~yellow-comments-green-strings~ combines yellow comments with green
-strings and the rest of the default syntax highlighting style.
+The property ~alt-syntax~ changes the combination of colors beyond strings
+and comments, so that the effective palette is broadened to provide
+greater variety relative to the default.
 
-Option ~alt-syntax~ expands the active spectrum by applying color
-combinations with more contrasting hues between them.  Expect to find
-red and green variants in addition to cyan, blue, magenta.
+Combinations of any of those properties can be expressed in a list, as
+in those examples:
 
-Option ~alt-syntax-yellow-comments~ combines ~alt-syntax~ with
-~yellow-comments~.
+#+begin_src emacs-lisp
+(faint)
+(green-strings yellow-comments)
+(alt-syntax green-strings yellow-comments)
+(faint alt-syntax green-strings yellow-comments)
+#+end_src
 
-Option ~faint-yellow-comments~ combines the ~faint~ style with
-~yellow-comments~.
+The order in which the properties are set is not significant.
+
+In user configuration files the form may look like this:
+
+#+begin_src emacs-lisp
+(setq modus-themes-syntax '(faint alt-syntax))
+#+end_src
+
+Independent of this variable, users may also control the use of a bold
+weight or italic text: ~modus-themes-bold-constructs~ and
+~modus-themes-italic-constructs~.
+
+[[#h:b25714f6-0fbe-41f6-89b5-6912d304091e][Option for more bold constructs]].
+
+[[#h:977c900d-0d6d-4dbb-82d9-c2aae69543d6][Option for more italic constructs]].
 
 ** Option for no font mixing
 :properties:

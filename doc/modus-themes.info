@@ -534,10 +534,9 @@ of this manual.
            ;; combinations.
            modus-themes-mode-line '(3d accented)
 
-           ;; Options for `modus-themes-syntax': nil, 'faint,
-           ;; 'yellow-comments, 'green-strings,
-           ;; 'yellow-comments-green-strings, 'alt-syntax,
-           ;; 'alt-syntax-yellow-comments, 'faint-yellow-comments
+           ;; Options for `modus-themes-syntax' are either nil (the default),
+           ;; or a list of properties that may include any of those symbols:
+           ;; `faint', `yellow-comments', `green-strings', `alt-syntax'
            modus-themes-syntax nil
 
            ;; Options for `modus-themes-hl-line': nil, 'intense-background,
@@ -716,46 +715,59 @@ File: modus-themes.info,  Node: Syntax styles,  Next: No mixed fonts,  Prev: Ita
 4.5 Option for syntax highlighting
 ==================================
 
-Symbol: ‘modus-themes-syntax’
+[ Refactored as part of 1.5.0-dev ]
 
-   Possible values:
+   Symbol: ‘modus-themes-syntax’
 
-  1. ‘nil’ (default)
-  2. ‘faint’
-  3. ‘yellow-comments’
-  4. ‘green-strings’
-  5. ‘yellow-comments-green-strings’
-  6. ‘alt-syntax’
-  7. ‘alt-syntax-yellow-comments’
-  8. ‘faint-yellow-comments’
+   Possible values are expressed as a list of properties (default is
+‘nil’ or an empty list).  The list can include any of the following
+symbols:
 
-   The default style (nil) for code syntax highlighting is a balanced
-combination of colors on the cyan-blue-magenta side of the spectrum.
-There is little to no use of greens, yellows, or reds, except when it is
-necessary.
+   • ‘faint’
+   • ‘yellow-comments’
+   • ‘green-strings’
+   • ‘alt-syntax’
 
-   Option ‘faint’ is like the default in terms of the choice of palette
-but applies desaturated color values.
+   The value is a list of properties, each designated by a symbol.  The
+default (a nil value or an empty list) is to use a balanced combination
+of colors on the cyan-blue-magenta side of the spectrum.  There is
+little to no use of greens, yellows, and reds.  Comments are gray,
+strings are blue colored, doc strings are a shade of cyan, while color
+combinations are designed to avoid exaggerations.
 
-   Option ‘yellow-comments’ adds a yellow tint to comments.  The rest of
-the syntax is the same as the default.
+   The property ‘faint’ fades the saturation of all applicable colors,
+where that is possible or appropriate.
 
-   Option ‘green-strings’ replaces the blue/cyan/cold color variants in
-strings with greener alternatives.  The rest of the syntax remains the
-same.
+   The property ‘yellow-comments’ applies a yellow color to comments.
 
-   Option ‘yellow-comments-green-strings’ combines yellow comments with
-green strings and the rest of the default syntax highlighting style.
+   The property ‘green-strings’ applies a green color to strings and a
+green tint to doc strings.
 
-   Option ‘alt-syntax’ expands the active spectrum by applying color
-combinations with more contrasting hues between them.  Expect to find
-red and green variants in addition to cyan, blue, magenta.
+   The property ‘alt-syntax’ changes the combination of colors beyond
+strings and comments, so that the effective palette is broadened to
+provide greater variety relative to the default.
 
-   Option ‘alt-syntax-yellow-comments’ combines ‘alt-syntax’ with
-‘yellow-comments’.
+   Combinations of any of those properties can be expressed in a list,
+as in those examples:
 
-   Option ‘faint-yellow-comments’ combines the ‘faint’ style with
-‘yellow-comments’.
+     (faint)
+     (green-strings yellow-comments)
+     (alt-syntax green-strings yellow-comments)
+     (faint alt-syntax green-strings yellow-comments)
+
+   The order in which the properties are set is not significant.
+
+   In user configuration files the form may look like this:
+
+     (setq modus-themes-syntax '(faint alt-syntax))
+
+   Independent of this variable, users may also control the use of a
+bold weight or italic text: ‘modus-themes-bold-constructs’ and
+‘modus-themes-italic-constructs’.
+
+   *note Option for more bold constructs: Bold constructs.
+
+   *note Option for more italic constructs: Italic constructs.
 
 
 File: modus-themes.info,  Node: No mixed fonts,  Next: Link styles,  Prev: Syntax styles,  Up: Customization Options
@@ -839,10 +851,13 @@ File: modus-themes.info,  Node: Command prompts,  Next: Mode line,  Prev: Link s
 4.8 Option for command prompt styles
 ====================================
 
-Symbol: ‘modus-themes-prompts’
+[ Refactored as part of 1.5.0-dev ]
 
-   Possible values are expressed as a list of properties.  The list can
-include any of the following symbols:
+   Symbol: ‘modus-themes-prompts’
+
+   Possible values are expressed as a list of properties (default is
+‘nil’ or an empty list).  The list can include any of the following
+symbols:
 
    • ‘background’
    • ‘bold’
@@ -4781,85 +4796,85 @@ Node: Enable and load12280
 Node: Sample configuration for use-package15269
 Node: Differences between loading and enabling16637
 Node: Customization Options18677
-Node: Custom reload theme24843
-Node: Success' color-code25430
-Node: Bold constructs26367
-Node: Italic constructs26983
-Node: Syntax styles27526
-Node: No mixed fonts29163
-Node: Link styles30258
-Node: Command prompts31832
-Node: Mode line33486
-Node: Completion UIs37584
-Node: Mail citations39455
-Node: Fringes40308
-Node: Language checkers40970
-Node: Line highlighting43050
-Node: Line numbers44563
-Node: Matching parentheses45641
-Node: Active region46531
-Node: Diffs47749
-Node: Org mode blocks49688
-Node: Org agenda51566
-Node: Org agenda habits57193
-Node: Heading styles59159
-Node: Scaled headings63389
-Node: Scaled heading sizes63992
-Node: UI typeface67248
-Node: Headings' typeface68094
-Node: Advanced customization (do-it-yourself)68718
-Node: Per-theme customization settings (DIY)70081
-Node: Case-by-case face specs using the themes' palette (DIY)71427
-Node: Face specs at scale using the themes' palette (DIY)75891
-Node: Remap face with local value (DIY)80708
-Node: Cycle through arbitrary colors (DIY)83186
-Node: Override colors (DIY)89752
-Node: Override color saturation (DIY)94645
-Node: Font configurations for Org and others (DIY)100398
-Ref: Font configurations for Org and others (DIY)-Footnote-1102826
-Node: Custom Org user faces (DIY)103013
-Node: Update Org block delimiter fontification (DIY)106774
-Node: Measure color contrast (DIY)108734
-Node: Load theme depending on time of day (DIY)111528
-Node: Backdrop for pdf-tools (DIY)112568
-Node: A theme-agnostic hook for theme loading (DIY)115330
-Node: Face coverage117720
-Node: Supported packages118189
-Node: Indirectly covered packages124962
-Node: Notes on individual packages125516
-Node: Note on inline Latex in Org buffers126340
-Node: Note on dimmerel126900
-Node: Note on display-fill-column-indicator-mode128385
-Node: Note on mmm-modeel background colors130006
-Node: Note for prism132385
-Node: Note for god-mode135611
-Node: Note on company-mode overlay pop-up137283
-Ref: Note on company-mode overlay pop-up-Footnote-1137971
-Ref: Note on company-mode overlay pop-up-Footnote-2138038
-Node: Note on ERC escaped color sequences138093
-Ref: Note on ERC escaped color sequences-Footnote-1139519
-Node: Note on powerline or spaceline139629
-Node: Note on SHR colors140041
-Node: Note on EWW and Elfeed fonts (SHR fonts)140476
-Node: Note on Helm grep141221
-Node: Note on vc-annotate-background-mode142708
-Node: Note on pdf-tools link hints143593
-Node: Frequently Asked Questions (FAQ)146025
-Node: Is the contrast ratio about adjacent colors?146599
-Node: What does it mean to avoid exaggerations?148112
-Node: Why are colors mostly variants of blue magenta cyan?149947
-Node: What is the best setup for legibility?154294
-Node: Contributing156901
-Node: Sources of the themes157304
-Node: Issues you can help with158042
-Node: Patches require copyright assignment to the FSF159242
-Node: Acknowledgements161537
-Node: Meta164047
-Node: GNU Free Documentation License166044
-Node: Indices191396
-Node: Function index191575
-Node: Variable index192812
-Node: Concept index195026
+Node: Custom reload theme24835
+Node: Success' color-code25422
+Node: Bold constructs26359
+Node: Italic constructs26975
+Node: Syntax styles27518
+Node: No mixed fonts29652
+Node: Link styles30747
+Node: Command prompts32321
+Node: Mode line34055
+Node: Completion UIs38153
+Node: Mail citations40024
+Node: Fringes40877
+Node: Language checkers41539
+Node: Line highlighting43619
+Node: Line numbers45132
+Node: Matching parentheses46210
+Node: Active region47100
+Node: Diffs48318
+Node: Org mode blocks50257
+Node: Org agenda52135
+Node: Org agenda habits57762
+Node: Heading styles59728
+Node: Scaled headings63958
+Node: Scaled heading sizes64561
+Node: UI typeface67817
+Node: Headings' typeface68663
+Node: Advanced customization (do-it-yourself)69287
+Node: Per-theme customization settings (DIY)70650
+Node: Case-by-case face specs using the themes' palette (DIY)71996
+Node: Face specs at scale using the themes' palette (DIY)76460
+Node: Remap face with local value (DIY)81277
+Node: Cycle through arbitrary colors (DIY)83755
+Node: Override colors (DIY)90321
+Node: Override color saturation (DIY)95214
+Node: Font configurations for Org and others (DIY)100967
+Ref: Font configurations for Org and others (DIY)-Footnote-1103395
+Node: Custom Org user faces (DIY)103582
+Node: Update Org block delimiter fontification (DIY)107343
+Node: Measure color contrast (DIY)109303
+Node: Load theme depending on time of day (DIY)112097
+Node: Backdrop for pdf-tools (DIY)113137
+Node: A theme-agnostic hook for theme loading (DIY)115899
+Node: Face coverage118289
+Node: Supported packages118758
+Node: Indirectly covered packages125531
+Node: Notes on individual packages126085
+Node: Note on inline Latex in Org buffers126909
+Node: Note on dimmerel127469
+Node: Note on display-fill-column-indicator-mode128954
+Node: Note on mmm-modeel background colors130575
+Node: Note for prism132954
+Node: Note for god-mode136180
+Node: Note on company-mode overlay pop-up137852
+Ref: Note on company-mode overlay pop-up-Footnote-1138540
+Ref: Note on company-mode overlay pop-up-Footnote-2138607
+Node: Note on ERC escaped color sequences138662
+Ref: Note on ERC escaped color sequences-Footnote-1140088
+Node: Note on powerline or spaceline140198
+Node: Note on SHR colors140610
+Node: Note on EWW and Elfeed fonts (SHR fonts)141045
+Node: Note on Helm grep141790
+Node: Note on vc-annotate-background-mode143277
+Node: Note on pdf-tools link hints144162
+Node: Frequently Asked Questions (FAQ)146594
+Node: Is the contrast ratio about adjacent colors?147168
+Node: What does it mean to avoid exaggerations?148681
+Node: Why are colors mostly variants of blue magenta cyan?150516
+Node: What is the best setup for legibility?154863
+Node: Contributing157470
+Node: Sources of the themes157873
+Node: Issues you can help with158611
+Node: Patches require copyright assignment to the FSF159811
+Node: Acknowledgements162106
+Node: Meta164616
+Node: GNU Free Documentation License166613
+Node: Indices191965
+Node: Function index192144
+Node: Variable index193381
+Node: Concept index195595
 
 End Tag Table
 
