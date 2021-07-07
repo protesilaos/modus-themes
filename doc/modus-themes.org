@@ -410,7 +410,10 @@ this manual.
       ;; 'underline-only-accented
       modus-themes-hl-line 'underline-neutral
 
-      modus-themes-paren-match 'subtle-bold ; {nil,'subtle-bold,'intense,'intense-bold}
+      ;; Options for `modus-themes-paren-match' are either nil (the
+      ;; default), or a list of properties that may include any of those
+      ;; symbols: `bold', `intense', `underline'
+      modus-themes-paren-match '(bold intense)
 
       ;; Options for `modus-themes-links': nil, 'faint,
       ;; 'neutral-underline, 'faint-neutral-underline, 'no-underline,
@@ -1097,28 +1100,46 @@ updated to accommodate this aesthetic.
 :end:
 #+vindex: modus-themes-paren-match
 
+[ Refactored as part of {{{development-version}}} ]
+
 Symbol: ~modus-themes-paren-match~
 
-Possible values:
+Possible values are expressed as a list of properties (default is ~nil~ or
+an empty list).  The list can include any of the following symbols:
 
-1. ~nil~ (default)
-2. ~subtle-bold~
-3. ~intense~
-4. ~intense-bold~
++ ~bold~
++ ~intense~
++ ~underline~
 
-Nil means to use a subtle tinted background color for the matching
+The default (a ~nil~ value or an empty list) is a subtle background color.
+
+The ~bold~ property adds a bold weight to the characters of the matching
 delimiters.
 
-Option ~intense~ applies a saturated background color.
+The ~intense~ property applies a more prominent background color to the
+delimiters.
 
-Option ~subtle-bold~ is the same as the default, but also makes use of
-bold typographic weight (inherits the ~bold~ face).
+The ~underline~ property draws a straight line under the affected text.
 
-Option ~intense-bold~ is the same as ~intense~, while it also uses a bold
-weight.
+Combinations of any of those properties can be expressed in a
+list, as in those examples:
 
-This customization variable affects tools such as the built-in
-~show-paren-mode~ and the =smartparens= package.
+#+begin_src emacs-lisp
+(bold)
+(underline intense)
+(bold intense underline)
+#+end_src
+
+The order in which the properties are set is not significant.
+
+In user configuration files the form may look like this:
+
+#+begin_src emacs-lisp
+(setq modus-themes-paren-match '(bold intense))
+#+end_src
+
+This customization variable affects the built-in ~show-paren-mode~ and the
+=smartparens= package.
 
 ** Option for active region
 :properties:

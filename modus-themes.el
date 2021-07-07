@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-07-07 10:41:47 +0300>
+;; Last-Modified: <2021-07-07 12:17:58 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -2650,25 +2650,40 @@ results with underlines."
   :link '(info-link "(modus-themes) Line numbers"))
 
 (defcustom modus-themes-paren-match nil
-  "Choose the style of matching parentheses or delimiters.
+  "Control the style of matching parentheses or delimiters.
 
-Nil means to use a subtle tinted background color (the default).
+The value is a list of properties, each designated by a symbol.
+The default (a nil value or an empty list) is a subtle background
+color.
 
-Option `intense' applies a saturated background color.
+The `bold' property adds a bold weight to the characters of the
+matching delimiters.
 
-Option `subtle-bold' is the same as the default, but also makes
-use of bold typographic weight (inherits the `bold' face).
+The `intense' property applies a more prominent background color
+to the delimiters.
 
-Option `intense-bold' is the same as `intense', while it also
-uses a bold weight."
+The `underline' property draws a straight line under the affected
+text.
+
+Combinations of any of those properties can be expressed in a
+list, as in those examples:
+
+    (bold)
+    (underline intense)
+    (bold intense underline)
+
+The order in which the properties are set is not significant.
+
+In user configuration files the form may look like this:
+
+    (setq modus-themes-paren-match '(bold intense))"
   :group 'modus-themes
-  :package-version '(modus-themes . "1.0.0")
+  :package-version '(modus-themes . "1.5.0")
   :version "28.1"
-  :type '(choice
-          (const :format "[%v] %t\n" :tag "Sublte tinted background (default)" nil)
-          (const :format "[%v] %t\n" :tag "Like the default, but also use bold typographic weight" subtle-bold)
-          (const :format "[%v] %t\n" :tag "Intense saturated background" intense)
-          (const :format "[%v] %t\n" :tag "Like `intense' but with bold weight" intense-bold))
+  :type '(set :tag "Properties" :greedy t
+              (const :tag "Bold weight" bold)
+              (const :tag "Intense background color" intense)
+              (const :tag "Underline" underline))
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Matching parentheses"))
@@ -3034,11 +3049,28 @@ NORMALBG should be the special palette color 'bg-paren-match' or
 something similar.  INTENSEBG must be easier to discern next to
 other backgrounds, such as the special palette color
 'bg-paren-match-intense'."
-  (pcase modus-themes-paren-match
-    ('subtle-bold (list :inherit 'bold :background normalbg))
-    ('intense-bold (list :inherit 'bold :background intensebg))
-    ('intense (list :background intensebg))
-    (_ (list :background normalbg))))
+  (let ((modus-themes-paren-match
+         (if (listp modus-themes-paren-match)
+             modus-themes-paren-match
+           ;; translation layer for legacy values
+           (pcase modus-themes-paren-match
+             ;; `subtle' is the same as `subtle-accented', while `intense' is
+             ;; equal to `intense-accented' for backward compatibility
+             ('intense-bold '(intense bold))
+             ('subtle-bold '(bold))
+             ('intense '(intense))))))
+    (list :inherit
+          (if (memq 'bold modus-themes-paren-match)
+              'bold
+            'unspecified)
+          :background
+          (if (memq 'intense modus-themes-paren-match)
+              intensebg
+            normalbg)
+          :underline
+          (if (memq 'underline modus-themes-paren-match)
+              t
+            nil))))
 
 (defun modus-themes--syntax-foreground (fg faint)
   "Apply foreground value to code syntax.

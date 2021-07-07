@@ -84,7 +84,10 @@ demonstration:
       ;; 'underline-only-accented
       modus-themes-hl-line 'underline-neutral
 
-      modus-themes-paren-match 'subtle-bold ; {nil,'subtle-bold,'intense,'intense-bold}
+      ;; Options for `modus-themes-paren-match' are either nil (the
+      ;; default), or a list of properties that may include any of those
+      ;; symbols: `bold', `intense', `underline'
+      modus-themes-paren-match '(bold intense)
 
       ;; Options for `modus-themes-links': nil, 'faint,
       ;; 'neutral-underline, 'faint-neutral-underline, 'no-underline,
