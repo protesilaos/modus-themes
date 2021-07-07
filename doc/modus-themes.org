@@ -533,6 +533,11 @@ weight.  This concerns keywords and other important aspects of code
 syntax.  It also affects certain mode line indicators and command-line
 prompts.
 
+Advanced users may also want to configure the exact attributes of the
+~bold~ face.
+
+[[#h:2793a224-2109-4f61-a106-721c57c01375][Configure bold and italic faces]].
+
 ** Option for more italic constructs
 :properties:
 :alt_title: Italic constructs
@@ -553,6 +558,11 @@ absolutely necessary.
 
 With a non-nil value (~t~) choose to render more faces in italics.  This
 typically affects documentation strings and code comments.
+
+Advanced users may also want to configure the exact attributes of the
+~italic~ face.
+
+[[#h:2793a224-2109-4f61-a106-721c57c01375][Configure bold and italic faces]].
 
 ** Option for syntax highlighting
 :properties:
@@ -2465,6 +2475,11 @@ reading the doc string of ~set-face-attribute~):
 (set-face-attribute 'fixed-pitch nil :family "DejaVu Sans Mono" :height 1.0)
 #+end_src
 
+The next section shows how to make those work in a more elaborate setup
+that is robust to changes between the Modus themes.
+
+[[#h:2793a224-2109-4f61-a106-721c57c01375][Configure bold and italic faces]].
+
 Note the differences in the ~:height~ property.  The ~default~ face must
 specify an absolute value, which is the point size × 10.  So if you want
 to use a font at point size =11=, you set the height to =110=.[fn:: ~:height~
@@ -2478,6 +2493,98 @@ something like the ~text-scale-adjust~ command which only operates on the
 base font size (i.e. the ~default~ face's absolute height).
 
 [[#h:e6c5451f-6763-4be7-8fdb-b4706a422a4c][Note for EWW and Elfeed fonts (SHR fonts)]].
+
+** Configure bold and italic faces (DIY)
+:properties:
+:custom_id: h:2793a224-2109-4f61-a106-721c57c01375
+:end:
+#+cindex: Bold and italic fonts
+
+The Modus themes do not hardcode a ~:weight~ or ~:slant~ attribute in the
+thousands of faces they cover.  Instead, they configure the generic
+faces called ~bold~ and ~italic~ to use the appropriate styles and then
+instruct all relevant faces that require emphasis to inherit from them.
+
+This practically means that users can change the particularities of what
+it means for a construct to be bold/italic, by tweaking the ~bold~ and
+~italic~ faces.  Cases where that can be useful include:
+
++ The default typeface does not have a variant with slanted glyphs
+  (e.g. Fira Mono/Code as of this writing on 2021-07-07), so the user
+  wants to add another family for the italics, such as Hack.
+
++ The typeface of choice provides a multitude of weights and the user
+  prefers the light one by default.  To prevent the bold weight from
+  being too heavy compared to the light one, they opt to make ~bold~ use a
+  semibold weight.
+
++ The typeface distinguishes between oblique and italic forms by
+  providing different font variants (the former are just slanted
+  versions of the upright forms, while the latter have distinguishing
+  features as well).  In this case, the user wants to specify the font
+  that applies to the ~italic~ face.
+
+To achieve those effects, one must first be sure that the fonts they use
+have support for those features.  It then is a matter of following the
+instructions for all face tweaks.
+
+[[#h:defcf4fc-8fa8-4c29-b12e-7119582cc929][Font configurations for Org and others]].
+
+In this example, we set the default font family to Fira Code, while we
+choose to render italics in the Hack typeface (obviously you need to
+pick fonts that work well together):
+
+#+begin_src emacs-lisp
+(set-face-attribute 'default nil :family "Fira Code" :height 110)
+(set-face-attribute 'italic nil :family "Hack")
+#+end_src
+
+And here we play with different weights, using Source Code Pro:
+
+#+begin_src emacs-lisp
+(set-face-attribute 'default nil :family "Source Code Pro" :height 110 :weight 'light)
+(set-face-attribute 'bold nil :weight 'semibold)
+#+end_src
+
+To reset the font family, one can use this:
+
+#+begin_src emacs-lisp
+(set-face-attribute 'italic nil :family 'unspecified)
+#+end_src
+
+To ensure that the effects persist after switching between the Modus
+themes (such as with {{{kbd(M-x modus-themes-toggle)}}}), the user needs to
+write their configurations to a function and hook it up to the
+~modus-themes-after-load-theme-hook~.  This is necessary because the
+themes set the default styles of faces (otherwise changing themes would
+not be possible).
+
+[[#h:86f6906b-f090-46cc-9816-1fe8aeb38776][A theme-agnostic hook for theme loading (DIY)]].
+
+This is a minimal setup to preserve font configurations across theme
+load phases.  For a more permanent setup, it is better to employ the
+~custom-set-faces~ function: ~set-face-attribute~ works just fine, though it
+is more convenient for quick previews or for smaller scale operations
+(~custom-set-faces~ follows the format used in the source code of the
+themes).
+
+#+begin_src emacs-lisp
+;; our generic function
+(defun my-modes-themes-bold-italic-faces ()
+  (set-face-attribute 'default nil :family "Source Code Pro" :height 110)
+  (set-face-attribute 'bold nil :weight 'semibold))
+
+;; or use this if you configure a lot of face and attributes and
+;; especially if you plan to use `modus-themes-with-colors', as shown
+;; elsewhere in the manual
+(defun my-modes-themes-bold-italic-faces ()
+  (custom-set-faces
+   '(default ((t :family "Source Code Pro" :height 110)))
+   '(bold ((t :weight semibold)))))
+
+;; and here is the hook
+(add-hook 'modus-themes-after-load-theme-hook #'my-modes-themes-bold-italic-faces)
+#+end_src
 
 ** Custom Org user faces (DIY)
 :properties:

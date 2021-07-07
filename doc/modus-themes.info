@@ -130,6 +130,7 @@ Advanced customization (do-it-yourself)
 * Override colors (DIY)::
 * Override color saturation (DIY)::
 * Font configurations for Org and others (DIY)::
+* Configure bold and italic faces (DIY)::
 * Custom Org user faces (DIY)::
 * Update Org block delimiter fontification (DIY)::
 * Measure color contrast (DIY)::
@@ -690,6 +691,12 @@ bold weight.  This concerns keywords and other important aspects of code
 syntax.  It also affects certain mode line indicators and command-line
 prompts.
 
+   Advanced users may also want to configure the exact attributes of the
+‘bold’ face.
+
+   *note Configure bold and italic faces: Configure bold and italic
+faces (DIY).
+
 
 File: modus-themes.info,  Node: Italic constructs,  Next: Syntax styles,  Prev: Bold constructs,  Up: Customization Options
 
@@ -708,6 +715,12 @@ absolutely necessary.
 
    With a non-nil value (‘t’) choose to render more faces in italics.
 This typically affects documentation strings and code comments.
+
+   Advanced users may also want to configure the exact attributes of the
+‘italic’ face.
+
+   *note Configure bold and italic faces: Configure bold and italic
+faces (DIY).
 
 
 File: modus-themes.info,  Node: Syntax styles,  Next: No mixed fonts,  Prev: Italic constructs,  Up: Customization Options
@@ -1828,6 +1841,7 @@ such, they are labelled as “do-it-yourself” or “DIY”.
 * Override colors (DIY)::
 * Override color saturation (DIY)::
 * Font configurations for Org and others (DIY)::
+* Configure bold and italic faces (DIY)::
 * Custom Org user faces (DIY)::
 * Update Org block delimiter fontification (DIY)::
 * Measure color contrast (DIY)::
@@ -2513,7 +2527,7 @@ inspiration from the ‘modus-themes-toggle’ we already provide:
          ('modus-vivendi (modus-themes-load-vivendi))))
 
 
-File: modus-themes.info,  Node: Font configurations for Org and others (DIY),  Next: Custom Org user faces (DIY),  Prev: Override color saturation (DIY),  Up: Advanced customization (do-it-yourself)
+File: modus-themes.info,  Node: Font configurations for Org and others (DIY),  Next: Configure bold and italic faces (DIY),  Prev: Override color saturation (DIY),  Up: Advanced customization (do-it-yourself)
 
 5.8 Font configurations for Org and others (DIY)
 ================================================
@@ -2550,6 +2564,12 @@ reading the doc string of ‘set-face-attribute’):
      ;; Monospaced typeface
      (set-face-attribute 'fixed-pitch nil :family "DejaVu Sans Mono" :height 1.0)
 
+   The next section shows how to make those work in a more elaborate
+setup that is robust to changes between the Modus themes.
+
+   *note Configure bold and italic faces: Configure bold and italic
+faces (DIY).
+
    Note the differences in the ‘:height’ property.  The ‘default’ face
 must specify an absolute value, which is the point size × 10.  So if you
 want to use a font at point size ‘11’, you set the height to ‘110’.(1)
@@ -2570,10 +2590,95 @@ the likes of ‘115’ are perfectly valid—some typefaces will change to
 account for those finer increments.
 
 
-File: modus-themes.info,  Node: Custom Org user faces (DIY),  Next: Update Org block delimiter fontification (DIY),  Prev: Font configurations for Org and others (DIY),  Up: Advanced customization (do-it-yourself)
+File: modus-themes.info,  Node: Configure bold and italic faces (DIY),  Next: Custom Org user faces (DIY),  Prev: Font configurations for Org and others (DIY),  Up: Advanced customization (do-it-yourself)
 
-5.9 Custom Org user faces (DIY)
-===============================
+5.9 Configure bold and italic faces (DIY)
+=========================================
+
+The Modus themes do not hardcode a ‘:weight’ or ‘:slant’ attribute in
+the thousands of faces they cover.  Instead, they configure the generic
+faces called ‘bold’ and ‘italic’ to use the appropriate styles and then
+instruct all relevant faces that require emphasis to inherit from them.
+
+   This practically means that users can change the particularities of
+what it means for a construct to be bold/italic, by tweaking the ‘bold’
+and ‘italic’ faces.  Cases where that can be useful include:
+
+   • The default typeface does not have a variant with slanted glyphs
+     (e.g.  Fira Mono/Code as of this writing on 2021-07-07), so the
+     user wants to add another family for the italics, such as Hack.
+
+   • The typeface of choice provides a multitude of weights and the user
+     prefers the light one by default.  To prevent the bold weight from
+     being too heavy compared to the light one, they opt to make ‘bold’
+     use a semibold weight.
+
+   • The typeface distinguishes between oblique and italic forms by
+     providing different font variants (the former are just slanted
+     versions of the upright forms, while the latter have distinguishing
+     features as well).  In this case, the user wants to specify the
+     font that applies to the ‘italic’ face.
+
+   To achieve those effects, one must first be sure that the fonts they
+use have support for those features.  It then is a matter of following
+the instructions for all face tweaks.
+
+   *note Font configurations for Org and others: Font configurations for
+Org and others (DIY).
+
+   In this example, we set the default font family to Fira Code, while
+we choose to render italics in the Hack typeface (obviously you need to
+pick fonts that work well together):
+
+     (set-face-attribute 'default nil :family "Fira Code" :height 110)
+     (set-face-attribute 'italic nil :family "Hack")
+
+   And here we play with different weights, using Source Code Pro:
+
+     (set-face-attribute 'default nil :family "Source Code Pro" :height 110 :weight 'light)
+     (set-face-attribute 'bold nil :weight 'semibold)
+
+   To reset the font family, one can use this:
+
+     (set-face-attribute 'italic nil :family 'unspecified)
+
+   To ensure that the effects persist after switching between the Modus
+themes (such as with ‘M-x modus-themes-toggle’), the user needs to write
+their configurations to a function and hook it up to the
+‘modus-themes-after-load-theme-hook’.  This is necessary because the
+themes set the default styles of faces (otherwise changing themes would
+not be possible).
+
+   *note A theme-agnostic hook for theme loading (DIY)::.
+
+   This is a minimal setup to preserve font configurations across theme
+load phases.  For a more permanent setup, it is better to employ the
+‘custom-set-faces’ function: ‘set-face-attribute’ works just fine,
+though it is more convenient for quick previews or for smaller scale
+operations (‘custom-set-faces’ follows the format used in the source
+code of the themes).
+
+     ;; our generic function
+     (defun my-modes-themes-bold-italic-faces ()
+       (set-face-attribute 'default nil :family "Source Code Pro" :height 110)
+       (set-face-attribute 'bold nil :weight 'semibold))
+
+     ;; or use this if you configure a lot of face and attributes and
+     ;; especially if you plan to use `modus-themes-with-colors', as shown
+     ;; elsewhere in the manual
+     (defun my-modes-themes-bold-italic-faces ()
+       (custom-set-faces
+        '(default ((t :family "Source Code Pro" :height 110)))
+        '(bold ((t :weight semibold)))))
+
+     ;; and here is the hook
+     (add-hook 'modus-themes-after-load-theme-hook #'my-modes-themes-bold-italic-faces)
+
+
+File: modus-themes.info,  Node: Custom Org user faces (DIY),  Next: Update Org block delimiter fontification (DIY),  Prev: Configure bold and italic faces (DIY),  Up: Advanced customization (do-it-yourself)
+
+5.10 Custom Org user faces (DIY)
+================================
 
 Users of ‘org-mode’ have the option to configure various keywords and
 priority cookies to better match their workflow.  User options are
@@ -2655,7 +2760,7 @@ specs using the themes' palette (DIY).
 
 File: modus-themes.info,  Node: Update Org block delimiter fontification (DIY),  Next: Measure color contrast (DIY),  Prev: Custom Org user faces (DIY),  Up: Advanced customization (do-it-yourself)
 
-5.10 Update Org block delimiter fontification (DIY)
+5.11 Update Org block delimiter fontification (DIY)
 ===================================================
 
 As noted in the section about ‘modus-themes-org-blocks’, Org contains a
@@ -2695,7 +2800,7 @@ intervention can be circumvented by tweaking the function thus:
 
 File: modus-themes.info,  Node: Measure color contrast (DIY),  Next: Load theme depending on time of day (DIY),  Prev: Update Org block delimiter fontification (DIY),  Up: Advanced customization (do-it-yourself)
 
-5.11 Measure color contrast (DIY)
+5.12 Measure color contrast (DIY)
 =================================
 
 The themes provide the functions ‘modus-themes-wcag-formula’ and
@@ -2760,7 +2865,7 @@ of the themes’ colors: *note Override colors: Override colors (DIY).
 
 File: modus-themes.info,  Node: Load theme depending on time of day (DIY),  Next: Backdrop for pdf-tools (DIY),  Prev: Measure color contrast (DIY),  Up: Advanced customization (do-it-yourself)
 
-5.12 Load theme depending on time of day (DIY)
+5.13 Load theme depending on time of day (DIY)
 ==============================================
 
 While we do provide ‘modus-themes-toggle’ to manually switch between the
@@ -2786,7 +2891,7 @@ location using the built-in ‘solar.el’ and then configuring the
 
 File: modus-themes.info,  Node: Backdrop for pdf-tools (DIY),  Next: A theme-agnostic hook for theme loading (DIY),  Prev: Load theme depending on time of day (DIY),  Up: Advanced customization (do-it-yourself)
 
-5.13 Backdrop for pdf-tools (DIY)
+5.14 Backdrop for pdf-tools (DIY)
 =================================
 
 Most PDF files use a white background for their page, making it
@@ -2847,7 +2952,7 @@ while they automatically switch to their dark mode when
 
 File: modus-themes.info,  Node: A theme-agnostic hook for theme loading (DIY),  Prev: Backdrop for pdf-tools (DIY),  Up: Advanced customization (do-it-yourself)
 
-5.14 A theme-agnostic hook for theme loading (DIY)
+5.15 A theme-agnostic hook for theme loading (DIY)
 ==================================================
 
 The themes are designed with the intent to be useful to Emacs users of
@@ -4744,6 +4849,8 @@ B.3 Concept index
 
 * Avoiding exaggerations in design:      What does it mean to avoid exaggerations?.
                                                                 (line 6)
+* Bold and italic fonts:                 Configure bold and italic faces (DIY).
+                                                                (line 6)
 * Change a theme’s color saturation:     Override color saturation (DIY).
                                                                 (line 6)
 * Change a theme’s colors:               Override colors (DIY). (line 6)
@@ -4793,98 +4900,99 @@ B.3 Concept index
 
 Tag Table:
 Node: Top860
-Node: Overview6723
-Node: How do the themes look like8266
-Node: Learn about the latest changes8774
-Node: Installation9156
-Node: Install manually from source9637
-Node: Install from the archives10462
-Node: Install on GNU/Linux11239
-Node: Debian 11 Bullseye11687
-Node: GNU Guix11997
-Node: Enable and load12280
-Node: Sample configuration for use-package15269
-Node: Differences between loading and enabling16637
-Node: Customization Options18677
-Node: Custom reload theme24835
-Node: Success' color-code25422
-Node: Bold constructs26359
-Node: Italic constructs26975
-Node: Syntax styles27518
-Node: No mixed fonts29657
-Node: Link styles30752
-Node: Command prompts32326
-Node: Mode line34060
-Node: Completion UIs38158
-Node: Mail citations40029
-Node: Fringes40882
-Node: Language checkers41544
-Node: Line highlighting43624
-Node: Line numbers45137
-Node: Matching parentheses46215
-Node: Active region47105
-Node: Diffs48540
-Node: Org mode blocks50479
-Node: Org agenda52357
-Node: Org agenda habits57984
-Node: Heading styles59950
-Node: Scaled headings64180
-Node: Scaled heading sizes64783
-Node: UI typeface68039
-Node: Headings' typeface68885
-Node: Advanced customization (do-it-yourself)69509
-Node: Per-theme customization settings (DIY)70872
-Node: Case-by-case face specs using the themes' palette (DIY)72218
-Node: Face specs at scale using the themes' palette (DIY)76682
-Node: Remap face with local value (DIY)81499
-Node: Cycle through arbitrary colors (DIY)83977
-Node: Override colors (DIY)90543
-Node: Override color saturation (DIY)95436
-Node: Font configurations for Org and others (DIY)101189
-Ref: Font configurations for Org and others (DIY)-Footnote-1103617
-Node: Custom Org user faces (DIY)103804
-Node: Update Org block delimiter fontification (DIY)107565
-Node: Measure color contrast (DIY)109525
-Node: Load theme depending on time of day (DIY)112319
-Node: Backdrop for pdf-tools (DIY)113359
-Node: A theme-agnostic hook for theme loading (DIY)116121
-Node: Face coverage118511
-Node: Supported packages118980
-Node: Indirectly covered packages125769
-Node: Notes on individual packages126323
-Node: Note on inline Latex in Org buffers127147
-Node: Note on dimmerel127707
-Node: Note on display-fill-column-indicator-mode129192
-Node: Note on mmm-modeel background colors130813
-Node: Note for prism133192
-Node: Note for god-mode136418
-Node: Note on company-mode overlay pop-up138090
-Ref: Note on company-mode overlay pop-up-Footnote-1138778
-Ref: Note on company-mode overlay pop-up-Footnote-2138845
-Node: Note on ERC escaped color sequences138900
-Ref: Note on ERC escaped color sequences-Footnote-1140326
-Node: Note on powerline or spaceline140436
-Node: Note on SHR colors140848
-Node: Note on EWW and Elfeed fonts (SHR fonts)141283
-Node: Note on Helm grep142028
-Node: Note on vc-annotate-background-mode143515
-Node: Note on pdf-tools link hints144400
-Node: Frequently Asked Questions (FAQ)146832
-Node: Is the contrast ratio about adjacent colors?147406
-Node: What does it mean to avoid exaggerations?148919
-Node: Why are colors mostly variants of blue magenta cyan?150754
-Node: What is the best setup for legibility?155101
-Node: Contributing157708
-Node: Sources of the themes158111
-Node: Issues you can help with158849
-Node: Patches require copyright assignment to the FSF160049
-Node: Acknowledgements162344
-Node: Meta164854
-Node: GNU Free Documentation License166851
-Node: Indices192203
-Node: Function index192382
-Node: Variable index193619
-Node: Concept index195833
+Node: Overview6765
+Node: How do the themes look like8308
+Node: Learn about the latest changes8816
+Node: Installation9198
+Node: Install manually from source9679
+Node: Install from the archives10504
+Node: Install on GNU/Linux11281
+Node: Debian 11 Bullseye11729
+Node: GNU Guix12039
+Node: Enable and load12322
+Node: Sample configuration for use-package15311
+Node: Differences between loading and enabling16679
+Node: Customization Options18719
+Node: Custom reload theme24877
+Node: Success' color-code25464
+Node: Bold constructs26401
+Node: Italic constructs27190
+Node: Syntax styles27908
+Node: No mixed fonts30047
+Node: Link styles31142
+Node: Command prompts32716
+Node: Mode line34450
+Node: Completion UIs38548
+Node: Mail citations40419
+Node: Fringes41272
+Node: Language checkers41934
+Node: Line highlighting44014
+Node: Line numbers45527
+Node: Matching parentheses46605
+Node: Active region47495
+Node: Diffs48930
+Node: Org mode blocks50869
+Node: Org agenda52747
+Node: Org agenda habits58374
+Node: Heading styles60340
+Node: Scaled headings64570
+Node: Scaled heading sizes65173
+Node: UI typeface68429
+Node: Headings' typeface69275
+Node: Advanced customization (do-it-yourself)69899
+Node: Per-theme customization settings (DIY)71304
+Node: Case-by-case face specs using the themes' palette (DIY)72650
+Node: Face specs at scale using the themes' palette (DIY)77114
+Node: Remap face with local value (DIY)81931
+Node: Cycle through arbitrary colors (DIY)84409
+Node: Override colors (DIY)90975
+Node: Override color saturation (DIY)95868
+Node: Font configurations for Org and others (DIY)101621
+Ref: Font configurations for Org and others (DIY)-Footnote-1104269
+Node: Configure bold and italic faces (DIY)104456
+Node: Custom Org user faces (DIY)108463
+Node: Update Org block delimiter fontification (DIY)112219
+Node: Measure color contrast (DIY)114179
+Node: Load theme depending on time of day (DIY)116973
+Node: Backdrop for pdf-tools (DIY)118013
+Node: A theme-agnostic hook for theme loading (DIY)120775
+Node: Face coverage123165
+Node: Supported packages123634
+Node: Indirectly covered packages130423
+Node: Notes on individual packages130977
+Node: Note on inline Latex in Org buffers131801
+Node: Note on dimmerel132361
+Node: Note on display-fill-column-indicator-mode133846
+Node: Note on mmm-modeel background colors135467
+Node: Note for prism137846
+Node: Note for god-mode141072
+Node: Note on company-mode overlay pop-up142744
+Ref: Note on company-mode overlay pop-up-Footnote-1143432
+Ref: Note on company-mode overlay pop-up-Footnote-2143499
+Node: Note on ERC escaped color sequences143554
+Ref: Note on ERC escaped color sequences-Footnote-1144980
+Node: Note on powerline or spaceline145090
+Node: Note on SHR colors145502
+Node: Note on EWW and Elfeed fonts (SHR fonts)145937
+Node: Note on Helm grep146682
+Node: Note on vc-annotate-background-mode148169
+Node: Note on pdf-tools link hints149054
+Node: Frequently Asked Questions (FAQ)151486
+Node: Is the contrast ratio about adjacent colors?152060
+Node: What does it mean to avoid exaggerations?153573
+Node: Why are colors mostly variants of blue magenta cyan?155408
+Node: What is the best setup for legibility?159755
+Node: Contributing162362
+Node: Sources of the themes162765
+Node: Issues you can help with163503
+Node: Patches require copyright assignment to the FSF164703
+Node: Acknowledgements166998
+Node: Meta169508
+Node: GNU Free Documentation License171505
+Node: Indices196857
+Node: Function index197036
+Node: Variable index198273
+Node: Concept index200487
 
 End Tag Table
 
