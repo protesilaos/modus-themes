@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-07-07 09:50:51 +0300>
+;; Last-Modified: <2021-07-07 09:58:44 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -123,6 +123,7 @@
 ;;     counsel-org-capture-string
 ;;     cov
 ;;     cperl-mode
+;;     css-mode
 ;;     csv-mode
 ;;     ctrlf
 ;;     custom (M-x customize)
@@ -4354,6 +4355,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(cperl-nonoverridable-face ((,class :foreground unspecified)))
     `(cperl-array-face ((,class :inherit font-lock-keyword-face)))
     `(cperl-hash-face ((,class :inherit font-lock-variable-name-face)))
+;;;;; css-mode
+    `(css-property ((,class :inherit font-lock-type-face)))
+    `(css-selector ((,class :inherit font-lock-keyword-face)))
 ;;;;; csv-mode
     `(csv-separator-face ((,class :foreground ,red-intense)))
 ;;;;; ctrlf
