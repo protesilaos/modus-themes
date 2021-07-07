@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-07-06 20:54:01 +0300>
+;; Last-Modified: <2021-07-07 09:50:51 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -5008,7 +5008,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(font-lock-type-face ((,class :inherit modus-themes-bold
                                    ,@(modus-themes--syntax-foreground
                                       cyan-alt-other cyan-alt-faint))))
-    `(font-lock-variable-name-face ((,class ,@(modus-themes--syntax-foreground
+    `(font-lock-variable-name-face ((,class ,@(modus-themes--syntax-extra
+                                               cyan cyan-faint
                                                blue-alt-other blue-alt-other-faint))))
     `(font-lock-warning-face ((,class :inherit modus-themes-bold
                                       ,@(modus-themes--syntax-comment
