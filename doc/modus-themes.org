@@ -426,9 +426,10 @@ this manual.
 
       modus-themes-mail-citations nil ; {nil,'faint,'monochrome}
 
-      ;; Options for `modus-themes-region': nil, 'no-extend, 'bg-only,
-      ;; 'bg-only-no-extend, 'accent, 'accent-no-extend
-      modus-themes-region 'bg-only-no-extend
+      ;; Options for `modus-themes-region' are either nil (the default),
+      ;; or a list of properties that may include any of those symbols:
+      ;; `no-extend', `bg-only', `accented'
+      modus-themes-region '(bg-only no-extend)
 
       ;; Options for `modus-themes-diffs': nil, 'desaturated,
       ;; 'bg-only, 'deuteranopia, 'fg-only-deuteranopia
@@ -584,12 +585,11 @@ an empty list).  The list can include any of the following symbols:
 + ~green-strings~
 + ~alt-syntax~
 
-The value is a list of properties, each designated by a symbol.  The
-default (a ~nil~ value or an empty list) is to use a balanced combination
-of colors on the cyan-blue-magenta side of the spectrum.  There is
-little to no use of greens, yellows, and reds.  Comments are gray,
-strings are blue colored, doc strings are a shade of cyan, while color
-combinations are designed to avoid exaggerations.
+The default (a ~nil~ value or an empty list) is to use a balanced
+combination of colors on the cyan-blue-magenta side of the spectrum.
+There is little to no use of greens, yellows, and reds.  Comments are
+gray, strings are blue colored, doc strings are a shade of cyan, while
+color combinations are designed to avoid exaggerations.
 
 The property ~faint~ fades the saturation of all applicable colors, where
 that is possible or appropriate.
@@ -1139,10 +1139,9 @@ an empty list).  The list can include any of the following symbols:
 + ~bg-only~
 + ~accented~
 
-The value is a list of properties, each designated by a symbol.  The
-default (a ~nil~ value or an empty list) is a prominent gray background
-that overrides all foreground colors in the area it encompasses.  Its
-reach extends to the edge of the window.
+The default (a ~nil~ value or an empty list) is a prominent gray
+background that overrides all foreground colors in the area it
+encompasses.  Its reach extends to the edge of the window.
 
 The ~no-extend~ property limits the region to the end of the line, so that
 it does not reach the edge of the window.

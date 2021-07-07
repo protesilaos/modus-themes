@@ -92,18 +92,18 @@ demonstration:
       modus-themes-links 'neutral-underline
 
       ;; Options for `modus-themes-prompts' are either nil (the
-      ;; default), or a list of properties that may include any of
-      ;; those symbols: `background', `bold', `gray', `intense',
-      ;; `italic'
+      ;; default), or a list of properties that may include any of those
+      ;; symbols: `background', `bold', `gray', `intense', `italic'
       modus-themes-prompts '(intense bold)
 
       modus-themes-completions 'moderate ; {nil,'moderate,'opinionated}
 
       modus-themes-mail-citations nil ; {nil,'faint,'monochrome}
 
-      ;; Options for `modus-themes-region': nil, 'no-extend, 'bg-only,
-      ;; 'bg-only-no-extend, 'accent, 'accent-no-extend
-      modus-themes-region 'bg-only-no-extend
+      ;; Options for `modus-themes-region' are either nil (the default),
+      ;; or a list of properties that may include any of those symbols:
+      ;; `no-extend', `bg-only', `accented'
+      modus-themes-region '(bg-only no-extend)
 
       ;; Options for `modus-themes-diffs': nil, 'desaturated,
       ;; 'bg-only, 'deuteranopia, 'fg-only-deuteranopia
