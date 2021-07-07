@@ -575,7 +575,7 @@ an empty list).  The list can include any of the following symbols:
 + ~alt-syntax~
 
 The value is a list of properties, each designated by a symbol.  The
-default (a nil value or an empty list) is to use a balanced combination
+default (a ~nil~ value or an empty list) is to use a balanced combination
 of colors on the cyan-blue-magenta side of the spectrum.  There is
 little to no use of greens, yellows, and reds.  Comments are gray,
 strings are blue colored, doc strings are a shade of cyan, while color
