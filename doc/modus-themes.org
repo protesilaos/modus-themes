@@ -1118,35 +1118,46 @@ This customization variable affects tools such as the built-in
 :end:
 #+vindex: modus-themes-region
 
+[ Refactored as part of {{{development-version}}} ]
+
 Symbol: ~modus-themes-region~
 
-Possible values:
+Possible values are expressed as a list of properties (default is ~nil~ or
+an empty list).  The list can include any of the following symbols:
 
-1. ~nil~ (default)
-2. ~no-extend~
-3. ~bg-only~
-4. ~bg-only-no-extend~
-5. ~accent~
-6. ~accent-no-extend~
++ ~no-extend~
++ ~bg-only~
++ ~accented~
 
-Nil means to only use a prominent gray background with a neutral
-foreground.  The foreground overrides all syntax highlighting.  The
-region extends to the edge of the window.
+The value is a list of properties, each designated by a symbol.  The
+default (a ~nil~ value or an empty list) is a prominent gray background
+that overrides all foreground colors in the area it encompasses.  Its
+reach extends to the edge of the window.
 
-Option ~no-extend~ preserves the default aesthetic but prevents the region
-from extending to the edge of the window.
+The ~no-extend~ property limits the region to the end of the line, so that
+it does not reach the edge of the window.
 
-Option ~bg-only~ applies a faint tinted background that is distinct from
-all others used in the theme, while it does not override any existing
-colors.  It extends to the edge of the window.
+The ~bg-only~ property makes the region's background color more subtle to
+allow the underlying text to retain its foreground colors.
 
-Option ~bg-only-no-extend~ is a combination of the ~bg-only~ and ~no-extend~
-options.
+The ~accented~ property applies a more colorful background to the region.
 
-Option ~accent~ is like the default, though it uses a more colorful
-background, while ~accent-no-extend~ is the same except it draws the
-region only up to the end of each line instead of extending to the edge
-of the window.
+Combinations of any of those properties can be expressed in a list, as
+in those examples:
+
+#+begin_src emacs-lisp
+(no-extend)
+(bg-only accented)
+(accented bg-only no-extend)
+#+end_src
+
+The order in which the properties are set is not significant.
+
+In user configuration files the form may look like this:
+
+#+begin_src emacs-lisp
+(setq modus-themes-region '(bg-only no-extend))
+#+end_src
 
 ** Option for diff buffer looks
 :properties:

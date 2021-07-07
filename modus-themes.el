@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-07-07 09:58:44 +0300>
+;; Last-Modified: <2021-07-07 10:41:47 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -625,6 +625,7 @@ cover the blue-cyan-magenta side of the spectrum."
     (bg-paren-expression . "#dff0ff")
     (bg-region . "#bcbcbc")
     (bg-region-accent . "#afafef")
+    (bg-region-accent-subtle . "#efdfff")
 
     (bg-tab-bar . "#d5d5d5")
     (bg-tab-active . "#f6f6f6")
@@ -867,6 +868,7 @@ symbol and the latter as a string.")
     (bg-paren-expression . "#221044")
     (bg-region . "#3c3c3c")
     (bg-region-accent . "#4f3d88")
+    (bg-region-accent-subtle . "#240f55")
 
     (bg-tab-bar . "#2c2c2c")
     (bg-tab-active . "#0e0e0e")
@@ -2764,39 +2766,42 @@ using a subtle underline below it."
   :link '(info-link "(modus-themes) Link styles"))
 
 (defcustom modus-themes-region nil
-  "Change the overall appearance of the active region.
+  "Control the overall style of the active region.
 
-Nil (the default) means to only use a prominent gray background
-with a neutral foreground.  The foreground overrides all syntax
-highlighting.  The region extends to the edge of the window.
+The value is a list of properties, each designated by a symbol.
+The default (a nil value or an empty list) is a prominent gray
+background that overrides all foreground colors in the area it
+encompasses.  Its reach extends to the edge of the window.
 
-Option `no-extend' preserves the default aesthetic but prevents
-the region from extending to the edge of the window.
+The `no-extend' property limits the region to the end of the
+line, so that it does not reach the edge of the window.
 
-Option `bg-only' applies a faint tinted background that is
-distinct from all others used in the theme, while it does not
-override any existing colors.  It extends to the edge of the
-window.
+The `bg-only' property makes the region's background color more
+subtle to allow the underlying text to retain its foreground
+colors.
 
-Option `bg-only-no-extend' is a combination of the `bg-only' and
-`no-extend' options.
+The `accented' property applies a more colorful background to the
+region.
 
-Option `accent' uses a more colorful background with a neutral
-foreground.  It overrides all syntax highlighting and extends to
-the edge of the window.
+Combinations of any of those properties can be expressed in a
+list, as in those examples:
 
-Option `accent-no-extend' is like the above, but stretches only
-to the end of each line within the region."
+    (no-extend)
+    (bg-only accented)
+    (accented bg-only no-extend)
+
+The order in which the properties are set is not significant.
+
+In user configuration files the form may look like this:
+
+    (setq modus-themes-region '(bg-only no-extend))"
   :group 'modus-themes
-  :package-version '(modus-themes . "1.3.0")
+  :package-version '(modus-themes . "1.5.0")
   :version "28.1"
-  :type '(choice
-          (const :format "[%v] %t\n" :tag "Intense background; overrides colors; extends to edge of window (default)" nil)
-          (const :format "[%v] %t\n" :tag "As with the default, but does not extend" no-extend)
-          (const :format "[%v] %t\n" :tag "Subtle background; preserves colors; extends to edge of window" bg-only)
-          (const :format "[%v] %t\n" :tag "As with the `subtle' option, but does not extend" bg-only-no-extend)
-          (const :format "[%v] %t\n" :tag "Like the default, but with an accented background" accent)
-          (const :format "[%v] %t\n" :tag "As with the `accent' option, but does not extend" accent-no-extend))
+  :type '(set :tag "Properties" :greedy t
+              (const :tag "Do not extend to the edge of the window" no-extend)
+              (const :tag "Background only (preserve underlying colors)" bg-only)
+              (const :tag "Accented background" accented))
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Active region"))
@@ -3495,20 +3500,47 @@ AMOUNT is a customization option."
   (when modus-themes-scale-headings
     (list :height amount)))
 
-(defun modus-themes--region (bg fg bgsubtle bgaccent)
+(defun modus-themes--region (bg fg bgsubtle bgaccent bgaccentsubtle)
   "Apply `modus-themes-region' styles.
 
 BG and FG are the main values that are used by default.  BGSUBTLE
 is a subtle background value that can be combined with all colors
 used to fontify text and code syntax.  BGACCENT is a colored
-background that combines well with FG."
-  (pcase modus-themes-region
-    ('bg-only (list :background bgsubtle))
-    ('bg-only-no-extend (list :background bgsubtle :extend nil))
-    ('no-extend (list :background bg :foreground fg :extend nil))
-    ('accent (list :background bgaccent :foreground fg))
-    ('accent-no-extend (list :background bgaccent :foreground fg :extend nil))
-    (_ (list :background bg :foreground fg))))
+background that combines well with FG.  BGACCENTSUBTLE can be
+combined with all colors used to fontify text."
+  (let ((modus-themes-region
+         (if (listp modus-themes-region)
+             modus-themes-region
+           ;; translation layer for legacy values
+           (pcase modus-themes-region
+             ('bg-only '(bg-only))
+             ('bg-only-no-extend '(bg-only no-extend))
+             ('accent '(accented))
+             ('accent-no-extend '(accented no-extend))
+             ('no-extend '(no-extend))))))
+    (list :background
+          (cond
+           ((and (memq 'accented modus-themes-region)
+                 (memq 'bg-only modus-themes-region))
+            bgaccentsubtle)
+           ((memq 'accented modus-themes-region)
+            bgaccent)
+           ((memq 'bg-only modus-themes-region)
+            bgsubtle)
+           (bg))
+          :foreground
+          (cond
+           ((and (memq 'accented modus-themes-region)
+                 (memq 'bg-only modus-themes-region))
+            'unspecified)
+           ((memq 'bg-only modus-themes-region)
+            'unspecified)
+           (fg))
+          :extend
+          (cond
+           ((memq 'no-extend modus-themes-region)
+            nil)
+           (t)))))
 
 (defun modus-themes--hl-line (bgdefault bgintense bgaccent bgaccentul lineneutral lineaccent)
   "Apply `modus-themes-hl-line' styles.
@@ -3937,7 +3969,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(mm-uu-extract ((,class :background ,bg-dim :foreground ,fg-special-mild)))
     `(next-error ((,class :inherit modus-themes-subtle-red :extend t)))
     `(rectangle-preview ((,class :inherit modus-themes-special-mild)))
-    `(region ((,class ,@(modus-themes--region bg-region fg-main bg-hl-alt-intense bg-region-accent))))
+    `(region ((,class ,@(modus-themes--region bg-region fg-main
+                                              bg-hl-alt-intense bg-region-accent
+                                              bg-region-accent-subtle))))
     `(secondary-selection ((,class :inherit modus-themes-special-cold)))
     `(shadow ((,class :foreground ,fg-alt)))
     `(success ((,class :inherit bold :foreground ,@(modus-themes--success-deuteran blue green))))

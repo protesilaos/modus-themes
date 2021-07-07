@@ -729,11 +729,11 @@ symbols:
    • ‘alt-syntax’
 
    The value is a list of properties, each designated by a symbol.  The
-default (a nil value or an empty list) is to use a balanced combination
-of colors on the cyan-blue-magenta side of the spectrum.  There is
-little to no use of greens, yellows, and reds.  Comments are gray,
-strings are blue colored, doc strings are a shade of cyan, while color
-combinations are designed to avoid exaggerations.
+default (a ‘nil’ value or an empty list) is to use a balanced
+combination of colors on the cyan-blue-magenta side of the spectrum.
+There is little to no use of greens, yellows, and reds.  Comments are
+gray, strings are blue colored, doc strings are a shade of cyan, while
+color combinations are designed to avoid exaggerations.
 
    The property ‘faint’ fades the saturation of all applicable colors,
 where that is possible or appropriate.
@@ -1246,35 +1246,44 @@ File: modus-themes.info,  Node: Active region,  Next: Diffs,  Prev: Matching par
 4.17 Option for active region
 =============================
 
-Symbol: ‘modus-themes-region’
+[ Refactored as part of 1.5.0-dev ]
 
-   Possible values:
+   Symbol: ‘modus-themes-region’
 
-  1. ‘nil’ (default)
-  2. ‘no-extend’
-  3. ‘bg-only’
-  4. ‘bg-only-no-extend’
-  5. ‘accent’
-  6. ‘accent-no-extend’
+   Possible values are expressed as a list of properties (default is
+‘nil’ or an empty list).  The list can include any of the following
+symbols:
 
-   Nil means to only use a prominent gray background with a neutral
-foreground.  The foreground overrides all syntax highlighting.  The
-region extends to the edge of the window.
+   • ‘no-extend’
+   • ‘bg-only’
+   • ‘accented’
 
-   Option ‘no-extend’ preserves the default aesthetic but prevents the
-region from extending to the edge of the window.
+   The value is a list of properties, each designated by a symbol.  The
+default (a ‘nil’ value or an empty list) is a prominent gray background
+that overrides all foreground colors in the area it encompasses.  Its
+reach extends to the edge of the window.
 
-   Option ‘bg-only’ applies a faint tinted background that is distinct
-from all others used in the theme, while it does not override any
-existing colors.  It extends to the edge of the window.
+   The ‘no-extend’ property limits the region to the end of the line, so
+that it does not reach the edge of the window.
 
-   Option ‘bg-only-no-extend’ is a combination of the ‘bg-only’ and
-‘no-extend’ options.
+   The ‘bg-only’ property makes the region’s background color more
+subtle to allow the underlying text to retain its foreground colors.
 
-   Option ‘accent’ is like the default, though it uses a more colorful
-background, while ‘accent-no-extend’ is the same except it draws the
-region only up to the end of each line instead of extending to the edge
-of the window.
+   The ‘accented’ property applies a more colorful background to the
+region.
+
+   Combinations of any of those properties can be expressed in a list,
+as in those examples:
+
+     (no-extend)
+     (bg-only accented)
+     (accented bg-only no-extend)
+
+   The order in which the properties are set is not significant.
+
+   In user configuration files the form may look like this:
+
+     (setq modus-themes-region '(bg-only no-extend))
 
 
 File: modus-themes.info,  Node: Diffs,  Next: Org mode blocks,  Prev: Active region,  Up: Customization Options
@@ -4802,80 +4811,80 @@ Node: Success' color-code25422
 Node: Bold constructs26359
 Node: Italic constructs26975
 Node: Syntax styles27518
-Node: No mixed fonts29652
-Node: Link styles30747
-Node: Command prompts32321
-Node: Mode line34055
-Node: Completion UIs38153
-Node: Mail citations40024
-Node: Fringes40877
-Node: Language checkers41539
-Node: Line highlighting43619
-Node: Line numbers45132
-Node: Matching parentheses46210
-Node: Active region47100
-Node: Diffs48318
-Node: Org mode blocks50257
-Node: Org agenda52135
-Node: Org agenda habits57762
-Node: Heading styles59728
-Node: Scaled headings63958
-Node: Scaled heading sizes64561
-Node: UI typeface67817
-Node: Headings' typeface68663
-Node: Advanced customization (do-it-yourself)69287
-Node: Per-theme customization settings (DIY)70650
-Node: Case-by-case face specs using the themes' palette (DIY)71996
-Node: Face specs at scale using the themes' palette (DIY)76460
-Node: Remap face with local value (DIY)81277
-Node: Cycle through arbitrary colors (DIY)83755
-Node: Override colors (DIY)90321
-Node: Override color saturation (DIY)95214
-Node: Font configurations for Org and others (DIY)100967
-Ref: Font configurations for Org and others (DIY)-Footnote-1103395
-Node: Custom Org user faces (DIY)103582
-Node: Update Org block delimiter fontification (DIY)107343
-Node: Measure color contrast (DIY)109303
-Node: Load theme depending on time of day (DIY)112097
-Node: Backdrop for pdf-tools (DIY)113137
-Node: A theme-agnostic hook for theme loading (DIY)115899
-Node: Face coverage118289
-Node: Supported packages118758
-Node: Indirectly covered packages125547
-Node: Notes on individual packages126101
-Node: Note on inline Latex in Org buffers126925
-Node: Note on dimmerel127485
-Node: Note on display-fill-column-indicator-mode128970
-Node: Note on mmm-modeel background colors130591
-Node: Note for prism132970
-Node: Note for god-mode136196
-Node: Note on company-mode overlay pop-up137868
-Ref: Note on company-mode overlay pop-up-Footnote-1138556
-Ref: Note on company-mode overlay pop-up-Footnote-2138623
-Node: Note on ERC escaped color sequences138678
-Ref: Note on ERC escaped color sequences-Footnote-1140104
-Node: Note on powerline or spaceline140214
-Node: Note on SHR colors140626
-Node: Note on EWW and Elfeed fonts (SHR fonts)141061
-Node: Note on Helm grep141806
-Node: Note on vc-annotate-background-mode143293
-Node: Note on pdf-tools link hints144178
-Node: Frequently Asked Questions (FAQ)146610
-Node: Is the contrast ratio about adjacent colors?147184
-Node: What does it mean to avoid exaggerations?148697
-Node: Why are colors mostly variants of blue magenta cyan?150532
-Node: What is the best setup for legibility?154879
-Node: Contributing157486
-Node: Sources of the themes157889
-Node: Issues you can help with158627
-Node: Patches require copyright assignment to the FSF159827
-Node: Acknowledgements162122
-Node: Meta164632
-Node: GNU Free Documentation License166629
-Node: Indices191981
-Node: Function index192160
-Node: Variable index193397
-Node: Concept index195611
+Node: No mixed fonts29657
+Node: Link styles30752
+Node: Command prompts32326
+Node: Mode line34060
+Node: Completion UIs38158
+Node: Mail citations40029
+Node: Fringes40882
+Node: Language checkers41544
+Node: Line highlighting43624
+Node: Line numbers45137
+Node: Matching parentheses46215
+Node: Active region47105
+Node: Diffs48540
+Node: Org mode blocks50479
+Node: Org agenda52357
+Node: Org agenda habits57984
+Node: Heading styles59950
+Node: Scaled headings64180
+Node: Scaled heading sizes64783
+Node: UI typeface68039
+Node: Headings' typeface68885
+Node: Advanced customization (do-it-yourself)69509
+Node: Per-theme customization settings (DIY)70872
+Node: Case-by-case face specs using the themes' palette (DIY)72218
+Node: Face specs at scale using the themes' palette (DIY)76682
+Node: Remap face with local value (DIY)81499
+Node: Cycle through arbitrary colors (DIY)83977
+Node: Override colors (DIY)90543
+Node: Override color saturation (DIY)95436
+Node: Font configurations for Org and others (DIY)101189
+Ref: Font configurations for Org and others (DIY)-Footnote-1103617
+Node: Custom Org user faces (DIY)103804
+Node: Update Org block delimiter fontification (DIY)107565
+Node: Measure color contrast (DIY)109525
+Node: Load theme depending on time of day (DIY)112319
+Node: Backdrop for pdf-tools (DIY)113359
+Node: A theme-agnostic hook for theme loading (DIY)116121
+Node: Face coverage118511
+Node: Supported packages118980
+Node: Indirectly covered packages125769
+Node: Notes on individual packages126323
+Node: Note on inline Latex in Org buffers127147
+Node: Note on dimmerel127707
+Node: Note on display-fill-column-indicator-mode129192
+Node: Note on mmm-modeel background colors130813
+Node: Note for prism133192
+Node: Note for god-mode136418
+Node: Note on company-mode overlay pop-up138090
+Ref: Note on company-mode overlay pop-up-Footnote-1138778
+Ref: Note on company-mode overlay pop-up-Footnote-2138845
+Node: Note on ERC escaped color sequences138900
+Ref: Note on ERC escaped color sequences-Footnote-1140326
+Node: Note on powerline or spaceline140436
+Node: Note on SHR colors140848
+Node: Note on EWW and Elfeed fonts (SHR fonts)141283
+Node: Note on Helm grep142028
+Node: Note on vc-annotate-background-mode143515
+Node: Note on pdf-tools link hints144400
+Node: Frequently Asked Questions (FAQ)146832
+Node: Is the contrast ratio about adjacent colors?147406
+Node: What does it mean to avoid exaggerations?148919
+Node: Why are colors mostly variants of blue magenta cyan?150754
+Node: What is the best setup for legibility?155101
+Node: Contributing157708
+Node: Sources of the themes158111
+Node: Issues you can help with158849
+Node: Patches require copyright assignment to the FSF160049
+Node: Acknowledgements162344
+Node: Meta164854
+Node: GNU Free Documentation License166851
+Node: Indices192203
+Node: Function index192382
+Node: Variable index193619
+Node: Concept index195833
 
 End Tag Table
 
