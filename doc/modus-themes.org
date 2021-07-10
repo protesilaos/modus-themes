@@ -1023,45 +1023,51 @@ style, is controlled by the built-in variables ~underline-minimum-offset~,
 :end:
 #+vindex: modus-themes-hl-line
 
+[ Refactored as part of {{{development-version}}} ]
+
 Symbol: ~modus-themes-hl-line~
 
-Possible values:
+Possible values are expressed as a list of properties (default is ~nil~ or
+an empty list).  The list can include any of the following symbols:
 
-1. ~nil~ (default)
-2. ~intense-background~
-3. ~accented-background~
-4. ~underline-neutral~
-5. ~underline-accented~
-6. ~underline-only-neutral~
-7. ~underline-only-accented~
++ ~accented~
++ ~intense~
++ ~underline~
 
-The default is to use a subtle gray background for the current line when
-~hl-line-mode~ is enabled.
+The default (a ~nil~ value or an empty list) is a subtle gray background
+color.
 
-The ~intense-background~ applies a more prominent gray to the background
-of the current line.
+The property ~accented~ changes the background to a colored variant.
 
-With ~accented-background~ the background gets a colored hint and is more
-prominent than the default.
+An ~underline~ property draws a line below the highlighted area.  Its
+color is similar to the background, so gray by default or an accent
+color when ~accented~ is also set.
 
-The ~underline-neutral~ combines the default subtle neutral background
-with a gray underline.
+An ~intense~ property amplifies the colors in use, which may be both the
+background and the underline.
 
-Similarly, the ~underline-accented~ renders the background of the current
-line in a subtle colored background, while it also draws an accented
-underline.
+Combinations of any of those properties can be expressed in a list, as
+in those examples:
 
-Option ~underline-only-neutral~ produces a neutral underline, but does not
-use any background.
+#+begin_src emacs-lisp
+(intense)
+(underline intense)
+(accented intense underline)
+#+end_src
 
-While ~underline-only-accented~ also uses just an underline, only this one
-is colored.
+The order in which the properties are set is not significant.
 
-Consider setting the variable ~x-underline-at-descent-line~ to a non-nil
-value for better results with underlines.
+In user configuration files the form may look like this:
+
+#+begin_src emacs-lisp
+(setq modus-themes-hl-line '(underline accented))
+#+end_src
+
+Set ~x-underline-at-descent-line~ to a non-nil value for better results
+with underlines.
 
 This style affects several packages that enable ~hl-line-mode~, such as
-=elfeed= and =mu4e=.
+=elfeed=, =notmuch=, and =mu4e=.
 
 ** Option for line numbers (display-line-numbers-mode)
 :properties:

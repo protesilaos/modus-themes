@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-07-07 12:17:58 +0300>
+;; Last-Modified: <2021-07-10 18:40:11 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -2602,39 +2602,42 @@ In user configuration files the form may look like this:
 (defcustom modus-themes-hl-line nil
   "Control the current line highlight of HL-line mode.
 
-The default (nil) is to apply a subtle neutral background to the
-current line.
+The value is a list of properties, each designated by a symbol.
+The default (a nil value or an empty list) is a subtle gray
+background color.
 
-Option `intense-background' uses a prominent neutral background.
+The property `accented' changes the background to a colored
+variant.
 
-Option `accented-background' is like the `intense-background' but
-with a more colorful background.
+An `underline' property draws a line below the highlighted area.
+Its color is similar to the background, so gray by default or an
+accent color when `accented' is also set.
 
-Option `underline-neutral' combines a subtle neutral background
-with a gray underline.
+An `intense' property amplifies the colors in use, which may be
+both the background and the underline.
 
-Option `underline-accented' draws an underline while applying a
-subtle colored background.
+Combinations of any of those properties can be expressed in a
+list, as in those examples:
 
-Option `underline-only-neutral' uses just a neutral underline,
-without any added change to the background.
+    (intense)
+    (underline intense)
+    (accented intense underline)
 
-Option `underline-only-accented' uses just a colored underline,
-without any added change to the background.
+The order in which the properties are set is not significant.
+
+In user configuration files the form may look like this:
+
+    (setq modus-themes-hl-line '(underline accented))
 
 Set `x-underline-at-descent-line' to a non-nil value for better
 results with underlines."
   :group 'modus-themes
-  :package-version '(modus-themes . "1.4.0")
+  :package-version '(modus-themes . "1.5.0")
   :version "28.1"
-  :type '(choice
-          (const :format "[%v] %t\n" :tag "Subtle neutral background (default)" nil)
-          (const :format "[%v] %t\n" :tag "Prominent neutral background" intense-background)
-          (const :format "[%v] %t\n" :tag "Subtle colored background" accented-background)
-          (const :format "[%v] %t\n" :tag "Underline with a subtle neutral background" underline-neutral)
-          (const :format "[%v] %t\n" :tag "Underline with a subtle colored background" underline-accented)
-          (const :format "[%v] %t\n" :tag "Just a neutral underline, without a background" underline-only-neutral)
-          (const :format "[%v] %t\n" :tag "Just an accented underline, without a background" underline-only-accented))
+  :type '(set :tag "Properties" :greedy t
+              (const :tag "Colored background" accented)
+              (const :tag "Underline" underline)
+              (const :tag "Intense style" intense))
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Line highlighting"))
@@ -3574,24 +3577,54 @@ combined with all colors used to fontify text."
             nil)
            (t)))))
 
-(defun modus-themes--hl-line (bgdefault bgintense bgaccent bgaccentul lineneutral lineaccent)
+(defun modus-themes--hl-line
+    (bgdefault bgintense bgaccent bgaccentsubtle lineneutral lineaccent lineneutralintense lineaccentintense)
   "Apply `modus-themes-hl-line' styles.
 
 BGDEFAULT is a subtle neutral background.  BGINTENSE is like the
 default, but more prominent.  BGACCENT is a prominent accented
-background, while BGACCENTUL is more subtle and is meant to be
-used in tandem with an underline.  LINENEUTRAL and LINEACCENT are
-a color values that can remain distinct against the buffer's
-possible backgrounds: the former is neutral, the latter is
-accented."
-  (pcase modus-themes-hl-line
-    ('intense-background (list :background bgintense))
-    ('accented-background (list :background bgaccent))
-    ('underline-neutral (list :background bgdefault :underline lineneutral))
-    ('underline-accented (list :background bgaccentul :underline lineaccent))
-    ('underline-only-neutral (list :background 'unspecified :underline lineneutral))
-    ('underline-only-accented (list :background 'unspecified :underline lineaccent))
-    (_ (list :background bgdefault))))
+background, while BGACCENTSUBTLE is more subtle.  LINENEUTRAL and
+LINEACCENT are color values that can remain distinct against the
+buffer's possible backgrounds: the former is neutral, the latter
+is accented.  LINENEUTRALINTENSE and LINEACCENTINTENSE are their
+more prominent alternatives."
+  (let ((modus-themes-hl-line
+         (if (listp modus-themes-hl-line)
+             modus-themes-hl-line
+           ;; translation layer for legacy values
+           (pcase modus-themes-hl-line
+             ('intense-background '(intense))
+             ('accented-background '(accented))
+             ('underline-neutral '(underline))
+             ('underline-accented '(underline accented))
+             ('underline-only-neutral '(underline)) ; only underline styles have been removed
+             ('underline-only-accented '(underline accented))))))
+    (list :background
+          (cond
+           ((and (memq 'intense modus-themes-hl-line)
+                 (memq 'accented modus-themes-hl-line))
+            bgaccent)
+           ((memq 'accented modus-themes-hl-line)
+            bgaccentsubtle)
+           ((memq 'intense modus-themes-hl-line)
+            bgintense)
+           (bgdefault))
+          :underline
+          (cond
+           ((and (memq 'intense modus-themes-hl-line)
+                 (memq 'accented modus-themes-hl-line)
+                 (memq 'underline modus-themes-hl-line))
+            lineaccentintense)
+           ((and (memq 'accented modus-themes-hl-line)
+                 (memq 'underline modus-themes-hl-line))
+            lineaccent)
+           ((and (memq 'intense modus-themes-hl-line)
+                 (memq 'underline modus-themes-hl-line))
+            lineneutralintense)
+           ((or (memq 'no-background modus-themes-hl-line)
+                (memq 'underline modus-themes-hl-line))
+            lineneutral)
+           ('unspecified)))))
 
 (defun modus-themes--mail-cite (mainfg subtlefg)
   "Combinations for `modus-themes-mail-citations'.
@@ -3946,7 +3979,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(modus-themes-hl-line ((,class ,@(modus-themes--hl-line
                                        bg-hl-line bg-hl-line-intense
                                        bg-hl-line-intense-accent blue-nuanced-bg
-                                       bg-region blue-intense-bg)
+                                       bg-region blue-intense-bg
+                                       fg-alt cyan-intense)
                                     :extend t)))
     `(modus-themes-key-binding ((,class :inherit bold :foreground ,blue-alt-other)))
     `(modus-themes-prompt ((,class ,@(modus-themes--prompt
