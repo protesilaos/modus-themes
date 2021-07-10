@@ -2440,7 +2440,7 @@ The order of items in those lists is not significant."
                       (const :tag "Rectangular Border" nil)
                       (const :tag "3d borders" 3d)
                       (const :tag "No box effects (Moody-compatible)" moody))
-              (const :tag "Coloured background" accented)
+              (const :tag "Colored background" accented)
               (const :tag "Without noticeable border" borderless))
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
