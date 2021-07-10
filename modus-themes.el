@@ -859,7 +859,7 @@ symbol and the latter as a string.")
     ;;
     ;; all pairs are combinable with themselves
     (bg-hl-line . "#151823")
-    (bg-hl-line-intense . "#2f2f2f")
+    (bg-hl-line-intense . "#292929")
     (bg-hl-line-intense-accent . "#00353f")
     (bg-hl-alt . "#181732")
     (bg-hl-alt-intense . "#282e46")
