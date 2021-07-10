@@ -5073,7 +5073,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                                       blue-faint blue-alt-other-faint))))
     `(font-lock-string-face ((,class ,@(modus-themes--syntax-string
                                         blue-alt blue-alt-faint
-                                        green red-alt
+                                        green red
                                         green-faint red-faint))))
     `(font-lock-type-face ((,class :inherit modus-themes-bold
                                    ,@(modus-themes--syntax-foreground
