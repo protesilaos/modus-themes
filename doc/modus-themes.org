@@ -404,11 +404,10 @@ this manual.
       ;; `faint', `yellow-comments', `green-strings', `alt-syntax'
       modus-themes-syntax nil
 
-      ;; Options for `modus-themes-hl-line': nil, 'intense-background,
-      ;; 'accented-background, 'underline-neutral,
-      ;; 'underline-accented, 'underline-only-neutral,
-      ;; 'underline-only-accented
-      modus-themes-hl-line 'underline-neutral
+      ;; Options for `modus-themes-hl-line' are either nil (the default),
+      ;; or a list of properties that may include any of those symbols:
+      ;; `accented', `underline', `intense'
+      modus-themes-hl-line '(underline accented)
 
       ;; Options for `modus-themes-paren-match' are either nil (the
       ;; default), or a list of properties that may include any of those
