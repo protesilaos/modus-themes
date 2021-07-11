@@ -2256,7 +2256,7 @@ display spec of Emacs has support for it, the underline's style
 is that of a wave, otherwise it is a straight line.
 
 The property `straight-underline' ensures that the underline
-under the affected text is drawn as a straight line.
+under the affected text is always drawn as a straight line.
 
 The property `text-also' applies the same color of the underline
 to the affected text.
