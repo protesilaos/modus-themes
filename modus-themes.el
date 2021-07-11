@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-07-11 20:06:05 +0300>
+;; Last-Modified: <2021-07-11 21:22:34 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -2389,58 +2389,81 @@ highlights the alert and overdue states."
 (make-obsolete 'modus-themes-org-habit 'modus-themes-org-agenda "1.5.0")
 
 (defcustom modus-themes-mode-line nil
-  "Adjust the overall style of the mode line.
+  "Control the overall style of the mode line.
 
 The value is a list of properties, each designated by a symbol.
 The default (a nil value or an empty list) is a two-dimensional
 rectangle with a border around it.  The active and the inactive
 mode lines use different shades of grayscale values for the
-background and foreground.
+background, foreground, border.
 
-The `3d' property will apply a three-dimensional effect to the
+The `3d' property applies a three-dimensional effect to the
 active mode line.  The inactive mode lines remain two-dimensional
-and are toned down a bit, relative to the nil value.
+and are toned down a bit, relative to the default style.
 
-The `moody' property is meant to optimize the mode line for use
-with the library of the same name.  This practically means to
-remove the box effect and rely on underline and overline
-properties instead.  It also tones down the inactive mode lines.
-Despite its intended purpose, this option can also be used
-without the `moody' library (please consult the themes' manual on
-this point for more details).
+The `moody' property optimizes the mode line for use with the
+library of the same name (hereinafter referred to as 'Moody').
+In practice, it removes the box effect and replaces it with
+underline and overline properties.  It also tones down the
+inactive mode lines.  Despite its intended purpose, this option
+can also be used without the Moody library (please consult the
+themes' manual on this point for more details).  If both `3d' and
+`moody' properties are set, the latter takes precedence.
 
-The `borderless' property removes the border effect.  This is
-done by making the box property use the same color as the
-background, effectively blending the two and creating some
-padding.
+The `borderless' property removes the color of the borders.  It
+does not actually remove the borders, but only makes their color
+the same as the background, effectively creating some padding.
 
 The `accented' property ensures that the active mode line uses a
 colored background instead of the standard shade of gray.
 
-Valid combinations are:
-- (3d)
-- (moody)
-- (borderless)
-- (accented)
-- (borderless accented)
-- (3d borderless)
-- (3d accented)
-- (3d borderless accented)
-- (moody borderless)
-- (moody accented)
-- (moody borderless accented)
+Combinations of any of those properties are expressed as a list,
+like in these examples:
 
-The order of items in those lists is not significant."
+    (accented)
+    (borderless 3d)
+    (moody accented borderless)
+
+The order in which the properties are set is not significant.
+
+In user configuration files the form may look like this:
+
+    (setq modus-themes-prompts '(borderless accented))
+
+Note that Moody does not expose any faces that the themes could
+style directly.  Instead it re-purposes existing ones to render
+its tabs and ribbons.  As such, there may be cases where the
+contrast ratio falls below the 7:1 target that the themes conform
+with (WCAG AAA).  To hedge against this, we configure a fallback
+foreground for the `moody' property, which will come into effect
+when the background of the mode line changes to something less
+accessible, such as Moody ribbons (read the doc string of
+`set-face-attribute', specifically `:distant-foreground').  This
+fallback is activated when Emacs determines that the background
+and foreground of the given construct are too close to each other
+in terms of color distance.  In practice, users will need to
+experiment with the variable `face-near-same-color-threshold' to
+trigger the effect.  We find that a value of 45000 shall suffice,
+contrary to the default 30000.  Though for the combinations that
+involve the `accented' and `moody' properties, as mentioned
+above, that should be raised up to 70000.  Do not set it too
+high, because it has the adverse effect of always overriding the
+default colors (which have been carefully designed to be highly
+accessible).
+
+Furthermore, because Moody expects an underline and overline
+instead of a box style, it is advised to set
+`x-underline-at-descent-line' to a non-nil value."
   :group 'modus-themes
   :package-version '(modus-themes . "1.5.0")
   :version "28.1"
   :type '(set :tag "Properties" :greedy t
-              (choice :tag "Border effects"
+              (choice :tag "Overall style"
                       (const :tag "Rectangular Border" nil)
                       (const :tag "3d borders" 3d)
                       (const :tag "No box effects (Moody-compatible)" moody))
               (const :tag "Colored background" accented)
-              (const :tag "Without noticeable border" borderless))
+              (const :tag "Without border color" borderless))
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Mode line"))

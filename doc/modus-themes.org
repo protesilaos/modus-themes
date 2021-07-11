@@ -808,72 +808,59 @@ Symbol: ~modus-themes-mode-line~
 Possible values, which can be expressed as a list of combinations of box
 effect, color, and border visibility:
 
-+ ~nil~ (default)
-+ Box effect:
++ Overall style:
   - ~3d~
   - ~moody~
-  - A two-dimensional box is the standard style.
-+ Color:
-  - ~accented~
-  - A gray color is implicit by default.
-+ Border visibility:
-  - ~borderless~
-  - Visible borders are otherwise implied.
++ ~accented~
++ ~borderless~
 
-Those values can be combined thus:
+The default (a nil value or an empty list) is a two-dimensional
+rectangle with a border around it.  The active and the inactive
+mode lines use different shades of grayscale values for the
+background, foreground, border.
 
-1. ~nil~
-2. ~(3d)~
-3. ~(moody)~
-4. ~(borderless)~
-5. ~(accented)~
-6. ~(borderless accented)~
-7. ~(3d borderless)~
-8. ~(3d accented)~
-9. ~(3d borderless accented)~
-10. ~(moody borderless)~
-11. ~(moody accented)~
-12. ~(moody borderless accented)~
+The ~3d~ property applies a three-dimensional effect to the
+active mode line.  The inactive mode lines remain two-dimensional
+and are toned down a bit, relative to the default style.
 
-The order of the items in the list is not significant.  For example
-those yield the same results:
+The ~moody~ property optimizes the mode line for use with the
+library of the same name (hereinafter referred to as 'Moody').
+In practice, it removes the box effect and replaces it with
+underline and overline properties.  It also tones down the
+inactive mode lines.  Despite its intended purpose, this option
+can also be used without the Moody library (please consult the
+themes' manual on this point for more details).  If both ~3d~ and
+~moody~ properties are set, the latter takes precedence.
+
+The ~borderless~ property removes the color of the borders.  It
+does not actually remove the borders, but only makes their color
+the same as the background, effectively creating some padding.
+
+The ~accented~ property ensures that the active mode line uses a
+colored background instead of the standard shade of gray.
+
+Combinations of any of those properties are expressed as a list,
+like in these examples:
 
 #+begin_src emacs-lisp
-(setq modus-themes-mode-line '(accented borderless 3d))
-(setq modus-themes-mode-line '(borderless 3d accented))
+(accented)
+(borderless 3d)
+(moody accented borderless)
 #+end_src
 
-The default produces a two-dimensional box effect with visible borders
-and a gray background, both for the active and inactive mode lines.  The
-differences between active and inactive states are in the shades of
-color that are applied.
+The order in which the properties are set is not significant.
 
-A box effect property of ~3d~ will make the active mode line look like a
-three-dimensional rectangle.  Inactive mode lines remain 2D, though they
-are slightly toned down relative to the default.  This aesthetic is
-virtually the same as what you get when you run Emacs without any
-customizations (=emacs -Q= on the command line).
+In user configuration files the form may look like this:
 
-The ~moody~ property removes all box effects from the mode lines and
-applies underline and overline attributes instead.  It also tones down a
-bit the inactive mode lines.  This is meant to optimize things for use
-with the [[https://github.com/tarsius/moody][moody package]] (hereinafter referred to as "Moody"), though it
-can work fine even without it.
-
-The ~borderless~ property conceals all borders.  This is done by making
-the box property or the under- and over- lines (whatever applies) use
-the same color as the background, effectively blending the two and
-creating some padding.
-
-The ~accented~ property applies a colored background to the active mode
-line, instead of the standard gray.  The inactive mode lines retain
-their original style.
+#+begin_src emacs-lisp
+(setq modus-themes-prompts '(borderless accented))
+#+end_src
 
 Note that Moody does not expose any faces that the themes could style
 directly.  Instead it re-purposes existing ones to render its tabs and
 ribbons.  As such, there may be cases where the contrast ratio falls
 below the 7:1 target that the themes conform with (WCAG AAA).  To hedge
-against this, we configure a fallback foreground for the ~moody~ option,
+against this, we configure a fallback foreground for the ~moody~ property,
 which will come into effect when the background of the mode line changes
 to something less accessible, such as Moody ribbons (read the doc string
 of ~set-face-attribute~, specifically ~:distant-foreground~).  This fallback
@@ -3357,6 +3344,32 @@ intense color, the remaining ones the same neutral color.
 Third is preferring commands that produce fewer candidates.  Fewer hints
 is less noise: ~avy-goto-char-timer~ is an excellent alternative to
 ~avy-goto-char~.
+
+** Note on calendar.el weekday and weekend colors
+:properties:
+:custom_id: h:b2db46fb-32f4-44fd-8e11-d2b261cf51ae
+:end:
+
+By default, the {{{kbd(M-x calendar)}}} interface differentiates weekdays from
+weekends by applying a cyan color to the former and a gray to the
+latter.
+
+Users who prefer all days to look the same can configure the variable
+~calendar-weekend-days~ to either use cyan or gray uniformly.
+
+#+begin_src emacs-lisp
+;; All are treated like weekdays (cyan color)
+(setq calendar-weekend-days nil)
+
+;; All are treated like weekends (gray color)
+(setq calendar-weekend-days '(0 1 2 3 4 5 6))
+
+;; The default
+(setq calendar-weekend-days '(0 6))
+#+end_src
+
+For changes to take effect, the Calendar buffer needs to be generated
+anew.
 
 ** Note on inline Latex in Org buffers
 :properties:
