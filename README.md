@@ -88,10 +88,11 @@ demonstration:
       ;; symbols: `bold', `intense', `underline'
       modus-themes-paren-match '(bold intense)
 
-      ;; Options for `modus-themes-links': nil, 'faint,
-      ;; 'neutral-underline, 'faint-neutral-underline, 'no-underline,
-      ;; 'underline-only, 'neutral-underline-only
-      modus-themes-links 'neutral-underline
+      ;; Options for `modus-themes-links' are either nil (the default),
+      ;; or a list of properties that may include any of those symbols:
+      ;; `neutral-underline' OR `no-underline', `faint' OR `no-color',
+      ;; `bold', `italic', `background'
+      modus-themes-links '(neutral-underline background)
 
       ;; Options for `modus-themes-prompts' are either nil (the
       ;; default), or a list of properties that may include any of those

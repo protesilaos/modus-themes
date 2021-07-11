@@ -414,10 +414,11 @@ this manual.
       ;; symbols: `bold', `intense', `underline'
       modus-themes-paren-match '(bold intense)
 
-      ;; Options for `modus-themes-links': nil, 'faint,
-      ;; 'neutral-underline, 'faint-neutral-underline, 'no-underline,
-      ;; 'underline-only, 'neutral-underline-only
-      modus-themes-links 'neutral-underline
+      ;; Options for `modus-themes-links' are either nil (the default),
+      ;; or a list of properties that may include any of those symbols:
+      ;; `neutral-underline' OR `no-underline', `faint' OR `no-color',
+      ;; `bold', `italic', `background'
+      modus-themes-links '(neutral-underline background)
 
       ;; Options for `modus-themes-prompts' are either nil (the
       ;; default), or a list of properties that may include any of those
@@ -669,45 +670,70 @@ are ~org-variable-pitch~ and ~mixed-pitch~.
 :end:
 #+vindex: modus-themes-links
 
+[ Refactored as part of {{{development-version}}} ]
+
 Symbol: ~modus-themes-links~
 
-Possible values:
+Possible values are expressed as a list of properties (default is ~nil~ or
+an empty list).  The list can include any of the following symbols:
 
-1. ~nil~ (default)
-2. ~faint~
-3. ~neutral-underline~
-4. ~faint-neutral-underline~
-5. ~no-underline~
-6. ~underline-only~
-7. ~neutral-underline-only~
++ Underline style:
+  - ~neutral-underline~
+  - ~no-underline~
++ Text coloration:
+  - ~faint~
+  - ~no-color~
++ ~bold~
++ ~italic~
++ ~background~
 
-The default style (nil) for links is to apply an underline and a
-saturated color to the affected text.  The color of the two is the same,
-which makes the link fairly prominent.
+The default (a ~nil~ value or an empty list) is a prominent text color,
+typically blue, with an underline of the same color.
 
-Option ~faint~ follows the same approach as the default, but uses less
-intense colors.
+For the style of the underline, a ~neutral-underline~ property turns the
+color of the line into a subtle gray, while the ~no-underline~ property
+removes the line altogether.  If both of those are set, the latter takes
+precedence.
 
-Option ~neutral-underline~ changes the underline's color to a subtle gray,
-while retaining the default text color.
+For text coloration, a ~faint~ property desaturates the color of the text
+and the underline, unless the underline is affected by the
+aforementioned properties.  While a ~no-color~ property removes the color
+from the text.  If both of those are set, the latter takes precedence.
 
-Option ~faint-neutral-underline~ combines a desaturated text color with a
-subtle gray underline.
+A ~bold~ property applies a heavy typographic weight to the text of the
+link.
 
-Option ~no-underline~ removes link underlines altogether, while retaining
-their original fairly vivid color.
+An ~italic~ property adds a slant to the link's text (italic or oblique
+forms, depending on the typeface).
 
-Option ~underline-only~ applies a prominent underline while making the
-affected text colorless (it uses the same foreground as the theme's
-default).
+A ~background~ property applies a subtle tinted background color.
 
-Option ~neutral-underline-only~ makes the text colorless while using a
-subtle gray underline below it.
+In case both ~no-underline~ and ~no-color~ are set, then a subtle gray
+background is applied to all links.  This can still be combined with the
+~bold~ and ~italic~ properties.
 
-NOTE: The placement of the underline, i.e. its proximity to the affected
-text, is controlled by the built-in ~x-underline-at-descent-line~,
-~x-use-underline-position-properties~, ~underline-minimum-offset~.  Please
-refer to their documentation strings.
+Combinations of any of those properties are expressed as a list,
+like in these examples:
+
+#+begin_src emacs-lisp
+(faint)
+(no-underline faint)
+(no-color no-underline bold)
+(italic bold background no-color no-underline)
+#+end_src
+
+The order in which the properties are set is not significant.
+
+In user configuration files the form may look like this:
+
+#+begin_src emacs-lisp
+(setq modus-themes-links '(neutral-underline background))
+#+end_src
+
+The placement of the underline, meaning its proximity to the text, is
+controlled by ~x-use-underline-position-properties~,
+~x-underline-at-descent-line~, ~underline-minimum-offset~.  Please refer to
+their documentation strings.
 
 ** Option for command prompt styles
 :properties:

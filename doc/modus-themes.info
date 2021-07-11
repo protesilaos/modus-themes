@@ -551,10 +551,11 @@ of this manual.
            ;; symbols: `bold', `intense', `underline'
            modus-themes-paren-match '(bold intense)
 
-           ;; Options for `modus-themes-links': nil, 'faint,
-           ;; 'neutral-underline, 'faint-neutral-underline, 'no-underline,
-           ;; 'underline-only, 'neutral-underline-only
-           modus-themes-links 'neutral-underline
+           ;; Options for `modus-themes-links' are either nil (the default),
+           ;; or a list of properties that may include any of those symbols:
+           ;; `neutral-underline' OR `no-underline', `faint' OR `no-color',
+           ;; `bold', `italic', `background'
+           modus-themes-links '(neutral-underline background)
 
            ;; Options for `modus-themes-prompts' are either nil (the
            ;; default), or a list of properties that may include any of those
@@ -819,46 +820,68 @@ File: modus-themes.info,  Node: Link styles,  Next: Command prompts,  Prev: No m
 4.7 Option for links
 ====================
 
-Symbol: ‘modus-themes-links’
+[ Refactored as part of 1.5.0-dev ]
 
-   Possible values:
+   Symbol: ‘modus-themes-links’
 
-  1. ‘nil’ (default)
-  2. ‘faint’
-  3. ‘neutral-underline’
-  4. ‘faint-neutral-underline’
-  5. ‘no-underline’
-  6. ‘underline-only’
-  7. ‘neutral-underline-only’
+   Possible values are expressed as a list of properties (default is
+‘nil’ or an empty list).  The list can include any of the following
+symbols:
 
-   The default style (nil) for links is to apply an underline and a
-saturated color to the affected text.  The color of the two is the same,
-which makes the link fairly prominent.
+   • Underline style:
+        • ‘neutral-underline’
+        • ‘no-underline’
+   • Text coloration:
+        • ‘faint’
+        • ‘no-color’
+   • ‘bold’
+   • ‘italic’
+   • ‘background’
 
-   Option ‘faint’ follows the same approach as the default, but uses
-less intense colors.
+   The default (a ‘nil’ value or an empty list) is a prominent text
+color, typically blue, with an underline of the same color.
 
-   Option ‘neutral-underline’ changes the underline’s color to a subtle
-gray, while retaining the default text color.
+   For the style of the underline, a ‘neutral-underline’ property turns
+the color of the line into a subtle gray, while the ‘no-underline’
+property removes the line altogether.  If both of those are set, the
+latter takes precedence.
 
-   Option ‘faint-neutral-underline’ combines a desaturated text color
-with a subtle gray underline.
+   For text coloration, a ‘faint’ property desaturates the color of the
+text and the underline, unless the underline is affected by the
+aforementioned properties.  While a ‘no-color’ property removes the
+color from the text.  If both of those are set, the latter takes
+precedence.
 
-   Option ‘no-underline’ removes link underlines altogether, while
-retaining their original fairly vivid color.
+   A ‘bold’ property applies a heavy typographic weight to the text of
+the link.
 
-   Option ‘underline-only’ applies a prominent underline while making
-the affected text colorless (it uses the same foreground as the theme’s
-default).
+   An ‘italic’ property adds a slant to the link’s text (italic or
+oblique forms, depending on the typeface).
 
-   Option ‘neutral-underline-only’ makes the text colorless while using
-a subtle gray underline below it.
+   A ‘background’ property applies a subtle tinted background color.
 
-   NOTE: The placement of the underline, i.e.  its proximity to the
-affected text, is controlled by the built-in
-‘x-underline-at-descent-line’, ‘x-use-underline-position-properties’,
-‘underline-minimum-offset’.  Please refer to their documentation
-strings.
+   In case both ‘no-underline’ and ‘no-color’ are set, then a subtle
+gray background is applied to all links.  This can still be combined
+with the ‘bold’ and ‘italic’ properties.
+
+   Combinations of any of those properties are expressed as a list, like
+in these examples:
+
+     (faint)
+     (no-underline faint)
+     (no-color no-underline bold)
+     (italic bold background no-color no-underline)
+
+   The order in which the properties are set is not significant.
+
+   In user configuration files the form may look like this:
+
+     (setq modus-themes-links '(neutral-underline background))
+
+   The placement of the underline, meaning its proximity to the text, is
+controlled by ‘x-use-underline-position-properties’,
+‘x-underline-at-descent-line’, ‘underline-minimum-offset’.  Please refer
+to their documentation strings.
 
 
 File: modus-themes.info,  Node: Command prompts,  Next: Mode line,  Prev: Link styles,  Up: Customization Options
@@ -4931,87 +4954,87 @@ Node: Enable and load12344
 Node: Sample configuration for use-package15333
 Node: Differences between loading and enabling16711
 Node: Customization Options18751
-Node: Custom reload theme25173
-Node: Success' color-code25734
-Node: Bold constructs26671
-Node: Italic constructs27460
-Node: Syntax styles28178
-Node: No mixed fonts30251
-Node: Link styles31346
-Node: Command prompts32920
-Node: Mode line34653
-Node: Completion UIs38751
-Node: Mail citations40622
-Node: Fringes41475
-Node: Language checkers42137
-Node: Line highlighting44217
-Node: Line numbers45772
-Node: Matching parentheses46850
-Node: Active region48182
-Node: Diffs49551
-Node: Org mode blocks51490
-Node: Org agenda53368
-Node: Org agenda habits58995
-Node: Heading styles60961
-Node: Scaled headings64050
-Node: Scaled heading sizes64653
-Node: UI typeface67909
-Node: Headings' typeface68755
-Node: Advanced customization (do-it-yourself)69379
-Node: Per-theme customization settings (DIY)70784
-Node: Case-by-case face specs using the themes' palette (DIY)72130
-Node: Face specs at scale using the themes' palette (DIY)76594
-Node: Remap face with local value (DIY)81411
-Node: Cycle through arbitrary colors (DIY)83889
-Node: Override colors (DIY)90455
-Node: Override color saturation (DIY)95348
-Node: Font configurations for Org and others (DIY)101101
-Ref: Font configurations for Org and others (DIY)-Footnote-1103749
-Node: Configure bold and italic faces (DIY)103936
-Node: Custom Org user faces (DIY)107943
-Node: Update Org block delimiter fontification (DIY)111699
-Node: Measure color contrast (DIY)113659
-Node: Load theme depending on time of day (DIY)116453
-Node: Backdrop for pdf-tools (DIY)117493
-Node: A theme-agnostic hook for theme loading (DIY)120255
-Node: Face coverage122645
-Node: Supported packages123114
-Node: Indirectly covered packages129903
-Node: Notes on individual packages130457
-Node: Note on avy hints131303
-Node: Note on inline Latex in Org buffers132461
-Node: Note on dimmerel133047
-Node: Note on display-fill-column-indicator-mode134532
-Node: Note on mmm-modeel background colors136153
-Node: Note for prism138532
-Node: Note for god-mode141758
-Node: Note on company-mode overlay pop-up143430
-Ref: Note on company-mode overlay pop-up-Footnote-1144118
-Ref: Note on company-mode overlay pop-up-Footnote-2144185
-Node: Note on ERC escaped color sequences144240
-Ref: Note on ERC escaped color sequences-Footnote-1145666
-Node: Note on powerline or spaceline145776
-Node: Note on SHR colors146190
-Node: Note on EWW and Elfeed fonts (SHR fonts)146625
-Node: Note on Helm grep147370
-Node: Note on vc-annotate-background-mode148857
-Node: Note on pdf-tools link hints149742
-Node: Frequently Asked Questions (FAQ)152174
-Node: Is the contrast ratio about adjacent colors?152748
-Node: What does it mean to avoid exaggerations?154261
-Node: Why are colors mostly variants of blue magenta cyan?156096
-Node: What is the best setup for legibility?160443
-Node: Contributing163050
-Node: Sources of the themes163453
-Node: Issues you can help with164191
-Node: Patches require copyright assignment to the FSF165391
-Node: Acknowledgements167686
-Node: Meta170196
-Node: GNU Free Documentation License172193
-Node: Indices197545
-Node: Function index197724
-Node: Variable index198961
-Node: Concept index201175
+Node: Custom reload theme25270
+Node: Success' color-code25831
+Node: Bold constructs26768
+Node: Italic constructs27557
+Node: Syntax styles28275
+Node: No mixed fonts30348
+Node: Link styles31443
+Node: Command prompts33854
+Node: Mode line35587
+Node: Completion UIs39685
+Node: Mail citations41556
+Node: Fringes42409
+Node: Language checkers43071
+Node: Line highlighting45151
+Node: Line numbers46706
+Node: Matching parentheses47784
+Node: Active region49116
+Node: Diffs50485
+Node: Org mode blocks52424
+Node: Org agenda54302
+Node: Org agenda habits59929
+Node: Heading styles61895
+Node: Scaled headings64984
+Node: Scaled heading sizes65587
+Node: UI typeface68843
+Node: Headings' typeface69689
+Node: Advanced customization (do-it-yourself)70313
+Node: Per-theme customization settings (DIY)71718
+Node: Case-by-case face specs using the themes' palette (DIY)73064
+Node: Face specs at scale using the themes' palette (DIY)77528
+Node: Remap face with local value (DIY)82345
+Node: Cycle through arbitrary colors (DIY)84823
+Node: Override colors (DIY)91389
+Node: Override color saturation (DIY)96282
+Node: Font configurations for Org and others (DIY)102035
+Ref: Font configurations for Org and others (DIY)-Footnote-1104683
+Node: Configure bold and italic faces (DIY)104870
+Node: Custom Org user faces (DIY)108877
+Node: Update Org block delimiter fontification (DIY)112633
+Node: Measure color contrast (DIY)114593
+Node: Load theme depending on time of day (DIY)117387
+Node: Backdrop for pdf-tools (DIY)118427
+Node: A theme-agnostic hook for theme loading (DIY)121189
+Node: Face coverage123579
+Node: Supported packages124048
+Node: Indirectly covered packages130837
+Node: Notes on individual packages131391
+Node: Note on avy hints132237
+Node: Note on inline Latex in Org buffers133395
+Node: Note on dimmerel133981
+Node: Note on display-fill-column-indicator-mode135466
+Node: Note on mmm-modeel background colors137087
+Node: Note for prism139466
+Node: Note for god-mode142692
+Node: Note on company-mode overlay pop-up144364
+Ref: Note on company-mode overlay pop-up-Footnote-1145052
+Ref: Note on company-mode overlay pop-up-Footnote-2145119
+Node: Note on ERC escaped color sequences145174
+Ref: Note on ERC escaped color sequences-Footnote-1146600
+Node: Note on powerline or spaceline146710
+Node: Note on SHR colors147124
+Node: Note on EWW and Elfeed fonts (SHR fonts)147559
+Node: Note on Helm grep148304
+Node: Note on vc-annotate-background-mode149791
+Node: Note on pdf-tools link hints150676
+Node: Frequently Asked Questions (FAQ)153108
+Node: Is the contrast ratio about adjacent colors?153682
+Node: What does it mean to avoid exaggerations?155195
+Node: Why are colors mostly variants of blue magenta cyan?157030
+Node: What is the best setup for legibility?161377
+Node: Contributing163984
+Node: Sources of the themes164387
+Node: Issues you can help with165125
+Node: Patches require copyright assignment to the FSF166325
+Node: Acknowledgements168620
+Node: Meta171130
+Node: GNU Free Documentation License173127
+Node: Indices198479
+Node: Function index198658
+Node: Variable index199895
+Node: Concept index202109
 
 End Tag Table
 

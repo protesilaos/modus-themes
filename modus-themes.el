@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-07-11 17:39:57 +0300>
+;; Last-Modified: <2021-07-11 19:01:03 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -2737,38 +2737,66 @@ bold weight or italic text: `modus-themes-bold-constructs' and
 (defcustom modus-themes-links nil
   "Set the style of links.
 
-Nil means to use an underline that is the same color as the
-foreground.
+The value is a list of properties, each designated by a symbol.
+The default (a nil value or an empty list) is a prominent text
+color, typically blue, with an underline of the same color.
 
-Option `faint' applies desaturated colors to the link's text and
-underline.
+For the style of the underline, a `neutral-underline' property
+turns the color of the line into a subtle gray, while the
+`no-underline' property removes the line altogether.  If both of
+those are set, the latter takes precedence.
 
-Option `neutral-underline' applies a subtle gray underline, while
-retaining the link's foreground.
+For text coloration, a `faint' property desaturates the color of
+the text and the underline, unless the underline is affected by
+the aforementioned properties.  While a `no-color' property
+removes the color from the text.  If both of those are set, the
+latter takes precedence.
 
-Option `faint-neutral-underline' combines a desaturated text
-color with a subtle gray underline.
+A `bold' property applies a heavy typographic weight to the text
+of the link.
 
-Option `no-underline' removes link underlines altogether, while
-retaining their original fairly vivid color.
+An `italic' property adds a slant to the link's text (italic or
+oblique forms, depending on the typeface).
 
-Option `underline-only' applies an underline while making the
-affected text colorless (it uses the same foreground as the
-theme's default).
+A `background' property applies a subtle tinted background color.
 
-Option `neutral-underline-only' makes the text colorless while
-using a subtle underline below it."
+In case both `no-underline' and `no-color' are set, then a subtle
+gray background is applied to all links.  This can still be
+combined with the `bold' and `italic' properties.
+
+Combinations of any of those properties are expressed as a list,
+like in these examples:
+
+    (faint)
+    (no-underline faint)
+    (no-color no-underline bold)
+    (italic bold background no-color no-underline)
+
+The order in which the properties are set is not significant.
+
+In user configuration files the form may look like this:
+
+    (setq modus-themes-links '(neutral-underline background))
+
+The placement of the underline, meaning its proximity to the
+text, is controlled by `x-use-underline-position-properties',
+`x-underline-at-descent-line', `underline-minimum-offset'.
+Please refer to their documentation strings."
   :group 'modus-themes
-  :package-version '(modus-themes . "1.2.0")
+  :package-version '(modus-themes . "1.5.0")
   :version "28.1"
-  :type '(choice
-          (const :format "[%v] %t\n" :tag "Undeline link using the same color as the text (default)" nil)
-          (const :format "[%v] %t\n" :tag "Like the default, but apply less intense colors to links" faint)
-          (const :format "[%v] %t\n" :tag "Change the color of link underlines to a neutral gray" neutral-underline)
-          (const :format "[%v] %t\n" :tag "Desaturated foreground with neutral gray underline" faint-neutral-underline)
-          (const :format "[%v] %t\n" :tag "Remove underline property from links, keeping their foreground as-is" no-underline)
-          (const :format "[%v] %t\n" :tag "Apply underline only; use default foreground" underline-only)
-          (const :format "[%v] %t\n" :tag "Like `underline-only' but with a subtle underline" neutral-underline-only))
+  :type '(set :tag "Properties" :greedy t
+              (choice :tag "Text coloration"
+                      (const :tag "Saturared color (default)" nil)
+                      (const :tag "Faint coloration" faint)
+                      (const :tag "No color (use main black/white)" no-color))
+              (choice :tag "Underline"
+                      (const :tag "Same color as text (default)" nil)
+                      (const :tag "Neutral (gray) underline color" neutral-underline)
+                      (const :tag "No underline" no-underline))
+              (const :tag "Bold font weight" bold)
+              (const :tag "Italic font slant" italic)
+              (const :tag "Subtle background color" background))
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Link styles"))
@@ -3504,30 +3532,85 @@ These are intended for Helm, Ivy, etc."
     ('moderate (list :inherit (list subtleface bold)))
     (_ (list :inherit (list intenseface bold)))))
 
-(defun modus-themes--link (fg fgfaint underline)
+(defun modus-themes--link (fg fgfaint underline bg bgneutral)
   "Conditional application of link styles.
 FG is the link's default color for its text and underline
 property.  FGFAINT is a desaturated color for the text and
-underline.  UNDERLINE is a gray color only for the undeline."
-  (pcase modus-themes-links
-    ('faint (list :foreground fgfaint :underline t))
-    ('neutral-underline (list :foreground fg :underline underline))
-    ('faint-neutral-underline (list :foreground fgfaint :underline underline))
-    ('no-underline (list :foreground fg :underline nil))
-    ('underline-only (list :underline t))
-    ('neutral-underline-only (list :underline underline))
-    (_ (list :foreground fg :underline t))))
+underline.  UNDERLINE is a gray color only for the undeline.  BG
+is a background color and BGNEUTRAL is its fallback value."
+  (let ((modus-themes-links
+         (if (listp modus-themes-links)
+             modus-themes-links
+           ;; translation layer for legacy values
+           (pcase modus-themes-links
+             ('faint '(faint))
+             ('neutral-underline '(neutral-underline))
+             ('faint-neutral-underline '(neutral-underline faint))
+             ('no-underline '(no-underline))
+             ('underline-only '(no-color))
+             ('neutral-underline-only '(no-color neutral-underline))))))
+    (list :inherit
+          (cond
+           ((and (memq 'bold modus-themes-links)
+                 (memq 'italic modus-themes-links))
+            'bold-italic)
+           ((memq 'italic modus-themes-links)
+            'italic)
+           ((memq 'bold modus-themes-links)
+            'bold)
+           ('unspecified))
+          :background
+          (cond
+           ((and (memq 'no-color modus-themes-links)
+                 (memq 'no-underline modus-themes-links))
+            bgneutral)
+           ((memq 'background modus-themes-links)
+            bg)
+           ('unspecified))
+          :foreground
+          (cond
+           ((memq 'no-color modus-themes-links)
+            'unspecified)
+           ((memq 'faint modus-themes-links)
+            fgfaint)
+           (fg))
+          :underline
+          (cond
+           ((memq 'no-underline modus-themes-links)
+            'unspecified)
+           ((memq 'neutral-underline modus-themes-links)
+            underline)
+           (t)))))
 
 (defun modus-themes--link-color (fg fgfaint &optional neutralfg)
   "Extends `modus-themes--link'.
 FG is the main accented foreground.  FGFAINT is also accented,
 yet desaturated.  Optional NEUTRALFG is a gray value."
-  (pcase modus-themes-links
-    ('faint (list :foreground fgfaint))
-    ('faint-neutral-underline (list :foreground fgfaint))
-    ('underline-only (list :underline t :foreground (or neutralfg 'unspecified)))
-    ('neutral-underline-only (list :underline 'unspecified :foreground (or neutralfg 'unspecified)))
-    (_ (list :foreground fg))))
+  (let ((modus-themes-links
+         (if (listp modus-themes-links)
+             modus-themes-links
+           ;; translation layer for legacy values
+           (pcase modus-themes-links
+             ('faint '(faint))
+             ('neutral-underline '(neutral-underline))
+             ('faint-neutral-underline '(neutral-underline faint))
+             ('no-underline '(no-underline))
+             ('underline-only '(no-color))
+             ('neutral-underline-only '(no-color neutral-underline))))))
+    (list :foreground
+          (cond
+           ((memq 'no-color modus-themes-links)
+            (or neutralfg 'unspecified))
+           ((memq 'faint modus-themes-links)
+            fgfaint)
+           (fg))
+          :underline
+          (cond
+           ((memq 'no-underline modus-themes-links)
+            'unspecified)
+           ((memq 'neutral-underline modus-themes-links)
+            (or neutralfg 'unspecified))
+           (t)))))
 
 (defun modus-themes--scale (amount)
   "Scale heading by AMOUNT.
@@ -4051,7 +4134,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(warning ((,class :inherit bold :foreground ,yellow)))
 ;;;;; buttons, links, widgets
     `(button ((,class ,@(modus-themes--link
-                         blue-alt-other blue-alt-other-faint bg-region))))
+                         blue-alt-other blue-alt-other-faint
+                         bg-region blue-nuanced-bg bg-alt))))
     `(link ((,class :inherit button)))
     `(link-visited ((,class :inherit button
                             ,@(modus-themes--link-color
