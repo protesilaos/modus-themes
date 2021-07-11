@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-07-11 08:21:02 +0300>
+;; Last-Modified: <2021-07-11 11:18:49 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -1813,107 +1813,92 @@ mixing fonts."
   :link '(info-link "(modus-themes) No mixed fonts"))
 
 (defconst modus-themes--headings-choice
-  '(choice
-    (const :format "[%v] %t\n" :tag "Fairly desaturated foreground with bold weight (default)" nil)
-    (const :format "[%v] %t\n" :tag "Same as the default (backward-compatible)" t)
-    (const :format "[%v] %t\n" :tag "Like the default without bold weight" no-bold)
-    (const :format "[%v] %t\n" :tag "Like the default plus overline" line)
-    (const :format "[%v] %t\n" :tag "Like `line' without bold weight" line-no-bold)
-    (const :format "[%v] %t\n" :tag "Like the default but with more colorful foreground" rainbow)
-    (const :format "[%v] %t\n" :tag "Like `rainbow' plus overline" rainbow-line)
-    (const :format "[%v] %t\n" :tag "Like `rainbow' without bold weight" rainbow-no-bold)
-    (const :format "[%v] %t\n" :tag "Like `rainbow-line' without bold weight" rainbow-line-no-bold)
-    (const :format "[%v] %t\n" :tag "Like the default plus subtle background" highlight)
-    (const :format "[%v] %t\n" :tag "Like `highlight' without bold weight" highlight-no-bold)
-    (const :format "[%v] %t\n" :tag "Like `highlight' with more colorful foreground" rainbow-highlight)
-    (const :format "[%v] %t\n" :tag "Like `rainbow-highlight' without bold weight" rainbow-highlight-no-bold)
-    (const :format "[%v] %t\n" :tag "Like `highlight' plus overline" section)
-    (const :format "[%v] %t\n" :tag "Like `section' without bold weight" section-no-bold)
-    (const :format "[%v] %t\n" :tag "Like `section' with more colorful foreground" rainbow-section)
-    (const :format "[%v] %t\n" :tag "Like `rainbow-section' without bold weight" rainbow-section-no-bold)
-    (const :format "[%v] %t\n" :tag "Do not use any distinct foreground color; just bold weight" no-color)
-    (const :format "[%v] %t\n" :tag "Like `no-bold' but without the distinct foreground color" no-color-no-bold))
+  '(set :tag "Properties" :greedy t
+        (const :tag "Background color" background)
+        (const :tag "Overline" overline)
+        (const :tag "No bold weight" no-bold)
+        (choice :tag "Colors"
+                (const :tag "Subtle colors" nil)
+                (const :tag "Rainbow colors" rainbow)
+                (const :tag "Monochrome" monochrome)))
   "Refer to the doc string of `modus-themes-headings'.
 This is a helper variable intended for internal use.")
 
 (defcustom modus-themes-headings nil
-  "Alist of styles for headings, with optional value per level.
+  "Heading styles with optional list of values for levels 1-8.
 
-To control faces per level from 1-8, use something like this:
+This is an alist that accepts a (key . list-of-values)
+combination.  The key is either a number, representing the
+heading's level or t, which pertains to the fallback style.  The
+list of values covers symbols that refer to properties, as
+described below.  Here is a sample, followed by a presentation of
+all available properties:
 
-  (setq modus-themes-headings
-        '((1 . highlight)
-          (2 . line)
-          (t . rainbow-line-no-bold)))
+    (setq modus-themes-headings
+          '((1 . (background overline))
+            (2 . (overline rainbow))
+            (t . (monochrome))))
 
-To set a uniform value for all heading levels, use this pattern:
+By default (a nil value for this variable), all headings have a
+bold typographic weight and use a desaturated text color.
 
-  (setq modus-themes-headings
-        '((t . rainbow-line-no-bold)))
+A `rainbow' property makes the text color more saturated.
 
-The default value uses a fairly desaturated foreground color in
-combination with a bold typographic weight.  To specify this
-style for a given level N (assuming you wish to have another
-fallback option), just specify the value nil like this:
+An `overline' property draws a line above the area of the
+heading.
 
-  (setq modus-themes-headings
-        '((1 . nil)
-          (2 . line)
-          (3) ; same as nil
-          (t . rainbow-line-no-bold)))
+A `background' property adds a subtle tinted color to the
+background of the heading.
 
-A description of all other possible values:
+A `no-bold' property removes the bold weight from the heading's
+text.
 
-+ `no-bold' retains the default text color while removing the
-  typographic weight.
+A `monochrome' property makes all headings the same base color,
+which is that of the default for the active theme (black/white).
+When `background' is also set, `monochrome' changes its color to
+gray.  If both `monochrome' and `rainbow' are set, the former
+takes precedence.
 
-+ `line' is the same as the default plus an overline over the
-  heading.
+Combinations of any of those properties are expressed in a list,
+as in those examples:
 
-+ `line-no-bold' is the same as `line' without bold weight.
+    (no-bold)
+    (rainbow background)
+    (overline monochrome no-bold)
 
-+ `rainbow' uses a more colorful foreground in combination with
-  bold weight.
+The order in which the properties are set is not significant.
 
-+ `rainbow-line' is the same as `rainbow' plus an overline.
+In user configuration files the form may look like this:
 
-+ `rainbow-line-no-bold' is the same as `rainbow-line' without
-  the bold weight.
+    (setq modus-themes-headings
+          '((1 . (background overline rainbow))
+            (2 . (background overline))
+            (t . (overline no-bold))))
 
-+ `highlight' retains the default style of a fairly desaturated
-  foreground combined with a bold weight and add to it a subtle
-  accented background.
+When defining the styles per heading level, it is possible to
+pass a non-nil value (t) instead of a list of properties.  This
+will retain the original aesthetic for that level.  For example:
 
-+ `highlight-no-bold' is the same as `highlight' without a bold
-  weight.
+    (setq modus-themes-headings
+          '((1 . t)           ; keep the default style
+            (2 . (background overline))
+            (t . (rainbow)))) ; style for all other headings
 
-+ `rainbow-highlight' is the same as `highlight' but with a more
-  colorful foreground.
+    (setq modus-themes-headings
+          '((1 . (background overline))
+            (2 . (rainbow no-bold))
+            (t . t))) ; default style for all other levels
 
-+ `rainbow-highlight-no-bold' is the same as `rainbow-highlight'
-  without a bold weight.
+For Org users, the extent of the heading depends on the variable
+`org-fontify-whole-heading-line'.  This affects the `overline'
+and `background' properties.  Depending on the version of Org,
+there may be others, such as `org-fontify-done-headline'.
 
-+ `section' retains the default looks and adds to them both an
-  overline and a slightly accented background.  It is, in effect,
-  a combination of the `line' and `highlight' values.
-
-+ `section-no-bold' is the same as `section' without a bold
-  weight.
-
-+ `rainbow-section' is the same as `section' but with a more
-  colorful foreground.
-
-+ `rainbow-section-no-bold' is the same as `rainbow-section'
-  without a bold weight.
-
-+ `no-color' does not apply any color to the heading, meaning
-  that it uses the foreground of the `default' face.  It still
-  renders the text with a bold typographic weight.
-
-+ `no-color-no-bold' is like `no-color' but without the bold
-  weight."
+Also read `modus-themes-scale-headings' to change the height of
+headings and `modus-themes-variable-pitch-headings' to make them
+use a proportionately spaced font."
   :group 'modus-themes
-  :package-version '(modus-themes . "1.3.0")
+  :package-version '(modus-themes . "1.5.0")
   :version "28.1"
   :type `(alist
           :options ,(mapcar (lambda (el)
@@ -3201,59 +3186,69 @@ an alternative to the default value."
   "Get cdr of KEY in ALIST."
   (cdr (assoc key alist)))
 
-(defun modus-themes--heading (level fg fg-alt bg border)
+(defun modus-themes--heading (level fg fg-alt bg bg-gray border)
   "Conditional styles for `modus-themes-headings'.
 
 LEVEL is the heading's position in their order.  FG is the
 default text color.  FG-ALT is an accented, more saturated value
 than the default.  BG is a nuanced, typically accented,
 background that can work well with either of the foreground
-values.  BORDER is a color value that combines well with the
-background and alternative foreground."
+values.  BG-GRAY is a gray background.  BORDER is a color value
+that combines well with the background and foreground."
   (let* ((key (modus-themes--key-cdr level modus-themes-headings))
          (style (or key (modus-themes--key-cdr t modus-themes-headings)))
-         (var (when modus-themes-variable-pitch-headings
-                'variable-pitch))
+         (modus-themes-headings
+          (if (listp style)
+              style
+            ;; translation layer for legacy values
+            (pcase style
+              ('highlight '(background))
+              ('highlight-no-bold '(background no-bold))
+              ('line '(overline))
+              ('line-no-bold '(no-bold overline))
+              ('no-bold '(no-bold))
+              ('no-color '(monochrome))
+              ('no-color-no-bold '(no-bold monochrome))
+              ('rainbow '(rainbow))
+              ('rainbow-highlight '(rainbow background))
+              ('rainbow-highlight-no-bold '(no-bold rainbow background))
+              ('rainbow-line '(rainbow overline))
+              ('rainbow-no-bold '(no-bold rainbow))
+              ('rainbow-line-no-bold '(rainbow overline no-bold))
+              ('rainbow-section '(rainbow overline background))
+              ('rainbow-section-no-bold '(no-bold rainbow background overline))
+              ('section '(background overline))
+              ('section-no-bold '(background overline no-bold)))))
+         (var (if modus-themes-variable-pitch-headings
+                  'variable-pitch
+                'unspecified))
          (varbold (if var
                       (append (list 'bold) (list var))
                     'bold)))
-    (pcase style
-      ('no-bold
-       (list :inherit var :foreground fg))
-      ('no-color
-       (list :inherit varbold))
-      ('no-color-no-bold
-       (list :inherit var))
-      ('line
-       (list :inherit varbold :foreground fg :overline border))
-      ('line-no-bold
-       (list :inherit var :foreground fg :overline border))
-      ('rainbow
-       (list :inherit varbold :foreground fg-alt))
-      ('rainbow-no-bold
-       (list :inherit var :foreground fg-alt))
-      ('rainbow-line
-       (list :inherit varbold :foreground fg-alt :overline border))
-      ('rainbow-line-no-bold
-       (list :inherit var :foreground fg-alt :overline border))
-      ('highlight
-       (list :inherit varbold :background bg :foreground fg))
-      ('highlight-no-bold
-       (list :inherit var :background bg :foreground fg))
-      ('rainbow-highlight
-       (list :inherit varbold :background bg :foreground fg-alt))
-      ('rainbow-highlight-no-bold
-       (list :inherit var :background bg :foreground fg-alt))
-      ('section
-       (list :inherit varbold :background bg :foreground fg :overline border :extend t))
-      ('section-no-bold
-       (list :inherit var :background bg :foreground fg :overline border :extend t))
-      ('rainbow-section
-       (list :inherit varbold :background bg :foreground fg-alt :overline border :extend t))
-      ('rainbow-section-no-bold
-       (list :inherit var :background bg :foreground fg-alt :overline border :extend t))
-      (_
-       (list :inherit varbold :foreground fg)))))
+    (list :inherit
+          (cond
+           ((memq 'no-bold modus-themes-headings)
+            var)
+           (varbold))
+          :background
+          (cond
+           ((and (memq 'monochrome modus-themes-headings)
+                 (memq 'background modus-themes-headings))
+            bg-gray)
+           ((memq 'background modus-themes-headings)
+            bg)
+           ('unspecified))
+          :foreground
+          (cond
+           ((memq 'monochrome modus-themes-headings)
+            'unspecified)
+           ((memq 'rainbow modus-themes-headings)
+            fg-alt)
+           (fg))
+          :overline
+          (if (memq 'overline modus-themes-headings)
+              border
+            'unspecified))))
 
 (defun modus-themes--agenda-structure (fg)
   "Control the style of the Org agenda structure.
@@ -3925,32 +3920,40 @@ by virtue of calling either of `modus-themes-load-operandi' and
     ;; styles for regular headings used in Org, Markdown, Info, etc.
     `(modus-themes-heading-1
       ((,class ,@(modus-themes--heading
-                  1 fg-main magenta-alt-other magenta-nuanced-bg bg-region)
+                  1 fg-main magenta-alt-other
+                  magenta-nuanced-bg bg-alt bg-region)
                ,@(modus-themes--scale modus-themes-scale-4))))
     `(modus-themes-heading-2
       ((,class ,@(modus-themes--heading
-                  2 fg-special-warm magenta-alt red-nuanced-bg bg-region)
+                  2 fg-special-warm magenta-alt
+                  red-nuanced-bg bg-alt bg-region)
                ,@(modus-themes--scale modus-themes-scale-3))))
     `(modus-themes-heading-3
       ((,class ,@(modus-themes--heading
-                  3 fg-special-cold blue blue-nuanced-bg bg-region)
+                  3 fg-special-cold blue
+                  blue-nuanced-bg bg-alt bg-region)
                ,@(modus-themes--scale modus-themes-scale-2))))
     `(modus-themes-heading-4
       ((,class ,@(modus-themes--heading
-                  4 fg-special-mild cyan cyan-nuanced-bg bg-region)
+                  4 fg-special-mild cyan
+                  cyan-nuanced-bg bg-alt bg-region)
                ,@(modus-themes--scale modus-themes-scale-1))))
     `(modus-themes-heading-5
       ((,class ,@(modus-themes--heading
-                  5 fg-special-calm green-alt-other green-nuanced-bg bg-region))))
+                  5 fg-special-calm green-alt-other
+                  green-nuanced-bg bg-alt bg-region))))
     `(modus-themes-heading-6
       ((,class ,@(modus-themes--heading
-                  6 yellow-nuanced-fg yellow-alt-other yellow-nuanced-bg bg-region))))
+                  6 yellow-nuanced-fg yellow-alt-other
+                  yellow-nuanced-bg bg-alt bg-region))))
     `(modus-themes-heading-7
       ((,class ,@(modus-themes--heading
-                  7 red-nuanced-fg red-alt red-nuanced-bg bg-region))))
+                  7 red-nuanced-fg red-alt
+                  red-nuanced-bg bg-alt bg-region))))
     `(modus-themes-heading-8
       ((,class ,@(modus-themes--heading
-                  8 magenta-nuanced-fg magenta bg-alt bg-region))))
+                  8 magenta-nuanced-fg magenta
+                  bg-alt bg-alt bg-region))))
 ;;;;; graph-specific faces
     `(modus-themes-graph-red-0 ((,class :background ,red-graph-0-bg)))
     `(modus-themes-graph-red-1 ((,class :background ,red-graph-1-bg)))

@@ -120,9 +120,9 @@ demonstration:
         (habit . traffic-light-deuteranopia))
 
       modus-themes-headings ; this is an alist: read the manual or its doc string
-      '((1 . line)
-        (2 . rainbow-line-no-bold)
-        (t . no-bold))
+      '((1 . (overline background))
+        (2 . (rainbow overline))
+        (t . (no-bold)))
 
       modus-themes-variable-pitch-ui nil
       modus-themes-variable-pitch-headings t

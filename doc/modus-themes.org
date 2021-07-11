@@ -446,9 +446,9 @@ this manual.
         (habit . traffic-light-deuteranopia))
 
       modus-themes-headings ; this is an alist: read the manual or its doc string
-      '((1 . line)
-        (2 . rainbow-line-no-bold)
-        (t . no-bold))
+      '((1 . (overline background))
+        (2 . (rainbow overline))
+        (t . (no-bold)))
 
       modus-themes-variable-pitch-ui nil
       modus-themes-variable-pitch-headings t
@@ -1476,124 +1476,92 @@ thus highlights the alert and overdue states.
 :end:
 #+vindex: modus-themes-headings
 
-This is defined as an alist and, therefore, uses a different approach
-than other customization options documented in this manual.
+[ Refactored as part of {{{development-version}}} ]
 
 Symbol: ~modus-themes-headings~
 
-Possible values, which can be specified for each heading level N
-(examples further below):
+This is an alist that accepts a =(key . list-of-values)= combination.  The
+key is either a number, representing the heading's level or ~t~, which
+pertains to the fallback style.  The list of values covers symbols that
+refer to properties, as described below.  Here is a sample, followed by
+a presentation of all available properties:
 
-+ ~nil~ (~t~ is also available for backward compatibility)
-+ ~no-bold~
-+ ~line~
-+ ~line-no-bold~
+#+begin_src emacs-lisp
+(setq modus-themes-headings
+      '((1 . (background overline))
+        (2 . (overline rainbow))
+        (t . (monochrome))))
+#+end_src
+
+Properties:
+
 + ~rainbow~
-+ ~rainbow-no-bold~
-+ ~rainbow-line~
-+ ~rainbow-line-no-bold~
-+ ~highlight~
-+ ~highlight-no-bold~
-+ ~rainbow-highlight~
-+ ~rainbow-highlight-no-bold~
-+ ~section~
-+ ~section-no-bold~
-+ ~rainbow-section~
-+ ~rainbow-section-no-bold~
-+ ~no-color~
-+ ~no-color-no-bold~
++ ~overline~
++ ~background~
++ ~no-bold~
++ ~monochrome~
 
-To control faces per level from 1-8, use something like this:
+By default (a ~nil~ value for this variable), all headings have a bold
+typographic weight and use a desaturated text color.
+
+A ~rainbow~ property makes the text color more saturated.
+
+An ~overline~ property draws a line above the area of the heading.
+
+A ~background~ property adds a subtle tinted color to the background of
+the heading.
+
+A ~no-bold~ property removes the bold weight from the heading's text.
+
+A ~monochrome~ property makes all headings the same base color, which is
+that of the default for the active theme (black/white).  When ~background~
+is also set, ~monochrome~ changes its color to gray.  If both ~monochrome~
+and ~rainbow~ are set, the former takes precedence.
+
+Combinations of any of those properties are expressed in a list, as in
+those examples:
+
+#+begin_src emacs-lisp
+(no-bold)
+(rainbow background)
+(overline monochrome no-bold)
+#+end_src
+
+The order in which the properties are set is not significant.
+
+In user configuration files the form may look like this:
 
 #+begin_src emacs-lisp
 (setq modus-themes-headings
-      '((1 . section)
-        (2 . section-no-bold)
-        (3 . rainbow-line)
-        (t . rainbow-line-no-bold)))
+      '((1 . (background overline rainbow))
+        (2 . (background overline))
+        (t . (overline no-bold))))
 #+end_src
 
-The above uses the ~section~ value for heading levels 1, ~section-no-bold~
-for headings 2, ~rainbow-line~ for 3.  All other levels fall back to
-~rainbow-line-no-bold~.
-
-To set a uniform value for all heading levels, use this pattern:
-
-#+begin_src emacs-lisp
-;; A given style for every heading
-(setq modus-themes-headings
-      '((t . section)))
-
-;; Default aesthetic for every heading
-(setq modus-themes-headings nil)
-#+end_src
-
-The default style for headings uses a fairly desaturated foreground
-color in combination with bold typographic weight.  To specify this
-style for a given level N, assuming you wish to have another fallback
-option, just assign the value ~nil~ like this:
+When defining the styles per heading level, it is possible to pass a
+non-nil value (~t~) instead of a list of properties.  This will retain the
+original aesthetic for that level.  For example:
 
 #+begin_src emacs-lisp
 (setq modus-themes-headings
-      '((1 . nil)
-        (2 . line)
-        (3) ; same as nil
-        (t . rainbow-line-no-bold)))
+      '((1 . t)           ; keep the default style
+        (2 . (background overline))
+        (t . (rainbow)))) ; style for all other headings
+
+(setq modus-themes-headings
+      '((1 . (background overline))
+        (2 . (rainbow no-bold))
+        (t . t))) ; default style for all other levels
 #+end_src
 
-A description of all other possible styles beyond the default:
+For Org users, the extent of the heading depends on the variable
+~org-fontify-whole-heading-line~.  This affects the ~overline~ and
+~background~ properties.  Depending on the version of Org, there may be
+others, such as ~org-fontify-done-headline~.
 
-+ ~no-bold~ retains the default text color while removing the bold
-  typographic weight.
+[[#h:075eb022-37a6-41a4-a040-cc189f6bfa1f][Option for scaled headings]].
 
-+ ~line~ is the same as the default plus an overline across the
-  heading's length.
-
-+ ~line-no-bold~ is the same as ~line~ without bold weight.
-
-+ ~rainbow~ uses a more colorful foreground in combination with bold
-  typographic weight.
-
-+ ~rainbow-no-bold~ is the same as ~rainbow~ without a bold typographic
-  weight.
-
-+ ~rainbow-line~ is the same as ~rainbow~ plus an overline.
-
-+ ~rainbow-line-no-bold~ is the same as ~rainbow-line~ without the bold
-  weight.
-
-+ ~highlight~ retains the default style of a fairly desaturated
-  foreground combined with a bold weight and adds to it a subtle
-  accented background.
-
-+ ~highlight-no-bold~ is the same as ~highlight~ without a bold weight.
-
-+ ~rainbow-highlight~ is the same as ~highlight~ but with a more
-  colorful foreground.
-
-+ ~rainbow-highlight-no-bold~ is the same as ~rainbow-highlight~ without
-  a bold weight.
-
-+ ~section~ retains the default looks and adds to them both an overline
-  and a slightly accented background.  It is, in effect, a combination
-  of the ~line~ and ~highlight~ values.
-
-+ ~section-no-bold~ is the same as ~section~ without a bold weight.
-
-+ ~rainbow-section~ is the same as ~section~ but with a more colorful
-  foreground.
-
-+ ~rainbow-section-no-bold~ is the same as ~rainbow-section~ without a
-  bold weight.
-
-+ ~no-color~ does not apply any color to the heading, meaning that it
-  uses the foreground of the ~default~ face.  It still renders the text
-  with a bold typographic weight.
-
-+ ~no-color-no-bold~ is like ~no-color~ but without the bold weight.
-
-Remember to also inspect relevant variables that Org provides, such as:
-~org-fontify-whole-heading-line~ and ~org-fontify-done-headline~.
+[[#h:97caca76-fa13-456c-aef1-a2aa165ea274][Option for variable-pitch font in headings]].
 
 ** Option for scaled headings
 :properties:

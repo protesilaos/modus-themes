@@ -583,9 +583,9 @@ of this manual.
              (habit . traffic-light-deuteranopia))
 
            modus-themes-headings ; this is an alist: read the manual or its doc string
-           '((1 . line)
-             (2 . rainbow-line-no-bold)
-             (t . no-bold))
+           '((1 . (overline background))
+             (2 . (rainbow overline))
+             (t . (no-bold)))
 
            modus-themes-variable-pitch-ui nil
            modus-themes-variable-pitch-headings t
@@ -1586,119 +1586,84 @@ File: modus-themes.info,  Node: Heading styles,  Next: Scaled headings,  Prev: O
 4.22 Option for the headings’ overall style
 ===========================================
 
-This is defined as an alist and, therefore, uses a different approach
-than other customization options documented in this manual.
+[ Refactored as part of 1.5.0-dev ]
 
    Symbol: ‘modus-themes-headings’
 
-   Possible values, which can be specified for each heading level N
-(examples further below):
+   This is an alist that accepts a ‘(key . list-of-values)’ combination.
+The key is either a number, representing the heading’s level or ‘t’,
+which pertains to the fallback style.  The list of values covers symbols
+that refer to properties, as described below.  Here is a sample,
+followed by a presentation of all available properties:
 
-   • ‘nil’ (‘t’ is also available for backward compatibility)
-   • ‘no-bold’
-   • ‘line’
-   • ‘line-no-bold’
+     (setq modus-themes-headings
+           '((1 . (background overline))
+             (2 . (overline rainbow))
+             (t . (monochrome))))
+
+   Properties:
+
    • ‘rainbow’
-   • ‘rainbow-no-bold’
-   • ‘rainbow-line’
-   • ‘rainbow-line-no-bold’
-   • ‘highlight’
-   • ‘highlight-no-bold’
-   • ‘rainbow-highlight’
-   • ‘rainbow-highlight-no-bold’
-   • ‘section’
-   • ‘section-no-bold’
-   • ‘rainbow-section’
-   • ‘rainbow-section-no-bold’
-   • ‘no-color’
-   • ‘no-color-no-bold’
+   • ‘overline’
+   • ‘background’
+   • ‘no-bold’
+   • ‘monochrome’
 
-   To control faces per level from 1-8, use something like this:
+   By default (a ‘nil’ value for this variable), all headings have a
+bold typographic weight and use a desaturated text color.
 
-     (setq modus-themes-headings
-           '((1 . section)
-             (2 . section-no-bold)
-             (3 . rainbow-line)
-             (t . rainbow-line-no-bold)))
+   A ‘rainbow’ property makes the text color more saturated.
 
-   The above uses the ‘section’ value for heading levels 1,
-‘section-no-bold’ for headings 2, ‘rainbow-line’ for 3.  All other
-levels fall back to ‘rainbow-line-no-bold’.
+   An ‘overline’ property draws a line above the area of the heading.
 
-   To set a uniform value for all heading levels, use this pattern:
+   A ‘background’ property adds a subtle tinted color to the background
+of the heading.
 
-     ;; A given style for every heading
-     (setq modus-themes-headings
-           '((t . section)))
+   A ‘no-bold’ property removes the bold weight from the heading’s text.
 
-     ;; Default aesthetic for every heading
-     (setq modus-themes-headings nil)
+   A ‘monochrome’ property makes all headings the same base color, which
+is that of the default for the active theme (black/white).  When
+‘background’ is also set, ‘monochrome’ changes its color to gray.  If
+both ‘monochrome’ and ‘rainbow’ are set, the former takes precedence.
 
-   The default style for headings uses a fairly desaturated foreground
-color in combination with bold typographic weight.  To specify this
-style for a given level N, assuming you wish to have another fallback
-option, just assign the value ‘nil’ like this:
+   Combinations of any of those properties are expressed in a list, as
+in those examples:
+
+     (no-bold)
+     (rainbow background)
+     (overline monochrome no-bold)
+
+   The order in which the properties are set is not significant.
+
+   In user configuration files the form may look like this:
 
      (setq modus-themes-headings
-           '((1 . nil)
-             (2 . line)
-             (3) ; same as nil
-             (t . rainbow-line-no-bold)))
+           '((1 . (background overline rainbow))
+             (2 . (background overline))
+             (t . (overline no-bold))))
 
-   A description of all other possible styles beyond the default:
+   When defining the styles per heading level, it is possible to pass a
+non-nil value (‘t’) instead of a list of properties.  This will retain
+the original aesthetic for that level.  For example:
 
-   • ‘no-bold’ retains the default text color while removing the bold
-     typographic weight.
+     (setq modus-themes-headings
+           '((1 . t)           ; keep the default style
+             (2 . (background overline))
+             (t . (rainbow)))) ; style for all other headings
 
-   • ‘line’ is the same as the default plus an overline across the
-     heading’s length.
+     (setq modus-themes-headings
+           '((1 . (background overline))
+             (2 . (rainbow no-bold))
+             (t . t))) ; default style for all other levels
 
-   • ‘line-no-bold’ is the same as ‘line’ without bold weight.
+   For Org users, the extent of the heading depends on the variable
+‘org-fontify-whole-heading-line’.  This affects the ‘overline’ and
+‘background’ properties.  Depending on the version of Org, there may be
+others, such as ‘org-fontify-done-headline’.
 
-   • ‘rainbow’ uses a more colorful foreground in combination with bold
-     typographic weight.
+   *note Option for scaled headings: Scaled headings.
 
-   • ‘rainbow-no-bold’ is the same as ‘rainbow’ without a bold
-     typographic weight.
-
-   • ‘rainbow-line’ is the same as ‘rainbow’ plus an overline.
-
-   • ‘rainbow-line-no-bold’ is the same as ‘rainbow-line’ without the
-     bold weight.
-
-   • ‘highlight’ retains the default style of a fairly desaturated
-     foreground combined with a bold weight and adds to it a subtle
-     accented background.
-
-   • ‘highlight-no-bold’ is the same as ‘highlight’ without a bold
-     weight.
-
-   • ‘rainbow-highlight’ is the same as ‘highlight’ but with a more
-     colorful foreground.
-
-   • ‘rainbow-highlight-no-bold’ is the same as ‘rainbow-highlight’
-     without a bold weight.
-
-   • ‘section’ retains the default looks and adds to them both an
-     overline and a slightly accented background.  It is, in effect, a
-     combination of the ‘line’ and ‘highlight’ values.
-
-   • ‘section-no-bold’ is the same as ‘section’ without a bold weight.
-
-   • ‘rainbow-section’ is the same as ‘section’ but with a more colorful
-     foreground.
-
-   • ‘rainbow-section-no-bold’ is the same as ‘rainbow-section’ without
-     a bold weight.
-
-   • ‘no-color’ does not apply any color to the heading, meaning that it
-     uses the foreground of the ‘default’ face.  It still renders the
-     text with a bold typographic weight.
-
-   • ‘no-color-no-bold’ is like ‘no-color’ but without the bold weight.
-
-   Remember to also inspect relevant variables that Org provides, such
-as: ‘org-fontify-whole-heading-line’ and ‘org-fontify-done-headline’.
+   *note Option for variable-pitch font in headings: Headings' typeface.
 
 
 File: modus-themes.info,  Node: Scaled headings,  Next: UI typeface,  Prev: Heading styles,  Up: Customization Options
@@ -4966,87 +4931,87 @@ Node: Enable and load12344
 Node: Sample configuration for use-package15333
 Node: Differences between loading and enabling16701
 Node: Customization Options18741
-Node: Custom reload theme25146
-Node: Success' color-code25707
-Node: Bold constructs26644
-Node: Italic constructs27433
-Node: Syntax styles28151
-Node: No mixed fonts30225
-Node: Link styles31320
-Node: Command prompts32894
-Node: Mode line34628
-Node: Completion UIs38726
-Node: Mail citations40597
-Node: Fringes41450
-Node: Language checkers42112
-Node: Line highlighting44192
-Node: Line numbers45748
-Node: Matching parentheses46826
-Node: Active region48159
-Node: Diffs49529
-Node: Org mode blocks51468
-Node: Org agenda53346
-Node: Org agenda habits58973
-Node: Heading styles60939
-Node: Scaled headings65169
-Node: Scaled heading sizes65772
-Node: UI typeface69028
-Node: Headings' typeface69874
-Node: Advanced customization (do-it-yourself)70498
-Node: Per-theme customization settings (DIY)71903
-Node: Case-by-case face specs using the themes' palette (DIY)73249
-Node: Face specs at scale using the themes' palette (DIY)77713
-Node: Remap face with local value (DIY)82530
-Node: Cycle through arbitrary colors (DIY)85008
-Node: Override colors (DIY)91574
-Node: Override color saturation (DIY)96467
-Node: Font configurations for Org and others (DIY)102220
-Ref: Font configurations for Org and others (DIY)-Footnote-1104868
-Node: Configure bold and italic faces (DIY)105055
-Node: Custom Org user faces (DIY)109062
-Node: Update Org block delimiter fontification (DIY)112818
-Node: Measure color contrast (DIY)114778
-Node: Load theme depending on time of day (DIY)117572
-Node: Backdrop for pdf-tools (DIY)118612
-Node: A theme-agnostic hook for theme loading (DIY)121374
-Node: Face coverage123764
-Node: Supported packages124233
-Node: Indirectly covered packages131022
-Node: Notes on individual packages131576
-Node: Note on avy hints132422
-Node: Note on inline Latex in Org buffers133580
-Node: Note on dimmerel134166
-Node: Note on display-fill-column-indicator-mode135651
-Node: Note on mmm-modeel background colors137272
-Node: Note for prism139651
-Node: Note for god-mode142877
-Node: Note on company-mode overlay pop-up144549
-Ref: Note on company-mode overlay pop-up-Footnote-1145237
-Ref: Note on company-mode overlay pop-up-Footnote-2145304
-Node: Note on ERC escaped color sequences145359
-Ref: Note on ERC escaped color sequences-Footnote-1146785
-Node: Note on powerline or spaceline146895
-Node: Note on SHR colors147309
-Node: Note on EWW and Elfeed fonts (SHR fonts)147744
-Node: Note on Helm grep148489
-Node: Note on vc-annotate-background-mode149976
-Node: Note on pdf-tools link hints150861
-Node: Frequently Asked Questions (FAQ)153293
-Node: Is the contrast ratio about adjacent colors?153867
-Node: What does it mean to avoid exaggerations?155380
-Node: Why are colors mostly variants of blue magenta cyan?157215
-Node: What is the best setup for legibility?161562
-Node: Contributing164169
-Node: Sources of the themes164572
-Node: Issues you can help with165310
-Node: Patches require copyright assignment to the FSF166510
-Node: Acknowledgements168805
-Node: Meta171315
-Node: GNU Free Documentation License173312
-Node: Indices198664
-Node: Function index198843
-Node: Variable index200080
-Node: Concept index202294
+Node: Custom reload theme25163
+Node: Success' color-code25724
+Node: Bold constructs26661
+Node: Italic constructs27450
+Node: Syntax styles28168
+Node: No mixed fonts30242
+Node: Link styles31337
+Node: Command prompts32911
+Node: Mode line34645
+Node: Completion UIs38743
+Node: Mail citations40614
+Node: Fringes41467
+Node: Language checkers42129
+Node: Line highlighting44209
+Node: Line numbers45765
+Node: Matching parentheses46843
+Node: Active region48176
+Node: Diffs49546
+Node: Org mode blocks51485
+Node: Org agenda53363
+Node: Org agenda habits58990
+Node: Heading styles60956
+Node: Scaled headings64043
+Node: Scaled heading sizes64646
+Node: UI typeface67902
+Node: Headings' typeface68748
+Node: Advanced customization (do-it-yourself)69372
+Node: Per-theme customization settings (DIY)70777
+Node: Case-by-case face specs using the themes' palette (DIY)72123
+Node: Face specs at scale using the themes' palette (DIY)76587
+Node: Remap face with local value (DIY)81404
+Node: Cycle through arbitrary colors (DIY)83882
+Node: Override colors (DIY)90448
+Node: Override color saturation (DIY)95341
+Node: Font configurations for Org and others (DIY)101094
+Ref: Font configurations for Org and others (DIY)-Footnote-1103742
+Node: Configure bold and italic faces (DIY)103929
+Node: Custom Org user faces (DIY)107936
+Node: Update Org block delimiter fontification (DIY)111692
+Node: Measure color contrast (DIY)113652
+Node: Load theme depending on time of day (DIY)116446
+Node: Backdrop for pdf-tools (DIY)117486
+Node: A theme-agnostic hook for theme loading (DIY)120248
+Node: Face coverage122638
+Node: Supported packages123107
+Node: Indirectly covered packages129896
+Node: Notes on individual packages130450
+Node: Note on avy hints131296
+Node: Note on inline Latex in Org buffers132454
+Node: Note on dimmerel133040
+Node: Note on display-fill-column-indicator-mode134525
+Node: Note on mmm-modeel background colors136146
+Node: Note for prism138525
+Node: Note for god-mode141751
+Node: Note on company-mode overlay pop-up143423
+Ref: Note on company-mode overlay pop-up-Footnote-1144111
+Ref: Note on company-mode overlay pop-up-Footnote-2144178
+Node: Note on ERC escaped color sequences144233
+Ref: Note on ERC escaped color sequences-Footnote-1145659
+Node: Note on powerline or spaceline145769
+Node: Note on SHR colors146183
+Node: Note on EWW and Elfeed fonts (SHR fonts)146618
+Node: Note on Helm grep147363
+Node: Note on vc-annotate-background-mode148850
+Node: Note on pdf-tools link hints149735
+Node: Frequently Asked Questions (FAQ)152167
+Node: Is the contrast ratio about adjacent colors?152741
+Node: What does it mean to avoid exaggerations?154254
+Node: Why are colors mostly variants of blue magenta cyan?156089
+Node: What is the best setup for legibility?160436
+Node: Contributing163043
+Node: Sources of the themes163446
+Node: Issues you can help with164184
+Node: Patches require copyright assignment to the FSF165384
+Node: Acknowledgements167679
+Node: Meta170189
+Node: GNU Free Documentation License172186
+Node: Indices197538
+Node: Function index197717
+Node: Variable index198954
+Node: Concept index201168
 
 End Tag Table
 
