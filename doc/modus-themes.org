@@ -605,8 +605,8 @@ The property ~alt-syntax~ changes the combination of colors beyond strings
 and comments, so that the effective palette is broadened to provide
 greater variety relative to the default.
 
-Combinations of any of those properties can be expressed in a list, as
-in those examples:
+Combinations of any of those properties are expressed as a list, like in
+these examples:
 
 #+begin_src emacs-lisp
 (faint)
@@ -749,8 +749,8 @@ The property ~bold~ makes the text use a bold typographic weight.
 Similarly, ~italic~ adds a slant to the font's forms (italic or oblique
 forms, depending on the typeface).
 
-Combinations of any of those properties can be expressed in a list, as
-in those examples:
+Combinations of any of those properties are expressed as a list, like in
+these examples:
 
 #+begin_src emacs-lisp
 (intense)
@@ -1045,8 +1045,8 @@ color when ~accented~ is also set.
 An ~intense~ property amplifies the colors in use, which may be both the
 background and the underline.
 
-Combinations of any of those properties can be expressed in a list, as
-in those examples:
+Combinations of any of those properties are expressed as a list, like in
+these examples:
 
 #+begin_src emacs-lisp
 (intense)
@@ -1126,8 +1126,8 @@ delimiters.
 
 The ~underline~ property draws a straight line under the affected text.
 
-Combinations of any of those properties can be expressed in a
-list, as in those examples:
+Combinations of any of those properties are expressed as a list, like in
+these examples:
 
 #+begin_src emacs-lisp
 (bold)
@@ -1177,8 +1177,8 @@ allow the underlying text to retain its foreground colors.
 
 The ~accented~ property applies a more colorful background to the region.
 
-Combinations of any of those properties can be expressed in a list, as
-in those examples:
+Combinations of any of those properties are expressed as a list, like in
+these examples:
 
 #+begin_src emacs-lisp
 (no-extend)
@@ -1518,8 +1518,8 @@ that of the default for the active theme (black/white).  When ~background~
 is also set, ~monochrome~ changes its color to gray.  If both ~monochrome~
 and ~rainbow~ are set, the former takes precedence.
 
-Combinations of any of those properties are expressed in a list, as in
-those examples:
+Combinations of any of those properties are expressed as a list, like in
+these examples:
 
 #+begin_src emacs-lisp
 (no-bold)

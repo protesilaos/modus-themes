@@ -762,8 +762,8 @@ green tint to doc strings.
 strings and comments, so that the effective palette is broadened to
 provide greater variety relative to the default.
 
-   Combinations of any of those properties can be expressed in a list,
-as in those examples:
+   Combinations of any of those properties are expressed as a list, like
+in these examples:
 
      (faint)
      (green-strings yellow-comments)
@@ -899,8 +899,8 @@ the background.  Its effect is subtle, unless it is combined with the
 Similarly, ‘italic’ adds a slant to the font’s forms (italic or oblique
 forms, depending on the typeface).
 
-   Combinations of any of those properties can be expressed in a list,
-as in those examples:
+   Combinations of any of those properties are expressed as a list, like
+in these examples:
 
      (intense)
      (bold intense)
@@ -1183,8 +1183,8 @@ color when ‘accented’ is also set.
    An ‘intense’ property amplifies the colors in use, which may be both
 the background and the underline.
 
-   Combinations of any of those properties can be expressed in a list,
-as in those examples:
+   Combinations of any of those properties are expressed as a list, like
+in these examples:
 
      (intense)
      (underline intense)
@@ -1259,8 +1259,8 @@ the delimiters.
    The ‘underline’ property draws a straight line under the affected
 text.
 
-   Combinations of any of those properties can be expressed in a list,
-as in those examples:
+   Combinations of any of those properties are expressed as a list, like
+in these examples:
 
      (bold)
      (underline intense)
@@ -1306,8 +1306,8 @@ subtle to allow the underlying text to retain its foreground colors.
    The ‘accented’ property applies a more colorful background to the
 region.
 
-   Combinations of any of those properties can be expressed in a list,
-as in those examples:
+   Combinations of any of those properties are expressed as a list, like
+in these examples:
 
      (no-extend)
      (bg-only accented)
@@ -1626,8 +1626,8 @@ is that of the default for the active theme (black/white).  When
 ‘background’ is also set, ‘monochrome’ changes its color to gray.  If
 both ‘monochrome’ and ‘rainbow’ are set, the former takes precedence.
 
-   Combinations of any of those properties are expressed in a list, as
-in those examples:
+   Combinations of any of those properties are expressed as a list, like
+in these examples:
 
      (no-bold)
      (rainbow background)
@@ -4936,82 +4936,82 @@ Node: Success' color-code25734
 Node: Bold constructs26671
 Node: Italic constructs27460
 Node: Syntax styles28178
-Node: No mixed fonts30252
-Node: Link styles31347
-Node: Command prompts32921
-Node: Mode line34655
-Node: Completion UIs38753
-Node: Mail citations40624
-Node: Fringes41477
-Node: Language checkers42139
-Node: Line highlighting44219
-Node: Line numbers45775
-Node: Matching parentheses46853
-Node: Active region48186
-Node: Diffs49556
-Node: Org mode blocks51495
-Node: Org agenda53373
-Node: Org agenda habits59000
-Node: Heading styles60966
-Node: Scaled headings64053
-Node: Scaled heading sizes64656
-Node: UI typeface67912
-Node: Headings' typeface68758
-Node: Advanced customization (do-it-yourself)69382
-Node: Per-theme customization settings (DIY)70787
-Node: Case-by-case face specs using the themes' palette (DIY)72133
-Node: Face specs at scale using the themes' palette (DIY)76597
-Node: Remap face with local value (DIY)81414
-Node: Cycle through arbitrary colors (DIY)83892
-Node: Override colors (DIY)90458
-Node: Override color saturation (DIY)95351
-Node: Font configurations for Org and others (DIY)101104
-Ref: Font configurations for Org and others (DIY)-Footnote-1103752
-Node: Configure bold and italic faces (DIY)103939
-Node: Custom Org user faces (DIY)107946
-Node: Update Org block delimiter fontification (DIY)111702
-Node: Measure color contrast (DIY)113662
-Node: Load theme depending on time of day (DIY)116456
-Node: Backdrop for pdf-tools (DIY)117496
-Node: A theme-agnostic hook for theme loading (DIY)120258
-Node: Face coverage122648
-Node: Supported packages123117
-Node: Indirectly covered packages129906
-Node: Notes on individual packages130460
-Node: Note on avy hints131306
-Node: Note on inline Latex in Org buffers132464
-Node: Note on dimmerel133050
-Node: Note on display-fill-column-indicator-mode134535
-Node: Note on mmm-modeel background colors136156
-Node: Note for prism138535
-Node: Note for god-mode141761
-Node: Note on company-mode overlay pop-up143433
-Ref: Note on company-mode overlay pop-up-Footnote-1144121
-Ref: Note on company-mode overlay pop-up-Footnote-2144188
-Node: Note on ERC escaped color sequences144243
-Ref: Note on ERC escaped color sequences-Footnote-1145669
-Node: Note on powerline or spaceline145779
-Node: Note on SHR colors146193
-Node: Note on EWW and Elfeed fonts (SHR fonts)146628
-Node: Note on Helm grep147373
-Node: Note on vc-annotate-background-mode148860
-Node: Note on pdf-tools link hints149745
-Node: Frequently Asked Questions (FAQ)152177
-Node: Is the contrast ratio about adjacent colors?152751
-Node: What does it mean to avoid exaggerations?154264
-Node: Why are colors mostly variants of blue magenta cyan?156099
-Node: What is the best setup for legibility?160446
-Node: Contributing163053
-Node: Sources of the themes163456
-Node: Issues you can help with164194
-Node: Patches require copyright assignment to the FSF165394
-Node: Acknowledgements167689
-Node: Meta170199
-Node: GNU Free Documentation License172196
-Node: Indices197548
-Node: Function index197727
-Node: Variable index198964
-Node: Concept index201178
+Node: No mixed fonts30251
+Node: Link styles31346
+Node: Command prompts32920
+Node: Mode line34653
+Node: Completion UIs38751
+Node: Mail citations40622
+Node: Fringes41475
+Node: Language checkers42137
+Node: Line highlighting44217
+Node: Line numbers45772
+Node: Matching parentheses46850
+Node: Active region48182
+Node: Diffs49551
+Node: Org mode blocks51490
+Node: Org agenda53368
+Node: Org agenda habits58995
+Node: Heading styles60961
+Node: Scaled headings64050
+Node: Scaled heading sizes64653
+Node: UI typeface67909
+Node: Headings' typeface68755
+Node: Advanced customization (do-it-yourself)69379
+Node: Per-theme customization settings (DIY)70784
+Node: Case-by-case face specs using the themes' palette (DIY)72130
+Node: Face specs at scale using the themes' palette (DIY)76594
+Node: Remap face with local value (DIY)81411
+Node: Cycle through arbitrary colors (DIY)83889
+Node: Override colors (DIY)90455
+Node: Override color saturation (DIY)95348
+Node: Font configurations for Org and others (DIY)101101
+Ref: Font configurations for Org and others (DIY)-Footnote-1103749
+Node: Configure bold and italic faces (DIY)103936
+Node: Custom Org user faces (DIY)107943
+Node: Update Org block delimiter fontification (DIY)111699
+Node: Measure color contrast (DIY)113659
+Node: Load theme depending on time of day (DIY)116453
+Node: Backdrop for pdf-tools (DIY)117493
+Node: A theme-agnostic hook for theme loading (DIY)120255
+Node: Face coverage122645
+Node: Supported packages123114
+Node: Indirectly covered packages129903
+Node: Notes on individual packages130457
+Node: Note on avy hints131303
+Node: Note on inline Latex in Org buffers132461
+Node: Note on dimmerel133047
+Node: Note on display-fill-column-indicator-mode134532
+Node: Note on mmm-modeel background colors136153
+Node: Note for prism138532
+Node: Note for god-mode141758
+Node: Note on company-mode overlay pop-up143430
+Ref: Note on company-mode overlay pop-up-Footnote-1144118
+Ref: Note on company-mode overlay pop-up-Footnote-2144185
+Node: Note on ERC escaped color sequences144240
+Ref: Note on ERC escaped color sequences-Footnote-1145666
+Node: Note on powerline or spaceline145776
+Node: Note on SHR colors146190
+Node: Note on EWW and Elfeed fonts (SHR fonts)146625
+Node: Note on Helm grep147370
+Node: Note on vc-annotate-background-mode148857
+Node: Note on pdf-tools link hints149742
+Node: Frequently Asked Questions (FAQ)152174
+Node: Is the contrast ratio about adjacent colors?152748
+Node: What does it mean to avoid exaggerations?154261
+Node: Why are colors mostly variants of blue magenta cyan?156096
+Node: What is the best setup for legibility?160443
+Node: Contributing163050
+Node: Sources of the themes163453
+Node: Issues you can help with164191
+Node: Patches require copyright assignment to the FSF165391
+Node: Acknowledgements167686
+Node: Meta170196
+Node: GNU Free Documentation License172193
+Node: Indices197545
+Node: Function index197724
+Node: Variable index198961
+Node: Concept index201175
 
 End Tag Table
 

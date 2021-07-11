@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-07-11 11:18:49 +0300>
+;; Last-Modified: <2021-07-11 17:39:57 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -1859,8 +1859,8 @@ When `background' is also set, `monochrome' changes its color to
 gray.  If both `monochrome' and `rainbow' are set, the former
 takes precedence.
 
-Combinations of any of those properties are expressed in a list,
-as in those examples:
+Combinations of any of those properties are expressed as a list,
+like in these examples:
 
     (no-bold)
     (rainbow background)
@@ -2551,8 +2551,8 @@ The property `bold' makes the text use a bold typographic weight.
 Similarly, `italic' adds a slant to the font's forms (italic or
 oblique forms, depending on the typeface).
 
-Combinations of any of those properties can be expressed in a
-list, as in those examples:
+Combinations of any of those properties are expressed as a list,
+like in these examples:
 
     (intense)
     (bold intense)
@@ -2606,8 +2606,8 @@ accent color when `accented' is also set.
 An `intense' property amplifies the colors in use, which may be
 both the background and the underline.
 
-Combinations of any of those properties can be expressed in a
-list, as in those examples:
+Combinations of any of those properties are expressed as a list,
+like in these examples:
 
     (intense)
     (underline intense)
@@ -2658,8 +2658,8 @@ to the delimiters.
 The `underline' property draws a straight line under the affected
 text.
 
-Combinations of any of those properties can be expressed in a
-list, as in those examples:
+Combinations of any of those properties are expressed as a list,
+like in these examples:
 
     (bold)
     (underline intense)
@@ -2705,8 +2705,8 @@ The property `alt-syntax' changes the combination of colors
 beyond strings and comments, so that the effective palette is
 broadened to provide greater variety relative to the default.
 
-Combinations of any of those properties can be expressed in a
-list, as in those examples:
+Combinations of any of those properties are expressed as a list,
+like in these examples:
 
     (faint)
     (green-strings yellow-comments)
@@ -2791,8 +2791,8 @@ colors.
 The `accented' property applies a more colorful background to the
 region.
 
-Combinations of any of those properties can be expressed in a
-list, as in those examples:
+Combinations of any of those properties are expressed as a list,
+like in these examples:
 
     (no-extend)
     (bg-only accented)
