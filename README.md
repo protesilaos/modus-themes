@@ -61,10 +61,10 @@ demonstration:
 
       modus-themes-fringes nil ; {nil,'subtle,'intense}
 
-      ;; Options for `modus-themes-lang-checkers': nil,
-      ;; 'straight-underline, 'subtle-foreground,
-      ;; 'subtle-foreground-straight-underline, 'intense-foreground,
-      ;; 'intense-foreground-straight-underline, 'colored-background
+      ;; Options for `modus-themes-lang-checkers' are either nil (the
+      ;; default), or a list of properties that may include any of those
+      ;; symbols: `straight-underline', `text-also', `background',
+      ;; `intense'
       modus-themes-lang-checkers nil
 
       ;; Options for `modus-themes-mode-line' are either nil, or a list

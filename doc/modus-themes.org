@@ -387,10 +387,10 @@ this manual.
 
       modus-themes-fringes nil ; {nil,'subtle,'intense}
 
-      ;; Options for `modus-themes-lang-checkers': nil,
-      ;; 'straight-underline, 'subtle-foreground,
-      ;; 'subtle-foreground-straight-underline, 'intense-foreground,
-      ;; 'intense-foreground-straight-underline, 'colored-background
+      ;; Options for `modus-themes-lang-checkers' are either nil (the
+      ;; default), or a list of properties that may include any of those
+      ;; symbols: `straight-underline', `text-also', `background',
+      ;; `intense'
       modus-themes-lang-checkers nil
 
       ;; Options for `modus-themes-mode-line' are either nil, or a list
@@ -997,44 +997,55 @@ names imply.
 :end:
 #+vindex: modus-themes-lang-checkers
 
+[ Refactored as part of {{{development-version}}} ]
+
 Symbol: ~modus-themes-lang-checkers~
 
-Possible values:
+Possible values are expressed as a list of properties (default is ~nil~ or
+an empty list).  The list can include any of the following symbols:
 
-1. ~nil~ (default)
-2. ~subtle-foreground~
-3. ~intense-foreground~
-4. ~straight-underline~
-5. ~subtle-foreground-straight-underline~
-6. ~intense-foreground-straight-underline~
-7. ~colored-background~
++ ~straight-underline~
++ ~text-also~
++ ~background~
++ ~intense~
 
-Nil (the default) applies a color-coded underline to the affected text,
-while it leaves the original foreground intact.  If the display spec
-where Emacs runs in has support for it (e.g. Emacs GUI), the underline's
-style is that of a wave, otherwise it is a straight line.
+The default (a ~nil~ value or an empty list) applies a color-coded
+underline to the affected text, while it leaves the original foreground
+intact.  If the display spec of Emacs has support for it, the
+underline's style is that of a wave, otherwise it is a straight line.
 
-Options ~subtle-foreground~ and ~intense-foreground~ follow the same
-color-coding pattern and wavy underline of the default, while extending
-it with a corresponding foreground value for the affected text.  The
-difference between the two options is one of degree, as their names
-suggest.
+The property ~straight-underline~ ensures that the underline under the
+affected text is always drawn as a straight line.
 
-Option ~straight-underline~ is like the default but always applies a
-straight line under the affected text.  Same principle for
-~subtle-foreground-straight-underline~ and its counterpart
-~intense-foreground-straight-underline~.
+The property ~text-also~ applies the same color of the underline to the
+affected text.
 
-Option ~colored-background~ uses a straight underline, a tinted
-background, and a suitable foreground.  All are color-coded.  This is
-the most intense combination of face properties.
+The property ~background~ adds a color-coded background.
 
-The present variable affects packages and/or face groups such as those
-of =flyspell=, =flymake=, =flycheck=, ~artbollocks-mode~, and ~writegood-mode~.
+The property ~intense~ amplifies the applicable colors if ~background~
+and/or ~text-only~ are set.  If ~intense~ is set on its own, then it implies
+~text-only~.
 
 To disable fringe indicators for Flymake or Flycheck, refer to variables
 ~flymake-fringe-indicator-position~ and ~flycheck-indication-mode~,
 respectively.
+
+Combinations of any of those properties can be expressed in a
+list, as in those examples:
+
+#+begin_src emacs-lisp
+(background)
+(straight-underline intense)
+(background text-also straight-underline)
+#+end_src
+
+The order in which the properties are set is not significant.
+
+In user configuration files the form may look like this:
+
+#+begin_src emacs-lisp
+(setq modus-themes-lang-checkers '(text-also background))
+#+end_src
 
 NOTE: The placement of the straight underline, though not the wave
 style, is controlled by the built-in variables ~underline-minimum-offset~,
