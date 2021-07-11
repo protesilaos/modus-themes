@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-07-10 18:40:11 +0300>
+;; Last-Modified: <2021-07-11 08:21:02 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -33,8 +33,7 @@
 ;; official Info manual for further documentation (distributed with the
 ;; themes, or available at: <https://protesilaos.com/modus-themes>).
 ;;
-;; The themes share the following customization variables, all of which
-;; are disabled by default (nil):
+;; The themes share the following customization variables:
 ;;
 ;;     modus-themes-inhibit-reload                 (boolean)
 ;;     modus-themes-italic-constructs              (boolean)
