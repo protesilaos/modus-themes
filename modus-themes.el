@@ -2249,22 +2249,19 @@ pronounced grayscale value."
 (defcustom modus-themes-lang-checkers nil
   "Control the style of spelling and code checkers/linters.
 
-Nil (the default) applies a color-coded underline to the affected
+The value is a list of properties, each designated by a symbol.
+The default (nil) applies a color-coded underline to the affected
 text, while it leaves the original foreground in tact.  If the
 display spec of Emacs has support for it, the underline's style
 is that of a wave, otherwise it is a straight line.
 
-Options `subtle-foreground' and `intense-foreground' add a
-color-coded underline while also changing the text's foreground
-accordingly.  The style of the underline is the same as with the
-default option.
+The property `straight' ensures that the underline under the
+affected text is drawn as a straight line.
 
-Option `straight-underline' is like the default but always
-applies a straight line under the affected text.  Same principle
-for `subtle-foreground-straight-underline' and its counterpart
-`intense-foreground-straight-underline'.
+The properties `subtle' and `intense' add a color-coded underline
+while also changing the text's foreground accordingly.
 
-Option `colored-background' uses a straight underline, a
+The property `background' uses a straight underline, a
 background, and a foreground.  All are color-coded.  This is the
 most intense combination of face properties.
 
@@ -2272,21 +2269,32 @@ To disable fringe indicators for Flymake or Flycheck, refer to
 variables `flymake-fringe-indicator-position' and
 `flycheck-indication-mode', respectively.
 
+Combinations of any of those properties can be expressed in a
+list, as in those examples:
+
+    (subtle)
+    (straight intense)
+    (background intense)
+
+The order in which the properties are set is not significant.
+
+In user configuration files the form may look like this:
+
+    (setq modus-themes-lang-checkers '(straight intense))
+
 NOTE: The placement of the straight underline, though not the
 wave style, is controlled by the built-in variables
 `underline-minimum-offset', `x-underline-at-descent-line',
 `x-use-underline-position-properties'."
   :group 'modus-themes
-  :package-version '(modus-themes . "1.1.0")
+  :package-version '(modus-themes . "1.5.0")
   :version "28.1"
-  :type '(choice
-          (const :format "[%v] %t\n" :tag "Only color-coded wavy underline (default)" nil)
-          (const :format "[%v] %t\n" :tag "Like the default, but with a straight underline" straight-underline)
-          (const :format "[%v] %t\n" :tag "Color-coded wavy underline; subtle foreground" subtle-foreground)
-          (const :format "[%v] %t\n" :tag "Combines `straight-underline' and `subtle-foreground'" subtle-foreground-straight-underline)
-          (const :format "[%v] %t\n" :tag "Color-coded wavy underline; intense foreground" intense-foreground)
-          (const :format "[%v] %t\n" :tag "Combines `straight-underline' and `intense-foreground'" intense-foreground-straight-underline)
-          (const :format "[%v] %t\n" :tag "Color-coded background, foreground, straight underline" colored-background))
+  :type '(set :tag "Properties" :greedy t
+              (const :tag "Straight underline" straight)
+              (choice :tag "Foreground hue" :value subtle
+                      (const :tag "Subtle foreground" subtle)
+                      (const :tag "Intense foreground" intense))
+              (const :tag "With background" background))
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Language checkers"))
@@ -2954,20 +2962,31 @@ UNDERLINE is a color-code value for the affected text's underline
 property.  SUBTLEFG and INTENSEFG follow the same color-coding
 pattern and represent a value that is faint or vibrant
 respectively.  BG is a color-coded background."
-  (pcase modus-themes-lang-checkers
-    ('colored-background
-     (list :underline underline :background bg :foreground intensefg))
-    ('intense-foreground
-     (list :underline (list :color underline :style 'wave) :foreground intensefg))
-    ('intense-foreground-straight-underline
-     (list :underline underline :foreground intensefg))
-    ('subtle-foreground
-     (list :underline (list :color underline :style 'wave) :foreground subtlefg))
-    ('subtle-foreground-straight-underline
-     (list :underline underline :foreground subtlefg))
-    ('straight-underline
-     (list :underline underline))
-    (_ (list :underline (list :color underline :style 'wave)))))
+  (let ((modus-themes-lang-checkers
+         (if (listp modus-themes-lang-checkers)
+             modus-themes-lang-checkers
+           (pcase modus-themes-lang-checkers
+             ('colored-background '())
+             ('intense-foreground '(intense))
+             ('intense-foreground-straight-underline '(intense straight))
+             ('subtle-foreground '(subtle))
+             ('subtle-foreground-straight-underline '(subtle straight))
+             ('straight-underline '(straight))))))
+    (list :underline
+          (list :color
+                underline
+                :style
+                (if (memq 'straight modus-themes-lang-checkers)
+                    'line 'wave))
+          :background
+          (and (memq 'background modus-themes-lang-checkers)
+               bg)
+          :foreground
+          (cond
+           ((memq 'subtle modus-themes-lang-checkers)
+            subtlefg)
+           ((memq 'intense modus-themes-lang-checkers)
+            intensefg)))))
 
 (defun modus-themes--prompt (mainfg intensefg grayfg subtlebg intensebg intensebg-fg subtlebggray intensebggray)
   "Conditional use of colors for prompts.
