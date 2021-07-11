@@ -369,7 +369,7 @@ configure custom faces, where ~load-theme~ is expected, though
 
 The Modus themes are highly configurable, though they should work well
 without any further tweaks.  By default, all customization options are
-set to nil.
+set to nil, unless otherwise noted in this manual.
 
 Remember that all customization options must be evaluated before loading
 a theme ([[#h:3f3c3728-1b34-437d-9d0c-b110f5b161a9][Enable and load]]).
@@ -474,14 +474,14 @@ Symbol: ~modus-themes-inhibit-reload~
 
 Possible values:
 
-1. ~nil~ (default)
-2. ~t~
+1. ~nil~ 
+2. ~t~ (default)
 
-By default, setting a value to a user-facing variable through the Custom
-interfaces or with {{{kbd(M-x customize-set-variable)}}} will automatically
-reload the active Modus theme in order to apply the effect.
+By default, customizing a theme-related user option through the Custom
+interfaces or with {{{kbd(M-x customize-set-variable)}}} will not reload the
+currently active Modus theme.
 
-With a non-nil value (~t~), prevent such behaviour.
+Enable this behaviour by setting this variable to ~nil~.
 
 ** Option for color-coding success state (deuteranopia)
 :properties:
