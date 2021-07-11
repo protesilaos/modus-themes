@@ -1674,14 +1674,14 @@ The actual styling of the face is done by `modus-themes-faces'."
 
 ;;; Customization variables
 
-(defcustom modus-themes-inhibit-reload nil
+(defcustom modus-themes-inhibit-reload t
   "Control theme reload when setting options with Customize.
 
 By default, customizing a theme-related user option through the
-Custom interfaces or with `customize-set-variable' reloads the
-currently active Modus theme.
+Custom interfaces or with `customize-set-variable' will not
+reload the currently active Modus theme.
 
-Disable this behaviour with a non-nil value."
+Enable this behaviour by setting this variable to nil."
   :group 'modus-themes
   :package-version '(modus-themes . "1.5.0")
   :version "28.1"
@@ -1693,10 +1693,16 @@ Disable this behaviour with a non-nil value."
 Will set SYM to VAL, and reload the current theme, unless
 `modus-themes-inhibit-reload' is non-nil."
   (set-default sym val)
-  (unless modus-themes-inhibit-reload
-    (pcase (modus-themes--current-theme)
-      ('modus-operandi (modus-themes-load-operandi))
-      ('modus-vivendi (modus-themes-load-vivendi)))))
+  (unless (or modus-themes-inhibit-reload
+              ;; Check if a theme is being loaded, in which case we
+              ;; don't want to reload a theme if the setter is
+              ;; invoked. `custom--inhibit-theme-enable' is set to nil
+              ;; by `enable-theme'.
+              (null (bound-and-true-p custom--inhibit-theme-enable)))
+    (let ((modus-themes-inhibit-reload t))
+      (pcase (modus-themes--current-theme)
+        ('modus-operandi (modus-themes-load-operandi))
+        ('modus-vivendi (modus-themes-load-vivendi))))))
 
 (defcustom modus-themes-operandi-color-overrides nil
   "Override colors in the Modus Operandi palette.
@@ -3752,19 +3758,17 @@ as when they are declared in the `:config' phase)."
 (defun modus-themes-load-operandi ()
   "Load `modus-operandi' and disable `modus-vivendi'.
 Also run `modus-themes-after-load-theme-hook'."
-  (let ((modus-themes-inhibit-reload t))
-    (disable-theme 'modus-vivendi)
-    (load-theme 'modus-operandi t)
-    (run-hooks 'modus-themes-after-load-theme-hook)))
+  (disable-theme 'modus-vivendi)
+  (load-theme 'modus-operandi t)
+  (run-hooks 'modus-themes-after-load-theme-hook))
 
 ;;;###autoload
 (defun modus-themes-load-vivendi ()
   "Load `modus-vivendi' and disable `modus-operandi'.
 Also run `modus-themes-after-load-theme-hook'."
-  (let ((modus-themes-inhibit-reload t))
-    (disable-theme 'modus-operandi)
-    (load-theme 'modus-vivendi t)
-    (run-hooks 'modus-themes-after-load-theme-hook)))
+  (disable-theme 'modus-operandi)
+  (load-theme 'modus-vivendi t)
+  (run-hooks 'modus-themes-after-load-theme-hook))
 
 (defun modus-themes--load-prompt ()
   "Helper for `modus-themes-toggle'."
