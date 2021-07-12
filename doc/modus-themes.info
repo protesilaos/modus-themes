@@ -3441,7 +3441,7 @@ latter.
      (setq calendar-weekend-days nil)
 
      ;; All are treated like weekends (gray color)
-     (setq calendar-weekend-days '(0 1 2 3 4 5 6))
+     (setq calendar-weekend-days (number-sequence 0 6))
 
      ;; The default
      (setq calendar-weekend-days '(0 6))
@@ -5022,39 +5022,39 @@ Node: Indirectly covered packages130347
 Node: Notes on individual packages130901
 Node: Note on avy hints131844
 Node: Note on calendarel weekday and weekend colors133012
-Node: Note on inline Latex in Org buffers133925
-Node: Note on dimmerel134539
-Node: Note on display-fill-column-indicator-mode136024
-Node: Note on mmm-modeel background colors137645
-Node: Note for prism140024
-Node: Note for god-mode143250
-Node: Note on company-mode overlay pop-up144922
-Ref: Note on company-mode overlay pop-up-Footnote-1145610
-Ref: Note on company-mode overlay pop-up-Footnote-2145677
-Node: Note on ERC escaped color sequences145732
-Ref: Note on ERC escaped color sequences-Footnote-1147160
-Node: Note on powerline or spaceline147270
-Node: Note on SHR colors147684
-Node: Note on EWW and Elfeed fonts (SHR fonts)148119
-Node: Note on Helm grep148864
-Node: Note on vc-annotate-background-mode150351
-Node: Note on pdf-tools link hints151236
-Node: Frequently Asked Questions (FAQ)153668
-Node: Is the contrast ratio about adjacent colors?154242
-Node: What does it mean to avoid exaggerations?155755
-Node: Why are colors mostly variants of blue magenta cyan?157590
-Node: What is the best setup for legibility?161937
-Node: Contributing164544
-Node: Sources of the themes164947
-Node: Issues you can help with165685
-Node: Patches require copyright assignment to the FSF166885
-Node: Acknowledgements169180
-Node: Meta171690
-Node: GNU Free Documentation License173687
-Node: Indices199039
-Node: Function index199218
-Node: Variable index200455
-Node: Concept index202669
+Node: Note on inline Latex in Org buffers133930
+Node: Note on dimmerel134544
+Node: Note on display-fill-column-indicator-mode136029
+Node: Note on mmm-modeel background colors137650
+Node: Note for prism140029
+Node: Note for god-mode143255
+Node: Note on company-mode overlay pop-up144927
+Ref: Note on company-mode overlay pop-up-Footnote-1145615
+Ref: Note on company-mode overlay pop-up-Footnote-2145682
+Node: Note on ERC escaped color sequences145737
+Ref: Note on ERC escaped color sequences-Footnote-1147165
+Node: Note on powerline or spaceline147275
+Node: Note on SHR colors147689
+Node: Note on EWW and Elfeed fonts (SHR fonts)148124
+Node: Note on Helm grep148869
+Node: Note on vc-annotate-background-mode150356
+Node: Note on pdf-tools link hints151241
+Node: Frequently Asked Questions (FAQ)153673
+Node: Is the contrast ratio about adjacent colors?154247
+Node: What does it mean to avoid exaggerations?155760
+Node: Why are colors mostly variants of blue magenta cyan?157595
+Node: What is the best setup for legibility?161942
+Node: Contributing164549
+Node: Sources of the themes164952
+Node: Issues you can help with165690
+Node: Patches require copyright assignment to the FSF166890
+Node: Acknowledgements169185
+Node: Meta171695
+Node: GNU Free Documentation License173692
+Node: Indices199044
+Node: Function index199223
+Node: Variable index200460
+Node: Concept index202674
 
 End Tag Table
 

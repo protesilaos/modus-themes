@@ -3362,7 +3362,7 @@ Users who prefer all days to look the same can configure the variable
 (setq calendar-weekend-days nil)
 
 ;; All are treated like weekends (gray color)
-(setq calendar-weekend-days '(0 1 2 3 4 5 6))
+(setq calendar-weekend-days (number-sequence 0 6))
 
 ;; The default
 (setq calendar-weekend-days '(0 6))

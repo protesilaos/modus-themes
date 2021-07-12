@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-07-11 21:22:34 +0300>
+;; Last-Modified: <2021-07-12 16:51:47 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -4384,8 +4384,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; calendar and diary
     `(calendar-month-header ((,class :inherit modus-themes-pseudo-header)))
     `(calendar-today ((,class :inherit bold :underline t)))
-    `(calendar-weekday-header ((,class :foreground ,fg-unfocused)))
-    `(calendar-weekend-header ((,class :foreground ,fg-unfocused)))
+    `(calendar-weekday-header ((,class :foreground ,cyan)))
+    `(calendar-weekend-header ((,class :foreground ,fg-alt)))
     `(diary ((,class :background ,blue-nuanced-bg :foreground ,blue-alt-other)))
     `(diary-anniversary ((,class :foreground ,red-alt-other)))
     `(diary-time ((,class :foreground ,cyan)))
