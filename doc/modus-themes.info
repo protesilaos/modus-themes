@@ -3431,19 +3431,22 @@ File: modus-themes.info,  Node: Note on calendarel weekday and weekend colors,  
 ==================================================
 
 By default, the ‘M-x calendar’ interface differentiates weekdays from
-weekends by applying a cyan color to the former and a gray to the
-latter.
+weekends by applying a gray color to the former and a faint red to the
+latter.  The idea for this approach is that the weekend should serve as
+a subtle warning that no work is supposed to be done on that day, per
+the design of traditional calendars.
 
    Users who prefer all days to look the same can configure the variable
-‘calendar-weekend-days’ to either use cyan or gray uniformly.
+‘calendar-weekend-days’ to either use gray of weekdays or the faint red
+of weekends uniformly.
 
-     ;; All are treated like weekdays (cyan color)
+     ;; All are treated like weekdays (gray color)
      (setq calendar-weekend-days nil)
 
-     ;; All are treated like weekends (gray color)
+     ;; All are treated like weekends (red-faint color)
      (setq calendar-weekend-days (number-sequence 0 6))
 
-     ;; The default
+     ;; The default marks the Saturday and Sunday as the weekend
      (setq calendar-weekend-days '(0 6))
 
    For changes to take effect, the Calendar buffer needs to be generated
@@ -5022,39 +5025,39 @@ Node: Indirectly covered packages130347
 Node: Notes on individual packages130901
 Node: Note on avy hints131844
 Node: Note on calendarel weekday and weekend colors133012
-Node: Note on inline Latex in Org buffers133930
-Node: Note on dimmerel134544
-Node: Note on display-fill-column-indicator-mode136029
-Node: Note on mmm-modeel background colors137650
-Node: Note for prism140029
-Node: Note for god-mode143255
-Node: Note on company-mode overlay pop-up144927
-Ref: Note on company-mode overlay pop-up-Footnote-1145615
-Ref: Note on company-mode overlay pop-up-Footnote-2145682
-Node: Note on ERC escaped color sequences145737
-Ref: Note on ERC escaped color sequences-Footnote-1147165
-Node: Note on powerline or spaceline147275
-Node: Note on SHR colors147689
-Node: Note on EWW and Elfeed fonts (SHR fonts)148124
-Node: Note on Helm grep148869
-Node: Note on vc-annotate-background-mode150356
-Node: Note on pdf-tools link hints151241
-Node: Frequently Asked Questions (FAQ)153673
-Node: Is the contrast ratio about adjacent colors?154247
-Node: What does it mean to avoid exaggerations?155760
-Node: Why are colors mostly variants of blue magenta cyan?157595
-Node: What is the best setup for legibility?161942
-Node: Contributing164549
-Node: Sources of the themes164952
-Node: Issues you can help with165690
-Node: Patches require copyright assignment to the FSF166890
-Node: Acknowledgements169185
-Node: Meta171695
-Node: GNU Free Documentation License173692
-Node: Indices199044
-Node: Function index199223
-Node: Variable index200460
-Node: Concept index202674
+Node: Note on inline Latex in Org buffers134189
+Node: Note on dimmerel134803
+Node: Note on display-fill-column-indicator-mode136288
+Node: Note on mmm-modeel background colors137909
+Node: Note for prism140288
+Node: Note for god-mode143514
+Node: Note on company-mode overlay pop-up145186
+Ref: Note on company-mode overlay pop-up-Footnote-1145874
+Ref: Note on company-mode overlay pop-up-Footnote-2145941
+Node: Note on ERC escaped color sequences145996
+Ref: Note on ERC escaped color sequences-Footnote-1147424
+Node: Note on powerline or spaceline147534
+Node: Note on SHR colors147948
+Node: Note on EWW and Elfeed fonts (SHR fonts)148383
+Node: Note on Helm grep149128
+Node: Note on vc-annotate-background-mode150615
+Node: Note on pdf-tools link hints151500
+Node: Frequently Asked Questions (FAQ)153932
+Node: Is the contrast ratio about adjacent colors?154506
+Node: What does it mean to avoid exaggerations?156019
+Node: Why are colors mostly variants of blue magenta cyan?157854
+Node: What is the best setup for legibility?162201
+Node: Contributing164808
+Node: Sources of the themes165211
+Node: Issues you can help with165949
+Node: Patches require copyright assignment to the FSF167149
+Node: Acknowledgements169444
+Node: Meta171954
+Node: GNU Free Documentation License173951
+Node: Indices199303
+Node: Function index199482
+Node: Variable index200719
+Node: Concept index202933
 
 End Tag Table
 

@@ -3351,20 +3351,23 @@ is less noise: ~avy-goto-char-timer~ is an excellent alternative to
 :end:
 
 By default, the {{{kbd(M-x calendar)}}} interface differentiates weekdays from
-weekends by applying a cyan color to the former and a gray to the
-latter.
+weekends by applying a gray color to the former and a faint red to the
+latter.  The idea for this approach is that the weekend should serve as
+a subtle warning that no work is supposed to be done on that day, per
+the design of traditional calendars.
 
 Users who prefer all days to look the same can configure the variable
-~calendar-weekend-days~ to either use cyan or gray uniformly.
+~calendar-weekend-days~ to either use gray of weekdays or the faint red of
+weekends uniformly.
 
 #+begin_src emacs-lisp
-;; All are treated like weekdays (cyan color)
+;; All are treated like weekdays (gray color)
 (setq calendar-weekend-days nil)
 
-;; All are treated like weekends (gray color)
+;; All are treated like weekends (red-faint color)
 (setq calendar-weekend-days (number-sequence 0 6))
 
-;; The default
+;; The default marks the Saturday and Sunday as the weekend
 (setq calendar-weekend-days '(0 6))
 #+end_src
 
