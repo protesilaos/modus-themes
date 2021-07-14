@@ -2003,7 +2003,7 @@ activates ~hl-line-mode~, but we wish to keep it distinct from other
 buffers.  This is where ~face-remap-add-relative~ can be applied and may
 be combined with ~modus-themes-with-colors~ to deliver consistent results.
 
-[[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Face specs at scale using the themes' palette (DIY)]].
+[[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Face specs at scale using the themes' palette]].
 
 In this example we will write a simple interactive function that adjusts
 the background color of the ~region~ face.  This is the sample code:
@@ -2576,7 +2576,7 @@ write their configurations to a function and hook it up to the
 themes set the default styles of faces (otherwise changing themes would
 not be possible).
 
-[[#h:86f6906b-f090-46cc-9816-1fe8aeb38776][A theme-agnostic hook for theme loading (DIY)]].
+[[#h:86f6906b-f090-46cc-9816-1fe8aeb38776][A theme-agnostic hook for theme loading]].
 
 This is a minimal setup to preserve font configurations across theme
 load phases.  For a more permanent setup, it is better to employ the
@@ -2849,7 +2849,7 @@ the case for the time being.  We must thus employ the face remapping
 technique that is documented elsewhere in this document to change the
 buffer-local value of the ~default~ face.
 
-[[#h:7a93cb6f-4eca-4d56-a85c-9dcd813d6b0f][Remap face with local value (DIY)]].
+[[#h:7a93cb6f-4eca-4d56-a85c-9dcd813d6b0f][Remap face with local value]].
 
 To remap the buffer's backdrop, we start with a function like this one:
 
