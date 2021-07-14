@@ -3150,6 +3150,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • git-timemachine
    • git-walktree
    • gnus
+   • gotest
    • golden-ratio-scroll-screen
    • helm*
    • helm-ls-git
@@ -4269,16 +4270,16 @@ Ideas and user feedback
      Mendler, Dario Gjorgjevski, David Edmondson, Davor Rotim, Divan
      Santana, Emanuele Michele Alberto Monterosso, Farasha Euker,
      Gautier Ponsinet, Gerry Agbobada, Gianluca Recchia, Gustavo Barros,
-     Hörmetjan Yiltiz, Ilja Kocken, Iris Garcia, Jeremy Friesen, John
-     Haman, Joshua O’Connor, Kevin Fleming, Kévin Le Gouguec, Kostadin
-     Ninev, Len Trigg, Manuel Uberti, Mark Burton, Markus Beppler, Mauro
-     Aranda, Michael Goldenberg, Morgan Smith, Murilo Pereira, Nicky van
-     Foreest, Nicolas De Jaeghere, Paul Poloskov, Pengji Zhang, Pete
-     Kazmier, Peter Wu, Philip Kaludercic, Pierre Téchoueyres, Roman
-     Rudakov, Ryan Phillips, Rudolf Adamkovič, Sam Kleinman, Shreyas
-     Ragavan, Simon Pugnet, Tassilo Horn, Thibaut Verron, Thomas
-     Heartman, Trey Merkley, Togan Muftuoglu, Toon Claes, Uri Sharf,
-     Utkarsh Singh, Vincent Foley.  As well as users: Ben,
+     Hörmetjan Yiltiz, Ilja Kocken, Iris Garcia, Jeremy Friesen, Jerry
+     Zhang, John Haman, Joshua O’Connor, Kevin Fleming, Kévin Le
+     Gouguec, Kostadin Ninev, Len Trigg, Manuel Uberti, Mark Burton,
+     Markus Beppler, Mauro Aranda, Michael Goldenberg, Morgan Smith,
+     Murilo Pereira, Nicky van Foreest, Nicolas De Jaeghere, Paul
+     Poloskov, Pengji Zhang, Pete Kazmier, Peter Wu, Philip Kaludercic,
+     Pierre Téchoueyres, Roman Rudakov, Ryan Phillips, Rudolf Adamkovič,
+     Sam Kleinman, Shreyas Ragavan, Simon Pugnet, Tassilo Horn, Thibaut
+     Verron, Thomas Heartman, Trey Merkley, Togan Muftuoglu, Toon Claes,
+     Uri Sharf, Utkarsh Singh, Vincent Foley.  As well as users: Ben,
      CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji,
      Nick, TheBlob42, Trey, bepolymathe, doolio, fleimgruber, iSeeU,
      jixiuf, okamsn, pRot0ta1p.
@@ -5021,43 +5022,43 @@ Node: Backdrop for pdf-tools (DIY)117937
 Node: A theme-agnostic hook for theme loading (DIY)120699
 Node: Face coverage123089
 Node: Supported packages123558
-Node: Indirectly covered packages130347
-Node: Notes on individual packages130901
-Node: Note on avy hints131844
-Node: Note on calendarel weekday and weekend colors133012
-Node: Note on inline Latex in Org buffers134189
-Node: Note on dimmerel134803
-Node: Note on display-fill-column-indicator-mode136288
-Node: Note on mmm-modeel background colors137909
-Node: Note for prism140288
-Node: Note for god-mode143514
-Node: Note on company-mode overlay pop-up145186
-Ref: Note on company-mode overlay pop-up-Footnote-1145874
-Ref: Note on company-mode overlay pop-up-Footnote-2145941
-Node: Note on ERC escaped color sequences145996
-Ref: Note on ERC escaped color sequences-Footnote-1147424
-Node: Note on powerline or spaceline147534
-Node: Note on SHR colors147948
-Node: Note on EWW and Elfeed fonts (SHR fonts)148383
-Node: Note on Helm grep149128
-Node: Note on vc-annotate-background-mode150615
-Node: Note on pdf-tools link hints151500
-Node: Frequently Asked Questions (FAQ)153932
-Node: Is the contrast ratio about adjacent colors?154506
-Node: What does it mean to avoid exaggerations?156019
-Node: Why are colors mostly variants of blue magenta cyan?157854
-Node: What is the best setup for legibility?162201
-Node: Contributing164808
-Node: Sources of the themes165211
-Node: Issues you can help with165949
-Node: Patches require copyright assignment to the FSF167149
-Node: Acknowledgements169444
-Node: Meta171972
-Node: GNU Free Documentation License173969
-Node: Indices199321
-Node: Function index199500
-Node: Variable index200737
-Node: Concept index202951
+Node: Indirectly covered packages130361
+Node: Notes on individual packages130915
+Node: Note on avy hints131858
+Node: Note on calendarel weekday and weekend colors133026
+Node: Note on inline Latex in Org buffers134203
+Node: Note on dimmerel134817
+Node: Note on display-fill-column-indicator-mode136302
+Node: Note on mmm-modeel background colors137923
+Node: Note for prism140302
+Node: Note for god-mode143528
+Node: Note on company-mode overlay pop-up145200
+Ref: Note on company-mode overlay pop-up-Footnote-1145888
+Ref: Note on company-mode overlay pop-up-Footnote-2145955
+Node: Note on ERC escaped color sequences146010
+Ref: Note on ERC escaped color sequences-Footnote-1147438
+Node: Note on powerline or spaceline147548
+Node: Note on SHR colors147962
+Node: Note on EWW and Elfeed fonts (SHR fonts)148397
+Node: Note on Helm grep149142
+Node: Note on vc-annotate-background-mode150629
+Node: Note on pdf-tools link hints151514
+Node: Frequently Asked Questions (FAQ)153946
+Node: Is the contrast ratio about adjacent colors?154520
+Node: What does it mean to avoid exaggerations?156033
+Node: Why are colors mostly variants of blue magenta cyan?157868
+Node: What is the best setup for legibility?162215
+Node: Contributing164822
+Node: Sources of the themes165225
+Node: Issues you can help with165963
+Node: Patches require copyright assignment to the FSF167163
+Node: Acknowledgements169458
+Node: Meta171999
+Node: GNU Free Documentation License173996
+Node: Indices199348
+Node: Function index199527
+Node: Variable index200764
+Node: Concept index202978
 
 End Tag Table
 

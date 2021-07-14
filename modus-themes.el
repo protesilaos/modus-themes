@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-07-13 18:35:12 +0300>
+;; Last-Modified: <2021-07-14 10:15:47 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -204,6 +204,7 @@
 ;;     git-timemachine
 ;;     git-walktree
 ;;     gnus
+;;     gotest
 ;;     golden-ratio-scroll-screen
 ;;     helm
 ;;     helm-ls-git
@@ -5436,6 +5437,12 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(gnus-summary-normal-undownloaded ((,class :foreground ,yellow)))
     `(gnus-summary-normal-unread ((,class :foreground ,fg-main)))
     `(gnus-summary-selected ((,class :inherit highlight :extend t)))
+;;;;; gotest
+    `(go-test--ok-face ((,class :inherit success)))
+    `(go-test--error-face ((,class :inherit error)))
+    `(go-test--warning-face ((,class :inherit warning)))
+    `(go-test--pointer-face ((,class :foreground ,magenta-alt-other)))
+    `(go-test--standard-face ((,class :foreground ,fg-special-cold)))
 ;;;;; golden-ratio-scroll-screen
     `(golden-ratio-scroll-highlight-line-face ((,class :background ,cyan-subtle-bg :foreground ,fg-main)))
 ;;;;; helm
