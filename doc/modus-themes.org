@@ -3375,6 +3375,30 @@ weekends uniformly.
 For changes to take effect, the Calendar buffer needs to be generated
 anew.
 
+** Note on underlines in compilation buffers
+:properties:
+:custom_id: h:420f5a33-c7a9-4112-9b04-eaf2cbad96bd
+:end:
+
+Various buffers that produce compilation results or run tests on code
+apply an underline to the file names they reference or to relevant
+messages.  Users may consider this unnecessary or excessive.
+
+To outright disable the effect, use this:
+
+#+begin_src emacs-lisp
+(setq compilation-message-face nil)
+#+end_src
+
+If some element of differentiation is still desired, a good option is to
+render the affected text using the ~italic~ face:
+
+#+begin_src emacs-lisp
+(setq compilation-message-face 'italic)
+#+end_src
+
+[[#h:2793a224-2109-4f61-a106-721c57c01375][Configure bold and italic faces]].
+
 ** Note on inline Latex in Org buffers
 :properties:
 :custom_id: h:dd8478da-f56a-45cd-b199-b836c85c3c5a

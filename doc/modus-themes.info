@@ -147,6 +147,7 @@ Notes on individual packages
 
 * Note on avy hints::
 * Note on calendar.el weekday and weekend colors: Note on calendarel weekday and weekend colors.
+* Note on underlines in compilation buffers::
 * Note on inline Latex in Org buffers::
 * Note on dimmer.el: Note on dimmerel.
 * Note on display-fill-column-indicator-mode::
@@ -3379,6 +3380,7 @@ individual packages.
 
 * Note on avy hints::
 * Note on calendar.el weekday and weekend colors: Note on calendarel weekday and weekend colors.
+* Note on underlines in compilation buffers::
 * Note on inline Latex in Org buffers::
 * Note on dimmer.el: Note on dimmerel.
 * Note on display-fill-column-indicator-mode::
@@ -3426,7 +3428,7 @@ hints is less noise: ‘avy-goto-char-timer’ is an excellent alternative
 to ‘avy-goto-char’.
 
 
-File: modus-themes.info,  Node: Note on calendarel weekday and weekend colors,  Next: Note on inline Latex in Org buffers,  Prev: Note on avy hints,  Up: Notes on individual packages
+File: modus-themes.info,  Node: Note on calendarel weekday and weekend colors,  Next: Note on underlines in compilation buffers,  Prev: Note on avy hints,  Up: Notes on individual packages
 
 7.2 Note on calendar.el weekday and weekend colors
 ==================================================
@@ -3454,9 +3456,31 @@ of weekends uniformly.
 anew.
 
 
-File: modus-themes.info,  Node: Note on inline Latex in Org buffers,  Next: Note on dimmerel,  Prev: Note on calendarel weekday and weekend colors,  Up: Notes on individual packages
+File: modus-themes.info,  Node: Note on underlines in compilation buffers,  Next: Note on inline Latex in Org buffers,  Prev: Note on calendarel weekday and weekend colors,  Up: Notes on individual packages
 
-7.3 Note on inline Latex in Org buffers
+7.3 Note on underlines in compilation buffers
+=============================================
+
+Various buffers that produce compilation results or run tests on code
+apply an underline to the file names they reference or to relevant
+messages.  Users may consider this unnecessary or excessive.
+
+   To outright disable the effect, use this:
+
+     (setq compilation-message-face nil)
+
+   If some element of differentiation is still desired, a good option is
+to render the affected text using the ‘italic’ face:
+
+     (setq compilation-message-face 'italic)
+
+   *note Configure bold and italic faces: Configure bold and italic
+faces (DIY).
+
+
+File: modus-themes.info,  Node: Note on inline Latex in Org buffers,  Next: Note on dimmerel,  Prev: Note on underlines in compilation buffers,  Up: Notes on individual packages
+
+7.4 Note on inline Latex in Org buffers
 =======================================
 
 Org can work with inline latex and related syntax.  To actually fontify
@@ -3470,7 +3494,7 @@ the desired list of values (per its doc string).  For example:
 
 File: modus-themes.info,  Node: Note on dimmerel,  Next: Note on display-fill-column-indicator-mode,  Prev: Note on inline Latex in Org buffers,  Up: Notes on individual packages
 
-7.4 Note on dimmer.el
+7.5 Note on dimmer.el
 =====================
 
 The ‘dimmer.el’ library by Neil Okamoto can be configured to
@@ -3505,7 +3529,7 @@ of this package: it draws too much attention to unfocused windows.
 
 File: modus-themes.info,  Node: Note on display-fill-column-indicator-mode,  Next: Note on mmm-modeel background colors,  Prev: Note on dimmerel,  Up: Notes on individual packages
 
-7.5 Note on display-fill-column-indicator-mode
+7.6 Note on display-fill-column-indicator-mode
 ==============================================
 
 While designing the style for ‘display-fill-column-indicator-mode’, we
@@ -3538,7 +3562,7 @@ scale using the themes' palette (DIY).
 
 File: modus-themes.info,  Node: Note on mmm-modeel background colors,  Next: Note for prism,  Prev: Note on display-fill-column-indicator-mode,  Up: Notes on individual packages
 
-7.6 Note on mmm-mode.el background colors
+7.7 Note on mmm-mode.el background colors
 =========================================
 
 The faces used by ‘mmm-mode.el’ are expected to have a colorful
@@ -3588,7 +3612,7 @@ the very high cost of degraded legibility.
 
 File: modus-themes.info,  Node: Note for prism,  Next: Note for god-mode,  Prev: Note on mmm-modeel background colors,  Up: Notes on individual packages
 
-7.7 Note on prism.el
+7.8 Note on prism.el
 ====================
 
 This package by Adam Porter, aka “alphapapa” or “github-alphapapa”,
@@ -3677,7 +3701,7 @@ examples with the 4, 8, 16 colors):
 
 File: modus-themes.info,  Node: Note for god-mode,  Next: Note on company-mode overlay pop-up,  Prev: Note for prism,  Up: Notes on individual packages
 
-7.8 Note on god-mode.el
+7.9 Note on god-mode.el
 =======================
 
 The ‘god-mode’ library does not provide faces that could be configured
@@ -3712,8 +3736,8 @@ documentation string of ‘set-face-attribute’.
 
 File: modus-themes.info,  Node: Note on company-mode overlay pop-up,  Next: Note on ERC escaped color sequences,  Prev: Note for god-mode,  Up: Notes on individual packages
 
-7.9 Note on company-mode overlay pop-up
-=======================================
+7.10 Note on company-mode overlay pop-up
+========================================
 
 By default, the ‘company-mode’ pop-up that lists completion candidates
 is drawn using an overlay.  This creates alignment issues every time it
@@ -3733,7 +3757,7 @@ instead of overlays.(1)(2)
 
 File: modus-themes.info,  Node: Note on ERC escaped color sequences,  Next: Note on powerline or spaceline,  Prev: Note on company-mode overlay pop-up,  Up: Notes on individual packages
 
-7.10 Note on ERC escaped color sequences
+7.11 Note on ERC escaped color sequences
 ========================================
 
 The built-in IRC client ‘erc’ has the ability to colorise any text using
@@ -3771,7 +3795,7 @@ Emacs: <https://www.mirc.com/colors.html>
 
 File: modus-themes.info,  Node: Note on powerline or spaceline,  Next: Note on SHR colors,  Prev: Note on ERC escaped color sequences,  Up: Notes on individual packages
 
-7.11 Note on powerline or spaceline
+7.12 Note on powerline or spaceline
 ===================================
 
 Both Powerline and Spaceline package users will likely need to use the
@@ -3781,7 +3805,7 @@ and/or mode line setup.
 
 File: modus-themes.info,  Node: Note on SHR colors,  Next: Note on EWW and Elfeed fonts (SHR fonts),  Prev: Note on powerline or spaceline,  Up: Notes on individual packages
 
-7.12 Note on SHR colors
+7.13 Note on SHR colors
 =======================
 
 Emacs’ HTML rendering library (‘shr.el’) may need explicit configuration
@@ -3793,7 +3817,7 @@ webpage provides.
 
 File: modus-themes.info,  Node: Note on EWW and Elfeed fonts (SHR fonts),  Next: Note on Helm grep,  Prev: Note on SHR colors,  Up: Notes on individual packages
 
-7.13 Note on EWW and Elfeed fonts (SHR fonts)
+7.14 Note on EWW and Elfeed fonts (SHR fonts)
 =============================================
 
 EWW and Elfeed rely on the Simple HTML Renderer to display their
@@ -3809,7 +3833,7 @@ Org and others (DIY).
 
 File: modus-themes.info,  Node: Note on Helm grep,  Next: Note on vc-annotate-background-mode,  Prev: Note on EWW and Elfeed fonts (SHR fonts),  Up: Notes on individual packages
 
-7.14 Note on Helm grep
+7.15 Note on Helm grep
 ======================
 
 There is one face from the Helm package that is meant to highlight the
@@ -3840,7 +3864,7 @@ ANSI color number 1 (red) from the already-supported array of
 
 File: modus-themes.info,  Node: Note on vc-annotate-background-mode,  Next: Note on pdf-tools link hints,  Prev: Note on Helm grep,  Up: Notes on individual packages
 
-7.15 Note on vc-annotate-background-mode
+7.16 Note on vc-annotate-background-mode
 ========================================
 
 Due to the unique way ‘vc-annotate’ (‘C-x v g’) applies colors, support
@@ -3859,7 +3883,7 @@ report as much or send patches (*note Contributing::).
 
 File: modus-themes.info,  Node: Note on pdf-tools link hints,  Prev: Note on vc-annotate-background-mode,  Up: Notes on individual packages
 
-7.16 Note on pdf-tools link hints
+7.17 Note on pdf-tools link hints
 =================================
 
 Hints are drawn by ImageMagick (https://imagemagick.org/), not Emacs,
@@ -4964,101 +4988,102 @@ B.3 Concept index
 
 Tag Table:
 Node: Top860
-Node: Overview6884
-Node: How do the themes look like8427
-Node: Learn about the latest changes8935
-Node: Installation9317
-Node: Install manually from source9798
-Node: Install from the archives10623
-Node: Install on GNU/Linux11400
-Node: Debian 11 Bullseye11848
-Node: GNU Guix12158
-Node: Enable and load12441
-Node: Sample configuration for use-package15430
-Node: Differences between loading and enabling16808
-Node: Customization Options18848
-Node: Custom reload theme25352
-Node: Success' color-code25913
-Node: Bold constructs26850
-Node: Italic constructs27639
-Node: Syntax styles28357
-Node: No mixed fonts30430
-Node: Link styles31525
-Node: Command prompts33936
-Node: Mode line35669
-Node: Completion UIs39214
-Node: Mail citations41085
-Node: Fringes41938
-Node: Language checkers42600
-Node: Line highlighting44661
-Node: Line numbers46216
-Node: Matching parentheses47294
-Node: Active region48626
-Node: Diffs49995
-Node: Org mode blocks51934
-Node: Org agenda53812
-Node: Org agenda habits59439
-Node: Heading styles61405
-Node: Scaled headings64494
-Node: Scaled heading sizes65097
-Node: UI typeface68353
-Node: Headings' typeface69199
-Node: Advanced customization (do-it-yourself)69823
-Node: Per-theme customization settings (DIY)71228
-Node: Case-by-case face specs using the themes' palette (DIY)72574
-Node: Face specs at scale using the themes' palette (DIY)77038
-Node: Remap face with local value (DIY)81855
-Node: Cycle through arbitrary colors (DIY)84333
-Node: Override colors (DIY)90899
-Node: Override color saturation (DIY)95792
-Node: Font configurations for Org and others (DIY)101545
-Ref: Font configurations for Org and others (DIY)-Footnote-1104193
-Node: Configure bold and italic faces (DIY)104380
-Node: Custom Org user faces (DIY)108387
-Node: Update Org block delimiter fontification (DIY)112143
-Node: Measure color contrast (DIY)114103
-Node: Load theme depending on time of day (DIY)116897
-Node: Backdrop for pdf-tools (DIY)117937
-Node: A theme-agnostic hook for theme loading (DIY)120699
-Node: Face coverage123089
-Node: Supported packages123558
-Node: Indirectly covered packages130361
-Node: Notes on individual packages130915
-Node: Note on avy hints131858
-Node: Note on calendarel weekday and weekend colors133026
-Node: Note on inline Latex in Org buffers134203
-Node: Note on dimmerel134817
-Node: Note on display-fill-column-indicator-mode136302
-Node: Note on mmm-modeel background colors137923
-Node: Note for prism140302
-Node: Note for god-mode143528
-Node: Note on company-mode overlay pop-up145200
-Ref: Note on company-mode overlay pop-up-Footnote-1145888
-Ref: Note on company-mode overlay pop-up-Footnote-2145955
-Node: Note on ERC escaped color sequences146010
-Ref: Note on ERC escaped color sequences-Footnote-1147438
-Node: Note on powerline or spaceline147548
-Node: Note on SHR colors147962
-Node: Note on EWW and Elfeed fonts (SHR fonts)148397
-Node: Note on Helm grep149142
-Node: Note on vc-annotate-background-mode150629
-Node: Note on pdf-tools link hints151514
-Node: Frequently Asked Questions (FAQ)153946
-Node: Is the contrast ratio about adjacent colors?154520
-Node: What does it mean to avoid exaggerations?156033
-Node: Why are colors mostly variants of blue magenta cyan?157868
-Node: What is the best setup for legibility?162215
-Node: Contributing164822
-Node: Sources of the themes165225
-Node: Issues you can help with165963
-Node: Patches require copyright assignment to the FSF167163
-Node: Acknowledgements169458
-Node: Meta171999
-Node: GNU Free Documentation License173996
-Node: Indices199348
-Node: Function index199527
-Node: Variable index200764
-Node: Concept index202978
+Node: Overview6930
+Node: How do the themes look like8473
+Node: Learn about the latest changes8981
+Node: Installation9363
+Node: Install manually from source9844
+Node: Install from the archives10669
+Node: Install on GNU/Linux11446
+Node: Debian 11 Bullseye11894
+Node: GNU Guix12204
+Node: Enable and load12487
+Node: Sample configuration for use-package15476
+Node: Differences between loading and enabling16854
+Node: Customization Options18894
+Node: Custom reload theme25398
+Node: Success' color-code25959
+Node: Bold constructs26896
+Node: Italic constructs27685
+Node: Syntax styles28403
+Node: No mixed fonts30476
+Node: Link styles31571
+Node: Command prompts33982
+Node: Mode line35715
+Node: Completion UIs39260
+Node: Mail citations41131
+Node: Fringes41984
+Node: Language checkers42646
+Node: Line highlighting44707
+Node: Line numbers46262
+Node: Matching parentheses47340
+Node: Active region48672
+Node: Diffs50041
+Node: Org mode blocks51980
+Node: Org agenda53858
+Node: Org agenda habits59485
+Node: Heading styles61451
+Node: Scaled headings64540
+Node: Scaled heading sizes65143
+Node: UI typeface68399
+Node: Headings' typeface69245
+Node: Advanced customization (do-it-yourself)69869
+Node: Per-theme customization settings (DIY)71274
+Node: Case-by-case face specs using the themes' palette (DIY)72620
+Node: Face specs at scale using the themes' palette (DIY)77084
+Node: Remap face with local value (DIY)81901
+Node: Cycle through arbitrary colors (DIY)84379
+Node: Override colors (DIY)90945
+Node: Override color saturation (DIY)95838
+Node: Font configurations for Org and others (DIY)101591
+Ref: Font configurations for Org and others (DIY)-Footnote-1104239
+Node: Configure bold and italic faces (DIY)104426
+Node: Custom Org user faces (DIY)108433
+Node: Update Org block delimiter fontification (DIY)112189
+Node: Measure color contrast (DIY)114149
+Node: Load theme depending on time of day (DIY)116943
+Node: Backdrop for pdf-tools (DIY)117983
+Node: A theme-agnostic hook for theme loading (DIY)120745
+Node: Face coverage123135
+Node: Supported packages123604
+Node: Indirectly covered packages130407
+Node: Notes on individual packages130961
+Node: Note on avy hints131950
+Node: Note on calendarel weekday and weekend colors133118
+Node: Note on underlines in compilation buffers134301
+Node: Note on inline Latex in Org buffers135150
+Node: Note on dimmerel135760
+Node: Note on display-fill-column-indicator-mode137245
+Node: Note on mmm-modeel background colors138866
+Node: Note for prism141245
+Node: Note for god-mode144471
+Node: Note on company-mode overlay pop-up146143
+Ref: Note on company-mode overlay pop-up-Footnote-1146833
+Ref: Note on company-mode overlay pop-up-Footnote-2146900
+Node: Note on ERC escaped color sequences146955
+Ref: Note on ERC escaped color sequences-Footnote-1148383
+Node: Note on powerline or spaceline148493
+Node: Note on SHR colors148907
+Node: Note on EWW and Elfeed fonts (SHR fonts)149342
+Node: Note on Helm grep150087
+Node: Note on vc-annotate-background-mode151574
+Node: Note on pdf-tools link hints152459
+Node: Frequently Asked Questions (FAQ)154891
+Node: Is the contrast ratio about adjacent colors?155465
+Node: What does it mean to avoid exaggerations?156978
+Node: Why are colors mostly variants of blue magenta cyan?158813
+Node: What is the best setup for legibility?163160
+Node: Contributing165767
+Node: Sources of the themes166170
+Node: Issues you can help with166908
+Node: Patches require copyright assignment to the FSF168108
+Node: Acknowledgements170403
+Node: Meta172944
+Node: GNU Free Documentation License174941
+Node: Indices200293
+Node: Function index200472
+Node: Variable index201709
+Node: Concept index203923
 
 End Tag Table
 
