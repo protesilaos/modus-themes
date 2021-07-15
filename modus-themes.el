@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-07-14 10:15:47 +0300>
+;; Last-Modified: <2021-07-15 09:54:55 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -2429,7 +2429,7 @@ The order in which the properties are set is not significant.
 
 In user configuration files the form may look like this:
 
-    (setq modus-themes-prompts '(borderless accented))
+    (setq modus-themes-mode-line '(borderless accented))
 
 Note that Moody does not expose any faces that the themes could
 style directly.  Instead it re-purposes existing ones to render
