@@ -5,9 +5,9 @@
 #+options: ':t toc:nil author:t email:t num:t
 #+startup: content
 
-#+macro: stable-version 1.4.0
-#+macro: release-date 2021-05-25
-#+macro: development-version 1.5.0-dev
+#+macro: stable-version 1.5.0
+#+macro: release-date 2021-07-15
+#+macro: development-version 1.6.0-dev
 #+macro: file @@texinfo:@file{@@$1@@texinfo:}@@
 #+macro: space @@texinfo:@: @@
 #+macro: kbd @@texinfo:@kbd{@@$1@@texinfo:}@@
@@ -469,8 +469,6 @@ this manual.
 :end:
 #+vindex: modus-themes-inhibit-reload
 
-[ Part of {{{development-version}}} ]
-
 Symbol: ~modus-themes-inhibit-reload~
 
 Possible values:
@@ -576,8 +574,6 @@ Advanced users may also want to configure the exact attributes of the
 :end:
 #+vindex: modus-themes-syntax
 
-[ Refactored as part of {{{development-version}}} ]
-
 Symbol: ~modus-themes-syntax~
 
 Possible values are expressed as a list of properties (default is ~nil~ or
@@ -670,8 +666,6 @@ are ~org-variable-pitch~ and ~mixed-pitch~.
 :end:
 #+vindex: modus-themes-links
 
-[ Refactored as part of {{{development-version}}} ]
-
 Symbol: ~modus-themes-links~
 
 Possible values are expressed as a list of properties (default is ~nil~ or
@@ -743,8 +737,6 @@ their documentation strings.
 :end:
 #+vindex: modus-themes-prompts
 
-[ Refactored as part of {{{development-version}}} ]
-
 Symbol: ~modus-themes-prompts~
 
 Possible values are expressed as a list of properties (default is ~nil~ or
@@ -800,8 +792,6 @@ In user configuration files the form may look like this:
 :custom_id: h:27943af6-d950-42d0-bc23-106e43f50a24
 :end:
 #+vindex: modus-themes-mode-line
-
-[ Refactored as part of {{{development-version}}} ]
 
 Symbol: ~modus-themes-mode-line~
 
@@ -984,8 +974,6 @@ names imply.
 :end:
 #+vindex: modus-themes-lang-checkers
 
-[ Refactored as part of {{{development-version}}} ]
-
 Symbol: ~modus-themes-lang-checkers~
 
 Possible values are expressed as a list of properties (default is ~nil~ or
@@ -1045,8 +1033,6 @@ style, is controlled by the built-in variables ~underline-minimum-offset~,
 :custom_id: h:1dba1cfe-d079-4c13-a810-f768e8789177
 :end:
 #+vindex: modus-themes-hl-line
-
-[ Refactored as part of {{{development-version}}} ]
 
 Symbol: ~modus-themes-hl-line~
 
@@ -1129,8 +1115,6 @@ updated to accommodate this aesthetic.
 :end:
 #+vindex: modus-themes-paren-match
 
-[ Refactored as part of {{{development-version}}} ]
-
 Symbol: ~modus-themes-paren-match~
 
 Possible values are expressed as a list of properties (default is ~nil~ or
@@ -1177,8 +1161,6 @@ This customization variable affects the built-in ~show-paren-mode~ and the
 :custom_id: h:60798063-b4ad-45ea-b9a7-ff7b5c0ab74c
 :end:
 #+vindex: modus-themes-region
-
-[ Refactored as part of {{{development-version}}} ]
 
 Symbol: ~modus-themes-region~
 
@@ -1313,9 +1295,6 @@ and ~rainbow~.  Those will continue to work as they are aliases for
 :end:
 #+vindex: modus-themes-org-agenda
 
-[ Part of {{{development-version}}}.  Supersedes ~modus-themes-org-habit~
-([[#h:cf261363-d227-4717-ba3a-8171584030a7][Option for org-habit graph styles]]). ]
-
 Symbol: ~modus-themes-org-agenda~
 
 This is an alist that accepts a =(key . value)= combination.  Some values
@@ -1448,50 +1427,6 @@ Putting it all together, the alist can look like this:
         (habit . traffic-light)))
 #+end_src
 
-** Option for org-habit graph styles
-:properties:
-:alt_title: Org agenda habits
-:description: Choose among standard, simplified, or traffic light styles
-:custom_id: h:cf261363-d227-4717-ba3a-8171584030a7
-:end:
-#+vindex: modus-themes-org-habit
-
-[ Deprecated and superseded by ~modus-themes-org-agenda~ in
-{{{development-version}}} ([[#h:68f481bc-5904-4725-a3e6-d7ecfa7c3dbc][Option for Org agenda constructs]]). ]
-
-Symbol: ~modus-themes-org-habit~
-
-Possible values:
-
-1. ~nil~ (default)
-2. ~simplified~
-3. ~traffic-light~
-
-The default is meant to conform with the original aesthetic of
-=org-habit=.  It employs all four color codes that correspond to the
-org-habit states---clear, ready, alert, and overdue---while
-distinguishing between their present and future variants.  This results
-in a total of eight colors in use: red, yellow, green, blue, in tinted
-and shaded versions.  They cover the full set of information provided by
-the =org-habit= consistency graph.
-
-Option ~simplified~ is like the default except that it removes the
-dichotomy between current and future variants by applying uniform
-color-coded values.  It applies a total of four colors: red, yellow,
-green, blue.  They produce a simplified consistency graph that is more
-legible (or less "busy") than the default.  The intent is to shift focus
-towards the distinction between the four states of a habit task, rather
-than each state's present/future outlook.
-
-Option ~traffic-light~ further reduces the available colors to red,
-yellow, and green.  As in ~simplified~, present and future variants appear
-uniformly, but differently from it, the 'clear' state is rendered in a
-green hue, instead of the original blue.  This is meant to capture the
-use-case where a habit task being "too early" is less important than it
-being "too late".  The difference between ready and clear states is
-attenuated by painting both of them using shades of green.  This option
-thus highlights the alert and overdue states.
-
 ** Option for the headings' overall style
 :properties:
 :alt_title: Heading styles
@@ -1499,8 +1434,6 @@ thus highlights the alert and overdue states.
 :custom_id: h:271eff19-97aa-4090-9415-a6463c2f9ae1
 :end:
 #+vindex: modus-themes-headings
-
-[ Refactored as part of {{{development-version}}} ]
 
 Symbol: ~modus-themes-headings~
 

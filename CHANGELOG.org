@@ -15,6 +15,444 @@ For further details, please consult these additional resources:
 + Manual :: <https://protesilaos.com/modus-themes>
 + Screenshots :: <https://protesilaos.com/modus-themes-pictures>
 
+* 1.5.0
+
+#+begin_src text
+Modus themes version 1.5.0
+
+By Protesilaos Stavrou <info@protesilaos.com> on 2021-07-15
+
+This entry outlines the set of changes made to the project since the
+release of version 1.4.0 on 2021-05-25.  There have been over 130
+commits since then.
+
+Every colour-related modification referenced herein is always
+implemented in accordance with the primary accessibility objective of
+the themes for a minimum contrast ratio of 7:1 between background and
+foreground values in their given combination (the WCAG AAA standard).
+Such edits also account for colour-coding that is optimised for the
+needs of users with red-green colour deficiency (deuteranopia or
+variants).
+
+Here is the URL of the manual: <https://protesilaos.com/modus-themes>.
+Or read it from Emacs by evaluating this form:
+
+    (info "(modus-themes) Top")
+
+The themes are built into Emacs version 28 (current development target),
+and are available on GNU ELPA as well as other archives.
+
+
+Customisation options
+=====================
+
+Overview of new style of sets of properties
+-------------------------------------------
+
+Several variables now accept a list of symbols as a value.  Those
+represent properties, which can be combined with each other to realise
+the possible styles.  The idea was to simplify their specification in
+order to make them easier to both maintain and extend.  Thanks to Philip
+Kaludercic for introducing this concept in issue 210:
+<https://gitlab.com/protesilaos/modus-themes/-/issues/210>.
+
+The variables are:
+
++ 'modus-themes-prompts' by Philip Kaludercic in merge request 43:
+  <https://gitlab.com/protesilaos/modus-themes/-/merge_requests/43>
+
++ 'modus-themes-mode-line' by Philip Kaludercic in merge request 40:
+  <https://gitlab.com/protesilaos/modus-themes/-/merge_requests/40>.
+
++ 'modus-themes-lang-checkers' by Philip Kaludercic in merge request 46:
+  <https://gitlab.com/protesilaos/modus-themes/-/merge_requests/46>
+
++ 'modus-themes-org-agenda'
++ 'modus-themes-links'
++ 'modus-themes-headings'
++ 'modus-themes-hl-line'
++ 'modus-themes-paren-match'
++ 'modus-themes-region'
++ 'modus-themes-syntax'
+
+Take 'modus-themes-syntax' as an example.  Up until version 1.4.0, it
+would only accept a symbol, signifying a predefined style.  So we had
+the possible value 'faint' and another 'faint-yellow-comments'.  To make
+a third variant of the "faint" aesthetic, such as by combining it with
+the "alt syntax" and/or "green strings", we would need to write new
+presets in the form of 'faint-green-strings', 'faint-alt-syntax',
+'faint-alt-syntax-green-strings', 'faint-green-strings-yellow-comments',
+'faint-alt-syntax-green-strings-yellow-comments'.  That would have been
+inefficient, hence why it was not done.
+
+With the new approach of defining a list of properties, those
+combinations are all possible.  Such as:
+
+    (setq modus-themes-syntax '(faint alt-syntax))
+
+    (setq modus-themes-syntax '(yellow-comments alt-syntax green-strings))
+
+The order in which the properties are set is not significant.
+
+The doc string of each of the aforementioned variables, or the
+corresponding entry in the manual, provides guidance on how to configure
+things.  The old forms will continue to work for the time being, though
+they are considered deprecated and will stop being supported at a future
+date.
+
+
+Changes in stylistic variants for variables with sets of properties
+-------------------------------------------------------------------
+
++ The meaning of the "alt syntax" style in 'modus-themes-syntax' has
+  been redefined.  In the past, it used to have green-coloured strings
+  and doc strings.  Those are now red.  Some other changes have been
+  implemented to make the overall looks more consistent.  Users who
+  liked the old style can retain it by passing this list of properties:
+
+      (alt-syntax green-strings)
+
+  New styles for the "faint" aesthetic are possible, here shown as lists
+  of properties:
+
+      (faint green-strings)
+      (faint alt-syntax)
+      (faint alt-syntax green-strings)
+
+  To each of those the 'yellow-comments' property can be added as well.
+
+  Consult the doc string or the manual for the technicalities and code
+  samples.
+
++ The 'modus-themes-hl-line' no longer has styles that include only an
+  underline.  Those proved to be problematic under certain circumstances
+  and were thus removed.
+
+  Minor changes have been implemented to make the following combination
+  of properties more consistent, by colourising the underline:
+
+      (accented intense underline)
+
++ The 'modus-themes-paren-match' now has styles that include an
+  'underline' property.  Those extend the old options, such as:
+
+      (bold intense underline)
+
++ The 'modus-themes-headings' have an improved set of styles for the "no
+  text color" aesthetic.  Those involve the 'monochrome' property, which
+  can now yield results that include a background (whereas before it was
+  just colourless text for the headings, optionally without a bold
+  weight).  As this is an alist, here is an example (always check the
+  docs for fully fledged code samples):
+
+      (setq modus-themes-headings
+            '((1 . (background overline))
+              (2 . (overline background rainbow))
+              (t . (monochrome no-bold background))))
+
+  To allow a heading level N to retain its original style, a 't' value
+  can be passed.  In the previous version of the themes, it was possible
+  to use 'nil' for the same purpose, though that is no longer valid.  In
+  those cases, the fallback value of the alist will be used instead,
+  such as what is noted above:
+
+      (t . (monochrome no-bold background))
+
++ The 'modus-themes-links' provide several new possible styles, due to
+  an expanded set of properties that includes, among others, 'bold',
+  'italic', and 'background'.  The documentation covers the details.
+
++ The 'modus-themes-lang-checkers' can now attain a style that uses a
+  prominently coloured background in addition to what was available
+  before as a subtle background and the other variants.
+
+
+New variables
+-------------
+
++ The 'modus-themes-org-agenda' provides the means to refashion the
+  entirety of the Org agenda buffer.  The value it accepts is an alist,
+  with some keys expecting a symbol and others a list of properties.
+  The minutia are covered in its doc string.  A possible configuration
+  can look like this:
+  
+      (setq modus-themes-org-agenda
+            '((header-block . (variable-pitch scale-title))
+              (header-date . (grayscale workaholic bold-today))
+              (scheduled . uniform)
+              (habit . traffic-light)))
+  
+  'modus-themes-org-agenda' supersedes the old variable that was specific
+  to the Org habit graph: 'modus-themes-org-habit'.  There now is a
+  'habit' key which accepts the same values as before, plus a new style
+  that is optimised for users with red-green colour deficiency:
+  'traffic-light-deuteranopia'.  Please consult the doc string of
+  'modus-themes-org-agenda' or the relevant entry to the manual.
+  
+  Thanks to Gustavo Barros for contributing to the creation of this
+  variable as well as to all other changes in the relevant faces that
+  were done in the interest of usability.  A full report about
+  'modus-themes-org-agenda' with screen shots is available here:
+  <https://protesilaos.com/codelog/2021-06-02-modus-themes-org-agenda/>.
+
+  A patch has been sent to upstream Org, with its review pending, which
+  improves upon some of the areas we had identified:
+  <https://lists.gnu.org/archive/html/emacs-orgmode/2021-06/msg00092.html>.
+
++ The 'modus-themes-inhibit-reload' controls a new behaviour of
+  automatically reloading the active theme when an option is set via the
+  Custom interfaces or with 'customize-set-variable'.  To opt-in to this
+  feature, set the variable to a 'nil' value.
+
+  Thanks to Philip Kaludercic for implementing this in merge request 40:
+  <https://gitlab.com/protesilaos/modus-themes/-/merge_requests/40>.
+
+  In the development phase of this option, a bug was identified
+  pertaining to recursion, as reported by Gustavo Barros in issue 213:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/213>.  Changes
+  have been made to remove that possibility, as found in merge request
+  45: <https://gitlab.com/protesilaos/modus-themes/-/merge_requests/45>.
+
+  A thread was started on the emacs-devel mailing list to inquire upon
+  the technicalities of this option, but it did not gain any traction:
+  <https://lists.gnu.org/archive/html/emacs-devel/2021-06/msg00828.html>.
+
+  As such, we have decided to take our chances by pressing on with this
+  feature.  Users who are interested in it are encouraged to give it a
+  try and report any possible complications.  Issue 213 remains open.
+
++ The 'modus-themes-italic-constructs' is the new name of the variable
+  'modus-themes-slanted-constructs'.  The term "slant" was considered
+  too vague or technical and some users could have missed the meaning of
+  this option.
+
++ The 'modus-themes-scale-5' is renamed to 'modus-themes-scale-title' to
+  better convey its utility.
+
+
+Changes to the manual
+=====================
+
++ Rewrote or introduced the documentation for all the customisation
+  options mentioned above.  Also updated relevant code samples, such as
+  in the manual's introduction to the customisation options.  Evaluate
+  this form for an annotated code overview:
+
+      (info "(modus-themes) Customization Options")
+
++ Rephrased a reference to "gamma ray values" as "gamma values".  Thanks
+  to Anders Johansson for the contribution in merge request 42:
+  <https://gitlab.com/protesilaos/modus-themes/-/merge_requests/42>.
+
++ Removed the Org macro that would insert the build date in the manual's
+  introduction.  This was required to make the file reproducible,
+  otherwise it would keep changing each time a new version of Emacs was
+  built.  Refer to Emacs bug#48661 by Glenn Morris:
+  <https://debbugs.gnu.org/cgi/bugreport.cgi?bug=48661>.
+
++ Included note on tweaking the key hints that the Avy package produces.
+  This is in response to issue 215 by Rudolf Adamkovič:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/215>.  Thanks to
+  Nicolas De Jaeghere for providing the text.
+
++ Wrote a note on how to control the underlines that are generated in
+  compilation-mode buffers and related.  It is about configuring the
+  variable 'compilation-message-face'.
+
++ Documented how to configure the colours that are applied to the names
+  of the days in the 'M-x calendar' interface.  The relevant variable is
+  'calendar-weekend-days'.
+
++ Elaborated on a "do it yourself" (DIY) guide on how to benefit from
+  the hidden feature of the themes about how they handle the bold weight
+  and the italic slant.  In short, we do not hardcode values and thus
+  make it easy for users to specify the particularities of what it means
+  for a face to have a 'bold' or 'italic' attribute.
+
+
+Faces and face groups
+=====================
+
+New entries
+-----------
+
+Newly supported packages:
+
++ 'ledger-mode'.  Thanks to Pengji Zhang for the feedback in issue 202:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/202>.
+
++ 'gotest'.  Thanks to Jerry Zhang for the feedback in issue 226:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/226>.
+
++ 'css-mode'
+
+New faces for already supported groups:
+
++ 'shr-h1', 'shr-h2', 'shr-h3', 'shr-h4', 'shr-h5', 'shr-h6' of the
+  shr.el library (simple HTML renderer, as experienced in, for example,
+  EWW).  Those are available for Emacs28, with a patch by me:
+  <http://debbugs.gnu.org/cgi/bugreport.cgi?bug=49433>
+
++ 'apropos-button' as a generic face that fontifies faces in apropos
+  buffers.  Available for Emacs28, with a patch by me:
+  <https://debbugs.gnu.org/cgi/bugreport.cgi?bug=49162>.
+
++ 'selectrum-mouse-highlight'.  This makes the mouse hover effect for
+  selectrum look the same as in most other contexts.  Thanks to okamsn
+  for the feedback in issue 203:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/203>.
+
+
+Review of existing entries
+--------------------------
+
++ Added an ':extend' property to 'next-error' face.  This face is used
+  for pulse effects.  It is good to have them extend to the edge of the
+  window, so that they are easier to spot.  Thanks to Gustavo Barros for
+  the feedback in issue 200, which is about pulse.el:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/200>.
+
++ Tweaked the various Apropos faces.  The idea was to remove the colour
+  from the pseudo headings so that we would not get an exaggerated
+  result of too much variety in the buffer (e.g. that of 'M-x apropos').
+  The individual buttons retain their style as links, meaning that they
+  are governed by the variable 'modus-themes-links'.
+
++ Revised 'whitespace-line' face to make it look like a warning, as it
+  ought to be.  Thanks to Pengji Zhang for the feedback in issue 204:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/204>.
+
++ Reworked the colour-coding of the Hydra and Transient packages.  These
+  are meant to tone down some excesses with the standard red and to
+  adapt other colours to it.  Thanks to Gustavo Barros for providing
+  suggestions and helping me tweak those in issue 206:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/206>.
+
++ Recoloured 'transient-argument' to improve its uniqueness in its
+  context and to better comply with the expectation of hydra-style
+  colour coding, as noted right above.
+
++ Made the 'org-agenda-done' face conform with the customisation option
+  'modus-themes-success-deuteranopia'.  This means that it will be
+  coloured in blue instead of green when the option is set to a non-nil
+  value.
+
++ Grayed out the foreground of the Org block delimiter lines on the
+  premise that any extra colouration was not needed, given the presence
+  of a gray background and the overall markup of the block.
+
++ Toned down the colouration of the 'org-code' face, so that it is
+  consistent with 'org-verbatim' as well as the colours used in opening
+  and closing lines of blocks.  Thanks to Gustavo Barros for suggesting
+  this change in issue 206, though it went through a couple of reviews:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/206>.
+
++ Simplified the inheritance of the 'fixed-pitch' face, which is used
+  for internal purposes to ensure alignment of elements in buffers that
+  must cope with mixed font configurations, such as an org-mode file
+  with 'M-x variable-pitch-font' enabled.
+
+  [ Recall that the option 'modus-themes-no-mixed-fonts' can disable
+    this feature.  Also note that the 'mixed-fonts' package, or
+    equivalent, is not needed while using the Modus themes (though there
+    is nothing wrong with having them together). ]
+
++ Reduced the overall intensity of 'org-mode-line-clock-overrun'.
+  Thanks to Gustavo Barros for the feedback in issue 208:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/208>.
+
++ Simplified or otherwise tweaked several Org agenda faces to render
+  possible the new 'modus-themes-org-agenda' variable, as documented
+  above.  Thanks to Gustavo Barros for the feedback in issue 208:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/208>.
+
++ Increased ever so slightly the foreground colour of the 'highlight'
+  face.  This can help improve the perception of highlights, such as
+  upon hovering over a link with the mouse.  Thanks to Rudolf Adamkovič
+  for reporting the potential problem in issue 216:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/216>.
+
++ Prevented the override of the 'diff-context' face when users assign a
+  'bg-only' value to the 'modus-themes-diffs' variable.  This makes it
+  consistent with the intent of this style, which is to work with a
+  non-nil value for 'diff-font-lock-syntax' (basically to allow the
+  usual colour highlights of the underlying code syntax in diff
+  buffers).
+
++ Ensured consistency of all prompt-related faces by introducing a new
+  face, 'modus-themes-prompt', that is inherited by all others (all
+  prompt styles are controlled by the variable 'modus-themes-prompts').
+  This was originally implemented with the 'comint-highlight-prompt'
+  face, though that could potentially lead to undefined faces if the
+  comint library was not loaded.  Whereas the 'modus-themes-prompt'
+  guarantees that we pass a known face at all times.  Thanks to Philip
+  Kaludercic for bringing this potential bug to my attention in a
+  comment to merge request 43:
+  <https://gitlab.com/protesilaos/modus-themes/-/merge_requests/43#note_615224855>.
+
++ Removed the background colour from the 'widget-inactive' face.  It
+  would create problems in some cases, such as in Custom buffers for
+  multiple choice options.
+
++ Refined 'calendar-weekend-header' and 'calendar-weekday-header' to
+  emulate the design of physical calendars and remain truthful to the
+  expectations set by the default configuration of the calendar.el
+  library.  Weekends now use a faint red, while weekdays are rendered in
+  the same subtle gray they had before.  The underlying principle is to
+  make weekends convey a subtle warning to the effect that "this is not
+  a day for work" (notwithstanding precarious economic realities).  As
+  noted above, there is an entry in the manual on how to make all days
+  look the same, be it gray or faint red.  Evaluate this form:
+
+      (info "(modus-themes) Note on calendarel weekday and weekend colors")
+
+
+Request for feedback on a potential version 2.0.0 of the Modus themes
+=====================================================================
+
+While we maintain a cautious stance towards preserving the default
+styles, there are some cases where we might be forced to introduce
+backward-incompatible changes.
+
+Three such cases that can benefit from user feedback are:
+
++ Issue 196 on 'modus-themes-no-mixed-fonts'
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/196>.
+
++ Issue 198 on 'modus-themes-hl-line'
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/198>
+
+  [ Note that 'modus-themes-hl-line now accepts a list of properties as
+    described in the opening sections of this entry. ]
+
++ Issue 218 on 'modus-themes-diffs'
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/218>.
+
+
+Miscellaneous
+=============
+
++ Recalibrated the value of the colour 'bg-hl-line-intense' in the
+  palette 'modus-themes-vivendi-colors'.  The change should be
+  practically indecipherable, though it slightly improves things in
+  certain contexts.
+
++ Refined the intensity of the three main yellow colours in
+  'modus-themes-vivendi-colors'.
+
++ Introduced a new 'modus-themes-faces' group so that those are
+  decoupled from the customisation options in the various Custom
+  buffers.  Thanks to Philip Kaludercic for the patch in merge request
+  39: <https://gitlab.com/protesilaos/modus-themes/-/merge_requests/39>.
+
++ Updated the manual's "Acknowledgements" section to include all new
+  users who contributed to the project.
+
+Thanks again to everyone involved!
+
+  
+#+end_src
+
 * 1.4.0
 
 #+begin_src text
