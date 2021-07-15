@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.4.0
-;; Last-Modified: <2021-07-15 09:54:55 +0300>
+;; Last-Modified: <2021-07-15 13:18:36 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -398,20 +398,6 @@
 ;;
 ;; - modus-operandi-theme.el    (Light theme)
 ;; - modus-vivendi-theme.el     (Dark theme)
-
-;;; News:
-;;
-;; Users updating from older versions to >= 1.0.0, are advised to read
-;; the announcement on the emacs-devel mailing list:
-;; <https://lists.gnu.org/archive/html/emacs-devel/2021-03/msg00300.html>.
-;;
-;; The web page of the change log is also available:
-;; <https://protesilaos.com/modus-themes-changelog/>.
-;;
-;; An Info manual should be distributed with the Modus themes.
-;; Evaluate this form to access it directly:
-;;
-;;    (info "(modus-themes) Top")
 
 ;;; Code:
 
