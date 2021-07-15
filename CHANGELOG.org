@@ -516,7 +516,7 @@ Changes to already supported faces or face groups
   - Active diffs follow the same style as diff-mode, to ensure
     theme-wide consistency (all diff styles are controlled by the
     variable 'modus-themes-diffs').
-  
+
   This topic was discussed at length (with screenshots) in issue 169:
   <https://gitlab.com/protesilaos/modus-themes/-/issues/169>.  Thanks to
   peniblec and Nicolas De Jaeghere for their feedback.
@@ -915,7 +915,7 @@ Refinements to existing packages or face groups
   does not inherit from the underlying text.  Thanks to Nicolas De
   Jaeghere for the patch:
   <https://gitlab.com/protesilaos/modus-themes/-/merge_requests/27>.
-  
+
   [ Some more changes have been discussed, but those require tweaks to
     the upstream package. ]
 
@@ -1265,7 +1265,7 @@ Refinements to already supported faces
   values passed to the 'modus-themes-syntax' option.  This is done to
   disambiguate the backslashes and grouping delimiters from the rest of
   the string.  The relevant values for 'modus-themes-syntax' are:
-  
+
   - green-strings
   - yellow-comments-green-strings
   - alt-syntax
@@ -1278,7 +1278,7 @@ Refinements to already supported faces
   alternative aesthetics).
 
 + Reviewed dictionary.el faces (which ships with Emacs 28):
-      
+
   - Made 'dictionary-reference-face' look like all other links.
 
   - Removed all properties from 'dictionary-word-definition-face':
@@ -1328,7 +1328,7 @@ Refinements to already supported faces
 
   - Assigned a bold typographic weight to the 'diff-hunk-header' face so
     as to enforce a greater sense of structure.
-  
+
   - Instructed 'diff-function' to inherit 'modus-theme-diff-heading' in
     order to eliminate exaggerations in colouration.
 
