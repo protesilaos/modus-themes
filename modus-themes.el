@@ -6077,7 +6077,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(marginalia-archive ((,class :foreground ,green-nuanced-fg)))
     `(marginalia-date ((,class :foreground ,blue-nuanced-fg)))
     `(marginalia-char ((,class :foreground ,red-active)))
-    `(marginalia-documentation ((,class :foreground ,fg-special-cold :inherit modus-themes-slant)))
+    `(marginalia-documentation ((,class :inherit modus-themes-slant :foreground ,fg-special-cold)))
     `(marginalia-file-modes ((,class :inherit shadow)))
     `(marginalia-file-name ((,class :foreground ,fg-special-mild)))
     `(marginalia-file-owner ((,class :foreground ,red-nuanced-fg)))
