@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.5.0
-;; Last-Modified: <2021-07-15 13:21:55 +0300>
+;; Last-Modified: <2021-07-16 07:30:31 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -6708,9 +6708,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(proced-marked ((,class :inherit modus-themes-mark-alt)))
     `(proced-sort-header ((,class :inherit bold :foreground ,fg-special-calm :underline t)))
 ;;;;; prodigy
-    `(prodigy-green-face ((,class :foreground ,green)))
-    `(prodigy-red-face ((,class :foreground ,red)))
-    `(prodigy-yellow-face ((,class :foreground ,yellow)))
+    `(prodigy-green-face ((,class :inherit success)))
+    `(prodigy-red-face ((,class :inherit error)))
+    `(prodigy-yellow-face ((,class :inherit warning)))
 ;;;;; pulse
     `(pulse-highlight-start-face ((,class :background ,bg-active-accent :extend t)))
 ;;;;; quick-peek
