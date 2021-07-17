@@ -1724,16 +1724,6 @@ For form, see `modus-themes-vivendi-colors'."
   (put 'modus-themes-vivendi-color-overrides
        'custom-options (copy-sequence colors)))
 
-(defcustom modus-themes-slanted-constructs nil
-  "Use slanted text in more code constructs (italics or oblique)."
-  :group 'modus-themes
-  :package-version '(modus-themes . "1.0.0")
-  :version "28.1"
-  :type 'boolean
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
-  :link '(info-link "(modus-themes) Slanted constructs"))
-
 (define-obsolete-variable-alias
   'modus-themes-slanted-constructs
   'modus-themes-italic-constructs
@@ -2144,31 +2134,6 @@ accordance with it in cases where it changes, such as while using
 
 This size is used for level 1 headings, such as in Org and
 Markdown files.
-
-The default value is a floating point that is interpreted as a
-multiple of the base font size.  It is recommended to use such a
-value.
-
-However, the variable also accepts an integer, understood as an
-absolute height that is 1/10 of the typeface's point size (e.g. a
-value of 140 is the same as setting the font at 14 point size).
-This will ignore the base font size and, thus, will not scale in
-accordance with it in cases where it changes, such as while using
-`text-scale-adjust'."
-  :group 'modus-themes
-  :package-version '(modus-themes . "1.2.0")
-  :version "28.1"
-  :type 'number
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
-  :link '(info-link "(modus-themes) Scaled heading sizes"))
-
-(defcustom modus-themes-scale-5 1.3
-  "Font size slightly larger than `modus-themes-scale-4'.
-
-This size is only used for 'special' top level headings, such as
-Org's file title heading, denoted by the #+title key word, and
-the Org agenda structure headers.
 
 The default value is a floating point that is interpreted as a
 multiple of the base font size.  It is recommended to use such a
