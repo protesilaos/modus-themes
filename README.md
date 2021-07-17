@@ -144,20 +144,3 @@ manual installed: evaluate `(info "(modus-themes) Top")` to start
 reading it.
 
 The themes cover a broad range of packages and are highly customisable.
-
-## NOTE about old packages
-
-Users coming from version `0.13.0` or earlier, are advised to read the
-announcement on the emacs-devel mailing list:
-<https://lists.gnu.org/archive/html/emacs-devel/2021-03/msg00300.html>.
-Or read issue 174: <https://gitlab.com/protesilaos/modus-themes/-/issues/174>.
-
-The web page of the change log is also available:
-<https://protesilaos.com/modus-themes-changelog/>.
-
-An Info manual should be distributed with the `modus-themes` package.
-Evaluate this form to access it directly:
-
-    (info "(modus-themes) Top")
-
-Or visit it at: <https://protesilaos.com/modus-themes>.
