@@ -3190,6 +3190,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + vc-annotate (the output of {{{kbd(C-x v g)}}})
 + vdiff
 + vertico
++ vertico-quick
 + vimish-fold
 + visible-mark
 + visual-regexp
@@ -3238,7 +3239,6 @@ supported by the themes.
 + tab-bar-echo-area
 + vertico-indexed
 + vertico-mouse
-+ vertico-quick
 
 * Notes on individual packages
 :properties:
