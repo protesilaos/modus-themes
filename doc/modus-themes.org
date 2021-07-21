@@ -3236,6 +3236,9 @@ supported by the themes.
 + rjsx-mode
 + swift-mode
 + tab-bar-echo-area
++ vertico-indexed
++ vertico-mouse
++ vertico-quick
 
 * Notes on individual packages
 :properties:
