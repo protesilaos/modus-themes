@@ -4298,6 +4298,9 @@ details of this sort):
    • The Modus themes now cover deuteranopia in diffs
      (https://protesilaos.com/codelog/2021-02-25-modus-themes-diffs-deuteranopia/)
      (2021-02-25)
+   • Introducing the variable modus-themes-org-agenda
+     (https://protesilaos.com/codelog/2021-06-02-modus-themes-org-agenda/)
+     (2021-06-02)
 
    And here are the canonical sources of this project’s documentation:
 
@@ -5015,11 +5018,11 @@ Node: Issues you can help with164408
 Node: Patches require copyright assignment to the FSF165608
 Node: Acknowledgements167903
 Node: Meta170444
-Node: GNU Free Documentation License172441
-Node: Indices197793
-Node: Function index197972
-Node: Variable index199209
-Node: Concept index201350
+Node: GNU Free Documentation License172590
+Node: Indices197942
+Node: Function index198121
+Node: Variable index199358
+Node: Concept index201499
 
 End Tag Table
 
