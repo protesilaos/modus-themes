@@ -3961,7 +3961,7 @@ latter case.
 ~modus-operandi~ is best used outdoors or in a room that either gets
 direct sunlight or has plenty of light.  Whereas ~modus-vivendi~ works
 better when there is not a lot of sunshine or the room has a source of
-light, preferably a faint or warm one.  It is possible to use
+light that is preferably a faint and/or warm one.  It is possible to use
 ~modus-operandi~ at night and ~modus-vivendi~ during the day, though that
 will depend on several variables, such as one's overall perception of
 color, the paint on the walls and how that contributes to the impression

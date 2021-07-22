@@ -4049,7 +4049,7 @@ latter case.
    ‘modus-operandi’ is best used outdoors or in a room that either gets
 direct sunlight or has plenty of light.  Whereas ‘modus-vivendi’ works
 better when there is not a lot of sunshine or the room has a source of
-light, preferably a faint or warm one.  It is possible to use
+light that is preferably a faint and/or warm one.  It is possible to use
 ‘modus-operandi’ at night and ‘modus-vivendi’ during the day, though
 that will depend on several variables, such as one’s overall perception
 of color, the paint on the walls and how that contributes to the
@@ -5012,17 +5012,17 @@ Node: Is the contrast ratio about adjacent colors?152965
 Node: What does it mean to avoid exaggerations?154478
 Node: Why are colors mostly variants of blue magenta cyan?156313
 Node: What is the best setup for legibility?160660
-Node: Contributing163267
-Node: Sources of the themes163670
-Node: Issues you can help with164408
-Node: Patches require copyright assignment to the FSF165608
-Node: Acknowledgements167903
-Node: Meta170444
-Node: GNU Free Documentation License172590
-Node: Indices197942
-Node: Function index198121
-Node: Variable index199358
-Node: Concept index201499
+Node: Contributing163278
+Node: Sources of the themes163681
+Node: Issues you can help with164419
+Node: Patches require copyright assignment to the FSF165619
+Node: Acknowledgements167914
+Node: Meta170455
+Node: GNU Free Documentation License172601
+Node: Indices197953
+Node: Function index198132
+Node: Variable index199369
+Node: Concept index201510
 
 End Tag Table
 
