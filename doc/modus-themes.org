@@ -473,7 +473,7 @@ Symbol: ~modus-themes-inhibit-reload~
 
 Possible values:
 
-1. ~nil~ 
+1. ~nil~
 2. ~t~ (default)
 
 By default, customizing a theme-related user option through the Custom
