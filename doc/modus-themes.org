@@ -3234,6 +3234,7 @@ supported by the themes.
 + perl-mode
 + php-mode
 + rjsx-mode
++ side-hustle
 + swift-mode
 + tab-bar-echo-area
 + vertico-indexed
