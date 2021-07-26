@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.5.0
-;; Last-Modified: <2021-07-26 17:40:20 +0300>
+;; Last-Modified: <2021-07-26 17:48:08 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -6039,18 +6039,18 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(Man-reverse ((,class :inherit modus-themes-subtle-magenta)))
     `(Man-underline ((,class :foreground ,cyan :underline t)))
 ;;;;; marginalia
-    `(marginalia-archive ((,class :foreground ,green-nuanced-fg)))
-    `(marginalia-date ((,class :foreground ,blue-nuanced-fg)))
-    `(marginalia-char ((,class :foreground ,red-active)))
-    `(marginalia-documentation ((,class :inherit modus-themes-slant :foreground ,fg-special-cold)))
-    `(marginalia-file-modes ((,class :inherit shadow)))
-    `(marginalia-file-name ((,class :foreground ,fg-special-mild)))
-    `(marginalia-file-owner ((,class :foreground ,red-nuanced-fg)))
+    `(marginalia-archive ((,class :foreground ,cyan-alt-other)))
+    `(marginalia-date ((,class :foreground ,cyan)))
+    `(marginalia-char ((,class :foreground ,magenta)))
+    `(marginalia-documentation ((,class :inherit modus-themes-slant :foreground ,fg-docstring)))
+    `(marginalia-file-name ((,class :foreground ,fg-docstring)))
+    `(marginalia-file-owner ((,class :foreground ,red-faint)))
     `(marginalia-file-priv-dir ((,class :foreground ,blue-alt)))
-    `(marginalia-file-priv-exec ((,class :foreground ,magenta)))
+    `(marginalia-file-priv-exec ((,class :foreground ,magenta-alt)))
     `(marginalia-file-priv-link ((,class :foreground ,blue-alt-other)))
+    `(marginalia-file-priv-no ((,class :foreground "gray50")))
     `(marginalia-file-priv-other ((,class :foreground ,yellow)))
-    `(marginalia-file-priv-rare ((,class :foreground ,red-alt)))
+    `(marginalia-file-priv-rare ((,class :foreground ,red)))
     `(marginalia-file-priv-read ((,class :foreground ,fg-main)))
     `(marginalia-file-priv-write ((,class :foreground ,cyan)))
     ;; Here we make an exception of not applying the bespoke
@@ -6059,14 +6059,14 @@ by virtue of calling either of `modus-themes-load-operandi' and
     ;; components to compete with them for attention, (2) the
     ;; `marginalia-key' may not be used for key bindings specifically,
     ;; so we might end up applying styles in places we should not.
-    `(marginalia-key ((,class :foreground ,magenta-active)))
-    `(marginalia-mode ((,class :foreground ,cyan-active)))
-    `(marginalia-modified ((,class :foreground ,yellow-active)))
-    `(marginalia-number ((,class :foreground ,blue-active)))
-    `(marginalia-size ((,class :foreground ,green-active)))
-    `(marginalia-type ((,class :foreground ,fg-special-warm)))
-    `(marginalia-variable ((,class :foreground ,yellow-nuanced-fg)))
-    `(marginalia-version ((,class :foreground ,cyan-active)))
+    `(marginalia-key ((,class :foreground ,magenta-alt-other)))
+    `(marginalia-mode ((,class :foreground ,cyan)))
+    `(marginalia-modified ((,class :foreground ,magenta-alt-faint)))
+    `(marginalia-number ((,class :foreground ,cyan-alt-other)))
+    `(marginalia-size ((,class :foreground ,cyan-alt-other-faint)))
+    `(marginalia-type ((,class :foreground ,magenta)))
+    `(marginalia-variable ((,class :foreground ,blue-alt)))
+    `(marginalia-version ((,class :foreground ,cyan)))
 ;;;;; markdown-mode
     `(markdown-blockquote-face ((,class :inherit modus-themes-slant :foreground ,fg-special-cold)))
     `(markdown-bold-face ((,class :inherit bold)))
