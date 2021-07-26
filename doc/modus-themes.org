@@ -3237,6 +3237,7 @@ supported by the themes.
 + side-hustle
 + swift-mode
 + tab-bar-echo-area
++ tide
 + vertico-indexed
 + vertico-mouse
 + vertico-quick
