@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.5.0
-;; Last-Modified: <2021-07-26 10:16:05 +0300>
+;; Last-Modified: <2021-07-26 14:50:20 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -6046,6 +6046,13 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(marginalia-file-modes ((,class :inherit shadow)))
     `(marginalia-file-name ((,class :foreground ,fg-special-mild)))
     `(marginalia-file-owner ((,class :foreground ,red-nuanced-fg)))
+    `(marginalia-file-priv-dir ((,class :foreground ,blue-alt)))
+    `(marginalia-file-priv-exec ((,class :foreground ,magenta)))
+    `(marginalia-file-priv-link ((,class :foreground ,blue-alt-other)))
+    `(marginalia-file-priv-other ((,class :foreground ,yellow)))
+    `(marginalia-file-priv-rare ((,class :foreground ,red-alt)))
+    `(marginalia-file-priv-read ((,class :foreground ,fg-main)))
+    `(marginalia-file-priv-write ((,class :foreground ,cyan)))
     ;; Here we make an exception of not applying the bespoke
     ;; `modus-themes-key-binding' for two reasons: (1) completion
     ;; highlights can be fairly intense, so we do not want more
