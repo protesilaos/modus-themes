@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.5.0
-;; Last-Modified: <2021-07-26 18:40:37 +0300>
+;; Last-Modified: <2021-07-26 21:45:11 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -6040,10 +6040,10 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(Man-underline ((,class :foreground ,cyan :underline t)))
 ;;;;; marginalia
     `(marginalia-archive ((,class :foreground ,cyan-alt-other)))
-    `(marginalia-date ((,class :foreground ,cyan)))
     `(marginalia-char ((,class :foreground ,magenta)))
+    `(marginalia-date ((,class :foreground ,cyan)))
     `(marginalia-documentation ((,class :inherit modus-themes-slant :foreground ,fg-docstring)))
-    `(marginalia-file-name ((,class :foreground ,fg-docstring)))
+    `(marginalia-file-name ((,class :foreground ,blue-faint)))
     `(marginalia-file-owner ((,class :foreground ,red-faint)))
     `(marginalia-file-priv-dir ((,class :foreground ,blue-alt)))
     `(marginalia-file-priv-exec ((,class :foreground ,magenta-alt)))
@@ -6059,13 +6059,20 @@ by virtue of calling either of `modus-themes-load-operandi' and
     ;; components to compete with them for attention, (2) the
     ;; `marginalia-key' may not be used for key bindings specifically,
     ;; so we might end up applying styles in places we should not.
+    `(marginalia-function ((,class :foreground ,magenta-alt-faint)))
     `(marginalia-key ((,class :foreground ,magenta-alt-other)))
+    `(marginalia-lighter ((,class :foreground ,blue-alt)))
+    `(marginalia-list ((,class :foreground ,magenta-alt-other-faint)))
     `(marginalia-mode ((,class :foreground ,cyan)))
     `(marginalia-modified ((,class :foreground ,magenta-alt-faint)))
-    `(marginalia-number ((,class :foreground ,cyan-alt-other)))
+    `(marginalia-null ((,class :inherit shadow)))
+    `(marginalia-number ((,class :foreground ,cyan)))
     `(marginalia-size ((,class :foreground ,cyan-alt-other-faint)))
-    `(marginalia-type ((,class :foreground ,magenta)))
-    `(marginalia-variable ((,class :foreground ,blue-alt)))
+    `(marginalia-string ((,class :foreground ,blue-alt)))
+    `(marginalia-symbol ((,class :foreground ,blue-alt-other-faint)))
+    `(marginalia-true ((,class :foreground ,fg-main)))
+    `(marginalia-type ((,class :foreground ,cyan-alt-other)))
+    `(marginalia-value ((,class :foreground ,cyan)))
     `(marginalia-version ((,class :foreground ,cyan)))
 ;;;;; markdown-mode
     `(markdown-blockquote-face ((,class :inherit modus-themes-slant :foreground ,fg-special-cold)))
