@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.5.0
-;; Last-Modified: <2021-07-22 22:15:11 +0300>
+;; Last-Modified: <2021-07-26 10:16:05 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -4240,7 +4240,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(font-latex-bold-face ((,class :inherit bold :foreground ,fg-special-calm)))
     `(font-latex-doctex-documentation-face ((,class :inherit modus-themes-slant :foreground ,fg-special-cold)))
     `(font-latex-doctex-preprocessor-face ((,class :inherit modus-themes-bold :foreground ,red-alt-other)))
-    `(font-latex-italic-face ((,class :inherit italic :foreground ,fg-special-calm)))
+    `(font-latex-italic-face ((,class :inherit italic)))
     `(font-latex-math-face ((,class :foreground ,cyan-alt-other)))
     `(font-latex-script-char-face ((,class :foreground ,cyan-alt-other)))
     `(font-latex-sectioning-0-face ((,class :inherit modus-themes-variable-pitch :foreground ,blue-nuanced-fg)))
@@ -6090,7 +6090,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                            :foreground ,magenta-alt)))
     `(markdown-inline-code-face ((,class :inherit modus-themes-fixed-pitch
                                          :background ,bg-alt :foreground ,fg-special-calm)))
-    `(markdown-italic-face ((,class :inherit italic :foreground ,fg-special-cold)))
+    `(markdown-italic-face ((,class :inherit italic)))
     `(markdown-language-info-face ((,class :inherit modus-themes-fixed-pitch
                                            :foreground ,fg-special-cold)))
     `(markdown-language-keyword-face ((,class :inherit modus-themes-fixed-pitch
@@ -6124,7 +6124,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(markup-error-face ((,class :inherit error)))
     `(markup-gen-face ((,class :foreground ,magenta-alt)))
     `(markup-internal-reference-face ((,class :foreground ,fg-alt :underline ,bg-region)))
-    `(markup-italic-face ((,class :inherit italic :foreground ,fg-special-cold)))
+    `(markup-italic-face ((,class :inherit italic)))
     `(markup-list-face ((,class :inherit modus-themes-special-cold)))
     `(markup-meta-face ((,class :inherit shadow)))
     `(markup-meta-hide-face ((,class :foreground "gray50")))
