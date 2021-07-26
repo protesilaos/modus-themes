@@ -4133,12 +4133,12 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Johansson, André Alexandre Gomes, Arif Rezai, Basil L.{{{space()}}}
   Contovounesios, Burgess Chang, Christian Tietze, Christopher Dimech,
   Damien Cassou, Daniel Mendler, Dario Gjorgjevski, David Edmondson,
-  Davor Rotim, Divan Santana, Emanuele Michele Alberto Monterosso,
-  Farasha Euker, Gautier Ponsinet, Gerry Agbobada, Gianluca Recchia,
-  Gustavo Barros, Hörmetjan Yiltiz, Ilja Kocken, Iris Garcia, Jeremy
-  Friesen, Jerry Zhang, John Haman, Joshua O'Connor, Kevin Fleming,
-  Kévin Le Gouguec, Kostadin Ninev, Len Trigg, Manuel Uberti, Mark
-  Burton, Markus Beppler, Mauro Aranda, Michael Goldenberg, Morgan
+  Davor Rotim, Divan Santana, Eliraz Kedmi, Emanuele Michele Alberto
+  Monterosso, Farasha Euker, Gautier Ponsinet, Gerry Agbobada, Gianluca
+  Recchia, Gustavo Barros, Hörmetjan Yiltiz, Ilja Kocken, Iris Garcia,
+  Jeremy Friesen, Jerry Zhang, John Haman, Joshua O'Connor, Kevin
+  Fleming, Kévin Le Gouguec, Kostadin Ninev, Len Trigg, Manuel Uberti,
+  Mark Burton, Markus Beppler, Mauro Aranda, Michael Goldenberg, Morgan
   Smith, Murilo Pereira, Nicky van Foreest, Nicolas De Jaeghere, Paul
   Poloskov, Pengji Zhang, Pete Kazmier, Peter Wu, Philip Kaludercic,
   Pierre Téchoueyres, Roman Rudakov, Ryan Phillips, Rudolf Adamkovič,

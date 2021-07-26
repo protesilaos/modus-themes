@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.5.0
-;; Last-Modified: <2021-07-26 17:48:08 +0300>
+;; Last-Modified: <2021-07-26 18:40:37 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -7370,7 +7370,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(web-mode-jsx-depth-3-face ((,class :background ,bg-special-cold :foreground ,fg-special-cold)))
     `(web-mode-jsx-depth-4-face ((,class :background ,bg-alt :foreground ,blue-refine-fg)))
     `(web-mode-jsx-depth-5-face ((,class :background ,bg-alt :foreground ,blue-nuanced-fg)))
-    `(web-mode-keyword-face ((,class :inherit :inherit font-lock-keyword-face)))
+    `(web-mode-keyword-face ((,class :inherit font-lock-keyword-face)))
     `(web-mode-param-name-face ((,class :inherit font-lock-function-name-face)))
     `(web-mode-part-comment-face ((,class :inherit web-mode-comment-face)))
     `(web-mode-part-face ((,class :inherit web-mode-block-face)))
