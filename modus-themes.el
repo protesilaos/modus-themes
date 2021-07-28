@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.5.0
-;; Last-Modified: <2021-07-28 10:45:11 +0300>
+;; Last-Modified: <2021-07-28 15:04:56 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -3394,7 +3394,7 @@ set to `rainbow'."
     (_ (list :background bg :foreground fg))))
 
 (defun modus-themes--mode-line-attrs
-    (fg bg fg-alt bg-alt fg-accent bg-accent border border-3d &optional alt-style border-width fg-distant)
+    (fg bg fg-alt bg-alt fg-accent bg-accent border border-3d &optional alt-style fg-distant)
   "Color combinations for `modus-themes-mode-line'.
 
 FG and BG are the default colors.  FG-ALT and BG-ALT are meant to
@@ -3405,9 +3405,6 @@ three-dimensional effect, where BORDER-3D is used instead.
 
 Optional ALT-STYLE applies an appropriate style to the mode
 line's box property.
-
-Optional BORDER-WIDTH specifies an integer for the width of the
-rectangle that produces the box effect.
 
 Optional FG-DISTANT should be close to the main background
 values.  It is intended to be used as a distant-foreground
@@ -3455,7 +3452,7 @@ property."
                      ((memq 'padded modus-themes-mode-line)
                       (list :line-width 6 :color bg))
                      ((memq '3d modus-themes-mode-line)
-                      (list :line-width (or border-width 1)
+                      (list :line-width 1
                             :color
                             (cond ((and (memq 'accented modus-themes-mode-line)
                                         (memq 'borderless modus-themes-mode-line))
@@ -6245,7 +6242,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                             fg-dim bg-active
                             fg-main bg-active-accent
                             fg-alt bg-active
-                            'alt-style nil bg-main))))
+                            'alt-style bg-main))))
     `(mode-line-buffer-id ((,class :inherit bold)))
     `(mode-line-emphasis ((,class :inherit bold :foreground ,blue-active)))
     `(mode-line-highlight ((,class :inherit modus-themes-active-blue :box (:line-width -1 :style pressed-button))))
