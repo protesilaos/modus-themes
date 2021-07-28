@@ -69,9 +69,8 @@ demonstration:
 
       ;; Options for `modus-themes-mode-line' are either nil, or a list
       ;; that can combine any of `3d' OR `moody', `borderless',
-      ;; `accented'.  The variable's doc string shows all possible
-      ;; combinations.
-      modus-themes-mode-line '(3d accented)
+      ;; `accented', `padded'.
+      modus-themes-mode-line '(padded accented borderless)
 
       ;; Options for `modus-themes-syntax' are either nil (the default),
       ;; or a list of properties that may include any of those symbols:

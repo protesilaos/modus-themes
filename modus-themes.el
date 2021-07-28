@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.5.0
-;; Last-Modified: <2021-07-26 21:45:11 +0300>
+;; Last-Modified: <2021-07-28 10:40:56 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -2369,6 +2369,14 @@ the same as the background, effectively creating some padding.
 The `accented' property ensures that the active mode line uses a
 colored background instead of the standard shade of gray.
 
+The `padded' property increases the apparent height of the mode
+line.  This is done by applying box effects and combining them
+with an underline and overline.  To ensure that the underline is
+placed at the bottom, set `x-underline-at-descent-line' to
+non-nil.  The `padded' property has no effect when the `moody'
+property is also used, because Moody already applies its own
+padding.
+
 Combinations of any of those properties are expressed as a list,
 like in these examples:
 
@@ -2407,7 +2415,7 @@ Furthermore, because Moody expects an underline and overline
 instead of a box style, it is advised to set
 `x-underline-at-descent-line' to a non-nil value."
   :group 'modus-themes
-  :package-version '(modus-themes . "1.5.0")
+  :package-version '(modus-themes . "1.6.0")
   :version "28.1"
   :type '(set :tag "Properties" :greedy t
               (choice :tag "Overall style"
@@ -2415,7 +2423,8 @@ instead of a box style, it is advised to set
                       (const :tag "3d borders" 3d)
                       (const :tag "No box effects (Moody-compatible)" moody))
               (const :tag "Colored background" accented)
-              (const :tag "Without border color" borderless))
+              (const :tag "Without border color" borderless)
+              (const :tag "With extra padding" padded))
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Mode line"))
@@ -3428,6 +3437,23 @@ property."
                       ((cons fg bg))))
           (box (cond ((memq 'moody modus-themes-mode-line)
                       nil)
+                     ((and (memq '3d modus-themes-mode-line)
+                           (memq 'padded modus-themes-mode-line))
+                      (list :line-width 4
+                            :color
+                            (cond ((and (memq 'accented modus-themes-mode-line)
+                                        (memq 'borderless modus-themes-mode-line))
+                                   bg-accent)
+                                  ((or (memq 'accented modus-themes-mode-line)
+                                       (memq 'borderless modus-themes-mode-line))
+                                   bg)
+                                  (bg-alt))
+                            :style (when alt-style 'released-button)))
+                     ((and (memq 'accented modus-themes-mode-line)
+                           (memq 'padded modus-themes-mode-line))
+                      (list :line-width 4 :color bg-accent))
+                     ((memq 'padded modus-themes-mode-line)
+                      (list :line-width 4 :color bg))
                      ((memq '3d modus-themes-mode-line)
                       (list :line-width (or border-width 1)
                             :color
@@ -3436,12 +3462,16 @@ property."
                                    bg-accent)
                                   ((memq 'borderless modus-themes-mode-line) bg)
                                   (border-3d))
-                            :style (and alt-style 'released-button)))
-                     ((or (memq 'borderless modus-themes-mode-line)
-                          (memq 'moody modus-themes-mode-line))
+                            :style (when alt-style 'released-button)))
+                     ((memq 'accented modus-themes-mode-line)
+                      bg-accent)
+                     ((memq 'borderless modus-themes-mode-line)
                       bg)
+                     ((memq 'padded modus-themes-mode-line)
+                      (list :line-width 4 :color bg))
                      (border)))
-          (line (cond ((not (memq 'moody modus-themes-mode-line))
+          (line (cond ((not (or (memq 'moody modus-themes-mode-line)
+                                (memq 'padded modus-themes-mode-line)))
                        nil)
                       ((and (memq 'borderless modus-themes-mode-line)
                             (memq 'accented modus-themes-mode-line))
@@ -3455,8 +3485,8 @@ property."
             :overline line
             :underline line
             :distant-foreground
-            (and (memq 'moody modus-themes-mode-line)
-                 fg-distant)))))
+            (when (memq 'moody modus-themes-mode-line)
+              fg-distant)))))
 
 (defun modus-themes--diff
     (fg-only-bg fg-only-fg mainbg mainfg altbg altfg &optional deuteranbg deuteranfg  bg-only-fg)

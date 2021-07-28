@@ -395,9 +395,8 @@ this manual.
 
       ;; Options for `modus-themes-mode-line' are either nil, or a list
       ;; that can combine any of `3d' OR `moody', `borderless',
-      ;; `accented'.  The variable's doc string shows all possible
-      ;; combinations.
-      modus-themes-mode-line '(3d accented)
+      ;; `accented', `padded'.
+      modus-themes-mode-line '(padded accented borderless)
 
       ;; Options for `modus-themes-syntax' are either nil (the default),
       ;; or a list of properties that may include any of those symbols:
@@ -803,6 +802,7 @@ effect, color, and border visibility:
   - ~moody~
 + ~accented~
 + ~borderless~
++ ~padded~ (part of {{{development-version}}})
 
 The default (a nil value or an empty list) is a two-dimensional
 rectangle with a border around it.  The active and the inactive
@@ -829,6 +829,13 @@ the same as the background, effectively creating some padding.
 The ~accented~ property ensures that the active mode line uses a
 colored background instead of the standard shade of gray.
 
+The ~padded~ property increases the apparent height of the mode line.
+This is done by applying box effects and combining them with an
+underline and overline.  To ensure that the underline is placed at the
+bottom, set ~x-underline-at-descent-line~ to non-nil.  The ~padded~ property
+has no effect when the ~moody~ property is also used, because Moody
+already applies its own padding.
+
 Combinations of any of those properties are expressed as a list,
 like in these examples:
 
@@ -843,7 +850,7 @@ The order in which the properties are set is not significant.
 In user configuration files the form may look like this:
 
 #+begin_src emacs-lisp
-(setq modus-themes-prompts '(borderless accented))
+(setq modus-themes-mode-line '(borderless accented))
 #+end_src
 
 Note that Moody does not expose any faces that the themes could style
