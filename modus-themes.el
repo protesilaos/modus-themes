@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.5.0
-;; Last-Modified: <2021-07-28 15:25:10 +0300>
+;; Last-Modified: <2021-07-29 12:46:36 +0300>
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -4097,7 +4097,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                        bg-region blue-intense-bg
                                        fg-alt cyan-intense)
                                     :extend t)))
-    `(modus-themes-key-binding ((,class :inherit bold :foreground ,blue-alt-other)))
+    `(modus-themes-key-binding ((,class ,@(if (facep 'help-key-binding) ; check emacs28 face
+                                              (list :inherit 'help-key-binding)
+                                            (list :inherit 'bold :foreground blue-alt-other)))))
     `(modus-themes-prompt ((,class ,@(modus-themes--prompt
                                       cyan-alt-other blue-alt-other fg-alt
                                       cyan-nuanced-bg blue-refine-bg fg-main
