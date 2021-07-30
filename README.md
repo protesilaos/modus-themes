@@ -57,6 +57,7 @@ demonstration:
       modus-themes-no-mixed-fonts nil
       modus-themes-subtle-line-numbers nil
       modus-themes-success-deuteranopia t
+      modus-themes-tabs-accented t
       modus-themes-inhibit-reload t ; only applies to `customize-set-variable' and related
 
       modus-themes-fringes nil ; {nil,'subtle,'intense}

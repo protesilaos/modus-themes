@@ -5,8 +5,8 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.5.0
-;; Last-Modified: <2021-07-29 12:46:36 +0300>
-;; Package-Requires: ((emacs "26.1"))
+;; Last-Modified: <2021-07-30 14:08:59 +0300>
+;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
 ;; This file is part of GNU Emacs.
@@ -616,7 +616,9 @@ cover the blue-cyan-magenta side of the spectrum."
     (bg-tab-bar . "#d5d5d5")
     (bg-tab-active . "#f6f6f6")
     (bg-tab-inactive . "#bdbdbd")
-    (bg-tab-inactive-alt . "#999999")
+    (bg-tab-inactive-accent . "#a9b4f6")
+    (bg-tab-inactive-alt . "#a2a2a2")
+    (bg-tab-inactive-alt-accent . "#9fa6d0")
 
     (red-tab . "#680000")
     (green-tab . "#003900")
@@ -859,7 +861,9 @@ symbol and the latter as a string.")
     (bg-tab-bar . "#2c2c2c")
     (bg-tab-active . "#0e0e0e")
     (bg-tab-inactive . "#3d3d3d")
+    (bg-tab-inactive-accent . "#35398f")
     (bg-tab-inactive-alt . "#595959")
+    (bg-tab-inactive-alt-accent . "#505588")
 
     (red-tab . "#ffc0bf")
     (green-tab . "#88ef88")
@@ -2879,6 +2883,18 @@ colored into a uniform shade of shade of gray."
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Mail citations"))
 
+(defcustom modus-themes-tabs-accented nil
+  "Toggle accented tab backgrounds, instead of the default gray.
+This affects the built-in tab-bar mode and tab-line mode, as well
+as the Centaur tabs package."
+  :group 'modus-themes
+  :package-version '(modus-themes . "1.6.0")
+  :version "28.1"
+  :type 'boolean
+  :set #'modus-themes--set-option
+  :initialize #'custom-initialize-default
+  :link '(info-link "(modus-themes) Tab style"))
+
 
 
 ;;; Internal functions
@@ -3749,6 +3765,22 @@ desaturated counterpart."
     ('desaturated (list :foreground subtlefg))
     (_ (list :foreground mainfg))))
 
+(defun modus-themes--tab (bg &optional bgaccent fg fgaccent box-p bold-p)
+  "Helper function for tabs.
+BG is the default background, while BGACCENT is its more colorful
+alternative.  Optional FG is a foreground color that combines
+with BG.  Same principle FGACCENT.
+
+BOX-P and BOLD-P determine the use of a box property and the
+application of a bold weight, respectively."
+  (let ((background (if modus-themes-tabs-accented (or bgaccent bg) bg))
+        (foreground (if modus-themes-tabs-accented (or fgaccent fg) fg)))
+    (list
+     :inherit (if bold-p 'bold 'unspecified)
+     :background background
+     :foreground (or foreground 'unspecified)
+     :box (if box-p (list :line-width 2 :color background) 'unspecified))))
+
 
 
 ;;;; Utilities for DIY users
@@ -4398,11 +4430,11 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(centaur-tabs-close-unselected ((,class :inherit centaur-tabs-unselected)))
     `(centaur-tabs-modified-marker-selected ((,class :inherit centaur-tabs-selected)))
     `(centaur-tabs-modified-marker-unselected ((,class :inherit centaur-tabs-unselected)))
-    `(centaur-tabs-default ((,class :background ,bg-main :foreground ,bg-main)))
-    `(centaur-tabs-selected ((,class :inherit bold :background ,bg-tab-active :foreground ,fg-main)))
-    `(centaur-tabs-selected-modified ((,class :inherit italic :background ,bg-tab-active :foreground ,fg-main)))
-    `(centaur-tabs-unselected ((,class :background ,bg-tab-inactive :foreground ,fg-dim)))
-    `(centaur-tabs-unselected-modified ((,class :inherit italic :background ,bg-tab-inactive :foreground ,fg-dim)))
+    `(centaur-tabs-default (( )))
+    `(centaur-tabs-selected ((,class ,@(modus-themes--tab bg-tab-active nil nil nil t t))))
+    `(centaur-tabs-selected-modified ((,class :inherit (italic centaur-tabs-selected))))
+    `(centaur-tabs-unselected ((,class ,@(modus-themes--tab bg-tab-inactive bg-tab-inactive-accent fg-dim fg-main t))))
+    `(centaur-tabs-unselected-modified ((,class :inherit (italic centaur-tabs-unselected))))
 ;;;;; cfrs
     `(cfrs-border-color ((,class :background ,fg-window-divider-inner)))
 ;;;;; change-log and log-view (`vc-print-log' and `vc-print-root-log')
@@ -7108,23 +7140,20 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(tab-bar-groups-tab-8 ((,class ,@(modus-themes--variable-pitch-ui) :foreground ,magenta-tab)))
 ;;;;; tab-bar-mode
     `(tab-bar ((,class ,@(modus-themes--variable-pitch-ui)
-                       :background ,bg-tab-bar :foreground ,fg-main)))
-    `(tab-bar-tab ((,class :inherit bold :box (:line-width 2 :color ,bg-tab-active)
-                           :background ,bg-tab-active :foreground ,fg-main)))
-    `(tab-bar-tab-inactive ((,class :box (:line-width 2 :color ,bg-tab-inactive)
-                                    :background ,bg-tab-inactive :foreground ,fg-dim)))
+                       ,@(modus-themes--tab bg-active bg-active-accent))))
+    `(tab-bar-tab ((,class ,@(modus-themes--tab bg-tab-active nil nil nil t t))))
+    `(tab-bar-tab-inactive ((,class ,@(modus-themes--tab bg-tab-inactive bg-tab-inactive-accent fg-dim fg-main t))))
 ;;;;; tab-line-mode
     `(tab-line ((,class ,@(modus-themes--variable-pitch-ui)
-                        :height 0.95 :background ,bg-tab-bar :foreground ,fg-main)))
+                        ,@(modus-themes--tab bg-active bg-active-accent)
+                        :height 0.95)))
     `(tab-line-close-highlight ((,class :foreground ,red)))
-    `(tab-line-highlight ((,class :background ,blue-subtle-bg :foreground ,fg-dim)))
-    `(tab-line-tab ((,class :inherit bold :box (:line-width 2 :color ,bg-tab-active)
-                            :background ,bg-tab-active :foreground ,fg-main)))
+    `(tab-line-highlight ((,class :inherit modus-themes-active-blue)))
+    `(tab-line-tab ((,class ,@(modus-themes--tab bg-tab-active nil nil nil t t))))
     `(tab-line-tab-current ((,class :inherit tab-line-tab)))
-    `(tab-line-tab-inactive ((,class :box (:line-width 2 :color ,bg-tab-inactive)
-                                     :background ,bg-tab-inactive :foreground ,fg-dim)))
-    `(tab-line-tab-inactive-alternate ((,class :box (:line-width 2 :color ,bg-tab-inactive-alt)
-                                               :background ,bg-tab-inactive-alt :foreground ,fg-main)))
+    `(tab-line-tab-inactive ((,class ,@(modus-themes--tab bg-tab-inactive bg-tab-inactive-accent fg-dim fg-main t))))
+    `(tab-line-tab-inactive-alternate ((,class ,@(modus-themes--tab bg-tab-inactive-alt
+                                                                    bg-tab-inactive-alt-accent fg-main nil t))))
 ;;;;; table (built-in table.el)
     `(table-cell ((,class :background ,blue-nuanced-bg)))
 ;;;;; telega

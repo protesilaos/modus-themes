@@ -383,6 +383,7 @@ this manual.
       modus-themes-no-mixed-fonts nil
       modus-themes-subtle-line-numbers nil
       modus-themes-success-deuteranopia t
+      modus-themes-tabs-accented t
       modus-themes-inhibit-reload t ; only applies to `customize-set-variable' and related
 
       modus-themes-fringes nil ; {nil,'subtle,'intense}
@@ -874,6 +875,27 @@ colors (which have been carefully designed to be highly accessible).
 Furthermore, because Moody expects an underline and overline instead of
 a box style, it is advised to set ~x-underline-at-descent-line~ to a
 non-nil value.
+
+** Option for accented background in tab interfaces
+:properties:
+:alt_title: Tab style
+:description: Toggle accented background for tabs
+:custom_id: h:27cef8f5-dc4e-4c93-ba41-b899e650d936
+:end:
+#+vindex: modus-themes-tabs-accented
+
+Symbol: ~modus-themes-tabs-accented~
+
+Possible values:
+
++ ~nil~ (default)
++ ~t~
+
+By default, all tab interfaces use backgrounds which are shades of gray.
+When this option is set to non-nil, the backgrounds become colorful.
+
+This affects the built-in ~tab-bar-mode~ and ~tab-line-mode~, as well as the
+Centaur tabs package.
 
 ** Option for completion framework aesthetics
 :properties:
