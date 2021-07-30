@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.5.0
-;; Last-Modified: <2021-07-30 14:08:59 +0300>
+;; Last-Modified: <2021-07-30 14:42:38 +0300>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -615,9 +615,9 @@ cover the blue-cyan-magenta side of the spectrum."
 
     (bg-tab-bar . "#d5d5d5")
     (bg-tab-active . "#f6f6f6")
-    (bg-tab-inactive . "#bdbdbd")
+    (bg-tab-inactive . "#b7b7b7")
     (bg-tab-inactive-accent . "#a9b4f6")
-    (bg-tab-inactive-alt . "#a2a2a2")
+    (bg-tab-inactive-alt . "#9f9f9f")
     (bg-tab-inactive-alt-accent . "#9fa6d0")
 
     (red-tab . "#680000")
@@ -860,7 +860,7 @@ symbol and the latter as a string.")
 
     (bg-tab-bar . "#2c2c2c")
     (bg-tab-active . "#0e0e0e")
-    (bg-tab-inactive . "#3d3d3d")
+    (bg-tab-inactive . "#424242")
     (bg-tab-inactive-accent . "#35398f")
     (bg-tab-inactive-alt . "#595959")
     (bg-tab-inactive-alt-accent . "#505588")
@@ -4433,7 +4433,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(centaur-tabs-default (( )))
     `(centaur-tabs-selected ((,class ,@(modus-themes--tab bg-tab-active nil nil nil t t))))
     `(centaur-tabs-selected-modified ((,class :inherit (italic centaur-tabs-selected))))
-    `(centaur-tabs-unselected ((,class ,@(modus-themes--tab bg-tab-inactive bg-tab-inactive-accent fg-dim fg-main t))))
+    `(centaur-tabs-unselected ((,class ,@(modus-themes--tab bg-tab-inactive bg-tab-inactive-accent fg-dim nil t))))
     `(centaur-tabs-unselected-modified ((,class :inherit (italic centaur-tabs-unselected))))
 ;;;;; cfrs
     `(cfrs-border-color ((,class :background ,fg-window-divider-inner)))
@@ -7142,7 +7142,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(tab-bar ((,class ,@(modus-themes--variable-pitch-ui)
                        ,@(modus-themes--tab bg-active bg-active-accent))))
     `(tab-bar-tab ((,class ,@(modus-themes--tab bg-tab-active nil nil nil t t))))
-    `(tab-bar-tab-inactive ((,class ,@(modus-themes--tab bg-tab-inactive bg-tab-inactive-accent fg-dim fg-main t))))
+    `(tab-bar-tab-inactive ((,class ,@(modus-themes--tab bg-tab-inactive bg-tab-inactive-accent fg-dim nil t))))
 ;;;;; tab-line-mode
     `(tab-line ((,class ,@(modus-themes--variable-pitch-ui)
                         ,@(modus-themes--tab bg-active bg-active-accent)
@@ -7151,7 +7151,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(tab-line-highlight ((,class :inherit modus-themes-active-blue)))
     `(tab-line-tab ((,class ,@(modus-themes--tab bg-tab-active nil nil nil t t))))
     `(tab-line-tab-current ((,class :inherit tab-line-tab)))
-    `(tab-line-tab-inactive ((,class ,@(modus-themes--tab bg-tab-inactive bg-tab-inactive-accent fg-dim fg-main t))))
+    `(tab-line-tab-inactive ((,class ,@(modus-themes--tab bg-tab-inactive bg-tab-inactive-accent fg-dim nil t))))
     `(tab-line-tab-inactive-alternate ((,class ,@(modus-themes--tab bg-tab-inactive-alt
                                                                     bg-tab-inactive-alt-accent fg-main nil t))))
 ;;;;; table (built-in table.el)
