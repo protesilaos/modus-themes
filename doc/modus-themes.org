@@ -884,6 +884,8 @@ non-nil value.
 :end:
 #+vindex: modus-themes-tabs-accented
 
+[ Part of {{{development-version}}} ]
+
 Symbol: ~modus-themes-tabs-accented~
 
 Possible values:
