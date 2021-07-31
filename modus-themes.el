@@ -5683,6 +5683,10 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                      ,@(modus-themes--standard-completions
                                         magenta bg-alt
                                         bg-active fg-main))))
+    `(icomplete-selected-match ((,class :inherit bold :foreground ,fg-main
+                                        :background ,@(pcase modus-themes-completions
+                                                        ('opinionated (list bg-active))
+                                                        (_ (list bg-inactive))))))
 ;;;;; icomplete-vertical
     `(icomplete-vertical-separator ((,class :inherit shadow)))
 ;;;;; ido-mode
