@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.5.0
-;; Last-Modified: <2021-08-01 11:44:46 +0300>
+;; Last-Modified: <2021-08-01 11:58:01 +0300>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -3779,9 +3779,11 @@ application of a variable-pitch font."
     (list
      :inherit (cond
                ((and bold-p var-p)
-                '(variable-pitch bold))
+                (if modus-themes-variable-pitch-ui
+                    '(variable-pitch bold)
+                  '(bold)))
                (bold-p 'bold)
-               (var-p 'variable-pitch)
+               (var-p (when modus-themes-variable-pitch-ui 'variable-pitch))
                ('unspecified))
      :background background
      :foreground (or foreground 'unspecified)
@@ -7153,7 +7155,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(tab-bar-tab ((,class ,@(modus-themes--tab bg-tab-active nil nil nil t t))))
     `(tab-bar-tab-inactive ((,class ,@(modus-themes--tab bg-tab-inactive bg-tab-inactive-accent fg-dim nil t))))
 ;;;;; tab-line-mode
-    `(tab-line ((,class ,@(modus-themes--tab bg-active bg-active-accent nil nil nil t)
+    `(tab-line ((,class ,@(modus-themes--tab bg-active bg-active-accent nil nil nil nil t)
                         :height 0.95)))
     `(tab-line-close-highlight ((,class :foreground ,red)))
     `(tab-line-highlight ((,class :inherit modus-themes-active-blue)))
