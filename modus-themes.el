@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.5.0
-;; Last-Modified: <2021-07-30 14:42:38 +0300>
+;; Last-Modified: <2021-08-01 11:44:46 +0300>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -3765,18 +3765,24 @@ desaturated counterpart."
     ('desaturated (list :foreground subtlefg))
     (_ (list :foreground mainfg))))
 
-(defun modus-themes--tab (bg &optional bgaccent fg fgaccent box-p bold-p)
+(defun modus-themes--tab (bg &optional bgaccent fg fgaccent box-p bold-p var-p)
   "Helper function for tabs.
 BG is the default background, while BGACCENT is its more colorful
 alternative.  Optional FG is a foreground color that combines
 with BG.  Same principle FGACCENT.
 
 BOX-P and BOLD-P determine the use of a box property and the
-application of a bold weight, respectively."
+application of a bold weight, respectively.  VAR-P controls the
+application of a variable-pitch font."
   (let ((background (if modus-themes-tabs-accented (or bgaccent bg) bg))
         (foreground (if modus-themes-tabs-accented (or fgaccent fg) fg)))
     (list
-     :inherit (if bold-p 'bold 'unspecified)
+     :inherit (cond
+               ((and bold-p var-p)
+                '(variable-pitch bold))
+               (bold-p 'bold)
+               (var-p 'variable-pitch)
+               ('unspecified))
      :background background
      :foreground (or foreground 'unspecified)
      :box (if box-p (list :line-width 2 :color background) 'unspecified))))
@@ -7143,13 +7149,11 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(tab-bar-groups-tab-7 ((,class ,@(modus-themes--variable-pitch-ui) :foreground ,yellow-tab)))
     `(tab-bar-groups-tab-8 ((,class ,@(modus-themes--variable-pitch-ui) :foreground ,magenta-tab)))
 ;;;;; tab-bar-mode
-    `(tab-bar ((,class ,@(modus-themes--variable-pitch-ui)
-                       ,@(modus-themes--tab bg-active bg-active-accent))))
+    `(tab-bar ((,class ,@(modus-themes--tab bg-active bg-active-accent nil nil nil nil t))))
     `(tab-bar-tab ((,class ,@(modus-themes--tab bg-tab-active nil nil nil t t))))
     `(tab-bar-tab-inactive ((,class ,@(modus-themes--tab bg-tab-inactive bg-tab-inactive-accent fg-dim nil t))))
 ;;;;; tab-line-mode
-    `(tab-line ((,class ,@(modus-themes--variable-pitch-ui)
-                        ,@(modus-themes--tab bg-active bg-active-accent)
+    `(tab-line ((,class ,@(modus-themes--tab bg-active bg-active-accent nil nil nil t)
                         :height 0.95)))
     `(tab-line-close-highlight ((,class :foreground ,red)))
     `(tab-line-highlight ((,class :inherit modus-themes-active-blue)))
