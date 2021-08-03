@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.5.0
-;; Last-Modified: <2021-08-01 11:58:01 +0300>
+;; Last-Modified: <2021-08-03 16:06:34 +0300>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -125,6 +125,7 @@
 ;;     css-mode
 ;;     csv-mode
 ;;     ctrlf
+;;     cursor-flash
 ;;     custom (M-x customize)
 ;;     dap-mode
 ;;     dashboard (emacs-dashboard)
@@ -4622,6 +4623,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(ctrlf-highlight-active ((,class :inherit (modus-themes-search-success bold))))
     `(ctrlf-highlight-line ((,class :inherit modus-themes-hl-line)))
     `(ctrlf-highlight-passive ((,class :inherit modus-themes-search-success-lazy)))
+;;;;; cursor-flash
+    `(cursor-flash-face ((,class :inherit modus-themes-intense-blue)))
 ;;;;; custom (M-x customize)
     `(custom-button ((,class :box (:line-width 2 :color nil :style released-button)
                              :background ,bg-active :foreground ,fg-main)))
