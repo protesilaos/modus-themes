@@ -3258,6 +3258,7 @@ These do not require any extra styles because they are configured to
 inherit from some basic faces or their dependencies which are directly
 supported by the themes.
 
++ bufler
 + counsel-notmuch
 + edit-indirect
 + evil-owl
