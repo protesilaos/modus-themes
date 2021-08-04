@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.5.0
-;; Last-Modified: <2021-08-03 16:06:34 +0300>
+;; Last-Modified: <2021-08-04 09:04:57 +0300>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -161,6 +161,7 @@
 ;;     eldoc-box
 ;;     elfeed
 ;;     elfeed-score
+;;     elpher
 ;;     embark
 ;;     emms
 ;;     enh-ruby-mode (enhanced-ruby-mode)
@@ -4974,6 +4975,10 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(elfeed-score-error-level-face ((,class :foreground ,red)))
     `(elfeed-score-info-level-face ((,class :foreground ,cyan)))
     `(elfeed-score-warn-level-face ((,class :foreground ,yellow)))
+;;;;; elpher
+    `(elpher-gemini-heading1 ((,class :inherit modus-themes-heading-1)))
+    `(elpher-gemini-heading2 ((,class :inherit modus-themes-heading-2)))
+    `(elpher-gemini-heading3 ((,class :inherit modus-themes-heading-3)))
 ;;;;; embark
     `(embark-keybinding ((,class :inherit modus-themes-key-binding)))
 ;;;;; emms
