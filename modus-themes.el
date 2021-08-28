@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.5.0
-;; Last-Modified: <2021-08-04 09:04:57 +0300>
+;; Last-Modified: <2021-08-28 10:56:05 +0300>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -7248,7 +7248,10 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(transient-heading ((,class :inherit bold :foreground ,fg-main)))
     `(transient-inactive-argument ((,class :inherit shadow)))
     `(transient-inactive-value ((,class :inherit shadow)))
-    `(transient-key ((,class :inherit modus-themes-key-binding)))
+    ;; FIXME 2021-08-28: using `modus-themes-key-binding' leads to
+    ;; misalignments because of the added box property.
+    ;; `(transient-key ((,class :inherit modus-themes-key-binding)))
+    `(transient-key ((,class :inherit bold :foreground ,blue-alt-other)))
     `(transient-mismatched-key ((,class :underline t)))
     `(transient-nonstandard-key ((,class :underline t)))
     `(transient-pink ((,class :inherit bold :foreground ,magenta-alt-faint)))
