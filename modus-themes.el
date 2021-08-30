@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.5.0
-;; Last-Modified: <2021-08-29 06:46:48 +0300>
+;; Last-Modified: <2021-08-30 11:04:38 +0300>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -6401,6 +6401,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(notmuch-crypto-signature-good-key ((,class :inherit bold :foreground ,cyan)))
     `(notmuch-crypto-signature-unknown ((,class :inherit warning)))
     `(notmuch-hello-logo-background ((,class :background "gray50")))
+    `(notmuch-jump-key ((,class :inherit modus-themes-key-binding)))
     `(notmuch-message-summary-face ((,class :inherit (bold modus-themes-nuanced-cyan))))
     `(notmuch-search-count ((,class :inherit shadow)))
     `(notmuch-search-date ((,class :foreground ,cyan)))
