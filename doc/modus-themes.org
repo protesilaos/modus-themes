@@ -3066,6 +3066,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + highlight-escape-sequences (~hes-mode~)
 + highlight-indentation
 + highlight-numbers
++ highlight-parentheses ([[#h:24bab397-dcb2-421d-aa6e-ec5bd622b913][Note on highlight-parentheses.el]])
 + highlight-symbol
 + highlight-tail
 + highlight-thing
@@ -3453,6 +3454,135 @@ and have the foreground be indistinguishable from it.  For example:
 #+end_src
 
 [[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Face specs at scale using the themes' palette]].
+
+** Note on highlight-parentheses.el
+:PROPERTIES:
+:CUSTOM_ID: h:24bab397-dcb2-421d-aa6e-ec5bd622b913
+:END:
+
+The =highlight-parentheses= package provides contextual coloration of
+surrounding parentheses, highlighting only those which are around the
+point.  The package expects users to customize the applicable colors on
+their own by configuring certain variables.
+
+To make the Modus themes work as expected with this, we need to use some
+of the techniques that are discussed at length in the various
+"Do-It-Yourself" (DIY) sections, which provide insight into the more
+advanced customization options of the themes.
+
+[[#h:f4651d55-8c07-46aa-b52b-bed1e53463bb][Advanced customization (do-it-yourself)]].
+
+In the following example, we are assuming that the user wants to (i)
+re-use color variables provided by the themes, (ii) be able to retain
+their tweaks while switching between ~modus-operandi~ and ~modus-vivendi~,
+and (iii) have the option to highlight either the foreground of the
+parentheses or the background as well.
+
+We start by defining our own variable, which will serve as a toggle
+between foreground and background coloration styles:
+
+#+begin_src emacs-lisp
+(defvar my-highlight-parentheses-use-background t
+  "Prefer `highlight-parentheses-background-colors'.")
+#+end_src
+
+Then we can update our preference with this:
+
+#+begin_src emacs-lisp
+;; Set to nil to disable backgrounds.
+(setq my-highlight-parentheses-use-background nil)
+#+end_src
+
+To re-use colors from the themes, we must wrap our code in the
+~modus-themes-with-colors~ macro.  Our implementation must interface with
+the variables ~highlight-parentheses-background-colors~ and/or
+~highlight-parentheses-colors~.
+
+So we can have something like this (the doc string of
+~modus-themes-with-colors~ explains where the names of the colors can be
+found):
+
+#+begin_src emacs-lisp
+(modus-themes-with-colors
+    ;; Our preference for setting either background or foreground
+    ;; styles, depending on `my-highlight-parentheses-use-background'.
+    (if my-highlight-parentheses-use-background
+
+        ;; Here we set color combinations that involve both a background
+        ;; and a foreground value.
+        (setq highlight-parentheses-background-colors (list cyan-refine-bg
+                                                            magenta-refine-bg
+                                                            green-refine-bg
+                                                            yellow-refine-bg)
+              highlight-parentheses-colors (list cyan-refine-fg
+                                                 magenta-refine-fg
+                                                 green-refine-fg
+                                                 yellow-refine-fg))
+
+      ;; And here we pass only foreground colors while disabling any
+      ;; backgrounds.
+      (setq highlight-parentheses-colors (list green-intense
+                                               magenta-intense
+                                               blue-intense
+                                               red-intense)
+            highlight-parentheses-background-colors nil)))
+
+;; Include this if you also want to make the parentheses bold:
+(set-face-attribute 'highlight-parentheses-highlight nil :inherit 'bold)
+
+;; Our changes must be evaluated before enabling the relevant mode, so
+;; this comes last.
+(global-highlight-parentheses-mode 1)
+#+end_src
+
+For our changes to persist while switching between the Modus themes, we
+need to include them in a function which can then get passed to
+~modus-themes-after-load-theme-hook~.  This is the complete
+implementation:
+
+#+begin_src emacs-lisp
+;; Configurations for `highlight-parentheses':
+(require 'highlight-parentheses)
+
+(defvar my-highlight-parentheses-use-background t
+  "Prefer `highlight-parentheses-background-colors'.")
+
+(setq my-highlight-parentheses-use-background nil) ; Set to nil to disable backgrounds
+
+(defun my-modus-themes-highlight-parentheses ()
+  (modus-themes-with-colors
+    ;; Our preference for setting either background or foreground
+    ;; styles, depending on `my-highlight-parentheses-use-background'.
+    (if my-highlight-parentheses-use-background
+
+        ;; Here we set color combinations that involve both a background
+        ;; and a foreground value.
+        (setq highlight-parentheses-background-colors (list cyan-refine-bg
+                                                            magenta-refine-bg
+                                                            green-refine-bg
+                                                            yellow-refine-bg)
+              highlight-parentheses-colors (list cyan-refine-fg
+                                                 magenta-refine-fg
+                                                 green-refine-fg
+                                                 yellow-refine-fg))
+
+      ;; And here we pass only foreground colors while disabling any
+      ;; backgrounds.
+      (setq highlight-parentheses-colors (list green-intense
+                                               magenta-intense
+                                               blue-intense
+                                               red-intense)
+            highlight-parentheses-background-colors nil)))
+
+  ;; Include this if you also want to make the parentheses bold:
+  (set-face-attribute 'highlight-parentheses-highlight nil :inherit 'bold)
+
+  ;; Our changes must be evaluated before enabling the relevant mode, so
+  ;; this comes last.
+  (global-highlight-parentheses-mode 1))
+
+(add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-highlight-parentheses)
+#+end_src
 
 ** Note on mmm-mode.el background colors
 :properties:

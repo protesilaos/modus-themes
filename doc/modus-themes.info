@@ -151,6 +151,7 @@ Notes on individual packages
 * Note on inline Latex in Org buffers::
 * Note on dimmer.el: Note on dimmerel.
 * Note on display-fill-column-indicator-mode::
+* Note on highlight-parentheses.el: Note on highlight-parenthesesel.
 * Note on mmm-mode.el background colors: Note on mmm-modeel background colors.
 * Note for prism::
 * Note for god-mode::
@@ -3132,6 +3133,8 @@ have lots of extensions, so the “full support” may not be 100% true…
    • highlight-escape-sequences (‘hes-mode’)
    • highlight-indentation
    • highlight-numbers
+   • highlight-parentheses (*note Note on highlight-parentheses.el: Note
+     on highlight-parenthesesel.)
    • highlight-symbol
    • highlight-tail
    • highlight-thing
@@ -3359,6 +3362,7 @@ individual packages.
 * Note on inline Latex in Org buffers::
 * Note on dimmer.el: Note on dimmerel.
 * Note on display-fill-column-indicator-mode::
+* Note on highlight-parentheses.el: Note on highlight-parenthesesel.
 * Note on mmm-mode.el background colors: Note on mmm-modeel background colors.
 * Note for prism::
 * Note for god-mode::
@@ -3502,7 +3506,7 @@ gray.  This inadvertently leads to the opposite of the intended utility
 of this package: it draws too much attention to unfocused windows.
 
 
-File: modus-themes.info,  Node: Note on display-fill-column-indicator-mode,  Next: Note on mmm-modeel background colors,  Prev: Note on dimmerel,  Up: Notes on individual packages
+File: modus-themes.info,  Node: Note on display-fill-column-indicator-mode,  Next: Note on highlight-parenthesesel,  Prev: Note on dimmerel,  Up: Notes on individual packages
 
 7.6 Note on display-fill-column-indicator-mode
 ==============================================
@@ -3535,9 +3539,131 @@ from it.  For example:
 scale using the themes' palette (DIY).
 
 
-File: modus-themes.info,  Node: Note on mmm-modeel background colors,  Next: Note for prism,  Prev: Note on display-fill-column-indicator-mode,  Up: Notes on individual packages
+File: modus-themes.info,  Node: Note on highlight-parenthesesel,  Next: Note on mmm-modeel background colors,  Prev: Note on display-fill-column-indicator-mode,  Up: Notes on individual packages
 
-7.7 Note on mmm-mode.el background colors
+7.7 Note on highlight-parentheses.el
+====================================
+
+The ‘highlight-parentheses’ package provides contextual coloration of
+surrounding parentheses, highlighting only those which are around the
+point.  The package expects users to customize the applicable colors on
+their own by configuring certain variables.
+
+   To make the Modus themes work as expected with this, we need to use
+some of the techniques that are discussed at length in the various
+“Do-It-Yourself” (DIY) sections, which provide insight into the more
+advanced customization options of the themes.
+
+   *note Advanced customization (do-it-yourself)::.
+
+   In the following example, we are assuming that the user wants to (i)
+re-use color variables provided by the themes, (ii) be able to retain
+their tweaks while switching between ‘modus-operandi’ and
+‘modus-vivendi’, and (iii) have the option to highlight either the
+foreground of the parentheses or the background as well.
+
+   We start by defining our own variable, which will serve as a toggle
+between foreground and background coloration styles:
+
+     (defvar my-highlight-parentheses-use-background t
+       "Prefer `highlight-parentheses-background-colors'.")
+
+   Then we can update our preference with this:
+
+     ;; Set to nil to disable backgrounds.
+     (setq my-highlight-parentheses-use-background nil)
+
+   To re-use colors from the themes, we must wrap our code in the
+‘modus-themes-with-colors’ macro.  Our implementation must interface
+with the variables ‘highlight-parentheses-background-colors’ and/or
+‘highlight-parentheses-colors’.
+
+   So we can have something like this (the doc string of
+‘modus-themes-with-colors’ explains where the names of the colors can be
+found):
+
+     (modus-themes-with-colors
+         ;; Our preference for setting either background or foreground
+         ;; styles, depending on `my-highlight-parentheses-use-background'.
+         (if my-highlight-parentheses-use-background
+
+             ;; Here we set color combinations that involve both a background
+             ;; and a foreground value.
+             (setq highlight-parentheses-background-colors (list cyan-refine-bg
+                                                                 magenta-refine-bg
+                                                                 green-refine-bg
+                                                                 yellow-refine-bg)
+                   highlight-parentheses-colors (list cyan-refine-fg
+                                                      magenta-refine-fg
+                                                      green-refine-fg
+                                                      yellow-refine-fg))
+
+           ;; And here we pass only foreground colors while disabling any
+           ;; backgrounds.
+           (setq highlight-parentheses-colors (list green-intense
+                                                    magenta-intense
+                                                    blue-intense
+                                                    red-intense)
+                 highlight-parentheses-background-colors nil)))
+
+     ;; Include this if you also want to make the parentheses bold:
+     (set-face-attribute 'highlight-parentheses-highlight nil :inherit 'bold)
+
+     ;; Our changes must be evaluated before enabling the relevant mode, so
+     ;; this comes last.
+     (global-highlight-parentheses-mode 1)
+
+   For our changes to persist while switching between the Modus themes,
+we need to include them in a function which can then get passed to
+‘modus-themes-after-load-theme-hook’.  This is the complete
+implementation:
+
+     ;; Configurations for `highlight-parentheses':
+     (require 'highlight-parentheses)
+
+     (defvar my-highlight-parentheses-use-background t
+       "Prefer `highlight-parentheses-background-colors'.")
+
+     (setq my-highlight-parentheses-use-background nil) ; Set to nil to disable backgrounds
+
+     (defun my-modus-themes-highlight-parentheses ()
+       (modus-themes-with-colors
+         ;; Our preference for setting either background or foreground
+         ;; styles, depending on `my-highlight-parentheses-use-background'.
+         (if my-highlight-parentheses-use-background
+
+             ;; Here we set color combinations that involve both a background
+             ;; and a foreground value.
+             (setq highlight-parentheses-background-colors (list cyan-refine-bg
+                                                                 magenta-refine-bg
+                                                                 green-refine-bg
+                                                                 yellow-refine-bg)
+                   highlight-parentheses-colors (list cyan-refine-fg
+                                                      magenta-refine-fg
+                                                      green-refine-fg
+                                                      yellow-refine-fg))
+
+           ;; And here we pass only foreground colors while disabling any
+           ;; backgrounds.
+           (setq highlight-parentheses-colors (list green-intense
+                                                    magenta-intense
+                                                    blue-intense
+                                                    red-intense)
+                 highlight-parentheses-background-colors nil)))
+
+       ;; Include this if you also want to make the parentheses bold:
+       (set-face-attribute 'highlight-parentheses-highlight nil :inherit 'bold)
+
+       ;; Our changes must be evaluated before enabling the relevant mode, so
+       ;; this comes last.
+       (global-highlight-parentheses-mode 1))
+
+     (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-highlight-parentheses)
+
+
+File: modus-themes.info,  Node: Note on mmm-modeel background colors,  Next: Note for prism,  Prev: Note on highlight-parenthesesel,  Up: Notes on individual packages
+
+7.8 Note on mmm-mode.el background colors
 =========================================
 
 The faces used by ‘mmm-mode.el’ are expected to have a colorful
@@ -3587,7 +3713,7 @@ the very high cost of degraded legibility.
 
 File: modus-themes.info,  Node: Note for prism,  Next: Note for god-mode,  Prev: Note on mmm-modeel background colors,  Up: Notes on individual packages
 
-7.8 Note on prism.el
+7.9 Note on prism.el
 ====================
 
 This package by Adam Porter, aka “alphapapa” or “github-alphapapa”,
@@ -3676,8 +3802,8 @@ examples with the 4, 8, 16 colors):
 
 File: modus-themes.info,  Node: Note for god-mode,  Next: Note on company-mode overlay pop-up,  Prev: Note for prism,  Up: Notes on individual packages
 
-7.9 Note on god-mode.el
-=======================
+7.10 Note on god-mode.el
+========================
 
 The ‘god-mode’ library does not provide faces that could be configured
 by the Modus themes.  Users who would like to get some visual feedback
@@ -3711,7 +3837,7 @@ documentation string of ‘set-face-attribute’.
 
 File: modus-themes.info,  Node: Note on company-mode overlay pop-up,  Next: Note on ERC escaped color sequences,  Prev: Note for god-mode,  Up: Notes on individual packages
 
-7.10 Note on company-mode overlay pop-up
+7.11 Note on company-mode overlay pop-up
 ========================================
 
 By default, the ‘company-mode’ pop-up that lists completion candidates
@@ -3732,7 +3858,7 @@ instead of overlays.(1)(2)
 
 File: modus-themes.info,  Node: Note on ERC escaped color sequences,  Next: Note on powerline or spaceline,  Prev: Note on company-mode overlay pop-up,  Up: Notes on individual packages
 
-7.11 Note on ERC escaped color sequences
+7.12 Note on ERC escaped color sequences
 ========================================
 
 The built-in IRC client ‘erc’ has the ability to colorise any text using
@@ -3770,7 +3896,7 @@ Emacs: <https://www.mirc.com/colors.html>
 
 File: modus-themes.info,  Node: Note on powerline or spaceline,  Next: Note on SHR colors,  Prev: Note on ERC escaped color sequences,  Up: Notes on individual packages
 
-7.12 Note on powerline or spaceline
+7.13 Note on powerline or spaceline
 ===================================
 
 Both Powerline and Spaceline package users will likely need to use the
@@ -3780,7 +3906,7 @@ and/or mode line setup.
 
 File: modus-themes.info,  Node: Note on SHR colors,  Next: Note on EWW and Elfeed fonts (SHR fonts),  Prev: Note on powerline or spaceline,  Up: Notes on individual packages
 
-7.13 Note on SHR colors
+7.14 Note on SHR colors
 =======================
 
 Emacs’ HTML rendering library (‘shr.el’) may need explicit configuration
@@ -3792,7 +3918,7 @@ webpage provides.
 
 File: modus-themes.info,  Node: Note on EWW and Elfeed fonts (SHR fonts),  Next: Note on Helm grep,  Prev: Note on SHR colors,  Up: Notes on individual packages
 
-7.14 Note on EWW and Elfeed fonts (SHR fonts)
+7.15 Note on EWW and Elfeed fonts (SHR fonts)
 =============================================
 
 EWW and Elfeed rely on the Simple HTML Renderer to display their
@@ -3808,7 +3934,7 @@ Org and others (DIY).
 
 File: modus-themes.info,  Node: Note on Helm grep,  Next: Note on vc-annotate-background-mode,  Prev: Note on EWW and Elfeed fonts (SHR fonts),  Up: Notes on individual packages
 
-7.15 Note on Helm grep
+7.16 Note on Helm grep
 ======================
 
 There is one face from the Helm package that is meant to highlight the
@@ -3839,7 +3965,7 @@ ANSI color number 1 (red) from the already-supported array of
 
 File: modus-themes.info,  Node: Note on vc-annotate-background-mode,  Next: Note on pdf-tools link hints,  Prev: Note on Helm grep,  Up: Notes on individual packages
 
-7.16 Note on vc-annotate-background-mode
+7.17 Note on vc-annotate-background-mode
 ========================================
 
 Due to the unique way ‘vc-annotate’ (‘C-x v g’) applies colors, support
@@ -3858,7 +3984,7 @@ report as much or send patches (*note Contributing::).
 
 File: modus-themes.info,  Node: Note on pdf-tools link hints,  Prev: Note on vc-annotate-background-mode,  Up: Notes on individual packages
 
-7.17 Note on pdf-tools link hints
+7.18 Note on pdf-tools link hints
 =================================
 
 Hints are drawn by ImageMagick (https://imagemagick.org/), not Emacs,
@@ -4966,102 +5092,103 @@ B.3 Concept index
 
 Tag Table:
 Node: Top860
-Node: Overview6907
-Node: How do the themes look like8450
-Node: Learn about the latest changes8958
-Node: Installation9340
-Node: Install manually from source9821
-Node: Install from the archives10646
-Node: Install on GNU/Linux11423
-Node: Debian 11 Bullseye11871
-Node: GNU Guix12181
-Node: Enable and load12464
-Node: Sample configuration for use-package15453
-Node: Differences between loading and enabling16831
-Node: Customization Options18871
-Node: Custom reload theme25343
-Node: Success' color-code25878
-Node: Bold constructs26815
-Node: Italic constructs27604
-Node: Syntax styles28322
-Node: No mixed fonts30355
-Node: Link styles31450
-Node: Command prompts33821
-Node: Mode line35514
-Node: Tab style39459
-Node: Completion UIs40072
-Node: Mail citations41943
-Node: Fringes42796
-Node: Language checkers43458
-Node: Line highlighting45479
-Node: Line numbers46994
-Node: Matching parentheses48072
-Node: Active region49364
-Node: Diffs50693
-Node: Org mode blocks52632
-Node: Org agenda54510
-Node: Heading styles60002
-Node: Scaled headings63044
-Node: Scaled heading sizes63647
-Node: UI typeface66903
-Node: Headings' typeface67749
-Node: Advanced customization (do-it-yourself)68373
-Node: Per-theme customization settings (DIY)69778
-Node: Case-by-case face specs using the themes' palette (DIY)71124
-Node: Face specs at scale using the themes' palette (DIY)75588
-Node: Remap face with local value (DIY)80405
-Node: Cycle through arbitrary colors (DIY)82930
-Node: Override colors (DIY)89496
-Node: Override color saturation (DIY)94389
-Node: Font configurations for Org and others (DIY)100142
-Ref: Font configurations for Org and others (DIY)-Footnote-1102790
-Node: Configure bold and italic faces (DIY)102977
-Node: Custom Org user faces (DIY)107023
-Node: Update Org block delimiter fontification (DIY)110779
-Node: Measure color contrast (DIY)112739
-Node: Load theme depending on time of day (DIY)115533
-Node: Backdrop for pdf-tools (DIY)116573
-Node: A theme-agnostic hook for theme loading (DIY)119362
-Node: Face coverage121752
-Node: Supported packages122221
-Node: Indirectly covered packages129102
-Node: Notes on individual packages129766
-Node: Note on avy hints130755
-Node: Note on calendarel weekday and weekend colors131923
-Node: Note on underlines in compilation buffers133106
-Node: Note on inline Latex in Org buffers133955
-Node: Note on dimmerel134565
-Node: Note on display-fill-column-indicator-mode136050
-Node: Note on mmm-modeel background colors137671
-Node: Note for prism140050
-Node: Note for god-mode143276
-Node: Note on company-mode overlay pop-up144948
-Ref: Note on company-mode overlay pop-up-Footnote-1145638
-Ref: Note on company-mode overlay pop-up-Footnote-2145705
-Node: Note on ERC escaped color sequences145760
-Ref: Note on ERC escaped color sequences-Footnote-1147188
-Node: Note on powerline or spaceline147298
-Node: Note on SHR colors147712
-Node: Note on EWW and Elfeed fonts (SHR fonts)148147
-Node: Note on Helm grep148892
-Node: Note on vc-annotate-background-mode150379
-Node: Note on pdf-tools link hints151264
-Node: Frequently Asked Questions (FAQ)153696
-Node: Is the contrast ratio about adjacent colors?154270
-Node: What does it mean to avoid exaggerations?155783
-Node: Why are colors mostly variants of blue magenta cyan?157618
-Node: What is the best setup for legibility?161965
-Node: Contributing164583
-Node: Sources of the themes164986
-Node: Issues you can help with165724
-Node: Patches require copyright assignment to the FSF166924
-Node: Acknowledgements169219
-Node: Meta171809
-Node: GNU Free Documentation License173955
-Node: Indices199307
-Node: Function index199486
-Node: Variable index200723
-Node: Concept index202937
+Node: Overview6976
+Node: How do the themes look like8519
+Node: Learn about the latest changes9027
+Node: Installation9409
+Node: Install manually from source9890
+Node: Install from the archives10715
+Node: Install on GNU/Linux11492
+Node: Debian 11 Bullseye11940
+Node: GNU Guix12250
+Node: Enable and load12533
+Node: Sample configuration for use-package15522
+Node: Differences between loading and enabling16900
+Node: Customization Options18940
+Node: Custom reload theme25412
+Node: Success' color-code25947
+Node: Bold constructs26884
+Node: Italic constructs27673
+Node: Syntax styles28391
+Node: No mixed fonts30424
+Node: Link styles31519
+Node: Command prompts33890
+Node: Mode line35583
+Node: Tab style39528
+Node: Completion UIs40141
+Node: Mail citations42012
+Node: Fringes42865
+Node: Language checkers43527
+Node: Line highlighting45548
+Node: Line numbers47063
+Node: Matching parentheses48141
+Node: Active region49433
+Node: Diffs50762
+Node: Org mode blocks52701
+Node: Org agenda54579
+Node: Heading styles60071
+Node: Scaled headings63113
+Node: Scaled heading sizes63716
+Node: UI typeface66972
+Node: Headings' typeface67818
+Node: Advanced customization (do-it-yourself)68442
+Node: Per-theme customization settings (DIY)69847
+Node: Case-by-case face specs using the themes' palette (DIY)71193
+Node: Face specs at scale using the themes' palette (DIY)75657
+Node: Remap face with local value (DIY)80474
+Node: Cycle through arbitrary colors (DIY)82999
+Node: Override colors (DIY)89565
+Node: Override color saturation (DIY)94458
+Node: Font configurations for Org and others (DIY)100211
+Ref: Font configurations for Org and others (DIY)-Footnote-1102859
+Node: Configure bold and italic faces (DIY)103046
+Node: Custom Org user faces (DIY)107092
+Node: Update Org block delimiter fontification (DIY)110848
+Node: Measure color contrast (DIY)112808
+Node: Load theme depending on time of day (DIY)115602
+Node: Backdrop for pdf-tools (DIY)116642
+Node: A theme-agnostic hook for theme loading (DIY)119431
+Node: Face coverage121821
+Node: Supported packages122290
+Node: Indirectly covered packages129280
+Node: Notes on individual packages129944
+Node: Note on avy hints131002
+Node: Note on calendarel weekday and weekend colors132170
+Node: Note on underlines in compilation buffers133353
+Node: Note on inline Latex in Org buffers134202
+Node: Note on dimmerel134812
+Node: Note on display-fill-column-indicator-mode136297
+Node: Note on highlight-parenthesesel137913
+Node: Note on mmm-modeel background colors143919
+Node: Note for prism146287
+Node: Note for god-mode149513
+Node: Note on company-mode overlay pop-up151187
+Ref: Note on company-mode overlay pop-up-Footnote-1151877
+Ref: Note on company-mode overlay pop-up-Footnote-2151944
+Node: Note on ERC escaped color sequences151999
+Ref: Note on ERC escaped color sequences-Footnote-1153427
+Node: Note on powerline or spaceline153537
+Node: Note on SHR colors153951
+Node: Note on EWW and Elfeed fonts (SHR fonts)154386
+Node: Note on Helm grep155131
+Node: Note on vc-annotate-background-mode156618
+Node: Note on pdf-tools link hints157503
+Node: Frequently Asked Questions (FAQ)159935
+Node: Is the contrast ratio about adjacent colors?160509
+Node: What does it mean to avoid exaggerations?162022
+Node: Why are colors mostly variants of blue magenta cyan?163857
+Node: What is the best setup for legibility?168204
+Node: Contributing170822
+Node: Sources of the themes171225
+Node: Issues you can help with171963
+Node: Patches require copyright assignment to the FSF173163
+Node: Acknowledgements175458
+Node: Meta178048
+Node: GNU Free Documentation License180194
+Node: Indices205546
+Node: Function index205725
+Node: Variable index206962
+Node: Concept index209176
 
 End Tag Table
 
