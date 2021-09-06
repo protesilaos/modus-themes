@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.5.0
-;; Last-Modified: <2021-09-04 18:22:57 +0300>
+;; Last-Modified: <2021-09-06 14:01:05 +0300>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -6474,7 +6474,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                          yellow-refine-bg yellow-refine-fg))))
 ;;;;; org
     `(org-agenda-calendar-event ((,class :inherit shadow)))
-    `(org-agenda-calendar-sexp ((,class :inherit (modus-themes-slant shadow))))
+    `(org-agenda-calendar-sexp ((,class :inherit (modus-themes-slant org-agenda-calendar-event))))
     `(org-agenda-clocking ((,class :inherit modus-themes-special-cold :extend t)))
     `(org-agenda-column-dateline ((,class :background ,bg-alt)))
     `(org-agenda-current-time ((,class :foreground ,blue-alt-other-faint)))
@@ -6482,7 +6482,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-agenda-date-today ((,class :background ,bg-active
                                      ,@(modus-themes--agenda-date blue-active fg-main t cyan-active))))
     `(org-agenda-date-weekend ((,class ,@(modus-themes--agenda-date cyan-alt-other fg-alt nil cyan fg-main))))
-    `(org-agenda-diary ((,class :inherit shadow)))
+    `(org-agenda-diary ((,class :inherit org-agenda-calendar-event)))
     `(org-agenda-dimmed-todo-face ((,class :inherit shadow)))
     `(org-agenda-done ((,class :foreground ,@(modus-themes--success-deuteran
                                               blue-nuanced-fg
