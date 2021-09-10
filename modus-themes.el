@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.5.0
-;; Last-Modified: <2021-09-10 11:16:15 +0300>
+;; Last-Modified: <2021-09-10 11:25:08 +0300>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -2079,8 +2079,8 @@ For example:
   "Use font scaling for headings.
 
 For regular headings the scale is controlled by the variables
-`modus-themes-scale-1' (smallest) and its variants all the way up
-to `modus-themes-scale-4' (larger).
+`modus-themes-scale-1' (smallest increase) and its variants all
+the way up to `modus-themes-scale-4' (largest increase).
 
 While `modus-themes-scale-title' is reserved for special headings
 that nominally are the largest on the scale (though that is not a
