@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.5.0
-;; Last-Modified: <2021-09-10 10:51:17 +0300>
+;; Last-Modified: <2021-09-10 11:16:15 +0300>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -1947,6 +1947,9 @@ that can include any of the following properties:
 - `bold-today' to apply a bold typographic weight to the current
   date;
 - `bold-all' to render all date headings in a bold weight.
+- `scale-heading' increases the height of the date headings to
+  the value of `modus-themes-scale-1' (which is the first step in
+  the scale for regular headings).
 
 For example:
 
@@ -1955,6 +1958,7 @@ For example:
     (header-date . (grayscale bold-all))
     (header-date . (grayscale workaholic))
     (header-date . (grayscale workaholic bold-today))
+    (header-date . (grayscale workaholic bold-today scale-heading))
 
 An `event' key covers events from the diary and other entries
 that derive from a symbolic expression or sexp (e.g. phases of
@@ -2049,7 +2053,8 @@ For example:
                      (const :tag "Use grayscale for date headers" grayscale)
                      (const :tag "Do not differentiate weekdays from weekends" workaholic)
                      (const :tag "Make today bold" bold-today)
-                     (const :tag "Make all dates bold" bold-all)))
+                     (const :tag "Make all dates bold" bold-all)
+                     (const :tag "Increase font size (`modus-themes-scale-1')" scale-heading)))
           (cons :tag "Event entry" :greedy t
                 (const event)
                 (set :tag "Text presentation" :greedy t
@@ -3387,24 +3392,29 @@ DEFAULTFG is the original accent color for the foreground.
 GRAYSCALEFG is a neutral color.  Optional BOLD applies a bold
 weight.  Optional WORKAHOLICFG and GRAYSCALEWORKAHOLICFG are
 alternative foreground colors."
-  (let* ((properties (modus-themes--key-cdr 'header-date modus-themes-org-agenda))
-         (weight (cond ((memq 'bold-all properties)
-                        'bold)
-                       ((and bold (memq 'bold-today properties))
-                        'bold)
-                       (t
-                        nil)))
-         (fg (cond ((and (memq 'grayscale properties)
-                         (memq 'workaholic properties))
-                    (or grayscaleworkaholicfg grayscalefg))
-                   ((memq 'grayscale properties)
-                    grayscalefg)
-                   ((memq 'workaholic properties)
-                    (or workaholicfg defaultfg))
-                   (t
-                    defaultfg))))
-    (list :inherit weight
-          :foreground fg)))
+  (let ((properties (modus-themes--key-cdr 'header-date modus-themes-org-agenda)))
+    (list :inherit
+          (cond
+           ((or (memq 'bold-all properties)
+                (and bold (memq 'bold-today properties)))
+            'bold)
+           (t
+            'unspecified))
+          :foreground
+          (cond
+           ((and (memq 'grayscale properties)
+                 (memq 'workaholic properties))
+            (or grayscaleworkaholicfg grayscalefg))
+           ((memq 'grayscale properties)
+            grayscalefg)
+           ((memq 'workaholic properties)
+            (or workaholicfg defaultfg))
+           (t
+            defaultfg))
+          :height
+          (if (memq 'scale-heading properties)
+              modus-themes-scale-1
+            'unspecified))))
 
 (defun modus-themes--agenda-event (fg)
   "Control the style of the Org agenda events.

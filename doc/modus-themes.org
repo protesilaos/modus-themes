@@ -1379,6 +1379,9 @@ the following properties:
 - ~bold-today~ to apply a bold typographic weight to the current
   date;
 - ~bold-all~ to render all date headings in a bold weight.
+- ~scale-heading~ increases the height of the date headings to the value
+  of ~modus-themes-scale-1~ (which is the first step in the scale for
+  regular headings).
 
 For example:
 
@@ -1388,6 +1391,7 @@ For example:
 (header-date . (grayscale bold-all))
 (header-date . (grayscale workaholic))
 (header-date . (grayscale workaholic bold-today))
+(header-date . (grayscale workaholic bold-today scale-heading))
 #+end_src
 
 An ~event~ key covers events from the diary and other entries that derive
