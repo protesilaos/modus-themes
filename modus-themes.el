@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.5.0
-;; Last-Modified: <2021-09-07 20:12:02 +0300>
+;; Last-Modified: <2021-09-10 10:51:17 +0300>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -68,6 +68,11 @@
 ;;     modus-themes-scale-3                        1.15
 ;;     modus-themes-scale-4                        1.2
 ;;     modus-themes-scale-title                    1.3
+;;
+;; There is another scaling-related option, which however is reserved
+;; for special cases and is not used for headings:
+;;
+;;     modus-themes-scale-small                    0.9
 ;;
 ;; There also exist two unique customization variables for overriding
 ;; color palette values.  The specifics are documented in the manual.
@@ -1903,6 +1908,7 @@ combinations:
     (setq modus-themes-org-agenda
           '((header-block . (variable-pitch scale-title))
             (header-date . (grayscale workaholic bold-today))
+            (event . (accented scale-small))
             (scheduled . uniform)
             (habit . traffic-light)))
 
@@ -1949,6 +1955,26 @@ For example:
     (header-date . (grayscale bold-all))
     (header-date . (grayscale workaholic))
     (header-date . (grayscale workaholic bold-today))
+
+An `event' key covers events from the diary and other entries
+that derive from a symbolic expression or sexp (e.g. phases of
+the moon, holidays).  This key accepts a list of values.  By
+default (a nil value or an empty list) those have a gray
+foreground, while sexp events are additionally presented using
+slanted text (italics).  The properties that can form a list of
+possible values are:
+
+- `scale-small' reduces the height of the entries to the value of
+  the user option `modus-themes-scale-small' (0.9 the height of
+  the main font size by default).
+- `accented' applies an accent value to the event's foreground,
+  replacing the original gray.
+
+For example:
+
+    (event . nil)
+    (event . (scale-small))
+    (event . (scale-small accented))
 
 A `scheduled' key applies to tasks with a scheduled date.  By
 default (a nil value), these use varying shades of yellow to
@@ -2004,7 +2030,7 @@ For example:
     (habit . simplified)
     (habit . traffic-light)"
   :group 'modus-themes
-  :package-version '(modus-themes . "1.5.0")
+  :package-version '(modus-themes . "1.6.0")
   :version "28.1"
   :type '(set
           (cons :tag "Block header"
@@ -2024,6 +2050,11 @@ For example:
                      (const :tag "Do not differentiate weekdays from weekends" workaholic)
                      (const :tag "Make today bold" bold-today)
                      (const :tag "Make all dates bold" bold-all)))
+          (cons :tag "Event entry" :greedy t
+                (const event)
+                (set :tag "Text presentation" :greedy t
+                     (const :tag "Use smaller font size (`modus-themes-scale-small')" scale-small)
+                     (const :tag "Apply an accent color" accented)))
           (cons :tag "Scheduled tasks"
                 (const scheduled)
                 (choice (const :tag "Yellow colors to distinguish current and future tasks (default)" nil)
@@ -2180,6 +2211,31 @@ accordance with it in cases where it changes, such as while using
 `text-scale-adjust'."
   :group 'modus-themes
   :package-version '(modus-themes . "1.5.0")
+  :version "28.1"
+  :type 'number
+  :set #'modus-themes--set-option
+  :initialize #'custom-initialize-default
+  :link '(info-link "(modus-themes) Scaled heading sizes"))
+
+(defcustom modus-themes-scale-small 0.9
+  "Font size smaller than the default value.
+
+This size is only used in special contexts where users are
+presented with the option to have smaller text on display (see
+`modus-themes-org-agenda').
+
+The default value is a floating point that is interpreted as a
+multiple of the base font size.  It is recommended to use such a
+value.
+
+However, the variable also accepts an integer, understood as an
+absolute height that is 1/10 of the typeface's point size (e.g. a
+value of 140 is the same as setting the font at 14 point size).
+This will ignore the base font size and, thus, will not scale in
+accordance with it in cases where it changes, such as while using
+`text-scale-adjust'."
+  :group 'modus-themes
+  :package-version '(modus-themes . "1.6.0")
   :version "28.1"
   :type 'number
   :set #'modus-themes--set-option
@@ -3349,6 +3405,23 @@ alternative foreground colors."
                     defaultfg))))
     (list :inherit weight
           :foreground fg)))
+
+(defun modus-themes--agenda-event (fg)
+  "Control the style of the Org agenda events.
+FG is the accent color to use."
+  (let ((properties (modus-themes--key-cdr 'event modus-themes-org-agenda)))
+    (list :height
+          (if (memq 'scale-small properties)
+              modus-themes-scale-small
+            'unspecified)
+          :foreground
+          (if (memq 'accented properties)
+              fg
+            'unspecified)
+          :inherit
+          (if (memq 'accented properties)
+              'unspecified
+            'shadow))))
 
 (defun modus-themes--agenda-scheduled (defaultfg uniformfg rainbowfg)
   "Control the style of the Org agenda scheduled tasks.
@@ -6474,7 +6547,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                          yellow yellow-nuanced-bg
                                          yellow-refine-bg yellow-refine-fg))))
 ;;;;; org
-    `(org-agenda-calendar-event ((,class :inherit shadow)))
+    `(org-agenda-calendar-event ((,class ,@(modus-themes--agenda-event blue-alt))))
     `(org-agenda-calendar-sexp ((,class :inherit (modus-themes-slant org-agenda-calendar-event))))
     `(org-agenda-clocking ((,class :inherit modus-themes-special-cold :extend t)))
     `(org-agenda-column-dateline ((,class :background ,bg-alt)))

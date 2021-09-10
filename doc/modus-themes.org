@@ -443,6 +443,7 @@ this manual.
       modus-themes-org-agenda ; this is an alist: read the manual or its doc string
       '((header-block . (variable-pitch scale-title))
         (header-date . (grayscale workaholic bold-today))
+        (event . (accented scale-small))
         (scheduled . uniform)
         (habit . traffic-light-deuteranopia))
 
@@ -1336,6 +1337,7 @@ all possible combinations:
 (setq modus-themes-org-agenda
       '((header-block . (variable-pitch scale-title))
         (header-date . (grayscale workaholic bold-today))
+        (event . (accented scale-small))
         (scheduled . uniform)
         (habit . traffic-light)))
 #+end_src
@@ -1387,6 +1389,28 @@ For example:
 (header-date . (grayscale workaholic))
 (header-date . (grayscale workaholic bold-today))
 #+end_src
+
+An ~event~ key covers events from the diary and other entries that derive
+from a symbolic expression or sexp (e.g. phases of the moon, holidays).
+This key accepts a list of values.  By default (a nil value or an empty
+list) those have a gray foreground, while sexp events are additionally
+presented using slanted text (italics).  The properties that can form a
+list of possible values are:
+
+- ~scale-small~ reduces the height of the entries to the value of the user
+  option ~modus-themes-scale-small~ (0.9 the height of the main font size
+  by default).
+- ~accented~ applies an accent value to the event's foreground, replacing
+  the original gray.
+
+For example:
+
+#+begin_src emacs-lisp
+(event . nil)
+(event . (scale-small))
+(event . (scale-small accented))
+#+end_src
+
 
 A ~scheduled~ key applies to tasks with a scheduled date.  By default (a
 ~nil~ value), those use varying shades of yellow to denote (i) a past or
@@ -1447,6 +1471,7 @@ Putting it all together, the alist can look like this:
 #+begin_src emacs-lisp
 '((header-block . (scale-title variable-pitch))
   (header-date . (grayscale workaholic bold-today))
+  (event . (accented scale-small))
   (scheduled . uniform)
   (habit . traffic-light))
 
@@ -1454,6 +1479,7 @@ Putting it all together, the alist can look like this:
 (setq modus-themes-org-agenda
       '((header-block . (scale-title variable-pitch))
         (header-date . (grayscale workaholic bold-today))
+        (event . (accented scale-small))
         (scheduled . uniform)
         (habit . traffic-light)))
 #+end_src
