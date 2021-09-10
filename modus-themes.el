@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.5.0
-;; Last-Modified: <2021-09-10 12:10:50 +0300>
+;; Last-Modified: <2021-09-10 18:58:01 +0300>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -1964,23 +1964,24 @@ For example:
 
 An `event' key covers events from the diary and other entries
 that derive from a symbolic expression or sexp (e.g. phases of
-the moon, holidays).  This key accepts a list of values.  By
-default (a nil value or an empty list) those have a gray
-foreground, while sexp events are additionally presented using
-slanted text (italics).  The properties that can form a list of
-possible values are:
+the moon, holidays).  By default those have a gray
+foreground (the default is a nil value or an empty list).  This
+key accepts a list of properties.  Those are:
 
 - `scale-small' reduces the height of the entries to the value of
   the user option `modus-themes-scale-small' (0.9 the height of
   the main font size by default).
 - `accented' applies an accent value to the event's foreground,
   replacing the original gray.
+- `italic' adds a slant to the font's forms (italic or oblique
+  forms, depending on the typeface)
 
 For example:
 
     (event . nil)
     (event . (scale-small))
     (event . (scale-small accented))
+    (event . (scale-small accented italic))
 
 A `scheduled' key applies to tasks with a scheduled date.  By
 default (a nil value), these use varying shades of yellow to
@@ -2062,7 +2063,8 @@ For example:
                 (const event)
                 (set :tag "Text presentation" :greedy t
                      (const :tag "Use smaller font size (`modus-themes-scale-small')" scale-small)
-                     (const :tag "Apply an accent color" accented)))
+                     (const :tag "Apply an accent color" accented)
+                     (const :tag "Italic font slant (oblique forms)" italic)))
           (cons :tag "Scheduled tasks"
                 (const scheduled)
                 (choice (const :tag "Yellow colors to distinguish current and future tasks (default)" nil)
@@ -3440,9 +3442,13 @@ FG is the accent color to use."
               fg
             'unspecified)
           :inherit
-          (if (memq 'accented properties)
-              'unspecified
-            'shadow))))
+          (cond
+           ((and (memq 'accented properties)
+                 (memq 'italic properties))
+            'italic)
+           ((memq 'italic properties)
+            '(shadow italic))
+           ('shadow)))))
 
 (defun modus-themes--agenda-scheduled (defaultfg uniformfg rainbowfg)
   "Control the style of the Org agenda scheduled tasks.
@@ -6569,7 +6575,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                          yellow-refine-bg yellow-refine-fg))))
 ;;;;; org
     `(org-agenda-calendar-event ((,class ,@(modus-themes--agenda-event blue-alt))))
-    `(org-agenda-calendar-sexp ((,class :inherit (modus-themes-slant org-agenda-calendar-event))))
+    `(org-agenda-calendar-sexp ((,class :inherit org-agenda-calendar-event)))
     `(org-agenda-clocking ((,class :inherit modus-themes-special-cold :extend t)))
     `(org-agenda-column-dateline ((,class :background ,bg-alt)))
     `(org-agenda-current-time ((,class :foreground ,blue-alt-other-faint)))

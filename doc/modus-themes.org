@@ -1410,6 +1410,8 @@ list of possible values are:
   by default).
 - ~accented~ applies an accent value to the event's foreground, replacing
   the original gray.
+- ~italic~ adds a slant to the font's forms (italic or oblique forms,
+  depending on the typeface).
 
 For example:
 
@@ -1417,8 +1419,8 @@ For example:
 (event . nil)
 (event . (scale-small))
 (event . (scale-small accented))
+(event . (scale-small accented italic))
 #+end_src
-
 
 A ~scheduled~ key applies to tasks with a scheduled date.  By default (a
 ~nil~ value), those use varying shades of yellow to denote (i) a past or

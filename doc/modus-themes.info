@@ -1522,12 +1522,15 @@ that can form a list of possible values are:
      font size by default).
    • ‘accented’ applies an accent value to the event’s foreground,
      replacing the original gray.
+   • ‘italic’ adds a slant to the font’s forms (italic or oblique forms,
+     depending on the typeface).
 
    For example:
 
      (event . nil)
      (event . (scale-small))
      (event . (scale-small accented))
+     (event . (scale-small accented italic))
 
    A ‘scheduled’ key applies to tasks with a scheduled date.  By default
 (a ‘nil’ value), those use varying shades of yellow to denote (i) a past
@@ -5163,69 +5166,69 @@ Node: Active region49479
 Node: Diffs50808
 Node: Org mode blocks52747
 Node: Org agenda54625
-Node: Heading styles61459
-Node: Scaled headings64501
-Node: Scaled heading sizes65104
-Node: UI typeface68673
-Node: Headings' typeface69519
-Node: Advanced customization (do-it-yourself)70143
-Node: Per-theme customization settings (DIY)71548
-Node: Case-by-case face specs using the themes' palette (DIY)72894
-Node: Face specs at scale using the themes' palette (DIY)77358
-Node: Remap face with local value (DIY)82175
-Node: Cycle through arbitrary colors (DIY)84700
-Node: Override colors (DIY)91266
-Node: Override color saturation (DIY)96159
-Node: Font configurations for Org and others (DIY)101912
-Ref: Font configurations for Org and others (DIY)-Footnote-1104560
-Node: Configure bold and italic faces (DIY)104747
-Node: Custom Org user faces (DIY)108793
-Node: Update Org block delimiter fontification (DIY)112549
-Node: Measure color contrast (DIY)114509
-Node: Load theme depending on time of day (DIY)117303
-Node: Backdrop for pdf-tools (DIY)118343
-Node: A theme-agnostic hook for theme loading (DIY)121132
-Node: Face coverage123522
-Node: Supported packages123991
-Node: Indirectly covered packages130981
-Node: Notes on individual packages131645
-Node: Note on avy hints132703
-Node: Note on calendarel weekday and weekend colors133871
-Node: Note on underlines in compilation buffers135054
-Node: Note on inline Latex in Org buffers135903
-Node: Note on dimmerel136513
-Node: Note on display-fill-column-indicator-mode137998
-Node: Note on highlight-parenthesesel139614
-Node: Note on mmm-modeel background colors145620
-Node: Note for prism147988
-Node: Note for god-mode151214
-Node: Note on company-mode overlay pop-up152888
-Ref: Note on company-mode overlay pop-up-Footnote-1153578
-Ref: Note on company-mode overlay pop-up-Footnote-2153645
-Node: Note on ERC escaped color sequences153700
-Ref: Note on ERC escaped color sequences-Footnote-1155128
-Node: Note on powerline or spaceline155238
-Node: Note on SHR colors155652
-Node: Note on EWW and Elfeed fonts (SHR fonts)156087
-Node: Note on Helm grep156832
-Node: Note on vc-annotate-background-mode158319
-Node: Note on pdf-tools link hints159204
-Node: Frequently Asked Questions (FAQ)161636
-Node: Is the contrast ratio about adjacent colors?162210
-Node: What does it mean to avoid exaggerations?163723
-Node: Why are colors mostly variants of blue magenta cyan?165558
-Node: What is the best setup for legibility?169905
-Node: Contributing172523
-Node: Sources of the themes172926
-Node: Issues you can help with173664
-Node: Patches require copyright assignment to the FSF174864
-Node: Acknowledgements177159
-Node: Meta179749
-Node: GNU Free Documentation License181895
-Node: Indices207247
-Node: Function index207426
-Node: Variable index208663
-Node: Concept index210877
+Node: Heading styles61618
+Node: Scaled headings64660
+Node: Scaled heading sizes65263
+Node: UI typeface68832
+Node: Headings' typeface69678
+Node: Advanced customization (do-it-yourself)70302
+Node: Per-theme customization settings (DIY)71707
+Node: Case-by-case face specs using the themes' palette (DIY)73053
+Node: Face specs at scale using the themes' palette (DIY)77517
+Node: Remap face with local value (DIY)82334
+Node: Cycle through arbitrary colors (DIY)84859
+Node: Override colors (DIY)91425
+Node: Override color saturation (DIY)96318
+Node: Font configurations for Org and others (DIY)102071
+Ref: Font configurations for Org and others (DIY)-Footnote-1104719
+Node: Configure bold and italic faces (DIY)104906
+Node: Custom Org user faces (DIY)108952
+Node: Update Org block delimiter fontification (DIY)112708
+Node: Measure color contrast (DIY)114668
+Node: Load theme depending on time of day (DIY)117462
+Node: Backdrop for pdf-tools (DIY)118502
+Node: A theme-agnostic hook for theme loading (DIY)121291
+Node: Face coverage123681
+Node: Supported packages124150
+Node: Indirectly covered packages131140
+Node: Notes on individual packages131804
+Node: Note on avy hints132862
+Node: Note on calendarel weekday and weekend colors134030
+Node: Note on underlines in compilation buffers135213
+Node: Note on inline Latex in Org buffers136062
+Node: Note on dimmerel136672
+Node: Note on display-fill-column-indicator-mode138157
+Node: Note on highlight-parenthesesel139773
+Node: Note on mmm-modeel background colors145779
+Node: Note for prism148147
+Node: Note for god-mode151373
+Node: Note on company-mode overlay pop-up153047
+Ref: Note on company-mode overlay pop-up-Footnote-1153737
+Ref: Note on company-mode overlay pop-up-Footnote-2153804
+Node: Note on ERC escaped color sequences153859
+Ref: Note on ERC escaped color sequences-Footnote-1155287
+Node: Note on powerline or spaceline155397
+Node: Note on SHR colors155811
+Node: Note on EWW and Elfeed fonts (SHR fonts)156246
+Node: Note on Helm grep156991
+Node: Note on vc-annotate-background-mode158478
+Node: Note on pdf-tools link hints159363
+Node: Frequently Asked Questions (FAQ)161795
+Node: Is the contrast ratio about adjacent colors?162369
+Node: What does it mean to avoid exaggerations?163882
+Node: Why are colors mostly variants of blue magenta cyan?165717
+Node: What is the best setup for legibility?170064
+Node: Contributing172682
+Node: Sources of the themes173085
+Node: Issues you can help with173823
+Node: Patches require copyright assignment to the FSF175023
+Node: Acknowledgements177318
+Node: Meta179908
+Node: GNU Free Documentation License182054
+Node: Indices207406
+Node: Function index207585
+Node: Variable index208822
+Node: Concept index211036
 
 End Tag Table
 
