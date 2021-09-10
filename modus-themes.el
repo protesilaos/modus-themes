@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.5.0
-;; Last-Modified: <2021-09-10 11:25:08 +0300>
+;; Last-Modified: <2021-09-10 12:10:50 +0300>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -1950,6 +1950,8 @@ that can include any of the following properties:
 - `scale-heading' increases the height of the date headings to
   the value of `modus-themes-scale-1' (which is the first step in
   the scale for regular headings).
+- `underline-today' applies an underline to the current date
+  while removing the background it has by default.
 
 For example:
 
@@ -2054,7 +2056,8 @@ For example:
                      (const :tag "Do not differentiate weekdays from weekends" workaholic)
                      (const :tag "Make today bold" bold-today)
                      (const :tag "Make all dates bold" bold-all)
-                     (const :tag "Increase font size (`modus-themes-scale-1')" scale-heading)))
+                     (const :tag "Increase font size (`modus-themes-scale-1')" scale-heading)
+                     (const :tag "Make today underlined; remove the background" underline-today)))
           (cons :tag "Event entry" :greedy t
                 (const event)
                 (set :tag "Text presentation" :greedy t
@@ -3386,12 +3389,13 @@ FG is the foreground color to use."
           :height height
           :foreground fg)))
 
-(defun modus-themes--agenda-date (defaultfg grayscalefg &optional bold workaholicfg grayscaleworkaholicfg)
+(defun modus-themes--agenda-date (defaultfg grayscalefg &optional workaholicfg grayscaleworkaholicfg bg bold ul)
   "Control the style of date headings in Org agenda buffers.
 DEFAULTFG is the original accent color for the foreground.
-GRAYSCALEFG is a neutral color.  Optional BOLD applies a bold
-weight.  Optional WORKAHOLICFG and GRAYSCALEWORKAHOLICFG are
-alternative foreground colors."
+GRAYSCALEFG is a neutral color.  Optional WORKAHOLICFG and
+GRAYSCALEWORKAHOLICFG are alternative foreground colors.
+Optional BG is a background color.  Optional BOLD applies a bold
+weight.  Optional UL applies an underline."
   (let ((properties (modus-themes--key-cdr 'header-date modus-themes-org-agenda)))
     (list :inherit
           (cond
@@ -3400,6 +3404,9 @@ alternative foreground colors."
             'bold)
            (t
             'unspecified))
+          :background
+          (unless (memq 'underline-today properties)
+            bg)
           :foreground
           (cond
            ((and (memq 'grayscale properties)
@@ -3414,6 +3421,10 @@ alternative foreground colors."
           :height
           (if (memq 'scale-heading properties)
               modus-themes-scale-1
+            'unspecified)
+          :underline
+          (if (and ul (memq 'underline-today properties))
+              t
             'unspecified))))
 
 (defun modus-themes--agenda-event (fg)
@@ -6562,10 +6573,12 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-agenda-clocking ((,class :inherit modus-themes-special-cold :extend t)))
     `(org-agenda-column-dateline ((,class :background ,bg-alt)))
     `(org-agenda-current-time ((,class :foreground ,blue-alt-other-faint)))
-    `(org-agenda-date ((,class ,@(modus-themes--agenda-date cyan fg-main nil))))
-    `(org-agenda-date-today ((,class :background ,bg-active
-                                     ,@(modus-themes--agenda-date blue-active fg-main t cyan-active))))
-    `(org-agenda-date-weekend ((,class ,@(modus-themes--agenda-date cyan-alt-other fg-alt nil cyan fg-main))))
+    `(org-agenda-date ((,class ,@(modus-themes--agenda-date cyan fg-main))))
+    `(org-agenda-date-today ((,class ,@(modus-themes--agenda-date blue-active fg-main
+                                                                  cyan-active fg-main
+                                                                  bg-active t t))))
+    `(org-agenda-date-weekend ((,class ,@(modus-themes--agenda-date cyan-alt-other fg-alt
+                                                                    cyan fg-main))))
     `(org-agenda-diary ((,class :inherit org-agenda-calendar-event)))
     `(org-agenda-dimmed-todo-face ((,class :inherit shadow)))
     `(org-agenda-done ((,class :foreground ,@(modus-themes--success-deuteran

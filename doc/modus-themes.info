@@ -1496,6 +1496,8 @@ of the following properties:
    • ‘scale-heading’ increases the height of the date headings to the
      value of ‘modus-themes-scale-1’ (which is the first step in the
      scale for regular headings).
+   • ‘underline-today’ applies an underline to the current date while
+     removing the background it has by default.
 
    For example:
 
@@ -5153,69 +5155,69 @@ Node: Active region49479
 Node: Diffs50808
 Node: Org mode blocks52747
 Node: Org agenda54625
-Node: Heading styles61298
-Node: Scaled headings64340
-Node: Scaled heading sizes64943
-Node: UI typeface68199
-Node: Headings' typeface69045
-Node: Advanced customization (do-it-yourself)69669
-Node: Per-theme customization settings (DIY)71074
-Node: Case-by-case face specs using the themes' palette (DIY)72420
-Node: Face specs at scale using the themes' palette (DIY)76884
-Node: Remap face with local value (DIY)81701
-Node: Cycle through arbitrary colors (DIY)84226
-Node: Override colors (DIY)90792
-Node: Override color saturation (DIY)95685
-Node: Font configurations for Org and others (DIY)101438
-Ref: Font configurations for Org and others (DIY)-Footnote-1104086
-Node: Configure bold and italic faces (DIY)104273
-Node: Custom Org user faces (DIY)108319
-Node: Update Org block delimiter fontification (DIY)112075
-Node: Measure color contrast (DIY)114035
-Node: Load theme depending on time of day (DIY)116829
-Node: Backdrop for pdf-tools (DIY)117869
-Node: A theme-agnostic hook for theme loading (DIY)120658
-Node: Face coverage123048
-Node: Supported packages123517
-Node: Indirectly covered packages130507
-Node: Notes on individual packages131171
-Node: Note on avy hints132229
-Node: Note on calendarel weekday and weekend colors133397
-Node: Note on underlines in compilation buffers134580
-Node: Note on inline Latex in Org buffers135429
-Node: Note on dimmerel136039
-Node: Note on display-fill-column-indicator-mode137524
-Node: Note on highlight-parenthesesel139140
-Node: Note on mmm-modeel background colors145146
-Node: Note for prism147514
-Node: Note for god-mode150740
-Node: Note on company-mode overlay pop-up152414
-Ref: Note on company-mode overlay pop-up-Footnote-1153104
-Ref: Note on company-mode overlay pop-up-Footnote-2153171
-Node: Note on ERC escaped color sequences153226
-Ref: Note on ERC escaped color sequences-Footnote-1154654
-Node: Note on powerline or spaceline154764
-Node: Note on SHR colors155178
-Node: Note on EWW and Elfeed fonts (SHR fonts)155613
-Node: Note on Helm grep156358
-Node: Note on vc-annotate-background-mode157845
-Node: Note on pdf-tools link hints158730
-Node: Frequently Asked Questions (FAQ)161162
-Node: Is the contrast ratio about adjacent colors?161736
-Node: What does it mean to avoid exaggerations?163249
-Node: Why are colors mostly variants of blue magenta cyan?165084
-Node: What is the best setup for legibility?169431
-Node: Contributing172049
-Node: Sources of the themes172452
-Node: Issues you can help with173190
-Node: Patches require copyright assignment to the FSF174390
-Node: Acknowledgements176685
-Node: Meta179275
-Node: GNU Free Documentation License181421
-Node: Indices206773
-Node: Function index206952
-Node: Variable index208189
-Node: Concept index210403
+Node: Heading styles61422
+Node: Scaled headings64464
+Node: Scaled heading sizes65067
+Node: UI typeface68323
+Node: Headings' typeface69169
+Node: Advanced customization (do-it-yourself)69793
+Node: Per-theme customization settings (DIY)71198
+Node: Case-by-case face specs using the themes' palette (DIY)72544
+Node: Face specs at scale using the themes' palette (DIY)77008
+Node: Remap face with local value (DIY)81825
+Node: Cycle through arbitrary colors (DIY)84350
+Node: Override colors (DIY)90916
+Node: Override color saturation (DIY)95809
+Node: Font configurations for Org and others (DIY)101562
+Ref: Font configurations for Org and others (DIY)-Footnote-1104210
+Node: Configure bold and italic faces (DIY)104397
+Node: Custom Org user faces (DIY)108443
+Node: Update Org block delimiter fontification (DIY)112199
+Node: Measure color contrast (DIY)114159
+Node: Load theme depending on time of day (DIY)116953
+Node: Backdrop for pdf-tools (DIY)117993
+Node: A theme-agnostic hook for theme loading (DIY)120782
+Node: Face coverage123172
+Node: Supported packages123641
+Node: Indirectly covered packages130631
+Node: Notes on individual packages131295
+Node: Note on avy hints132353
+Node: Note on calendarel weekday and weekend colors133521
+Node: Note on underlines in compilation buffers134704
+Node: Note on inline Latex in Org buffers135553
+Node: Note on dimmerel136163
+Node: Note on display-fill-column-indicator-mode137648
+Node: Note on highlight-parenthesesel139264
+Node: Note on mmm-modeel background colors145270
+Node: Note for prism147638
+Node: Note for god-mode150864
+Node: Note on company-mode overlay pop-up152538
+Ref: Note on company-mode overlay pop-up-Footnote-1153228
+Ref: Note on company-mode overlay pop-up-Footnote-2153295
+Node: Note on ERC escaped color sequences153350
+Ref: Note on ERC escaped color sequences-Footnote-1154778
+Node: Note on powerline or spaceline154888
+Node: Note on SHR colors155302
+Node: Note on EWW and Elfeed fonts (SHR fonts)155737
+Node: Note on Helm grep156482
+Node: Note on vc-annotate-background-mode157969
+Node: Note on pdf-tools link hints158854
+Node: Frequently Asked Questions (FAQ)161286
+Node: Is the contrast ratio about adjacent colors?161860
+Node: What does it mean to avoid exaggerations?163373
+Node: Why are colors mostly variants of blue magenta cyan?165208
+Node: What is the best setup for legibility?169555
+Node: Contributing172173
+Node: Sources of the themes172576
+Node: Issues you can help with173314
+Node: Patches require copyright assignment to the FSF174514
+Node: Acknowledgements176809
+Node: Meta179399
+Node: GNU Free Documentation License181545
+Node: Indices206897
+Node: Function index207076
+Node: Variable index208313
+Node: Concept index210527
 
 End Tag Table
 

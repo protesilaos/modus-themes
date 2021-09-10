@@ -1382,6 +1382,8 @@ the following properties:
 - ~scale-heading~ increases the height of the date headings to the value
   of ~modus-themes-scale-1~ (which is the first step in the scale for
   regular headings).
+- ~underline-today~ applies an underline to the current date while
+  removing the background it has by default.
 
 For example:
 
