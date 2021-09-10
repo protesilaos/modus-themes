@@ -1327,6 +1327,8 @@ and ~rainbow~.  Those will continue to work as they are aliases for
 :end:
 #+vindex: modus-themes-org-agenda
 
+[ Revised as part of {{{development-version}}} ]
+
 Symbol: ~modus-themes-org-agenda~
 
 This is an alist that accepts a =(key . value)= combination.  Some values
