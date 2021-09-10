@@ -1639,7 +1639,8 @@ resource for finding a consistent scale:
       modus-themes-scale-2 1.1
       modus-themes-scale-3 1.15
       modus-themes-scale-4 1.2
-      modus-themes-scale-title 1.3)
+      modus-themes-scale-title 1.3
+      modus-themes-scale-small 0.9)
 #+end_src
 
 As for the application of that scale, the variables that range from
@@ -1657,6 +1658,11 @@ datum is not part of the eight levels of headings in an Org file, yet is
 supposed to signify the primary header.  Similarly, the Org Agenda's
 structure headings are not part of a recognisable scale and so they also
 get ~modus-themes-scale-title~ ([[#h:68f481bc-5904-4725-a3e6-d7ecfa7c3dbc][Option for Org agenda constructs]]).
+
+Similarly ~modus-themes-scale-small~ [ part of {{{development-version}}} ] is
+not applied to regular headings, but reserved for special contexts where
+the user is presented with an option to use a smaller font height than
+the base size.  It is only implemented for the Org agenda.
 
 Users who wish to maintain scaled headings for the normal syntax while
 preventing special headings from standing out, can assign a value of =1.0=
