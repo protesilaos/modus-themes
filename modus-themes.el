@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.5.0
-;; Last-Modified: <2021-09-15 10:17:10 +0300>
+;; Last-Modified: <2021-09-15 20:36:53 +0300>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -7265,9 +7265,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; tab-bar-mode
     `(tab-bar ((,class ,@(modus-themes--tab bg-active bg-active-accent nil nil nil nil t))))
     `(tab-bar-tab-group-current ((,class ,@(modus-themes--tab bg-tab-active)
-                                         :box (:line-width (1 . -1) :color "gray50"))))
+                                         :box (:line-width (2 . -2) :color "gray50"))))
     `(tab-bar-tab-group-inactive ((,class ,@(modus-themes--tab bg-tab-inactive bg-tab-inactive-accent fg-dim)
-                                          :box (:line-width (1 . -1) :color "gray50"))))
+                                          :box (:line-width (2 . -2) :color "gray50"))))
     `(tab-bar-tab ((,class ,@(modus-themes--tab bg-tab-active nil nil nil t t))))
     `(tab-bar-tab-inactive ((,class ,@(modus-themes--tab bg-tab-inactive bg-tab-inactive-accent fg-dim nil t))))
 ;;;;; tab-line-mode
