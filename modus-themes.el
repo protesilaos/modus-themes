@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.5.0
-;; Last-Modified: <2021-09-15 20:36:53 +0300>
+;; Last-Modified: <2021-09-16 10:02:37 +0300>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -4494,7 +4494,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(boon-modeline-off ((,class :inherit modus-themes-active-yellow)))
     `(boon-modeline-spc ((,class :inherit modus-themes-active-green)))
 ;;;;; bookmark
-    `(bookmark-face ((,class :background ,bg-hl-alt :extend t)))
+    `(bookmark-face ((,class :inherit modus-themes-fringe-cyan)))
     `(bookmark-menu-bookmark ((,class :inherit bold)))
 ;;;;; breakpoint (built-in gdb-mi.el)
     `(breakpoint-disabled ((,class :inherit shadow)))
