@@ -2647,9 +2647,9 @@ two):
 
 #+begin_src emacs-lisp
 (setq org-todo-keyword-faces
-      '(("MEET" . '(font-lock-preprocessor-face org-todo))
-        ("STUDY" . '(font-lock-variable-name-face org-todo))
-        ("WRITE" . '(font-lock-type-face org-todo))))
+      '(("MEET" . '(bold org-todo))
+        ("STUDY" . '(warning org-todo))
+        ("WRITE" . '(shadow org-todo))))
 #+end_src
 
 This will refashion the keywords you specify, while letting the other
@@ -2680,7 +2680,7 @@ configuration of the priority cookies:
 
 #+begin_src emacs-lisp
 (setq org-priority-faces
-      '((?A . '(org-scheduled-today org-priority))
+      '((?A . '(bold org-priority))
         (?B . org-priority)
         (?C . '(shadow org-priority))))
 #+end_src

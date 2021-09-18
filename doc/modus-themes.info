@@ -2721,9 +2721,9 @@ applied by the ‘org-todo’ face (in case there is a difference between
 the two):
 
      (setq org-todo-keyword-faces
-           '(("MEET" . '(font-lock-preprocessor-face org-todo))
-             ("STUDY" . '(font-lock-variable-name-face org-todo))
-             ("WRITE" . '(font-lock-type-face org-todo))))
+           '(("MEET" . '(bold org-todo))
+             ("STUDY" . '(warning org-todo))
+             ("WRITE" . '(shadow org-todo))))
 
    This will refashion the keywords you specify, while letting the other
 items in ‘org-todo-keywords’ use their original styles (which are
@@ -2751,7 +2751,7 @@ need a quoted list.  A pattern of ‘keyword . face’ will suffice.
 configuration of the priority cookies:
 
      (setq org-priority-faces
-           '((?A . '(org-scheduled-today org-priority))
+           '((?A . '(bold org-priority))
              (?B . org-priority)
              (?C . '(shadow org-priority))))
 
@@ -5183,52 +5183,52 @@ Node: Font configurations for Org and others (DIY)102071
 Ref: Font configurations for Org and others (DIY)-Footnote-1104719
 Node: Configure bold and italic faces (DIY)104906
 Node: Custom Org user faces (DIY)108952
-Node: Update Org block delimiter fontification (DIY)112708
-Node: Measure color contrast (DIY)114668
-Node: Load theme depending on time of day (DIY)117462
-Node: Backdrop for pdf-tools (DIY)118502
-Node: A theme-agnostic hook for theme loading (DIY)121291
-Node: Face coverage123681
-Node: Supported packages124150
-Node: Indirectly covered packages131140
-Node: Notes on individual packages131804
-Node: Note on avy hints132862
-Node: Note on calendarel weekday and weekend colors134030
-Node: Note on underlines in compilation buffers135213
-Node: Note on inline Latex in Org buffers136062
-Node: Note on dimmerel136672
-Node: Note on display-fill-column-indicator-mode138157
-Node: Note on highlight-parenthesesel139773
-Node: Note on mmm-modeel background colors145779
-Node: Note for prism148147
-Node: Note for god-mode151373
-Node: Note on company-mode overlay pop-up153047
-Ref: Note on company-mode overlay pop-up-Footnote-1153737
-Ref: Note on company-mode overlay pop-up-Footnote-2153804
-Node: Note on ERC escaped color sequences153859
-Ref: Note on ERC escaped color sequences-Footnote-1155287
-Node: Note on powerline or spaceline155397
-Node: Note on SHR colors155811
-Node: Note on EWW and Elfeed fonts (SHR fonts)156246
-Node: Note on Helm grep156991
-Node: Note on vc-annotate-background-mode158478
-Node: Note on pdf-tools link hints159363
-Node: Frequently Asked Questions (FAQ)161795
-Node: Is the contrast ratio about adjacent colors?162369
-Node: What does it mean to avoid exaggerations?163882
-Node: Why are colors mostly variants of blue magenta cyan?165717
-Node: What is the best setup for legibility?170064
-Node: Contributing172682
-Node: Sources of the themes173085
-Node: Issues you can help with173823
-Node: Patches require copyright assignment to the FSF175023
-Node: Acknowledgements177318
-Node: Meta179921
-Node: GNU Free Documentation License182067
-Node: Indices207419
-Node: Function index207598
-Node: Variable index208835
-Node: Concept index211049
+Node: Update Org block delimiter fontification (DIY)112636
+Node: Measure color contrast (DIY)114596
+Node: Load theme depending on time of day (DIY)117390
+Node: Backdrop for pdf-tools (DIY)118430
+Node: A theme-agnostic hook for theme loading (DIY)121219
+Node: Face coverage123609
+Node: Supported packages124078
+Node: Indirectly covered packages131068
+Node: Notes on individual packages131732
+Node: Note on avy hints132790
+Node: Note on calendarel weekday and weekend colors133958
+Node: Note on underlines in compilation buffers135141
+Node: Note on inline Latex in Org buffers135990
+Node: Note on dimmerel136600
+Node: Note on display-fill-column-indicator-mode138085
+Node: Note on highlight-parenthesesel139701
+Node: Note on mmm-modeel background colors145707
+Node: Note for prism148075
+Node: Note for god-mode151301
+Node: Note on company-mode overlay pop-up152975
+Ref: Note on company-mode overlay pop-up-Footnote-1153665
+Ref: Note on company-mode overlay pop-up-Footnote-2153732
+Node: Note on ERC escaped color sequences153787
+Ref: Note on ERC escaped color sequences-Footnote-1155215
+Node: Note on powerline or spaceline155325
+Node: Note on SHR colors155739
+Node: Note on EWW and Elfeed fonts (SHR fonts)156174
+Node: Note on Helm grep156919
+Node: Note on vc-annotate-background-mode158406
+Node: Note on pdf-tools link hints159291
+Node: Frequently Asked Questions (FAQ)161723
+Node: Is the contrast ratio about adjacent colors?162297
+Node: What does it mean to avoid exaggerations?163810
+Node: Why are colors mostly variants of blue magenta cyan?165645
+Node: What is the best setup for legibility?169992
+Node: Contributing172610
+Node: Sources of the themes173013
+Node: Issues you can help with173751
+Node: Patches require copyright assignment to the FSF174951
+Node: Acknowledgements177246
+Node: Meta179849
+Node: GNU Free Documentation License181995
+Node: Indices207347
+Node: Function index207526
+Node: Variable index208763
+Node: Concept index210977
 
 End Tag Table
 
