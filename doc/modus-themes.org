@@ -3731,7 +3731,7 @@ With 8 colors:
   :desaturations '(0) ; do not change---may lower the contrast ratio
   :lightens '(0)      ; same
   :colors (modus-themes-with-colors
-            (list fg-special-cold
+            (list blue
                   magenta
                   magenta-alt-other
                   cyan-alt-other
@@ -3751,10 +3751,10 @@ to the themes' default aesthetic:
   :desaturations '(0) ; do not change---may lower the contrast ratio
   :lightens '(0)      ; same
   :colors (modus-themes-with-colors
-            (list fg-main
-                  cyan-alt-other
+            (list blue
+                  magenta
                   magenta-alt-other
-                  magenta)))
+                  green-alt)))
 #+end_src
 
 If you need to apply desaturation and lightening, you can use what the
