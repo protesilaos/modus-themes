@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.5.0
-;; Last-Modified: <2021-09-16 10:02:37 +0300>
+;; Last-Modified: <2021-09-23 08:50:09 +0300>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -7181,7 +7181,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(spray-accent-face ((,class :foreground ,red-intense)))
     `(spray-base-face ((,class :inherit default :foreground ,fg-special-cold)))
 ;;;;; stripes
-    `(stripes ((,class :inherit modus-themes-hl-line)))
+    `(stripes ((,class :background ,bg-alt)))
 ;;;;; success
     `(suggest-heading ((,class :inherit bold :foreground ,yellow-alt-other)))
 ;;;;; switch-window
