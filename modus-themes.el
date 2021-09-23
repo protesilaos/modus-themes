@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.5.0
-;; Last-Modified: <2021-09-23 08:50:09 +0300>
+;; Last-Modified: <2021-09-23 09:30:06 +0300>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -6432,7 +6432,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(mu4e-contact-face ((,class :inherit message-header-to)))
     `(mu4e-context-face ((,class :foreground ,blue-active)))
     `(mu4e-draft-face ((,class :foreground ,magenta-alt)))
-    `(mu4e-flagged-face ((,class :foreground ,red-alt)))
+    `(mu4e-flagged-face ((,class :foreground ,red-alt-other)))
     `(mu4e-footer-face ((,class :inherit modus-themes-slant :foreground ,fg-special-cold)))
     `(mu4e-forwarded-face ((,class :foreground ,magenta-alt-other)))
     `(mu4e-header-face ((,class :inherit shadow)))
@@ -6506,7 +6506,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(notmuch-message-summary-face ((,class :inherit (bold modus-themes-nuanced-cyan))))
     `(notmuch-search-count ((,class :inherit shadow)))
     `(notmuch-search-date ((,class :foreground ,cyan)))
-    `(notmuch-search-flagged-face ((,class :foreground ,red-alt)))
+    `(notmuch-search-flagged-face ((,class :foreground ,red-alt-other)))
     `(notmuch-search-matching-authors ((,class :foreground ,fg-special-cold)))
     `(notmuch-search-non-matching-authors ((,class :inherit shadow)))
     `(notmuch-search-subject ((,class :foreground ,fg-main)))
