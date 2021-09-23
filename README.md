@@ -145,3 +145,18 @@ manual installed: evaluate `(info "(modus-themes) Top")` to start
 reading it.
 
 The themes cover a broad range of packages and are highly customisable.
+
+### Note for font configurations
+
+If you are having issues with fonts not aligning or scaling properly,
+chances are that your `fixed-pitch` face is (i) not using a monospaced
+font, (ii) not using the same monospaced font as your `default` face,
+and/or (iii) has an absolute `:height` attribute.  Evaluate this to read
+the themes' manual on the matter:
+
+```
+(info "(modus-themes) Font configurations for Org and others (DIY)")
+```
+
+Or visit:
+<https://protesilaos.com/modus-themes/#h:defcf4fc-8fa8-4c29-b12e-7119582cc929>.
