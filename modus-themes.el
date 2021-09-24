@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.5.0
-;; Last-Modified: <2021-09-23 09:30:06 +0300>
+;; Last-Modified: <2021-09-24 10:32:55 +0300>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -91,6 +91,7 @@
 ;;     alert
 ;;     all-the-icons
 ;;     annotate
+;;     ansi-color
 ;;     anzu
 ;;     apropos
 ;;     apt-sources-list
@@ -4367,6 +4368,25 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(annotate-annotation-secondary ((,class :inherit modus-themes-subtle-green)))
     `(annotate-highlight ((,class :background ,blue-nuanced-bg :underline ,blue-intense)))
     `(annotate-highlight-secondary ((,class :background ,green-nuanced-bg :underline ,green-intense)))
+;;;;; ansi-color
+    ;; Those are in Emacs28.
+    `(ansi-color-black ((,class :background "black" :foreground "black")))
+    `(ansi-color-blue ((,class :background ,blue :foreground ,blue)))
+    `(ansi-color-bold ((,class :inherit bold)))
+    `(ansi-color-bright-black ((,class :background "gray35" :foreground "gray35")))
+    `(ansi-color-bright-blue ((,class :background ,blue-alt :foreground ,blue-alt)))
+    `(ansi-color-bright-cyan ((,class :background ,cyan-alt-other :foreground ,cyan-alt-other)))
+    `(ansi-color-bright-green ((,class :background ,green-alt-other :foreground ,green-alt-other)))
+    `(ansi-color-bright-magenta ((,class :background ,magenta-alt-other :foreground ,magenta-alt-other)))
+    `(ansi-color-bright-red ((,class :background ,red-alt :foreground ,red-alt)))
+    `(ansi-color-bright-white ((,class :background "white" :foreground "white")))
+    `(ansi-color-bright-yellow ((,class :background ,yellow-alt :foreground ,yellow-alt)))
+    `(ansi-color-cyan ((,class :background ,cyan :foreground ,cyan)))
+    `(ansi-color-green ((,class :background ,green :foreground ,green)))
+    `(ansi-color-magenta ((,class :background ,magenta :foreground ,magenta)))
+    `(ansi-color-red ((,class :background ,red :foreground ,red)))
+    `(ansi-color-white ((,class :background "gray65" :foreground "gray65")))
+    `(ansi-color-yellow ((,class :background ,yellow :foreground ,yellow)))
 ;;;;; anzu
     `(anzu-match-1 ((,class :inherit modus-themes-subtle-cyan)))
     `(anzu-match-2 ((,class :inherit modus-themes-search-success)))
