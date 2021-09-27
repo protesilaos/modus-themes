@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.5.0
-;; Last-Modified: <2021-09-24 10:32:55 +0300>
+;; Last-Modified: <2021-09-27 09:14:56 +0300>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -35,30 +35,30 @@
 ;;
 ;; The themes share the following customization variables:
 ;;
+;;     modus-themes-headings                       (alist)
+;;     modus-themes-org-agenda                     (alist)
+;;     modus-themes-bold-constructs                (boolean)
 ;;     modus-themes-inhibit-reload                 (boolean)
 ;;     modus-themes-italic-constructs              (boolean)
-;;     modus-themes-bold-constructs                (boolean)
-;;     modus-themes-variable-pitch-headings        (boolean)
-;;     modus-themes-variable-pitch-ui              (boolean)
+;;     modus-themes-no-mixed-fonts                 (boolean)
 ;;     modus-themes-scale-headings                 (boolean)
 ;;     modus-themes-subtle-line-numbers            (boolean)
 ;;     modus-themes-success-deuteranopia           (boolean)
-;;     modus-themes-no-mixed-fonts                 (boolean)
-;;     modus-themes-headings                       (alist)
-;;     modus-themes-fringes                        (choice)
-;;     modus-themes-lang-checkers                  (choice)
-;;     modus-themes-org-agenda                     (alist)
-;;     modus-themes-org-blocks                     (choice)
-;;     modus-themes-prompts                        (choice)
-;;     modus-themes-mode-line                      (choice)
-;;     modus-themes-diffs                          (choice)
-;;     modus-themes-syntax                         (choice)
-;;     modus-themes-hl-line                        (choice)
-;;     modus-themes-paren-match                    (choice)
-;;     modus-themes-region                         (choice)
-;;     modus-themes-links                          (choice)
+;;     modus-themes-variable-pitch-headings        (boolean)
+;;     modus-themes-variable-pitch-ui              (boolean)
 ;;     modus-themes-completions                    (choice)
+;;     modus-themes-diffs                          (choice)
+;;     modus-themes-fringes                        (choice)
+;;     modus-themes-hl-line                        (choice)
+;;     modus-themes-lang-checkers                  (choice)
+;;     modus-themes-links                          (choice)
 ;;     modus-themes-mail-citations                 (choice)
+;;     modus-themes-mode-line                      (choice)
+;;     modus-themes-org-blocks                     (choice)
+;;     modus-themes-paren-match                    (choice)
+;;     modus-themes-prompts                        (choice)
+;;     modus-themes-region                         (choice)
+;;     modus-themes-syntax                         (choice)
 ;;
 ;; The default scale for headings is as follows (it can be customized as
 ;; well---remember, no scaling takes place by default):
