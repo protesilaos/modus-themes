@@ -4341,18 +4341,18 @@ The Modus themes are a collective effort.  Every bit of work matters.
   L.{{{space()}}} Contovounesios, Burgess Chang, Christian Tietze, Christopher
   Dimech, Damien Cassou, Daniel Mendler, Dario Gjorgjevski, David
   Edmondson, Davor Rotim, Divan Santana, Eliraz Kedmi, Emanuele Michele
-  Alberto Monterosso, Farasha Euker, Gautier Ponsinet, Gerry Agbobada,
-  Gianluca Recchia, Gustavo Barros, Hörmetjan Yiltiz, Ilja Kocken, Iris
-  Garcia, Jeremy Friesen, Jerry Zhang, John Haman, Joshua O'Connor,
-  Kevin Fleming, Kévin Le Gouguec, Kostadin Ninev, Len Trigg, Manuel
-  Uberti, Mark Burton, Markus Beppler, Mauro Aranda, Michael Goldenberg,
-  Morgan Smith, Murilo Pereira, Nicky van Foreest, Nicolas De Jaeghere,
-  Paul Poloskov, Pengji Zhang, Pete Kazmier, Peter Wu, Philip
-  Kaludercic, Pierre Téchoueyres, Roman Rudakov, Ryan Phillips, Rudolf
-  Adamkovič, Sam Kleinman, Shreyas Ragavan, Simon Pugnet, Tassilo Horn,
-  Thibaut Verron, Thomas Heartman, Trey Merkley, Togan Muftuoglu, Toon
-  Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.  As well as users:
-  Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik,
+  Alberto Monterosso, Farasha Euker, Feng Shu, Gautier Ponsinet, Gerry
+  Agbobada, Gianluca Recchia, Gustavo Barros, Hörmetjan Yiltiz, Ilja
+  Kocken, Iris Garcia, Jeremy Friesen, Jerry Zhang, John Haman, Joshua
+  O'Connor, Kevin Fleming, Kévin Le Gouguec, Kostadin Ninev, Len Trigg,
+  Manuel Uberti, Mark Burton, Markus Beppler, Mauro Aranda, Michael
+  Goldenberg, Morgan Smith, Murilo Pereira, Nicky van Foreest, Nicolas
+  De Jaeghere, Paul Poloskov, Pengji Zhang, Pete Kazmier, Peter Wu,
+  Philip Kaludercic, Pierre Téchoueyres, Roman Rudakov, Ryan Phillips,
+  Rudolf Adamkovič, Sam Kleinman, Shreyas Ragavan, Simon Pugnet, Tassilo
+  Horn, Thibaut Verron, Thomas Heartman, Trey Merkley, Togan Muftuoglu,
+  Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.  As well as
+  users: Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik,
   Moesasji, Nick, TheBlob42, Trey, bepolymathe, doolio, fleimgruber,
   iSeeU, jixiuf, okamsn, pRot0ta1p.
 
