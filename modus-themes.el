@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.5.0
-;; Last-Modified: <2021-09-27 09:14:56 +0300>
+;; Last-Modified: <2021-09-28 09:02:16 +0300>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -5103,6 +5103,12 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; embark
     `(embark-keybinding ((,class :inherit modus-themes-key-binding)))
 ;;;;; emms
+    `(emms-browser-album-face ((,class :foreground ,magenta-alt-other ,@(modus-themes--scale modus-themes-scale-2))))
+    `(emms-browser-artist-face ((,class :foreground ,cyan ,@(modus-themes--scale modus-themes-scale-3))))
+    `(emms-browser-composer-face ((,class :foreground ,magenta-alt ,@(modus-themes--scale modus-themes-scale-3))))
+    `(emms-browser-performer-face ((,class :inherit emms-browser-artist-face)))
+    `(emms-browser-track-face ((,class :inherit emms-playlist-track-face)))
+    `(emms-browser-year/genre-face ((,class :foreground ,cyan-alt-other ,@(modus-themes--scale modus-themes-scale-4))))
     `(emms-playlist-track-face ((,class :foreground ,blue-alt)))
     `(emms-playlist-selected-face ((,class :inherit bold :foreground ,blue-alt-other)))
     `(emms-metaplaylist-mode-current-face ((,class :inherit emms-playlist-selected-face)))
