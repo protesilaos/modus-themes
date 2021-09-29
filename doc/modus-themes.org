@@ -2394,8 +2394,8 @@ Using the above has an immediate effect, as it reloads the active Modus
 theme.
 
 The =my-modus-themes-saturate= function stores new color values in the
-variables =modus-themes-operandi-color-overrides= and
-=modus-themes-vivendi-color-overrides=, meaning that it undoes changes
+variables ~modus-themes-operandi-color-overrides~ and
+~modus-themes-vivendi-color-overrides~, meaning that it undoes changes
 implemented by the user on individual colors.  To have both automatic
 saturation adjustment across the board and retain per-case edits to the
 palette, some tweaks to the above function are required.  For example:
