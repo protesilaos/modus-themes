@@ -5,9 +5,9 @@
 #+options: ':t toc:nil author:t email:t num:t
 #+startup: content
 
-#+macro: stable-version 1.5.0
-#+macro: release-date 2021-07-15
-#+macro: development-version 1.6.0-dev
+#+macro: stable-version 1.6.0
+#+macro: release-date 2021-09-29
+#+macro: development-version 1.7.0-dev
 #+macro: file @@texinfo:@file{@@$1@@texinfo:}@@
 #+macro: space @@texinfo:@: @@
 #+macro: kbd @@texinfo:@kbd{@@$1@@texinfo:}@@
@@ -804,7 +804,7 @@ effect, color, and border visibility:
   - ~moody~
 + ~accented~
 + ~borderless~
-+ ~padded~ (part of {{{development-version}}})
++ ~padded~
 
 The default (a nil value or an empty list) is a two-dimensional
 rectangle with a border around it.  The active and the inactive
@@ -884,8 +884,6 @@ non-nil value.
 :custom_id: h:27cef8f5-dc4e-4c93-ba41-b899e650d936
 :end:
 #+vindex: modus-themes-tabs-accented
-
-[ Part of {{{development-version}}} ]
 
 Symbol: ~modus-themes-tabs-accented~
 
@@ -1327,8 +1325,6 @@ and ~rainbow~.  Those will continue to work as they are aliases for
 :end:
 #+vindex: modus-themes-org-agenda
 
-[ Revised as part of {{{development-version}}} ]
-
 Symbol: ~modus-themes-org-agenda~
 
 This is an alist that accepts a =(key . value)= combination.  Some values
@@ -1661,10 +1657,10 @@ supposed to signify the primary header.  Similarly, the Org Agenda's
 structure headings are not part of a recognisable scale and so they also
 get ~modus-themes-scale-title~ ([[#h:68f481bc-5904-4725-a3e6-d7ecfa7c3dbc][Option for Org agenda constructs]]).
 
-Similarly ~modus-themes-scale-small~ [ part of {{{development-version}}} ] is
-not applied to regular headings, but reserved for special contexts where
-the user is presented with an option to use a smaller font height than
-the base size.  It is only implemented for the Org agenda.
+Similarly ~modus-themes-scale-small~ is not applied to regular headings,
+but reserved for special contexts where the user is presented with an
+option to use a smaller font height than the base size.  It is only
+implemented for the Org agenda.
 
 Users who wish to maintain scaled headings for the normal syntax while
 preventing special headings from standing out, can assign a value of =1.0=
@@ -2977,7 +2973,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + alert
 + all-the-icons
 + annotate
-+ ansi-color [ part of {{{development-version}}} ]
++ ansi-color
 + anzu
 + apropos
 + apt-sources-list
@@ -3017,7 +3013,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + css-mode
 + csv-mode
 + ctrlf
-+ cursor-flash [ part of {{{development-version}}} ]
++ cursor-flash
 + custom (what you get with {{{kbd(M-x customize)}}})
 + dap-mode
 + dashboard (emacs-dashboard)
@@ -3052,7 +3048,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + eldoc-box
 + elfeed
 + elfeed-score
-+ elpher [ part of {{{development-version}}} ]
++ elpher
 + embark
 + emms
 + enh-ruby-mode (enhanced-ruby-mode)
@@ -4217,9 +4213,7 @@ in which you can contribute to their ongoing development.
 :end:
 #+cindex: Sources of the themes
 
-The ~modus-operandi~ and ~modus-vivendi~ themes are built into Emacs.
-Currently they are in Emacs' git main branch (trunk), which is tracking
-the next development release target.
+The ~modus-operandi~ and ~modus-vivendi~ themes are built into Emacs 28.
 
 The source code of the themes is [[https://gitlab.com/protesilaos/modus-themes/][available on Gitlab]], for the time
 being.  A [[https://github.com/protesilaos/modus-themes/][mirror on Github]] is also on offer.

@@ -15,6 +15,356 @@ For further details, please consult these additional resources:
 + Manual :: <https://protesilaos.com/modus-themes>
 + Screenshots :: <https://protesilaos.com/modus-themes-pictures>
 
+* 1.6.0
+
+#+begin_src text
+Modus themes version 1.6.0
+
+By Protesilaos Stavrou <info@protesilaos.com> on 2021-07-15
+
+This entry records the changes made to the project since the release of
+version 1.5.0 on 2021-07-15.  There have been around 70 commits since
+then.
+
+Every colour-related modification referenced herein is always
+implemented in accordance with the primary accessibility objective of
+the themes for a minimum contrast ratio of 7:1 between background and
+foreground values in their given combination (the WCAG AAA standard).
+Such edits also account for colour-coding that is optimised for the
+needs of users with red-green colour deficiency (deuteranopia or
+variants).
+
+Here is the URL of the manual: <https://protesilaos.com/modus-themes>.
+Or read it from Emacs by evaluating this form:
+
+    (info "(modus-themes) Top")
+
+The themes are built into Emacs version 28 (current development target),
+and are available on GNU ELPA as well as other archives.  This release
+is the final one for the emacs-28 branch, as that gets cut as the next
+stable release of GNU Emacs.  Future releases will target Emacs 29 once
+that becomes the new 'master' branch.
+
+
+Customisation options
+=====================
+
+[ Themes need to be reloaded for changes to take effect. ]
+
++ Introduced the new 'modus-themes-tabs-accented' boolean option.  When
+  set to non-nil, it renders the background of all tab interfaces in a
+  shade of blue.  Those interfaces are tab-bar (built-in), tab-line
+  (built-in), and Centaur tabs.
+
+  - The background "accented" colour is the same as the one used for
+    mode lines when 'modus-themes-mode-line' is configured accordingly.
+
++ Tweaked the 'modus-themes-mode-line' to accept a 'padded' symbol as
+  part of the list of properties it can read.  This will increase the
+  spacing around the mode lines' text, making the line taller overall
+  but also more spacious.
+
+  Thanks to Manuel Uberti for making the proposal and providing feedback
+  in issue 228: <https://gitlab.com/protesilaos/modus-themes/-/issues/228>.
+
++ Added the 'modus-themes-scale-small' which complements the existing
+  scale values with one that is meant to be smaller than the base
+  height.  This option is reserved for special cases and is currently
+  only used as an opt-in feature in the Org agenda.
+
++ Expanded the 'modus-themes-org-agenda' with more parameters:
+
+  - The current date can now also be underlined.
+  - Date headings can be scaled/enlarged in size.
+  - Events, like those of the Diary or sexp entries, can be customised.
+
+  Consult the manual or the variable's doc string for the details.
+
++ Removed the obsoleted aliases 'modus-themes-slanted-constructs' and
+  'modus-themes-scale-5'.  Those are superseded by the more
+  appropriately named 'modus-themes-italic-constructs' and
+  'modus-themes-scale-title'.
+
+  Thanks to Nicolas De Jaeghere for the patch in merge request 47:
+  <https://gitlab.com/protesilaos/modus-themes/-/merge_requests/47>.
+
+
+Faces and face groups
+=====================
+
++ Make the 'prodigy' faces for red/green/yellow inherit from the faces
+  'error'/'success'/'warning', respectively.  This is done to (i) avoid
+  duplication and (ii) ensure that the green/success colour coding is
+  consistent with the goal of the themes to empower users with red-green
+  colour deficiency.  The boolean option that changes all such greens to
+  shades of blue is 'modus-themes-success-deuteranopia'.
+
++ Assigned the ':extend' attribute to the 'org-code' face.  This is
+  necessary when the Org source contains lines that start with a colon
+  sign.  Those are interpreted as code blocks.  For example:
+
+      :  #+BEGIN_SRC emacs-lisp
+      :    (defun in-interval (bounds el)
+      :      (and (>= el (car bounds)) (<= el (cadr bounds))))
+      :  #+END_SRC
+
+  With the ':extend' in place, the background stretches to the edge of
+  the window, thus giving those lines a uniform rectangular shape.  For
+  inline uses of 'org-code', the background should remain limited to the
+  span of the text.
+
++ Broadened support for 'marginalia' faces in two phases.
+
+  - The first pertained to the file permissions that are shown when
+    completing against file paths.  Their style is similar to what
+    'dired+' or the 'direfl' packages provide, however we have taken
+    care to optimise the interface for the purposes of completion
+    UIs---where things can look like Dired, we make them alike, but
+    where they must differ, we differentiate the designs accordingly.
+    There can be no compromises or arbitrary constraints.
+
+    Also read: <https://github.com/minad/marginalia/pull/91>.
+
+  - The second batch covered all sorts of extra classes that provide
+    granular control over the appearance of Marginalia instances.
+    Refinements also had to be made to already-supported faces for the
+    sake of achieving consistency across the various Marginalia
+    interfaces.
+
+    Also read: <https://github.com/minad/marginalia/pull/92>.
+
++ Refined 'diredfl' and 'dired+' faces.  For the various "priv" faces,
+  the intent is to increase the difference in hueness between adjacent
+  file permissions (the changes are minor, but they do change the
+  overall result).  Numbers are toned down so that they do not clash
+  with dates.  The file suffix no longer uses cyan to stand out more in
+  detailed views.
+
++ Made 'icomplete-selected-match' (Emacs28) more legible by aligning its
+  presentation with metaphors that are estaslished across the
+  modus-themes.  Thanks to Kévin Le Gouguec (peniblec) for noting the
+  inconsistency with the new face upstream and for writing the patch for
+  it in merge request 50:
+  <https://gitlab.com/protesilaos/modus-themes/-/merge_requests/50>.
+  Also thanks to Manuel Uberti for confirming that things would look
+  consistent in the comments' section of that merge request.
+
++ Fixed faulty inheritance for the 'web-mode-keyword-face'.  It should
+  now properly copy the attributes of 'font-lock-keyword-face'.
+
++ Made inheritance of the new 'help-key-binding' (Emacs28 key) the
+  default for all faces that need to style key bindings.
+
+  In Emacs 28 all key bindings are automatically displayed with the face
+  'help-key-binding' which uses some new face attributes to draw a
+  cleaner box around it.  Given that the themes must work with earlier
+  versions of Emacs, we cannot inherit it unconditionally so we added
+  the relevant conditionality.  It is nice to offer this feature to
+  those who use the themes on Emacs 28.  Older versions retain the
+  previous style of a blue colour coupled with a bold weight.
+
+  The exception to this rule is the transient.el faces (this is the
+  pop-up window used by Magit, among others---transient.el is now built
+  into Emacs).  The box effect creates unpredictable misalignments, so
+  we default to the old key binding style for those.
+
+  Thanks to Manuel Uberti and Kevin Fleming for their feedback in issue
+  232: <https://gitlab.com/protesilaos/modus-themes/-/issues/232>.
+
++ Added support for the new 'notmuch-jump-key' face.  I contributed this
+  face in commits c37c9912, 5cc106b0 to the Notmuch git repo:
+  <https://git.notmuchmail.org/git/notmuch>.
+
++ Updated the 'bookmark-face' (Emacs28) as it has been changed upstream
+  to be a fringe indicator instead of an in-buffer, line-wide background
+  highlight.
+
++ Aligned Ediff faces with other 'modus-themes-diffs' styles.  Before we
+  would differentiate a "focus state", though that is now considered
+  surplus to requirements.  The notion of a "focus state" only make
+  sense in Magit which applies variegated colour-coding to diff hunks
+  based on their state.  Whereas non-active Ediff changes are grayed
+  out, so there is no need for further colour-coding nuances.  The most
+  noticeable change is with:
+
+      (setq modus-themes-diffs 'bg-only)
+
+  As noted in the commit message of 64c74ae (from 2021-09-04):
+
+      If users think this change is for the worse, we can always define a
+      helper function like this:
+
+          (defun modus-themes--ediff-style (bgonly default)
+            "Diff style for Ediff.
+          BGONLY and DEFAULT depend on the value of `modus-themes-diffs'.
+          The former is more subtle."
+            (if (eq modus-themes-diffs 'bg-only)
+                (list bgonly)
+              (list default)))
+
+      And apply it thus:
+
+          `(ediff-current-diff-A ((,class :inherit ,@(modus-themes--ediff-style
+                                                      'modus-themes-diff-removed
+                                                      'modus-themes-diff-focus-removed))))
+
+  No feedback was received towards that end in about a month, so we
+  consider the change to be acceptable, without prejudice to the
+  possibility of future updates.
+
++ Unified the styles of 'org-agenda-calendar-sexp', 'org-agenda-diary',
+  and 'org-agenda-calendar-event'.  This is not a user-facing change but
+  an internal refactoring to avoid repetition.  It also makes things
+  easier for the implementation of the 'modus-themes-org-agenda' (as
+  mentioned above).
+
++ Ensured that the 'bookmark-menu-bookmark' face inherits from the
+  'bold' face.  By default it hardcodes the bold weight, whereas we
+  instruct it to inherit the 'bold' face.  A user can thus change the
+  ':weight' of that face to whatever they want, like semibold,
+  extrabold, etc.  We do this throughout the themes for bold and
+  italics---consider it a "hidden feature" of sorts.  Check the manual
+  for more on the matter:
+
+      (info "(modus-themes) Configure bold and italic faces (DIY)")
+
++ Provided support for tab-bar groups (Emacs28).  Specifically the faces
+  'tab-bar-tab-group-current' and 'tab-bar-tab-group-inactive'.
+
+  Thanks to Adam Porter (alphapapa) for the feedback in issue 8 over at
+  the Github mirror: <https://github.com/protesilaos/modus-themes/issues/8>.
+
++ Decoupled the 'stripes' face from that of 'hl-line-face'.  This is
+  because the stripes are not meant to change depending on the value of
+  the user option 'modus-themes-hl-line'.
+
++ Revised the red shade of "flagged" entries in mu4e and notmuch.  Those
+  are now consistent with Gnus.  The shade of red that was used before
+  was closer to the orange side of the spectrum whereas the current has
+  hints of blue (a cherry colour) and thus combines better with the cyan
+  and blue that prevail in those interfaces.  These are fine margins,
+  though the effect is noticeable regardless.
+
++ Configured the new 'ansi-color' faces (Emacs28) which are used by
+  shells and terminals (among others).  Thanks to Manuel Uberti for
+  reporting the changes to upstream Emacs in issue 236:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/236>.
+
++ Expanded support for EMMS faces, pertaining to its browser views.
+  Thanks to Feng Shu (tumashu) for bringing those to my attention in
+  issue 11 over at the Github mirror:
+  <https://github.com/protesilaos/modus-themes/issues/11>.
+
++ Styled the new 'tab-line-tab-modified' face (Emacs28).  It should now
+  use a faint red colour to denote changes to the underlying file.
+  Thanks to Adam Porter (alphapapa) for bringing it to my attention in
+  issue 12 over at the Github mirror:
+  <https://github.com/protesilaos/modus-themes/issues/12>.
+
++ Configured the single face that the 'cursor-flash' package has to
+  offer.  Thanks to Manuel Uberti for the feedback in issue 231:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/231>.
+
++ Included 'elpher' in the list of supported packages by means of
+  covering the heading faces it implements.
+
++ Recalibrated certain dedicated colours for inactive tabs and tweaked
+  tab faces to (i) marginally improve the default aesthetic and (ii)
+  harmonise it with the style of 'modus-themes-tabs-accented'.
+
++ Removed the foreground attribute from all markup faces that are meant
+  to denote emphasis in italics.  That is because such faces are
+  typically composed with others, so we do not wish to inadvertently
+  override any other colour that would otherwise have taken effect.
+
++ Wrote the faces for upstream Org that improve the contextuality of
+  various agenda views (included in version 9.5).  This was done in
+  close collaboration with Gustavo Barros who offered detailed feedback
+  in issue 208 (which also led to the creation and eventual expansion of
+  the 'modus-themes-org-agenda' user option):
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/208>.
+
+  Four new faces improve certain styles and offer more flexibility for
+  some Org agenda views: 'org-agenda-date-weekend-today',
+  'org-imminent-deadline', 'org-agenda-structure-secondary',
+  'org-agenda-structure-filter'.  They inherit from existing faces in
+  order to remain backward-compatible.
+
+  Quoting from <https://list.orgmode.org/87lf7q7gpq.fsf@protesilaos.com/>:
+
+      + The 'org-imminent-deadline' is useful to disambiguate generic
+        warnings from deadlines.  For example, a warning could be
+        rendered in a yellow colored text and have a bold weight,
+        whereas a deadline might be red and styled with italics.
+
+      + The 'org-agenda-structure-filter' applies to all tag/term
+        filters in agenda views that search for keywords or patterns.
+        It is designed to inherit from 'org-agenda-structure' in
+        addition to the 'org-warning' face that was present before (and
+        removes the generic 'warning' face from one place).  This offers
+        the benefit of consistency, as, say, an increase in font height
+        or a change in font family in 'org-agenda-structure' will
+        propagate to the filter as well.  The whole header line thus
+        looks part of a singular design.
+
+      + The 'org-agenda-structure-secondary' complements the above for
+        those same views where a description follows the header.  For
+        instance, the tags view provides information to "Press N r" to
+        filter by a numbered tag.  Themes/users may prefer to
+        disambiguate this line from the header above it, such as by
+        using a less intense color or by reducing its height relative to
+        the 'org-agenda-structure'.
+
+      + The 'org-agenda-date-weekend-today' provides the option to
+        differentiate the current date on a weekend from the current
+        date on weekdays.
+
+Other patches I have made to, inter alia, emacs.git and org.git with
+regard to faces are documented in previous change log entries.
+
+
+Documentation
+=============
+
++ Removed references to old versions of the themes from before their
+  refactoring in version 1.0.0.  Those old packages no longer exist.
+  Users must install the 'modus-themes' and then load either of
+  'modus-operandi' or 'modus-vivendi'.
+
++ Included various extensions of the Vertico package in the list of
+  indirectly supported packages.  Those define faces which either
+  inherit from basic ones that we already support or use colours that
+  are consistent with our accessibility target.
+
++ Referenced 'side-hustle', 'tide', 'bufler' as an indirectly supported
+  packages for the same reasons.
+
++ Simplified time-stamp local variables that are used in modus-themes.el
+  to show the time the file was edited.  We apply 'time-stamp-pattern'
+  instead of setting multiple time-stamp variables.  Thanks to Stephen
+  Gildea for the patch, which was sent to me via email (yes, you can
+  always do that).
+
++ Updated the manual's "acknowledgements" section to name all new
+  contributors to code/ideas/feedback.
+
++ Furnished information on how to configure the 'highlight-parentheses'
+  package and extend its faces for use with the themes.  The entry
+  provides a complete Elisp implementation.
+
++ Improved the code samples for the prism.el setup that users may wish
+  to set up by themselves.  The new lists of colours work better when
+  Prism's colouration is limited to a small set of hues.
+
++ Deleted trailing whitespace in the manual which had adverse effects
+  when trying to compile the modus-themes.org over at emacs.git.  Thanks
+  to Philip Kaludercic for the patch in merge request 49:
+  <https://gitlab.com/protesilaos/modus-themes/-/merge_requests/49>.
+
+Thanks again to everyone involved.  Looking forward to see the Modus
+themes, version 1.6.0, as part of the next stable release of Emacs.
+#+end_src
+
 * 1.5.0
 
 #+begin_src text
@@ -175,20 +525,20 @@ New variables
   with some keys expecting a symbol and others a list of properties.
   The minutia are covered in its doc string.  A possible configuration
   can look like this:
-  
+
       (setq modus-themes-org-agenda
             '((header-block . (variable-pitch scale-title))
               (header-date . (grayscale workaholic bold-today))
               (scheduled . uniform)
               (habit . traffic-light)))
-  
+
   'modus-themes-org-agenda' supersedes the old variable that was specific
   to the Org habit graph: 'modus-themes-org-habit'.  There now is a
   'habit' key which accepts the same values as before, plus a new style
   that is optimised for users with red-green colour deficiency:
   'traffic-light-deuteranopia'.  Please consult the doc string of
   'modus-themes-org-agenda' or the relevant entry to the manual.
-  
+
   Thanks to Gustavo Barros for contributing to the creation of this
   variable as well as to all other changes in the relevant faces that
   were done in the interest of usability.  A full report about
@@ -450,7 +800,7 @@ Miscellaneous
 
 Thanks again to everyone involved!
 
-  
+
 #+end_src
 
 * 1.4.0

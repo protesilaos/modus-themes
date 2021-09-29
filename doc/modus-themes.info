@@ -43,11 +43,11 @@ customization options for the ‘modus-operandi’ and ‘modus-vivendi’
 themes, and provides every other piece of information pertinent to them.
 
    The documentation furnished herein corresponds to stable version
-1.5.0, released on 2021-07-15.  Any reference to a newer feature which
+1.6.0, released on 2021-09-29.  Any reference to a newer feature which
 does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
-   Current development target is 1.6.0-dev.
+   Current development target is 1.7.0-dev.
 
 * Menu:
 
@@ -948,7 +948,7 @@ box effect, color, and border visibility:
         • ‘moody’
    • ‘accented’
    • ‘borderless’
-   • ‘padded’ (part of 1.6.0-dev)
+   • ‘padded’
 
    The default (a nil value or an empty list) is a two-dimensional
 rectangle with a border around it.  The active and the inactive mode
@@ -1024,9 +1024,7 @@ File: modus-themes.info,  Node: Tab style,  Next: Completion UIs,  Prev: Mode li
 4.10 Option for accented background in tab interfaces
 =====================================================
 
-[ Part of 1.6.0-dev ]
-
-   Symbol: ‘modus-themes-tabs-accented’
+Symbol: ‘modus-themes-tabs-accented’
 
    Possible values:
 
@@ -1444,9 +1442,7 @@ File: modus-themes.info,  Node: Org agenda,  Next: Heading styles,  Prev: Org mo
 4.21 Option for Org agenda constructs
 =====================================
 
-[ Revised as part of 1.6.0-dev ]
-
-   Symbol: ‘modus-themes-org-agenda’
+Symbol: ‘modus-themes-org-agenda’
 
    This is an alist that accepts a ‘(key . value)’ combination.  Some
 values are specified as a list.  Here is a sample, followed by a
@@ -1759,10 +1755,10 @@ Org Agenda’s structure headings are not part of a recognisable scale and
 so they also get ‘modus-themes-scale-title’ (*note Option for Org agenda
 constructs: Org agenda.).
 
-   Similarly ‘modus-themes-scale-small’ [ part of 1.6.0-dev ] is not
-applied to regular headings, but reserved for special contexts where the
-user is presented with an option to use a smaller font height than the
-base size.  It is only implemented for the Org agenda.
+   Similarly ‘modus-themes-scale-small’ is not applied to regular
+headings, but reserved for special contexts where the user is presented
+with an option to use a smaller font height than the base size.  It is
+only implemented for the Org agenda.
 
    Users who wish to maintain scaled headings for the normal syntax
 while preventing special headings from standing out, can assign a value
@@ -3041,7 +3037,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • alert
    • all-the-icons
    • annotate
-   • ansi-color [ part of 1.6.0-dev ]
+   • ansi-color
    • anzu
    • apropos
    • apt-sources-list
@@ -3082,7 +3078,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • css-mode
    • csv-mode
    • ctrlf
-   • cursor-flash [ part of 1.6.0-dev ]
+   • cursor-flash
    • custom (what you get with ‘M-x customize’)
    • dap-mode
    • dashboard (emacs-dashboard)
@@ -3117,7 +3113,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • eldoc-box
    • elfeed
    • elfeed-score
-   • elpher [ part of 1.6.0-dev ]
+   • elpher
    • embark
    • emms
    • enh-ruby-mode (enhanced-ruby-mode)
@@ -4307,9 +4303,7 @@ File: modus-themes.info,  Node: Sources of the themes,  Next: Issues you can hel
 9.1 Sources of the themes
 =========================
 
-The ‘modus-operandi’ and ‘modus-vivendi’ themes are built into Emacs.
-Currently they are in Emacs’ git main branch (trunk), which is tracking
-the next development release target.
+The ‘modus-operandi’ and ‘modus-vivendi’ themes are built into Emacs 28.
 
    The source code of the themes is available on Gitlab
 (https://gitlab.com/protesilaos/modus-themes/), for the time being.  A
@@ -5156,81 +5150,81 @@ Node: No mixed fonts30470
 Node: Link styles31565
 Node: Command prompts33936
 Node: Mode line35629
-Node: Tab style39574
-Node: Completion UIs40187
-Node: Mail citations42058
-Node: Fringes42911
-Node: Language checkers43573
-Node: Line highlighting45594
-Node: Line numbers47109
-Node: Matching parentheses48187
-Node: Active region49479
-Node: Diffs50808
-Node: Org mode blocks52747
-Node: Org agenda54625
-Node: Heading styles61618
-Node: Scaled headings64660
-Node: Scaled heading sizes65263
-Node: UI typeface68832
-Node: Headings' typeface69678
-Node: Advanced customization (do-it-yourself)70302
-Node: Per-theme customization settings (DIY)71707
-Node: Case-by-case face specs using the themes' palette (DIY)73053
-Node: Face specs at scale using the themes' palette (DIY)77517
-Node: Remap face with local value (DIY)82334
-Node: Cycle through arbitrary colors (DIY)84859
-Node: Override colors (DIY)91425
-Node: Override color saturation (DIY)96318
-Node: Font configurations for Org and others (DIY)102071
-Ref: Font configurations for Org and others (DIY)-Footnote-1104719
-Node: Configure bold and italic faces (DIY)104906
-Node: Custom Org user faces (DIY)108952
-Node: Update Org block delimiter fontification (DIY)112636
-Node: Measure color contrast (DIY)114596
-Node: Load theme depending on time of day (DIY)117390
-Node: Backdrop for pdf-tools (DIY)118430
-Node: A theme-agnostic hook for theme loading (DIY)121219
-Node: Face coverage123609
-Node: Supported packages124078
-Node: Indirectly covered packages131108
-Node: Notes on individual packages131772
-Node: Note on avy hints132830
-Node: Note on calendarel weekday and weekend colors133998
-Node: Note on underlines in compilation buffers135181
-Node: Note on inline Latex in Org buffers136030
-Node: Note on dimmerel136640
-Node: Note on display-fill-column-indicator-mode138125
-Node: Note on highlight-parenthesesel139741
-Node: Note on mmm-modeel background colors145747
-Node: Note for prism148115
-Node: Note for god-mode151322
-Node: Note on company-mode overlay pop-up152996
-Ref: Note on company-mode overlay pop-up-Footnote-1153686
-Ref: Note on company-mode overlay pop-up-Footnote-2153753
-Node: Note on ERC escaped color sequences153808
-Ref: Note on ERC escaped color sequences-Footnote-1155236
-Node: Note on powerline or spaceline155346
-Node: Note on SHR colors155760
-Node: Note on EWW and Elfeed fonts (SHR fonts)156195
-Node: Note on Helm grep156940
-Node: Note on vc-annotate-background-mode158427
-Node: Note on pdf-tools link hints159312
-Node: Frequently Asked Questions (FAQ)161744
-Node: Is the contrast ratio about adjacent colors?162318
-Node: What does it mean to avoid exaggerations?163831
-Node: Why are colors mostly variants of blue magenta cyan?165666
-Node: What is the best setup for legibility?170013
-Node: Contributing172631
-Node: Sources of the themes173034
-Node: Issues you can help with173772
-Node: Patches require copyright assignment to the FSF174972
-Node: Acknowledgements177267
-Node: Meta179885
-Node: GNU Free Documentation License182031
-Node: Indices207383
-Node: Function index207562
-Node: Variable index208799
-Node: Concept index211013
+Node: Tab style39554
+Node: Completion UIs40141
+Node: Mail citations42012
+Node: Fringes42865
+Node: Language checkers43527
+Node: Line highlighting45548
+Node: Line numbers47063
+Node: Matching parentheses48141
+Node: Active region49433
+Node: Diffs50762
+Node: Org mode blocks52701
+Node: Org agenda54579
+Node: Heading styles61535
+Node: Scaled headings64577
+Node: Scaled heading sizes65180
+Node: UI typeface68727
+Node: Headings' typeface69573
+Node: Advanced customization (do-it-yourself)70197
+Node: Per-theme customization settings (DIY)71602
+Node: Case-by-case face specs using the themes' palette (DIY)72948
+Node: Face specs at scale using the themes' palette (DIY)77412
+Node: Remap face with local value (DIY)82229
+Node: Cycle through arbitrary colors (DIY)84754
+Node: Override colors (DIY)91320
+Node: Override color saturation (DIY)96213
+Node: Font configurations for Org and others (DIY)101966
+Ref: Font configurations for Org and others (DIY)-Footnote-1104614
+Node: Configure bold and italic faces (DIY)104801
+Node: Custom Org user faces (DIY)108847
+Node: Update Org block delimiter fontification (DIY)112531
+Node: Measure color contrast (DIY)114491
+Node: Load theme depending on time of day (DIY)117285
+Node: Backdrop for pdf-tools (DIY)118325
+Node: A theme-agnostic hook for theme loading (DIY)121114
+Node: Face coverage123504
+Node: Supported packages123973
+Node: Indirectly covered packages130937
+Node: Notes on individual packages131601
+Node: Note on avy hints132659
+Node: Note on calendarel weekday and weekend colors133827
+Node: Note on underlines in compilation buffers135010
+Node: Note on inline Latex in Org buffers135859
+Node: Note on dimmerel136469
+Node: Note on display-fill-column-indicator-mode137954
+Node: Note on highlight-parenthesesel139570
+Node: Note on mmm-modeel background colors145576
+Node: Note for prism147944
+Node: Note for god-mode151151
+Node: Note on company-mode overlay pop-up152825
+Ref: Note on company-mode overlay pop-up-Footnote-1153515
+Ref: Note on company-mode overlay pop-up-Footnote-2153582
+Node: Note on ERC escaped color sequences153637
+Ref: Note on ERC escaped color sequences-Footnote-1155065
+Node: Note on powerline or spaceline155175
+Node: Note on SHR colors155589
+Node: Note on EWW and Elfeed fonts (SHR fonts)156024
+Node: Note on Helm grep156769
+Node: Note on vc-annotate-background-mode158256
+Node: Note on pdf-tools link hints159141
+Node: Frequently Asked Questions (FAQ)161573
+Node: Is the contrast ratio about adjacent colors?162147
+Node: What does it mean to avoid exaggerations?163660
+Node: Why are colors mostly variants of blue magenta cyan?165495
+Node: What is the best setup for legibility?169842
+Node: Contributing172460
+Node: Sources of the themes172863
+Node: Issues you can help with173493
+Node: Patches require copyright assignment to the FSF174693
+Node: Acknowledgements176988
+Node: Meta179606
+Node: GNU Free Documentation License181752
+Node: Indices207104
+Node: Function index207283
+Node: Variable index208520
+Node: Concept index210734
 
 End Tag Table
 
