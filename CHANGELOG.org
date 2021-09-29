@@ -20,7 +20,7 @@ For further details, please consult these additional resources:
 #+begin_src text
 Modus themes version 1.6.0
 
-By Protesilaos Stavrou <info@protesilaos.com> on 2021-07-15
+By Protesilaos Stavrou <info@protesilaos.com> on 2021-09-29
 
 This entry records the changes made to the project since the release of
 version 1.5.0 on 2021-07-15.  There have been around 70 commits since

@@ -2835,7 +2835,7 @@ kind).
      ;; Pure black with pure green
      (modus-themes-contrast "#000000" "#00ff00")
      ;; => 15.3
-     ;; That is is a highly accessible combo
+     ;; That is a highly accessible combo
 
    It does not matter which color value comes first.  The ratio is
 always the same.
@@ -5181,50 +5181,50 @@ Node: Configure bold and italic faces (DIY)104801
 Node: Custom Org user faces (DIY)108847
 Node: Update Org block delimiter fontification (DIY)112531
 Node: Measure color contrast (DIY)114491
-Node: Load theme depending on time of day (DIY)117285
-Node: Backdrop for pdf-tools (DIY)118325
-Node: A theme-agnostic hook for theme loading (DIY)121114
-Node: Face coverage123504
-Node: Supported packages123973
-Node: Indirectly covered packages130937
-Node: Notes on individual packages131601
-Node: Note on avy hints132659
-Node: Note on calendarel weekday and weekend colors133827
-Node: Note on underlines in compilation buffers135010
-Node: Note on inline Latex in Org buffers135859
-Node: Note on dimmerel136469
-Node: Note on display-fill-column-indicator-mode137954
-Node: Note on highlight-parenthesesel139570
-Node: Note on mmm-modeel background colors145576
-Node: Note for prism147944
-Node: Note for god-mode151151
-Node: Note on company-mode overlay pop-up152825
-Ref: Note on company-mode overlay pop-up-Footnote-1153515
-Ref: Note on company-mode overlay pop-up-Footnote-2153582
-Node: Note on ERC escaped color sequences153637
-Ref: Note on ERC escaped color sequences-Footnote-1155065
-Node: Note on powerline or spaceline155175
-Node: Note on SHR colors155589
-Node: Note on EWW and Elfeed fonts (SHR fonts)156024
-Node: Note on Helm grep156769
-Node: Note on vc-annotate-background-mode158256
-Node: Note on pdf-tools link hints159141
-Node: Frequently Asked Questions (FAQ)161573
-Node: Is the contrast ratio about adjacent colors?162147
-Node: What does it mean to avoid exaggerations?163660
-Node: Why are colors mostly variants of blue magenta cyan?165495
-Node: What is the best setup for legibility?169842
-Node: Contributing172460
-Node: Sources of the themes172863
-Node: Issues you can help with173493
-Node: Patches require copyright assignment to the FSF174693
-Node: Acknowledgements176988
-Node: Meta179606
-Node: GNU Free Documentation License181752
-Node: Indices207104
-Node: Function index207283
-Node: Variable index208520
-Node: Concept index210734
+Node: Load theme depending on time of day (DIY)117282
+Node: Backdrop for pdf-tools (DIY)118322
+Node: A theme-agnostic hook for theme loading (DIY)121111
+Node: Face coverage123501
+Node: Supported packages123970
+Node: Indirectly covered packages130934
+Node: Notes on individual packages131598
+Node: Note on avy hints132656
+Node: Note on calendarel weekday and weekend colors133824
+Node: Note on underlines in compilation buffers135007
+Node: Note on inline Latex in Org buffers135856
+Node: Note on dimmerel136466
+Node: Note on display-fill-column-indicator-mode137951
+Node: Note on highlight-parenthesesel139567
+Node: Note on mmm-modeel background colors145573
+Node: Note for prism147941
+Node: Note for god-mode151148
+Node: Note on company-mode overlay pop-up152822
+Ref: Note on company-mode overlay pop-up-Footnote-1153512
+Ref: Note on company-mode overlay pop-up-Footnote-2153579
+Node: Note on ERC escaped color sequences153634
+Ref: Note on ERC escaped color sequences-Footnote-1155062
+Node: Note on powerline or spaceline155172
+Node: Note on SHR colors155586
+Node: Note on EWW and Elfeed fonts (SHR fonts)156021
+Node: Note on Helm grep156766
+Node: Note on vc-annotate-background-mode158253
+Node: Note on pdf-tools link hints159138
+Node: Frequently Asked Questions (FAQ)161570
+Node: Is the contrast ratio about adjacent colors?162144
+Node: What does it mean to avoid exaggerations?163657
+Node: Why are colors mostly variants of blue magenta cyan?165492
+Node: What is the best setup for legibility?169839
+Node: Contributing172457
+Node: Sources of the themes172860
+Node: Issues you can help with173490
+Node: Patches require copyright assignment to the FSF174690
+Node: Acknowledgements176985
+Node: Meta179603
+Node: GNU Free Documentation License181749
+Node: Indices207101
+Node: Function index207280
+Node: Variable index208517
+Node: Concept index210731
 
 End Tag Table
 
