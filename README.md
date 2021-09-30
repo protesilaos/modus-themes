@@ -65,7 +65,7 @@ demonstration:
       ;; Options for `modus-themes-lang-checkers' are either nil (the
       ;; default), or a list of properties that may include any of those
       ;; symbols: `straight-underline', `text-also', `background',
-      ;; `intense'
+      ;; `intense' OR `faint'.
       modus-themes-lang-checkers nil
 
       ;; Options for `modus-themes-mode-line' are either nil, or a list

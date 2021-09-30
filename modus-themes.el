@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.6.0
-;; Last-Modified: <2021-09-29 08:47:03 +0300>
+;; Last-Modified: <2021-09-30 11:35:51 +0300>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -2289,12 +2289,12 @@ to the affected text.
 The property `background' adds a color-coded background.
 
 The property `intense' amplifies the applicable colors if
-`background' and/or `text-only' are set.  If `intense' is set on
-its own, then it implies `text-only'.
+`background' and/or `text-also' are set.  If `intense' is set on
+its own, then it implies `text-also'.
 
-To disable fringe indicators for Flymake or Flycheck, refer to
-variables `flymake-fringe-indicator-position' and
-`flycheck-indication-mode', respectively.
+The property `faint' uses nuanced colors for the underline and
+for the foreground when `text-also' is included.  If both `faint'
+and `intense' are specified, the former takes precedence.
 
 Combinations of any of those properties can be expressed in a
 list, as in those examples:
@@ -2312,15 +2312,21 @@ In user configuration files the form may look like this:
 NOTE: The placement of the straight underline, though not the
 wave style, is controlled by the built-in variables
 `underline-minimum-offset', `x-underline-at-descent-line',
-`x-use-underline-position-properties'."
+`x-use-underline-position-properties'.
+
+To disable fringe indicators for Flymake or Flycheck, refer to
+variables `flymake-fringe-indicator-position' and
+`flycheck-indication-mode', respectively."
   :group 'modus-themes
-  :package-version '(modus-themes . "1.5.0")
+  :package-version '(modus-themes . "1.7.0")
   :version "28.1"
   :type '(set :tag "Properties" :greedy t
               (const :tag "Straight underline" straight-underline)
               (const :tag "Colorise text as well" text-also)
-              (const :tag "Increase color intensity" intense)
-              (const :tag "With background" background))
+              (const :tag "With background" background)
+              (choice :tag "Overall coloration"
+                      (const :tag "Intense colors" intense)
+                      (const :tag "Faint colors" faint)))
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Language checkers"))
@@ -3054,14 +3060,14 @@ combines with the theme's primary background (white/black)."
       (list :background (or altbg 'unspecified) :foreground altfg)
     (list :background mainbg :foreground mainfg)))
 
-(defun modus-themes--lang-check (underline subtlefg intensefg intensefg-alt subtlebg intensebg)
+(defun modus-themes--lang-check (underline subtlefg intensefg intensefg-alt subtlebg intensebg faintfg)
   "Conditional use of foreground colors for language checkers.
 UNDERLINE is a color-code value for the affected text's underline
 property.  SUBTLEFG and INTENSEFG follow the same color-coding
 pattern and represent a value that is faint or vibrant
 respectively.  INTENSEFG-ALT is used when the intensity is high.
 SUBTLEBG and INTENSEBG are color-coded background colors that
-differ in overall intensity."
+differ in overall intensity.  FAINTFG is a nuanced color."
   (let ((modus-themes-lang-checkers
          (if (listp modus-themes-lang-checkers)
              modus-themes-lang-checkers
@@ -3074,12 +3080,16 @@ differ in overall intensity."
              ('straight-underline '(straight-underline))))))
     (list :underline
           (list :color
-                underline
+                (if (memq 'faint modus-themes-lang-checkers)
+                    faintfg underline)
                 :style
                 (if (memq 'straight-underline modus-themes-lang-checkers)
                     'line 'wave))
           :background
           (cond
+           ((and (memq 'background modus-themes-lang-checkers)
+                 (memq 'faint modus-themes-lang-checkers))
+            subtlebg)
            ((and (memq 'background modus-themes-lang-checkers)
                  (memq 'intense modus-themes-lang-checkers))
             intensebg)
@@ -3087,6 +3097,9 @@ differ in overall intensity."
             subtlebg))
           :foreground
           (cond
+           ((and (memq 'faint modus-themes-lang-checkers)
+                 (memq 'text-also modus-themes-lang-checkers))
+            faintfg)
            ((and (memq 'background modus-themes-lang-checkers)
                  (memq 'intense modus-themes-lang-checkers))
             intensefg-alt)
@@ -4225,13 +4238,13 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; language checkers
     `(modus-themes-lang-error ((,class ,@(modus-themes--lang-check
                                           fg-lang-underline-error fg-lang-error
-                                          red red-refine-fg red-nuanced-bg red-refine-bg))))
+                                          red red-refine-fg red-nuanced-bg red-refine-bg red-faint))))
     `(modus-themes-lang-note ((,class ,@(modus-themes--lang-check
                                          fg-lang-underline-note fg-lang-note
-                                         blue-alt blue-refine-fg blue-nuanced-bg blue-refine-bg))))
+                                         blue-alt blue-refine-fg blue-nuanced-bg blue-refine-bg blue-faint))))
     `(modus-themes-lang-warning ((,class ,@(modus-themes--lang-check
                                             fg-lang-underline-warning fg-lang-warning
-                                            yellow yellow-refine-fg yellow-nuanced-bg yellow-refine-bg))))
+                                            yellow yellow-refine-fg yellow-nuanced-bg yellow-refine-bg yellow-faint))))
 ;;;;; other custom faces
     `(modus-themes-bold ((,class ,@(modus-themes--bold-weight))))
     `(modus-themes-hl-line ((,class ,@(modus-themes--hl-line

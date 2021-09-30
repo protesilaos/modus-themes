@@ -391,7 +391,7 @@ this manual.
       ;; Options for `modus-themes-lang-checkers' are either nil (the
       ;; default), or a list of properties that may include any of those
       ;; symbols: `straight-underline', `text-also', `background',
-      ;; `intense'
+      ;; `intense' OR `faint'.
       modus-themes-lang-checkers nil
 
       ;; Options for `modus-themes-mode-line' are either nil, or a list
@@ -1004,6 +1004,8 @@ names imply.
 :end:
 #+vindex: modus-themes-lang-checkers
 
+[ Updated as part of {{{development-version}}} ]
+
 Symbol: ~modus-themes-lang-checkers~
 
 Possible values are expressed as a list of properties (default is ~nil~ or
@@ -1012,7 +1014,9 @@ an empty list).  The list can include any of the following symbols:
 + ~straight-underline~
 + ~text-also~
 + ~background~
-+ ~intense~
++ Overall coloration:
+  - ~intense~
+  - ~faint~
 
 The default (a ~nil~ value or an empty list) applies a color-coded
 underline to the affected text, while it leaves the original foreground
@@ -1028,15 +1032,15 @@ affected text.
 The property ~background~ adds a color-coded background.
 
 The property ~intense~ amplifies the applicable colors if ~background~
-and/or ~text-only~ are set.  If ~intense~ is set on its own, then it implies
-~text-only~.
+and/or ~text-also~ are set.  If ~intense~ is set on its own, then it implies
+~text-also~.
 
-To disable fringe indicators for Flymake or Flycheck, refer to variables
-~flymake-fringe-indicator-position~ and ~flycheck-indication-mode~,
-respectively.
+The property ~faint~ uses nuanced colors for the underline and for the
+foreground when ~text-also~ is included.  If both ~faint~ and ~intense~ are
+specified, the former takes precedence.
 
-Combinations of any of those properties can be expressed in a
-list, as in those examples:
+Combinations of any of those properties can be expressed in a list, as
+in those examples:
 
 #+begin_src emacs-lisp
 (background)
@@ -1055,6 +1059,10 @@ In user configuration files the form may look like this:
 NOTE: The placement of the straight underline, though not the wave
 style, is controlled by the built-in variables ~underline-minimum-offset~,
 ~x-underline-at-descent-line~, ~x-use-underline-position-properties~.
+
+To disable fringe indicators for Flymake or Flycheck, refer to variables
+~flymake-fringe-indicator-position~ and ~flycheck-indication-mode~,
+respectively.
 
 ** Option for line highlighting (hl-line-mode)
 :properties:

@@ -531,7 +531,7 @@ of this manual.
            ;; Options for `modus-themes-lang-checkers' are either nil (the
            ;; default), or a list of properties that may include any of those
            ;; symbols: `straight-underline', `text-also', `background',
-           ;; `intense'
+           ;; `intense' OR `faint'.
            modus-themes-lang-checkers nil
 
            ;; Options for `modus-themes-mode-line' are either nil, or a list
@@ -1138,7 +1138,9 @@ File: modus-themes.info,  Node: Language checkers,  Next: Line highlighting,  Pr
 4.14 Option for language checkers
 =================================
 
-Symbol: ‘modus-themes-lang-checkers’
+[ Updated as part of 1.7.0-dev ]
+
+   Symbol: ‘modus-themes-lang-checkers’
 
    Possible values are expressed as a list of properties (default is
 ‘nil’ or an empty list).  The list can include any of the following
@@ -1147,7 +1149,9 @@ symbols:
    • ‘straight-underline’
    • ‘text-also’
    • ‘background’
-   • ‘intense’
+   • Overall coloration:
+        • ‘intense’
+        • ‘faint’
 
    The default (a ‘nil’ value or an empty list) applies a color-coded
 underline to the affected text, while it leaves the original foreground
@@ -1163,12 +1167,12 @@ the affected text.
    The property ‘background’ adds a color-coded background.
 
    The property ‘intense’ amplifies the applicable colors if
-‘background’ and/or ‘text-only’ are set.  If ‘intense’ is set on its
-own, then it implies ‘text-only’.
+‘background’ and/or ‘text-also’ are set.  If ‘intense’ is set on its
+own, then it implies ‘text-also’.
 
-   To disable fringe indicators for Flymake or Flycheck, refer to
-variables ‘flymake-fringe-indicator-position’ and
-‘flycheck-indication-mode’, respectively.
+   The property ‘faint’ uses nuanced colors for the underline and for
+the foreground when ‘text-also’ is included.  If both ‘faint’ and
+‘intense’ are specified, the former takes precedence.
 
    Combinations of any of those properties can be expressed in a list,
 as in those examples:
@@ -1187,6 +1191,10 @@ as in those examples:
 style, is controlled by the built-in variables
 ‘underline-minimum-offset’, ‘x-underline-at-descent-line’,
 ‘x-use-underline-position-properties’.
+
+   To disable fringe indicators for Flymake or Flycheck, refer to
+variables ‘flymake-fringe-indicator-position’ and
+‘flycheck-indication-mode’, respectively.
 
 
 File: modus-themes.info,  Node: Line highlighting,  Next: Line numbers,  Prev: Language checkers,  Up: Customization Options
@@ -5141,90 +5149,90 @@ Node: Enable and load12533
 Node: Sample configuration for use-package15522
 Node: Differences between loading and enabling16900
 Node: Customization Options18940
-Node: Custom reload theme25458
-Node: Success' color-code25993
-Node: Bold constructs26930
-Node: Italic constructs27719
-Node: Syntax styles28437
-Node: No mixed fonts30470
-Node: Link styles31565
-Node: Command prompts33936
-Node: Mode line35629
-Node: Tab style39554
-Node: Completion UIs40141
-Node: Mail citations42012
-Node: Fringes42865
-Node: Language checkers43527
-Node: Line highlighting45548
-Node: Line numbers47063
-Node: Matching parentheses48141
-Node: Active region49433
-Node: Diffs50762
-Node: Org mode blocks52701
-Node: Org agenda54579
-Node: Heading styles61535
-Node: Scaled headings64577
-Node: Scaled heading sizes65180
-Node: UI typeface68727
-Node: Headings' typeface69573
-Node: Advanced customization (do-it-yourself)70197
-Node: Per-theme customization settings (DIY)71602
-Node: Case-by-case face specs using the themes' palette (DIY)72948
-Node: Face specs at scale using the themes' palette (DIY)77412
-Node: Remap face with local value (DIY)82229
-Node: Cycle through arbitrary colors (DIY)84754
-Node: Override colors (DIY)91320
-Node: Override color saturation (DIY)96213
-Node: Font configurations for Org and others (DIY)101966
-Ref: Font configurations for Org and others (DIY)-Footnote-1104614
-Node: Configure bold and italic faces (DIY)104801
-Node: Custom Org user faces (DIY)108847
-Node: Update Org block delimiter fontification (DIY)112531
-Node: Measure color contrast (DIY)114491
-Node: Load theme depending on time of day (DIY)117282
-Node: Backdrop for pdf-tools (DIY)118322
-Node: A theme-agnostic hook for theme loading (DIY)121111
-Node: Face coverage123501
-Node: Supported packages123970
-Node: Indirectly covered packages130934
-Node: Notes on individual packages131598
-Node: Note on avy hints132656
-Node: Note on calendarel weekday and weekend colors133824
-Node: Note on underlines in compilation buffers135007
-Node: Note on inline Latex in Org buffers135856
-Node: Note on dimmerel136466
-Node: Note on display-fill-column-indicator-mode137951
-Node: Note on highlight-parenthesesel139567
-Node: Note on mmm-modeel background colors145573
-Node: Note for prism147941
-Node: Note for god-mode151148
-Node: Note on company-mode overlay pop-up152822
-Ref: Note on company-mode overlay pop-up-Footnote-1153512
-Ref: Note on company-mode overlay pop-up-Footnote-2153579
-Node: Note on ERC escaped color sequences153634
-Ref: Note on ERC escaped color sequences-Footnote-1155062
-Node: Note on powerline or spaceline155172
-Node: Note on SHR colors155586
-Node: Note on EWW and Elfeed fonts (SHR fonts)156021
-Node: Note on Helm grep156766
-Node: Note on vc-annotate-background-mode158253
-Node: Note on pdf-tools link hints159138
-Node: Frequently Asked Questions (FAQ)161570
-Node: Is the contrast ratio about adjacent colors?162144
-Node: What does it mean to avoid exaggerations?163657
-Node: Why are colors mostly variants of blue magenta cyan?165492
-Node: What is the best setup for legibility?169839
-Node: Contributing172457
-Node: Sources of the themes172860
-Node: Issues you can help with173490
-Node: Patches require copyright assignment to the FSF174690
-Node: Acknowledgements176985
-Node: Meta179603
-Node: GNU Free Documentation License181749
-Node: Indices207101
-Node: Function index207280
-Node: Variable index208517
-Node: Concept index210731
+Node: Custom reload theme25470
+Node: Success' color-code26005
+Node: Bold constructs26942
+Node: Italic constructs27731
+Node: Syntax styles28449
+Node: No mixed fonts30482
+Node: Link styles31577
+Node: Command prompts33948
+Node: Mode line35641
+Node: Tab style39566
+Node: Completion UIs40153
+Node: Mail citations42024
+Node: Fringes42877
+Node: Language checkers43539
+Node: Line highlighting45860
+Node: Line numbers47375
+Node: Matching parentheses48453
+Node: Active region49745
+Node: Diffs51074
+Node: Org mode blocks53013
+Node: Org agenda54891
+Node: Heading styles61847
+Node: Scaled headings64889
+Node: Scaled heading sizes65492
+Node: UI typeface69039
+Node: Headings' typeface69885
+Node: Advanced customization (do-it-yourself)70509
+Node: Per-theme customization settings (DIY)71914
+Node: Case-by-case face specs using the themes' palette (DIY)73260
+Node: Face specs at scale using the themes' palette (DIY)77724
+Node: Remap face with local value (DIY)82541
+Node: Cycle through arbitrary colors (DIY)85066
+Node: Override colors (DIY)91632
+Node: Override color saturation (DIY)96525
+Node: Font configurations for Org and others (DIY)102278
+Ref: Font configurations for Org and others (DIY)-Footnote-1104926
+Node: Configure bold and italic faces (DIY)105113
+Node: Custom Org user faces (DIY)109159
+Node: Update Org block delimiter fontification (DIY)112843
+Node: Measure color contrast (DIY)114803
+Node: Load theme depending on time of day (DIY)117594
+Node: Backdrop for pdf-tools (DIY)118634
+Node: A theme-agnostic hook for theme loading (DIY)121423
+Node: Face coverage123813
+Node: Supported packages124282
+Node: Indirectly covered packages131246
+Node: Notes on individual packages131910
+Node: Note on avy hints132968
+Node: Note on calendarel weekday and weekend colors134136
+Node: Note on underlines in compilation buffers135319
+Node: Note on inline Latex in Org buffers136168
+Node: Note on dimmerel136778
+Node: Note on display-fill-column-indicator-mode138263
+Node: Note on highlight-parenthesesel139879
+Node: Note on mmm-modeel background colors145885
+Node: Note for prism148253
+Node: Note for god-mode151460
+Node: Note on company-mode overlay pop-up153134
+Ref: Note on company-mode overlay pop-up-Footnote-1153824
+Ref: Note on company-mode overlay pop-up-Footnote-2153891
+Node: Note on ERC escaped color sequences153946
+Ref: Note on ERC escaped color sequences-Footnote-1155374
+Node: Note on powerline or spaceline155484
+Node: Note on SHR colors155898
+Node: Note on EWW and Elfeed fonts (SHR fonts)156333
+Node: Note on Helm grep157078
+Node: Note on vc-annotate-background-mode158565
+Node: Note on pdf-tools link hints159450
+Node: Frequently Asked Questions (FAQ)161882
+Node: Is the contrast ratio about adjacent colors?162456
+Node: What does it mean to avoid exaggerations?163969
+Node: Why are colors mostly variants of blue magenta cyan?165804
+Node: What is the best setup for legibility?170151
+Node: Contributing172769
+Node: Sources of the themes173172
+Node: Issues you can help with173802
+Node: Patches require copyright assignment to the FSF175002
+Node: Acknowledgements177297
+Node: Meta179915
+Node: GNU Free Documentation License182061
+Node: Indices207413
+Node: Function index207592
+Node: Variable index208829
+Node: Concept index211043
 
 End Tag Table
 
