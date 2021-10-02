@@ -635,7 +635,7 @@ weight or italic text: ~modus-themes-bold-constructs~ and
 :description: Toggle mixing of font families
 :custom_id: h:115e6c23-ee35-4a16-8cef-e2fcbb08e28b
 :end:
-#+vindex: modus-themes-no-mixed-fonts
+#+vindex: modus-themes-mixed-fonts
 
 [ Revised as part of {{{development-version}}} ]
 
