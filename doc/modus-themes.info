@@ -95,7 +95,7 @@ Customization Options
 * Bold constructs::              Toggle bold constructs in code
 * Italic constructs::            Toggle italic font constructs in code
 * Syntax styles::                Choose the overall aesthetic of code syntax
-* No mixed fonts::               Toggle mixing of font families
+* Mixed fonts::                  Toggle mixing of font families
 * Link styles::                  Choose among several styles, with or without underline
 * Command prompts::              Choose among plain, subtle, or intense prompts
 * Mode line::                    Choose among several styles, with or without borders
@@ -520,7 +520,7 @@ of this manual.
 
      (setq modus-themes-italic-constructs t
            modus-themes-bold-constructs nil
-           modus-themes-no-mixed-fonts nil
+           modus-themes-mixed-fonts nil
            modus-themes-subtle-line-numbers nil
            modus-themes-success-deuteranopia t
            modus-themes-tabs-accented t
@@ -608,7 +608,7 @@ of this manual.
 * Bold constructs::              Toggle bold constructs in code
 * Italic constructs::            Toggle italic font constructs in code
 * Syntax styles::                Choose the overall aesthetic of code syntax
-* No mixed fonts::               Toggle mixing of font families
+* Mixed fonts::                  Toggle mixing of font families
 * Link styles::                  Choose among several styles, with or without underline
 * Command prompts::              Choose among plain, subtle, or intense prompts
 * Mode line::                    Choose among several styles, with or without borders
@@ -729,7 +729,7 @@ This typically affects documentation strings and code comments.
 faces (DIY).
 
 
-File: modus-themes.info,  Node: Syntax styles,  Next: No mixed fonts,  Prev: Italic constructs,  Up: Customization Options
+File: modus-themes.info,  Node: Syntax styles,  Next: Mixed fonts,  Prev: Italic constructs,  Up: Customization Options
 
 4.5 Option for syntax highlighting
 ==================================
@@ -786,36 +786,40 @@ bold weight or italic text: ‘modus-themes-bold-constructs’ and
    *note Option for more italic constructs: Italic constructs.
 
 
-File: modus-themes.info,  Node: No mixed fonts,  Next: Link styles,  Prev: Syntax styles,  Up: Customization Options
+File: modus-themes.info,  Node: Mixed fonts,  Next: Link styles,  Prev: Syntax styles,  Up: Customization Options
 
-4.6 Option for no font mixing
-=============================
+4.6 Option for font mixing
+==========================
 
-Symbol: ‘modus-themes-no-mixed-fonts’
+[ Revised as part of 1.7.0-dev ]
+
+   Symbol: ‘modus-themes-mixed-fonts’
 
    Possible values:
 
   1. ‘nil’ (default)
   2. ‘t’
 
-   By default, the themes configure some spacing-sensitive faces like
-Org tables and code blocks to always inherit from the ‘fixed-pitch’
-face.  This is to ensure that those constructs remain monospaced even
-when users opt for a mode that remaps typeface families, such as the
-built-in ‘M-x variable-pitch-mode’.  Otherwise the layout would appear
-broken, due to how spacing is done.  To disable this behaviour, set the
-option to ‘t’.
+   When set to non-nil (‘t’), configure some spacing-sensitive faces
+like Org tables and code blocks to always inherit from the ‘fixed-pitch’
+face.  This is to ensure that certain constructs like code blocks and
+tables remain monospaced even when users opt for a mode that remaps
+typeface families, such as the built-in ‘M-x variable-pitch-mode’.
+Otherwise the layout would appear broken, due to how spacing is done.
 
-   Users may prefer to use another package for handling mixed typeface
-configurations, rather than letting the theme do it, perhaps because a
-purpose-specific package has extra functionality.  Two possible options
-are ‘org-variable-pitch’ and ‘mixed-pitch’.
+   For a consistent experience, user may need to specify the font family
+of the ‘fixed-pitch’ face.
 
    *note Font configurations for Org and others: Font configurations for
 Org and others (DIY).
 
+   Furthermore, users may prefer to use another package for handling
+mixed typeface configurations, rather than letting the theme do it,
+perhaps because a purpose-specific package has extra functionality.  Two
+possible options are ‘org-variable-pitch’ and ‘mixed-pitch’.
+
 
-File: modus-themes.info,  Node: Link styles,  Next: Command prompts,  Prev: No mixed fonts,  Up: Customization Options
+File: modus-themes.info,  Node: Link styles,  Next: Command prompts,  Prev: Mixed fonts,  Up: Customization Options
 
 4.7 Option for links
 ====================
@@ -2548,7 +2552,7 @@ File: modus-themes.info,  Node: Font configurations for Org and others (DIY),  N
 
 The themes are designed to cope well with mixed font configurations.
 
-   *note Option for no font mixing: No mixed fonts.
+   *note Option for no font mixing: Mixed fonts.
 
    This mostly concerns ‘org-mode’ and ‘markdown-mode’, though expect to
 find it elsewhere like in ‘Info-mode’.
@@ -4439,19 +4443,19 @@ Ideas and user feedback
      Santana, Eliraz Kedmi, Emanuele Michele Alberto Monterosso, Farasha
      Euker, Feng Shu, Gautier Ponsinet, Gerry Agbobada, Gianluca
      Recchia, Gustavo Barros, Hörmetjan Yiltiz, Ilja Kocken, Iris
-     Garcia, Jeremy Friesen, Jerry Zhang, John Haman, Joshua O’Connor,
-     Kevin Fleming, Kévin Le Gouguec, Kostadin Ninev, Len Trigg, Manuel
-     Uberti, Mark Burton, Markus Beppler, Mauro Aranda, Michael
-     Goldenberg, Morgan Smith, Murilo Pereira, Nicky van Foreest,
-     Nicolas De Jaeghere, Paul Poloskov, Pengji Zhang, Pete Kazmier,
-     Peter Wu, Philip Kaludercic, Pierre Téchoueyres, Roman Rudakov,
-     Ryan Phillips, Rudolf Adamkovič, Sam Kleinman, Shreyas Ragavan,
-     Simon Pugnet, Tassilo Horn, Thibaut Verron, Thomas Heartman, Trey
-     Merkley, Togan Muftuoglu, Toon Claes, Uri Sharf, Utkarsh Singh,
-     Vincent Foley.  As well as users: Ben, CsBigDataHub1, Emacs
-     Contrib, Eugene, Fourchaux, Fredrik, Moesasji, Nick, TheBlob42,
-     Trey, bepolymathe, doolio, fleimgruber, iSeeU, jixiuf, okamsn,
-     pRot0ta1p.
+     Garcia, Jeremy Friesen, Jerry Zhang, Johannes Grødem, John Haman,
+     Joshua O’Connor, Kevin Fleming, Kévin Le Gouguec, Kostadin Ninev,
+     Len Trigg, Manuel Uberti, Mark Burton, Markus Beppler, Mauro
+     Aranda, Michael Goldenberg, Morgan Smith, Murilo Pereira, Nicky van
+     Foreest, Nicolas De Jaeghere, Paul Poloskov, Pengji Zhang, Pete
+     Kazmier, Peter Wu, Philip Kaludercic, Pierre Téchoueyres, Roman
+     Rudakov, Ryan Phillips, Rudolf Adamkovič, Sam Kleinman, Shreyas
+     Ragavan, Simon Pugnet, Tassilo Horn, Thibaut Verron, Thomas
+     Heartman, Trey Merkley, Togan Muftuoglu, Toon Claes, Uri Sharf,
+     Utkarsh Singh, Vincent Foley.  As well as users: Ben,
+     CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji,
+     Nick, TheBlob42, Trey, bepolymathe, doolio, fleimgruber, iSeeU,
+     jixiuf, okamsn, pRot0ta1p.
 
 Packaging
      Basil L. Contovounesios, Eli Zaretskii, Glenn Morris, Mauro Aranda,
@@ -5058,7 +5062,7 @@ B.2 Variable index
 * modus-themes-links:                    Link styles.           (line 6)
 * modus-themes-mail-citations:           Mail citations.        (line 6)
 * modus-themes-mode-line:                Mode line.             (line 6)
-* modus-themes-no-mixed-fonts:           No mixed fonts.        (line 6)
+* modus-themes-no-mixed-fonts:           Mixed fonts.           (line 6)
 * modus-themes-operandi-color-overrides: Override colors (DIY). (line 6)
 * modus-themes-org-agenda:               Org agenda.            (line 6)
 * modus-themes-org-blocks:               Org mode blocks.       (line 6)
@@ -5149,90 +5153,90 @@ Node: Enable and load12533
 Node: Sample configuration for use-package15522
 Node: Differences between loading and enabling16900
 Node: Customization Options18940
-Node: Custom reload theme25470
-Node: Success' color-code26005
-Node: Bold constructs26942
-Node: Italic constructs27731
-Node: Syntax styles28449
-Node: No mixed fonts30482
-Node: Link styles31577
-Node: Command prompts33948
-Node: Mode line35641
-Node: Tab style39566
-Node: Completion UIs40153
-Node: Mail citations42024
-Node: Fringes42877
-Node: Language checkers43539
-Node: Line highlighting45860
-Node: Line numbers47375
-Node: Matching parentheses48453
-Node: Active region49745
-Node: Diffs51074
-Node: Org mode blocks53013
-Node: Org agenda54891
-Node: Heading styles61847
-Node: Scaled headings64889
-Node: Scaled heading sizes65492
-Node: UI typeface69039
-Node: Headings' typeface69885
-Node: Advanced customization (do-it-yourself)70509
-Node: Per-theme customization settings (DIY)71914
-Node: Case-by-case face specs using the themes' palette (DIY)73260
-Node: Face specs at scale using the themes' palette (DIY)77724
-Node: Remap face with local value (DIY)82541
-Node: Cycle through arbitrary colors (DIY)85066
-Node: Override colors (DIY)91632
-Node: Override color saturation (DIY)96525
-Node: Font configurations for Org and others (DIY)102278
-Ref: Font configurations for Org and others (DIY)-Footnote-1104926
-Node: Configure bold and italic faces (DIY)105113
-Node: Custom Org user faces (DIY)109159
-Node: Update Org block delimiter fontification (DIY)112843
-Node: Measure color contrast (DIY)114803
-Node: Load theme depending on time of day (DIY)117594
-Node: Backdrop for pdf-tools (DIY)118634
-Node: A theme-agnostic hook for theme loading (DIY)121423
-Node: Face coverage123813
-Node: Supported packages124282
-Node: Indirectly covered packages131246
-Node: Notes on individual packages131910
-Node: Note on avy hints132968
-Node: Note on calendarel weekday and weekend colors134136
-Node: Note on underlines in compilation buffers135319
-Node: Note on inline Latex in Org buffers136168
-Node: Note on dimmerel136778
-Node: Note on display-fill-column-indicator-mode138263
-Node: Note on highlight-parenthesesel139879
-Node: Note on mmm-modeel background colors145885
-Node: Note for prism148253
-Node: Note for god-mode151460
-Node: Note on company-mode overlay pop-up153134
-Ref: Note on company-mode overlay pop-up-Footnote-1153824
-Ref: Note on company-mode overlay pop-up-Footnote-2153891
-Node: Note on ERC escaped color sequences153946
-Ref: Note on ERC escaped color sequences-Footnote-1155374
-Node: Note on powerline or spaceline155484
-Node: Note on SHR colors155898
-Node: Note on EWW and Elfeed fonts (SHR fonts)156333
-Node: Note on Helm grep157078
-Node: Note on vc-annotate-background-mode158565
-Node: Note on pdf-tools link hints159450
-Node: Frequently Asked Questions (FAQ)161882
-Node: Is the contrast ratio about adjacent colors?162456
-Node: What does it mean to avoid exaggerations?163969
-Node: Why are colors mostly variants of blue magenta cyan?165804
-Node: What is the best setup for legibility?170151
-Node: Contributing172769
-Node: Sources of the themes173172
-Node: Issues you can help with173802
-Node: Patches require copyright assignment to the FSF175002
-Node: Acknowledgements177297
-Node: Meta179915
-Node: GNU Free Documentation License182061
-Node: Indices207413
-Node: Function index207592
-Node: Variable index208829
-Node: Concept index211043
+Node: Custom reload theme25467
+Node: Success' color-code26002
+Node: Bold constructs26939
+Node: Italic constructs27728
+Node: Syntax styles28446
+Node: Mixed fonts30476
+Node: Link styles31696
+Node: Command prompts34064
+Node: Mode line35757
+Node: Tab style39682
+Node: Completion UIs40269
+Node: Mail citations42140
+Node: Fringes42993
+Node: Language checkers43655
+Node: Line highlighting45976
+Node: Line numbers47491
+Node: Matching parentheses48569
+Node: Active region49861
+Node: Diffs51190
+Node: Org mode blocks53129
+Node: Org agenda55007
+Node: Heading styles61963
+Node: Scaled headings65005
+Node: Scaled heading sizes65608
+Node: UI typeface69155
+Node: Headings' typeface70001
+Node: Advanced customization (do-it-yourself)70625
+Node: Per-theme customization settings (DIY)72030
+Node: Case-by-case face specs using the themes' palette (DIY)73376
+Node: Face specs at scale using the themes' palette (DIY)77840
+Node: Remap face with local value (DIY)82657
+Node: Cycle through arbitrary colors (DIY)85182
+Node: Override colors (DIY)91748
+Node: Override color saturation (DIY)96641
+Node: Font configurations for Org and others (DIY)102394
+Ref: Font configurations for Org and others (DIY)-Footnote-1105039
+Node: Configure bold and italic faces (DIY)105226
+Node: Custom Org user faces (DIY)109272
+Node: Update Org block delimiter fontification (DIY)112956
+Node: Measure color contrast (DIY)114916
+Node: Load theme depending on time of day (DIY)117707
+Node: Backdrop for pdf-tools (DIY)118747
+Node: A theme-agnostic hook for theme loading (DIY)121536
+Node: Face coverage123926
+Node: Supported packages124395
+Node: Indirectly covered packages131359
+Node: Notes on individual packages132023
+Node: Note on avy hints133081
+Node: Note on calendarel weekday and weekend colors134249
+Node: Note on underlines in compilation buffers135432
+Node: Note on inline Latex in Org buffers136281
+Node: Note on dimmerel136891
+Node: Note on display-fill-column-indicator-mode138376
+Node: Note on highlight-parenthesesel139992
+Node: Note on mmm-modeel background colors145998
+Node: Note for prism148366
+Node: Note for god-mode151573
+Node: Note on company-mode overlay pop-up153247
+Ref: Note on company-mode overlay pop-up-Footnote-1153937
+Ref: Note on company-mode overlay pop-up-Footnote-2154004
+Node: Note on ERC escaped color sequences154059
+Ref: Note on ERC escaped color sequences-Footnote-1155487
+Node: Note on powerline or spaceline155597
+Node: Note on SHR colors156011
+Node: Note on EWW and Elfeed fonts (SHR fonts)156446
+Node: Note on Helm grep157191
+Node: Note on vc-annotate-background-mode158678
+Node: Note on pdf-tools link hints159563
+Node: Frequently Asked Questions (FAQ)161995
+Node: Is the contrast ratio about adjacent colors?162569
+Node: What does it mean to avoid exaggerations?164082
+Node: Why are colors mostly variants of blue magenta cyan?165917
+Node: What is the best setup for legibility?170264
+Node: Contributing172882
+Node: Sources of the themes173285
+Node: Issues you can help with173915
+Node: Patches require copyright assignment to the FSF175115
+Node: Acknowledgements177410
+Node: Meta180046
+Node: GNU Free Documentation License182192
+Node: Indices207544
+Node: Function index207723
+Node: Variable index208960
+Node: Concept index211174
 
 End Tag Table
 

@@ -380,7 +380,7 @@ this manual.
 #+begin_src emacs-lisp
 (setq modus-themes-italic-constructs t
       modus-themes-bold-constructs nil
-      modus-themes-no-mixed-fonts nil
+      modus-themes-mixed-fonts nil
       modus-themes-subtle-line-numbers nil
       modus-themes-success-deuteranopia t
       modus-themes-tabs-accented t
@@ -629,35 +629,39 @@ weight or italic text: ~modus-themes-bold-constructs~ and
 
 [[#h:977c900d-0d6d-4dbb-82d9-c2aae69543d6][Option for more italic constructs]].
 
-** Option for no font mixing
+** Option for font mixing
 :properties:
-:alt_title: No mixed fonts
+:alt_title: Mixed fonts
 :description: Toggle mixing of font families
 :custom_id: h:115e6c23-ee35-4a16-8cef-e2fcbb08e28b
 :end:
 #+vindex: modus-themes-no-mixed-fonts
 
-Symbol: ~modus-themes-no-mixed-fonts~
+[ Revised as part of {{{development-version}}} ]
+
+Symbol: ~modus-themes-mixed-fonts~
 
 Possible values:
 
 1. ~nil~ (default)
 2. ~t~
 
-By default, the themes configure some spacing-sensitive faces like Org
+When set to non-nil (~t~), configure some spacing-sensitive faces like Org
 tables and code blocks to always inherit from the ~fixed-pitch~ face.
-This is to ensure that those constructs remain monospaced even when
-users opt for a mode that remaps typeface families, such as the built-in
-{{{kbd(M-x variable-pitch-mode)}}}.  Otherwise the layout would appear
-broken, due to how spacing is done.  To disable this behaviour, set the
-option to ~t~.
+This is to ensure that certain constructs like code blocks and tables
+remain monospaced even when users opt for a mode that remaps typeface
+families, such as the built-in {{{kbd(M-x variable-pitch-mode)}}}.  Otherwise
+the layout would appear broken, due to how spacing is done.
 
-Users may prefer to use another package for handling mixed typeface
-configurations, rather than letting the theme do it, perhaps because a
-purpose-specific package has extra functionality.  Two possible options
-are ~org-variable-pitch~ and ~mixed-pitch~.
+For a consistent experience, user may need to specify the font family of
+the ~fixed-pitch~ face.
 
 [[#h:defcf4fc-8fa8-4c29-b12e-7119582cc929][Font configurations for Org and others]].
+
+Furthermore, users may prefer to use another package for handling mixed
+typeface configurations, rather than letting the theme do it, perhaps
+because a purpose-specific package has extra functionality.  Two
+possible options are ~org-variable-pitch~ and ~mixed-pitch~.
 
 ** Option for links
 :properties:
@@ -4345,18 +4349,18 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Edmondson, Davor Rotim, Divan Santana, Eliraz Kedmi, Emanuele Michele
   Alberto Monterosso, Farasha Euker, Feng Shu, Gautier Ponsinet, Gerry
   Agbobada, Gianluca Recchia, Gustavo Barros, Hörmetjan Yiltiz, Ilja
-  Kocken, Iris Garcia, Jeremy Friesen, Jerry Zhang, John Haman, Joshua
-  O'Connor, Kevin Fleming, Kévin Le Gouguec, Kostadin Ninev, Len Trigg,
-  Manuel Uberti, Mark Burton, Markus Beppler, Mauro Aranda, Michael
-  Goldenberg, Morgan Smith, Murilo Pereira, Nicky van Foreest, Nicolas
-  De Jaeghere, Paul Poloskov, Pengji Zhang, Pete Kazmier, Peter Wu,
-  Philip Kaludercic, Pierre Téchoueyres, Roman Rudakov, Ryan Phillips,
-  Rudolf Adamkovič, Sam Kleinman, Shreyas Ragavan, Simon Pugnet, Tassilo
-  Horn, Thibaut Verron, Thomas Heartman, Trey Merkley, Togan Muftuoglu,
-  Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.  As well as
-  users: Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik,
-  Moesasji, Nick, TheBlob42, Trey, bepolymathe, doolio, fleimgruber,
-  iSeeU, jixiuf, okamsn, pRot0ta1p.
+  Kocken, Iris Garcia, Jeremy Friesen, Jerry Zhang, Johannes Grødem,
+  John Haman, Joshua O'Connor, Kevin Fleming, Kévin Le Gouguec, Kostadin
+  Ninev, Len Trigg, Manuel Uberti, Mark Burton, Markus Beppler, Mauro
+  Aranda, Michael Goldenberg, Morgan Smith, Murilo Pereira, Nicky van
+  Foreest, Nicolas De Jaeghere, Paul Poloskov, Pengji Zhang, Pete
+  Kazmier, Peter Wu, Philip Kaludercic, Pierre Téchoueyres, Roman
+  Rudakov, Ryan Phillips, Rudolf Adamkovič, Sam Kleinman, Shreyas
+  Ragavan, Simon Pugnet, Tassilo Horn, Thibaut Verron, Thomas Heartman,
+  Trey Merkley, Togan Muftuoglu, Toon Claes, Uri Sharf, Utkarsh Singh,
+  Vincent Foley.  As well as users: Ben, CsBigDataHub1, Emacs Contrib,
+  Eugene, Fourchaux, Fredrik, Moesasji, Nick, TheBlob42, Trey,
+  bepolymathe, doolio, fleimgruber, iSeeU, jixiuf, okamsn, pRot0ta1p.
 
 + Packaging :: Basil L.{{{space()}}} Contovounesios, Eli Zaretskii, Glenn
   Morris, Mauro Aranda, Richard Stallman, Stefan Kangas (core Emacs),
