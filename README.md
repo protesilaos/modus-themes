@@ -54,7 +54,7 @@ demonstration:
 ```elisp
 (setq modus-themes-italic-constructs t
       modus-themes-bold-constructs nil
-      modus-themes-no-mixed-fonts nil
+      modus-themes-mixed-fonts nil
       modus-themes-subtle-line-numbers nil
       modus-themes-success-deuteranopia t
       modus-themes-tabs-accented t
