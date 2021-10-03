@@ -1337,6 +1337,8 @@ and ~rainbow~.  Those will continue to work as they are aliases for
 :end:
 #+vindex: modus-themes-org-agenda
 
+[ Updated as part of {{{development-version}}} ]
+
 Symbol: ~modus-themes-org-agenda~
 
 This is an alist that accepts a =(key . value)= combination.  Some values
@@ -1347,7 +1349,7 @@ all possible combinations:
 (setq modus-themes-org-agenda
       '((header-block . (variable-pitch scale-title))
         (header-date . (grayscale workaholic bold-today))
-        (event . (accented scale-small))
+        (event . (accented italic varied))
         (scheduled . uniform)
         (habit . traffic-light)))
 #+end_src
@@ -1406,28 +1408,41 @@ For example:
 (header-date . (grayscale workaholic bold-today scale-heading))
 #+end_src
 
-An ~event~ key covers events from the diary and other entries that derive
-from a symbolic expression or sexp (e.g. phases of the moon, holidays).
-This key accepts a list of values.  By default (a nil value or an empty
-list) those have a gray foreground, while sexp events are additionally
-presented using slanted text (italics).  The properties that can form a
-list of possible values are:
+An ~event~ key covers (i) headings with a plain time stamp that are
+shown on the agenda, also known as events, (ii) entries imported from
+the diary, and (iii) other items that derive from a symbolic expression
+or sexp (phases of the moon, holidays, etc.).  By default all those look
+the same and have a subtle foreground color (the default is a nil value
+or an empty list).  This key accepts a list of properties.  Those are:
 
-- ~scale-small~ reduces the height of the entries to the value of the user
-  option ~modus-themes-scale-small~ (0.9 the height of the main font size
-  by default).
-- ~accented~ applies an accent value to the event's foreground, replacing
-  the original gray.
+- ~scale-small~ reduces the height of the entries to the value of
+  the user option ~modus-themes-scale-small~ (0.9 the height of
+  the main font size by default).  This work best when the
+  relevant entries have no tags associated with them and when the
+  user is interested in reducing their presence in the agenda
+  view.
+- ~accented~ applies an accent value to the event's foreground,
+  replacing the original gray.  It makes all entries stand out more.
 - ~italic~ adds a slant to the font's forms (italic or oblique forms,
   depending on the typeface).
+- ~varied~ differentiates between events with a plain time stamp and
+  entries that are generated from either the diary or a symbolic
+  expression.  It generally puts more emphasis on events.  When ~varied~
+  is combined with ~accented~, it makes only events use an accent color,
+  while diary/sexp entries retain their original subtle foreground.
+  When ~varied~ is used in tandem with ~italic~, it applies a slant only
+  to diary and sexp entries, not events.  And when ~varied~ is the sole
+  property passed to the ~event~ key, it has the same meaning as the
+  list (italic varied).  The combination of ~varied~, ~accented~,
+  ~italic~ covers all of the aforementioned cases.
 
 For example:
 
 #+begin_src emacs-lisp
 (event . nil)
-(event . (scale-small))
-(event . (scale-small accented))
-(event . (scale-small accented italic))
+(event . (italic))
+(event . (accented italic))
+(event . (accented italic varied))
 #+end_src
 
 A ~scheduled~ key applies to tasks with a scheduled date.  By default (a
