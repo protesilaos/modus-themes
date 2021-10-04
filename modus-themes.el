@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.6.0
-;; Last-Modified: <2021-10-03 09:07:55 +0300>
+;; Last-Modified: <2021-10-04 09:58:40 +0300>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -6675,11 +6675,14 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-agenda-column-dateline ((,class :background ,bg-alt)))
     `(org-agenda-current-time ((,class :foreground ,blue-alt-other-faint)))
     `(org-agenda-date ((,class ,@(modus-themes--agenda-date cyan fg-main))))
-    `(org-agenda-date-today ((,class ,@(modus-themes--agenda-date blue-active fg-main
-                                                                  cyan-active fg-main
-                                                                  bg-active t t))))
-    `(org-agenda-date-weekend ((,class ,@(modus-themes--agenda-date cyan-alt-other fg-alt
+    `(org-agenda-date-today ((,class ,@(modus-themes--agenda-date cyan fg-main
+                                                                  nil nil
+                                                                  bg-inactive t t))))
+    `(org-agenda-date-weekend ((,class ,@(modus-themes--agenda-date cyan-alt-other-faint fg-alt
                                                                     cyan fg-main))))
+    `(org-agenda-date-weekend-today ((,class ,@(modus-themes--agenda-date cyan-alt-other-faint fg-alt
+                                                                          cyan fg-main
+                                                                          bg-inactive t t))))
     `(org-agenda-diary ((,class :inherit org-agenda-calendar-sexp)))
     `(org-agenda-dimmed-todo-face ((,class :inherit shadow)))
     `(org-agenda-done ((,class :foreground ,@(modus-themes--success-deuteran
