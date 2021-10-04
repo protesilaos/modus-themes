@@ -4385,7 +4385,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(widget-button-pressed ((,class :inherit widget-button :foreground ,magenta)))
     `(widget-documentation ((,class :foreground ,green)))
     `(widget-field ((,class :background ,bg-alt :foreground ,fg-dim)))
-    `(widget-inactive ((,class :foreground ,fg-alt)))
+    `(widget-inactive ((,class :inherit shadow)))
     `(widget-single-line-field ((,class :inherit widget-field)))
 ;;;;; ag
     `(ag-hit-face ((,class :foreground ,fg-special-cold)))
@@ -4574,7 +4574,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(bongo-marked-track ((,class :foreground ,fg-mark-alt)))
     `(bongo-marked-track-line ((,class :background ,bg-mark-alt)))
     `(bongo-played-track ((,class :foreground ,fg-unfocused :strike-through t)))
-    `(bongo-track-length ((,class :foreground ,fg-alt)))
+    `(bongo-track-length ((,class :inherit shadow)))
     `(bongo-track-title ((,class :foreground ,blue-active)))
     `(bongo-unfilled-seek-bar ((,class :background ,bg-special-cold :foreground ,fg-main)))
 ;;;;; boon
@@ -4638,7 +4638,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; cfrs
     `(cfrs-border-color ((,class :background ,fg-window-divider-inner)))
 ;;;;; change-log and log-view (`vc-print-log' and `vc-print-root-log')
-    `(change-log-acknowledgment ((,class :foreground ,fg-alt)))
+    `(change-log-acknowledgment ((,class :inherit shadow)))
     `(change-log-conditionals ((,class :foreground ,yellow)))
     `(change-log-date ((,class :foreground ,cyan)))
     `(change-log-email ((,class :foreground ,cyan-alt-other)))
@@ -4678,7 +4678,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(cider-stacktrace-filter-active-face ((,class :foreground ,cyan-alt :underline t)))
     `(cider-stacktrace-filter-inactive-face ((,class :foreground ,cyan-alt)))
     `(cider-stacktrace-fn-face ((,class :inherit bold :foreground ,fg-main)))
-    `(cider-stacktrace-ns-face ((,class :inherit italic :foreground ,fg-alt)))
+    `(cider-stacktrace-ns-face ((,class :inherit (shadow italic))))
     `(cider-stacktrace-promoted-button-face ((,class :box (:line-width 3 :color ,fg-alt :style released-button) :foreground ,red)))
     `(cider-stacktrace-suppressed-button-face ((,class :box (:line-width 3 :color ,fg-alt :style pressed-button)
                                                        :background ,bg-alt :foreground ,fg-alt)))
@@ -4769,7 +4769,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; corfu
     `(corfu-background ((,class :background ,bg-alt)))
     `(corfu-current ((,class :inherit bold :background ,cyan-subtle-bg)))
-    `(corfu-bar ((,class :background ,fg-alt)))
+    `(corfu-bar ((,class :inherit shadow)))
     `(corfu-border ((,class :background ,bg-active)))
 ;;;;; counsel
     `(counsel-active-mode ((,class :foreground ,magenta-alt-other)))
@@ -4883,7 +4883,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(deft-filter-string-face ((,class :foreground ,green-intense)))
     `(deft-header-face ((,class :inherit bold :foreground ,fg-special-warm)))
     `(deft-separator-face ((,class :inherit shadow)))
-    `(deft-summary-face ((,class :inherit modus-themes-slant :foreground ,fg-alt)))
+    `(deft-summary-face ((,class :inherit (shadow modus-themes-slant))))
     `(deft-time-face ((,class :foreground ,fg-special-cold)))
     `(deft-title-face ((,class :inherit bold :foreground ,fg-main)))
 ;;;;; dictionary
@@ -4931,7 +4931,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(dir-treeview-audio-icon-face ((,class :inherit dir-treeview-default-icon-face :foreground ,magenta-alt)))
     `(dir-treeview-control-face ((,class :inherit shadow)))
     `(dir-treeview-control-mouse-face ((,class :inherit highlight)))
-    `(dir-treeview-default-icon-face ((,class :inherit bold :family "Font Awesome" :foreground ,fg-alt)))
+    `(dir-treeview-default-icon-face ((,class :inherit (shadow bold) :family "Font Awesome")))
     `(dir-treeview-default-filename-face ((,class :foreground ,fg-main)))
     `(dir-treeview-directory-face ((,class :foreground ,blue)))
     `(dir-treeview-directory-icon-face ((,class :inherit dir-treeview-default-icon-face :foreground ,blue-alt)))
@@ -5931,7 +5931,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(imenu-list-entry-subalist-face-3 ((,class :inherit bold :foreground ,red-alt-other :underline t)))
 ;;;;; indium
     `(indium-breakpoint-face ((,class :foreground ,red-active)))
-    `(indium-frame-url-face ((,class :inherit button :foreground ,fg-alt)))
+    `(indium-frame-url-face ((,class :inherit (shadow button))))
     `(indium-keyword-face ((,class :inherit font-lock-keyword-face)))
     `(indium-litable-face ((,class :inherit modus-themes-slant :foreground ,fg-special-warm)))
     `(indium-repl-error-face ((,class :inherit error)))
@@ -5940,7 +5940,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; info
     `(Info-quoted ((,class :inherit modus-themes-fixed-pitch ; the capitalization is canonical
                            :background ,bg-alt :foreground ,fg-special-calm)))
-    `(info-header-node ((,class :inherit bold :foreground ,fg-alt)))
+    `(info-header-node ((,class :inherit (shadow bold))))
     `(info-header-xref ((,class :foreground ,blue-active)))
     `(info-index-match ((,class :inherit match)))
     `(info-menu-header ((,class :inherit modus-themes-heading-3)))
@@ -6158,7 +6158,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(lsp-face-semhl-variable ((,class :foreground ,cyan)))
     `(lsp-face-semhl-variable-local ((,class :foreground ,cyan)))
     `(lsp-face-semhl-variable-parameter ((,class :foreground ,cyan-alt-other)))
-    `(lsp-lens-face ((,class :height 0.8 :foreground ,fg-alt)))
+    `(lsp-lens-face ((,class  :inherit shadow :height 0.8)))
     `(lsp-lens-mouse-face ((,class :height 0.8 :foreground ,blue-alt-other :underline t)))
     `(lsp-ui-doc-background ((,class :background ,bg-alt)))
     `(lsp-ui-doc-header ((,class :background ,bg-header :foreground ,fg-header)))
@@ -6548,7 +6548,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(mu4e-title-face ((,class :foreground ,fg-main)))
     `(mu4e-trashed-face ((,class :foreground ,red)))
     `(mu4e-unread-face ((,class :inherit bold)))
-    `(mu4e-url-number-face ((,class :foreground ,fg-alt)))
+    `(mu4e-url-number-face ((,class :inherit shadow)))
     `(mu4e-view-body-face ((,class :foreground ,fg-main)))
     `(mu4e-warning-face ((,class :inherit warning)))
 ;;;;; mu4e-conversation
@@ -6719,11 +6719,11 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-date-selected ((,class :inherit bold :foreground ,blue-alt :inverse-video t)))
     `(org-dispatcher-highlight ((,class :inherit (bold modus-themes-mark-alt))))
     `(org-document-info ((,class :foreground ,fg-special-cold)))
-    `(org-document-info-keyword ((,class :inherit modus-themes-fixed-pitch :foreground ,fg-alt)))
+    `(org-document-info-keyword ((,class :inherit (shadow modus-themes-fixed-pitch))))
     `(org-document-title ((,class :inherit (bold modus-themes-variable-pitch) :foreground ,fg-special-cold
                                   ,@(modus-themes--scale modus-themes-scale-title))))
     `(org-done ((,class :foreground ,@(modus-themes--success-deuteran blue green))))
-    `(org-drawer ((,class :inherit modus-themes-fixed-pitch :foreground ,fg-alt)))
+    `(org-drawer ((,class :inherit (shadow modus-themes-fixed-pitch))))
     `(org-ellipsis (())) ; inherits from the heading's color
     `(org-footnote ((,class :inherit button
                             ,@(modus-themes--link-color
@@ -6786,7 +6786,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-list-dt ((,class :inherit bold)))
     `(org-macro ((,class :inherit modus-themes-fixed-pitch
                          :background ,cyan-nuanced-bg :foreground ,cyan-nuanced-fg)))
-    `(org-meta-line ((,class :inherit modus-themes-fixed-pitch :foreground ,fg-alt)))
+    `(org-meta-line ((,class :inherit (shadow modus-themes-fixed-pitch))))
     `(org-mode-line-clock ((,class :foreground ,fg-main)))
     `(org-mode-line-clock-overrun ((,class :inherit bold :foreground ,red-active)))
     `(org-priority ((,class :foreground ,magenta)))
@@ -6796,13 +6796,13 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-scheduled-previously ((,class ,@(modus-themes--agenda-scheduled yellow fg-special-warm yellow-alt-other))))
     `(org-scheduled-today ((,class ,@(modus-themes--agenda-scheduled yellow fg-special-warm magenta-alt-other))))
     `(org-sexp-date ((,class :inherit org-date)))
-    `(org-special-keyword ((,class :inherit modus-themes-fixed-pitch :foreground ,fg-alt)))
+    `(org-special-keyword ((,class :inherit (shadow modus-themes-fixed-pitch))))
     `(org-table ((,class :inherit modus-themes-fixed-pitch :foreground ,fg-special-cold)))
     `(org-table-header ((,class :inherit (fixed-pitch modus-themes-intense-neutral))))
     `(org-tag ((,class :foreground ,magenta-nuanced-fg)))
     `(org-tag-group ((,class :inherit bold :foreground ,cyan-nuanced-fg)))
     `(org-target ((,class :underline t)))
-    `(org-time-grid ((,class :foreground ,fg-unfocused)))
+    `(org-time-grid ((,class :inherit shadow)))
     `(org-todo ((,class :foreground ,red)))
     `(org-upcoming-deadline ((,class :foreground ,red-alt-other)))
     `(org-upcoming-distant-deadline ((,class :foreground ,red-faint)))
@@ -6836,7 +6836,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-roam-link-shielded ((,class :inherit button
                                       ,@(modus-themes--link-color
                                          yellow yellow-faint))))
-    `(org-roam-tag ((,class :inherit italic :foreground ,fg-alt)))
+    `(org-roam-tag ((,class :inherit (shadow italic))))
 ;;;;; org-superstar
     `(org-superstar-item ((,class :foreground ,fg-main)))
     `(org-superstar-leading ((,class :foreground ,fg-whitespace)))
@@ -6935,7 +6935,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; pomidor
     `(pomidor-break-face ((,class :foreground ,blue-alt-other)))
     `(pomidor-overwork-face ((,class :foreground ,red-alt-other)))
-    `(pomidor-skip-face ((,class :inherit modus-themes-slant :foreground ,fg-alt)))
+    `(pomidor-skip-face ((,class :inherit (shadow modus-themes-slant))))
     `(pomidor-work-face ((,class :foreground ,@(modus-themes--success-deuteran
                                                 blue-alt
                                                 green-alt-other))))
@@ -6986,7 +6986,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                         :foreground ,green)))
     `(racket-here-string-face ((,class :foreground ,blue-alt)))
     `(racket-keyword-argument-face ((,class :foreground ,red-alt)))
-    `(racket-logger-config-face ((,class :inherit modus-themes-slant :foreground ,fg-alt)))
+    `(racket-logger-config-face ((,class :inherit (shadow modus-themes-slant))))
     `(racket-logger-debug-face ((,class :foreground ,blue-alt-other)))
     `(racket-logger-info-face ((,class :foreground ,fg-lang-note)))
     `(racket-logger-topic-face ((,class :inherit modus-themes-slant :foreground ,magenta)))
@@ -7327,7 +7327,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(sx-question-mode-score-downvoted ((,class :foreground ,yellow)))
     `(sx-question-mode-score-upvoted ((,class :inherit bold :foreground ,magenta)))
     `(sx-question-mode-title ((,class :inherit bold :foreground ,fg-main)))
-    `(sx-question-mode-title-comments ((,class :inherit bold :foreground ,fg-alt)))
+    `(sx-question-mode-title-comments ((,class :inherit (shadow bold))))
     `(sx-tag ((,class :foreground ,magenta-alt)))
     `(sx-user-name ((,class :foreground ,blue-alt)))
     `(sx-user-reputation ((,class :inherit shadow)))
