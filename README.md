@@ -56,6 +56,7 @@ demonstration:
       modus-themes-bold-constructs nil
       modus-themes-mixed-fonts nil
       modus-themes-subtle-line-numbers nil
+      modus-themes-intense-markup t
       modus-themes-success-deuteranopia t
       modus-themes-tabs-accented t
       modus-themes-inhibit-reload t ; only applies to `customize-set-variable' and related

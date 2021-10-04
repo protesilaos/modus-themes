@@ -382,6 +382,7 @@ this manual.
       modus-themes-bold-constructs nil
       modus-themes-mixed-fonts nil
       modus-themes-subtle-line-numbers nil
+      modus-themes-intense-markup t
       modus-themes-success-deuteranopia t
       modus-themes-tabs-accented t
       modus-themes-inhibit-reload t ; only applies to `customize-set-variable' and related
@@ -1148,6 +1149,30 @@ With a non-nil value (~t~), line numbers have no background of their own.
 Instead they retain the primary background of the theme, blending with
 the rest of the buffer.  Foreground values for all relevant faces are
 updated to accommodate this aesthetic.
+
+** Option for intense markup in Org and others
+:properties:
+:alt_title: Intense markup
+:description: Toggle intense style for markup in Org and others
+:custom_id: h:9d9a4e64-99ac-4018-8f66-3051b9c43fd7
+:end:
+#+vindex: modus-themes-intense-markup
+
+[ Introduced as part of {{{development-version}}} ]
+
+Symbol: ~modus-themes-intense-markup~
+
+Possible value:
+
+1. ~nil~ (default)
+2. ~t~
+
+The default style for certain markup types like inline code and verbatim
+constructs in Org and related major modes is a subtle foreground color
+combined with a subtle background.
+
+With a non-nil value (~t~), these constructs will use a more prominent
+background and foreground color combination instead.
 
 ** Option for parenthesis matching (show-paren-mode)
 :properties:

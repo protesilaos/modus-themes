@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.6.0
-;; Last-Modified: <2021-10-04 09:58:40 +0300>
+;; Last-Modified: <2021-10-04 10:57:36 +0300>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -39,6 +39,7 @@
 ;;     modus-themes-org-agenda                     (alist)
 ;;     modus-themes-bold-constructs                (boolean)
 ;;     modus-themes-inhibit-reload                 (boolean)
+;;     modus-themes-intense-markup                 (boolean)
 ;;     modus-themes-italic-constructs              (boolean)
 ;;     modus-themes-mixed-fonts                    (boolean)
 ;;     modus-themes-scale-headings                 (boolean)
@@ -2752,6 +2753,22 @@ results with underlines."
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Line numbers"))
 
+(defcustom modus-themes-intense-markup nil
+  "Use more intense markup in Org, Markdown, and related.
+The default style for certain markup types like inline code and
+verbatim constructs in Org and related major modes is a subtle
+foreground color combined with a subtle background.
+
+With a non-nil value (t), these constructs will use a more
+prominent background and foreground color combination instead."
+  :group 'modus-themes
+  :package-version '(modus-themes . "1.7.0")
+  :version "29.1"
+  :type 'boolean
+  :set #'modus-themes--set-option
+  :initialize #'custom-initialize-default
+  :link '(info-link "(modus-themes) Intense markup"))
+
 (defcustom modus-themes-paren-match nil
   "Control the style of matching parentheses or delimiters.
 
@@ -3097,6 +3114,15 @@ combines with the theme's primary background (white/black)."
   (if modus-themes-subtle-line-numbers
       (list :background (or altbg 'unspecified) :foreground altfg)
     (list :background mainbg :foreground mainfg)))
+
+(defun modus-themes--markup (mainfg intensefg &optional mainbg intensebg)
+  "Conditional use of colors for markup in Org and others.
+MAINBG is the default background.  MAINFG is the default
+foreground.  INTENSEBG and INTENSEFG must be more colorful
+variants."
+  (if modus-themes-intense-markup
+      (list :background (or intensebg 'unspecified) :foreground intensefg)
+    (list :background (or mainbg 'unspecified) :foreground mainfg)))
 
 (defun modus-themes--lang-check (underline subtlefg intensefg intensefg-alt subtlebg intensebg faintfg)
   "Conditional use of foreground colors for language checkers.
@@ -5939,7 +5965,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(indium-repl-stdout-face ((,class :foreground ,fg-main)))
 ;;;;; info
     `(Info-quoted ((,class :inherit modus-themes-fixed-pitch ; the capitalization is canonical
-                           :background ,bg-alt :foreground ,fg-special-calm)))
+                           ,@(modus-themes--markup fg-special-calm magenta-alt
+                                                   bg-alt magenta-nuanced-bg))))
     `(info-header-node ((,class :inherit (shadow bold))))
     `(info-header-xref ((,class :foreground ,blue-active)))
     `(info-index-match ((,class :inherit match)))
@@ -6378,13 +6405,14 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(markdown-html-tag-name-face ((,class :inherit modus-themes-fixed-pitch
                                            :foreground ,magenta-alt)))
     `(markdown-inline-code-face ((,class :inherit modus-themes-fixed-pitch
-                                         :background ,bg-alt :foreground ,fg-special-calm)))
+                                         ,@(modus-themes--markup fg-special-calm magenta-alt
+                                                                 bg-alt magenta-nuanced-bg))))
     `(markdown-italic-face ((,class :inherit italic)))
     `(markdown-language-info-face ((,class :inherit modus-themes-fixed-pitch
                                            :foreground ,fg-special-cold)))
     `(markdown-language-keyword-face ((,class :inherit modus-themes-fixed-pitch
-                                              :background ,bg-alt
-                                              :foreground ,fg-alt)))
+                                              ,@(modus-themes--markup fg-alt red-alt
+                                                                      bg-alt red-nuanced-bg))))
     `(markdown-line-break-face ((,class :inherit modus-themes-refine-cyan :underline t)))
     `(markdown-link-face ((,class :inherit button)))
     `(markdown-link-title-face ((,class :inherit modus-themes-slant :foreground ,fg-special-cold)))
@@ -6710,7 +6738,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-checkbox-statistics-todo ((,class :inherit org-todo)))
     `(org-clock-overlay ((,class :inherit modus-themes-special-cold)))
     `(org-code ((,class :inherit modus-themes-fixed-pitch
-                        :background ,bg-alt :foreground ,fg-special-mild
+                        ,@(modus-themes--markup fg-special-mild green-alt-other
+                                                bg-alt green-nuanced-bg)
                         :extend t)))
     `(org-column ((,class :background ,bg-alt)))
     `(org-column-title ((,class :inherit bold :underline t :background ,bg-alt)))
@@ -6788,7 +6817,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-link ((,class :inherit button)))
     `(org-list-dt ((,class :inherit bold)))
     `(org-macro ((,class :inherit modus-themes-fixed-pitch
-                         :background ,cyan-nuanced-bg :foreground ,cyan-nuanced-fg)))
+                         ,@(modus-themes--markup cyan-nuanced-fg cyan
+                                                 cyan-nuanced-bg cyan-nuanced-bg))))
     `(org-meta-line ((,class :inherit (shadow modus-themes-fixed-pitch))))
     `(org-mode-line-clock ((,class :foreground ,fg-main)))
     `(org-mode-line-clock-overrun ((,class :inherit bold :foreground ,red-active)))
@@ -6810,7 +6840,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-upcoming-deadline ((,class :foreground ,red-alt-other)))
     `(org-upcoming-distant-deadline ((,class :foreground ,red-faint)))
     `(org-verbatim ((,class :inherit modus-themes-fixed-pitch
-                            :background ,bg-alt :foreground ,fg-special-calm)))
+                            ,@(modus-themes--markup fg-special-calm magenta-alt
+                                                    bg-alt magenta-nuanced-bg))))
     `(org-verse ((,class :inherit org-quote)))
     `(org-warning ((,class :inherit bold :foreground ,red-alt-other)))
 ;;;;; org-journal
