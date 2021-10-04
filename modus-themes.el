@@ -2357,7 +2357,7 @@ variables `flymake-fringe-indicator-position' and
 `flycheck-indication-mode', respectively."
   :group 'modus-themes
   :package-version '(modus-themes . "1.7.0")
-  :version "28.1"
+  :version "29.1"
   :type '(set :tag "Properties" :greedy t
               (const :tag "Straight underline" straight-underline)
               (const :tag "Colorise text as well" text-also)
