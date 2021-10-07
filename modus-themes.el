@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.6.0
-;; Last-Modified: <2021-10-04 10:57:36 +0300>
+;; Last-Modified: <2021-10-07 16:57:34 +0300>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -3674,6 +3674,9 @@ property."
                                   ((memq 'borderless modus-themes-mode-line) bg)
                                   (border-3d))
                             :style (when alt-style 'released-button)))
+                     ((and (memq 'accented modus-themes-mode-line)
+                           (memq 'borderless modus-themes-mode-line))
+                      bg-accent)
                      ((memq 'borderless modus-themes-mode-line)
                       bg)
                      ((memq 'padded modus-themes-mode-line)
