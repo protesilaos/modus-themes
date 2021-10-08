@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.6.0
-;; Last-Modified: <2021-10-08 07:21:00 +0300>
+;; Last-Modified: <2021-10-08 09:04:14 +0300>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -279,6 +279,7 @@
 ;;     mu4e
 ;;     mu4e-conversation
 ;;     multiple-cursors
+;;     nano-modeline
 ;;     neotree
 ;;     no-emoji
 ;;     notmuch
@@ -6598,6 +6599,17 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(mc/cursor-bar-face ((,class :height 1 :background ,fg-main)))
     `(mc/cursor-face ((,class :inverse-video t)))
     `(mc/region-face ((,class :inherit region)))
+;;;;; nano-modeline
+    `(nano-modeline-active-primary ((,class :inherit mode-line :foreground ,fg-special-mild)))
+    `(nano-modeline-active-secondary ((,class :inherit mode-line :foreground ,fg-special-cold)))
+    `(nano-modeline-active-status-** ((,class :inherit mode-line :background ,yellow-subtle-bg)))
+    `(nano-modeline-active-status-RO ((,class :inherit mode-line :background ,red-subtle-bg)))
+    `(nano-modeline-active-status-RW ((,class :inherit mode-line :background ,cyan-subtle-bg)))
+    `(nano-modeline-inactive-primary ((,class :inherit mode-line-inactive :foreground ,fg-inactive)))
+    `(nano-modeline-inactive-secondary ((,class :inherit mode-line-inactive :foreground ,fg-inactive)))
+    `(nano-modeline-inactive-status-** ((,class :inherit mode-line-inactive :foreground ,yellow-active)))
+    `(nano-modeline-inactive-status-RO ((,class :inherit mode-line-inactive :foreground ,red-active)))
+    `(nano-modeline-inactive-status-RW ((,class :inherit mode-line-inactive :foreground ,cyan-active)))
 ;;;;; neotree
     `(neo-banner-face ((,class :foreground ,magenta)))
     `(neo-button-face ((,class :inherit button)))
