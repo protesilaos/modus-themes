@@ -882,6 +882,10 @@ Furthermore, because Moody expects an underline and overline instead of
 a box style, it is advised to set ~x-underline-at-descent-line~ to a
 non-nil value.
 
+Finally, note that various packages which heavily modify the mode line,
+such as =doom-modeline=, =nano-modeline=, =powerline=, =spaceline= may not look
+as intended with all possible combinations of this user option.
+
 ** Option for accented background in tab interfaces
 :properties:
 :alt_title: Tab style
