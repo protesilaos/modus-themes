@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.6.0
-;; Last-Modified: <2021-10-08 09:04:14 +0300>
+;; Last-Modified: <2021-10-08 11:21:41 +0300>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -1783,25 +1783,6 @@ This includes the mode line, header line, tab bar, and tab line."
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) UI typeface"))
-
-(defcustom modus-themes-no-mixed-fonts nil
-  "Disable inheritance from `fixed-pitch' in some faces.
-
-This is done by default to allow spacing-sensitive constructs,
-such as Org tables and code blocks, to remain monospaced when
-users opt for something like the command `variable-pitch-mode'.
-The downside with the default is that users need to explicitly
-configure the font family of `fixed-pitch' in order to get a
-consistent experience.  That may be something they do not want to
-do.  Hence this option to disable any kind of technique for
-mixing fonts."
-  :group 'modus-themes
-  :package-version '(modus-themes . "1.0.0")
-  :version "28.1"
-  :type 'boolean
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
-  :link '(info-link "(modus-themes) No mixed fonts"))
 
 (define-obsolete-variable-alias
   'modus-themes-no-mixed-fonts
