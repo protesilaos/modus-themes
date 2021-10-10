@@ -2516,17 +2516,16 @@ inspiration from the ~modus-themes-toggle~ we already provide:
 :end:
 #+cindex: Font configurations
 
-The themes are designed to cope well with mixed font configurations.
+The themes are designed to optionally cope well with mixed font
+configurations.  This mostly concerns ~org-mode~ and ~markdown-mode~, though
+expect to find it elsewhere like in ~Info-mode~.
 
-[[#h:115e6c23-ee35-4a16-8cef-e2fcbb08e28b][Option for no font mixing]].
-
-This mostly concerns ~org-mode~ and ~markdown-mode~, though expect to find
-it elsewhere like in ~Info-mode~.
+[[#h:115e6c23-ee35-4a16-8cef-e2fcbb08e28b][Option for font mixing]].
 
 In practice it means that the user can safely opt for a more
 prose-friendly proportionately spaced typeface as their default, while
-letting spacing-sensitive elements like tables and inline code always
-use a monospaced font, by inheriting from the ~fixed-pitch~ face.
+spacing-sensitive elements like tables and inline code always use a
+monospaced font, by inheriting from the ~fixed-pitch~ face.
 
 Users can try the built-in {{{kbd(M-x variable-pitch-mode)}}} to see the
 effect in action.
@@ -2547,7 +2546,14 @@ reading the doc string of ~set-face-attribute~):
 (set-face-attribute 'variable-pitch nil :family "DejaVu Serif" :height 1.0)
 
 ;; Monospaced typeface
-(set-face-attribute 'fixed-pitch nil :family "DejaVu Sans Mono" :height 1.0)
+(set-face-attribute 'fixed-pitch nil :family "DejaVu Sans Mono" :height 1.5)
+#+end_src
+
+Or employ the ~face-attribute~ function to read an existing value, such as
+if you want to make ~fixed-pitch~ use the font family of the ~default~ face:
+
+#+begin_src emacs-lisp
+(set-face-attribute 'fixed-pitch nil :family (face-attribute 'default :family))
 #+end_src
 
 The next section shows how to make those work in a more elaborate setup
@@ -2560,12 +2566,13 @@ specify an absolute value, which is the point size × 10.  So if you want
 to use a font at point size =11=, you set the height to =110=.[fn:: ~:height~
 values do not need to be rounded to multiples of ten: the likes of =115=
 are perfectly valid—some typefaces will change to account for those
-finer increments.]  Whereas every other face must have a value that is
-relative to the default, represented as a floating point (if you use an
-integer, then that means an absolute height).  This is of paramount
-importance: it ensures that all fonts can scale gracefully when using
-something like the ~text-scale-adjust~ command which only operates on the
-base font size (i.e. the ~default~ face's absolute height).
+finer increments.]  Whereas every other face must either not specify a
+height or have a value that is relative to the default, represented as a
+floating point.  If you use an integer, then that means an absolute
+height.  This is of paramount importance: it ensures that all fonts can
+scale gracefully when using something like the ~text-scale-adjust~ command
+which only operates on the base font size (i.e. the ~default~ face's
+absolute height).
 
 [[#h:e6c5451f-6763-4be7-8fdb-b4706a422a4c][Note for EWW and Elfeed fonts (SHR fonts)]].
 
@@ -2629,19 +2636,20 @@ To reset the font family, one can use this:
 
 To ensure that the effects persist after switching between the Modus
 themes (such as with {{{kbd(M-x modus-themes-toggle)}}}), the user needs to
-write their configurations to a function and hook it up to the
-~modus-themes-after-load-theme-hook~.  This is necessary because the
-themes set the default styles of faces (otherwise changing themes would
-not be possible).
+write their configurations to a function and pass it to the
+~modus-themes-after-load-theme-hook~.  This is necessary because themes
+set the styles of faces upon activation, overriding prior values where
+conflicts occur between the previous and the current states (otherwise
+changing themes would not be possible).
 
 [[#h:86f6906b-f090-46cc-9816-1fe8aeb38776][A theme-agnostic hook for theme loading]].
 
 This is a minimal setup to preserve font configurations across theme
-load phases.  For a more permanent setup, it is better to employ the
+load phases.  For a more permanent setup, it is better to rely on the
 ~custom-set-faces~ function: ~set-face-attribute~ works just fine, though it
-is more convenient for quick previews or for smaller scale operations
-(~custom-set-faces~ follows the format used in the source code of the
-themes).
+probably is better suited for quick previews or for smaller scale
+operations (~custom-set-faces~ follows the format used in the source code
+of the themes, which can make it easier to redefine faces in bulk).
 
 #+begin_src emacs-lisp
 ;; our generic function
