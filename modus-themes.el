@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.6.0
-;; Last-Modified: <2021-10-08 18:07:25 +0300>
+;; Last-Modified: <2021-10-11 19:30:48 +0300>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -60,6 +60,7 @@
 ;;     modus-themes-prompts                        (choice)
 ;;     modus-themes-region                         (choice)
 ;;     modus-themes-syntax                         (choice)
+;;     modus-themes-mode-line-padding              (natnum)
 ;;
 ;; The default scale for headings is as follows (it can be customized as
 ;; well---remember, no scaling takes place by default):
@@ -2529,6 +2530,17 @@ instead of a box style, it is advised to set
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Mode line"))
 
+(defcustom modus-themes-mode-line-padding 6
+  "Padding for `modus-themes-mode-line'.
+The value is expressed as a positive integer."
+  :group 'modus-themes
+  :package-version '(modus-themes . "1.7.0")
+  :version "29.1"
+  :type 'natnum
+  :set #'modus-themes--set-option
+  :initialize #'custom-initialize-default
+  :link '(info-link "(modus-themes) Mode line"))
+  
 (defcustom modus-themes-diffs nil
   "Adjust the overall style of diffs.
 
@@ -3589,6 +3601,13 @@ set to `rainbow'."
     ('rainbow (list :background bgaccent :foreground fgaccent))
     (_ (list :background bg :foreground fg))))
 
+(defun modus-themes--mode-line-padding ()
+  "Determine mode line padding value.
+See `modus-themes--mode-line-attrs'."
+  (if (natnump modus-themes-mode-line-padding)
+      modus-themes-mode-line-padding
+    6))                                 ; the default value
+
 (defun modus-themes--mode-line-attrs
     (fg bg fg-alt bg-alt fg-accent bg-accent border border-3d &optional alt-style fg-distant)
   "Color combinations for `modus-themes-mode-line'.
@@ -3605,7 +3624,8 @@ line's box property.
 Optional FG-DISTANT should be close to the main background
 values.  It is intended to be used as a distant-foreground
 property."
-  (let ((modus-themes-mode-line
+  (let ((padding (modus-themes--mode-line-padding))
+        (modus-themes-mode-line
          (if (listp modus-themes-mode-line)
              modus-themes-mode-line
            ;; translation layer for legacy values
@@ -3632,7 +3652,7 @@ property."
                       nil)
                      ((and (memq '3d modus-themes-mode-line)
                            (memq 'padded modus-themes-mode-line))
-                      (list :line-width 4
+                      (list :line-width padding
                             :color
                             (cond ((and (memq 'accented modus-themes-mode-line)
                                         (memq 'borderless modus-themes-mode-line))
@@ -3644,9 +3664,9 @@ property."
                             :style (when alt-style 'released-button)))
                      ((and (memq 'accented modus-themes-mode-line)
                            (memq 'padded modus-themes-mode-line))
-                      (list :line-width 6 :color bg-accent))
+                      (list :line-width padding :color bg-accent))
                      ((memq 'padded modus-themes-mode-line)
-                      (list :line-width 6 :color bg))
+                      (list :line-width padding :color bg))
                      ((memq '3d modus-themes-mode-line)
                       (list :line-width 1
                             :color
@@ -3662,7 +3682,7 @@ property."
                      ((memq 'borderless modus-themes-mode-line)
                       bg)
                      ((memq 'padded modus-themes-mode-line)
-                      (list :line-width 6 :color bg))
+                      (list :line-width padding :color bg))
                      (border)))
           (line (cond ((not (or (memq 'moody modus-themes-mode-line)
                                 (memq 'padded modus-themes-mode-line)))

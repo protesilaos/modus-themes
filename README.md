@@ -73,6 +73,10 @@ demonstration:
       ;; that can combine any of `3d' OR `moody', `borderless',
       ;; `accented', `padded'.
       modus-themes-mode-line '(padded accented borderless)
+      
+      ;; This one only works when `modus-themes-mode-line' (above) has
+      ;; the `padded' property.  It takes a positive integer.
+      modus-themes-mode-line-padding 3
 
       ;; Options for `modus-themes-syntax' are either nil (the default),
       ;; or a list of properties that may include any of those symbols:

@@ -400,6 +400,10 @@ this manual.
       ;; `accented', `padded'.
       modus-themes-mode-line '(padded accented borderless)
 
+      ;; This one only works when `modus-themes-mode-line' (above) has
+      ;; the `padded' property.  It takes a positive integer.
+      modus-themes-mode-line-padding 3
+
       ;; Options for `modus-themes-syntax' are either nil (the default),
       ;; or a list of properties that may include any of those symbols:
       ;; `faint', `yellow-comments', `green-strings', `alt-syntax'
@@ -841,7 +845,10 @@ This is done by applying box effects and combining them with an
 underline and overline.  To ensure that the underline is placed at the
 bottom, set ~x-underline-at-descent-line~ to non-nil.  The ~padded~ property
 has no effect when the ~moody~ property is also used, because Moody
-already applies its own padding.
+already applies its own padding.  The exact value of the padding is
+controlled by the variable ~modus-themes-mode-line-padding~.
+
+[[#h:a12b4d3c-e66b-42ed-99ab-4ea039b69e2e][Option for mode line padding]].
 
 Combinations of any of those properties are expressed as a list,
 like in these examples:
@@ -885,6 +892,24 @@ non-nil value.
 Finally, note that various packages which heavily modify the mode line,
 such as =doom-modeline=, =nano-modeline=, =powerline=, =spaceline= may not look
 as intended with all possible combinations of this user option.
+
+*** Option for mode line padding
+:properties:
+:custom_id: h:a12b4d3c-e66b-42ed-99ab-4ea039b69e2e
+:end:
+#+vindex: modus-themes-mode-line-padding
+
+[ Part of {{{development-version}}} ]
+
+Symbol: ~modus-themes-mode-line-padding~
+
+Controls the exact width of the mode line's padding.  Possible values
+are positive integers.  The default value is =6=.
+
+This customization option applies only when ~modus-themes-mode-line~ is
+configured with the ~padded~ property.
+
+[[#h:27943af6-d950-42d0-bc23-106e43f50a24][Option for mode line presentation]].
 
 ** Option for accented background in tab interfaces
 :properties:
@@ -4401,19 +4426,20 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Dimech, Damien Cassou, Daniel Mendler, Dario Gjorgjevski, David
   Edmondson, Davor Rotim, Divan Santana, Eliraz Kedmi, Emanuele Michele
   Alberto Monterosso, Farasha Euker, Feng Shu, Gautier Ponsinet, Gerry
-  Agbobada, Gianluca Recchia, Gustavo Barros, Hörmetjan Yiltiz, Ilja
-  Kocken, Iris Garcia, Jeremy Friesen, Jerry Zhang, Johannes Grødem,
-  John Haman, Joshua O'Connor, Kevin Fleming, Kévin Le Gouguec, Kostadin
-  Ninev, Len Trigg, Manuel Uberti, Mark Burton, Markus Beppler, Mauro
-  Aranda, Michael Goldenberg, Morgan Smith, Murilo Pereira, Nicky van
-  Foreest, Nicolas De Jaeghere, Paul Poloskov, Pengji Zhang, Pete
-  Kazmier, Peter Wu, Philip Kaludercic, Pierre Téchoueyres, Roman
-  Rudakov, Ryan Phillips, Rudolf Adamkovič, Sam Kleinman, Shreyas
-  Ragavan, Simon Pugnet, Tassilo Horn, Thibaut Verron, Thomas Heartman,
-  Trey Merkley, Togan Muftuoglu, Toon Claes, Uri Sharf, Utkarsh Singh,
-  Vincent Foley.  As well as users: Ben, CsBigDataHub1, Emacs Contrib,
-  Eugene, Fourchaux, Fredrik, Moesasji, Nick, TheBlob42, Trey,
-  bepolymathe, doolio, fleimgruber, iSeeU, jixiuf, okamsn, pRot0ta1p.
+  Agbobada, Gianluca Recchia, Guilherme Semente, Gustavo Barros,
+  Hörmetjan Yiltiz, Ilja Kocken, Iris Garcia, Jeremy Friesen, Jerry
+  Zhang, Johannes Grødem, John Haman, Joshua O'Connor, Kevin Fleming,
+  Kévin Le Gouguec, Kostadin Ninev, Len Trigg, Manuel Uberti, Mark
+  Burton, Markus Beppler, Mauro Aranda, Michael Goldenberg, Morgan
+  Smith, Murilo Pereira, Nicky van Foreest, Nicolas De Jaeghere, Paul
+  Poloskov, Pengji Zhang, Pete Kazmier, Peter Wu, Philip Kaludercic,
+  Pierre Téchoueyres, Roman Rudakov, Ryan Phillips, Rudolf Adamkovič,
+  Sam Kleinman, Shreyas Ragavan, Simon Pugnet, Tassilo Horn, Thibaut
+  Verron, Thomas Heartman, Trey Merkley, Togan Muftuoglu, Toon Claes,
+  Uri Sharf, Utkarsh Singh, Vincent Foley.  As well as users: Ben,
+  CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji,
+  Nick, TheBlob42, Trey, bepolymathe, doolio, fleimgruber, iSeeU,
+  jixiuf, okamsn, pRot0ta1p.
 
 + Packaging :: Basil L.{{{space()}}} Contovounesios, Eli Zaretskii, Glenn
   Morris, Mauro Aranda, Richard Stallman, Stefan Kangas (core Emacs),
