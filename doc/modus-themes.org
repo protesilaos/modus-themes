@@ -2694,6 +2694,8 @@ of the themes, which can make it easier to redefine faces in bulk).
 (add-hook 'modus-themes-after-load-theme-hook #'my-modes-themes-bold-italic-faces)
 #+end_src
 
+[[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Face specs at scale using the themes' palette]].
+
 ** Custom Org user faces (DIY)
 :properties:
 :custom_id: h:89f0678d-c5c3-4a57-a526-668b2bb2d7ad
