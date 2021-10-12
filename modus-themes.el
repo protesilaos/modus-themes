@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.6.0
-;; Last-Modified: <2021-10-11 19:30:48 +0300>
+;; Last-Modified: <2021-10-12 10:16:55 +0300>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -2540,7 +2540,7 @@ The value is expressed as a positive integer."
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Mode line"))
-  
+
 (defcustom modus-themes-diffs nil
   "Adjust the overall style of diffs.
 
