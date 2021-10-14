@@ -85,7 +85,7 @@ Install on GNU/Linux
 
 Enable and load
 
-* Sample configuration for use-package::
+* Sample configuration with and without use-package::
 * Differences between loading and enabling::
 
 Customization Options
@@ -407,7 +407,7 @@ Custom reload theme.).  This is how a basic setup could look like:
      ;; Optionally add a key binding for the toggle between the themes:
      (define-key global-map (kbd "<f5>") #'modus-themes-toggle)
 
-   *note Sample configuration for use-package::.
+   *note Sample configuration with and without use-package::.
 
    With those granted, bear in mind a couple of technical points on
 ‘modus-themes-load-operandi’ and ‘modus-themes-load-vivendi’, as well as
@@ -427,14 +427,14 @@ Custom reload theme.).  This is how a basic setup could look like:
 
 * Menu:
 
-* Sample configuration for use-package::
+* Sample configuration with and without use-package::
 * Differences between loading and enabling::
 
 
-File: modus-themes.info,  Node: Sample configuration for use-package,  Next: Differences between loading and enabling,  Up: Enable and load
+File: modus-themes.info,  Node: Sample configuration with and without use-package,  Next: Differences between loading and enabling,  Up: Enable and load
 
-3.1 Sample configuration for use-package
-========================================
+3.1 Sample configuration with and without use-package
+=====================================================
 
 It is common for Emacs users to rely on ‘use-package’ for declaring
 package configurations in their setup.  We use this as an example:
@@ -454,6 +454,23 @@ package configurations in their setup.  We use this as an example:
        (modus-themes-load-operandi) ;; OR (modus-themes-load-vivendi)
        :bind ("<f5>" . modus-themes-toggle))
 
+   The same without ‘use-package’:
+
+     (require 'modus-themes)
+
+     ;; Add all your customizations prior to loading the themes
+     (setq modus-themes-italic-constructs t
+           modus-themes-bold-constructs nil
+           modus-themes-region '(bg-only no-extend))
+
+     ;; Load the theme files before enabling a theme
+     (modus-themes-load-themes)
+
+     ;; Load the theme of your choice:
+     (modus-themes-load-operandi) ;; OR (modus-themes-load-vivendi)
+
+     (define-key global-map (kbd "<f5>") #'modus-themes-toggle)
+
    *note Differences between loading and enabling::.
 
    Note: make sure not to customize the variable
@@ -463,7 +480,7 @@ If either or both of those variables need to be changed, their values
 should be defined before the package declaration of the themes.
 
 
-File: modus-themes.info,  Node: Differences between loading and enabling,  Prev: Sample configuration for use-package,  Up: Enable and load
+File: modus-themes.info,  Node: Differences between loading and enabling,  Prev: Sample configuration with and without use-package,  Up: Enable and load
 
 3.2 Differences between loading and enabling
 ============================================
@@ -495,7 +512,7 @@ session, are better off using something like this:
 
      (enable-theme 'modus-operandi) ;; OR (enable-theme 'modus-vivendi)
 
-   *note Sample configuration for use-package::.
+   *note Sample configuration with and without use-package::.
 
    With the above granted, other sections of the manual discuss how to
 configure custom faces, where ‘load-theme’ is expected, though
@@ -5223,115 +5240,117 @@ B.3 Concept index
                                                                 (line 6)
 * Remapping pdf-tools backdrop:          Backdrop for pdf-tools (DIY).
                                                                 (line 6)
+* sample configuration:                  Sample configuration with and without use-package.
+                                                                (line 6)
 * Screenshots:                           How do the themes look like.
                                                                 (line 6)
 * Sources of the themes:                 Sources of the themes. (line 6)
-* use-package configuration:             Sample configuration for use-package.
+* use-package configuration:             Sample configuration with and without use-package.
                                                                 (line 6)
 
 
 
 Tag Table:
 Node: Top860
-Node: Overview7104
-Node: How do the themes look like8647
-Node: Learn about the latest changes9155
-Node: Installation9537
-Node: Install manually from source10018
-Node: Install from the archives10843
-Node: Install on GNU/Linux11620
-Node: Debian 11 Bullseye12068
-Node: GNU Guix12378
-Node: Enable and load12661
-Node: Sample configuration for use-package15650
-Node: Differences between loading and enabling17028
-Node: Customization Options19068
-Node: Custom reload theme25907
-Node: Success' color-code26442
-Node: Bold constructs27379
-Node: Italic constructs28168
-Node: Syntax styles28886
-Node: Mixed fonts30916
-Node: Link styles32136
-Node: Command prompts34504
-Node: Mode line36197
-Node: Option for mode line padding40543
-Node: Tab style41075
-Node: Completion UIs41662
-Node: Mail citations43533
-Node: Fringes44386
-Node: Language checkers45048
-Node: Line highlighting47369
-Node: Line numbers48884
-Node: Intense markup49956
-Node: Matching parentheses50640
-Node: Active region51934
-Node: Diffs53263
-Node: Org mode blocks55202
-Node: Org agenda57080
-Node: Heading styles65054
-Node: Scaled headings68096
-Node: Scaled heading sizes68699
-Node: UI typeface72246
-Node: Headings' typeface73092
-Node: Advanced customization (do-it-yourself)73716
-Node: Per-theme customization settings (DIY)75121
-Node: Case-by-case face specs using the themes' palette (DIY)76467
-Node: Face specs at scale using the themes' palette (DIY)80931
-Node: Remap face with local value (DIY)85748
-Node: Cycle through arbitrary colors (DIY)88273
-Node: Override colors (DIY)94839
-Node: Override color saturation (DIY)99732
-Node: Font configurations for Org and others (DIY)105485
-Ref: Font configurations for Org and others (DIY)-Footnote-1108411
-Node: Configure bold and italic faces (DIY)108598
-Node: Custom Org user faces (DIY)112908
-Node: Update Org block delimiter fontification (DIY)116592
-Node: Measure color contrast (DIY)118552
-Node: Load theme depending on time of day (DIY)121343
-Node: Backdrop for pdf-tools (DIY)122383
-Node: A theme-agnostic hook for theme loading (DIY)125172
-Node: Face coverage127562
-Node: Supported packages128031
-Node: Indirectly covered packages135038
-Node: Notes on individual packages135702
-Node: Note on avy hints136760
-Node: Note on calendarel weekday and weekend colors137928
-Node: Note on underlines in compilation buffers139111
-Node: Note on inline Latex in Org buffers139960
-Node: Note on dimmerel140570
-Node: Note on display-fill-column-indicator-mode142055
-Node: Note on highlight-parenthesesel143671
-Node: Note on mmm-modeel background colors149677
-Node: Note for prism152045
-Node: Note for god-mode155252
-Node: Note on company-mode overlay pop-up156926
-Ref: Note on company-mode overlay pop-up-Footnote-1157616
-Ref: Note on company-mode overlay pop-up-Footnote-2157683
-Node: Note on ERC escaped color sequences157738
-Ref: Note on ERC escaped color sequences-Footnote-1159166
-Node: Note on powerline or spaceline159276
-Node: Note on SHR colors159690
-Node: Note on EWW and Elfeed fonts (SHR fonts)160125
-Node: Note on Helm grep160870
-Node: Note on vc-annotate-background-mode162357
-Node: Note on pdf-tools link hints163242
-Node: Frequently Asked Questions (FAQ)165674
-Node: Is the contrast ratio about adjacent colors?166248
-Node: What does it mean to avoid exaggerations?167761
-Node: Why are colors mostly variants of blue magenta cyan?169596
-Node: What is the best setup for legibility?173943
-Node: Contributing176561
-Node: Sources of the themes176964
-Node: Issues you can help with177594
-Node: Patches require copyright assignment to the FSF178794
-Node: Acknowledgements181089
-Node: Meta183744
-Node: GNU Free Documentation License185890
-Node: Indices211242
-Node: Function index211421
-Node: Variable index212658
-Node: Concept index215089
+Node: Overview7117
+Node: How do the themes look like8660
+Node: Learn about the latest changes9168
+Node: Installation9550
+Node: Install manually from source10031
+Node: Install from the archives10856
+Node: Install on GNU/Linux11633
+Node: Debian 11 Bullseye12081
+Node: GNU Guix12391
+Node: Enable and load12674
+Node: Sample configuration with and without use-package15689
+Node: Differences between loading and enabling17641
+Node: Customization Options19707
+Node: Custom reload theme26546
+Node: Success' color-code27081
+Node: Bold constructs28018
+Node: Italic constructs28807
+Node: Syntax styles29525
+Node: Mixed fonts31555
+Node: Link styles32775
+Node: Command prompts35143
+Node: Mode line36836
+Node: Option for mode line padding41182
+Node: Tab style41714
+Node: Completion UIs42301
+Node: Mail citations44172
+Node: Fringes45025
+Node: Language checkers45687
+Node: Line highlighting48008
+Node: Line numbers49523
+Node: Intense markup50595
+Node: Matching parentheses51279
+Node: Active region52573
+Node: Diffs53902
+Node: Org mode blocks55841
+Node: Org agenda57719
+Node: Heading styles65693
+Node: Scaled headings68735
+Node: Scaled heading sizes69338
+Node: UI typeface72885
+Node: Headings' typeface73731
+Node: Advanced customization (do-it-yourself)74355
+Node: Per-theme customization settings (DIY)75760
+Node: Case-by-case face specs using the themes' palette (DIY)77106
+Node: Face specs at scale using the themes' palette (DIY)81570
+Node: Remap face with local value (DIY)86387
+Node: Cycle through arbitrary colors (DIY)88912
+Node: Override colors (DIY)95478
+Node: Override color saturation (DIY)100371
+Node: Font configurations for Org and others (DIY)106124
+Ref: Font configurations for Org and others (DIY)-Footnote-1109050
+Node: Configure bold and italic faces (DIY)109237
+Node: Custom Org user faces (DIY)113547
+Node: Update Org block delimiter fontification (DIY)117231
+Node: Measure color contrast (DIY)119191
+Node: Load theme depending on time of day (DIY)121982
+Node: Backdrop for pdf-tools (DIY)123022
+Node: A theme-agnostic hook for theme loading (DIY)125811
+Node: Face coverage128201
+Node: Supported packages128670
+Node: Indirectly covered packages135677
+Node: Notes on individual packages136341
+Node: Note on avy hints137399
+Node: Note on calendarel weekday and weekend colors138567
+Node: Note on underlines in compilation buffers139750
+Node: Note on inline Latex in Org buffers140599
+Node: Note on dimmerel141209
+Node: Note on display-fill-column-indicator-mode142694
+Node: Note on highlight-parenthesesel144310
+Node: Note on mmm-modeel background colors150316
+Node: Note for prism152684
+Node: Note for god-mode155891
+Node: Note on company-mode overlay pop-up157565
+Ref: Note on company-mode overlay pop-up-Footnote-1158255
+Ref: Note on company-mode overlay pop-up-Footnote-2158322
+Node: Note on ERC escaped color sequences158377
+Ref: Note on ERC escaped color sequences-Footnote-1159805
+Node: Note on powerline or spaceline159915
+Node: Note on SHR colors160329
+Node: Note on EWW and Elfeed fonts (SHR fonts)160764
+Node: Note on Helm grep161509
+Node: Note on vc-annotate-background-mode162996
+Node: Note on pdf-tools link hints163881
+Node: Frequently Asked Questions (FAQ)166313
+Node: Is the contrast ratio about adjacent colors?166887
+Node: What does it mean to avoid exaggerations?168400
+Node: Why are colors mostly variants of blue magenta cyan?170235
+Node: What is the best setup for legibility?174582
+Node: Contributing177200
+Node: Sources of the themes177603
+Node: Issues you can help with178233
+Node: Patches require copyright assignment to the FSF179433
+Node: Acknowledgements181728
+Node: Meta184383
+Node: GNU Free Documentation License186529
+Node: Indices211881
+Node: Function index212060
+Node: Variable index213297
+Node: Concept index215728
 
 End Tag Table
 

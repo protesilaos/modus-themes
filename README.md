@@ -22,6 +22,8 @@ For some demo content, check:
 
 ## Quick setup for the latest version
 
+With `use-package`:
+
 ```elisp
 (use-package modus-themes
   :ensure
@@ -37,6 +39,25 @@ For some demo content, check:
   ;; Load the theme of your choice:
   (modus-themes-load-operandi) ;; OR (modus-themes-load-vivendi)
   :bind ("<f5>" . modus-themes-toggle))
+```
+
+Without `use-package`:
+
+```elisp
+(require 'modus-themes)
+
+;; Add all your customizations prior to loading the themes
+(setq modus-themes-italic-constructs t
+      modus-themes-bold-constructs nil
+      modus-themes-region '(bg-only no-extend))
+
+;; Load the theme files before enabling a theme
+(modus-themes-load-themes)
+
+;; Load the theme of your choice:
+(modus-themes-load-operandi) ;; OR (modus-themes-load-vivendi)
+
+(define-key global-map (kbd "<f5>") #'modus-themes-toggle)
 ```
 
 Note: make sure that you **do not customise** `custom-theme-load-path`

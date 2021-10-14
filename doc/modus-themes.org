@@ -268,7 +268,7 @@ could look like:
 (define-key global-map (kbd "<f5>") #'modus-themes-toggle)
 #+end_src
 
-[[#h:e979734c-a9e1-4373-9365-0f2cd36107b8][Sample configuration for use-package]].
+[[#h:e979734c-a9e1-4373-9365-0f2cd36107b8][Sample configuration with and without use-package]].
 
 With those granted, bear in mind a couple of technical points on
 ~modus-themes-load-operandi~ and ~modus-themes-load-vivendi~, as well as
@@ -283,11 +283,12 @@ With those granted, bear in mind a couple of technical points on
    wish to rely on such a hook and the functions that run it: they may
    prefer a custom solution ([[#h:86f6906b-f090-46cc-9816-1fe8aeb38776][A theme-agnostic hook for theme loading]]).
 
-** Sample configuration for use-package
+** Sample configuration with and without use-package
 :properties:
 :custom_id: h:e979734c-a9e1-4373-9365-0f2cd36107b8
 :end:
 #+cindex: use-package configuration
+#+cindex: sample configuration
 
 It is common for Emacs users to rely on ~use-package~ for declaring
 package configurations in their setup.  We use this as an example:
@@ -307,6 +308,25 @@ package configurations in their setup.  We use this as an example:
   ;; Load the theme of your choice:
   (modus-themes-load-operandi) ;; OR (modus-themes-load-vivendi)
   :bind ("<f5>" . modus-themes-toggle))
+#+end_src
+
+The same without ~use-package~:
+
+#+begin_src emacs-lisp
+(require 'modus-themes)
+
+;; Add all your customizations prior to loading the themes
+(setq modus-themes-italic-constructs t
+      modus-themes-bold-constructs nil
+      modus-themes-region '(bg-only no-extend))
+
+;; Load the theme files before enabling a theme
+(modus-themes-load-themes)
+
+;; Load the theme of your choice:
+(modus-themes-load-operandi) ;; OR (modus-themes-load-vivendi)
+
+(define-key global-map (kbd "<f5>") #'modus-themes-toggle)
 #+end_src
 
 [[#h:e68560b3-7fb0-42bc-a151-e015948f8a35][Differences between loading and enabling]].
@@ -352,7 +372,7 @@ session, are better off using something like this:
 (enable-theme 'modus-operandi) ;; OR (enable-theme 'modus-vivendi)
 #+end_src
 
-[[#h:e979734c-a9e1-4373-9365-0f2cd36107b8][Sample configuration for use-package]].
+[[#h:e979734c-a9e1-4373-9365-0f2cd36107b8][Sample configuration with and without use-package]].
 
 With the above granted, other sections of the manual discuss how to
 configure custom faces, where ~load-theme~ is expected, though
