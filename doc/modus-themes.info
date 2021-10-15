@@ -3448,6 +3448,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • vc-annotate (the output of ‘C-x v g’)
    • vdiff
    • vertico
+   • vertico-quick
    • vimish-fold
    • visible-mark
    • visual-regexp
@@ -3499,7 +3500,6 @@ supported by the themes.
    • tide
    • vertico-indexed
    • vertico-mouse
-   • vertico-quick
 
 
 File: modus-themes.info,  Node: Notes on individual packages,  Next: Frequently Asked Questions (FAQ),  Prev: Face coverage,  Up: Top
@@ -5312,7 +5312,7 @@ Node: Backdrop for pdf-tools (DIY)123022
 Node: A theme-agnostic hook for theme loading (DIY)125811
 Node: Face coverage128201
 Node: Supported packages128670
-Node: Indirectly covered packages135677
+Node: Indirectly covered packages135698
 Node: Notes on individual packages136341
 Node: Note on avy hints137399
 Node: Note on calendarel weekday and weekend colors138567
