@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.6.0
-;; Last-Modified: <2021-10-12 10:16:55 +0300>
+;; Last-Modified: <2021-10-16 18:34:20 +0300>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -7331,7 +7331,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(spray-base-face ((,class :inherit default :foreground ,fg-special-cold)))
 ;;;;; stripes
     `(stripes ((,class :background ,bg-alt)))
-;;;;; success
+;;;;; suggest
     `(suggest-heading ((,class :inherit bold :foreground ,yellow-alt-other)))
 ;;;;; switch-window
     `(switch-window-background ((,class :background ,bg-dim)))
