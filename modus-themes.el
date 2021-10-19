@@ -7586,7 +7586,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(vc-dir-header-value ((,class :foreground ,magenta-alt-other)))
     `(vc-dir-mark-indicator ((,class :foreground ,blue-alt-other)))
     `(vc-dir-status-edited ((,class :foreground ,yellow)))
-    `(vc-dir-status-ignored ((,class :foreground ,fg-unfocused)))
+    `(vc-dir-status-ignored ((,class :inherit shadow)))
     `(vc-dir-status-up-to-date ((,class :foreground ,cyan)))
     `(vc-dir-status-warning ((,class :foreground ,red)))
     `(vc-conflict-state ((,class :inherit modus-themes-slant :foreground ,red-active)))
