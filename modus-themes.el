@@ -4369,7 +4369,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(comint-highlight-prompt ((,class :inherit modus-themes-prompt)))
     `(error ((,class :inherit bold :foreground ,red)))
     `(escape-glyph ((,class :foreground ,fg-escape-char-construct)))
-    `(file-name-shadow ((,class :foreground ,fg-unfocused)))
+    `(file-name-shadow ((,class :inherit (shadow italic))))
     `(header-line ((,class ,@(modus-themes--variable-pitch-ui)
                            :background ,bg-header :foreground ,fg-header)))
     `(header-line-highlight ((,class :inherit modus-themes-active-blue)))
