@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.6.0
-;; Last-Modified: <2021-10-16 20:07:28 +0300>
+;; Last-Modified: <2021-10-19 09:18:24 +0300>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -6611,7 +6611,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(neo-header-face ((,class :inherit bold :foreground ,fg-main)))
     `(neo-root-dir-face ((,class :inherit bold :foreground ,cyan-alt)))
     `(neo-vc-added-face ((,class :foreground ,@(modus-themes--diff-deuteran blue green))))
-    `(neo-vc-conflict-face ((,class :inherit bold :foreground ,red)))
+    `(neo-vc-conflict-face ((,class :inherit error)))
     `(neo-vc-default-face ((,class :foreground ,fg-main)))
     `(neo-vc-edited-face ((,class :foreground ,yellow)))
     `(neo-vc-ignored-face ((,class :foreground ,fg-inactive)))
@@ -7588,8 +7588,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(vc-dir-status-edited ((,class :foreground ,yellow)))
     `(vc-dir-status-ignored ((,class :inherit shadow)))
     `(vc-dir-status-up-to-date ((,class :foreground ,cyan)))
-    `(vc-dir-status-warning ((,class :foreground ,red)))
-    `(vc-conflict-state ((,class :inherit modus-themes-slant :foreground ,red-active)))
+    `(vc-dir-status-warning ((,class :inherit error)))
+    `(vc-conflict-state ((,class :inherit bold :foreground ,red-active)))
     `(vc-edited-state ((,class :foreground ,yellow-active)))
     `(vc-locally-added-state ((,class :foreground ,cyan-active)))
     `(vc-locked-state ((,class :foreground ,blue-active)))
