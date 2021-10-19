@@ -4573,9 +4573,10 @@ Packaging
 Inspiration for certain features
      Bozhidar Batsov (zenburn-theme), Fabrice Niessen (leuven-theme).
 
-   Special thanks, in no particular order, to Manuel Uberti, Gustavo
-Barros, and Omar Antolín Camarena for their long time contributions and
-insightful commentary.
+   Special thanks (from A-Z) to Gustavo Barros, Manuel Uberti, Nicolas
+De Jaeghere, and Omar Antolín Camarena for their long time contributions
+and insightful commentary on key aspects of the themes’ design and/or
+aspects of their functionality.
 
 
 File: modus-themes.info,  Node: Meta,  Next: GNU Free Documentation License,  Prev: Acknowledgements,  Up: Top
@@ -5345,12 +5346,12 @@ Node: Sources of the themes177603
 Node: Issues you can help with178233
 Node: Patches require copyright assignment to the FSF179433
 Node: Acknowledgements181728
-Node: Meta184383
-Node: GNU Free Documentation License186529
-Node: Indices211881
-Node: Function index212060
-Node: Variable index213297
-Node: Concept index215728
+Node: Meta184467
+Node: GNU Free Documentation License186613
+Node: Indices211965
+Node: Function index212144
+Node: Variable index213381
+Node: Concept index215812
 
 End Tag Table
 
