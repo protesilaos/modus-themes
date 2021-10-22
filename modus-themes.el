@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.6.0
-;; Last-Modified: <2021-10-19 09:18:24 +0300>
+;; Last-Modified: <2021-10-22 12:46:59 +0300>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -4749,6 +4749,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(company-tooltip-annotation-selection ((,class :inherit bold :foreground ,fg-main)))
     `(company-tooltip-common ((,class :inherit bold :foreground ,blue-alt)))
     `(company-tooltip-common-selection ((,class :foreground ,fg-main)))
+    `(company-tooltip-deprecated ((,class :inherit company-tooltip :strike-through t)))
     `(company-tooltip-mouse ((,class :inherit modus-themes-intense-blue)))
     `(company-tooltip-search ((,class :inherit (modus-themes-search-success-lazy bold))))
     `(company-tooltip-search-selection ((,class :inherit (modus-themes-search-success bold) :underline t)))
