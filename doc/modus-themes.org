@@ -95,7 +95,7 @@ Emacs.
 :end:
 #+cindex: Screenshots
 
-Check the web page with [[https://protesilaos.com/modus-themes-pictures/][the screen shots]].  There are lots of scenarios
+Check the web page with [[https://protesilaos.com/emacs/modus-themes-pictures/][the screen shots]].  There are lots of scenarios
 on display that draw attention to details and important aspects in the
 design of the themes.  They also showcase the numerous customization
 options.
@@ -108,7 +108,7 @@ options.
 :end:
 #+cindex: Changelog
 
-Please refer to the [[https://protesilaos.com/modus-themes-changelog][web page with the change log]].  It is comprehensive
+Please refer to the [[https://protesilaos.com/emacs/modus-themes-changelog][web page with the change log]].  It is comprehensive
 and covers everything that goes into every tagged release of the themes.
 
 * Installation
@@ -4331,7 +4331,7 @@ The source code of the themes is [[https://gitlab.com/protesilaos/modus-themes/]
 being.  A [[https://github.com/protesilaos/modus-themes/][mirror on Github]] is also on offer.
 
 An HTML version of this manual is provided as an extension of the
-[[https://protesilaos.com/modus-themes/][author's personal website]] (does not rely on any non-free code).
+[[https://protesilaos.com/emacs/modus-themes/][author's personal website]] (does not rely on any non-free code).
 
 ** Issues you can help with
 :properties:
@@ -4502,9 +4502,9 @@ of this sort):
 
 And here are the canonical sources of this project's documentation:
 
-+ Manual :: <https://protesilaos.com/modus-themes>
-+ Change Log :: <https://protesilaos.com/modus-themes-changelog>
-+ Screenshots :: <https://protesilaos.com/modus-themes-pictures>
++ Manual :: <https://protesilaos.com/emacs/modus-themes>
++ Change Log :: <https://protesilaos.com/emacs/modus-themes-changelog>
++ Screenshots :: <https://protesilaos.com/emacs/modus-themes-pictures>
 
 * GNU Free Documentation License
 :properties:

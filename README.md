@@ -17,7 +17,7 @@ also distributed in several packages formats.
 
 For some demo content, check:
 
-+ The screenshots of the themes <https://protesilaos.com/modus-themes-pictures/>.
++ The screenshots of the themes <https://protesilaos.com/emacs/modus-themes-pictures/>.
 + My videos on Emacs <https://protesilaos.com/code-casts/>.
 
 ## Quick setup for the latest version
@@ -164,7 +164,7 @@ demonstration:
 
 ## Further information
 
-Read the [Info manual HTML](https://protesilaos.com/modus-themes)
+Read the [Info manual HTML](https://protesilaos.com/emacs/modus-themes)
 version for how to install, load, enable, and customise the themes.  If
 you are using the latest version of the themes, you already have the
 manual installed: evaluate `(info "(modus-themes) Top")` to start

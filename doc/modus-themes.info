@@ -236,8 +236,8 @@ File: modus-themes.info,  Node: How do the themes look like,  Next: Learn about 
 ===============================
 
 Check the web page with the screen shots
-(https://protesilaos.com/modus-themes-pictures/).  There are lots of
-scenarios on display that draw attention to details and important
+(https://protesilaos.com/emacs/modus-themes-pictures/).  There are lots
+of scenarios on display that draw attention to details and important
 aspects in the design of the themes.  They also showcase the numerous
 customization options.
 
@@ -250,8 +250,9 @@ File: modus-themes.info,  Node: Learn about the latest changes,  Prev: How do th
 ==================================
 
 Please refer to the web page with the change log
-(https://protesilaos.com/modus-themes-changelog).  It is comprehensive
-and covers everything that goes into every tagged release of the themes.
+(https://protesilaos.com/emacs/modus-themes-changelog).  It is
+comprehensive and covers everything that goes into every tagged release
+of the themes.
 
 
 File: modus-themes.info,  Node: Installation,  Next: Enable and load,  Prev: Overview,  Up: Top
@@ -4430,8 +4431,8 @@ mirror on Github (https://github.com/protesilaos/modus-themes/) is also
 on offer.
 
    An HTML version of this manual is provided as an extension of the
-author’s personal website (https://protesilaos.com/modus-themes/) (does
-not rely on any non-free code).
+author’s personal website (https://protesilaos.com/emacs/modus-themes/)
+(does not rely on any non-free code).
 
 
 File: modus-themes.info,  Node: Issues you can help with,  Next: Patches require copyright assignment to the FSF,  Prev: Sources of the themes,  Up: Contributing
@@ -4624,11 +4625,11 @@ details of this sort):
    And here are the canonical sources of this project’s documentation:
 
 Manual
-     <https://protesilaos.com/modus-themes>
+     <https://protesilaos.com/emacs/modus-themes>
 Change Log
-     <https://protesilaos.com/modus-themes-changelog>
+     <https://protesilaos.com/emacs/modus-themes-changelog>
 Screenshots
-     <https://protesilaos.com/modus-themes-pictures>
+     <https://protesilaos.com/emacs/modus-themes-pictures>
 
 
 File: modus-themes.info,  Node: GNU Free Documentation License,  Next: Indices,  Prev: Meta,  Up: Top
@@ -5255,103 +5256,103 @@ Tag Table:
 Node: Top860
 Node: Overview7117
 Node: How do the themes look like8660
-Node: Learn about the latest changes9168
-Node: Installation9550
-Node: Install manually from source10031
-Node: Install from the archives10856
-Node: Install on GNU/Linux11633
-Node: Debian 11 Bullseye12081
-Node: GNU Guix12391
-Node: Enable and load12674
-Node: Sample configuration with and without use-package15689
-Node: Differences between loading and enabling17641
-Node: Customization Options19707
-Node: Custom reload theme26546
-Node: Success' color-code27081
-Node: Bold constructs28018
-Node: Italic constructs28807
-Node: Syntax styles29525
-Node: Mixed fonts31555
-Node: Link styles32775
-Node: Command prompts35143
-Node: Mode line36836
-Node: Option for mode line padding41182
-Node: Tab style41714
-Node: Completion UIs42301
-Node: Mail citations44172
-Node: Fringes45025
-Node: Language checkers45687
-Node: Line highlighting48008
-Node: Line numbers49523
-Node: Intense markup50595
-Node: Matching parentheses51279
-Node: Active region52573
-Node: Diffs53902
-Node: Org mode blocks55841
-Node: Org agenda57719
-Node: Heading styles65693
-Node: Scaled headings68735
-Node: Scaled heading sizes69338
-Node: UI typeface72885
-Node: Headings' typeface73731
-Node: Advanced customization (do-it-yourself)74355
-Node: Per-theme customization settings (DIY)75760
-Node: Case-by-case face specs using the themes' palette (DIY)77106
-Node: Face specs at scale using the themes' palette (DIY)81570
-Node: Remap face with local value (DIY)86387
-Node: Cycle through arbitrary colors (DIY)88912
-Node: Override colors (DIY)95478
-Node: Override color saturation (DIY)100371
-Node: Font configurations for Org and others (DIY)106124
-Ref: Font configurations for Org and others (DIY)-Footnote-1109050
-Node: Configure bold and italic faces (DIY)109237
-Node: Custom Org user faces (DIY)113547
-Node: Update Org block delimiter fontification (DIY)117231
-Node: Measure color contrast (DIY)119191
-Node: Load theme depending on time of day (DIY)121982
-Node: Backdrop for pdf-tools (DIY)123022
-Node: A theme-agnostic hook for theme loading (DIY)125811
-Node: Face coverage128201
-Node: Supported packages128670
-Node: Indirectly covered packages135698
-Node: Notes on individual packages136341
-Node: Note on avy hints137399
-Node: Note on calendarel weekday and weekend colors138567
-Node: Note on underlines in compilation buffers139750
-Node: Note on inline Latex in Org buffers140599
-Node: Note on dimmerel141209
-Node: Note on display-fill-column-indicator-mode142694
-Node: Note on highlight-parenthesesel144310
-Node: Note on mmm-modeel background colors150316
-Node: Note for prism152684
-Node: Note for god-mode155891
-Node: Note on company-mode overlay pop-up157565
-Ref: Note on company-mode overlay pop-up-Footnote-1158255
-Ref: Note on company-mode overlay pop-up-Footnote-2158322
-Node: Note on ERC escaped color sequences158377
-Ref: Note on ERC escaped color sequences-Footnote-1159805
-Node: Note on powerline or spaceline159915
-Node: Note on SHR colors160329
-Node: Note on EWW and Elfeed fonts (SHR fonts)160764
-Node: Note on Helm grep161509
-Node: Note on vc-annotate-background-mode162996
-Node: Note on pdf-tools link hints163881
-Node: Frequently Asked Questions (FAQ)166313
-Node: Is the contrast ratio about adjacent colors?166887
-Node: What does it mean to avoid exaggerations?168400
-Node: Why are colors mostly variants of blue magenta cyan?170235
-Node: What is the best setup for legibility?174582
-Node: Contributing177200
-Node: Sources of the themes177603
-Node: Issues you can help with178233
-Node: Patches require copyright assignment to the FSF179433
-Node: Acknowledgements181728
-Node: Meta184467
-Node: GNU Free Documentation License186613
-Node: Indices211965
-Node: Function index212144
-Node: Variable index213381
-Node: Concept index215812
+Node: Learn about the latest changes9174
+Node: Installation9562
+Node: Install manually from source10043
+Node: Install from the archives10868
+Node: Install on GNU/Linux11645
+Node: Debian 11 Bullseye12093
+Node: GNU Guix12403
+Node: Enable and load12686
+Node: Sample configuration with and without use-package15701
+Node: Differences between loading and enabling17653
+Node: Customization Options19719
+Node: Custom reload theme26558
+Node: Success' color-code27093
+Node: Bold constructs28030
+Node: Italic constructs28819
+Node: Syntax styles29537
+Node: Mixed fonts31567
+Node: Link styles32787
+Node: Command prompts35155
+Node: Mode line36848
+Node: Option for mode line padding41194
+Node: Tab style41726
+Node: Completion UIs42313
+Node: Mail citations44184
+Node: Fringes45037
+Node: Language checkers45699
+Node: Line highlighting48020
+Node: Line numbers49535
+Node: Intense markup50607
+Node: Matching parentheses51291
+Node: Active region52585
+Node: Diffs53914
+Node: Org mode blocks55853
+Node: Org agenda57731
+Node: Heading styles65705
+Node: Scaled headings68747
+Node: Scaled heading sizes69350
+Node: UI typeface72897
+Node: Headings' typeface73743
+Node: Advanced customization (do-it-yourself)74367
+Node: Per-theme customization settings (DIY)75772
+Node: Case-by-case face specs using the themes' palette (DIY)77118
+Node: Face specs at scale using the themes' palette (DIY)81582
+Node: Remap face with local value (DIY)86399
+Node: Cycle through arbitrary colors (DIY)88924
+Node: Override colors (DIY)95490
+Node: Override color saturation (DIY)100383
+Node: Font configurations for Org and others (DIY)106136
+Ref: Font configurations for Org and others (DIY)-Footnote-1109062
+Node: Configure bold and italic faces (DIY)109249
+Node: Custom Org user faces (DIY)113559
+Node: Update Org block delimiter fontification (DIY)117243
+Node: Measure color contrast (DIY)119203
+Node: Load theme depending on time of day (DIY)121994
+Node: Backdrop for pdf-tools (DIY)123034
+Node: A theme-agnostic hook for theme loading (DIY)125823
+Node: Face coverage128213
+Node: Supported packages128682
+Node: Indirectly covered packages135710
+Node: Notes on individual packages136353
+Node: Note on avy hints137411
+Node: Note on calendarel weekday and weekend colors138579
+Node: Note on underlines in compilation buffers139762
+Node: Note on inline Latex in Org buffers140611
+Node: Note on dimmerel141221
+Node: Note on display-fill-column-indicator-mode142706
+Node: Note on highlight-parenthesesel144322
+Node: Note on mmm-modeel background colors150328
+Node: Note for prism152696
+Node: Note for god-mode155903
+Node: Note on company-mode overlay pop-up157577
+Ref: Note on company-mode overlay pop-up-Footnote-1158267
+Ref: Note on company-mode overlay pop-up-Footnote-2158334
+Node: Note on ERC escaped color sequences158389
+Ref: Note on ERC escaped color sequences-Footnote-1159817
+Node: Note on powerline or spaceline159927
+Node: Note on SHR colors160341
+Node: Note on EWW and Elfeed fonts (SHR fonts)160776
+Node: Note on Helm grep161521
+Node: Note on vc-annotate-background-mode163008
+Node: Note on pdf-tools link hints163893
+Node: Frequently Asked Questions (FAQ)166325
+Node: Is the contrast ratio about adjacent colors?166899
+Node: What does it mean to avoid exaggerations?168412
+Node: Why are colors mostly variants of blue magenta cyan?170247
+Node: What is the best setup for legibility?174594
+Node: Contributing177212
+Node: Sources of the themes177615
+Node: Issues you can help with178251
+Node: Patches require copyright assignment to the FSF179451
+Node: Acknowledgements181746
+Node: Meta184485
+Node: GNU Free Documentation License186649
+Node: Indices212001
+Node: Function index212180
+Node: Variable index213417
+Node: Concept index215848
 
 End Tag Table
 

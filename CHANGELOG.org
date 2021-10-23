@@ -12,8 +12,8 @@ plain text format, I copy them verbatim.
 
 For further details, please consult these additional resources:
 
-+ Manual :: <https://protesilaos.com/modus-themes>
-+ Screenshots :: <https://protesilaos.com/modus-themes-pictures>
++ Manual :: <https://protesilaos.com/emacs/modus-themes>
++ Screenshots :: <https://protesilaos.com/emacs/modus-themes-pictures>
 
 * 1.6.0
 
@@ -34,7 +34,7 @@ Such edits also account for colour-coding that is optimised for the
 needs of users with red-green colour deficiency (deuteranopia or
 variants).
 
-Here is the URL of the manual: <https://protesilaos.com/modus-themes>.
+Here is the URL of the manual: <https://protesilaos.com/emacs/modus-themes>.
 Or read it from Emacs by evaluating this form:
 
     (info "(modus-themes) Top")
@@ -384,7 +384,7 @@ Such edits also account for colour-coding that is optimised for the
 needs of users with red-green colour deficiency (deuteranopia or
 variants).
 
-Here is the URL of the manual: <https://protesilaos.com/modus-themes>.
+Here is the URL of the manual: <https://protesilaos.com/emacs/modus-themes>.
 Or read it from Emacs by evaluating this form:
 
     (info "(modus-themes) Top")
@@ -823,7 +823,7 @@ overarching accessibility objective of the themes for a minimum contrast
 ratio of 7:1 between background and foreground values in their given
 combination (the WCAG AAA standard).
 
-URL of the official manual: <https://protesilaos.com/modus-themes>.  Or
+URL of the official manual: <https://protesilaos.com/emacs/modus-themes>.  Or
 read it with Emacs' Info reader by evaluating this form:
 
     (info "(modus-themes) Top")
@@ -1136,7 +1136,7 @@ ratio of 7:1 between background and foreground values in their given
 combination (the WCAG AAA standard).
 
 As the official manual is referenced several times throughout this log,
-make sure to store its URL: <https://protesilaos.com/modus-themes>.  Or
+make sure to store its URL: <https://protesilaos.com/emacs/modus-themes>.  Or
 read it from Emacs' Info reader by evaluating this form:
 
     (info "(modus-themes) Top")
@@ -1502,7 +1502,7 @@ ratio of 7:1 between background and foreground values in their given
 combination (the WCAG AAA standard).
 
 As the official manual is referenced several times throughout this log,
-make sure to store its URL: <https://protesilaos.com/modus-themes>.  Or
+make sure to store its URL: <https://protesilaos.com/emacs/modus-themes>.  Or
 read it from Emacs' Info reader by evaluating this form:
 
     (info "(modus-themes) Top")
@@ -1853,7 +1853,7 @@ contrast ratio of 7:1 between background and foreground values in their
 given combination (conformance with the WCAG AAA standard).
 
 As the official manual is referenced several times, make sure to store
-its URL: <https://protesilaos.com/modus-themes>.
+its URL: <https://protesilaos.com/emacs/modus-themes>.
 
 If you are coming from older versions, please consult the change log
 entry for version 1.0.0.
@@ -2311,7 +2311,7 @@ given combination (conformance with the WCAG AAA standard).
 
 Expect to find examples of basic and advanced customisations in the
 comprehensive Info manual bundled with the themes, which is also
-available at: <https://protesilaos.com/modus-themes>.
+available at: <https://protesilaos.com/emacs/modus-themes>.
 
 
 Overview of major changes
@@ -2720,7 +2720,7 @@ Overview
 1. There is a new Info manual that documents the customisation options
    as well as every other piece of information pertinent to the themes.
    You will find it in the Info pages inside of Emacs.  Or browse it
-   online: <https://protesilaos.com/modus-themes>.
+   online: <https://protesilaos.com/emacs/modus-themes>.
 
 2. New customisation options grant users more power to further adapt the
    active theme to their preferences.
@@ -2733,10 +2733,10 @@ Overview
    carefully designed).
 
 5. A new page hosts all pictures that demo the themes across a wide
-   range of scenaria: <https://protesilaos.com/modus-themes-pictures>.
+   range of scenaria: <https://protesilaos.com/emacs/modus-themes-pictures>.
 
 6. Similarly, the change log also has its own dedicated web page:
-   <https://protesilaos.com/modus-themes-changelog>.
+   <https://protesilaos.com/emacs/modus-themes-changelog>.
 
 
 New customisation options
@@ -3501,7 +3501,7 @@ Final notes
 ===========
 
 There now exists an HTML version of the README, which will hopefully
-make things easier for users: https://protesilaos.com/modus-themes/
+make things easier for users: https://protesilaos.com/emacs/modus-themes/
 
 Other changes are not user-facing.  For example, using 'pcase' instead
 of 'cond' to make relevant expressions more succinct.  Or defining a
