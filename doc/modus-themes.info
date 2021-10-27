@@ -618,7 +618,7 @@ of this manual.
            modus-themes-headings ; this is an alist: read the manual or its doc string
            '((1 . (overline background))
              (2 . (rainbow overline))
-             (t . (no-bold)))
+             (t . (semibold)))
 
            modus-themes-variable-pitch-ui nil
            modus-themes-variable-pitch-headings t
@@ -1727,8 +1727,19 @@ followed by a presentation of all available properties:
    • ‘rainbow’
    • ‘overline’
    • ‘background’
-   • ‘no-bold’
    • ‘monochrome’
+   • ‘no-bold’ [ deprecated as part of 1.7.0-dev ; check below ]
+   • A font weight, which must be supported by the underlying typeface:
+        • ‘thin’
+        • ‘ultralight’
+        • ‘extralight’
+        • ‘light’
+        • ‘semilight’
+        • ‘regular’
+        • ‘medium’
+        • ‘semibold’
+        • ‘extrabold’
+        • ‘ultrabold’
 
    By default (a ‘nil’ value for this variable), all headings have a
 bold typographic weight and use a desaturated text color.
@@ -1740,19 +1751,24 @@ bold typographic weight and use a desaturated text color.
    A ‘background’ property adds a subtle tinted color to the background
 of the heading.
 
-   A ‘no-bold’ property removes the bold weight from the heading’s text.
-
    A ‘monochrome’ property makes all headings the same base color, which
 is that of the default for the active theme (black/white).  When
 ‘background’ is also set, ‘monochrome’ changes its color to gray.  If
 both ‘monochrome’ and ‘rainbow’ are set, the former takes precedence.
 
+   The symbol of a weight attribute adjusts the font of the heading
+accordingly, such as ‘light’, ‘semibold’, etc.  Valid symbols are
+defined in the internal variable ‘modus-themes--heading-weights’.  The
+absence of a weight means that bold will be used.  For backward
+compatibility, the ‘no-bold’ value is accepted, though users are
+encouraged to specify a ‘regular’ weight instead.
+
    Combinations of any of those properties are expressed as a list, like
 in these examples:
 
-     (no-bold)
+     (semibold)
      (rainbow background)
-     (overline monochrome no-bold)
+     (overline monochrome semibold)
 
    The order in which the properties are set is not significant.
 
@@ -1761,7 +1777,7 @@ in these examples:
      (setq modus-themes-headings
            '((1 . (background overline rainbow))
              (2 . (background overline))
-             (t . (overline no-bold))))
+             (t . (overline semibold))))
 
    When defining the styles per heading level, it is possible to pass a
 non-nil value (‘t’) instead of a list of properties.  This will retain
@@ -1774,7 +1790,7 @@ the original aesthetic for that level.  For example:
 
      (setq modus-themes-headings
            '((1 . (background overline))
-             (2 . (rainbow no-bold))
+             (2 . (rainbow semibold))
              (t . t))) ; default style for all other levels
 
    For Org users, the extent of the heading depends on the variable
@@ -5267,92 +5283,92 @@ Node: Enable and load12686
 Node: Sample configuration with and without use-package15701
 Node: Differences between loading and enabling17653
 Node: Customization Options19719
-Node: Custom reload theme26558
-Node: Success' color-code27093
-Node: Bold constructs28030
-Node: Italic constructs28819
-Node: Syntax styles29537
-Node: Mixed fonts31567
-Node: Link styles32787
-Node: Command prompts35155
-Node: Mode line36848
-Node: Option for mode line padding41194
-Node: Tab style41726
-Node: Completion UIs42313
-Node: Mail citations44184
-Node: Fringes45037
-Node: Language checkers45699
-Node: Line highlighting48020
-Node: Line numbers49535
-Node: Intense markup50607
-Node: Matching parentheses51291
-Node: Active region52585
-Node: Diffs53914
-Node: Org mode blocks55853
-Node: Org agenda57731
-Node: Heading styles65705
-Node: Scaled headings68747
-Node: Scaled heading sizes69350
-Node: UI typeface72897
-Node: Headings' typeface73743
-Node: Advanced customization (do-it-yourself)74367
-Node: Per-theme customization settings (DIY)75772
-Node: Case-by-case face specs using the themes' palette (DIY)77118
-Node: Face specs at scale using the themes' palette (DIY)81582
-Node: Remap face with local value (DIY)86399
-Node: Cycle through arbitrary colors (DIY)88924
-Node: Override colors (DIY)95490
-Node: Override color saturation (DIY)100383
-Node: Font configurations for Org and others (DIY)106136
-Ref: Font configurations for Org and others (DIY)-Footnote-1109062
-Node: Configure bold and italic faces (DIY)109249
-Node: Custom Org user faces (DIY)113563
-Node: Update Org block delimiter fontification (DIY)117247
-Node: Measure color contrast (DIY)119207
-Node: Load theme depending on time of day (DIY)121998
-Node: Backdrop for pdf-tools (DIY)123038
-Node: A theme-agnostic hook for theme loading (DIY)125827
-Node: Face coverage128217
-Node: Supported packages128686
-Node: Indirectly covered packages135714
-Node: Notes on individual packages136357
-Node: Note on avy hints137415
-Node: Note on calendarel weekday and weekend colors138583
-Node: Note on underlines in compilation buffers139766
-Node: Note on inline Latex in Org buffers140615
-Node: Note on dimmerel141225
-Node: Note on display-fill-column-indicator-mode142710
-Node: Note on highlight-parenthesesel144326
-Node: Note on mmm-modeel background colors150332
-Node: Note for prism152700
-Node: Note for god-mode155907
-Node: Note on company-mode overlay pop-up157581
-Ref: Note on company-mode overlay pop-up-Footnote-1158271
-Ref: Note on company-mode overlay pop-up-Footnote-2158338
-Node: Note on ERC escaped color sequences158393
-Ref: Note on ERC escaped color sequences-Footnote-1159821
-Node: Note on powerline or spaceline159931
-Node: Note on SHR colors160345
-Node: Note on EWW and Elfeed fonts (SHR fonts)160780
-Node: Note on Helm grep161525
-Node: Note on vc-annotate-background-mode163012
-Node: Note on pdf-tools link hints163897
-Node: Frequently Asked Questions (FAQ)166329
-Node: Is the contrast ratio about adjacent colors?166903
-Node: What does it mean to avoid exaggerations?168416
-Node: Why are colors mostly variants of blue magenta cyan?170251
-Node: What is the best setup for legibility?174598
-Node: Contributing177216
-Node: Sources of the themes177619
-Node: Issues you can help with178255
-Node: Patches require copyright assignment to the FSF179455
-Node: Acknowledgements181750
-Node: Meta184489
-Node: GNU Free Documentation License186653
-Node: Indices212005
-Node: Function index212184
-Node: Variable index213421
-Node: Concept index215852
+Node: Custom reload theme26559
+Node: Success' color-code27094
+Node: Bold constructs28031
+Node: Italic constructs28820
+Node: Syntax styles29538
+Node: Mixed fonts31568
+Node: Link styles32788
+Node: Command prompts35156
+Node: Mode line36849
+Node: Option for mode line padding41195
+Node: Tab style41727
+Node: Completion UIs42314
+Node: Mail citations44185
+Node: Fringes45038
+Node: Language checkers45700
+Node: Line highlighting48021
+Node: Line numbers49536
+Node: Intense markup50608
+Node: Matching parentheses51292
+Node: Active region52586
+Node: Diffs53915
+Node: Org mode blocks55854
+Node: Org agenda57732
+Node: Heading styles65706
+Node: Scaled headings69468
+Node: Scaled heading sizes70071
+Node: UI typeface73618
+Node: Headings' typeface74464
+Node: Advanced customization (do-it-yourself)75088
+Node: Per-theme customization settings (DIY)76493
+Node: Case-by-case face specs using the themes' palette (DIY)77839
+Node: Face specs at scale using the themes' palette (DIY)82303
+Node: Remap face with local value (DIY)87120
+Node: Cycle through arbitrary colors (DIY)89645
+Node: Override colors (DIY)96211
+Node: Override color saturation (DIY)101104
+Node: Font configurations for Org and others (DIY)106857
+Ref: Font configurations for Org and others (DIY)-Footnote-1109783
+Node: Configure bold and italic faces (DIY)109970
+Node: Custom Org user faces (DIY)114284
+Node: Update Org block delimiter fontification (DIY)117968
+Node: Measure color contrast (DIY)119928
+Node: Load theme depending on time of day (DIY)122719
+Node: Backdrop for pdf-tools (DIY)123759
+Node: A theme-agnostic hook for theme loading (DIY)126548
+Node: Face coverage128938
+Node: Supported packages129407
+Node: Indirectly covered packages136435
+Node: Notes on individual packages137078
+Node: Note on avy hints138136
+Node: Note on calendarel weekday and weekend colors139304
+Node: Note on underlines in compilation buffers140487
+Node: Note on inline Latex in Org buffers141336
+Node: Note on dimmerel141946
+Node: Note on display-fill-column-indicator-mode143431
+Node: Note on highlight-parenthesesel145047
+Node: Note on mmm-modeel background colors151053
+Node: Note for prism153421
+Node: Note for god-mode156628
+Node: Note on company-mode overlay pop-up158302
+Ref: Note on company-mode overlay pop-up-Footnote-1158992
+Ref: Note on company-mode overlay pop-up-Footnote-2159059
+Node: Note on ERC escaped color sequences159114
+Ref: Note on ERC escaped color sequences-Footnote-1160542
+Node: Note on powerline or spaceline160652
+Node: Note on SHR colors161066
+Node: Note on EWW and Elfeed fonts (SHR fonts)161501
+Node: Note on Helm grep162246
+Node: Note on vc-annotate-background-mode163733
+Node: Note on pdf-tools link hints164618
+Node: Frequently Asked Questions (FAQ)167050
+Node: Is the contrast ratio about adjacent colors?167624
+Node: What does it mean to avoid exaggerations?169137
+Node: Why are colors mostly variants of blue magenta cyan?170972
+Node: What is the best setup for legibility?175319
+Node: Contributing177937
+Node: Sources of the themes178340
+Node: Issues you can help with178976
+Node: Patches require copyright assignment to the FSF180176
+Node: Acknowledgements182471
+Node: Meta185210
+Node: GNU Free Documentation License187374
+Node: Indices212726
+Node: Function index212905
+Node: Variable index214142
+Node: Concept index216573
 
 End Tag Table
 

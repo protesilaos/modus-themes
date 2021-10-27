@@ -150,7 +150,7 @@ demonstration:
       modus-themes-headings ; this is an alist: read the manual or its doc string
       '((1 . (overline background))
         (2 . (rainbow overline))
-        (t . (no-bold)))
+        (t . (semibold)))
 
       modus-themes-variable-pitch-ui nil
       modus-themes-variable-pitch-headings t

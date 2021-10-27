@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.6.0
-;; Last-Modified: <2021-10-27 13:18:23 +0300>
+;; Last-Modified: <2021-10-27 18:16:50 +0300>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -1811,7 +1811,18 @@ Users may need to explicitly configure the font family of
   '(set :tag "Properties" :greedy t
         (const :tag "Background color" background)
         (const :tag "Overline" overline)
-        (const :tag "No bold weight" no-bold)
+        (choice :tag "Font weight (must be supported by the typeface)"
+                (const :tag "Bold (default)" nil)
+                (const :tag "Thin" thin)
+                (const :tag "Ultra-light" ultralight)
+                (const :tag "Extra-light" extralight)
+                (const :tag "Light" light)
+                (const :tag "Semi-light" semilight)
+                (const :tag "Regular" regular)
+                (const :tag "Medium" medium)
+                (const :tag "Semi-bold" semibold)
+                (const :tag "Extra-bold" extrabold)
+                (const :tag "Ultra-bold" ultrabold))
         (choice :tag "Colors"
                 (const :tag "Subtle colors" nil)
                 (const :tag "Rainbow colors" rainbow)
@@ -1845,21 +1856,25 @@ heading.
 A `background' property adds a subtle tinted color to the
 background of the heading.
 
-A `no-bold' property removes the bold weight from the heading's
-text.
-
 A `monochrome' property makes all headings the same base color,
 which is that of the default for the active theme (black/white).
 When `background' is also set, `monochrome' changes its color to
 gray.  If both `monochrome' and `rainbow' are set, the former
 takes precedence.
 
+The symbol of a weight attribute adjusts the font of the heading
+accordingly, such as `light', `semibold', etc.  Valid symbols are
+defined in the internal variable `modus-themes--heading-weights'.
+The absence of a weight means that bold will be used.  For
+backward compatibility, the `no-bold' value is accepted, though
+users are encouraged to specify a `regular' weight instead.
+
 Combinations of any of those properties are expressed as a list,
 like in these examples:
 
-    (no-bold)
+    (semibold)
     (rainbow background)
-    (overline monochrome no-bold)
+    (overline monochrome semibold)
 
 The order in which the properties are set is not significant.
 
@@ -1868,7 +1883,7 @@ In user configuration files the form may look like this:
     (setq modus-themes-headings
           '((1 . (background overline rainbow))
             (2 . (background overline))
-            (t . (overline no-bold))))
+            (t . (overline semibold))))
 
 When defining the styles per heading level, it is possible to
 pass a non-nil value (t) instead of a list of properties.  This
@@ -1881,7 +1896,7 @@ will retain the original aesthetic for that level.  For example:
 
     (setq modus-themes-headings
           '((1 . (background overline))
-            (2 . (rainbow no-bold))
+            (2 . (rainbow semibold))
             (t . t))) ; default style for all other levels
 
 For Org users, the extent of the heading depends on the variable
@@ -1893,8 +1908,8 @@ Also read `modus-themes-scale-headings' to change the height of
 headings and `modus-themes-variable-pitch-headings' to make them
 use a proportionately spaced font."
   :group 'modus-themes
-  :package-version '(modus-themes . "1.5.0")
-  :version "28.1"
+  :package-version '(modus-themes . "1.7.0")
+  :version "29.1"
   :type `(alist
           :options ,(mapcar (lambda (el)
                               (list el modus-themes--headings-choice))
@@ -3374,6 +3389,21 @@ an alternative to the default value."
   "Get cdr of KEY in ALIST."
   (cdr (assoc key alist)))
 
+(defvar modus-themes--heading-weights
+  '(thin ultralight extralight light semilight regular medium semibold extrabold ultrabold)
+  "List of font weights used by `modus-themes--heading'.")
+
+;; TODO 2021-10-27: Maybe we can improve this?
+(defun modus-themes--heading-weight (list)
+  "Search for `modus-themes--heading' weight in LIST."
+  (let (weight)
+    (setq weight
+          (mapcar (lambda (elt)
+                    (member elt modus-themes--heading-weights))
+                  list))
+    (setq weight (delq nil weight))
+    (setq weight (caar weight))))
+
 (defun modus-themes--heading (level fg fg-alt bg bg-gray border)
   "Conditional styles for `modus-themes-headings'.
 
@@ -3385,8 +3415,9 @@ values.  BG-GRAY is a gray background.  BORDER is a color value
 that combines well with the background and foreground."
   (let* ((key (modus-themes--key-cdr level modus-themes-headings))
          (style (or key (modus-themes--key-cdr t modus-themes-headings)))
+         (style-listp (listp style))
          (modus-themes-headings
-          (if (listp style)
+          (if style-listp
               style
             ;; translation layer for legacy values
             (pcase style
@@ -3407,15 +3438,16 @@ that combines well with the background and foreground."
               ('rainbow-section-no-bold '(no-bold rainbow background overline))
               ('section '(background overline))
               ('section-no-bold '(background overline no-bold)))))
-         (var (if modus-themes-variable-pitch-headings
-                  'variable-pitch
-                'unspecified))
+         (var (when modus-themes-variable-pitch-headings 'variable-pitch))
          (varbold (if var
                       (append (list 'bold) (list var))
-                    'bold)))
+                    'bold))
+         (weight (when style-listp (modus-themes--heading-weight style))))
     (list :inherit
           (cond
-           ((memq 'no-bold modus-themes-headings)
+           ;; `no-bold' is for backward compatibility because we cannot
+           ;; deprecate a variable's value.
+           ((or weight (memq 'no-bold modus-themes-headings))
             var)
            (varbold))
           :background
@@ -3433,6 +3465,8 @@ that combines well with the background and foreground."
            ((memq 'rainbow modus-themes-headings)
             fg-alt)
            (fg))
+          :weight
+          (or weight 'unspecified)
           :overline
           (if (memq 'overline modus-themes-headings)
               border

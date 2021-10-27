@@ -475,7 +475,7 @@ this manual.
       modus-themes-headings ; this is an alist: read the manual or its doc string
       '((1 . (overline background))
         (2 . (rainbow overline))
-        (t . (no-bold)))
+        (t . (semibold)))
 
       modus-themes-variable-pitch-ui nil
       modus-themes-variable-pitch-headings t
@@ -1619,9 +1619,20 @@ Properties:
 + ~rainbow~
 + ~overline~
 + ~background~
-+ ~no-bold~
 + ~monochrome~
-
++ ~no-bold~ [ deprecated as part of {{{development-version}}} ; check below ]
++ A font weight, which must be supported by the underlying typeface:
+  - ~thin~
+  - ~ultralight~
+  - ~extralight~
+  - ~light~
+  - ~semilight~
+  - ~regular~
+  - ~medium~
+  - ~semibold~
+  - ~extrabold~
+  - ~ultrabold~
+  
 By default (a ~nil~ value for this variable), all headings have a bold
 typographic weight and use a desaturated text color.
 
@@ -1632,20 +1643,25 @@ An ~overline~ property draws a line above the area of the heading.
 A ~background~ property adds a subtle tinted color to the background of
 the heading.
 
-A ~no-bold~ property removes the bold weight from the heading's text.
-
 A ~monochrome~ property makes all headings the same base color, which is
 that of the default for the active theme (black/white).  When ~background~
 is also set, ~monochrome~ changes its color to gray.  If both ~monochrome~
 and ~rainbow~ are set, the former takes precedence.
 
+The symbol of a weight attribute adjusts the font of the heading
+accordingly, such as ~light~, ~semibold~, etc.  Valid symbols are defined in
+the internal variable ~modus-themes--heading-weights~.  The absence of a
+weight means that bold will be used.  For backward compatibility, the
+~no-bold~ value is accepted, though users are encouraged to specify a
+~regular~ weight instead.
+
 Combinations of any of those properties are expressed as a list, like in
 these examples:
 
 #+begin_src emacs-lisp
-(no-bold)
+(semibold)
 (rainbow background)
-(overline monochrome no-bold)
+(overline monochrome semibold)
 #+end_src
 
 The order in which the properties are set is not significant.
@@ -1656,7 +1672,7 @@ In user configuration files the form may look like this:
 (setq modus-themes-headings
       '((1 . (background overline rainbow))
         (2 . (background overline))
-        (t . (overline no-bold))))
+        (t . (overline semibold))))
 #+end_src
 
 When defining the styles per heading level, it is possible to pass a
@@ -1671,7 +1687,7 @@ original aesthetic for that level.  For example:
 
 (setq modus-themes-headings
       '((1 . (background overline))
-        (2 . (rainbow no-bold))
+        (2 . (rainbow semibold))
         (t . t))) ; default style for all other levels
 #+end_src
 
