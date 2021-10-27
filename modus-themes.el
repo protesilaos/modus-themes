@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.6.0
-;; Last-Modified: <2021-10-27 18:16:50 +0300>
+;; Last-Modified: <2021-10-27 22:36:24 +0300>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -3393,16 +3393,10 @@ an alternative to the default value."
   '(thin ultralight extralight light semilight regular medium semibold extrabold ultrabold)
   "List of font weights used by `modus-themes--heading'.")
 
-;; TODO 2021-10-27: Maybe we can improve this?
 (defun modus-themes--heading-weight (list)
-  "Search for `modus-themes--heading' weight in LIST."
-  (let (weight)
-    (setq weight
-          (mapcar (lambda (elt)
-                    (member elt modus-themes--heading-weights))
-                  list))
-    (setq weight (delq nil weight))
-    (setq weight (caar weight))))
+  "Test intersection of LIST with `modus-themes--heading-weights'.
+Return the first element."
+  (car (cl-intersection list modus-themes--heading-weights)))
 
 (defun modus-themes--heading (level fg fg-alt bg bg-gray border)
   "Conditional styles for `modus-themes-headings'.
