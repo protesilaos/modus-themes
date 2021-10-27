@@ -2653,7 +2653,7 @@ it means for a construct to be bold/italic, by tweaking the ~bold~ and
 
 To achieve those effects, one must first be sure that the fonts they use
 have support for those features.  It then is a matter of following the
-instructions for all face tweaks.
+instructions for all typeface tweaks.
 
 [[#h:defcf4fc-8fa8-4c29-b12e-7119582cc929][Font configurations for Org and others]].
 
