@@ -3397,9 +3397,11 @@ an alternative to the default value."
   "List of font weights used by `modus-themes--heading'.")
 
 (defun modus-themes--heading-weight (list)
-  "Test intersection of LIST with `modus-themes--heading-weights'.
-Return the first element."
-  (car (cl-intersection list modus-themes--heading-weights)))
+  "Search for `modus-themes--heading' weight in LIST."
+  (catch 'found
+    (dolist (elt list)
+      (when (memq elt modus-themes--heading-weights)
+        (throw 'found elt)))))
 
 (defun modus-themes--heading (level fg fg-alt bg bg-gray border)
   "Conditional styles for `modus-themes-headings'.
