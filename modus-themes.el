@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.6.0
-;; Last-Modified: <2021-10-27 22:36:24 +0300>
+;; Last-Modified: <2021-10-28 09:45:55 +0300>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -1865,9 +1865,11 @@ takes precedence.
 The symbol of a weight attribute adjusts the font of the heading
 accordingly, such as `light', `semibold', etc.  Valid symbols are
 defined in the internal variable `modus-themes--heading-weights'.
-The absence of a weight means that bold will be used.  For
-backward compatibility, the `no-bold' value is accepted, though
-users are encouraged to specify a `regular' weight instead.
+The absence of a weight means that bold will be used by virtue of
+inheriting the `bold' face (check the manual for tweaking bold
+and italic faces).  For backward compatibility, the `no-bold'
+value is accepted, though users are encouraged to specify a
+`regular' weight instead.
 
 Combinations of any of those properties are expressed as a list,
 like in these examples:
@@ -3390,7 +3392,8 @@ an alternative to the default value."
   (cdr (assoc key alist)))
 
 (defvar modus-themes--heading-weights
-  '(thin ultralight extralight light semilight regular medium semibold extrabold ultrabold)
+  '( thin ultralight extralight light semilight regular medium
+     semibold bold heavy extrabold ultrabold)
   "List of font weights used by `modus-themes--heading'.")
 
 (defun modus-themes--heading-weight (list)
