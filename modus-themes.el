@@ -1791,7 +1791,7 @@ This includes the mode line, header line, tab bar, and tab line."
   'modus-themes-mixed-fonts "On 2021-10-02 for version 1.7.0")
 
 (defcustom modus-themes-mixed-fonts nil
-  "Enable inheritance from `fixed-pitch' in some faces.
+  "Non-nil to enable inheritance from `fixed-pitch' in some faces.
 
 This is done to allow spacing-sensitive constructs, such as Org
 tables and code blocks, to remain monospaced when users opt for
