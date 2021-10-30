@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.6.0
-;; Last-Modified: <2021-10-28 09:45:55 +0300>
+;; Last-Modified: <2021-10-30 10:17:36 +0300>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -3673,7 +3673,7 @@ property."
                        (cons fg-alt bg-alt))
                       ((cons fg bg))))
           (box (cond ((memq 'moody modus-themes-mode-line)
-                      nil)
+                      'unspecified)
                      ((and (memq '3d modus-themes-mode-line)
                            (memq 'padded modus-themes-mode-line))
                       (list :line-width padding
@@ -3710,7 +3710,7 @@ property."
                      (border)))
           (line (cond ((not (or (memq 'moody modus-themes-mode-line)
                                 (memq 'padded modus-themes-mode-line)))
-                       nil)
+                       'unspecified)
                       ((and (memq 'borderless modus-themes-mode-line)
                             (memq 'accented modus-themes-mode-line))
                        bg-accent)
