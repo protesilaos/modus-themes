@@ -141,6 +141,7 @@ Advanced customization (do-it-yourself)
 * Measure color contrast (DIY)::
 * Load theme depending on time of day (DIY)::
 * Backdrop for pdf-tools (DIY)::
+* Decrease mode line height (DIY)::
 * A theme-agnostic hook for theme loading (DIY)::
 
 Face coverage
@@ -1982,6 +1983,7 @@ such, they are labelled as “do-it-yourself” or “DIY”.
 * Measure color contrast (DIY)::
 * Load theme depending on time of day (DIY)::
 * Backdrop for pdf-tools (DIY)::
+* Decrease mode line height (DIY)::
 * A theme-agnostic hook for theme loading (DIY)::
 
 
@@ -3037,7 +3039,7 @@ location using the built-in ‘solar.el’ and then configuring the
        (circadian-setup))
 
 
-File: modus-themes.info,  Node: Backdrop for pdf-tools (DIY),  Next: A theme-agnostic hook for theme loading (DIY),  Prev: Load theme depending on time of day (DIY),  Up: Advanced customization (do-it-yourself)
+File: modus-themes.info,  Node: Backdrop for pdf-tools (DIY),  Next: Decrease mode line height (DIY),  Prev: Load theme depending on time of day (DIY),  Up: Advanced customization (do-it-yourself)
 
 5.14 Backdrop for pdf-tools (DIY)
 =================================
@@ -3098,9 +3100,99 @@ while they automatically switch to their dark mode when
 ‘pdf-view-mode’.
 
 
-File: modus-themes.info,  Node: A theme-agnostic hook for theme loading (DIY),  Prev: Backdrop for pdf-tools (DIY),  Up: Advanced customization (do-it-yourself)
+File: modus-themes.info,  Node: Decrease mode line height (DIY),  Next: A theme-agnostic hook for theme loading (DIY),  Prev: Backdrop for pdf-tools (DIY),  Up: Advanced customization (do-it-yourself)
 
-5.15 A theme-agnostic hook for theme loading (DIY)
+5.15 Decrease mode line height (DIY)
+====================================
+
+By default, the mode line of the Modus themes is set to 1 pixel width
+for its ‘:box’ attribute.  In contrast, the mode line of stock Emacs is
+-1 pixel.  This small difference is considered necessary for the
+purposes of accessibility as our out-of-the-box design has a prominent
+color around the mode line (a border) to make its boundaries clear.
+With a negative width the border and the text on the mode line can feel
+a bit more difficult to read under certain scenaria.
+
+   Furthermore, the user option ‘modus-themes-mode-line’ (*note Mode
+line::) does not allow for such a negative value because there are many
+edge cases that simply make for a counter-intuitive set of
+possibilities, such as a ‘0’ value not being acceptable by the
+underlying face infrastructure, and negative values greater than ‘-2’
+not being particularly usable.
+
+   For these reasons, users who wish to decrease the overall height of
+the mode line must handle things on their own by implementing the
+methods for face customization documented herein.
+
+   *note Basic face customization: Case-by-case face specs using the
+themes' palette (DIY).
+
+   One such method is to create a function that configures the desired
+faces and hook it to ‘modus-themes-after-load-theme-hook’ so that it
+persists while switching between the Modus themes with the command
+‘modus-themes-toggle’.
+
+   This one simply disables the box altogether, which will reduce the
+height of the mode lines, but also remove their border:
+
+     (defun my-modus-themes-custom-faces ()
+       (set-face-attribute 'mode-line nil :box nil)
+       (set-face-attribute 'mode-line-inactive nil :box nil))
+
+     (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
+
+   The above relies on the ‘set-face-attribute’ function, though users
+who plan to re-use colors from the theme and do so at scale are better
+off with the more streamlined combination of the
+‘modus-themes-with-colors’ macro and ‘custom-set-faces’.
+
+   *note Face customization at scale: Face specs at scale using the
+themes' palette (DIY).
+
+   As explained before in this document, this approach has a syntax that
+is consistent with the source code of the themes, so it probably is
+easier to re-use parts of the design.
+
+   The following emulates the stock Emacs style, while still using the
+colors of the Modus themes (whichever attribute is not explicitly stated
+is inherited from the underlying theme):
+
+     (defun my-modus-themes-custom-faces ()
+       (modus-themes-with-colors
+         (custom-set-faces
+          `(mode-line ((,class :box (:line-width -1 :style released-button))))
+          `(mode-line-inactive ((,class :box (:line-width -1 :color ,bg-region)))))))
+
+     (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
+
+   And this one is like the out-of-the-box style of the Modus themes,
+but with the -1 height instead of 1:
+
+     (defun my-modus-themes-custom-faces ()
+       (modus-themes-with-colors
+         (custom-set-faces
+          `(mode-line ((,class :box (:line-width -1 :color ,fg-alt))))
+          `(mode-line-inactive ((,class :box (:line-width -1 :color ,bg-region)))))))
+
+     (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
+
+   Finally, to also change the background color of the active mode line,
+such as that it looks like the “accented” variant which is possible via
+the user option ‘modus-themes-mode-line’, the ‘:background’ attribute
+needs to be specified as well:
+
+     (defun my-modus-themes-custom-faces ()
+       (modus-themes-with-colors
+         (custom-set-faces
+          `(mode-line ((,class :box (:line-width -1 :color ,fg-alt) :background ,bg-active-accent)))
+          `(mode-line-inactive ((,class :box (:line-width -1 :color ,bg-region)))))))
+
+     (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
+
+
+File: modus-themes.info,  Node: A theme-agnostic hook for theme loading (DIY),  Prev: Decrease mode line height (DIY),  Up: Advanced customization (do-it-yourself)
+
+5.16 A theme-agnostic hook for theme loading (DIY)
 ==================================================
 
 The themes are designed with the intent to be useful to Emacs users of
@@ -5240,6 +5332,8 @@ B.3 Concept index
 * Contributors:                          Acknowledgements.      (line 6)
 * Cycle colors:                          Cycle through arbitrary colors (DIY).
                                                                 (line 6)
+* Decrease mode line height:             Decrease mode line height (DIY).
+                                                                (line 6)
 * Development notes:                     Meta.                  (line 6)
 * Essential configuration:               Enable and load.       (line 6)
 * Explicitly supported packages:         Supported packages.    (line 6)
@@ -5277,105 +5371,106 @@ B.3 Concept index
 
 Tag Table:
 Node: Top860
-Node: Overview7117
-Node: How do the themes look like8660
-Node: Learn about the latest changes9174
-Node: Installation9562
-Node: Install manually from source10043
-Node: Install from the archives10868
-Node: Install on GNU/Linux11645
-Node: Debian 11 Bullseye12093
-Node: GNU Guix12403
-Node: Enable and load12686
-Node: Sample configuration with and without use-package15701
-Node: Differences between loading and enabling17653
-Node: Customization Options19719
-Node: Custom reload theme26559
-Node: Success' color-code27094
-Node: Bold constructs28031
-Node: Italic constructs28820
-Node: Syntax styles29538
-Node: Mixed fonts31568
-Node: Link styles32788
-Node: Command prompts35156
-Node: Mode line36849
-Node: Option for mode line padding41195
-Node: Tab style41727
-Node: Completion UIs42314
-Node: Mail citations44185
-Node: Fringes45038
-Node: Language checkers45700
-Node: Line highlighting48021
-Node: Line numbers49536
-Node: Intense markup50608
-Node: Matching parentheses51292
-Node: Active region52586
-Node: Diffs53915
-Node: Org mode blocks55854
-Node: Org agenda57732
-Node: Heading styles65706
-Node: Scaled headings69641
-Node: Scaled heading sizes70244
-Node: UI typeface73791
-Node: Headings' typeface74637
-Node: Advanced customization (do-it-yourself)75261
-Node: Per-theme customization settings (DIY)76666
-Node: Case-by-case face specs using the themes' palette (DIY)78012
-Node: Face specs at scale using the themes' palette (DIY)82476
-Node: Remap face with local value (DIY)87293
-Node: Cycle through arbitrary colors (DIY)89818
-Node: Override colors (DIY)96384
-Node: Override color saturation (DIY)101277
-Node: Font configurations for Org and others (DIY)107030
-Ref: Font configurations for Org and others (DIY)-Footnote-1109956
-Node: Configure bold and italic faces (DIY)110143
-Node: Custom Org user faces (DIY)114457
-Node: Update Org block delimiter fontification (DIY)118141
-Node: Measure color contrast (DIY)120101
-Node: Load theme depending on time of day (DIY)122892
-Node: Backdrop for pdf-tools (DIY)123932
-Node: A theme-agnostic hook for theme loading (DIY)126721
-Node: Face coverage129111
-Node: Supported packages129580
-Node: Indirectly covered packages136608
-Node: Notes on individual packages137251
-Node: Note on avy hints138309
-Node: Note on calendarel weekday and weekend colors139477
-Node: Note on underlines in compilation buffers140660
-Node: Note on inline Latex in Org buffers141509
-Node: Note on dimmerel142119
-Node: Note on display-fill-column-indicator-mode143604
-Node: Note on highlight-parenthesesel145220
-Node: Note on mmm-modeel background colors151226
-Node: Note for prism153594
-Node: Note for god-mode156801
-Node: Note on company-mode overlay pop-up158475
-Ref: Note on company-mode overlay pop-up-Footnote-1159165
-Ref: Note on company-mode overlay pop-up-Footnote-2159232
-Node: Note on ERC escaped color sequences159287
-Ref: Note on ERC escaped color sequences-Footnote-1160715
-Node: Note on powerline or spaceline160825
-Node: Note on SHR colors161239
-Node: Note on EWW and Elfeed fonts (SHR fonts)161674
-Node: Note on Helm grep162419
-Node: Note on vc-annotate-background-mode163906
-Node: Note on pdf-tools link hints164791
-Node: Frequently Asked Questions (FAQ)167223
-Node: Is the contrast ratio about adjacent colors?167797
-Node: What does it mean to avoid exaggerations?169310
-Node: Why are colors mostly variants of blue magenta cyan?171145
-Node: What is the best setup for legibility?175492
-Node: Contributing178110
-Node: Sources of the themes178513
-Node: Issues you can help with179149
-Node: Patches require copyright assignment to the FSF180349
-Node: Acknowledgements182644
-Node: Meta185422
-Node: GNU Free Documentation License187586
-Node: Indices212938
-Node: Function index213117
-Node: Variable index214354
-Node: Concept index216785
+Node: Overview7153
+Node: How do the themes look like8696
+Node: Learn about the latest changes9210
+Node: Installation9598
+Node: Install manually from source10079
+Node: Install from the archives10904
+Node: Install on GNU/Linux11681
+Node: Debian 11 Bullseye12129
+Node: GNU Guix12439
+Node: Enable and load12722
+Node: Sample configuration with and without use-package15737
+Node: Differences between loading and enabling17689
+Node: Customization Options19755
+Node: Custom reload theme26595
+Node: Success' color-code27130
+Node: Bold constructs28067
+Node: Italic constructs28856
+Node: Syntax styles29574
+Node: Mixed fonts31604
+Node: Link styles32824
+Node: Command prompts35192
+Node: Mode line36885
+Node: Option for mode line padding41231
+Node: Tab style41763
+Node: Completion UIs42350
+Node: Mail citations44221
+Node: Fringes45074
+Node: Language checkers45736
+Node: Line highlighting48057
+Node: Line numbers49572
+Node: Intense markup50644
+Node: Matching parentheses51328
+Node: Active region52622
+Node: Diffs53951
+Node: Org mode blocks55890
+Node: Org agenda57768
+Node: Heading styles65742
+Node: Scaled headings69677
+Node: Scaled heading sizes70280
+Node: UI typeface73827
+Node: Headings' typeface74673
+Node: Advanced customization (do-it-yourself)75297
+Node: Per-theme customization settings (DIY)76738
+Node: Case-by-case face specs using the themes' palette (DIY)78084
+Node: Face specs at scale using the themes' palette (DIY)82548
+Node: Remap face with local value (DIY)87365
+Node: Cycle through arbitrary colors (DIY)89890
+Node: Override colors (DIY)96456
+Node: Override color saturation (DIY)101349
+Node: Font configurations for Org and others (DIY)107102
+Ref: Font configurations for Org and others (DIY)-Footnote-1110028
+Node: Configure bold and italic faces (DIY)110215
+Node: Custom Org user faces (DIY)114529
+Node: Update Org block delimiter fontification (DIY)118213
+Node: Measure color contrast (DIY)120173
+Node: Load theme depending on time of day (DIY)122964
+Node: Backdrop for pdf-tools (DIY)124004
+Node: Decrease mode line height (DIY)126779
+Node: A theme-agnostic hook for theme loading (DIY)130963
+Node: Face coverage133356
+Node: Supported packages133825
+Node: Indirectly covered packages140853
+Node: Notes on individual packages141496
+Node: Note on avy hints142554
+Node: Note on calendarel weekday and weekend colors143722
+Node: Note on underlines in compilation buffers144905
+Node: Note on inline Latex in Org buffers145754
+Node: Note on dimmerel146364
+Node: Note on display-fill-column-indicator-mode147849
+Node: Note on highlight-parenthesesel149465
+Node: Note on mmm-modeel background colors155471
+Node: Note for prism157839
+Node: Note for god-mode161046
+Node: Note on company-mode overlay pop-up162720
+Ref: Note on company-mode overlay pop-up-Footnote-1163410
+Ref: Note on company-mode overlay pop-up-Footnote-2163477
+Node: Note on ERC escaped color sequences163532
+Ref: Note on ERC escaped color sequences-Footnote-1164960
+Node: Note on powerline or spaceline165070
+Node: Note on SHR colors165484
+Node: Note on EWW and Elfeed fonts (SHR fonts)165919
+Node: Note on Helm grep166664
+Node: Note on vc-annotate-background-mode168151
+Node: Note on pdf-tools link hints169036
+Node: Frequently Asked Questions (FAQ)171468
+Node: Is the contrast ratio about adjacent colors?172042
+Node: What does it mean to avoid exaggerations?173555
+Node: Why are colors mostly variants of blue magenta cyan?175390
+Node: What is the best setup for legibility?179737
+Node: Contributing182355
+Node: Sources of the themes182758
+Node: Issues you can help with183394
+Node: Patches require copyright assignment to the FSF184594
+Node: Acknowledgements186889
+Node: Meta189667
+Node: GNU Free Documentation License191831
+Node: Indices217183
+Node: Function index217362
+Node: Variable index218599
+Node: Concept index221030
 
 End Tag Table
 
