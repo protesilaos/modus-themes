@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.6.0
-;; Last-Modified: <2021-10-30 10:17:36 +0300>
+;; Last-Modified: <2021-11-03 11:56:47 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -4293,7 +4293,11 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(modus-themes-pseudo-header ((,class :inherit bold :foreground ,fg-main)))
     `(modus-themes-mark-alt ((,class :inherit bold :background ,bg-mark-alt :foreground ,fg-mark-alt)))
     `(modus-themes-mark-del ((,class :inherit bold :background ,bg-mark-del :foreground ,fg-mark-del)))
-    `(modus-themes-mark-sel ((,class :inherit bold :background ,bg-mark-sel :foreground ,fg-mark-sel)))
+    `(modus-themes-mark-sel ((,class :inherit bold
+                                     :background ,@(modus-themes--success-deuteran
+                                                    cyan-refine-bg
+                                                    bg-mark-sel)
+                                     :foreground ,fg-mark-sel)))
     `(modus-themes-mark-symbol ((,class :inherit bold :foreground ,blue-alt)))
 ;;;;; heading levels
     ;; styles for regular headings used in Org, Markdown, Info, etc.
