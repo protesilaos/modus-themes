@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.6.0
-;; Last-Modified: <2021-11-03 11:56:47 +0200>
+;; Last-Modified: <2021-11-03 12:09:13 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -2976,12 +2976,14 @@ In user configuration files the form may look like this:
 
 This is to account for red-green color deficiency.
 
-The present customization option should apply to all contexts where
-there can be a color-coded distinction between success and failure,
-to-do and done, and so on.
+The present customization option applies to all contexts where
+there can be a color-coded distinction between success or
+failure, to-do or done, mark for selection or deletion (e.g. in
+Dired), current and lazily highlighted search matches, and so on.
 
-Diffs, which have a red/green dichotomy by default, can also be
-configured to conform with deuteranopia: `modus-themes-diffs'."
+Diffs, which rely on a red/green dichotomy by default, can also
+be configured to meet the needs of users with deuteranopia via
+the option `modus-themes-diffs'."
   :group 'modus-themes
   :package-version '(modus-themes . "1.4.0")
   :version "28.1"

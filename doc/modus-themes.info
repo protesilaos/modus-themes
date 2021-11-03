@@ -691,18 +691,17 @@ Symbol: ‘modus-themes-success-deuteranopia’
   1. ‘nil’ (default)
   2. ‘t’
 
-   The default is to colorise all faces that denote “success”, “done”,
-or similar with a variant of green.
+   The default is to colorise a passing state in a green hue.  This
+affects all faces that denote “success”, “done”, marking a selection as
+opposed to marking for deletion, the current search match in contrast to
+lazily highlighted ones, and the like.
 
    With a non-nil value (‘t’), use variants of blue instead of green.
 This is meant to empower users with red-green color deficiency.
 
-   The present customization option should apply to all contexts where
-there can be a color-coded distinction between success and failure,
-to-do and done, and so on.
-
-   Diffs, which have a red/green dichotomy by default, can also be
-configured to conform with deuteranopia.
+   Diffs, which rely on a red/green dichotomy by default, can also be
+configured to meet the needs of users with deuteranopia via the option
+‘modus-themes-diffs’.
 
    *note Option for diff buffer looks: Diffs.
 
@@ -5386,91 +5385,91 @@ Node: Differences between loading and enabling17689
 Node: Customization Options19755
 Node: Custom reload theme26595
 Node: Success' color-code27130
-Node: Bold constructs28067
-Node: Italic constructs28856
-Node: Syntax styles29574
-Node: Mixed fonts31604
-Node: Link styles32824
-Node: Command prompts35192
-Node: Mode line36885
-Node: Option for mode line padding41231
-Node: Tab style41763
-Node: Completion UIs42350
-Node: Mail citations44221
-Node: Fringes45074
-Node: Language checkers45736
-Node: Line highlighting48057
-Node: Line numbers49572
-Node: Intense markup50644
-Node: Matching parentheses51328
-Node: Active region52622
-Node: Diffs53951
-Node: Org mode blocks55890
-Node: Org agenda57768
-Node: Heading styles65742
-Node: Scaled headings69677
-Node: Scaled heading sizes70280
-Node: UI typeface73827
-Node: Headings' typeface74673
-Node: Advanced customization (do-it-yourself)75297
-Node: Per-theme customization settings (DIY)76738
-Node: Case-by-case face specs using the themes' palette (DIY)78084
-Node: Face specs at scale using the themes' palette (DIY)82548
-Node: Remap face with local value (DIY)87365
-Node: Cycle through arbitrary colors (DIY)89890
-Node: Override colors (DIY)96456
-Node: Override color saturation (DIY)101349
-Node: Font configurations for Org and others (DIY)107102
-Ref: Font configurations for Org and others (DIY)-Footnote-1110028
-Node: Configure bold and italic faces (DIY)110215
-Node: Custom Org user faces (DIY)114529
-Node: Update Org block delimiter fontification (DIY)118213
-Node: Measure color contrast (DIY)120173
-Node: Load theme depending on time of day (DIY)122964
-Node: Backdrop for pdf-tools (DIY)124004
-Node: Decrease mode line height (DIY)126779
-Node: A theme-agnostic hook for theme loading (DIY)130963
-Node: Face coverage133356
-Node: Supported packages133825
-Node: Indirectly covered packages140853
-Node: Notes on individual packages141496
-Node: Note on avy hints142554
-Node: Note on calendarel weekday and weekend colors143722
-Node: Note on underlines in compilation buffers144905
-Node: Note on inline Latex in Org buffers145754
-Node: Note on dimmerel146364
-Node: Note on display-fill-column-indicator-mode147849
-Node: Note on highlight-parenthesesel149465
-Node: Note on mmm-modeel background colors155471
-Node: Note for prism157839
-Node: Note for god-mode161046
-Node: Note on company-mode overlay pop-up162720
-Ref: Note on company-mode overlay pop-up-Footnote-1163410
-Ref: Note on company-mode overlay pop-up-Footnote-2163477
-Node: Note on ERC escaped color sequences163532
-Ref: Note on ERC escaped color sequences-Footnote-1164960
-Node: Note on powerline or spaceline165070
-Node: Note on SHR colors165484
-Node: Note on EWW and Elfeed fonts (SHR fonts)165919
-Node: Note on Helm grep166664
-Node: Note on vc-annotate-background-mode168151
-Node: Note on pdf-tools link hints169036
-Node: Frequently Asked Questions (FAQ)171468
-Node: Is the contrast ratio about adjacent colors?172042
-Node: What does it mean to avoid exaggerations?173555
-Node: Why are colors mostly variants of blue magenta cyan?175390
-Node: What is the best setup for legibility?179737
-Node: Contributing182355
-Node: Sources of the themes182758
-Node: Issues you can help with183394
-Node: Patches require copyright assignment to the FSF184594
-Node: Acknowledgements186889
-Node: Meta189667
-Node: GNU Free Documentation License191831
-Node: Indices217183
-Node: Function index217362
-Node: Variable index218599
-Node: Concept index221030
+Node: Bold constructs28104
+Node: Italic constructs28893
+Node: Syntax styles29611
+Node: Mixed fonts31641
+Node: Link styles32861
+Node: Command prompts35229
+Node: Mode line36922
+Node: Option for mode line padding41268
+Node: Tab style41800
+Node: Completion UIs42387
+Node: Mail citations44258
+Node: Fringes45111
+Node: Language checkers45773
+Node: Line highlighting48094
+Node: Line numbers49609
+Node: Intense markup50681
+Node: Matching parentheses51365
+Node: Active region52659
+Node: Diffs53988
+Node: Org mode blocks55927
+Node: Org agenda57805
+Node: Heading styles65779
+Node: Scaled headings69714
+Node: Scaled heading sizes70317
+Node: UI typeface73864
+Node: Headings' typeface74710
+Node: Advanced customization (do-it-yourself)75334
+Node: Per-theme customization settings (DIY)76775
+Node: Case-by-case face specs using the themes' palette (DIY)78121
+Node: Face specs at scale using the themes' palette (DIY)82585
+Node: Remap face with local value (DIY)87402
+Node: Cycle through arbitrary colors (DIY)89927
+Node: Override colors (DIY)96493
+Node: Override color saturation (DIY)101386
+Node: Font configurations for Org and others (DIY)107139
+Ref: Font configurations for Org and others (DIY)-Footnote-1110065
+Node: Configure bold and italic faces (DIY)110252
+Node: Custom Org user faces (DIY)114566
+Node: Update Org block delimiter fontification (DIY)118250
+Node: Measure color contrast (DIY)120210
+Node: Load theme depending on time of day (DIY)123001
+Node: Backdrop for pdf-tools (DIY)124041
+Node: Decrease mode line height (DIY)126816
+Node: A theme-agnostic hook for theme loading (DIY)131000
+Node: Face coverage133393
+Node: Supported packages133862
+Node: Indirectly covered packages140890
+Node: Notes on individual packages141533
+Node: Note on avy hints142591
+Node: Note on calendarel weekday and weekend colors143759
+Node: Note on underlines in compilation buffers144942
+Node: Note on inline Latex in Org buffers145791
+Node: Note on dimmerel146401
+Node: Note on display-fill-column-indicator-mode147886
+Node: Note on highlight-parenthesesel149502
+Node: Note on mmm-modeel background colors155508
+Node: Note for prism157876
+Node: Note for god-mode161083
+Node: Note on company-mode overlay pop-up162757
+Ref: Note on company-mode overlay pop-up-Footnote-1163447
+Ref: Note on company-mode overlay pop-up-Footnote-2163514
+Node: Note on ERC escaped color sequences163569
+Ref: Note on ERC escaped color sequences-Footnote-1164997
+Node: Note on powerline or spaceline165107
+Node: Note on SHR colors165521
+Node: Note on EWW and Elfeed fonts (SHR fonts)165956
+Node: Note on Helm grep166701
+Node: Note on vc-annotate-background-mode168188
+Node: Note on pdf-tools link hints169073
+Node: Frequently Asked Questions (FAQ)171505
+Node: Is the contrast ratio about adjacent colors?172079
+Node: What does it mean to avoid exaggerations?173592
+Node: Why are colors mostly variants of blue magenta cyan?175427
+Node: What is the best setup for legibility?179774
+Node: Contributing182392
+Node: Sources of the themes182795
+Node: Issues you can help with183431
+Node: Patches require copyright assignment to the FSF184631
+Node: Acknowledgements186926
+Node: Meta189704
+Node: GNU Free Documentation License191868
+Node: Indices217220
+Node: Function index217399
+Node: Variable index218636
+Node: Concept index221067
 
 End Tag Table
 
