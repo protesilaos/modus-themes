@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.6.0
-;; Last-Modified: <2021-11-03 12:09:13 +0200>
+;; Last-Modified: <2021-11-04 06:48:20 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -240,6 +240,7 @@
 ;;     ido-mode
 ;;     iedit
 ;;     iflipb
+;;     image-dired
 ;;     imenu-list
 ;;     indium
 ;;     info
@@ -5982,6 +5983,11 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; iflipb
     `(iflipb-current-buffer-face ((,class :inherit bold :foreground ,cyan-alt)))
     `(iflipb-other-buffer-face ((,class :inherit shadow)))
+;;;;; image-dired
+    `(image-dired-thumb-flagged ((,class :background ,red-intense-bg)))
+    `(image-dired-thumb-mark ((,class :background ,@(modus-themes--success-deuteran
+                                                     cyan-intense-bg
+                                                     green-intense-bg))))
 ;;;;; imenu-list
     `(imenu-list-entry-face-0 ((,class :foreground ,cyan)))
     `(imenu-list-entry-face-1 ((,class :foreground ,blue)))

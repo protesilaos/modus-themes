@@ -3346,6 +3346,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + ido-mode
 + iedit
 + iflipb
++ image-dired [ part of {{{development-version}}} ]
 + imenu-list
 + indium
 + info
