@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.6.0
-;; Last-Modified: <2021-11-04 06:48:20 +0200>
+;; Last-Modified: <2021-11-04 09:33:00 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -6020,7 +6020,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(info-title-3 ((,class :inherit modus-themes-heading-3)))
     `(info-title-4 ((,class :inherit modus-themes-heading-4)))
 ;;;;; info-colors
-    `(info-colors-lisp-code-block ((,class :inherit fixed-pitch)))
+    `(info-colors-lisp-code-block ((,class :inherit modus-themes-fixed-pitch)))
     `(info-colors-ref-item-command ((,class :inherit font-lock-function-name-face)))
     `(info-colors-ref-item-constant ((,class :inherit font-lock-constant-face)))
     `(info-colors-ref-item-function ((,class :inherit font-lock-function-name-face)))
@@ -6488,7 +6488,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(markup-meta-face ((,class :inherit shadow)))
     `(markup-meta-hide-face ((,class :foreground "gray50")))
     `(markup-reference-face ((,class :foreground ,blue-alt :underline ,bg-region)))
-    `(markup-replacement-face ((,class :inherit fixed-pitch :foreground ,red-alt)))
+    `(markup-replacement-face ((,class :inherit modus-themes-fixed-pitch :foreground ,red-alt)))
     `(markup-secondary-text-face ((,class :height 0.9 :foreground ,cyan-alt-other)))
     `(markup-small-face ((,class :inherit markup-gen-face :height 0.9)))
     `(markup-strong-face ((,class :inherit markup-bold-face)))
@@ -7477,9 +7477,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(telega-button-active ((,class :box ,blue-intense-bg :background ,blue-intense-bg :foreground ,fg-main)))
     `(telega-button-highlight ((,class :inherit modus-themes-subtle-magenta)))
     `(telega-chat-prompt ((,class :inherit bold)))
-    `(telega-entity-type-code ((,class :inherit fixed-pitch)))
+    `(telega-entity-type-code ((,class :inherit modus-themes-fixed-pitch)))
     `(telega-entity-type-mention ((,class :foreground ,cyan)))
-    `(telega-entity-type-pre ((,class :inherit fixed-pitch)))
+    `(telega-entity-type-pre ((,class :inherit modus-themes-fixed-pitch)))
     `(telega-msg-heading ((,class :background ,bg-alt)))
     `(telega-msg-self-title ((,class :inherit bold)))
     `(telega-root-heading ((,class :inherit modus-themes-subtle-neutral)))
@@ -7488,9 +7488,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(telega-user-online-status ((,class :foreground ,cyan-active)))
     `(telega-username ((,class :foreground ,cyan-alt-other)))
     `(telega-webpage-chat-link ((,class :background ,bg-alt)))
-    `(telega-webpage-fixed ((,class :inherit fixed-pitch :height 0.85)))
+    `(telega-webpage-fixed ((,class :inherit modus-themes-fixed-pitch :height 0.85)))
     `(telega-webpage-header ((,class :inherit modus-themes-variable-pitch :height 1.3)))
-    `(telega-webpage-preformatted ((,class :inherit fixed-pitch :background ,bg-alt)))
+    `(telega-webpage-preformatted ((,class :inherit modus-themes-fixed-pitch :background ,bg-alt)))
     `(telega-webpage-subheader ((,class :inherit modus-themes-variable-pitch :height 1.15)))
 ;;;;; telephone-line
     `(telephone-line-accent-active ((,class :background ,fg-inactive :foreground ,bg-inactive)))
