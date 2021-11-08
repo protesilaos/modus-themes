@@ -496,7 +496,10 @@ this manual.
 :end:
 #+vindex: modus-themes-inhibit-reload
 
-Symbol: ~modus-themes-inhibit-reload~
+Brief: Toggle reloading of the active theme when an option is changed
+through the Customize UI.
+
+Symbol: ~modus-themes-inhibit-reload~ (=boolean= type)
 
 Possible values:
 
@@ -520,7 +523,10 @@ to user options to take effect ([[#h:3f3c3728-1b34-437d-9d0c-b110f5b161a9][Enabl
 :end:
 #+vindex: modus-themes-success-deuteranopia
 
-Symbol: ~modus-themes-success-deuteranopia~
+Brief: Toggle the use of blue instead of green in places which
+color-code green as "success" and red as "failure".
+
+Symbol: ~modus-themes-success-deuteranopia~ (=boolean= type)
 
 Possible values:
 
@@ -549,7 +555,9 @@ configured to meet the needs of users with deuteranopia via the option
 :end:
 #+vindex: modus-themes-bold-constructs
 
-Symbol: ~modus-themes-bold-constructs~
+Brief: Use bold for code syntax highlighting and related.
+
+Symbol: ~modus-themes-bold-constructs~ (=boolean= type)
 
 Possible values:
 
@@ -577,7 +585,9 @@ Advanced users may also want to configure the exact attributes of the
 :end:
 #+vindex: modus-themes-italic-constructs
 
-Symbol: ~modus-themes-italic-constructs~
+Brief: Use italics for code syntax highlighting and related.
+
+Symbol: ~modus-themes-italic-constructs~ (=boolean= type)
 
 Possible values:
 
@@ -603,7 +613,9 @@ Advanced users may also want to configure the exact attributes of the
 :end:
 #+vindex: modus-themes-syntax
 
-Symbol: ~modus-themes-syntax~
+Brief: Set the overall style of code syntax highlighting.
+
+Symbol: ~modus-themes-syntax~ (=choice= type, list of properties)
 
 Possible values are expressed as a list of properties (default is ~nil~ or
 an empty list).  The list can include any of the following symbols:
@@ -667,7 +679,10 @@ weight or italic text: ~modus-themes-bold-constructs~ and
 
 [ Revised as part of {{{development-version}}} ]
 
-Symbol: ~modus-themes-mixed-fonts~
+Brief: Toggle the use of monospaced fonts for spacing-sensitive
+constructs (affects font families).
+
+Symbol: ~modus-themes-mixed-fonts~ (=boolean= type)
 
 Possible values:
 
@@ -699,7 +714,9 @@ possible options are ~org-variable-pitch~ and ~mixed-pitch~.
 :end:
 #+vindex: modus-themes-links
 
-Symbol: ~modus-themes-links~
+Brief: Control the style of links to web pages, files, buffers...
+
+Symbol: ~modus-themes-links~ (=choice= type, list of properties)
 
 Possible values are expressed as a list of properties (default is ~nil~ or
 an empty list).  The list can include any of the following symbols:
@@ -770,7 +787,10 @@ their documentation strings.
 :end:
 #+vindex: modus-themes-prompts
 
-Symbol: ~modus-themes-prompts~
+Brief: Control the style of command prompts (e.g. minibuffer, shell, IRC
+clients).
+
+Symbol: ~modus-themes-prompts~ (=choice= type, list of properties)
 
 Possible values are expressed as a list of properties (default is ~nil~ or
 an empty list).  The list can include any of the following symbols:
@@ -826,7 +846,9 @@ In user configuration files the form may look like this:
 :end:
 #+vindex: modus-themes-mode-line
 
-Symbol: ~modus-themes-mode-line~
+Brief: Control the style of the mode lines.
+
+Symbol: ~modus-themes-mode-line~ (=choice= type, list of properties)
 
 Possible values, which can be expressed as a list of combinations of box
 effect, color, and border visibility:
@@ -924,7 +946,9 @@ as intended with all possible combinations of this user option.
 
 [ Part of {{{development-version}}} ]
 
-Symbol: ~modus-themes-mode-line-padding~
+Brief: Set the padding of the mode lines.
+
+Symbol: ~modus-themes-mode-line-padding~ (=natnum= type)
 
 Controls the exact width of the mode line's padding.  Possible values
 are positive integers.  The default value is =6=.
@@ -942,7 +966,9 @@ configured with the ~padded~ property.
 :end:
 #+vindex: modus-themes-tabs-accented
 
-Symbol: ~modus-themes-tabs-accented~
+Brief: Toggle accent colors for tabbed interfaces.
+
+Symbol: ~modus-themes-tabs-accented~ (=boolean= type)
 
 Possible values:
 
@@ -963,7 +989,9 @@ Centaur tabs package.
 :end:
 #+vindex: modus-themes-completions
 
-Symbol: ~modus-themes-completions~
+Brief: Set the overall style of completion framework interfaces.
+
+Symbol: ~modus-themes-completions~ (=choice= type)
 
 Possible values:
 
@@ -1008,7 +1036,10 @@ possibilities.
 :end:
 #+vindex: modus-themes-mail-citations
 
-Symbol: ~modus-themes-mail-citations~
+Brief: Set the overall style of citations/quotes when composing
+emails.
+
+Symbol: ~modus-themes-mail-citations~ (=choice= type)
 
 Possible values:
 
@@ -1037,7 +1068,9 @@ not touch.
 :end:
 #+vindex: modus-themes-fringes
 
-Symbol: ~modus-themes-fringes~
+Brief: Control the overall coloration of the fringes.
+
+Symbol: ~modus-themes-fringes~ (=choice= type)
 
 Possible values:
 
@@ -1063,7 +1096,10 @@ names imply.
 
 [ Updated as part of {{{development-version}}} ]
 
-Symbol: ~modus-themes-lang-checkers~
+Brief: Control the style of in-buffer warnings and errors produced by
+spell checkers, code linters, and the like.
+
+Symbol: ~modus-themes-lang-checkers~ (=choice= type, list of properties)
 
 Possible values are expressed as a list of properties (default is ~nil~ or
 an empty list).  The list can include any of the following symbols:
@@ -1129,7 +1165,9 @@ respectively.
 :end:
 #+vindex: modus-themes-hl-line
 
-Symbol: ~modus-themes-hl-line~
+Brief: Control the style of the current line of ~hl-line-mode~.
+
+Symbol: ~modus-themes-hl-line~ (=choice= type, list of properties)
 
 Possible values are expressed as a list of properties (default is ~nil~ or
 an empty list).  The list can include any of the following symbols:
@@ -1181,7 +1219,9 @@ This style affects several packages that enable ~hl-line-mode~, such as
 :end:
 #+vindex: modus-themes-subtle-line-numbers
 
-Symbol: ~modus-themes-subtle-line-numbers~
+Brief: Toggle subtle line numbers.
+
+Symbol: ~modus-themes-subtle-line-numbers~ (=boolean= type)
 
 Possible value:
 
@@ -1212,7 +1252,9 @@ updated to accommodate this aesthetic.
 
 [ Introduced as part of {{{development-version}}} ]
 
-Symbol: ~modus-themes-intense-markup~
+Brief: Toggle intense style for inline code and related markup.
+
+Symbol: ~modus-themes-intense-markup~ (=boolean= type)
 
 Possible value:
 
@@ -1234,7 +1276,10 @@ background and foreground color combination instead.
 :end:
 #+vindex: modus-themes-paren-match
 
-Symbol: ~modus-themes-paren-match~
+Brief: Control the style of matching delimiters produced by
+~show-paren-mode~.
+
+Symbol: ~modus-themes-paren-match~ (=choice= type, list of properties)
 
 Possible values are expressed as a list of properties (default is ~nil~ or
 an empty list).  The list can include any of the following symbols:
@@ -1281,7 +1326,9 @@ This customization variable affects the built-in ~show-paren-mode~ and the
 :end:
 #+vindex: modus-themes-region
 
-Symbol: ~modus-themes-region~
+Brief: Control the style of the region.
+
+Symbol: ~modus-themes-region~ (=choice= type, list of properties)
 
 Possible values are expressed as a list of properties (default is ~nil~ or
 an empty list).  The list can include any of the following symbols:
@@ -1327,7 +1374,9 @@ In user configuration files the form may look like this:
 :end:
 #+vindex: modus-themes-diffs
 
-Symbol: ~modus-themes-diffs~
+Bried: Set the overall style of diffs.
+
+Symbol: ~modus-themes-diffs~ (=choice= type)
 
 Possible values:
 
@@ -1373,7 +1422,9 @@ interest of backward compatibility.
 :end:
 #+vindex: modus-themes-org-blocks
 
-Symbol: ~modus-themes-org-blocks~
+Brief: Set the overall style of Org code blocks, quotes, and the like.
+
+Symbol: ~modus-themes-org-blocks~ (=choice= type)
 
 Possible values:
 
@@ -1416,7 +1467,10 @@ and ~rainbow~.  Those will continue to work as they are aliases for
 
 [ Updated as part of {{{development-version}}} ]
 
-Symbol: ~modus-themes-org-agenda~
+Brief: Control the style of the Org agenda.  Multiple parameters are
+available, each with its own options.
+
+Symbol: ~modus-themes-org-agenda~ (=alist= type, multiple styles)
 
 This is an alist that accepts a =(key . value)= combination.  Some values
 are specified as a list.  Here is a sample, followed by a description of
@@ -1602,7 +1656,10 @@ Putting it all together, the alist can look like this:
 :end:
 #+vindex: modus-themes-headings
 
-Symbol: ~modus-themes-headings~
+Brief: Control the style of headings.  This can be particularised for
+each level of heading (e.g. Org has eight levels).
+
+Symbol: ~modus-themes-headings~ (=alist= type, multiple properties)
 
 This is an alist that accepts a =(key . list-of-values)= combination.  The
 key is either a number, representing the heading's level or ~t~, which
@@ -1715,7 +1772,9 @@ others, such as ~org-fontify-done-headline~.
 :end:
 #+vindex: modus-themes-scale-headings
 
-Symbol: ~modus-themes-scale-headings~
+Brief: Toggle the scaling of headings.
+
+Symbol: ~modus-themes-scale-headings~ (=boolean= type)
 
 Possible values:
 
@@ -1733,6 +1792,17 @@ main text.  This is noticeable in modes like Org, Markdown, and Info.
 :description: Specify rate of increase for scaled headings
 :custom_id: h:6868baa1-beba-45ed-baa5-5fd68322ccb3
 :end:
+
+Brief: Specify the height for individual heading scales.
+
+Symbols (all are =number= type):
+
++ ~modus-themes-scale-1~
++ ~modus-themes-scale-2~
++ ~modus-themes-scale-3~
++ ~modus-themes-scale-4~
++ ~modus-themes-scale-title~
++ ~modus-themes-scale-small~
 
 In addition to the toggle for enabling scaled headings, users can also
 specify a number of their own.
@@ -1805,7 +1875,10 @@ size of the heading, but not of keywords that were added to it, like
 :end:
 #+vindex: modus-themes-variable-pitch-ui
 
-Symbol: ~modus-themes-variable-pitch-ui~
+Brief: Toggle the use of proportionately spaced (~variable-pitch~) fonts
+in the User Interface.
+
+Symbol: ~modus-themes-variable-pitch-ui~ (=boolean= type)
 
 Possible values:
 
@@ -1832,7 +1905,10 @@ is done by assigning the ~variable-pitch~ face to the relevant items.
 :end:
 #+vindex: modus-themes-variable-pitch-headings
 
-Symbol: ~modus-themes-variable-pitch-headings~
+Brief: Toggle the use of proportionately spaced (~variable-pitch~) fonts
+in headings.
+
+Symbol: ~modus-themes-variable-pitch-headings~ (=boolean= type)
 
 Possible values:
 
