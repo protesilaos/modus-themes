@@ -392,7 +392,8 @@ without any further tweaks.  By default, all customization options are
 set to nil, unless otherwise noted in this manual.
 
 Remember that all customization options must be evaluated before loading
-a theme ([[#h:3f3c3728-1b34-437d-9d0c-b110f5b161a9][Enable and load]]).
+a theme ([[#h:3f3c3728-1b34-437d-9d0c-b110f5b161a9][Enable and load]]).  If the theme is already active, it must be
+reloaded for changes in user options to come into force.
 
 Below is a summary of what you will learn in the subsequent sections of
 this manual.
@@ -507,6 +508,9 @@ interfaces or with {{{kbd(M-x customize-set-variable)}}} will not reload the
 currently active Modus theme.
 
 Enable this behaviour by setting this variable to ~nil~.
+
+Regardless of this option, the active theme must be reloaded for changes
+to user options to take effect ([[#h:3f3c3728-1b34-437d-9d0c-b110f5b161a9][Enable and load]]).
 
 ** Option for color-coding success state (deuteranopia)
 :properties:
