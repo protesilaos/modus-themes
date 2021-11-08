@@ -345,7 +345,7 @@ package declaration of the themes.
 
 The reason we recommend ~load-theme~ instead of the other option of
 ~enable-theme~ is that the former does a kind of "reset" on the face
-specs.  It quite literally loads (or re-loads) the theme.  Whereas the
+specs.  It quite literally loads (or reloads) the theme.  Whereas the
 latter simply puts an already loaded theme at the top of the list of
 enabled items, re-using whatever state was last loaded.
 
