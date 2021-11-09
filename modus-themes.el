@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.6.0
-;; Last-Modified: <2021-11-05 10:36:21 +0200>
+;; Last-Modified: <2021-11-09 07:45:15 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -4134,6 +4134,7 @@ as when they are declared in the `:config' phase)."
 (defun modus-themes-load-operandi ()
   "Load `modus-operandi' and disable `modus-vivendi'.
 Also run `modus-themes-after-load-theme-hook'."
+  (interactive)
   (disable-theme 'modus-vivendi)
   (load-theme 'modus-operandi t)
   (run-hooks 'modus-themes-after-load-theme-hook))
@@ -4142,6 +4143,7 @@ Also run `modus-themes-after-load-theme-hook'."
 (defun modus-themes-load-vivendi ()
   "Load `modus-vivendi' and disable `modus-operandi'.
 Also run `modus-themes-after-load-theme-hook'."
+  (interactive)
   (disable-theme 'modus-operandi)
   (load-theme 'modus-vivendi t)
   (run-hooks 'modus-themes-after-load-theme-hook))
