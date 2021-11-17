@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.6.0
-;; Last-Modified: <2021-11-14 13:58:52 +0200>
+;; Last-Modified: <2021-11-17 17:15:52 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -4833,10 +4833,10 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(consult-preview-error ((,class :inherit modus-themes-intense-red)))
     `(consult-preview-line ((,class :background ,bg-hl-alt-intense)))
 ;;;;; corfu
-    `(corfu-background ((,class :background ,bg-alt)))
     `(corfu-current ((,class :inherit bold :background ,cyan-subtle-bg)))
     `(corfu-bar ((,class :background ,fg-alt)))
     `(corfu-border ((,class :background ,bg-active)))
+    `(corfu-default ((,class :background ,bg-alt)))
 ;;;;; counsel
     `(counsel-active-mode ((,class :foreground ,magenta-alt-other)))
     `(counsel-application-name ((,class :foreground ,red-alt-other)))
