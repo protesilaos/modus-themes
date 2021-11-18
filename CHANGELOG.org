@@ -15,6 +15,236 @@ For further details, please consult these additional resources:
 + Manual :: <https://protesilaos.com/emacs/modus-themes>
 + Screenshots :: <https://protesilaos.com/emacs/modus-themes-pictures>
 
+* 1.7.0
+
+#+begin_src text
+Modus themes version 1.7.0
+
+By Protesilaos Stavrou <info@protesilaos.com> on 2021-11-18
+
+The present entry records the changes made to the project since the
+release of version 1.6.0 on 2021-09-29.  There have been more than 60
+commits since then.
+
+Every modification pertaining to colour combinations referenced herein
+is implemented in accordance with the primary accessibility objective of
+the themes for a minimum contrast ratio of 7:1 between background and
+foreground values in their given combination (the WCAG AAA standard).
+Edits also account for colour-coding that is optimised for the needs of
+users with red-green colour deficiency (deuteranopia).
+
+To access the URL of the manual visit this web page:
+<https://protesilaos.com/emacs/modus-themes>.  Or read it from Emacs by
+evaluating this form:
+
+    (info "(modus-themes) Top")
+
+The themes are built into Emacs version 28 (next stable release), and
+are available on GNU ELPA as well as other archives.  This release is
+the first one that is included with Emacs 29, or else the 'master'
+branch in emacs.git.
+
+
+Customisation options
+=====================
+
++ The 'modus-themes-no-mixed-fonts' has been deprecated and replaced by
+  the 'modus-themes-mixed-fonts'.  This is a breaking change for users
+  who want to use "mixed fonts": they must set the new variable to
+  non-nil.
+
+  As the name implies, the new variable changes the meaning of the
+  feature to make it opt-in by default.  This is consistent with the
+  principle of least surprise, as users may not know why some fonts look
+  different than others in certain cases.
+
+  Thanks to Christian Tietze for clarifying the doc string of this new
+  user option in merge request 51:
+  <https://gitlab.com/protesilaos/modus-themes/-/merge_requests/51>.
+
+  For context, "mixed fonts" refers to a design where spacing-sensitive
+  constructs, such as code blocks and Org tables, inherit from the
+  'fixed-pitch' face to remain monospaced (and properly aligned) at all
+  times.  Depending on the user's configurations, the 'fixed-pitch' face
+  may not use the typeface that the user expects.
+
+  The manual provides information on how to set the desired fonts by
+  editing the 'default', 'fixed-pitch', and 'variable-pitch' faces.
+
++ The new 'modus-themes-mode-line-padding' can be used to control the
+  apparent padding of the mode line when the user option
+  'modus-themes-mode-line' includes the 'padded' property.  The padding
+  must be a positive integer (otherwise the code would be needlessly
+  complex to guard against values that make the mode line look awkward,
+  like anything lower than -3 or maybe even -2).
+
+  Thanks to Guilherme Semente and Manuel Uberti for the feedback in
+  issue 245: <https://gitlab.com/protesilaos/modus-themes/-/issues/245>.
+
+  Note that the out-of-the-box style of the themes has a padding of 1
+  (technically a ':line-width' of 1 for the ':box' attribute), whereas
+  the default style of Emacs has it at -1.  This is a design choice to
+  avoid an overlap between the outer boundaries of a font's glyphs and
+  the borders of the mode line, when using certain common typefaces at
+  various point sizes.  Such an overlap can hinder readability.
+
+  The manual contains a new Do-It-Yourself (DIY) section with detailed
+  code samples on how to apply a negative value.
+
++ The new 'modus-themes-intense-markup' option can be set to non-nil to
+  make constructs such as inline code and verbatim text more colourful.
+  This has a general utility, though its consideration was prompted by a
+  phenomenon reported by Stefan Kangas in issue 238 where the overlay of
+  the 'hl-line-face' overrides the subtle background these constructs
+  use and can thus make them virtually indistinguishable from ordinary
+  text: <https://gitlab.com/protesilaos/modus-themes/-/issues/238>.
+
+  Such is the standard behaviour of 'hl-line-mode' and there is nothing
+  a theme can (or rather "should") do about it.  Thanks to Stefan Kangas
+  for the feedback.
+
++ The 'modus-themes-headings' option can now accept and apply an exact
+  font weight such as 'semibold' or 'light'.  (The list of available
+  weights is the value of the 'modus-themes--heading-weights' internal
+  variable.)  This supersedes the now-deprecated 'no-bold' property:
+  'no-bold' is henceforth understood as the presence of a 'regular'
+  weight.
+
+  Recall that this user option is an alist and can be used to target
+  heading levels individually, which further reinforces the utility of
+  this new property.
+
+  Thanks to Christian Tietze for suggesting this idea in issue 248:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/248>.  And
+  thanks to Daniel Mendler for refining its implementation in commit
+  54bfd62, which was sent as a patch file (yes, we accept those and I
+  actually prefer them over a web app's UI).
+
++ The 'modus-themes-org-agenda' has seen improvements to its 'event' key
+  (this is an alist that has multiple keys).  It now accepts a 'varied'
+  property which differentiates between (i) plain timestamp entries and
+  (ii) entries that are generated from either the diary or a symbolic
+  expression.  The 'varied' property combines with the other available
+  properties to particularise their effects.  Consult the doc string or
+  the manual for the technicalities.
+
+  Thanks to Gustavo Barros for the detailed commentary in issue 241:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/241>.
+
++ The 'modus-themes-lang-checkers' now accepts a 'faint' property.  This
+  has the effect of toning down the colours in use.  By default, the
+  only colour is that of the underline, though more can be added by
+  combining the properties accepted by this user option.  Consult its
+  doc string or the manual for further details.
+
+  Thanks to Morgan Smith for suggesting the idea in issue 239:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/239>.
+
+
+Add support for new packages or face groups
+===========================================
+
++ 'company-tooltip-deprecated' face.  Thanks to Roman Rudakov for the
+   feedback in issue 247: <https://gitlab.com/protesilaos/modus-themes/-/issues/247>.
+
++ 'corfu-default' face.  Thanks to Daniel Mendler (Corfu's developer)
+  for the feedback in issue 254:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/254>.
+
++ 'image-dired' package (Emacs 29).  Thanks to Stefan Kangas for making it
+  happen in emacs.git and for the feedback in issue 250:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/250>.
+
++ 'nano-modeline' package.
+
++ 'vertico-quick' package.  Thanks to Nicolas De Jaeghere for the
+  contribution in merge request 48:
+  <https://gitlab.com/protesilaos/modus-themes/-/merge_requests/51>.
+
+
+Changes to existing faces or face groups
+========================================
+
++ Added support for the new Org agenda faces that improve the
+  contextuality of various views.  We implemented those upstream for Org
+  version 9.5 in close cooperation with Gustavo Barros.  Thanks to
+  Gustavo for the detailed feedback in issue 241:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/241>.  The
+  thread about the patch upstream:
+  <https://list.orgmode.org/87lf7q7gpq.fsf@protesilaos.com/>
+
++ Refined Org agenda date faces in the interest of consistency and in
+  accordance with the aforementioned change.  Thanks again to Gustavo
+  Barros for the discussion in issue 241.
+
++ Applied the 'shadow' face more consistently across all contexts where
+  only a subtle foreground value is expected.  This design choice makes
+  it possible for users to manually edit the foreground colour of
+  'shadow' to something even more subtle than the 'fg-alt' palette
+  variable we use, which maps to a gray colour (e.g. they could use
+  "gray50").
+
++ Implemented a subtle background colour to the 'widget-inactive' face.
+  This makes it easier to discern inactive buttons, checkboxes, and the
+  like, in contexts such as the Customize User Interface.  Thanks to
+  Stefan Kangas for the feedback in issue 242:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/242>.
+
++ Tweaked 'file-name-shadow' to also use italics (inherit from the
+  'italic' face) in order to be more easy to distinguish it from
+  ordinary text in the minibuffer.
+
+  Recall that the manual documents the meaning of inheriting from the
+  'bold' and 'italic' faces instead of hardcoding a bold weight and an
+  italic slant, respectively.  In short: users can change the weight to
+  what they want (e.g. semibold) and/or use distinct font families.
+
++ Amplified the style of Version Control (VC) warnings and errors to let
+  them draw more attention to themselves (because these indicators need
+  to be acted upon).
+
++ Recoloured the 'custom-group-tag' face to make it fit better in its
+  context and be consistent with the rest of the themes' established
+  patterns.
+
++ Made marks for selection in Dired, Ibuffer, and related, conform with
+  the 'modus-themes-success-deuteranopia' option.  This means that they
+  use blue colours when the option is non-nil, instead of their default
+  shades of green.
+
++ Adjusted the box width of key bindings for Emacs 28 or higher.  They
+  should no longer cause any alignment issues.  This style is now used
+  throughout the themes, including in transient views (e.g. Magit) which
+  were the exception before.  Thanks to Manuel Uberti and Kevin Fleming
+  for the feedback in issue 232:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/232>.
+
+
+Miscellaneous
+=============
+
++ Wrote a brief description of every user option in the manual.  Also
+  covered its type, as in boolean, alist, et cetera.
+
++ Corrected the mode line border width for one combination of properties
+  in the 'modus-themes-mode-line' option.  This should now have the same
+  height as all others:
+
+      (setq modus-themes-mode-line '(accented borderless))
+
++ Ensured that mode line attributes would not be set to nil, but kept at
+  an 'unspecified' value instead, where relevant.  This avoids problems
+  with [faulty] code that unconditionally depends on something that does
+  not exist, as in the following while ':box' is nil:
+
+      (face-attribute 'mode-line :box)
+
++ Expanded, reworded, or otherwise improved the manual, based on the
+  aforementioned.
+
+Thanks once again to everyone involved!
+#+end_src
+
 * 1.6.0
 
 #+begin_src text

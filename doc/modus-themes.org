@@ -5,9 +5,9 @@
 #+options: ':t toc:nil author:t email:t num:t
 #+startup: content
 
-#+macro: stable-version 1.6.0
-#+macro: release-date 2021-09-29
-#+macro: development-version 1.7.0-dev
+#+macro: stable-version 1.7.0
+#+macro: release-date 2021-11-18
+#+macro: development-version 1.8.0-dev
 #+macro: file @@texinfo:@file{@@$1@@texinfo:}@@
 #+macro: space @@texinfo:@: @@
 #+macro: kbd @@texinfo:@kbd{@@$1@@texinfo:}@@
@@ -677,8 +677,6 @@ weight or italic text: ~modus-themes-bold-constructs~ and
 :end:
 #+vindex: modus-themes-mixed-fonts
 
-[ Revised as part of {{{development-version}}} ]
-
 Brief: Toggle the use of monospaced fonts for spacing-sensitive
 constructs (affects font families).
 
@@ -944,8 +942,6 @@ as intended with all possible combinations of this user option.
 :end:
 #+vindex: modus-themes-mode-line-padding
 
-[ Part of {{{development-version}}} ]
-
 Brief: Set the padding of the mode lines.
 
 Symbol: ~modus-themes-mode-line-padding~ (=natnum= type)
@@ -1093,8 +1089,6 @@ names imply.
 :custom_id: h:4b13743a-8ebf-4d2c-a043-cceba10b1eb4
 :end:
 #+vindex: modus-themes-lang-checkers
-
-[ Updated as part of {{{development-version}}} ]
 
 Brief: Control the style of in-buffer warnings and errors produced by
 spell checkers, code linters, and the like.
@@ -1249,8 +1243,6 @@ updated to accommodate this aesthetic.
 :custom_id: h:9d9a4e64-99ac-4018-8f66-3051b9c43fd7
 :end:
 #+vindex: modus-themes-intense-markup
-
-[ Introduced as part of {{{development-version}}} ]
 
 Brief: Toggle intense style for inline code and related markup.
 
@@ -1465,8 +1457,6 @@ and ~rainbow~.  Those will continue to work as they are aliases for
 :end:
 #+vindex: modus-themes-org-agenda
 
-[ Updated as part of {{{development-version}}} ]
-
 Brief: Control the style of the Org agenda.  Multiple parameters are
 available, each with its own options.
 
@@ -1680,7 +1670,6 @@ Properties:
 + ~overline~
 + ~background~
 + ~monochrome~
-+ ~no-bold~ [ deprecated as part of {{{development-version}}} ; check below ]
 + A font weight, which must be supported by the underlying typeface:
   - ~thin~
   - ~ultralight~
@@ -1694,7 +1683,8 @@ Properties:
   - ~heavy~
   - ~extrabold~
   - ~ultrabold~
-  
++ ~no-bold~
+
 By default (a ~nil~ value for this variable), all headings have a bold
 typographic weight and use a desaturated text color.
 
@@ -3426,7 +3416,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + ido-mode
 + iedit
 + iflipb
-+ image-dired [ part of {{{development-version}}} ]
++ image-dired
 + imenu-list
 + indium
 + info
@@ -3468,7 +3458,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + mu4e
 + mu4e-conversation
 + multiple-cursors
-+ nano-modeline [ part of {{{development-version}}} ]
++ nano-modeline
 + neotree
 + no-emoji
 + notmuch
