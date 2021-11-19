@@ -1,6 +1,6 @@
 #+TITLE: Change log of the Modus Themes for GNU Emacs
 #+AUTHOR: Protesilaos Stavrou
-#+EMAIL: public@protesilaos.com
+#+EMAIL: info@protesilaos.com
 #+OPTIONS: ':nil toc:nil num:nil author:nil email:nil
 
 This document contains the release notes that are included in each
