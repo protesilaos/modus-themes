@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-11-18 12:28:22 +0200>
+;; Last-Modified: <2021-11-20 13:12:13 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -3506,8 +3506,10 @@ weight.  Optional UL applies an underline."
            (t
             'unspecified))
           :background
-          (unless (memq 'underline-today properties)
-            bg)
+          (cond
+           ((memq 'underline-today properties)
+            'unspecified)
+           ((or bg 'unspecified)))
           :foreground
           (cond
            ((and (memq 'grayscale properties)
