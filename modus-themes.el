@@ -6802,7 +6802,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                                 bg-alt green-nuanced-bg)
                         :extend t)))
     `(org-column ((,class :background ,bg-alt)))
-    `(org-column-title ((,class :inherit bold :underline t :background ,bg-alt)))
+    `(org-column-title ((,class :inherit (modus-themes-fixed-pitch bold) :underline t :background ,bg-alt)))
     `(org-date ((,class :inherit ,(if modus-themes-mixed-fonts
                                       '(button fixed-pitch)
                                     'button)
