@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-11-20 13:12:13 +0200>
+;; Last-Modified: <2021-11-20 13:15:54 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -3163,7 +3163,8 @@ differ in overall intensity.  FAINTFG is a nuanced color."
                  (memq 'intense modus-themes-lang-checkers))
             intensebg)
            ((memq 'background modus-themes-lang-checkers)
-            subtlebg))
+            subtlebg)
+           ('unspecified))
           :foreground
           (cond
            ((and (memq 'faint modus-themes-lang-checkers)
@@ -3175,7 +3176,8 @@ differ in overall intensity.  FAINTFG is a nuanced color."
            ((memq 'intense modus-themes-lang-checkers)
             intensefg)
            ((memq 'text-also modus-themes-lang-checkers)
-            subtlefg)))))
+            subtlefg)
+           ('unspecified)))))
 
 (defun modus-themes--prompt (mainfg intensefg grayfg subtlebg intensebg intensebg-fg subtlebggray intensebggray)
   "Conditional use of colors for prompts.
