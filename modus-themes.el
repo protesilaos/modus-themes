@@ -6801,8 +6801,10 @@ by virtue of calling either of `modus-themes-load-operandi' and
                         ,@(modus-themes--markup fg-special-mild green-alt-other
                                                 bg-alt green-nuanced-bg)
                         :extend t)))
-    `(org-column ((,class :background ,bg-alt)))
-    `(org-column-title ((,class :inherit (modus-themes-fixed-pitch bold) :underline t :background ,bg-alt)))
+    `(org-column ((,class :inherit (modus-themes-fixed-pitch default)
+                          :background ,bg-alt)))
+    `(org-column-title ((,class :inherit (bold modus-themes-fixed-pitch default)
+                                :underline t :background ,bg-alt)))
     `(org-date ((,class :inherit ,(if modus-themes-mixed-fonts
                                       '(button fixed-pitch)
                                     'button)
