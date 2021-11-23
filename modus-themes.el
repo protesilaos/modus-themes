@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-11-20 13:15:54 +0200>
+;; Last-Modified: <2021-11-23 09:09:11 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -6272,7 +6272,12 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(magit-blame-margin ((,class :inherit (magit-blame-highlight modus-themes-reset-hard))))
     `(magit-blame-name ((,class :foreground ,magenta-alt-other)))
     `(magit-blame-summary ((,class :foreground ,cyan-alt-other)))
-    `(magit-branch-current ((,class :foreground ,blue-alt-other :box t)))
+    ;; ;; NOTE 2021-11-23: we do not set the `magit-branch-current'
+    ;; ;; because its definition checks if the :box attribute can be set
+    ;; ;; and if not, it uses :inverse-video.  Useful for terminal
+    ;; ;; emulators.
+    ;;
+    ;; `(magit-branch-current ((,class :foreground ,blue-alt-other :box t)))
     `(magit-branch-local ((,class :foreground ,blue-alt)))
     `(magit-branch-remote ((,class :foreground ,magenta-alt)))
     `(magit-branch-remote-head ((,class :foreground ,magenta-alt-other :box t)))
