@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-11-27 07:10:59 +0200>
+;; Last-Modified: <2021-11-27 22:47:10 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -5279,28 +5279,28 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(equake-tab-active ((,class :background ,fg-alt :foreground ,bg-alt)))
     `(equake-tab-inactive ((,class :foreground ,fg-inactive)))
 ;;;;; erc
-    `(erc-action-face ((,class :inherit bold :foreground ,cyan)))
+    `(erc-action-face ((,class :foreground ,cyan-alt-other)))
     `(erc-bold-face ((,class :inherit bold)))
     `(erc-button ((,class :inherit button)))
     `(erc-command-indicator-face ((,class :inherit bold :foreground ,cyan-alt)))
-    `(erc-current-nick-face ((,class :foreground ,magenta-alt-other)))
+    `(erc-current-nick-face ((,class :inherit bold :foreground ,red-alt)))
     `(erc-dangerous-host-face ((,class :inherit modus-themes-intense-red)))
     `(erc-direct-msg-face ((,class :foreground ,magenta)))
     `(erc-error-face ((,class :inherit bold :foreground ,red)))
-    `(erc-fool-face ((,class :foreground ,fg-inactive)))
+    `(erc-fool-face ((,class :inherit shadow)))
     `(erc-header-line ((,class :background ,bg-header :foreground ,fg-header)))
-    `(erc-input-face ((,class :foreground ,fg-special-calm)))
+    `(erc-input-face ((,class :foreground ,magenta)))
     `(erc-inverse-face ((,class :inherit erc-default-face :inverse-video t)))
-    `(erc-keyword-face ((,class :inherit bold :foreground ,magenta-alt)))
+    `(erc-keyword-face ((,class :inherit bold :foreground ,magenta-alt-other)))
     `(erc-my-nick-face ((,class :inherit bold :foreground ,magenta)))
     `(erc-my-nick-prefix-face ((,class :inherit erc-my-nick-face)))
     `(erc-nick-default-face ((,class :inherit bold :foreground ,blue)))
-    `(erc-nick-msg-face ((,class :inherit bold :foreground ,green)))
+    `(erc-nick-msg-face ((,class :inherit warning)))
     `(erc-nick-prefix-face ((,class :inherit erc-nick-default-face)))
-    `(erc-notice-face ((,class :foreground ,fg-unfocused)))
-    `(erc-pal-face ((,class :inherit bold :foreground ,red-alt)))
+    `(erc-notice-face ((,class :inherit font-lock-comment-face)))
+    `(erc-pal-face ((,class :inherit bold :foreground ,magenta-alt)))
     `(erc-prompt-face ((,class :inherit modus-themes-prompt)))
-    `(erc-timestamp-face ((,class :foreground ,blue-nuanced-fg)))
+    `(erc-timestamp-face ((,class :foreground ,cyan)))
     `(erc-underline-face ((,class :underline t)))
     `(bg:erc-color-face0 ((,class :background "white")))
     `(bg:erc-color-face1 ((,class :background "black")))
