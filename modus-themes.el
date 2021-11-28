@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-11-28 10:53:42 +0200>
+;; Last-Modified: <2021-11-28 11:33:51 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -7136,16 +7136,19 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(rainbow-delimiters-mismatched-face ((,class :inherit (bold modus-themes-refine-yellow))))
     `(rainbow-delimiters-unmatched-face ((,class :inherit (bold modus-themes-refine-red))))
 ;;;;; rcirc
-    `(rcirc-bright-nick ((,class :inherit bold :foreground ,magenta-alt)))
+    `(rcirc-bright-nick ((,class :inherit bold :foreground ,magenta-intense)))
     `(rcirc-dim-nick ((,class :inherit shadow)))
+    `(rcirc-monospace-text ((,class :inherit fixed-pitch)))
     `(rcirc-my-nick ((,class :inherit bold :foreground ,magenta)))
-    `(rcirc-nick-in-message ((,class :foreground ,magenta-alt-other)))
-    `(rcirc-nick-in-message-full-line ((,class :inherit bold :foreground ,fg-special-mild)))
-    `(rcirc-other-nick ((,class :inherit bold :foreground ,fg-special-cold)))
+    `(rcirc-nick-in-message ((,class :inherit bold :foreground ,red-alt)))
+    `(rcirc-nick-in-message-full-line ((,class :inherit bold :foreground ,cyan-alt-other)))
+    `(rcirc-other-nick ((,class :inherit bold :foreground ,blue)))
     `(rcirc-prompt ((,class :inherit modus-themes-prompt)))
-    `(rcirc-server ((,class :foreground ,fg-unfocused)))
-    `(rcirc-timestamp ((,class :foreground ,blue-nuanced-fg)))
-    `(rcirc-url ((,class :foreground ,blue :underline t)))
+    `(rcirc-server ((,class :inherit shadow)))
+    `(rcirc-timestamp ((,class :foreground ,cyan)))
+    `(rcirc-track-keyword ((,class :inherit bold)))
+    `(rcirc-track-nick ((,class :inherit bold :foreground ,red-active)))
+    `(rcirc-url ((,class :inherit link)))
 ;;;;; recursion-indicator
     `(recursion-indicator-general ((,class :foreground ,blue-active)))
     `(recursion-indicator-minibuffer ((,class :foreground ,red-active)))
