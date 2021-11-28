@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-11-27 22:47:10 +0200>
+;; Last-Modified: <2021-11-28 10:53:42 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -5285,7 +5285,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(erc-command-indicator-face ((,class :inherit bold :foreground ,cyan-alt)))
     `(erc-current-nick-face ((,class :inherit bold :foreground ,red-alt)))
     `(erc-dangerous-host-face ((,class :inherit modus-themes-intense-red)))
-    `(erc-direct-msg-face ((,class :foreground ,magenta)))
+    `(erc-direct-msg-face ((,class :foreground ,fg-special-warm)))
     `(erc-error-face ((,class :inherit bold :foreground ,red)))
     `(erc-fool-face ((,class :inherit shadow)))
     `(erc-header-line ((,class :background ,bg-header :foreground ,fg-header)))
