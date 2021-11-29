@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-11-28 11:33:51 +0200>
+;; Last-Modified: <2021-11-29 19:21:17 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -3734,8 +3734,9 @@ property."
             :overline line
             :underline line
             :distant-foreground
-            (when (memq 'moody modus-themes-mode-line)
-              fg-distant)))))
+            (if (memq 'moody modus-themes-mode-line)
+                fg-distant
+              'unspecified)))))
 
 (defun modus-themes--diff
     (fg-only-bg fg-only-fg mainbg mainfg altbg altfg &optional deuteranbg deuteranfg  bg-only-fg)
