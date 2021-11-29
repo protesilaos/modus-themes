@@ -4724,10 +4724,10 @@ Author/maintainer
 Contributions to code or documentation
      Anders Johansson, Basil L. Contovounesios, Björn Lindström, Carlo
      Zancanaro, Christian Tietze, Daniel Mendler, Eli Zaretskii, Fritz
-     Grabo, Kévin Le Gouguec, Kostadin Ninev, Madhavan Krishnan, Markus
-     Beppler, Matthew Stevenson, Mauro Aranda, Nicolas De Jaeghere,
-     Philip Kaludercic, Rudolf Adamkovič, Stephen Gildea, Shreyas
-     Ragavan, Stefan Kangas, Vincent Murphy, Xinglu Chen.
+     Grabo, Illia Ostapyshyn, Kévin Le Gouguec, Kostadin Ninev, Madhavan
+     Krishnan, Markus Beppler, Matthew Stevenson, Mauro Aranda, Nicolas
+     De Jaeghere, Philip Kaludercic, Rudolf Adamkovič, Stephen Gildea,
+     Shreyas Ragavan, Stefan Kangas, Vincent Murphy, Xinglu Chen.
 
 Ideas and user feedback
      Aaron Jensen, Adam Porter, Adam Spiers, Adrian Manea, Alex Griffin,
@@ -5537,12 +5537,12 @@ Node: Sources of the themes185916
 Node: Issues you can help with186552
 Node: Patches require copyright assignment to the FSF187752
 Node: Acknowledgements190047
-Node: Meta192844
-Node: GNU Free Documentation License195008
-Node: Indices220360
-Node: Function index220539
-Node: Variable index221776
-Node: Concept index224207
+Node: Meta192862
+Node: GNU Free Documentation License195026
+Node: Indices220378
+Node: Function index220557
+Node: Variable index221794
+Node: Concept index224225
 
 End Tag Table
 
