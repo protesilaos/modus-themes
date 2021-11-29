@@ -4621,11 +4621,11 @@ The Modus themes are a collective effort.  Every bit of work matters.
 
 + Contributions to code or documentation :: Anders Johansson, Basil
   L.{{{space()}}} Contovounesios, Björn Lindström, Carlo Zancanaro, Christian
-  Tietze, Daniel Mendler, Eli Zaretskii, Fritz Grabo, Kévin Le Gouguec,
-  Kostadin Ninev, Madhavan Krishnan, Markus Beppler, Matthew Stevenson,
-  Mauro Aranda, Nicolas De Jaeghere, Philip Kaludercic, Rudolf
-  Adamkovič, Stephen Gildea, Shreyas Ragavan, Stefan Kangas, Vincent
-  Murphy, Xinglu Chen.
+  Tietze, Daniel Mendler, Eli Zaretskii, Fritz Grabo, Illia Ostapyshyn,
+  Kévin Le Gouguec, Kostadin Ninev, Madhavan Krishnan, Markus Beppler,
+  Matthew Stevenson, Mauro Aranda, Nicolas De Jaeghere, Philip
+  Kaludercic, Rudolf Adamkovič, Stephen Gildea, Shreyas Ragavan, Stefan
+  Kangas, Vincent Murphy, Xinglu Chen.
 
 + Ideas and user feedback :: Aaron Jensen, Adam Porter, Adam Spiers,
   Adrian Manea, Alex Griffin, Alex Peitsinis, Alexey Shmalko, Alok
