@@ -515,7 +515,7 @@ Enable this behaviour by setting this variable to ~nil~.
 Regardless of this option, the active theme must be reloaded for changes
 to user options to take effect ([[#h:3f3c3728-1b34-437d-9d0c-b110f5b161a9][Enable and load]]).
 
-** Option for color-coding success state (deuteranopia)
+** Option for color-coding success state
 :properties:
 :alt_title: Success' color-code
 :description: Toggle blue color for success or done states
@@ -1151,7 +1151,7 @@ To disable fringe indicators for Flymake or Flycheck, refer to variables
 ~flymake-fringe-indicator-position~ and ~flycheck-indication-mode~,
 respectively.
 
-** Option for line highlighting (hl-line-mode)
+** Option for line highlighting
 :properties:
 :alt_title: Line highlighting
 :description: Choose style of current line (hl-line-mode)
@@ -1205,7 +1205,7 @@ with underlines.
 This style affects several packages that enable ~hl-line-mode~, such as
 =elfeed=, =notmuch=, and =mu4e=.
 
-** Option for line numbers (display-line-numbers-mode)
+** Option for line numbers
 :properties:
 :alt_title: Line numbers
 :description: Toggle subtle style for line numbers
@@ -1260,7 +1260,7 @@ combined with a subtle background.
 With a non-nil value (~t~), these constructs will use a more prominent
 background and foreground color combination instead.
 
-** Option for parenthesis matching (show-paren-mode)
+** Option for parenthesis matching
 :properties:
 :alt_title: Matching parentheses
 :description: Choose between various styles for matching delimiters/parentheses
