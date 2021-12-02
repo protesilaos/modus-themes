@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-02 20:53:17 +0200>
+;; Last-Modified: <2021-12-02 20:59:41 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -214,7 +214,6 @@
 ;;     helm-switch-shell
 ;;     helm-xref
 ;;     helpful
-;;     highlight-escape-sequences (`hes-mode')
 ;;     highlight-indentation
 ;;     highlight-numbers
 ;;     highlight-symbol
@@ -5810,9 +5809,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(highlight-changes-delete ((,class :background ,red-nuanced-bg
                                         :foreground ,red :underline t)))
     `(hl-line ((,class :inherit modus-themes-hl-line)))
-;;;;; highlight-escape-sequences (`hes-mode')
-    `(hes-escape-backslash-face ((,class :inherit font-lock-regexp-grouping-construct)))
-    `(hes-escape-sequence-face ((,class :inherit font-lock-regexp-grouping-backslash)))
 ;;;;; highlight-indentation
     `(highlight-indentation-face ((,class :inherit modus-themes-hl-line)))
     `(highlight-indentation-current-column-face ((,class :background ,bg-active)))
