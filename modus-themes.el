@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-02 20:47:45 +0200>
+;; Last-Modified: <2021-12-02 20:53:17 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -218,7 +218,6 @@
 ;;     highlight-indentation
 ;;     highlight-numbers
 ;;     highlight-symbol
-;;     highlight-tail
 ;;     highlight-thing
 ;;     hl-defined
 ;;     hl-fill-column
@@ -7649,10 +7648,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(ibuffer-filter-group-name-face 'modus-themes-pseudo-header)
     `(ibuffer-marked-face 'modus-themes-mark-sel)
     `(ibuffer-title-face 'default)
-;;;; highlight-tail
-    `(highlight-tail-colors
-      '((,green-subtle-bg . 0)
-        (,cyan-subtle-bg . 20)))
 ;;;; hl-todo
     `(hl-todo-keyword-faces
       '(("HOLD" . ,yellow-alt)
