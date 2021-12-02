@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-02 19:05:25 +0200>
+;; Last-Modified: <2021-12-02 19:09:32 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -279,7 +279,6 @@
 ;;     mood-line
 ;;     mpdel
 ;;     mu4e
-;;     mu4e-conversation
 ;;     multiple-cursors
 ;;     nano-modeline
 ;;     neotree
@@ -6585,18 +6584,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(mu4e-url-number-face ((,class :inherit shadow)))
     `(mu4e-view-body-face ((,class :foreground ,fg-main)))
     `(mu4e-warning-face ((,class :inherit warning)))
-;;;;; mu4e-conversation
-    `(mu4e-conversation-header ((,class :inherit modus-themes-special-cold)))
-    `(mu4e-conversation-sender-1 ((,class :foreground ,fg-special-warm)))
-    `(mu4e-conversation-sender-2 ((,class :foreground ,fg-special-cold)))
-    `(mu4e-conversation-sender-3 ((,class :foreground ,fg-special-mild)))
-    `(mu4e-conversation-sender-4 ((,class :inherit shadow)))
-    `(mu4e-conversation-sender-5 ((,class :foreground ,yellow-refine-fg)))
-    `(mu4e-conversation-sender-6 ((,class :foreground ,cyan-refine-fg)))
-    `(mu4e-conversation-sender-7 ((,class :foreground ,green-refine-fg)))
-    `(mu4e-conversation-sender-8 ((,class :foreground ,blue-refine-fg)))
-    `(mu4e-conversation-sender-me ((,class :foreground ,fg-main)))
-    `(mu4e-conversation-unread ((,class :inherit bold)))
 ;;;;; multiple-cursors
     `(mc/cursor-bar-face ((,class :height 1 :background ,fg-main)))
     `(mc/cursor-face ((,class :inverse-video t)))
