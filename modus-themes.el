@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-02 12:39:46 +0200>
+;; Last-Modified: <2021-12-02 13:29:42 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -4760,8 +4760,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(company-preview ((,class :background ,bg-dim :foreground ,fg-dim)))
     `(company-preview-common ((,class :foreground ,blue-alt)))
     `(company-preview-search ((,class :inherit modus-themes-special-calm)))
-    `(company-scrollbar-bg ((,class :background ,bg-active)))
-    `(company-scrollbar-fg ((,class :background ,fg-active)))
     `(company-template-field ((,class :inherit modus-themes-intense-magenta)))
     `(company-tooltip ((,class :background ,bg-alt :foreground ,fg-alt)))
     `(company-tooltip-annotation ((,class :inherit modus-themes-slant :foreground ,fg-special-cold)))
@@ -4770,6 +4768,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(company-tooltip-common-selection ((,class :foreground ,fg-main)))
     `(company-tooltip-deprecated ((,class :inherit company-tooltip :strike-through t)))
     `(company-tooltip-mouse ((,class :inherit modus-themes-intense-blue)))
+    `(company-tooltip-scrollbar-thumb ((,class :background ,fg-active)))
+    `(company-tooltip-scrollbar-track ((,class :background ,bg-active)))
     `(company-tooltip-search ((,class :inherit (modus-themes-search-success-lazy bold))))
     `(company-tooltip-search-selection ((,class :inherit (modus-themes-search-success bold) :underline t)))
     `(company-tooltip-selection ((,class :inherit (modus-themes-subtle-cyan bold))))
