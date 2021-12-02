@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-02 21:43:53 +0200>
+;; Last-Modified: <2021-12-02 21:46:23 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -266,7 +266,6 @@
 ;;     multiple-cursors
 ;;     nano-modeline
 ;;     neotree
-;;     no-emoji
 ;;     notmuch
 ;;     num3-mode
 ;;     nxml-mode
@@ -6508,8 +6507,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(neo-vc-unlocked-changes-face ((,class :inherit modus-themes-refine-blue)))
     `(neo-vc-up-to-date-face ((,class :inherit shadow)))
     `(neo-vc-user-face ((,class :foreground ,magenta)))
-;;;;; no-emoji
-    `(no-emoji ((,class :foreground ,cyan)))
 ;;;;; notmuch
     `(notmuch-crypto-decryption ((,class :inherit (shadow bold))))
     `(notmuch-crypto-part-header ((,class :foreground ,magenta-alt-other)))
