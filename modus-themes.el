@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-02 21:58:10 +0200>
+;; Last-Modified: <2021-12-02 22:03:45 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -254,7 +254,6 @@
 ;;     markup-faces (`adoc-mode')
 ;;     mentor
 ;;     messages
-;;     minibuffer-line
 ;;     minimap
 ;;     mmm-mode
 ;;     mode-line
@@ -6381,8 +6380,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(message-header-xheader ((,class :foreground ,blue-alt)))
     `(message-mml ((,class :foreground ,cyan-alt-other)))
     `(message-separator ((,class :inherit modus-themes-intense-neutral)))
-;;;;; minibuffer-line
-    `(minibuffer-line ((,class :foreground ,fg-main)))
 ;;;;; minimap
     `(minimap-active-region-background ((,class :background ,bg-active)))
     `(minimap-current-line-face ((,class :background ,cyan-intense-bg :foreground ,fg-main)))
