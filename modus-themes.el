@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-02 21:52:56 +0200>
+;; Last-Modified: <2021-12-02 21:58:10 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -231,7 +231,6 @@
 ;;     interaction-log
 ;;     ioccur
 ;;     isearch, occur, etc.
-;;     isl (isearch-light)
 ;;     ivy
 ;;     ivy-posframe
 ;;     jira (org-jira)
@@ -5909,12 +5908,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(lazy-highlight ((,class :inherit modus-themes-search-success-lazy)))
     `(match ((,class :inherit modus-themes-special-calm)))
     `(query-replace ((,class :inherit (modus-themes-intense-yellow bold))))
-;;;;; isl (isearch-light)
-    `(isl-line ((,class :inherit modus-themes-grue-background-subtle)))
-    `(isl-match ((,class :inherit modus-themes-search-success-lazy)))
-    `(isl-number ((,class :inherit (modus-themes-bold modus-themes-search-success-modeline))))
-    `(isl-on ((,class :inherit (bold modus-themes-search-success))))
-    `(isl-string ((,class :inherit modus-themes-bold :foreground ,cyan-active)))
 ;;;;; ivy
     `(ivy-action ((,class :inherit bold :foreground ,red-alt)))
     `(ivy-completions-annotations ((,class :inherit completions-annotations)))
