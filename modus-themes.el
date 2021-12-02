@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-02 19:22:34 +0200>
+;; Last-Modified: <2021-12-02 19:24:47 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -96,7 +96,6 @@
 ;;     ansi-color
 ;;     anzu
 ;;     apropos
-;;     apt-sources-list
 ;;     artbollocks-mode
 ;;     auctex and TeX
 ;;     auto-dim-other-buffers
@@ -4529,12 +4528,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(apropos-variable-button ((,class :inherit button
                                        ,@(modus-themes--link-color
                                           blue-alt blue-alt-faint))))
-;;;;; apt-sources-list
-    `(apt-sources-list-components ((,class :foreground ,cyan)))
-    `(apt-sources-list-options ((,class :foreground ,yellow)))
-    `(apt-sources-list-suite ((,class :foreground ,green)))
-    `(apt-sources-list-type ((,class :foreground ,magenta)))
-    `(apt-sources-list-uri ((,class :foreground ,blue)))
 ;;;;; artbollocks-mode
     `(artbollocks-face ((,class :inherit modus-themes-lang-note)))
     `(artbollocks-lexical-illusions-face ((,class :background ,bg-alt :foreground ,red-alt :underline t)))

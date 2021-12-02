@@ -3350,7 +3350,6 @@ have lots of extensions, so the "full support" may not be 100% true…
 + ansi-color
 + anzu
 + apropos
-+ apt-sources-list
 + artbollocks-mode
 + auctex and TeX
 + auto-dim-other-buffers
