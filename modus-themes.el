@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-02 21:33:17 +0200>
+;; Last-Modified: <2021-12-02 21:35:53 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -332,7 +332,6 @@
 ;;     smerge
 ;;     spaceline
 ;;     speedbar
-;;     spray
 ;;     stripes
 ;;     suggest
 ;;     switch-window
@@ -7154,9 +7153,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(speedbar-selected-face ((,class :inherit bold :foreground ,cyan)))
     `(speedbar-separator-face ((,class :inherit modus-themes-intense-neutral)))
     `(speedbar-tag-face ((,class :foreground ,yellow-alt-other)))
-;;;;; spray
-    `(spray-accent-face ((,class :foreground ,red-intense)))
-    `(spray-base-face ((,class :inherit default :foreground ,fg-special-cold)))
 ;;;;; stripes
     `(stripes ((,class :background ,bg-alt)))
 ;;;;; suggest
