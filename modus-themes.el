@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-02 20:42:30 +0200>
+;; Last-Modified: <2021-12-02 20:47:45 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -225,7 +225,6 @@
 ;;     hl-line-mode
 ;;     hl-todo
 ;;     hydra
-;;     hyperlist
 ;;     ibuffer
 ;;     icomplete
 ;;     ido-mode
@@ -5838,16 +5837,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(hydra-face-pink ((,class :inherit bold :foreground ,magenta-alt-faint)))
     `(hydra-face-red ((,class :inherit bold :foreground ,red-faint)))
     `(hydra-face-teal ((,class :inherit bold :foreground ,cyan-alt-other)))
-;;;;; hyperlist
-    `(hyperlist-condition ((,class :foreground ,green)))
-    `(hyperlist-hashtag ((,class :foreground ,yellow)))
-    `(hyperlist-operator ((,class :foreground ,blue-alt)))
-    `(hyperlist-paren ((,class :foreground ,cyan-alt-other)))
-    `(hyperlist-quote ((,class :foreground ,cyan-alt)))
-    `(hyperlist-ref ((,class :foreground ,magenta-alt-other)))
-    `(hyperlist-stars ((,class :inherit shadow)))
-    `(hyperlist-tag ((,class :foreground ,red)))
-    `(hyperlist-toplevel ((,class :inherit bold :foreground ,fg-main)))
 ;;;;; icomplete
     `(icomplete-first-match ((,class :inherit bold
                                      ,@(modus-themes--standard-completions
