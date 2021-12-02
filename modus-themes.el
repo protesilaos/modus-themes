@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-02 20:03:05 +0200>
+;; Last-Modified: <2021-12-02 20:13:20 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -351,7 +351,6 @@
 ;;     suggest
 ;;     switch-window
 ;;     swiper
-;;     swoop
 ;;     sx
 ;;     symbol-overlay
 ;;     syslog-mode
@@ -7262,14 +7261,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(swiper-match-face-2 ((,class :inherit (bold modus-themes-intense-green))))
     `(swiper-match-face-3 ((,class :inherit (bold modus-themes-intense-blue))))
     `(swiper-match-face-4 ((,class :inherit (bold modus-themes-intense-red))))
-;;;;; swoop
-    `(swoop-face-header-format-line ((,class :inherit bold :foreground ,red-alt
-                                             ,@(modus-themes--scale modus-themes-scale-3))))
-    `(swoop-face-line-buffer-name ((,class :inherit bold :foreground ,blue-alt
-                                           ,@(modus-themes--scale modus-themes-scale-4))))
-    `(swoop-face-line-number ((,class :foreground ,fg-special-warm)))
-    `(swoop-face-target-line ((,class :inherit modus-themes-intense-blue :extend t)))
-    `(swoop-face-target-words ((,class :inherit modus-themes-refine-cyan)))
 ;;;;; sx
     `(sx-inbox-item-type ((,class :foreground ,magenta-alt-other)))
     `(sx-inbox-item-type-unread ((,class :inherit (sx-inbox-item-type bold))))
