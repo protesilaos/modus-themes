@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-02 22:03:45 +0200>
+;; Last-Modified: <2021-12-02 22:06:15 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -266,7 +266,6 @@
 ;;     notmuch
 ;;     num3-mode
 ;;     nxml-mode
-;;     objed
 ;;     orderless
 ;;     org
 ;;     org-journal
@@ -6552,10 +6551,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(nxml-prolog-keyword ((,class :inherit font-lock-keyword-face)))
     `(nxml-ref ((,class :inherit modus-themes-bold :foreground ,fg-special-mild)))
     `(rng-error ((,class :inherit error)))
-;;;;; objed
-    `(objed-hl ((,class :background ,(if modus-themes-hl-line bg-hl-alt-intense bg-hl-alt))))
-    `(objed-mark ((,class :background ,bg-active)))
-    `(objed-mode-line ((,class :foreground ,cyan-active)))
 ;;;;; orderless
     `(orderless-match-face-0 ((,class :inherit bold
                                       ,@(modus-themes--standard-completions
