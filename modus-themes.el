@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-02 20:16:22 +0200>
+;; Last-Modified: <2021-12-02 20:19:25 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -320,7 +320,6 @@
 ;;     quick-peek
 ;;     racket-mode
 ;;     rainbow-blocks
-;;     rainbow-identifiers
 ;;     rainbow-delimiters
 ;;     rcirc
 ;;     recursion-indicator
@@ -6994,22 +6993,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(rainbow-blocks-depth-8-face ((,class :foreground ,cyan-alt)))
     `(rainbow-blocks-depth-9-face ((,class :foreground ,red-alt)))
     `(rainbow-blocks-unmatched-face ((,class :foreground ,red)))
-;;;;; rainbow-identifiers
-    `(rainbow-identifiers-identifier-1 ((,class :foreground ,green-alt-other)))
-    `(rainbow-identifiers-identifier-2 ((,class :foreground ,magenta-alt-other)))
-    `(rainbow-identifiers-identifier-3 ((,class :foreground ,cyan-alt-other)))
-    `(rainbow-identifiers-identifier-4 ((,class :foreground ,yellow-alt-other)))
-    `(rainbow-identifiers-identifier-5 ((,class :foreground ,blue-alt-other)))
-    `(rainbow-identifiers-identifier-6 ((,class :foreground ,green-alt)))
-    `(rainbow-identifiers-identifier-7 ((,class :foreground ,magenta-alt)))
-    `(rainbow-identifiers-identifier-8 ((,class :foreground ,cyan-alt)))
-    `(rainbow-identifiers-identifier-9 ((,class :foreground ,yellow-alt)))
-    `(rainbow-identifiers-identifier-10 ((,class :foreground ,green)))
-    `(rainbow-identifiers-identifier-11 ((,class :foreground ,magenta)))
-    `(rainbow-identifiers-identifier-12 ((,class :foreground ,cyan)))
-    `(rainbow-identifiers-identifier-13 ((,class :foreground ,yellow)))
-    `(rainbow-identifiers-identifier-14 ((,class :foreground ,blue-alt)))
-    `(rainbow-identifiers-identifier-15 ((,class :foreground ,red-alt)))
 ;;;;; rainbow-delimiters
     `(rainbow-delimiters-base-error-face ((,class :background ,red-subtle-bg :foreground ,fg-main)))
     `(rainbow-delimiters-base-face ((,class :foreground ,fg-main)))
