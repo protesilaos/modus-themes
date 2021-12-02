@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-02 19:09:32 +0200>
+;; Last-Modified: <2021-12-02 19:16:29 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -334,7 +334,6 @@
 ;;     ripgrep
 ;;     rmail
 ;;     ruler-mode
-;;     sallet
 ;;     selectrum
 ;;     selectrum-prescient
 ;;     semantic
@@ -2592,8 +2591,7 @@ only or mostly use foreground colors for their interaction model,
 and (ii) those that combine background and foreground values for
 some of their metaphors.  The former category encompasses
 Icomplete, Ido, Selectrum, Vertico, as well as pattern matching
-styles like Orderless and Flx.  The latter covers Helm, Ivy, and
-Sallet.
+styles like Orderless and Flx.  The latter covers Helm and Ivy.
 
 A value of nil (the default) will simply respect the metaphors of
 each completion framework.
@@ -7122,35 +7120,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(ruler-mode-margins ((,class :inherit ruler-mode-default :foreground ,bg-main)))
     `(ruler-mode-pad ((,class :inherit ruler-mode-default :background ,bg-active :foreground ,fg-inactive)))
     `(ruler-mode-tab-stop ((,class :inherit ruler-mode-default :foreground ,fg-special-warm)))
-;;;;; sallet
-    `(sallet-buffer-compressed ((,class :inherit italic :foreground ,yellow-nuanced-fg)))
-    `(sallet-buffer-default-directory ((,class :foreground ,cyan-nuanced-fg)))
-    `(sallet-buffer-directory ((,class :foreground ,blue-nuanced-fg)))
-    `(sallet-buffer-help ((,class :foreground ,fg-special-cold)))
-    `(sallet-buffer-modified ((,class :inherit italic :foreground ,yellow-alt-other)))
-    `(sallet-buffer-ordinary ((,class :foreground ,fg-main)))
-    `(sallet-buffer-read-only ((,class :foreground ,yellow-alt)))
-    `(sallet-buffer-size ((,class :foreground ,fg-special-calm)))
-    `(sallet-buffer-special ((,class :foreground ,magenta-alt-other)))
-    `(sallet-flx-match ((,class ,@(modus-themes--extra-completions
-                                   'modus-themes-subtle-cyan
-                                   'modus-themes-refine-cyan
-                                   'modus-themes-nuanced-cyan
-                                   cyan-alt-other))))
-    `(sallet-recentf-buffer-name ((,class :foreground ,blue-nuanced-fg)))
-    `(sallet-recentf-file-path ((,class :foreground ,fg-special-mild)))
-    `(sallet-regexp-match ((,class ,@(modus-themes--extra-completions
-                                      'modus-themes-subtle-magenta
-                                      'modus-themes-refine-magenta
-                                      'modus-themes-nuanced-magenta
-                                      magenta-alt-other))))
-    `(sallet-source-header ((,class :inherit bold :foreground ,red-alt
-                                    ,@(modus-themes--scale modus-themes-scale-4))))
-    `(sallet-substring-match ((,class ,@(modus-themes--extra-completions
-                                         'modus-themes-subtle-blue
-                                         'modus-themes-refine-blue
-                                         'modus-themes-nuanced-blue
-                                         blue-alt-other))))
 ;;;;; selectrum
     ;; NOTE 2021-02-22: The `selectrum-primary-highlight' and
     ;; `selectrum-secondary-highlight' are deprecated upstream in favour

@@ -1022,7 +1022,7 @@ foreground colors for their interaction model, and (ii) those that
 combine background and foreground values for some of their metaphors.
 The former category encompasses Icomplete, Ido, Selectrum, Vertico, as
 well as pattern matching styles like Orderless and Flx.  The latter
-covers Helm, Ivy, and Sallet.
+covers Helm and Ivy.
 
 A value of ~nil~ (the default) will simply respect the metaphors of each
 completion framework.
@@ -3590,7 +3590,6 @@ have lots of extensions, so the "full support" may not be 100% true…
 + ripgrep
 + rmail
 + ruler-mode
-+ sallet
 + selectrum
 + selectrum-prescient
 + semantic
