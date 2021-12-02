@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-02 21:40:13 +0200>
+;; Last-Modified: <2021-12-02 21:43:53 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -290,7 +290,6 @@
 ;;     pandoc-mode
 ;;     paradox
 ;;     paren-face
-;;     parrot
 ;;     pass
 ;;     pdf-tools
 ;;     persp-mode
@@ -6827,8 +6826,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(paradox-starred-face ((,class :foreground ,magenta-alt)))
 ;;;;; paren-face
     `(parenthesis ((,class :foreground ,fg-unfocused)))
-;;;;; parrot
-    `(parrot-rotate-rotation-highlight-face ((,class :inherit modus-themes-refine-magenta)))
 ;;;;; pass
     `(pass-mode-directory-face ((,class :inherit bold :foreground ,fg-special-cold)))
     `(pass-mode-entry-face ((,class :background ,bg-main :foreground ,fg-main)))
