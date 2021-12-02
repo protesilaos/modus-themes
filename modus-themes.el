@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-11-29 19:21:17 +0200>
+;; Last-Modified: <2021-12-02 08:00:58 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -921,9 +921,9 @@ symbol and the latter as a string.")
     (bg-diff-refine-removed . "#852828") (fg-diff-refine-removed . "#ffd9eb")
 
     (bg-diff-focus-added . "#203d20") (fg-diff-focus-added . "#b4ddb4")
-    (bg-diff-focus-added-deuteran . "#00405f") (fg-diff-focus-added-deuteran . "#bfe4ff")
-    (bg-diff-focus-changed . "#4a3a10") (fg-diff-focus-changed . "#d0daaf")
-    (bg-diff-focus-removed . "#5e2526") (fg-diff-focus-removed . "#eebdba")
+    (bg-diff-focus-added-deuteran . "#003959") (fg-diff-focus-added-deuteran . "#bfe4ff")
+    (bg-diff-focus-changed . "#424200") (fg-diff-focus-changed . "#d0daaf")
+    (bg-diff-focus-removed . "#500f29") (fg-diff-focus-removed . "#eebdba")
 
     (bg-mark-sel . "#002f2f") (fg-mark-sel . "#60cfa2")
     (bg-mark-del . "#5a0000") (fg-mark-del . "#ff99aa")
