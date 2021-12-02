@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-02 19:50:48 +0200>
+;; Last-Modified: <2021-12-02 19:59:11 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -156,7 +156,6 @@
 ;;     doom-modeline
 ;;     dynamic-ruler
 ;;     easy-jekyll
-;;     easy-kill
 ;;     ebdb
 ;;     ediff
 ;;     eglot
@@ -5114,9 +5113,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(dynamic-ruler-positive-face ((,class :inherit modus-themes-intense-yellow)))
 ;;;;; easy-jekyll
     `(easy-jekyll-help-face ((,class :background ,bg-dim :foreground ,cyan-alt-other)))
-;;;;; easy-kill
-    `(easy-kill-origin ((,class :inherit modus-themes-subtle-red)))
-    `(easy-kill-selection ((,class :inherit modus-themes-subtle-yellow)))
 ;;;;; ebdb
     `(ebdb-address-default ((,class :foreground ,fg-special-calm)))
     `(ebdb-defunct ((,class :inherit shadow)))
