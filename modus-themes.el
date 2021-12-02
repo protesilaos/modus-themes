@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-02 20:30:32 +0200>
+;; Last-Modified: <2021-12-02 20:35:50 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -215,7 +215,6 @@
 ;;     helm-xref
 ;;     helpful
 ;;     highlight-blocks
-;;     highlight-defined
 ;;     highlight-escape-sequences (`hes-mode')
 ;;     highlight-indentation
 ;;     highlight-numbers
@@ -5824,13 +5823,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(highlight-blocks-depth-7-face ((,class :background ,bg-inactive :foreground ,fg-main)))
     `(highlight-blocks-depth-8-face ((,class :background ,bg-active :foreground ,fg-main)))
     `(highlight-blocks-depth-9-face ((,class :background ,cyan-subtle-bg :foreground ,fg-main)))
-;;;;; highlight-defined
-    `(highlight-defined-builtin-function-name-face ((,class :foreground ,magenta)))
-    `(highlight-defined-face-name-face ((,class :foreground ,fg-main)))
-    `(highlight-defined-function-name-face ((,class :foreground ,magenta)))
-    `(highlight-defined-macro-name-face ((,class :foreground ,magenta-alt)))
-    `(highlight-defined-special-form-name-face ((,class :foreground ,magenta-alt-other)))
-    `(highlight-defined-variable-name-face ((,class :foreground ,cyan)))
 ;;;;; highlight-escape-sequences (`hes-mode')
     `(hes-escape-backslash-face ((,class :inherit font-lock-regexp-grouping-construct)))
     `(hes-escape-sequence-face ((,class :inherit font-lock-regexp-grouping-backslash)))
