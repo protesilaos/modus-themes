@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-02 08:00:58 +0200>
+;; Last-Modified: <2021-12-02 10:29:06 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -6901,7 +6901,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-scheduled ((,class ,@(modus-themes--agenda-scheduled yellow-faint fg-special-warm magenta-alt))))
     `(org-scheduled-previously ((,class ,@(modus-themes--agenda-scheduled yellow fg-special-warm yellow-alt-other))))
     `(org-scheduled-today ((,class ,@(modus-themes--agenda-scheduled yellow fg-special-warm magenta-alt-other))))
-    `(org-sexp-date ((,class :inherit org-date)))
+    `(org-sexp-date ((,class :foreground ,cyan-alt-other)))
     `(org-special-keyword ((,class :inherit (shadow modus-themes-fixed-pitch))))
     `(org-table ((,class :inherit modus-themes-fixed-pitch :foreground ,fg-special-cold)))
     `(org-table-header ((,class :inherit (fixed-pitch modus-themes-intense-neutral))))
