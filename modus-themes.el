@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-02 16:35:16 +0200>
+;; Last-Modified: <2021-12-02 19:05:25 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -2453,50 +2453,6 @@ respectively."
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Org mode blocks"))
 
-(defcustom modus-themes-org-habit nil
-  "Deprecated in version 1.5.0 favor of `modus-themes-org-agenda'.
-
-Control the presentation of the `org-habit' graph.
-
-The default is meant to conform with the original aesthetic of
-`org-habit'.  It employs all four color codes that correspond to
-the org-habit states---clear, ready, alert, and overdue---while
-distinguishing between their present and future variants.  This
-results in a total of eight colors in use: red, yellow, green,
-blue, in tinted and shaded versions.  They cover the full set of
-information provided by the `org-habit' consistency graph.
-
-Option `simplified' is like the default except that it removes
-the dichotomy between current and future variants by applying
-uniform color-coded values.  It applies a total of four colors:
-red, yellow, green, blue.  They produce a simplified consistency
-graph that is more legible (or less \"busy\") than the default.
-The intent is to shift focus towards the distinction between the
-four states of a habit task, rather than each state's
-present/future outlook.
-
-Option `traffic-light' further reduces the available colors to
-red, yellow, and green.  As in `simplified', present and future
-variants appear uniformly, but differently from it, the 'clear'
-state is rendered in a green hue, instead of the original blue.
-This is meant to capture the use-case where a habit task being
-\"too early\" is less important than it being \"too late\".  The
-difference between ready and clear states is attenuated by
-painting both of them using shades of green.  This option thus
-highlights the alert and overdue states."
-  :group 'modus-themes
-  :package-version '(modus-themes . "1.1.0")
-  :version "28.1"
-  :type '(choice
-          (const :format "[%v] %t\n" :tag "Respect the original design of org-habit (default)" nil)
-          (const :format "[%v] %t\n" :tag "Like the default, but do not distinguish between present and future variants" simplified)
-          (const :format "[%v] %t\n" :tag "Like `simplified', but only use red, yellow, green" traffic-light))
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
-  :link '(info-link "(modus-themes) Org agenda habits"))
-
-(make-obsolete 'modus-themes-org-habit 'modus-themes-org-agenda "1.5.0")
-
 (defcustom modus-themes-mode-line nil
   "Control the overall style of the mode line.
 
@@ -2720,8 +2676,6 @@ In user configuration files the form may look like this:
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Command prompts"))
-
-(make-obsolete 'modus-themes-intense-hl-line 'modus-themes-hl-line "1.3.0")
 
 (defcustom modus-themes-hl-line nil
   "Control the current line highlight of HL-line mode.
