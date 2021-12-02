@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-02 19:46:52 +0200>
+;; Last-Modified: <2021-12-02 19:50:48 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -152,7 +152,6 @@
 ;;     diredc
 ;;     diredfl
 ;;     diredp (dired+)
-;;     disk-usage
 ;;     display-fill-column-indicator-mode
 ;;     doom-modeline
 ;;     dynamic-ruler
@@ -5069,13 +5068,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(diredp-symlink ((,class :inherit dired-symlink)))
     `(diredp-tagged-autofile-name ((,class :inherit modus-themes-refine-magenta)))
     `(diredp-write-priv ((,class :foreground ,cyan)))
-;;;;; disk-usage
-    `(disk-usage-children ((,class :foreground ,yellow)))
-    `(disk-usage-inaccessible ((,class :inherit bold :foreground ,red)))
-    `(disk-usage-percent ((,class :foreground ,green)))
-    `(disk-usage-size ((,class :foreground ,cyan)))
-    `(disk-usage-symlink ((,class :inherit button)))
-    `(disk-usage-symlink-directory ((,class :inherit bold :foreground ,blue-alt)))
 ;;;;; display-fill-column-indicator-mode
     `(fill-column-indicator ((,class :foreground ,bg-active)))
 ;;;;; doom-modeline
