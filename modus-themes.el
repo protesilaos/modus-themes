@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-02 19:24:47 +0200>
+;; Last-Modified: <2021-12-02 19:38:34 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -89,7 +89,6 @@
 ;; missing package or change you would like to see.
 ;;
 ;;     ace-window
-;;     ag
 ;;     alert
 ;;     all-the-icons
 ;;     annotate
@@ -4432,9 +4431,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(widget-field ((,class :background ,bg-alt :foreground ,fg-dim)))
     `(widget-inactive ((,class :inherit shadow :background ,bg-dim)))
     `(widget-single-line-field ((,class :inherit widget-field)))
-;;;;; ag
-    `(ag-hit-face ((,class :foreground ,fg-special-cold)))
-    `(ag-match-face ((,class :inherit modus-themes-special-calm)))
 ;;;;; alert
     `(alert-high-face ((,class :inherit bold :foreground ,red-alt)))
     `(alert-low-face ((,class :foreground ,fg-special-mild)))
