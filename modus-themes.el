@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-02 20:13:20 +0200>
+;; Last-Modified: <2021-12-02 20:16:22 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -372,7 +372,6 @@
 ;;     undo-tree
 ;;     vc (vc-dir.el, vc-hooks.el)
 ;;     vc-annotate (C-x v g)
-;;     vdiff
 ;;     vertico
 ;;     vertico-quick
 ;;     vimish-fold
@@ -7508,14 +7507,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(vc-removed-state ((,class :foreground ,red-active)))
     `(vc-state-base ((,class :foreground ,fg-active)))
     `(vc-up-to-date-state ((,class :foreground ,fg-special-cold)))
-;;;;; vdiff
-    `(vdiff-addition-face ((,class :inherit modus-themes-diff-added)))
-    `(vdiff-change-face ((,class :inherit modus-themes-diff-changed)))
-    `(vdiff-closed-fold-face ((,class :inherit modus-themes-diff-heading)))
-    `(vdiff-refine-added ((,class :inherit modus-themes-diff-refine-added)))
-    `(vdiff-refine-changed ((,class :inherit modus-themes-diff-refine-changed)))
-    `(vdiff-subtraction-face ((,class :inherit modus-themes-diff-removed)))
-    `(vdiff-target-face ((,class :inherit modus-themes-intense-blue)))
 ;;;;; vertico
     `(vertico-current ((,class :inherit bold :foreground ,fg-main
                                :background ,@(pcase modus-themes-completions
