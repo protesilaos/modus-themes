@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-02 21:18:59 +0200>
+;; Last-Modified: <2021-12-02 21:22:53 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -148,7 +148,6 @@
 ;;     dired-git-info
 ;;     dired-narrow
 ;;     dired-subtree
-;;     diredc
 ;;     diredfl
 ;;     diredp (dired+)
 ;;     display-fill-column-indicator-mode
@@ -4989,11 +4988,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(dired-subtree-depth-4-face (()))
     `(dired-subtree-depth-5-face (()))
     `(dired-subtree-depth-6-face (()))
-;;;;; diredc
-    `(diredc-face-chmod-font-lock-dir ((,class :foreground ,blue-alt)))
-    `(diredc-face-chmod-font-lock-exec ((,class :foreground ,magenta)))
-    `(diredc-face-chmod-font-lock-read ((,class :foreground ,fg-main)))
-    `(diredc-face-chmod-font-lock-write ((,class :foreground ,cyan)))
 ;;;;; diredfl
     `(diredfl-autofile-name ((,class :inherit modus-themes-special-cold)))
     `(diredfl-compressed-file-name ((,class :foreground ,fg-special-warm)))
