@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-02 13:29:42 +0200>
+;; Last-Modified: <2021-12-02 14:29:37 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -5574,10 +5574,10 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                              fg-dim fg-special-warm))))
     `(git-commit-keyword ((,class :foreground ,magenta)))
     `(git-commit-known-pseudo-header ((,class :foreground ,cyan-alt-other)))
-    `(git-commit-nonempty-second-line ((,class :inherit modus-themes-refine-yellow)))
-    `(git-commit-overlong-summary ((,class :inherit modus-themes-refine-yellow)))
+    `(git-commit-nonempty-second-line ((,class :inherit error)))
+    `(git-commit-overlong-summary ((,class :inherit warning)))
     `(git-commit-pseudo-header ((,class :foreground ,blue)))
-    `(git-commit-summary ((,class :inherit bold :foreground ,cyan)))
+    `(git-commit-summary ((,class :inherit bold :foreground ,blue)))
 ;;;;; git-gutter
     `(git-gutter:added ((,class :inherit ,@(modus-themes--diff-deuteran
                                             'modus-themes-fringe-blue
