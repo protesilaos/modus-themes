@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-02 19:59:11 +0200>
+;; Last-Modified: <2021-12-02 20:03:05 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -379,7 +379,6 @@
 ;;     vimish-fold
 ;;     visible-mark
 ;;     visual-regexp
-;;     volatile-highlights
 ;;     vterm
 ;;     wcheck-mode
 ;;     web-mode
@@ -7551,8 +7550,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(vr/match-0 ((,class :inherit modus-themes-refine-yellow)))
     `(vr/match-1 ((,class :inherit modus-themes-refine-yellow)))
     `(vr/match-separator-face ((,class :inherit (modus-themes-intense-neutral bold))))
-;;;;; volatile-highlights
-    `(vhl/default-face ((,class :background ,bg-alt :foreground ,blue-nuanced-fg :extend t)))
 ;;;;; vterm
     `(vterm-color-black ((,class :background "gray35" :foreground "gray35")))
     `(vterm-color-blue ((,class :background ,blue :foreground ,blue)))
