@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-02 20:22:18 +0200>
+;; Last-Modified: <2021-12-02 20:25:15 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -204,7 +204,6 @@
 ;;     geiser
 ;;     git-commit
 ;;     git-gutter (and variants)
-;;     git-lens
 ;;     git-rebase
 ;;     git-timemachine
 ;;     git-walktree
@@ -5551,12 +5550,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(git-gutter-fr:added ((,class :inherit modus-themes-grue-background-active)))
     `(git-gutter-fr:deleted ((,class :inherit modus-themes-fringe-red)))
     `(git-gutter-fr:modified ((,class :inherit modus-themes-fringe-yellow)))
-;;;;; git-lens
-    `(git-lens-added ((,class :inherit (bold modus-themes-grue))))
-    `(git-lens-deleted ((,class :inherit bold :foreground ,red)))
-    `(git-lens-header ((,class :inherit bold :height 1.1 :foreground ,cyan)))
-    `(git-lens-modified ((,class :inherit bold :foreground ,yellow)))
-    `(git-lens-renamed ((,class :inherit bold :foreground ,magenta)))
 ;;;;; git-rebase
     `(git-rebase-comment-hash ((,class :inherit modus-themes-slant
                                        ,@(modus-themes--syntax-comment
