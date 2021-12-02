@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-02 20:19:25 +0200>
+;; Last-Modified: <2021-12-02 20:22:18 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -308,7 +308,6 @@
 ;;     perspective
 ;;     phi-grep
 ;;     phi-search
-;;     pkgbuild-mode
 ;;     pomidor
 ;;     popup
 ;;     powerline
@@ -6922,8 +6921,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(phi-search-failpart-face ((,class :inherit modus-themes-refine-red)))
     `(phi-search-match-face ((,class :inherit modus-themes-search-success-lazy)))
     `(phi-search-selection-face ((,class :inherit (modus-themes-search-success bold))))
-;;;;; pkgbuild-mode
-    `(pkgbuild-error-face ((,class :inherit modus-themes-lang-error)))
 ;;;;; pomidor
     `(pomidor-break-face ((,class :foreground ,blue-alt-other)))
     `(pomidor-overwork-face ((,class :foreground ,red-alt-other)))
