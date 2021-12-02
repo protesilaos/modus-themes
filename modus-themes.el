@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-02 10:29:06 +0200>
+;; Last-Modified: <2021-12-02 11:49:07 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -920,7 +920,7 @@ symbol and the latter as a string.")
     (bg-diff-refine-changed . "#585800") (fg-diff-refine-changed . "#ffffcc")
     (bg-diff-refine-removed . "#852828") (fg-diff-refine-removed . "#ffd9eb")
 
-    (bg-diff-focus-added . "#203d20") (fg-diff-focus-added . "#b4ddb4")
+    (bg-diff-focus-added . "#1d3c25") (fg-diff-focus-added . "#b4ddb4")
     (bg-diff-focus-added-deuteran . "#003959") (fg-diff-focus-added-deuteran . "#bfe4ff")
     (bg-diff-focus-changed . "#424200") (fg-diff-focus-changed . "#d0daaf")
     (bg-diff-focus-removed . "#500f29") (fg-diff-focus-removed . "#eebdba")
