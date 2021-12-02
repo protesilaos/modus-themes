@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-02 20:35:50 +0200>
+;; Last-Modified: <2021-12-02 20:42:30 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -214,7 +214,6 @@
 ;;     helm-switch-shell
 ;;     helm-xref
 ;;     helpful
-;;     highlight-blocks
 ;;     highlight-escape-sequences (`hes-mode')
 ;;     highlight-indentation
 ;;     highlight-numbers
@@ -5813,16 +5812,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(highlight-changes-delete ((,class :background ,red-nuanced-bg
                                         :foreground ,red :underline t)))
     `(hl-line ((,class :inherit modus-themes-hl-line)))
-;;;;; highlight-blocks
-    `(highlight-blocks-depth-1-face ((,class :background ,bg-dim :foreground ,fg-main)))
-    `(highlight-blocks-depth-2-face ((,class :background ,bg-alt :foreground ,fg-main)))
-    `(highlight-blocks-depth-3-face ((,class :background ,bg-special-cold :foreground ,fg-main)))
-    `(highlight-blocks-depth-4-face ((,class :background ,bg-special-calm :foreground ,fg-main)))
-    `(highlight-blocks-depth-5-face ((,class :background ,bg-special-warm :foreground ,fg-main)))
-    `(highlight-blocks-depth-6-face ((,class :background ,bg-special-mild :foreground ,fg-main)))
-    `(highlight-blocks-depth-7-face ((,class :background ,bg-inactive :foreground ,fg-main)))
-    `(highlight-blocks-depth-8-face ((,class :background ,bg-active :foreground ,fg-main)))
-    `(highlight-blocks-depth-9-face ((,class :background ,cyan-subtle-bg :foreground ,fg-main)))
 ;;;;; highlight-escape-sequences (`hes-mode')
     `(hes-escape-backslash-face ((,class :inherit font-lock-regexp-grouping-construct)))
     `(hes-escape-sequence-face ((,class :inherit font-lock-regexp-grouping-backslash)))
