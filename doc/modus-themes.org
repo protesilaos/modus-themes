@@ -3661,6 +3661,7 @@ inherit from some basic faces or their dependencies which are directly
 supported by the themes.
 
 + ag
++ apt-sources-list
 + bufler
 + counsel-notmuch
 + edit-indirect
