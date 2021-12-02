@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-02 19:38:34 +0200>
+;; Last-Modified: <2021-12-02 19:46:52 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -5568,15 +5568,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(git-gutter-fr:added ((,class :inherit modus-themes-grue-background-active)))
     `(git-gutter-fr:deleted ((,class :inherit modus-themes-fringe-red)))
     `(git-gutter-fr:modified ((,class :inherit modus-themes-fringe-yellow)))
-;;;;; git-{gutter,fringe}+
-    `(git-gutter+-added ((,class :inherit modus-themes-grue-background-active)))
-    `(git-gutter+-deleted ((,class :inherit modus-themes-fringe-red)))
-    `(git-gutter+-modified ((,class :inherit modus-themes-fringe-yellow)))
-    `(git-gutter+-separator ((,class :inherit modus-themes-fringe-cyan)))
-    `(git-gutter+-unchanged ((,class :inherit modus-themes-fringe-magenta)))
-    `(git-gutter-fr+-added ((,class :inherit modus-themes-fringe-green)))
-    `(git-gutter-fr+-deleted ((,class :inherit modus-themes-fringe-red)))
-    `(git-gutter-fr+-modified ((,class :inherit modus-themes-fringe-yellow)))
 ;;;;; git-lens
     `(git-lens-added ((,class :inherit (bold modus-themes-grue))))
     `(git-lens-deleted ((,class :inherit bold :foreground ,red)))
