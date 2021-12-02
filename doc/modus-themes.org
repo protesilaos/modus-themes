@@ -7,7 +7,7 @@
 
 #+macro: stable-version 1.7.0
 #+macro: release-date 2021-11-18
-#+macro: development-version 1.8.0-dev
+#+macro: development-version 2.0.0-dev
 #+macro: file @@texinfo:@file{@@$1@@texinfo:}@@
 #+macro: space @@texinfo:@: @@
 #+macro: kbd @@texinfo:@kbd{@@$1@@texinfo:}@@
@@ -461,8 +461,8 @@ this manual.
       modus-themes-region '(bg-only no-extend)
 
       ;; Options for `modus-themes-diffs': nil, 'desaturated,
-      ;; 'bg-only, 'deuteranopia, 'fg-only-deuteranopia
-      modus-themes-diffs 'fg-only-deuteranopia
+      ;; 'bg-only, 'deuteranopia
+      modus-themes-diffs 'desaturated
 
       modus-themes-org-blocks 'gray-background ; {nil,'gray-background,'tinted-background}
 
@@ -1361,12 +1361,14 @@ In user configuration files the form may look like this:
 ** Option for diff buffer looks
 :properties:
 :alt_title: Diffs
-:description: Choose among intense, desaturated, or text-only diffs
+:description: Choose among intense, desaturated, or deuteranopia diffs
 :custom_id: h:ea7ac54f-5827-49bd-b09f-62424b3b6427
 :end:
 #+vindex: modus-themes-diffs
 
-Bried: Set the overall style of diffs.
+[ Changed as part of {{{development-version}}} ]
+
+Brief: Set the overall style of diffs.
 
 Symbol: ~modus-themes-diffs~ (=choice= type)
 
@@ -1376,10 +1378,10 @@ Possible values:
 2. ~desaturated~
 3. ~bg-only~
 4. ~deuteranopia~
-5. ~fg-only-deuteranopia~
 
 The default (~nil~) uses fairly intense color combinations for diffs, by
-applying prominently colored backgrounds, with appropriate foregrounds.
+applying prominently colored backgrounds, with appropriately tinted
+foregrounds.
 
 Option ~desaturated~ follows the same principles as with the default
 (~nil~), though it tones down all relevant colors.
@@ -1387,7 +1389,7 @@ Option ~desaturated~ follows the same principles as with the default
 Option ~bg-only~ applies a background but does not override the text's
 foreground.  This makes it suitable for a non-nil value passed to
 ~diff-font-lock-syntax~ (note: Magit does not support syntax highlighting
-in diffs---last checked on 2021-04-21).
+in diffs---last checked on 2021-12-02).
 
 Option ~deuteranopia~ is like the default (~nil~) in terms of using
 prominently colored backgrounds, except that it also accounts for
@@ -1395,16 +1397,13 @@ red-green color defficiency by replacing all instances of green with
 colors on the blue side of the spectrum.  Other stylistic changes are
 made in the interest of optimizing for such a use-case.
 
-Option ~fg-only-deuteranopia~ removes all colored backgrounds, except from
-word-wise or refined changes.  Instead, it only uses color-coded
-foreground values to differentiate between added, removed, and changed
-lines.  If a background is necessary to denote context, a subtle
-grayscale value is applied.  The color used for added lines is a variant
-of blue to account for red-green color defficiency but also because
-green text alone is hard to discern in the diff's context (hard for our
-accessibility purposes).  The ~fg-only~ option that existed in older
-versions of the themes is now an alias of ~fg-only-deuteranopia~, in the
-interest of backward compatibility.
+In versions before {{{development-version}}} there was an option for
+foreground-only diffs.  This is no longer supported at the theme level
+because there are cases where the perceived contrast and overall
+contextuality were not good enough although the applied colors
+were technically above the 7:1 contrast threshold.
+
+[[#h:e2aed9eb-5e1e-45ec-bbd7-bc4faeab3236][Diffs with only the foreground]].
 
 ** Option for org-mode block styles
 :properties:
@@ -3240,6 +3239,61 @@ Modus themes for the first several months of their time as an Emacs
 user.  Hence our hesitation to recommend it as part of the standard
 setup of the Modus themes (it is generally a good idea to understand
 what the implications are of advising a function).
+
+** Diffs with only the foreground
+:properties:
+:custom_id: h:e2aed9eb-5e1e-45ec-bbd7-bc4faeab3236
+:end:
+#+cindex: Foreground-only diffs
+
+Buffers that show differences between versions of a file or buffer, such
+as in ~diff-mode~ and ~ediff~ always use color-coded background and
+foreground combinations.
+
+[[#h:ea7ac54f-5827-49bd-b09f-62424b3b6427][Option for diff buffer looks]].
+
+User may, however, prefer a style that removes the color-coded
+backgrounds from regular changes while keeping them for word-wise (aka
+"refined") changes---backgrounds for word-wise diffs are helpful in
+context.  To make this happen, one can use the ~modus-themes-with-colors~
+macro ([[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Face specs at scale using the themes' palette]]):
+
+#+begin_src emacs-lisp
+(defun my-modus-themes-custom-faces ()
+  (modus-themes-with-colors
+    (custom-set-faces
+     `(modus-themes-diff-added ((,class :background unspecified :foreground ,green))) ; OR ,blue for deuteranopia
+     `(modus-themes-diff-changed ((,class :background unspecified :foreground ,yellow)))
+     `(modus-themes-diff-removed ((,class :background unspecified :foreground ,red)))
+
+     `(modus-themes-diff-refine-added ((,class :background ,bg-diff-added :foreground ,fg-diff-added)))
+     ;; `(modus-themes-diff-refine-added ((,class :background ,bg-diff-added-deuteran :foreground ,fg-diff-added-deuteran)))
+     `(modus-themes-diff-refine-changed ((,class :background ,bg-diff-changed :foreground ,fg-diff-changed)))
+     `(modus-themes-diff-refine-removed ((,class :background ,bg-diff-removed :foreground ,fg-diff-removed)))
+
+     `(modus-themes-diff-focus-added ((,class :background ,bg-dim :foreground ,green))) ; OR ,blue for deuteranopia
+     `(modus-themes-diff-focus-changed ((,class :background ,bg-dim :foreground ,yellow)))
+     `(modus-themes-diff-focus-removed ((,class :background ,bg-dim :foreground ,red)))
+
+     `(modus-themes-diff-heading ((,class :background ,bg-alt :foreground ,fg-main)))
+
+     `(diff-indicator-added ((,class :foreground ,green))) ; OR ,blue for deuteranopia
+     `(diff-indicator-changed ((,class :foreground ,yellow)))
+     `(diff-indicator-removed ((,class :foreground ,red)))
+
+     `(magit-diff-added ((,class :background unspecified :foreground ,green-faint)))
+     `(magit-diff-changed ((,class :background unspecified :foreground ,yellow-faint)))
+     `(magit-diff-removed ((,class :background unspecified :foreground ,red-faint)))
+     `(magit-diff-context-highlight ((,class :background ,bg-dim :foreground ,fg-dim))))))
+
+;; This is so that the changes persist when switching between
+;; `modus-operandi' and `modus-vivendi'.
+(add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
+#+end_src
+
+This used to be an optional style of ~modus-themes-diffs~, but has been
+removed since {{{development-version}}} to ensure that the accessibility
+standard and aesthetic quality of the themes is not compromised.
 
 * Face coverage
 :properties:

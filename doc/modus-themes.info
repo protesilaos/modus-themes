@@ -47,7 +47,7 @@ themes, and provides every other piece of information pertinent to them.
 does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
-   Current development target is 1.8.0-dev.
+   Current development target is 2.0.0-dev.
 
 * Menu:
 
@@ -109,7 +109,7 @@ Customization Options
 * Intense markup::               Toggle intense style for markup in Org and others
 * Matching parentheses::         Choose between various styles for matching delimiters/parentheses
 * Active region::                Choose between various styles for the active region
-* Diffs::                        Choose among intense, desaturated, or text-only diffs
+* Diffs::                        Choose among intense, desaturated, or deuteranopia diffs
 * Org mode blocks::              Choose among plain, gray, or tinted backgrounds
 * Org agenda::                   Control each element in the presentation of the agenda
 * Heading styles::               Choose among several styles, also per heading level
@@ -143,6 +143,7 @@ Advanced customization
 * Backdrop for pdf-tools::
 * Decrease mode line height::
 * A theme-agnostic hook for theme loading::
+* Diffs with only the foreground::
 
 Face coverage
 
@@ -603,8 +604,8 @@ of this manual.
            modus-themes-region '(bg-only no-extend)
 
            ;; Options for `modus-themes-diffs': nil, 'desaturated,
-           ;; 'bg-only, 'deuteranopia, 'fg-only-deuteranopia
-           modus-themes-diffs 'fg-only-deuteranopia
+           ;; 'bg-only, 'deuteranopia
+           modus-themes-diffs 'desaturated
 
            modus-themes-org-blocks 'gray-background ; {nil,'gray-background,'tinted-background}
 
@@ -650,7 +651,7 @@ of this manual.
 * Intense markup::               Toggle intense style for markup in Org and others
 * Matching parentheses::         Choose between various styles for matching delimiters/parentheses
 * Active region::                Choose between various styles for the active region
-* Diffs::                        Choose among intense, desaturated, or text-only diffs
+* Diffs::                        Choose among intense, desaturated, or deuteranopia diffs
 * Org mode blocks::              Choose among plain, gray, or tinted backgrounds
 * Org agenda::                   Control each element in the presentation of the agenda
 * Heading styles::               Choose among several styles, also per heading level
@@ -1486,7 +1487,9 @@ File: modus-themes.info,  Node: Diffs,  Next: Org mode blocks,  Prev: Active reg
 4.20 Option for diff buffer looks
 =================================
 
-Bried: Set the overall style of diffs.
+[ Changed as part of 2.0.0-dev ]
+
+   Brief: Set the overall style of diffs.
 
    Symbol: ‘modus-themes-diffs’ (‘choice’ type)
 
@@ -1496,10 +1499,9 @@ Bried: Set the overall style of diffs.
   2. ‘desaturated’
   3. ‘bg-only’
   4. ‘deuteranopia’
-  5. ‘fg-only-deuteranopia’
 
    The default (‘nil’) uses fairly intense color combinations for diffs,
-by applying prominently colored backgrounds, with appropriate
+by applying prominently colored backgrounds, with appropriately tinted
 foregrounds.
 
    Option ‘desaturated’ follows the same principles as with the default
@@ -1508,7 +1510,7 @@ foregrounds.
    Option ‘bg-only’ applies a background but does not override the
 text’s foreground.  This makes it suitable for a non-nil value passed to
 ‘diff-font-lock-syntax’ (note: Magit does not support syntax
-highlighting in diffs—last checked on 2021-04-21).
+highlighting in diffs—last checked on 2021-12-02).
 
    Option ‘deuteranopia’ is like the default (‘nil’) in terms of using
 prominently colored backgrounds, except that it also accounts for
@@ -1516,16 +1518,13 @@ red-green color defficiency by replacing all instances of green with
 colors on the blue side of the spectrum.  Other stylistic changes are
 made in the interest of optimizing for such a use-case.
 
-   Option ‘fg-only-deuteranopia’ removes all colored backgrounds, except
-from word-wise or refined changes.  Instead, it only uses color-coded
-foreground values to differentiate between added, removed, and changed
-lines.  If a background is necessary to denote context, a subtle
-grayscale value is applied.  The color used for added lines is a variant
-of blue to account for red-green color defficiency but also because
-green text alone is hard to discern in the diff’s context (hard for our
-accessibility purposes).  The ‘fg-only’ option that existed in older
-versions of the themes is now an alias of ‘fg-only-deuteranopia’, in the
-interest of backward compatibility.
+   In versions before 2.0.0-dev there was an option for foreground-only
+diffs.  This is no longer supported at the theme level because there are
+cases where the perceived contrast and overall contextuality were not
+good enough although the applied colors were technically above the 7:1
+contrast threshold.
+
+   *note Diffs with only the foreground::.
 
 
 File: modus-themes.info,  Node: Org mode blocks,  Next: Org agenda,  Prev: Diffs,  Up: Customization Options
@@ -2045,6 +2044,7 @@ such, they are labelled as “do-it-yourself” or “DIY”.
 * Backdrop for pdf-tools::
 * Decrease mode line height::
 * A theme-agnostic hook for theme loading::
+* Diffs with only the foreground::
 
 
 File: modus-themes.info,  Node: Per-theme customization settings,  Next: Case-by-case face specs using the themes' palette,  Up: Advanced customization
@@ -3240,7 +3240,7 @@ needs to be specified as well:
      (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
 
 
-File: modus-themes.info,  Node: A theme-agnostic hook for theme loading,  Prev: Decrease mode line height,  Up: Advanced customization
+File: modus-themes.info,  Node: A theme-agnostic hook for theme loading,  Next: Diffs with only the foreground,  Prev: Decrease mode line height,  Up: Advanced customization
 
 5.16 A theme-agnostic hook for theme loading
 ============================================
@@ -3288,6 +3288,60 @@ Modus themes for the first several months of their time as an Emacs
 user.  Hence our hesitation to recommend it as part of the standard
 setup of the Modus themes (it is generally a good idea to understand
 what the implications are of advising a function).
+
+
+File: modus-themes.info,  Node: Diffs with only the foreground,  Prev: A theme-agnostic hook for theme loading,  Up: Advanced customization
+
+5.17 Diffs with only the foreground
+===================================
+
+Buffers that show differences between versions of a file or buffer, such
+as in ‘diff-mode’ and ‘ediff’ always use color-coded background and
+foreground combinations.
+
+   *note Option for diff buffer looks: Diffs.
+
+   User may, however, prefer a style that removes the color-coded
+backgrounds from regular changes while keeping them for word-wise (aka
+“refined”) changes—backgrounds for word-wise diffs are helpful in
+context.  To make this happen, one can use the
+‘modus-themes-with-colors’ macro (*note Face specs at scale using the
+themes' palette::):
+
+     (defun my-modus-themes-custom-faces ()
+       (modus-themes-with-colors
+         (custom-set-faces
+          `(modus-themes-diff-added ((,class :background unspecified :foreground ,green))) ; OR ,blue for deuteranopia
+          `(modus-themes-diff-changed ((,class :background unspecified :foreground ,yellow)))
+          `(modus-themes-diff-removed ((,class :background unspecified :foreground ,red)))
+
+          `(modus-themes-diff-refine-added ((,class :background ,bg-diff-added :foreground ,fg-diff-added)))
+          ;; `(modus-themes-diff-refine-added ((,class :background ,bg-diff-added-deuteran :foreground ,fg-diff-added-deuteran)))
+          `(modus-themes-diff-refine-changed ((,class :background ,bg-diff-changed :foreground ,fg-diff-changed)))
+          `(modus-themes-diff-refine-removed ((,class :background ,bg-diff-removed :foreground ,fg-diff-removed)))
+
+          `(modus-themes-diff-focus-added ((,class :background ,bg-dim :foreground ,green))) ; OR ,blue for deuteranopia
+          `(modus-themes-diff-focus-changed ((,class :background ,bg-dim :foreground ,yellow)))
+          `(modus-themes-diff-focus-removed ((,class :background ,bg-dim :foreground ,red)))
+
+          `(modus-themes-diff-heading ((,class :background ,bg-alt :foreground ,fg-main)))
+
+          `(diff-indicator-added ((,class :foreground ,green))) ; OR ,blue for deuteranopia
+          `(diff-indicator-changed ((,class :foreground ,yellow)))
+          `(diff-indicator-removed ((,class :foreground ,red)))
+
+          `(magit-diff-added ((,class :background unspecified :foreground ,green-faint)))
+          `(magit-diff-changed ((,class :background unspecified :foreground ,yellow-faint)))
+          `(magit-diff-removed ((,class :background unspecified :foreground ,red-faint)))
+          `(magit-diff-context-highlight ((,class :background ,bg-dim :foreground ,fg-dim))))))
+
+     ;; This is so that the changes persist when switching between
+     ;; `modus-operandi' and `modus-vivendi'.
+     (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
+
+   This used to be an optional style of ‘modus-themes-diffs’, but has
+been removed since 2.0.0-dev to ensure that the accessibility standard
+and aesthetic quality of the themes is not compromised.
 
 
 File: modus-themes.info,  Node: Face coverage,  Next: Notes on individual packages,  Prev: Advanced customization,  Up: Top
@@ -5389,6 +5443,8 @@ B.3 Concept index
                                                                 (line 6)
 * Font configurations:                   Font configurations for Org and others.
                                                                 (line 6)
+* Foreground-only diffs:                 Diffs with only the foreground.
+                                                                (line 6)
 * Frequently Asked Questions:            Frequently Asked Questions.
                                                                 (line 6)
 * General setup for readability:         What is the best setup for legibility?.
@@ -5416,106 +5472,107 @@ B.3 Concept index
 
 Tag Table:
 Node: Top860
-Node: Overview6999
-Node: How do the themes look like8542
-Node: Learn about the latest changes9056
-Node: Installation9444
-Node: Install manually from source9925
-Node: Install from the archives10750
-Node: Install on GNU/Linux11527
-Node: Debian 11 Bullseye11975
-Node: GNU Guix12285
-Node: Enable and load12568
-Node: Sample configuration with and without use-package15515
-Node: Differences between loading and enabling17467
-Node: Customization Options19422
-Node: Custom reload theme26346
-Node: Success' color-code27137
-Node: Bold constructs28229
-Node: Italic constructs29064
-Node: Syntax styles29831
-Node: Mixed fonts31963
-Node: Link styles33227
-Node: Command prompts35705
-Node: Mode line37526
-Node: Option for mode line padding41960
-Node: Tab style42532
-Node: Completion UIs43195
-Node: Mail citations45155
-Node: Fringes46104
-Node: Language checkers46844
-Node: Line highlighting49286
-Node: Line numbers50883
-Node: Intense markup51959
-Node: Matching parentheses52692
-Node: Active region54077
-Node: Diffs55490
-Node: Org mode blocks57492
-Node: Org agenda59419
-Node: Heading styles67503
-Node: Scaled headings71517
-Node: Scaled heading sizes72184
-Node: UI typeface76036
-Node: Headings' typeface76963
-Node: Advanced customization77658
-Node: Per-theme customization settings78952
-Node: Case-by-case face specs using the themes' palette80257
-Node: Face specs at scale using the themes' palette84623
-Node: Remap face with local value89290
-Node: Cycle through arbitrary colors91715
-Node: Override colors98143
-Node: Override color saturation102952
-Node: Font configurations for Org and others108637
-Ref: Font configurations for Org and others-Footnote-1111455
-Node: Configure bold and italic faces111642
-Node: Custom Org user faces115767
-Node: Update Org block delimiter fontification119392
-Node: Measure color contrast121305
-Node: Load theme depending on time of day124028
-Node: Backdrop for pdf-tools125021
-Node: Decrease mode line height127716
-Node: A theme-agnostic hook for theme loading131841
-Node: Face coverage134193
-Node: Supported packages134645
-Node: Indirectly covered packages141670
-Node: Notes on individual packages142313
-Node: Note on avy hints143353
-Node: Note on calendarel weekday and weekend colors144521
-Node: Note on underlines in compilation buffers145704
-Node: Note on inline Latex in Org buffers146516
-Node: Note on dimmerel147126
-Node: Note on display-fill-column-indicator-mode148611
-Node: Note on highlight-parenthesesel150174
-Node: Note on mmm-modeel background colors156163
-Node: Note for prism158478
-Node: Note for god-mode161632
-Node: Note on company-mode overlay pop-up163236
-Ref: Note on company-mode overlay pop-up-Footnote-1163926
-Ref: Note on company-mode overlay pop-up-Footnote-2163993
-Node: Note on ERC escaped color sequences164048
-Ref: Note on ERC escaped color sequences-Footnote-1165476
-Node: Note on powerline or spaceline165586
-Node: Note on SHR colors166000
-Node: Note on EWW and Elfeed fonts166423
-Node: Note on Helm grep167088
-Node: Note on vc-annotate-background-mode168563
-Node: Note on pdf-tools link hints169448
-Node: Frequently Asked Questions171880
-Node: Is the contrast ratio about adjacent colors?172436
-Node: What does it mean to avoid exaggerations?173943
-Node: Why are colors mostly variants of blue magenta cyan?175772
-Node: What is the best setup for legibility?180085
-Node: Contributing182697
-Node: Sources of the themes183094
-Node: Issues you can help with183730
-Node: Patches require copyright assignment to the FSF184930
-Node: Acknowledgements187225
-Node: Meta190040
-Node: GNU Free Documentation License192204
-Node: Indices217556
-Node: Function index217735
-Node: Variable index218942
-Node: Concept index221373
+Node: Overview7037
+Node: How do the themes look like8580
+Node: Learn about the latest changes9094
+Node: Installation9482
+Node: Install manually from source9963
+Node: Install from the archives10788
+Node: Install on GNU/Linux11565
+Node: Debian 11 Bullseye12013
+Node: GNU Guix12323
+Node: Enable and load12606
+Node: Sample configuration with and without use-package15553
+Node: Differences between loading and enabling17505
+Node: Customization Options19460
+Node: Custom reload theme26355
+Node: Success' color-code27146
+Node: Bold constructs28238
+Node: Italic constructs29073
+Node: Syntax styles29840
+Node: Mixed fonts31972
+Node: Link styles33236
+Node: Command prompts35714
+Node: Mode line37535
+Node: Option for mode line padding41969
+Node: Tab style42541
+Node: Completion UIs43204
+Node: Mail citations45164
+Node: Fringes46113
+Node: Language checkers46853
+Node: Line highlighting49295
+Node: Line numbers50892
+Node: Intense markup51968
+Node: Matching parentheses52701
+Node: Active region54086
+Node: Diffs55499
+Node: Org mode blocks57181
+Node: Org agenda59108
+Node: Heading styles67192
+Node: Scaled headings71206
+Node: Scaled heading sizes71873
+Node: UI typeface75725
+Node: Headings' typeface76652
+Node: Advanced customization77347
+Node: Per-theme customization settings78676
+Node: Case-by-case face specs using the themes' palette79981
+Node: Face specs at scale using the themes' palette84347
+Node: Remap face with local value89014
+Node: Cycle through arbitrary colors91439
+Node: Override colors97867
+Node: Override color saturation102676
+Node: Font configurations for Org and others108361
+Ref: Font configurations for Org and others-Footnote-1111179
+Node: Configure bold and italic faces111366
+Node: Custom Org user faces115491
+Node: Update Org block delimiter fontification119116
+Node: Measure color contrast121029
+Node: Load theme depending on time of day123752
+Node: Backdrop for pdf-tools124745
+Node: Decrease mode line height127440
+Node: A theme-agnostic hook for theme loading131565
+Node: Diffs with only the foreground133956
+Node: Face coverage137020
+Node: Supported packages137472
+Node: Indirectly covered packages144497
+Node: Notes on individual packages145140
+Node: Note on avy hints146180
+Node: Note on calendarel weekday and weekend colors147348
+Node: Note on underlines in compilation buffers148531
+Node: Note on inline Latex in Org buffers149343
+Node: Note on dimmerel149953
+Node: Note on display-fill-column-indicator-mode151438
+Node: Note on highlight-parenthesesel153001
+Node: Note on mmm-modeel background colors158990
+Node: Note for prism161305
+Node: Note for god-mode164459
+Node: Note on company-mode overlay pop-up166063
+Ref: Note on company-mode overlay pop-up-Footnote-1166753
+Ref: Note on company-mode overlay pop-up-Footnote-2166820
+Node: Note on ERC escaped color sequences166875
+Ref: Note on ERC escaped color sequences-Footnote-1168303
+Node: Note on powerline or spaceline168413
+Node: Note on SHR colors168827
+Node: Note on EWW and Elfeed fonts169250
+Node: Note on Helm grep169915
+Node: Note on vc-annotate-background-mode171390
+Node: Note on pdf-tools link hints172275
+Node: Frequently Asked Questions174707
+Node: Is the contrast ratio about adjacent colors?175263
+Node: What does it mean to avoid exaggerations?176770
+Node: Why are colors mostly variants of blue magenta cyan?178599
+Node: What is the best setup for legibility?182912
+Node: Contributing185524
+Node: Sources of the themes185921
+Node: Issues you can help with186557
+Node: Patches require copyright assignment to the FSF187757
+Node: Acknowledgements190052
+Node: Meta192867
+Node: GNU Free Documentation License195031
+Node: Indices220383
+Node: Function index220562
+Node: Variable index221769
+Node: Concept index224200
 
 End Tag Table
 

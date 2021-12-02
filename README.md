@@ -135,8 +135,8 @@ demonstration:
       modus-themes-region '(bg-only no-extend)
 
       ;; Options for `modus-themes-diffs': nil, 'desaturated,
-      ;; 'bg-only, 'deuteranopia, 'fg-only-deuteranopia
-      modus-themes-diffs 'fg-only-deuteranopia
+      ;; 'bg-only, 'deuteranopia
+      modus-themes-diffs 'desaturated
 
       modus-themes-org-blocks 'gray-background ; {nil,'gray-background,'tinted-background}
 
