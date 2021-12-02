@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-02 21:09:40 +0200>
+;; Last-Modified: <2021-12-02 21:18:59 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -136,7 +136,6 @@
 ;;     dashboard (emacs-dashboard)
 ;;     deadgrep
 ;;     debbugs
-;;     define-word
 ;;     deft
 ;;     dictionary
 ;;     diff-hl
@@ -4889,9 +4888,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(debbugs-gnu-stale-4 ((,class :foreground ,yellow-alt-other)))
     `(debbugs-gnu-stale-5 ((,class :foreground ,red-alt)))
     `(debbugs-gnu-tagged ((,class :foreground ,magenta-alt)))
-;;;;; define-word
-    `(define-word-face-1 ((,class :foreground ,yellow)))
-    `(define-word-face-2 ((,class :foreground ,fg-main)))
 ;;;;; deft
     `(deft-filter-string-error-face ((,class :inherit modus-themes-refine-red)))
     `(deft-filter-string-face ((,class :foreground ,green-intense)))
