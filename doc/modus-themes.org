@@ -3470,7 +3470,6 @@ have lots of extensions, so the "full support" may not be 100% true…
 + highlight-indentation
 + highlight-numbers
 + highlight-parentheses ([[#h:24bab397-dcb2-421d-aa6e-ec5bd622b913][Note on highlight-parentheses.el]])
-+ highlight-symbol
 + highlight-thing
 + hl-defined
 + hl-fill-column

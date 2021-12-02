@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-02 20:59:41 +0200>
+;; Last-Modified: <2021-12-02 21:02:34 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -216,7 +216,6 @@
 ;;     helpful
 ;;     highlight-indentation
 ;;     highlight-numbers
-;;     highlight-symbol
 ;;     highlight-thing
 ;;     hl-defined
 ;;     hl-fill-column
@@ -5814,8 +5813,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(highlight-indentation-current-column-face ((,class :background ,bg-active)))
 ;;;;; highlight-numbers
     `(highlight-numbers-number ((,class :foreground ,blue-alt-other)))
-;;;;; highlight-symbol
-    `(highlight-symbol-face ((,class :inherit modus-themes-special-mild)))
 ;;;;; highlight-thing
     `(highlight-thing ((,class :background ,bg-alt :foreground ,cyan)))
 ;;;;; hl-defined
