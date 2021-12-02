@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-02 21:46:23 +0200>
+;; Last-Modified: <2021-12-02 21:52:56 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -124,7 +124,6 @@
 ;;     corfu
 ;;     counsel
 ;;     counsel-css
-;;     counsel-org-capture-string
 ;;     cov
 ;;     cperl-mode
 ;;     css-mode
@@ -4799,8 +4798,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(counsel-css-selector-depth-face-4 ((,class :foreground ,yellow)))
     `(counsel-css-selector-depth-face-5 ((,class :foreground ,magenta)))
     `(counsel-css-selector-depth-face-6 ((,class :foreground ,red)))
-;;;;; counsel-org-capture-string
-    `(counsel-org-capture-string-template-body-face ((,class :foreground ,fg-special-cold)))
 ;;;;; cov
     `(cov-coverage-not-run-face ((,class :foreground ,red-intense)))
     `(cov-coverage-run-face ((,class :foreground ,green-intense)))
