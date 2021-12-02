@@ -78,7 +78,7 @@ demonstration:
       modus-themes-mixed-fonts nil
       modus-themes-subtle-line-numbers nil
       modus-themes-intense-markup t
-      modus-themes-success-deuteranopia t
+      modus-themes-deuteranopia t
       modus-themes-tabs-accented t
       modus-themes-inhibit-reload t ; only applies to `customize-set-variable' and related
 
@@ -134,8 +134,7 @@ demonstration:
       ;; `no-extend', `bg-only', `accented'
       modus-themes-region '(bg-only no-extend)
 
-      ;; Options for `modus-themes-diffs': nil, 'desaturated,
-      ;; 'bg-only, 'deuteranopia
+      ;; Options for `modus-themes-diffs': nil, 'desaturated, 'bg-only
       modus-themes-diffs 'desaturated
 
       modus-themes-org-blocks 'gray-background ; {nil,'gray-background,'tinted-background}
@@ -145,7 +144,7 @@ demonstration:
         (header-date . (grayscale workaholic bold-today))
         (event . (accented scale-small))
         (scheduled . uniform)
-        (habit . traffic-light-deuteranopia))
+        (habit . traffic-light))
 
       modus-themes-headings ; this is an alist: read the manual or its doc string
       '((1 . (overline background))
