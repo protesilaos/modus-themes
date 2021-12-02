@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-02 20:25:15 +0200>
+;; Last-Modified: <2021-12-02 20:30:32 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -206,7 +206,6 @@
 ;;     git-gutter (and variants)
 ;;     git-rebase
 ;;     git-timemachine
-;;     git-walktree
 ;;     gnus
 ;;     gotest
 ;;     golden-ratio-scroll-screen
@@ -5563,10 +5562,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(git-timemachine-commit ((,class :inherit bold :foreground ,yellow-active)))
     `(git-timemachine-minibuffer-author-face ((,class :foreground ,fg-special-warm)))
     `(git-timemachine-minibuffer-detail-face ((,class :foreground ,red-alt)))
-;;;;; git-walktree
-    `(git-walktree-commit-face ((,class :foreground ,yellow)))
-    `(git-walktree-symlink-face ((,class :inherit button)))
-    `(git-walktree-tree-face ((,class :foreground ,magenta)))
 ;;;;; gnus
     `(gnus-button ((,class :inherit button)))
     `(gnus-cite-1 ((,class :inherit message-cited-text-1)))
