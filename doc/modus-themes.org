@@ -3445,7 +3445,6 @@ have lots of extensions, so the "full support" may not be 100% true…
 + flycheck-posframe
 + flymake
 + flyspell
-+ flyspell-correct
 + flx
 + freeze-it
 + frog-menu
@@ -3664,6 +3663,7 @@ supported by the themes.
 + easy-kill
 + edit-indirect
 + evil-owl
++ flyspell-correct
 + fortran-mode
 + git-walktree
 + goggles

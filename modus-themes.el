@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-02 21:02:34 +0200>
+;; Last-Modified: <2021-12-02 21:09:40 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -192,7 +192,6 @@
 ;;     flycheck-posframe
 ;;     flymake
 ;;     flyspell
-;;     flyspell-correct
 ;;     flx
 ;;     freeze-it
 ;;     frog-menu
@@ -5401,8 +5400,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; flyspell
     `(flyspell-duplicate ((,class :inherit modus-themes-lang-warning)))
     `(flyspell-incorrect ((,class :inherit modus-themes-lang-error)))
-;;;;; flyspell-correct
-    `(flyspell-correct-highlight-face ((,class :inherit modus-themes-refine-green)))
 ;;;;; flx
     `(flx-highlight-face ((,class ,@(modus-themes--extra-completions
                                      'modus-themes-subtle-magenta
