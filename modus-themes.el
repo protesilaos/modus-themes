@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-02 19:16:29 +0200>
+;; Last-Modified: <2021-12-02 19:22:34 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -109,7 +109,6 @@
 ;;     boon
 ;;     bookmark
 ;;     breakpoint (provided by built-in gdb-mi.el)
-;;     buffer-expose
 ;;     calendar and diary
 ;;     calfw
 ;;     centaur-tabs
@@ -4635,10 +4634,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; breakpoint (built-in gdb-mi.el)
     `(breakpoint-disabled ((,class :inherit shadow)))
     `(breakpoint-enabled ((,class :inherit bold :foreground ,red)))
-;;;;; buffer-expose
-    `(buffer-expose-ace-char-face ((,class :inherit bold :foreground ,red-active)))
-    `(buffer-expose-mode-line-face ((,class :foreground ,cyan-active)))
-    `(buffer-expose-selected-face ((,class :inherit modus-themes-special-mild)))
 ;;;;; calendar and diary
     `(calendar-month-header ((,class :inherit modus-themes-pseudo-header)))
     `(calendar-today ((,class :inherit bold :underline t)))

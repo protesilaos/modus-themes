@@ -3363,7 +3363,6 @@ have lots of extensions, so the "full support" may not be 100% true…
 + boon
 + bookmark
 + breakpoint (provided by the built-in {{{file(gdb-mi.el)}}} library)
-+ buffer-expose
 + calendar and diary
 + calfw
 + centaur-tabs
