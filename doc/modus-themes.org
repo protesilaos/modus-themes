@@ -3662,12 +3662,17 @@ supported by the themes.
 
 + ag
 + apt-sources-list
++ buffer-expose
 + bufler
 + counsel-notmuch
++ disk-usage
++ easy-kill
 + edit-indirect
 + evil-owl
 + fortran-mode
++ git-walktree
 + goggles
++ highlight-defined
 + i3wm-config-mode
 + perl-mode
 + php-mode
