@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-03 20:57:06 +0200>
+;; Last-Modified: <2021-12-03 21:02:53 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -5496,12 +5496,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(git-commit-comment-branch-local ((,class :inherit modus-themes-slant :foreground ,blue-alt)))
     `(git-commit-comment-branch-remote ((,class :inherit modus-themes-slant :foreground ,magenta-alt)))
     `(git-commit-comment-detached ((,class :inherit modus-themes-slant :foreground ,cyan-alt)))
-    `(git-commit-comment-file ((,class :inherit modus-themes-slant
-                                       ,@(modus-themes--syntax-comment
-                                          fg-special-cold red-nuanced-fg))))
-    `(git-commit-comment-heading ((,class :inherit (bold modus-themes-slant)
-                                          ,@(modus-themes--syntax-comment
-                                             fg-dim fg-special-warm))))
+    `(git-commit-comment-file ((,class :inherit modus-themes-slant :foreground ,cyan)))
+    `(git-commit-comment-heading ((,class :inherit (bold modus-themes-slant))))
     `(git-commit-keyword ((,class :foreground ,magenta)))
     `(git-commit-known-pseudo-header ((,class :foreground ,cyan-alt-other)))
     `(git-commit-nonempty-second-line ((,class :inherit error)))
@@ -5519,12 +5515,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(git-gutter-fr:deleted ((,class :inherit modus-themes-fringe-red)))
     `(git-gutter-fr:modified ((,class :inherit modus-themes-fringe-yellow)))
 ;;;;; git-rebase
-    `(git-rebase-comment-hash ((,class :inherit modus-themes-slant
-                                       ,@(modus-themes--syntax-comment
-                                          fg-special-cold red-nuanced-fg))))
-    `(git-rebase-comment-heading  ((,class :inherit (bold modus-themes-slant)
-                                           ,@(modus-themes--syntax-comment
-                                              fg-dim fg-special-warm))))
+    `(git-rebase-comment-hash ((,class :inherit modus-themes-slant :foreground ,cyan)))
+    `(git-rebase-comment-heading  ((,class :inherit (bold modus-themes-slant))))
     `(git-rebase-description ((,class :foreground ,fg-main)))
     `(git-rebase-hash ((,class :foreground ,cyan-alt-other)))
 ;;;;; git-timemachine
