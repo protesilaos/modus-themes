@@ -6717,19 +6717,24 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; org-recur
     `(org-recur ((,class :foreground ,magenta-active)))
 ;;;;; org-roam
-    `(org-roam-link ((,class :inherit button
-                             ,@(modus-themes--link-color
-                                green green-faint))))
-    `(org-roam-link-current ((,class :inherit button
-                                     ,@(modus-themes--link-color
-                                        green-alt green-alt-faint))))
-    `(org-roam-link-invalid ((,class :inherit button
-                                     ,@(modus-themes--link-color
-                                        red red-faint))))
-    `(org-roam-link-shielded ((,class :inherit button
-                                      ,@(modus-themes--link-color
-                                         yellow yellow-faint))))
-    `(org-roam-tag ((,class :inherit (shadow italic))))
+    ;; ;; FIXME 2021-12-03: It seems those faces no longer exist
+    ;; ;; upstream.  We need to review all org-roam faces.  Hopefully
+    ;; ;; some user can help me with this, as I do not know how it is
+    ;; ;; supposed to work and/or what to expect.  Basically, I need
+    ;; ;; some demo content to see all the faces.
+    ;; `(org-roam-link ((,class :inherit button
+    ;;                          ,@(modus-themes--link-color
+    ;;                             green green-faint))))
+    ;; `(org-roam-link-current ((,class :inherit button
+    ;;                                  ,@(modus-themes--link-color
+    ;;                                     green-alt green-alt-faint))))
+    ;; `(org-roam-link-invalid ((,class :inherit button
+    ;;                                  ,@(modus-themes--link-color
+    ;;                                     red red-faint))))
+    ;; `(org-roam-link-shielded ((,class :inherit button
+    ;;                                   ,@(modus-themes--link-color
+    ;;                                      yellow yellow-faint))))
+    ;; `(org-roam-tag ((,class :inherit (shadow italic))))
 ;;;;; org-superstar
     `(org-superstar-item ((,class :foreground ,fg-main)))
     `(org-superstar-leading ((,class :foreground ,fg-whitespace)))
