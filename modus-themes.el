@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-03 19:41:56 +0200>
+;; Last-Modified: <2021-12-03 20:09:29 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -4479,24 +4479,14 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(anzu-replace-highlight ((,class :inherit modus-themes-refine-yellow :underline t)))
     `(anzu-replace-to ((,class :inherit (modus-themes-search-success bold))))
 ;;;;; apropos
-    `(apropos-button ((,class :inherit button
-                              ,@(modus-themes--link-color
-                                 magenta-alt-other magenta-alt-other-faint))))
-    `(apropos-function-button ((,class :inherit button
-                                       ,@(modus-themes--link-color
-                                          magenta magenta-faint))))
+    `(apropos-button ((,class :foreground ,magenta-alt-other)))
+    `(apropos-function-button ((,class :foreground ,magenta)))
     `(apropos-keybinding ((,class :inherit modus-themes-key-binding)))
-    `(apropos-misc-button ((,class :inherit button
-                                   ,@(modus-themes--link-color
-                                      green-alt-other green-alt-other-faint))))
+    `(apropos-misc-button ((,class :foreground ,green-alt-other)))
     `(apropos-property ((,class :inherit modus-themes-bold :foreground ,magenta-alt)))
     `(apropos-symbol ((,class :inherit modus-themes-pseudo-header)))
-    `(apropos-user-option-button ((,class :inherit button
-                                          ,@(modus-themes--link-color
-                                             cyan cyan-faint))))
-    `(apropos-variable-button ((,class :inherit button
-                                       ,@(modus-themes--link-color
-                                          blue-alt blue-alt-faint))))
+    `(apropos-user-option-button ((,class :foreground ,cyan)))
+    `(apropos-variable-button ((,class :foreground ,blue-alt)))
 ;;;;; artbollocks-mode
     `(artbollocks-face ((,class :inherit modus-themes-lang-note)))
     `(artbollocks-lexical-illusions-face ((,class :background ,bg-alt :foreground ,red-alt :underline t)))
