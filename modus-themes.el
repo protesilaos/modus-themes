@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-03 21:31:01 +0200>
+;; Last-Modified: <2021-12-03 21:50:39 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -6980,27 +6980,12 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(ruler-mode-pad ((,class :inherit ruler-mode-default :background ,bg-active :foreground ,fg-inactive)))
     `(ruler-mode-tab-stop ((,class :inherit ruler-mode-default :foreground ,fg-special-warm)))
 ;;;;; selectrum
-    ;; NOTE 2021-02-22: The `selectrum-primary-highlight' and
-    ;; `selectrum-secondary-highlight' are deprecated upstream in favour
-    ;; of their selectrum-prescient counterparts.  We shall remove those
-    ;; faces from the themes once we are certain that they are no longer
-    ;; relevant.
     `(selectrum-current-candidate
       ((,class :inherit bold :foreground ,fg-main
                :background ,@(pcase modus-themes-completions
                                ('opinionated (list bg-active))
                                (_ (list bg-inactive))))))
     `(selectrum-mouse-highlight ((,class :inherit highlight)))
-    `(selectrum-primary-highlight
-      ((,class :inherit bold
-               ,@(modus-themes--standard-completions
-                  magenta-alt magenta-nuanced-bg
-                  magenta-refine-bg magenta-refine-fg))))
-    `(selectrum-secondary-highlight
-      ((,class :inherit bold
-               ,@(modus-themes--standard-completions
-                  cyan-alt-other cyan-nuanced-bg
-                  cyan-refine-bg cyan-refine-fg))))
     `(selectrum-quick-keys-highlight
       ((,class :inherit modus-themes-refine-red)))
     `(selectrum-quick-keys-match
