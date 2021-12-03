@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-02 22:06:15 +0200>
+;; Last-Modified: <2021-12-03 19:41:56 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -3146,7 +3146,7 @@ should be combinable with INTENSEBG-FG.
 SUBTLEBGGRAY and INTENSEBGGRAY are background values.  The former
 can be combined with GRAYFG, while the latter only works with the
 theme's fallback text color."
-  (let ((modus-themes-prompts
+  (let ((properties
          (if (listp modus-themes-prompts)
              modus-themes-prompts
            ;; translation layer for legacy values
@@ -3161,40 +3161,40 @@ theme's fallback text color."
              ('intense-gray '(background intense gray))))))
     (list :foreground
           (cond
-           ((and (memq 'gray modus-themes-prompts)
-                 (memq 'intense modus-themes-prompts))
+           ((and (memq 'gray properties)
+                 (memq 'intense properties))
             'unspecified)
-           ((memq 'gray modus-themes-prompts)
+           ((memq 'gray properties)
             grayfg)
-           ((and (memq 'background modus-themes-prompts)
-                 (memq 'intense modus-themes-prompts))
+           ((and (memq 'background properties)
+                 (memq 'intense properties))
             intensebg-fg)
-           ((memq 'intense modus-themes-prompts)
+           ((memq 'intense properties)
             intensefg)
            (mainfg))
           :background
           (cond
-           ((and (memq 'gray modus-themes-prompts)
-                 (memq 'background modus-themes-prompts)
-                 (memq 'intense modus-themes-prompts))
+           ((and (memq 'gray properties)
+                 (memq 'background properties)
+                 (memq 'intense properties))
             intensebggray)
-           ((and (memq 'gray modus-themes-prompts)
-                 (memq 'background modus-themes-prompts))
+           ((and (memq 'gray properties)
+                 (memq 'background properties))
             subtlebggray)
-           ((and (memq 'background modus-themes-prompts)
-                 (memq 'intense modus-themes-prompts))
+           ((and (memq 'background properties)
+                 (memq 'intense properties))
             intensebg)
-           ((memq 'background modus-themes-prompts)
+           ((memq 'background properties)
             subtlebg)
            ('unspecified))
           :inherit
           (cond
-           ((and (memq 'bold modus-themes-prompts)
-                 (memq 'italic modus-themes-prompts))
+           ((and (memq 'bold properties)
+                 (memq 'italic properties))
             'bold-italic)
-           ((memq 'italic modus-themes-prompts)
+           ((memq 'italic properties)
             'italic)
-           ((memq 'bold modus-themes-prompts)
+           ((memq 'bold properties)
             'bold)
            ('unspecified)))))
 
@@ -3204,7 +3204,7 @@ NORMALBG should be the special palette color 'bg-paren-match' or
 something similar.  INTENSEBG must be easier to discern next to
 other backgrounds, such as the special palette color
 'bg-paren-match-intense'."
-  (let ((modus-themes-paren-match
+  (let ((properties
          (if (listp modus-themes-paren-match)
              modus-themes-paren-match
            ;; translation layer for legacy values
@@ -3215,15 +3215,15 @@ other backgrounds, such as the special palette color
              ('subtle-bold '(bold))
              ('intense '(intense))))))
     (list :inherit
-          (if (memq 'bold modus-themes-paren-match)
+          (if (memq 'bold properties)
               'bold
             'unspecified)
           :background
-          (if (memq 'intense modus-themes-paren-match)
+          (if (memq 'intense properties)
               intensebg
             normalbg)
           :underline
-          (if (memq 'underline modus-themes-paren-match)
+          (if (memq 'underline properties)
               t
             nil))))
 
@@ -3231,7 +3231,7 @@ other backgrounds, such as the special palette color
   "Apply foreground value to code syntax.
 FG is the default.  FAINT is typically the same color in its
 desaturated version."
-  (let ((modus-themes-syntax
+  (let ((properties
          (if (listp modus-themes-syntax)
              modus-themes-syntax
            ;; translation layer for legacy values
@@ -3245,7 +3245,7 @@ desaturated version."
              ('alt-syntax-yellow-comments '(alt-syntax yellow-comments))))))
     (list :foreground
           (cond
-           ((memq 'faint modus-themes-syntax)
+           ((memq 'faint properties)
             faint)
            (fg)))))
 
@@ -3254,7 +3254,7 @@ desaturated version."
 FG is the default.  FAINT is typically the same color in its
 desaturated version.  ALT is another hue while optional FAINT-ALT
 is its subtle alternative."
-  (let ((modus-themes-syntax
+  (let ((properties
          (if (listp modus-themes-syntax)
              modus-themes-syntax
            ;; translation layer for legacy values
@@ -3268,12 +3268,12 @@ is its subtle alternative."
              ('alt-syntax-yellow-comments '(alt-syntax yellow-comments))))))
     (list :foreground
           (cond
-           ((and (memq 'alt-syntax modus-themes-syntax)
-                 (memq 'faint modus-themes-syntax))
+           ((and (memq 'alt-syntax properties)
+                 (memq 'faint properties))
             (or faint-alt alt))
-           ((memq 'faint modus-themes-syntax)
+           ((memq 'faint properties)
             faint)
-           ((memq 'alt-syntax modus-themes-syntax)
+           ((memq 'alt-syntax properties)
             alt)
            (fg)))))
 
@@ -3284,7 +3284,7 @@ desaturated version.  GREEN is a color variant in that side of
 the spectrum.  ALT is another hue.  Optional FAINT-GREEN is a
 subtle alternative to GREEN.  Optional FAINT-ALT is a subtle
 alternative to ALT."
-  (let ((modus-themes-syntax
+  (let ((properties
          (if (listp modus-themes-syntax)
              modus-themes-syntax
            ;; translation layer for legacy values
@@ -3298,17 +3298,17 @@ alternative to ALT."
              ('alt-syntax-yellow-comments '(alt-syntax yellow-comments))))))
     (list :foreground
           (cond
-           ((and (memq 'faint modus-themes-syntax)
-                 (memq 'green-strings modus-themes-syntax))
+           ((and (memq 'faint properties)
+                 (memq 'green-strings properties))
             (or faint-green green))
-           ((and (memq 'alt-syntax modus-themes-syntax)
-                 (memq 'faint modus-themes-syntax))
+           ((and (memq 'alt-syntax properties)
+                 (memq 'faint properties))
             (or faint-alt faint))
-           ((memq 'faint modus-themes-syntax)
+           ((memq 'faint properties)
             faint)
-           ((memq 'green-strings modus-themes-syntax)
+           ((memq 'green-strings properties)
             green)
-           ((memq 'alt-syntax modus-themes-syntax)
+           ((memq 'alt-syntax properties)
             alt)
            (fg)))))
 
@@ -3317,7 +3317,7 @@ alternative to ALT."
 FG is the default.  YELLOW is a color variant of that name while
 optional FAINT-YELLOW is its subtle variant.  Optional FAINT is
 an alternative to the default value."
-  (let ((modus-themes-syntax
+  (let ((properties
          (if (listp modus-themes-syntax)
              modus-themes-syntax
            ;; translation layer for legacy values
@@ -3331,16 +3331,16 @@ an alternative to the default value."
              ('alt-syntax-yellow-comments '(alt-syntax yellow-comments))))))
     (list :foreground
           (cond
-           ((and (memq 'faint modus-themes-syntax)
-                 (memq 'yellow-comments modus-themes-syntax))
+           ((and (memq 'faint properties)
+                 (memq 'yellow-comments properties))
             (or faint-yellow yellow))
-           ((and (memq 'alt-syntax modus-themes-syntax)
-                 (memq 'yellow-comments modus-themes-syntax)
-                 (not (memq 'green-strings modus-themes-syntax)))
+           ((and (memq 'alt-syntax properties)
+                 (memq 'yellow-comments properties)
+                 (not (memq 'green-strings properties)))
             (or faint-yellow yellow))
-           ((memq 'yellow-comments modus-themes-syntax)
+           ((memq 'yellow-comments properties)
             yellow)
-           ((memq 'faint modus-themes-syntax)
+           ((memq 'faint properties)
             (or faint fg))
            (fg)))))
 
@@ -3372,7 +3372,7 @@ that combines well with the background and foreground."
   (let* ((key (modus-themes--key-cdr level modus-themes-headings))
          (style (or key (modus-themes--key-cdr t modus-themes-headings)))
          (style-listp (listp style))
-         (modus-themes-headings
+         (properties
           (if style-listp
               style
             ;; translation layer for legacy values
@@ -3403,28 +3403,28 @@ that combines well with the background and foreground."
           (cond
            ;; `no-bold' is for backward compatibility because we cannot
            ;; deprecate a variable's value.
-           ((or weight (memq 'no-bold modus-themes-headings))
+           ((or weight (memq 'no-bold properties))
             var)
            (varbold))
           :background
           (cond
-           ((and (memq 'monochrome modus-themes-headings)
-                 (memq 'background modus-themes-headings))
+           ((and (memq 'monochrome properties)
+                 (memq 'background properties))
             bg-gray)
-           ((memq 'background modus-themes-headings)
+           ((memq 'background properties)
             bg)
            ('unspecified))
           :foreground
           (cond
-           ((memq 'monochrome modus-themes-headings)
+           ((memq 'monochrome properties)
             'unspecified)
-           ((memq 'rainbow modus-themes-headings)
+           ((memq 'rainbow properties)
             fg-alt)
            (fg))
           :weight
           (or weight 'unspecified)
           :overline
-          (if (memq 'overline modus-themes-headings)
+          (if (memq 'overline properties)
               border
             'unspecified))))
 
@@ -3608,88 +3608,88 @@ line's box property.
 Optional FG-DISTANT should be close to the main background
 values.  It is intended to be used as a distant-foreground
 property."
-  (let ((padding (modus-themes--mode-line-padding))
-        (modus-themes-mode-line
-         (if (listp modus-themes-mode-line)
-             modus-themes-mode-line
-           ;; translation layer for legacy values
-           (alist-get modus-themes-mode-line
-                      '((3d . (3d))
-                        (moody . (moody))
-                        (borderless . (borderless))
-                        (borderless-3d . (borderless 3d))
-                        (borderless-moody . (borderless moody))
-                        (accented . (accented))
-                        (accented-3d . (accented 3d))
-                        (accented-moody . (accented moody))
-                        (borderless-accented . (borderless accented))
-                        (borderless-accented-3d . (borderless accented 3d))
-                        (borderless-accented-moody . (borderless accented moody)))))))
-    (let ((base (cond ((memq 'accented modus-themes-mode-line)
-                       (cons fg-accent bg-accent))
-                      ((and (or (memq 'moody modus-themes-mode-line)
-                                (memq '3d modus-themes-mode-line))
-                            (not (memq 'borderless modus-themes-mode-line)))
-                       (cons fg-alt bg-alt))
-                      ((cons fg bg))))
-          (box (cond ((memq 'moody modus-themes-mode-line)
+  (let* ((padding (modus-themes--mode-line-padding))
+         (properties
+          (if (listp modus-themes-mode-line)
+              modus-themes-mode-line
+            ;; translation layer for legacy values
+            (alist-get modus-themes-mode-line
+                       '((3d . (3d))
+                         (moody . (moody))
+                         (borderless . (borderless))
+                         (borderless-3d . (borderless 3d))
+                         (borderless-moody . (borderless moody))
+                         (accented . (accented))
+                         (accented-3d . (accented 3d))
+                         (accented-moody . (accented moody))
+                         (borderless-accented . (borderless accented))
+                         (borderless-accented-3d . (borderless accented 3d))
+                         (borderless-accented-moody . (borderless accented moody))))))
+         (base (cond ((memq 'accented properties)
+                      (cons fg-accent bg-accent))
+                     ((and (or (memq 'moody properties)
+                               (memq '3d properties))
+                           (not (memq 'borderless properties)))
+                      (cons fg-alt bg-alt))
+                     ((cons fg bg))))
+         (line (cond ((not (or (memq 'moody properties)
+                               (memq 'padded properties)))
                       'unspecified)
-                     ((and (memq '3d modus-themes-mode-line)
-                           (memq 'padded modus-themes-mode-line))
-                      (list :line-width padding
-                            :color
-                            (cond ((and (memq 'accented modus-themes-mode-line)
-                                        (memq 'borderless modus-themes-mode-line))
-                                   bg-accent)
-                                  ((or (memq 'accented modus-themes-mode-line)
-                                       (memq 'borderless modus-themes-mode-line))
-                                   bg)
-                                  (bg-alt))
-                            :style (when alt-style 'released-button)))
-                     ((and (memq 'accented modus-themes-mode-line)
-                           (memq 'padded modus-themes-mode-line))
-                      (list :line-width padding :color bg-accent))
-                     ((memq 'padded modus-themes-mode-line)
-                      (list :line-width padding :color bg))
-                     ((memq '3d modus-themes-mode-line)
-                      (list :line-width 1
-                            :color
-                            (cond ((and (memq 'accented modus-themes-mode-line)
-                                        (memq 'borderless modus-themes-mode-line))
-                                   bg-accent)
-                                  ((memq 'borderless modus-themes-mode-line) bg)
-                                  (border-3d))
-                            :style (when alt-style 'released-button)))
-                     ((and (memq 'accented modus-themes-mode-line)
-                           (memq 'borderless modus-themes-mode-line))
+                     ((and (not (memq 'moody properties))
+                           (memq 'padded properties)
+                           (memq 'borderless properties))
+                      'unspecified)
+                     ((and (memq 'borderless properties)
+                           (memq 'accented properties))
                       bg-accent)
-                     ((memq 'borderless modus-themes-mode-line)
+                     ((memq 'borderless properties)
                       bg)
-                     ((memq 'padded modus-themes-mode-line)
-                      (list :line-width padding :color bg))
-                     (border)))
-          (line (cond ((not (or (memq 'moody modus-themes-mode-line)
-                                (memq 'padded modus-themes-mode-line)))
-                       'unspecified)
-                      ((and (not (memq 'moody modus-themes-mode-line))
-                            (memq 'padded modus-themes-mode-line)
-                            (memq 'borderless modus-themes-mode-line))
-                       'unspecified)
-                      ((and (memq 'borderless modus-themes-mode-line)
-                            (memq 'accented modus-themes-mode-line))
-                       bg-accent)
-                      ((memq 'borderless modus-themes-mode-line)
-                       bg)
-                      (border))))
-      (list :foreground (car base)
-            :background (cdr base)
-            :box box
-            :overline line
-            :underline line
-            :distant-foreground
-            (if (memq 'moody modus-themes-mode-line)
-                fg-distant
-              'unspecified)))))
+                     (border))))
+    (list :foreground (car base)
+          :background (cdr base)
+          :box
+          (cond ((memq 'moody properties)
+                 'unspecified)
+                ((and (memq '3d properties)
+                      (memq 'padded properties))
+                 (list :line-width padding
+                       :color
+                       (cond ((and (memq 'accented properties)
+                                   (memq 'borderless properties))
+                              bg-accent)
+                             ((or (memq 'accented properties)
+                                  (memq 'borderless properties))
+                              bg)
+                             (bg-alt))
+                       :style (when alt-style 'released-button)))
+                ((and (memq 'accented properties)
+                      (memq 'padded properties))
+                 (list :line-width padding :color bg-accent))
+                ((memq 'padded properties)
+                 (list :line-width padding :color bg))
+                ((memq '3d properties)
+                 (list :line-width 1
+                       :color
+                       (cond ((and (memq 'accented properties)
+                                   (memq 'borderless properties))
+                              bg-accent)
+                             ((memq 'borderless properties) bg)
+                             (border-3d))
+                       :style (when alt-style 'released-button)))
+                ((and (memq 'accented properties)
+                      (memq 'borderless properties))
+                 bg-accent)
+                ((memq 'borderless properties)
+                 bg)
+                ((memq 'padded properties)
+                 (list :line-width padding :color bg))
+                (border))
+          :overline line
+          :underline line
+          :distant-foreground
+          (if (memq 'moody properties)
+              fg-distant
+            'unspecified))))
 
 (defun modus-themes--diff (mainbg mainfg altbg altfg &optional deuteranbg deuteranfg  bg-only-fg)
   "Color combinations for `modus-themes-diffs'.
@@ -3759,7 +3759,7 @@ FG is the link's default color for its text and underline
 property.  FGFAINT is a desaturated color for the text and
 underline.  UNDERLINE is a gray color only for the undeline.  BG
 is a background color and BGNEUTRAL is its fallback value."
-  (let ((modus-themes-links
+  (let ((properties
          (if (listp modus-themes-links)
              modus-themes-links
            ;; translation layer for legacy values
@@ -3772,34 +3772,34 @@ is a background color and BGNEUTRAL is its fallback value."
              ('neutral-underline-only '(no-color neutral-underline))))))
     (list :inherit
           (cond
-           ((and (memq 'bold modus-themes-links)
-                 (memq 'italic modus-themes-links))
+           ((and (memq 'bold properties)
+                 (memq 'italic properties))
             'bold-italic)
-           ((memq 'italic modus-themes-links)
+           ((memq 'italic properties)
             'italic)
-           ((memq 'bold modus-themes-links)
+           ((memq 'bold properties)
             'bold)
            ('unspecified))
           :background
           (cond
-           ((and (memq 'no-color modus-themes-links)
-                 (memq 'no-underline modus-themes-links))
+           ((and (memq 'no-color properties)
+                 (memq 'no-underline properties))
             bgneutral)
-           ((memq 'background modus-themes-links)
+           ((memq 'background properties)
             bg)
            ('unspecified))
           :foreground
           (cond
-           ((memq 'no-color modus-themes-links)
+           ((memq 'no-color properties)
             'unspecified)
-           ((memq 'faint modus-themes-links)
+           ((memq 'faint properties)
             fgfaint)
            (fg))
           :underline
           (cond
-           ((memq 'no-underline modus-themes-links)
+           ((memq 'no-underline properties)
             'unspecified)
-           ((memq 'neutral-underline modus-themes-links)
+           ((memq 'neutral-underline properties)
             underline)
            (t)))))
 
@@ -3807,7 +3807,7 @@ is a background color and BGNEUTRAL is its fallback value."
   "Extends `modus-themes--link'.
 FG is the main accented foreground.  FGFAINT is also accented,
 yet desaturated.  Optional NEUTRALFG is a gray value."
-  (let ((modus-themes-links
+  (let ((properties
          (if (listp modus-themes-links)
              modus-themes-links
            ;; translation layer for legacy values
@@ -3820,16 +3820,16 @@ yet desaturated.  Optional NEUTRALFG is a gray value."
              ('neutral-underline-only '(no-color neutral-underline))))))
     (list :foreground
           (cond
-           ((memq 'no-color modus-themes-links)
+           ((memq 'no-color properties)
             (or neutralfg 'unspecified))
-           ((memq 'faint modus-themes-links)
+           ((memq 'faint properties)
             fgfaint)
            (fg))
           :underline
           (cond
-           ((memq 'no-underline modus-themes-links)
+           ((memq 'no-underline properties)
             'unspecified)
-           ((memq 'neutral-underline modus-themes-links)
+           ((memq 'neutral-underline properties)
             (or neutralfg 'unspecified))
            (t)))))
 
@@ -3847,7 +3847,7 @@ is a subtle background value that can be combined with all colors
 used to fontify text and code syntax.  BGACCENT is a colored
 background that combines well with FG.  BGACCENTSUBTLE can be
 combined with all colors used to fontify text."
-  (let ((modus-themes-region
+  (let ((properties
          (if (listp modus-themes-region)
              modus-themes-region
            ;; translation layer for legacy values
@@ -3859,25 +3859,25 @@ combined with all colors used to fontify text."
              ('no-extend '(no-extend))))))
     (list :background
           (cond
-           ((and (memq 'accented modus-themes-region)
-                 (memq 'bg-only modus-themes-region))
+           ((and (memq 'accented properties)
+                 (memq 'bg-only properties))
             bgaccentsubtle)
-           ((memq 'accented modus-themes-region)
+           ((memq 'accented properties)
             bgaccent)
-           ((memq 'bg-only modus-themes-region)
+           ((memq 'bg-only properties)
             bgsubtle)
            (bg))
           :foreground
           (cond
-           ((and (memq 'accented modus-themes-region)
-                 (memq 'bg-only modus-themes-region))
+           ((and (memq 'accented properties)
+                 (memq 'bg-only properties))
             'unspecified)
-           ((memq 'bg-only modus-themes-region)
+           ((memq 'bg-only properties)
             'unspecified)
            (fg))
           :extend
           (cond
-           ((memq 'no-extend modus-themes-region)
+           ((memq 'no-extend properties)
             nil)
            (t)))))
 
@@ -3892,7 +3892,7 @@ LINEACCENT are color values that can remain distinct against the
 buffer's possible backgrounds: the former is neutral, the latter
 is accented.  LINENEUTRALINTENSE and LINEACCENTINTENSE are their
 more prominent alternatives."
-  (let ((modus-themes-hl-line
+  (let ((properties
          (if (listp modus-themes-hl-line)
              modus-themes-hl-line
            ;; translation layer for legacy values
@@ -3905,28 +3905,28 @@ more prominent alternatives."
              ('underline-only-accented '(underline accented))))))
     (list :background
           (cond
-           ((and (memq 'intense modus-themes-hl-line)
-                 (memq 'accented modus-themes-hl-line))
+           ((and (memq 'intense properties)
+                 (memq 'accented properties))
             bgaccent)
-           ((memq 'accented modus-themes-hl-line)
+           ((memq 'accented properties)
             bgaccentsubtle)
-           ((memq 'intense modus-themes-hl-line)
+           ((memq 'intense properties)
             bgintense)
            (bgdefault))
           :underline
           (cond
-           ((and (memq 'intense modus-themes-hl-line)
-                 (memq 'accented modus-themes-hl-line)
-                 (memq 'underline modus-themes-hl-line))
+           ((and (memq 'intense properties)
+                 (memq 'accented properties)
+                 (memq 'underline properties))
             lineaccentintense)
-           ((and (memq 'accented modus-themes-hl-line)
-                 (memq 'underline modus-themes-hl-line))
+           ((and (memq 'accented properties)
+                 (memq 'underline properties))
             lineaccent)
-           ((and (memq 'intense modus-themes-hl-line)
-                 (memq 'underline modus-themes-hl-line))
+           ((and (memq 'intense properties)
+                 (memq 'underline properties))
             lineneutralintense)
-           ((or (memq 'no-background modus-themes-hl-line)
-                (memq 'underline modus-themes-hl-line))
+           ((or (memq 'no-background properties)
+                (memq 'underline properties))
             lineneutral)
            ('unspecified)))))
 
