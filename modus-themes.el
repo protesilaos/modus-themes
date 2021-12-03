@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-03 21:02:53 +0200>
+;; Last-Modified: <2021-12-03 21:16:41 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -1684,6 +1684,21 @@ The actual styling of the face is done by `modus-themes-faces'."
 
 (defface modus-themes-link-broken nil
   "Face for `modus-themes-links' broken link.
+The actual styling of the face is done by `modus-themes-faces'."
+  :group 'modus-themes-faces)
+
+(defface modus-themes-tab-backdrop nil
+  "Face of backdrop in tabbed interfaces.
+The actual styling of the face is done by `modus-themes-faces'."
+  :group 'modus-themes-faces)
+
+(defface modus-themes-tab-active nil
+  "Face of active tab.
+The actual styling of the face is done by `modus-themes-faces'."
+  :group 'modus-themes-faces)
+
+(defface modus-themes-tab-inactive nil
+  "Face of inactive tab.
 The actual styling of the face is done by `modus-themes-faces'."
   :group 'modus-themes-faces)
 
@@ -4330,6 +4345,10 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; links
     `(modus-themes-link-broken ((,class :inherit button ,@(modus-themes--link-color red red-faint))))
     `(modus-themes-link-symlink ((,class :inherit button ,@(modus-themes--link-color cyan cyan-faint))))
+;;;;; tabs
+    `(modus-themes-tab-active ((,class ,@(modus-themes--tab bg-tab-active nil nil nil t t))))
+    `(modus-themes-tab-backdrop ((,class ,@(modus-themes--tab bg-active bg-active-accent nil nil nil nil t))))
+    `(modus-themes-tab-inactive ((,class ,@(modus-themes--tab bg-tab-inactive bg-tab-inactive-accent fg-dim nil t))))
 ;;;;; other custom faces
     `(modus-themes-bold ((,class ,@(modus-themes--bold-weight))))
     `(modus-themes-hl-line ((,class ,@(modus-themes--hl-line
@@ -4638,9 +4657,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(centaur-tabs-modified-marker-selected ((,class :inherit centaur-tabs-selected)))
     `(centaur-tabs-modified-marker-unselected ((,class :inherit centaur-tabs-unselected)))
     `(centaur-tabs-default (( )))
-    `(centaur-tabs-selected ((,class ,@(modus-themes--tab bg-tab-active nil nil nil t t))))
+    `(centaur-tabs-selected ((,class :inherit modus-themes-tab-active)))
     `(centaur-tabs-selected-modified ((,class :inherit (italic centaur-tabs-selected))))
-    `(centaur-tabs-unselected ((,class ,@(modus-themes--tab bg-tab-inactive bg-tab-inactive-accent fg-dim nil t))))
+    `(centaur-tabs-unselected ((,class :inherit modus-themes-tab-inactive)))
     `(centaur-tabs-unselected-modified ((,class :inherit (italic centaur-tabs-unselected))))
 ;;;;; cfrs
     `(cfrs-border-color ((,class :background ,fg-window-divider-inner)))
@@ -7187,21 +7206,20 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(tab-bar-groups-tab-7 ((,class ,@(modus-themes--variable-pitch-ui) :foreground ,yellow-tab)))
     `(tab-bar-groups-tab-8 ((,class ,@(modus-themes--variable-pitch-ui) :foreground ,magenta-tab)))
 ;;;;; tab-bar-mode
-    `(tab-bar ((,class ,@(modus-themes--tab bg-active bg-active-accent nil nil nil nil t))))
+    `(tab-bar ((,class :inherit modus-themes-tab-backdrop)))
     `(tab-bar-tab-group-current ((,class ,@(modus-themes--tab bg-tab-active)
                                          :box (:line-width (2 . -2) :color "gray50"))))
     `(tab-bar-tab-group-inactive ((,class ,@(modus-themes--tab bg-tab-inactive bg-tab-inactive-accent fg-dim)
                                           :box (:line-width (2 . -2) :color "gray50"))))
-    `(tab-bar-tab ((,class ,@(modus-themes--tab bg-tab-active nil nil nil t t))))
-    `(tab-bar-tab-inactive ((,class ,@(modus-themes--tab bg-tab-inactive bg-tab-inactive-accent fg-dim nil t))))
+    `(tab-bar-tab ((,class :inherit modus-themes-tab-active)))
+    `(tab-bar-tab-inactive ((,class :inherit modus-themes-tab-inactive)))
 ;;;;; tab-line-mode
-    `(tab-line ((,class ,@(modus-themes--tab bg-active bg-active-accent nil nil nil nil t)
-                        :height 0.95)))
+    `(tab-line ((,class :inherit modus-themes-tab-backdrop :height 0.95)))
     `(tab-line-close-highlight ((,class :foreground ,red)))
     `(tab-line-highlight ((,class :inherit modus-themes-active-blue)))
-    `(tab-line-tab ((,class ,@(modus-themes--tab bg-tab-active nil nil nil t t))))
+    `(tab-line-tab ((,class :inherit modus-themes-tab-active)))
     `(tab-line-tab-current ((,class :inherit tab-line-tab)))
-    `(tab-line-tab-inactive ((,class ,@(modus-themes--tab bg-tab-inactive bg-tab-inactive-accent fg-dim nil t))))
+    `(tab-line-tab-inactive ((,class :inherit modus-themes-tab-inactive)))
     `(tab-line-tab-inactive-alternate ((,class ,@(modus-themes--tab bg-tab-inactive-alt
                                                                     bg-tab-inactive-alt-accent fg-main nil t))))
     `(tab-line-tab-modified ((,class :foreground ,red-alt-other-faint)))
