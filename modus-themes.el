@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-03 20:09:29 +0200>
+;; Last-Modified: <2021-12-03 20:42:09 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -1674,6 +1674,16 @@ The actual styling of the face is done by `modus-themes-faces'."
 
 (defface modus-themes-grue-background-refine nil
   "Face for `modus-themes-deuteranopia' refined background.
+The actual styling of the face is done by `modus-themes-faces'."
+  :group 'modus-themes-faces)
+
+(defface modus-themes-link-symlink nil
+  "Face for `modus-themes-links' symbolic link.
+The actual styling of the face is done by `modus-themes-faces'."
+  :group 'modus-themes-faces)
+
+(defface modus-themes-link-broken nil
+  "Face for `modus-themes-links' broken link.
 The actual styling of the face is done by `modus-themes-faces'."
   :group 'modus-themes-faces)
 
@@ -4317,6 +4327,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(modus-themes-lang-warning ((,class ,@(modus-themes--lang-check
                                             fg-lang-underline-warning fg-lang-warning
                                             yellow yellow-refine-fg yellow-nuanced-bg yellow-refine-bg yellow-faint))))
+;;;;; links
+    `(modus-themes-link-broken ((,class :inherit button ,@(modus-themes--link-color red red-faint))))
+    `(modus-themes-link-symlink ((,class :inherit button ,@(modus-themes--link-color cyan cyan-faint))))
 ;;;;; other custom faces
     `(modus-themes-bold ((,class ,@(modus-themes--bold-weight))))
     `(modus-themes-hl-line ((,class ,@(modus-themes--hl-line
@@ -4927,13 +4940,11 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(dir-treeview-indent-face ((,class :inherit shadow)))
     `(dir-treeview-label-mouse-face ((,class :inherit highlight)))
     `(dir-treeview-start-dir-face ((,class :inherit modus-themes-pseudo-header)))
-    `(dir-treeview-symlink-face ((,class :inherit button
-                                         ,@(modus-themes--link-color
-                                            cyan cyan-faint))))
+    `(dir-treeview-symlink-face ((,class :inherit modus-themes-link-symlink)))
     `(dir-treeview-video-face ((,class :foreground ,magenta-alt-other)))
     `(dir-treeview-video-icon-face ((,class :inherit dir-treeview-default-icon-face :foreground ,magenta-alt-other)))
 ;;;;; dired
-    `(dired-broken-symlink ((,class :inherit button :foreground ,red)))
+    `(dired-broken-symlink ((,class :inherit modus-themes-link-broken)))
     `(dired-directory ((,class :foreground ,blue)))
     `(dired-flagged ((,class :inherit modus-themes-mark-del)))
     `(dired-header ((,class :inherit modus-themes-pseudo-header)))
@@ -4941,9 +4952,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(dired-mark ((,class :inherit modus-themes-mark-symbol)))
     `(dired-marked ((,class :inherit modus-themes-mark-sel)))
     `(dired-perm-write ((,class :foreground ,fg-special-warm)))
-    `(dired-symlink ((,class :inherit button
-                             ,@(modus-themes--link-color
-                                cyan-alt cyan-alt-faint))))
+    `(dired-symlink ((,class :inherit modus-themes-link-symlink)))
     `(dired-warning ((,class :inherit bold :foreground ,yellow)))
 ;;;;; dired-async
     `(dired-async-failures ((,class :inherit bold :foreground ,red-active)))
@@ -5247,7 +5256,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(eshell-ls-product ((,class :inherit shadow)))
     `(eshell-ls-readonly ((,class :foreground ,yellow-faint)))
     `(eshell-ls-special ((,class :foreground ,magenta)))
-    `(eshell-ls-symlink ((,class :foreground ,cyan)))
+    `(eshell-ls-symlink ((,class :inherit modus-themes-link-symlink)))
     `(eshell-ls-unreadable ((,class :background ,bg-inactive :foreground ,fg-inactive)))
     `(eshell-prompt ((,class :inherit modus-themes-prompt)))
 ;;;;; eshell-fringe-status
@@ -5645,9 +5654,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(helm-ff-executable ((,class :foreground ,magenta-alt)))
     `(helm-ff-file ((,class :foreground ,fg-main)))
     `(helm-ff-file-extension ((,class :foreground ,fg-special-warm)))
-    `(helm-ff-invalid-symlink ((,class :inherit button
-                                       ,@(modus-themes--link-color
-                                          red red-faint))))
+    `(helm-ff-invalid-symlink ((,class :inherit modus-themes-link-broken)))
     `(helm-ff-pipe ((,class ,@(modus-themes--extra-completions
                                'modus-themes-refine-magenta
                                'modus-themes-subtle-magenta
@@ -5664,9 +5671,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                'modus-themes-refine-red
                                'modus-themes-nuanced-yellow
                                red-alt))))
-    `(helm-ff-symlink ((,class :inherit button
-                               ,@(modus-themes--link-color
-                                  cyan cyan-faint))))
+    `(helm-ff-symlink ((,class :inherit modus-themes-link-symlink)))
     `(helm-ff-truename ((,class :foreground ,blue-alt-other)))
     `(helm-fd-finish ((,class :foreground ,green-active)))
     `(helm-grep-cmd-line ((,class :foreground ,yellow-alt-other)))
@@ -5703,9 +5708,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                   'modus-themes-nuanced-cyan
                                   cyan-alt-other))))
     `(helm-minibuffer-prompt ((,class :inherit modus-themes-prompt)))
-    `(helm-moccur-buffer ((,class :inherit button
-                                  ,@(modus-themes--link-color
-                                     cyan-alt-other cyan-alt-other-faint))))
+    `(helm-moccur-buffer ((,class :inherit button :foreground ,cyan-alt-other)))
     `(helm-mode-prefix ((,class ,@(modus-themes--extra-completions
                                    'modus-themes-subtle-magenta
                                    'modus-themes-intense-magenta
@@ -6606,10 +6609,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-column-title ((,class :inherit (bold modus-themes-fixed-pitch default)
                                 :underline t :background ,bg-alt)))
     `(org-date ((,class :inherit ,(if modus-themes-mixed-fonts
-                                      '(button fixed-pitch)
-                                    'button)
-                        ,@(modus-themes--link-color
-                           cyan cyan-faint))))
+                                      '(fixed-pitch modus-themes-link-symlink)
+                                    'modus-themes-link-symlink))))
     `(org-date-selected ((,class :inherit bold :foreground ,blue-alt :inverse-video t)))
     `(org-dispatcher-highlight ((,class :inherit (bold modus-themes-mark-alt))))
     `(org-document-info ((,class :foreground ,fg-special-cold)))
@@ -7300,9 +7301,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(trashed-mark ((,class :inherit modus-themes-mark-symbol)))
     `(trashed-marked ((,class :inherit modus-themes-mark-alt)))
     `(trashed-restored ((,class :inherit modus-themes-mark-sel)))
-    `(trashed-symlink ((,class :inherit button
-                               ,@(modus-themes--link-color
-                                  cyan-alt cyan-alt-faint))))
+    `(trashed-symlink ((,class :inherit modus-themes-link-symlink)))
 ;;;;; treemacs
     `(treemacs-directory-collapsed-face ((,class :foreground ,magenta-alt)))
     `(treemacs-directory-face ((,class :inherit dired-directory)))
