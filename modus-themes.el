@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-03 21:16:41 +0200>
+;; Last-Modified: <2021-12-03 21:31:01 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -1459,6 +1459,11 @@ The actual styling of the face is done by `modus-themes-faces'."
   "Generic face for applying a conditional `fixed-pitch'.
 This behaves in accordance with `modus-themes-mixed-fonts'.
 
+The actual styling of the face is done by `modus-themes-faces'."
+  :group 'modus-theme-faces)
+
+(defface modus-themes-ui-variable-pitch nil
+  "Face for `modus-themes-variable-pitch-ui'.
 The actual styling of the face is done by `modus-themes-faces'."
   :group 'modus-theme-faces)
 
@@ -4379,6 +4384,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                                                    green-active))))
     `(modus-themes-slant ((,class :inherit italic :slant ,@(modus-themes--slant))))
     `(modus-themes-variable-pitch ((,class ,@(modus-themes--variable-pitch))))
+    `(modus-themes-ui-variable-pitch ((,class ,@(modus-themes--variable-pitch-ui))))
     `(modus-themes-fixed-pitch ((,class ,@(modus-themes--fixed-pitch))))
 ;;;; standard faces
 ;;;;; absolute essentials
@@ -4397,7 +4403,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(error ((,class :inherit bold :foreground ,red)))
     `(escape-glyph ((,class :foreground ,fg-escape-char-construct)))
     `(file-name-shadow ((,class :inherit (shadow italic))))
-    `(header-line ((,class ,@(modus-themes--variable-pitch-ui)
+    `(header-line ((,class :inherit modus-themes-ui-variable-pitch
                            :background ,bg-header :foreground ,fg-header)))
     `(header-line-highlight ((,class :inherit modus-themes-active-blue)))
     `(help-argument-name ((,class :inherit modus-themes-slant :foreground ,cyan)))
@@ -6397,7 +6403,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(mmm-output-submode-face ((,class :background ,red-nuanced-bg)))
     `(mmm-special-submode-face ((,class :background ,green-nuanced-bg)))
 ;;;;; mode-line
-    `(mode-line ((,class ,@(modus-themes--variable-pitch-ui)
+    `(mode-line ((,class :inherit modus-themes-ui-variable-pitch
                          ,@(modus-themes--mode-line-attrs
                             fg-active bg-active
                             fg-dim bg-active
@@ -6408,7 +6414,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(mode-line-buffer-id ((,class :inherit bold)))
     `(mode-line-emphasis ((,class :inherit bold :foreground ,blue-active)))
     `(mode-line-highlight ((,class :inherit modus-themes-active-blue :box (:line-width -1 :style pressed-button))))
-    `(mode-line-inactive ((,class ,@(modus-themes--variable-pitch-ui)
+    `(mode-line-inactive ((,class :inherit modus-themes-ui-variable-pitch
                                   ,@(modus-themes--mode-line-attrs
                                      fg-inactive bg-inactive
                                      fg-alt bg-dim
@@ -7197,14 +7203,14 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(syslog-su ((,class :inherit bold :foreground ,red-alt)))
     `(syslog-warn ((,class :inherit bold :foreground ,yellow)))
 ;;;;; tab-bar-groups
-    `(tab-bar-groups-tab-1 ((,class ,@(modus-themes--variable-pitch-ui) :foreground ,blue-tab)))
-    `(tab-bar-groups-tab-2 ((,class ,@(modus-themes--variable-pitch-ui) :foreground ,red-tab)))
-    `(tab-bar-groups-tab-3 ((,class ,@(modus-themes--variable-pitch-ui) :foreground ,green-tab)))
-    `(tab-bar-groups-tab-4 ((,class ,@(modus-themes--variable-pitch-ui) :foreground ,orange-tab)))
-    `(tab-bar-groups-tab-5 ((,class ,@(modus-themes--variable-pitch-ui) :foreground ,purple-tab)))
-    `(tab-bar-groups-tab-6 ((,class ,@(modus-themes--variable-pitch-ui) :foreground ,cyan-tab)))
-    `(tab-bar-groups-tab-7 ((,class ,@(modus-themes--variable-pitch-ui) :foreground ,yellow-tab)))
-    `(tab-bar-groups-tab-8 ((,class ,@(modus-themes--variable-pitch-ui) :foreground ,magenta-tab)))
+    `(tab-bar-groups-tab-1 ((,class :inherit modus-themes-ui-variable-pitch :foreground ,blue-tab)))
+    `(tab-bar-groups-tab-2 ((,class :inherit modus-themes-ui-variable-pitch :foreground ,red-tab)))
+    `(tab-bar-groups-tab-3 ((,class :inherit modus-themes-ui-variable-pitch :foreground ,green-tab)))
+    `(tab-bar-groups-tab-4 ((,class :inherit modus-themes-ui-variable-pitch :foreground ,orange-tab)))
+    `(tab-bar-groups-tab-5 ((,class :inherit modus-themes-ui-variable-pitch :foreground ,purple-tab)))
+    `(tab-bar-groups-tab-6 ((,class :inherit modus-themes-ui-variable-pitch :foreground ,cyan-tab)))
+    `(tab-bar-groups-tab-7 ((,class :inherit modus-themes-ui-variable-pitch :foreground ,yellow-tab)))
+    `(tab-bar-groups-tab-8 ((,class :inherit modus-themes-ui-variable-pitch :foreground ,magenta-tab)))
 ;;;;; tab-bar-mode
     `(tab-bar ((,class :inherit modus-themes-tab-backdrop)))
     `(tab-bar-tab-group-current ((,class ,@(modus-themes--tab bg-tab-active)
