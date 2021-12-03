@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-03 20:42:09 +0200>
+;; Last-Modified: <2021-12-03 20:57:06 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -6110,6 +6110,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(magit-branch-remote ((,class :foreground ,magenta-alt)))
     `(magit-branch-remote-head ((,class :foreground ,magenta-alt-other :box t)))
     `(magit-branch-upstream ((,class :inherit italic)))
+    `(magit-branch-warning ((,class :inherit warning)))
     `(magit-cherry-equivalent ((,class :background ,bg-main :foreground ,magenta-intense)))
     `(magit-cherry-unmatched ((,class :background ,bg-main :foreground ,cyan-intense)))
     ;; NOTE: here we break from the pattern of inheriting from the
