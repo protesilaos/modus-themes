@@ -1611,13 +1611,11 @@ those properties:
 
    • ‘variable-pitch’ to use a proportionately spaced typeface;
    • A number as a floating point (e.g.  1.5) to set the height of the
-     text to that many times the default font height.  DO NOT use an
-     integer (e.g.  10), as that will produce tiny text and also does
-     not work with ‘text-scale-adjust’.  A float of 1.0 or the symbol
-     ‘no-scale’ have the same effect of making the font to the same
-     height as the rest of the buffer.  When neither a number nor
-     ‘no-scale’ are present, the default is a small increase in height
-     (a value of 1.15).
+     text to that many times the default font height.  A float of 1.0 or
+     the symbol ‘no-scale’ have the same effect of making the font to
+     the same height as the rest of the buffer.  When neither a number
+     nor ‘no-scale’ are present, the default is a small increase in
+     height (a value of 1.15).
 
    In case both ‘scale-title’ and ‘no-scale’ are in the list, the latter
 takes precedence.
@@ -1646,9 +1644,7 @@ of the following properties:
      removing the background it has by default;
    • A number as a floating point (e.g.  1.2) to set the height of the
      text to that many times the default font height.  The default is
-     the same as the base font height (the equivalent of 1.0).  DO NOT
-     use an integer (e.g.  10), as that will produce tiny text and also
-     does not work with ‘text-scale-adjust’.
+     the same as the base font height (the equivalent of 1.0).
 
    For example:
 
@@ -1835,11 +1831,10 @@ instead.
 
    *note Configure bold and italic faces::.
 
-   A number, expressed as a float (e.g.  1.5), adjusts the height of the
-heading to that many times the base font size.  DO NOT use an integer
-(e.g.  10), as that will produce tiny text and also does not work with
-‘text-scale-adjust’.  The default height is the same as 1.0, though it
-need not be explicitly stated.
+   A number, expressed as a floating point (e.g.  1.5), adjusts the
+height of the heading to that many times the base font size.  The
+default height is the same as 1.0, though it need not be explicitly
+stated.
 
    Combinations of any of those properties are expressed as a list, like
 in these examples:
@@ -5385,68 +5380,68 @@ Node: Active region54572
 Node: Diffs55985
 Node: Org mode blocks57626
 Node: Org agenda59553
-Node: Heading styles67903
-Node: UI typeface72415
-Node: Advanced customization73314
-Node: Per-theme customization settings74643
-Node: Case-by-case face specs using the themes' palette75948
-Node: Face specs at scale using the themes' palette80314
-Node: Remap face with local value84981
-Node: Cycle through arbitrary colors87406
-Node: Override colors93834
-Node: Override color saturation98643
-Node: Font configurations for Org and others104328
-Ref: Font configurations for Org and others-Footnote-1107146
-Node: Configure bold and italic faces107333
-Node: Custom Org user faces111458
-Node: Update Org block delimiter fontification115083
-Node: Measure color contrast116996
-Node: Load theme depending on time of day119719
-Node: Backdrop for pdf-tools120712
-Node: Decrease mode line height123407
-Node: A theme-agnostic hook for theme loading127532
-Node: Diffs with only the foreground129923
-Node: Face coverage132987
-Node: Supported packages133439
-Node: Indirectly covered packages139804
-Node: Notes on individual packages140792
-Node: Note on avy hints141832
-Node: Note on calendarel weekday and weekend colors143000
-Node: Note on underlines in compilation buffers144183
-Node: Note on inline Latex in Org buffers144995
-Node: Note on dimmerel145605
-Node: Note on display-fill-column-indicator-mode147090
-Node: Note on highlight-parenthesesel148653
-Node: Note on mmm-modeel background colors154642
-Node: Note for prism156957
-Node: Note for god-mode160111
-Node: Note on company-mode overlay pop-up161715
-Ref: Note on company-mode overlay pop-up-Footnote-1162405
-Ref: Note on company-mode overlay pop-up-Footnote-2162472
-Node: Note on ERC escaped color sequences162527
-Ref: Note on ERC escaped color sequences-Footnote-1163955
-Node: Note on powerline or spaceline164065
-Node: Note on SHR colors164479
-Node: Note on EWW and Elfeed fonts164902
-Node: Note on Helm grep165567
-Node: Note on vc-annotate-background-mode167042
-Node: Note on pdf-tools link hints167927
-Node: Frequently Asked Questions170359
-Node: Is the contrast ratio about adjacent colors?170915
-Node: What does it mean to avoid exaggerations?172422
-Node: Why are colors mostly variants of blue magenta cyan?174251
-Node: What is the best setup for legibility?178564
-Node: Contributing181176
-Node: Sources of the themes181573
-Node: Issues you can help with182209
-Node: Patches require copyright assignment to the FSF183409
-Node: Acknowledgements185704
-Node: Meta188519
-Node: GNU Free Documentation License190683
-Node: Indices216035
-Node: Function index216214
-Node: Variable index217421
-Node: Concept index219706
+Node: Heading styles67645
+Node: UI typeface72047
+Node: Advanced customization72946
+Node: Per-theme customization settings74275
+Node: Case-by-case face specs using the themes' palette75580
+Node: Face specs at scale using the themes' palette79946
+Node: Remap face with local value84613
+Node: Cycle through arbitrary colors87038
+Node: Override colors93466
+Node: Override color saturation98275
+Node: Font configurations for Org and others103960
+Ref: Font configurations for Org and others-Footnote-1106778
+Node: Configure bold and italic faces106965
+Node: Custom Org user faces111090
+Node: Update Org block delimiter fontification114715
+Node: Measure color contrast116628
+Node: Load theme depending on time of day119351
+Node: Backdrop for pdf-tools120344
+Node: Decrease mode line height123039
+Node: A theme-agnostic hook for theme loading127164
+Node: Diffs with only the foreground129555
+Node: Face coverage132619
+Node: Supported packages133071
+Node: Indirectly covered packages139436
+Node: Notes on individual packages140424
+Node: Note on avy hints141464
+Node: Note on calendarel weekday and weekend colors142632
+Node: Note on underlines in compilation buffers143815
+Node: Note on inline Latex in Org buffers144627
+Node: Note on dimmerel145237
+Node: Note on display-fill-column-indicator-mode146722
+Node: Note on highlight-parenthesesel148285
+Node: Note on mmm-modeel background colors154274
+Node: Note for prism156589
+Node: Note for god-mode159743
+Node: Note on company-mode overlay pop-up161347
+Ref: Note on company-mode overlay pop-up-Footnote-1162037
+Ref: Note on company-mode overlay pop-up-Footnote-2162104
+Node: Note on ERC escaped color sequences162159
+Ref: Note on ERC escaped color sequences-Footnote-1163587
+Node: Note on powerline or spaceline163697
+Node: Note on SHR colors164111
+Node: Note on EWW and Elfeed fonts164534
+Node: Note on Helm grep165199
+Node: Note on vc-annotate-background-mode166674
+Node: Note on pdf-tools link hints167559
+Node: Frequently Asked Questions169991
+Node: Is the contrast ratio about adjacent colors?170547
+Node: What does it mean to avoid exaggerations?172054
+Node: Why are colors mostly variants of blue magenta cyan?173883
+Node: What is the best setup for legibility?178196
+Node: Contributing180808
+Node: Sources of the themes181205
+Node: Issues you can help with181841
+Node: Patches require copyright assignment to the FSF183041
+Node: Acknowledgements185336
+Node: Meta188151
+Node: GNU Free Documentation License190315
+Node: Indices215667
+Node: Function index215846
+Node: Variable index217053
+Node: Concept index219338
 
 End Tag Table
 

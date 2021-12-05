@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-05 16:19:57 +0200>
+;; Last-Modified: <2021-12-05 17:21:59 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -1901,11 +1901,10 @@ and italic faces).  For backward compatibility, the `no-bold'
 value is accepted, though users are encouraged to specify a
 `regular' weight instead.
 
-A number, expressed as a float (e.g. 1.5), adjusts the height of
-the heading to that many times the base font size.  DO NOT use an
-integer (e.g. 10), as that will produce tiny text and also does
-not work with `text-scale-adjust'.  The default height is the
-same as 1.0, though it need not be explicitly stated.
+A number, expressed as a floating point (e.g. 1.5), adjusts the
+height of the heading to that many times the base font size.  The
+default height is the same as 1.0, though it need not be
+explicitly stated.
 
 Combinations of any of those properties are expressed as a list,
 like in these examples:
@@ -1977,13 +1976,11 @@ include either or both of those properties:
 
 - `variable-pitch' to use a proportionately spaced typeface;
 - A number as a floating point (e.g. 1.5) to set the height of
-  the text to that many times the default font height.  DO NOT
-  use an integer (e.g. 10), as that will produce tiny text and
-  also does not work with `text-scale-adjust'.  A float of 1.0 or
-  the symbol `no-scale' have the same effect of making the font
-  to the same height as the rest of the buffer.  When neither a
-  number nor `no-scale' are present, the default is a small
-  increase in height (a value of 1.15).
+  the text to that many times the default font height.  A float
+  of 1.0 or the symbol `no-scale' have the same effect of making
+  the font to the same height as the rest of the buffer.  When
+  neither a number nor `no-scale' are present, the default is a
+  small increase in height (a value of 1.15).
 
 In case both a number and `no-scale' are in the list, the latter
 takes precedence.  If two numbers are specified, the first one is
@@ -2014,8 +2011,7 @@ that can include any of the following properties:
 - A number as a floating point (e.g. 1.2) to set the height of
   the text to that many times the default font height.  The
   default is the same as the base font height (the equivalent of
-  1.0).  DO NOT use an integer (e.g. 10), as that will produce
-  tiny text and also does not work with `text-scale-adjust'.
+  1.0).
 
 For example:
 
@@ -3351,7 +3347,7 @@ that combines well with the background and foreground."
             fg-alt)
            (fg))
           :height
-          (seq-find #'numberp properties 'unspecified)
+          (seq-find #'floatp properties 'unspecified)
           :weight
           (or weight 'unspecified)
           :overline
@@ -3369,7 +3365,7 @@ FG is the foreground color to use."
                 ('bold))
           :height
           (cond ((memq 'no-scale properties) 'unspecified)
-                ((seq-find #'numberp properties 1.15)))
+                ((seq-find #'floatp properties 1.15)))
           :foreground fg)))
 
 (defun modus-themes--agenda-date (defaultfg grayscalefg &optional workaholicfg grayscaleworkaholicfg bg bold ul)
@@ -3404,7 +3400,7 @@ weight.  Optional UL applies an underline."
            (t
             defaultfg))
           :height
-          (seq-find #'numberp properties 'unspecified)
+          (seq-find #'floatp properties 'unspecified)
           :underline
           (if (and ul (memq 'underline-today properties))
               t

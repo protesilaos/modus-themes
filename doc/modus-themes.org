@@ -1497,12 +1497,11 @@ properties:
 
 - ~variable-pitch~ to use a proportionately spaced typeface;
 - A number as a floating point (e.g. 1.5) to set the height of the text
-  to that many times the default font height.  DO NOT use an integer
-  (e.g. 10), as that will produce tiny text and also does not work with
-  ~text-scale-adjust~.  A float of 1.0 or the symbol ~no-scale~ have the
-  same effect of making the font to the same height as the rest of the
-  buffer.  When neither a number nor ~no-scale~ are present, the default
-  is a small increase in height (a value of 1.15).
+  to that many times the default font height.  A float of 1.0 or the
+  symbol ~no-scale~ have the same effect of making the font to the same
+  height as the rest of the buffer.  When neither a number nor ~no-scale~
+  are present, the default is a small increase in height (a value of
+  1.15).
 
 In case both ~scale-title~ and ~no-scale~ are in the list, the latter takes
 precedence.
@@ -1533,9 +1532,7 @@ the following properties:
   removing the background it has by default;
 - A number as a floating point (e.g. 1.2) to set the height of the text
   to that many times the default font height.  The default is the same
-  as the base font height (the equivalent of 1.0).  DO NOT use an
-  integer (e.g. 10), as that will produce tiny text and also does not
-  work with ~text-scale-adjust~.
+  as the base font height (the equivalent of 1.0).
 
 For example:
 
@@ -1731,11 +1728,9 @@ users are encouraged to specify a ~regular~ weight instead.
 
 [[#h:2793a224-2109-4f61-a106-721c57c01375][Configure bold and italic faces]].
 
-A number, expressed as a float (e.g. 1.5), adjusts the height of the
-heading to that many times the base font size.  DO NOT use an integer
-(e.g. 10), as that will produce tiny text and also does not work with
-~text-scale-adjust~.  The default height is the same as 1.0, though it
-need not be explicitly stated.
+A number, expressed as a floating point (e.g. 1.5), adjusts the height
+of the heading to that many times the base font size.  The default
+height is the same as 1.0, though it need not be explicitly stated.
 
 Combinations of any of those properties are expressed as a list, like in
 these examples:
