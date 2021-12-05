@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-03 21:50:39 +0200>
+;; Last-Modified: <2021-12-05 13:10:16 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -70,11 +70,6 @@
 ;;     modus-themes-scale-3                        1.15
 ;;     modus-themes-scale-4                        1.2
 ;;     modus-themes-scale-title                    1.3
-;;
-;; There is another scaling-related option, which however is reserved
-;; for special cases and is not used for headings:
-;;
-;;     modus-themes-scale-small                    0.9
 ;;
 ;; There also exist two unique customization variables for overriding
 ;; color palette values.  The specifics are documented in the manual.
@@ -2029,12 +2024,6 @@ By default all those look the same and have a subtle foreground
 color (the default is a nil value or an empty list).  This key
 accepts a list of properties.  Those are:
 
-- `scale-small' reduces the height of the entries to the value of
-  the user option `modus-themes-scale-small' (0.9 the height of
-  the main font size by default).  This work best when the
-  relevant entries have no tags associated with them and when the
-  user is interested in reducing their presence in the agenda
-  view.
 - `accented' applies an accent value to the event's foreground,
   replacing the original gray.  It makes all entries stand out more.
 - `italic' adds a slant to the font's forms (italic or oblique
@@ -2139,7 +2128,6 @@ For example:
           (cons :tag "Event entry" :greedy t
                 (const event)
                 (set :tag "Text presentation" :greedy t
-                     (const :tag "Use smaller font size (`modus-themes-scale-small')" scale-small)
                      (const :tag "Apply an accent color" accented)
                      (const :tag "Italic font slant (oblique forms)" italic)
                      (const :tag "Differentiate events from diary/sexp entries" varied)))
@@ -2328,6 +2316,8 @@ accordance with it in cases where it changes, such as while using
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Scaled heading sizes"))
+
+(make-obsolete 'modus-themes-scale-small nil "2.0.0")
 
 (defcustom modus-themes-fringes nil
   "Define the visibility of fringes.
@@ -3521,11 +3511,7 @@ toggle to behave in accordance with the semantics of the `varied'
 property that the `event' key accepts in
 `modus-themes-org-agenda'."
   (let ((properties (modus-themes--key-cdr 'event modus-themes-org-agenda)))
-    (list :height
-          (if (memq 'scale-small properties)
-              modus-themes-scale-small
-            'unspecified)
-          :foreground
+    (list :foreground
           (cond
            ((or (and (memq 'varied properties) varied)
                 (and (memq 'accented properties)

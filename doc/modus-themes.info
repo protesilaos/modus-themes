@@ -626,7 +626,7 @@ of this manual.
            modus-themes-org-agenda ; this is an alist: read the manual or its doc string
            '((header-block . (variable-pitch scale-title))
              (header-date . (grayscale workaholic bold-today))
-             (event . (accented scale-small))
+             (event . (accented varied))
              (scheduled . uniform)
              (habit . traffic-light))
 
@@ -1169,7 +1169,7 @@ foreground colors for their interaction model, and (ii) those that
 combine background and foreground values for some of their metaphors.
 The former category encompasses Icomplete, Ido, Selectrum, Vertico, as
 well as pattern matching styles like Orderless and Flx.  The latter
-covers Helm, Ivy, and Sallet.
+covers Helm and Ivy.
 
    A value of ‘nil’ (the default) will simply respect the metaphors of
 each completion framework.
@@ -1676,11 +1676,6 @@ or sexp (phases of the moon, holidays, etc.).  By default all those look
 the same and have a subtle foreground color (the default is a nil value
 or an empty list).  This key accepts a list of properties.  Those are:
 
-   • ‘scale-small’ reduces the height of the entries to the value of the
-     user option ‘modus-themes-scale-small’ (0.9 the height of the main
-     font size by default).  This work best when the relevant entries
-     have no tags associated with them and when the user is interested
-     in reducing their presence in the agenda view.
    • ‘accented’ applies an accent value to the event’s foreground,
      replacing the original gray.  It makes all entries stand out more.
    • ‘italic’ adds a slant to the font’s forms (italic or oblique forms,
@@ -1763,7 +1758,7 @@ Deuteranopia style.
 
      '((header-block . (scale-title variable-pitch))
        (header-date . (grayscale workaholic bold-today))
-       (event . (accented scale-small))
+       (event . (accented varied))
        (scheduled . uniform)
        (habit . traffic-light))
 
@@ -1771,7 +1766,7 @@ Deuteranopia style.
      (setq modus-themes-org-agenda
            '((header-block . (scale-title variable-pitch))
              (header-date . (grayscale workaholic bold-today))
-             (event . (accented scale-small))
+             (event . (accented varied))
              (scheduled . uniform)
              (habit . traffic-light)))
 
@@ -1913,7 +1908,9 @@ File: modus-themes.info,  Node: Scaled heading sizes,  Up: Scaled headings
 4.24.1 Control the scale of headings
 ------------------------------------
 
-Brief: Specify the height for individual heading scales.
+[ Changed as part of 2.0.0-dev ]
+
+   Brief: Specify the height for individual heading scales.
 
    Symbols (all are ‘number’ type):
 
@@ -1922,7 +1919,6 @@ Brief: Specify the height for individual heading scales.
    • ‘modus-themes-scale-3’
    • ‘modus-themes-scale-4’
    • ‘modus-themes-scale-title’
-   • ‘modus-themes-scale-small’
 
    In addition to the toggle for enabling scaled headings, users can
 also specify a number of their own.
@@ -1951,8 +1947,7 @@ change them to their liking, such as ‘1.2’, ‘1.4’, ‘1.6’, ‘1.8’,
            modus-themes-scale-2 1.1
            modus-themes-scale-3 1.15
            modus-themes-scale-4 1.2
-           modus-themes-scale-title 1.3
-           modus-themes-scale-small 0.9)
+           modus-themes-scale-title 1.3)
 
    As for the application of that scale, the variables that range from
 ‘modus-themes-scale-1’ up to ‘modus-themes-scale-4’ apply to regular
@@ -1970,11 +1965,6 @@ Org file, yet is supposed to signify the primary header.  Similarly, the
 Org Agenda’s structure headings are not part of a recognisable scale and
 so they also get ‘modus-themes-scale-title’ (*note Option for Org agenda
 constructs: Org agenda.).
-
-   Similarly ‘modus-themes-scale-small’ is not applied to regular
-headings, but reserved for special contexts where the user is presented
-with an option to use a smaller font height than the base size.  It is
-only implemented for the Org agenda.
 
    Users who wish to maintain scaled headings for the normal syntax
 while preventing special headings from standing out, can assign a value
@@ -3400,14 +3390,12 @@ affected face groups.  The items with an appended asterisk ‘*’ tend to
 have lots of extensions, so the “full support” may not be 100% true…
 
    • ace-window
-   • ag
    • alert
    • all-the-icons
    • annotate
    • ansi-color
    • anzu
    • apropos
-   • apt-sources-list
    • artbollocks-mode
    • auctex and TeX
    • auto-dim-other-buffers
@@ -3420,7 +3408,6 @@ have lots of extensions, so the “full support” may not be 100% true…
    • boon
    • bookmark
    • breakpoint (provided by the built-in ‘gdb-mi.el’ library)
-   • buffer-expose
    • calendar and diary
    • calfw
    • centaur-tabs
@@ -3439,7 +3426,6 @@ have lots of extensions, so the “full support” may not be 100% true…
    • corfu
    • counsel*
    • counsel-css
-   • counsel-org-capture-string
    • cov
    • cperl-mode
    • css-mode
@@ -3451,7 +3437,6 @@ have lots of extensions, so the “full support” may not be 100% true…
    • dashboard (emacs-dashboard)
    • deadgrep
    • debbugs
-   • define-word
    • deft
    • dictionary
    • diff-hl
@@ -3464,15 +3449,12 @@ have lots of extensions, so the “full support” may not be 100% true…
    • dired-git-info
    • dired-narrow
    • dired-subtree
-   • diredc
    • diredfl
    • diredp (dired+)
-   • disk-usage
    • display-fill-column-indicator-mode
    • doom-modeline
    • dynamic-ruler
    • easy-jekyll
-   • easy-kill
    • ebdb
    • ediff
    • eglot
@@ -3508,7 +3490,6 @@ have lots of extensions, so the “full support” may not be 100% true…
    • flycheck-posframe
    • flymake
    • flyspell
-   • flyspell-correct
    • flx
    • freeze-it
    • frog-menu
@@ -3520,10 +3501,8 @@ have lots of extensions, so the “full support” may not be 100% true…
    • geiser
    • git-commit
    • git-gutter (and variants)
-   • git-lens
    • git-rebase
    • git-timemachine
-   • git-walktree
    • gnus
    • gotest
    • golden-ratio-scroll-screen
@@ -3532,22 +3511,16 @@ have lots of extensions, so the “full support” may not be 100% true…
    • helm-switch-shell
    • helm-xref
    • helpful
-   • highlight-blocks
-   • highlight-defined
-   • highlight-escape-sequences (‘hes-mode’)
    • highlight-indentation
    • highlight-numbers
    • highlight-parentheses (*note Note on highlight-parentheses.el: Note
      on highlight-parenthesesel.)
-   • highlight-symbol
-   • highlight-tail
    • highlight-thing
    • hl-defined
    • hl-fill-column
    • hl-line-mode
    • hl-todo
    • hydra
-   • hyperlist
    • ibuffer
    • icomplete
    • icomplete-vertical
@@ -3562,7 +3535,6 @@ have lots of extensions, so the “full support” may not be 100% true…
    • interaction-log
    • ioccur
    • isearch, occur, etc.
-   • isl (isearch-light)
    • ivy*
    • ivy-posframe
    • jira (org-jira)
@@ -3586,7 +3558,6 @@ have lots of extensions, so the “full support” may not be 100% true…
    • markup-faces (‘adoc-mode’)
    • mentor
    • messages
-   • minibuffer-line
    • minimap
    • mmm-mode
    • mode-line
@@ -3594,15 +3565,12 @@ have lots of extensions, so the “full support” may not be 100% true…
    • moody
    • mpdel
    • mu4e
-   • mu4e-conversation
    • multiple-cursors
    • nano-modeline
    • neotree
-   • no-emoji
    • notmuch
    • num3-mode
    • nxml-mode
-   • objed
    • orderless
    • org*
    • org-journal
@@ -3622,14 +3590,11 @@ have lots of extensions, so the “full support” may not be 100% true…
    • pandoc-mode
    • paradox
    • paren-face
-   • parrot
    • pass
    • pdf-tools
    • persp-mode
    • perspective
    • phi-grep
-   • phi-search
-   • pkgbuild-mode
    • pomidor
    • popup
    • powerline
@@ -3641,7 +3606,6 @@ have lots of extensions, so the “full support” may not be 100% true…
    • quick-peek
    • racket-mode
    • rainbow-blocks
-   • rainbow-identifiers
    • rainbow-delimiters
    • rcirc
    • recursion-indicator
@@ -3650,7 +3614,6 @@ have lots of extensions, so the “full support” may not be 100% true…
    • ripgrep
    • rmail
    • ruler-mode
-   • sallet
    • selectrum
    • selectrum-prescient
    • semantic
@@ -3668,13 +3631,10 @@ have lots of extensions, so the “full support” may not be 100% true…
    • solaire
    • spaceline
    • speedbar
-   • spell-fu
-   • spray
    • stripes
    • suggest
    • switch-window
    • swiper
-   • swoop
    • sx
    • symbol-overlay
    • syslog-mode
@@ -3696,13 +3656,11 @@ have lots of extensions, so the “full support” may not be 100% true…
    • undo-tree
    • vc (vc-dir.el, vc-hooks.el)
    • vc-annotate (the output of ‘C-x v g’)
-   • vdiff
    • vertico
    • vertico-quick
    • vimish-fold
    • visible-mark
    • visual-regexp
-   • volatile-highlights
    • vterm
    • wcheck-mode
    • web-mode
@@ -3734,20 +3692,36 @@ These do not require any extra styles because they are configured to
 inherit from some basic faces or their dependencies which are directly
 supported by the themes.
 
+   • ag
+   • apt-sources-list
+   • buffer-expose
    • bufler
    • counsel-notmuch
+   • counsel-org-capture-string
+   • define-word
+   • disk-usage
+   • easy-kill
    • edit-indirect
    • evil-owl
+   • flyspell-correct
    • fortran-mode
+   • git-walktree
    • goggles
+   • highlight-defined
+   • highlight-escape-sequences (‘hes-mode’)
    • i3wm-config-mode
+   • minibuffer-line
+   • no-emoji
+   • parrot
    • perl-mode
    • php-mode
    • rjsx-mode
    • side-hustle
+   • spell-fu
    • swift-mode
    • tab-bar-echo-area
    • tide
+   • vdiff
    • vertico-indexed
    • vertico-mouse
 
@@ -5515,94 +5489,94 @@ Node: Enable and load13195
 Node: Sample configuration with and without use-package16142
 Node: Differences between loading and enabling18094
 Node: Customization Options20049
-Node: Custom reload theme26902
-Node: Deuteranopia style27692
-Node: Bold constructs29372
-Node: Italic constructs30206
-Node: Syntax styles30973
-Node: Mixed fonts33105
-Node: Link styles34369
-Node: Command prompts36847
-Node: Mode line38668
-Node: Option for mode line padding43102
-Node: Tab style43674
-Node: Completion UIs44337
-Node: Mail citations46297
-Node: Fringes47246
-Node: Language checkers47986
-Node: Line highlighting50428
-Node: Line numbers52025
-Node: Intense markup53101
-Node: Matching parentheses53834
-Node: Active region55219
-Node: Diffs56632
-Node: Org mode blocks58273
-Node: Org agenda60200
-Node: Heading styles68498
-Node: Scaled headings72512
-Node: Scaled heading sizes73179
-Node: UI typeface77031
-Node: Headings' typeface77958
-Node: Advanced customization78653
-Node: Per-theme customization settings79982
-Node: Case-by-case face specs using the themes' palette81287
-Node: Face specs at scale using the themes' palette85653
-Node: Remap face with local value90320
-Node: Cycle through arbitrary colors92745
-Node: Override colors99173
-Node: Override color saturation103982
-Node: Font configurations for Org and others109667
-Ref: Font configurations for Org and others-Footnote-1112485
-Node: Configure bold and italic faces112672
-Node: Custom Org user faces116797
-Node: Update Org block delimiter fontification120422
-Node: Measure color contrast122335
-Node: Load theme depending on time of day125058
-Node: Backdrop for pdf-tools126051
-Node: Decrease mode line height128746
-Node: A theme-agnostic hook for theme loading132871
-Node: Diffs with only the foreground135262
-Node: Face coverage138326
-Node: Supported packages138778
-Node: Indirectly covered packages145803
-Node: Notes on individual packages146446
-Node: Note on avy hints147486
-Node: Note on calendarel weekday and weekend colors148654
-Node: Note on underlines in compilation buffers149837
-Node: Note on inline Latex in Org buffers150649
-Node: Note on dimmerel151259
-Node: Note on display-fill-column-indicator-mode152744
-Node: Note on highlight-parenthesesel154307
-Node: Note on mmm-modeel background colors160296
-Node: Note for prism162611
-Node: Note for god-mode165765
-Node: Note on company-mode overlay pop-up167369
-Ref: Note on company-mode overlay pop-up-Footnote-1168059
-Ref: Note on company-mode overlay pop-up-Footnote-2168126
-Node: Note on ERC escaped color sequences168181
-Ref: Note on ERC escaped color sequences-Footnote-1169609
-Node: Note on powerline or spaceline169719
-Node: Note on SHR colors170133
-Node: Note on EWW and Elfeed fonts170556
-Node: Note on Helm grep171221
-Node: Note on vc-annotate-background-mode172696
-Node: Note on pdf-tools link hints173581
-Node: Frequently Asked Questions176013
-Node: Is the contrast ratio about adjacent colors?176569
-Node: What does it mean to avoid exaggerations?178076
-Node: Why are colors mostly variants of blue magenta cyan?179905
-Node: What is the best setup for legibility?184218
-Node: Contributing186830
-Node: Sources of the themes187227
-Node: Issues you can help with187863
-Node: Patches require copyright assignment to the FSF189063
-Node: Acknowledgements191358
-Node: Meta194173
-Node: GNU Free Documentation License196337
-Node: Indices221689
-Node: Function index221868
-Node: Variable index223075
-Node: Concept index225506
+Node: Custom reload theme26897
+Node: Deuteranopia style27687
+Node: Bold constructs29367
+Node: Italic constructs30201
+Node: Syntax styles30968
+Node: Mixed fonts33100
+Node: Link styles34364
+Node: Command prompts36842
+Node: Mode line38663
+Node: Option for mode line padding43097
+Node: Tab style43669
+Node: Completion UIs44332
+Node: Mail citations46283
+Node: Fringes47232
+Node: Language checkers47972
+Node: Line highlighting50414
+Node: Line numbers52011
+Node: Intense markup53087
+Node: Matching parentheses53820
+Node: Active region55205
+Node: Diffs56618
+Node: Org mode blocks58259
+Node: Org agenda60186
+Node: Heading styles68126
+Node: Scaled headings72140
+Node: Scaled heading sizes72807
+Node: UI typeface76367
+Node: Headings' typeface77294
+Node: Advanced customization77989
+Node: Per-theme customization settings79318
+Node: Case-by-case face specs using the themes' palette80623
+Node: Face specs at scale using the themes' palette84989
+Node: Remap face with local value89656
+Node: Cycle through arbitrary colors92081
+Node: Override colors98509
+Node: Override color saturation103318
+Node: Font configurations for Org and others109003
+Ref: Font configurations for Org and others-Footnote-1111821
+Node: Configure bold and italic faces112008
+Node: Custom Org user faces116133
+Node: Update Org block delimiter fontification119758
+Node: Measure color contrast121671
+Node: Load theme depending on time of day124394
+Node: Backdrop for pdf-tools125387
+Node: Decrease mode line height128082
+Node: A theme-agnostic hook for theme loading132207
+Node: Diffs with only the foreground134598
+Node: Face coverage137662
+Node: Supported packages138114
+Node: Indirectly covered packages144479
+Node: Notes on individual packages145467
+Node: Note on avy hints146507
+Node: Note on calendarel weekday and weekend colors147675
+Node: Note on underlines in compilation buffers148858
+Node: Note on inline Latex in Org buffers149670
+Node: Note on dimmerel150280
+Node: Note on display-fill-column-indicator-mode151765
+Node: Note on highlight-parenthesesel153328
+Node: Note on mmm-modeel background colors159317
+Node: Note for prism161632
+Node: Note for god-mode164786
+Node: Note on company-mode overlay pop-up166390
+Ref: Note on company-mode overlay pop-up-Footnote-1167080
+Ref: Note on company-mode overlay pop-up-Footnote-2167147
+Node: Note on ERC escaped color sequences167202
+Ref: Note on ERC escaped color sequences-Footnote-1168630
+Node: Note on powerline or spaceline168740
+Node: Note on SHR colors169154
+Node: Note on EWW and Elfeed fonts169577
+Node: Note on Helm grep170242
+Node: Note on vc-annotate-background-mode171717
+Node: Note on pdf-tools link hints172602
+Node: Frequently Asked Questions175034
+Node: Is the contrast ratio about adjacent colors?175590
+Node: What does it mean to avoid exaggerations?177097
+Node: Why are colors mostly variants of blue magenta cyan?178926
+Node: What is the best setup for legibility?183239
+Node: Contributing185851
+Node: Sources of the themes186248
+Node: Issues you can help with186884
+Node: Patches require copyright assignment to the FSF188084
+Node: Acknowledgements190379
+Node: Meta193194
+Node: GNU Free Documentation License195358
+Node: Indices220710
+Node: Function index220889
+Node: Variable index222096
+Node: Concept index224527
 
 End Tag Table
 

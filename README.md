@@ -142,7 +142,7 @@ demonstration:
       modus-themes-org-agenda ; this is an alist: read the manual or its doc string
       '((header-block . (variable-pitch scale-title))
         (header-date . (grayscale workaholic bold-today))
-        (event . (accented scale-small))
+        (event . (accented varied))
         (scheduled . uniform)
         (habit . traffic-light))
 
