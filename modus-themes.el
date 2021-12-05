@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-05 17:49:06 +0200>
+;; Last-Modified: <2021-12-05 18:27:24 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -1688,6 +1688,11 @@ The actual styling of the face is done by `modus-themes-faces'."
 
 (defface modus-themes-tab-inactive nil
   "Face of inactive tab.
+The actual styling of the face is done by `modus-themes-faces'."
+  :group 'modus-themes-faces)
+
+(defface modus-themes-markup-verbatim nil
+  "Face of verbatim markup.
 The actual styling of the face is done by `modus-themes-faces'."
   :group 'modus-themes-faces)
 
@@ -4263,6 +4268,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(modus-themes-slant ((,class :inherit italic :slant ,@(modus-themes--slant))))
     `(modus-themes-ui-variable-pitch ((,class ,@(modus-themes--variable-pitch-ui))))
     `(modus-themes-fixed-pitch ((,class ,@(modus-themes--fixed-pitch))))
+    `(modus-themes-markup-verbatim ((,class :inherit modus-themes-fixed-pitch
+                                            ,@(modus-themes--markup fg-special-calm magenta-alt
+                                                                    bg-alt magenta-nuanced-bg))))
 ;;;; standard faces
 ;;;;; absolute essentials
     `(default ((,class :background ,bg-main :foreground ,fg-main)))
@@ -4428,9 +4436,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(font-latex-verbatim-face ((,class :background ,bg-dim :foreground ,fg-special-mild)))
     `(font-latex-warning-face ((,class :inherit font-lock-warning-face)))
     `(tex-match ((,class :foreground ,blue-alt-other)))
-    `(tex-verbatim ((,class :inherit modus-themes-fixed-pitch
-                            ,@(modus-themes--markup fg-special-calm magenta-alt
-                                                    bg-alt magenta-nuanced-bg))))
+    `(tex-verbatim ((,class :inherit modus-themes-markup-verbatim)))
     `(texinfo-heading ((,class :foreground ,magenta)))
     `(TeX-error-description-error ((,class :inherit error)))
     `(TeX-error-description-help ((,class :inherit success)))
@@ -5741,9 +5747,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(indium-repl-prompt-face ((,class :inherit modus-themes-prompt)))
     `(indium-repl-stdout-face ((,class :foreground ,fg-main)))
 ;;;;; info
-    `(Info-quoted ((,class :inherit modus-themes-fixed-pitch ; the capitalization is canonical
-                           ,@(modus-themes--markup fg-special-calm magenta-alt
-                                                   bg-alt magenta-nuanced-bg))))
+    `(Info-quoted ((,class :inherit modus-themes-markup-verbatim))) ; the capitalization is canonical
     `(info-header-node ((,class :inherit (shadow bold))))
     `(info-header-xref ((,class :foreground ,blue-active)))
     `(info-index-match ((,class :inherit match)))
@@ -6171,15 +6175,13 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                                 :foreground ,fg-special-mild)))
     `(markdown-html-tag-name-face ((,class :inherit modus-themes-fixed-pitch
                                            :foreground ,magenta-alt)))
-    `(markdown-inline-code-face ((,class :inherit modus-themes-fixed-pitch
-                                         ,@(modus-themes--markup fg-special-calm magenta-alt
-                                                                 bg-alt magenta-nuanced-bg))))
+    `(markdown-inline-code-face ((,class :inherit modus-themes-markup-verbatim)))
     `(markdown-italic-face ((,class :inherit italic)))
     `(markdown-language-info-face ((,class :inherit modus-themes-fixed-pitch
                                            :foreground ,fg-special-cold)))
     `(markdown-language-keyword-face ((,class :inherit modus-themes-fixed-pitch
-                                              ,@(modus-themes--markup fg-alt red-alt
-                                                                      bg-alt red-nuanced-bg))))
+                                              :background ,bg-alt
+                                              :foreground ,fg-alt)))
     `(markdown-line-break-face ((,class :inherit modus-themes-refine-cyan :underline t)))
     `(markdown-link-face ((,class :inherit button)))
     `(markdown-link-title-face ((,class :inherit modus-themes-slant :foreground ,fg-special-cold)))
@@ -6577,9 +6579,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-todo ((,class :foreground ,red)))
     `(org-upcoming-deadline ((,class :foreground ,red-alt-other)))
     `(org-upcoming-distant-deadline ((,class :foreground ,red-faint)))
-    `(org-verbatim ((,class :inherit modus-themes-fixed-pitch
-                            ,@(modus-themes--markup fg-special-calm magenta-alt
-                                                    bg-alt magenta-nuanced-bg))))
+    `(org-verbatim ((,class :inherit modus-themes-markup-verbatim)))
     `(org-verse ((,class :inherit org-quote)))
     `(org-warning ((,class :inherit bold :foreground ,red-alt-other)))
 ;;;;; org-journal
