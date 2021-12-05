@@ -115,10 +115,6 @@ Customization Options
 * Heading styles::               Choose among several styles, also per heading level
 * UI typeface::                  Toggle the use of variable-pitch across the User Interface
 
-Mode line
-
-* Option for mode line padding::
-
 Advanced customization
 
 * Per-theme customization settings::
@@ -571,12 +567,8 @@ of this manual.
 
            ;; Options for `modus-themes-mode-line' are either nil, or a list
            ;; that can combine any of `3d' OR `moody', `borderless',
-           ;; `accented', `padded'.
-           modus-themes-mode-line '(padded accented borderless)
-
-           ;; This one only works when `modus-themes-mode-line' (above) has
-           ;; the `padded' property.  It takes a positive integer.
-           modus-themes-mode-line-padding 3
+           ;; `accented', and a natural number for extra padding
+           modus-themes-mode-line '(4 accented borderless)
 
            ;; Options for `modus-themes-syntax' are either nil (the default),
            ;; or a list of properties that may include any of those symbols:
@@ -996,7 +988,9 @@ File: modus-themes.info,  Node: Mode line,  Next: Tab style,  Prev: Command prom
 4.9 Option for mode line presentation
 =====================================
 
-Brief: Control the style of the mode lines.
+[ Changed as part of 2.0.0-dev ]
+
+   Brief: Control the style of the mode lines.
 
    Symbol: ‘modus-themes-mode-line’ (‘choice’ type, list of properties)
 
@@ -1008,7 +1002,7 @@ box effect, color, and border visibility:
         • ‘moody’
    • ‘accented’
    • ‘borderless’
-   • ‘padded’
+   • A natural number > 1 for extra padding
 
    The default (a nil value or an empty list) is a two-dimensional
 rectangle with a border around it.  The active and the inactive mode
@@ -1034,15 +1028,14 @@ the background, effectively creating some padding.
    The ‘accented’ property ensures that the active mode line uses a
 colored background instead of the standard shade of gray.
 
-   The ‘padded’ property increases the apparent height of the mode line.
-This is done by applying box effects and combining them with an
-underline and overline.  To ensure that the underline is placed at the
-bottom, set ‘x-underline-at-descent-line’ to non-nil.  The ‘padded’
-property has no effect when the ‘moody’ property is also used, because
-Moody already applies its own padding.  The exact value of the padding
-is controlled by the variable ‘modus-themes-mode-line-padding’.
-
-   *note Option for mode line padding::.
+   A positive integer (natural number or natnum) applies a padding
+effect of NATNUM pixels at the boundaries of the mode lines.  The
+default value is 1 and does not need to be specified explicitly.  The
+padding has no effect when the ‘moody’ property is also used, because
+Moody already applies its own tweaks.  To ensure that the underline is
+placed at the bottom of the mode line, set ‘x-underline-at-descent-line’
+to non-nil (this is not needed when the ‘borderless’ property is also
+set).
 
    Combinations of any of those properties are expressed as a list, like
 in these examples:
@@ -1078,35 +1071,13 @@ default colors (which have been carefully designed to be highly
 accessible).
 
    Furthermore, because Moody expects an underline and overline instead
-of a box style, it is advised to set ‘x-underline-at-descent-line’ to a
-non-nil value.
+of a box style, it is strongly advised to set
+‘x-underline-at-descent-line’ to a non-nil value.
 
    Finally, note that various packages which heavily modify the mode
 line, such as ‘doom-modeline’, ‘nano-modeline’, ‘powerline’, ‘spaceline’
 may not look as intended with all possible combinations of this user
 option.
-
-* Menu:
-
-* Option for mode line padding::
-
-
-File: modus-themes.info,  Node: Option for mode line padding,  Up: Mode line
-
-4.9.1 Option for mode line padding
-----------------------------------
-
-Brief: Set the padding of the mode lines.
-
-   Symbol: ‘modus-themes-mode-line-padding’ (‘natnum’ type)
-
-   Controls the exact width of the mode line’s padding.  Possible values
-are positive integers.  The default value is ‘6’.
-
-   This customization option applies only when ‘modus-themes-mode-line’
-is configured with the ‘padded’ property.
-
-   *note Option for mode line presentation: Mode line.
 
 
 File: modus-themes.info,  Node: Tab style,  Next: Completion UIs,  Prev: Mode line,  Up: Customization Options
@@ -1801,6 +1772,7 @@ followed by a presentation of all available properties:
         • ‘extrabold’
         • ‘ultrabold’
    • ‘no-bold’ (deprecated alias of a ‘regular’ weight)
+   • A floating point as a height multiple of the default
 
    By default (a ‘nil’ value for this variable), all headings have a
 bold typographic weight and use a desaturated text color.
@@ -5263,8 +5235,6 @@ B.2 Variable index
 * modus-themes-mail-citations:           Mail citations.        (line 6)
 * modus-themes-mixed-fonts:              Mixed fonts.           (line 6)
 * modus-themes-mode-line:                Mode line.             (line 6)
-* modus-themes-mode-line-padding:        Option for mode line padding.
-                                                                (line 6)
 * modus-themes-operandi-color-overrides: Override colors.       (line 6)
 * modus-themes-org-agenda:               Org agenda.            (line 6)
 * modus-themes-org-blocks:               Org mode blocks.       (line 6)
@@ -5344,104 +5314,103 @@ B.3 Concept index
 
 Tag Table:
 Node: Top860
-Node: Overview6811
-Node: How do the themes look like8935
-Node: Learn about the latest changes9449
-Node: Installation9837
-Node: Install manually from source10318
-Node: Install from the archives11143
-Node: Install on GNU/Linux11920
-Node: Debian 11 Bullseye12368
-Node: GNU Guix12678
-Node: Enable and load12961
-Node: Sample configuration with and without use-package15908
-Node: Differences between loading and enabling17860
-Node: Customization Options19815
-Node: Custom reload theme26264
-Node: Deuteranopia style27054
-Node: Bold constructs28734
-Node: Italic constructs29568
-Node: Syntax styles30335
-Node: Mixed fonts32467
-Node: Link styles33731
-Node: Command prompts36209
-Node: Mode line38030
-Node: Option for mode line padding42464
-Node: Tab style43036
-Node: Completion UIs43699
-Node: Mail citations45650
-Node: Fringes46599
-Node: Language checkers47339
-Node: Line highlighting49781
-Node: Line numbers51378
-Node: Intense markup52454
-Node: Matching parentheses53187
-Node: Active region54572
-Node: Diffs55985
-Node: Org mode blocks57626
-Node: Org agenda59553
-Node: Heading styles67645
-Node: UI typeface72047
-Node: Advanced customization72946
-Node: Per-theme customization settings74275
-Node: Case-by-case face specs using the themes' palette75580
-Node: Face specs at scale using the themes' palette79946
-Node: Remap face with local value84613
-Node: Cycle through arbitrary colors87038
-Node: Override colors93466
-Node: Override color saturation98275
-Node: Font configurations for Org and others103960
-Ref: Font configurations for Org and others-Footnote-1106778
-Node: Configure bold and italic faces106965
-Node: Custom Org user faces111090
-Node: Update Org block delimiter fontification114715
-Node: Measure color contrast116628
-Node: Load theme depending on time of day119351
-Node: Backdrop for pdf-tools120344
-Node: Decrease mode line height123039
-Node: A theme-agnostic hook for theme loading127164
-Node: Diffs with only the foreground129555
-Node: Face coverage132619
-Node: Supported packages133071
-Node: Indirectly covered packages139436
-Node: Notes on individual packages140424
-Node: Note on avy hints141464
-Node: Note on calendarel weekday and weekend colors142632
-Node: Note on underlines in compilation buffers143815
-Node: Note on inline Latex in Org buffers144627
-Node: Note on dimmerel145237
-Node: Note on display-fill-column-indicator-mode146722
-Node: Note on highlight-parenthesesel148285
-Node: Note on mmm-modeel background colors154274
-Node: Note for prism156589
-Node: Note for god-mode159743
-Node: Note on company-mode overlay pop-up161347
-Ref: Note on company-mode overlay pop-up-Footnote-1162037
-Ref: Note on company-mode overlay pop-up-Footnote-2162104
-Node: Note on ERC escaped color sequences162159
-Ref: Note on ERC escaped color sequences-Footnote-1163587
-Node: Note on powerline or spaceline163697
-Node: Note on SHR colors164111
-Node: Note on EWW and Elfeed fonts164534
-Node: Note on Helm grep165199
-Node: Note on vc-annotate-background-mode166674
-Node: Note on pdf-tools link hints167559
-Node: Frequently Asked Questions169991
-Node: Is the contrast ratio about adjacent colors?170547
-Node: What does it mean to avoid exaggerations?172054
-Node: Why are colors mostly variants of blue magenta cyan?173883
-Node: What is the best setup for legibility?178196
-Node: Contributing180808
-Node: Sources of the themes181205
-Node: Issues you can help with181841
-Node: Patches require copyright assignment to the FSF183041
-Node: Acknowledgements185336
-Node: Meta188151
-Node: GNU Free Documentation License190315
-Node: Indices215667
-Node: Function index215846
-Node: Variable index217053
-Node: Concept index219338
+Node: Overview6766
+Node: How do the themes look like8890
+Node: Learn about the latest changes9404
+Node: Installation9792
+Node: Install manually from source10273
+Node: Install from the archives11098
+Node: Install on GNU/Linux11875
+Node: Debian 11 Bullseye12323
+Node: GNU Guix12633
+Node: Enable and load12916
+Node: Sample configuration with and without use-package15863
+Node: Differences between loading and enabling17815
+Node: Customization Options19770
+Node: Custom reload theme26055
+Node: Deuteranopia style26845
+Node: Bold constructs28525
+Node: Italic constructs29359
+Node: Syntax styles30126
+Node: Mixed fonts32258
+Node: Link styles33522
+Node: Command prompts36000
+Node: Mode line37821
+Node: Tab style42245
+Node: Completion UIs42908
+Node: Mail citations44859
+Node: Fringes45808
+Node: Language checkers46548
+Node: Line highlighting48990
+Node: Line numbers50587
+Node: Intense markup51663
+Node: Matching parentheses52396
+Node: Active region53781
+Node: Diffs55194
+Node: Org mode blocks56835
+Node: Org agenda58762
+Node: Heading styles66854
+Node: UI typeface71316
+Node: Advanced customization72215
+Node: Per-theme customization settings73544
+Node: Case-by-case face specs using the themes' palette74849
+Node: Face specs at scale using the themes' palette79215
+Node: Remap face with local value83882
+Node: Cycle through arbitrary colors86307
+Node: Override colors92735
+Node: Override color saturation97544
+Node: Font configurations for Org and others103229
+Ref: Font configurations for Org and others-Footnote-1106047
+Node: Configure bold and italic faces106234
+Node: Custom Org user faces110359
+Node: Update Org block delimiter fontification113984
+Node: Measure color contrast115897
+Node: Load theme depending on time of day118620
+Node: Backdrop for pdf-tools119613
+Node: Decrease mode line height122308
+Node: A theme-agnostic hook for theme loading126433
+Node: Diffs with only the foreground128824
+Node: Face coverage131888
+Node: Supported packages132340
+Node: Indirectly covered packages138705
+Node: Notes on individual packages139693
+Node: Note on avy hints140733
+Node: Note on calendarel weekday and weekend colors141901
+Node: Note on underlines in compilation buffers143084
+Node: Note on inline Latex in Org buffers143896
+Node: Note on dimmerel144506
+Node: Note on display-fill-column-indicator-mode145991
+Node: Note on highlight-parenthesesel147554
+Node: Note on mmm-modeel background colors153543
+Node: Note for prism155858
+Node: Note for god-mode159012
+Node: Note on company-mode overlay pop-up160616
+Ref: Note on company-mode overlay pop-up-Footnote-1161306
+Ref: Note on company-mode overlay pop-up-Footnote-2161373
+Node: Note on ERC escaped color sequences161428
+Ref: Note on ERC escaped color sequences-Footnote-1162856
+Node: Note on powerline or spaceline162966
+Node: Note on SHR colors163380
+Node: Note on EWW and Elfeed fonts163803
+Node: Note on Helm grep164468
+Node: Note on vc-annotate-background-mode165943
+Node: Note on pdf-tools link hints166828
+Node: Frequently Asked Questions169260
+Node: Is the contrast ratio about adjacent colors?169816
+Node: What does it mean to avoid exaggerations?171323
+Node: Why are colors mostly variants of blue magenta cyan?173152
+Node: What is the best setup for legibility?177465
+Node: Contributing180077
+Node: Sources of the themes180474
+Node: Issues you can help with181110
+Node: Patches require copyright assignment to the FSF182310
+Node: Acknowledgements184605
+Node: Meta187420
+Node: GNU Free Documentation License189584
+Node: Indices214936
+Node: Function index215115
+Node: Variable index216322
+Node: Concept index218463
 
 End Tag Table
 
