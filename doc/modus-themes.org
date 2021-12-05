@@ -1677,6 +1677,7 @@ Properties:
   - ~extrabold~
   - ~ultrabold~
 + ~no-bold~ (deprecated alias of a ~regular~ weight)
++ A floating point as a height multiple of the default
 
 By default (a ~nil~ value for this variable), all headings have a bold
 typographic weight and use a desaturated text color.
