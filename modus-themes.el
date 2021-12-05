@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-05 18:27:24 +0200>
+;; Last-Modified: <2021-12-05 18:41:33 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -7343,11 +7343,11 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(web-mode-warning-face ((,class :inherit font-lock-warning-face)))
     `(web-mode-whitespace-face ((,class :background ,bg-whitespace :foreground ,fg-whitespace)))
 ;;;;; wgrep
-    `(wgrep-delete-face ((,class :inherit modus-themes-refine-yellow)))
-    `(wgrep-done-face ((,class :inherit modus-themes-refine-blue)))
-    `(wgrep-face ((,class :inherit modus-themes-refine-green)))
+    `(wgrep-delete-face ((,class :inherit warning)))
+    `(wgrep-done-face ((,class :inherit success)))
+    `(wgrep-face ((,class :inherit bold)))
     `(wgrep-file-face ((,class :foreground ,fg-special-warm)))
-    `(wgrep-reject-face ((,class :inherit (modus-themes-intense-red bold))))
+    `(wgrep-reject-face ((,class :inherit error)))
 ;;;;; which-function-mode
     `(which-func ((,class :foreground ,magenta-active)))
 ;;;;; which-key
