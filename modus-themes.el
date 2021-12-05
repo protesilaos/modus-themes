@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-05 18:41:33 +0200>
+;; Last-Modified: <2021-12-05 18:54:47 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -7155,13 +7155,13 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(treemacs-directory-face ((,class :inherit dired-directory)))
     `(treemacs-file-face ((,class :foreground ,fg-main)))
     `(treemacs-fringe-indicator-face ((,class :foreground ,fg-main)))
-    `(treemacs-git-added-face ((,class :foreground ,green-intense)))
-    `(treemacs-git-conflict-face ((,class :inherit (modus-themes-intense-red bold))))
+    `(treemacs-git-added-face ((,class :inherit success)))
+    `(treemacs-git-conflict-face ((,class :inherit error)))
     `(treemacs-git-ignored-face ((,class :inherit shadow)))
-    `(treemacs-git-modified-face ((,class :foreground ,yellow-alt-other)))
-    `(treemacs-git-renamed-face ((,class :foreground ,cyan-alt-other)))
+    `(treemacs-git-modified-face ((,class :inherit warning)))
+    `(treemacs-git-renamed-face ((,class :inherit italic)))
     `(treemacs-git-unmodified-face ((,class :foreground ,fg-main)))
-    `(treemacs-git-untracked-face ((,class :foreground ,red-alt-other)))
+    `(treemacs-git-untracked-face ((,class :inherit shadow)))
     `(treemacs-help-column-face ((,class :inherit modus-themes-bold :foreground ,magenta-alt-other :underline t)))
     `(treemacs-help-title-face ((,class :foreground ,blue-alt-other)))
     `(treemacs-on-failure-pulse-face ((,class :inherit modus-themes-intense-red)))
@@ -7172,7 +7172,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(treemacs-root-remote-unreadable-face ((,class :inherit treemacs-root-unreadable-face)))
     `(treemacs-root-unreadable-face ((,class :inherit treemacs-root-face :strike-through t)))
     `(treemacs-tags-face ((,class :foreground ,blue-alt)))
-    `(treemacs-tags-face ((,class :foreground ,magenta-alt)))
 ;;;;; tty-menu
     `(tty-menu-disabled-face ((,class :background ,bg-alt :foreground ,fg-alt)))
     `(tty-menu-enabled-face ((,class :inherit bold :background ,bg-alt :foreground ,fg-main)))
