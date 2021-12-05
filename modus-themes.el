@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-05 13:10:16 +0200>
+;; Last-Modified: <2021-12-05 16:19:57 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -43,9 +43,7 @@
 ;;     modus-themes-intense-markup                 (boolean)
 ;;     modus-themes-italic-constructs              (boolean)
 ;;     modus-themes-mixed-fonts                    (boolean)
-;;     modus-themes-scale-headings                 (boolean)
 ;;     modus-themes-subtle-line-numbers            (boolean)
-;;     modus-themes-variable-pitch-headings        (boolean)
 ;;     modus-themes-variable-pitch-ui              (boolean)
 ;;     modus-themes-completions                    (choice)
 ;;     modus-themes-diffs                          (choice)
@@ -61,15 +59,6 @@
 ;;     modus-themes-region                         (choice)
 ;;     modus-themes-syntax                         (choice)
 ;;     modus-themes-mode-line-padding              (natnum)
-;;
-;; The default scale for headings is as follows (it can be customized as
-;; well---remember, no scaling takes place by default):
-;;
-;;     modus-themes-scale-1                        1.05
-;;     modus-themes-scale-2                        1.1
-;;     modus-themes-scale-3                        1.15
-;;     modus-themes-scale-4                        1.2
-;;     modus-themes-scale-title                    1.3
 ;;
 ;; There also exist two unique customization variables for overriding
 ;; color palette values.  The specifics are documented in the manual.
@@ -1796,7 +1785,7 @@ For form, see `modus-themes-vivendi-colors'."
   :link '(info-link "(modus-themes) Bold constructs"))
 
 (defcustom modus-themes-variable-pitch-headings nil
-  "Use proportional fonts (variable-pitch) in headings."
+  "DEPRECATED: specify `variable-pitch' in `modus-themes-headings'."
   :group 'modus-themes
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
@@ -1804,6 +1793,8 @@ For form, see `modus-themes-vivendi-colors'."
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Headings' typeface"))
+
+(make-obsolete 'modus-themes-variable-pitch-headings 'modus-themes-headings "2.0.0")
 
 (defcustom modus-themes-variable-pitch-ui nil
   "Use proportional fonts (variable-pitch) in UI elements.
@@ -1853,6 +1844,7 @@ Users may need to explicitly configure the font family of
                 (const :tag "Semi-bold" semibold)
                 (const :tag "Extra-bold" extrabold)
                 (const :tag "Ultra-bold" ultrabold))
+        (float :tag "Number (float) to adjust height by" :value 1.1)
         (choice :tag "Colors"
                 (const :tag "Subtle colors" nil)
                 (const :tag "Rainbow colors" rainbow)
@@ -1871,26 +1863,34 @@ described below.  Here is a sample, followed by a presentation of
 all available properties:
 
     (setq modus-themes-headings
-          '((1 . (background overline))
-            (2 . (overline rainbow))
+          '((1 . (background overline variable-pitch 1.5))
+            (2 . (overline rainbow 1.3))
+            (3 . (overline 1.1))
             (t . (monochrome))))
 
 By default (a nil value for this variable), all headings have a
-bold typographic weight and use a desaturated text color.
+bold typographic weight, use a desaturated text color, have a
+font family that is the same as the `default' face (typically
+monospaced), and a height that is equal to the `default' face's
+height.
 
 A `rainbow' property makes the text color more saturated.
 
 An `overline' property draws a line above the area of the
 heading.
 
-A `background' property adds a subtle tinted color to the
+A `background' property applies a subtle tinted color to the
 background of the heading.
 
-A `monochrome' property makes all headings the same base color,
-which is that of the default for the active theme (black/white).
-When `background' is also set, `monochrome' changes its color to
-gray.  If both `monochrome' and `rainbow' are set, the former
-takes precedence.
+A `monochrome' property makes the heading the same as the base
+color, which is that of the `default' face's foreground.  When
+`background' is also set, `monochrome' changes its color to gray.
+If both `monochrome' and `rainbow' are set, the former takes
+precedence.
+
+A `variable-pitch' property changes the font family of the
+heading to that of the `variable-pitch' face (normally a
+proportionately spaced typeface).
 
 The symbol of a weight attribute adjusts the font of the heading
 accordingly, such as `light', `semibold', etc.  Valid symbols are
@@ -1901,20 +1901,26 @@ and italic faces).  For backward compatibility, the `no-bold'
 value is accepted, though users are encouraged to specify a
 `regular' weight instead.
 
+A number, expressed as a float (e.g. 1.5), adjusts the height of
+the heading to that many times the base font size.  DO NOT use an
+integer (e.g. 10), as that will produce tiny text and also does
+not work with `text-scale-adjust'.  The default height is the
+same as 1.0, though it need not be explicitly stated.
+
 Combinations of any of those properties are expressed as a list,
 like in these examples:
 
     (semibold)
     (rainbow background)
-    (overline monochrome semibold)
+    (overline monochrome semibold 1.3)
 
 The order in which the properties are set is not significant.
 
 In user configuration files the form may look like this:
 
     (setq modus-themes-headings
-          '((1 . (background overline rainbow))
-            (2 . (background overline))
+          '((1 . (background overline rainbow 1.5))
+            (2 . (background overline 1.3))
             (t . (overline semibold))))
 
 When defining the styles per heading level, it is possible to
@@ -1934,13 +1940,9 @@ will retain the original aesthetic for that level.  For example:
 For Org users, the extent of the heading depends on the variable
 `org-fontify-whole-heading-line'.  This affects the `overline'
 and `background' properties.  Depending on the version of Org,
-there may be others, such as `org-fontify-done-headline'.
-
-Also read `modus-themes-scale-headings' to change the height of
-headings and `modus-themes-variable-pitch-headings' to make them
-use a proportionately spaced font."
+there may be others, such as `org-fontify-done-headline'."
   :group 'modus-themes
-  :package-version '(modus-themes . "1.7.0")
+  :package-version '(modus-themes . "2.0.0")
   :version "29.1"
   :type `(alist
           :options ,(mapcar (lambda (el)
@@ -1960,8 +1962,8 @@ is a sample, followed by a description of all possible
 combinations:
 
     (setq modus-themes-org-agenda
-          '((header-block . (variable-pitch scale-title))
-            (header-date . (grayscale workaholic bold-today))
+          '((header-block . (variable-pitch 1.5))
+            (header-date . (grayscale workaholic bold-today 1.2))
             (event . (accented italic varied))
             (scheduled . uniform)
             (habit . traffic-light)))
@@ -1974,19 +1976,25 @@ font size.  Acceptable values come in the form of a list that can
 include either or both of those properties:
 
 - `variable-pitch' to use a proportionately spaced typeface;
-- `scale-title' to increase height to `modus-themes-scale-title'
-  OR `no-scale' to set the font to the same height as the rest of
-  the buffer.
+- A number as a floating point (e.g. 1.5) to set the height of
+  the text to that many times the default font height.  DO NOT
+  use an integer (e.g. 10), as that will produce tiny text and
+  also does not work with `text-scale-adjust'.  A float of 1.0 or
+  the symbol `no-scale' have the same effect of making the font
+  to the same height as the rest of the buffer.  When neither a
+  number nor `no-scale' are present, the default is a small
+  increase in height (a value of 1.15).
 
-In case both `scale-title' and `no-scale' are in the list, the
-latter takes precedence.
+In case both a number and `no-scale' are in the list, the latter
+takes precedence.  If two numbers are specified, the first one is
+applied.
 
 Example usage:
 
     (header-block . nil)
-    (header-block . (scale-title))
+    (header-block . (1.5))
     (header-block . (no-scale))
-    (header-block . (variable-pitch scale-title))
+    (header-block . (variable-pitch 1.5))
 
 A `header-date' key covers date headings.  Dates use only a
 foreground color by default (a nil value), with weekdays and
@@ -2000,12 +2008,14 @@ that can include any of the following properties:
   terms of color;
 - `bold-today' to apply a bold typographic weight to the current
   date;
-- `bold-all' to render all date headings in a bold weight.
-- `scale-heading' increases the height of the date headings to
-  the value of `modus-themes-scale-1' (which is the first step in
-  the scale for regular headings).
+- `bold-all' to render all date headings in a bold weight;
 - `underline-today' applies an underline to the current date
-  while removing the background it has by default.
+  while removing the background it has by default;
+- A number as a floating point (e.g. 1.2) to set the height of
+  the text to that many times the default font height.  The
+  default is the same as the base font height (the equivalent of
+  1.0).  DO NOT use an integer (e.g. 10), as that will produce
+  tiny text and also does not work with `text-scale-adjust'.
 
 For example:
 
@@ -2014,7 +2024,7 @@ For example:
     (header-date . (grayscale bold-all))
     (header-date . (grayscale workaholic))
     (header-date . (grayscale workaholic bold-today))
-    (header-date . (grayscale workaholic bold-today scale-heading))
+    (header-date . (grayscale workaholic bold-today 1.2))
 
 An `event' key covers (i) headings with a plain time stamp that
 are shown on the agenda, also known as events, (ii) entries
@@ -2115,7 +2125,7 @@ For example:
                      (choice :tag "Scaling"
                              (const :tag "Slight increase in height (default)" nil)
                              (const :tag "Do not scale" no-scale)
-                             (const :tag "Scale to match `modus-themes-scale-title'" scale-title))))
+                             (float :tag "Number (float) to adjust height by" :value 1.3))))
           (cons :tag "Date header" :greedy t
                 (const header-date)
                 (set :tag "Header presentation" :greedy t
@@ -2123,7 +2133,7 @@ For example:
                      (const :tag "Do not differentiate weekdays from weekends" workaholic)
                      (const :tag "Make today bold" bold-today)
                      (const :tag "Make all dates bold" bold-all)
-                     (const :tag "Increase font size (`modus-themes-scale-1')" scale-heading)
+                     (float :tag "Number (float) to adjust height by" :value 1.05)
                      (const :tag "Make today underlined; remove the background" underline-today)))
           (cons :tag "Event entry" :greedy t
                 (const event)
@@ -2146,176 +2156,80 @@ For example:
   :link '(info-link "(modus-themes) Org agenda"))
 
 (defcustom modus-themes-scale-headings nil
-  "Use font scaling for headings.
-
-For regular headings the scale is controlled by the variables
-`modus-themes-scale-1' (smallest increase) and its variants all
-the way up to `modus-themes-scale-4' (largest increase).
-
-While `modus-themes-scale-title' is reserved for special headings
-that nominally are the largest on the scale (though that is not a
-requirement).
-
-A special heading is, in this context, one that does not fit into
-the syntax for heading levels that apply to the given mode.  For
-example, Org's #+title keyword lies outside the normal eight
-levels of headings.  Whereas, say, Markdown does not have such a
-special heading."
+  "DEPRECATED: specify height in `modus-themes-headings'."
   :group 'modus-themes
   :package-version '(modus-themes . "1.2.0")
   :version "28.1"
   :type 'boolean
   :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
-  :link '(info-link "(modus-themes) Scaled headings"))
+  :initialize #'custom-initialize-default)
+
+(make-obsolete 'modus-themes-scale-headings 'modus-themes-headings "2.0.0")
 
 (defcustom modus-themes-scale-1 1.05
-  "Font size that is slightly larger than the base value.
-
-This size is used for level 4 headings, such as in Org and
-Markdown files.
-
-The default value is a floating point that is interpreted as a
-multiple of the base font size.  It is recommended to use such a
-value.
-
-However, the variable also accepts an integer, understood as an
-absolute height that is 1/10 of the typeface's point size (e.g. a
-value of 140 is the same as setting the font at 14 point size).
-This will ignore the base font size and, thus, will not scale in
-accordance with it in cases where it changes, such as while using
-`text-scale-adjust'."
+  "DEPRECATED: specify height in `modus-themes-headings'."
   :group 'modus-themes
   :package-version '(modus-themes . "1.2.0")
   :version "28.1"
   :type 'number
   :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
-  :link '(info-link "(modus-themes) Scaled heading sizes"))
+  :initialize #'custom-initialize-default)
+
+(make-obsolete 'modus-themes-scale-1 'modus-themes-headings "2.0.0")
 
 (defcustom modus-themes-scale-2 1.1
-  "Font size slightly larger than `modus-themes-scale-1'.
-
-This size is used for level 3 headings, such as in Org and
-Markdown files.
-
-The default value is a floating point that is interpreted as a
-multiple of the base font size.  It is recommended to use such a
-value.
-
-However, the variable also accepts an integer, understood as an
-absolute height that is 1/10 of the typeface's point size (e.g. a
-value of 140 is the same as setting the font at 14 point size).
-This will ignore the base font size and, thus, will not scale in
-accordance with it in cases where it changes, such as while using
-`text-scale-adjust'."
+  "DEPRECATED: specify height in `modus-themes-headings'."
   :group 'modus-themes
   :package-version '(modus-themes . "1.2.0")
   :version "28.1"
   :type 'number
   :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
-  :link '(info-link "(modus-themes) Scaled heading sizes"))
+  :initialize #'custom-initialize-default)
+
+(make-obsolete 'modus-themes-scale-2 'modus-themes-headings "2.0.0")
 
 (defcustom modus-themes-scale-3 1.15
-  "Font size slightly larger than `modus-themes-scale-2'.
-
-This size is used for level 2 headings, such as in Org and
-Markdown files.
-
-The default value is a floating point that is interpreted as a
-multiple of the base font size.  It is recommended to use such a
-value.
-
-However, the variable also accepts an integer, understood as an
-absolute height that is 1/10 of the typeface's point size (e.g. a
-value of 140 is the same as setting the font at 14 point size).
-This will ignore the base font size and, thus, will not scale in
-accordance with it in cases where it changes, such as while using
-`text-scale-adjust'."
+  "DEPRECATED: specify height in `modus-themes-headings'."
   :group 'modus-themes
   :package-version '(modus-themes . "1.2.0")
   :version "28.1"
   :type 'number
   :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
-  :link '(info-link "(modus-themes) Scaled heading sizes"))
+  :initialize #'custom-initialize-default)
+
+(make-obsolete 'modus-themes-scale-3 'modus-themes-headings "2.0.0")
 
 (defcustom modus-themes-scale-4 1.2
-  "Font size slightly larger than `modus-themes-scale-3'.
-
-This size is used for level 1 headings, such as in Org and
-Markdown files.
-
-The default value is a floating point that is interpreted as a
-multiple of the base font size.  It is recommended to use such a
-value.
-
-However, the variable also accepts an integer, understood as an
-absolute height that is 1/10 of the typeface's point size (e.g. a
-value of 140 is the same as setting the font at 14 point size).
-This will ignore the base font size and, thus, will not scale in
-accordance with it in cases where it changes, such as while using
-`text-scale-adjust'."
+  "DEPRECATED: specify height in `modus-themes-headings'."
   :group 'modus-themes
   :package-version '(modus-themes . "1.2.0")
   :version "28.1"
   :type 'number
   :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
-  :link '(info-link "(modus-themes) Scaled heading sizes"))
+  :initialize #'custom-initialize-default)
 
-(define-obsolete-variable-alias 'modus-themes-scale-5 'modus-themes-scale-title "1.5.0")
+(make-obsolete 'modus-themes-scale-4 'modus-themes-headings "2.0.0")
 
 (defcustom modus-themes-scale-title 1.3
-  "Font size slightly larger than `modus-themes-scale-4'.
-
-This size is only used for 'special' top level headings, such as
-Org's file title heading, denoted by the #+title key word, and
-the Org agenda structure headers (see `modus-themes-org-agenda').
-
-The default value is a floating point that is interpreted as a
-multiple of the base font size.  It is recommended to use such a
-value.
-
-However, the variable also accepts an integer, understood as an
-absolute height that is 1/10 of the typeface's point size (e.g. a
-value of 140 is the same as setting the font at 14 point size).
-This will ignore the base font size and, thus, will not scale in
-accordance with it in cases where it changes, such as while using
-`text-scale-adjust'."
+  "DEPRECATED: specify height in `modus-themes-headings'.
+Same principle for `modus-themes-org-agenda'."
   :group 'modus-themes
   :package-version '(modus-themes . "1.5.0")
   :version "28.1"
   :type 'number
   :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
-  :link '(info-link "(modus-themes) Scaled heading sizes"))
+  :initialize #'custom-initialize-default)
+
+(make-obsolete 'modus-themes-scale-title 'modus-themes-headings "2.0.0")
 
 (defcustom modus-themes-scale-small 0.9
-  "Font size smaller than the default value.
-
-This size is only used in special contexts where users are
-presented with the option to have smaller text on display (see
-`modus-themes-org-agenda').
-
-The default value is a floating point that is interpreted as a
-multiple of the base font size.  It is recommended to use such a
-value.
-
-However, the variable also accepts an integer, understood as an
-absolute height that is 1/10 of the typeface's point size (e.g. a
-value of 140 is the same as setting the font at 14 point size).
-This will ignore the base font size and, thus, will not scale in
-accordance with it in cases where it changes, such as while using
-`text-scale-adjust'."
+  "DEPRECATED."
   :group 'modus-themes
   :package-version '(modus-themes . "1.6.0")
   :version "28.1"
   :type 'number
   :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
-  :link '(info-link "(modus-themes) Scaled heading sizes"))
+  :initialize #'custom-initialize-default)
 
 (make-obsolete 'modus-themes-scale-small nil "2.0.0")
 
@@ -3065,11 +2979,6 @@ Those are stored in `modus-themes-faces' and
   (when modus-themes-mixed-fonts
     (list :inherit 'fixed-pitch)))
 
-(defun modus-themes--variable-pitch ()
-  "Conditional use of `variable-pitch' in headings."
-  (when modus-themes-variable-pitch-headings
-    (list :inherit 'variable-pitch)))
-
 (defun modus-themes--variable-pitch-ui ()
   "Conditional use of `variable-pitch' in UI elements."
   (when modus-themes-variable-pitch-ui
@@ -3414,7 +3323,7 @@ that combines well with the background and foreground."
               ('rainbow-section-no-bold '(no-bold rainbow background overline))
               ('section '(background overline))
               ('section-no-bold '(background overline no-bold)))))
-         (var (when modus-themes-variable-pitch-headings 'variable-pitch))
+         (var (when (memq 'variable-pitch properties) 'variable-pitch))
          (varbold (if var
                       (append (list 'bold) (list var))
                     'bold))
@@ -3441,6 +3350,8 @@ that combines well with the background and foreground."
            ((memq 'rainbow properties)
             fg-alt)
            (fg))
+          :height
+          (seq-find #'numberp properties 'unspecified)
           :weight
           (or weight 'unspecified)
           :overline
@@ -3451,17 +3362,14 @@ that combines well with the background and foreground."
 (defun modus-themes--agenda-structure (fg)
   "Control the style of the Org agenda structure.
 FG is the foreground color to use."
-  (let* ((properties (modus-themes--key-cdr 'header-block modus-themes-org-agenda))
-         (inherit (cond ((memq 'variable-pitch properties)
-                         (list 'bold 'variable-pitch))
-                        ('bold)))
-         (height (cond ((memq 'no-scale properties)
-                        1.0)
-                       ((memq 'scale-title properties)
-                        modus-themes-scale-title)
-                       (1.15))))
-    (list :inherit inherit
-          :height height
+  (let ((properties (modus-themes--key-cdr 'header-block modus-themes-org-agenda)))
+    (list :inherit
+          (cond ((memq 'variable-pitch properties)
+                 (list 'bold 'variable-pitch))
+                ('bold))
+          :height
+          (cond ((memq 'no-scale properties) 'unspecified)
+                ((seq-find #'numberp properties 1.15)))
           :foreground fg)))
 
 (defun modus-themes--agenda-date (defaultfg grayscalefg &optional workaholicfg grayscaleworkaholicfg bg bold ul)
@@ -3496,9 +3404,7 @@ weight.  Optional UL applies an underline."
            (t
             defaultfg))
           :height
-          (if (memq 'scale-heading properties)
-              modus-themes-scale-1
-            'unspecified)
+          (seq-find #'numberp properties 'unspecified)
           :underline
           (if (and ul (memq 'underline-today properties))
               t
@@ -3848,12 +3754,6 @@ yet desaturated.  Optional NEUTRALFG is a gray value."
            ((memq 'neutral-underline properties)
             (or neutralfg 'unspecified))
            (t)))))
-
-(defun modus-themes--scale (amount)
-  "Scale heading by AMOUNT.
-AMOUNT is a customization option."
-  (when modus-themes-scale-headings
-    (list :height amount)))
 
 (defun modus-themes--region (bg fg bgsubtle bgaccent bgaccentsubtle)
   "Apply `modus-themes-region' styles.
@@ -4277,23 +4177,19 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(modus-themes-heading-1
       ((,class ,@(modus-themes--heading
                   1 fg-main magenta-alt-other
-                  magenta-nuanced-bg bg-alt bg-region)
-               ,@(modus-themes--scale modus-themes-scale-4))))
+                  magenta-nuanced-bg bg-alt bg-region))))
     `(modus-themes-heading-2
       ((,class ,@(modus-themes--heading
                   2 fg-special-warm magenta-alt
-                  red-nuanced-bg bg-alt bg-region)
-               ,@(modus-themes--scale modus-themes-scale-3))))
+                  red-nuanced-bg bg-alt bg-region))))
     `(modus-themes-heading-3
       ((,class ,@(modus-themes--heading
                   3 fg-special-cold blue
-                  blue-nuanced-bg bg-alt bg-region)
-               ,@(modus-themes--scale modus-themes-scale-2))))
+                  blue-nuanced-bg bg-alt bg-region))))
     `(modus-themes-heading-4
       ((,class ,@(modus-themes--heading
                   4 fg-special-mild cyan
-                  cyan-nuanced-bg bg-alt bg-region)
-               ,@(modus-themes--scale modus-themes-scale-1))))
+                  cyan-nuanced-bg bg-alt bg-region))))
     `(modus-themes-heading-5
       ((,class ,@(modus-themes--heading
                   5 fg-special-calm green-alt-other
@@ -4369,7 +4265,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                                                    blue-active
                                                                    green-active))))
     `(modus-themes-slant ((,class :inherit italic :slant ,@(modus-themes--slant))))
-    `(modus-themes-variable-pitch ((,class ,@(modus-themes--variable-pitch))))
     `(modus-themes-ui-variable-pitch ((,class ,@(modus-themes--variable-pitch-ui))))
     `(modus-themes-fixed-pitch ((,class ,@(modus-themes--fixed-pitch))))
 ;;;; standard faces
@@ -4523,15 +4418,15 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(font-latex-italic-face ((,class :inherit italic)))
     `(font-latex-math-face ((,class :foreground ,cyan-alt-other)))
     `(font-latex-script-char-face ((,class :foreground ,cyan-alt-other)))
-    `(font-latex-sectioning-0-face ((,class :inherit modus-themes-variable-pitch :foreground ,blue-nuanced-fg)))
-    `(font-latex-sectioning-1-face ((,class :inherit (bold modus-themes-variable-pitch) :foreground ,blue-nuanced-fg)))
-    `(font-latex-sectioning-2-face ((,class :inherit (bold modus-themes-variable-pitch) :foreground ,blue-nuanced-fg)))
-    `(font-latex-sectioning-3-face ((,class :inherit (bold modus-themes-variable-pitch) :foreground ,blue-nuanced-fg)))
-    `(font-latex-sectioning-4-face ((,class :inherit (bold modus-themes-variable-pitch) :foreground ,blue-nuanced-fg)))
-    `(font-latex-sectioning-5-face ((,class :inherit modus-themes-variable-pitch :foreground ,blue-nuanced-fg)))
     `(font-latex-sedate-face ((,class :inherit modus-themes-bold :foreground ,magenta-alt-other)))
-    `(font-latex-slide-title-face ((,class :inherit (bold modus-themes-variable-pitch) :foreground ,cyan-nuanced-fg
-                                           ,@(modus-themes--scale modus-themes-scale-4))))
+    `(font-latex-script-char-face ((,class :inherit font-lock-builtin-face)))
+    `(font-latex-sectioning-0-face ((,class :inherit modus-themes-heading-1)))
+    `(font-latex-sectioning-1-face ((,class :inherit modus-themes-heading-2)))
+    `(font-latex-sectioning-2-face ((,class :inherit modus-themes-heading-3)))
+    `(font-latex-sectioning-3-face ((,class :inherit modus-themes-heading-4)))
+    `(font-latex-sectioning-4-face ((,class :inherit modus-themes-heading-5)))
+    `(font-latex-sectioning-5-face ((,class :inherit modus-themes-heading-6)))
+    `(font-latex-slide-title-face ((,class :inherit modus-themes-heading-1)))
     `(font-latex-string-face ((,class :inherit font-lock-string-face)))
     `(font-latex-subscript-face ((,class :height 0.95)))
     `(font-latex-superscript-face ((,class :height 0.95)))
@@ -4632,9 +4527,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(cfw:face-saturday ((,class :inherit bold :foreground ,cyan-alt-other)))
     `(cfw:face-select ((,class :inherit modus-themes-intense-blue)))
     `(cfw:face-sunday ((,class :inherit bold :foreground ,cyan-alt-other)))
-    `(cfw:face-title ((,class :inherit modus-themes-variable-pitch
-                              :foreground ,fg-special-cold
-                              ,@(modus-themes--scale modus-themes-scale-title))))
+    `(cfw:face-title ((,class :inherit modus-themes-heading-1 :background ,bg-main :overline nil :foreground ,fg-special-cold)))
     `(cfw:face-today ((,class :background ,bg-inactive)))
     `(cfw:face-today-title ((,class :background ,bg-active)))
     `(cfw:face-toolbar ((,class :background ,bg-alt :foreground ,bg-alt)))
@@ -5159,12 +5052,12 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; embark
     `(embark-keybinding ((,class :inherit modus-themes-key-binding)))
 ;;;;; emms
-    `(emms-browser-album-face ((,class :foreground ,magenta-alt-other ,@(modus-themes--scale modus-themes-scale-2))))
-    `(emms-browser-artist-face ((,class :foreground ,cyan ,@(modus-themes--scale modus-themes-scale-3))))
-    `(emms-browser-composer-face ((,class :foreground ,magenta-alt ,@(modus-themes--scale modus-themes-scale-3))))
+    `(emms-browser-album-face ((,class :foreground ,magenta-alt-other)))
+    `(emms-browser-artist-face ((,class :foreground ,cyan)))
+    `(emms-browser-composer-face ((,class :foreground ,magenta-alt)))
     `(emms-browser-performer-face ((,class :inherit emms-browser-artist-face)))
     `(emms-browser-track-face ((,class :inherit emms-playlist-track-face)))
-    `(emms-browser-year/genre-face ((,class :foreground ,cyan-alt-other ,@(modus-themes--scale modus-themes-scale-4))))
+    `(emms-browser-year/genre-face ((,class :foreground ,cyan-alt-other)))
     `(emms-playlist-track-face ((,class :foreground ,blue-alt)))
     `(emms-playlist-selected-face ((,class :inherit bold :foreground ,blue-alt-other)))
     `(emms-metaplaylist-mode-current-face ((,class :inherit emms-playlist-selected-face)))
@@ -5735,8 +5628,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(helm-separator ((,class :foreground ,fg-special-mild)))
     `(helm-time-zone-current ((,class :foreground ,green)))
     `(helm-time-zone-home ((,class :foreground ,magenta)))
-    `(helm-source-header ((,class :inherit bold :foreground ,red-alt
-                                  ,@(modus-themes--scale modus-themes-scale-4))))
+    `(helm-source-header ((,class :inherit modus-themes-pseudo-header :foreground ,fg-special-cold)))
     `(helm-top-columns ((,class :inherit helm-header)))
     `(helm-ucs-char ((,class :foreground ,yellow-alt-other)))
     `(helm-visible-mark ((,class :inherit modus-themes-subtle-cyan)))
@@ -5892,8 +5784,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(ioccur-num-line-face ((,class :foreground ,fg-special-warm)))
     `(ioccur-overlay-face ((,class :inherit modus-themes-refine-blue :extend t)))
     `(ioccur-regexp-face ((,class :inherit (modus-themes-intense-magenta bold))))
-    `(ioccur-title-face ((,class :inherit bold :foreground ,red-alt
-                                 ,@(modus-themes--scale modus-themes-scale-4))))
+    `(ioccur-title-face ((,class :inherit modus-themes-pseudo-header :foreground ,fg-special-cold)))
 ;;;;; isearch, occur, and the like
     `(isearch ((,class :inherit (modus-themes-search-success bold))))
     `(isearch-fail ((,class :inherit modus-themes-refine-red)))
@@ -6334,24 +6225,13 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(markup-table-cell-face ((,class :inherit modus-themes-subtle-neutral)))
     `(markup-table-face ((,class :inherit modus-themes-subtle-neutral)))
     `(markup-table-row-face ((,class :inherit modus-themes-special-cold)))
-    `(markup-title-0-face ((,class :inherit (bold modus-themes-variable-pitch)
-                                   :foreground ,blue-nuanced-fg
-                                   ,@(modus-themes--scale modus-themes-scale-title))))
-    `(markup-title-1-face ((,class :inherit (bold modus-themes-variable-pitch)
-                                   :foreground ,blue-nuanced-fg
-                                   ,@(modus-themes--scale modus-themes-scale-1))))
-    `(markup-title-2-face ((,class :inherit (bold modus-themes-variable-pitch)
-                                   :foreground ,blue-nuanced-fg
-                                   ,@(modus-themes--scale modus-themes-scale-2))))
-    `(markup-title-3-face ((,class :inherit (bold modus-themes-variable-pitch)
-                                   :foreground ,blue-nuanced-fg
-                                   ,@(modus-themes--scale modus-themes-scale-3))))
-    `(markup-title-4-face ((,class :inherit (bold modus-themes-variable-pitch)
-                                   :foreground ,blue-nuanced-fg
-                                   ,@(modus-themes--scale modus-themes-scale-4))))
-    `(markup-title-5-face ((,class :inherit (bold modus-themes-variable-pitch)
-                                   :foreground ,blue-nuanced-fg)))
     `(markup-verbatim-face ((,class :background ,bg-alt)))
+    `(markup-title-0-face ((,class :inherit modus-themes-heading-1)))
+    `(markup-title-1-face ((,class :inherit modus-themes-heading-2)))
+    `(markup-title-2-face ((,class :inherit modus-themes-heading-3)))
+    `(markup-title-3-face ((,class :inherit modus-themes-heading-4)))
+    `(markup-title-4-face ((,class :inherit modus-themes-heading-5)))
+    `(markup-title-5-face ((,class :inherit modus-themes-heading-6)))
 ;;;;; mentor
     `(mentor-download-message ((,class :foreground ,fg-special-warm)))
     `(mentor-download-name ((,class :foreground ,fg-special-cold)))
@@ -6619,8 +6499,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-dispatcher-highlight ((,class :inherit (bold modus-themes-mark-alt))))
     `(org-document-info ((,class :foreground ,fg-special-cold)))
     `(org-document-info-keyword ((,class :inherit (shadow modus-themes-fixed-pitch))))
-    `(org-document-title ((,class :inherit (bold modus-themes-variable-pitch) :foreground ,fg-special-cold
-                                  ,@(modus-themes--scale modus-themes-scale-title))))
+    `(org-document-title ((,class :inherit modus-themes-heading-1 :background ,bg-main :overline nil :foreground ,fg-special-cold)))
     `(org-done ((,class :inherit modus-themes-grue)))
     `(org-drawer ((,class :inherit (shadow modus-themes-fixed-pitch))))
     `(org-ellipsis (())) ; inherits from the heading's color
@@ -6746,10 +6625,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; org-table-sticky-header
     `(org-table-sticky-header-face ((,class :inherit modus-themes-intense-neutral)))
 ;;;;; org-tree-slide
-    `(org-tree-slide-header-overlay-face
-      ((,class :inherit (bold modus-themes-variable-pitch) :background ,bg-main
-               :foreground ,fg-special-cold :overline nil
-               ,@(modus-themes--scale modus-themes-scale-title))))
+    `(org-tree-slide-header-overlay-face ((,class :inherit org-document-title)))
 ;;;;; org-treescope
     `(org-treescope-faces--markerinternal-midday ((,class :inherit modus-themes-intense-blue)))
     `(org-treescope-faces--markerinternal-range ((,class :inherit modus-themes-special-mild)))
@@ -6820,8 +6696,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; perspective
     `(persp-selected-face ((,class :inherit bold :foreground ,blue-active)))
 ;;;;; phi-grep
-    `(phi-grep-heading-face  ((,class :inherit bold :foreground ,red-alt
-                                      ,@(modus-themes--scale modus-themes-scale-4))))
+    `(phi-grep-heading-face ((,class :inherit modus-themes-pseudo-header :foreground ,fg-special-cold)))
     `(phi-grep-line-number-face ((,class :foreground ,fg-special-warm)))
     `(phi-grep-match-face ((,class :inherit modus-themes-special-calm)))
     `(phi-grep-modified-face ((,class :inherit modus-themes-refine-yellow)))

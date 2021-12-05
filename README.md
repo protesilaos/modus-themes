@@ -80,6 +80,7 @@ demonstration:
       modus-themes-intense-markup t
       modus-themes-deuteranopia t
       modus-themes-tabs-accented t
+      modus-themes-variable-pitch-ui nil
       modus-themes-inhibit-reload t ; only applies to `customize-set-variable' and related
 
       modus-themes-fringes nil ; {nil,'subtle,'intense}
@@ -140,25 +141,16 @@ demonstration:
       modus-themes-org-blocks 'gray-background ; {nil,'gray-background,'tinted-background}
 
       modus-themes-org-agenda ; this is an alist: read the manual or its doc string
-      '((header-block . (variable-pitch scale-title))
-        (header-date . (grayscale workaholic bold-today))
+      '((header-block . (variable-pitch 1.3))
+        (header-date . (grayscale workaholic bold-today 1.1))
         (event . (accented varied))
         (scheduled . uniform)
         (habit . traffic-light))
 
       modus-themes-headings ; this is an alist: read the manual or its doc string
-      '((1 . (overline background))
-        (2 . (rainbow overline))
-        (t . (semibold)))
-
-      modus-themes-variable-pitch-ui nil
-      modus-themes-variable-pitch-headings t
-      modus-themes-scale-headings t
-      modus-themes-scale-1 1.1
-      modus-themes-scale-2 1.15
-      modus-themes-scale-3 1.21
-      modus-themes-scale-4 1.27
-      modus-themes-scale-title 1.33)
+      '((1 . (overline background variable-pitch 1.3))
+        (2 . (rainbow overline 1.1))
+        (t . (semibold))))
 ```
 
 ## Further information

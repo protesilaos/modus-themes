@@ -419,6 +419,7 @@ this manual.
       modus-themes-intense-markup t
       modus-themes-deuteranopia t
       modus-themes-tabs-accented t
+      modus-themes-variable-pitch-ui nil
       modus-themes-inhibit-reload t ; only applies to `customize-set-variable' and related
 
       modus-themes-fringes nil ; {nil,'subtle,'intense}
@@ -479,25 +480,16 @@ this manual.
       modus-themes-org-blocks 'gray-background ; {nil,'gray-background,'tinted-background}
 
       modus-themes-org-agenda ; this is an alist: read the manual or its doc string
-      '((header-block . (variable-pitch scale-title))
-        (header-date . (grayscale workaholic bold-today))
+      '((header-block . (variable-pitch 1.3))
+        (header-date . (grayscale workaholic bold-today 1.1))
         (event . (accented varied))
         (scheduled . uniform)
         (habit . traffic-light))
 
       modus-themes-headings ; this is an alist: read the manual or its doc string
-      '((1 . (overline background))
-        (2 . (rainbow overline))
-        (t . (semibold)))
-
-      modus-themes-variable-pitch-ui nil
-      modus-themes-variable-pitch-headings t
-      modus-themes-scale-headings t
-      modus-themes-scale-1 1.1
-      modus-themes-scale-2 1.15
-      modus-themes-scale-3 1.21
-      modus-themes-scale-4 1.27
-      modus-themes-scale-title 1.33)
+      '((1 . (overline background variable-pitch 1.3))
+        (2 . (rainbow overline 1.1))
+        (t . (semibold))))
 #+end_src
 
 ** Option for inhibiting theme reload
@@ -1489,8 +1481,8 @@ all possible combinations:
 
 #+begin_src emacs-lisp
 (setq modus-themes-org-agenda
-      '((header-block . (variable-pitch scale-title))
-        (header-date . (grayscale workaholic bold-today))
+      '((header-block . (variable-pitch 1.5))
+        (header-date . (grayscale workaholic bold-today 1.2))
         (event . (accented italic varied))
         (scheduled . uniform)
         (habit . traffic-light)))
@@ -1504,9 +1496,13 @@ come in the form of a list that can include either or both of those
 properties:
 
 - ~variable-pitch~ to use a proportionately spaced typeface;
-- ~scale-title~ to increase the size to the number assigned to
-  ~modus-themes-scale-title~ ([[#h:6868baa1-beba-45ed-baa5-5fd68322ccb3][Control the scale of headings]]) or ~no-scale~
-  to make the font use the same height as the rest of the buffer.
+- A number as a floating point (e.g. 1.5) to set the height of the text
+  to that many times the default font height.  DO NOT use an integer
+  (e.g. 10), as that will produce tiny text and also does not work with
+  ~text-scale-adjust~.  A float of 1.0 or the symbol ~no-scale~ have the
+  same effect of making the font to the same height as the rest of the
+  buffer.  When neither a number nor ~no-scale~ are present, the default
+  is a small increase in height (a value of 1.15).
 
 In case both ~scale-title~ and ~no-scale~ are in the list, the latter takes
 precedence.
@@ -1532,12 +1528,14 @@ the following properties:
   terms of color;
 - ~bold-today~ to apply a bold typographic weight to the current
   date;
-- ~bold-all~ to render all date headings in a bold weight.
-- ~scale-heading~ increases the height of the date headings to the value
-  of ~modus-themes-scale-1~ (which is the first step in the scale for
-  regular headings).
+- ~bold-all~ to render all date headings in a bold weight;
 - ~underline-today~ applies an underline to the current date while
-  removing the background it has by default.
+  removing the background it has by default;
+- A number as a floating point (e.g. 1.2) to set the height of the text
+  to that many times the default font height.  The default is the same
+  as the base font height (the equivalent of 1.0).  DO NOT use an
+  integer (e.g. 10), as that will produce tiny text and also does not
+  work with ~text-scale-adjust~.
 
 For example:
 
@@ -1664,6 +1662,8 @@ Putting it all together, the alist can look like this:
 :end:
 #+vindex: modus-themes-headings
 
+[ Changed as part of {{{development-version}}} ]
+
 Brief: Control the style of headings.  This can be particularised for
 each level of heading (e.g. Org has eight levels).
 
@@ -1677,8 +1677,9 @@ a presentation of all available properties:
 
 #+begin_src emacs-lisp
 (setq modus-themes-headings
-      '((1 . (background overline))
-        (2 . (overline rainbow))
+      '((1 . (background overline variable-pitch 1.5))
+        (2 . (overline rainbow 1.3))
+        (3 . (overline 1.1))
         (t . (monochrome))))
 #+end_src
 
@@ -1701,7 +1702,7 @@ Properties:
   - ~heavy~
   - ~extrabold~
   - ~ultrabold~
-+ ~no-bold~
++ ~no-bold~ (deprecated alias of a ~regular~ weight)
 
 By default (a ~nil~ value for this variable), all headings have a bold
 typographic weight and use a desaturated text color.
@@ -1713,10 +1714,13 @@ An ~overline~ property draws a line above the area of the heading.
 A ~background~ property adds a subtle tinted color to the background of
 the heading.
 
-A ~monochrome~ property makes all headings the same base color, which is
-that of the default for the active theme (black/white).  When ~background~
-is also set, ~monochrome~ changes its color to gray.  If both ~monochrome~
-and ~rainbow~ are set, the former takes precedence.
+A ~monochrome~ property makes the heading the same as the base color,
+which is that of the ~default~ face's foreground.  When ~background~ is also
+set, ~monochrome~ changes its color to gray.  If both ~monochrome~ and
+~rainbow~ are set, the former takes precedence.
+
+A ~variable-pitch~ property changes the font family of the heading to that
+of the ~variable-pitch~ face (normally a proportionately spaced typeface).
 
 The symbol of a weight attribute adjusts the font of the heading
 accordingly, such as ~light~, ~semibold~, etc.  Valid symbols are defined in
@@ -1727,13 +1731,19 @@ users are encouraged to specify a ~regular~ weight instead.
 
 [[#h:2793a224-2109-4f61-a106-721c57c01375][Configure bold and italic faces]].
 
+A number, expressed as a float (e.g. 1.5), adjusts the height of the
+heading to that many times the base font size.  DO NOT use an integer
+(e.g. 10), as that will produce tiny text and also does not work with
+~text-scale-adjust~.  The default height is the same as 1.0, though it
+need not be explicitly stated.
+
 Combinations of any of those properties are expressed as a list, like in
 these examples:
 
 #+begin_src emacs-lisp
 (semibold)
 (rainbow background)
-(overline monochrome semibold)
+(overline monochrome semibold 1.3)
 #+end_src
 
 The order in which the properties are set is not significant.
@@ -1742,8 +1752,8 @@ In user configuration files the form may look like this:
 
 #+begin_src emacs-lisp
 (setq modus-themes-headings
-      '((1 . (background overline rainbow))
-        (2 . (background overline))
+      '((1 . (background overline rainbow 1.5))
+        (2 . (background overline 1.3))
         (t . (overline semibold))))
 #+end_src
 
@@ -1767,108 +1777,6 @@ For Org users, the extent of the heading depends on the variable
 ~org-fontify-whole-heading-line~.  This affects the ~overline~ and
 ~background~ properties.  Depending on the version of Org, there may be
 others, such as ~org-fontify-done-headline~.
-
-[[#h:075eb022-37a6-41a4-a040-cc189f6bfa1f][Option for scaled headings]].
-
-[[#h:97caca76-fa13-456c-aef1-a2aa165ea274][Option for variable-pitch font in headings]].
-
-** Option for scaled headings
-:properties:
-:alt_title: Scaled headings
-:description: Toggle scaling of headings
-:custom_id: h:075eb022-37a6-41a4-a040-cc189f6bfa1f
-:end:
-#+vindex: modus-themes-scale-headings
-
-Brief: Toggle the scaling of headings.
-
-Symbol: ~modus-themes-scale-headings~ (=boolean= type)
-
-Possible values:
-
-1. ~nil~ (default)
-2. ~t~
-
-The default is to use the same size for headings and paragraph text.
-
-With a non-nil value (~t~) make headings larger in height relative to the
-main text.  This is noticeable in modes like Org, Markdown, and Info.
-
-*** Control the scale of headings
-:properties:
-:alt_title: Scaled heading sizes
-:description: Specify rate of increase for scaled headings
-:custom_id: h:6868baa1-beba-45ed-baa5-5fd68322ccb3
-:end:
-
-[ Changed as part of {{{development-version}}} ]
-
-Brief: Specify the height for individual heading scales.
-
-Symbols (all are =number= type):
-
-+ ~modus-themes-scale-1~
-+ ~modus-themes-scale-2~
-+ ~modus-themes-scale-3~
-+ ~modus-themes-scale-4~
-+ ~modus-themes-scale-title~
-
-In addition to the toggle for enabling scaled headings, users can also
-specify a number of their own.
-
-+ If it is a floating point, say, =1.5=, it is interpreted as a multiple
-  of the base font size.  This is the recommended method, because it
-  will always adapt to changes in the base font size, such as while
-  using the ~text-scale-adjust~ command.
-
-+ If it is an integer, it is read as an absolute font height that is
-  1/10 of the typographic point size.  Thus a value of =18pt= must be
-  expressed as =180=.  Setting an absolute value is discouraged, as it
-  will break the layout in cases where the base font size must change,
-  such as with the ~text-scale-adjust~ command ([[#h:defcf4fc-8fa8-4c29-b12e-7119582cc929][Font configurations]]).
-  While we discourage using absolute values, we still provide for this
-  option for users who do not need to perform text-scaling operations or
-  who are content with whatever discrepancies in height.
-
-Below are the variables in their default values, using the floating
-point paradigm.  The numbers are very conservative, but one is free to
-change them to their liking, such as =1.2=, =1.4=, =1.6=, =1.8=, =2.0=---or use a
-resource for finding a consistent scale:
-
-#+begin_src emacs-lisp
-(setq modus-themes-scale-1 1.05
-      modus-themes-scale-2 1.1
-      modus-themes-scale-3 1.15
-      modus-themes-scale-4 1.2
-      modus-themes-scale-title 1.3)
-#+end_src
-
-As for the application of that scale, the variables that range from
-~modus-themes-scale-1~ up to ~modus-themes-scale-4~ apply to regular
-headings within the context of the given major mode.  The former is the
-smallest, while the latter is the largest.  "Regular headings" are those
-that have a standard syntax for their scale, such as Org mode's eight
-levels of asterisks or Markdown's six columns.
-
-Whereas ~modus-themes-scale-title~ is applied to special headings that do
-not conform with the aforementioned syntax, yet which are expected to be
-larger than the largest value on that implied scale or at least have
-some unique purpose in the buffer.  Put concretely, Org's =#+title= meta
-datum is not part of the eight levels of headings in an Org file, yet is
-supposed to signify the primary header.  Similarly, the Org Agenda's
-structure headings are not part of a recognisable scale and so they also
-get ~modus-themes-scale-title~ ([[#h:68f481bc-5904-4725-a3e6-d7ecfa7c3dbc][Option for Org agenda constructs]]).
-
-Users who wish to maintain scaled headings for the normal syntax while
-preventing special headings from standing out, can assign a value of =1.0=
-to ~modus-themes-scale-title~ to make it the same as body text (or
-whatever value would render it indistinguishable from the desired point
-of reference).
-
-Note that in earlier versions of Org, scaling would only increase the
-size of the heading, but not of keywords that were added to it, like
-"TODO".  The issue has been fixed upstream:
-<https://protesilaos.com/codelog/2020-09-24-org-headings-adapt/>.
 
 ** Option for variable-pitch font in UI elements
 :properties:
@@ -1897,32 +1805,6 @@ is a monospaced family.
 
 With a non-nil value (~t~) apply a proportionately spaced typeface.  This
 is done by assigning the ~variable-pitch~ face to the relevant items.
-
-[[#h:defcf4fc-8fa8-4c29-b12e-7119582cc929][Font configurations for Org and others]].
-
-** Option for variable-pitch font in headings
-:properties:
-:alt_title: Headings' typeface
-:description: Toggle the use of variable-pitch in headings
-:custom_id: h:97caca76-fa13-456c-aef1-a2aa165ea274
-:end:
-#+vindex: modus-themes-variable-pitch-headings
-
-Brief: Toggle the use of proportionately spaced (~variable-pitch~) fonts
-in headings.
-
-Symbol: ~modus-themes-variable-pitch-headings~ (=boolean= type)
-
-Possible values:
-
-1. ~nil~ (default)
-2. ~t~
-
-The default is to use the main font family, which typically is
-monospaced.
-
-With a non-nil value (~t~) apply a proportionately spaced typeface, else
-"variable-pitch", to headings (such as in Org mode).
 
 [[#h:defcf4fc-8fa8-4c29-b12e-7119582cc929][Font configurations for Org and others]].
 

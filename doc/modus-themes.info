@@ -113,17 +113,11 @@ Customization Options
 * Org mode blocks::              Choose among plain, gray, or tinted backgrounds
 * Org agenda::                   Control each element in the presentation of the agenda
 * Heading styles::               Choose among several styles, also per heading level
-* Scaled headings::              Toggle scaling of headings
 * UI typeface::                  Toggle the use of variable-pitch across the User Interface
-* Headings' typeface::           Toggle the use of variable-pitch in headings
 
 Mode line
 
 * Option for mode line padding::
-
-Scaled headings
-
-* Scaled heading sizes::         Specify rate of increase for scaled headings
 
 Advanced customization
 
@@ -564,6 +558,7 @@ of this manual.
            modus-themes-intense-markup t
            modus-themes-deuteranopia t
            modus-themes-tabs-accented t
+           modus-themes-variable-pitch-ui nil
            modus-themes-inhibit-reload t ; only applies to `customize-set-variable' and related
 
            modus-themes-fringes nil ; {nil,'subtle,'intense}
@@ -624,25 +619,16 @@ of this manual.
            modus-themes-org-blocks 'gray-background ; {nil,'gray-background,'tinted-background}
 
            modus-themes-org-agenda ; this is an alist: read the manual or its doc string
-           '((header-block . (variable-pitch scale-title))
-             (header-date . (grayscale workaholic bold-today))
+           '((header-block . (variable-pitch 1.3))
+             (header-date . (grayscale workaholic bold-today 1.1))
              (event . (accented varied))
              (scheduled . uniform)
              (habit . traffic-light))
 
            modus-themes-headings ; this is an alist: read the manual or its doc string
-           '((1 . (overline background))
-             (2 . (rainbow overline))
-             (t . (semibold)))
-
-           modus-themes-variable-pitch-ui nil
-           modus-themes-variable-pitch-headings t
-           modus-themes-scale-headings t
-           modus-themes-scale-1 1.1
-           modus-themes-scale-2 1.15
-           modus-themes-scale-3 1.21
-           modus-themes-scale-4 1.27
-           modus-themes-scale-title 1.33)
+           '((1 . (overline background variable-pitch 1.3))
+             (2 . (rainbow overline 1.1))
+             (t . (semibold))))
 
 * Menu:
 
@@ -669,9 +655,7 @@ of this manual.
 * Org mode blocks::              Choose among plain, gray, or tinted backgrounds
 * Org agenda::                   Control each element in the presentation of the agenda
 * Heading styles::               Choose among several styles, also per heading level
-* Scaled headings::              Toggle scaling of headings
 * UI typeface::                  Toggle the use of variable-pitch across the User Interface
-* Headings' typeface::           Toggle the use of variable-pitch in headings
 
 
 File: modus-themes.info,  Node: Custom reload theme,  Next: Deuteranopia style,  Up: Customization Options
@@ -1612,8 +1596,8 @@ values are specified as a list.  Here is a sample, followed by a
 description of all possible combinations:
 
      (setq modus-themes-org-agenda
-           '((header-block . (variable-pitch scale-title))
-             (header-date . (grayscale workaholic bold-today))
+           '((header-block . (variable-pitch 1.5))
+             (header-date . (grayscale workaholic bold-today 1.2))
              (event . (accented italic varied))
              (scheduled . uniform)
              (habit . traffic-light)))
@@ -1626,10 +1610,14 @@ values come in the form of a list that can include either or both of
 those properties:
 
    • ‘variable-pitch’ to use a proportionately spaced typeface;
-   • ‘scale-title’ to increase the size to the number assigned to
-     ‘modus-themes-scale-title’ (*note Control the scale of headings:
-     Scaled heading sizes.) or ‘no-scale’ to make the font use the same
-     height as the rest of the buffer.
+   • A number as a floating point (e.g.  1.5) to set the height of the
+     text to that many times the default font height.  DO NOT use an
+     integer (e.g.  10), as that will produce tiny text and also does
+     not work with ‘text-scale-adjust’.  A float of 1.0 or the symbol
+     ‘no-scale’ have the same effect of making the font to the same
+     height as the rest of the buffer.  When neither a number nor
+     ‘no-scale’ are present, the default is a small increase in height
+     (a value of 1.15).
 
    In case both ‘scale-title’ and ‘no-scale’ are in the list, the latter
 takes precedence.
@@ -1653,12 +1641,14 @@ of the following properties:
      of color;
    • ‘bold-today’ to apply a bold typographic weight to the current
      date;
-   • ‘bold-all’ to render all date headings in a bold weight.
-   • ‘scale-heading’ increases the height of the date headings to the
-     value of ‘modus-themes-scale-1’ (which is the first step in the
-     scale for regular headings).
+   • ‘bold-all’ to render all date headings in a bold weight;
    • ‘underline-today’ applies an underline to the current date while
-     removing the background it has by default.
+     removing the background it has by default;
+   • A number as a floating point (e.g.  1.2) to set the height of the
+     text to that many times the default font height.  The default is
+     the same as the base font height (the equivalent of 1.0).  DO NOT
+     use an integer (e.g.  10), as that will produce tiny text and also
+     does not work with ‘text-scale-adjust’.
 
    For example:
 
@@ -1771,12 +1761,14 @@ Deuteranopia style.
              (habit . traffic-light)))
 
 
-File: modus-themes.info,  Node: Heading styles,  Next: Scaled headings,  Prev: Org agenda,  Up: Customization Options
+File: modus-themes.info,  Node: Heading styles,  Next: UI typeface,  Prev: Org agenda,  Up: Customization Options
 
 4.23 Option for the headings’ overall style
 ===========================================
 
-Brief: Control the style of headings.  This can be particularised for
+[ Changed as part of 2.0.0-dev ]
+
+   Brief: Control the style of headings.  This can be particularised for
 each level of heading (e.g.  Org has eight levels).
 
    Symbol: ‘modus-themes-headings’ (‘alist’ type, multiple properties)
@@ -1788,8 +1780,9 @@ that refer to properties, as described below.  Here is a sample,
 followed by a presentation of all available properties:
 
      (setq modus-themes-headings
-           '((1 . (background overline))
-             (2 . (overline rainbow))
+           '((1 . (background overline variable-pitch 1.5))
+             (2 . (overline rainbow 1.3))
+             (3 . (overline 1.1))
              (t . (monochrome))))
 
    Properties:
@@ -1811,7 +1804,7 @@ followed by a presentation of all available properties:
         • ‘heavy’
         • ‘extrabold’
         • ‘ultrabold’
-   • ‘no-bold’
+   • ‘no-bold’ (deprecated alias of a ‘regular’ weight)
 
    By default (a ‘nil’ value for this variable), all headings have a
 bold typographic weight and use a desaturated text color.
@@ -1823,10 +1816,14 @@ bold typographic weight and use a desaturated text color.
    A ‘background’ property adds a subtle tinted color to the background
 of the heading.
 
-   A ‘monochrome’ property makes all headings the same base color, which
-is that of the default for the active theme (black/white).  When
-‘background’ is also set, ‘monochrome’ changes its color to gray.  If
-both ‘monochrome’ and ‘rainbow’ are set, the former takes precedence.
+   A ‘monochrome’ property makes the heading the same as the base color,
+which is that of the ‘default’ face’s foreground.  When ‘background’ is
+also set, ‘monochrome’ changes its color to gray.  If both ‘monochrome’
+and ‘rainbow’ are set, the former takes precedence.
+
+   A ‘variable-pitch’ property changes the font family of the heading to
+that of the ‘variable-pitch’ face (normally a proportionately spaced
+typeface).
 
    The symbol of a weight attribute adjusts the font of the heading
 accordingly, such as ‘light’, ‘semibold’, etc.  Valid symbols are
@@ -1838,20 +1835,26 @@ instead.
 
    *note Configure bold and italic faces::.
 
+   A number, expressed as a float (e.g.  1.5), adjusts the height of the
+heading to that many times the base font size.  DO NOT use an integer
+(e.g.  10), as that will produce tiny text and also does not work with
+‘text-scale-adjust’.  The default height is the same as 1.0, though it
+need not be explicitly stated.
+
    Combinations of any of those properties are expressed as a list, like
 in these examples:
 
      (semibold)
      (rainbow background)
-     (overline monochrome semibold)
+     (overline monochrome semibold 1.3)
 
    The order in which the properties are set is not significant.
 
    In user configuration files the form may look like this:
 
      (setq modus-themes-headings
-           '((1 . (background overline rainbow))
-             (2 . (background overline))
+           '((1 . (background overline rainbow 1.5))
+             (2 . (background overline 1.3))
              (t . (overline semibold))))
 
    When defining the styles per heading level, it is possible to pass a
@@ -1873,114 +1876,10 @@ the original aesthetic for that level.  For example:
 ‘background’ properties.  Depending on the version of Org, there may be
 others, such as ‘org-fontify-done-headline’.
 
-   *note Option for scaled headings: Scaled headings.
-
-   *note Option for variable-pitch font in headings: Headings' typeface.
-
 
-File: modus-themes.info,  Node: Scaled headings,  Next: UI typeface,  Prev: Heading styles,  Up: Customization Options
+File: modus-themes.info,  Node: UI typeface,  Prev: Heading styles,  Up: Customization Options
 
-4.24 Option for scaled headings
-===============================
-
-Brief: Toggle the scaling of headings.
-
-   Symbol: ‘modus-themes-scale-headings’ (‘boolean’ type)
-
-   Possible values:
-
-  1. ‘nil’ (default)
-  2. ‘t’
-
-   The default is to use the same size for headings and paragraph text.
-
-   With a non-nil value (‘t’) make headings larger in height relative to
-the main text.  This is noticeable in modes like Org, Markdown, and
-Info.
-
-* Menu:
-
-* Scaled heading sizes::         Specify rate of increase for scaled headings
-
-
-File: modus-themes.info,  Node: Scaled heading sizes,  Up: Scaled headings
-
-4.24.1 Control the scale of headings
-------------------------------------
-
-[ Changed as part of 2.0.0-dev ]
-
-   Brief: Specify the height for individual heading scales.
-
-   Symbols (all are ‘number’ type):
-
-   • ‘modus-themes-scale-1’
-   • ‘modus-themes-scale-2’
-   • ‘modus-themes-scale-3’
-   • ‘modus-themes-scale-4’
-   • ‘modus-themes-scale-title’
-
-   In addition to the toggle for enabling scaled headings, users can
-also specify a number of their own.
-
-   • If it is a floating point, say, ‘1.5’, it is interpreted as a
-     multiple of the base font size.  This is the recommended method,
-     because it will always adapt to changes in the base font size, such
-     as while using the ‘text-scale-adjust’ command.
-
-   • If it is an integer, it is read as an absolute font height that is
-     1/10 of the typographic point size.  Thus a value of ‘18pt’ must be
-     expressed as ‘180’.  Setting an absolute value is discouraged, as
-     it will break the layout in cases where the base font size must
-     change, such as with the ‘text-scale-adjust’ command (*note Font
-     configurations: Font configurations for Org and others.).  While we
-     discourage using absolute values, we still provide for this option
-     for users who do not need to perform text-scaling operations or who
-     are content with whatever discrepancies in height.
-
-   Below are the variables in their default values, using the floating
-point paradigm.  The numbers are very conservative, but one is free to
-change them to their liking, such as ‘1.2’, ‘1.4’, ‘1.6’, ‘1.8’,
-‘2.0’—or use a resource for finding a consistent scale:
-
-     (setq modus-themes-scale-1 1.05
-           modus-themes-scale-2 1.1
-           modus-themes-scale-3 1.15
-           modus-themes-scale-4 1.2
-           modus-themes-scale-title 1.3)
-
-   As for the application of that scale, the variables that range from
-‘modus-themes-scale-1’ up to ‘modus-themes-scale-4’ apply to regular
-headings within the context of the given major mode.  The former is the
-smallest, while the latter is the largest.  “Regular headings” are those
-that have a standard syntax for their scale, such as Org mode’s eight
-levels of asterisks or Markdown’s six columns.
-
-   Whereas ‘modus-themes-scale-title’ is applied to special headings
-that do not conform with the aforementioned syntax, yet which are
-expected to be larger than the largest value on that implied scale or at
-least have some unique purpose in the buffer.  Put concretely, Org’s
-‘#+title’ meta datum is not part of the eight levels of headings in an
-Org file, yet is supposed to signify the primary header.  Similarly, the
-Org Agenda’s structure headings are not part of a recognisable scale and
-so they also get ‘modus-themes-scale-title’ (*note Option for Org agenda
-constructs: Org agenda.).
-
-   Users who wish to maintain scaled headings for the normal syntax
-while preventing special headings from standing out, can assign a value
-of ‘1.0’ to ‘modus-themes-scale-title’ to make it the same as body text
-(or whatever value would render it indistinguishable from the desired
-point of reference).
-
-   Note that in earlier versions of Org, scaling would only increase the
-size of the heading, but not of keywords that were added to it, like
-“TODO”.  The issue has been fixed upstream:
-<https://protesilaos.com/codelog/2020-09-24-org-headings-adapt/>.
-
-
-File: modus-themes.info,  Node: UI typeface,  Next: Headings' typeface,  Prev: Scaled headings,  Up: Customization Options
-
-4.25 Option for variable-pitch font in UI elements
+4.24 Option for variable-pitch font in UI elements
 ==================================================
 
 Brief: Toggle the use of proportionately spaced (‘variable-pitch’) fonts
@@ -2003,30 +1902,6 @@ usually is a monospaced family.
    With a non-nil value (‘t’) apply a proportionately spaced typeface.
 This is done by assigning the ‘variable-pitch’ face to the relevant
 items.
-
-   *note Font configurations for Org and others::.
-
-
-File: modus-themes.info,  Node: Headings' typeface,  Prev: UI typeface,  Up: Customization Options
-
-4.26 Option for variable-pitch font in headings
-===============================================
-
-Brief: Toggle the use of proportionately spaced (‘variable-pitch’) fonts
-in headings.
-
-   Symbol: ‘modus-themes-variable-pitch-headings’ (‘boolean’ type)
-
-   Possible values:
-
-  1. ‘nil’ (default)
-  2. ‘t’
-
-   The default is to use the main font family, which typically is
-monospaced.
-
-   With a non-nil value (‘t’) apply a proportionately spaced typeface,
-else “variable-pitch”, to headings (such as in Org mode).
 
    *note Font configurations for Org and others::.
 
@@ -5401,11 +5276,9 @@ B.2 Variable index
 * modus-themes-paren-match:              Matching parentheses.  (line 6)
 * modus-themes-prompts:                  Command prompts.       (line 6)
 * modus-themes-region:                   Active region.         (line 6)
-* modus-themes-scale-headings:           Scaled headings.       (line 6)
 * modus-themes-subtle-line-numbers:      Line numbers.          (line 6)
 * modus-themes-syntax:                   Syntax styles.         (line 6)
 * modus-themes-tabs-accented:            Tab style.             (line 6)
-* modus-themes-variable-pitch-headings:  Headings' typeface.    (line 6)
 * modus-themes-variable-pitch-ui:        UI typeface.           (line 6)
 * modus-themes-vivendi-color-overrides:  Override colors.       (line 6)
 
@@ -5476,107 +5349,104 @@ B.3 Concept index
 
 Tag Table:
 Node: Top860
-Node: Overview7045
-Node: How do the themes look like9169
-Node: Learn about the latest changes9683
-Node: Installation10071
-Node: Install manually from source10552
-Node: Install from the archives11377
-Node: Install on GNU/Linux12154
-Node: Debian 11 Bullseye12602
-Node: GNU Guix12912
-Node: Enable and load13195
-Node: Sample configuration with and without use-package16142
-Node: Differences between loading and enabling18094
-Node: Customization Options20049
-Node: Custom reload theme26897
-Node: Deuteranopia style27687
-Node: Bold constructs29367
-Node: Italic constructs30201
-Node: Syntax styles30968
-Node: Mixed fonts33100
-Node: Link styles34364
-Node: Command prompts36842
-Node: Mode line38663
-Node: Option for mode line padding43097
-Node: Tab style43669
-Node: Completion UIs44332
-Node: Mail citations46283
-Node: Fringes47232
-Node: Language checkers47972
-Node: Line highlighting50414
-Node: Line numbers52011
-Node: Intense markup53087
-Node: Matching parentheses53820
-Node: Active region55205
-Node: Diffs56618
-Node: Org mode blocks58259
-Node: Org agenda60186
-Node: Heading styles68126
-Node: Scaled headings72140
-Node: Scaled heading sizes72807
-Node: UI typeface76367
-Node: Headings' typeface77294
-Node: Advanced customization77989
-Node: Per-theme customization settings79318
-Node: Case-by-case face specs using the themes' palette80623
-Node: Face specs at scale using the themes' palette84989
-Node: Remap face with local value89656
-Node: Cycle through arbitrary colors92081
-Node: Override colors98509
-Node: Override color saturation103318
-Node: Font configurations for Org and others109003
-Ref: Font configurations for Org and others-Footnote-1111821
-Node: Configure bold and italic faces112008
-Node: Custom Org user faces116133
-Node: Update Org block delimiter fontification119758
-Node: Measure color contrast121671
-Node: Load theme depending on time of day124394
-Node: Backdrop for pdf-tools125387
-Node: Decrease mode line height128082
-Node: A theme-agnostic hook for theme loading132207
-Node: Diffs with only the foreground134598
-Node: Face coverage137662
-Node: Supported packages138114
-Node: Indirectly covered packages144479
-Node: Notes on individual packages145467
-Node: Note on avy hints146507
-Node: Note on calendarel weekday and weekend colors147675
-Node: Note on underlines in compilation buffers148858
-Node: Note on inline Latex in Org buffers149670
-Node: Note on dimmerel150280
-Node: Note on display-fill-column-indicator-mode151765
-Node: Note on highlight-parenthesesel153328
-Node: Note on mmm-modeel background colors159317
-Node: Note for prism161632
-Node: Note for god-mode164786
-Node: Note on company-mode overlay pop-up166390
-Ref: Note on company-mode overlay pop-up-Footnote-1167080
-Ref: Note on company-mode overlay pop-up-Footnote-2167147
-Node: Note on ERC escaped color sequences167202
-Ref: Note on ERC escaped color sequences-Footnote-1168630
-Node: Note on powerline or spaceline168740
-Node: Note on SHR colors169154
-Node: Note on EWW and Elfeed fonts169577
-Node: Note on Helm grep170242
-Node: Note on vc-annotate-background-mode171717
-Node: Note on pdf-tools link hints172602
-Node: Frequently Asked Questions175034
-Node: Is the contrast ratio about adjacent colors?175590
-Node: What does it mean to avoid exaggerations?177097
-Node: Why are colors mostly variants of blue magenta cyan?178926
-Node: What is the best setup for legibility?183239
-Node: Contributing185851
-Node: Sources of the themes186248
-Node: Issues you can help with186884
-Node: Patches require copyright assignment to the FSF188084
-Node: Acknowledgements190379
-Node: Meta193194
-Node: GNU Free Documentation License195358
-Node: Indices220710
-Node: Function index220889
-Node: Variable index222096
-Node: Concept index224527
+Node: Overview6811
+Node: How do the themes look like8935
+Node: Learn about the latest changes9449
+Node: Installation9837
+Node: Install manually from source10318
+Node: Install from the archives11143
+Node: Install on GNU/Linux11920
+Node: Debian 11 Bullseye12368
+Node: GNU Guix12678
+Node: Enable and load12961
+Node: Sample configuration with and without use-package15908
+Node: Differences between loading and enabling17860
+Node: Customization Options19815
+Node: Custom reload theme26264
+Node: Deuteranopia style27054
+Node: Bold constructs28734
+Node: Italic constructs29568
+Node: Syntax styles30335
+Node: Mixed fonts32467
+Node: Link styles33731
+Node: Command prompts36209
+Node: Mode line38030
+Node: Option for mode line padding42464
+Node: Tab style43036
+Node: Completion UIs43699
+Node: Mail citations45650
+Node: Fringes46599
+Node: Language checkers47339
+Node: Line highlighting49781
+Node: Line numbers51378
+Node: Intense markup52454
+Node: Matching parentheses53187
+Node: Active region54572
+Node: Diffs55985
+Node: Org mode blocks57626
+Node: Org agenda59553
+Node: Heading styles67903
+Node: UI typeface72415
+Node: Advanced customization73314
+Node: Per-theme customization settings74643
+Node: Case-by-case face specs using the themes' palette75948
+Node: Face specs at scale using the themes' palette80314
+Node: Remap face with local value84981
+Node: Cycle through arbitrary colors87406
+Node: Override colors93834
+Node: Override color saturation98643
+Node: Font configurations for Org and others104328
+Ref: Font configurations for Org and others-Footnote-1107146
+Node: Configure bold and italic faces107333
+Node: Custom Org user faces111458
+Node: Update Org block delimiter fontification115083
+Node: Measure color contrast116996
+Node: Load theme depending on time of day119719
+Node: Backdrop for pdf-tools120712
+Node: Decrease mode line height123407
+Node: A theme-agnostic hook for theme loading127532
+Node: Diffs with only the foreground129923
+Node: Face coverage132987
+Node: Supported packages133439
+Node: Indirectly covered packages139804
+Node: Notes on individual packages140792
+Node: Note on avy hints141832
+Node: Note on calendarel weekday and weekend colors143000
+Node: Note on underlines in compilation buffers144183
+Node: Note on inline Latex in Org buffers144995
+Node: Note on dimmerel145605
+Node: Note on display-fill-column-indicator-mode147090
+Node: Note on highlight-parenthesesel148653
+Node: Note on mmm-modeel background colors154642
+Node: Note for prism156957
+Node: Note for god-mode160111
+Node: Note on company-mode overlay pop-up161715
+Ref: Note on company-mode overlay pop-up-Footnote-1162405
+Ref: Note on company-mode overlay pop-up-Footnote-2162472
+Node: Note on ERC escaped color sequences162527
+Ref: Note on ERC escaped color sequences-Footnote-1163955
+Node: Note on powerline or spaceline164065
+Node: Note on SHR colors164479
+Node: Note on EWW and Elfeed fonts164902
+Node: Note on Helm grep165567
+Node: Note on vc-annotate-background-mode167042
+Node: Note on pdf-tools link hints167927
+Node: Frequently Asked Questions170359
+Node: Is the contrast ratio about adjacent colors?170915
+Node: What does it mean to avoid exaggerations?172422
+Node: Why are colors mostly variants of blue magenta cyan?174251
+Node: What is the best setup for legibility?178564
+Node: Contributing181176
+Node: Sources of the themes181573
+Node: Issues you can help with182209
+Node: Patches require copyright assignment to the FSF183409
+Node: Acknowledgements185704
+Node: Meta188519
+Node: GNU Free Documentation License190683
+Node: Indices216035
+Node: Function index216214
+Node: Variable index217421
+Node: Concept index219706
 
 End Tag Table
 
