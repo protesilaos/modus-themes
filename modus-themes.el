@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-05 18:54:47 +0200>
+;; Last-Modified: <2021-12-05 22:03:32 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -58,7 +58,6 @@
 ;;     modus-themes-prompts                        (choice)
 ;;     modus-themes-region                         (choice)
 ;;     modus-themes-syntax                         (choice)
-;;     modus-themes-mode-line-padding              (natnum)
 ;;
 ;; There also exist two unique customization variables for overriding
 ;; color palette values.  The specifics are documented in the manual.
@@ -2385,13 +2384,14 @@ the same as the background, effectively creating some padding.
 The `accented' property ensures that the active mode line uses a
 colored background instead of the standard shade of gray.
 
-The `padded' property increases the apparent height of the mode
-line.  This is done by applying box effects and combining them
-with an underline and overline.  To ensure that the underline is
-placed at the bottom, set `x-underline-at-descent-line' to
-non-nil.  The `padded' property has no effect when the `moody'
-property is also used, because Moody already applies its own
-padding.
+A positive integer (natural number or natnum) applies a padding
+effect of NATNUM pixels at the boundaries of the mode lines.  The
+default value is 1 and does not need to be specified explicitly.
+The padding has no effect when the `moody' property is also used,
+because Moody already applies its own tweaks.  To ensure that the
+underline is placed at the bottom of the mode line, set
+`x-underline-at-descent-line' to non-nil (this is not needed when
+the `borderless' property is also set).
 
 Combinations of any of those properties are expressed as a list,
 like in these examples:
@@ -2428,7 +2428,7 @@ default colors (which have been carefully designed to be highly
 accessible).
 
 Furthermore, because Moody expects an underline and overline
-instead of a box style, it is advised to set
+instead of a box style, it is strongly advised to set
 `x-underline-at-descent-line' to a non-nil value."
   :group 'modus-themes
   :package-version '(modus-themes . "1.6.0")
@@ -2440,14 +2440,13 @@ instead of a box style, it is advised to set
                       (const :tag "No box effects (Moody-compatible)" moody))
               (const :tag "Colored background" accented)
               (const :tag "Without border color" borderless)
-              (const :tag "With extra padding" padded))
+              (natnum :tag "With extra padding" :value 6))
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Mode line"))
 
 (defcustom modus-themes-mode-line-padding 6
-  "Padding for `modus-themes-mode-line'.
-The value is expressed as a positive integer."
+  "DEPRECATED: Set natural number in `modus-themes-mode-line'."
   :group 'modus-themes
   :package-version '(modus-themes . "1.7.0")
   :version "29.1"
@@ -2455,6 +2454,8 @@ The value is expressed as a positive integer."
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Mode line"))
+
+(make-obsolete 'modus-themes-mode-line-padding 'modus-themes-mode-line "2.0.0")
 
 (defcustom modus-themes-diffs nil
   "Adjust the overall style of diffs.
@@ -3508,13 +3509,6 @@ set to `rainbow'."
     ('rainbow (list :background bgaccent :foreground fgaccent))
     (_ (list :background bg :foreground fg))))
 
-(defun modus-themes--mode-line-padding ()
-  "Determine mode line padding value.
-See `modus-themes--mode-line-attrs'."
-  (if (natnump modus-themes-mode-line-padding)
-      modus-themes-mode-line-padding
-    6))                                 ; the default value
-
 (defun modus-themes--mode-line-attrs
     (fg bg fg-alt bg-alt fg-accent bg-accent border border-3d &optional alt-style fg-distant)
   "Color combinations for `modus-themes-mode-line'.
@@ -3531,8 +3525,7 @@ line's box property.
 Optional FG-DISTANT should be close to the main background
 values.  It is intended to be used as a distant-foreground
 property."
-  (let* ((padding (modus-themes--mode-line-padding))
-         (properties
+  (let* ((properties
           (if (listp modus-themes-mode-line)
               modus-themes-mode-line
             ;; translation layer for legacy values
@@ -3548,6 +3541,8 @@ property."
                          (borderless-accented . (borderless accented))
                          (borderless-accented-3d . (borderless accented 3d))
                          (borderless-accented-moody . (borderless accented moody))))))
+         (padding (seq-find #'natnump properties 1))
+         (padded (> padding 1))
          (base (cond ((memq 'accented properties)
                       (cons fg-accent bg-accent))
                      ((and (or (memq 'moody properties)
@@ -3555,11 +3550,10 @@ property."
                            (not (memq 'borderless properties)))
                       (cons fg-alt bg-alt))
                      ((cons fg bg))))
-         (line (cond ((not (or (memq 'moody properties)
-                               (memq 'padded properties)))
+         (line (cond ((not (or (memq 'moody properties) padded))
                       'unspecified)
                      ((and (not (memq 'moody properties))
-                           (memq 'padded properties)
+                           padded
                            (memq 'borderless properties))
                       'unspecified)
                      ((and (memq 'borderless properties)
@@ -3573,8 +3567,7 @@ property."
           :box
           (cond ((memq 'moody properties)
                  'unspecified)
-                ((and (memq '3d properties)
-                      (memq 'padded properties))
+                ((and (memq '3d properties) padded)
                  (list :line-width padding
                        :color
                        (cond ((and (memq 'accented properties)
@@ -3585,13 +3578,10 @@ property."
                               bg)
                              (bg-alt))
                        :style (when alt-style 'released-button)))
-                ((and (memq 'accented properties)
-                      (memq 'padded properties))
+                ((and (memq 'accented properties) padded)
                  (list :line-width padding :color bg-accent))
-                ((memq 'padded properties)
-                 (list :line-width padding :color bg))
                 ((memq '3d properties)
-                 (list :line-width 1
+                 (list :line-width padding
                        :color
                        (cond ((and (memq 'accented properties)
                                    (memq 'borderless properties))
@@ -3601,10 +3591,8 @@ property."
                        :style (when alt-style 'released-button)))
                 ((and (memq 'accented properties)
                       (memq 'borderless properties))
-                 bg-accent)
-                ((memq 'borderless properties)
-                 bg)
-                ((memq 'padded properties)
+                 (list :line-width padding :color bg-accent))
+                ((or (memq 'borderless properties) padded)
                  (list :line-width padding :color bg))
                 (border))
           :overline line

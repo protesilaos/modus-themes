@@ -432,12 +432,8 @@ this manual.
 
       ;; Options for `modus-themes-mode-line' are either nil, or a list
       ;; that can combine any of `3d' OR `moody', `borderless',
-      ;; `accented', `padded'.
-      modus-themes-mode-line '(padded accented borderless)
-
-      ;; This one only works when `modus-themes-mode-line' (above) has
-      ;; the `padded' property.  It takes a positive integer.
-      modus-themes-mode-line-padding 3
+      ;; `accented', and a natural number for extra padding
+      modus-themes-mode-line '(4 accented borderless)
 
       ;; Options for `modus-themes-syntax' are either nil (the default),
       ;; or a list of properties that may include any of those symbols:
@@ -856,6 +852,8 @@ In user configuration files the form may look like this:
 :end:
 #+vindex: modus-themes-mode-line
 
+[ Changed as part of {{{development-version}}} ]
+
 Brief: Control the style of the mode lines.
 
 Symbol: ~modus-themes-mode-line~ (=choice= type, list of properties)
@@ -868,45 +866,42 @@ effect, color, and border visibility:
   - ~moody~
 + ~accented~
 + ~borderless~
-+ ~padded~
++ A natural number > 1 for extra padding
 
 The default (a nil value or an empty list) is a two-dimensional
-rectangle with a border around it.  The active and the inactive
-mode lines use different shades of grayscale values for the
-background, foreground, border.
+rectangle with a border around it.  The active and the inactive mode
+lines use different shades of grayscale values for the background,
+foreground, border.
 
-The ~3d~ property applies a three-dimensional effect to the
-active mode line.  The inactive mode lines remain two-dimensional
-and are toned down a bit, relative to the default style.
+The ~3d~ property applies a three-dimensional effect to the active mode
+line.  The inactive mode lines remain two-dimensional and are toned down
+a bit, relative to the default style.
 
-The ~moody~ property optimizes the mode line for use with the
-library of the same name (hereinafter referred to as 'Moody').
-In practice, it removes the box effect and replaces it with
-underline and overline properties.  It also tones down the
-inactive mode lines.  Despite its intended purpose, this option
-can also be used without the Moody library (please consult the
-themes' manual on this point for more details).  If both ~3d~ and
-~moody~ properties are set, the latter takes precedence.
+The ~moody~ property optimizes the mode line for use with the library of
+the same name (hereinafter referred to as 'Moody').  In practice, it
+removes the box effect and replaces it with underline and overline
+properties.  It also tones down the inactive mode lines.  Despite its
+intended purpose, this option can also be used without the Moody library
+(please consult the themes' manual on this point for more details).  If
+both ~3d~ and ~moody~ properties are set, the latter takes precedence.
 
-The ~borderless~ property removes the color of the borders.  It
-does not actually remove the borders, but only makes their color
-the same as the background, effectively creating some padding.
+The ~borderless~ property removes the color of the borders.  It does not
+actually remove the borders, but only makes their color the same as the
+background, effectively creating some padding.
 
-The ~accented~ property ensures that the active mode line uses a
-colored background instead of the standard shade of gray.
+The ~accented~ property ensures that the active mode line uses a colored
+background instead of the standard shade of gray.
 
-The ~padded~ property increases the apparent height of the mode line.
-This is done by applying box effects and combining them with an
-underline and overline.  To ensure that the underline is placed at the
-bottom, set ~x-underline-at-descent-line~ to non-nil.  The ~padded~ property
-has no effect when the ~moody~ property is also used, because Moody
-already applies its own padding.  The exact value of the padding is
-controlled by the variable ~modus-themes-mode-line-padding~.
+A positive integer (natural number or natnum) applies a padding effect
+of NATNUM pixels at the boundaries of the mode lines.  The default value
+is 1 and does not need to be specified explicitly.  The padding has no
+effect when the ~moody~ property is also used, because Moody already
+applies its own tweaks.  To ensure that the underline is placed at the
+bottom of the mode line, set ~x-underline-at-descent-line~ to non-nil
+(this is not needed when the ~borderless~ property is also set).
 
-[[#h:a12b4d3c-e66b-42ed-99ab-4ea039b69e2e][Option for mode line padding]].
-
-Combinations of any of those properties are expressed as a list,
-like in these examples:
+Combinations of any of those properties are expressed as a list, like in
+these examples:
 
 #+begin_src emacs-lisp
 (accented)
@@ -941,30 +936,12 @@ high, because it has the adverse effect of always overriding the default
 colors (which have been carefully designed to be highly accessible).
 
 Furthermore, because Moody expects an underline and overline instead of
-a box style, it is advised to set ~x-underline-at-descent-line~ to a
-non-nil value.
+a box style, it is strongly advised to set ~x-underline-at-descent-line~
+to a non-nil value.
 
 Finally, note that various packages which heavily modify the mode line,
 such as =doom-modeline=, =nano-modeline=, =powerline=, =spaceline= may not look
 as intended with all possible combinations of this user option.
-
-*** Option for mode line padding
-:properties:
-:custom_id: h:a12b4d3c-e66b-42ed-99ab-4ea039b69e2e
-:end:
-#+vindex: modus-themes-mode-line-padding
-
-Brief: Set the padding of the mode lines.
-
-Symbol: ~modus-themes-mode-line-padding~ (=natnum= type)
-
-Controls the exact width of the mode line's padding.  Possible values
-are positive integers.  The default value is =6=.
-
-This customization option applies only when ~modus-themes-mode-line~ is
-configured with the ~padded~ property.
-
-[[#h:27943af6-d950-42d0-bc23-106e43f50a24][Option for mode line presentation]].
 
 ** Option for accented background in tab interfaces
 :properties:

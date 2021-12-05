@@ -93,12 +93,8 @@ demonstration:
 
       ;; Options for `modus-themes-mode-line' are either nil, or a list
       ;; that can combine any of `3d' OR `moody', `borderless',
-      ;; `accented', `padded'.
-      modus-themes-mode-line '(padded accented borderless)
-      
-      ;; This one only works when `modus-themes-mode-line' (above) has
-      ;; the `padded' property.  It takes a positive integer.
-      modus-themes-mode-line-padding 3
+      ;; `accented', and a natural number for extra padding
+      modus-themes-mode-line '(4 accented borderless)
 
       ;; Options for `modus-themes-syntax' are either nil (the default),
       ;; or a list of properties that may include any of those symbols:
