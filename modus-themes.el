@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-05 22:03:32 +0200>
+;; Last-Modified: <2021-12-06 11:30:51 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -1867,10 +1867,10 @@ described below.  Here is a sample, followed by a presentation of
 all available properties:
 
     (setq modus-themes-headings
-          '((1 . (background overline variable-pitch 1.5))
-            (2 . (overline rainbow 1.3))
-            (3 . (overline 1.1))
-            (t . (monochrome))))
+          (quote ((1 . (background overline variable-pitch 1.5))
+                  (2 . (overline rainbow 1.3))
+                  (3 . (overline 1.1))
+                  (t . (monochrome)))))
 
 By default (a nil value for this variable), all headings have a
 bold typographic weight, use a desaturated text color, have a
@@ -1922,23 +1922,23 @@ The order in which the properties are set is not significant.
 In user configuration files the form may look like this:
 
     (setq modus-themes-headings
-          '((1 . (background overline rainbow 1.5))
-            (2 . (background overline 1.3))
-            (t . (overline semibold))))
+          (quote ((1 . (background overline rainbow 1.5))
+                  (2 . (background overline 1.3))
+                  (t . (overline semibold)))))
 
 When defining the styles per heading level, it is possible to
 pass a non-nil value (t) instead of a list of properties.  This
 will retain the original aesthetic for that level.  For example:
 
     (setq modus-themes-headings
-          '((1 . t)           ; keep the default style
-            (2 . (background overline))
-            (t . (rainbow)))) ; style for all other headings
+          (quote ((1 . t)           ; keep the default style
+                  (2 . (background overline))
+                  (t . (rainbow))))) ; style for all other headings
 
     (setq modus-themes-headings
-          '((1 . (background overline))
-            (2 . (rainbow semibold))
-            (t . t))) ; default style for all other levels
+          (quote ((1 . (background overline))
+                  (2 . (rainbow semibold))
+                  (t . t)))) ; default style for all other levels
 
 For Org users, the extent of the heading depends on the variable
 `org-fontify-whole-heading-line'.  This affects the `overline'
@@ -1965,11 +1965,11 @@ is a sample, followed by a description of all possible
 combinations:
 
     (setq modus-themes-org-agenda
-          '((header-block . (variable-pitch 1.5))
-            (header-date . (grayscale workaholic bold-today 1.2))
-            (event . (accented italic varied))
-            (scheduled . uniform)
-            (habit . traffic-light)))
+          (quote ((header-block . (variable-pitch 1.5))
+                  (header-date . (grayscale workaholic bold-today 1.2))
+                  (event . (accented italic varied))
+                  (scheduled . uniform)
+                  (habit . traffic-light))))
 
 A `header-block' key applies to elements that concern the
 headings which demarcate blocks in the structure of the agenda.
@@ -2287,7 +2287,7 @@ The order in which the properties are set is not significant.
 
 In user configuration files the form may look like this:
 
-    (setq modus-themes-lang-checkers '(text-also background))
+    (setq modus-themes-lang-checkers (quote (text-also background)))
 
 NOTE: The placement of the straight underline, though not the
 wave style, is controlled by the built-in variables
@@ -2404,7 +2404,7 @@ The order in which the properties are set is not significant.
 
 In user configuration files the form may look like this:
 
-    (setq modus-themes-mode-line '(borderless accented))
+    (setq modus-themes-mode-line (quote (borderless accented)))
 
 Note that Moody does not expose any faces that the themes could
 style directly.  Instead it re-purposes existing ones to render
@@ -2566,7 +2566,7 @@ The order in which the properties are set is not significant.
 
 In user configuration files the form may look like this:
 
-    (setq modus-themes-prompts '(background gray))"
+    (setq modus-themes-prompts (quote (background gray)))"
   :group 'modus-themes
   :package-version '(modus-themes . "1.5.0")
   :version "28.1"
@@ -2608,7 +2608,7 @@ The order in which the properties are set is not significant.
 
 In user configuration files the form may look like this:
 
-    (setq modus-themes-hl-line '(underline accented))
+    (setq modus-themes-hl-line (quote (underline accented)))
 
 Set `x-underline-at-descent-line' to a non-nil value for better
 results with underlines."
@@ -2676,7 +2676,7 @@ The order in which the properties are set is not significant.
 
 In user configuration files the form may look like this:
 
-    (setq modus-themes-paren-match '(bold intense))"
+    (setq modus-themes-paren-match (quote (bold intense)))"
   :group 'modus-themes
   :package-version '(modus-themes . "1.5.0")
   :version "28.1"
@@ -2724,7 +2724,7 @@ The order in which the properties are set is not significant.
 
 In user configuration files the form may look like this:
 
-    (setq modus-themes-syntax '(faint alt-syntax))
+    (setq modus-themes-syntax (quote (faint alt-syntax)))
 
 Independent of this variable, users may also control the use of a
 bold weight or italic text: `modus-themes-bold-constructs' and
@@ -2783,7 +2783,7 @@ The order in which the properties are set is not significant.
 
 In user configuration files the form may look like this:
 
-    (setq modus-themes-links '(neutral-underline background))
+    (setq modus-themes-links (quote (neutral-underline background)))
 
 The placement of the underline, meaning its proximity to the
 text, is controlled by `x-use-underline-position-properties',
@@ -2837,7 +2837,7 @@ The order in which the properties are set is not significant.
 
 In user configuration files the form may look like this:
 
-    (setq modus-themes-region '(bg-only no-extend))"
+    (setq modus-themes-region (quote (bg-only no-extend)))"
   :group 'modus-themes
   :package-version '(modus-themes . "1.5.0")
   :version "28.1"
