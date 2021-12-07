@@ -1480,16 +1480,18 @@ properties:
   are present, the default is a small increase in height (a value of
   1.15).
 
-In case both ~scale-title~ and ~no-scale~ are in the list, the latter takes
-precedence.
+[[#h:2793a224-2109-4f61-a106-721c57c01375][Configure bold and italic faces]].
+
+In case both a number and ~no-scale~ are in the list, the latter takes
+precedence.  If two numbers are specified, the first one is applied.
 
 Example usage:
 
 #+begin_src emacs-lisp
 (header-block . nil)
-(header-block . (scale-title))
+(header-block . (1.5))
 (header-block . (no-scale))
-(header-block . (variable-pitch scale-title))
+(header-block . (variable-pitch 1.5))
 #+end_src
 
 A ~header-date~ key covers date headings.  Dates use only a foreground
@@ -1613,7 +1615,7 @@ For example:
 Putting it all together, the alist can look like this:
 
 #+begin_src emacs-lisp
-'((header-block . (scale-title variable-pitch))
+'((header-block . (1.5 variable-pitch))
   (header-date . (grayscale workaholic bold-today))
   (event . (accented varied))
   (scheduled . uniform)
@@ -1621,7 +1623,7 @@ Putting it all together, the alist can look like this:
 
 ;; Or else:
 (setq modus-themes-org-agenda
-      '((header-block . (scale-title variable-pitch))
+      '((header-block . (1.5 variable-pitch))
         (header-date . (grayscale workaholic bold-today))
         (event . (accented varied))
         (scheduled . uniform)
