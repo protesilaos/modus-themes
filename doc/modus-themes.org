@@ -1479,6 +1479,11 @@ properties:
   height as the rest of the buffer.  When neither a number nor ~no-scale~
   are present, the default is a small increase in height (a value of
   1.15).
+- The symbol of a weight attribute adjusts the font of the heading
+  accordingly, such as ~light~, ~semibold~, etc.  Valid symbols are defined
+  in the internal variable ~modus-themes--heading-weights~.  The absence
+  of a weight means that bold will be used by virtue of inheriting the
+  ~bold~ face.
 
 [[#h:2793a224-2109-4f61-a106-721c57c01375][Configure bold and italic faces]].
 
@@ -1492,6 +1497,7 @@ Example usage:
 (header-block . (1.5))
 (header-block . (no-scale))
 (header-block . (variable-pitch 1.5))
+(header-block . (variable-pitch 1.5 semibold))
 #+end_src
 
 A ~header-date~ key covers date headings.  Dates use only a foreground
