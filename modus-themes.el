@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-07 18:00:45 +0200>
+;; Last-Modified: <2021-12-09 20:20:06 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -124,7 +124,7 @@
 ;;     diff-mode
 ;;     dim-autoload
 ;;     dir-treeview
-;;     dired
+;;     Dired
 ;;     dired-async
 ;;     dired-git
 ;;     dired-git-info
@@ -3082,7 +3082,7 @@ differ in overall intensity.  FAINTFG is a nuanced color."
            ('unspecified)))))
 
 (defun modus-themes--prompt (mainfg intensefg grayfg subtlebg intensebg intensebg-fg subtlebggray intensebggray)
-  "Conditional use of colors for prompts.
+  "Conditional use of colors for text prompt faces.
 MAINFG is the prompt's standard foreground.  INTENSEFG is a more
 prominent alternative to the main foreground, while GRAYFG is a
 less luminant shade of gray.
@@ -3741,7 +3741,7 @@ is a background color and BGNEUTRAL is its fallback value."
            (t)))))
 
 (defun modus-themes--link-color (fg fgfaint &optional neutralfg)
-  "Extends `modus-themes--link'.
+  "Extend `modus-themes--link'.
 FG is the main accented foreground.  FGFAINT is also accented,
 yet desaturated.  Optional NEUTRALFG is a gray value."
   (let ((properties
