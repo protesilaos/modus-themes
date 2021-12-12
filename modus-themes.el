@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-12 12:12:02 +0200>
+;; Last-Modified: <2021-12-12 12:40:40 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -6585,7 +6585,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-sexp-date ((,class :foreground ,cyan-alt-other)))
     `(org-special-keyword ((,class :inherit (shadow modus-themes-fixed-pitch))))
     `(org-table ((,class :inherit modus-themes-fixed-pitch :foreground ,fg-special-cold)))
-    `(org-table-header ((,class :inherit (fixed-pitch modus-themes-intense-neutral))))
+    `(org-table-header ((,class :inherit (fixed-pitch modus-themes-special-cold))))
     `(org-tag ((,class :foreground ,magenta-nuanced-fg)))
     `(org-tag-group ((,class :inherit bold :foreground ,cyan-nuanced-fg)))
     `(org-target ((,class :underline t)))
@@ -6622,7 +6622,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-superstar-item ((,class :foreground ,fg-main)))
     `(org-superstar-leading ((,class :foreground ,fg-whitespace)))
 ;;;;; org-table-sticky-header
-    `(org-table-sticky-header-face ((,class :inherit modus-themes-intense-neutral)))
+    `(org-table-sticky-header-face ((,class :inherit modus-themes-special-cold)))
 ;;;;; org-tree-slide
     `(org-tree-slide-header-overlay-face ((,class :inherit org-document-title)))
 ;;;;; org-treescope
