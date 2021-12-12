@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-09 20:20:06 +0200>
+;; Last-Modified: <2021-12-12 12:12:02 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -6506,7 +6506,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-date ((,class :inherit ,(if modus-themes-mixed-fonts
                                       '(fixed-pitch modus-themes-link-symlink)
                                     'modus-themes-link-symlink))))
-    `(org-date-selected ((,class :inherit bold :foreground ,blue-alt :inverse-video t)))
+    `(org-date-selected ((,class :foreground ,blue-alt :inverse-video t)))
     `(org-dispatcher-highlight ((,class :inherit (bold modus-themes-mark-alt))))
     `(org-document-info ((,class :foreground ,fg-special-cold)))
     `(org-document-info-keyword ((,class :inherit (shadow modus-themes-fixed-pitch))))
