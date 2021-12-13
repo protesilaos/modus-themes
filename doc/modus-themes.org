@@ -898,7 +898,9 @@ is 1 and does not need to be specified explicitly.  The padding has no
 effect when the ~moody~ property is also used, because Moody already
 applies its own tweaks.  To ensure that the underline is placed at the
 bottom of the mode line, set ~x-underline-at-descent-line~ to non-nil
-(this is not needed when the ~borderless~ property is also set).
+(this is not needed when the ~borderless~ property is also set).  For
+users on Emacs 29, the ~x-use-underline-position-properties~ variable must
+also be set to nil.
 
 Combinations of any of those properties are expressed as a list, like in
 these examples:

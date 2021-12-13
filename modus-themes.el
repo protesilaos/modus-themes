@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-12 12:40:40 +0200>
+;; Last-Modified: <2021-12-13 08:57:03 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -2410,7 +2410,9 @@ The padding has no effect when the `moody' property is also used,
 because Moody already applies its own tweaks.  To ensure that the
 underline is placed at the bottom of the mode line, set
 `x-underline-at-descent-line' to non-nil (this is not needed when
-the `borderless' property is also set).
+the `borderless' property is also set).  For users on Emacs 29,
+the `x-use-underline-position-properties' variable must also be
+set to nil.
 
 Combinations of any of those properties are expressed as a list,
 like in these examples:
