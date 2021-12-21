@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 1.7.0
-;; Last-Modified: <2021-12-13 08:57:03 +0200>
+;; Last-Modified: <2021-12-21 11:48:32 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -3534,8 +3534,8 @@ set to `rainbow'."
     ('gray-background (list :background bg :foreground fg :extend t))
     ('grayscale (list :background bg :foreground fg :extend t))
     ('greyscale (list :background bg :foreground fg :extend t))
-    ('rainbow (list :background bgaccent :foreground fgaccent))
-    (_ (list :background bg :foreground fg))))
+    ('rainbow (list :background bgaccent :foreground fgaccent :extend nil))
+    (_ (list :background bg :foreground fg :extend nil))))
 
 (defun modus-themes--mode-line-attrs
     (fg bg fg-alt bg-alt fg-accent bg-accent border border-3d &optional alt-style fg-distant)
