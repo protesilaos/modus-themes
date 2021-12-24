@@ -15,6 +15,385 @@ For further details, please consult these additional resources:
 + Manual :: <https://protesilaos.com/emacs/modus-themes>
 + Screenshots :: <https://protesilaos.com/emacs/modus-themes-pictures>
 
+* 2.0.0
+
+#+begin_src text
+Modus themes version 2.0.0
+
+By Protesilaos Stavrou <info@protesilaos.com> on 2021-12-24
+
+This entry covers the changes made to the project since the publication
+of version 1.7.0 on 2021-11-18.  There have been more than 90 commits in
+the meantime.  This is a major upgrade with some backward-incompatible
+changes, even though most work was done behind the scenes (i.e. not in
+git commits but local testing) to guarantee the relevance of all
+user-facing styles, code practices, et cetera.
+
+All modifications of colour combinations mentioned herein are made in
+accordance with the primary accessibility objective of the themes for a
+minimum contrast ratio of 7:1 between background and foreground values
+in their given combination (the WCAG AAA standard for relative colour
+luminance).  Edits also account for colour-coding that is optimised for
+the needs of users with red-green colour deficiency (deuteranopia).
+
+To access the URL of the manual visit this web page:
+<https://protesilaos.com/emacs/modus-themes>.  Or read it in the Emacs
+Info reader by evaluating this form:
+
+    (info "(modus-themes) Top")
+
+The 'modus-operandi' and 'modus-vivendi' themes are built into Emacs-28
+(next stable release) or later, and are available on GNU ELPA as well as
+other archives.  Emacs-28 ships version 1.6.0, while the current
+'master' branch (i.e. Emacs-29) and, by extension, GNU ELPA include the
+latest tagged release.
+
+A fully fledged org-mode file with the annotated task list for Modus
+themes version 2.0.0 is supplied as complementary material to the
+present entry.  It should be annexed below this text on the announcement
+page: <https://protesilaos.com/codelog/2021-12-24-modus-themes-2-0-0/>.
+
+
+Customisation options
+=====================
+
+There are some breaking changes that were necessary to improve the code
+base and make things easier as well as more efficient for end users.
+Please read carefully and apologies in advance for whatever
+inconvenience.
+
+,* The 'modus-themes-variable-pitch-headings' no longer has any effect.
+  Instead, users can specify a 'variable-pitch' property to the list
+  they pass to the 'modus-themes-headings' or 'modus-themes-org-agenda'
+  (examples below).
+
+,* All 'modus-themes-scale-*' options are removed.  Scaling of headings
+  is now handled directly by the user options 'modus-themes-headings'
+  and 'modus-themes-org-agenda' (code samples below).
+
+,* The 'modus-themes-headings' option now accepts a floating point (see
+  function 'floatp') that represents the multiplier relative to the base
+  font size.  This can be used to scale headings accordingly.  Since
+  this option can target individual heading levels (for 1 through 8),
+  users can now implement their desired scale with greater precision.
+  Whereas before it was limited to the first four levels, admittedly for
+  no good reason.
+
+  The newly introduced 'variable-pitch' property can also be applied on
+  a per-level basis (making it easy to combine with existing properties,
+  such as a custom weight, for maximum control).  Example:
+
+      ;; This is an alist: read the manual or its doc string.
+      (setq modus-themes-headings
+            '((1 . (variable-pitch light 1.6))
+              (2 . (overline semibold 1.4))
+              (3 . (monochrome overline 1.2))
+              (4 . (overline 1.1))
+              (t . (rainbow 1.05))))
+
+,* The 'modus-themes-org-agenda' follows the same design as the
+  'modus-themes-headings' where appropriate.  Headings that can be
+  scaled accept a floating point, while those that may be rendered in a
+  proportionately spaced font accept the 'variable-pitch' property.  In
+  addition, a custom font weight is also supported in the relevant
+  places (just as with 'modus-themes-headings').  Overall, the interface
+  can now be tailored to the user's preferences with greater precision.
+
+      ;; This is an alist: read the manual or its doc string.
+      (setq modus-themes-org-agenda
+            '((header-block . (variable-pitch light 1.6))
+              (header-date . (bold-today grayscale underline-today 1.2))
+              (event . (accented varied))
+              (scheduled . uniform)
+              (habit . traffic-light)))
+
+,* The 'modus-themes-scale-small' that was used in the Org agenda
+  interface has been removed.  No replacement is provided, as the
+  downsizing had the undesired effect of breaking the otherwise neat
+  alignment of elements on the grid.
+
+,* The 'modus-themes-mode-line-padding' option has been removed.
+  Instead, users can specify a natural number (positive integer)
+  directly in the list of properties passed to the
+  'modus-themes-mode-line' variable.  This has no effect when the
+  'moody' property is also set, because the Moody library applies its
+  own padding.  For example:
+
+      (setq modus-themes-mode-line '(borderless accented 4))
+
+  Though not related to changes on our end, users of Emacs 29 must now
+  set 'x-use-underline-position-properties' to nil for padding to work
+  properly (due to other adjustments upstream).  This relates to Emacs
+  bug#52324 we had reported:
+  <https://debbugs.gnu.org/cgi/bugreport.cgi?bug=52324>.
+
+,* All deuteranopia styles are consolidated in a single toggle:
+  'modus-themes-deuteranopia'.  The 'modus-themes-success-deuteranopia'
+  is thus rendered obsolete and superseded, while the individual
+  deuteranopia-friendly styles for diffs ('modus-themes-diffs') and the
+  Org agenda's habit graph ('modus-themes-org-agenda') are altogether
+  removed.  As opposed to top-level forms, there is no clean way to
+  notify the user of the deprecation of individual values of a user
+  option.
+
+,* The "foreground only" style has been altogether removed from the user
+  option 'modus-themes-diffs'.  It never was up to the aesthetic
+  standard of the themes even though the colours met the minimum 7:1
+  contrast ratio.  There is a new section in the manual which documents
+  how to implement such a style with user-level configurations.  Short
+  version:
+
+      (defun my-modus-themes-custom-faces ()
+        (modus-themes-with-colors
+          (custom-set-faces
+           `(modus-themes-diff-added ((,class :background unspecified :foreground ,green))) ; OR ,blue for deuteranopia
+           `(modus-themes-diff-changed ((,class :background unspecified :foreground ,yellow)))
+           `(modus-themes-diff-removed ((,class :background unspecified :foreground ,red)))
+
+           `(modus-themes-diff-refine-added ((,class :background ,bg-diff-added :foreground ,fg-diff-added)))
+           ;; `(modus-themes-diff-refine-added ((,class :background ,bg-diff-added-deuteran :foreground ,fg-diff-added-deuteran)))
+           `(modus-themes-diff-refine-changed ((,class :background ,bg-diff-changed :foreground ,fg-diff-changed)))
+           `(modus-themes-diff-refine-removed ((,class :background ,bg-diff-removed :foreground ,fg-diff-removed)))
+
+           `(modus-themes-diff-focus-added ((,class :background ,bg-dim :foreground ,green))) ; OR ,blue for deuteranopia
+           `(modus-themes-diff-focus-changed ((,class :background ,bg-dim :foreground ,yellow)))
+           `(modus-themes-diff-focus-removed ((,class :background ,bg-dim :foreground ,red)))
+
+           `(modus-themes-diff-heading ((,class :background ,bg-alt :foreground ,fg-main)))
+
+           `(diff-indicator-added ((,class :foreground ,green))) ; OR ,blue for deuteranopia
+           `(diff-indicator-changed ((,class :foreground ,yellow)))
+           `(diff-indicator-removed ((,class :foreground ,red)))
+
+           `(magit-diff-added ((,class :background unspecified :foreground ,green-faint)))
+           `(magit-diff-changed ((,class :background unspecified :foreground ,yellow-faint)))
+           `(magit-diff-removed ((,class :background unspecified :foreground ,red-faint)))
+           `(magit-diff-context-highlight ((,class :background ,bg-dim :foreground ,fg-dim))))))
+
+      ;; This is so that the changes persist when switching between
+      ;; modus-operandi and modus-vivendi
+      (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
+
+
+Removed support for packages
+============================
+
+The following are no longer supported by the themes.  The reasons vary
+in each case, though they boil down to (i) the package being obsoleted,
+or (ii) the package's faces inheriting from base faces that we already
+support (e.g. font-lock).  Each case was carefully considered as part of
+the comprehensive review of all packages supported by the themes, though
+chances are that some mistake was made regardless.  If you believe a
+package should not have been removed, please report as much.
+
+,* ag
+,* apt-sources-list
+,* apt-sources-list
+,* buffer-expose
+,* counsel-org-capture-string
+,* define-word
+,* diredc
+,* disk-usage
+,* easy-kill
+,* flyspell-correct
+,* git-gutter{,fringe}+
+,* git-lens
+,* git-walktree
+,* highlight-blocks
+,* highlight-defined
+,* highlight-escape-sequences
+,* highlight-symbol
+,* highlight-tail
+,* hyperlist-mode
+,* isl (isearch-light)
+,* minibuffer-line
+,* mu4e-conversation
+,* no-emoji
+,* objed
+,* parrot
+,* phi-search
+,* pkgbuild-mode
+,* rainbow-identifiers
+,* sallet
+,* spell-fu
+,* spray
+,* swoop
+,* vdiff
+,* volatile-highlights
+
+
+Changes to supported faces or face groups
+=========================================
+
+,* Eliminated any possible exaggerations in wgrep faces.  Those no longer
+  use coloured backgrounds.  Instead they have colour-coded foreground
+  colours as well as a bold weight (they ultimately inherit from the
+  'bold' face, which is a "hidden" customisation option, as explained in
+  the manual).
+
+,* Forced Org block delimiters to not extend their background by default
+  (though check 'modus-themes-org-blocks').  That was the intended
+  design all along, but now it needs to be made explicit.  See, for
+  example, bug#52587 for Emacs:
+  <https://debbugs.gnu.org/cgi/bugreport.cgi?bug=52587>
+
+,* Revised the 'org-sexp-date' face so that it no longer looks like
+  'org-date'.  Dates are clickable buttons: they work like links, so
+  they have an underline by default and are subject to the
+  'modus-themes-links' user option.  Whereas the 'org-sexp-date' is not
+  applied to interactive elements and must thus be visually distinct.
+
+  This face is used for diary-style entries in Org files.  For example:
+
+      %%(diary-anniversary 2000 12 25) NAME %d%s birthday
+
+,* Rewrote several Auctex/Tex faces to inherit from base faces where
+  relevant (e.g. 'bold', 'success') as well as from font-lock faces.  In
+  the latter case, the end-result makes Auctex/Tex subject to the
+  'modus-themes-syntax' option.  These refinements promote theme-wide
+  consistency without detracting from the established styles.
+
+,* Improved Git (Magit) commit faces for warnings or errors.  This
+  concerns two cases:
+      
+  1. The summary line exceeds the recommended limit of 50 characters.
+     This now uses a yellow foreground colour which contrasts well with
+     the summary line's new blue hue (blue and yellow are complementary
+     for our purposes, meaning that they have good contrast in hueness).
+
+  2. The second line (the one right below the summary) has text that
+     should not be there.  This one is coloured in a shade of red, which
+     again contrasts well with blue.
+
+  Thanks to Damien Cassou for noticing in issue 261 that the previous
+  style of applying tinted backgrounds did not work well when
+  'hl-line-mode' was enabled ('hl-line-mode' overrides backgrounds and
+  so the warnings/errors where not always obvious):
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/261>.
+
+,* Added support for the new 'magit-branch-warning' face that we helped
+  upstream define: <https://github.com/magit/magit/issues/4550>.  It
+  disambiguates warnings in Magit status buffers from the generic and
+  often inappropriate for such a context 'font-lock-warning-face'.
+
+,* Simplified all the Apropos faces.  They no longer look like buttons or
+  links as that makes the presentation of 'M-x apropos' very busy.
+  Instead, they now only have a foreground colour.
+
+,* Updated support for org-roam faces by removing old entries and
+  covering new ones.
+
+,* Replaced old company-mode faces with their new aliases:
+
+  - company-scrollbar-bg => company-tooltip-scrollbar-thumb
+  - company-scrollbar-fg => company-tooltip-scrollbar-track
+
+,* Made 'org-column-title' inherit from 'fixed-pitch' when the user
+  option 'modus-themes-mixed-fonts' is non-nil.  This is needed to line
+  up columns correctly.  Thanks to Björn Lindström for the contribution
+  in merge request 52:
+  <https://gitlab.com/protesilaos/modus-themes/-/merge_requests/52>.
+
+,* Forced the 'org-colview' faces to use the same height, even when
+  headings are scaled (see 'modus-themes-headings').  This ensures that
+  the columns are aligned properly and text fits on the same row.
+  Thanks to Björn Lindström for the contribution in merge request 53:
+  <https://gitlab.com/protesilaos/modus-themes/-/merge_requests/53>.
+
+,* Refrained from applying a bold weight to the Org date selection
+  indicator in the calendar. The use of bold has the potential to create
+  problems with the alignment of dates for certain typefaces that do not
+  have a proper bold variant.  Also, there is no need for added emphasis
+  given that we already use a prominent background colour.
+
+,* Made 'M-x org-table-header-line-mode' or the third-party package
+  'org-table-sticky-header' use colours that fit better with those of
+  tables.
+
+,* Removed explicit styling of the 'magit-branch-current' face because
+  its definition checks if the ':box' attribute can be set and if not, it
+  uses ':inverse-video'.  Useful for terminal emulators.
+
+,* Expanded support for the 'mode-line-active' face for Emacs29.  The
+  face upstream basically adds proportionately spaced fonts (the
+  'variable-pitch' face) to the mode line.  The themes can already use
+  that if the user option 'modus-themes-variable-pitch-ui' is non-nil.
+  Thanks to Manuel Uberti for the feedback in issue 257:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/257>.
+
+,* Implemented some stylistic refinements for ERC and Rcirc to ensure
+  theme-wide consistency (e.g. timestamps are a shade of cyan).
+
+,* Tweaked adoc-mode faces for stylistic theme-wide consistency.
+
+,* Refashioned all the git faces of Treemacs so that they are more
+  consistent with other such contexts or uses.  The new styles also
+  conform with the 'modus-themes-deuteranopia' option.
+
+
+Miscellaneous
+=============
+
+,* Ended the wanton use of internal functions in places that did not
+  require them.  Instead, the themes define faces that evaluate such
+  functions once and pass their results to the relevant entries.  Cases
+  include:
+
+    - Symlink and/or broken link faces in contexts such as Dired,
+      Eshell, Helm, Trashed.
+
+    - Tabbed interfaces (tab-bar, tab-line, centaur-tabs).
+
+    - Verbatim markup or that of inline code in Org, Markdown, Asciidoc,
+      etc.
+
+    - The optional use of 'variable-pitch' for User Interface elements
+      (see 'modus-themes-variable-pitch-ui').
+
+,* Refined the dedicated diff background colours of modus-vivendi that
+  are used when the user option 'modus-themes-deuteranopia' is non-nil.
+  The changes improve the distinction between all red and yellow
+  constructs in contexts where they appear together (e.g. smerge-mode).
+  Basically, yellows will look more bright, while reds appear as
+  brown. The corresponding blues are toned down a bit to be consistent
+  with the other colours.  Consequently, the standard shades of green
+  for added lines (when 'modus-themes-deuteranopia' is nil) are
+  recalibrated to combine well with all other values.
+
+,* Made several faces return an 'unspecified' value instead of nil for
+  their unused attributes under certain circumstances.  This is to guard
+  against third-party code that unconditionally expects a non-nil value.
+
+,* Omitted {over,under}line attributes from the mode line when the
+  'padded' property is added to the 'modus-themes-mode-line' user
+  option.  Those are not necessary in that context.  Thanks to Illia
+  Ostapyshyn for the contribution in merge request 54:
+  <https://gitlab.com/protesilaos/modus-themes/-/merge_requests/54>
+
+,* Rewrote several internal functions in the interest of consistency and
+  clarity.
+
+,* Deleted two user options that were long obsolete: (i)
+  'modus-themes-org-habit' has been superseded by
+  'modus-themes-org-agenda' since version 1.5.0 of the themes and (ii)
+  'modus-themes-intense-hl-line' has been replaced by
+  'modus-themes-hl-line' since version 1.3.0.
+
+,* Removed parentheses from headings in the manual as they are invalid
+  characters for some version of Texinfo.  See Emacs bug#52126:
+  <https://debbugs.gnu.org/cgi/bugreport.cgi?bug=52126>.
+
+,* Updated all doc strings so that quoted lists yield valid syntax in
+  Help buffers; syntax that can be directly evaluated (otherwise Emacs
+  prettifies straight quotes as curly ones, which break the code).
+  Thanks to Christian Tietze for bringing this issue to my attention:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/248#note_753169268>.
+
+,* Rewrote all sections of the manual to document the current state of
+  the project as pertains to valid user options, explicitly supported
+  face groups, and so on.
+#+end_src
+
 * 1.7.0
 
 #+begin_src text
