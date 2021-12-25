@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.0.0
-;; Last-Modified: <2021-12-25 07:53:09 +0200>
+;; Last-Modified: <2021-12-25 14:29:22 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -4430,12 +4430,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(font-latex-italic-face ((,class :inherit italic)))
     `(font-latex-math-face ((,class :inherit font-lock-constant-face)))
     `(font-latex-script-char-face ((,class :inherit font-lock-builtin-face)))
-    `(font-latex-sectioning-0-face ((,class :inherit modus-themes-heading-1)))
-    `(font-latex-sectioning-1-face ((,class :inherit modus-themes-heading-2)))
-    `(font-latex-sectioning-2-face ((,class :inherit modus-themes-heading-3)))
-    `(font-latex-sectioning-3-face ((,class :inherit modus-themes-heading-4)))
-    `(font-latex-sectioning-4-face ((,class :inherit modus-themes-heading-5)))
-    `(font-latex-sectioning-5-face ((,class :inherit modus-themes-heading-6)))
+    `(font-latex-sectioning-5-face ((,class :inherit (bold modus-themes-variable-pitch) :foreground ,blue-nuanced-fg))))
     `(font-latex-sedate-face ((,class :inherit font-lock-keyword-face)))
     `(font-latex-slide-title-face ((,class :inherit modus-themes-heading-1)))
     `(font-latex-string-face ((,class :inherit font-lock-string-face)))
