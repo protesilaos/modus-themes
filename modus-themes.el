@@ -4430,7 +4430,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(font-latex-italic-face ((,class :inherit italic)))
     `(font-latex-math-face ((,class :inherit font-lock-constant-face)))
     `(font-latex-script-char-face ((,class :inherit font-lock-builtin-face)))
-    `(font-latex-sectioning-5-face ((,class :inherit (bold modus-themes-variable-pitch) :foreground ,blue-nuanced-fg))))
+    `(font-latex-sectioning-5-face ((,class :inherit (bold modus-themes-variable-pitch) :foreground ,blue-nuanced-fg)))
     `(font-latex-sedate-face ((,class :inherit font-lock-keyword-face)))
     `(font-latex-slide-title-face ((,class :inherit modus-themes-heading-1)))
     `(font-latex-string-face ((,class :inherit font-lock-string-face)))
