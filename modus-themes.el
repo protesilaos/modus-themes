@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.0.0
-;; Last-Modified: <2021-12-25 14:29:22 +0200>
+;; Last-Modified: <2021-12-28 08:02:43 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -2518,17 +2518,17 @@ each completion framework.
 Option `moderate' applies a combination of background and
 foreground that is fairly subtle.  For Icomplete and friends this
 constitutes a departure from their default aesthetics, however
-the difference is small.  While Helm, Ivy et al appear slightly
+the difference is small.  While Helm, Ivy et al. appear slightly
 different than their original looks, as they are toned down a
 bit.
 
 Option `opinionated' uses color combinations that refashion the
 completion UI.  For the Icomplete camp this means that intense
 background and foreground combinations are used: in effect their
-looks emulate those of Helm, Ivy and company in their original
-style.  Whereas the other group of packages will revert to an
-even more nuanced aesthetic with some additional changes to the
-choice of hues.
+looks emulate those of Helm, Ivy and co. in their original style.
+Whereas the other group of packages will revert to an even more
+nuanced aesthetic with some additional changes to the choice of
+hues.
 
 To appreciate the scope of this customization option, you should
 spend some time with every one of the nil (default), `moderate',
