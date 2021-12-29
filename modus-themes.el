@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.0.0
-;; Last-Modified: <2021-12-29 09:55:30 +0200>
+;; Last-Modified: <2021-12-29 12:15:52 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -5341,17 +5341,17 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(font-lock-regexp-grouping-backslash ((,class :inherit bold
                                                    ,@(modus-themes--syntax-string
                                                       fg-escape-char-backslash yellow-alt-faint
-                                                      yellow magenta-alt
-                                                      yellow-faint red-faint))))
+                                                      yellow-alt magenta-alt
+                                                      red-faint green-alt-other-faint))))
     `(font-lock-regexp-grouping-construct ((,class :inherit bold
                                                    ,@(modus-themes--syntax-string
                                                       fg-escape-char-construct red-alt-other-faint
-                                                      blue blue-alt-other
+                                                      red-alt-other blue-alt-other
                                                       blue-faint blue-alt-other-faint))))
     `(font-lock-string-face ((,class ,@(modus-themes--syntax-string
                                         blue-alt blue-alt-faint
-                                        green red
-                                        green-faint red-faint))))
+                                        green-alt-other red-alt
+                                        green-alt-faint red-alt-faint))))
     `(font-lock-type-face ((,class :inherit modus-themes-bold
                                    ,@(modus-themes--syntax-foreground
                                       cyan-alt-other cyan-alt-faint))))
