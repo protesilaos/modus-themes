@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.0.0
-;; Last-Modified: <2021-12-31 04:05:24 +0200>
+;; Last-Modified: <2021-12-31 04:37:27 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -742,8 +742,8 @@ symbol and the latter as a string.")
     (green-graph-1-bg . "#0f8f07")
     (yellow-graph-0-bg . "#ffd03e")
     (yellow-graph-1-bg . "#d7d800")
-    (blue-graph-0-bg . "#406fff")
     (blue-graph-1-bg . "#2f50c8")
+    (blue-graph-0-bg . "#5f8fff")
     (magenta-graph-0-bg . "#af7bee")
     (magenta-graph-1-bg . "#7f59cf")
     (cyan-graph-0-bg . "#47dcfa")
