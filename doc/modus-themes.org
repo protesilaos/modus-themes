@@ -3565,6 +3565,7 @@ supported by the themes.
 + counsel-org-capture-string
 + define-word
 + disk-usage
++ dtache
 + easy-kill
 + edit-indirect
 + evil-owl
