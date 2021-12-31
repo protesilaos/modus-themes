@@ -2509,6 +2509,71 @@ inspiration from the ~modus-themes-toggle~ we already provide:
     ('modus-vivendi (modus-themes-load-vivendi))))
 #+end_src
 
+** Override colors through blending
+:properties:
+:custom_id: h:80c326bf-fe32-47b2-8c59-58022256fd6e
+:end:
+#+cindex: Change theme colors through blending
+
+This is yet another method of overriding color values.
+
+[[#h:307d95dd-8dbd-4ece-a543-10ae86f155a6][Override colors]].
+
+[[#h:4589acdc-2505-41fc-9f5e-699cfc45ab00][Override color saturation]].
+
+Building on ideas and concepts from the previous sections, this method
+blends the entire palette at once with the chosen colors.  The function
+~my-modus-themes-interpolate~ blends two colors, taking a value from the
+themes and mixing it with a user-defined color to arrive at a midpoint.
+This scales to all background and foreground colors with the help of the
+~my-modus-themes-tint-palette~ function.
+
+#+begin_src emacs-lisp
+(setq my-modus-operandi-bg-blend "#fbf1c7"
+      my-modus-operandi-fg-blend "#3a4042"
+      my-modus-vivendi-bg-blend "#3a4042"
+      my-modus-vivendi-fg-blend "#d7b765")
+
+;; Adapted from the `kurecolor-interpolate' function of kurecolor.el
+(defun my-modus-themes-interpolate (color1 color2)
+  (cl-destructuring-bind (r g b)
+      (mapcar #'(lambda (n) (* (/ n 2) 255.0))
+              (cl-mapcar '+ (color-name-to-rgb color1) (color-name-to-rgb color2)))
+    (format "#%02X%02X%02X" r g b)))
+
+(defun my-modus-themes-tint-palette (palette bg-blend fg-blend)
+  "Modify Modus PALETTE programmatically and return a new palette.
+Blend background colors with BG-BLEND and foreground colors with FG-BLEND."
+  (let (name cons colors)
+    (dolist (cons palette)
+      (let ((blend (if (string-match "bg" (symbol-name (car cons)))
+                       bg-blend
+                     fg-blend)))
+        (setq name (my-modus-themes-interpolate (cdr cons) blend)))
+      (setq name (format "%s" name))
+      (setq cons `(,(car cons) . ,name))
+      (push cons colors))
+    colors))
+
+(define-minor-mode modus-themes-tinted-mode
+  "Tweak some Modus themes colors."
+  :init-value nil
+  :global t
+  (if modus-themes-tinted-mode
+      (setq modus-themes-operandi-color-overrides
+            (my-modus-themes-tint-palette modus-themes-operandi-colors
+                                          my-modus-operandi-bg-blend
+                                          my-modus-operandi-fg-blend)
+            modus-themes-vivendi-color-overrides
+            (my-modus-themes-tint-palette modus-themes-vivendi-colors
+                                          my-modus-vivendi-bg-blend
+                                          my-modus-vivendi-fg-blend))
+    (setq modus-themes-operandi-color-overrides nil
+          modus-themes-vivendi-color-overrides nil)))
+
+(modus-themes-tinted-mode 1)
+#+end_src
+
 ** Font configurations for Org and others
 :properties:
 :custom_id: h:defcf4fc-8fa8-4c29-b12e-7119582cc929
@@ -4523,13 +4588,13 @@ The Modus themes are a collective effort.  Every bit of work matters.
 
 + Author/maintainer :: Protesilaos Stavrou.
 
-+ Contributions to code or documentation :: Anders Johansson, Basil
-  L.{{{space()}}} Contovounesios, Björn Lindström, Carlo Zancanaro, Christian
-  Tietze, Daniel Mendler, Eli Zaretskii, Fritz Grabo, Illia Ostapyshyn,
-  Kévin Le Gouguec, Kostadin Ninev, Madhavan Krishnan, Markus Beppler,
-  Matthew Stevenson, Mauro Aranda, Nicolas De Jaeghere, Philip
-  Kaludercic, Rudolf Adamkovič, Stephen Gildea, Shreyas Ragavan, Stefan
-  Kangas, Vincent Murphy, Xinglu Chen.
++ Contributions to code or documentation :: Alex Griffin, Anders
+  Johansson, Basil L.{{{space()}}} Contovounesios, Björn Lindström, Carlo
+  Zancanaro, Christian Tietze, Daniel Mendler, Eli Zaretskii, Fritz
+  Grabo, Illia Ostapyshyn, Kévin Le Gouguec, Kostadin Ninev, Madhavan
+  Krishnan, Markus Beppler, Matthew Stevenson, Mauro Aranda, Nicolas De
+  Jaeghere, Philip Kaludercic, Rudolf Adamkovič, Stephen Gildea, Shreyas
+  Ragavan, Stefan Kangas, Vincent Murphy, Xinglu Chen.
 
 + Ideas and user feedback :: Aaron Jensen, Adam Porter, Adam Spiers,
   Adrian Manea, Alex Griffin, Alex Peitsinis, Alexey Shmalko, Alok
