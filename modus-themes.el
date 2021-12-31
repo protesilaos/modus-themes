@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.0.0
-;; Last-Modified: <2021-12-29 12:15:52 +0200>
+;; Last-Modified: <2021-12-31 04:05:24 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -6510,7 +6510,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-habit-alert-face ((,class ,@(modus-themes--agenda-habit
                                        yellow-graph-0-bg
                                        yellow-graph-0-bg
-                                       yellow-graph-1-bg))))
+                                       yellow-graph-1-bg)
+                                    :foreground "black"))) ; special case
     `(org-habit-alert-future-face ((,class ,@(modus-themes--agenda-habit
                                               yellow-graph-1-bg
                                               yellow-graph-0-bg
@@ -6537,7 +6538,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                        green-graph-0-bg
                                        green-graph-0-bg
                                        green-graph-1-bg
-                                       blue-graph-0-bg))))
+                                       blue-graph-0-bg)
+                                    :foreground "black"))) ; special case
     `(org-habit-ready-future-face ((,class ,@(modus-themes--agenda-habit
                                               green-graph-1-bg
                                               green-graph-0-bg
