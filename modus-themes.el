@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.0.0
-;; Last-Modified: <2021-12-31 04:37:27 +0200>
+;; Last-Modified: <2021-12-31 05:55:23 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -2323,25 +2323,32 @@ variables `flymake-fringe-indicator-position' and
   :link '(info-link "(modus-themes) Language checkers"))
 
 (defcustom modus-themes-org-blocks nil
-  "Use a subtle gray or color-coded background for Org blocks.
+  "Set the overall style of Org code blocks, quotes, and the like.
 
-Nil (the default) means that the block has no distinct background
-of its own and uses the one that applies to the rest of the
-buffer.
+Nil (the default) means that the block has no background of its
+own: it uses the one that applies to the rest of the buffer.  In
+this case, the delimiter lines have a gray color for their text,
+making them look exactly like all other Org properties.
 
 Option `gray-background' applies a subtle gray background to the
 block's contents.  It also affects the begin and end lines of the
-block: their background extends to the edge of the window for
-Emacs version >= 27 where the ':extend' keyword is recognized by
-`set-face-attribute' (this is contingent on the variable
-`org-fontify-whole-block-delimiter-line').
+block as they get another shade of gray as their background,
+which differentiates them from the contents of the block.  All
+background colors extend to the edge of the window, giving the
+area a rectangular, \"blocky\" presentation.
 
 Option `tinted-background' uses a slightly colored background for
 the contents of the block.  The exact color will depend on the
 programming language and is controlled by the variable
 `org-src-block-faces' (refer to the theme's source code for the
 current association list).  For this to take effect, the Org
-buffer needs to be restarted with `org-mode-restart'.
+buffer needs to be restarted with `org-mode-restart'.  In this
+scenario, it may be better to inhibit the extension of the
+delimiter lines' background to the edge of the window because Org
+does not provide a mechanism to update their colors depending on
+the contents of the block.  Disable the extension of such
+backgrounds by setting `org-fontify-whole-block-delimiter-line'
+to nil.
 
 Code blocks use their major mode's colors only when the variable
 `org-src-fontify-natively' is non-nil.  While quote/verse blocks
@@ -2353,7 +2360,7 @@ Older versions of the themes provided options `grayscale' (or
 are aliases for `gray-background' and `tinted-background',
 respectively."
   :group 'modus-themes
-  :package-version '(modus-themes . "1.4.0")
+  :package-version '(modus-themes . "2.1.0")
   :version "28.1"
   :type '(choice
           (const :format "[%v] %t\n" :tag "No Org block background (default)" nil)
@@ -3526,8 +3533,9 @@ set to `rainbow'."
     ('gray-background (list :background bg :foreground fg :extend t))
     ('grayscale (list :background bg :foreground fg :extend t))
     ('greyscale (list :background bg :foreground fg :extend t))
+    ('tinted-background (list :background bgaccent :foreground fgaccent :extend nil))
     ('rainbow (list :background bgaccent :foreground fgaccent :extend nil))
-    (_ (list :background bg :foreground fg :extend nil))))
+    (_ (list :foreground fg :extend nil))))
 
 (defun modus-themes--mode-line-attrs
     (fg bg fg-alt bg-alt fg-accent bg-accent border border-3d &optional alt-style fg-distant)

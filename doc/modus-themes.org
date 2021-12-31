@@ -1405,20 +1405,28 @@ Possible values:
 2. ~gray-background~ (value ~grayscale~ exists for backward compatibility)
 3. ~tinted-background~ (value ~rainbow~ exists for backward compatibility)
 
-The default means that the block has no distinct background of its own
-and uses the one that applies to the rest of the buffer.
+Nil (the default) means that the block has no background of its own: it
+uses the one that applies to the rest of the buffer.  In this case, the
+delimiter lines have a gray color for their text, making them look
+exactly like all other Org properties.
 
 Option ~gray-background~ applies a subtle gray background to the block's
-contents.  It also affects the begin and end lines of the block: their
-background extends to the edge of the window for Emacs version >= 27
-where the ~:extend~ keyword is recognized by ~set-face-attribute~ (this is
-contingent on the variable ~org-fontify-whole-block-delimiter-line~).
+contents.  It also affects the begin and end lines of the block as they
+get another shade of gray as their background, which differentiates them
+from the contents of the block.  All background colors extend to the
+edge of the window, giving the area a rectangular, "blocky"
+presentation.
 
 Option ~tinted-background~ uses a slightly colored background for the
 contents of the block.  The exact color will depend on the programming
 language and is controlled by the variable ~org-src-block-faces~ (refer to
 the theme's source code for the current association list).  For this to
-take effect, Org must be restarted with {{{kbd(M-x org-mode-restart)}}}.
+take effect, the Org buffer needs to be restarted with ~org-mode-restart~.
+In this scenario, it may be better to inhibit the extension of the
+delimiter lines' background to the edge of the window because Org does
+not provide a mechanism to update their colors depending on the contents
+of the block.  Disable the extension of such backgrounds by setting
+~org-fontify-whole-block-delimiter-line~ to nil.
 
 Code blocks use their major mode's colors only when the variable
 ~org-src-fontify-natively~ is non-nil.  While quote/verse blocks require
