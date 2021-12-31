@@ -6520,7 +6520,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                        blue-graph-0-bg
                                        green-graph-1-bg
                                        blue-graph-1-bg
-                                       blue-graph-1-bg))))
+                                       blue-graph-1-bg)
+                                    :foreground "black"))) ; special case
     `(org-habit-clear-future-face ((,class ,@(modus-themes--agenda-habit
                                               blue-graph-1-bg
                                               green-graph-1-bg
