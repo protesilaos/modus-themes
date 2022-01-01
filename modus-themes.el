@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.0.0
-;; Last-Modified: <2021-12-31 05:55:23 +0200>
+;; Last-Modified: <2022-01-01 17:08:28 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -7088,6 +7088,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(telega-entity-type-code ((,class :inherit modus-themes-fixed-pitch)))
     `(telega-entity-type-mention ((,class :foreground ,cyan)))
     `(telega-entity-type-pre ((,class :inherit modus-themes-fixed-pitch)))
+    `(telega-entity-type-spoiler ((,class :background ,fg-main :foreground ,fg-main)))
     `(telega-msg-heading ((,class :background ,bg-alt)))
     `(telega-msg-self-title ((,class :inherit bold)))
     `(telega-root-heading ((,class :inherit modus-themes-subtle-neutral)))

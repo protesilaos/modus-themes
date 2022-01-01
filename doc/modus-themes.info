@@ -4694,8 +4694,8 @@ Ideas and user feedback
      Verron, Thomas Heartman, Trey Merkley, Togan Muftuoglu, Toon Claes,
      Uri Sharf, Utkarsh Singh, Vincent Foley.  As well as users: Ben,
      CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji,
-     Nick, TheBlob42, Trey, bepolymathe, doolio, fleimgruber, iSeeU,
-     jixiuf, okamsn, pRot0ta1p.
+     Nick, TheBlob42, Trey, bepolymathe, bit9tream, doolio, fleimgruber,
+     iSeeU, jixiuf, okamsn, pRot0ta1p.
 
 Packaging
      Basil L. Contovounesios, Eli Zaretskii, Glenn Morris, Mauro Aranda,
@@ -5479,12 +5479,12 @@ Node: Sources of the themes184049
 Node: Issues you can help with184685
 Node: Patches require copyright assignment to the FSF185885
 Node: Acknowledgements188180
-Node: Meta191014
-Node: GNU Free Documentation License193178
-Node: Indices218530
-Node: Function index218709
-Node: Variable index219916
-Node: Concept index222057
+Node: Meta191025
+Node: GNU Free Documentation License193189
+Node: Indices218541
+Node: Function index218720
+Node: Variable index219927
+Node: Concept index222068
 
 End Tag Table
 
