@@ -1704,10 +1704,10 @@ are passed as a symbol.  Those are:
      ready and clear states is attenuated by painting both of them using
      shades of green.  This option thus highlights the alert and overdue
      states.
-   • When ‘modus-themes-deuteranopia’ is non-nil the habit graph uses a
-     three-color style like the aforementioned ‘traffic-light’ variant,
-     except that shades of blue are applied instead of green.  This is
-     suitable for users with red-green color deficiency (deuteranopia).
+   • When ‘modus-themes-deuteranopia’ is non-nil the exact style of the
+     habit graph adapts to the needs of users with red-green colour
+     deficiency by substituting every instance of green with blue or
+     cyan (depending on the specifics).
 
    *note Option for red-green color deficiency or deuteranopia:
 Deuteranopia style.
@@ -4753,6 +4753,9 @@ details of this sort):
    • Introducing the variable modus-themes-org-agenda
      (https://protesilaos.com/codelog/2021-06-02-modus-themes-org-agenda/)
      (2021-06-02)
+   • Modus themes: review of the org-habit graph colours
+     (https://protesilaos.com/codelog/2022-01-02-review-modus-themes-org-habit-colours/)
+     (2022-01-02)
 
    And here are the canonical sources of this project’s documentation:
 
@@ -5422,69 +5425,69 @@ Node: Active region53636
 Node: Diffs55049
 Node: Org mode blocks56655
 Node: Org agenda59045
-Node: Heading styles67547
-Node: UI typeface71972
-Node: Advanced customization72871
-Node: Per-theme customization settings74237
-Node: Case-by-case face specs using the themes' palette75542
-Node: Face specs at scale using the themes' palette79908
-Node: Remap face with local value84575
-Node: Cycle through arbitrary colors87000
-Node: Override colors93428
-Node: Override color saturation98237
-Node: Override colors through blending103916
-Node: Font configurations for Org and others106771
-Ref: Font configurations for Org and others-Footnote-1109596
-Node: Configure bold and italic faces109783
-Node: Custom Org user faces113910
-Node: Update Org block delimiter fontification117535
-Node: Measure color contrast119448
-Node: Load theme depending on time of day122171
-Node: Backdrop for pdf-tools123164
-Node: Decrease mode line height125859
-Node: A theme-agnostic hook for theme loading129984
-Node: Diffs with only the foreground132375
-Node: Face coverage135449
-Node: Supported packages135901
-Node: Indirectly covered packages142266
-Node: Notes on individual packages143268
-Node: Note on avy hints144308
-Node: Note on calendarel weekday and weekend colors145476
-Node: Note on underlines in compilation buffers146659
-Node: Note on inline Latex in Org buffers147471
-Node: Note on dimmerel148081
-Node: Note on display-fill-column-indicator-mode149566
-Node: Note on highlight-parenthesesel151129
-Node: Note on mmm-modeel background colors157118
-Node: Note for prism159433
-Node: Note for god-mode162587
-Node: Note on company-mode overlay pop-up164191
-Ref: Note on company-mode overlay pop-up-Footnote-1164881
-Ref: Note on company-mode overlay pop-up-Footnote-2164948
-Node: Note on ERC escaped color sequences165003
-Ref: Note on ERC escaped color sequences-Footnote-1166431
-Node: Note on powerline or spaceline166541
-Node: Note on SHR colors166955
-Node: Note on EWW and Elfeed fonts167378
-Node: Note on Helm grep168043
-Node: Note on vc-annotate-background-mode169518
-Node: Note on pdf-tools link hints170403
-Node: Frequently Asked Questions172835
-Node: Is the contrast ratio about adjacent colors?173391
-Node: What does it mean to avoid exaggerations?174898
-Node: Why are colors mostly variants of blue magenta cyan?176727
-Node: What is the best setup for legibility?181040
-Node: Contributing183652
-Node: Sources of the themes184049
-Node: Issues you can help with184685
-Node: Patches require copyright assignment to the FSF185885
-Node: Acknowledgements188180
-Node: Meta191025
-Node: GNU Free Documentation License193189
-Node: Indices218541
-Node: Function index218720
-Node: Variable index219927
-Node: Concept index222068
+Node: Heading styles67505
+Node: UI typeface71930
+Node: Advanced customization72829
+Node: Per-theme customization settings74195
+Node: Case-by-case face specs using the themes' palette75500
+Node: Face specs at scale using the themes' palette79866
+Node: Remap face with local value84533
+Node: Cycle through arbitrary colors86958
+Node: Override colors93386
+Node: Override color saturation98195
+Node: Override colors through blending103874
+Node: Font configurations for Org and others106729
+Ref: Font configurations for Org and others-Footnote-1109554
+Node: Configure bold and italic faces109741
+Node: Custom Org user faces113868
+Node: Update Org block delimiter fontification117493
+Node: Measure color contrast119406
+Node: Load theme depending on time of day122129
+Node: Backdrop for pdf-tools123122
+Node: Decrease mode line height125817
+Node: A theme-agnostic hook for theme loading129942
+Node: Diffs with only the foreground132333
+Node: Face coverage135407
+Node: Supported packages135859
+Node: Indirectly covered packages142224
+Node: Notes on individual packages143226
+Node: Note on avy hints144266
+Node: Note on calendarel weekday and weekend colors145434
+Node: Note on underlines in compilation buffers146617
+Node: Note on inline Latex in Org buffers147429
+Node: Note on dimmerel148039
+Node: Note on display-fill-column-indicator-mode149524
+Node: Note on highlight-parenthesesel151087
+Node: Note on mmm-modeel background colors157076
+Node: Note for prism159391
+Node: Note for god-mode162545
+Node: Note on company-mode overlay pop-up164149
+Ref: Note on company-mode overlay pop-up-Footnote-1164839
+Ref: Note on company-mode overlay pop-up-Footnote-2164906
+Node: Note on ERC escaped color sequences164961
+Ref: Note on ERC escaped color sequences-Footnote-1166389
+Node: Note on powerline or spaceline166499
+Node: Note on SHR colors166913
+Node: Note on EWW and Elfeed fonts167336
+Node: Note on Helm grep168001
+Node: Note on vc-annotate-background-mode169476
+Node: Note on pdf-tools link hints170361
+Node: Frequently Asked Questions172793
+Node: Is the contrast ratio about adjacent colors?173349
+Node: What does it mean to avoid exaggerations?174856
+Node: Why are colors mostly variants of blue magenta cyan?176685
+Node: What is the best setup for legibility?180998
+Node: Contributing183610
+Node: Sources of the themes184007
+Node: Issues you can help with184643
+Node: Patches require copyright assignment to the FSF185843
+Node: Acknowledgements188138
+Node: Meta190983
+Node: GNU Free Documentation License193313
+Node: Indices218665
+Node: Function index218844
+Node: Variable index220051
+Node: Concept index222192
 
 End Tag Table
 

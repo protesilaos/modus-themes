@@ -1602,10 +1602,10 @@ passed as a symbol.  Those are:
   being too late.  The difference between ready and clear states is
   attenuated by painting both of them using shades of green.  This
   option thus highlights the alert and overdue states.
-- When ~modus-themes-deuteranopia~ is non-nil the habit graph uses a
-  three-color style like the aforementioned ~traffic-light~ variant,
-  except that shades of blue are applied instead of green.  This is
-  suitable for users with red-green color deficiency (deuteranopia).
+- When ~modus-themes-deuteranopia~ is non-nil the exact style of the habit
+  graph adapts to the needs of users with red-green colour deficiency by
+  substituting every instance of green with blue or cyan (depending on
+  the specifics).
 
 [[#h:3ed03a48-20d8-4ce7-b214-0eb7e4c79abe][Option for red-green color deficiency or deuteranopia]].
 
@@ -4663,6 +4663,7 @@ of this sort):
 + [[https://protesilaos.com/codelog/2021-01-11-modus-themes-review-select-faint-colours/][Modus themes: review of select "faint" colours]] (2021-01-11)
 + [[https://protesilaos.com/codelog/2021-02-25-modus-themes-diffs-deuteranopia/][The Modus themes now cover deuteranopia in diffs]] (2021-02-25)
 + [[https://protesilaos.com/codelog/2021-06-02-modus-themes-org-agenda/][Introducing the variable modus-themes-org-agenda]] (2021-06-02)
++ [[https://protesilaos.com/codelog/2022-01-02-review-modus-themes-org-habit-colours/][Modus themes: review of the org-habit graph colours]] (2022-01-02)
 
 And here are the canonical sources of this project's documentation:
 

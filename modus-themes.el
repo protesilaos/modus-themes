@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.0.0
-;; Last-Modified: <2022-01-01 17:08:28 +0200>
+;; Last-Modified: <2022-01-02 18:46:40 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -495,18 +495,18 @@ cover the blue-cyan-magenta side of the spectrum."
     ;; those background values should only be used for graphs or similar
     ;; applications where colored blocks are expected to be positioned
     ;; next to each other
-    (red-graph-0-bg . "#ef6f79")
-    (red-graph-1-bg . "#ff9f9f")
-    (green-graph-0-bg . "#49d239")
-    (green-graph-1-bg . "#6dec6d")
-    (yellow-graph-0-bg . "#efec08")
-    (yellow-graph-1-bg . "#dbff4e")
-    (blue-graph-0-bg . "#55a2f0")
-    (blue-graph-1-bg . "#7fcfff")
-    (magenta-graph-0-bg . "#ba86ef")
-    (magenta-graph-1-bg . "#e7afff")
-    (cyan-graph-0-bg . "#30d3f0")
-    (cyan-graph-1-bg . "#6fefff")
+    (red-graph-0-bg . "#ef7969")
+    (red-graph-1-bg . "#ffafa0")
+    (green-graph-0-bg . "#49c029")
+    (green-graph-1-bg . "#8fef00")
+    (yellow-graph-0-bg . "#ffcf00")
+    (yellow-graph-1-bg . "#f9ff00")
+    (blue-graph-0-bg . "#7090ff")
+    (blue-graph-1-bg . "#8fbfff")
+    (magenta-graph-0-bg . "#e07fff")
+    (magenta-graph-1-bg . "#fad0ff")
+    (cyan-graph-0-bg . "#70d3f0")
+    (cyan-graph-1-bg . "#afefff")
     ;; the following are for cases where both the foreground and the
     ;; background need to have a similar hue and so must be combined
     ;; with themselves, even though the foregrounds can be paired with
@@ -736,18 +736,18 @@ symbol and the latter as a string.")
     ;; those background values should only be used for graphs or similar
     ;; applications where colored blocks are expected to be positioned
     ;; next to each other
-    (red-graph-0-bg . "#af0404")
-    (red-graph-1-bg . "#801f2f")
-    (green-graph-0-bg . "#24ba2f")
-    (green-graph-1-bg . "#0f8f07")
-    (yellow-graph-0-bg . "#ffd03e")
-    (yellow-graph-1-bg . "#d7d800")
-    (blue-graph-1-bg . "#2f50c8")
-    (blue-graph-0-bg . "#5f8fff")
-    (magenta-graph-0-bg . "#af7bee")
-    (magenta-graph-1-bg . "#7f59cf")
-    (cyan-graph-0-bg . "#47dcfa")
-    (cyan-graph-1-bg . "#0bc0df")
+    (red-graph-0-bg . "#b52c2c")
+    (red-graph-1-bg . "#702020")
+    (green-graph-0-bg . "#24bf00")
+    (green-graph-1-bg . "#007800")
+    (yellow-graph-0-bg . "#f7ef00")
+    (yellow-graph-1-bg . "#b08600")
+    (blue-graph-0-bg . "#2fafef")
+    (blue-graph-1-bg . "#1f2f8f")
+    (magenta-graph-0-bg . "#bf94fe")
+    (magenta-graph-1-bg . "#5f509f")
+    (cyan-graph-0-bg . "#47dfea")
+    (cyan-graph-1-bg . "#00808f")
     ;; the following are for cases where both the foreground and the
     ;; background need to have a similar hue and so must be combined
     ;; with themselves, even though the foregrounds can be paired with
@@ -1442,114 +1442,6 @@ The actual styling of the face is done by `modus-themes-faces'."
 The actual styling of the face is done by `modus-themes-faces'."
   :group 'modus-themes-faces)
 
-(defface modus-themes-graph-red-0 nil
-  "Special subdued red face for use in graphs.
-This is intended to be applied in contexts such as the Org agenda
-habit graph where faithfulness to the semantics of a color value
-is of paramount importance.
-
-The actual styling of the face is done by `modus-themes-faces'."
-  :group 'modus-themes-faces)
-
-(defface modus-themes-graph-red-1 nil
-  "Special prominent red face for use in graphs.
-This is intended to be applied in contexts such as the Org agenda
-habit graph where faithfulness to the semantics of a color value
-is of paramount importance.
-
-The actual styling of the face is done by `modus-themes-faces'."
-  :group 'modus-themes-faces)
-
-(defface modus-themes-graph-green-0 nil
-  "Special subdued green face for use in graphs.
-This is intended to be applied in contexts such as the Org agenda
-habit graph where faithfulness to the semantics of a color value
-is of paramount importance.
-
-The actual styling of the face is done by `modus-themes-faces'."
-  :group 'modus-themes-faces)
-
-(defface modus-themes-graph-green-1 nil
-  "Special prominent green face for use in graphs.
-This is intended to be applied in contexts such as the Org agenda
-habit graph where faithfulness to the semantics of a color value
-is of paramount importance.
-
-The actual styling of the face is done by `modus-themes-faces'."
-  :group 'modus-themes-faces)
-
-(defface modus-themes-graph-yellow-0 nil
-  "Special subdued yellow face for use in graphs.
-This is intended to be applied in contexts such as the Org agenda
-habit graph where faithfulness to the semantics of a color value
-is of paramount importance.
-
-The actual styling of the face is done by `modus-themes-faces'."
-  :group 'modus-themes-faces)
-
-(defface modus-themes-graph-yellow-1 nil
-  "Special prominent yellow face for use in graphs.
-This is intended to be applied in contexts such as the Org agenda
-habit graph where faithfulness to the semantics of a color value
-is of paramount importance.
-
-The actual styling of the face is done by `modus-themes-faces'."
-  :group 'modus-themes-faces)
-
-(defface modus-themes-graph-blue-0 nil
-  "Special subdued blue face for use in graphs.
-This is intended to be applied in contexts such as the Org agenda
-habit graph where faithfulness to the semantics of a color value
-is of paramount importance.
-
-The actual styling of the face is done by `modus-themes-faces'."
-  :group 'modus-themes-faces)
-
-(defface modus-themes-graph-blue-1 nil
-  "Special prominent blue face for use in graphs.
-This is intended to be applied in contexts such as the Org agenda
-habit graph where faithfulness to the semantics of a color value
-is of paramount importance.
-
-The actual styling of the face is done by `modus-themes-faces'."
-  :group 'modus-themes-faces)
-
-(defface modus-themes-graph-magenta-0 nil
-  "Special subdued magenta face for use in graphs.
-This is intended to be applied in contexts such as the Org agenda
-habit graph where faithfulness to the semantics of a color value
-is of paramount importance.
-
-The actual styling of the face is done by `modus-themes-faces'."
-  :group 'modus-themes-faces)
-
-(defface modus-themes-graph-magenta-1 nil
-  "Special prominent magenta face for use in graphs.
-This is intended to be applied in contexts such as the Org agenda
-habit graph where faithfulness to the semantics of a color value
-is of paramount importance.
-
-The actual styling of the face is done by `modus-themes-faces'."
-  :group 'modus-themes-faces)
-
-(defface modus-themes-graph-cyan-0 nil
-  "Special subdued cyan face for use in graphs.
-This is intended to be applied in contexts such as the Org agenda
-habit graph where faithfulness to the semantics of a color value
-is of paramount importance.
-
-The actual styling of the face is done by `modus-themes-faces'."
-  :group 'modus-themes-faces)
-
-(defface modus-themes-graph-cyan-1 nil
-  "Special prominent cyan face for use in graphs.
-This is intended to be applied in contexts such as the Org agenda
-habit graph where faithfulness to the semantics of a color value
-is of paramount importance.
-
-The actual styling of the face is done by `modus-themes-faces'."
-  :group 'modus-themes-faces)
-
 (defface modus-themes-lang-note nil
   "Generic face for linter or spell checker notes.
 The exact attributes and color combinations are controlled by
@@ -2100,11 +1992,10 @@ value are passed as a symbol.  Those are:
   The difference between ready and clear states is attenuated by
   painting both of them using shades of green.  This option thus
   highlights the alert and overdue states.
-- When `modus-themes-deuteranopia' is non-nil the habit graph
-  uses a three-color style like the aforementioned
-  `traffic-light' variant, except that shades of blue are applied
-  instead of green.  This is suitable for users with red-green
-  color deficiency (deuteranopia).
+- When `modus-themes-deuteranopia' is non-nil the exact style of
+  the habit graph adapts to the needs of users with red-green
+  colour deficiency by substituting every instance of green with
+  blue or cyan (depending on the specifics).
 
 For example:
 
@@ -2112,7 +2003,7 @@ For example:
     (habit . simplified)
     (habit . traffic-light)"
   :group 'modus-themes
-  :package-version '(modus-themes . "2.0.0")
+  :package-version '(modus-themes . "2.1.0")
   :version "29.1"
   :type '(set
           (cons :tag "Block header"
@@ -3486,18 +3377,28 @@ clearly distinguishes past, present, future tasks."
     ('rainbow (list :foreground rainbowfg))
     (_ (list :foreground defaultfg))))
 
-(defun modus-themes--agenda-habit (default traffic simple &optional traffic-deuteran)
+(defun modus-themes--agenda-habit (default traffic simple &optional default-d traffic-d simple-d)
   "Specify background values for `modus-themes-org-agenda' habits.
 DEFAULT is the original foregrounc color.  TRAFFIC is to be used
 when the 'traffic-light' style is applied, while SIMPLE
-corresponds to the 'simplified style'.  Optional TRAFFIC-DEUTERAN
-is an alternative to TRAFFIC, meant for deuteranopia."
-  (if modus-themes-deuteranopia
-      (list :background (or traffic-deuteran traffic))
-    (pcase (modus-themes--key-cdr 'habit modus-themes-org-agenda)
-      ('traffic-light (list :background traffic))
-      ('simplified (list :background simple))
-      (_ (list :background default)))))
+corresponds to the 'simplified style'.
+
+Optional DEFAULT-D, TRAFFIC-D, SIMPLE-D are alternatives to the
+main colors, meant for dopia when `modus-themes-deuteranopia' is
+non-nil."
+  (let ((habit (modus-themes--key-cdr 'habit modus-themes-org-agenda)))
+    (cond
+     ((and modus-themes-deuteranopia (null habit))
+      (list :background (or default-d default)))
+     ((and modus-themes-deuteranopia (eq habit 'traffic-light))
+      (list :background (or traffic-d traffic)))
+     ((and modus-themes-deuteranopia (eq habit 'simplified))
+      (list :background (or simple-d simple)))
+     (t
+      (pcase habit
+        ('traffic-light (list :background traffic))
+        ('simplified (list :background simple))
+        (_ (list :background default)))))))
 
 (defun modus-themes--org-block (bgblk fgdefault &optional fgblk)
   "Conditionally set the background of Org blocks.
@@ -4223,19 +4124,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
       ((,class ,@(modus-themes--heading
                   8 magenta-nuanced-fg magenta
                   bg-alt bg-alt bg-region))))
-;;;;; graph-specific faces
-    `(modus-themes-graph-red-0 ((,class :background ,red-graph-0-bg)))
-    `(modus-themes-graph-red-1 ((,class :background ,red-graph-1-bg)))
-    `(modus-themes-graph-green-0 ((,class :background ,green-graph-0-bg)))
-    `(modus-themes-graph-green-1 ((,class :background ,green-graph-1-bg)))
-    `(modus-themes-graph-yellow-0 ((,class :background ,yellow-graph-0-bg)))
-    `(modus-themes-graph-yellow-1 ((,class :background ,yellow-graph-1-bg)))
-    `(modus-themes-graph-blue-0 ((,class :background ,blue-graph-0-bg)))
-    `(modus-themes-graph-blue-1 ((,class :background ,blue-graph-1-bg)))
-    `(modus-themes-graph-magenta-0 ((,class :background ,magenta-graph-0-bg)))
-    `(modus-themes-graph-magenta-1 ((,class :background ,magenta-graph-1-bg)))
-    `(modus-themes-graph-cyan-0 ((,class :background ,cyan-graph-0-bg)))
-    `(modus-themes-graph-cyan-1 ((,class :background ,cyan-graph-1-bg)))
 ;;;;; language checkers
     `(modus-themes-lang-error ((,class ,@(modus-themes--lang-check
                                           fg-lang-underline-error fg-lang-error
@@ -6528,11 +6416,13 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                        blue-graph-0-bg
                                        green-graph-1-bg
                                        blue-graph-1-bg
+                                       blue-graph-1-bg
                                        blue-graph-1-bg)
                                     :foreground "black"))) ; special case
     `(org-habit-clear-future-face ((,class ,@(modus-themes--agenda-habit
                                               blue-graph-1-bg
                                               green-graph-1-bg
+                                              blue-graph-1-bg
                                               blue-graph-1-bg
                                               blue-graph-1-bg))))
     `(org-habit-overdue-face ((,class ,@(modus-themes--agenda-habit
@@ -6547,13 +6437,17 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                        green-graph-0-bg
                                        green-graph-0-bg
                                        green-graph-1-bg
-                                       blue-graph-0-bg)
+                                       cyan-graph-0-bg
+                                       blue-graph-0-bg
+                                       cyan-graph-1-bg)
                                     :foreground "black"))) ; special case
     `(org-habit-ready-future-face ((,class ,@(modus-themes--agenda-habit
                                               green-graph-1-bg
                                               green-graph-0-bg
                                               green-graph-1-bg
-                                              blue-graph-0-bg))))
+                                              cyan-graph-1-bg
+                                              blue-graph-0-bg
+                                              cyan-graph-1-bg))))
     `(org-headline-done ((,class :inherit (modus-themes-variable-pitch modus-themes-grue-nuanced))))
     `(org-headline-todo ((,class :inherit modus-themes-variable-pitch :foreground ,red-nuanced-fg)))
     `(org-hide ((,class :foreground ,bg-main)))
