@@ -2743,11 +2743,11 @@ of the themes, which can make it easier to redefine faces in bulk).
 
 [[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Face specs at scale using the themes' palette]].
 
-** Custom Org user faces
+** Custom Org todo keyword and priority faces
 :properties:
 :custom_id: h:89f0678d-c5c3-4a57-a526-668b2bb2d7ad
 :end:
-#+cindex: Org extra faces
+#+cindex: Org custom todo faces
 
 Users of ~org-mode~ have the option to configure various keywords and
 priority cookies to better match their workflow.  User options are
@@ -2830,6 +2830,135 @@ it if you plan to control face attributes.
 [[#h:1487c631-f4fe-490d-8d58-d72ffa3bd474][Custom face specs using the themes' palette]].
 
 [[#h:02e25930-e71a-493d-828a-8907fc80f874][Check color combinations]].
+
+** Custom Org emphasis faces
+:properties:
+:custom_id: h:26026302-47f4-4471-9004-9665470e7029
+:end:
+#+cindex: Org custom emphasis faces
+
+Org provides the user option ~org-emphasis-alist~ which assosiates a
+character with a face, list of faces, or face attributes.  The default
+specification of that variable looks like this:
+
+#+begin_src emacs-lisp
+(setq org-emphasis-alist
+      '(("*" bold)
+        ("/" italic)
+        ("_" underline)
+        ("=" org-verbatim verbatim)
+        ("~" org-code verbatim)
+        ("+" (:strike-through t))))
+#+end_src
+
+With the exception of ~org-verbatim~ and ~org-code~ faces, everything else
+uses the corresponding type of emphasis: a bold typographic weight, or
+italicised, underlined, and struck through text.
+
+The best way for users to add some extra attributes, such as a
+foreground color, is to define their own faces and assign them to the
+given emphasis marker/character.
+
+This is a custom face that extends the standard ~bold~ face with a red
+foreground value (so it colorises the text in addition to the bold
+weight):
+
+#+begin_src emacs-lisp
+(defface my-org-emphasis-bold
+  '((default :inherit bold)
+    (((class color) (min-colors 88) (background light))
+     :foreground "#a60000")
+    (((class color) (min-colors 88) (background dark))
+     :foreground "#ff8059"))
+  "My bold emphasis for Org.")
+#+end_src
+
+This face definition reads as follows:
+
++ Always inherit the ~bold~ face ([[#h:2793a224-2109-4f61-a106-721c57c01375][Configure bold and italic faces]]).
++ For versions of Emacs that support at least 88 colors (graphical
+  Emacs, for example) and use a light background, apply the =#a60000=
+  value.
++ For the same kind of Emacs that has a dark background use the =#ff8059=
+  color instead.
+
+Same principle for how to extend ~italic~ and ~underline~ with, for example,
+green and yellow hues, respectively:
+
+#+begin_src emacs-lisp
+(defface my-org-emphasis-italic
+  '((default :inherit italic)
+    (((class color) (min-colors 88) (background light))
+     :foreground "#005e00")
+    (((class color) (min-colors 88) (background dark))
+     :foreground "#44bc44"))
+  "My italic emphasis for Org.")
+
+(defface my-org-emphasis-underline
+  '((default :inherit underline)
+    (((class color) (min-colors 88) (background light))
+     :foreground "#813e00")
+    (((class color) (min-colors 88) (background dark))
+     :foreground "#d0bc00"))
+  "My underline emphasis for Org.")
+#+end_src
+
+In the case of a strike-through effect, we have no generic face to
+inherit from, so we can write it as follows to also change the
+foreground to a more subtle gray:
+
+#+begin_src emacs-lisp
+(defface my-org-emphasis-strike-through
+  '((default :strike-through t)
+    (((class color) (min-colors 88) (background light))
+     :foreground "#505050")
+    (((class color) (min-colors 88) (background dark))
+     :foreground "#a8a8a8"))
+  "My strike-through emphasis for Org.")
+#+end_src
+
+Or we can just change the color of the line that strikes through the
+text to, for example, a shade of red:
+
+#+begin_src emacs-lisp
+(defface my-org-emphasis-strike-through
+  '((((class color) (min-colors 88) (background light))
+     :strike-through "#972500")
+    (((class color) (min-colors 88) (background dark))
+     :strike-through "#ef8b50"))
+  "My strike-through emphasis for Org.")
+#+end_src
+
+It is possible to combine those effects:
+
+#+begin_src emacs-lisp
+(defface my-org-emphasis-strike-through
+  '((((class color) (min-colors 88) (background light))
+     :strike-through "#972500" :foreground "#505050")
+    (((class color) (min-colors 88) (background dark))
+     :strike-through "#ef8b50" :foreground "#a8a8a8"))
+  "My strike-through emphasis for Org.")
+#+end_src
+
+One may inspect the variables ~modus-themes-operandi-colors~ and
+~modus-themes-vivendi-colors~ for possible color values.
+
+Once we have defined the faces we need, we must update the
+~org-emphasis-alist~.  Given that ~org-verbatim~ and ~org-code~ are already
+styled by the themes, it probably is best not to edit them:
+
+#+begin_src emacs-lisp
+(setq org-emphasis-alist
+      '(("*" my-org-emphasis-bold)
+        ("/" my-org-emphasis-italic)
+        ("_" my-org-emphasis-underline)
+        ("=" org-verbatim verbatim)
+        ("~" org-code verbatim)
+        ("+" my-org-emphasis-strike-through)))
+#+end_src
+
+That's it!  For changes to take effect in already visited Org files,
+invoke {{{kbd(M-x org-mode-restart)}}}.
 
 ** Update Org block delimiter fontification
 :properties:
