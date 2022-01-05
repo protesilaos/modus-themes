@@ -4874,6 +4874,9 @@ details of this sort):
    • Modus themes: review of the org-habit graph colours
      (https://protesilaos.com/codelog/2022-01-02-review-modus-themes-org-habit-colours/)
      (2022-01-02)
+   • Re: VSCode or Vim ports of the Emacs modus-themes?
+     (https://protesilaos.com/codelog/2022-01-03-modus-themes-port-faq/)
+     (2022-01-03)
 
    And here are the canonical sources of this project’s documentation:
 
@@ -5605,11 +5608,11 @@ Node: Issues you can help with189453
 Node: Patches require copyright assignment to the FSF190653
 Node: Acknowledgements192948
 Node: Meta195793
-Node: GNU Free Documentation License198123
-Node: Indices223475
-Node: Function index223654
-Node: Variable index224861
-Node: Concept index227002
+Node: GNU Free Documentation License198272
+Node: Indices223624
+Node: Function index223803
+Node: Variable index225010
+Node: Concept index227151
 
 End Tag Table
 
