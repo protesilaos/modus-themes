@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.0.0
-;; Last-Modified: <2022-01-02 18:46:40 +0200>
+;; Last-Modified: <2022-01-05 15:10:03 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -3531,6 +3531,12 @@ property."
               fg-distant
             'unspecified))))
 
+;; Basically this is just for the keycast key indicator.
+(defun modus-themes--mode-line-padded-box (color)
+  "Set padding of mode line box attribute with given COLOR."
+  (let ((padding (seq-find #'natnump modus-themes-mode-line 1)))
+    (list :box (list :line-width padding :color color))))
+
 (defun modus-themes--diff (mainbg mainfg altbg altfg &optional deuteranbg deuteranfg  bg-only-fg)
   "Color combinations for `modus-themes-diffs'.
 
@@ -5801,7 +5807,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(kaocha-runner-warning-face ((,class :inherit warning)))
 ;;;;; keycast
     `(keycast-command ((,class :inherit bold :foreground ,blue-active)))
-    `(keycast-key ((,class :background ,blue-active :foreground ,bg-main)))
+    `(keycast-key ((,class ,@(modus-themes--mode-line-padded-box blue-active)
+                           :background ,blue-active :foreground ,bg-main)))
 ;;;;; ledger-mode
     `(ledger-font-auto-xact-face ((,class :foreground ,magenta)))
     `(ledger-font-account-name-face ((,class :foreground ,fg-special-cold)))
