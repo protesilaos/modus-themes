@@ -169,6 +169,8 @@ Frequently Asked Questions
 * What does it mean to avoid exaggerations?::
 * Why are colors mostly variants of blue, magenta, cyan?: Why are colors mostly variants of blue magenta cyan?.
 * What is the best setup for legibility?::
+* Are these color schemes?::
+* Port the Modus themes to other platforms?::
 
 Contributing
 
@@ -4450,6 +4452,8 @@ themes’ design and application.
 * What does it mean to avoid exaggerations?::
 * Why are colors mostly variants of blue, magenta, cyan?: Why are colors mostly variants of blue magenta cyan?.
 * What is the best setup for legibility?::
+* Are these color schemes?::
+* Port the Modus themes to other platforms?::
 
 
 File: modus-themes.info,  Node: Is the contrast ratio about adjacent colors?,  Next: What does it mean to avoid exaggerations?,  Up: Frequently Asked Questions
@@ -4601,7 +4605,7 @@ completely different than ‘modus-operandi’, to the effect that the two
 could not be properly considered part of the same project.
 
 
-File: modus-themes.info,  Node: What is the best setup for legibility?,  Prev: Why are colors mostly variants of blue magenta cyan?,  Up: Frequently Asked Questions
+File: modus-themes.info,  Node: What is the best setup for legibility?,  Next: Are these color schemes?,  Prev: Why are colors mostly variants of blue magenta cyan?,  Up: Frequently Asked Questions
 
 8.4 What is the best setup for legibility?
 ==========================================
@@ -4649,6 +4653,139 @@ circumstances, cause a halo effect around each glyph.
 level.  The color combinations may have been optimized for
 accessibility, though the remaining contributing factors in each case
 need to be considered in full.
+
+
+File: modus-themes.info,  Node: Are these color schemes?,  Next: Port the Modus themes to other platforms?,  Prev: What is the best setup for legibility?,  Up: Frequently Asked Questions
+
+8.5 Are these color schemes?
+============================
+
+No, the Modus themes are not color schemes.
+
+   A color scheme is a collection of colors.  A good color scheme is a
+combination of colors with an inner logic or abstract structure.
+
+   A theme is a set of patterns that are applied across different
+contexts.  A good theme is one that does so with consistency, though not
+uniformity.
+
+   In practical terms, a color scheme is what one uses when, for
+example, they edit the first sixteen escape sequences of a terminal
+emulator to the hues of their preference.  The terminal offers the
+option to choose, say, the exact value of what counts as “red”, but does
+not provide the means to control where that is mapped to and whether it
+should also have other qualities such as a bold weight for the
+underlying text or an added background color.  In contradistinction,
+Emacs uses constructs known as “faces” which allow the user/developer to
+specify where a given color will be used and whether it should be
+accompanied by other typographic or stylistic attributes.
+
+   By configuring the multitude of faces on offer we thus control both
+which colors are applied and how they appear in their context.  When a
+package wants to render each instance of “foo” with the “bar” face, it
+is not requesting a specific color, which makes things considerably more
+flexible as we can treat “bar” in its own right without necessarily
+having to use some color value that we hardcoded somewhere.
+
+   Which brings us to the distinction between consistency and uniformity
+where our goal is always the former: we want things to look similar
+across all interfaces, but we must never force a visual identity where
+that runs contrary to the functionality of the given interface.  For
+instance, all links are underlined by default yet there are cases such
+as when viewing listings of emails in Gnus (and Mu4e, Notmuch) where (i)
+it is already understood that one must follow the indicator or headline
+to view its contents and (ii) underlining everything would make the
+interface virtually unusable.
+
+   *note Option for links: Syntax styles.
+
+   Again, one must exercise judgement in order to avoid discrimination,
+where “discrimination” refers to:
+
+   • The treatment of substantially different magnitudes as if they were
+     of the same class.
+   • Or the treatment of the same class of magnitudes as if they were of
+     a different class.
+
+   (To treat similar things differently; to treat dissimilar things
+alike.)
+
+   If, in other words, one were to enforce uniformity without accounting
+for the particular requirements of each case—the contextual demands for
+usability beyond matters of color—they would be making a not-so-obvious
+error of treating different cases as if they were the same.
+
+   The Modus themes prioritise “thematic consistency” over abstract
+harmony or regularity among their applicable colors.  In concrete terms,
+we do not claim that, say, our yellows are the best complements for our
+blues because we generally avoid using complementary colors
+side-by-side, so it is wrong to optimise for a decontextualised
+blue+yellow combination.  Not to imply that our colors do not work well
+together because they do, just to clarify that consistency of context is
+what themes must strive for, and that requires widening the scope of the
+design beyond the particularities of a color scheme.
+
+   Long story short: color schemes and themes have different
+requirements.  Please do not conflate the two.
+
+
+File: modus-themes.info,  Node: Port the Modus themes to other platforms?,  Prev: Are these color schemes?,  Up: Frequently Asked Questions
+
+8.6 Port the Modus themes to other platforms?
+=============================================
+
+There is no plan to port the themes to other platforms or text editors.
+I (Protesilaos) only use GNU Emacs and thus cannot maintain code that
+targets software I am either not familiar with or am not using on a
+daily basis.
+
+   While it is possible to produce a simulacrum based on a given
+template, doing so would run contrary to how this project is maintained
+where details matter greatly.
+
+   Each program has its own requirements so it won’t always be
+possible—or indeed desirable—to have 1:1 correspondence between what
+applies to Emacs and what should be done elsewhere.  No port should ever
+strive to be a faithful copy of the Emacs implementation, as no other
+program is an Emacs equivalent, but instead try to follow the spirit of
+the design.  For example, some of the customization options accept a
+list as their value, or an alist, which may not be possible to reproduce
+on other platforms.
+
+   *note Customization options: Customization Options.
+
+   In other words, if something must be done differently on a certain
+editor then that is acceptable so long as (i) the accessibility
+standards are not compromised and (ii) the overall character of the
+themes remains consistent.
+
+   The former criterion should be crystal clear as it pertains to the
+scientific foundations of the themes: high legibility and taking care of
+the needs of users with red-green colour deficiency (deuteranopia) by
+avoiding red+green colour coding paradigms and/or by providing red+blue
+variants.
+
+   The latter criterion is the “je ne sais quoi” of the artistic aspect
+of the themes, which is partially fleshed out in this manual.
+
+   *note Frequently Asked Questions::.
+
+   With regard to the artistic aspect (where “art” qua skill may amount
+to an imprecise science), there is no hard-and-fast rule in effect as it
+requires one to exercise discretion and make decisions based on
+context-dependent information or constraints.  As is true with most
+things in life, when in doubt, do not cling on to the letter of the law
+but try to understand its spirit.
+
+   For a trivial example: the curly underline that Emacs draws for
+spelling errors is thinner than, e.g., what a graphical web browser has,
+so if I was to design for an editor than has a thicker curly underline I
+would make the applicable colours less intense to counterbalance the
+typographic intensity of the added thickness.
+
+   With those granted, if anyone is willing to develop a port of the
+themes, they are welcome to contact me and I will do my best to help
+them in their efforts.
 
 
 File: modus-themes.info,  Node: Contributing,  Next: Acknowledgements,  Prev: Frequently Asked Questions,  Up: Top
@@ -5498,6 +5635,8 @@ B.3 Concept index
                                                                 (line 6)
 * Org custom todo faces:                 Custom Org todo keyword and priority faces.
                                                                 (line 6)
+* Porting the themes to other editors:   Port the Modus themes to other platforms?.
+                                                                (line 6)
 * Remapping faces:                       Remap face with local value.
                                                                 (line 6)
 * Remapping pdf-tools backdrop:          Backdrop for pdf-tools.
@@ -5507,6 +5646,8 @@ B.3 Concept index
 * Screenshots:                           How do the themes look like.
                                                                 (line 6)
 * Sources of the themes:                 Sources of the themes. (line 6)
+* Themes, not color schemes:             Are these color schemes?.
+                                                                (line 6)
 * use-package configuration:             Sample configuration with and without use-package.
                                                                 (line 6)
 
@@ -5514,105 +5655,107 @@ B.3 Concept index
 
 Tag Table:
 Node: Top860
-Node: Overview6854
-Node: How do the themes look like8978
-Node: Learn about the latest changes9492
-Node: Installation9880
-Node: Install manually from source10361
-Node: Install from the archives11186
-Node: Install on GNU/Linux11963
-Node: Debian 11 Bullseye12411
-Node: GNU Guix12721
-Node: Enable and load13004
-Node: Sample configuration with and without use-package15951
-Node: Differences between loading and enabling17903
-Node: Customization Options19858
-Node: Custom reload theme26143
-Node: Deuteranopia style26933
-Node: Bold constructs28364
-Node: Italic constructs29198
-Node: Syntax styles29965
-Node: Mixed fonts32097
-Node: Link styles33361
-Node: Command prompts35839
-Node: Mode line37660
-Node: Tab style42151
-Node: Completion UIs42814
-Node: Mail citations44765
-Node: Fringes45714
-Node: Language checkers46454
-Node: Line highlighting48896
-Node: Line numbers50493
-Node: Intense markup51569
-Node: Matching parentheses52302
-Node: Active region53687
-Node: Diffs55100
-Node: Org mode blocks56706
-Node: Org agenda59096
-Node: Heading styles67556
-Node: UI typeface71981
-Node: Advanced customization72880
-Node: Per-theme customization settings74297
-Node: Case-by-case face specs using the themes' palette75602
-Node: Face specs at scale using the themes' palette79968
-Node: Remap face with local value84635
-Node: Cycle through arbitrary colors87060
-Node: Override colors93488
-Node: Override color saturation98297
-Node: Override colors through blending103976
-Node: Font configurations for Org and others106831
-Ref: Font configurations for Org and others-Footnote-1109656
-Node: Configure bold and italic faces109843
-Node: Custom Org todo keyword and priority faces113991
-Node: Custom Org emphasis faces117664
-Node: Update Org block delimiter fontification122299
-Node: Measure color contrast124216
-Node: Load theme depending on time of day126939
-Node: Backdrop for pdf-tools127932
-Node: Decrease mode line height130627
-Node: A theme-agnostic hook for theme loading134752
-Node: Diffs with only the foreground137143
-Node: Face coverage140217
-Node: Supported packages140669
-Node: Indirectly covered packages147034
-Node: Notes on individual packages148036
-Node: Note on avy hints149076
-Node: Note on calendarel weekday and weekend colors150244
-Node: Note on underlines in compilation buffers151427
-Node: Note on inline Latex in Org buffers152239
-Node: Note on dimmerel152849
-Node: Note on display-fill-column-indicator-mode154334
-Node: Note on highlight-parenthesesel155897
-Node: Note on mmm-modeel background colors161886
-Node: Note for prism164201
-Node: Note for god-mode167355
-Node: Note on company-mode overlay pop-up168959
-Ref: Note on company-mode overlay pop-up-Footnote-1169649
-Ref: Note on company-mode overlay pop-up-Footnote-2169716
-Node: Note on ERC escaped color sequences169771
-Ref: Note on ERC escaped color sequences-Footnote-1171199
-Node: Note on powerline or spaceline171309
-Node: Note on SHR colors171723
-Node: Note on EWW and Elfeed fonts172146
-Node: Note on Helm grep172811
-Node: Note on vc-annotate-background-mode174286
-Node: Note on pdf-tools link hints175171
-Node: Frequently Asked Questions177603
-Node: Is the contrast ratio about adjacent colors?178159
-Node: What does it mean to avoid exaggerations?179666
-Node: Why are colors mostly variants of blue magenta cyan?181495
-Node: What is the best setup for legibility?185808
-Node: Contributing188420
-Node: Sources of the themes188817
-Node: Issues you can help with189453
-Node: Patches require copyright assignment to the FSF190653
-Node: Acknowledgements192948
-Node: Meta195793
-Node: GNU Free Documentation License198272
-Node: Indices223624
-Node: Function index223803
-Node: Variable index225010
-Node: Concept index227151
+Node: Overview6929
+Node: How do the themes look like9053
+Node: Learn about the latest changes9567
+Node: Installation9955
+Node: Install manually from source10436
+Node: Install from the archives11261
+Node: Install on GNU/Linux12038
+Node: Debian 11 Bullseye12486
+Node: GNU Guix12796
+Node: Enable and load13079
+Node: Sample configuration with and without use-package16026
+Node: Differences between loading and enabling17978
+Node: Customization Options19933
+Node: Custom reload theme26218
+Node: Deuteranopia style27008
+Node: Bold constructs28439
+Node: Italic constructs29273
+Node: Syntax styles30040
+Node: Mixed fonts32172
+Node: Link styles33436
+Node: Command prompts35914
+Node: Mode line37735
+Node: Tab style42226
+Node: Completion UIs42889
+Node: Mail citations44840
+Node: Fringes45789
+Node: Language checkers46529
+Node: Line highlighting48971
+Node: Line numbers50568
+Node: Intense markup51644
+Node: Matching parentheses52377
+Node: Active region53762
+Node: Diffs55175
+Node: Org mode blocks56781
+Node: Org agenda59171
+Node: Heading styles67631
+Node: UI typeface72056
+Node: Advanced customization72955
+Node: Per-theme customization settings74372
+Node: Case-by-case face specs using the themes' palette75677
+Node: Face specs at scale using the themes' palette80043
+Node: Remap face with local value84710
+Node: Cycle through arbitrary colors87135
+Node: Override colors93563
+Node: Override color saturation98372
+Node: Override colors through blending104051
+Node: Font configurations for Org and others106906
+Ref: Font configurations for Org and others-Footnote-1109731
+Node: Configure bold and italic faces109918
+Node: Custom Org todo keyword and priority faces114066
+Node: Custom Org emphasis faces117739
+Node: Update Org block delimiter fontification122374
+Node: Measure color contrast124291
+Node: Load theme depending on time of day127014
+Node: Backdrop for pdf-tools128007
+Node: Decrease mode line height130702
+Node: A theme-agnostic hook for theme loading134827
+Node: Diffs with only the foreground137218
+Node: Face coverage140292
+Node: Supported packages140744
+Node: Indirectly covered packages147109
+Node: Notes on individual packages148111
+Node: Note on avy hints149151
+Node: Note on calendarel weekday and weekend colors150319
+Node: Note on underlines in compilation buffers151502
+Node: Note on inline Latex in Org buffers152314
+Node: Note on dimmerel152924
+Node: Note on display-fill-column-indicator-mode154409
+Node: Note on highlight-parenthesesel155972
+Node: Note on mmm-modeel background colors161961
+Node: Note for prism164276
+Node: Note for god-mode167430
+Node: Note on company-mode overlay pop-up169034
+Ref: Note on company-mode overlay pop-up-Footnote-1169724
+Ref: Note on company-mode overlay pop-up-Footnote-2169791
+Node: Note on ERC escaped color sequences169846
+Ref: Note on ERC escaped color sequences-Footnote-1171274
+Node: Note on powerline or spaceline171384
+Node: Note on SHR colors171798
+Node: Note on EWW and Elfeed fonts172221
+Node: Note on Helm grep172886
+Node: Note on vc-annotate-background-mode174361
+Node: Note on pdf-tools link hints175246
+Node: Frequently Asked Questions177678
+Node: Is the contrast ratio about adjacent colors?178309
+Node: What does it mean to avoid exaggerations?179816
+Node: Why are colors mostly variants of blue magenta cyan?181645
+Node: What is the best setup for legibility?185958
+Node: Are these color schemes?188603
+Node: Port the Modus themes to other platforms?192326
+Node: Contributing195110
+Node: Sources of the themes195507
+Node: Issues you can help with196143
+Node: Patches require copyright assignment to the FSF197343
+Node: Acknowledgements199638
+Node: Meta202483
+Node: GNU Free Documentation License204962
+Node: Indices230314
+Node: Function index230493
+Node: Variable index231700
+Node: Concept index233841
 
 End Tag Table
 

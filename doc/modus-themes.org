@@ -4603,6 +4603,80 @@ The color combinations may have been optimized for accessibility, though
 the remaining contributing factors in each case need to be considered in
 full.
 
+** Are these color schemes?
+:properties:
+:custom_id: h:a956dbd3-8fd2-4f5d-8b01-5f881268cf2b
+:end:
+#+cindex: Themes, not color schemes
+
+No, the Modus themes are not color schemes.
+
+A color scheme is a collection of colors.  A good color scheme is a
+combination of colors with an inner logic or abstract structure.
+
+A theme is a set of patterns that are applied across different contexts.
+A good theme is one that does so with consistency, though not
+uniformity.
+
+In practical terms, a color scheme is what one uses when, for example,
+they edit the first sixteen escape sequences of a terminal emulator to
+the hues of their preference.  The terminal offers the option to choose,
+say, the exact value of what counts as "red", but does not provide the
+means to control where that is mapped to and whether it should also have
+other qualities such as a bold weight for the underlying text or an
+added background color.  In contradistinction, Emacs uses constructs
+known as "faces" which allow the user/developer to specify where a given
+color will be used and whether it should be accompanied by other
+typographic or stylistic attributes.
+
+By configuring the multitude of faces on offer we thus control both
+which colors are applied and how they appear in their context.  When a
+package wants to render each instance of "foo" with the "bar" face, it
+is not requesting a specific color, which makes things considerably more
+flexible as we can treat "bar" in its own right without necessarily
+having to use some color value that we hardcoded somewhere.
+
+Which brings us to the distinction between consistency and uniformity
+where our goal is always the former: we want things to look similar
+across all interfaces, but we must never force a visual identity where
+that runs contrary to the functionality of the given interface.  For
+instance, all links are underlined by default yet there are cases such
+as when viewing listings of emails in Gnus (and Mu4e, Notmuch) where (i)
+it is already understood that one must follow the indicator or headline
+to view its contents and (ii) underlining everything would make the
+interface virtually unusable.
+
+[[#h:c119d7b2-fcd4-4e44-890e-5e25733d5e52][Option for links]].
+
+Again, one must exercise judgement in order to avoid discrimination,
+where "discrimination" refers to:
+
++ The treatment of substantially different magnitudes as if they were of
+  the same class.
++ Or the treatment of the same class of magnitudes as if they were of a
+  different class.
+
+(To treat similar things differently; to treat dissimilar things alike.)
+
+If, in other words, one were to enforce uniformity without accounting
+for the particular requirements of each case---the contextual demands
+for usability beyond matters of color---they would be making a
+not-so-obvious error of treating different cases as if they were the
+same.
+
+The Modus themes prioritise "thematic consistency" over abstract harmony
+or regularity among their applicable colors.  In concrete terms, we do
+not claim that, say, our yellows are the best complements for our blues
+because we generally avoid using complementary colors side-by-side, so
+it is wrong to optimise for a decontextualised blue+yellow combination.
+Not to imply that our colors do not work well together because they do,
+just to clarify that consistency of context is what themes must strive
+for, and that requires widening the scope of the design beyond the
+particularities of a color scheme.
+
+Long story short: color schemes and themes have different requirements.
+Please do not conflate the two.
+
 ** Port the Modus themes to other platforms?
 :properties:
 :custom_id: h:7156b949-917d-488e-9a72-59f70d80729c
