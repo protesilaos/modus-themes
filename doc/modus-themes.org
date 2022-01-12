@@ -4603,6 +4603,65 @@ The color combinations may have been optimized for accessibility, though
 the remaining contributing factors in each case need to be considered in
 full.
 
+** Port the Modus themes to other platforms?
+:properties:
+:custom_id: h:7156b949-917d-488e-9a72-59f70d80729c
+:end:
+#+cindex: Porting the themes to other editors
+
+There is no plan to port the themes to other platforms or text editors.
+I (Protesilaos) only use GNU Emacs and thus cannot maintain code that
+targets software I am either not familiar with or am not using on a
+daily basis.
+
+While it is possible to produce a simulacrum based on a given template,
+doing so would run contrary to how this project is maintained where
+details matter greatly.
+
+Each program has its own requirements so it won't always be
+possible---or indeed desirable---to have 1:1 correspondence between what
+applies to Emacs and what should be done elsewhere.  No port should ever
+strive to be a faithful copy of the Emacs implementation, as no other
+program is an Emacs equivalent, but instead try to follow the spirit of
+the design.  For example, some of the customization options accept a
+list as their value, or an alist, which may not be possible to reproduce
+on other platforms.
+
+[[#h:bf1c82f2-46c7-4eb2-ad00-dd11fdd8b53f][Customization options]].
+
+In other words, if something must be done differently on a certain
+editor then that is acceptable so long as (i) the accessibility
+standards are not compromised and (ii) the overall character of the
+themes remains consistent.
+
+The former criterion should be crystal clear as it pertains to the
+scientific foundations of the themes: high legibility and taking care of
+the needs of users with red-green colour deficiency (deuteranopia) by
+avoiding red+green colour coding paradigms and/or by providing red+blue
+variants.
+
+The latter criterion is the "je ne sais quoi" of the artistic aspect of
+the themes, which is partially fleshed out in this manual.
+
+[[#h:b3384767-30d3-4484-ba7f-081729f03a47][Frequently Asked Questions]].
+
+With regard to the artistic aspect (where "art" qua skill may amount to
+an imprecise science), there is no hard-and-fast rule in effect as it
+requires one to exercise discretion and make decisions based on
+context-dependent information or constraints.  As is true with most
+things in life, when in doubt, do not cling on to the letter of the law
+but try to understand its spirit.
+
+For a trivial example: the curly underline that Emacs draws for spelling
+errors is thinner than, e.g., what a graphical web browser has, so if I
+was to design for an editor than has a thicker curly underline I would
+make the applicable colours less intense to counterbalance the
+typographic intensity of the added thickness.
+
+With those granted, if anyone is willing to develop a port of the
+themes, they are welcome to contact me and I will do my best to help
+them in their efforts.
+
 * Contributing
 :properties:
 :custom_id: h:9c3cd842-14b7-44d7-84b2-a5c8bc3fc3b1
