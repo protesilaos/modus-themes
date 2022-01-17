@@ -77,7 +77,6 @@ demonstration:
       modus-themes-bold-constructs nil
       modus-themes-mixed-fonts nil
       modus-themes-subtle-line-numbers nil
-      modus-themes-intense-markup t
       modus-themes-deuteranopia t
       modus-themes-tabs-accented t
       modus-themes-variable-pitch-ui nil
@@ -95,6 +94,11 @@ demonstration:
       ;; that can combine any of `3d' OR `moody', `borderless',
       ;; `accented', and a natural number for extra padding
       modus-themes-mode-line '(4 accented borderless)
+
+      ;; Options for `modus-themes-markup' are either nil, or a list
+      ;; that can combine any of `bold', `italic', `background',
+      ;; `intense'.
+      modus-themes-markup '(background italic)
 
       ;; Options for `modus-themes-syntax' are either nil (the default),
       ;; or a list of properties that may include any of those symbols:

@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.0.0
-;; Last-Modified: <2022-01-06 08:02:13 +0200>
+;; Last-Modified: <2022-01-17 14:41:28 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -40,7 +40,6 @@
 ;;     modus-themes-bold-constructs                (boolean)
 ;;     modus-themes-deuteranopia                   (boolean)
 ;;     modus-themes-inhibit-reload                 (boolean)
-;;     modus-themes-intense-markup                 (boolean)
 ;;     modus-themes-italic-constructs              (boolean)
 ;;     modus-themes-mixed-fonts                    (boolean)
 ;;     modus-themes-subtle-line-numbers            (boolean)
@@ -52,6 +51,7 @@
 ;;     modus-themes-lang-checkers                  (choice)
 ;;     modus-themes-links                          (choice)
 ;;     modus-themes-mail-citations                 (choice)
+;;     modus-themes-markup                         (choice)
 ;;     modus-themes-mode-line                      (choice)
 ;;     modus-themes-org-blocks                     (choice)
 ;;     modus-themes-paren-match                    (choice)
@@ -1574,6 +1574,16 @@ The actual styling of the face is done by `modus-themes-faces'."
 The actual styling of the face is done by `modus-themes-faces'."
   :group 'modus-themes-faces)
 
+(defface modus-themes-markup-code nil
+  "Face of inline code markup.
+The actual styling of the face is done by `modus-themes-faces'."
+  :group 'modus-themes-faces)
+
+(defface modus-themes-markup-macro nil
+  "Face of macro markup.
+The actual styling of the face is done by `modus-themes-faces'."
+  :group 'modus-themes-faces)
+
 (defface modus-themes-markup-verbatim nil
   "Face of verbatim markup.
 The actual styling of the face is done by `modus-themes-faces'."
@@ -2544,21 +2554,56 @@ results with underlines."
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Line numbers"))
 
-(defcustom modus-themes-intense-markup nil
-  "Use more intense markup in Org, Markdown, and related.
-The default style for certain markup types like inline code and
-verbatim constructs in Org and related major modes is a subtle
-foreground color combined with a subtle background.
+(defcustom modus-themes-markup nil
+  "Style markup in Org, Markdown, and others.
 
-With a non-nil value (t), these constructs will use a more
-prominent background and foreground color combination instead."
+This affects constructs such as Org's =verbatim= and ~code~.
+
+The value is a list of properties, each designated by a symbol.
+The default (a nil value or an empty list) is a foreground
+color.
+
+The `italic' property applies a typographic slant (italics).
+
+The `bold' property applies a heavier typographic weight.
+
+The `background' property adds a background color.  The
+background is a subtle gray, unless the `intense' property is
+also set.
+
+The `intense' property amplifies the existing coloration.  When
+`background' is used, the background color is enhanced as well
+and becomes tinted instead of being gray.
+
+Combinations of any of those properties are expressed as a list,
+like in these examples:
+
+    (bold)
+    (bold italic)
+    (bold italic intense)
+    (bold italic intense background)
+
+The order in which the properties are set is not significant.
+
+In user configuration files the form may look like this:
+
+    (setq modus-themes-markup (quote (bold italic)))
+
+Also check the variables `org-hide-emphasis-markers',
+`org-hide-macro-markers'."
   :group 'modus-themes
-  :package-version '(modus-themes . "1.7.0")
+  :package-version '(modus-themes . "2.1.0")
   :version "29.1"
-  :type 'boolean
+  :type '(set :tag "Properties" :greedy t
+              (const :tag "Added background" background)
+              (const :tag "Intense colors" intense)
+              (const :tag "Bold weight" bold)
+              (const :tag "Italics (slanted text)" italic))
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
-  :link '(info-link "(modus-themes) Intense markup"))
+  :link '(info-link "(modus-themes) Markup"))
+
+(make-obsolete 'modus-themes-intense-markup 'modus-themes-markup "2.1.0")
 
 (defcustom modus-themes-paren-match nil
   "Control the style of matching parentheses or delimiters.
@@ -2914,14 +2959,41 @@ combines with the theme's primary background (white/black)."
       (list :background (or altbg 'unspecified) :foreground altfg)
     (list :background mainbg :foreground mainfg)))
 
-(defun modus-themes--markup (mainfg intensefg &optional mainbg intensebg)
+(defun modus-themes--markup (mainfg intensefg subtlebg intensebg)
   "Conditional use of colors for markup in Org and others.
-MAINBG is the default background.  MAINFG is the default
-foreground.  INTENSEBG and INTENSEFG must be more colorful
-variants."
-  (if modus-themes-intense-markup
-      (list :background (or intensebg 'unspecified) :foreground intensefg)
-    (list :background (or mainbg 'unspecified) :foreground mainfg)))
+MAINFG is the default foreground.  SUBTLEBG is a gray background.
+INTENSEBG is a colorful background for use with the main
+foreground.  INTENSEFG is an alternative to the default."
+  (let ((properties modus-themes-markup))
+    (list
+     :inherit
+     (cond
+      ((and (memq 'bold properties)
+            (memq 'italic properties))
+       (list 'modus-themes-fixed-pitch 'bold-italic))
+      ((memq 'italic properties)
+       (list 'modus-themes-fixed-pitch 'italic))
+      ((memq 'bold properties)
+       (list 'modus-themes-fixed-pitch 'bold))
+      (t 'modus-themes-fixed-pitch))
+     :background
+     (cond
+      ((and (memq 'background properties)
+            (memq 'intense properties))
+       intensebg)
+      ((memq 'background properties)
+       subtlebg)
+      (t
+       'unspecified))
+     :foreground
+     (cond
+      ((and (memq 'background properties)
+            (memq 'intense properties))
+       mainfg)
+      ((memq 'intense properties)
+       intensefg)
+      (t
+       mainfg)))))
 
 (defun modus-themes--lang-check (underline subtlefg intensefg intensefg-alt subtlebg intensebg faintfg)
   "Conditional use of foreground colors for language checkers.
@@ -4178,9 +4250,15 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(modus-themes-slant ((,class :inherit italic :slant ,@(modus-themes--slant))))
     `(modus-themes-ui-variable-pitch ((,class ,@(modus-themes--variable-pitch-ui))))
     `(modus-themes-fixed-pitch ((,class ,@(modus-themes--fixed-pitch))))
-    `(modus-themes-markup-verbatim ((,class :inherit modus-themes-fixed-pitch
-                                            ,@(modus-themes--markup fg-special-calm magenta-alt
-                                                                    bg-alt magenta-nuanced-bg))))
+    `(modus-themes-markup-code
+      ((,class ,@(modus-themes--markup cyan-alt-other cyan-intense
+                                       bg-alt cyan-nuanced-bg))))
+    `(modus-themes-markup-macro
+      ((,class ,@(modus-themes--markup magenta-alt-other purple-intense
+                                       bg-alt blue-nuanced-bg))))
+    `(modus-themes-markup-verbatim
+      ((,class ,@(modus-themes--markup magenta-alt magenta-intense
+                                       bg-alt magenta-nuanced-bg))))
 ;;;; standard faces
 ;;;;; absolute essentials
     `(default ((,class :background ,bg-main :foreground ,fg-main)))
@@ -6387,10 +6465,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-checkbox-statistics-done ((,class :inherit org-done)))
     `(org-checkbox-statistics-todo ((,class :inherit org-todo)))
     `(org-clock-overlay ((,class :inherit modus-themes-special-cold)))
-    `(org-code ((,class :inherit modus-themes-fixed-pitch
-                        ,@(modus-themes--markup fg-special-mild green-alt-other
-                                                bg-alt green-nuanced-bg)
-                        :extend t)))
+    `(org-code ((,class :inherit modus-themes-markup-code :extend t)))
     `(org-column ((,class :inherit (modus-themes-fixed-pitch default)
                           :background ,bg-alt)))
     `(org-column-title ((,class :inherit (bold modus-themes-fixed-pitch default)
@@ -6471,9 +6546,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-level-8 ((,class :inherit modus-themes-heading-8)))
     `(org-link ((,class :inherit button)))
     `(org-list-dt ((,class :inherit bold)))
-    `(org-macro ((,class :inherit modus-themes-fixed-pitch
-                         ,@(modus-themes--markup cyan-nuanced-fg cyan
-                                                 cyan-nuanced-bg cyan-nuanced-bg))))
+    `(org-macro ((,class :inherit modus-themes-markup-macro)))
     `(org-meta-line ((,class :inherit (shadow modus-themes-fixed-pitch))))
     `(org-mode-line-clock ((,class :foreground ,fg-main)))
     `(org-mode-line-clock-overrun ((,class :inherit bold :foreground ,red-active)))
