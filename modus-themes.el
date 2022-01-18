@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.0.0
-;; Last-Modified: <2022-01-17 14:41:28 +0200>
+;; Last-Modified: <2022-01-18 21:24:57 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -3880,6 +3880,28 @@ application of a variable-pitch font."
 
 
 ;;;; Utilities for DIY users
+
+(defun modus-themes-list-colors ()
+  "Like `list-colors-display' for the active Modus theme."
+  (interactive)
+  (unless (modus-themes--current-theme)
+    (user-error "No Modus theme is active"))
+  (with-help-window (format "*%s-list-colors*" (modus-themes--current-theme))
+    (with-current-buffer standard-output
+      (erase-buffer)
+      (dolist (cell (modus-themes-current-palette))
+        (let* ((name (car cell))
+               (color (cdr cell))
+               (old-point (point))
+               (fg (readable-foreground-color color)))
+          (insert (format "\n %s %s %s\n\n" color (make-string 10 ?\s) name))
+          (put-text-property old-point (point)
+                             'face `( :background ,color
+                                      :foreground ,fg
+                                      :extend t))))
+      ;; This is dirty, but we need it so that the last three lines also
+      ;; :extend properly.
+      (insert " "))))
 
 ;; This is the WCAG formula: https://www.w3.org/TR/WCAG20-TECHS/G18.html
 (defun modus-themes-wcag-formula (hex)

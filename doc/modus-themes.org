@@ -1839,6 +1839,41 @@ their own local tweaks and who are willing to deal with any possible
 incompatibilities between versioned releases of the themes.  As such,
 they are labelled as "do-it-yourself" or "DIY".
 
+** Visualize the active Modus theme's palette
+:properties:
+:custom_id: h:f4d4b71b-2ca5-4c3d-b0b4-9bfd7aa7fb4d
+:end:
+#+findex: modus-themes-list-colors
+#+cindex: Preview color values
+
+The command ~modus-themes-list-colors~ produces an auxiliary buffer that
+shows a preview of each variable in the active theme's color palette.
+
+The contents of the buffer look like this (using an excerpt of the
+command's output when ~modus-vivendi~ is enabled):
+
+#+begin_example
+
+ #000000            bg-main
+
+
+ #ffffff            fg-main
+
+
+ #100f10            bg-dim
+
+
+ #e0e6f0            fg-dim
+
+
+#+end_example
+
+Each row is colored with the value it references, so =#000000=, =#ffffff=,
+=#100f10=, =#e0e6f0=, respectively, and so on for all entries.
+
+The name of the buffer describes the active Modus theme.  It is thus
+called =*modus-operandi-list-colors*= or =*modus-vivendi-list-colors*=.
+
 ** Per-theme customization settings
 :properties:
 :custom_id: h:a897b302-8e10-4a26-beab-3caaee1e1193
@@ -1914,7 +1949,11 @@ The function always extracts the color value of the active Modus theme.
 #+end_src
 
 Do {{{kbd(C-h v)}}} on the aforementioned variables to check all the available
-symbols that can be passed to this function.
+symbols that can be passed to this function.  Or simply invoke the
+command ~modus-themes-list-colors~ to produce a buffer with a preview of
+each entry in the palette.
+
+[[#h:f4d4b71b-2ca5-4c3d-b0b4-9bfd7aa7fb4d][Visualize the active Modus theme's palette]].
 
 With that granted, let us expand the example to actually change the
 ~cursor~ face's background property.  We employ the built-in function of
@@ -1993,7 +2032,10 @@ The ~modus-themes-with-colors~ macro lets you retrieve multiple color
 values by employing the backquote/backtick and comma notation.  The
 values are stored in the alists ~modus-themes-operandi-colors~ and
 ~modus-themes-vivendi-colors~, while the macro always queries that of the
-active Modus theme.
+active Modus theme (preview the current palette with the command
+~modus-themes-list-colors~).
+
+[[#h:f4d4b71b-2ca5-4c3d-b0b4-9bfd7aa7fb4d][Visualize the active Modus theme's palette]].
 
 Here is an abstract example that just returns a list of color values
 while ~modus-operandi~ is enabled:
@@ -2333,6 +2375,8 @@ is controlled by the variables ~modus-themes-operandi-color-overrides~ and
 mirror a subset of the associations in ~modus-themes-operandi-colors~ and
 ~modus-themes-vivendi-colors~ respectively.  As with all customisations,
 overriding must be done before loading the affected theme.
+
+[[#h:f4d4b71b-2ca5-4c3d-b0b4-9bfd7aa7fb4d][Visualize the active Modus theme's palette]].
 
 Let us approach the present topic one step at a time.  Here is a
 simplified excerpt of the default palette for Modus Operandi with some
@@ -2979,7 +3023,11 @@ It is possible to combine those effects:
 #+end_src
 
 One may inspect the variables ~modus-themes-operandi-colors~ and
-~modus-themes-vivendi-colors~ for possible color values.
+~modus-themes-vivendi-colors~ for possible color values.  Or call the
+command ~modus-themes-list-colors~ to show a buffer that previews each
+entry in the palette.
+
+[[#h:f4d4b71b-2ca5-4c3d-b0b4-9bfd7aa7fb4d][Visualize the active Modus theme's palette]].
 
 Once we have defined the faces we need, we must update the
 ~org-emphasis-alist~.  Given that ~org-verbatim~ and ~org-code~ are already
