@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.0.0
-;; Last-Modified: <2022-01-19 08:53:39 +0200>
+;; Last-Modified: <2022-01-19 08:59:57 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -5392,8 +5392,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(fountain-synopsis ((,class :foreground ,cyan-alt)))
     `(fountain-trans ((,class :foreground ,yellow-alt-other)))
 ;;;;; geiser
-    `(geiser-font-lock-autodoc-current-arg ((,class :inherit font-lock-function-name-face)))
-    `(geiser-font-lock-autodoc-identifier ((,class :inherit font-lock-constant-face)))
+    `(geiser-font-lock-autodoc-current-arg ((,class :inherit bold :foreground ,red-alt-other)))
+    `(geiser-font-lock-autodoc-identifier ((,class :foreground ,cyan-alt-other)))
     `(geiser-font-lock-doc-button ((,class :inherit button :foreground ,fg-docstring)))
     `(geiser-font-lock-doc-link ((,class :inherit button)))
     `(geiser-font-lock-error-link ((,class :inherit button :foreground ,red)))
