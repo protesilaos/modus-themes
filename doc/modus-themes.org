@@ -1844,10 +1844,14 @@ they are labelled as "do-it-yourself" or "DIY".
 :custom_id: h:f4d4b71b-2ca5-4c3d-b0b4-9bfd7aa7fb4d
 :end:
 #+findex: modus-themes-list-colors
+#+findex: modus-themes-list-colors-current
 #+cindex: Preview color values
 
-The command ~modus-themes-list-colors~ produces an auxiliary buffer that
-shows a preview of each variable in the active theme's color palette.
+The command ~modus-themes-list-colors~ prompts for a choice between
+=modus-operandi= and =modus-vivendi= to produce a help buffer that shows a
+preview of each variable in the given theme's color palette.  The
+command ~modus-themes-list-colors-current~ skips the prompt, using the
+current Modus theme.
 
 The contents of the buffer look like this (using an excerpt of the
 command's output when ~modus-vivendi~ is enabled):
@@ -1871,7 +1875,7 @@ command's output when ~modus-vivendi~ is enabled):
 Each row is colored with the value it references, so =#000000=, =#ffffff=,
 =#100f10=, =#e0e6f0=, respectively, and so on for all entries.
 
-The name of the buffer describes the active Modus theme.  It is thus
+The name of the buffer describes the given Modus theme.  It is thus
 called =*modus-operandi-list-colors*= or =*modus-vivendi-list-colors*=.
 
 ** Per-theme customization settings
