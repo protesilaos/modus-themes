@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.0.0
-;; Last-Modified: <2022-01-20 10:25:29 +0200>
+;; Last-Modified: <2022-01-20 11:12:48 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -323,6 +323,7 @@
 ;;     telephone-line
 ;;     terraform-mode
 ;;     term
+;;     textsec
 ;;     tomatinho
 ;;     transient (pop-up windows like Magit's)
 ;;     trashed
@@ -7169,6 +7170,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(term-color-white ((,class :background "gray65" :foreground "gray65")))
     `(term-color-yellow ((,class :background ,yellow :foreground ,yellow)))
     `(term-underline ((,class :underline t)))
+;;;;; textsec
+    `(textsec-suspicious ((,class :inherit (bold modus-themes-intense-red))))
 ;;;;; tomatinho
     `(tomatinho-ok-face ((,class :foreground ,blue-intense)))
     `(tomatinho-pause-face ((,class :foreground ,yellow-intense)))

@@ -3713,6 +3713,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + telephone-line
 + terraform-mode
 + term
++ textsec
 + tomatinho
 + transient (pop-up windows such as Magit's)
 + trashed
