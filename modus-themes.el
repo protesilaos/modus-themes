@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.0.0
-;; Last-Modified: <2022-01-20 09:19:42 +0200>
+;; Last-Modified: <2022-01-20 09:59:51 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -3881,15 +3881,15 @@ application of a variable-pitch font."
 
 ;;;; Utilities for DIY users
 
-(defun modus-themes-list-colors ()
-  "Like `list-colors-display' for the active Modus theme."
-  (interactive)
-  (unless (modus-themes--current-theme)
-    (user-error "No Modus theme is active"))
-  (with-help-window (format "*%s-list-colors*" (modus-themes--current-theme))
+;;;;; List colors (a respin of M-x list-colors-display)
+
+(defun modus-themes--list-colors-render (buffer palette)
+  "Render colors in BUFFER from PALETTE.
+Routine for `modus-themes-list-colors'."
+  (with-help-window buffer
     (with-current-buffer standard-output
       (erase-buffer)
-      (dolist (cell (modus-themes-current-palette))
+      (dolist (cell palette)
         (let* ((name (car cell))
                (color (cdr cell))
                (old-point (point))
@@ -3899,9 +3899,39 @@ application of a variable-pitch font."
                              'face `( :background ,color
                                       :foreground ,fg
                                       :extend t))))
-      ;; This is dirty, but we need it so that the last three lines also
-      ;; :extend properly.
+      ;; We need this to properly render the last three lines.
       (insert " "))))
+
+(defvar modus-themes--list-colors-prompt-history '()
+  "Minibuffer history for `modus-themes--list-colors-prompt'.")
+
+(defun modus-themes--list-colors-prompt ()
+  "Prompt for Modus theme.
+Helper function for `modus-themes-list-colors'."
+  (let ((def (format "%s" (modus-themes--current-theme))))
+    (completing-read
+     (format "Use palette from theme [%s]: " def)
+     '(modus-operandi modus-vivendi) nil t nil
+     'modus-themes--list-colors-prompt-history def)))
+
+(defun modus-themes-list-colors (theme)
+  "Preview palette of the Modus THEME of choice."
+  (interactive
+   (list (intern (modus-themes--list-colors-prompt))))
+  (let ((palette (pcase theme
+                   ('modus-operandi modus-themes-operandi-colors)
+                   ('modus-vivendi modus-themes-vivendi-colors)
+                   (_ (user-error "`%s' is not a Modus theme" theme)))))
+    (modus-themes--list-colors-render
+     (format "*%s-list-colors*" theme)
+     palette)))
+
+(defun modus-themes-list-colors-current ()
+  "Call `modus-themes-list-colors' for the current Modus theme."
+  (interactive)
+  (modus-themes-list-colors (modus-themes--current-theme)))
+
+;;;;; Formula to measure relative luminance
 
 ;; This is the WCAG formula: https://www.w3.org/TR/WCAG20-TECHS/G18.html
 (defun modus-themes-wcag-formula (hex)
@@ -3921,6 +3951,8 @@ C1 and C2 are color values written in hexadecimal RGB."
   (let ((ct (/ (+ (modus-themes-wcag-formula c1) 0.05)
                (+ (modus-themes-wcag-formula c2) 0.05))))
     (max ct (/ ct))))
+
+;;;;; Retrieve colors from the themes
 
 (defun modus-themes-current-palette ()
   "Return current color palette."
