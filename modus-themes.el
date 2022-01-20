@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.0.0
-;; Last-Modified: <2022-01-20 09:59:51 +0200>
+;; Last-Modified: <2022-01-20 10:25:29 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -3889,18 +3889,24 @@ Routine for `modus-themes-list-colors'."
   (with-help-window buffer
     (with-current-buffer standard-output
       (erase-buffer)
+      ;; We need this to properly render the first line.
+      (insert " ")
       (dolist (cell palette)
         (let* ((name (car cell))
                (color (cdr cell))
-               (old-point (point))
-               (fg (readable-foreground-color color)))
-          (insert (format "\n %s %s %s\n\n" color (make-string 10 ?\s) name))
-          (put-text-property old-point (point)
-                             'face `( :background ,color
-                                      :foreground ,fg
-                                      :extend t))))
-      ;; We need this to properly render the last three lines.
-      (insert " "))))
+               (fg (readable-foreground-color color))
+               (pad (make-string 5 ?\s)))
+          (let ((old-point (point)))
+            (insert (format "%s %s" color pad))
+            (put-text-property old-point (point) 'face `( :foreground ,color)))
+          (let ((old-point (point)))
+            (insert (format " %s %s %s\n" color pad name))
+            (put-text-property old-point (point)
+                               'face `( :background ,color
+                                        :foreground ,fg
+                                        :extend t)))
+          ;; We need this to properly render the last line.
+          (insert " "))))))
 
 (defvar modus-themes--list-colors-prompt-history '()
   "Minibuffer history for `modus-themes--list-colors-prompt'.")

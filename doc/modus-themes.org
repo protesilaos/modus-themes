@@ -1853,27 +1853,10 @@ preview of each variable in the given theme's color palette.  The
 command ~modus-themes-list-colors-current~ skips the prompt, using the
 current Modus theme.
 
-The contents of the buffer look like this (using an excerpt of the
-command's output when ~modus-vivendi~ is enabled):
-
-#+begin_example
-
- #000000            bg-main
-
-
- #ffffff            fg-main
-
-
- #100f10            bg-dim
-
-
- #e0e6f0            fg-dim
-
-
-#+end_example
-
-Each row is colored with the value it references, so =#000000=, =#ffffff=,
-=#100f10=, =#e0e6f0=, respectively, and so on for all entries.
+Each row shows a foreground and background coloration using the
+underlying value it references.  For example a line with =#a60000= (a
+shade of red) will show red text followed by a stripe with that same
+color as a backdrop.
 
 The name of the buffer describes the given Modus theme.  It is thus
 called =*modus-operandi-list-colors*= or =*modus-vivendi-list-colors*=.
