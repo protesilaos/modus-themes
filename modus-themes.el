@@ -4355,6 +4355,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(mm-command-output ((,class :foreground ,red-alt-other)))
     `(mm-uu-extract ((,class :background ,bg-dim :foreground ,fg-special-mild)))
     `(next-error ((,class :inherit modus-themes-subtle-red :extend t)))
+    `(pgtk-im-0 ((,class :inherit modus-themes-fringe-blue :underline t)))
     `(rectangle-preview ((,class :inherit modus-themes-special-mild)))
     `(region ((,class ,@(modus-themes--region bg-region fg-main
                                               bg-hl-alt-intense bg-region-accent
