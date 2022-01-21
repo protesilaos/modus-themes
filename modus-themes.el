@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.0.0
-;; Last-Modified: <2022-01-21 17:51:39 +0200>
+;; Last-Modified: <2022-01-21 20:06:41 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -6218,6 +6218,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(markdown-header-face-5 ((,class :inherit modus-themes-heading-5)))
     `(markdown-header-face-6 ((,class :inherit modus-themes-heading-6)))
     `(markdown-header-rule-face ((,class :inherit bold :foreground ,fg-special-warm)))
+    `(markdown-highlighting-face ((,class :inherit modus-themes-refine-yellow)))
     `(markdown-hr-face ((,class :inherit bold :foreground ,fg-special-warm)))
     `(markdown-html-attr-name-face ((,class :inherit modus-themes-fixed-pitch
                                             :foreground ,cyan)))
