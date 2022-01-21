@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.0.0
-;; Last-Modified: <2022-01-21 20:06:41 +0200>
+;; Last-Modified: <2022-01-21 20:31:23 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -7190,7 +7190,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; transient
     `(transient-active-infix ((,class :inherit modus-themes-special-mild)))
     `(transient-amaranth ((,class :inherit bold :foreground ,yellow-alt)))
-    `(transient-argument ((,class :inherit bold :foreground ,green)))
+    `(transient-argument ((,class :inherit bold :foreground ,cyan)))
     `(transient-blue ((,class :inherit bold :foreground ,blue)))
     `(transient-disabled-suffix ((,class :inherit modus-themes-intense-red)))
     `(transient-enabled-suffix ((,class :inherit modus-themes-grue-background-subtle)))
@@ -7206,7 +7206,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(transient-teal ((,class :inherit bold :foreground ,cyan-alt-other)))
     `(transient-unreachable ((,class :foreground ,fg-unfocused)))
     `(transient-unreachable-key ((,class :foreground ,fg-unfocused)))
-    `(transient-value ((,class :inherit bold :foreground ,magenta-alt-other)))
+    `(transient-value ((,class :inherit bold :foreground ,red-alt)))
 ;;;;; trashed
     `(trashed-deleted ((,class :inherit modus-themes-mark-del)))
     `(trashed-directory ((,class :foreground ,blue)))
