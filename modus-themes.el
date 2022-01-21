@@ -7201,6 +7201,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(transient-mismatched-key ((,class :underline t)))
     `(transient-nonstandard-key ((,class :underline t)))
     `(transient-pink ((,class :inherit bold :foreground ,magenta-alt-faint)))
+    `(transient-purple ((,class :inherit bold :foreground ,magenta-alt-other)))
     `(transient-red ((,class :inherit bold :foreground ,red-faint)))
     `(transient-teal ((,class :inherit bold :foreground ,cyan-alt-other)))
     `(transient-unreachable ((,class :foreground ,fg-unfocused)))
