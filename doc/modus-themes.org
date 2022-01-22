@@ -2607,7 +2607,7 @@ This scales to all background and foreground colors with the help of the
 
 #+begin_src emacs-lisp
 (setq my-modus-operandi-bg-blend "#fbf1c7"
-      my-modus-operandi-fg-blend "#3a4042"
+      my-modus-operandi-fg-blend "#3a6084"
       my-modus-vivendi-bg-blend "#3a4042"
       my-modus-vivendi-fg-blend "#d7b765")
 
