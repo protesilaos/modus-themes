@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.0.0
-;; Last-Modified: <2022-01-21 22:12:20 +0200>
+;; Last-Modified: <2022-01-22 08:08:13 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -2841,23 +2841,28 @@ the spectrum."
   :link '(info-link "(modus-themes) Deuteranopia style"))
 
 (defcustom modus-themes-mail-citations nil
-  "Control the color of citations in messages or email clients.
+  "Control the color of citations/quotes in messages or emails.
 
-Nil (the default) means to use a variety of contrasting hues to
-denote depth in nested citations.  Colors are fairly easy to tell
-apart.
+By default (a nil value) citations are styled with contrasting
+hues to denote their depth.  Colors are easy to tell apart
+because they complement each other, but they otherwise are not
+very prominent.
 
-Option `faint' maintains a color-based distinction between
-citation levels but the colors it applies have very subtle
-differences between them.
+Option `intense' is similar to the default in terms of using
+contrasting and complementary hues, but applies more saturated
+colors.
 
-Option `monochrome' turns all citations that would otherwise be
-colored into a uniform shade of shade of gray."
+Option `faint' maintains the same color-based distinction between
+citation levels though the colors it uses have subtle differences
+between them.
+
+Option `monochrome' turns all quotes into a shade of gray."
   :group 'modus-themes
-  :package-version '(modus-themes . "1.4.0")
-  :version "28.1"
+  :package-version '(modus-themes . "2.1.0")
+  :version "29.1"
   :type '(choice
-          (const :format "[%v] %t\n" :tag "Colorful mail citations with contrasting hues (default)" nil)
+          (const :format "[%v] %t\n" :tag "Colorful email citations with contrasting hues (default)" nil)
+          (const :format "[%v] %t\n" :tag "Like the default, but with more saturated colors" intense)
           (const :format "[%v] %t\n" :tag "Like the default, but with less saturated colors" faint)
           (const :format "[%v] %t\n" :tag "Deprecated alias of `faint'" desaturated)
           (const :format "[%v] %t\n" :tag "Uniformly gray mail citations" monochrome))
@@ -3845,13 +3850,14 @@ more prominent alternatives."
             lineneutral)
            ('unspecified)))))
 
-(defun modus-themes--mail-cite (mainfg subtlefg)
+(defun modus-themes--mail-cite (mainfg intensefg subtlefg)
   "Combinations for `modus-themes-mail-citations'.
 
 MAINFG is an accented foreground value.  SUBTLEFG is its
-desaturated counterpart."
+desaturated counterpart.  INTENSEFG is a more saturated variant."
   (pcase modus-themes-mail-citations
     ('monochrome (list :inherit 'shadow))
+    ('intense (list :foreground intensefg))
     ('faint (list :foreground subtlefg))
     ('desaturated (list :foreground subtlefg))
     (_ (list :foreground mainfg))))
@@ -6296,10 +6302,10 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(mentor-highlight-face ((,class :inherit modus-themes-subtle-blue)))
     `(mentor-tracker-name ((,class :foreground ,magenta-alt)))
 ;;;;; messages
-    `(message-cited-text-1 ((,class ,@(modus-themes--mail-cite blue-faint fg-alt))))
-    `(message-cited-text-2 ((,class ,@(modus-themes--mail-cite green-faint fg-comment-yellow))))
-    `(message-cited-text-3 ((,class ,@(modus-themes--mail-cite red-faint fg-special-cold))))
-    `(message-cited-text-4 ((,class ,@(modus-themes--mail-cite yellow-faint fg-special-calm))))
+    `(message-cited-text-1 ((,class ,@(modus-themes--mail-cite blue-faint blue fg-special-cold))))
+    `(message-cited-text-2 ((,class ,@(modus-themes--mail-cite yellow-faint yellow yellow-alt-faint))))
+    `(message-cited-text-3 ((,class ,@(modus-themes--mail-cite magenta-alt-faint magenta-alt fg-special-calm))))
+    `(message-cited-text-4 ((,class ,@(modus-themes--mail-cite cyan-alt-other-faint cyan-alt-other fg-special-mild))))
     `(message-header-cc ((,class :foreground ,blue-alt-other)))
     `(message-header-name ((,class :inherit bold :foreground ,cyan)))
     `(message-header-newsgroups ((,class :inherit message-header-other)))
