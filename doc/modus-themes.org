@@ -3787,6 +3787,7 @@ supported by the themes.
 + i3wm-config-mode
 + minibuffer-line
 + no-emoji
++ org-remark
 + parrot
 + perl-mode
 + php-mode
