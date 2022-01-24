@@ -7431,7 +7431,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(which-key-local-map-description-face ((,class :foreground ,fg-main)))
     `(which-key-note-face ((,class :foreground ,fg-special-warm)))
     `(which-key-separator-face ((,class :inherit shadow)))
-    `(which-key-special-key-face ((,class :inherit bold :foreground ,orange-intense)))
+    `(which-key-special-key-face ((,class :inherit bold :foreground ,red-alt)))
 ;;;;; whitespace-mode
     `(whitespace-big-indent ((,class :inherit modus-themes-subtle-red)))
     `(whitespace-empty ((,class :inherit modus-themes-intense-magenta)))
