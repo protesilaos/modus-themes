@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.0.0
-;; Last-Modified: <2022-01-22 08:08:13 +0200>
+;; Last-Modified: <2022-01-24 09:56:46 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -4300,9 +4300,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                        bg-region blue-intense-bg
                                        fg-alt cyan-intense)
                                     :extend t)))
-    `(modus-themes-key-binding ((,class ,@(if (facep 'help-key-binding) ; check emacs28 face
-                                              (list :inherit 'help-key-binding)
-                                            (list :inherit 'bold :foreground blue-alt-other)))))
+    `(modus-themes-key-binding ((,class :inherit bold :foreground ,blue-alt-other)))
     `(modus-themes-prompt ((,class ,@(modus-themes--prompt
                                       cyan-alt-other blue-alt-other fg-alt
                                       cyan-nuanced-bg blue-refine-bg fg-main
@@ -4353,8 +4351,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                            :background ,bg-header :foreground ,fg-header)))
     `(header-line-highlight ((,class :inherit modus-themes-active-blue)))
     `(help-argument-name ((,class :inherit modus-themes-slant :foreground ,cyan)))
-    `(help-key-binding ((,class :box (:line-width (-1 . -1) :color ,bg-active) ; NOTE: box syntax is for Emacs28
-                                :background ,bg-alt)))
+    `(help-key-binding ((,class :inherit modus-themes-key-binding)))
     `(homoglyph ((,class :foreground ,red-alt-faint)))
     `(ibuffer-locked-buffer ((,class :foreground ,yellow-alt-other-faint)))
     `(italic ((,class :slant italic)))
