@@ -2856,7 +2856,11 @@ Option `faint' maintains the same color-based distinction between
 citation levels though the colors it uses have subtle differences
 between them.
 
-Option `monochrome' turns all quotes into a shade of gray."
+Option `monochrome' turns all quotes into a shade of gray.
+
+Whatever the value assigned to this variable, citations in emails
+are controlled by typographic elements and/or indentation, which
+the themes do not touch."
   :group 'modus-themes
   :package-version '(modus-themes . "2.1.0")
   :version "29.1"
