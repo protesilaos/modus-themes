@@ -7211,9 +7211,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(transient-purple ((,class :inherit bold :foreground ,magenta-alt-other)))
     `(transient-red ((,class :inherit bold :foreground ,red-faint)))
     `(transient-teal ((,class :inherit bold :foreground ,cyan-alt-other)))
-    `(transient-unreachable ((,class :foreground ,fg-unfocused)))
-    `(transient-unreachable-key ((,class :foreground ,fg-unfocused)))
     `(transient-value ((,class :inherit bold :foreground ,red-alt)))
+    `(transient-unreachable ((,class :inherit shadow)))
+    `(transient-unreachable-key ((,class :inherit shadow)))
 ;;;;; trashed
     `(trashed-deleted ((,class :inherit modus-themes-mark-del)))
     `(trashed-directory ((,class :foreground ,blue)))
