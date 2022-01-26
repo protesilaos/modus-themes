@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.0.0
-;; Last-Modified: <2022-01-24 12:40:09 +0200>
+;; Last-Modified: <2022-01-26 07:33:32 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -5085,7 +5085,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(el-search-occur-match ((,class :inherit modus-themes-special-calm)))
 ;;;;; eldoc
     ;; NOTE: see https://github.com/purcell/package-lint/issues/187
-    (list 'eldoc-highlight-function-argument `((,class :inherit bold :foreground ,red-alt-other)))
+    (list 'eldoc-highlight-function-argument `((,class :inherit bold
+                                                       :background ,yellow-nuanced-bg
+                                                       :foreground ,yellow-alt-other)))
 ;;;;; eldoc-box
     `(eldoc-box-body ((,class :background ,bg-alt :foreground ,fg-main)))
     `(eldoc-box-border ((,class :background ,fg-alt)))
@@ -5448,7 +5450,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(fountain-synopsis ((,class :foreground ,cyan-alt)))
     `(fountain-trans ((,class :foreground ,yellow-alt-other)))
 ;;;;; geiser
-    `(geiser-font-lock-autodoc-current-arg ((,class :inherit bold :foreground ,red-alt-other)))
+    `(geiser-font-lock-autodoc-current-arg ((,class :inherit bold
+                                                    :background ,yellow-nuanced-bg
+                                                    :foreground ,yellow-alt-other)))
     `(geiser-font-lock-autodoc-identifier ((,class :foreground ,cyan)))
     `(geiser-font-lock-doc-button ((,class :inherit button :foreground ,fg-docstring)))
     `(geiser-font-lock-doc-link ((,class :inherit button)))
