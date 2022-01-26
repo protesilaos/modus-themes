@@ -2429,14 +2429,14 @@ each completion framework.
 Option `moderate' applies a combination of background and
 foreground that is fairly subtle.  For Icomplete and friends this
 constitutes a departure from their default aesthetics, however
-the difference is small.  While Helm, Ivy et al. appear slightly
+the difference is small.  While Helm and Ivy appear slightly
 different than their original looks, as they are toned down a
 bit.
 
 Option `opinionated' uses color combinations that refashion the
 completion UI.  For the Icomplete camp this means that intense
 background and foreground combinations are used: in effect their
-looks emulate those of Helm, Ivy and co. in their original style.
+looks emulate those of Helm and Ivy in their original style.
 Whereas the other group of packages will revert to an even more
 nuanced aesthetic with some additional changes to the choice of
 hues.
