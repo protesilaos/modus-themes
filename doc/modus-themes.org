@@ -4739,9 +4739,9 @@ where "discrimination" refers to:
 
 (To treat similar things differently; to treat dissimilar things alike.)
 
-If, in other words, one were to enforce uniformity without accounting
-for the particular requirements of each case---the contextual demands
-for usability beyond matters of color---they would be making a
+If, in other words, one was to enforce uniformity without accounting for
+the particular requirements of each case---the contextual demands for
+usability beyond matters of color---they would be making a
 not-so-obvious error of treating different cases as if they were the
 same.
 
