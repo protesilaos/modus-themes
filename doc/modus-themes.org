@@ -3233,13 +3233,20 @@ at something like the following, which builds on the above example:
       (pdf-view-midnight-minor-mode -1))
     (my-pdf-tools-backdrop)))
 
+(defun my-pdf-tools-themes-toggle ()
+  (mapc
+   (lambda (buf)
+     (with-current-buffer buf
+       (my-pdf-tools-midnight-mode-toggle)))
+   (buffer-list)))
+
 (add-hook 'pdf-tools-enabled-hook #'my-pdf-tools-midnight-mode-toggle)
-(add-hook 'modus-themes-after-load-theme-hook #'my-pdf-tools-midnight-mode-toggle)
+(add-hook 'modus-themes-after-load-theme-hook #'my-pdf-tools-themes-toggle)
 #+end_src
 
 With those in place, PDFs have a distinct backdrop for their page, while
-they automatically switch to their dark mode when ~modus-themes-toggle~ is
-called from inside a buffer whose major-mode is ~pdf-view-mode~.
+buffers with major-mode as ~pdf-view-mode~ automatically switches to dark
+mode when ~modus-themes-toggle~ is called.
 
 ** Decrease mode line height
 :properties:
