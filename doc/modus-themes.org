@@ -4949,8 +4949,8 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Ragavan, Stefan Kangas, Vincent Murphy, Xinglu Chen.
 
 + Ideas and user feedback :: Aaron Jensen, Adam Porter, Adam Spiers,
-  Adrian Manea, Alex Griffin, Alex Peitsinis, Alexey Shmalko, Alok
-  Singh, Anders Johansson, André Alexandre Gomes, Arif Rezai, Basil
+  Adrian Manea, Alex Griffin, Alex Koen, Alex Peitsinis, Alexey Shmalko,
+  Alok Singh, Anders Johansson, André Alexandre Gomes, Arif Rezai, Basil
   L.{{{space()}}} Contovounesios, Burgess Chang, Christian Tietze, Christopher
   Dimech, Damien Cassou, Daniel Mendler, Dario Gjorgjevski, David
   Edmondson, Davor Rotim, Divan Santana, Eliraz Kedmi, Emanuele Michele
@@ -4958,17 +4958,17 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Agbobada, Gianluca Recchia, Guilherme Semente, Gustavo Barros,
   Hörmetjan Yiltiz, Ilja Kocken, Iris Garcia, Jeremy Friesen, Jerry
   Zhang, Johannes Grødem, John Haman, Joshua O'Connor, Kevin Fleming,
-  Kévin Le Gouguec, Kostadin Ninev, Len Trigg, Manuel Uberti, Mark
-  Burton, Markus Beppler, Mauro Aranda, Michael Goldenberg, Morgan
+  Kévin Le Gouguec, Kostadin Ninev, Len Trigg, Magne Hov, Manuel Uberti,
+  Mark Burton, Markus Beppler, Mauro Aranda, Michael Goldenberg, Morgan
   Smith, Murilo Pereira, Nicky van Foreest, Nicolas De Jaeghere, Paul
   Poloskov, Pengji Zhang, Pete Kazmier, Peter Wu, Philip Kaludercic,
   Pierre Téchoueyres, Roman Rudakov, Ryan Phillips, Rudolf Adamkovič,
   Sam Kleinman, Shreyas Ragavan, Simon Pugnet, Tassilo Horn, Thibaut
-  Verron, Thomas Heartman, Trey Merkley, Togan Muftuoglu, Toon Claes,
-  Uri Sharf, Utkarsh Singh, Vincent Foley.  As well as users: Ben,
-  CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji,
-  Nick, TheBlob42, Trey, bepolymathe, bit9tream, doolio, fleimgruber,
-  iSeeU, jixiuf, okamsn, pRot0ta1p.
+  Verron, Thomas Heartman, Togan Muftuoglu, Trey Merkley, Tomasz
+  Hołubowicz, Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.  As
+  well as users: Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux,
+  Fredrik, Moesasji, Nick, TheBlob42, Trey, bepolymathe, bit9tream,
+  doolio, fleimgruber, iSeeU, jixiuf, okamsn, pRot0ta1p.
 
 + Packaging :: Basil L.{{{space()}}} Contovounesios, Eli Zaretskii, Glenn
   Morris, Mauro Aranda, Richard Stallman, Stefan Kangas (core Emacs),
