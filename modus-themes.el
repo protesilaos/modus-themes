@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.0.0
-;; Last-Modified: <2022-01-28 09:33:24 +0200>
+;; Last-Modified: <2022-01-28 09:37:01 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -2421,8 +2421,9 @@ categories, based on their default aesthetics: (i) those that
 only or mostly use foreground colors for their interaction model,
 and (ii) those that combine background and foreground values for
 some of their metaphors.  The former category encompasses
-Icomplete, Ido, Selectrum, Vertico, as well as pattern matching
-styles like Orderless and Flx.  The latter covers Helm and Ivy.
+Icomplete, Ido, Selectrum, Vertico, Mct, as well as pattern
+matching styles like Orderless and Flx.  The latter covers Helm
+and Ivy.
 
 A value of nil (the default) will simply respect the metaphors of
 each completion framework.
@@ -2437,7 +2438,7 @@ bit.
 Option `opinionated' uses color combinations that refashion the
 completion UI.  For the Icomplete camp this means that intense
 background and foreground combinations are used: in effect their
-looks emulate those of Helm and Ivy in their original style.
+looks approximate those of Helm and Ivy in their original style.
 Whereas the other group of packages will revert to an even more
 nuanced aesthetic with some additional changes to the choice of
 hues.
