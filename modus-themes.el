@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.0.0
-;; Last-Modified: <2022-01-26 07:33:32 +0200>
+;; Last-Modified: <2022-01-28 09:33:24 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -237,6 +237,7 @@
 ;;     marginalia
 ;;     markdown-mode
 ;;     markup-faces (`adoc-mode')
+;;     mct
 ;;     mentor
 ;;     messages
 ;;     minimap
@@ -6296,6 +6297,11 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(markup-title-4-face ((,class :inherit modus-themes-heading-5)))
     `(markup-title-5-face ((,class :inherit modus-themes-heading-6)))
     `(markup-verbatim-face ((,class :inherit modus-themes-fixed-pitch :background ,bg-alt)))
+;;;;; mct
+    `(mct-highlight-candidate ((,class :inherit bold :foreground ,fg-main
+                                       :background ,@(pcase modus-themes-completions
+                                                       ('opinionated (list bg-active))
+                                                       (_ (list bg-inactive))))))
 ;;;;; mentor
     `(mentor-download-message ((,class :foreground ,fg-special-warm)))
     `(mentor-download-name ((,class :foreground ,fg-special-cold)))
