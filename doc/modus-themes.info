@@ -3264,13 +3264,19 @@ example:
            (pdf-view-midnight-minor-mode -1))
          (my-pdf-tools-backdrop)))
 
+     (defun my-pdf-tools-themes-toggle ()
+       (mapc
+        (lambda (buf)
+          (with-current-buffer buf
+            (my-pdf-tools-midnight-mode-toggle)))
+        (buffer-list)))
+
      (add-hook 'pdf-tools-enabled-hook #'my-pdf-tools-midnight-mode-toggle)
-     (add-hook 'modus-themes-after-load-theme-hook #'my-pdf-tools-midnight-mode-toggle)
+     (add-hook 'modus-themes-after-load-theme-hook #'my-pdf-tools-themes-toggle)
 
    With those in place, PDFs have a distinct backdrop for their page,
-while they automatically switch to their dark mode when
-‘modus-themes-toggle’ is called from inside a buffer whose major-mode is
-‘pdf-view-mode’.
+while buffers with major-mode as ‘pdf-view-mode’ automatically switches
+to dark mode when ‘modus-themes-toggle’ is called.
 
 
 File: modus-themes.info,  Node: Decrease mode line height,  Next: A theme-agnostic hook for theme loading,  Prev: Backdrop for pdf-tools,  Up: Advanced customization
@@ -5004,7 +5010,7 @@ Contributions to code or documentation
      Kostadin Ninev, Madhavan Krishnan, Markus Beppler, Matthew
      Stevenson, Mauro Aranda, Nicolas De Jaeghere, Philip Kaludercic,
      Rudolf Adamkovič, Stephen Gildea, Shreyas Ragavan, Stefan Kangas,
-     Vincent Murphy, Xinglu Chen.
+     Utkarsh Singh, Vincent Murphy, Xinglu Chen.
 
 Ideas and user feedback
      Aaron Jensen, Adam Porter, Adam Spiers, Adrian Manea, Alex Griffin,
@@ -5796,52 +5802,52 @@ Node: Update Org block delimiter fontification125314
 Node: Measure color contrast127231
 Node: Load theme depending on time of day129954
 Node: Backdrop for pdf-tools130947
-Node: Decrease mode line height133642
-Node: A theme-agnostic hook for theme loading137767
-Node: Diffs with only the foreground140158
-Node: Face coverage143232
-Node: Supported packages143684
-Node: Indirectly covered packages150131
-Node: Notes on individual packages151151
-Node: Note on avy hints152191
-Node: Note on calendarel weekday and weekend colors153359
-Node: Note on underlines in compilation buffers154542
-Node: Note on inline Latex in Org buffers155354
-Node: Note on dimmerel155964
-Node: Note on display-fill-column-indicator-mode157449
-Node: Note on highlight-parenthesesel159012
-Node: Note on mmm-modeel background colors165001
-Node: Note for prism167316
-Node: Note for god-mode170470
-Node: Note on company-mode overlay pop-up172074
-Ref: Note on company-mode overlay pop-up-Footnote-1172764
-Ref: Note on company-mode overlay pop-up-Footnote-2172831
-Node: Note on ERC escaped color sequences172886
-Ref: Note on ERC escaped color sequences-Footnote-1174314
-Node: Note on powerline or spaceline174424
-Node: Note on SHR colors174838
-Node: Note on EWW and Elfeed fonts175261
-Node: Note on Helm grep175926
-Node: Note on vc-annotate-background-mode177401
-Node: Note on pdf-tools link hints178286
-Node: Frequently Asked Questions180718
-Node: Is the contrast ratio about adjacent colors?181349
-Node: What does it mean to avoid exaggerations?182856
-Node: Why are colors mostly variants of blue magenta cyan?184685
-Node: What is the best setup for legibility?188998
-Node: Are these color schemes?191643
-Node: Port the Modus themes to other platforms?195365
-Node: Contributing198149
-Node: Sources of the themes198546
-Node: Issues you can help with199182
-Node: Patches require copyright assignment to the FSF200382
-Node: Acknowledgements202677
-Node: Meta205604
-Node: GNU Free Documentation License208083
-Node: Indices233435
-Node: Function index233614
-Node: Variable index235137
-Node: Concept index237278
+Node: Decrease mode line height133799
+Node: A theme-agnostic hook for theme loading137924
+Node: Diffs with only the foreground140315
+Node: Face coverage143389
+Node: Supported packages143841
+Node: Indirectly covered packages150288
+Node: Notes on individual packages151308
+Node: Note on avy hints152348
+Node: Note on calendarel weekday and weekend colors153516
+Node: Note on underlines in compilation buffers154699
+Node: Note on inline Latex in Org buffers155511
+Node: Note on dimmerel156121
+Node: Note on display-fill-column-indicator-mode157606
+Node: Note on highlight-parenthesesel159169
+Node: Note on mmm-modeel background colors165158
+Node: Note for prism167473
+Node: Note for god-mode170627
+Node: Note on company-mode overlay pop-up172231
+Ref: Note on company-mode overlay pop-up-Footnote-1172921
+Ref: Note on company-mode overlay pop-up-Footnote-2172988
+Node: Note on ERC escaped color sequences173043
+Ref: Note on ERC escaped color sequences-Footnote-1174471
+Node: Note on powerline or spaceline174581
+Node: Note on SHR colors174995
+Node: Note on EWW and Elfeed fonts175418
+Node: Note on Helm grep176083
+Node: Note on vc-annotate-background-mode177558
+Node: Note on pdf-tools link hints178443
+Node: Frequently Asked Questions180875
+Node: Is the contrast ratio about adjacent colors?181506
+Node: What does it mean to avoid exaggerations?183013
+Node: Why are colors mostly variants of blue magenta cyan?184842
+Node: What is the best setup for legibility?189155
+Node: Are these color schemes?191800
+Node: Port the Modus themes to other platforms?195522
+Node: Contributing198306
+Node: Sources of the themes198703
+Node: Issues you can help with199339
+Node: Patches require copyright assignment to the FSF200539
+Node: Acknowledgements202834
+Node: Meta205776
+Node: GNU Free Documentation License208255
+Node: Indices233607
+Node: Function index233786
+Node: Variable index235309
+Node: Concept index237450
 
 End Tag Table
 
