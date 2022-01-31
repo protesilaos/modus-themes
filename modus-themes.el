@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.0.0
-;; Last-Modified: <2022-01-28 09:37:01 +0200>
+;; Last-Modified: <2022-01-31 16:51:05 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -3074,19 +3074,7 @@ should be combinable with INTENSEBG-FG.
 SUBTLEBGGRAY and INTENSEBGGRAY are background values.  The former
 can be combined with GRAYFG, while the latter only works with the
 theme's fallback text color."
-  (let ((properties
-         (if (listp modus-themes-prompts)
-             modus-themes-prompts
-           ;; translation layer for legacy values
-           (pcase modus-themes-prompts
-             ;; `subtle' is the same as `subtle-accented', while `intense' is
-             ;; equal to `intense-accented' for backward compatibility
-             ('subtle '(background))
-             ('subtle-accented '(background))
-             ('subtle-gray '(background gray))
-             ('intense '(background intense))
-             ('intense-accented '(background intense))
-             ('intense-gray '(background intense gray))))))
+  (let ((properties modus-themes-prompts))
     (list :foreground
           (cond
            ((and (memq 'gray properties)
@@ -3132,16 +3120,7 @@ NORMALBG should be the special palette color 'bg-paren-match' or
 something similar.  INTENSEBG must be easier to discern next to
 other backgrounds, such as the special palette color
 'bg-paren-match-intense'."
-  (let ((properties
-         (if (listp modus-themes-paren-match)
-             modus-themes-paren-match
-           ;; translation layer for legacy values
-           (pcase modus-themes-paren-match
-             ;; `subtle' is the same as `subtle-accented', while `intense' is
-             ;; equal to `intense-accented' for backward compatibility
-             ('intense-bold '(intense bold))
-             ('subtle-bold '(bold))
-             ('intense '(intense))))))
+  (let ((properties modus-themes-paren-match))
     (list :inherit
           (if (memq 'bold properties)
               'bold
@@ -3159,18 +3138,7 @@ other backgrounds, such as the special palette color
   "Apply foreground value to code syntax.
 FG is the default.  FAINT is typically the same color in its
 desaturated version."
-  (let ((properties
-         (if (listp modus-themes-syntax)
-             modus-themes-syntax
-           ;; translation layer for legacy values
-           (pcase modus-themes-syntax
-             ('faint '(faint))
-             ('faint-yellow-comments '(faint yellow-comments))
-             ('green-strings '(green-strings))
-             ('yellow-comments '(yellow-comments))
-             ('yellow-comments-green-strings '(green-strings yellow-comments))
-             ('alt-syntax '(alt-syntax))
-             ('alt-syntax-yellow-comments '(alt-syntax yellow-comments))))))
+  (let ((properties modus-themes-syntax))
     (list :foreground
           (cond
            ((memq 'faint properties)
@@ -3182,18 +3150,7 @@ desaturated version."
 FG is the default.  FAINT is typically the same color in its
 desaturated version.  ALT is another hue while optional FAINT-ALT
 is its subtle alternative."
-  (let ((properties
-         (if (listp modus-themes-syntax)
-             modus-themes-syntax
-           ;; translation layer for legacy values
-           (pcase modus-themes-syntax
-             ('faint '(faint))
-             ('faint-yellow-comments '(faint yellow-comments))
-             ('green-strings '(green-strings))
-             ('yellow-comments '(yellow-comments))
-             ('yellow-comments-green-strings '(green-strings yellow-comments))
-             ('alt-syntax '(alt-syntax))
-             ('alt-syntax-yellow-comments '(alt-syntax yellow-comments))))))
+  (let ((properties modus-themes-syntax))
     (list :foreground
           (cond
            ((and (memq 'alt-syntax properties)
@@ -3212,18 +3169,7 @@ desaturated version.  GREEN is a color variant in that side of
 the spectrum.  ALT is another hue.  Optional FAINT-GREEN is a
 subtle alternative to GREEN.  Optional FAINT-ALT is a subtle
 alternative to ALT."
-  (let ((properties
-         (if (listp modus-themes-syntax)
-             modus-themes-syntax
-           ;; translation layer for legacy values
-           (pcase modus-themes-syntax
-             ('faint '(faint))
-             ('faint-yellow-comments '(faint yellow-comments))
-             ('green-strings '(green-strings))
-             ('yellow-comments '(yellow-comments))
-             ('yellow-comments-green-strings '(green-strings yellow-comments))
-             ('alt-syntax '(alt-syntax))
-             ('alt-syntax-yellow-comments '(alt-syntax yellow-comments))))))
+  (let ((properties modus-themes-syntax))
     (list :foreground
           (cond
            ((and (memq 'faint properties)
@@ -3245,18 +3191,7 @@ alternative to ALT."
 FG is the default.  YELLOW is a color variant of that name while
 optional FAINT-YELLOW is its subtle variant.  Optional FAINT is
 an alternative to the default value."
-  (let ((properties
-         (if (listp modus-themes-syntax)
-             modus-themes-syntax
-           ;; translation layer for legacy values
-           (pcase modus-themes-syntax
-             ('faint '(faint))
-             ('faint-yellow-comments '(faint yellow-comments))
-             ('green-strings '(green-strings))
-             ('yellow-comments '(yellow-comments))
-             ('yellow-comments-green-strings '(green-strings yellow-comments))
-             ('alt-syntax '(alt-syntax))
-             ('alt-syntax-yellow-comments '(alt-syntax yellow-comments))))))
+  (let ((properties modus-themes-syntax))
     (list :foreground
           (cond
            ((and (memq 'faint properties)
@@ -3300,28 +3235,7 @@ that combines well with the background and foreground."
   (let* ((key (modus-themes--key-cdr level modus-themes-headings))
          (style (or key (modus-themes--key-cdr t modus-themes-headings)))
          (style-listp (listp style))
-         (properties
-          (if style-listp
-              style
-            ;; translation layer for legacy values
-            (pcase style
-              ('highlight '(background))
-              ('highlight-no-bold '(background no-bold))
-              ('line '(overline))
-              ('line-no-bold '(no-bold overline))
-              ('no-bold '(no-bold))
-              ('no-color '(monochrome))
-              ('no-color-no-bold '(no-bold monochrome))
-              ('rainbow '(rainbow))
-              ('rainbow-highlight '(rainbow background))
-              ('rainbow-highlight-no-bold '(no-bold rainbow background))
-              ('rainbow-line '(rainbow overline))
-              ('rainbow-no-bold '(no-bold rainbow))
-              ('rainbow-line-no-bold '(rainbow overline no-bold))
-              ('rainbow-section '(rainbow overline background))
-              ('rainbow-section-no-bold '(no-bold rainbow background overline))
-              ('section '(background overline))
-              ('section-no-bold '(background overline no-bold)))))
+         (properties style)
          (var (when (memq 'variable-pitch properties) 'variable-pitch))
          (varbold (if var
                       (append (list 'bold) (list var))
@@ -3540,22 +3454,7 @@ line's box property.
 Optional FG-DISTANT should be close to the main background
 values.  It is intended to be used as a distant-foreground
 property."
-  (let* ((properties
-          (if (listp modus-themes-mode-line)
-              modus-themes-mode-line
-            ;; translation layer for legacy values
-            (alist-get modus-themes-mode-line
-                       '((3d . (3d))
-                         (moody . (moody))
-                         (borderless . (borderless))
-                         (borderless-3d . (borderless 3d))
-                         (borderless-moody . (borderless moody))
-                         (accented . (accented))
-                         (accented-3d . (accented 3d))
-                         (accented-moody . (accented moody))
-                         (borderless-accented . (borderless accented))
-                         (borderless-accented-3d . (borderless accented 3d))
-                         (borderless-accented-moody . (borderless accented moody))))))
+  (let* ((properties modus-themes-mode-line)
          (padding (seq-find #'natnump properties 1))
          (padded (> padding 1))
          (base (cond ((memq 'accented properties)
@@ -3691,17 +3590,7 @@ FG is the link's default color for its text and underline
 property.  FGFAINT is a desaturated color for the text and
 underline.  UNDERLINE is a gray color only for the undeline.  BG
 is a background color and BGNEUTRAL is its fallback value."
-  (let ((properties
-         (if (listp modus-themes-links)
-             modus-themes-links
-           ;; translation layer for legacy values
-           (pcase modus-themes-links
-             ('faint '(faint))
-             ('neutral-underline '(neutral-underline))
-             ('faint-neutral-underline '(neutral-underline faint))
-             ('no-underline '(no-underline))
-             ('underline-only '(no-color))
-             ('neutral-underline-only '(no-color neutral-underline))))))
+  (let ((properties modus-themes-links))
     (list :inherit
           (cond
            ((and (memq 'bold properties)
@@ -3739,17 +3628,7 @@ is a background color and BGNEUTRAL is its fallback value."
   "Extend `modus-themes--link'.
 FG is the main accented foreground.  FGFAINT is also accented,
 yet desaturated.  Optional NEUTRALFG is a gray value."
-  (let ((properties
-         (if (listp modus-themes-links)
-             modus-themes-links
-           ;; translation layer for legacy values
-           (pcase modus-themes-links
-             ('faint '(faint))
-             ('neutral-underline '(neutral-underline))
-             ('faint-neutral-underline '(neutral-underline faint))
-             ('no-underline '(no-underline))
-             ('underline-only '(no-color))
-             ('neutral-underline-only '(no-color neutral-underline))))))
+  (let ((properties modus-themes-links))
     (list :foreground
           (cond
            ((memq 'no-color properties)
@@ -3773,16 +3652,7 @@ is a subtle background value that can be combined with all colors
 used to fontify text and code syntax.  BGACCENT is a colored
 background that combines well with FG.  BGACCENTSUBTLE can be
 combined with all colors used to fontify text."
-  (let ((properties
-         (if (listp modus-themes-region)
-             modus-themes-region
-           ;; translation layer for legacy values
-           (pcase modus-themes-region
-             ('bg-only '(bg-only))
-             ('bg-only-no-extend '(bg-only no-extend))
-             ('accent '(accented))
-             ('accent-no-extend '(accented no-extend))
-             ('no-extend '(no-extend))))))
+  (let ((properties modus-themes-region))
     (list :background
           (cond
            ((and (memq 'accented properties)
@@ -3818,17 +3688,7 @@ LINEACCENT are color values that can remain distinct against the
 buffer's possible backgrounds: the former is neutral, the latter
 is accented.  LINENEUTRALINTENSE and LINEACCENTINTENSE are their
 more prominent alternatives."
-  (let ((properties
-         (if (listp modus-themes-hl-line)
-             modus-themes-hl-line
-           ;; translation layer for legacy values
-           (pcase modus-themes-hl-line
-             ('intense-background '(intense))
-             ('accented-background '(accented))
-             ('underline-neutral '(underline))
-             ('underline-accented '(underline accented))
-             ('underline-only-neutral '(underline)) ; only underline styles have been removed
-             ('underline-only-accented '(underline accented))))))
+  (let ((properties modus-themes-hl-line))
     (list :background
           (cond
            ((and (memq 'intense properties)

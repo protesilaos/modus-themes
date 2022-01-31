@@ -5018,17 +5018,18 @@ Ideas and user feedback
      Gustavo Barros, Hörmetjan Yiltiz, Ilja Kocken, Iris Garcia, Jeremy
      Friesen, Jerry Zhang, Johannes Grødem, John Haman, Joshua O’Connor,
      Kevin Fleming, Kévin Le Gouguec, Kostadin Ninev, Len Trigg, Magne
-     Hov, Manuel Uberti, Mark Burton, Markus Beppler, Mauro Aranda,
-     Michael Goldenberg, Morgan Smith, Murilo Pereira, Nicky van
-     Foreest, Nicolas De Jaeghere, Paul Poloskov, Pengji Zhang, Pete
-     Kazmier, Peter Wu, Philip Kaludercic, Pierre Téchoueyres, Roman
-     Rudakov, Ryan Phillips, Rudolf Adamkovič, Sam Kleinman, Shreyas
-     Ragavan, Simon Pugnet, Tassilo Horn, Thibaut Verron, Thomas
-     Heartman, Togan Muftuoglu, Trey Merkley, Tomasz Hołubowicz, Toon
-     Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.  As well as users:
-     Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik,
-     Moesasji, Nick, TheBlob42, Trey, bepolymathe, bit9tream, doolio,
-     fleimgruber, iSeeU, jixiuf, okamsn, pRot0ta1p.
+     Hov, Manuel Uberti, Mark Bestley, Mark Burton, Markus Beppler,
+     Mauro Aranda, Michael Goldenberg, Morgan Smith, Murilo Pereira,
+     Nicky van Foreest, Nicolas De Jaeghere, Paul Poloskov, Pengji
+     Zhang, Pete Kazmier, Peter Wu, Philip Kaludercic, Pierre
+     Téchoueyres, Roman Rudakov, Ryan Phillips, Rudolf Adamkovič, Saša
+     Janiška, Sam Kleinman, Shreyas Ragavan, Simon Pugnet, Tassilo Horn,
+     Thibaut Verron, Thomas Heartman, Togan Muftuoglu, Trey Merkley,
+     Tomasz Hołubowicz, Toon Claes, Uri Sharf, Utkarsh Singh, Vincent
+     Foley.  As well as users: Ben, CsBigDataHub1, Emacs Contrib,
+     Eugene, Fourchaux, Fredrik, Moesasji, Nick, TheBlob42, Trey,
+     bepolymathe, bit9tream, doolio, fleimgruber, iSeeU, jixiuf, okamsn,
+     pRot0ta1p.
 
 Packaging
      Basil L. Contovounesios, Eli Zaretskii, Glenn Morris, Mauro Aranda,
@@ -5835,12 +5836,12 @@ Node: Sources of the themes198546
 Node: Issues you can help with199182
 Node: Patches require copyright assignment to the FSF200382
 Node: Acknowledgements202677
-Node: Meta205569
-Node: GNU Free Documentation License208048
-Node: Indices233400
-Node: Function index233579
-Node: Variable index235102
-Node: Concept index237243
+Node: Meta205604
+Node: GNU Free Documentation License208083
+Node: Indices233435
+Node: Function index233614
+Node: Variable index235137
+Node: Concept index237278
 
 End Tag Table
 
