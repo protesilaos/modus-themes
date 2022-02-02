@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.0.0
-;; Last-Modified: <2022-01-31 16:51:05 +0200>
+;; Last-Modified: <2022-02-02 16:06:31 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -5912,9 +5912,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(macrostep-gensym-5 ((,class :inherit bold :foreground ,magenta :box t)))
     `(macrostep-macro-face ((,class :inherit button :foreground ,green-alt)))
 ;;;;; magit
-    `(magit-bisect-bad ((,class :foreground ,red-alt-other)))
-    `(magit-bisect-good ((,class :foreground ,green-alt-other)))
-    `(magit-bisect-skip ((,class :foreground ,yellow-alt-other)))
+    `(magit-bisect-bad ((,class :inherit error)))
+    `(magit-bisect-good ((,class :inherit success)))
+    `(magit-bisect-skip ((,class :inherit warning)))
     `(magit-blame-date ((,class :foreground ,blue)))
     `(magit-blame-dimmed ((,class :inherit (shadow modus-themes-reset-hard))))
     `(magit-blame-hash ((,class :foreground ,fg-special-warm)))
