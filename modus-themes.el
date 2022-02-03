@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.0.0
-;; Last-Modified: <2022-02-02 16:06:31 +0200>
+;; Last-Modified: <2022-02-03 14:00:00 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -6014,9 +6014,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(magit-section-heading ((,class :inherit bold :foreground ,cyan)))
     `(magit-section-heading-selection ((,class :inherit (modus-themes-refine-cyan bold))))
     `(magit-section-highlight ((,class :background ,bg-alt)))
-    `(magit-signature-bad ((,class :inherit bold :foreground ,red)))
-    `(magit-signature-error ((,class :foreground ,red-alt)))
-    `(magit-signature-expired ((,class :foreground ,yellow)))
     `(magit-sequence-done ((,class :inherit success)))
     `(magit-sequence-drop ((,class :inherit error)))
     `(magit-sequence-exec ((,class :inherit bold :foreground ,magenta-alt)))
@@ -6025,10 +6022,13 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(magit-sequence-part ((,class :inherit warning)))
     `(magit-sequence-pick ((,class :inherit bold)))
     `(magit-sequence-stop ((,class :inherit error)))
+    `(magit-signature-bad ((,class :inherit error)))
+    `(magit-signature-error ((,class :inherit error)))
+    `(magit-signature-expired ((,class :inherit warning)))
     `(magit-signature-expired-key ((,class :foreground ,yellow)))
-    `(magit-signature-good ((,class :inherit modus-themes-grue)))
-    `(magit-signature-revoked ((,class :foreground ,magenta)))
-    `(magit-signature-untrusted ((,class :foreground ,cyan)))
+    `(magit-signature-good ((,class :inherit success)))
+    `(magit-signature-revoked ((,class :inherit bold :foreground ,magenta)))
+    `(magit-signature-untrusted ((,class :inherit (bold shadow))))
     `(magit-tag ((,class :foreground ,yellow-alt-other)))
 ;;;;; magit-imerge
     `(magit-imerge-overriding-value ((,class :inherit bold :foreground ,red-alt)))
