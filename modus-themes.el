@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.0.0
-;; Last-Modified: <2022-02-03 14:00:00 +0200>
+;; Last-Modified: <2022-02-04 08:08:20 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -4962,10 +4962,10 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(elfeed-search-date-face ((,class :foreground ,cyan)))
     `(elfeed-search-feed-face ((,class :foreground ,blue-faint)))
     `(elfeed-search-filter-face ((,class :inherit bold :foreground ,magenta-active)))
-    `(elfeed-search-last-update-face ((,class :foreground ,cyan-active)))
-    `(elfeed-search-tag-face ((,class :foreground ,cyan-alt-other)))
+    `(elfeed-search-last-update-face ((,class :inherit bold :foreground ,cyan-active)))
+    `(elfeed-search-tag-face ((,class :foreground ,magenta-alt-faint)))
     `(elfeed-search-title-face ((,class :foreground ,fg-dim)))
-    `(elfeed-search-unread-count-face ((,class :foreground ,green-active)))
+    `(elfeed-search-unread-count-face ((,class :inherit bold :foreground ,fg-active)))
     `(elfeed-search-unread-title-face ((,class :inherit bold :foreground ,fg-main)))
 ;;;;; elfeed-score
     `(elfeed-score-date-face ((,class :foreground ,blue)))
