@@ -3737,6 +3737,8 @@ have lots of extensions, so the “full support” may not be 100% true…
    • side-notes
    • sieve-mode
    • skewer-mode
+   • slime (slbd) [ part of 2.1.0-dev ]
+   • sly [ part of 2.1.0-dev ]
    • smart-mode-line
    • smartparens
    • smerge
@@ -5807,47 +5809,47 @@ Node: A theme-agnostic hook for theme loading137924
 Node: Diffs with only the foreground140315
 Node: Face coverage143389
 Node: Supported packages143841
-Node: Indirectly covered packages150288
-Node: Notes on individual packages151308
-Node: Note on avy hints152348
-Node: Note on calendarel weekday and weekend colors153516
-Node: Note on underlines in compilation buffers154699
-Node: Note on inline Latex in Org buffers155511
-Node: Note on dimmerel156121
-Node: Note on display-fill-column-indicator-mode157606
-Node: Note on highlight-parenthesesel159169
-Node: Note on mmm-modeel background colors165158
-Node: Note for prism167473
-Node: Note for god-mode170627
-Node: Note on company-mode overlay pop-up172231
-Ref: Note on company-mode overlay pop-up-Footnote-1172921
-Ref: Note on company-mode overlay pop-up-Footnote-2172988
-Node: Note on ERC escaped color sequences173043
-Ref: Note on ERC escaped color sequences-Footnote-1174471
-Node: Note on powerline or spaceline174581
-Node: Note on SHR colors174995
-Node: Note on EWW and Elfeed fonts175418
-Node: Note on Helm grep176083
-Node: Note on vc-annotate-background-mode177558
-Node: Note on pdf-tools link hints178443
-Node: Frequently Asked Questions180875
-Node: Is the contrast ratio about adjacent colors?181506
-Node: What does it mean to avoid exaggerations?183013
-Node: Why are colors mostly variants of blue magenta cyan?184842
-Node: What is the best setup for legibility?189155
-Node: Are these color schemes?191800
-Node: Port the Modus themes to other platforms?195522
-Node: Contributing198306
-Node: Sources of the themes198703
-Node: Issues you can help with199339
-Node: Patches require copyright assignment to the FSF200539
-Node: Acknowledgements202834
-Node: Meta205776
-Node: GNU Free Documentation License208255
-Node: Indices233607
-Node: Function index233786
-Node: Variable index235309
-Node: Concept index237450
+Node: Indirectly covered packages150363
+Node: Notes on individual packages151383
+Node: Note on avy hints152423
+Node: Note on calendarel weekday and weekend colors153591
+Node: Note on underlines in compilation buffers154774
+Node: Note on inline Latex in Org buffers155586
+Node: Note on dimmerel156196
+Node: Note on display-fill-column-indicator-mode157681
+Node: Note on highlight-parenthesesel159244
+Node: Note on mmm-modeel background colors165233
+Node: Note for prism167548
+Node: Note for god-mode170702
+Node: Note on company-mode overlay pop-up172306
+Ref: Note on company-mode overlay pop-up-Footnote-1172996
+Ref: Note on company-mode overlay pop-up-Footnote-2173063
+Node: Note on ERC escaped color sequences173118
+Ref: Note on ERC escaped color sequences-Footnote-1174546
+Node: Note on powerline or spaceline174656
+Node: Note on SHR colors175070
+Node: Note on EWW and Elfeed fonts175493
+Node: Note on Helm grep176158
+Node: Note on vc-annotate-background-mode177633
+Node: Note on pdf-tools link hints178518
+Node: Frequently Asked Questions180950
+Node: Is the contrast ratio about adjacent colors?181581
+Node: What does it mean to avoid exaggerations?183088
+Node: Why are colors mostly variants of blue magenta cyan?184917
+Node: What is the best setup for legibility?189230
+Node: Are these color schemes?191875
+Node: Port the Modus themes to other platforms?195597
+Node: Contributing198381
+Node: Sources of the themes198778
+Node: Issues you can help with199414
+Node: Patches require copyright assignment to the FSF200614
+Node: Acknowledgements202909
+Node: Meta205851
+Node: GNU Free Documentation License208330
+Node: Indices233682
+Node: Function index233861
+Node: Variable index235384
+Node: Concept index237525
 
 End Tag Table
 

@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.0.0
-;; Last-Modified: <2022-02-04 08:08:20 +0200>
+;; Last-Modified: <2022-02-05 18:35:24 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -306,6 +306,8 @@
 ;;     side-notes
 ;;     sieve-mode
 ;;     skewer-mode
+;;     slime (sldb)
+;;     sly
 ;;     smart-mode-line
 ;;     smartparens
 ;;     smerge
@@ -6833,6 +6835,33 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(sieve-test-commands ((,class :inherit font-lock-function-name-face)))
 ;;;;; skewer-mode
     `(skewer-error-face ((,class :foreground ,red :underline t)))
+;;;;; slime (sldb)
+    `(sldb-condition-face ((,class :inherit font-lock-preprocessor-face)))
+    `(sldb-restart-number-face ((,class :inherit bold)))
+    `(sldb-restart-type-face ((,class :inherit font-lock-type-face)))
+    `(sldb-restartable-frame-line-face ((,class :inherit success)))
+    `(sldb-section-face ((,class :inherit modus-themes-pseudo-header)))
+    `(slime-error-face ((,class :inherit modus-themes-lang-error)))
+    `(slime-note-face ((,class :underline t)))
+    `(slime-repl-input-face ((,class :inherit bold)))
+    `(slime-repl-inputed-output-face ((,class :inherit font-lock-string-face)))
+    `(slime-repl-output-mouseover-face ((,class :inherit highlight)))
+    `(slime-repl-prompt-face ((,class :inherit modus-themes-prompt)))
+    `(slime-style-warning-face ((,class :inherit modus-themes-lang-note)))
+    `(slime-warning-face ((,class :inherit modus-themes-lang-warning)))
+;;;;; sly
+    `(sly-action-face ((,class :inherit font-lock-type-face)))
+    `(sly-db-condition-face ((,class :inherit font-lock-preprocessor-face)))
+    `(sly-db-restartable-frame-line-face ((,class :inherit success)))
+    `(sly-error-face ((,class :inherit modus-themes-lang-error)))
+    `(sly-mode-line ((,class :inherit mode-line-emphasis)))
+    `(sly-mrepl-output-face ((,class :inherit font-lock-string-face)))
+    `(sly-mrepl-output-face ((,class :inherit font-lock-string-face)))
+    `(sly-mrepl-prompt-face ((,class :inherit modus-themes-prompt)))
+    `(sly-note-face ((,class :inherit modus-themes-lang-note)))
+    `(sly-stickers-placed-face ((,class :inherit modus-themes-subtle-neutral)))
+    `(sly-style-warning-face ((,class :inherit modus-themes-lang-note)))
+    `(sly-warning-face ((,class :inherit modus-themes-lang-warning)))
 ;;;;; smart-mode-line
     `(sml/charging ((,class :foreground ,green-active)))
     `(sml/discharging ((,class :foreground ,red-active)))
