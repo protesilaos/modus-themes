@@ -117,6 +117,7 @@ Customization Options
 
 Advanced customization
 
+* More accurate colors in terminal emulators::
 * Visualize the active Modus theme's palette::
 * Per-theme customization settings::
 * Case-by-case face specs using the themes' palette::
@@ -1936,6 +1937,7 @@ such, they are labelled as “do-it-yourself” or “DIY”.
 
 * Menu:
 
+* More accurate colors in terminal emulators::
 * Visualize the active Modus theme's palette::
 * Per-theme customization settings::
 * Case-by-case face specs using the themes' palette::
@@ -1958,9 +1960,38 @@ such, they are labelled as “do-it-yourself” or “DIY”.
 * Diffs with only the foreground::
 
 
-File: modus-themes.info,  Node: Visualize the active Modus theme's palette,  Next: Per-theme customization settings,  Up: Advanced customization
+File: modus-themes.info,  Node: More accurate colors in terminal emulators,  Next: Visualize the active Modus theme's palette,  Up: Advanced customization
 
-5.1 Visualize the active Modus theme’s palette
+5.1 More accurate colors in terminal emulators
+==============================================
+
+[ This is based on partial information.  Please help verify and/or
+expand these findings.  ]
+
+   The graphical version of Emacs can reproduce color values accurately.
+Whereas things get more tricky when Emacs is used in a terminal
+emulator, because the terminals’ own capabilities determine the number
+of colors that may be displayed: the Modus themes don’t look as good in
+that case.
+
+   There is, however, a way to instruct supported terminal emulators to
+use more accurate colors.  In a shell prompt type ‘toe -a | grep direct’
+to get a list of relevant terminfo entries.  There should be items such
+as ‘xterm-direct’, ‘alacritty-direct’, ‘kitty-direct’.  Once you find
+the one that corresponds to your terminal, call Emacs with an
+environment variable like ‘TERM=xterm-direct’.  Example that can be
+adapted to shell aliases:
+
+     TERM=xterm-direct emacsclient -nw
+
+   Another example that can be bound to a key:
+
+     TERM=xterm-direct uxterm -e emacsclient -nw
+
+
+File: modus-themes.info,  Node: Visualize the active Modus theme's palette,  Next: Per-theme customization settings,  Prev: More accurate colors in terminal emulators,  Up: Advanced customization
+
+5.2 Visualize the active Modus theme’s palette
 ==============================================
 
 The command ‘modus-themes-list-colors’ prompts for a choice between
@@ -1980,7 +2011,7 @@ called ‘*modus-operandi-list-colors*’ or ‘*modus-vivendi-list-colors*’.
 
 File: modus-themes.info,  Node: Per-theme customization settings,  Next: Case-by-case face specs using the themes' palette,  Prev: Visualize the active Modus theme's palette,  Up: Advanced customization
 
-5.2 Per-theme customization settings
+5.3 Per-theme customization settings
 ====================================
 
 If you prefer to maintain different customization options between the
@@ -2014,7 +2045,7 @@ of ‘modus-themes-toggle’ and relevant functions.
 
 File: modus-themes.info,  Node: Case-by-case face specs using the themes' palette,  Next: Face specs at scale using the themes' palette,  Prev: Per-theme customization settings,  Up: Advanced customization
 
-5.3 Case-by-case face specs using the themes’ palette
+5.4 Case-by-case face specs using the themes’ palette
 =====================================================
 
 This section is about tweaking individual faces.  If you plan to do
@@ -2110,7 +2141,7 @@ first for ‘modus-operandi’ then ‘modus-vivendi’.
 
 File: modus-themes.info,  Node: Face specs at scale using the themes' palette,  Next: Remap face with local value,  Prev: Case-by-case face specs using the themes' palette,  Up: Advanced customization
 
-5.4 Face specs at scale using the themes’ palette
+5.5 Face specs at scale using the themes’ palette
 =================================================
 
 The examples here are for large scale operations.  For simple, one-off
@@ -2220,7 +2251,7 @@ the previous section.  Adapt the above example like this:
 
 File: modus-themes.info,  Node: Remap face with local value,  Next: Cycle through arbitrary colors,  Prev: Face specs at scale using the themes' palette,  Up: Advanced customization
 
-5.5 Remap face with local value
+5.6 Remap face with local value
 ===============================
 
 There are cases where we need to change the buffer-local attributes of a
@@ -2280,7 +2311,7 @@ experimentation up to you.
 
 File: modus-themes.info,  Node: Cycle through arbitrary colors,  Next: Override colors,  Prev: Remap face with local value,  Up: Advanced customization
 
-5.6 Cycle through arbitrary colors
+5.7 Cycle through arbitrary colors
 ==================================
 
 Users may opt to customize individual faces of the themes to accommodate
@@ -2437,7 +2468,7 @@ value::).
 
 File: modus-themes.info,  Node: Override colors,  Next: Override color saturation,  Prev: Cycle through arbitrary colors,  Up: Advanced customization
 
-5.7 Override colors
+5.8 Override colors
 ===================
 
 The themes provide a mechanism for overriding their color values.  This
@@ -2548,7 +2579,7 @@ making the end result inaccessible.
 
 File: modus-themes.info,  Node: Override color saturation,  Next: Override colors through blending,  Prev: Override colors,  Up: Advanced customization
 
-5.8 Override color saturation
+5.9 Override color saturation
 =============================
 
 In the previous section we documented how one can override color values
@@ -2662,8 +2693,8 @@ inspiration from the ‘modus-themes-toggle’ we already provide:
 
 File: modus-themes.info,  Node: Override colors through blending,  Next: Font configurations for Org and others,  Prev: Override color saturation,  Up: Advanced customization
 
-5.9 Override colors through blending
-====================================
+5.10 Override colors through blending
+=====================================
 
 This is yet another method of overriding color values.
 
@@ -2725,7 +2756,7 @@ help of the ‘my-modus-themes-tint-palette’ function.
 
 File: modus-themes.info,  Node: Font configurations for Org and others,  Next: Configure bold and italic faces,  Prev: Override colors through blending,  Up: Advanced customization
 
-5.10 Font configurations for Org and others
+5.11 Font configurations for Org and others
 ===========================================
 
 The themes are designed to optionally cope well with mixed font
@@ -2792,7 +2823,7 @@ account for those finer increments.
 
 File: modus-themes.info,  Node: Configure bold and italic faces,  Next: Custom Org todo keyword and priority faces,  Prev: Font configurations for Org and others,  Up: Advanced customization
 
-5.11 Configure bold and italic faces
+5.12 Configure bold and italic faces
 ====================================
 
 The Modus themes do not hardcode a ‘:weight’ or ‘:slant’ attribute in
@@ -2880,7 +2911,7 @@ bulk).
 
 File: modus-themes.info,  Node: Custom Org todo keyword and priority faces,  Next: Custom Org emphasis faces,  Prev: Configure bold and italic faces,  Up: Advanced customization
 
-5.12 Custom Org todo keyword and priority faces
+5.13 Custom Org todo keyword and priority faces
 ===============================================
 
 Users of ‘org-mode’ have the option to configure various keywords and
@@ -2963,7 +2994,7 @@ specs using the themes' palette.
 
 File: modus-themes.info,  Node: Custom Org emphasis faces,  Next: Update Org block delimiter fontification,  Prev: Custom Org todo keyword and priority faces,  Up: Advanced customization
 
-5.13 Custom Org emphasis faces
+5.14 Custom Org emphasis faces
 ==============================
 
 Org provides the user option ‘org-emphasis-alist’ which assosiates a
@@ -3083,7 +3114,7 @@ invoke ‘M-x org-mode-restart’.
 
 File: modus-themes.info,  Node: Update Org block delimiter fontification,  Next: Measure color contrast,  Prev: Custom Org emphasis faces,  Up: Advanced customization
 
-5.14 Update Org block delimiter fontification
+5.15 Update Org block delimiter fontification
 =============================================
 
 As noted in the section about ‘modus-themes-org-blocks’, Org contains a
@@ -3123,7 +3154,7 @@ intervention can be circumvented by tweaking the function thus:
 
 File: modus-themes.info,  Node: Measure color contrast,  Next: Load theme depending on time of day,  Prev: Update Org block delimiter fontification,  Up: Advanced customization
 
-5.15 Measure color contrast
+5.16 Measure color contrast
 ===========================
 
 The themes provide the functions ‘modus-themes-wcag-formula’ and
@@ -3188,7 +3219,7 @@ of the themes’ colors: *note Override colors::.
 
 File: modus-themes.info,  Node: Load theme depending on time of day,  Next: Backdrop for pdf-tools,  Prev: Measure color contrast,  Up: Advanced customization
 
-5.16 Load theme depending on time of day
+5.17 Load theme depending on time of day
 ========================================
 
 While we do provide ‘modus-themes-toggle’ to manually switch between the
@@ -3214,7 +3245,7 @@ location using the built-in ‘solar.el’ and then configuring the
 
 File: modus-themes.info,  Node: Backdrop for pdf-tools,  Next: Decrease mode line height,  Prev: Load theme depending on time of day,  Up: Advanced customization
 
-5.17 Backdrop for pdf-tools
+5.18 Backdrop for pdf-tools
 ===========================
 
 Most PDF files use a white background for their page, making it
@@ -3281,7 +3312,7 @@ to dark mode when ‘modus-themes-toggle’ is called.
 
 File: modus-themes.info,  Node: Decrease mode line height,  Next: A theme-agnostic hook for theme loading,  Prev: Backdrop for pdf-tools,  Up: Advanced customization
 
-5.18 Decrease mode line height
+5.19 Decrease mode line height
 ==============================
 
 By default, the mode line of the Modus themes is set to 1 pixel width
@@ -3371,7 +3402,7 @@ needs to be specified as well:
 
 File: modus-themes.info,  Node: A theme-agnostic hook for theme loading,  Next: Diffs with only the foreground,  Prev: Decrease mode line height,  Up: Advanced customization
 
-5.19 A theme-agnostic hook for theme loading
+5.20 A theme-agnostic hook for theme loading
 ============================================
 
 The themes are designed with the intent to be useful to Emacs users of
@@ -3421,7 +3452,7 @@ what the implications are of advising a function).
 
 File: modus-themes.info,  Node: Diffs with only the foreground,  Prev: A theme-agnostic hook for theme loading,  Up: Advanced customization
 
-5.20 Diffs with only the foreground
+5.21 Diffs with only the foreground
 ===================================
 
 Buffers that show differences between versions of a file or buffer, such
@@ -3667,7 +3698,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • marginalia
    • markdown-mode
    • markup-faces (‘adoc-mode’)
-   • mct
+   • mct [ part of 2.1.0-dev ]
    • mentor
    • messages
    • minimap
@@ -5690,6 +5721,8 @@ B.3 Concept index
                                                                 (line 6)
 * Changelog:                             Learn about the latest changes.
                                                                 (line 6)
+* Color accuracy of terminal emulators:  More accurate colors in terminal emulators.
+                                                                (line 6)
 * Color contrast:                        Measure color contrast.
                                                                 (line 6)
 * Contrast between adjacent colors:      Is the contrast ratio about adjacent colors?.
@@ -5748,108 +5781,109 @@ B.3 Concept index
 
 Tag Table:
 Node: Top860
-Node: Overview6968
-Node: How do the themes look like9092
-Node: Learn about the latest changes9606
-Node: Installation9994
-Node: Install manually from source10475
-Node: Install from the archives11300
-Node: Install on GNU/Linux12077
-Node: Debian 11 Bullseye12525
-Node: GNU Guix12835
-Node: Enable and load13118
-Node: Sample configuration with and without use-package16065
-Node: Differences between loading and enabling18017
-Node: Customization Options19972
-Node: Custom reload theme26439
-Node: Deuteranopia style27229
-Node: Bold constructs28660
-Node: Italic constructs29494
-Node: Syntax styles30261
-Node: Mixed fonts32393
-Node: Link styles33657
-Node: Command prompts36135
-Node: Mode line37956
-Node: Tab style42447
-Node: Completion UIs43110
-Node: Mail citations45049
-Node: Fringes46233
-Node: Language checkers46973
-Node: Line highlighting49415
-Node: Line numbers51012
-Node: Markup52080
-Node: Matching parentheses53738
-Node: Active region55115
-Node: Diffs56528
-Node: Org mode blocks58134
-Node: Org agenda60524
-Node: Heading styles68984
-Node: UI typeface73409
-Node: Advanced customization74308
-Node: Visualize the active Modus theme's palette75772
-Node: Per-theme customization settings76721
-Node: Case-by-case face specs using the themes' palette78077
-Node: Face specs at scale using the themes' palette82625
-Node: Remap face with local value87426
-Node: Cycle through arbitrary colors89851
-Node: Override colors96279
-Node: Override color saturation101144
-Node: Override colors through blending106823
-Node: Font configurations for Org and others109678
-Ref: Font configurations for Org and others-Footnote-1112505
-Node: Configure bold and italic faces112692
-Node: Custom Org todo keyword and priority faces116840
-Node: Custom Org emphasis faces120513
-Node: Update Org block delimiter fontification125314
-Node: Measure color contrast127231
-Node: Load theme depending on time of day129954
-Node: Backdrop for pdf-tools130947
-Node: Decrease mode line height133799
-Node: A theme-agnostic hook for theme loading137924
-Node: Diffs with only the foreground140315
-Node: Face coverage143389
-Node: Supported packages143841
-Node: Indirectly covered packages150363
-Node: Notes on individual packages151383
-Node: Note on avy hints152423
-Node: Note on calendarel weekday and weekend colors153591
-Node: Note on underlines in compilation buffers154774
-Node: Note on inline Latex in Org buffers155586
-Node: Note on dimmerel156196
-Node: Note on display-fill-column-indicator-mode157681
-Node: Note on highlight-parenthesesel159244
-Node: Note on mmm-modeel background colors165233
-Node: Note for prism167548
-Node: Note for god-mode170702
-Node: Note on company-mode overlay pop-up172306
-Ref: Note on company-mode overlay pop-up-Footnote-1172996
-Ref: Note on company-mode overlay pop-up-Footnote-2173063
-Node: Note on ERC escaped color sequences173118
-Ref: Note on ERC escaped color sequences-Footnote-1174546
-Node: Note on powerline or spaceline174656
-Node: Note on SHR colors175070
-Node: Note on EWW and Elfeed fonts175493
-Node: Note on Helm grep176158
-Node: Note on vc-annotate-background-mode177633
-Node: Note on pdf-tools link hints178518
-Node: Frequently Asked Questions180950
-Node: Is the contrast ratio about adjacent colors?181581
-Node: What does it mean to avoid exaggerations?183088
-Node: Why are colors mostly variants of blue magenta cyan?184917
-Node: What is the best setup for legibility?189230
-Node: Are these color schemes?191875
-Node: Port the Modus themes to other platforms?195597
-Node: Contributing198381
-Node: Sources of the themes198778
-Node: Issues you can help with199414
-Node: Patches require copyright assignment to the FSF200614
-Node: Acknowledgements202909
-Node: Meta205851
-Node: GNU Free Documentation License208330
-Node: Indices233682
-Node: Function index233861
-Node: Variable index235384
-Node: Concept index237525
+Node: Overview7015
+Node: How do the themes look like9139
+Node: Learn about the latest changes9653
+Node: Installation10041
+Node: Install manually from source10522
+Node: Install from the archives11347
+Node: Install on GNU/Linux12124
+Node: Debian 11 Bullseye12572
+Node: GNU Guix12882
+Node: Enable and load13165
+Node: Sample configuration with and without use-package16112
+Node: Differences between loading and enabling18064
+Node: Customization Options20019
+Node: Custom reload theme26486
+Node: Deuteranopia style27276
+Node: Bold constructs28707
+Node: Italic constructs29541
+Node: Syntax styles30308
+Node: Mixed fonts32440
+Node: Link styles33704
+Node: Command prompts36182
+Node: Mode line38003
+Node: Tab style42494
+Node: Completion UIs43157
+Node: Mail citations45096
+Node: Fringes46280
+Node: Language checkers47020
+Node: Line highlighting49462
+Node: Line numbers51059
+Node: Markup52127
+Node: Matching parentheses53785
+Node: Active region55162
+Node: Diffs56575
+Node: Org mode blocks58181
+Node: Org agenda60571
+Node: Heading styles69031
+Node: UI typeface73456
+Node: Advanced customization74355
+Node: More accurate colors in terminal emulators75866
+Node: Visualize the active Modus theme's palette77111
+Node: Per-theme customization settings78111
+Node: Case-by-case face specs using the themes' palette79467
+Node: Face specs at scale using the themes' palette84015
+Node: Remap face with local value88816
+Node: Cycle through arbitrary colors91241
+Node: Override colors97669
+Node: Override color saturation102534
+Node: Override colors through blending108213
+Node: Font configurations for Org and others111070
+Ref: Font configurations for Org and others-Footnote-1113897
+Node: Configure bold and italic faces114084
+Node: Custom Org todo keyword and priority faces118232
+Node: Custom Org emphasis faces121905
+Node: Update Org block delimiter fontification126706
+Node: Measure color contrast128623
+Node: Load theme depending on time of day131346
+Node: Backdrop for pdf-tools132339
+Node: Decrease mode line height135191
+Node: A theme-agnostic hook for theme loading139316
+Node: Diffs with only the foreground141707
+Node: Face coverage144781
+Node: Supported packages145233
+Node: Indirectly covered packages151777
+Node: Notes on individual packages152797
+Node: Note on avy hints153837
+Node: Note on calendarel weekday and weekend colors155005
+Node: Note on underlines in compilation buffers156188
+Node: Note on inline Latex in Org buffers157000
+Node: Note on dimmerel157610
+Node: Note on display-fill-column-indicator-mode159095
+Node: Note on highlight-parenthesesel160658
+Node: Note on mmm-modeel background colors166647
+Node: Note for prism168962
+Node: Note for god-mode172116
+Node: Note on company-mode overlay pop-up173720
+Ref: Note on company-mode overlay pop-up-Footnote-1174410
+Ref: Note on company-mode overlay pop-up-Footnote-2174477
+Node: Note on ERC escaped color sequences174532
+Ref: Note on ERC escaped color sequences-Footnote-1175960
+Node: Note on powerline or spaceline176070
+Node: Note on SHR colors176484
+Node: Note on EWW and Elfeed fonts176907
+Node: Note on Helm grep177572
+Node: Note on vc-annotate-background-mode179047
+Node: Note on pdf-tools link hints179932
+Node: Frequently Asked Questions182364
+Node: Is the contrast ratio about adjacent colors?182995
+Node: What does it mean to avoid exaggerations?184502
+Node: Why are colors mostly variants of blue magenta cyan?186331
+Node: What is the best setup for legibility?190644
+Node: Are these color schemes?193289
+Node: Port the Modus themes to other platforms?197011
+Node: Contributing199795
+Node: Sources of the themes200192
+Node: Issues you can help with200828
+Node: Patches require copyright assignment to the FSF202028
+Node: Acknowledgements204323
+Node: Meta207265
+Node: GNU Free Documentation License209744
+Node: Indices235096
+Node: Function index235275
+Node: Variable index236798
+Node: Concept index238939
 
 End Tag Table
 
