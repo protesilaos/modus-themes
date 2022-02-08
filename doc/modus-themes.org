@@ -5007,8 +5007,8 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Muftuoglu, Trey Merkley, Tomasz Hołubowicz, Toon Claes, Uri Sharf,
   Utkarsh Singh, Vincent Foley.  As well as users: Ben, CsBigDataHub1,
   Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji, Nick, TheBlob42,
-  Trey, bepolymathe, bit9tream, doolio, fleimgruber, iSeeU, jixiuf,
-  okamsn, pRot0ta1p.
+  Trey, bepolymathe, bit9tream, derek-upham, doolio, fleimgruber, iSeeU,
+  jixiuf, okamsn, pRot0ta1p.
 
 + Packaging :: Basil L.{{{space()}}} Contovounesios, Eli Zaretskii, Glenn
   Morris, Mauro Aranda, Richard Stallman, Stefan Kangas (core Emacs),

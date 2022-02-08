@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.0.0
-;; Last-Modified: <2022-02-05 18:35:24 +0200>
+;; Last-Modified: <2022-02-08 09:16:44 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -2944,9 +2944,8 @@ Those are stored in `modus-themes-faces' and
 
 (defun modus-themes--slant ()
   "Conditional use of italics for slant attribute."
-  (if modus-themes-italic-constructs
-      (list 'italic)
-    (list 'normal)))
+  (when modus-themes-italic-constructs
+    (list :inherit 'italic)))
 
 (defun modus-themes--fixed-pitch ()
   "Conditional application of `fixed-pitch' inheritance."
@@ -4182,7 +4181,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(modus-themes-search-success-modeline ((,class :foreground ,@(modus-themes--deuteran
                                                                    blue-active
                                                                    green-active))))
-    `(modus-themes-slant ((,class :inherit italic :slant ,@(modus-themes--slant))))
+    `(modus-themes-slant ((,class ,@(modus-themes--slant))))
     `(modus-themes-ui-variable-pitch ((,class ,@(modus-themes--variable-pitch-ui))))
     `(modus-themes-fixed-pitch ((,class ,@(modus-themes--fixed-pitch))))
     `(modus-themes-markup-code
