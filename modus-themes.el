@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.0.0
-;; Last-Modified: <2022-02-09 14:38:45 +0200>
+;; Last-Modified: <2022-02-09 21:01:04 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -570,7 +570,7 @@ cover the blue-cyan-magenta side of the spectrum."
     ;; all pairs are combinable with themselves
     (bg-hl-line . "#f2eff3")
     (bg-hl-line-intense . "#e0e0e0")
-    (bg-hl-line-intense-accent . "#b9e1ef")
+    (bg-hl-line-intense-accent . "#cfe2ff")
     (bg-hl-alt . "#fbeee0")
     (bg-hl-alt-intense . "#e8dfd1")
     (bg-paren-match . "#e0af82")
@@ -811,7 +811,7 @@ symbol and the latter as a string.")
     ;; all pairs are combinable with themselves
     (bg-hl-line . "#151823")
     (bg-hl-line-intense . "#292929")
-    (bg-hl-line-intense-accent . "#00353f")
+    (bg-hl-line-intense-accent . "#002a4f")
     (bg-hl-alt . "#181732")
     (bg-hl-alt-intense . "#282e46")
     (bg-paren-match . "#6f3355")
@@ -4161,7 +4161,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                        bg-hl-line bg-hl-line-intense
                                        bg-hl-line-intense-accent blue-nuanced-bg
                                        bg-region blue-intense-bg
-                                       fg-alt cyan-intense)
+                                       fg-alt blue-intense)
                                     :extend t)))
     `(modus-themes-key-binding ((,class :inherit bold :foreground ,blue-alt-other)))
     `(modus-themes-prompt ((,class ,@(modus-themes--prompt
