@@ -418,10 +418,10 @@ cover the blue-cyan-magenta side of the spectrum."
     ;; highlighted constructs; they must either be used as pairs based
     ;; on their name or each can be combined with {fg,bg}-{main,alt,dim}
     ;; always in accordance with their role as background or foreground
-    (bg-special-cold . "#dde3f4") (fg-special-cold . "#093060")
-    (bg-special-mild . "#c4ede0") (fg-special-mild . "#184034")
-    (bg-special-warm . "#f0e0d4") (fg-special-warm . "#5d3026")
-    (bg-special-calm . "#f8ddea") (fg-special-calm . "#61284f")
+    (bg-special-cold . "#dde3f4") (bg-special-faint-cold . "#f0f1ff") (fg-special-cold . "#093060")
+    (bg-special-mild . "#c4ede0") (bg-special-faint-mild . "#ebf5eb") (fg-special-mild . "#184034")
+    (bg-special-warm . "#f0e0d4") (bg-special-faint-warm . "#fef2ea") (fg-special-warm . "#5d3026")
+    (bg-special-calm . "#f8ddea") (bg-special-faint-calm . "#faeff9") (fg-special-calm . "#61284f")
     ;; foregrounds that can be combined with bg-main, bg-dim, bg-alt
     (red . "#a60000")
     (red-alt . "#972500")
@@ -659,10 +659,10 @@ symbol and the latter as a string.")
     ;; highlighted constructs; they must either be used as pairs based
     ;; on their name or each can be combined with {fg,bg}-{main,alt,dim}
     ;; always in accordance with their role as background or foreground
-    (bg-special-cold . "#203448") (fg-special-cold . "#c6eaff")
-    (bg-special-mild . "#00322e") (fg-special-mild . "#bfebe0")
-    (bg-special-warm . "#382f27") (fg-special-warm . "#f8dec0")
-    (bg-special-calm . "#392a48") (fg-special-calm . "#fbd6f4")
+    (bg-special-cold . "#203448") (bg-special-faint-cold . "#0e183a") (fg-special-cold . "#c6eaff")
+    (bg-special-mild . "#00322e") (bg-special-faint-mild . "#001f1a") (fg-special-mild . "#bfebe0")
+    (bg-special-warm . "#382f27") (bg-special-faint-warm . "#241613") (fg-special-warm . "#f8dec0")
+    (bg-special-calm . "#392a48") (bg-special-faint-calm . "#251232") (fg-special-calm . "#fbd6f4")
     ;; foregrounds that can be combined with bg-main, bg-dim, bg-alt
     (red . "#ff8059")
     (red-alt . "#ef8b50")
