@@ -3500,12 +3500,12 @@ macro ([[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Face specs at scale using the 
 (defun my-modus-themes-custom-faces ()
   (modus-themes-with-colors
     (custom-set-faces
-     `(ediff-current-diff-A ((,class :inherit 'unspecified :background ,bg-special-faint-cold :foreground ,fg-special-cold)))
-     `(ediff-current-diff-B ((,class :inherit 'unspecified :background ,bg-special-faint-warm :foreground ,fg-special-warm)))
-     `(ediff-current-diff-C ((,class :inherit 'unspecified :background ,bg-special-faint-calm :foreground ,fg-special-calm)))
-     `(ediff-fine-diff-A ((,class :inherit 'unspecified :background ,bg-special-cold :foreground ,fg-special-cold)))
-     `(ediff-fine-diff-B ((,class :inherit 'unspecified :background ,bg-special-warm :foreground ,fg-special-warm)))
-     `(ediff-fine-diff-C ((,class :inherit 'unspecified :background ,bg-special-calm :foreground ,fg-special-calm))))))
+     `(ediff-current-diff-A ((,class :inherit unspecified :background ,bg-special-faint-cold :foreground ,fg-special-cold)))
+     `(ediff-current-diff-B ((,class :inherit unspecified :background ,bg-special-faint-warm :foreground ,fg-special-warm)))
+     `(ediff-current-diff-C ((,class :inherit unspecified :background ,bg-special-faint-calm :foreground ,fg-special-calm)))
+     `(ediff-fine-diff-A ((,class :inherit unspecified :background ,bg-special-cold :foreground ,fg-special-cold)))
+     `(ediff-fine-diff-B ((,class :inherit unspecified :background ,bg-special-warm :foreground ,fg-special-warm)))
+     `(ediff-fine-diff-C ((,class :inherit unspecified :background ,bg-special-calm :foreground ,fg-special-calm))))))
 
 ;; This is so that the changes persist when switching between
 ;; `modus-operandi' and `modus-vivendi'.
