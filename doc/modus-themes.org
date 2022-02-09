@@ -1244,13 +1244,13 @@ constructs such as Org's ==verbatim== and =~code~=).
 
 Symbol: ~modus-themes-markup~ (=boolean= type)
 
-Possible value:
+Possible values are expressed as a list of properties (default is ~nil~ or
+an empty list).  The list can include any of the following symbols:
 
-1. ~nil~ (default)
-2. ~t~
-
-The value is a list of properties, each designated by a symbol.  The
-default (a nil value or an empty list) is a foreground color.
+1. ~bold~
+2. ~italic~
+3. ~background~
+4. ~intense~
 
 The ~italic~ property applies a typographic slant (italics).
 
@@ -1259,7 +1259,7 @@ The ~bold~ property applies a heavier typographic weight.
 [[#h:2793a224-2109-4f61-a106-721c57c01375][Configure bold and italic faces]].
 
 The ~background~ property adds a background color.  The background is a
-subtle gray, unless the ~intense~ property is also set.
+shade of gray, unless the ~intense~ property is also set.
 
 The ~intense~ property amplifies the existing coloration.  When
 ~background~ is used, the background color is enhanced as well and
