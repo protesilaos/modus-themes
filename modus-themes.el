@@ -2575,7 +2575,7 @@ The `italic' property applies a typographic slant (italics).
 The `bold' property applies a heavier typographic weight.
 
 The `background' property adds a background color.  The
-background is a subtle gray, unless the `intense' property is
+background is a shade of gray, unless the `intense' property is
 also set.
 
 The `intense' property amplifies the existing coloration.  When
