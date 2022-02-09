@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.0.0
-;; Last-Modified: <2022-02-08 09:16:44 +0200>
+;; Last-Modified: <2022-02-09 14:38:45 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -4185,14 +4185,14 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(modus-themes-ui-variable-pitch ((,class ,@(modus-themes--variable-pitch-ui))))
     `(modus-themes-fixed-pitch ((,class ,@(modus-themes--fixed-pitch))))
     `(modus-themes-markup-code
-      ((,class ,@(modus-themes--markup cyan-alt-other cyan-intense
-                                       bg-alt cyan-nuanced-bg))))
+      ((,class ,@(modus-themes--markup cyan-alt-other cyan-intense bg-alt
+                                       bg-special-faint-mild))))
     `(modus-themes-markup-macro
-      ((,class ,@(modus-themes--markup magenta-alt-other purple-intense
-                                       bg-alt blue-nuanced-bg))))
+      ((,class ,@(modus-themes--markup magenta-alt-other purple-intense bg-alt
+                                       bg-special-faint-cold))))
     `(modus-themes-markup-verbatim
-      ((,class ,@(modus-themes--markup magenta-alt magenta-intense
-                                       bg-alt magenta-nuanced-bg))))
+      ((,class ,@(modus-themes--markup magenta-alt magenta-intense bg-alt
+                                       bg-special-faint-calm))))
 ;;;; standard faces
 ;;;;; absolute essentials
     `(default ((,class :background ,bg-main :foreground ,fg-main)))
