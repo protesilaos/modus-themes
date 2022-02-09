@@ -138,6 +138,7 @@ Advanced customization
 * Decrease mode line height::
 * A theme-agnostic hook for theme loading::
 * Diffs with only the foreground::
+* Ediff without diff color-coding::
 
 Face coverage
 
@@ -1541,6 +1542,8 @@ contrast threshold.
 
    *note Diffs with only the foreground::.
 
+   *note Ediff without diff color-coding::.
+
 
 File: modus-themes.info,  Node: Org mode blocks,  Next: Org agenda,  Prev: Diffs,  Up: Customization Options
 
@@ -1959,6 +1962,7 @@ such, they are labelled as “do-it-yourself” or “DIY”.
 * Decrease mode line height::
 * A theme-agnostic hook for theme loading::
 * Diffs with only the foreground::
+* Ediff without diff color-coding::
 
 
 File: modus-themes.info,  Node: More accurate colors in terminal emulators,  Next: Visualize the active Modus theme's palette,  Up: Advanced customization
@@ -3451,7 +3455,7 @@ setup of the Modus themes (it is generally a good idea to understand
 what the implications are of advising a function).
 
 
-File: modus-themes.info,  Node: Diffs with only the foreground,  Prev: A theme-agnostic hook for theme loading,  Up: Advanced customization
+File: modus-themes.info,  Node: Diffs with only the foreground,  Next: Ediff without diff color-coding,  Prev: A theme-agnostic hook for theme loading,  Up: Advanced customization
 
 5.21 Diffs with only the foreground
 ===================================
@@ -3503,6 +3507,44 @@ themes' palette::):
    This used to be an optional style of ‘modus-themes-diffs’, but has
 been removed since version ‘2.0.0’ to ensure that the accessibility
 standard and aesthetic quality of the themes is not compromised.
+
+
+File: modus-themes.info,  Node: Ediff without diff color-coding,  Prev: Diffs with only the foreground,  Up: Advanced customization
+
+5.22 Ediff without diff color-coding
+====================================
+
+Ediff uses the same color-coding as ordinary diffs in ‘diff-mode’,
+Magit, etc.  (*note Option for diff buffer looks: Diffs.).  This is
+consistent with the principle of least surprise.
+
+   Users may, however, prefer to treat Ediff differently on the premise
+that it does not need any particular color-coding to show added or
+removed lines/words: it does not use the ‘+’ or ‘-’ markers, after all.
+
+   This can be achieved by customizing the Ediff faces with color
+combinations that do not carry the same connotations as those of diffs.
+Consider this example, which leverages the ‘modus-themes-with-colors’
+macro (*note Face specs at scale using the themes' palette::):
+
+     (defun my-modus-themes-custom-faces ()
+       (modus-themes-with-colors
+         (custom-set-faces
+          `(ediff-current-diff-A ((,class :inherit 'unspecified :background ,bg-special-faint-cold :foreground ,fg-special-cold)))
+          `(ediff-current-diff-B ((,class :inherit 'unspecified :background ,bg-special-faint-warm :foreground ,fg-special-warm)))
+          `(ediff-current-diff-C ((,class :inherit 'unspecified :background ,bg-special-faint-calm :foreground ,fg-special-calm)))
+          `(ediff-fine-diff-A ((,class :inherit 'unspecified :background ,bg-special-cold :foreground ,fg-special-cold)))
+          `(ediff-fine-diff-B ((,class :inherit 'unspecified :background ,bg-special-warm :foreground ,fg-special-warm)))
+          `(ediff-fine-diff-C ((,class :inherit 'unspecified :background ,bg-special-calm :foreground ,fg-special-calm))))))
+
+     ;; This is so that the changes persist when switching between
+     ;; `modus-operandi' and `modus-vivendi'.
+     (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
+
+   Remove the ‘:foreground’ and its value to preserve the underlying
+coloration.
+
+   *note Visualize the active Modus theme's palette::.
 
 
 File: modus-themes.info,  Node: Face coverage,  Next: Notes on individual packages,  Prev: Advanced customization,  Up: Top
@@ -5782,109 +5824,110 @@ B.3 Concept index
 
 Tag Table:
 Node: Top860
-Node: Overview7015
-Node: How do the themes look like9139
-Node: Learn about the latest changes9653
-Node: Installation10041
-Node: Install manually from source10522
-Node: Install from the archives11347
-Node: Install on GNU/Linux12124
-Node: Debian 11 Bullseye12572
-Node: GNU Guix12882
-Node: Enable and load13165
-Node: Sample configuration with and without use-package16112
-Node: Differences between loading and enabling18064
-Node: Customization Options20019
-Node: Custom reload theme26486
-Node: Deuteranopia style27276
-Node: Bold constructs28707
-Node: Italic constructs29541
-Node: Syntax styles30308
-Node: Mixed fonts32440
-Node: Link styles33704
-Node: Command prompts36182
-Node: Mode line38003
-Node: Tab style42494
-Node: Completion UIs43157
-Node: Mail citations45096
-Node: Fringes46280
-Node: Language checkers47020
-Node: Line highlighting49462
-Node: Line numbers51059
-Node: Markup52127
-Node: Matching parentheses53820
-Node: Active region55197
-Node: Diffs56610
-Node: Org mode blocks58216
-Node: Org agenda60606
-Node: Heading styles69066
-Node: UI typeface73491
-Node: Advanced customization74390
-Node: More accurate colors in terminal emulators75901
-Node: Visualize the active Modus theme's palette77146
-Node: Per-theme customization settings78146
-Node: Case-by-case face specs using the themes' palette79502
-Node: Face specs at scale using the themes' palette84050
-Node: Remap face with local value88851
-Node: Cycle through arbitrary colors91276
-Node: Override colors97704
-Node: Override color saturation102569
-Node: Override colors through blending108248
-Node: Font configurations for Org and others111105
-Ref: Font configurations for Org and others-Footnote-1113932
-Node: Configure bold and italic faces114119
-Node: Custom Org todo keyword and priority faces118267
-Node: Custom Org emphasis faces121940
-Node: Update Org block delimiter fontification126741
-Node: Measure color contrast128658
-Node: Load theme depending on time of day131381
-Node: Backdrop for pdf-tools132374
-Node: Decrease mode line height135226
-Node: A theme-agnostic hook for theme loading139351
-Node: Diffs with only the foreground141742
-Node: Face coverage144816
-Node: Supported packages145268
-Node: Indirectly covered packages151812
-Node: Notes on individual packages152832
-Node: Note on avy hints153872
-Node: Note on calendarel weekday and weekend colors155040
-Node: Note on underlines in compilation buffers156223
-Node: Note on inline Latex in Org buffers157035
-Node: Note on dimmerel157645
-Node: Note on display-fill-column-indicator-mode159130
-Node: Note on highlight-parenthesesel160693
-Node: Note on mmm-modeel background colors166682
-Node: Note for prism168997
-Node: Note for god-mode172151
-Node: Note on company-mode overlay pop-up173755
-Ref: Note on company-mode overlay pop-up-Footnote-1174445
-Ref: Note on company-mode overlay pop-up-Footnote-2174512
-Node: Note on ERC escaped color sequences174567
-Ref: Note on ERC escaped color sequences-Footnote-1175995
-Node: Note on powerline or spaceline176105
-Node: Note on SHR colors176519
-Node: Note on EWW and Elfeed fonts176942
-Node: Note on Helm grep177607
-Node: Note on vc-annotate-background-mode179082
-Node: Note on pdf-tools link hints179967
-Node: Frequently Asked Questions182399
-Node: Is the contrast ratio about adjacent colors?183030
-Node: What does it mean to avoid exaggerations?184537
-Node: Why are colors mostly variants of blue magenta cyan?186366
-Node: What is the best setup for legibility?190679
-Node: Are these color schemes?193324
-Node: Port the Modus themes to other platforms?197046
-Node: Contributing199830
-Node: Sources of the themes200227
-Node: Issues you can help with200863
-Node: Patches require copyright assignment to the FSF202063
-Node: Acknowledgements204358
-Node: Meta207313
-Node: GNU Free Documentation License209792
-Node: Indices235144
-Node: Function index235323
-Node: Variable index236846
-Node: Concept index238987
+Node: Overview7051
+Node: How do the themes look like9175
+Node: Learn about the latest changes9689
+Node: Installation10077
+Node: Install manually from source10558
+Node: Install from the archives11383
+Node: Install on GNU/Linux12160
+Node: Debian 11 Bullseye12608
+Node: GNU Guix12918
+Node: Enable and load13201
+Node: Sample configuration with and without use-package16148
+Node: Differences between loading and enabling18100
+Node: Customization Options20055
+Node: Custom reload theme26522
+Node: Deuteranopia style27312
+Node: Bold constructs28743
+Node: Italic constructs29577
+Node: Syntax styles30344
+Node: Mixed fonts32476
+Node: Link styles33740
+Node: Command prompts36218
+Node: Mode line38039
+Node: Tab style42530
+Node: Completion UIs43193
+Node: Mail citations45132
+Node: Fringes46316
+Node: Language checkers47056
+Node: Line highlighting49498
+Node: Line numbers51095
+Node: Markup52163
+Node: Matching parentheses53856
+Node: Active region55233
+Node: Diffs56646
+Node: Org mode blocks58297
+Node: Org agenda60687
+Node: Heading styles69147
+Node: UI typeface73572
+Node: Advanced customization74471
+Node: More accurate colors in terminal emulators76018
+Node: Visualize the active Modus theme's palette77263
+Node: Per-theme customization settings78263
+Node: Case-by-case face specs using the themes' palette79619
+Node: Face specs at scale using the themes' palette84167
+Node: Remap face with local value88968
+Node: Cycle through arbitrary colors91393
+Node: Override colors97821
+Node: Override color saturation102686
+Node: Override colors through blending108365
+Node: Font configurations for Org and others111222
+Ref: Font configurations for Org and others-Footnote-1114049
+Node: Configure bold and italic faces114236
+Node: Custom Org todo keyword and priority faces118384
+Node: Custom Org emphasis faces122057
+Node: Update Org block delimiter fontification126858
+Node: Measure color contrast128775
+Node: Load theme depending on time of day131498
+Node: Backdrop for pdf-tools132491
+Node: Decrease mode line height135343
+Node: A theme-agnostic hook for theme loading139468
+Node: Diffs with only the foreground141859
+Node: Ediff without diff color-coding144973
+Node: Face coverage147074
+Node: Supported packages147526
+Node: Indirectly covered packages154070
+Node: Notes on individual packages155090
+Node: Note on avy hints156130
+Node: Note on calendarel weekday and weekend colors157298
+Node: Note on underlines in compilation buffers158481
+Node: Note on inline Latex in Org buffers159293
+Node: Note on dimmerel159903
+Node: Note on display-fill-column-indicator-mode161388
+Node: Note on highlight-parenthesesel162951
+Node: Note on mmm-modeel background colors168940
+Node: Note for prism171255
+Node: Note for god-mode174409
+Node: Note on company-mode overlay pop-up176013
+Ref: Note on company-mode overlay pop-up-Footnote-1176703
+Ref: Note on company-mode overlay pop-up-Footnote-2176770
+Node: Note on ERC escaped color sequences176825
+Ref: Note on ERC escaped color sequences-Footnote-1178253
+Node: Note on powerline or spaceline178363
+Node: Note on SHR colors178777
+Node: Note on EWW and Elfeed fonts179200
+Node: Note on Helm grep179865
+Node: Note on vc-annotate-background-mode181340
+Node: Note on pdf-tools link hints182225
+Node: Frequently Asked Questions184657
+Node: Is the contrast ratio about adjacent colors?185288
+Node: What does it mean to avoid exaggerations?186795
+Node: Why are colors mostly variants of blue magenta cyan?188624
+Node: What is the best setup for legibility?192937
+Node: Are these color schemes?195582
+Node: Port the Modus themes to other platforms?199304
+Node: Contributing202088
+Node: Sources of the themes202485
+Node: Issues you can help with203121
+Node: Patches require copyright assignment to the FSF204321
+Node: Acknowledgements206616
+Node: Meta209571
+Node: GNU Free Documentation License212050
+Node: Indices237402
+Node: Function index237581
+Node: Variable index239104
+Node: Concept index241245
 
 End Tag Table
 

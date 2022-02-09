@@ -1429,6 +1429,8 @@ contrast threshold.
 
 [[#h:e2aed9eb-5e1e-45ec-bbd7-bc4faeab3236][Diffs with only the foreground]].
 
+[[#h:b0b31802-0216-427e-b071-1a47adcfe608][Ediff without diff color-coding]].
+
 ** Option for org-mode block styles
 :properties:
 :alt_title: Org mode blocks
@@ -3475,6 +3477,45 @@ macro ([[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Face specs at scale using the 
 This used to be an optional style of ~modus-themes-diffs~, but has been
 removed since version =2.0.0= to ensure that the accessibility standard
 and aesthetic quality of the themes is not compromised.
+
+** Ediff without diff color-coding
+:properties:
+:custom_id: h:b0b31802-0216-427e-b071-1a47adcfe608
+:end:
+
+Ediff uses the same color-coding as ordinary diffs in ~diff-mode~, Magit,
+etc. ([[#h:ea7ac54f-5827-49bd-b09f-62424b3b6427][Option for diff buffer looks]]).  This is consistent with the
+principle of least surprise.
+
+Users may, however, prefer to treat Ediff differently on the premise
+that it does not need any particular color-coding to show added or
+removed lines/words: it does not use the =+= or =-= markers, after all.
+
+This can be achieved by customizing the Ediff faces with color
+combinations that do not carry the same connotations as those of diffs.
+Consider this example, which leverages the ~modus-themes-with-colors~
+macro ([[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Face specs at scale using the themes' palette]]):
+
+#+begin_src emacs-lisp
+(defun my-modus-themes-custom-faces ()
+  (modus-themes-with-colors
+    (custom-set-faces
+     `(ediff-current-diff-A ((,class :inherit 'unspecified :background ,bg-special-faint-cold :foreground ,fg-special-cold)))
+     `(ediff-current-diff-B ((,class :inherit 'unspecified :background ,bg-special-faint-warm :foreground ,fg-special-warm)))
+     `(ediff-current-diff-C ((,class :inherit 'unspecified :background ,bg-special-faint-calm :foreground ,fg-special-calm)))
+     `(ediff-fine-diff-A ((,class :inherit 'unspecified :background ,bg-special-cold :foreground ,fg-special-cold)))
+     `(ediff-fine-diff-B ((,class :inherit 'unspecified :background ,bg-special-warm :foreground ,fg-special-warm)))
+     `(ediff-fine-diff-C ((,class :inherit 'unspecified :background ,bg-special-calm :foreground ,fg-special-calm))))))
+
+;; This is so that the changes persist when switching between
+;; `modus-operandi' and `modus-vivendi'.
+(add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
+#+end_src
+
+Remove the =:foreground= and its value to preserve the underlying
+coloration.
+
+[[#h:f4d4b71b-2ca5-4c3d-b0b4-9bfd7aa7fb4d][Visualize the active Modus theme's palette]].
 
 * Face coverage
 :properties:
