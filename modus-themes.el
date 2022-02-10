@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.0.0
-;; Last-Modified: <2022-02-10 18:33:12 +0200>
+;; Last-Modified: <2022-02-10 19:39:28 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -1619,6 +1619,11 @@ The actual styling of the face is done by `modus-themes-faces'."
 
 (defface modus-themes-completion-extra-selected nil
   "Face for the extra completion UI current selection.
+The actual styling of the face is done by `modus-themes-faces'."
+  :group 'modus-themes-faces)
+
+(defface modus-themes-completion-key-binding nil
+  "Face for key bindings in a completion UI context.
 The actual styling of the face is done by `modus-themes-faces'."
   :group 'modus-themes-faces)
 
@@ -4232,6 +4237,10 @@ by virtue of calling either of `modus-themes-load-operandi' and
       ((,class ,@(modus-themes--extra-completions-line
                   fg-main bg-completion-intense bg-completion-subtle
                   bg-completion-nuanced bg-active))))
+    `(modus-themes-completion-key-binding
+      ((,class ,@(if (null modus-themes-completions)
+                     (list :foreground magenta-alt-other)
+                   (list :inherit 'modus-themes-key-binding)))))
 ;;;;; typography
     `(modus-themes-bold ((,class ,@(modus-themes--bold-weight))))
     `(modus-themes-fixed-pitch ((,class ,@(modus-themes--fixed-pitch))))
@@ -5039,7 +5048,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(elpher-gemini-heading2 ((,class :inherit modus-themes-heading-2)))
     `(elpher-gemini-heading3 ((,class :inherit modus-themes-heading-3)))
 ;;;;; embark
-    `(embark-keybinding ((,class :inherit modus-themes-key-binding)))
+    `(embark-keybinding ((,class :inherit modus-themes-completion-key-binding)))
 ;;;;; emms
     `(emms-browser-album-face ((,class :foreground ,magenta-alt-other)))
     `(emms-browser-artist-face ((,class :foreground ,cyan)))
@@ -6047,15 +6056,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(marginalia-file-priv-read ((,class :foreground ,fg-main)))
     `(marginalia-file-priv-write ((,class :foreground ,cyan)))
     `(marginalia-function ((,class :foreground ,magenta-alt-faint)))
-    ;; Here we make an exception of not applying the bespoke
-    ;; `modus-themes-key-binding' for two reasons: (1) completion
-    ;; highlights can be fairly intense, so we do not want more
-    ;; components to compete with them for attention, (2) the
-    ;; `marginalia-key' may not be used for key bindings specifically,
-    ;; so we might end up applying styles in places we should not.
-    `(marginalia-key ((,class ,@(if (null modus-themes-completions)
-                                    (list :foreground magenta-alt-other)
-                                  (list :inherit 'modus-themes-key-binding)))))
+    `(marginalia-key ((,class :inherit modus-themes-completion-key-binding)))
     `(marginalia-lighter ((,class :foreground ,blue-alt)))
     `(marginalia-list ((,class :foreground ,magenta-alt-other-faint)))
     `(marginalia-mode ((,class :foreground ,cyan)))
