@@ -1,4 +1,4 @@
-;;; modus-vivendi-theme.el --- Accessible dark theme (WCAG AAA) -*- lexical-binding:t -*-
+;;; modus-vivendi-theme.el --- Accessible and customizable dark theme (WCAG AAA) -*- lexical-binding:t -*-
 
 ;; Copyright (C) 2019-2022  Free Software Foundation, Inc.
 

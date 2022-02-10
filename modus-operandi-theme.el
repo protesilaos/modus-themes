@@ -1,4 +1,4 @@
-;;; modus-operandi-theme.el --- Accessible light theme (WCAG AAA) -*- lexical-binding:t -*-
+;;; modus-operandi-theme.el --- Accessible and customizable light theme (WCAG AAA) -*- lexical-binding:t -*-
 
 ;; Copyright (C) 2019-2022  Free Software Foundation, Inc.
 

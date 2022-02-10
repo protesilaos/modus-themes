@@ -1,11 +1,11 @@
-;;; modus-themes.el --- Highly accessible themes (WCAG AAA) -*- lexical-binding:t -*-
+;;; modus-themes.el --- Highly accessible and customizable themes (WCAG AAA) -*- lexical-binding:t -*-
 
 ;; Copyright (C) 2019-2022  Free Software Foundation, Inc.
 
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.0.0
-;; Last-Modified: <2022-02-10 16:48:41 +0200>
+;; Last-Modified: <2022-02-10 17:39:31 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
