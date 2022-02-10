@@ -4212,7 +4212,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(file-name-shadow ((,class :inherit (shadow italic))))
     `(header-line ((,class :inherit modus-themes-ui-variable-pitch
                            :background ,bg-header :foreground ,fg-header)))
-    `(header-line-highlight ((,class :inherit modus-themes-active-blue)))
+    `(header-line-highlight ((,class :inherit highlight)))
     `(help-argument-name ((,class :inherit modus-themes-slant :foreground ,cyan)))
     `(help-key-binding ((,class :inherit modus-themes-key-binding)))
     `(homoglyph ((,class :foreground ,red-alt-faint)))
@@ -6211,7 +6211,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(mode-line-active ((,class :inherit mode-line)))
     `(mode-line-buffer-id ((,class :inherit bold)))
     `(mode-line-emphasis ((,class :inherit bold :foreground ,blue-active)))
-    `(mode-line-highlight ((,class :inherit modus-themes-active-blue :box (:line-width -1 :style pressed-button))))
+    `(mode-line-highlight ((,class :inherit ,(if (memq 'accented modus-themes-mode-line)
+                                                  'modus-themes-active-blue
+                                                'highlight))))
     `(mode-line-inactive ((,class :inherit modus-themes-ui-variable-pitch
                                   ,@(modus-themes--mode-line-attrs
                                      fg-inactive bg-inactive
