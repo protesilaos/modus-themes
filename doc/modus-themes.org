@@ -982,6 +982,7 @@ Possible values:
 1. ~nil~ (default)
 2. ~moderate~
 3. ~opinionated~
+4. ~super-opinionated~ [ part of {{{development-version}}} ]
 
 This is a special option that has different effects depending on the
 completion UI.  The interfaces can be grouped in two categories, based
@@ -1008,9 +1009,12 @@ those of Helm and Ivy in their original style.  Whereas the other group
 of packages will revert to an even more nuanced aesthetic with some
 additional changes to the choice of hues.
 
+Option ~super-opinionated~ is like the ~opinionated~ though it has a more
+pronounced effect, especially on the color of the current
+line/candidate.
+
 To appreciate the scope of this customization option, you should spend
-some time with every one of the nil (default), ~moderate~, and ~opinionated~
-possibilities.
+some time with every one of those presets.
 
 ** Option for mail citations
 :properties:
