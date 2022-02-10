@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.0.0
-;; Last-Modified: <2022-02-09 21:01:04 +0200>
+;; Last-Modified: <2022-02-10 11:32:08 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -4572,15 +4572,15 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(company-posframe-active-backend-name ((,class :inherit bold :background ,bg-active :foreground ,blue-active)))
     `(company-posframe-inactive-backend-name ((,class :background ,bg-active :foreground ,fg-active)))
     `(company-posframe-metadata ((,class :background ,bg-inactive :foreground ,fg-inactive)))
-;;;;; compilation feedback
-    `(compilation-column-number ((,class :foreground ,magenta-alt-other)))
+;;;;; compilation
+    `(compilation-column-number ((,class :inherit compilation-line-number)))
     `(compilation-error ((,class :inherit modus-themes-bold :foreground ,red)))
-    `(compilation-info ((,class :inherit modus-themes-bold :foreground ,fg-special-cold)))
-    `(compilation-line-number ((,class :foreground ,fg-special-warm)))
+    `(compilation-info ((,class :inherit modus-themes-bold :foreground ,cyan)))
+    `(compilation-line-number ((,class :inherit modus-themes-bold :foreground ,magenta-alt-faint)))
     `(compilation-mode-line-exit ((,class :inherit modus-themes-bold :foreground ,blue-active)))
     `(compilation-mode-line-fail ((,class :inherit modus-themes-bold :foreground ,red-active)))
     `(compilation-mode-line-run ((,class :inherit modus-themes-bold :foreground ,magenta-active)))
-    `(compilation-warning ((,class :inherit modus-themes-bold :foreground ,yellow)))
+    `(compilation-warning ((,class :inherit modus-themes-bold :foreground ,yellow-alt)))
 ;;;;; completions
     `(completions-annotations ((,class :inherit modus-themes-slant :foreground ,cyan-faint)))
     `(completions-common-part ((,class ,@(modus-themes--standard-completions
@@ -7391,6 +7391,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;; awesome-tray
     `(awesome-tray-mode-line-active-color ,blue)
     `(awesome-tray-mode-line-inactive-color ,bg-active)
+;;;; compilation
+    `(compilation-message-face 'link)
 ;;;; exwm
     `(exwm-floating-border-color ,fg-window-divider-inner)
 ;;;; flymake fringe indicators
