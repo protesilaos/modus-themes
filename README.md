@@ -126,7 +126,7 @@ demonstration:
       ;; symbols: `background', `bold', `gray', `intense', `italic'
       modus-themes-prompts '(intense bold)
 
-      modus-themes-completions 'moderate ; {nil,'moderate,'opinionated}
+      modus-themes-completions 'moderate ; {nil,'moderate,'opinionated,'super-opinionated}
 
       modus-themes-mail-citations nil ; {nil,'intense,'faint,'monochrome}
 
