@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.0.0
-;; Last-Modified: <2022-02-10 17:39:31 +0200>
+;; Last-Modified: <2022-02-10 18:33:12 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -6053,7 +6053,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     ;; components to compete with them for attention, (2) the
     ;; `marginalia-key' may not be used for key bindings specifically,
     ;; so we might end up applying styles in places we should not.
-    `(marginalia-key ((,class :foreground ,magenta-alt-other)))
+    `(marginalia-key ((,class ,@(if (null modus-themes-completions)
+                                    (list :foreground magenta-alt-other)
+                                  (list :inherit 'modus-themes-key-binding)))))
     `(marginalia-lighter ((,class :foreground ,blue-alt)))
     `(marginalia-list ((,class :foreground ,magenta-alt-other-faint)))
     `(marginalia-mode ((,class :foreground ,cyan)))
