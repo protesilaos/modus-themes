@@ -6055,13 +6055,13 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(marginalia-file-priv-rare ((,class :foreground ,red)))
     `(marginalia-file-priv-read ((,class :foreground ,fg-main)))
     `(marginalia-file-priv-write ((,class :foreground ,cyan)))
+    `(marginalia-function ((,class :foreground ,magenta-alt-faint)))
     ;; Here we make an exception of not applying the bespoke
     ;; `modus-themes-key-binding' for two reasons: (1) completion
     ;; highlights can be fairly intense, so we do not want more
     ;; components to compete with them for attention, (2) the
     ;; `marginalia-key' may not be used for key bindings specifically,
     ;; so we might end up applying styles in places we should not.
-    `(marginalia-function ((,class :foreground ,magenta-alt-faint)))
     `(marginalia-key ((,class :foreground ,magenta-alt-other)))
     `(marginalia-lighter ((,class :foreground ,blue-alt)))
     `(marginalia-list ((,class :foreground ,magenta-alt-other-faint)))
