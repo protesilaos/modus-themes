@@ -715,7 +715,7 @@ possible options are ~org-variable-pitch~ and ~mixed-pitch~.
 :properties:
 :alt_title: Link styles
 :description: Choose among several styles, with or without underline
-:custom_id: h:c119d7b2-fcd4-4e44-890e-5e25733d5e52
+:custom_id: h:5808be52-361a-4d18-88fd-90129d206f9b
 :end:
 #+vindex: modus-themes-links
 
@@ -4807,7 +4807,7 @@ it is already understood that one must follow the indicator or headline
 to view its contents and (ii) underlining everything would make the
 interface virtually unusable.
 
-[[#h:c119d7b2-fcd4-4e44-890e-5e25733d5e52][Option for links]].
+[[#h:5808be52-361a-4d18-88fd-90129d206f9b][Option for links]].
 
 Again, one must exercise judgement in order to avoid discrimination,
 where "discrimination" refers to:

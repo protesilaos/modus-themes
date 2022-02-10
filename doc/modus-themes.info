@@ -4856,7 +4856,7 @@ it is already understood that one must follow the indicator or headline
 to view its contents and (ii) underlining everything would make the
 interface virtually unusable.
 
-   *note Option for links: Syntax styles.
+   *note Option for links: Link styles.
 
    Again, one must exercise judgement in order to avoid discrimination,
 where “discrimination” refers to:
@@ -5916,18 +5916,18 @@ Node: What does it mean to avoid exaggerations?186789
 Node: Why are colors mostly variants of blue magenta cyan?188618
 Node: What is the best setup for legibility?192931
 Node: Are these color schemes?195576
-Node: Port the Modus themes to other platforms?199298
-Node: Contributing202082
-Node: Sources of the themes202479
-Node: Issues you can help with203115
-Node: Patches require copyright assignment to the FSF204315
-Node: Acknowledgements206610
-Node: Meta209565
-Node: GNU Free Documentation License212044
-Node: Indices237396
-Node: Function index237575
-Node: Variable index239098
-Node: Concept index241239
+Node: Port the Modus themes to other platforms?199296
+Node: Contributing202080
+Node: Sources of the themes202477
+Node: Issues you can help with203113
+Node: Patches require copyright assignment to the FSF204313
+Node: Acknowledgements206608
+Node: Meta209563
+Node: GNU Free Documentation License212042
+Node: Indices237394
+Node: Function index237573
+Node: Variable index239096
+Node: Concept index241237
 
 End Tag Table
 
