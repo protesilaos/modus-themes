@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.0.0
-;; Last-Modified: <2022-02-11 13:50:28 +0200>
+;; Last-Modified: <2022-02-11 14:05:51 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -4296,7 +4296,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(mm-uu-extract ((,class :background ,bg-dim :foreground ,fg-special-mild)))
     `(next-error ((,class :inherit modus-themes-subtle-red :extend t)))
     `(pgtk-im-0 ((,class :inherit modus-themes-fringe-blue :underline t)))
-    `(rectangle-preview ((,class :inherit modus-themes-special-mild)))
+    `(rectangle-preview ((,class :background ,bg-special-faint-warm :foreground ,fg-special-warm)))
     `(region ((,class ,@(modus-themes--region bg-region fg-main
                                               bg-hl-alt-intense bg-region-accent
                                               bg-region-accent-subtle))))
