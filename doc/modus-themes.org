@@ -4432,19 +4432,26 @@ specifications the webpage provides.
 
 Consult {{{kbd(C-h v shr-use-colors)}}}.
 
-** Note on EWW and Elfeed fonts
+** Note on SHR fonts
 :properties:
 :custom_id: h:e6c5451f-6763-4be7-8fdb-b4706a422a4c
 :end:
+#+cindex: Fonts in EWW, Elfeed, Ement, and SHR
 
-EWW and Elfeed rely on the Simple HTML Renderer to display their
-content.  The {{{file(shr.el)}}} library contains the variable ~shr-use-fonts~
-that controls whether the text in the buffer is set to a ~variable-pitch~
-typeface (proportionately spaced) or if just retains whatever the
-default font family is.  Its default value is non-nil, which means that
-~variable-pitch~ is applied.
+By default, packages that build on top of the Simple HTML Remember (=shr=)
+use proportionately spaced fonts.  This is controlled by the user option
+~shr-use-fonts~, which is set to non-nil by default.  To use the standard
+font instead, set that variable to nil.
 
 [[#h:defcf4fc-8fa8-4c29-b12e-7119582cc929][Font configurations for Org and others]].
+
+Packages affected by this are:
+
++ elfeed
++ ement
++ eww
+
+This is a non-exhaustive list.
 
 ** Note on Helm grep
 :properties:
