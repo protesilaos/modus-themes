@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.0.0
-;; Last-Modified: <2022-02-10 19:39:28 +0200>
+;; Last-Modified: <2022-02-11 13:39:52 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -6203,9 +6203,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(mode-line-active ((,class :inherit mode-line)))
     `(mode-line-buffer-id ((,class :inherit bold)))
     `(mode-line-emphasis ((,class :inherit bold :foreground ,blue-active)))
-    `(mode-line-highlight ((,class :inherit ,(if (memq 'accented modus-themes-mode-line)
-                                                  'modus-themes-active-blue
-                                                'highlight))))
+    `(mode-line-highlight ((,class :inherit highlight)))
     `(mode-line-inactive ((,class :inherit modus-themes-ui-variable-pitch
                                   ,@(modus-themes--mode-line-attrs
                                      fg-inactive bg-inactive
