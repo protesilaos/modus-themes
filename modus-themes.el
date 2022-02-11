@@ -284,6 +284,7 @@
 ;;     proced
 ;;     prodigy
 ;;     pulse
+;;     pyim
 ;;     quick-peek
 ;;     racket-mode
 ;;     rainbow-blocks
@@ -6658,6 +6659,10 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(prodigy-yellow-face ((,class :inherit warning)))
 ;;;;; pulse
     `(pulse-highlight-start-face ((,class :background ,bg-active-accent :extend t)))
+;;;;; pyim
+    `(pyim-page ((,class :background ,bg-active :foreground ,fg-active)))
+    `(pyim-page-selection ((,class :inherit bold :background ,bg-active :foreground ,blue-active)))
+    `(pyim-page-subword ((,class :background ,bg-inactive)))
 ;;;;; quick-peek
     `(quick-peek-background-face ((,class :background ,bg-alt)))
     `(quick-peek-border-face ((,class :background ,fg-window-divider-inner :height 1)))
