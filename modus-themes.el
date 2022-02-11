@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.0.0
-;; Last-Modified: <2022-02-11 13:45:10 +0200>
+;; Last-Modified: <2022-02-11 13:50:28 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -5995,7 +5995,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(magit-log-author ((,class :foreground ,cyan)))
     `(magit-log-date ((,class :inherit shadow)))
     `(magit-log-graph ((,class :foreground ,fg-dim)))
-    `(magit-mode-line-process ((,class :inherit bold :foreground ,blue-active)))
+    `(magit-mode-line-process ((,class :inherit bold :foreground ,cyan-active)))
     `(magit-mode-line-process-error ((,class :inherit bold :foreground ,red-active)))
     `(magit-process-ng ((,class :inherit error)))
     `(magit-process-ok ((,class :inherit success)))
