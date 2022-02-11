@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.0.0
-;; Last-Modified: <2022-02-11 20:23:08 +0200>
+;; Last-Modified: <2022-02-11 21:12:32 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -148,6 +148,7 @@
 ;;     elfeed-score
 ;;     elpher
 ;;     embark
+;;     ement (ement.el)
 ;;     emms
 ;;     enh-ruby-mode (enhanced-ruby-mode)
 ;;     epa
@@ -5051,6 +5052,18 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(elpher-gemini-heading3 ((,class :inherit modus-themes-heading-3)))
 ;;;;; embark
     `(embark-keybinding ((,class :inherit modus-themes-completion-key-binding)))
+;;;;; ement (ement.el)
+    `(ement-room-fully-read-marker ((,class :background ,cyan-subtle-bg)))
+    `(ement-room-membership ((,class :inherit shadow)))
+    `(ement-room-mention (( )))
+    `(ement-room-name ((,class :inherit bold)))
+    `(ement-room-reactions ((,class :inherit shadow)))
+    `(ement-room-read-receipt-marker ((,class :background ,yellow-subtle-bg)))
+    `(ement-room-self ((,class :inherit bold :foreground ,magenta)))
+    `(ement-room-self-message ((,class :foreground ,magenta-faint)))
+    `(ement-room-timestamp ((,class :inherit shadow)))
+    `(ement-room-timestamp-header ((,class :inherit bold :foreground ,cyan)))
+    `(ement-room-user ((,class :inherit bold :foreground ,blue)))
 ;;;;; emms
     `(emms-browser-album-face ((,class :foreground ,magenta-alt-other)))
     `(emms-browser-artist-face ((,class :foreground ,cyan)))

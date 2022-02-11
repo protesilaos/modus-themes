@@ -3619,6 +3619,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + elfeed-score
 + elpher
 + embark
++ ement [ part of {{{development-version}}} ]
 + emms
 + enh-ruby-mode (enhanced-ruby-mode)
 + epa
@@ -4453,6 +4454,47 @@ Packages affected by this are:
 
 This is a non-exhaustive list.
 
+** Note on Ement colors and fonts
+:properties:
+:custom_id: h:8e636056-356c-4ca7-bc78-ebe61031f585
+:end:
+
+[ Part of {{{development-version}}} ]
+
+The =ement.el= library by Adam Porter (also known as "alphapapa") defaults
+to a method of colorizing usernames in a rainbow style.  This is
+controlled by the user option ~ement-room-prism~ and can be disabled with:
+
+#+begin_src emacs-lisp
+(setq ement-room-prism nil)
+#+end_src
+
+The contrast ratio of these colors is governed by another user option:
+~ement-room-prism-minimum-contrast~.  By default, it is set to 6 which is
+slightly below our nominal target.  Try this instead:
+
+#+begin_src emacs-lisp
+(setq ement-room-prism-minimum-contrast 7)
+#+end_src
+
+With regard to fonts, Ement depends on =shr= ([[#h:e6c5451f-6763-4be7-8fdb-b4706a422a4c][Note on SHR fonts]]).
+
+Since we are here, here is an excerpt from Ement's source code:
+
+#+begin_src emacs-lisp
+(defcustom ement-room-prism-minimum-contrast 6
+  "Attempt to enforce this minimum contrast ratio for user faces.
+This should be a reasonable number from, e.g. 0-7 or so."
+  ;; Prot would almost approve of this default.  :) I would go all the way
+  ;; to 7, but 6 already significantly dilutes the colors in some cases.
+  :type 'number)
+#+end_src
+
+Yes, I do approve of that default.  Even a 4.5 (the WCAG AA rating)
+would be a good baseline for many themes and/or user configurations.
+Our target is the highest of the sort, though we do not demand that
+everyone conforms with it.
+
 ** Note on Helm grep
 :properties:
 :custom_id: h:d28879a2-8e4b-4525-986e-14c0f873d229
@@ -5044,13 +5086,13 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Goldenberg, Morgan Smith, Murilo Pereira, Nicky van Foreest, Nicolas
   De Jaeghere, Paul Poloskov, Pengji Zhang, Pete Kazmier, Peter Wu,
   Philip Kaludercic, Pierre Téchoueyres, Roman Rudakov, Ryan Phillips,
-  Rudolf Adamkovič, Saša Janiška, Sam Kleinman, Shreyas Ragavan, Simon
-  Pugnet, Tassilo Horn, Thibaut Verron, Thomas Heartman, Togan
-  Muftuoglu, Trey Merkley, Tomasz Hołubowicz, Toon Claes, Uri Sharf,
-  Utkarsh Singh, Vincent Foley.  As well as users: Ben, CsBigDataHub1,
-  Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji, Nick, TheBlob42,
-  Trey, bepolymathe, bit9tream, derek-upham, doolio, fleimgruber, iSeeU,
-  jixiuf, okamsn, pRot0ta1p.
+  Rudolf Adamkovič, Sam Kleinman, Samuel Culpepper, Saša Janiška,
+  Shreyas Ragavan, Simon Pugnet, Tassilo Horn, Thibaut Verron, Thomas
+  Heartman, Togan Muftuoglu, Trey Merkley, Tomasz Hołubowicz, Toon
+  Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.  As well as users:
+  Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik,
+  Moesasji, Nick, TheBlob42, Trey, bepolymathe, bit9tream, derek-upham,
+  doolio, fleimgruber, iSeeU, jixiuf, okamsn, pRot0ta1p.
 
 + Packaging :: Basil L.{{{space()}}} Contovounesios, Eli Zaretskii, Glenn
   Morris, Mauro Aranda, Richard Stallman, Stefan Kangas (core Emacs),
