@@ -4020,12 +4020,21 @@ File: modus-themes.info,  Node: Note on underlines in compilation buffers,  Next
 7.3 Note on underlines in compilation buffers
 =============================================
 
-[ Revised as part of 2.1.0-dev ]
+Various buffers that produce compilation results or run tests on code
+apply an underline to the file names they reference or to relevant
+messages.  Users may consider this unnecessary or excessive.
 
-   Various buffers that produce compilation results or run tests on code
-apply the ‘link’ face to the file names they reference or to relevant
-messages.  This means that the overall aesthetic is affected by the user
-option ‘modus-themes-links’ (*note Option for links: Link styles.).
+   To outright disable the effect, use this (buffers need to be
+generated anew):
+
+     (setq compilation-message-face nil)
+
+   If some element of differentiation is still desired, a good option is
+to render the affected text with the ‘italic’ face:
+
+     (setq compilation-message-face 'italic)
+
+   *note Configure bold and italic faces::.
 
 
 File: modus-themes.info,  Node: Note on inline Latex in Org buffers,  Next: Note on dimmerel,  Prev: Note on underlines in compilation buffers,  Up: Notes on individual packages
@@ -5938,43 +5947,43 @@ Node: Notes on individual packages155374
 Node: Note on avy hints156438
 Node: Note on calendarel weekday and weekend colors157606
 Node: Note on underlines in compilation buffers158789
-Node: Note on inline Latex in Org buffers159419
-Node: Note on dimmerel160029
-Node: Note on display-fill-column-indicator-mode161514
-Node: Note on highlight-parenthesesel163077
-Node: Note on mmm-modeel background colors169066
-Node: Note for prism171381
-Node: Note for god-mode174535
-Node: Note on company-mode overlay pop-up176139
-Ref: Note on company-mode overlay pop-up-Footnote-1176829
-Ref: Note on company-mode overlay pop-up-Footnote-2176896
-Node: Note on ERC escaped color sequences176951
-Ref: Note on ERC escaped color sequences-Footnote-1178379
-Node: Note on powerline or spaceline178489
-Node: Note on SHR colors178903
-Node: Note on SHR fonts179315
-Node: Note on Ement colors and fonts179948
-Node: Note on Helm grep181473
-Node: Note on vc-annotate-background-mode182950
-Node: Note on pdf-tools link hints183835
-Node: Frequently Asked Questions186267
-Node: Is the contrast ratio about adjacent colors?186898
-Node: What does it mean to avoid exaggerations?188405
-Node: Why are colors mostly variants of blue magenta cyan?190234
-Node: What is the best setup for legibility?194547
-Node: Are these color schemes?197192
-Node: Port the Modus themes to other platforms?200912
-Node: Contributing203696
-Node: Sources of the themes204093
-Node: Issues you can help with204729
-Node: Patches require copyright assignment to the FSF205929
-Node: Acknowledgements208224
-Node: Meta211211
-Node: GNU Free Documentation License213690
-Node: Indices239042
-Node: Function index239221
-Node: Variable index240744
-Node: Concept index242885
+Node: Note on inline Latex in Org buffers159636
+Node: Note on dimmerel160246
+Node: Note on display-fill-column-indicator-mode161731
+Node: Note on highlight-parenthesesel163294
+Node: Note on mmm-modeel background colors169283
+Node: Note for prism171598
+Node: Note for god-mode174752
+Node: Note on company-mode overlay pop-up176356
+Ref: Note on company-mode overlay pop-up-Footnote-1177046
+Ref: Note on company-mode overlay pop-up-Footnote-2177113
+Node: Note on ERC escaped color sequences177168
+Ref: Note on ERC escaped color sequences-Footnote-1178596
+Node: Note on powerline or spaceline178706
+Node: Note on SHR colors179120
+Node: Note on SHR fonts179532
+Node: Note on Ement colors and fonts180165
+Node: Note on Helm grep181690
+Node: Note on vc-annotate-background-mode183167
+Node: Note on pdf-tools link hints184052
+Node: Frequently Asked Questions186484
+Node: Is the contrast ratio about adjacent colors?187115
+Node: What does it mean to avoid exaggerations?188622
+Node: Why are colors mostly variants of blue magenta cyan?190451
+Node: What is the best setup for legibility?194764
+Node: Are these color schemes?197409
+Node: Port the Modus themes to other platforms?201129
+Node: Contributing203913
+Node: Sources of the themes204310
+Node: Issues you can help with204946
+Node: Patches require copyright assignment to the FSF206146
+Node: Acknowledgements208441
+Node: Meta211428
+Node: GNU Free Documentation License213907
+Node: Indices239259
+Node: Function index239438
+Node: Variable index240961
+Node: Concept index243102
 
 End Tag Table
 

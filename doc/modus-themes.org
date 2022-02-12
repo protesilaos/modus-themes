@@ -3964,12 +3964,25 @@ anew.
 :custom_id: h:420f5a33-c7a9-4112-9b04-eaf2cbad96bd
 :end:
 
-[ Revised as part of {{{development-version}}} ]
-
 Various buffers that produce compilation results or run tests on code
-apply the ~link~ face to the file names they reference or to relevant
-messages.  This means that the overall aesthetic is affected by the user
-option ~modus-themes-links~ ([[#h:5808be52-361a-4d18-88fd-90129d206f9b][Option for links]]).
+apply an underline to the file names they reference or to relevant
+messages.  Users may consider this unnecessary or excessive.
+
+To outright disable the effect, use this (buffers need to be generated
+anew):
+
+#+begin_src emacs-lisp
+(setq compilation-message-face nil)
+#+end_src
+
+If some element of differentiation is still desired, a good option is to
+render the affected text with the ~italic~ face:
+
+#+begin_src emacs-lisp
+(setq compilation-message-face 'italic)
+#+end_src
+
+[[#h:2793a224-2109-4f61-a106-721c57c01375][Configure bold and italic faces]].
 
 ** Note on inline Latex in Org buffers
 :properties:

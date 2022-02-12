@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.0.0
-;; Last-Modified: <2022-02-12 10:31:37 +0200>
+;; Last-Modified: <2022-02-12 13:07:23 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -4651,11 +4651,11 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; compilation
     `(compilation-column-number ((,class :inherit compilation-line-number)))
     `(compilation-error ((,class :inherit modus-themes-bold :foreground ,red)))
-    `(compilation-info ((,class :inherit modus-themes-bold :foreground ,cyan)))
-    `(compilation-line-number ((,class :inherit modus-themes-bold :foreground ,blue-alt-other)))
+    `(compilation-info ((,class :inherit modus-themes-bold :foreground ,fg-special-cold)))
+    `(compilation-line-number ((,class :foreground ,fg-special-warm)))
     `(compilation-mode-line-exit ((,class :inherit modus-themes-bold :foreground ,blue-active)))
     `(compilation-mode-line-fail ((,class :inherit modus-themes-bold :foreground ,red-active)))
-    `(compilation-mode-line-run ((,class :inherit modus-themes-bold :foreground ,magenta-active)))
+    `(compilation-mode-line-run ((,class :inherit modus-themes-bold :foreground ,cyan-active)))
     `(compilation-warning ((,class :inherit modus-themes-bold :foreground ,yellow-alt)))
 ;;;;; completions
     `(completions-annotations ((,class :inherit modus-themes-slant :foreground ,cyan-faint)))
@@ -7398,8 +7398,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;; awesome-tray
     `(awesome-tray-mode-line-active-color ,blue)
     `(awesome-tray-mode-line-inactive-color ,bg-active)
-;;;; compilation
-    `(compilation-message-face 'link)
 ;;;; exwm
     `(exwm-floating-border-color ,fg-window-divider-inner)
 ;;;; flymake fringe indicators
