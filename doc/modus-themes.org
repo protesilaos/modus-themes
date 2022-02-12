@@ -3571,6 +3571,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + change-log and log-view (such as ~vc-print-log~, ~vc-print-root-log~)
 + cider
 + circe
++ citar [ part of {{{development-version}}} ]
 + color-rg
 + column-enforce-mode
 + company-mode*

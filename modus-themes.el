@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.0.0
-;; Last-Modified: <2022-02-11 21:12:32 +0200>
+;; Last-Modified: <2022-02-12 10:31:37 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -99,6 +99,7 @@
 ;;     change-log and log-view (`vc-print-log' and `vc-print-root-log')
 ;;     cider
 ;;     circe
+;;     citar
 ;;     color-rg
 ;;     column-enforce-mode
 ;;     company-mode
@@ -4605,6 +4606,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(lui-button-face ((,class :inherit button)))
     `(lui-highlight-face ((,class :foreground ,magenta-alt)))
     `(lui-time-stamp-face ((,class :foreground ,blue-nuanced-fg)))
+;;;;; citar
+    `(citar ((,class :inherit shadow)))
+    `(citar-highlight (( )))
 ;;;;; color-rg
     `(color-rg-font-lock-column-number ((,class :foreground ,magenta-alt-other)))
     `(color-rg-font-lock-command ((,class :inherit bold :foreground ,fg-main)))
