@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.0.0
-;; Last-Modified: <2022-02-13 07:41:28 +0200>
+;; Last-Modified: <2022-02-13 09:26:33 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -6056,9 +6056,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(makefile-makepp-perl ((,class :background ,cyan-nuanced-bg)))
     `(makefile-space ((,class :background ,magenta-nuanced-bg)))
 ;;;;; man
-    `(Man-overstrike ((,class :inherit bold :foreground ,magenta)))
+    `(Man-overstrike ((,class :inherit bold)))
     `(Man-reverse ((,class :inherit modus-themes-subtle-magenta)))
-    `(Man-underline ((,class :foreground ,cyan :underline t)))
 ;;;;; marginalia
     `(marginalia-archive ((,class :foreground ,cyan-alt-other)))
     `(marginalia-char ((,class :foreground ,magenta)))
@@ -7359,9 +7358,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(writegood-weasels-face ((,class :inherit modus-themes-lang-error)))
 ;;;;; woman
     `(woman-addition ((,class :foreground ,magenta-alt-other)))
-    `(woman-bold ((,class :inherit bold :foreground ,magenta)))
-    `(woman-italic ((,class :inherit italic :foreground ,cyan)))
-    `(woman-unknown ((,class :inherit italic :foreground ,yellow)))
+    `(woman-unknown ((,class :foreground ,cyan)))
 ;;;;; xah-elisp-mode
     `(xah-elisp-at-symbol ((,class :inherit font-lock-warning-face)))
     `(xah-elisp-cap-variable ((,class :inherit font-lock-preprocessor-face)))
