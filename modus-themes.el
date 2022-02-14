@@ -1770,6 +1770,7 @@ Users may need to explicitly configure the font family of
 (defconst modus-themes--headings-choice
   '(set :tag "Properties" :greedy t
         (const :tag "Background color" background)
+        (const :tag "Proportionately spaced font (variable-pitch)" variable-pitch)
         (const :tag "Overline" overline)
         (choice :tag "Font weight (must be supported by the typeface)"
                 (const :tag "Bold (default)" nil)
