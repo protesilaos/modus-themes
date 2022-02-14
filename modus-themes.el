@@ -4752,7 +4752,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(custom-set ((,class :foreground ,blue-alt)))
     `(custom-state ((,class :foreground ,cyan-alt-other)))
     `(custom-themed ((,class :inherit modus-themes-subtle-blue)))
-    `(custom-variable-tag ((,class :inherit bold :foreground ,cyan)))
+    `(custom-variable-tag ((,class :foreground ,cyan)))
 ;;;;; dap-mode
     `(dap-mouse-eval-thing-face ((,class :box (:line-width -1 :color ,blue-active :style nil)
                                          :background ,bg-active :foreground ,fg-main)))
