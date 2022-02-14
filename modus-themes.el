@@ -1834,12 +1834,12 @@ proportionately spaced typeface).
 
 The symbol of a weight attribute adjusts the font of the heading
 accordingly, such as `light', `semibold', etc.  Valid symbols are
-defined in the internal variable `modus-themes--heading-weights'.
-The absence of a weight means that bold will be used by virtue of
-inheriting the `bold' face (check the manual for tweaking bold
-and italic faces).  For backward compatibility, the `no-bold'
-value is accepted, though users are encouraged to specify a
-`regular' weight instead.
+defined in the variable `modus-themes-weights'.  The absence of a
+weight means that bold will be used by virtue of inheriting the
+`bold' face (check the manual for tweaking bold and italic
+faces).  For backward compatibility, the `no-bold' value is
+accepted, though users are encouraged to specify a `regular'
+weight instead.
 
 A number, expressed as a floating point (e.g. 1.5), adjusts the
 height of the heading to that many times the base font size.  The
@@ -1923,10 +1923,10 @@ include either or both of those properties:
   small increase in height (a value of 1.15).
 - The symbol of a weight attribute adjusts the font of the
   heading accordingly, such as `light', `semibold', etc.  Valid
-  symbols are defined in the internal variable
-  `modus-themes--heading-weights'.  The absence of a weight means
-  that bold will be used by virtue of inheriting the `bold'
-  face (check the manual for tweaking bold and italic faces).
+  symbols are defined in the variable `modus-themes-weights'.
+  The absence of a weight means that bold will be used by virtue
+  of inheriting the `bold' face (check the manual for tweaking
+  bold and italic faces).
 
 In case both a number and `no-scale' are in the list, the latter
 takes precedence.  If two numbers are specified, the first one is
@@ -3252,10 +3252,15 @@ an alternative to the default value."
   "Get cdr of KEY in ALIST."
   (cdr (assoc key alist)))
 
-(defvar modus-themes--heading-weights
+(define-obsolete-variable-alias
+  'modus-themes--heading-weights
+  'modus-themes-weights
+  "2.1.0")
+
+(defconst modus-themes-weights
   '( thin ultralight extralight light semilight regular medium
      semibold bold heavy extrabold ultrabold)
-  "List of font weights used by `modus-themes--heading'.")
+  "List of font weights.")
 
 (defun modus-themes--heading-weight (list)
   "Search for `modus-themes--heading' weight in LIST."
