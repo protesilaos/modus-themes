@@ -2990,6 +2990,7 @@ In user configuration files the form may look like this:
   :type '(set :tag "Properties" :greedy t
               (const :tag "Two-dimensional button" flat)
               (const :tag "Accented background instead of gray" accented)
+              (const :tag "Reduce overall coloration" faint)
               (const :tag "Proportionately spaced font (variable-pitch)" variable-pitch)
               (const :tag "Underline instead of a box effect" underline)
               (choice :tag "Font weight (must be supported by the typeface)"
