@@ -3262,7 +3262,7 @@ an alternative to the default value."
      semibold bold heavy extrabold ultrabold)
   "List of font weights.")
 
-(defun modus-themes--heading-weight (list)
+(defun modus-themes--weight (list)
   "Search for `modus-themes--heading' weight in LIST."
   (catch 'found
     (dolist (elt list)
@@ -3286,7 +3286,7 @@ that combines well with the background and foreground."
          (varbold (if var
                       (append (list 'bold) (list var))
                     'bold))
-         (weight (when style-listp (modus-themes--heading-weight style))))
+         (weight (when style-listp (modus-themes--weight style))))
     (list :inherit
           (cond
            ;; `no-bold' is for backward compatibility because we cannot
@@ -3322,7 +3322,7 @@ that combines well with the background and foreground."
   "Control the style of the Org agenda structure.
 FG is the foreground color to use."
   (let* ((properties (modus-themes--key-cdr 'header-block modus-themes-org-agenda))
-         (weight (modus-themes--heading-weight properties)))
+         (weight (modus-themes--weight properties)))
     (list :inherit
           (cond
            ((and weight (memq 'variable-pitch properties))
