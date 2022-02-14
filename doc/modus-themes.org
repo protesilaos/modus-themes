@@ -1527,10 +1527,10 @@ properties:
   are present, the default is a small increase in height (a value of
   1.15).
 - The symbol of a weight attribute adjusts the font of the heading
-  accordingly, such as ~light~, ~semibold~, etc.  Valid symbols are defined
-  in the internal variable ~modus-themes--heading-weights~.  The absence
-  of a weight means that bold will be used by virtue of inheriting the
-  ~bold~ face.
+  accordingly, such as ~light~, ~semibold~, etc.  Valid symbols are
+  defined in the variable ~modus-themes-weights~.  The absence of a
+  weight means that bold will be used by virtue of inheriting the ~bold~
+  face.
 
 [[#h:2793a224-2109-4f61-a106-721c57c01375][Configure bold and italic faces]].
 
@@ -1730,7 +1730,7 @@ Properties:
   - ~extrabold~
   - ~ultrabold~
 + ~no-bold~ (deprecated alias of a ~regular~ weight)
-+ A floating point as a height multiple of the default
++ A floating point as a height multiple of the default (e.g. =1.1=)
 
 By default (a ~nil~ value for this variable), all headings have a bold
 typographic weight and use a desaturated text color.
@@ -1751,10 +1751,10 @@ A ~variable-pitch~ property changes the font family of the heading to that
 of the ~variable-pitch~ face (normally a proportionately spaced typeface).
 
 The symbol of a weight attribute adjusts the font of the heading
-accordingly, such as ~light~, ~semibold~, etc.  Valid symbols are defined in
-the internal variable ~modus-themes--heading-weights~.  The absence of a
-weight means that bold will be used by virtue of inheriting the ~bold~
-face.  For backward compatibility, the ~no-bold~ value is accepted, though
+accordingly, such as ~light~, ~semibold~, etc.  Valid symbols are
+defined in the variable ~modus-themes-weights~.  The absence of a weight
+means that bold will be used by virtue of inheriting the ~bold~ face.
+For backward compatibility, the ~no-bold~ value is accepted, though
 users are encouraged to specify a ~regular~ weight instead.
 
 [[#h:2793a224-2109-4f61-a106-721c57c01375][Configure bold and italic faces]].
