@@ -121,6 +121,13 @@ demonstration:
       ;; `bold', `italic', `background'
       modus-themes-links '(neutral-underline background)
 
+      ;; Options for `modus-themes-box-buttons' are either nil (the
+      ;; default), or a list that can combine any of `flat', `accented',
+      ;; `faint', `variable-pitch', `underline', the symbol of any font
+      ;; weight as listed in `modus-themes-weights', and a floating
+      ;; point number (e.g. 0.9) for the height of the button's text.
+      modus-themes-box-buttons '(variable-pitch flat faint 0.9)
+
       ;; Options for `modus-themes-prompts' are either nil (the
       ;; default), or a list of properties that may include any of those
       ;; symbols: `background', `bold', `gray', `intense', `italic'
