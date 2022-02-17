@@ -15,6 +15,712 @@ For further details, please consult these additional resources:
 + Manual :: <https://protesilaos.com/emacs/modus-themes>
 + Screenshots :: <https://protesilaos.com/emacs/modus-themes-pictures>
 
+* 2.1.0
+
+#+begin_src text
+Modus themes version 2.1.0
+
+By Protesilaos Stavrou <info@protesilaos.com> on 2022-02-17
+
+The present entry records the changes made to the project since the
+publication of version 2.0.0 on 2021-12-24.  There have been more than
+110 commits in the meantime (and this log is close to 5000 words).
+
+All modifications of colour combinations mentioned herein are made in
+accordance with the primary accessibility objective of the themes for a
+minimum contrast ratio of 7:1 between background and foreground values
+in their given combination (the WCAG AAA standard for relative colour
+luminance).  Edits also account for colour-coding that is optimised for
+the needs of users with red-green colour deficiency (deuteranopia).
+
+To access the URL of the manual visit this web page:
+<https://protesilaos.com/emacs/modus-themes>.  Or read it in the Emacs
+Info reader by evaluating this form:
+
+    (info "(modus-themes) Top")
+
+The 'modus-operandi' and 'modus-vivendi' themes are built into Emacs-28
+(next stable release) or later, and are available on GNU ELPA as well as
+other archives.  Emacs-28 ships version 1.6.0, while the current
+'master' branch (i.e. Emacs-29) and, by extension, GNU ELPA include the
+latest tagged release.
+
+
+Commands
+========
+
+The following produce a buffer that previews the colour palette of the
+given theme ('modus-operandi' or 'modus-vivendi').
+
+,* 'modus-themes-list-colors' prompts for a theme before producing the
+  preview.
+
+,* 'modus-themes-list-colors-current' uses the current Modus theme.
+
+These commands are useful to anyone who wants to reference a named
+colour from the themes or copy a colour value, such as for the purposes
+of user-level customisation (as documented at length in the manual
+across several use-cases and with the inclusion of custom code).
+
+The commands are not bound to any key.
+
+
+Customisation options
+=====================
+
+,* Implemented the 'modus-themes-markup' variable, which supersedes the
+  now-deprecated 'modus-themes-intense-markup'.  The new user option
+  accepts a list of properties (symbols).  It affects constructs such as
+  Org's =verbatim=, ~code~, and {{{macro}}}.  By default, when this user
+  option is either nil or an empty list, the affected constructs only
+  have a foreground colour (e.g. Org verbatim is magenta).  Properties
+  that change this style are:
+
+  1. 'italic' for an added slant to the text.
+  2. 'bold' for a heavier weight.
+  3. 'background' to add a background colour.
+  4. 'intense' to amplify the colouration (especially of 'background').
+
+  As with all user options which accept a list of properties, the order
+  of the symbols is no significant.  In user configurations it may look
+  like this:
+
+      (setq modus-themes-markup '(background intense bold))
+
+  [ Read the manual for bold and italic fonts.  We do not hardcode a
+    :weight or :slant, instead giving the user the option to set their
+    own values.  The defaults are what you would normally expect from
+    "bold" and "italic". ]
+
+  Thanks to Rudolf Adamkovič for reporting some problems with the old
+  design in issue 274:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/274>.
+
+,* Added the 'modus-themes-box-buttons' which affects all pseudo
+  graphical buttons, such as those found in Custom UI buffers or EWW web
+  pages which include search forms and the like.  The variable accepts a
+  list of properties as its value.  By default (nil or empty list),
+  buttons have a grey background and the familiar 3D effect.  Valid
+  properties are:
+
+  1. 'flat' to remove the 3D effect.
+  2. 'accented' to shift the colouration away from grey.
+  3. 'faint' to reduce the overall colouration (e.g. grey becomes white).
+  4. 'variable-pitch' to apply a proportionately spaced font.
+  5. 'underline' to draw a line instead of applying a 3D or flat box
+     (particularly useful for those who use Emacs in a terminal emulator).
+  6. The symbol of a font weight, such as 'bold', 'semibold', 'light' or
+     any one among those included in the 'modus-themes-weights' constant
+     (the underlying font family has to support the given weight).
+  7. A number, expressed as a floating point (e.g. 0.9), which adjusts
+     the height of the button’s text to that many times the base font
+     size.  The default height is the same as 1.0, though it need not be
+     explicitly stated.
+
+  The order in which those symbols appear in the list is not
+  significant.  If 'underline' and 'flat' are both specified, the former
+  takes precedence.  In user init files the form may look like this:
+
+    (setq modus-themes-box-buttons '(variable-pitch flat semilight 0.9))
+
+  Thanks to Daniel Mendler for suggesting this user option and providing
+  the relevant feedback in issue 282:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/282>.
+
+,* Expanded the 'modus-themes-mail-citations' with an 'intense' variant.
+  For example:
+
+      (setq modus-themes-mail-citations 'intense)
+
+  The default is a moderately coloured style.  Other variants include
+  'faint' for subtle colouration and 'monochrome' for an all-grey look.
+
+,* Reviewed the 'modus-themes-completion' option and harmonised all the
+  face specifications it governs.  The variable now accepts a fourth
+  stylistic variant in 'super-opinionated': it is like the 'opinionated'
+  one though some details are even more pronounced.  Other noteworthy
+  items:
+
+  [ Remember to read the doc string of 'modus-themes-completions', which
+    explains the grouping of the completion UIs. ]
+
+  - The (setq modus-themes-completions 'moderate) style is more-or-less
+    the same across all completion UIs.  The highlight applied to the
+    current line is a bespoke shade of blue, the characters are less
+    saturated than before and their hues are different, though the
+    overall effect should still feel "sufficiently colourful, but not
+    overdone".
+
+  - The (setq modus-themes-completions nil) is the same as before.
+    However:
+
+      - The current line in Ivy now uses a shade of blue that is
+        specific to completion UIs instead of an intense cyan
+        background.  This is for theme-wide consistency.
+
+      - Helm's current line has the same bespoke blue for its current
+        line instead of another shade of blue it was using before.
+
+  - The (setq modus-themes-completions 'opinionated) should be the same
+    as before, notwithstanding the aforementioned tweaks to Ivy/Helm.
+
+  - The (setq modus-themes-completions 'super-opinionated) for
+    Icomplete, Vertico, Selectrum, Mct uses the same blue for the
+    current line as is the default of Ivy and Helm.
+
+  Miscellaneous:
+
+  - The relevant private helper functions were rewritten.
+
+  - We declare a few faces to help streamline certain styles.
+
+  - Ivy action keys now inherit from 'modus-themes-key-binding'.  We
+    generally try to make all keys look the same, except when that would
+    be detrimental to the usability of the given context/interface.
+
+  - Some Ivy faces are simplified or otherwise tweaked to fit in with
+    the rest of the theme.
+
+  Thanks to Rudolf Adamkovič for the feedback about Vertico in issues
+  214 and 278 which prompted me to review all completion UIs:
+
+  - <https://gitlab.com/protesilaos/modus-themes/-/issues/214>
+  - <https://gitlab.com/protesilaos/modus-themes/-/issues/278>
+
+,* Adjusted the applicable hues in some 'modus-themes-syntax' variants.  In
+  particular:
+
+  - The strings' hue has more hints of blue when 'modus-themes-syntax'
+    includes the 'green-strings' property.  Such as:
+
+      (setq modus-themes-syntax '(green-strings))
+      (setq modus-themes-syntax '(alt-syntax green-strings))
+      (setq modus-themes-syntax '(alt-syntax green-strings faint))
+      (setq modus-themes-syntax '(alt-syntax green-strings faint yellow-comments))
+
+  - Strings are more orange/yellow than red when 'modus-themes-syntax'
+    includes the 'alt-syntax' property but NOT the 'green-strings'.  For
+    example:
+
+      (setq modus-themes-syntax '(alt-syntax))
+      (setq modus-themes-syntax '(alt-syntax yellow-comments))
+      (setq modus-themes-syntax '(alt-syntax yellow-comments faint))
+
+  - Backslashes for regexp constructs are coloured appropriately to look
+    distinct from the rest of the string and from the escaped construct in
+    all cases.
+
+,* Removed background colours from the the default style of Org block
+  delimiters.
+
+  As I explained in Emacs bug#52587,[1] Org has code that overrides
+  themes which prefer not to extend the block delimiter faces to the
+  edge of the window (as we would like to do by default).  This
+  practically means that we cannot have backgrounds for those lines and
+  keep them limited to the stretch of area covered by their text.
+
+  As such, the default for Org block delimiter lines now is a gray
+  foreground with no distinct background colour.  The user option
+  'modus-themes-org-blocks' provides "blocky" alternatives that use
+  background colours---those extend to the edge of the window.
+
+  [1] <https://debbugs.gnu.org/cgi/bugreport.cgi?bug=52587#46>
+
+,* Deleted the compatibility layer for all user options that used to
+  accept symbols in the past but now expect a list of symbols.  The
+  manual contains a snippet with all customisation options for those who
+  do not want to read all the relevant doc strings.  Evaluate this:
+
+      (info "(modus-themes) Customization Options")
+
+  Or visit: <https://protesilaos.com/emacs/modus-themes#h:bf1c82f2-46c7-4eb2-ad00-dd11fdd8b53f>.
+
+  The original plan was to remove those during the transition to version
+  2.0.0 (about a month ago) though I changed my mind thinking they would
+  not pose a longer-term problem.
+
+  New information by Mark Bestley in issue 272 shows that this kind of
+  complexity can lead to errors:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/272#note_826725412>.
+
+  So it is better to keep things simple and ask users to configure all
+  user options based on the up-to-date documentation.
+
+  Also thanks to Saša Janiška for the feedback in issue 272.
+
+
+New packages, faces, or face groups
+===================================
+
+,* all-the-icons-dired.
+
+,* all-the-icons-ibuffer.
+
+,* 'child-frame-border' face (Emacs 28).
+
+,* 'citar' package.  Thanks to Rudolf Adamkovič for the feedback in issue
+  280: <https://gitlab.com/protesilaos/modus-themes/-/issues/280>.
+
+,* 'elisp-shorthand-font-lock-face' (Emacs 29).  Read the manual by
+  evaluating:
+
+      (info "(elisp) Shorthands")
+
+,* 'ement' (ement.el) Matrix client, though it is not listed in any
+  archive yet: <https://github.com/alphapapa/ement.el>.
+
+  Thanks to Samuel Culpepper for the feedback in issue 279:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/279>.
+
+  Also check the Ement issue tracker on the matter:
+  <https://github.com/alphapapa/ement.el/issues/53>.
+
+,* 'mct' package.
+
+,* 'menu' face (built-in) which is used in the menu-bar when Emacs runs
+  without a graphical toolkit.
+
+,* 'pgtk-im-0' face (Emacs 29).  This is shown as a single-character-long
+  block when you type the Compose key followed by the composable
+  characters.
+
+,* 'pyim' (an input method for CJK characters).  Thanks to Yuanchen Xie for
+  the contribution in merge request 57:
+  <https://gitlab.com/protesilaos/modus-themes/-/merge_requests/57>.
+  The patch is small and is thus excluded from the requirement for
+  copyright assignment to the FSF (remember that the themes are built
+  into Emacs and any major contribution needs such copyright
+  assignment---read the relevant entry in the themes' manual).
+
+,* 'slime' and 'sly' packages.  Thanks to John Haman for the feedback
+  which was done via email due to some problems with the web UI on
+  GitLab (this information is shared with permission).  Please note that
+  I am not familiar with Common Lisp and could not test these
+  thoroughly.  Any mistakes or omissions are my own.
+
+  Concerning the web UI, there is a fully functional mirror of the
+  themes on GitHub, while email is always an option.  Use whatever works
+  for you to report an issue or send a patch.
+
+,* 'textsec' package (Emacs 29).
+
+New indirectly supported packages
+---------------------------------
+
+These inherit from base faces and look good enough already or use
+appropriate colours from the Modus themes:
+
+,* dtache
+,* org-remark
+
+
+Changes to supported faces or face groups
+=========================================
+
+,* Stopped making key bindings look like boxes.  We revert to the old
+  style we were using before the introduction of the 'help-key-binding'
+  face (Emacs 28).
+
+  By default Emacs 28 or higher will render all key bindings it
+  identifies with a box around them.  The idea is to make them look like
+  keys on a keyboard, which I never really liked because without
+  generous padding you get a very tight space between the character and
+  the box's borders which can look weird at small point sizes (Emacs
+  faces do not have padding in the same way CSS does).
+
+  I tried following the default style for a few months and have concluded
+  that it is not good enough for our purposes (my preferences
+  notwithstanding):
+
+  - The box attribute does not work in terminal emulators.  This means
+    that keys only get a subtle grey background and the default
+    foreground, which can be hard to make them stand out from their
+    surrounding text if the font height is small and/or the keybinding is
+    short (e.g. a single character).
+
+  - The box and grey background combination limits our options when we
+    need to colour-code different types of keys.  For example, the
+    'which-key' package can show TAB as T and applies to it a different
+    face to make the distinction obvious.  In that case, the presence of
+    the tight box makes the use of a bold weight inappropriate: the
+    character and the box's borders seem to overlap.  While the grey
+    background limits our choice of colour as, for instance, yellow
+    never looks good against it.  Same principle for interfaces that can
+    have colour-coded keys like 'transient' and 'hydra', where we lose
+    much-needed flexibility.
+
+,* Adjusted the brightness of the 'which-key-special-key-face'.  This is
+  the face that applies to special keys.  For example:
+
+      (setq which-key-special-keys '("SPC" "TAB" "RET" "ESC" "DEL"))
+
+,* Made 'transient' faces which are supposed to be de-emphasise certain
+  elements inherit the 'shadow' face.  This is an implicit customisation
+  option, as it allows the user to adjust the foreground value of all
+  "less important" constructs simply by changing the 'shadow' face.
+
+,* Covered the 'transient-purple' face (these are like the colour-coding
+  of 'hydra').
+
+,* Tweaked the 'transient-argument' and 'transient-value' faces to make
+  things look a bit more consistent with the other transient faces.
+  This is to avoid potential conflicts with the highlighted key
+  bindings, especially when transient uses hydra-style colour-coded
+  keys.
+
+,* Applied the same metaphors for key bindings to 'marginalia-key'
+  ('marginalia' package) and 'embark-keybinding' ('embark' package).
+  They inherit the 'modus-themes-key-binding' when possible.  The only
+  exception is with (setq modus-themes-completions nil) where conflicts
+  may arise between the key's style and matching characters of the
+  ongoing completion session.
+
+  Thanks to Rudolf Adamkovič for pointing out the inconsistency in issue
+  278: <https://gitlab.com/protesilaos/modus-themes/-/issues/278>.
+
+,* Refrained from treating LaTeX sections as headings.  This is because
+  unlike Org/Outline/Markdown Latex is basically source code, so the
+  sectioning does not work the same way it does for those lightweight
+  markup/outlining modes.
+
+  Furthermore, font-latex.el defines 'font-latex-fontify-sectioning'
+  which can be used to control the scale of those sections.  It makes
+  sense for the themes to not interfere with that design and just allow
+  users to customise things uniformly regardless of the active theme.
+
+  Thanks to Gustavo Barros for the detailed feedback in issue 265:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/265>.
+
+,* Reviewed the hues of 'all-the-icons' and related packages.
+
+,* Applied the correct style to 'info-menu-header', meaning that it now
+  only uses a bold weight as it is not a real heading, instead of being
+  affected by the user option 'modus-themes-headings'.
+
+,* Included new 'telega-entity-type-spoiler' face.  Thanks to bit9tream
+  for informing me about it in issue 271:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/271>.  The
+  conclusion:
+
+      Tricky though perhaps dull
+
+      I understand this is not an interesting topic and it probably is
+      too difficult to relate to the various data points without
+      visualising them and comparing the before and after
+      states. Furthermore, data can be deceptive and I have always
+      maintained that theme development stands at the intersection of
+      science and art (at least for the purposes of conforming with the
+      rigorous accessibility standards of the Modus themes).
+
+      That granted, I wanted to shed light on the “behind the scenes”
+      work that is not immediately obvious when one checks a diff that
+      introduces some seemingly trivial tweaks like '#49d239'->'#49c029'
+      or '#7fcfff'->'#8fbfff'.
+
+,* Tweaked the hues of all graph colours, which are used in the
+  'org-habit' table.  The changes are subtle and should improve the
+  overall usability of the graph.  For the technicalities, read:
+  <https://protesilaos.com/codelog/2022-01-02-review-modus-themes-org-habit-colours/>.
+
+  Also thanks to Rudolf Adamkovič for reporting the problem with white
+  text on yellow background in issue 270:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/270>.
+
+,* Styled the 'markdown-highlighting-face'.  This is the face used for
+  text in between double equals signs when the user option
+  'markdown-enable-highlighting-syntax' is non-nil.
+
+,* Amplified the overall colouration of Eldoc's current argument.  It is
+  a yellow foreground with a tinted background.  The blue foreground
+  which was applied before could be hard to tell apart in some cases,
+  especially because it is a common colour that is used elsewhere in the
+  themes.  Whereas the warmer hues are easier to discern, especially
+  while relying only on peripheral vision.
+
+  Thanks to Rudolf Adamkovič for the feedback in issue 275:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/275>.
+
+,* Instructed Geiser to use the same style for its argument as Eldoc
+  (edited the faces 'geiser-font-lock-autodoc-current-arg' and
+  'geiser-font-lock-autodoc-identifier').
+
+,* Made the 'keycast-key' face work when 'modus-themes-mode-line' has a
+  padding value (read the latter doc string or consult the manual).
+
+,* Refined the 'magit' faces for bisect, reflog, sequence, and signature
+  views.  They get a bold weight and, where appropriate, are made to
+  comply with the 'modus-theems-deueteranopia' option (meaning that
+  greens turn into blues).
+
+,* Recoloured 'elfeed' tags from a shade of cyan to magenta, in the
+  interest of theme-wide consistency but also to make them easier to
+  tell apart from the name of the feed.  Also updated the faces used in
+  the header-line to look better in context.
+
+,* Removed the hardcoded ':slant italic' from the 'italic' face, which is
+  consistent with how we do not hardcode ':weight bold' in the 'bold'
+  face.
+
+  Such a design allows users to configure those faces and have the
+  desired slant/weight (and even font family) apply consistently
+  throughout the theme.  Read the manual for further details:
+  <https://protesilaos.com/emacs/modus-themes#h:2793a224-2109-4f61-a106-721c57c01375>.
+
+  Thanks to user derek-upham for pointing out the inconsistency in issue
+  21 over at the GitHub mirror:
+  <https://github.com/protesilaos/modus-themes/issues/21>.
+
+,* Improved the styles that apply to compilation buffers and related.
+  The overarching intent was to reduce the excess colouration, without
+  upsetting expectations and affecting the overall presentation.
+
+  Thanks to Rudolf Adamkovič for the feedback in issue 277:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/277>.
+
+  Note that compilation buffers apply an underline by default.  The
+  manual explains how to change that:
+  <https://protesilaos.com/emacs/modus-themes#h:420f5a33-c7a9-4112-9b04-eaf2cbad96bd>.
+
+,* Ensured a consistent style for the 'highlight' face across all
+  contexts (typically used for mouse hover effects).  The mode line has
+  an exception when its style includes an accented background (per
+  'modus-themes-mode-line').
+
+  Thanks to Rudolf Adamkovič for the feedback in issue 214:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/214>.
+
+,* Changed the foreground of 'mode-line-emphasis' from blue to purple, in
+  order to avoid potential (albeit unlikely) confusion with other
+  indicators.
+
+,* Desaturated the 'man' and 'woman' foreground value of the bold
+  constructs and tweaked other faces to avoid potential inconsistencies.
+  Thanks to Daniel Mendler for the feedback:
+  <https://gitlab.com/protesilaos/modus-themes/-/commit/8080eb1c6c0020ba82e8abaa933d6686327bc616#note_841424489>.
+
+,* Removed certain exaggerations from widgets as seen in the Custom UI
+  and EWW.  Specifically:
+
+  - 'widget-field' does not need to ':extend', as that typically does
+    not look good.
+
+  - 'custom-state' gets a warmer colour to convey its message more
+    effectively.
+
+  - 'eww-form-text' no longer uses a ':box' because that breaks when the
+    widget occupies more than one line.
+
+  - 'eww-form-textarea' can now inherit from 'eww-form-text'.
+
+  Thanks to Daniel Mendler for the feedback on the style of those faces in
+  issue 284: <https://gitlab.com/protesilaos/modus-themes/-/issues/284>.
+
+
+The manual
+==========
+
+,* Clarified the wording of 'shr' fonts, which affect 'eww', 'elfeed',
+  'ement', and possibly others.
+
+,* Wrote section on custom Org emphasis faces.  It includes code samples.
+
+,* Answered a Frequently Asked Question on whether the Modus themes are
+  "colour schemes"---they are not and it is important to understand why.
+
+,* Addressed another Frequently Asked Question about porting the themes
+  to other platforms or editors.  Relevant blog posts which explain how
+  complex the issue is and why porting requires the same attention to
+  detail as this project:
+
+  - <https://protesilaos.com/codelog/2022-01-03-modus-themes-port-faq/>.
+  - <https://protesilaos.com/codelog/2022-01-23-base16-modus-themes/>.
+
+,* Improved the sample code in the section about the backdrop of PDF
+  files while using 'pdf-tools'.  Thanks to Utkarsh Singh for the patch,
+  which was sent via email.
+
+,* Provided sample code on an alternative style for Ediff.
+
+  There was a discussion with Philip Kaludercic in issue 273 about making
+  this a defcustom: <https://gitlab.com/protesilaos/modus-themes/-/issues/273>.
+
+  I first entertained the notion and did set up a branch for testing
+  purposes.  However, I ultimately decided that such a course of action
+  would establish a bad precedent because then every conceivable stylistic
+  tweak could, in principle, become a user option.  Furthermore, the
+  potential defcustom would introduce too much complexity as Ediff would
+  have to continue to behave as other diffs (per 'modus-themes-diffs') if
+  the user did not want the alternative style.
+
+  As such, documenting how a user can achieve this is the right choice.
+
+,* Fixed internal link in the manual.  Thanks to Rudolf Adamkovič for
+  reporting the problem in issue 277:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/277>.
+
+
+Miscellaneous
+=============
+
+,* Covered workaround for improving the accuracy of colour reproduction
+  in terminal emulators.  The results are still not as good as the
+  graphical version of Emacs, though they are considerably better than
+  before.  Thanks to gitrj95's issue 18 at the GitHub mirror, which
+  prompted me to research this topic:
+  <https://github.com/protesilaos/modus-themes/issues/18>.
+
+,* Helped report a bug in the PGTK build of Emacs where a new emacsclient
+  window with the 'modus-vivendi' face would not show the cursor:
+  <https://debbugs.gnu.org/cgi/bugreport.cgi?bug=53073>.  Thanks to
+  contributed to the discussion on issue 7 over at the GitHub mirror:
+  <https://github.com/protesilaos/modus-themes/issues/7>
+
+,* Shifted the hue of the intense 'hl-line' from a grey-cyan to a more
+  vivid blue by reducing the relative contribution of the green channel
+  of light.
+
+  The change affects these styles:
+
+      (setq modus-themes-hl-line '(accented intense))
+      (setq modus-themes-hl-line '(accented intense underline))
+
+  Thanks to Rudolf Adamkovič for suggesting a more vivid colour in issue
+  214: <https://gitlab.com/protesilaos/modus-themes/-/issues/214>.
+
+,* Recalibrated the 'modus-vivendi' named colour 'bg-paren-match'.
+
+  I wanted to increase its distance relative to the main background,
+  just to be sure that it is easier to spot.  This is achieved by moving
+  the hueness from the yellow to the magenta side of the spectrum.
+
+  Overall, the change is subtle and has no major impact on the contrast
+  ratio relative to the main background and foreground (we need to
+  consider both due to the specifics of show-paren-mode (and related)).
+
+  The results (#5f362f is the old, #6f3355 the new):
+
+      |         | #000000 | #ffffff | #000000 | #ffffff |
+      |---------+---------+---------+---------+---------|
+      | #5f362f |    2.06 |   10.22 |   37904 |  333060 |
+      | #6f3355 |    2.28 |    9.21 |   58282 |  291037 |
+
+  The TBLFM formula for this table (org-mode notation):
+
+      $2='(Λ $1 @1$2);%.2f :: $3='(Λ $1 @1$3);%.2f :: $4='(Δ $1 @1$4) :: $5='(Δ $1 @1$5)
+
+  The Greek letters mean:
+
+      (defalias 'Λ #'modus-themes-contrast)
+      (defalias 'Δ #'color-distance)
+
+,* Expanded the "special" subset of the palette with faint variants of
+  the four backgrounds.  These are reserved for special circumstances,
+  as the name implies.  Below are the contrast values (see
+  'modus-themes-contrast').
+
+      Modus Operandi main accept colours against faint special backgrounds:
+
+      |         | #f0f1ff | #ebf5eb | #fef2ea | #faeff9 |
+      |---------+---------+---------+---------+---------|
+      | #a60000 |    7.15 |    7.17 |    7.29 |    7.16 |
+      | #972500 |    7.26 |    7.28 |    7.40 |    7.28 |
+      | #a0132f |    7.13 |    7.15 |    7.27 |    7.14 |
+      | #7f1010 |    9.44 |    9.47 |    9.63 |    9.47 |
+      | #702f00 |    8.94 |    8.97 |    9.12 |    8.96 |
+      | #7f002f |    9.64 |    9.67 |    9.83 |    9.66 |
+      | #005e00 |    7.20 |    7.23 |    7.34 |    7.22 |
+      | #315b00 |    7.13 |    7.15 |    7.27 |    7.15 |
+      | #145c33 |    7.18 |    7.20 |    7.32 |    7.20 |
+      | #104410 |   10.09 |   10.12 |   10.29 |   10.12 |
+      | #30440f |    9.56 |    9.59 |    9.75 |    9.58 |
+      | #0f443f |    9.76 |    9.79 |    9.96 |    9.79 |
+      | #813e00 |    7.14 |    7.17 |    7.28 |    7.16 |
+      | #70480f |    7.14 |    7.17 |    7.28 |    7.16 |
+      | #863927 |    7.13 |    7.15 |    7.27 |    7.15 |
+      | #5f4400 |    8.10 |    8.12 |    8.26 |    8.12 |
+      | #5d5000 |    7.17 |    7.19 |    7.31 |    7.19 |
+      | #5e3a20 |    8.91 |    8.94 |    9.09 |    8.93 |
+      | #0031a9 |    9.31 |    9.34 |    9.49 |    9.33 |
+      | #2544bb |    7.14 |    7.16 |    7.28 |    7.16 |
+      | #0000c0 |   10.64 |   10.67 |   10.85 |   10.66 |
+      | #003497 |    9.66 |    9.70 |    9.86 |    9.69 |
+      | #0f3d8c |    9.06 |    9.09 |    9.24 |    9.09 |
+      | #001087 |   13.15 |   13.20 |   13.42 |   13.19 |
+      | #721045 |    9.99 |   10.02 |   10.19 |   10.01 |
+      | #8f0075 |    7.72 |    7.75 |    7.88 |    7.74 |
+      | #5317ac |    8.98 |    9.01 |    9.16 |    9.00 |
+      | #752f50 |    8.22 |    8.25 |    8.38 |    8.24 |
+      | #7b206f |    8.22 |    8.25 |    8.38 |    8.24 |
+      | #55348e |    8.26 |    8.29 |    8.42 |    8.28 |
+      | #00538b |    7.18 |    7.20 |    7.32 |    7.19 |
+      | #30517f |    7.18 |    7.20 |    7.32 |    7.20 |
+      | #005a5f |    7.13 |    7.15 |    7.27 |    7.15 |
+      | #005077 |    7.76 |    7.79 |    7.91 |    7.78 |
+      | #354f6f |    7.49 |    7.52 |    7.64 |    7.51 |
+      | #125458 |    7.69 |    7.72 |    7.85 |    7.71 |
+
+      Modus Vivendi main accept colours against faint special backgrounds:
+
+      |         | #0e183a | #001f1a | #241613 | #251232 |
+      |---------+---------+---------+---------+---------|
+      | #ff8059 |    7.01 |    7.01 |    7.07 |    7.00 |
+      | #ef8b50 |    7.01 |    7.00 |    7.07 |    7.00 |
+      | #ff9077 |    7.85 |    7.85 |    7.93 |    7.85 |
+      | #ffa0a0 |    8.91 |    8.91 |    9.00 |    8.91 |
+      | #f5aa80 |    9.04 |    9.04 |    9.13 |    9.04 |
+      | #ff9fbf |    9.06 |    9.05 |    9.14 |    9.05 |
+      | #44bc44 |    7.04 |    7.04 |    7.11 |    7.04 |
+      | #70b900 |    7.13 |    7.13 |    7.20 |    7.12 |
+      | #00c06f |    7.24 |    7.24 |    7.31 |    7.24 |
+      | #78bf78 |    7.87 |    7.86 |    7.94 |    7.86 |
+      | #99b56f |    7.60 |    7.59 |    7.67 |    7.59 |
+      | #88bf99 |    8.23 |    8.22 |    8.30 |    8.22 |
+      | #d0bc00 |    8.98 |    8.98 |    9.07 |    8.98 |
+      | #c0c530 |    9.31 |    9.31 |    9.40 |    9.30 |
+      | #d3b55f |    8.71 |    8.71 |    8.79 |    8.71 |
+      | #d2b580 |    8.81 |    8.80 |    8.89 |    8.80 |
+      | #cabf77 |    9.28 |    9.27 |    9.36 |    9.27 |
+      | #d0ba95 |    9.20 |    9.20 |    9.29 |    9.20 |
+      | #2fafff |    7.18 |    7.18 |    7.25 |    7.18 |
+      | #79a8ff |    7.32 |    7.32 |    7.39 |    7.31 |
+      | #00bcff |    7.96 |    7.96 |    8.04 |    7.96 |
+      | #82b0ec |    7.74 |    7.74 |    7.81 |    7.74 |
+      | #a0acef |    7.97 |    7.96 |    8.04 |    7.96 |
+      | #80b2f0 |    7.89 |    7.88 |    7.96 |    7.88 |
+      | #feacd0 |    9.94 |    9.93 |   10.03 |    9.93 |
+      | #f78fe7 |    8.29 |    8.29 |    8.37 |    8.29 |
+      | #b6a0ff |    7.82 |    7.81 |    7.89 |    7.81 |
+      | #e0b2d6 |    9.51 |    9.50 |    9.60 |    9.50 |
+      | #ef9fe4 |    8.88 |    8.88 |    8.96 |    8.87 |
+      | #cfa6ff |    8.72 |    8.71 |    8.80 |    8.71 |
+      | #00d3d0 |    9.28 |    9.27 |    9.36 |    9.27 |
+      | #4ae2f0 |   11.09 |   11.09 |   11.20 |   11.09 |
+      | #6ae4b9 |   11.08 |   11.07 |   11.18 |   11.07 |
+      | #90c4ed |    9.34 |    9.34 |    9.43 |    9.33 |
+      | #a0bfdf |    9.10 |    9.09 |    9.18 |    9.09 |
+      | #a4d0bb |   10.18 |   10.17 |   10.27 |   10.17 |
+
+,* Add docs on color overrides through blending.  Thanks to Alex Griffin
+  for the contribution in issue 269 and the subsequent patch in merge
+  request 56 (the patch is exempt from copyright assignment):
+
+  - <https://gitlab.com/protesilaos/modus-themes/-/issues/269>.
+  - <https://gitlab.com/protesilaos/modus-themes/-/merge_requests/56>.
+
+,* Fixed typo in the ':group' value of some faces defined in
+  modus-themes.el.  Thanks to Gustavo Barros for reporting it in issue
+  266: <https://gitlab.com/protesilaos/modus-themes/-/issues/266>
+
+,* Updated copyright statement in all .el files to use the same wording
+  as all other files that are built into Emacs.
+
+,* Made all sorts of tweaks and refinements to doc strings and nodes in the
+  manual.
+
+Thanks again to everyone involved!  This has been yet another cycle of
+intense work which further iterated on an already solid base.
+#+end_src
+
 * 2.0.0
 
 #+begin_src text
