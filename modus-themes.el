@@ -2999,7 +2999,7 @@ In user configuration files the form may look like this:
                       (const :tag "Extra-light" extralight)
                       (const :tag "Light" light)
                       (const :tag "Semi-light" semilight)
-                      (const :tag "Regulat (default)" nil)
+                      (const :tag "Regular (default)" nil)
                       (const :tag "Medium" medium)
                       (const :tag "Bold" bold)
                       (const :tag "Semi-bold" semibold)
