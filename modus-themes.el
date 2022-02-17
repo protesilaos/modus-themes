@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.0.0
-;; Last-Modified: <2022-02-15 18:31:12 +0200>
+;; Last-Modified: <2022-02-17 06:17:19 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -4464,7 +4464,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(widget-button ((,class :inherit bold :foreground ,blue-alt)))
     `(widget-button-pressed ((,class :inherit widget-button :foreground ,magenta)))
     `(widget-documentation ((,class :foreground ,green)))
-    `(widget-field ((,class :background ,bg-alt :foreground ,fg-dim)))
+    `(widget-field ((,class :background ,bg-alt :foreground ,fg-main :extend nil)))
     `(widget-inactive ((,class :inherit shadow :background ,bg-dim)))
     `(widget-single-line-field ((,class :inherit widget-field)))
 ;;;;; alert
@@ -4885,7 +4885,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(custom-modified ((,class :inherit modus-themes-subtle-cyan)))
     `(custom-rogue ((,class :inherit modus-themes-refine-magenta)))
     `(custom-set ((,class :foreground ,blue-alt)))
-    `(custom-state ((,class :foreground ,cyan-alt-other)))
+    `(custom-state ((,class :foreground ,red-alt-faint)))
     `(custom-themed ((,class :inherit modus-themes-subtle-blue)))
     `(custom-variable-tag ((,class :foreground ,cyan)))
 ;;;;; dap-mode
@@ -5387,8 +5387,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(eww-form-file ((,class :inherit eww-form-submit)))
     `(eww-form-select ((,class :inherit eww-form-submit)))
     `(eww-form-submit ((,class :inherit modus-themes-box-button)))
-    `(eww-form-text ((,class :box ,bg-active :background ,bg-alt)))
-    `(eww-form-textarea ((,class :background ,bg-alt)))
+    `(eww-form-text ((,class :inherit widget-field)))
+    `(eww-form-textarea ((,class :inherit eww-form-text)))
 ;;;;; eyebrowse
     `(eyebrowse-mode-line-active ((,class :inherit bold :foreground ,blue-active)))
 ;;;;; fancy-dabbrev
