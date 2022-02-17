@@ -71,10 +71,10 @@ Customisation options
 ,* Implemented the 'modus-themes-markup' variable, which supersedes the
   now-deprecated 'modus-themes-intense-markup'.  The new user option
   accepts a list of properties (symbols).  It affects constructs such as
-  Org's =verbatim=, ~code~, and {{{macro}}}.  By default, when this user
-  option is either nil or an empty list, the affected constructs only
-  have a foreground colour (e.g. Org verbatim is magenta).  Properties
-  that change this style are:
+  Org's =verbatim=, ~code~, and macro (with three pairs of braces).  By
+  default, when this user option is either nil or an empty list, the
+  affected constructs only have a foreground colour (e.g. Org verbatim
+  is magenta).  Properties that change this style are:
 
   1. 'italic' for an added slant to the text.
   2. 'bold' for a heavier weight.
