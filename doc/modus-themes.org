@@ -260,9 +260,9 @@ a theme with either of the following expressions:
 Changes to the available customization options must always be evaluated
 before loading a theme ([[#h:bf1c82f2-46c7-4eb2-ad00-dd11fdd8b53f][Customization Options]]).  An exception to this
 norm is when using the various Custom interfaces or with commands like
-{{{kbd(M-x customize-set-variable)}}}, which automatically reload the theme by
-default ([[#h:9001527a-4e2c-43e0-98e8-3ef72d770639][Option for inhibiting theme reload]]).  This is how a basic setup
-could look like:
+{{{kbd(M-x customize-set-variable)}}}, which can automatically reload
+the theme ([[#h:9001527a-4e2c-43e0-98e8-3ef72d770639][Option for inhibiting theme reload]]).  This is how a basic
+setup could look like:
 
 #+begin_src emacs-lisp
 (require 'modus-themes)
