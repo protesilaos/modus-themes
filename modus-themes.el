@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.1.0
-;; Last-Modified: <2022-02-17 10:36:27 +0200>
+;; Last-Modified: <2022-02-18 15:27:07 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -4887,6 +4887,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(custom-set ((,class :foreground ,blue-alt)))
     `(custom-state ((,class :foreground ,red-alt-faint)))
     `(custom-themed ((,class :inherit modus-themes-subtle-blue)))
+    `(custom-variable-obsolete ((,class :inherit shadow)))
     `(custom-variable-tag ((,class :foreground ,cyan)))
 ;;;;; dap-mode
     `(dap-mouse-eval-thing-face ((,class :box (:line-width -1 :color ,blue-active :style nil)
