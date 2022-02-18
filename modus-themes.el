@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.1.0
-;; Last-Modified: <2022-02-18 15:27:07 +0200>
+;; Last-Modified: <2022-02-18 16:14:35 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -2414,7 +2414,7 @@ instead of a box style, it is strongly advised to set
                       (const :tag "No box effects (Moody-compatible)" moody))
               (const :tag "Colored background" accented)
               (const :tag "Without border color" borderless)
-              (natnum :tag "With extra padding" :value 6))
+              (natnum :tag "With extra padding"))
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Mode line"))
