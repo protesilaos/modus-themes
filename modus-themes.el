@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.1.0
-;; Last-Modified: <2022-02-22 11:34:36 +0200>
+;; Last-Modified: <2022-02-22 19:21:55 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -6640,8 +6640,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                        bg-dim fg-special-cold
                                        bg-alt fg-alt))))
     `(org-block-end-line ((,class :inherit org-block-begin-line)))
-    `(org-checkbox ((,class :box (:line-width 1 :color ,bg-active)
-                            :background ,bg-inactive :foreground ,fg-active)))
+    `(org-checkbox (( )))
     `(org-checkbox-statistics-done ((,class :inherit org-done)))
     `(org-checkbox-statistics-todo ((,class :inherit org-todo)))
     `(org-clock-overlay ((,class :inherit modus-themes-special-cold)))
