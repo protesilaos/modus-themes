@@ -133,7 +133,22 @@ demonstration:
       ;; symbols: `background', `bold', `gray', `intense', `italic'
       modus-themes-prompts '(intense bold)
 
-      modus-themes-completions 'moderate ; {nil,'moderate,'opinionated,'super-opinionated}
+      ;; The `modus-themes-completions' is an alist that reads three
+      ;; keys: `matches', `selection', `popup'.  Each accepts a nil
+      ;; value (or empty list) or a list of properties that can include
+      ;; any of the following (for WEIGHT read further below):
+      ;;
+      ;; `key' - `background', `intense', `underline', `italic', WEIGHT
+      ;; `selection' - `accented', `intense', `underline', `italic', WEIGHT
+      ;; `popup' - same as `selected'
+      ;; `t' - applies to any key not explicitly referenced (check docs)
+      ;;
+      ;; WEIGHT is a symbol such as `semibold', `light', or anything
+      ;; covered in `modus-themes-weights'.  Bold is used in the absence
+      ;; of an explicit WEIGHT.
+      modus-themes-completions '((matches . (extrabold))
+                                 (selection . (semibold accented))
+                                 (popup . (accented intense)))
 
       modus-themes-mail-citations nil ; {nil,'intense,'faint,'monochrome}
 

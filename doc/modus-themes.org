@@ -474,7 +474,22 @@ this manual.
       ;; symbols: `background', `bold', `gray', `intense', `italic'
       modus-themes-prompts '(intense bold)
 
-      modus-themes-completions 'moderate ; {nil,'moderate,'opinionated,'super-opinionated}
+      ;; The `modus-themes-completions' is an alist that reads three
+      ;; keys: `matches', `selection', `popup'.  Each accepts a nil
+      ;; value (or empty list) or a list of properties that can include
+      ;; any of the following (for WEIGHT read further below):
+      ;;
+      ;; `key' - `background', `intense', `underline', `italic', WEIGHT
+      ;; `selection' - `accented', `intense', `underline', `italic', WEIGHT
+      ;; `popup' - same as `selected'
+      ;; `t' - applies to any key not explicitly referenced (check docs)
+      ;;
+      ;; WEIGHT is a symbol such as `semibold', `light', or anything
+      ;; covered in `modus-themes-weights'.  Bold is used in the absence
+      ;; of an explicit WEIGHT.
+      modus-themes-completions '((matches . (extrabold))
+                                 (selection . (semibold accented))
+                                 (popup . (accented intense)))
 
       modus-themes-mail-citations nil ; {nil,'intense,'faint,'monochrome}
 
@@ -1060,53 +1075,105 @@ Centaur tabs package.
 ** Option for completion framework aesthetics
 :properties:
 :alt_title: Completion UIs
-:description: Choose among standard, moderate, or opinionated looks
+:description: Choose among several styles for completion UIs
 :custom_id: h:f1c20c02-7b34-4c35-9c65-99170efb2882
 :end:
 #+vindex: modus-themes-completions
 
+[ Refactored as part of {{{development-version}}} ]
+
 Brief: Set the overall style of completion framework interfaces.
 
-Symbol: ~modus-themes-completions~ (=choice= type)
+Symbol: ~modus-themes-completions~ (=alist= type properties)
 
-Possible values:
+This affects Company, Corfu, Flx, Helm, Icomplete/Fido, Ido, Ivy, Mct,
+Orderless, Selectrum, Vertico.  The value is an alist that takes the
+form of a =(key . properties)= combination.  Here is a sample, followed
+by a description of the particularities:
 
-1. ~nil~ (default)
-2. ~moderate~
-3. ~opinionated~
-4. ~super-opinionated~
+#+begin_src emacs-lisp
+(setq modus-themes-completions
+      '((matches . (extrabold background intense))
+        (selection . (semibold accented intense))
+        (popup . (accented))))
+#+end_src
 
-This is a special option that has different effects depending on the
-completion UI.  The interfaces can be grouped in two categories, based
-on their default aesthetics: (i) those that only or mostly use
-foreground colors for their interaction model, and (ii) those that
-combine background and foreground values for some of their metaphors.
-The former category encompasses Icomplete, Ido, Selectrum, Vertico, Mct,
-as well as pattern matching styles like Orderless and Flx.  The latter
-covers Helm and Ivy.
+The ~matches~ key refers to the highlighted characters that correspond
+to the user's input.  By default (nil or an empty list), they have a
+bold weight and a colored foreground.  The list of properties may
+include any of the following symbols regardless of the order they may
+appear in:
 
-A value of nil (the default) will simply respect the metaphors of each
-completion framework.
+- ~background~ to add a background color;
 
-Option ~moderate~ applies a combination of background and foreground that
-is fairly subtle.  For Icomplete and friends this constitutes a
-departure from their default aesthetics, however the difference is
-small.  While Helm and Ivy appear slightly different than their original
-looks, as they are toned down a bit.
+- ~intense~ to increase the overall coloration (also amplifies
+  the ~background~, if present);
 
-Option ~opinionated~ uses color combinations that refashion the completion
-UI.  For the Icomplete camp this means that intense background and
-foreground combinations are used: in effect their looks approximate
-those of Helm and Ivy in their original style.  Whereas the other group
-of packages will revert to an even more nuanced aesthetic with some
-additional changes to the choice of hues.
+- ~underline~ to draw a line below the characters;
 
-Option ~super-opinionated~ is like the ~opinionated~ though it has a more
-pronounced effect, especially on the color of the current
-line/candidate.
+- ~italic~ to use a slanted font (italic or oblique forms);
 
-To appreciate the scope of this customization option, you should spend
-some time with every one of those presets.
+- The symbol of a font weight attribute such as ~light~, ~semibold~, et
+  cetera.  Valid symbols are defined in the ~modus-themes-weights~
+  variable.  The absence of a weight means that bold will be used.
+
+The ~selection~ key applies to the current line or currently matched
+candidate, depending on the specifics of the User Interface.  By default
+(nil or an empty list), it has a subtle gray background and a bold
+weight.  The list of properties it accepts is as follows (order is not
+significant):
+
+- ~accented~ to make the background colorful instead of gray;
+
+- ~intense~ to increase the overall coloration;
+
+- ~underline~ to draw a line below the characters;
+
+- ~italic~ to use a slanted font (italic or oblique forms);
+
+- The symbol of a font weight attribute such as ~light~, ~semibold~, et
+  cetera.  Valid symbols are defined in the ~modus-themes-weights~
+  variable.  The absence of a weight means that bold will be used.
+
+The ~popup~ key takes the same values as ~selection~.
+
+Apart from specfying each key separately, a fallback list is accepted.
+This is only useful when the desired aesthetic is the same across all
+keys that are not explicitly referenced.  For example, this:
+
+#+begin_src emacs-lisp
+(setq modus-themes-completions
+      '((t . (extrabold intense))))
+#+end_src
+
+Is the same as:
+
+#+begin_src emacs-lisp
+(setq modus-themes-completions
+      '((matches . (extrabold intense))
+        (selection . (extrabold intense))
+        (popup . (extrabold intense))))
+#+end_src
+
+In the case of the fallback, any property that does not apply to the
+corresponding key is simply ignored (~matches~ does not have ~accented~,
+~selection~ and ~popup~ do not have ~background~).
+
+A concise expression of those associations can be written as follows,
+where the ~car~ is always the key and the ~cdr~ is the list of
+properties (whatever order they may appear in):
+
+#+begin_src emacs-lisp
+(setq modus-themes-completions
+      '((matches extrabold background intense)
+        (selection semibold accented intense)
+        (popup accented)))
+#+end_src
+
+[[#h:2793a224-2109-4f61-a106-721c57c01375][Configure bold and italic faces]].
+
+Also refer to the Orderless documentation for its intersection with
+Company (if you choose to use those in tandem).
 
 ** Option for mail citations
 :properties:

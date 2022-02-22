@@ -101,7 +101,7 @@ Customization Options
 * Command prompts::              Choose among plain, subtle, or intense prompts
 * Mode line::                    Choose among several styles, with or without borders
 * Tab style::                    Toggle accented background for tabs
-* Completion UIs::               Choose among standard, moderate, or opinionated looks
+* Completion UIs::               Choose among several styles for completion UIs
 * Mail citations::               Choose among colorful, desaturated, monochrome citations
 * Fringes::                      Choose among invisible, subtle, or intense fringe styles
 * Language checkers::            Control the style of language checkers/linters
@@ -619,7 +619,22 @@ of this manual.
            ;; symbols: `background', `bold', `gray', `intense', `italic'
            modus-themes-prompts '(intense bold)
 
-           modus-themes-completions 'moderate ; {nil,'moderate,'opinionated,'super-opinionated}
+           ;; The `modus-themes-completions' is an alist that reads three
+           ;; keys: `matches', `selection', `popup'.  Each accepts a nil
+           ;; value (or empty list) or a list of properties that can include
+           ;; any of the following (for WEIGHT read further below):
+           ;;
+           ;; `key' - `background', `intense', `underline', `italic', WEIGHT
+           ;; `selection' - `accented', `intense', `underline', `italic', WEIGHT
+           ;; `popup' - same as `selected'
+           ;; `t' - applies to any key not explicitly referenced (check docs)
+           ;;
+           ;; WEIGHT is a symbol such as `semibold', `light', or anything
+           ;; covered in `modus-themes-weights'.  Bold is used in the absence
+           ;; of an explicit WEIGHT.
+           modus-themes-completions '((matches . (extrabold))
+                                      (selection . (semibold accented))
+                                      (popup . (accented intense)))
 
            modus-themes-mail-citations nil ; {nil,'intense,'faint,'monochrome}
 
@@ -658,7 +673,7 @@ of this manual.
 * Command prompts::              Choose among plain, subtle, or intense prompts
 * Mode line::                    Choose among several styles, with or without borders
 * Tab style::                    Toggle accented background for tabs
-* Completion UIs::               Choose among standard, moderate, or opinionated looks
+* Completion UIs::               Choose among several styles for completion UIs
 * Mail citations::               Choose among colorful, desaturated, monochrome citations
 * Fringes::                      Choose among invisible, subtle, or intense fringe styles
 * Language checkers::            Control the style of language checkers/linters
@@ -1205,48 +1220,92 @@ File: modus-themes.info,  Node: Completion UIs,  Next: Mail citations,  Prev: Ta
 4.12 Option for completion framework aesthetics
 ===============================================
 
-Brief: Set the overall style of completion framework interfaces.
+[ Refactored as part of 2.2.0-dev ]
 
-   Symbol: ‘modus-themes-completions’ (‘choice’ type)
+   Brief: Set the overall style of completion framework interfaces.
 
-   Possible values:
+   Symbol: ‘modus-themes-completions’ (‘alist’ type properties)
 
-  1. ‘nil’ (default)
-  2. ‘moderate’
-  3. ‘opinionated’
-  4. ‘super-opinionated’
+   This affects Company, Corfu, Flx, Helm, Icomplete/Fido, Ido, Ivy,
+Mct, Orderless, Selectrum, Vertico.  The value is an alist that takes
+the form of a ‘(key . properties)’ combination.  Here is a sample,
+followed by a description of the particularities:
 
-   This is a special option that has different effects depending on the
-completion UI.  The interfaces can be grouped in two categories, based
-on their default aesthetics: (i) those that only or mostly use
-foreground colors for their interaction model, and (ii) those that
-combine background and foreground values for some of their metaphors.
-The former category encompasses Icomplete, Ido, Selectrum, Vertico, Mct,
-as well as pattern matching styles like Orderless and Flx.  The latter
-covers Helm and Ivy.
+     (setq modus-themes-completions
+           '((matches . (extrabold background intense))
+             (selection . (semibold accented intense))
+             (popup . (accented))))
 
-   A value of nil (the default) will simply respect the metaphors of
-each completion framework.
+   The ‘matches’ key refers to the highlighted characters that
+correspond to the user’s input.  By default (nil or an empty list), they
+have a bold weight and a colored foreground.  The list of properties may
+include any of the following symbols regardless of the order they may
+appear in:
 
-   Option ‘moderate’ applies a combination of background and foreground
-that is fairly subtle.  For Icomplete and friends this constitutes a
-departure from their default aesthetics, however the difference is
-small.  While Helm and Ivy appear slightly different than their original
-looks, as they are toned down a bit.
+   • ‘background’ to add a background color;
 
-   Option ‘opinionated’ uses color combinations that refashion the
-completion UI.  For the Icomplete camp this means that intense
-background and foreground combinations are used: in effect their looks
-approximate those of Helm and Ivy in their original style.  Whereas the
-other group of packages will revert to an even more nuanced aesthetic
-with some additional changes to the choice of hues.
+   • ‘intense’ to increase the overall coloration (also amplifies the
+     ‘background’, if present);
 
-   Option ‘super-opinionated’ is like the ‘opinionated’ though it has a
-more pronounced effect, especially on the color of the current
-line/candidate.
+   • ‘underline’ to draw a line below the characters;
 
-   To appreciate the scope of this customization option, you should
-spend some time with every one of those presets.
+   • ‘italic’ to use a slanted font (italic or oblique forms);
+
+   • The symbol of a font weight attribute such as ‘light’, ‘semibold’,
+     et cetera.  Valid symbols are defined in the ‘modus-themes-weights’
+     variable.  The absence of a weight means that bold will be used.
+
+   The ‘selection’ key applies to the current line or currently matched
+candidate, depending on the specifics of the User Interface.  By default
+(nil or an empty list), it has a subtle gray background and a bold
+weight.  The list of properties it accepts is as follows (order is not
+significant):
+
+   • ‘accented’ to make the background colorful instead of gray;
+
+   • ‘intense’ to increase the overall coloration;
+
+   • ‘underline’ to draw a line below the characters;
+
+   • ‘italic’ to use a slanted font (italic or oblique forms);
+
+   • The symbol of a font weight attribute such as ‘light’, ‘semibold’,
+     et cetera.  Valid symbols are defined in the ‘modus-themes-weights’
+     variable.  The absence of a weight means that bold will be used.
+
+   The ‘popup’ key takes the same values as ‘selection’.
+
+   Apart from specfying each key separately, a fallback list is
+accepted.  This is only useful when the desired aesthetic is the same
+across all keys that are not explicitly referenced.  For example, this:
+
+     (setq modus-themes-completions
+           '((t . (extrabold intense))))
+
+   Is the same as:
+
+     (setq modus-themes-completions
+           '((matches . (extrabold intense))
+             (selection . (extrabold intense))
+             (popup . (extrabold intense))))
+
+   In the case of the fallback, any property that does not apply to the
+corresponding key is simply ignored (‘matches’ does not have ‘accented’,
+‘selection’ and ‘popup’ do not have ‘background’).
+
+   A concise expression of those associations can be written as follows,
+where the ‘car’ is always the key and the ‘cdr’ is the list of
+properties (whatever order they may appear in):
+
+     (setq modus-themes-completions
+           '((matches extrabold background intense)
+             (selection semibold accented intense)
+             (popup accented)))
+
+   *note Configure bold and italic faces::.
+
+   Also refer to the Orderless documentation for its intersection with
+Company (if you choose to use those in tandem).
 
 
 File: modus-themes.info,  Node: Mail citations,  Next: Fringes,  Prev: Completion UIs,  Up: Customization Options
@@ -5996,113 +6055,113 @@ B.3 Concept index
 
 Tag Table:
 Node: Top860
-Node: Overview7189
-Node: How do the themes look like9313
-Node: Learn about the latest changes9827
-Node: Installation10215
-Node: Install manually from source10696
-Node: Install from the archives11521
-Node: Install on GNU/Linux12298
-Node: Debian 11 Bullseye12746
-Node: GNU Guix13056
-Node: Enable and load13339
-Node: Sample configuration with and without use-package16279
-Node: Differences between loading and enabling18231
-Node: Customization Options20240
-Node: Custom reload theme27245
-Node: Deuteranopia style28035
-Node: Bold constructs29466
-Node: Italic constructs30300
-Node: Syntax styles31067
-Node: Mixed fonts33199
-Node: Link styles34463
-Node: Box buttons36937
-Node: Command prompts39605
-Node: Mode line41426
-Node: Tab style45919
-Node: Completion UIs46582
-Node: Mail citations48653
-Node: Fringes49799
-Node: Language checkers50539
-Node: Line highlighting52981
-Node: Line numbers54578
-Node: Markup55646
-Node: Matching parentheses57239
-Node: Active region58616
-Node: Diffs60029
-Node: Org mode blocks61680
-Node: Org agenda64070
-Node: Heading styles72513
-Node: UI typeface76937
-Node: Advanced customization77836
-Node: More accurate colors in terminal emulators79424
-Node: Visualize the active Modus theme's palette80669
-Node: Per-theme customization settings81669
-Node: Case-by-case face specs using the themes' palette83025
-Node: Face specs at scale using the themes' palette87573
-Node: Remap face with local value92374
-Node: Cycle through arbitrary colors94799
-Node: Override colors101227
-Node: Override color saturation106092
-Node: Override colors through blending111771
-Node: Font configurations for Org and others114628
-Ref: Font configurations for Org and others-Footnote-1117444
-Node: Configure bold and italic faces117631
-Node: Custom Org todo keyword and priority faces121779
-Node: Custom Org emphasis faces125452
-Node: Update Org block delimiter fontification130253
-Node: Measure color contrast132170
-Node: Load theme depending on time of day134893
-Node: Backdrop for pdf-tools135886
-Node: Decrease mode line height138738
-Node: Toggle themes without reloading them142860
-Node: A theme-agnostic hook for theme loading144139
-Node: Diffs with only the foreground146541
-Node: Ediff without diff color-coding149655
-Node: Face coverage151750
-Node: Supported packages152202
-Node: Indirectly covered packages158718
-Node: Notes on individual packages159738
-Node: Note on avy hints160802
-Node: Note on calendarel weekday and weekend colors161970
-Node: Note on underlines in compilation buffers163153
-Node: Note on inline Latex in Org buffers164000
-Node: Note on dimmerel164610
-Node: Note on display-fill-column-indicator-mode166095
-Node: Note on highlight-parenthesesel167658
-Node: Note on mmm-modeel background colors173647
-Node: Note for prism175962
-Node: Note for god-mode179116
-Node: Note on company-mode overlay pop-up180720
-Ref: Note on company-mode overlay pop-up-Footnote-1181410
-Ref: Note on company-mode overlay pop-up-Footnote-2181477
-Node: Note on ERC escaped color sequences181532
-Ref: Note on ERC escaped color sequences-Footnote-1182960
-Node: Note on powerline or spaceline183070
-Node: Note on SHR colors183484
-Node: Note on SHR fonts183896
-Node: Note on Ement colors and fonts184529
-Node: Note on Helm grep186028
-Node: Note on vc-annotate-background-mode187505
-Node: Note on pdf-tools link hints188390
-Node: Frequently Asked Questions190822
-Node: Is the contrast ratio about adjacent colors?191453
-Node: What does it mean to avoid exaggerations?192960
-Node: Why are colors mostly variants of blue magenta cyan?194789
-Node: What is the best setup for legibility?199102
-Node: Are these color schemes?201747
-Node: Port the Modus themes to other platforms?205467
-Node: Contributing208251
-Node: Sources of the themes208648
-Node: Issues you can help with209284
-Node: Patches require copyright assignment to the FSF210484
-Node: Acknowledgements212779
-Node: Meta215775
-Node: GNU Free Documentation License218254
-Node: Indices243606
-Node: Function index243785
-Node: Variable index245308
-Node: Concept index247522
+Node: Overview7182
+Node: How do the themes look like9306
+Node: Learn about the latest changes9820
+Node: Installation10208
+Node: Install manually from source10689
+Node: Install from the archives11514
+Node: Install on GNU/Linux12291
+Node: Debian 11 Bullseye12739
+Node: GNU Guix13049
+Node: Enable and load13332
+Node: Sample configuration with and without use-package16272
+Node: Differences between loading and enabling18224
+Node: Customization Options20233
+Node: Custom reload theme28125
+Node: Deuteranopia style28915
+Node: Bold constructs30346
+Node: Italic constructs31180
+Node: Syntax styles31947
+Node: Mixed fonts34079
+Node: Link styles35343
+Node: Box buttons37817
+Node: Command prompts40485
+Node: Mode line42306
+Node: Tab style46799
+Node: Completion UIs47462
+Node: Mail citations51210
+Node: Fringes52356
+Node: Language checkers53096
+Node: Line highlighting55538
+Node: Line numbers57135
+Node: Markup58203
+Node: Matching parentheses59796
+Node: Active region61173
+Node: Diffs62586
+Node: Org mode blocks64237
+Node: Org agenda66627
+Node: Heading styles75070
+Node: UI typeface79494
+Node: Advanced customization80393
+Node: More accurate colors in terminal emulators81981
+Node: Visualize the active Modus theme's palette83226
+Node: Per-theme customization settings84226
+Node: Case-by-case face specs using the themes' palette85582
+Node: Face specs at scale using the themes' palette90130
+Node: Remap face with local value94931
+Node: Cycle through arbitrary colors97356
+Node: Override colors103784
+Node: Override color saturation108649
+Node: Override colors through blending114328
+Node: Font configurations for Org and others117185
+Ref: Font configurations for Org and others-Footnote-1120001
+Node: Configure bold and italic faces120188
+Node: Custom Org todo keyword and priority faces124336
+Node: Custom Org emphasis faces128009
+Node: Update Org block delimiter fontification132810
+Node: Measure color contrast134727
+Node: Load theme depending on time of day137450
+Node: Backdrop for pdf-tools138443
+Node: Decrease mode line height141295
+Node: Toggle themes without reloading them145417
+Node: A theme-agnostic hook for theme loading146696
+Node: Diffs with only the foreground149098
+Node: Ediff without diff color-coding152212
+Node: Face coverage154307
+Node: Supported packages154759
+Node: Indirectly covered packages161275
+Node: Notes on individual packages162295
+Node: Note on avy hints163359
+Node: Note on calendarel weekday and weekend colors164527
+Node: Note on underlines in compilation buffers165710
+Node: Note on inline Latex in Org buffers166557
+Node: Note on dimmerel167167
+Node: Note on display-fill-column-indicator-mode168652
+Node: Note on highlight-parenthesesel170215
+Node: Note on mmm-modeel background colors176204
+Node: Note for prism178519
+Node: Note for god-mode181673
+Node: Note on company-mode overlay pop-up183277
+Ref: Note on company-mode overlay pop-up-Footnote-1183967
+Ref: Note on company-mode overlay pop-up-Footnote-2184034
+Node: Note on ERC escaped color sequences184089
+Ref: Note on ERC escaped color sequences-Footnote-1185517
+Node: Note on powerline or spaceline185627
+Node: Note on SHR colors186041
+Node: Note on SHR fonts186453
+Node: Note on Ement colors and fonts187086
+Node: Note on Helm grep188585
+Node: Note on vc-annotate-background-mode190062
+Node: Note on pdf-tools link hints190947
+Node: Frequently Asked Questions193379
+Node: Is the contrast ratio about adjacent colors?194010
+Node: What does it mean to avoid exaggerations?195517
+Node: Why are colors mostly variants of blue magenta cyan?197346
+Node: What is the best setup for legibility?201659
+Node: Are these color schemes?204304
+Node: Port the Modus themes to other platforms?208024
+Node: Contributing210808
+Node: Sources of the themes211205
+Node: Issues you can help with211841
+Node: Patches require copyright assignment to the FSF213041
+Node: Acknowledgements215336
+Node: Meta218332
+Node: GNU Free Documentation License220811
+Node: Indices246163
+Node: Function index246342
+Node: Variable index247865
+Node: Concept index250079
 
 End Tag Table
 
