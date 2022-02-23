@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.2.0
-;; Last-Modified: <2022-02-23 11:35:24 +0200>
+;; Last-Modified: <2022-02-23 18:55:19 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -4227,30 +4227,6 @@ as when they are declared in the `:config' phase)."
 
 (defvar modus-themes-after-load-theme-hook nil
   "Hook that runs after the `modus-themes-toggle' routines.")
-
-;; The reason we use `load-theme' instead of `enable-theme' is that the
-;; former does a kind of "reset" on the face specs.  So it plays nicely
-;; with `custom-set-faces', as well as defcustom user customizations,
-;; including the likes of `modus-themes-operandi-color-overrides'.
-;;
-;; Tests show that `enable-theme' does not re-read those variables, so
-;; it might appear to the unsuspecting user that the themes are somehow
-;; broken.
-;;
-;; This "reset", however, comes at the cost of being a bit slower than
-;; `enable-theme'.  User who have a stable setup and seldom update their
-;; variables during a given Emacs session, are better off using
-;; something like this:
-;;
-;; (defun modus-themes-toggle-enabled ()
-;;   "Toggle between `modus-operandi' and `modus-vivendi' themes."
-;;   (interactive)
-;;   (pcase (modus-themes--current-theme)
-;;     ('modus-operandi (progn (enable-theme 'modus-vivendi)
-;;                             (disable-theme 'modus-operandi)))
-;;     ('modus-vivendi (progn (enable-theme 'modus-operandi)
-;;                             (disable-theme 'modus-vivendi)))
-;;     (_ (error "No Modus theme is loaded; evaluate `modus-themes-load-themes' first"))))
 
 ;;;###autoload
 (defun modus-themes-load-operandi ()
