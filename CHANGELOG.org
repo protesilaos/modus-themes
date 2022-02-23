@@ -15,6 +15,113 @@ For further details, please consult these additional resources:
 + Manual :: <https://protesilaos.com/emacs/modus-themes>
 + Screenshots :: <https://protesilaos.com/emacs/modus-themes-pictures>
 
+* 2.2.0
+
+#+begin_src text
+Modus themes version 2.2.0
+
+By Protesilaos Stavrou <info@protesilaos.com> on 2022-02-23
+
+The present entry records the changes made to the project since the
+publication of version 2.1.0 on 2022-02-17.  This spans about 10 commits
+(though one of them is massive).  Normally the release cycle occurs over
+periods of 4-5 weeks.  This is a necessary exception.
+
+To access the URL of the manual visit this web page:
+<https://protesilaos.com/emacs/modus-themes>.  Or read it in the Emacs
+Info reader by evaluating this form:
+
+    (info "(modus-themes) Top")
+
+The 'modus-operandi' and 'modus-vivendi' themes are built into Emacs-28
+(next stable release) or later, and are available on GNU ELPA as well as
+other archives.  Emacs-28 ships version 1.6.0, while the current
+'master' branch (i.e. Emacs-29) and, by extension, GNU ELPA include the
+latest tagged release.
+
+
+Initialisation of user options
+==============================
+
+Removed a superfluous default value that hampered the initialisation of
+defcustom forms in the M-x customize interface.  Things would still
+work, but the interface was not looking right while editing the relevant
+variables.  Thanks to Gustavo Barros for reporting the bug in issue 267:
+<https://gitlab.com/protesilaos/modus-themes/-/issues/267>.
+
+
+Refactor 'modus-themes-completions'
+===================================
+
+Implemented thoroughgoing reforms across all completion User Interfaces
+(UIs) in order to make them more flexible/powerful and harmonise their
+looks.
+
+'modus-themes-completions' now accepts an alist instead of a symbol.
+Each cons cell is in the form of '(key . list-of-properties)'.  The doc
+string describes all the details.
+
+In terms of out-of-the-box appearences, all completion UIs have a subtle
+aesthetic.  This was always the case for the likes of Vertico, Icomplete
+(Fido), and related, though it constitutes a marked departure from what
+Ivy and Helm used to look like.  Users of the latter two can still get
+the more colourful or intense style with something like this:
+
+    (setq modus-themes-completions '((matches . (background intense))
+                                     (selection . (accented intense))
+                                     (popup . (accented intense))))
+
+Or simply:
+
+    (setq modus-themes-completions '((t background intense accented)))
+
+The documentation explains all those associations in-depth.  There also
+are other styles on offer (and combinations thereof).
+
+Furthermore, the new 'modus-themes-completions' encompasses more UIs
+than its predecessor, including Company and Corfu.
+
+In the interest of theme-wide consistency, all applicable faces have
+been reviewed.
+
+Finally, note that the previous tagged release also made changes on this
+front, but it did not disrupt the status quo that was in place from
+before the release of version 1.0.0 of the themes (more than a year
+ago).  In other words, it tried to make unnecessary compromises within
+the confines of an outdated design that did not fit in with the rest of
+the code base.  The new 'modus-themes-completions' might require manual
+intervention from users who want to customise things to their liking,
+though I feel this change is to our long-term benefit.
+
+Thanks to Daniel Mendler and Rudolf Adamkovič for their feedback in
+issue 278: <https://gitlab.com/protesilaos/modus-themes/-/issues/278>.
+And thanks to Kenta Usami for recommending the use of a warning in issue
+286: <https://gitlab.com/protesilaos/modus-themes/-/issues/286>.
+
+
+Miscellaneous changes
+=====================
+
++ Removed the pseudo-button effect from the 'org-checkbox' face.  It was
+  not up-to-date with the current style of the rest of the themes,
+  including the Org constructs for source block delimiters, the TODO
+  keywords, the priority cookies (e.g. '[#A]'), and others.
+
++ Introduced a section in the manual which provides an alternative to
+  the standard 'modus-themes-toggle' that leverages 'enable-theme'
+  instead of 'load-theme' under the hood.  These technicalities are all
+  explained in the manual.
+
++ Provided an alternative greyscale palette subset for 'modus-operandi'
+  in the manual's section about overriding colours.
+
++ Added support for the built-in 'custom-variable-obsolete' face.
+
++ Fixed typo in the 'modus-themes-box-buttons' variable.  Thanks to
+  Illia Ostapyshyn for the patch in merge request 58:
+  <https://gitlab.com/protesilaos/modus-themes/-/merge_requests/58>.
+#+end_src
+
 * 2.1.0
 
 #+begin_src text
