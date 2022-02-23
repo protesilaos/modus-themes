@@ -5326,11 +5326,11 @@ Ideas and user feedback
      Ponsinet, Gerry Agbobada, Gianluca Recchia, Guilherme Semente,
      Gustavo Barros, Hörmetjan Yiltiz, Ilja Kocken, Iris Garcia, Jeremy
      Friesen, Jerry Zhang, Johannes Grødem, John Haman, Joshua O’Connor,
-     Kevin Fleming, Kévin Le Gouguec, Kostadin Ninev, Len Trigg, Magne
-     Hov, Manuel Uberti, Mark Bestley, Mark Burton, Markus Beppler,
-     Mauro Aranda, Michael Goldenberg, Morgan Smith, Murilo Pereira,
-     Nicky van Foreest, Nicolas De Jaeghere, Paul Poloskov, Pengji
-     Zhang, Pete Kazmier, Peter Wu, Philip Kaludercic, Pierre
+     Kenta Usami, Kevin Fleming, Kévin Le Gouguec, Kostadin Ninev, Len
+     Trigg, Magne Hov, Manuel Uberti, Mark Bestley, Mark Burton, Markus
+     Beppler, Mauro Aranda, Michael Goldenberg, Morgan Smith, Murilo
+     Pereira, Nicky van Foreest, Nicolas De Jaeghere, Paul Poloskov,
+     Pengji Zhang, Pete Kazmier, Peter Wu, Philip Kaludercic, Pierre
      Téchoueyres, Roman Rudakov, Ryan Phillips, Rudolf Adamkovič, Sam
      Kleinman, Samuel Culpepper, Saša Janiška, Shreyas Ragavan, Simon
      Pugnet, Tassilo Horn, Thibaut Verron, Thomas Heartman, Togan
@@ -6156,12 +6156,12 @@ Node: Sources of the themes211205
 Node: Issues you can help with211841
 Node: Patches require copyright assignment to the FSF213041
 Node: Acknowledgements215336
-Node: Meta218332
-Node: GNU Free Documentation License220811
-Node: Indices246163
-Node: Function index246342
-Node: Variable index247865
-Node: Concept index250079
+Node: Meta218345
+Node: GNU Free Documentation License220824
+Node: Indices246176
+Node: Function index246355
+Node: Variable index247878
+Node: Concept index250092
 
 End Tag Table
 

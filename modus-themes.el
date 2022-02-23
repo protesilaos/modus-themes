@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.1.0
-;; Last-Modified: <2022-02-22 19:21:55 +0200>
+;; Last-Modified: <2022-02-23 07:06:58 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -3813,7 +3813,14 @@ KEY is the key of a cons cell.  BG and FG are the main colors.
 BGINTENSE works with the main foreground.  FGINTENSE works on its
 own.  BGACCENT and BGACCENTINTENSE are colorful variants of the
 other backgrounds."
-  (let* ((var modus-themes-completions)
+  (let* ((var (if (listp modus-themes-completions)
+                  modus-themes-completions
+                (prog1 nil
+                  (warn (concat "`modus-themes-completions' has changed."
+                                "\n"
+                                "Its value must now be an alist."
+                                "\n"
+                                "Please read the updated doc string.")))))
          (properties (or (alist-get key var) (alist-get t var)))
          (popup (eq key 'popup))
          (selection (eq key 'selection))
