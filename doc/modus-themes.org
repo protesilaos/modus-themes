@@ -5292,12 +5292,12 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Gerry Agbobada, Gianluca Recchia, Guilherme Semente, Gustavo Barros,
   Hörmetjan Yiltiz, Ilja Kocken, Iris Garcia, Jeremy Friesen, Jerry
   Zhang, Johannes Grødem, John Haman, Joshua O'Connor, Kenta Usami,
-  Kevin Fleming, Kévin Le Gouguec, Kostadin Ninev, Len Trigg, Magne Hov,
-  Manuel Uberti, Mark Bestley, Mark Burton, Markus Beppler, Mauro
-  Aranda, Michael Goldenberg, Morgan Smith, Murilo Pereira, Nicky van
-  Foreest, Nicolas De Jaeghere, Paul Poloskov, Pengji Zhang, Pete
-  Kazmier, Peter Wu, Philip Kaludercic, Pierre Téchoueyres, Roman
-  Rudakov, Ryan Phillips, Rudolf Adamkovič, Sam Kleinman, Samuel
+  Kevin Fleming, Kévin Le Gouguec, Kostadin Ninev, Len Trigg, Lennart
+  C. Karssen, Magne Hov, Manuel Uberti, Mark Bestley, Mark Burton,
+  Markus Beppler, Mauro Aranda, Michael Goldenberg, Morgan Smith, Murilo
+  Pereira, Nicky van Foreest, Nicolas De Jaeghere, Paul Poloskov, Pengji
+  Zhang, Pete Kazmier, Peter Wu, Philip Kaludercic, Pierre Téchoueyres,
+  Roman Rudakov, Ryan Phillips, Rudolf Adamkovič, Sam Kleinman, Samuel
   Culpepper, Saša Janiška, Shreyas Ragavan, Simon Pugnet, Tassilo Horn,
   Thibaut Verron, Thomas Heartman, Togan Muftuoglu, Trey Merkley, Tomasz
   Hołubowicz, Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.  As

@@ -5339,18 +5339,19 @@ Ideas and user feedback
      Gustavo Barros, Hörmetjan Yiltiz, Ilja Kocken, Iris Garcia, Jeremy
      Friesen, Jerry Zhang, Johannes Grødem, John Haman, Joshua O’Connor,
      Kenta Usami, Kevin Fleming, Kévin Le Gouguec, Kostadin Ninev, Len
-     Trigg, Magne Hov, Manuel Uberti, Mark Bestley, Mark Burton, Markus
-     Beppler, Mauro Aranda, Michael Goldenberg, Morgan Smith, Murilo
-     Pereira, Nicky van Foreest, Nicolas De Jaeghere, Paul Poloskov,
-     Pengji Zhang, Pete Kazmier, Peter Wu, Philip Kaludercic, Pierre
-     Téchoueyres, Roman Rudakov, Ryan Phillips, Rudolf Adamkovič, Sam
-     Kleinman, Samuel Culpepper, Saša Janiška, Shreyas Ragavan, Simon
-     Pugnet, Tassilo Horn, Thibaut Verron, Thomas Heartman, Togan
-     Muftuoglu, Trey Merkley, Tomasz Hołubowicz, Toon Claes, Uri Sharf,
-     Utkarsh Singh, Vincent Foley.  As well as users: Ben,
-     CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji,
-     Nick, TheBlob42, Trey, bepolymathe, bit9tream, derek-upham, doolio,
-     fleimgruber, gitrj95, iSeeU, jixiuf, okamsn, pRot0ta1p.
+     Trigg, Lennart C.  Karssen, Magne Hov, Manuel Uberti, Mark Bestley,
+     Mark Burton, Markus Beppler, Mauro Aranda, Michael Goldenberg,
+     Morgan Smith, Murilo Pereira, Nicky van Foreest, Nicolas De
+     Jaeghere, Paul Poloskov, Pengji Zhang, Pete Kazmier, Peter Wu,
+     Philip Kaludercic, Pierre Téchoueyres, Roman Rudakov, Ryan
+     Phillips, Rudolf Adamkovič, Sam Kleinman, Samuel Culpepper, Saša
+     Janiška, Shreyas Ragavan, Simon Pugnet, Tassilo Horn, Thibaut
+     Verron, Thomas Heartman, Togan Muftuoglu, Trey Merkley, Tomasz
+     Hołubowicz, Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.
+     As well as users: Ben, CsBigDataHub1, Emacs Contrib, Eugene,
+     Fourchaux, Fredrik, Moesasji, Nick, TheBlob42, Trey, bepolymathe,
+     bit9tream, derek-upham, doolio, fleimgruber, gitrj95, iSeeU,
+     jixiuf, okamsn, pRot0ta1p.
 
 Packaging
      Basil L. Contovounesios, Eli Zaretskii, Glenn Morris, Mauro Aranda,
@@ -6168,12 +6169,12 @@ Node: Sources of the themes211538
 Node: Issues you can help with212174
 Node: Patches require copyright assignment to the FSF213374
 Node: Acknowledgements215669
-Node: Meta218678
-Node: GNU Free Documentation License221157
-Node: Indices246509
-Node: Function index246688
-Node: Variable index248211
-Node: Concept index250425
+Node: Meta218703
+Node: GNU Free Documentation License221182
+Node: Indices246534
+Node: Function index246713
+Node: Variable index248236
+Node: Concept index250450
 
 End Tag Table
 

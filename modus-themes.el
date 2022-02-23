@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.2.0
-;; Last-Modified: <2022-02-23 08:56:46 +0200>
+;; Last-Modified: <2022-02-23 11:29:55 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -4835,7 +4835,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(centaur-tabs-close-unselected ((,class :inherit centaur-tabs-unselected)))
     `(centaur-tabs-modified-marker-selected ((,class :inherit centaur-tabs-selected)))
     `(centaur-tabs-modified-marker-unselected ((,class :inherit centaur-tabs-unselected)))
-    `(centaur-tabs-default (( )))
+    `(centaur-tabs-default ((,class :inherit centaur-tabs-selected)))
     `(centaur-tabs-selected ((,class :inherit modus-themes-tab-active)))
     `(centaur-tabs-selected-modified ((,class :inherit (italic centaur-tabs-selected))))
     `(centaur-tabs-unselected ((,class :inherit modus-themes-tab-inactive)))
