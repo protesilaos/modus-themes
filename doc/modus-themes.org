@@ -5304,7 +5304,7 @@ The Modus themes are a collective effort.  Every bit of work matters.
   well as users: Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux,
   Fredrik, Moesasji, Nick, TheBlob42, Trey, bepolymathe, bit9tream,
   derek-upham, doolio, fleimgruber, gitrj95, iSeeU, jixiuf, okamsn,
-  pRot0ta1p.
+  pRot0ta1p, ryankask.
 
 + Packaging :: Basil L.{{{space()}}} Contovounesios, Eli Zaretskii, Glenn
   Morris, Mauro Aranda, Richard Stallman, Stefan Kangas (core Emacs),
