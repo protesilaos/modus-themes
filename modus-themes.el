@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.2.0
-;; Last-Modified: <2022-02-23 15:44:42 +0200>
+;; Last-Modified: <2022-02-23 11:35:24 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -3807,12 +3807,12 @@ unspecified."
       (list deuteran)
     (list main)))
 
-(defun modus-themes--completion (key bg fg bgintense fgintense &optional bgaccent bgaccentintense fgaccent)
+(defun modus-themes--completion (key bg fg bgintense fgintense &optional bgaccent bgaccentintense)
   "Styles for `modus-themes-completions'.
 KEY is the key of a cons cell.  BG and FG are the main colors.
 BGINTENSE works with the main foreground.  FGINTENSE works on its
 own.  BGACCENT and BGACCENTINTENSE are colorful variants of the
-other backgrounds.  Same for FGACCENT."
+other backgrounds."
   (let* ((var (if (listp modus-themes-completions)
                   modus-themes-completions
                 (prog1 nil
@@ -3825,7 +3825,6 @@ other backgrounds.  Same for FGACCENT."
          (popup (eq key 'popup))
          (selection (eq key 'selection))
          (line (or popup selection))
-         (match (eq key 'matches))
          (background (or line (memq 'background properties)))
          (base-fg (if selection fg 'unspecified))
          (accented (memq 'accented properties))
@@ -3848,16 +3847,12 @@ other backgrounds.  Same for FGACCENT."
        bgaccentintense)
       ((and accented line)
        bgaccent)
-      ((and background intense match)
-       (or bgaccent bgintense))
       ((and background intense)
        bgintense)
       (background bg)
       ('unspecified))
      :foreground
      (cond
-      ((and background intense match)
-       (or fgaccent base-fg))
       ((and background intense)
        base-fg)
       (background fg)
@@ -4512,23 +4507,19 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(modus-themes-completion-match-0
       ((,class ,@(modus-themes--completion
                   'matches bg-special-faint-calm magenta-alt
-                  magenta-subtle-bg magenta-intense
-                  magenta-refine-bg nil magenta-refine-fg))))
+                  magenta-subtle-bg magenta-intense))))
     `(modus-themes-completion-match-1
       ((,class ,@(modus-themes--completion
                   'matches bg-special-faint-cold cyan
-                  cyan-subtle-bg cyan-intense
-                  cyan-refine-bg nil cyan-refine-fg))))
+                  cyan-subtle-bg cyan-intense))))
     `(modus-themes-completion-match-2
       ((,class ,@(modus-themes--completion
                   'matches bg-special-faint-mild green
-                  green-subtle-bg green-intense
-                  green-refine-bg nil green-refine-fg))))
+                  green-subtle-bg green-intense))))
     `(modus-themes-completion-match-3
       ((,class ,@(modus-themes--completion
                   'matches bg-special-faint-warm yellow
-                  yellow-subtle-bg orange-intense
-                  yellow-refine-bg nil yellow-refine-fg))))
+                  yellow-subtle-bg orange-intense))))
     `(modus-themes-completion-selected
       ((,class ,@(modus-themes--completion
                   'selection bg-inactive 'unspecified
