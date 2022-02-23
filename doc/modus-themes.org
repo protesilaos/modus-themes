@@ -2620,8 +2620,7 @@ both themes and expands to some more assosiations in the palette:
               (bg-header . "#ede3e0")
               (bg-tab-bar . "#dcd3d3")
               (bg-tab-active . "#fdf6eb")
-              (bg-tab-inactive . "#c8bab8")
-              (fg-unfocused . "#55556f"))
+              (bg-tab-inactive . "#c8bab8"))
             modus-themes-vivendi-color-overrides
             '((bg-main . "#100b17")
               (bg-dim . "#161129")
@@ -2633,17 +2632,34 @@ both themes and expands to some more assosiations in the palette:
               (bg-header . "#202037")
               (bg-tab-bar . "#262b41")
               (bg-tab-active . "#120f18")
-              (bg-tab-inactive . "#3a3a5a")
-              (fg-unfocused . "#9a9aab")))
+              (bg-tab-inactive . "#3a3a5a")))
     (setq modus-themes-operandi-color-overrides nil
           modus-themes-vivendi-color-overrides nil)))
 #+end_src
 
-With this in place, one can invoke {{{kbd(M-x my-modus-themes-tinted)}}} and
-then load the Modus theme of their choice.  The new palette subset will
-come into effect: subtle ochre tints for Modus Operandi and night sky
-shades for Modus Vivendi.  Switching between the two themes, such as
-with {{{kbd(M-x modus-themes-toggle)}}} will also use the overrides.
+A more neutral style for ~modus-themes-operandi-color-overrides~ can
+look like this:
+
+#+begin_src emacs-lisp
+'((bg-main . "#f7f7f7")
+  (bg-dim . "#f2f2f2")
+  (bg-alt . "#e8e8e8")
+  (bg-hl-line . "#eaeaef")
+  (bg-active . "#e0e0e0")
+  (bg-inactive . "#e6e6e6")
+  (bg-region . "#b5b5b5")
+  (bg-header . "#e4e4e4")
+  (bg-tab-bar . "#d1d1d4")
+  (bg-tab-active . "#f5f5f5")
+  (bg-tab-inactive . "#c0c0c0"))
+#+end_src
+
+With those in place, one can use {{{kbd(M-x my-modus-themes-tinted)}}}
+and then load the Modus theme of their choice.  The new palette subset
+will come into effect: subtle ochre tints (or shades of gray) for Modus
+Operandi and night sky blue shades for Modus Vivendi.  Switching between
+the two themes, such as with {{{kbd(M-x modus-themes-toggle)}}} will
+also use the overrides.
 
 Given that this is a user-level customisation, one is free to implement
 whatever color values they desire, even if the possible combinations

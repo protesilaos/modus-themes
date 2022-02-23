@@ -2692,8 +2692,7 @@ both themes and expands to some more assosiations in the palette:
                    (bg-header . "#ede3e0")
                    (bg-tab-bar . "#dcd3d3")
                    (bg-tab-active . "#fdf6eb")
-                   (bg-tab-inactive . "#c8bab8")
-                   (fg-unfocused . "#55556f"))
+                   (bg-tab-inactive . "#c8bab8"))
                  modus-themes-vivendi-color-overrides
                  '((bg-main . "#100b17")
                    (bg-dim . "#161129")
@@ -2705,16 +2704,31 @@ both themes and expands to some more assosiations in the palette:
                    (bg-header . "#202037")
                    (bg-tab-bar . "#262b41")
                    (bg-tab-active . "#120f18")
-                   (bg-tab-inactive . "#3a3a5a")
-                   (fg-unfocused . "#9a9aab")))
+                   (bg-tab-inactive . "#3a3a5a")))
          (setq modus-themes-operandi-color-overrides nil
                modus-themes-vivendi-color-overrides nil)))
 
-   With this in place, one can invoke ‘M-x my-modus-themes-tinted’ and
+   A more neutral style for ‘modus-themes-operandi-color-overrides’ can
+look like this:
+
+     '((bg-main . "#f7f7f7")
+       (bg-dim . "#f2f2f2")
+       (bg-alt . "#e8e8e8")
+       (bg-hl-line . "#eaeaef")
+       (bg-active . "#e0e0e0")
+       (bg-inactive . "#e6e6e6")
+       (bg-region . "#b5b5b5")
+       (bg-header . "#e4e4e4")
+       (bg-tab-bar . "#d1d1d4")
+       (bg-tab-active . "#f5f5f5")
+       (bg-tab-inactive . "#c0c0c0"))
+
+   With those in place, one can use ‘M-x my-modus-themes-tinted’ and
 then load the Modus theme of their choice.  The new palette subset will
-come into effect: subtle ochre tints for Modus Operandi and night sky
-shades for Modus Vivendi.  Switching between the two themes, such as
-with ‘M-x modus-themes-toggle’ will also use the overrides.
+come into effect: subtle ochre tints (or shades of gray) for Modus
+Operandi and night sky blue shades for Modus Vivendi.  Switching between
+the two themes, such as with ‘M-x modus-themes-toggle’ will also use the
+overrides.
 
    Given that this is a user-level customisation, one is free to
 implement whatever color values they desire, even if the possible
@@ -6102,66 +6116,66 @@ Node: Face specs at scale using the themes' palette90130
 Node: Remap face with local value94931
 Node: Cycle through arbitrary colors97356
 Node: Override colors103784
-Node: Override color saturation108649
-Node: Override colors through blending114328
-Node: Font configurations for Org and others117185
-Ref: Font configurations for Org and others-Footnote-1120001
-Node: Configure bold and italic faces120188
-Node: Custom Org todo keyword and priority faces124336
-Node: Custom Org emphasis faces128009
-Node: Update Org block delimiter fontification132810
-Node: Measure color contrast134727
-Node: Load theme depending on time of day137450
-Node: Backdrop for pdf-tools138443
-Node: Decrease mode line height141295
-Node: Toggle themes without reloading them145417
-Node: A theme-agnostic hook for theme loading146696
-Node: Diffs with only the foreground149098
-Node: Ediff without diff color-coding152212
-Node: Face coverage154307
-Node: Supported packages154759
-Node: Indirectly covered packages161275
-Node: Notes on individual packages162295
-Node: Note on avy hints163359
-Node: Note on calendarel weekday and weekend colors164527
-Node: Note on underlines in compilation buffers165710
-Node: Note on inline Latex in Org buffers166557
-Node: Note on dimmerel167167
-Node: Note on display-fill-column-indicator-mode168652
-Node: Note on highlight-parenthesesel170215
-Node: Note on mmm-modeel background colors176204
-Node: Note for prism178519
-Node: Note for god-mode181673
-Node: Note on company-mode overlay pop-up183277
-Ref: Note on company-mode overlay pop-up-Footnote-1183967
-Ref: Note on company-mode overlay pop-up-Footnote-2184034
-Node: Note on ERC escaped color sequences184089
-Ref: Note on ERC escaped color sequences-Footnote-1185517
-Node: Note on powerline or spaceline185627
-Node: Note on SHR colors186041
-Node: Note on SHR fonts186453
-Node: Note on Ement colors and fonts187086
-Node: Note on Helm grep188585
-Node: Note on vc-annotate-background-mode190062
-Node: Note on pdf-tools link hints190947
-Node: Frequently Asked Questions193379
-Node: Is the contrast ratio about adjacent colors?194010
-Node: What does it mean to avoid exaggerations?195517
-Node: Why are colors mostly variants of blue magenta cyan?197346
-Node: What is the best setup for legibility?201659
-Node: Are these color schemes?204304
-Node: Port the Modus themes to other platforms?208024
-Node: Contributing210808
-Node: Sources of the themes211205
-Node: Issues you can help with211841
-Node: Patches require copyright assignment to the FSF213041
-Node: Acknowledgements215336
-Node: Meta218345
-Node: GNU Free Documentation License220824
-Node: Indices246176
-Node: Function index246355
-Node: Variable index247878
-Node: Concept index250092
+Node: Override color saturation109022
+Node: Override colors through blending114701
+Node: Font configurations for Org and others117558
+Ref: Font configurations for Org and others-Footnote-1120374
+Node: Configure bold and italic faces120561
+Node: Custom Org todo keyword and priority faces124709
+Node: Custom Org emphasis faces128382
+Node: Update Org block delimiter fontification133183
+Node: Measure color contrast135100
+Node: Load theme depending on time of day137823
+Node: Backdrop for pdf-tools138816
+Node: Decrease mode line height141668
+Node: Toggle themes without reloading them145790
+Node: A theme-agnostic hook for theme loading147069
+Node: Diffs with only the foreground149471
+Node: Ediff without diff color-coding152585
+Node: Face coverage154680
+Node: Supported packages155132
+Node: Indirectly covered packages161648
+Node: Notes on individual packages162668
+Node: Note on avy hints163732
+Node: Note on calendarel weekday and weekend colors164900
+Node: Note on underlines in compilation buffers166083
+Node: Note on inline Latex in Org buffers166930
+Node: Note on dimmerel167540
+Node: Note on display-fill-column-indicator-mode169025
+Node: Note on highlight-parenthesesel170588
+Node: Note on mmm-modeel background colors176577
+Node: Note for prism178892
+Node: Note for god-mode182046
+Node: Note on company-mode overlay pop-up183650
+Ref: Note on company-mode overlay pop-up-Footnote-1184340
+Ref: Note on company-mode overlay pop-up-Footnote-2184407
+Node: Note on ERC escaped color sequences184462
+Ref: Note on ERC escaped color sequences-Footnote-1185890
+Node: Note on powerline or spaceline186000
+Node: Note on SHR colors186414
+Node: Note on SHR fonts186826
+Node: Note on Ement colors and fonts187459
+Node: Note on Helm grep188958
+Node: Note on vc-annotate-background-mode190435
+Node: Note on pdf-tools link hints191320
+Node: Frequently Asked Questions193752
+Node: Is the contrast ratio about adjacent colors?194383
+Node: What does it mean to avoid exaggerations?195890
+Node: Why are colors mostly variants of blue magenta cyan?197719
+Node: What is the best setup for legibility?202032
+Node: Are these color schemes?204677
+Node: Port the Modus themes to other platforms?208397
+Node: Contributing211181
+Node: Sources of the themes211578
+Node: Issues you can help with212214
+Node: Patches require copyright assignment to the FSF213414
+Node: Acknowledgements215709
+Node: Meta218718
+Node: GNU Free Documentation License221197
+Node: Indices246549
+Node: Function index246728
+Node: Variable index248251
+Node: Concept index250465
 
 End Tag Table
 
