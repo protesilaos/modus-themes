@@ -1117,11 +1117,14 @@ appear in:
 
 The ~selection~ key applies to the current line or currently matched
 candidate, depending on the specifics of the User Interface.  By default
-(nil or an empty list), it has a subtle gray background and a bold
-weight.  The list of properties it accepts is as follows (order is not
-significant):
+(nil or an empty list), it has a subtle gray background, a bold weight,
+and the base foreground value for the text. The list of properties it
+accepts is as follows (order is not significant):
 
 - ~accented~ to make the background colorful instead of gray;
+
+- ~text-also~ to apply extra color to the text of the selected line; [
+  part of {{{development-version}}} ]
 
 - ~intense~ to increase the overall coloration;
 
@@ -1154,8 +1157,9 @@ Is the same as:
 #+end_src
 
 In the case of the fallback, any property that does not apply to the
-corresponding key is simply ignored (~matches~ does not have ~accented~,
-~selection~ and ~popup~ do not have ~background~).
+corresponding key is simply ignored (~matches~ does not have ~accented~
+and ~text-also~, while ~selection~ and ~popup~ do not have
+~background~).
 
 A concise expression of those associations can be written as follows,
 where the ~car~ is always the key and the ~cdr~ is the list of
@@ -5294,17 +5298,17 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Zhang, Johannes Grødem, John Haman, Joshua O'Connor, Kenta Usami,
   Kevin Fleming, Kévin Le Gouguec, Kostadin Ninev, Len Trigg, Lennart
   C. Karssen, Magne Hov, Manuel Uberti, Mark Bestley, Mark Burton,
-  Markus Beppler, Mauro Aranda, Michael Goldenberg, Morgan Smith, Murilo
-  Pereira, Nicky van Foreest, Nicolas De Jaeghere, Paul Poloskov, Pengji
-  Zhang, Pete Kazmier, Peter Wu, Philip Kaludercic, Pierre Téchoueyres,
-  Roman Rudakov, Ryan Phillips, Rudolf Adamkovič, Sam Kleinman, Samuel
-  Culpepper, Saša Janiška, Shreyas Ragavan, Simon Pugnet, Tassilo Horn,
-  Thibaut Verron, Thomas Heartman, Togan Muftuoglu, Trey Merkley, Tomasz
-  Hołubowicz, Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.  As
-  well as users: Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux,
-  Fredrik, Moesasji, Nick, TheBlob42, Trey, bepolymathe, bit9tream,
-  derek-upham, doolio, fleimgruber, gitrj95, iSeeU, jixiuf, okamsn,
-  pRot0ta1p.
+  Markus Beppler, Mauro Aranda, Michael Goldenberg, Morgan Smith, Morgan
+  Willcock, Murilo Pereira, Nicky van Foreest, Nicolas De Jaeghere, Paul
+  Poloskov, Pengji Zhang, Pete Kazmier, Peter Wu, Philip Kaludercic,
+  Pierre Téchoueyres, Roman Rudakov, Ryan Phillips, Rudolf Adamkovič,
+  Sam Kleinman, Samuel Culpepper, Saša Janiška, Shreyas Ragavan, Simon
+  Pugnet, Tassilo Horn, Thibaut Verron, Thomas Heartman, Togan
+  Muftuoglu, Trey Merkley, Tomasz Hołubowicz, Toon Claes, Uri Sharf,
+  Utkarsh Singh, Vincent Foley.  As well as users: Ben, CsBigDataHub1,
+  Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji, Nick, TheBlob42,
+  Trey, bepolymathe, bit9tream, derek-upham, doolio, fleimgruber,
+  gitrj95, iSeeU, jixiuf, okamsn, pRot0ta1p.
 
 + Packaging :: Basil L.{{{space()}}} Contovounesios, Eli Zaretskii, Glenn
   Morris, Mauro Aranda, Richard Stallman, Stefan Kangas (core Emacs),

@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.2.0
-;; Last-Modified: <2022-02-23 18:55:19 +0200>
+;; Last-Modified: <2022-02-25 16:18:19 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -2525,10 +2525,14 @@ regardless of the order they may appear in:
 The `selection' key applies to the current line or currently
 matched candidate, depending on the specifics of the User
 Interface.  By default (nil or an empty list), it has a subtle
-gray background and a bold weight.  The list of properties it
-accepts is as follows (order is not significant):
+gray background, a bold weight, and the base foreground value
+for the text.  The list of properties it accepts is as
+follows (order is not significant):
 
 - `accented' to make the background colorful instead of gray;
+
+- `text-also' to apply extra color to the text of the selected
+  line;
 
 - `intense' to increase the overall coloration;
 
@@ -2560,7 +2564,8 @@ Is the same as:
 
 In the case of the fallback, any property that does not apply to
 the corresponding key is simply ignored (`matches' does not have
-`accented', `selection' and `popup' do not have `background').
+`accented' and `text-also', while `selection' and `popup' do not
+have `background').
 
 A concise expression of those associations can be written as
 follows, where the `car' is always the key and the `cdr' is the
@@ -2577,7 +2582,7 @@ node `(modus-themes) Configure bold and italic faces'.
 Also refer to the Orderless documentation for its intersection
 with Company (if you choose to use those in tandem)."
   :group 'modus-themes
-  :package-version '(modus-themes . "2.2.0")
+  :package-version '(modus-themes . "2.3.0")
   :version "29.1"
   :type `(set
           (cons :tag "Matches"
@@ -2614,6 +2619,7 @@ with Company (if you choose to use those in tandem)."
                              (const :tag "Semi-bold" semibold)
                              (const :tag "Extra-bold" extrabold)
                              (const :tag "Ultra-bold" ultrabold))
+                     (const :tag "Apply color to the line's text" text-also)
                      (const :tag "With accented background" accented)
                      (const :tag "Increased coloration" intense)
                      (const :tag "Italic font (oblique or slanted forms)" italic)
@@ -2633,6 +2639,7 @@ with Company (if you choose to use those in tandem)."
                              (const :tag "Semi-bold" semibold)
                              (const :tag "Extra-bold" extrabold)
                              (const :tag "Ultra-bold" ultrabold))
+                     (const :tag "Apply color to the line's text" text-also)
                      (const :tag "With accented background" accented)
                      (const :tag "Increased coloration" intense)
                      (const :tag "Italic font (oblique or slanted forms)" italic)
@@ -3807,7 +3814,15 @@ unspecified."
       (list deuteran)
     (list main)))
 
-(defun modus-themes--completion (key bg fg bgintense fgintense &optional bgaccent bgaccentintense)
+(define-obsolete-function-alias
+  'modus-themes--completion
+  'modus-themes--completion-line "2.3.0")
+
+(define-obsolete-function-alias
+  'modus-themes--completion
+  'modus-themes--completion-match "2.3.0")
+
+(defun modus-themes--completion-line (key bg fg bgintense fgintense &optional bgaccent bgaccentintense)
   "Styles for `modus-themes-completions'.
 KEY is the key of a cons cell.  BG and FG are the main colors.
 BGINTENSE works with the main foreground.  FGINTENSE works on its
@@ -3825,8 +3840,7 @@ other backgrounds."
          (popup (eq key 'popup))
          (selection (eq key 'selection))
          (line (or popup selection))
-         (background (or line (memq 'background properties)))
-         (base-fg (if selection fg 'unspecified))
+         (text (memq 'text-also properties))
          (accented (memq 'accented properties))
          (intense (memq 'intense properties))
          (italic (memq 'italic properties))
@@ -3847,6 +3861,50 @@ other backgrounds."
        bgaccentintense)
       ((and accented line)
        bgaccent)
+      (intense bgintense)
+      (bg))
+     :foreground
+     (cond
+      ((and line text intense)
+       fgintense)
+      ((and line text)
+       fg)
+      ('unspecified))
+     :underline
+     (if (memq 'underline properties) t 'unspecified)
+     :weight
+     (if (and weight (null bold)) weight 'unspecified))))
+
+(defun modus-themes--completion-match (key bg fg bgintense fgintense)
+  "Styles for `modus-themes-completions'.
+KEY is the key of a cons cell.  BG and FG are the main colors.
+BGINTENSE works with the main foreground.  FGINTENSE works on its
+own."
+  (let* ((var (if (listp modus-themes-completions)
+                  modus-themes-completions
+                (prog1 nil
+                  (warn (concat "`modus-themes-completions' has changed."
+                                "\n"
+                                "Its value must now be an alist."
+                                "\n"
+                                "Please read the updated doc string.")))))
+         (properties (or (alist-get key var) (alist-get t var)))
+         (background (memq 'background properties))
+         (intense (memq 'intense properties))
+         (italic (memq 'italic properties))
+         (weight (modus-themes--weight properties))
+         (bold (when (and weight (eq weight 'bold)) 'bold)))
+    (list
+     :inherit
+     (cond
+      ((and italic weight (not (eq weight 'bold)))
+       'italic)
+      ((and weight (not (eq weight 'bold)))
+       'unspecified)
+      (italic 'bold-italic)
+      ('bold))
+     :background
+     (cond
       ((and background intense)
        bgintense)
       (background bg)
@@ -3854,7 +3912,7 @@ other backgrounds."
      :foreground
      (cond
       ((and background intense)
-       base-fg)
+       'unspecified)
       (background fg)
       (intense fgintense)
       (fg))
@@ -4481,30 +4539,30 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(modus-themes-tab-inactive ((,class ,@(modus-themes--tab bg-tab-inactive bg-tab-inactive-accent fg-dim nil t))))
 ;;;;; completion frameworks
     `(modus-themes-completion-match-0
-      ((,class ,@(modus-themes--completion
+      ((,class ,@(modus-themes--completion-match
                   'matches bg-special-faint-calm magenta-alt
                   magenta-subtle-bg magenta-intense))))
     `(modus-themes-completion-match-1
-      ((,class ,@(modus-themes--completion
+      ((,class ,@(modus-themes--completion-match
                   'matches bg-special-faint-cold cyan
                   cyan-subtle-bg cyan-intense))))
     `(modus-themes-completion-match-2
-      ((,class ,@(modus-themes--completion
+      ((,class ,@(modus-themes--completion-match
                   'matches bg-special-faint-mild green
                   green-subtle-bg green-intense))))
     `(modus-themes-completion-match-3
-      ((,class ,@(modus-themes--completion
+      ((,class ,@(modus-themes--completion-match
                   'matches bg-special-faint-warm yellow
                   yellow-subtle-bg orange-intense))))
     `(modus-themes-completion-selected
-      ((,class ,@(modus-themes--completion
-                  'selection bg-inactive 'unspecified
-                  bg-active 'unspecified
+      ((,class ,@(modus-themes--completion-line
+                  'selection bg-inactive blue-alt
+                  bg-active blue-active
                   bg-completion-subtle bg-completion))))
     `(modus-themes-completion-selected-popup
-      ((,class ,@(modus-themes--completion
-                  'popup bg-active 'unspecified
-                  bg-region 'unspecified
+      ((,class ,@(modus-themes--completion-line
+                  'popup bg-active blue-alt
+                  bg-region blue-active
                   cyan-subtle-bg cyan-refine-bg))))
 ;;;;; buttons
     `(modus-themes-box-button
