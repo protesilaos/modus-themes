@@ -1683,6 +1683,8 @@ and ~rainbow~.  Those will continue to work as they are aliases for
 :end:
 #+vindex: modus-themes-org-agenda
 
+[ Tweaks as part of {{{development-version}}} ]
+
 Brief: Control the style of the Org agenda.  Multiple parameters are
 available, each with its own options.
 
@@ -1709,12 +1711,18 @@ come in the form of a list that can include either or both of those
 properties:
 
 - ~variable-pitch~ to use a proportionately spaced typeface;
+
 - A number as a floating point (e.g. 1.5) to set the height of the text
   to that many times the default font height.  A float of 1.0 or the
-  symbol ~no-scale~ have the same effect of making the font to the same
-  height as the rest of the buffer.  When neither a number nor ~no-scale~
-  are present, the default is a small increase in height (a value of
-  1.15).
+  symbol ~no-scale~ have the same effect of making the font the same
+  height as the rest of the buffer.  When neither a number nor
+  `no-scale' are present, the default is a small increase in height (a
+  value of 1.15).
+
+  Instead of a floating point, an acceptable value can be in the form of
+  a cons cell like =(height . FLOAT)= or =(height FLOAT)=, where FLOAT
+  is the given number.
+
 - The symbol of a weight attribute adjusts the font of the heading
   accordingly, such as ~light~, ~semibold~, etc.  Valid symbols are
   defined in the variable ~modus-themes-weights~.  The absence of a
@@ -1744,16 +1752,24 @@ the following properties:
 
 - ~grayscale~ to make weekdays use the main foreground color and
   weekends a more subtle gray;
+
 - ~workaholic~ to make weekdays and weekends look the same in
   terms of color;
+
 - ~bold-today~ to apply a bold typographic weight to the current
   date;
+
 - ~bold-all~ to render all date headings in a bold weight;
+
 - ~underline-today~ applies an underline to the current date while
   removing the background it has by default;
+
 - A number as a floating point (e.g. 1.2) to set the height of the text
   to that many times the default font height.  The default is the same
-  as the base font height (the equivalent of 1.0).
+  as the base font height (the equivalent of 1.0).  Instead of a
+  floating point, an acceptable value can be in the form of a cons cell
+  like =(height . FLOAT)= or =(height FLOAT)=, where FLOAT is the given
+  number.
 
 For example:
 
