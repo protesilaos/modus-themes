@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.2.0
-;; Last-Modified: <2022-02-26 14:07:46 +0200>
+;; Last-Modified: <2022-02-26 14:13:42 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -1907,7 +1907,7 @@ For Org users, the extent of the heading depends on the variable
 and `background' properties.  Depending on the version of Org,
 there may be others, such as `org-fontify-done-headline'."
   :group 'modus-themes
-  :package-version '(modus-themes . "2.0.0")
+  :package-version '(modus-themes . "2.3.0")
   :version "29.1"
   :type `(alist
           :options ,(mapcar (lambda (el)
