@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.2.0
-;; Last-Modified: <2022-02-25 19:24:40 +0200>
+;; Last-Modified: <2022-02-26 05:57:21 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -5976,7 +5976,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; icomplete-vertical
     `(icomplete-vertical-separator ((,class :inherit shadow)))
 ;;;;; ido-mode
-    `(ido-first-match ((,class :inherit modus-themes-completion-selected)))
+    `(ido-first-match ((,class :inherit modus-themes-completion-match-0)))
     `(ido-incomplete-regexp ((,class :inherit error)))
     `(ido-indicator ((,class :inherit modus-themes-subtle-yellow)))
     `(ido-only-match ((,class :inherit ido-first-match)))
