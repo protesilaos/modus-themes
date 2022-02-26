@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.2.0
-;; Last-Modified: <2022-02-26 09:29:49 +0200>
+;; Last-Modified: <2022-02-26 13:29:14 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -3027,14 +3027,18 @@ defined in the variable `modus-themes-weights'.
 A number, expressed as a floating point (e.g. 0.9), adjusts the
 height of the button's text to that many times the base font
 size.  The default height is the same as 1.0, though it need not
-be explicitly stated.
+be explicitly stated.  Instead of a floating point, an acceptable
+value can be in the form of a cons cell like (height . FLOAT)
+or (height FLOAT), where FLOAT is the given number.
 
 Combinations of any of those properties are expressed as a list,
 like in these examples:
 
     (flat)
     (variable-pitch flat)
-    (variable-pitch flat 0.9 semibold)
+    (variable-pitch flat semibold 0.9)
+    (variable-pitch flat semibold (height 0.9)) ; same as above
+    (variable-pitch flat semibold (height . 0.9)) ; same as above
 
 The order in which the properties are set is not significant.
 
@@ -3062,7 +3066,11 @@ In user configuration files the form may look like this:
                       (const :tag "Semi-bold" semibold)
                       (const :tag "Extra-bold" extrabold)
                       (const :tag "Ultra-bold" ultrabold))
-              (float :tag "Number (float) to adjust height by" :value 0.9))
+              (radio :tag "Height"
+                     (float :tag "Floating point to adjust height by")
+                     (cons :tag "Cons cell of `(height . FLOAT)'"
+                           (const :tag "The `height' key (constant)" height)
+                           (float :tag "Floating point"))))
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Box buttons"))
@@ -4065,7 +4073,7 @@ Work in progress.  BG BGFAINT BGACCENT BGACCENTFAINT BORDER PRESSED-BUTTON-P."
            (weight weight)
            ('unspecified))
           :height
-          (seq-find #'floatp properties 'unspecified)
+          (modus-themes--alist-or-seq properties 'height #'floatp 'unspecified)
           :underline
           (if (memq 'underline properties)
               t

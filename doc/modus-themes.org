@@ -841,7 +841,9 @@ an empty list).  The list can include any of the following symbols:
   - ~heavy~
   - ~extrabold~
   - ~ultrabold~
-+ A floating point as a height multiple of the default (e.g. =0.9=)
++ A floating point as a height multiple of the default or a cons cell in
+  the form of =(height . FLOAT)= [ tweaked as part of
+  {{{development-version}}} ]
 
 The default (a nil value or an empty list) is a gray background combined
 with a pseudo three-dimensional effect.
@@ -873,6 +875,9 @@ defined in the variable ~modus-themes-weights~.
 A number, expressed as a floating point (e.g. =0.9=), adjusts the height
 of the button's text to that many times the base font size.  The default
 height is the same as =1.0=, though it need not be explicitly stated.
+Instead of a floating point, an acceptable value can be in the form of a
+cons cell like =(height . FLOAT)= or =(height FLOAT)=, where FLOAT is
+the given number.
 
 Combinations of any of those properties are expressed as a list,
 like in these examples:
@@ -880,7 +885,9 @@ like in these examples:
 #+begin_src emacs-lisp
 (flat)
 (variable-pitch flat)
-(variable-pitch flat 0.9 semibold)
+(variable-pitch flat semibold 0.9)
+(variable-pitch flat semibold (height 0.9)) ; same as above
+(variable-pitch flat semibold (height . 0.9)) ; same as above
 #+end_src
 
 The order in which the properties are set is not significant.
