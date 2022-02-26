@@ -138,8 +138,8 @@ demonstration:
       ;; value (or empty list) or a list of properties that can include
       ;; any of the following (for WEIGHT read further below):
       ;;
-      ;; `key' - `background', `intense', `underline', `italic', WEIGHT
-      ;; `selection' - `accented', `intense', `underline', `italic', WEIGHT
+      ;; `matches' - `background', `intense', `underline', `italic', WEIGHT
+      ;; `selection' - `accented', `intense', `underline', `italic', `text-also' WEIGHT
       ;; `popup' - same as `selected'
       ;; `t' - applies to any key not explicitly referenced (check docs)
       ;;

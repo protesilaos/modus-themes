@@ -479,8 +479,8 @@ this manual.
       ;; value (or empty list) or a list of properties that can include
       ;; any of the following (for WEIGHT read further below):
       ;;
-      ;; `key' - `background', `intense', `underline', `italic', WEIGHT
-      ;; `selection' - `accented', `intense', `underline', `italic', WEIGHT
+      ;; `matches' - `background', `intense', `underline', `italic', WEIGHT
+      ;; `selection' - `accented', `intense', `underline', `italic', `text-also' WEIGHT
       ;; `popup' - same as `selected'
       ;; `t' - applies to any key not explicitly referenced (check docs)
       ;;
@@ -1154,8 +1154,8 @@ accepts is as follows (order is not significant):
 
 - ~accented~ to make the background colorful instead of gray;
 
-- ~text-also~ to apply extra color to the text of the selected line; [
-  part of {{{development-version}}} ]
+- ~text-also~ to apply extra color to the text of the selected line;
+  [ part of {{{development-version}}} ]
 
 - ~intense~ to increase the overall coloration;
 
