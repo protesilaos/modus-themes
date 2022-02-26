@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.2.0
-;; Last-Modified: <2022-02-26 09:23:44 +0200>
+;; Last-Modified: <2022-02-26 09:29:49 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -1802,7 +1802,11 @@ Users may need to explicitly configure the font family of
                 (const :tag "Semi-bold" semibold)
                 (const :tag "Extra-bold" extrabold)
                 (const :tag "Ultra-bold" ultrabold))
-        (float :tag "Number (float) to adjust height by" :value 1.1)
+        (radio :tag "Height"
+               (float :tag "Floating point to adjust height by")
+               (cons :tag "Cons cell of `(height . FLOAT)'"
+                     (const :tag "The `height' key (constant)" height)
+                     (float :tag "Floating point")))
         (choice :tag "Colors"
                 (const :tag "Subtle colors" nil)
                 (const :tag "Rainbow colors" rainbow)
@@ -1862,7 +1866,9 @@ weight instead.
 A number, expressed as a floating point (e.g. 1.5), adjusts the
 height of the heading to that many times the base font size.  The
 default height is the same as 1.0, though it need not be
-explicitly stated.
+explicitly stated.  Instead of a floating point, an acceptable
+value can be in the form of a cons cell like (height . FLOAT)
+or (height FLOAT), where FLOAT is the given number.
 
 Combinations of any of those properties are expressed as a list,
 like in these examples:
@@ -1870,6 +1876,8 @@ like in these examples:
     (semibold)
     (rainbow background)
     (overline monochrome semibold 1.3)
+    (overline monochrome semibold (height 1.3)) ; same as above
+    (overline monochrome semibold (height . 1.3)) ; same as above
 
 The order in which the properties are set is not significant.
 
@@ -3450,7 +3458,7 @@ that combines well with the background and foreground."
             fg-alt)
            (fg))
           :height
-          (seq-find #'floatp properties 'unspecified)
+          (modus-themes--alist-or-seq properties 'height #'floatp 'unspecified)
           :weight
           (or weight 'unspecified)
           :overline
