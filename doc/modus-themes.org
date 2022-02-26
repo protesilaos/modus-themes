@@ -15,7 +15,7 @@
 #+texinfo_filename: modus-themes.info
 #+texinfo_dir_category: Emacs misc features
 #+texinfo_dir_title: Modus Themes: (modus-themes)
-#+texinfo_dir_desc: Highly accessible themes (WCAG AAA)
+#+texinfo_dir_desc: Highly accessible and customizable themes (WCAG AAA)
 #+texinfo_header: @set MAINTAINERSITE @uref{https://protesilaos.com,maintainer webpage}
 #+texinfo_header: @set MAINTAINER Protesilaos Stavrou
 #+texinfo_header: @set MAINTAINEREMAIL @email{info@protesilaos.com}
