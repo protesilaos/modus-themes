@@ -418,6 +418,7 @@ this manual.
       modus-themes-bold-constructs nil
       modus-themes-mixed-fonts nil
       modus-themes-subtle-line-numbers nil
+      modus-themes-intense-mouseovers nil
       modus-themes-deuteranopia t
       modus-themes-tabs-accented t
       modus-themes-variable-pitch-ui nil
@@ -1429,6 +1430,31 @@ With a non-nil value (~t~), line numbers have no background of their own.
 Instead they retain the primary background of the theme, blending with
 the rest of the buffer.  Foreground values for all relevant faces are
 updated to accommodate this aesthetic.
+
+** Option for mouseover effects
+:properties:
+:alt_title: Mouse hover effects
+:description: Toggle intense style for mouseover highlights
+:custom_id: h:9b869620-fcc5-4b5f-9ab8-225d73b7f22f
+:end:
+#+vindex: modus-themes-intense-mouseovers
+
+[ Part of {{{development-version}}} ]
+
+Brief: Toggle intense mouse hover effects.
+
+Symbol: ~modus-themes-intense-mouseovers~ (=boolean= type)
+
+Possible value:
+
+1. ~nil~ (default)
+2. ~t~
+
+By default all mouseover effects apply a highlight with a subtle colored
+background.  When non-nil, these have a more pronounced effect.
+
+Note that this affects the generic ~highlight~ which, strictly speaking,
+is not limited to mouse usage.
 
 ** Option for markup style in Org and others
 :properties:

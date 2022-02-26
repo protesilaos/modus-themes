@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.2.0
-;; Last-Modified: <2022-02-26 14:13:42 +0200>
+;; Last-Modified: <2022-02-26 18:09:29 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -41,6 +41,7 @@
 ;;     modus-themes-bold-constructs                (boolean)
 ;;     modus-themes-deuteranopia                   (boolean)
 ;;     modus-themes-inhibit-reload                 (boolean)
+;;     modus-themes-intense-mouseovers             (boolean)
 ;;     modus-themes-italic-constructs              (boolean)
 ;;     modus-themes-mixed-fonts                    (boolean)
 ;;     modus-themes-subtle-line-numbers            (boolean)
@@ -1784,6 +1785,19 @@ Users may need to explicitly configure the font family of
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Mixed fonts"))
+
+(defcustom modus-themes-intense-mouseovers nil
+  "Use more intense style for mouse hover effects.
+
+This affects the generic `highlight' face which, strictly
+speaking, is not limited to mouse usage."
+  :group 'modus-themes
+  :package-version '(modus-themes . "2.3.0")
+  :version "29.1"
+  :type 'boolean
+  :set #'modus-themes--set-option
+  :initialize #'custom-initialize-default
+  :link '(info-link "(modus-themes) Mouse hover effects"))
 
 (defconst modus-themes--headings-choice
   '(set :tag "Properties" :greedy t
@@ -5905,7 +5919,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(hi-red-b ((,class :inherit bold :background ,red-intense-bg :foreground ,fg-main)))
     `(hi-salmon ((,class :background ,red-subtle-bg :foreground ,fg-main)))
     `(hi-yellow ((,class :background ,yellow-subtle-bg :foreground ,fg-main)))
-    `(highlight ((,class :background ,cyan-subtle-bg :foreground ,fg-main)))
+    `(highlight ((,class ,@(if modus-themes-intense-mouseovers
+                               (list :background blue-intense-bg :foreground fg-main)
+                             (list :background cyan-subtle-bg :foreground fg-main)))))
     `(highlight-changes ((,class :foreground ,red-alt :underline nil)))
     `(highlight-changes-delete ((,class :background ,red-nuanced-bg
                                         :foreground ,red :underline t)))
@@ -6454,7 +6470,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(mode-line-active ((,class :inherit mode-line)))
     `(mode-line-buffer-id ((,class :inherit bold)))
     `(mode-line-emphasis ((,class :inherit bold :foreground ,magenta-active)))
-    `(mode-line-highlight ((,class :inherit highlight)))
+    `(mode-line-highlight ((,class ,@(if modus-themes-intense-mouseovers
+                                         (list :inherit 'modus-themes-active-blue)
+                                       (list :inherit 'highlight)))))
     `(mode-line-inactive ((,class :inherit modus-themes-ui-variable-pitch
                                   ,@(modus-themes--mode-line-attrs
                                      fg-inactive bg-inactive
