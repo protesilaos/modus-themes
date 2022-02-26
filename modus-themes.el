@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.2.0
-;; Last-Modified: <2022-02-26 05:57:21 +0200>
+;; Last-Modified: <2022-02-26 08:11:46 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -1737,11 +1737,6 @@ For form, see `modus-themes-vivendi-colors'."
   (put 'modus-themes-vivendi-color-overrides
        'custom-options (copy-sequence colors)))
 
-(define-obsolete-variable-alias
-  'modus-themes-slanted-constructs
-  'modus-themes-italic-constructs
-  "1.5.0")
-
 (defcustom modus-themes-italic-constructs nil
   "Use italic font forms in more code constructs."
   :group 'modus-themes
@@ -1762,18 +1757,6 @@ For form, see `modus-themes-vivendi-colors'."
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Bold constructs"))
 
-(defcustom modus-themes-variable-pitch-headings nil
-  "DEPRECATED: specify `variable-pitch' in `modus-themes-headings'."
-  :group 'modus-themes
-  :package-version '(modus-themes . "1.0.0")
-  :version "28.1"
-  :type 'boolean
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
-  :link '(info-link "(modus-themes) Headings' typeface"))
-
-(make-obsolete 'modus-themes-variable-pitch-headings 'modus-themes-headings "2.0.0")
-
 (defcustom modus-themes-variable-pitch-ui nil
   "Use proportional fonts (variable-pitch) in UI elements.
 This includes the mode line, header line, tab bar, and tab line."
@@ -1784,10 +1767,6 @@ This includes the mode line, header line, tab bar, and tab line."
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) UI typeface"))
-
-(define-obsolete-variable-alias
-  'modus-themes-no-mixed-fonts
-  'modus-themes-mixed-fonts "On 2021-10-02 for version 1.7.0")
 
 (defcustom modus-themes-mixed-fonts nil
   "Non-nil to enable inheritance from `fixed-pitch' in some faces.
@@ -2148,84 +2127,6 @@ For example:
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Org agenda"))
 
-(defcustom modus-themes-scale-headings nil
-  "DEPRECATED: specify height in `modus-themes-headings'."
-  :group 'modus-themes
-  :package-version '(modus-themes . "1.2.0")
-  :version "28.1"
-  :type 'boolean
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default)
-
-(make-obsolete 'modus-themes-scale-headings 'modus-themes-headings "2.0.0")
-
-(defcustom modus-themes-scale-1 1.05
-  "DEPRECATED: specify height in `modus-themes-headings'."
-  :group 'modus-themes
-  :package-version '(modus-themes . "1.2.0")
-  :version "28.1"
-  :type 'number
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default)
-
-(make-obsolete 'modus-themes-scale-1 'modus-themes-headings "2.0.0")
-
-(defcustom modus-themes-scale-2 1.1
-  "DEPRECATED: specify height in `modus-themes-headings'."
-  :group 'modus-themes
-  :package-version '(modus-themes . "1.2.0")
-  :version "28.1"
-  :type 'number
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default)
-
-(make-obsolete 'modus-themes-scale-2 'modus-themes-headings "2.0.0")
-
-(defcustom modus-themes-scale-3 1.15
-  "DEPRECATED: specify height in `modus-themes-headings'."
-  :group 'modus-themes
-  :package-version '(modus-themes . "1.2.0")
-  :version "28.1"
-  :type 'number
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default)
-
-(make-obsolete 'modus-themes-scale-3 'modus-themes-headings "2.0.0")
-
-(defcustom modus-themes-scale-4 1.2
-  "DEPRECATED: specify height in `modus-themes-headings'."
-  :group 'modus-themes
-  :package-version '(modus-themes . "1.2.0")
-  :version "28.1"
-  :type 'number
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default)
-
-(make-obsolete 'modus-themes-scale-4 'modus-themes-headings "2.0.0")
-
-(defcustom modus-themes-scale-title 1.3
-  "DEPRECATED: specify height in `modus-themes-headings'.
-Same principle for `modus-themes-org-agenda'."
-  :group 'modus-themes
-  :package-version '(modus-themes . "1.5.0")
-  :version "28.1"
-  :type 'number
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default)
-
-(make-obsolete 'modus-themes-scale-title 'modus-themes-headings "2.0.0")
-
-(defcustom modus-themes-scale-small 0.9
-  "DEPRECATED."
-  :group 'modus-themes
-  :package-version '(modus-themes . "1.6.0")
-  :version "28.1"
-  :type 'number
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default)
-
-(make-obsolete 'modus-themes-scale-small nil "2.0.0")
-
 (defcustom modus-themes-fringes nil
   "Define the visibility of fringes.
 
@@ -2446,18 +2347,6 @@ instead of a box style, it is strongly advised to set
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Mode line"))
-
-(defcustom modus-themes-mode-line-padding 6
-  "DEPRECATED: Set natural number in `modus-themes-mode-line'."
-  :group 'modus-themes
-  :package-version '(modus-themes . "1.7.0")
-  :version "29.1"
-  :type 'natnum
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
-  :link '(info-link "(modus-themes) Mode line"))
-
-(make-obsolete 'modus-themes-mode-line-padding 'modus-themes-mode-line "2.0.0")
 
 (defcustom modus-themes-diffs nil
   "Adjust the overall style of diffs.
@@ -3000,11 +2889,6 @@ In user configuration files the form may look like this:
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Active region"))
-
-(define-obsolete-variable-alias
-  'modus-themes-success-deuteranopia
-  'modus-themes-deuteranopia
-  "2.0.0")
 
 (defcustom modus-themes-deuteranopia nil
   "When non-nil use red/blue color-coding instead of red/green.
