@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.2.0
-;; Last-Modified: <2022-02-26 09:06:51 +0200>
+;; Last-Modified: <2022-02-26 09:23:44 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -3641,8 +3641,8 @@ Optional FG-DISTANT should be close to the main background
 values.  It is intended to be used as a distant-foreground
 property."
   (let* ((properties modus-themes-mode-line)
-         (padding (modus-themes--alist-or-seq modus-themes-mode-line 'padding #'natnump 1))
-         (height (modus-themes--alist-or-seq modus-themes-mode-line 'height #'floatp 'unspecified))
+         (padding (modus-themes--alist-or-seq properties 'padding #'natnump 1))
+         (height (modus-themes--alist-or-seq properties 'height #'floatp 'unspecified))
          (padded (> padding 1))
          (base (cond ((memq 'accented properties)
                       (cons fg-accent bg-accent))
