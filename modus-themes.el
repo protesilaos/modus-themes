@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.2.0
-;; Last-Modified: <2022-02-26 08:35:28 +0200>
+;; Last-Modified: <2022-02-26 09:06:51 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -2300,6 +2300,13 @@ The padding can also be expressed as a cons cell in the form
 of (padding . NATNUM) or (padding NATNUM) where the key is
 constant and NATNUM is the desired natural number.
 
+A floating point (e.g. 0.9) applies an adjusted height to the
+mode line's text as a multiple of the main font size.  The
+default rate is 1.0 and does not need to be specified.  Apart
+from a floating point, the height may also be expressed as a cons
+cell in the form of (height . FLOAT) or (height FLOAT) where the
+key is constant and the FLOAT is the desired number.
+
 Combinations of any of those properties are expressed as a list,
 like in these examples:
 
@@ -2307,12 +2314,12 @@ like in these examples:
     (borderless 3d)
     (moody accented borderless)
 
-Same as above, using the padding as an example (these all yield
-the same result):
+Same as above, using the padding and height as an example (these
+all yield the same result):
 
-    (accented borderless 4)
-    (accented borderless (padding . 4))
-    (accented borderless (padding 4))
+    (accented borderless 4 0.9)
+    (accented borderless (padding . 4) (height . 0.9))
+    (accented borderless (padding 4) (height 0.9))
 
 The order in which the properties are set is not significant.
 
@@ -2355,10 +2362,15 @@ instead of a box style, it is strongly advised to set
               (const :tag "Colored background" accented)
               (const :tag "Without border color" borderless)
               (radio :tag "Padding"
-               (natnum :tag "Natural number")
+               (natnum :tag "Natural number (e.g. 4)")
                (cons :tag "Cons cell of `(padding . NATNUM)'"
                      (const :tag "The `padding' key (constant)" padding)
-                     (natnum :tag "Natural number"))))
+                     (natnum :tag "Natural number")))
+              (radio :tag "Height"
+               (float :tag "Floating point (e.g. 0.9)")
+               (cons :tag "Cons cell of `(height . FLOAT)'"
+                     (const :tag "The `height' key (constant)" height)
+                     (float :tag "Floating point"))))
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Mode line"))
@@ -3630,6 +3642,7 @@ values.  It is intended to be used as a distant-foreground
 property."
   (let* ((properties modus-themes-mode-line)
          (padding (modus-themes--alist-or-seq modus-themes-mode-line 'padding #'natnump 1))
+         (height (modus-themes--alist-or-seq modus-themes-mode-line 'height #'floatp 'unspecified))
          (padded (> padding 1))
          (base (cond ((memq 'accented properties)
                       (cons fg-accent bg-accent))
@@ -3652,6 +3665,7 @@ property."
                      (border))))
     (list :foreground (car base)
           :background (cdr base)
+          :height height
           :box
           (cond ((memq 'moody properties)
                  'unspecified)

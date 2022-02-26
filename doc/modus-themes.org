@@ -972,6 +972,9 @@ effect, color, and border visibility:
 + ~borderless~
 + A natural number > 1 for extra padding or a cons cell in the form of
   ~(padding . NATNUM)~ [ tweaked as part of {{{development-version}}} ]
++ A floating point to set the height of the mode line's text.  It can
+  also be a cons cell in the form of ~(height . FLOAT)~. [ introduced as
+  part of {{{development-version}}} ]
 
 The default (a nil value or an empty list) is a two-dimensional
 rectangle with a border around it.  The active and the inactive mode
@@ -1008,8 +1011,15 @@ users on Emacs 29, the ~x-use-underline-position-properties~ variable must
 also be set to nil.
 
 The padding can also be expressed as a cons cell in the form of
-~(padding . NATNUM)~ or ~(padding NATNUM)~ where the key is constant and
+=(padding . NATNUM)= or =(padding NATNUM)= where the key is constant and
 NATNUM is the desired natural number.
+
+A floating point applies an adjusted height to the mode line's text as a
+multiple of the main font size.  The default rate is 1.0 and does not
+need to be specified.  Apart from a floating point, the height may also
+be expressed as a cons cell in the form of =(height . FLOAT)= or
+=(height FLOAT)= where the key is constant and the FLOAT is the desired
+number.
 
 Combinations of any of those properties are expressed as a list, like in
 these examples:
@@ -1020,13 +1030,13 @@ these examples:
 (moody accented borderless)
 #+end_src
 
-Same as above, using the padding as an example (these all yield
-the same result):
+Same as above, using the padding and height as an example (these
+all yield the same result):
 
 #+begin_src emacs-lisp
-(accented borderless 4)
-(accented borderless (padding . 4))
-(accented borderless (padding 4))
+(accented borderless 4 0.9)
+(accented borderless (padding . 4) (height . 0.9))
+(accented borderless (padding 4) (height 0.9))
 #+end_src
 
 The order in which the properties are set is not significant.
