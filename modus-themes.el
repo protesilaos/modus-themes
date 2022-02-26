@@ -1611,17 +1611,17 @@ The actual styling of the face is done by `modus-themes-faces'."
 
 (define-obsolete-face-alias
  'modus-themes-completion-standard-first-match
- 'modus-themes-completion-selection
+ 'modus-themes-completion-selected
  "2.2.0")
 
 (define-obsolete-face-alias
  'modus-themes-completion-standard-selected
- 'modus-themes-completion-selection
+ 'modus-themes-completion-selected
  "2.2.0")
 
 (define-obsolete-face-alias
  'modus-themes-completion-extra-selected
- 'modus-themes-completion-selection
+ 'modus-themes-completion-selected
  "2.2.0")
 
 (define-obsolete-face-alias
