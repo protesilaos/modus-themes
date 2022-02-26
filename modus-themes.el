@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.2.0
-;; Last-Modified: <2022-02-26 08:11:46 +0200>
+;; Last-Modified: <2022-02-26 08:35:28 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -2296,12 +2296,23 @@ the `borderless' property is also set).  For users on Emacs 29,
 the `x-use-underline-position-properties' variable must also be
 set to nil.
 
+The padding can also be expressed as a cons cell in the form
+of (padding . NATNUM) or (padding NATNUM) where the key is
+constant and NATNUM is the desired natural number.
+
 Combinations of any of those properties are expressed as a list,
 like in these examples:
 
     (accented)
     (borderless 3d)
     (moody accented borderless)
+
+Same as above, using the padding as an example (these all yield
+the same result):
+
+    (accented borderless 4)
+    (accented borderless (padding . 4))
+    (accented borderless (padding 4))
 
 The order in which the properties are set is not significant.
 
@@ -2334,8 +2345,8 @@ Furthermore, because Moody expects an underline and overline
 instead of a box style, it is strongly advised to set
 `x-underline-at-descent-line' to a non-nil value."
   :group 'modus-themes
-  :package-version '(modus-themes . "1.6.0")
-  :version "28.1"
+  :package-version '(modus-themes . "2.3.0")
+  :version "29.1"
   :type '(set :tag "Properties" :greedy t
               (choice :tag "Overall style"
                       (const :tag "Rectangular Border" nil)
@@ -2343,7 +2354,11 @@ instead of a box style, it is strongly advised to set
                       (const :tag "No box effects (Moody-compatible)" moody))
               (const :tag "Colored background" accented)
               (const :tag "Without border color" borderless)
-              (natnum :tag "With extra padding"))
+              (radio :tag "Padding"
+               (natnum :tag "Natural number")
+               (cons :tag "Cons cell of `(padding . NATNUM)'"
+                     (const :tag "The `padding' key (constant)" padding)
+                     (natnum :tag "Natural number"))))
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Mode line"))
@@ -3036,6 +3051,17 @@ In user configuration files the form may look like this:
 
 ;;; Internal functions
 
+(defun modus-themes--alist-or-seq (properties alist-key seq-pred seq-default)
+  "Return value from alist or sequence.
+Check PROPERTIES for an alist value that corresponds to
+ALIST-KEY.  If no alist is present, search the PROPERTIES
+sequence given SEQ-PRED, using SEQ-DEFAULT as a fallback."
+  (if-let* ((val (or (alist-get alist-key properties)
+                     (seq-find seq-pred properties seq-default)))
+            ((listp val)))
+      (car val)
+    val))
+
 (defun modus-themes--palette (theme)
   "Return color palette for Modus theme THEME.
 THEME is a symbol, either `modus-operandi' or `modus-vivendi'."
@@ -3603,7 +3629,7 @@ Optional FG-DISTANT should be close to the main background
 values.  It is intended to be used as a distant-foreground
 property."
   (let* ((properties modus-themes-mode-line)
-         (padding (seq-find #'natnump properties 1))
+         (padding (modus-themes--alist-or-seq modus-themes-mode-line 'padding #'natnump 1))
          (padded (> padding 1))
          (base (cond ((memq 'accented properties)
                       (cons fg-accent bg-accent))

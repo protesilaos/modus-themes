@@ -970,7 +970,8 @@ effect, color, and border visibility:
   - ~moody~
 + ~accented~
 + ~borderless~
-+ A natural number > 1 for extra padding
++ A natural number > 1 for extra padding or a cons cell in the form of
+  ~(padding . NATNUM)~ [ tweaked as part of {{{development-version}}} ]
 
 The default (a nil value or an empty list) is a two-dimensional
 rectangle with a border around it.  The active and the inactive mode
@@ -1006,6 +1007,10 @@ bottom of the mode line, set ~x-underline-at-descent-line~ to non-nil
 users on Emacs 29, the ~x-use-underline-position-properties~ variable must
 also be set to nil.
 
+The padding can also be expressed as a cons cell in the form of
+~(padding . NATNUM)~ or ~(padding NATNUM)~ where the key is constant and
+NATNUM is the desired natural number.
+
 Combinations of any of those properties are expressed as a list, like in
 these examples:
 
@@ -1013,6 +1018,15 @@ these examples:
 (accented)
 (borderless 3d)
 (moody accented borderless)
+#+end_src
+
+Same as above, using the padding as an example (these all yield
+the same result):
+
+#+begin_src emacs-lisp
+(accented borderless 4)
+(accented borderless (padding . 4))
+(accented borderless (padding 4))
 #+end_src
 
 The order in which the properties are set is not significant.
