@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.2.0
-;; Last-Modified: <2022-02-27 08:22:00 +0200>
+;; Last-Modified: <2022-02-27 08:27:33 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -1740,6 +1740,8 @@ For form, see `modus-themes-vivendi-colors'."
        'custom-options (copy-sequence colors))
   (put 'modus-themes-vivendi-color-overrides
        'custom-options (copy-sequence colors)))
+
+(defvaralias 'modus-themes-slanted-constructs 'modus-themes-italic-constructs)
 
 (defcustom modus-themes-italic-constructs nil
   "Use italic font forms in more code constructs."
