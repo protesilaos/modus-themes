@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.2.0
-;; Last-Modified: <2022-02-27 07:28:22 +0200>
+;; Last-Modified: <2022-02-27 08:22:00 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -3117,6 +3117,21 @@ In user configuration files the form may look like this:
 
 ;;; Internal functions
 
+(defun modus-themes--warn (option)
+  "Warn that OPTION has changed."
+  (prog1 nil
+    (display-warning
+     'modus-themes
+     (format "`%s' has changed; please read the updated documentation" option)
+     :warning)))
+
+(defun modus-themes--list-or-warn (option)
+  "Return list or nil value of OPTION, else `modus-themes--warn'."
+  (let* ((value (symbol-value option)))
+    (if (or (null value) (listp value))
+        value
+      (modus-themes--warn option))))
+
 (defun modus-themes--alist-or-seq (properties alist-key seq-pred seq-default)
   "Return value from alist or sequence.
 Check PROPERTIES for an alist value that corresponds to
@@ -3252,45 +3267,36 @@ pattern and represent a value that is faint or vibrant
 respectively.  INTENSEFG-ALT is used when the intensity is high.
 SUBTLEBG and INTENSEBG are color-coded background colors that
 differ in overall intensity.  FAINTFG is a nuanced color."
-  (let ((modus-themes-lang-checkers
-         (if (listp modus-themes-lang-checkers)
-             modus-themes-lang-checkers
-           (pcase modus-themes-lang-checkers
-             ('colored-background '(background intense))
-             ('intense-foreground '(intense))
-             ('intense-foreground-straight-underline '(intense straight-underline))
-             ('subtle-foreground '(text-also))
-             ('subtle-foreground-straight-underline '(text-also straight-underline))
-             ('straight-underline '(straight-underline))))))
+  (let ((properties (modus-themes--list-or-warn 'modus-themes-lang-checkers)))
     (list :underline
           (list :color
-                (if (memq 'faint modus-themes-lang-checkers)
+                (if (memq 'faint properties)
                     faintfg underline)
                 :style
-                (if (memq 'straight-underline modus-themes-lang-checkers)
+                (if (memq 'straight-underline properties)
                     'line 'wave))
           :background
           (cond
-           ((and (memq 'background modus-themes-lang-checkers)
-                 (memq 'faint modus-themes-lang-checkers))
+           ((and (memq 'background properties)
+                 (memq 'faint properties))
             subtlebg)
-           ((and (memq 'background modus-themes-lang-checkers)
-                 (memq 'intense modus-themes-lang-checkers))
+           ((and (memq 'background properties)
+                 (memq 'intense properties))
             intensebg)
-           ((memq 'background modus-themes-lang-checkers)
+           ((memq 'background properties)
             subtlebg)
            ('unspecified))
           :foreground
           (cond
-           ((and (memq 'faint modus-themes-lang-checkers)
-                 (memq 'text-also modus-themes-lang-checkers))
+           ((and (memq 'faint properties)
+                 (memq 'text-also properties))
             faintfg)
-           ((and (memq 'background modus-themes-lang-checkers)
-                 (memq 'intense modus-themes-lang-checkers))
+           ((and (memq 'background properties)
+                 (memq 'intense properties))
             intensefg-alt)
-           ((memq 'intense modus-themes-lang-checkers)
+           ((memq 'intense properties)
             intensefg)
-           ((memq 'text-also modus-themes-lang-checkers)
+           ((memq 'text-also properties)
             subtlefg)
            ('unspecified)))))
 
@@ -3309,7 +3315,7 @@ should be combinable with INTENSEBG-FG.
 SUBTLEBGGRAY and INTENSEBGGRAY are background values.  The former
 can be combined with GRAYFG, while the latter only works with the
 theme's fallback text color."
-  (let ((properties modus-themes-prompts))
+  (let ((properties (modus-themes--list-or-warn 'modus-themes-prompts)))
     (list :foreground
           (cond
            ((and (memq 'gray properties)
@@ -3355,7 +3361,7 @@ NORMALBG should be the special palette color 'bg-paren-match' or
 something similar.  INTENSEBG must be easier to discern next to
 other backgrounds, such as the special palette color
 'bg-paren-match-intense'."
-  (let ((properties modus-themes-paren-match))
+  (let ((properties (modus-themes--list-or-warn 'modus-themes-paren-match)))
     (list :inherit
           (if (memq 'bold properties)
               'bold
@@ -3373,7 +3379,7 @@ other backgrounds, such as the special palette color
   "Apply foreground value to code syntax.
 FG is the default.  FAINT is typically the same color in its
 desaturated version."
-  (let ((properties modus-themes-syntax))
+  (let ((properties (modus-themes--list-or-warn 'modus-themes-syntax)))
     (list :foreground
           (cond
            ((memq 'faint properties)
@@ -3385,7 +3391,7 @@ desaturated version."
 FG is the default.  FAINT is typically the same color in its
 desaturated version.  ALT is another hue while optional FAINT-ALT
 is its subtle alternative."
-  (let ((properties modus-themes-syntax))
+  (let ((properties (modus-themes--list-or-warn 'modus-themes-syntax)))
     (list :foreground
           (cond
            ((and (memq 'alt-syntax properties)
@@ -3404,7 +3410,7 @@ desaturated version.  GREEN is a color variant in that side of
 the spectrum.  ALT is another hue.  Optional FAINT-GREEN is a
 subtle alternative to GREEN.  Optional FAINT-ALT is a subtle
 alternative to ALT."
-  (let ((properties modus-themes-syntax))
+  (let ((properties (modus-themes--list-or-warn 'modus-themes-syntax)))
     (list :foreground
           (cond
            ((and (memq 'faint properties)
@@ -3426,7 +3432,7 @@ alternative to ALT."
 FG is the default.  YELLOW is a color variant of that name while
 optional FAINT-YELLOW is its subtle variant.  Optional FAINT is
 an alternative to the default value."
-  (let ((properties modus-themes-syntax))
+  (let ((properties (modus-themes--list-or-warn 'modus-themes-syntax)))
     (list :foreground
           (cond
            ((and (memq 'faint properties)
@@ -3694,7 +3700,7 @@ line's box property.
 Optional FG-DISTANT should be close to the main background
 values.  It is intended to be used as a distant-foreground
 property."
-  (let* ((properties modus-themes-mode-line)
+  (let* ((properties (modus-themes--list-or-warn 'modus-themes-mode-line))
          (padding (modus-themes--alist-or-seq properties 'padding #'natnump 1))
          (height (modus-themes--alist-or-seq properties 'height #'floatp 'unspecified))
          (padded (> padding 1))
@@ -3806,14 +3812,7 @@ KEY is the key of a cons cell.  BG and FG are the main colors.
 BGINTENSE works with the main foreground.  FGINTENSE works on its
 own.  BGACCENT and BGACCENTINTENSE are colorful variants of the
 other backgrounds."
-  (let* ((var (if (listp modus-themes-completions)
-                  modus-themes-completions
-                (prog1 nil
-                  (warn (concat "`modus-themes-completions' has changed."
-                                "\n"
-                                "Its value must now be an alist."
-                                "\n"
-                                "Please read the updated doc string.")))))
+  (let* ((var (modus-themes--list-or-warn 'modus-themes-completions))
          (properties (or (alist-get key var) (alist-get t var)))
          (popup (eq key 'popup))
          (selection (eq key 'selection))
@@ -3858,14 +3857,7 @@ other backgrounds."
 KEY is the key of a cons cell.  BG and FG are the main colors.
 BGINTENSE works with the main foreground.  FGINTENSE works on its
 own."
-  (let* ((var (if (listp modus-themes-completions)
-                  modus-themes-completions
-                (prog1 nil
-                  (warn (concat "`modus-themes-completions' has changed."
-                                "\n"
-                                "Its value must now be an alist."
-                                "\n"
-                                "Please read the updated doc string.")))))
+  (let* ((var (modus-themes--list-or-warn 'modus-themes-completions))
          (properties (or (alist-get key var) (alist-get t var)))
          (background (memq 'background properties))
          (intense (memq 'intense properties))
@@ -3905,7 +3897,7 @@ FG is the link's default color for its text and underline
 property.  FGFAINT is a desaturated color for the text and
 underline.  UNDERLINE is a gray color only for the undeline.  BG
 is a background color and BGNEUTRAL is its fallback value."
-  (let ((properties modus-themes-links))
+  (let ((properties (modus-themes--list-or-warn 'modus-themes-links)))
     (list :inherit
           (cond
            ((and (memq 'bold properties)
@@ -3943,7 +3935,7 @@ is a background color and BGNEUTRAL is its fallback value."
   "Extend `modus-themes--link'.
 FG is the main accented foreground.  FGFAINT is also accented,
 yet desaturated.  Optional NEUTRALFG is a gray value."
-  (let ((properties modus-themes-links))
+  (let ((properties (modus-themes--list-or-warn 'modus-themes-links)))
     (list :foreground
           (cond
            ((memq 'no-color properties)
@@ -3967,7 +3959,7 @@ is a subtle background value that can be combined with all colors
 used to fontify text and code syntax.  BGACCENT is a colored
 background that combines well with FG.  BGACCENTSUBTLE can be
 combined with all colors used to fontify text."
-  (let ((properties modus-themes-region))
+  (let ((properties (modus-themes--list-or-warn 'modus-themes-region)))
     (list :background
           (cond
            ((and (memq 'accented properties)
@@ -4003,7 +3995,7 @@ LINEACCENT are color values that can remain distinct against the
 buffer's possible backgrounds: the former is neutral, the latter
 is accented.  LINENEUTRALINTENSE and LINEACCENTINTENSE are their
 more prominent alternatives."
-  (let ((properties modus-themes-hl-line))
+  (let ((properties (modus-themes--list-or-warn 'modus-themes-hl-line)))
     (list :background
           (cond
            ((and (memq 'intense properties)
