@@ -1787,7 +1787,7 @@ Users may need to explicitly configure the font family of
   :link '(info-link "(modus-themes) Mixed fonts"))
 
 (defcustom modus-themes-intense-mouseovers nil
-  "Use more intense style for mouse hover effects.
+  "When non-nil use more intense style for mouse hover effects.
 
 This affects the generic `highlight' face which, strictly
 speaking, is not limited to mouse usage."
