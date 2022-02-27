@@ -5374,27 +5374,27 @@ The Modus themes are a collective effort.  Every bit of work matters.
 
 + Ideas and user feedback :: Aaron Jensen, Adam Porter, Adam Spiers,
   Adrian Manea, Alex Griffin, Alex Koen, Alex Peitsinis, Alexey Shmalko,
-  Alok Singh, Anders Johansson, André Alexandre Gomes, Arif Rezai, Basil
-  L.{{{space()}}} Contovounesios, Burgess Chang, Christian Tietze,
-  Christopher Dimech, Damien Cassou, Daniel Mendler, Dario Gjorgjevski,
-  David Edmondson, Davor Rotim, Divan Santana, Eliraz Kedmi, Emanuele
-  Michele Alberto Monterosso, Farasha Euker, Feng Shu, Gautier Ponsinet,
-  Gerry Agbobada, Gianluca Recchia, Guilherme Semente, Gustavo Barros,
-  Hörmetjan Yiltiz, Ilja Kocken, Iris Garcia, Jeremy Friesen, Jerry
-  Zhang, Johannes Grødem, John Haman, Joshua O'Connor, Kenta Usami,
-  Kevin Fleming, Kévin Le Gouguec, Kostadin Ninev, Len Trigg, Lennart
-  C. Karssen, Magne Hov, Manuel Uberti, Mark Bestley, Mark Burton,
-  Markus Beppler, Mauro Aranda, Michael Goldenberg, Morgan Smith, Morgan
-  Willcock, Murilo Pereira, Nicky van Foreest, Nicolas De Jaeghere, Paul
-  Poloskov, Pengji Zhang, Pete Kazmier, Peter Wu, Philip Kaludercic,
-  Pierre Téchoueyres, Roman Rudakov, Ryan Phillips, Rudolf Adamkovič,
-  Sam Kleinman, Samuel Culpepper, Saša Janiška, Shreyas Ragavan, Simon
-  Pugnet, Tassilo Horn, Thibaut Verron, Thomas Heartman, Togan
-  Muftuoglu, Trey Merkley, Tomasz Hołubowicz, Toon Claes, Uri Sharf,
-  Utkarsh Singh, Vincent Foley.  As well as users: Ben, CsBigDataHub1,
-  Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji, Nick, TheBlob42,
-  Trey, bepolymathe, bit9tream, derek-upham, doolio, fleimgruber,
-  gitrj95, iSeeU, jixiuf, okamsn, pRot0ta1p.
+  Alok Singh, Anders Johansson, André Alexandre Gomes, Antonio Hernández
+  Blas, Arif Rezai, Basil L.{{{space()}}} Contovounesios, Burgess Chang,
+  Christian Tietze, Christopher Dimech, Damien Cassou, Daniel Mendler,
+  Dario Gjorgjevski, David Edmondson, Davor Rotim, Divan Santana, Eliraz
+  Kedmi, Emanuele Michele Alberto Monterosso, Farasha Euker, Feng Shu,
+  Gautier Ponsinet, Gerry Agbobada, Gianluca Recchia, Guilherme Semente,
+  Gustavo Barros, Hörmetjan Yiltiz, Ilja Kocken, Iris Garcia, Jeremy
+  Friesen, Jerry Zhang, Johannes Grødem, John Haman, Joshua O'Connor,
+  Kenta Usami, Kevin Fleming, Kévin Le Gouguec, Kostadin Ninev, Len
+  Trigg, Lennart C. Karssen, Magne Hov, Manuel Uberti, Mark Bestley,
+  Mark Burton, Markus Beppler, Mauro Aranda, Michael Goldenberg, Morgan
+  Smith, Morgan Willcock, Murilo Pereira, Nicky van Foreest, Nicolas De
+  Jaeghere, Paul Poloskov, Pengji Zhang, Pete Kazmier, Peter Wu, Philip
+  Kaludercic, Pierre Téchoueyres, Robert Hepple, Roman Rudakov, Ryan
+  Phillips, Rudolf Adamkovič, Sam Kleinman, Samuel Culpepper, Saša
+  Janiška, Shreyas Ragavan, Simon Pugnet, Tassilo Horn, Thibaut Verron,
+  Thomas Heartman, Togan Muftuoglu, Trey Merkley, Tomasz Hołubowicz,
+  Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.  As well as
+  users: Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik,
+  Moesasji, Nick, TheBlob42, Trey, bepolymathe, bit9tream, derek-upham,
+  doolio, fleimgruber, gitrj95, iSeeU, jixiuf, okamsn, pRot0ta1p.
 
 + Packaging :: Basil L.{{{space()}}} Contovounesios, Eli Zaretskii, Glenn
   Morris, Mauro Aranda, Richard Stallman, Stefan Kangas (core Emacs),
