@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.2.0
-;; Last-Modified: <2022-02-26 18:09:29 +0200>
+;; Last-Modified: <2022-02-27 07:28:22 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -378,7 +378,10 @@
 
 
 
-(eval-when-compile (require 'cl-lib))
+(eval-when-compile
+  (require 'cl-lib)
+  (require 'subr-x))
+(require 'seq)
 
 (defgroup modus-themes ()
   "Options for `modus-operandi', `modus-vivendi'.
