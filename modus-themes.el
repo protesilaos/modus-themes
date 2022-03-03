@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.2.0
-;; Last-Modified: <2022-03-03 15:05:29 +0200>
+;; Last-Modified: <2022-03-03 15:10:37 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -3800,13 +3800,8 @@ unspecified."
       (list deuteran)
     (list main)))
 
-(define-obsolete-function-alias
-  'modus-themes--completion
-  'modus-themes--completion-line "2.3.0")
-
-(define-obsolete-function-alias
-  'modus-themes--completion
-  'modus-themes--completion-match "2.3.0")
+(make-obsolete 'modus-themes--completion 'modus-themes--completion-line "2.3.0")
+(make-obsolete 'modus-themes--completion 'modus-themes--completion-match "2.3.0")
 
 (defun modus-themes--completion-line (key bg fg bgintense fgintense &optional bgaccent bgaccentintense)
   "Styles for `modus-themes-completions'.
