@@ -56,17 +56,17 @@
                (equal (file-name-directory load-file-name)
                       (expand-file-name "themes/" data-directory))
                (require-theme 'modus-themes t))
-    (require 'modus-themes)))
+    (require 'modus-themes))
 
-(deftheme modus-vivendi
-  "Accessible and customizable dark theme (WCAG AAA standard).
+  (deftheme modus-vivendi
+    "Accessible and customizable dark theme (WCAG AAA standard).
 Conforms with the highest legibility standard for color contrast
 between background and foreground in any given piece of text,
 which corresponds to a minimum contrast in relative luminance of
 7:1.")
 
-(modus-themes-theme modus-vivendi)
+  (modus-themes-theme modus-vivendi)
 
-(provide-theme 'modus-vivendi)
+  (provide-theme 'modus-vivendi))
 
 ;;; modus-vivendi-theme.el ends here

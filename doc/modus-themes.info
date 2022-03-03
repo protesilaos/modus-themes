@@ -5428,15 +5428,15 @@ Ideas and user feedback
      Michael Goldenberg, Morgan Smith, Morgan Willcock, Murilo Pereira,
      Nicky van Foreest, Nicolas De Jaeghere, Paul Poloskov, Pengji
      Zhang, Pete Kazmier, Peter Wu, Philip Kaludercic, Pierre
-     Téchoueyres, Robert Hepple, Roman Rudakov, Ryan Phillips, Rudolf
-     Adamkovič, Sam Kleinman, Samuel Culpepper, Saša Janiška, Shreyas
-     Ragavan, Simon Pugnet, Tassilo Horn, Thibaut Verron, Thomas
-     Heartman, Togan Muftuoglu, Trey Merkley, Tomasz Hołubowicz, Toon
-     Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.  As well as users:
-     Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik,
-     Moesasji, Nick, TheBlob42, Trey, bepolymathe, bit9tream,
-     derek-upham, doolio, fleimgruber, gitrj95, iSeeU, jixiuf, okamsn,
-     pRot0ta1p.
+     Téchoueyres, Robert Hepple, Roman Rudakov, Ryan Phillips, Rytis
+     Paškauskas, Rudolf Adamkovič, Sam Kleinman, Samuel Culpepper, Saša
+     Janiška, Shreyas Ragavan, Simon Pugnet, Tassilo Horn, Thibaut
+     Verron, Thomas Heartman, Togan Muftuoglu, Trey Merkley, Tomasz
+     Hołubowicz, Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.
+     As well as users: Ben, CsBigDataHub1, Emacs Contrib, Eugene,
+     Fourchaux, Fredrik, Moesasji, Nick, TheBlob42, Trey, bepolymathe,
+     bit9tream, derek-upham, doolio, fleimgruber, gitrj95, iSeeU,
+     jixiuf, okamsn, pRot0ta1p.
 
 Packaging
      Basil L. Contovounesios, Eli Zaretskii, Glenn Morris, Mauro Aranda,
@@ -6256,12 +6256,12 @@ Node: Sources of the themes215163
 Node: Issues you can help with215799
 Node: Patches require copyright assignment to the FSF216999
 Node: Acknowledgements219294
-Node: Meta222391
-Node: GNU Free Documentation License224870
-Node: Indices250222
-Node: Function index250401
-Node: Variable index251924
-Node: Concept index254211
+Node: Meta222409
+Node: GNU Free Documentation License224888
+Node: Indices250240
+Node: Function index250419
+Node: Variable index251942
+Node: Concept index254229
 
 End Tag Table
 
