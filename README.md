@@ -22,6 +22,42 @@ For some demo content, check:
 
 ## Quick setup for the latest version
 
+### Built-in version
+
+For the themes that are built into Emacs you cannot `require` the
+package.  Use the following instead.
+
+With `use-package`:
+
+```elisp
+(use-package emacs
+  :init
+  ;; Add all your customizations prior to loading the themes
+  (setq modus-themes-italic-constructs t
+        modus-themes-bold-constructs nil
+        modus-themes-region '(bg-only no-extend))
+  :config
+  ;; Load the theme of your choice:
+  (load-theme 'modus-operandi) ;; OR (load-theme 'modus-vivendi)
+  :bind ("<f5>" . modus-themes-toggle)
+```
+
+Without `use-package`:
+
+```elisp
+;; Add all your customizations prior to loading the themes
+(setq modus-themes-italic-constructs t
+      modus-themes-bold-constructs nil
+      modus-themes-region '(bg-only no-extend))
+
+;; Load the theme of your choice:
+(load-theme 'modus-operandi) ;; OR (load-theme 'modus-vivendi)
+
+(define-key global-map (kbd "<f5>") #'modus-themes-toggle)
+```
+
+### Packaged version
+
 With `use-package`:
 
 ```elisp
