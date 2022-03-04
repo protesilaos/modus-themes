@@ -3839,7 +3839,7 @@ changes to persist while switching between ~modus-operandi~ and
 Users who want to replicate the structure of the themes' source code are
 advised to use the examples with ~custom-set-faces~.  Those who prefer a
 different approach can use the snippets which call ~set-face-attribute~.
-Below are the relevant examples.
+Below are the code blocks.
 
 The following uses a yellow accent value for comments and green hues for
 strings.  Regexp grouping constructs have color values that work in the
