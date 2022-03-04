@@ -222,15 +222,15 @@ They are now ready to be used: [[#h:3f3c3728-1b34-437d-9d0c-b110f5b161a9][Enable
 #+cindex: Essential configuration
 #+vindex: modus-themes-after-load-theme-hook
 
-Users of the built-in themes can load and automatically enable the theme
-of their preference by adding either form to their init file:
+Users of the built-in themes cannot ~require~ the package as usual
+because there is no package to speak of.  Instead, things are simpler as
+all one needs is to load the theme of their preference by adding either
+form to their init file:
 
 #+begin_src emacs-lisp
 (load-theme 'modus-operandi)            ; Light theme
 (load-theme 'modus-vivendi)             ; Dark theme
 #+end_src
-
-This is all one needs.
 
 Users of packaged variants of the themes must add a few more lines to
 ensure that everything works as intended.  First, one has to require the
@@ -260,24 +260,38 @@ a theme with either of the following expressions:
 Changes to the available customization options must always be evaluated
 before loading a theme ([[#h:bf1c82f2-46c7-4eb2-ad00-dd11fdd8b53f][Customization Options]]).  An exception to this
 norm is when using the various Custom interfaces or with commands like
-{{{kbd(M-x customize-set-variable)}}}, which can automatically reload
-the theme ([[#h:9001527a-4e2c-43e0-98e8-3ef72d770639][Option for inhibiting theme reload]]).  This is how a basic
-setup could look like:
+{{{kbd(M-x customize-set-variable)}}}, which can optionally
+automatically reload the theme ([[#h:9001527a-4e2c-43e0-98e8-3ef72d770639][Option for inhibiting theme reload]]).
+
+This is how a basic setup could look like:
 
 #+begin_src emacs-lisp
+;;; The built-in themes:
+
+;; Add all your customizations prior to loading the themes
+(setq modus-themes-italic-constructs t
+      modus-themes-bold-constructs nil
+      modus-themes-region '(bg-only no-extend))
+
+;; Load the theme of your choice:
+(load-theme 'modus-operandi) ;; OR (load-theme 'modus-vivendi)
+
+(define-key global-map (kbd "<f5>") #'modus-themes-toggle)
+
+;;; The packaged themes
 (require 'modus-themes)
 
-;; Your customisations here.  For example:
-(setq modus-themes-bold-constructs t
-      modus-themes-mode-line '3d)
+;; Add all your customizations prior to loading the themes
+(setq modus-themes-italic-constructs t
+      modus-themes-bold-constructs nil
+      modus-themes-region '(bg-only no-extend))
 
-;; Load the theme files before enabling a theme (else you get an error).
+;; Load the theme files before enabling a theme
 (modus-themes-load-themes)
 
-;; Enable the theme of your preference:
-(modus-themes-load-operandi)
+;; Load the theme of your choice:
+(modus-themes-load-operandi) ;; OR (modus-themes-load-vivendi)
 
-;; Optionally add a key binding for the toggle between the themes:
 (define-key global-map (kbd "<f5>") #'modus-themes-toggle)
 #+end_src
 
