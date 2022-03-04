@@ -3810,6 +3810,135 @@ coloration.
 
 [[#h:f4d4b71b-2ca5-4c3d-b0b4-9bfd7aa7fb4d][Visualize the active Modus theme's palette]].
 
+** Near-monochrome syntax highlighting
+:properties:
+:custom_id: h:c1f3fa8e-7a63-4a6f-baf3-a7febc0661f0
+:end:
+#+cindex: Monochrome code syntax
+
+While the Modus themes do provide a user option to control the overall
+style of syntax highlighting in programming major modes, they do not
+cover the possibility of a monochromatic or near-monochromatic design
+([[#h:c119d7b2-fcd4-4e44-890e-5e25733d5e52][Option for syntax highlighting]]).  This is due to the multitude of
+preferences involved: one may like comments to be styled with an accent
+value, another may want certain constructs to be bold, a third may apply
+italics to doc strings but not comments...  The possibilities are
+virtually endless.  As such, this sort of design is best handled at the
+user level in accordance with the information furnished elsewhere in
+this manual.
+
+[[#h:1487c631-f4fe-490d-8d58-d72ffa3bd474][Case-by-case face specs using the themes' palette]].
+
+[[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Face specs at scale using the themes' palette]].
+
+The gist is that we want to override the font-lock faces.  For our
+changes to persist while switching between ~modus-operandi~ and
+~modus-vivendi~ we wrap our face overrides in a function that we hook to
+~modus-themes-after-load-theme-hook~.
+
+Users who want to replicate the structure of the themes' source code are
+advised to use the examples with ~custom-set-faces~.  Those who prefer a
+different approach can use the snippets which call ~set-face-attribute~.
+Below are the relevant examples.
+
+The following uses a yellow accent value for comments and green hues for
+strings.  Regexp grouping constructs have color values that work in the
+context of a green string.  All other elements use the main foreground
+color, except warnings such as the ~user-error~ function in Elisp
+buffers which gets a subtle red tint (not to be confused with the
+~warning~ face which is used for genuine warnings).  Furthermore, notice
+the ~modus-themes-bold~ and ~modus-themes-slant~ which apply the
+preference set in the user options ~modus-themes-bold-constructs~ and
+~modus-themes-italic-constructs~, respectively.  Users who do not want
+this conditionally must replace these faces with ~bold~ and ~italic~
+respectively (or ~unspecified~ to disable the effect altogether).
+
+#+begin_src emacs-lisp
+;; This is the hook.  It will not be replicated across all code samples.
+(add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-subtle-syntax)
+
+(defun my-modus-themes-subtle-syntax ()
+  (modus-themes-with-colors
+    (custom-set-faces
+     `(font-lock-builtin-face ((,class :inherit modus-themes-bold :foreground unspecified)))
+     `(font-lock-comment-delimiter-face ((,class :inherit font-lock-comment-face)))
+     `(font-lock-comment-face ((,class :inherit unspecified :foreground ,fg-comment-yellow)))
+     `(font-lock-constant-face ((,class :foreground unspecified)))
+     `(font-lock-doc-face ((,class :inherit modus-themes-slant :foreground ,fg-special-mild)))
+     `(font-lock-function-name-face ((,class :foreground unspecified)))
+     `(font-lock-keyword-face ((,class :inherit modus-themes-bold :foreground unspecified)))
+     `(font-lock-negation-char-face ((,class :inherit modus-themes-bold :foreground unspecified)))
+     `(font-lock-preprocessor-face ((,class :foreground unspecified)))
+     `(font-lock-regexp-grouping-backslash ((,class :inherit bold :foreground ,yellow)))
+     `(font-lock-regexp-grouping-construct ((,class :inherit bold :foreground ,blue-alt-other)))
+     `(font-lock-string-face ((,class :foreground ,green-alt-other)))
+     `(font-lock-type-face ((,class :inherit modus-themes-bold :foreground unspecified)))
+     `(font-lock-variable-name-face ((,class :foreground unspecified)))
+     `(font-lock-warning-face ((,class :inherit modus-themes-bold :foreground ,red-nuanced-fg))))))
+
+;; Same as above with `set-face-attribute' instead of `custom-set-faces'
+(defun my-modus-themes-subtle-syntax ()
+  (modus-themes-with-colors
+    (set-face-attribute 'font-lock-builtin-face nil :inherit 'modus-themes-bold :foreground 'unspecified)
+    (set-face-attribute 'font-lock-comment-delimiter-face nil :inherit 'font-lock-comment-face)
+    (set-face-attribute 'font-lock-comment-face nil :inherit 'unspecified :foreground fg-comment-yellow)
+    (set-face-attribute 'font-lock-constant-face nil :foreground 'unspecified)
+    (set-face-attribute 'font-lock-doc-face nil :inherit 'modus-themes-slant :foreground fg-special-mild)
+    (set-face-attribute 'font-lock-function-name-face nil :foreground 'unspecified)
+    (set-face-attribute 'font-lock-keyword-face nil :inherit 'modus-themes-bold :foreground 'unspecified)
+    (set-face-attribute 'font-lock-negation-char-face nil :inherit 'modus-themes-bold :foreground 'unspecified)
+    (set-face-attribute 'font-lock-preprocessor-face nil :foreground 'unspecified)
+    (set-face-attribute 'font-lock-regexp-grouping-backslash nil :inherit 'bold :foreground yellow)
+    (set-face-attribute 'font-lock-regexp-grouping-construct nil :inherit 'bold :foreground blue-alt-other)
+    (set-face-attribute 'font-lock-string-face nil :foreground green-alt-other)
+    (set-face-attribute 'font-lock-type-face nil :inherit 'modus-themes-bold :foreground 'unspecified)
+    (set-face-attribute 'font-lock-variable-name-face nil :foreground 'unspecified)
+    (set-face-attribute 'font-lock-warning-face nil :inherit 'modus-themes-bold :foreground red-nuanced-fg)))
+#+end_src
+
+The following sample is the same as above, except strings are blue and
+comments are gray.  Regexp constructs are adapted accordingly.
+
+#+begin_src emacs-lisp
+(defun my-modus-themes-subtle-syntax ()
+  (modus-themes-with-colors
+    (custom-set-faces
+     `(font-lock-builtin-face ((,class :inherit modus-themes-bold :foreground unspecified)))
+     `(font-lock-comment-delimiter-face ((,class :inherit font-lock-comment-face)))
+     `(font-lock-comment-face ((,class :inherit unspecified :foreground ,fg-alt)))
+     `(font-lock-constant-face ((,class :foreground unspecified)))
+     `(font-lock-doc-face ((,class :inherit modus-themes-slant :foreground ,fg-docstring)))
+     `(font-lock-function-name-face ((,class :foreground unspecified)))
+     `(font-lock-keyword-face ((,class :inherit modus-themes-bold :foreground unspecified)))
+     `(font-lock-negation-char-face ((,class :inherit modus-themes-bold :foreground unspecified)))
+     `(font-lock-preprocessor-face ((,class :foreground unspecified)))
+     `(font-lock-regexp-grouping-backslash ((,class :inherit bold :foreground ,fg-escape-char-backslash)))
+     `(font-lock-regexp-grouping-construct ((,class :inherit bold :foreground ,fg-escape-char-construct)))
+     `(font-lock-string-face ((,class :foreground ,blue-alt)))
+     `(font-lock-type-face ((,class :inherit modus-themes-bold :foreground unspecified)))
+     `(font-lock-variable-name-face ((,class :foreground unspecified)))
+     `(font-lock-warning-face ((,class :inherit modus-themes-bold :foreground ,red-nuanced-fg))))))
+
+;; Same as above with `set-face-attribute' instead of `custom-set-faces'
+(defun my-modus-themes-subtle-syntax ()
+  (modus-themes-with-colors
+    (set-face-attribute 'font-lock-builtin-face nil :inherit 'modus-themes-bold :foreground 'unspecified)
+    (set-face-attribute 'font-lock-comment-delimiter-face nil :inherit 'font-lock-comment-face)
+    (set-face-attribute 'font-lock-comment-face nil :inherit 'unspecified :foreground fg-alt)
+    (set-face-attribute 'font-lock-constant-face nil :foreground 'unspecified)
+    (set-face-attribute 'font-lock-doc-face nil :inherit 'modus-themes-slant :foreground fg-docstring)
+    (set-face-attribute 'font-lock-function-name-face nil :foreground 'unspecified)
+    (set-face-attribute 'font-lock-keyword-face nil :inherit 'modus-themes-bold :foreground 'unspecified)
+    (set-face-attribute 'font-lock-negation-char-face nil :inherit 'modus-themes-bold :foreground 'unspecified)
+    (set-face-attribute 'font-lock-preprocessor-face nil :foreground 'unspecified)
+    (set-face-attribute 'font-lock-regexp-grouping-backslash nil :inherit 'bold :foreground fg-escape-char-backslash)
+    (set-face-attribute 'font-lock-regexp-grouping-construct nil :inherit 'bold :foreground fg-escape-char-construct)
+    (set-face-attribute 'font-lock-string-face nil :foreground blue-alt)
+    (set-face-attribute 'font-lock-type-face nil :inherit 'modus-themes-bold :foreground 'unspecified)
+    (set-face-attribute 'font-lock-variable-name-face nil :foreground 'unspecified)
+    (set-face-attribute 'font-lock-warning-face nil :inherit 'modus-themes-bold :foreground red-nuanced-fg)))
+#+end_src
+
 * Face coverage
 :properties:
 :custom_id: h:a9c8f29d-7f72-4b54-b74b-ddefe15d6a19
@@ -5375,27 +5504,27 @@ The Modus themes are a collective effort.  Every bit of work matters.
 + Ideas and user feedback :: Aaron Jensen, Adam Porter, Adam Spiers,
   Adrian Manea, Alex Griffin, Alex Koen, Alex Peitsinis, Alexey Shmalko,
   Alok Singh, Anders Johansson, André Alexandre Gomes, Antonio Hernández
-  Blas, Arif Rezai, Basil L.{{{space()}}} Contovounesios, Burgess Chang,
-  Christian Tietze, Christopher Dimech, Damien Cassou, Daniel Mendler,
-  Dario Gjorgjevski, David Edmondson, Davor Rotim, Divan Santana, Eliraz
-  Kedmi, Emanuele Michele Alberto Monterosso, Farasha Euker, Feng Shu,
-  Gautier Ponsinet, Gerry Agbobada, Gianluca Recchia, Guilherme Semente,
-  Gustavo Barros, Hörmetjan Yiltiz, Ilja Kocken, Iris Garcia, Jeremy
-  Friesen, Jerry Zhang, Johannes Grødem, John Haman, Joshua O'Connor,
-  Kenta Usami, Kevin Fleming, Kévin Le Gouguec, Kostadin Ninev, Len
-  Trigg, Lennart C. Karssen, Magne Hov, Manuel Uberti, Mark Bestley,
-  Mark Burton, Markus Beppler, Mauro Aranda, Michael Goldenberg, Morgan
-  Smith, Morgan Willcock, Murilo Pereira, Nicky van Foreest, Nicolas De
-  Jaeghere, Paul Poloskov, Pengji Zhang, Pete Kazmier, Peter Wu, Philip
-  Kaludercic, Pierre Téchoueyres, Robert Hepple, Roman Rudakov, Ryan
-  Phillips, Rytis Paškauskas, Rudolf Adamkovič, Sam Kleinman, Samuel
-  Culpepper, Saša Janiška, Shreyas Ragavan, Simon Pugnet, Tassilo Horn,
-  Thibaut Verron, Thomas Heartman, Togan Muftuoglu, Trey Merkley, Tomasz
-  Hołubowicz, Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.  As
-  well as users: Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux,
-  Fredrik, Moesasji, Nick, TheBlob42, Trey, bepolymathe, bit9tream,
-  derek-upham, doolio, fleimgruber, gitrj95, iSeeU, jixiuf, okamsn,
-  pRot0ta1p.
+  Blas, Arif Rezai, Augusto Stoffel, Basil L.{{{space()}}}
+  Contovounesios, Burgess Chang, Christian Tietze, Christopher Dimech,
+  Damien Cassou, Daniel Mendler, Dario Gjorgjevski, David Edmondson,
+  Davor Rotim, Divan Santana, Eliraz Kedmi, Emanuele Michele Alberto
+  Monterosso, Farasha Euker, Feng Shu, Gautier Ponsinet, Gerry Agbobada,
+  Gianluca Recchia, Guilherme Semente, Gustavo Barros, Hörmetjan Yiltiz,
+  Ilja Kocken, Iris Garcia, Jeremy Friesen, Jerry Zhang, Johannes
+  Grødem, John Haman, Joshua O'Connor, Kenta Usami, Kevin Fleming, Kévin
+  Le Gouguec, Kostadin Ninev, Len Trigg, Lennart C. Karssen, Magne Hov,
+  Manuel Uberti, Mark Bestley, Mark Burton, Markus Beppler, Mauro
+  Aranda, Michael Goldenberg, Morgan Smith, Morgan Willcock, Murilo
+  Pereira, Nicky van Foreest, Nicolas De Jaeghere, Paul Poloskov, Pengji
+  Zhang, Pete Kazmier, Peter Wu, Philip Kaludercic, Pierre Téchoueyres,
+  Robert Hepple, Roman Rudakov, Ryan Phillips, Rytis Paškauskas, Rudolf
+  Adamkovič, Sam Kleinman, Samuel Culpepper, Saša Janiška, Shreyas
+  Ragavan, Simon Pugnet, Tassilo Horn, Thibaut Verron, Thomas Heartman,
+  Togan Muftuoglu, Trey Merkley, Tomasz Hołubowicz, Toon Claes, Uri
+  Sharf, Utkarsh Singh, Vincent Foley.  As well as users: Ben,
+  CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji,
+  Nick, TheBlob42, Trey, bepolymathe, bit9tream, derek-upham, doolio,
+  fleimgruber, gitrj95, iSeeU, jixiuf, okamsn, pRot0ta1p.
 
 + Packaging :: Basil L.{{{space()}}} Contovounesios, Eli Zaretskii, Glenn
   Morris, Mauro Aranda, Richard Stallman, Stefan Kangas (core Emacs),

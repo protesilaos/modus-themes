@@ -142,6 +142,7 @@ Advanced customization
 * A theme-agnostic hook for theme loading::
 * Diffs with only the foreground::
 * Ediff without diff color-coding::
+* Near-monochrome syntax highlighting::
 
 Face coverage
 
@@ -2198,6 +2199,7 @@ such, they are labelled as “do-it-yourself” or “DIY”.
 * A theme-agnostic hook for theme loading::
 * Diffs with only the foreground::
 * Ediff without diff color-coding::
+* Near-monochrome syntax highlighting::
 
 
 File: modus-themes.info,  Node: More accurate colors in terminal emulators,  Next: Visualize the active Modus theme's palette,  Up: Advanced customization
@@ -3785,7 +3787,7 @@ been removed since version ‘2.0.0’ to ensure that the accessibility
 standard and aesthetic quality of the themes is not compromised.
 
 
-File: modus-themes.info,  Node: Ediff without diff color-coding,  Prev: Diffs with only the foreground,  Up: Advanced customization
+File: modus-themes.info,  Node: Ediff without diff color-coding,  Next: Near-monochrome syntax highlighting,  Prev: Diffs with only the foreground,  Up: Advanced customization
 
 5.23 Ediff without diff color-coding
 ====================================
@@ -3821,6 +3823,131 @@ macro (*note Face specs at scale using the themes' palette::):
 coloration.
 
    *note Visualize the active Modus theme's palette::.
+
+
+File: modus-themes.info,  Node: Near-monochrome syntax highlighting,  Prev: Ediff without diff color-coding,  Up: Advanced customization
+
+5.24 Near-monochrome syntax highlighting
+========================================
+
+While the Modus themes do provide a user option to control the overall
+style of syntax highlighting in programming major modes, they do not
+cover the possibility of a monochromatic or near-monochromatic design
+(*note Option for syntax highlighting: Syntax styles.).  This is due to
+the multitude of preferences involved: one may like comments to be
+styled with an accent value, another may want certain constructs to be
+bold, a third may apply italics to doc strings but not comments... The
+possibilities are virtually endless.  As such, this sort of design is
+best handled at the user level in accordance with the information
+furnished elsewhere in this manual.
+
+   *note Case-by-case face specs using the themes' palette::.
+
+   *note Face specs at scale using the themes' palette::.
+
+   The gist is that we want to override the font-lock faces.  For our
+changes to persist while switching between ‘modus-operandi’ and
+‘modus-vivendi’ we wrap our face overrides in a function that we hook to
+‘modus-themes-after-load-theme-hook’.
+
+   Users who want to replicate the structure of the themes’ source code
+are advised to use the examples with ‘custom-set-faces’.  Those who
+prefer a different approach can use the snippets which call
+‘set-face-attribute’.  Below are the relevant examples.
+
+   The following uses a yellow accent value for comments and green hues
+for strings.  Regexp grouping constructs have color values that work in
+the context of a green string.  All other elements use the main
+foreground color, except warnings such as the ‘user-error’ function in
+Elisp buffers which gets a subtle red tint (not to be confused with the
+‘warning’ face which is used for genuine warnings).  Furthermore, notice
+the ‘modus-themes-bold’ and ‘modus-themes-slant’ which apply the
+preference set in the user options ‘modus-themes-bold-constructs’ and
+‘modus-themes-italic-constructs’, respectively.  Users who do not want
+this conditionally must replace these faces with ‘bold’ and ‘italic’
+respectively (or ‘unspecified’ to disable the effect altogether).
+
+     ;; This is the hook.  It will not be replicated across all code samples.
+     (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-subtle-syntax)
+
+     (defun my-modus-themes-subtle-syntax ()
+       (modus-themes-with-colors
+         (custom-set-faces
+          `(font-lock-builtin-face ((,class :inherit modus-themes-bold :foreground unspecified)))
+          `(font-lock-comment-delimiter-face ((,class :inherit font-lock-comment-face)))
+          `(font-lock-comment-face ((,class :inherit unspecified :foreground ,fg-comment-yellow)))
+          `(font-lock-constant-face ((,class :foreground unspecified)))
+          `(font-lock-doc-face ((,class :inherit modus-themes-slant :foreground ,fg-special-mild)))
+          `(font-lock-function-name-face ((,class :foreground unspecified)))
+          `(font-lock-keyword-face ((,class :inherit modus-themes-bold :foreground unspecified)))
+          `(font-lock-negation-char-face ((,class :inherit modus-themes-bold :foreground unspecified)))
+          `(font-lock-preprocessor-face ((,class :foreground unspecified)))
+          `(font-lock-regexp-grouping-backslash ((,class :inherit bold :foreground ,yellow)))
+          `(font-lock-regexp-grouping-construct ((,class :inherit bold :foreground ,blue-alt-other)))
+          `(font-lock-string-face ((,class :foreground ,green-alt-other)))
+          `(font-lock-type-face ((,class :inherit modus-themes-bold :foreground unspecified)))
+          `(font-lock-variable-name-face ((,class :foreground unspecified)))
+          `(font-lock-warning-face ((,class :inherit modus-themes-bold :foreground ,red-nuanced-fg))))))
+
+     ;; Same as above with `set-face-attribute' instead of `custom-set-faces'
+     (defun my-modus-themes-subtle-syntax ()
+       (modus-themes-with-colors
+         (set-face-attribute 'font-lock-builtin-face nil :inherit 'modus-themes-bold :foreground 'unspecified)
+         (set-face-attribute 'font-lock-comment-delimiter-face nil :inherit 'font-lock-comment-face)
+         (set-face-attribute 'font-lock-comment-face nil :inherit 'unspecified :foreground fg-comment-yellow)
+         (set-face-attribute 'font-lock-constant-face nil :foreground 'unspecified)
+         (set-face-attribute 'font-lock-doc-face nil :inherit 'modus-themes-slant :foreground fg-special-mild)
+         (set-face-attribute 'font-lock-function-name-face nil :foreground 'unspecified)
+         (set-face-attribute 'font-lock-keyword-face nil :inherit 'modus-themes-bold :foreground 'unspecified)
+         (set-face-attribute 'font-lock-negation-char-face nil :inherit 'modus-themes-bold :foreground 'unspecified)
+         (set-face-attribute 'font-lock-preprocessor-face nil :foreground 'unspecified)
+         (set-face-attribute 'font-lock-regexp-grouping-backslash nil :inherit 'bold :foreground yellow)
+         (set-face-attribute 'font-lock-regexp-grouping-construct nil :inherit 'bold :foreground blue-alt-other)
+         (set-face-attribute 'font-lock-string-face nil :foreground green-alt-other)
+         (set-face-attribute 'font-lock-type-face nil :inherit 'modus-themes-bold :foreground 'unspecified)
+         (set-face-attribute 'font-lock-variable-name-face nil :foreground 'unspecified)
+         (set-face-attribute 'font-lock-warning-face nil :inherit 'modus-themes-bold :foreground red-nuanced-fg)))
+
+   The following sample is the same as above, except strings are blue
+and comments are gray.  Regexp constructs are adapted accordingly.
+
+     (defun my-modus-themes-subtle-syntax ()
+       (modus-themes-with-colors
+         (custom-set-faces
+          `(font-lock-builtin-face ((,class :inherit modus-themes-bold :foreground unspecified)))
+          `(font-lock-comment-delimiter-face ((,class :inherit font-lock-comment-face)))
+          `(font-lock-comment-face ((,class :inherit unspecified :foreground ,fg-alt)))
+          `(font-lock-constant-face ((,class :foreground unspecified)))
+          `(font-lock-doc-face ((,class :inherit modus-themes-slant :foreground ,fg-docstring)))
+          `(font-lock-function-name-face ((,class :foreground unspecified)))
+          `(font-lock-keyword-face ((,class :inherit modus-themes-bold :foreground unspecified)))
+          `(font-lock-negation-char-face ((,class :inherit modus-themes-bold :foreground unspecified)))
+          `(font-lock-preprocessor-face ((,class :foreground unspecified)))
+          `(font-lock-regexp-grouping-backslash ((,class :inherit bold :foreground ,fg-escape-char-backslash)))
+          `(font-lock-regexp-grouping-construct ((,class :inherit bold :foreground ,fg-escape-char-construct)))
+          `(font-lock-string-face ((,class :foreground ,blue-alt)))
+          `(font-lock-type-face ((,class :inherit modus-themes-bold :foreground unspecified)))
+          `(font-lock-variable-name-face ((,class :foreground unspecified)))
+          `(font-lock-warning-face ((,class :inherit modus-themes-bold :foreground ,red-nuanced-fg))))))
+
+     ;; Same as above with `set-face-attribute' instead of `custom-set-faces'
+     (defun my-modus-themes-subtle-syntax ()
+       (modus-themes-with-colors
+         (set-face-attribute 'font-lock-builtin-face nil :inherit 'modus-themes-bold :foreground 'unspecified)
+         (set-face-attribute 'font-lock-comment-delimiter-face nil :inherit 'font-lock-comment-face)
+         (set-face-attribute 'font-lock-comment-face nil :inherit 'unspecified :foreground fg-alt)
+         (set-face-attribute 'font-lock-constant-face nil :foreground 'unspecified)
+         (set-face-attribute 'font-lock-doc-face nil :inherit 'modus-themes-slant :foreground fg-docstring)
+         (set-face-attribute 'font-lock-function-name-face nil :foreground 'unspecified)
+         (set-face-attribute 'font-lock-keyword-face nil :inherit 'modus-themes-bold :foreground 'unspecified)
+         (set-face-attribute 'font-lock-negation-char-face nil :inherit 'modus-themes-bold :foreground 'unspecified)
+         (set-face-attribute 'font-lock-preprocessor-face nil :foreground 'unspecified)
+         (set-face-attribute 'font-lock-regexp-grouping-backslash nil :inherit 'bold :foreground fg-escape-char-backslash)
+         (set-face-attribute 'font-lock-regexp-grouping-construct nil :inherit 'bold :foreground fg-escape-char-construct)
+         (set-face-attribute 'font-lock-string-face nil :foreground blue-alt)
+         (set-face-attribute 'font-lock-type-face nil :inherit 'modus-themes-bold :foreground 'unspecified)
+         (set-face-attribute 'font-lock-variable-name-face nil :foreground 'unspecified)
+         (set-face-attribute 'font-lock-warning-face nil :inherit 'modus-themes-bold :foreground red-nuanced-fg)))
 
 
 File: modus-themes.info,  Node: Face coverage,  Next: Notes on individual packages,  Prev: Advanced customization,  Up: Top
@@ -5415,19 +5542,19 @@ Ideas and user feedback
      Aaron Jensen, Adam Porter, Adam Spiers, Adrian Manea, Alex Griffin,
      Alex Koen, Alex Peitsinis, Alexey Shmalko, Alok Singh, Anders
      Johansson, André Alexandre Gomes, Antonio Hernández Blas, Arif
-     Rezai, Basil L. Contovounesios, Burgess Chang, Christian Tietze,
-     Christopher Dimech, Damien Cassou, Daniel Mendler, Dario
-     Gjorgjevski, David Edmondson, Davor Rotim, Divan Santana, Eliraz
-     Kedmi, Emanuele Michele Alberto Monterosso, Farasha Euker, Feng
-     Shu, Gautier Ponsinet, Gerry Agbobada, Gianluca Recchia, Guilherme
-     Semente, Gustavo Barros, Hörmetjan Yiltiz, Ilja Kocken, Iris
-     Garcia, Jeremy Friesen, Jerry Zhang, Johannes Grødem, John Haman,
-     Joshua O’Connor, Kenta Usami, Kevin Fleming, Kévin Le Gouguec,
-     Kostadin Ninev, Len Trigg, Lennart C.  Karssen, Magne Hov, Manuel
-     Uberti, Mark Bestley, Mark Burton, Markus Beppler, Mauro Aranda,
-     Michael Goldenberg, Morgan Smith, Morgan Willcock, Murilo Pereira,
-     Nicky van Foreest, Nicolas De Jaeghere, Paul Poloskov, Pengji
-     Zhang, Pete Kazmier, Peter Wu, Philip Kaludercic, Pierre
+     Rezai, Augusto Stoffel, Basil L. Contovounesios, Burgess Chang,
+     Christian Tietze, Christopher Dimech, Damien Cassou, Daniel
+     Mendler, Dario Gjorgjevski, David Edmondson, Davor Rotim, Divan
+     Santana, Eliraz Kedmi, Emanuele Michele Alberto Monterosso, Farasha
+     Euker, Feng Shu, Gautier Ponsinet, Gerry Agbobada, Gianluca
+     Recchia, Guilherme Semente, Gustavo Barros, Hörmetjan Yiltiz, Ilja
+     Kocken, Iris Garcia, Jeremy Friesen, Jerry Zhang, Johannes Grødem,
+     John Haman, Joshua O’Connor, Kenta Usami, Kevin Fleming, Kévin Le
+     Gouguec, Kostadin Ninev, Len Trigg, Lennart C.  Karssen, Magne Hov,
+     Manuel Uberti, Mark Bestley, Mark Burton, Markus Beppler, Mauro
+     Aranda, Michael Goldenberg, Morgan Smith, Morgan Willcock, Murilo
+     Pereira, Nicky van Foreest, Nicolas De Jaeghere, Paul Poloskov,
+     Pengji Zhang, Pete Kazmier, Peter Wu, Philip Kaludercic, Pierre
      Téchoueyres, Robert Hepple, Roman Rudakov, Ryan Phillips, Rytis
      Paškauskas, Rudolf Adamkovič, Sam Kleinman, Samuel Culpepper, Saša
      Janiška, Shreyas Ragavan, Simon Pugnet, Tassilo Horn, Thibaut
@@ -6126,6 +6253,8 @@ B.3 Concept index
                                                                 (line 6)
 * load-theme VS enable-theme:            Differences between loading and enabling.
                                                                 (line 6)
+* Monochrome code syntax:                Near-monochrome syntax highlighting.
+                                                                (line 6)
 * Org custom emphasis faces:             Custom Org emphasis faces.
                                                                 (line 6)
 * Org custom todo faces:                 Custom Org todo keyword and priority faces.
@@ -6154,114 +6283,115 @@ B.3 Concept index
 
 Tag Table:
 Node: Top877
-Node: Overview7278
-Node: How do the themes look like9402
-Node: Learn about the latest changes9916
-Node: Installation10304
-Node: Install manually from source10785
-Node: Install from the archives11610
-Node: Install on GNU/Linux12387
-Node: Debian 11 Bullseye12835
-Node: GNU Guix13145
-Node: Enable and load13428
-Node: Sample configuration with and without use-package16368
-Node: Differences between loading and enabling18320
-Node: Customization Options20329
-Node: Custom reload theme28680
-Node: Deuteranopia style29470
-Node: Bold constructs30901
-Node: Italic constructs31735
-Node: Syntax styles32502
-Node: Mixed fonts34634
-Node: Link styles35898
-Node: Box buttons38372
-Node: Command prompts41415
-Node: Mode line43236
-Node: Tab style48805
-Node: Completion UIs49468
-Node: Mail citations53349
-Node: Fringes54495
-Node: Language checkers55235
-Node: Line highlighting57677
-Node: Line numbers59274
-Node: Mouse hover effects60355
-Node: Markup60996
-Node: Matching parentheses62596
-Node: Active region63973
-Node: Diffs65386
-Node: Org mode blocks67037
-Node: Org agenda69427
-Node: Heading styles78280
-Node: UI typeface83079
-Node: Advanced customization83978
-Node: More accurate colors in terminal emulators85566
-Node: Visualize the active Modus theme's palette86811
-Node: Per-theme customization settings87811
-Node: Case-by-case face specs using the themes' palette89167
-Node: Face specs at scale using the themes' palette93715
-Node: Remap face with local value98516
-Node: Cycle through arbitrary colors100941
-Node: Override colors107369
-Node: Override color saturation112607
-Node: Override colors through blending118286
-Node: Font configurations for Org and others121143
-Ref: Font configurations for Org and others-Footnote-1123959
-Node: Configure bold and italic faces124146
-Node: Custom Org todo keyword and priority faces128294
-Node: Custom Org emphasis faces131967
-Node: Update Org block delimiter fontification136768
-Node: Measure color contrast138685
-Node: Load theme depending on time of day141408
-Node: Backdrop for pdf-tools142401
-Node: Decrease mode line height145253
-Node: Toggle themes without reloading them149375
-Node: A theme-agnostic hook for theme loading150654
-Node: Diffs with only the foreground153056
-Node: Ediff without diff color-coding156170
-Node: Face coverage158265
-Node: Supported packages158717
-Node: Indirectly covered packages165233
-Node: Notes on individual packages166253
-Node: Note on avy hints167317
-Node: Note on calendarel weekday and weekend colors168485
-Node: Note on underlines in compilation buffers169668
-Node: Note on inline Latex in Org buffers170515
-Node: Note on dimmerel171125
-Node: Note on display-fill-column-indicator-mode172610
-Node: Note on highlight-parenthesesel174173
-Node: Note on mmm-modeel background colors180162
-Node: Note for prism182477
-Node: Note for god-mode185631
-Node: Note on company-mode overlay pop-up187235
-Ref: Note on company-mode overlay pop-up-Footnote-1187925
-Ref: Note on company-mode overlay pop-up-Footnote-2187992
-Node: Note on ERC escaped color sequences188047
-Ref: Note on ERC escaped color sequences-Footnote-1189475
-Node: Note on powerline or spaceline189585
-Node: Note on SHR colors189999
-Node: Note on SHR fonts190411
-Node: Note on Ement colors and fonts191044
-Node: Note on Helm grep192543
-Node: Note on vc-annotate-background-mode194020
-Node: Note on pdf-tools link hints194905
-Node: Frequently Asked Questions197337
-Node: Is the contrast ratio about adjacent colors?197968
-Node: What does it mean to avoid exaggerations?199475
-Node: Why are colors mostly variants of blue magenta cyan?201304
-Node: What is the best setup for legibility?205617
-Node: Are these color schemes?208262
-Node: Port the Modus themes to other platforms?211982
-Node: Contributing214766
-Node: Sources of the themes215163
-Node: Issues you can help with215799
-Node: Patches require copyright assignment to the FSF216999
-Node: Acknowledgements219294
-Node: Meta222409
-Node: GNU Free Documentation License224888
-Node: Indices250240
-Node: Function index250419
-Node: Variable index251942
-Node: Concept index254229
+Node: Overview7318
+Node: How do the themes look like9442
+Node: Learn about the latest changes9956
+Node: Installation10344
+Node: Install manually from source10825
+Node: Install from the archives11650
+Node: Install on GNU/Linux12427
+Node: Debian 11 Bullseye12875
+Node: GNU Guix13185
+Node: Enable and load13468
+Node: Sample configuration with and without use-package16408
+Node: Differences between loading and enabling18360
+Node: Customization Options20369
+Node: Custom reload theme28720
+Node: Deuteranopia style29510
+Node: Bold constructs30941
+Node: Italic constructs31775
+Node: Syntax styles32542
+Node: Mixed fonts34674
+Node: Link styles35938
+Node: Box buttons38412
+Node: Command prompts41455
+Node: Mode line43276
+Node: Tab style48845
+Node: Completion UIs49508
+Node: Mail citations53389
+Node: Fringes54535
+Node: Language checkers55275
+Node: Line highlighting57717
+Node: Line numbers59314
+Node: Mouse hover effects60395
+Node: Markup61036
+Node: Matching parentheses62636
+Node: Active region64013
+Node: Diffs65426
+Node: Org mode blocks67077
+Node: Org agenda69467
+Node: Heading styles78320
+Node: UI typeface83119
+Node: Advanced customization84018
+Node: More accurate colors in terminal emulators85646
+Node: Visualize the active Modus theme's palette86891
+Node: Per-theme customization settings87891
+Node: Case-by-case face specs using the themes' palette89247
+Node: Face specs at scale using the themes' palette93795
+Node: Remap face with local value98596
+Node: Cycle through arbitrary colors101021
+Node: Override colors107449
+Node: Override color saturation112687
+Node: Override colors through blending118366
+Node: Font configurations for Org and others121223
+Ref: Font configurations for Org and others-Footnote-1124039
+Node: Configure bold and italic faces124226
+Node: Custom Org todo keyword and priority faces128374
+Node: Custom Org emphasis faces132047
+Node: Update Org block delimiter fontification136848
+Node: Measure color contrast138765
+Node: Load theme depending on time of day141488
+Node: Backdrop for pdf-tools142481
+Node: Decrease mode line height145333
+Node: Toggle themes without reloading them149455
+Node: A theme-agnostic hook for theme loading150734
+Node: Diffs with only the foreground153136
+Node: Ediff without diff color-coding156250
+Node: Near-monochrome syntax highlighting158389
+Node: Face coverage167362
+Node: Supported packages167814
+Node: Indirectly covered packages174330
+Node: Notes on individual packages175350
+Node: Note on avy hints176414
+Node: Note on calendarel weekday and weekend colors177582
+Node: Note on underlines in compilation buffers178765
+Node: Note on inline Latex in Org buffers179612
+Node: Note on dimmerel180222
+Node: Note on display-fill-column-indicator-mode181707
+Node: Note on highlight-parenthesesel183270
+Node: Note on mmm-modeel background colors189259
+Node: Note for prism191574
+Node: Note for god-mode194728
+Node: Note on company-mode overlay pop-up196332
+Ref: Note on company-mode overlay pop-up-Footnote-1197022
+Ref: Note on company-mode overlay pop-up-Footnote-2197089
+Node: Note on ERC escaped color sequences197144
+Ref: Note on ERC escaped color sequences-Footnote-1198572
+Node: Note on powerline or spaceline198682
+Node: Note on SHR colors199096
+Node: Note on SHR fonts199508
+Node: Note on Ement colors and fonts200141
+Node: Note on Helm grep201640
+Node: Note on vc-annotate-background-mode203117
+Node: Note on pdf-tools link hints204002
+Node: Frequently Asked Questions206434
+Node: Is the contrast ratio about adjacent colors?207065
+Node: What does it mean to avoid exaggerations?208572
+Node: Why are colors mostly variants of blue magenta cyan?210401
+Node: What is the best setup for legibility?214714
+Node: Are these color schemes?217359
+Node: Port the Modus themes to other platforms?221079
+Node: Contributing223863
+Node: Sources of the themes224260
+Node: Issues you can help with224896
+Node: Patches require copyright assignment to the FSF226096
+Node: Acknowledgements228391
+Node: Meta231523
+Node: GNU Free Documentation License234002
+Node: Indices259354
+Node: Function index259533
+Node: Variable index261056
+Node: Concept index263343
 
 End Tag Table
 
