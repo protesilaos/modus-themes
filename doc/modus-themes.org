@@ -266,8 +266,7 @@ automatically reload the theme ([[#h:9001527a-4e2c-43e0-98e8-3ef72d770639][Optio
 This is how a basic setup could look like:
 
 #+begin_src emacs-lisp
-;;; The built-in themes:
-
+;;; For the built-in themes which cannot use `require':
 ;; Add all your customizations prior to loading the themes
 (setq modus-themes-italic-constructs t
       modus-themes-bold-constructs nil
@@ -278,7 +277,9 @@ This is how a basic setup could look like:
 
 (define-key global-map (kbd "<f5>") #'modus-themes-toggle)
 
-;;; The packaged themes
+
+
+;;; For packaged versions which must use `require':
 (require 'modus-themes)
 
 ;; Add all your customizations prior to loading the themes
@@ -321,15 +322,30 @@ It is common for Emacs users to rely on ~use-package~ for declaring
 package configurations in their setup.  We use this as an example:
 
 #+begin_src emacs-lisp
+;;; For the built-in themes which cannot use `require':
+(use-package emacs
+  :init
+  ;; Add all your customizations prior to loading the themes
+  (setq modus-themes-italic-constructs t
+        modus-themes-bold-constructs nil
+        modus-themes-region '(bg-only no-extend))
+  :config
+  ;; Load the theme of your choice:
+  (load-theme 'modus-operandi) ;; OR (load-theme 'modus-vivendi)
+  :bind ("<f5>" . modus-themes-toggle)
+
+
+
+;;; For packaged versions which must use `require':
 (use-package modus-themes
-  :ensure                         ; omit this to use the built-in themes
+  :ensure
   :init
   ;; Add all your customizations prior to loading the themes
   (setq modus-themes-italic-constructs t
         modus-themes-bold-constructs nil
         modus-themes-region '(bg-only no-extend))
 
-  ;; Load the theme files before enabling a theme (else you get an error).
+  ;; Load the theme files before enabling a theme
   (modus-themes-load-themes)
   :config
   ;; Load the theme of your choice:
@@ -340,6 +356,20 @@ package configurations in their setup.  We use this as an example:
 The same without ~use-package~:
 
 #+begin_src emacs-lisp
+;;; For the built-in themes which cannot use `require':
+;; Add all your customizations prior to loading the themes
+(setq modus-themes-italic-constructs t
+      modus-themes-bold-constructs nil
+      modus-themes-region '(bg-only no-extend))
+
+;; Load the theme of your choice:
+(load-theme 'modus-operandi) ;; OR (load-theme 'modus-vivendi)
+
+(define-key global-map (kbd "<f5>") #'modus-themes-toggle)
+
+
+
+;;; For packaged versions which must use `require':
 (require 'modus-themes)
 
 ;; Add all your customizations prior to loading the themes

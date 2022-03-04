@@ -378,13 +378,13 @@ File: modus-themes.info,  Node: Enable and load,  Next: Customization Options,  
 3 Enable and load
 *****************
 
-Users of the built-in themes can load and automatically enable the theme
-of their preference by adding either form to their init file:
+Users of the built-in themes cannot ‘require’ the package as usual
+because there is no package to speak of.  Instead, things are simpler as
+all one needs is to load the theme of their preference by adding either
+form to their init file:
 
      (load-theme 'modus-operandi)            ; Light theme
      (load-theme 'modus-vivendi)             ; Dark theme
-
-   This is all one needs.
 
    Users of packaged variants of the themes must add a few more lines to
 ensure that everything works as intended.  First, one has to require the
@@ -408,23 +408,39 @@ activate a theme with either of the following expressions:
    Changes to the available customization options must always be
 evaluated before loading a theme (*note Customization Options::).  An
 exception to this norm is when using the various Custom interfaces or
-with commands like ‘M-x customize-set-variable’, which can automatically
-reload the theme (*note Option for inhibiting theme reload: Custom
-reload theme.).  This is how a basic setup could look like:
+with commands like ‘M-x customize-set-variable’, which can optionally
+automatically reload the theme (*note Option for inhibiting theme
+reload: Custom reload theme.).
 
+   This is how a basic setup could look like:
+
+     ;;; For the built-in themes which cannot use `require':
+     ;; Add all your customizations prior to loading the themes
+     (setq modus-themes-italic-constructs t
+           modus-themes-bold-constructs nil
+           modus-themes-region '(bg-only no-extend))
+
+     ;; Load the theme of your choice:
+     (load-theme 'modus-operandi) ;; OR (load-theme 'modus-vivendi)
+
+     (define-key global-map (kbd "<f5>") #'modus-themes-toggle)
+
+
+
+     ;;; For packaged versions which must use `require':
      (require 'modus-themes)
 
-     ;; Your customisations here.  For example:
-     (setq modus-themes-bold-constructs t
-           modus-themes-mode-line '3d)
+     ;; Add all your customizations prior to loading the themes
+     (setq modus-themes-italic-constructs t
+           modus-themes-bold-constructs nil
+           modus-themes-region '(bg-only no-extend))
 
-     ;; Load the theme files before enabling a theme (else you get an error).
+     ;; Load the theme files before enabling a theme
      (modus-themes-load-themes)
 
-     ;; Enable the theme of your preference:
-     (modus-themes-load-operandi)
+     ;; Load the theme of your choice:
+     (modus-themes-load-operandi) ;; OR (modus-themes-load-vivendi)
 
-     ;; Optionally add a key binding for the toggle between the themes:
      (define-key global-map (kbd "<f5>") #'modus-themes-toggle)
 
    *note Sample configuration with and without use-package::.
@@ -458,15 +474,30 @@ File: modus-themes.info,  Node: Sample configuration with and without use-packag
 It is common for Emacs users to rely on ‘use-package’ for declaring
 package configurations in their setup.  We use this as an example:
 
+     ;;; For the built-in themes which cannot use `require':
+     (use-package emacs
+       :init
+       ;; Add all your customizations prior to loading the themes
+       (setq modus-themes-italic-constructs t
+             modus-themes-bold-constructs nil
+             modus-themes-region '(bg-only no-extend))
+       :config
+       ;; Load the theme of your choice:
+       (load-theme 'modus-operandi) ;; OR (load-theme 'modus-vivendi)
+       :bind ("<f5>" . modus-themes-toggle)
+
+
+
+     ;;; For packaged versions which must use `require':
      (use-package modus-themes
-       :ensure                         ; omit this to use the built-in themes
+       :ensure
        :init
        ;; Add all your customizations prior to loading the themes
        (setq modus-themes-italic-constructs t
              modus-themes-bold-constructs nil
              modus-themes-region '(bg-only no-extend))
 
-       ;; Load the theme files before enabling a theme (else you get an error).
+       ;; Load the theme files before enabling a theme
        (modus-themes-load-themes)
        :config
        ;; Load the theme of your choice:
@@ -475,6 +506,20 @@ package configurations in their setup.  We use this as an example:
 
    The same without ‘use-package’:
 
+     ;;; For the built-in themes which cannot use `require':
+     ;; Add all your customizations prior to loading the themes
+     (setq modus-themes-italic-constructs t
+           modus-themes-bold-constructs nil
+           modus-themes-region '(bg-only no-extend))
+
+     ;; Load the theme of your choice:
+     (load-theme 'modus-operandi) ;; OR (load-theme 'modus-vivendi)
+
+     (define-key global-map (kbd "<f5>") #'modus-themes-toggle)
+
+
+
+     ;;; For packaged versions which must use `require':
      (require 'modus-themes)
 
      ;; Add all your customizations prior to loading the themes
@@ -6293,105 +6338,105 @@ Node: Install on GNU/Linux12427
 Node: Debian 11 Bullseye12875
 Node: GNU Guix13185
 Node: Enable and load13468
-Node: Sample configuration with and without use-package16408
-Node: Differences between loading and enabling18360
-Node: Customization Options20369
-Node: Custom reload theme28720
-Node: Deuteranopia style29510
-Node: Bold constructs30941
-Node: Italic constructs31775
-Node: Syntax styles32542
-Node: Mixed fonts34674
-Node: Link styles35938
-Node: Box buttons38412
-Node: Command prompts41455
-Node: Mode line43276
-Node: Tab style48845
-Node: Completion UIs49508
-Node: Mail citations53389
-Node: Fringes54535
-Node: Language checkers55275
-Node: Line highlighting57717
-Node: Line numbers59314
-Node: Mouse hover effects60395
-Node: Markup61036
-Node: Matching parentheses62636
-Node: Active region64013
-Node: Diffs65426
-Node: Org mode blocks67077
-Node: Org agenda69467
-Node: Heading styles78320
-Node: UI typeface83119
-Node: Advanced customization84018
-Node: More accurate colors in terminal emulators85646
-Node: Visualize the active Modus theme's palette86891
-Node: Per-theme customization settings87891
-Node: Case-by-case face specs using the themes' palette89247
-Node: Face specs at scale using the themes' palette93795
-Node: Remap face with local value98596
-Node: Cycle through arbitrary colors101021
-Node: Override colors107449
-Node: Override color saturation112687
-Node: Override colors through blending118366
-Node: Font configurations for Org and others121223
-Ref: Font configurations for Org and others-Footnote-1124039
-Node: Configure bold and italic faces124226
-Node: Custom Org todo keyword and priority faces128374
-Node: Custom Org emphasis faces132047
-Node: Update Org block delimiter fontification136848
-Node: Measure color contrast138765
-Node: Load theme depending on time of day141488
-Node: Backdrop for pdf-tools142481
-Node: Decrease mode line height145333
-Node: Toggle themes without reloading them149455
-Node: A theme-agnostic hook for theme loading150734
-Node: Diffs with only the foreground153136
-Node: Ediff without diff color-coding156250
-Node: Near-monochrome syntax highlighting158389
-Node: Face coverage167356
-Node: Supported packages167808
-Node: Indirectly covered packages174324
-Node: Notes on individual packages175344
-Node: Note on avy hints176408
-Node: Note on calendarel weekday and weekend colors177576
-Node: Note on underlines in compilation buffers178759
-Node: Note on inline Latex in Org buffers179606
-Node: Note on dimmerel180216
-Node: Note on display-fill-column-indicator-mode181701
-Node: Note on highlight-parenthesesel183264
-Node: Note on mmm-modeel background colors189253
-Node: Note for prism191568
-Node: Note for god-mode194722
-Node: Note on company-mode overlay pop-up196326
-Ref: Note on company-mode overlay pop-up-Footnote-1197016
-Ref: Note on company-mode overlay pop-up-Footnote-2197083
-Node: Note on ERC escaped color sequences197138
-Ref: Note on ERC escaped color sequences-Footnote-1198566
-Node: Note on powerline or spaceline198676
-Node: Note on SHR colors199090
-Node: Note on SHR fonts199502
-Node: Note on Ement colors and fonts200135
-Node: Note on Helm grep201634
-Node: Note on vc-annotate-background-mode203111
-Node: Note on pdf-tools link hints203996
-Node: Frequently Asked Questions206428
-Node: Is the contrast ratio about adjacent colors?207059
-Node: What does it mean to avoid exaggerations?208566
-Node: Why are colors mostly variants of blue magenta cyan?210395
-Node: What is the best setup for legibility?214708
-Node: Are these color schemes?217353
-Node: Port the Modus themes to other platforms?221073
-Node: Contributing223857
-Node: Sources of the themes224254
-Node: Issues you can help with224890
-Node: Patches require copyright assignment to the FSF226090
-Node: Acknowledgements228385
-Node: Meta231517
-Node: GNU Free Documentation License233996
-Node: Indices259348
-Node: Function index259527
-Node: Variable index261050
-Node: Concept index263337
+Node: Sample configuration with and without use-package17007
+Node: Differences between loading and enabling19911
+Node: Customization Options21920
+Node: Custom reload theme30271
+Node: Deuteranopia style31061
+Node: Bold constructs32492
+Node: Italic constructs33326
+Node: Syntax styles34093
+Node: Mixed fonts36225
+Node: Link styles37489
+Node: Box buttons39963
+Node: Command prompts43006
+Node: Mode line44827
+Node: Tab style50396
+Node: Completion UIs51059
+Node: Mail citations54940
+Node: Fringes56086
+Node: Language checkers56826
+Node: Line highlighting59268
+Node: Line numbers60865
+Node: Mouse hover effects61946
+Node: Markup62587
+Node: Matching parentheses64187
+Node: Active region65564
+Node: Diffs66977
+Node: Org mode blocks68628
+Node: Org agenda71018
+Node: Heading styles79871
+Node: UI typeface84670
+Node: Advanced customization85569
+Node: More accurate colors in terminal emulators87197
+Node: Visualize the active Modus theme's palette88442
+Node: Per-theme customization settings89442
+Node: Case-by-case face specs using the themes' palette90798
+Node: Face specs at scale using the themes' palette95346
+Node: Remap face with local value100147
+Node: Cycle through arbitrary colors102572
+Node: Override colors109000
+Node: Override color saturation114238
+Node: Override colors through blending119917
+Node: Font configurations for Org and others122774
+Ref: Font configurations for Org and others-Footnote-1125590
+Node: Configure bold and italic faces125777
+Node: Custom Org todo keyword and priority faces129925
+Node: Custom Org emphasis faces133598
+Node: Update Org block delimiter fontification138399
+Node: Measure color contrast140316
+Node: Load theme depending on time of day143039
+Node: Backdrop for pdf-tools144032
+Node: Decrease mode line height146884
+Node: Toggle themes without reloading them151006
+Node: A theme-agnostic hook for theme loading152285
+Node: Diffs with only the foreground154687
+Node: Ediff without diff color-coding157801
+Node: Near-monochrome syntax highlighting159940
+Node: Face coverage168907
+Node: Supported packages169359
+Node: Indirectly covered packages175875
+Node: Notes on individual packages176895
+Node: Note on avy hints177959
+Node: Note on calendarel weekday and weekend colors179127
+Node: Note on underlines in compilation buffers180310
+Node: Note on inline Latex in Org buffers181157
+Node: Note on dimmerel181767
+Node: Note on display-fill-column-indicator-mode183252
+Node: Note on highlight-parenthesesel184815
+Node: Note on mmm-modeel background colors190804
+Node: Note for prism193119
+Node: Note for god-mode196273
+Node: Note on company-mode overlay pop-up197877
+Ref: Note on company-mode overlay pop-up-Footnote-1198567
+Ref: Note on company-mode overlay pop-up-Footnote-2198634
+Node: Note on ERC escaped color sequences198689
+Ref: Note on ERC escaped color sequences-Footnote-1200117
+Node: Note on powerline or spaceline200227
+Node: Note on SHR colors200641
+Node: Note on SHR fonts201053
+Node: Note on Ement colors and fonts201686
+Node: Note on Helm grep203185
+Node: Note on vc-annotate-background-mode204662
+Node: Note on pdf-tools link hints205547
+Node: Frequently Asked Questions207979
+Node: Is the contrast ratio about adjacent colors?208610
+Node: What does it mean to avoid exaggerations?210117
+Node: Why are colors mostly variants of blue magenta cyan?211946
+Node: What is the best setup for legibility?216259
+Node: Are these color schemes?218904
+Node: Port the Modus themes to other platforms?222624
+Node: Contributing225408
+Node: Sources of the themes225805
+Node: Issues you can help with226441
+Node: Patches require copyright assignment to the FSF227641
+Node: Acknowledgements229936
+Node: Meta233068
+Node: GNU Free Documentation License235547
+Node: Indices260899
+Node: Function index261078
+Node: Variable index262601
+Node: Concept index264888
 
 End Tag Table
 
