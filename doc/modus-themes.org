@@ -2166,6 +2166,77 @@ Another example that can be bound to a key:
 
 : TERM=xterm-direct uxterm -e emacsclient -nw
 
+** Range of color with terminal emulators
+:PROPERTIES:
+:CUSTOM_ID: h:6b8211b0-d11b-4c00-9543-4685ec3b742f
+:END:
+#+cindex: Pure white and pure black in terminal emulators
+
+[ This is based on partial information.  Please help verify and/or
+  expand these findings. ]
+
+When Emacs runs in a non-windowed session its color reproduction
+capacity is framed or determined by the underlying terminal emulator
+([[#h:fbb5e254-afd6-4313-bb05-93b3b4f67358][More accurate colors in terminal emulators]]).  Emacs cannot produce a
+color that lies outside the range of what the terminal's color palette
+renders possible.
+
+This is immediately noticeable when the terminal's first 16 codes do not
+include a pure black value for the =termcol0= entry and a pure white for
+=termcol15=.  Emacs cannot set the correct background (white for
+~modus-operandi~; black for ~modus-vivendi~) or foreground (inverse of
+the background).  It thus falls back to the closest approximation, which
+seldom is appropriate for the purposes of the Modus themes.
+
+In such a case, the user is expected to update their terminal's color
+palette such as by adapting these resources:
+
+#+begin_src emacs-lisp
+! Theme: modus-operandi
+! Description: XTerm port of modus-operandi (Modus themes for GNU Emacs)
+! Author: Protesilaos Stavrou, <https://protesilaos.com>
+xterm*background: #ffffff
+xterm*foreground: #000000
+xterm*color0:     #000000
+xterm*color1:     #a60000
+xterm*color2:     #005e00
+xterm*color3:     #813e00
+xterm*color4:     #0031a9
+xterm*color5:     #721045
+xterm*color6:     #00538b
+xterm*color7:     #bfbfbf
+xterm*color8:     #595959
+xterm*color9:     #972500
+xterm*color10:    #315b00
+xterm*color11:    #70480f
+xterm*color12:    #2544bb
+xterm*color13:    #5317ac
+xterm*color14:    #005a5f
+xterm*color15:    #ffffff
+
+! Theme: modus-vivendi
+! Description: XTerm port of modus-vivendi (Modus themes for GNU Emacs)
+! Author: Protesilaos Stavrou, <https://protesilaos.com>
+xterm*background: #000000
+xterm*foreground: #ffffff
+xterm*color0:     #000000
+xterm*color1:     #ff8059
+xterm*color2:     #44bc44
+xterm*color3:     #d0bc00
+xterm*color4:     #2fafff
+xterm*color5:     #feacd0
+xterm*color6:     #00d3d0
+xterm*color7:     #bfbfbf
+xterm*color8:     #595959
+xterm*color9:     #ef8b50
+xterm*color10:    #70b900
+xterm*color11:    #c0c530
+xterm*color12:    #79a8ff
+xterm*color13:    #b6a0ff
+xterm*color14:    #6ae4b9
+xterm*color15:    #ffffff
+#+end_src
+
 ** Visualize the active Modus theme's palette
 :properties:
 :custom_id: h:f4d4b71b-2ca5-4c3d-b0b4-9bfd7aa7fb4d
