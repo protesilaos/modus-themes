@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.2.0
-;; Last-Modified: <2022-03-03 15:10:37 +0200>
+;; Last-Modified: <2022-03-13 13:14:44 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -4612,8 +4612,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
                             ,@(modus-themes--link-color
                                magenta-alt-other magenta-alt-other-faint fg-alt))))
     `(tooltip ((,class :background ,bg-special-cold :foreground ,fg-main)))
-    `(widget-button ((,class :inherit bold :foreground ,blue-alt)))
-    `(widget-button-pressed ((,class :inherit widget-button :foreground ,magenta)))
+    `(widget-button ((,class :inherit modus-themes-box-button)))
+    `(widget-button-pressed ((,class :inherit modus-themes-box-button-pressed)))
     `(widget-documentation ((,class :foreground ,green)))
     `(widget-field ((,class :background ,bg-alt :foreground ,fg-main :extend nil)))
     `(widget-inactive ((,class :inherit shadow :background ,bg-dim)))
@@ -7676,6 +7676,11 @@ by virtue of calling either of `modus-themes-load-operandi' and
         (340 . ,blue-alt-other)
         (360 . ,magenta-alt-other)))
     `(vc-annotate-very-old-color nil)
+;;;; wid-edit
+    `(widget-link-prefix " ")
+    `(widget-link-suffix " ")
+    `(widget-push-button-prefix " ")
+    `(widget-push-button-suffix " ")
 ;;;; xterm-color
     `(xterm-color-names ["black" ,red ,green ,yellow ,blue ,magenta ,cyan "gray65"])
     `(xterm-color-names-bright ["gray35" ,red-alt ,green-alt ,yellow-alt ,blue-alt ,magenta-alt ,cyan-alt "white"])
