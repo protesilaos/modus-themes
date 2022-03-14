@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.2.0
-;; Last-Modified: <2022-03-14 06:27:29 +0200>
+;; Last-Modified: <2022-03-14 16:07:55 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -7680,6 +7680,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;; wid-edit
     `(widget-link-prefix " ")
     `(widget-link-suffix " ")
+    `(widget-mouse-face '(highlight widget-button))
     `(widget-push-button-prefix " ")
     `(widget-push-button-suffix " ")
 ;;;; xterm-color
