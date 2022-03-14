@@ -4573,29 +4573,20 @@ package: it draws too much attention to unfocused windows.
 :custom_id: h:2a602816-bc1b-45bf-9675-4cbbd7bf6cab
 :end:
 
-While designing the style for ~display-fill-column-indicator-mode~, we
-stayed close to the mode's defaults: to apply a subtle foreground color
-to the ~fill-column-indicator~ face, which blends well with the rest of
-theme and is consistent with the role of that mode.  This is to not
-upset the expectations of users.
+The ~display-fill-column-indicator-mode~ uses a typographic character to
+draw its line.  This has the downside of creating a dashed line.  The
+dashes are further apart depending on how tall the font's glyph height
+is and what integer the ~line-spacing~ is set to.
 
-Nevertheless, ~display-fill-column-indicator-mode~ has some known
-limitations pertaining to its choice of using typographic characters to
-draw its indicator.  What should be a continuous vertical line might
-appear as a series of dashes in certain contexts or under specific
-conditions: a non-default value for ~line-spacing~, scaled and/or
-variable-pitch headings have been observed to cause this effect.
-
-Given that we cannot control such factors, it may be better for affected
-users to deviate from the default style of the ~fill-column-indicator~
-face.  Instead of setting a foreground color, one could use a background
-and have the foreground be indistinguishable from it.  For example:
+At the theme level we eliminate this effect by making the character one
+pixel tall: the line is contiguous.  Users who prefer the dashed line
+are advised to change the ~fill-column-indicator~ face, as explained
+elsewhere in this document.  For example:
 
 #+begin_src emacs-lisp
 (modus-themes-with-colors
   (custom-set-faces
-   `(fill-column-indicator ((,class :background ,bg-inactive
-                                    :foreground ,bg-inactive)))))
+   `(fill-column-indicator ((,class :foreground ,bg-active)))))
 #+end_src
 
 [[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Face specs at scale using the themes' palette]].

@@ -4605,29 +4605,19 @@ File: modus-themes.info,  Node: Note on display-fill-column-indicator-mode,  Nex
 7.6 Note on display-fill-column-indicator-mode
 ==============================================
 
-While designing the style for ‘display-fill-column-indicator-mode’, we
-stayed close to the mode’s defaults: to apply a subtle foreground color
-to the ‘fill-column-indicator’ face, which blends well with the rest of
-theme and is consistent with the role of that mode.  This is to not
-upset the expectations of users.
+The ‘display-fill-column-indicator-mode’ uses a typographic character to
+draw its line.  This has the downside of creating a dashed line.  The
+dashes are further apart depending on how tall the font’s glyph height
+is and what integer the ‘line-spacing’ is set to.
 
-   Nevertheless, ‘display-fill-column-indicator-mode’ has some known
-limitations pertaining to its choice of using typographic characters to
-draw its indicator.  What should be a continuous vertical line might
-appear as a series of dashes in certain contexts or under specific
-conditions: a non-default value for ‘line-spacing’, scaled and/or
-variable-pitch headings have been observed to cause this effect.
-
-   Given that we cannot control such factors, it may be better for
-affected users to deviate from the default style of the
-‘fill-column-indicator’ face.  Instead of setting a foreground color,
-one could use a background and have the foreground be indistinguishable
-from it.  For example:
+   At the theme level we eliminate this effect by making the character
+one pixel tall: the line is contiguous.  Users who prefer the dashed
+line are advised to change the ‘fill-column-indicator’ face, as
+explained elsewhere in this document.  For example:
 
      (modus-themes-with-colors
        (custom-set-faces
-        `(fill-column-indicator ((,class :background ,bg-inactive
-                                         :foreground ,bg-inactive)))))
+        `(fill-column-indicator ((,class :foreground ,bg-active)))))
 
    *note Face specs at scale using the themes' palette::.
 
@@ -6477,40 +6467,40 @@ Node: Note on underlines in compilation buffers183095
 Node: Note on inline Latex in Org buffers183942
 Node: Note on dimmerel184552
 Node: Note on display-fill-column-indicator-mode186037
-Node: Note on highlight-parenthesesel187600
-Node: Note on mmm-modeel background colors193589
-Node: Note for prism195904
-Node: Note for god-mode199058
-Node: Note on company-mode overlay pop-up200662
-Ref: Note on company-mode overlay pop-up-Footnote-1201352
-Ref: Note on company-mode overlay pop-up-Footnote-2201419
-Node: Note on ERC escaped color sequences201474
-Ref: Note on ERC escaped color sequences-Footnote-1202902
-Node: Note on powerline or spaceline203012
-Node: Note on SHR colors203426
-Node: Note on SHR fonts203838
-Node: Note on Ement colors and fonts204471
-Node: Note on Helm grep205970
-Node: Note on vc-annotate-background-mode207447
-Node: Note on pdf-tools link hints208332
-Node: Frequently Asked Questions210764
-Node: Is the contrast ratio about adjacent colors?211395
-Node: What does it mean to avoid exaggerations?212902
-Node: Why are colors mostly variants of blue magenta cyan?214731
-Node: What is the best setup for legibility?219044
-Node: Are these color schemes?221689
-Node: Port the Modus themes to other platforms?225409
-Node: Contributing228193
-Node: Sources of the themes228590
-Node: Issues you can help with229226
-Node: Patches require copyright assignment to the FSF230426
-Node: Acknowledgements232721
-Node: Meta235853
-Node: GNU Free Documentation License238332
-Node: Indices263684
-Node: Function index263863
-Node: Variable index265386
-Node: Concept index267673
+Node: Note on highlight-parenthesesel187031
+Node: Note on mmm-modeel background colors193020
+Node: Note for prism195335
+Node: Note for god-mode198489
+Node: Note on company-mode overlay pop-up200093
+Ref: Note on company-mode overlay pop-up-Footnote-1200783
+Ref: Note on company-mode overlay pop-up-Footnote-2200850
+Node: Note on ERC escaped color sequences200905
+Ref: Note on ERC escaped color sequences-Footnote-1202333
+Node: Note on powerline or spaceline202443
+Node: Note on SHR colors202857
+Node: Note on SHR fonts203269
+Node: Note on Ement colors and fonts203902
+Node: Note on Helm grep205401
+Node: Note on vc-annotate-background-mode206878
+Node: Note on pdf-tools link hints207763
+Node: Frequently Asked Questions210195
+Node: Is the contrast ratio about adjacent colors?210826
+Node: What does it mean to avoid exaggerations?212333
+Node: Why are colors mostly variants of blue magenta cyan?214162
+Node: What is the best setup for legibility?218475
+Node: Are these color schemes?221120
+Node: Port the Modus themes to other platforms?224840
+Node: Contributing227624
+Node: Sources of the themes228021
+Node: Issues you can help with228657
+Node: Patches require copyright assignment to the FSF229857
+Node: Acknowledgements232152
+Node: Meta235284
+Node: GNU Free Documentation License237763
+Node: Indices263115
+Node: Function index263294
+Node: Variable index264817
+Node: Concept index267104
 
 End Tag Table
 
