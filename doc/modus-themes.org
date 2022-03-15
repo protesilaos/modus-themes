@@ -5131,6 +5131,20 @@ you've customized any faces.
             "-draw"       "text %X,%Y '%c'"))))
 #+end_src
 
+** Note on the Notmuch logo
+:properties:
+:custom_id: h:636af312-54a5-4918-84a6-0698e85a3c6d
+:end:
+
+By default, the "hello" buffer of Notmuch includes a header with the
+programs' logo and a couple of buttons.  The logo has the effect of
+enlarging the height of the line, which negatively impacts the shape of
+those buttons.  Disabling the logo fixes the problem:
+
+#+begin_src emacs-lisp
+(setq notmuch-show-logo nil)
+#+end_src
+
 * Frequently Asked Questions
 :properties:
 :custom_id: h:b3384767-30d3-4484-ba7f-081729f03a47
