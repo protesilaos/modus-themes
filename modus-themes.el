@@ -4599,7 +4599,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                               bg-hl-alt-intense bg-region-accent
                                               bg-region-accent-subtle))))
     `(secondary-selection ((,class :inherit modus-themes-special-cold)))
-    `(separator-line ((,class :inherit shadow :underline t)))
+    `(separator-line ((,class :underline ,bg-region)))
     `(shadow ((,class :foreground ,fg-alt)))
     `(success ((,class :inherit (bold modus-themes-grue))))
     `(trailing-whitespace ((,class :background ,red-intense-bg)))
