@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.2.0
-;; Last-Modified: <2022-03-21 08:34:14 +0200>
+;; Last-Modified: <2022-03-21 09:20:41 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -124,6 +124,7 @@
 ;;     deadgrep
 ;;     debbugs
 ;;     deft
+;;     devdocs
 ;;     dictionary
 ;;     diff-hl
 ;;     diff-mode
@@ -5082,6 +5083,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(deft-summary-face ((,class :inherit (shadow modus-themes-slant))))
     `(deft-time-face ((,class :foreground ,fg-special-cold)))
     `(deft-title-face ((,class :inherit bold :foreground ,fg-main)))
+;;;;; devdocs
+    `(devdocs-code-block ((,class :inherit modus-themes-fixed-pitch :background ,bg-dim :extend t)))
 ;;;;; dictionary
     `(dictionary-button-face ((,class :inherit bold :foreground ,fg-special-cold)))
     `(dictionary-reference-face ((,class :inherit button)))

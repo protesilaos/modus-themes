@@ -4127,6 +4127,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + deadgrep
 + debbugs
 + deft
++ devdocs [ part of {{{development-version}}} ]
 + dictionary
 + diff-hl
 + diff-mode

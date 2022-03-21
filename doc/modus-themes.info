@@ -4144,6 +4144,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • deadgrep
    • debbugs
    • deft
+   • devdocs [ part of 2.3.0-dev ]
    • dictionary
    • diff-hl
    • diff-mode
@@ -6474,49 +6475,49 @@ Node: Ediff without diff color-coding160610
 Node: Near-monochrome syntax highlighting162749
 Node: Face coverage171716
 Node: Supported packages172168
-Node: Indirectly covered packages178684
-Node: Notes on individual packages179704
-Node: Note on avy hints180797
-Node: Note on calendarel weekday and weekend colors181965
-Node: Note on underlines in compilation buffers183148
-Node: Note on inline Latex in Org buffers183995
-Node: Note on dimmerel184605
-Node: Note on display-fill-column-indicator-mode186090
-Node: Note on highlight-parenthesesel187084
-Node: Note on mmm-modeel background colors193073
-Node: Note for prism195388
-Node: Note for god-mode198542
-Node: Note on company-mode overlay pop-up200146
-Ref: Note on company-mode overlay pop-up-Footnote-1200836
-Ref: Note on company-mode overlay pop-up-Footnote-2200903
-Node: Note on ERC escaped color sequences200958
-Ref: Note on ERC escaped color sequences-Footnote-1202386
-Node: Note on powerline or spaceline202496
-Node: Note on SHR colors202910
-Node: Note on SHR fonts203322
-Node: Note on Ement colors and fonts203955
-Node: Note on Helm grep205454
-Node: Note on vc-annotate-background-mode206931
-Node: Note on pdf-tools link hints207816
-Node: Note on the Notmuch logo210281
-Node: Frequently Asked Questions210779
-Node: Is the contrast ratio about adjacent colors?211410
-Node: What does it mean to avoid exaggerations?212917
-Node: Why are colors mostly variants of blue magenta cyan?214746
-Node: What is the best setup for legibility?219059
-Node: Are these color schemes?221704
-Node: Port the Modus themes to other platforms?225424
-Node: Contributing228208
-Node: Sources of the themes228605
-Node: Issues you can help with229241
-Node: Patches require copyright assignment to the FSF230441
-Node: Acknowledgements232736
-Node: Meta235882
-Node: GNU Free Documentation License238361
-Node: Indices263713
-Node: Function index263892
-Node: Variable index265415
-Node: Concept index267702
+Node: Indirectly covered packages178721
+Node: Notes on individual packages179741
+Node: Note on avy hints180834
+Node: Note on calendarel weekday and weekend colors182002
+Node: Note on underlines in compilation buffers183185
+Node: Note on inline Latex in Org buffers184032
+Node: Note on dimmerel184642
+Node: Note on display-fill-column-indicator-mode186127
+Node: Note on highlight-parenthesesel187121
+Node: Note on mmm-modeel background colors193110
+Node: Note for prism195425
+Node: Note for god-mode198579
+Node: Note on company-mode overlay pop-up200183
+Ref: Note on company-mode overlay pop-up-Footnote-1200873
+Ref: Note on company-mode overlay pop-up-Footnote-2200940
+Node: Note on ERC escaped color sequences200995
+Ref: Note on ERC escaped color sequences-Footnote-1202423
+Node: Note on powerline or spaceline202533
+Node: Note on SHR colors202947
+Node: Note on SHR fonts203359
+Node: Note on Ement colors and fonts203992
+Node: Note on Helm grep205491
+Node: Note on vc-annotate-background-mode206968
+Node: Note on pdf-tools link hints207853
+Node: Note on the Notmuch logo210318
+Node: Frequently Asked Questions210816
+Node: Is the contrast ratio about adjacent colors?211447
+Node: What does it mean to avoid exaggerations?212954
+Node: Why are colors mostly variants of blue magenta cyan?214783
+Node: What is the best setup for legibility?219096
+Node: Are these color schemes?221741
+Node: Port the Modus themes to other platforms?225461
+Node: Contributing228245
+Node: Sources of the themes228642
+Node: Issues you can help with229278
+Node: Patches require copyright assignment to the FSF230478
+Node: Acknowledgements232773
+Node: Meta235919
+Node: GNU Free Documentation License238398
+Node: Indices263750
+Node: Function index263929
+Node: Variable index265452
+Node: Concept index267739
 
 End Tag Table
 
