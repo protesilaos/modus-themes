@@ -15,7 +15,7 @@
 #+texinfo_filename: modus-themes.info
 #+texinfo_dir_category: Emacs misc features
 #+texinfo_dir_title: Modus Themes: (modus-themes)
-#+texinfo_dir_desc: Highly accessible and customizable themes (WCAG AAA)
+#+texinfo_dir_desc: Elegant, highly legible and customizable themes
 #+texinfo_header: @set MAINTAINERSITE @uref{https://protesilaos.com,maintainer webpage}
 #+texinfo_header: @set MAINTAINER Protesilaos Stavrou
 #+texinfo_header: @set MAINTAINEREMAIL @email{info@protesilaos.com}
@@ -5631,20 +5631,20 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Monterosso, Farasha Euker, Feng Shu, Gautier Ponsinet, Gerry Agbobada,
   Gianluca Recchia, Guilherme Semente, Gustavo Barros, Hörmetjan Yiltiz,
   Ilja Kocken, Iris Garcia, Jeremy Friesen, Jerry Zhang, Johannes
-  Grødem, John Haman, Joshua O'Connor, Kenta Usami, Kevin Fleming, Kévin
-  Le Gouguec, Kostadin Ninev, Len Trigg, Lennart C. Karssen, Magne Hov,
-  Manuel Uberti, Mark Bestley, Mark Burton, Markus Beppler, Mauro
-  Aranda, Michael Goldenberg, Morgan Smith, Morgan Willcock, Murilo
-  Pereira, Nicky van Foreest, Nicolas De Jaeghere, Paul Poloskov, Pengji
-  Zhang, Pete Kazmier, Peter Wu, Philip Kaludercic, Pierre Téchoueyres,
-  Robert Hepple, Roman Rudakov, Ryan Phillips, Rytis Paškauskas, Rudolf
-  Adamkovič, Sam Kleinman, Samuel Culpepper, Saša Janiška, Shreyas
-  Ragavan, Simon Pugnet, Tassilo Horn, Thibaut Verron, Thomas Heartman,
-  Togan Muftuoglu, Trey Merkley, Tomasz Hołubowicz, Toon Claes, Uri
-  Sharf, Utkarsh Singh, Vincent Foley.  As well as users: Ben,
-  CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji,
-  Nick, TheBlob42, Trey, bepolymathe, bit9tream, derek-upham, doolio,
-  fleimgruber, gitrj95, iSeeU, jixiuf, okamsn, pRot0ta1p.
+  Grødem, John Haman, Jorge Morais, Joshua O'Connor, Kenta Usami, Kevin
+  Fleming, Kévin Le Gouguec, Kostadin Ninev, Len Trigg, Lennart
+  C. Karssen, Magne Hov, Manuel Uberti, Mark Bestley, Mark Burton,
+  Markus Beppler, Mauro Aranda, Michael Goldenberg, Morgan Smith, Morgan
+  Willcock, Murilo Pereira, Nicky van Foreest, Nicolas De Jaeghere, Paul
+  Poloskov, Pengji Zhang, Pete Kazmier, Peter Wu, Philip Kaludercic,
+  Pierre Téchoueyres, Robert Hepple, Roman Rudakov, Ryan Phillips, Rytis
+  Paškauskas, Rudolf Adamkovič, Sam Kleinman, Samuel Culpepper, Saša
+  Janiška, Shreyas Ragavan, Simon Pugnet, Tassilo Horn, Thibaut Verron,
+  Thomas Heartman, Togan Muftuoglu, Trey Merkley, Tomasz Hołubowicz,
+  Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.  As well as
+  users: Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik,
+  Moesasji, Nick, TheBlob42, Trey, bepolymathe, bit9tream, derek-upham,
+  doolio, fleimgruber, gitrj95, iSeeU, jixiuf, okamsn, pRot0ta1p.
 
 + Packaging :: Basil L.{{{space()}}} Contovounesios, Eli Zaretskii, Glenn
   Morris, Mauro Aranda, Richard Stallman, Stefan Kangas (core Emacs),
