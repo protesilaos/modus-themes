@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.2.0
-;; Last-Modified: <2022-03-21 23:38:27 +0200>
+;; Last-Modified: <2022-03-22 12:13:41 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -7061,6 +7061,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(shr-h5 ((,class :inherit modus-themes-heading-5)))
     `(shr-h6 ((,class :inherit modus-themes-heading-6)))
     `(shr-abbreviation ((,class :inherit modus-themes-lang-note)))
+    `(shr-code ((,class :inherit modus-themes-markup-verbatim)))
     `(shr-selected-link ((,class :inherit modus-themes-subtle-red)))
 ;;;;; side-notes
     `(side-notes ((,class :background ,bg-dim :foreground ,fg-dim)))
