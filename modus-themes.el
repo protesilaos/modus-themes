@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.2.0
-;; Last-Modified: <2022-03-22 12:15:50 +0200>
+;; Last-Modified: <2022-03-22 19:57:16 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -4728,7 +4728,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(font-latex-string-face ((,class :inherit font-lock-string-face)))
     `(font-latex-subscript-face ((,class :height 0.95)))
     `(font-latex-superscript-face ((,class :height 0.95)))
-    `(font-latex-verbatim-face ((,class :background ,bg-dim :foreground ,fg-special-mild)))
+    `(font-latex-verbatim-face ((,class :inherit modus-themes-markup-verbatim)))
     `(font-latex-warning-face ((,class :inherit font-lock-warning-face)))
     `(tex-match ((,class :foreground ,blue-alt-other)))
     `(tex-verbatim ((,class :inherit modus-themes-markup-verbatim)))
