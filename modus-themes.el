@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.2.0
-;; Last-Modified: <2022-03-22 19:57:16 +0200>
+;; Last-Modified: <2022-03-22 20:00:20 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -6731,7 +6731,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-hide ((,class :foreground ,bg-main)))
     `(org-indent ((,class :inherit (fixed-pitch org-hide))))
     `(org-imminent-deadline ((,class :foreground ,red-intense)))
-    `(org-latex-and-related (( )))
+    `(org-latex-and-related ((,class :foreground ,magenta-faint)))
     `(org-level-1 ((,class :inherit modus-themes-heading-1)))
     `(org-level-2 ((,class :inherit modus-themes-heading-2)))
     `(org-level-3 ((,class :inherit modus-themes-heading-3)))
