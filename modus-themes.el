@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.2.0
-;; Last-Modified: <2022-03-23 08:40:57 +0200>
+;; Last-Modified: <2022-03-23 09:42:38 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -3072,6 +3072,11 @@ be explicitly stated.  Instead of a floating point, an acceptable
 value can be in the form of a cons cell like (height . FLOAT)
 or (height FLOAT), where FLOAT is the given number.
 
+The `all-buttons' property extends the box button effect (or the
+aforementioned properties) to the faces of the generic widget
+library.  By default, those do not look like the buttons of the
+Custom UI as they are ordinary text wrapped in square brackets.
+
 Combinations of any of those properties are expressed as a list,
 like in these examples:
 
@@ -3095,6 +3100,7 @@ In user configuration files the form may look like this:
               (const :tag "Reduce overall coloration" faint)
               (const :tag "Proportionately spaced font (variable-pitch)" variable-pitch)
               (const :tag "Underline instead of a box effect" underline)
+              (const :tag "Apply box button style to generic widget faces" all-buttons)
               (choice :tag "Font weight (must be supported by the typeface)"
                       (const :tag "Thin" thin)
                       (const :tag "Ultra-light" ultralight)
@@ -4060,7 +4066,12 @@ application of a variable-pitch font."
 (defun modus-themes--button (bg bgfaint bgaccent bgaccentfaint border &optional pressed-button-p)
   "Apply `modus-themes-box-buttons' styles.
 
-Work in progress.  BG BGFAINT BGACCENT BGACCENTFAINT BORDER PRESSED-BUTTON-P."
+BG is the main background.  BGFAINT is its subtle alternative.
+BGACCENT is its accented variant and BGACCENTFAINT is the same
+but less intense.  BORDER is the color around the box.
+
+When optional PRESSED-BUTTON-P is non-nil, the box uses the
+pressed button style, else the released button."
   (let* ((properties modus-themes-box-buttons)
          (weight (modus-themes--weight properties)))
     (list :inherit
@@ -4615,8 +4626,12 @@ by virtue of calling either of `modus-themes-load-operandi' and
                             ,@(modus-themes--link-color
                                magenta-alt-other magenta-alt-other-faint fg-alt))))
     `(tooltip ((,class :background ,bg-special-cold :foreground ,fg-main)))
-    `(widget-button ((,class :inherit modus-themes-box-button)))
-    `(widget-button-pressed ((,class :inherit modus-themes-box-button-pressed)))
+    `(widget-button ((,class ,@(if (memq 'all-buttons modus-themes-box-buttons)
+                                   (list :inherit 'modus-themes-box-button)
+                                 (list :inherit 'bold :foreground blue-alt)))))
+    `(widget-button-pressed ((,class ,@(if (memq 'all-buttons modus-themes-box-buttons)
+                                           (list :inherit 'modus-themes-box-button-pressed)
+                                         (list :inherit 'bold :foreground magenta-alt)))))
     `(widget-documentation ((,class :foreground ,green)))
     `(widget-field ((,class :background ,bg-alt :foreground ,fg-main :extend nil)))
     `(widget-inactive ((,class :inherit shadow :background ,bg-dim)))
@@ -7684,11 +7699,19 @@ by virtue of calling either of `modus-themes-load-operandi' and
         (360 . ,magenta-alt-other)))
     `(vc-annotate-very-old-color nil)
 ;;;; wid-edit
-    `(widget-link-prefix " ")
-    `(widget-link-suffix " ")
+    `(widget-link-prefix ,(if (memq 'all-buttons modus-themes-box-buttons)
+                              " "
+                            "["))
+    `(widget-link-suffix ,(if (memq 'all-buttons modus-themes-box-buttons)
+                              " "
+                            "]"))
     `(widget-mouse-face '(highlight widget-button))
-    `(widget-push-button-prefix " ")
-    `(widget-push-button-suffix " ")
+    `(widget-push-button-prefix ,(if (memq 'all-buttons modus-themes-box-buttons)
+                                     " "
+                                   "["))
+    `(widget-push-button-suffix ,(if (memq 'all-buttons modus-themes-box-buttons)
+                                     " "
+                                   "]"))
 ;;;; xterm-color
     `(xterm-color-names ["black" ,red ,green ,yellow ,blue ,magenta ,cyan "gray65"])
     `(xterm-color-names-bright ["gray35" ,red-alt ,green-alt ,yellow-alt ,blue-alt ,magenta-alt ,cyan-alt "white"])

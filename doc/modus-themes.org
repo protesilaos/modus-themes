@@ -895,6 +895,7 @@ an empty list).  The list can include any of the following symbols:
 + A floating point as a height multiple of the default or a cons cell in
   the form of =(height . FLOAT)= [ tweaked as part of
   {{{development-version}}} ]
++ ~all-buttons~ [ part of {{{development-version}}} ]
 
 The default (a nil value or an empty list) is a gray background combined
 with a pseudo three-dimensional effect.
@@ -929,6 +930,11 @@ height is the same as =1.0=, though it need not be explicitly stated.
 Instead of a floating point, an acceptable value can be in the form of a
 cons cell like =(height . FLOAT)= or =(height FLOAT)=, where FLOAT is
 the given number.
+
+The ~all-buttons~ property extends the box button effect (or the
+aforementioned properties) to the faces of the generic widget library.
+By default, those do not look like the buttons of the Custom UI as they
+are ordinary text wrapped in square brackets.
 
 Combinations of any of those properties are expressed as a list,
 like in these examples:
@@ -5641,11 +5647,12 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Pierre Téchoueyres, Robert Hepple, Roman Rudakov, Ryan Phillips, Rytis
   Paškauskas, Rudolf Adamkovič, Sam Kleinman, Samuel Culpepper, Saša
   Janiška, Shreyas Ragavan, Simon Pugnet, Tassilo Horn, Thibaut Verron,
-  Thomas Heartman, Togan Muftuoglu, Trey Merkley, Tomasz Hołubowicz,
-  Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.  As well as
-  users: Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik,
-  Moesasji, Nick, TheBlob42, Trey, bepolymathe, bit9tream, derek-upham,
-  doolio, fleimgruber, gitrj95, iSeeU, jixiuf, okamsn, pRot0ta1p.
+  Thomas Heartman, Togan Muftuoglu, Tony Zorman, Trey Merkley, Tomasz
+  Hołubowicz, Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.  As
+  well as users: Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux,
+  Fredrik, Moesasji, Nick, TheBlob42, Trey, bepolymathe, bit9tream,
+  derek-upham, doolio, fleimgruber, gitrj95, iSeeU, jixiuf, okamsn,
+  pRot0ta1p.
 
 + Packaging :: Basil L.{{{space()}}} Contovounesios, Eli Zaretskii, Glenn
   Morris, Mauro Aranda, Richard Stallman, Stefan Kangas (core Emacs),
