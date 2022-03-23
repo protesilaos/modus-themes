@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.2.0
-;; Last-Modified: <2022-03-22 20:00:20 +0200>
+;; Last-Modified: <2022-03-23 08:40:57 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -5347,6 +5347,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(elpher-gemini-heading3 ((,class :inherit modus-themes-heading-3)))
 ;;;;; embark
     `(embark-keybinding ((,class :inherit modus-themes-key-binding)))
+    `(embark-collect-marked ((,class :inherit modus-themes-mark-sel)))
 ;;;;; ement (ement.el)
     `(ement-room-fully-read-marker ((,class :background ,cyan-subtle-bg)))
     `(ement-room-membership ((,class :inherit shadow)))
