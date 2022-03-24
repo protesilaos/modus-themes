@@ -4425,6 +4425,7 @@ supported by the themes.
 + swift-mode
 + tab-bar-echo-area
 + tide
++ undo-hl
 + vdiff
 + vertico-indexed
 + vertico-mouse
