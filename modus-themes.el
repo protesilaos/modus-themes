@@ -6998,7 +6998,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(reb-regexp-grouping-backslash ((,class :inherit font-lock-regexp-grouping-backslash)))
     `(reb-regexp-grouping-construct ((,class :inherit font-lock-regexp-grouping-construct)))
 ;;;;; rg (rg.el)
-    `(rg-column-number-face ((,class :foreground ,magenta-alt-other)))d
+    `(rg-column-number-face ((,class :foreground ,magenta-alt-other)))
     `(rg-context-face ((,class :foreground ,fg-unfocused)))
     `(rg-error-face ((,class :inherit bold :foreground ,red)))
     `(rg-file-tag-face ((,class :foreground ,fg-special-cold)))
