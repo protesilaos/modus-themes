@@ -4963,7 +4963,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(compilation-column-number ((,class :inherit compilation-line-number)))
     `(compilation-error ((,class :inherit modus-themes-bold :foreground ,red)))
     `(compilation-info ((,class :inherit modus-themes-bold :foreground ,fg-special-cold)))
-    `(compilation-line-number ((,class :foreground ,fg-special-warm)))
+    `(compilation-line-number ((,class :inherit modus-themes-bold :foreground ,blue-alt)))
     `(compilation-mode-line-exit ((,class :inherit bold)))
     `(compilation-mode-line-fail ((,class :inherit modus-themes-bold :foreground ,red-active)))
     `(compilation-mode-line-run ((,class :inherit modus-themes-bold :foreground ,cyan-active)))
