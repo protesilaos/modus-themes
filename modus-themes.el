@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.2.0
-;; Last-Modified: <2022-03-25 06:51:24 +0200>
+;; Last-Modified: <2022-03-23 15:09:15 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -4932,7 +4932,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(color-rg-font-lock-header-line-edit-mode ((,class :foreground ,magenta-active)))
     `(color-rg-font-lock-header-line-keyword ((,class :foreground ,green-active)))
     `(color-rg-font-lock-header-line-text ((,class :foreground ,fg-active)))
-    `(color-rg-font-lock-line-number ((,class :foreground ,blue-alt)))
+    `(color-rg-font-lock-line-number ((,class :foreground ,fg-special-warm)))
     `(color-rg-font-lock-mark-changed ((,class :inherit bold :foreground ,blue)))
     `(color-rg-font-lock-mark-deleted ((,class :inherit bold :foreground ,red)))
     `(color-rg-font-lock-match ((,class :inherit modus-themes-special-calm)))
@@ -4963,7 +4963,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(compilation-column-number ((,class :inherit compilation-line-number)))
     `(compilation-error ((,class :inherit modus-themes-bold :foreground ,red)))
     `(compilation-info ((,class :inherit modus-themes-bold :foreground ,fg-special-cold)))
-    `(compilation-line-number ((,class :inherit modus-themes-bold :foreground ,blue-alt)))
+    `(compilation-line-number ((,class :foreground ,fg-special-warm)))
     `(compilation-mode-line-exit ((,class :inherit bold)))
     `(compilation-mode-line-fail ((,class :inherit modus-themes-bold :foreground ,red-active)))
     `(compilation-mode-line-run ((,class :inherit modus-themes-bold :foreground ,cyan-active)))
@@ -4979,7 +4979,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(consult-file ((,class :foreground ,fg-special-cold)))
     `(consult-imenu-prefix ((,class :inherit shadow)))
     `(consult-key ((,class :inherit modus-themes-key-binding)))
-    `(consult-line-number ((,class :foreground ,blue-alt)))
+    `(consult-line-number ((,class :foreground ,fg-special-warm)))
     `(consult-line-number-prefix ((,class :foreground ,fg-unfocused)))
     `(consult-narrow-indicator ((,class :foreground ,magenta-alt)))
     `(consult-preview-cursor ((,class :inherit modus-themes-intense-blue)))
@@ -6882,7 +6882,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(persp-selected-face ((,class :inherit bold :foreground ,blue-active)))
 ;;;;; phi-grep
     `(phi-grep-heading-face ((,class :inherit modus-themes-pseudo-header :foreground ,fg-special-cold)))
-    `(phi-grep-line-number-face ((,class :foreground ,blue-alt)))
+    `(phi-grep-line-number-face ((,class :foreground ,fg-special-warm)))
     `(phi-grep-match-face ((,class :inherit modus-themes-special-calm)))
     `(phi-grep-modified-face ((,class :inherit modus-themes-refine-yellow)))
     `(phi-grep-overlay-face ((,class :inherit modus-themes-refine-blue)))
@@ -7003,7 +7003,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(rg-error-face ((,class :inherit bold :foreground ,red)))
     `(rg-file-tag-face ((,class :foreground ,fg-special-cold)))
     `(rg-filename-face ((,class :inherit bold :foreground ,fg-special-cold)))
-    `(rg-line-number-face ((,class :foreground ,blue-alt)))
+    `(rg-line-number-face ((,class :foreground ,fg-special-warm)))
     `(rg-literal-face ((,class :foreground ,blue-alt)))
     `(rg-match-face ((,class :inherit modus-themes-special-calm)))
     `(rg-regexp-face ((,class :foreground ,magenta-active)))
