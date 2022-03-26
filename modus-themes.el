@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.2.0
-;; Last-Modified: <2022-03-23 15:09:15 +0200>
+;; Last-Modified: <2022-03-26 08:19:01 +0200>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -2105,7 +2105,7 @@ value are passed as a symbol.  Those are:
   highlights the alert and overdue states.
 - When `modus-themes-deuteranopia' is non-nil the exact style of
   the habit graph adapts to the needs of users with red-green
-  colour deficiency by substituting every instance of green with
+  color deficiency by substituting every instance of green with
   blue or cyan (depending on the specifics).
 
 For example:

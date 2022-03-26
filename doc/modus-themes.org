@@ -1939,7 +1939,7 @@ passed as a symbol.  Those are:
   attenuated by painting both of them using shades of green.  This
   option thus highlights the alert and overdue states.
 - When ~modus-themes-deuteranopia~ is non-nil the exact style of the habit
-  graph adapts to the needs of users with red-green colour deficiency by
+  graph adapts to the needs of users with red-green color deficiency by
   substituting every instance of green with blue or cyan (depending on
   the specifics).
 
@@ -2765,7 +2765,7 @@ The themes provide a mechanism for overriding their color values.  This
 is controlled by the variables ~modus-themes-operandi-color-overrides~ and
 ~modus-themes-vivendi-color-overrides~, which are alists that should
 mirror a subset of the associations in ~modus-themes-operandi-colors~ and
-~modus-themes-vivendi-colors~ respectively.  As with all customisations,
+~modus-themes-vivendi-colors~ respectively.  As with all customizations,
 overriding must be done before loading the affected theme.
 
 [[#h:f4d4b71b-2ca5-4c3d-b0b4-9bfd7aa7fb4d][Visualize the active Modus theme's palette]].
@@ -2871,7 +2871,7 @@ Operandi and night sky blue shades for Modus Vivendi.  Switching between
 the two themes, such as with {{{kbd(M-x modus-themes-toggle)}}} will
 also use the overrides.
 
-Given that this is a user-level customisation, one is free to implement
+Given that this is a user-level customization, one is free to implement
 whatever color values they desire, even if the possible combinations
 fall below the minimum 7:1 contrast ratio that governs the design of the
 themes (the WCAG AAA legibility standard).  Alternatively, this can also
@@ -4790,7 +4790,7 @@ implements an alternative to the typical coloration of code.  Instead of
 highlighting the syntactic constructs, it applies color to different
 levels of depth in the code structure.
 
-As {{{file(prism.el)}}} offers a broad range of customisations, we cannot
+As {{{file(prism.el)}}} offers a broad range of customizations, we cannot
 style it directly at the theme level: that would run contrary to the
 spirit of the package.  Instead, we may offer preset color schemes.
 Those should offer a starting point for users to adapt to their needs.
@@ -5472,8 +5472,8 @@ themes remains consistent.
 
 The former criterion should be crystal clear as it pertains to the
 scientific foundations of the themes: high legibility and taking care of
-the needs of users with red-green colour deficiency (deuteranopia) by
-avoiding red+green colour coding paradigms and/or by providing red+blue
+the needs of users with red-green color deficiency (deuteranopia) by
+avoiding red+green color coding paradigms and/or by providing red+blue
 variants.
 
 The latter criterion is the "je ne sais quoi" of the artistic aspect of
@@ -5491,7 +5491,7 @@ but try to understand its spirit.
 For a trivial example: the curly underline that Emacs draws for spelling
 errors is thinner than, e.g., what a graphical web browser has, so if I
 was to design for an editor than has a thicker curly underline I would
-make the applicable colours less intense to counterbalance the
+make the applicable colors less intense to counterbalance the
 typographic intensity of the added thickness.
 
 With those granted, if anyone is willing to develop a port of the
