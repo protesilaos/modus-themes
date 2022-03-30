@@ -385,7 +385,6 @@
 (eval-when-compile
   (require 'cl-lib)
   (require 'subr-x))
-(require 'seq)
 
 (defgroup modus-themes ()
   "Options for `modus-operandi', `modus-vivendi'.
@@ -3144,13 +3143,15 @@ In user configuration files the form may look like this:
         value
       (modus-themes--warn option))))
 
-(defun modus-themes--alist-or-seq (properties alist-key seq-pred seq-default)
-  "Return value from alist or sequence.
+(defun modus-themes--property-lookup (properties alist-key list-pred default)
+  "Return value from property alist or list.
 Check PROPERTIES for an alist value that corresponds to
 ALIST-KEY.  If no alist is present, search the PROPERTIES
-sequence given SEQ-PRED, using SEQ-DEFAULT as a fallback."
+list given LIST-PRED, using DEFAULT as a fallback."
   (if-let* ((val (or (alist-get alist-key properties)
-                     (seq-find seq-pred properties seq-default)))
+                     (cl-loop for x in properties
+                              if (funcall list-pred x) return x)
+                     default))
             ((listp val)))
       (car val)
     val))
@@ -3523,7 +3524,7 @@ that combines well with the background and foreground."
             fg-alt)
            (fg))
           :height
-          (modus-themes--alist-or-seq properties 'height #'floatp 'unspecified)
+          (modus-themes--property-lookup properties 'height #'floatp 'unspecified)
           :weight
           (or weight 'unspecified)
           :overline
@@ -3548,7 +3549,7 @@ FG is the foreground color to use."
           (or weight 'unspecified)
           :height
           (cond ((memq 'no-scale properties) 'unspecified)
-                ((modus-themes--alist-or-seq properties 'height #'floatp 1.15)))
+                ((modus-themes--property-lookup properties 'height #'floatp 1.15)))
           :foreground fg)))
 
 (defun modus-themes--agenda-date (defaultfg grayscalefg &optional workaholicfg grayscaleworkaholicfg bg bold ul)
@@ -3583,7 +3584,7 @@ weight.  Optional UL applies an underline."
            (t
             defaultfg))
           :height
-          (modus-themes--alist-or-seq properties 'height #'floatp 'unspecified)
+          (modus-themes--property-lookup properties 'height #'floatp 'unspecified)
           :underline
           (if (and ul (memq 'underline-today properties))
               t
@@ -3714,8 +3715,8 @@ Optional FG-DISTANT should be close to the main background
 values.  It is intended to be used as a distant-foreground
 property."
   (let* ((properties (modus-themes--list-or-warn 'modus-themes-mode-line))
-         (padding (modus-themes--alist-or-seq properties 'padding #'natnump 1))
-         (height (modus-themes--alist-or-seq properties 'height #'floatp 'unspecified))
+         (padding (modus-themes--property-lookup properties 'padding #'natnump 1))
+         (height (modus-themes--property-lookup properties 'height #'floatp 'unspecified))
          (padded (> padding 1))
          (base (cond ((memq 'accented properties)
                       (cons fg-accent bg-accent))
@@ -3780,8 +3781,12 @@ property."
 ;; Basically this is just for the keycast key indicator.
 (defun modus-themes--mode-line-padded-box (color)
   "Set padding of mode line box attribute with given COLOR."
-  (let ((padding (seq-find #'natnump modus-themes-mode-line 1)))
-    (list :box (list :line-width padding :color color))))
+  (list :box (list :color color
+                   :line-width
+                   (or (cl-loop
+                        for x in modus-themes-mode-line
+                        if (natnump x) return x)
+                       1))))
 
 (defun modus-themes--diff (mainbg mainfg altbg altfg &optional deuteranbg deuteranfg  bg-only-fg)
   "Color combinations for `modus-themes-diffs'.
@@ -4116,7 +4121,7 @@ pressed button style, else the released button."
            (weight weight)
            ('unspecified))
           :height
-          (modus-themes--alist-or-seq properties 'height #'floatp 'unspecified)
+          (modus-themes--property-lookup properties 'height #'floatp 'unspecified)
           :underline
           (if (memq 'underline properties)
               t
