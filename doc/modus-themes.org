@@ -4406,6 +4406,7 @@ supported by the themes.
 + dtache
 + easy-kill
 + edit-indirect
++ elfeed-summary
 + evil-owl
 + flyspell-correct
 + fortran-mode
