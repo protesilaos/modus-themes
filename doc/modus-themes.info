@@ -5667,8 +5667,9 @@ Contributions to code or documentation
      Zaretskii, Fritz Grabo, Illia Ostapyshyn, Kévin Le Gouguec,
      Kostadin Ninev, Madhavan Krishnan, Markus Beppler, Matthew
      Stevenson, Mauro Aranda, Nicolas De Jaeghere, Philip Kaludercic,
-     Rudolf Adamkovič, Stephen Gildea, Shreyas Ragavan, Stefan Kangas,
-     Utkarsh Singh, Vincent Murphy, Xinglu Chen, Yuanchen Xie.
+     Pierre Téchoueyres, Rudolf Adamkovič, Stephen Gildea, Shreyas
+     Ragavan, Stefan Kangas, Utkarsh Singh, Vincent Murphy, Xinglu Chen,
+     Yuanchen Xie.
 
 Ideas and user feedback
      Aaron Jensen, Adam Porter, Adam Spiers, Adrian Manea, Alex Griffin,
@@ -6523,12 +6524,12 @@ Node: Sources of the themes229056
 Node: Issues you can help with229692
 Node: Patches require copyright assignment to the FSF230892
 Node: Acknowledgements233187
-Node: Meta236374
-Node: GNU Free Documentation License238853
-Node: Indices264205
-Node: Function index264384
-Node: Variable index265907
-Node: Concept index268194
+Node: Meta236400
+Node: GNU Free Documentation License238879
+Node: Indices264231
+Node: Function index264410
+Node: Variable index265933
+Node: Concept index268220
 
 End Tag Table
 
