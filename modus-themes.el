@@ -3191,8 +3191,9 @@ Those are stored in `modus-themes-faces' and
        (custom-theme-set-variables ',name ,@modus-themes-custom-variables))))
 
 (defun modus-themes--current-theme ()
-  "Return current theme."
-  (car custom-enabled-themes))
+  "Return current modus theme."
+  (car (seq-filter (lambda (arg) (string-match-p "^modus" (symbol-name arg)))
+                   custom-enabled-themes)))
 
 ;; Helper functions that are meant to ease the implementation of the
 ;; above customization variables.
