@@ -5516,8 +5516,8 @@ in which you can contribute to their ongoing development.
 
 The ~modus-operandi~ and ~modus-vivendi~ themes are built into Emacs 28.
 
-The source code of the themes is [[https://gitlab.com/protesilaos/modus-themes/][available on Gitlab]], for the time
-being.  A [[https://github.com/protesilaos/modus-themes/][mirror on Github]] is also on offer.
+The source code of the themes is [[https://gitlab.com/protesilaos/modus-themes/][available on GitLab]], for the time
+being.  A [[https://github.com/protesilaos/modus-themes/][mirror on GitHub]] is also on offer.
 
 An HTML version of this manual is provided as an extension of the
 [[https://protesilaos.com/emacs/modus-themes/][author's personal website]] (does not rely on any non-free code).
