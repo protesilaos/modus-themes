@@ -15,6 +15,303 @@ For further details, please consult these additional resources:
 + Manual :: <https://protesilaos.com/emacs/modus-themes>
 + Screenshots :: <https://protesilaos.com/emacs/modus-themes-pictures>
 
+* 2.3.0
+
+#+begin_src text
+Modus themes version 2.3.0
+
+By Protesilaos Stavrou <info@protesilaos.com> on 2022-04-01
+
+This entry documents the changes made to the project since the
+publication of version 2.2.0 on 2022-02-23.  It spans more than 70
+commits.
+
+To access the URL of the manual visit:
+<https://protesilaos.com/emacs/modus-themes>.  Or read it in the Emacs
+Info reader by evaluating:
+
+    (info "(modus-themes) Top")
+
+The 'modus-operandi' and 'modus-vivendi' themes are built into Emacs-28
+(next stable release) or later, and are available on GNU ELPA as well as
+other archives.  Emacs-28 ships version 1.6.0, while the current
+'master' branch (i.e. Emacs-29) and, by extension, GNU ELPA include the
+latest tagged release.
+
+
+Customisation options
+=====================
+
+,* The 'modus-themes-completions' now accepts a 'text-also' property for
+  the 'selection' key.  This has the effect of colourising the current
+  line's text.  Whereas the default does not change the text colour,
+  re-using whatever underlying colours are available.  Consult the doc
+  string of this user option, as it provides for fine-grained control of
+  how completion UIs may look.  Thanks to Morgan Willcock whose feedback
+  in issue 278 inspired me to add the 'text-also' property:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/278>.
+
+,* The 'modus-themes-box-buttons' now accepts an 'all-buttons' property.
+  It applies whatever other style is used for the boxed buttons to the
+  generic 'widget.el'.  By default, the faces of 'widget.el' do not look
+  like graphical buttons: they have a bold weight and a foreground
+  colour instead.  Examples where those are used are the Notmuch "hello"
+  buffer and the main view of the 'elfeed-summary' package.  Thanks to
+  Daniel Mendler, Rudolf Adamkovič, and Tony Zorman for their feedback
+  in issue 296: <https://gitlab.com/protesilaos/modus-themes/-/issues/296>.
+
+,* The 'modus-themes-intense-mouseovers' is a boolean user option which
+  makes mouse hover effects more intense when set to a non-nil value.
+  By default, mouseovers use a cyan background value.  This changes it
+  to a more prominent blue.  Thanks to John Haman for the feedback in
+  issue 290: <https://gitlab.com/protesilaos/modus-themes/-/issues/290>.
+
+,* The user options 'modus-themes-box-buttons', 'modus-themes-mode-line',
+  'modus-themes-org-agenda', and 'modus-themes-headings' can now read a
+  number value as a cons cell.  The old method of a plain number
+  continues to work.  This makes it possible to be more descriptive on
+  what a given value signifies.  Each doc string describes the
+  technicalities.  Here are samples that yield identical results:
+
+      (setq modus-themes-mode-line '(accented 0.9 borderless 2))
+      (setq modus-themes-mode-line '(accented (heigh 0.9) borderless (padding 2)))
+
+  Thanks to Daniel Mendler for proposing this idea in issue 282:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/282#note_842257619>
+
+
+Attempted bug fix for byte compiled files
+=========================================
+
+Quoting from the git log:
+
+    commit f067d2ef39c22174b95584f2cba7942aaf03bcca
+    Author: Protesilaos Stavrou <info@protesilaos.com>
+    Date:   Thu Mar 3 06:52:31 2022 +0200
+
+        Reify themes with eval-and-compile
+
+        This is an attempt to fix a bug that has existed since version 1.2.0 of
+        the themes or even earlier.
+
+        The bug is about a mismatch between compiled code and runtime
+        dependencies.  The runtime expects the current version while the
+        compiled code only furnishes an outdated one, thus resulting in an
+        error.  This only happens when:
+
+        1. Private functions change to accept more/fewer arguments.
+        2. Variables change their acceptable value (e.g. from symbol to list).
+        3. The user is installing the package via the package.el mechanism which
+           takes care of byte compilation (though anything that mimics
+           package.el should exhibit the same behaviour).
+
+        My understanding is that the cause was the limited scope of the
+        'eval-and-compile' we had before: it would run the 'require' also at
+        compile time, whereas the 'modus-themes-theme' macro, which reifies the
+        actual theme, would only be evaluated at runtime.  Hence the mismatch as
+        'require' would read the already installed byte code while the macro
+        would expect newer forms.
+
+        Wrapping everything in the 'eval-and-compile' should address this
+        problem.  Hopefully it will not engender new ones...
+
+        ,* * *
+
+        The latest reports about this bug:
+
+        ,* GitLab issue 287 with Mark Bestley and Daniel Mendler:
+          <https://gitlab.com/protesilaos/modus-themes/-/issues/287>.
+
+        ,* GitHub issue 22 with Rytis Paškauskas:
+          <https://github.com/protesilaos/modus-themes/issues/22>.
+
+     doc/modus-themes.info   | 30 +++++++++++++++---------------
+     doc/modus-themes.org    | 15 ++++++++-------
+     modus-operandi-theme.el | 10 +++++-----
+     modus-vivendi-theme.el  | 10 +++++-----
+     4 files changed, 33 insertions(+), 32 deletions(-)
+
+After nearly one month, no problem has been observed as a result of this
+change.
+
+
+Newly supported packages
+========================
+
+These are added to the already comprehensive coverage we guarantee.
+
+Directly supported:
+
+,* devdocs.  Thanks to Augusto Stoffel, its developer, for the feedback
+  which was sent via email.
+
+,* mini-modeline.  Thanks to Julio C. Villasante for the feedback in
+  issue 24 over at the GitHub mirror:
+  <https://github.com/protesilaos/modus-themes/issues/24>.
+
+Indirectly supported (they use faces that we already cover):
+
+,* elfeed-summary
+,* undo-hl
+
+
+Changes to supported faces or packages
+======================================
+
+,* Improved the colours used by 'avy' to always guarantee constrast in
+  hueness between side-by-side characters with a variety of user
+  settings.  I tried various styles, such as:
+      
+      (setq avy-style 'pre)
+      (setq avy-style 'at-full)
+
+  For the sake of completeness, I also ran tests by modifying the
+  'avy-lead-faces' (which is a 'defconst', not a 'defcustom'):
+      
+      (setq avy-lead-faces
+            '(avy-lead-face
+              avy-lead-face-0
+              avy-lead-face-2
+              avy-lead-face
+              avy-lead-face-0
+              avy-lead-face-2))
+
+      (setq avy-lead-faces
+            '(avy-lead-face
+              avy-lead-face-1
+              avy-lead-face-1
+              avy-lead-face-1
+              avy-lead-face-1))
+
+      (setq avy-lead-faces
+            '(avy-lead-face
+              avy-lead-face-2
+              avy-lead-face-2
+              avy-lead-face-2
+              avy-lead-face-2))
+
+,* Updated the 'vertico-quick' faces to keep them aligned with the new
+  Avy styles.  Thanks to Daniel Mendler (Vertico's developer) for the
+  reminder:
+  <https://gitlab.com/protesilaos/modus-themes/-/commit/404a9658196debdde95a51148fc62c5b2faccfb9#note_856454659>.
+  
+,* Applied warmer though still not saturated colours for Org clocking
+  overlays.  The previous style could be mistaken for a mouse highlight
+  or the highlighted line if 'modus-themes-hl-line' included the
+  properties 'intense' and 'accented'.  Thanks to Rudolf Adamkovič for
+  the feedback in issue 293:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/293>.
+
+,* Broadened coverage of the built-in 'shr.el' library to include the new
+  'shr-code' face (Emacs 29).
+
+,* Expanded support for the 'embark' package by covering its new
+  'embark-collect-marked' face.  Thanks to Daniel Mendler for the
+  feedback in issue 299:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/299>.
+
+,* Made the 'fill-column-indicator' a contiguous line.  It was a dashed
+  line before, per the Emacs defaults, which led to awkward results
+  depending on the font family and value of 'line-spacing'.  Thanks to
+  Daniel Mendler for the feedback in issue 297:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/297>.
+
+,* Added explicit support for the built-in 'separator-line' face in order
+  to refine its presentation.  This is present in 'M-x shortdoc' buffers
+  (Emacs 28).  Thanks to Daniel Mendler for the feedback in issue 297:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/297>.
+
+,* Applied explicit styling to the generic 'underline' face in order to
+  ensure its consistent colouration.  The problem before was that an
+  underline that spanned text with distinct colours would inherit the
+  colour of the affected character.  A uniform presentation makes
+  everything easier to read.
+
+,* The 'ement.el' Matrix client now uses a subtle background for username
+  mentions and/or quoted text.  This is consistent with how other Matrix
+  clients style such constructs.  Thanks to Adam Porter (aka
+  "alphapapa"), the developer of ement.el, for explaining the
+  technicalities and providing the relevant feedback in issue 25 over at
+  the GitHub mirror: <https://github.com/protesilaos/modus-themes/issues/25>.
+
+,* Enforced consistency between 'icomplete' and 'ido'.  The first match
+  was coloured differently in 'ido-mode' by mistake.  Thanks to Morgan
+  Willcock for the feedback in issue 278:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/278>.
+
+,* Used the main foreground for Company's tooltip.  This is how it should
+  have been.  Corfu is designed that way as well.  Thanks to user okamsn
+  for the feedback in issue 278:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/278>.
+
+,* Corrected an omission whereby the AUCTeX verbatim face was not
+  consistent with other such faces.  Now it too is governed by the user
+  option 'modus-themes-markup'.
+
+,* Fixed the 'centaur-tabs' invalid background message.  Thanks to
+  Lennart C. Karssen for reporting the bug in issue 288:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/288>.  Note,
+  however, that the problem is due to some decisions made upstream.  My
+  patch has not been merged yet (open since 2022-02-24):
+  <https://github.com/ema2159/centaur-tabs/pull/179>.  Given this
+  opportunity, always anticipate that faces may ':inherit' from others
+  and thus functions like 'face-background' might return an undesirable
+  nil value if used without a fallback.
+
+
+Miscellaneous
+=============
+
+,* Made the 'modus-themes--current-theme' return the first Modus theme
+  instead of the 'car' of 'custom-enabled-themes'.  This makes the
+  themes work at all times even when the user has multiple of them
+  enabled.  Thanks to Pierre Téchoueyres for the patch, which was sent
+  via email with regard to Emacs bug#54598:
+  <https://debbugs.gnu.org/cgi/bugreport.cgi?bug=54598>.
+
+,* Implemented compile-time requirement for built-in libraries to be sure
+  that the themes work in all cases.  Thanks to Antonio Hernández Blas
+  for reporting in issue 292 the bug with the old design that assumed
+  the 'cl-lib' and 'subr-x' as already loaded:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/292>.
+
+,* Wrote in the manual how to achieve a monochrome style (with
+  permutations) for code syntax highlighting.  Thanks to Augusto Stoffel
+  for sharing the idea via an email exchange (this information is
+  divulged with permission).
+
+,* Clarified some statements in the manual's section about the nuances in
+  "enabling" and "loading" a theme.
+
+,* Documented how the applicable palette affects the outer boundaries of
+  the colour range that terminal emulators set when Emacs is ran without
+  a GUI.  Here "the palette" refers to the relevant 16 ANSI escape
+  sequences (terminal colours 0 through 15).  For the sake of
+  convenience, the node includes ready-to-use palettes for XTerm, which
+  can be adapted to other terminal emulators.  This entry complements an
+  existing one on improving the colour accuracy in terminal emulators.
+
+,* Used American English constructions in a few places such as "color"
+  instead of "colour" as that is what core Emacs expects (and the themes
+  are part of emacs.git).
+
+,* Updated the description of the themes to be more user-friendly.
+  Instead of "Highly accessible themes (WCAG AAA)" we now have "Elegant,
+  highly legible and customizable themes".  Nothing changes in terms of
+  substance.  Thanks to Jorge Morais for the feedback.
+
+,* Clarified that the version of the themes which is built into Emacs
+  does not use 'require'.  It is in response to this thread:
+  <https://lists.gnu.org/archive/html/help-gnu-emacs/2022-03/msg00049.html>.
+  Thanks to Philip Kaludercic for bringing the issue to my attention.
+
+,* Improved the code samples that show how to set up the package.
+
+,* Wrote the correct symbols for some obsoletion forms.
+
+Thanks once again to everyone involved!
+#+end_src
+
 * 2.2.0
 
 #+begin_src text

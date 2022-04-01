@@ -5,9 +5,9 @@
 #+options: ':t toc:nil author:t email:t num:t
 #+startup: content
 
-#+macro: stable-version 2.2.0
-#+macro: release-date 2022-02-23
-#+macro: development-version 2.3.0-dev
+#+macro: stable-version 2.3.0
+#+macro: release-date 2022-04-01
+#+macro: development-version 2.4.0-dev
 #+macro: file @@texinfo:@file{@@$1@@texinfo:}@@
 #+macro: space @@texinfo:@: @@
 #+macro: kbd @@texinfo:@kbd{@@$1@@texinfo:}@@
@@ -894,9 +894,8 @@ an empty list).  The list can include any of the following symbols:
   - ~extrabold~
   - ~ultrabold~
 + A floating point as a height multiple of the default or a cons cell in
-  the form of =(height . FLOAT)= [ tweaked as part of
-  {{{development-version}}} ]
-+ ~all-buttons~ [ part of {{{development-version}}} ]
+  the form of =(height . FLOAT)=
++ ~all-buttons~
 
 The default (a nil value or an empty list) is a gray background combined
 with a pseudo three-dimensional effect.
@@ -1036,10 +1035,9 @@ effect, color, and border visibility:
 + ~accented~
 + ~borderless~
 + A natural number > 1 for extra padding or a cons cell in the form of
-  ~(padding . NATNUM)~ [ tweaked as part of {{{development-version}}} ]
+  ~(padding . NATNUM)~.
 + A floating point to set the height of the mode line's text.  It can
-  also be a cons cell in the form of ~(height . FLOAT)~. [ introduced as
-  part of {{{development-version}}} ]
+  also be a cons cell in the form of ~(height . FLOAT)~.
 
 The default (a nil value or an empty list) is a two-dimensional
 rectangle with a border around it.  The active and the inactive mode
@@ -1213,7 +1211,6 @@ accepts is as follows (order is not significant):
 - ~accented~ to make the background colorful instead of gray;
 
 - ~text-also~ to apply extra color to the text of the selected line;
-  [ part of {{{development-version}}} ]
 
 - ~intense~ to increase the overall coloration;
 
@@ -1490,8 +1487,6 @@ updated to accommodate this aesthetic.
 :end:
 #+vindex: modus-themes-intense-mouseovers
 
-[ Part of {{{development-version}}} ]
-
 Brief: Toggle intense mouse hover effects.
 
 Symbol: ~modus-themes-intense-mouseovers~ (=boolean= type)
@@ -1766,8 +1761,6 @@ and ~rainbow~.  Those will continue to work as they are aliases for
 :end:
 #+vindex: modus-themes-org-agenda
 
-[ Tweaks as part of {{{development-version}}} ]
-
 Brief: Control the style of the Org agenda.  Multiple parameters are
 available, each with its own options.
 
@@ -2019,8 +2012,7 @@ Properties:
   - ~ultrabold~
 + ~no-bold~ (deprecated alias of a ~regular~ weight)
 + A floating point as a height multiple of the default or a cons cell in
-  the form of =(height . FLOAT)= [ tweaked as part of
-  {{{development-version}}} ]
+  the form of =(height . FLOAT)=.
 
 By default (a ~nil~ value for this variable), all headings have a bold
 typographic weight and use a desaturated text color.
@@ -4134,7 +4126,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + deadgrep
 + debbugs
 + deft
-+ devdocs [ part of {{{development-version}}} ]
++ devdocs
 + dictionary
 + diff-hl
 + diff-mode
@@ -4256,7 +4248,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + mct
 + mentor
 + messages
-+ mini-modeline [ part of {{{development-version}}} ]
++ mini-modeline
 + minimap
 + mmm-mode
 + mode-line
