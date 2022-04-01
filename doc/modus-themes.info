@@ -5007,7 +5007,7 @@ Emacs’ HTML rendering library (‘shr.el’) may need explicit configuration
 to respect the theme’s colors instead of whatever specifications the
 webpage provides.
 
-   Consult ‘C-h v shr-use-colors’.
+   Consult the doc string of ‘shr-use-colors’.
 
 
 File: modus-themes.info,  Node: Note on SHR fonts,  Next: Note on Ement colors and fonts,  Prev: Note on SHR colors,  Up: Notes on individual packages
@@ -5551,9 +5551,9 @@ File: modus-themes.info,  Node: Sources of the themes,  Next: Issues you can hel
 
 The ‘modus-operandi’ and ‘modus-vivendi’ themes are built into Emacs 28.
 
-   The source code of the themes is available on Gitlab
+   The source code of the themes is available on GitLab
 (https://gitlab.com/protesilaos/modus-themes/), for the time being.  A
-mirror on Github (https://github.com/protesilaos/modus-themes/) is also
+mirror on GitHub (https://github.com/protesilaos/modus-themes/) is also
 on offer.
 
    An HTML version of this manual is provided as an extension of the
@@ -6506,30 +6506,30 @@ Node: Note on ERC escaped color sequences201412
 Ref: Note on ERC escaped color sequences-Footnote-1202840
 Node: Note on powerline or spaceline202950
 Node: Note on SHR colors203364
-Node: Note on SHR fonts203776
-Node: Note on Ement colors and fonts204409
-Node: Note on Helm grep205908
-Node: Note on vc-annotate-background-mode207385
-Node: Note on pdf-tools link hints208270
-Node: Note on the Notmuch logo210735
-Node: Frequently Asked Questions211233
-Node: Is the contrast ratio about adjacent colors?211864
-Node: What does it mean to avoid exaggerations?213371
-Node: Why are colors mostly variants of blue magenta cyan?215200
-Node: What is the best setup for legibility?219513
-Node: Are these color schemes?222158
-Node: Port the Modus themes to other platforms?225878
-Node: Contributing228659
-Node: Sources of the themes229056
-Node: Issues you can help with229692
-Node: Patches require copyright assignment to the FSF230892
-Node: Acknowledgements233187
-Node: Meta236400
-Node: GNU Free Documentation License238879
-Node: Indices264231
-Node: Function index264410
-Node: Variable index265933
-Node: Concept index268220
+Node: Note on SHR fonts203788
+Node: Note on Ement colors and fonts204421
+Node: Note on Helm grep205920
+Node: Note on vc-annotate-background-mode207397
+Node: Note on pdf-tools link hints208282
+Node: Note on the Notmuch logo210747
+Node: Frequently Asked Questions211245
+Node: Is the contrast ratio about adjacent colors?211876
+Node: What does it mean to avoid exaggerations?213383
+Node: Why are colors mostly variants of blue magenta cyan?215212
+Node: What is the best setup for legibility?219525
+Node: Are these color schemes?222170
+Node: Port the Modus themes to other platforms?225890
+Node: Contributing228671
+Node: Sources of the themes229068
+Node: Issues you can help with229704
+Node: Patches require copyright assignment to the FSF230904
+Node: Acknowledgements233199
+Node: Meta236412
+Node: GNU Free Documentation License238891
+Node: Indices264243
+Node: Function index264422
+Node: Variable index265945
+Node: Concept index268232
 
 End Tag Table
 

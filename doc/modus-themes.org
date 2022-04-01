@@ -4980,7 +4980,7 @@ Emacs' HTML rendering library ({{{file(shr.el)}}}) may need explicit
 configuration to respect the theme's colors instead of whatever
 specifications the webpage provides.
 
-Consult {{{kbd(C-h v shr-use-colors)}}}.
+Consult the doc string of ~shr-use-colors~.
 
 ** Note on SHR fonts
 :properties:
