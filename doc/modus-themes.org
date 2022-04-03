@@ -4594,6 +4594,17 @@ elsewhere in this document.  For example:
 
 [[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Face specs at scale using the themes' palette]].
 
+To make the line thicker, set the height to be equal to the base font
+size instead of the one pixel we use.  This is done by specifying a rate
+instead of an absolute number, as in =:height 1.0= versus =:height 1=.
+For example:
+
+#+begin_src emacs-lisp
+(modus-themes-with-colors
+  (custom-set-faces
+   `(fill-column-indicator ((,class :height 1.0 :background ,bg-inactive :foreground ,bg-inactive)))))
+#+end_src
+
 ** Note on highlight-parentheses.el
 :PROPERTIES:
 :CUSTOM_ID: h:24bab397-dcb2-421d-aa6e-ec5bd622b913
