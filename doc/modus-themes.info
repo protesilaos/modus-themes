@@ -43,11 +43,11 @@ customization options for the ‘modus-operandi’ and ‘modus-vivendi’
 themes, and provides every other piece of information pertinent to them.
 
    The documentation furnished herein corresponds to stable version
-2.2.0, released on 2022-02-23.  Any reference to a newer feature which
+2.3.0, released on 2022-04-01.  Any reference to a newer feature which
 does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
-   Current development target is 2.3.0-dev.
+   Current development target is 2.4.0-dev.
 
 * Menu:
 
@@ -1054,8 +1054,8 @@ symbols:
         • ‘extrabold’
         • ‘ultrabold’
    • A floating point as a height multiple of the default or a cons cell
-     in the form of ‘(height . FLOAT)’ [ tweaked as part of 2.3.0-dev ]
-   • ‘all-buttons’ [ part of 2.3.0-dev ]
+     in the form of ‘(height . FLOAT)’
+   • ‘all-buttons’
 
    The default (a nil value or an empty list) is a gray background
 combined with a pseudo three-dimensional effect.
@@ -1184,10 +1184,9 @@ box effect, color, and border visibility:
    • ‘accented’
    • ‘borderless’
    • A natural number > 1 for extra padding or a cons cell in the form
-     of ‘(padding . NATNUM)’ [ tweaked as part of 2.3.0-dev ]
+     of ‘(padding . NATNUM)’.
    • A floating point to set the height of the mode line’s text.  It can
-     also be a cons cell in the form of ‘(height . FLOAT)’.  [
-     introduced as part of 2.3.0-dev ]
+     also be a cons cell in the form of ‘(height . FLOAT)’.
 
    The default (a nil value or an empty list) is a two-dimensional
 rectangle with a border around it.  The active and the inactive mode
@@ -1353,7 +1352,6 @@ accepts is as follows (order is not significant):
    • ‘accented’ to make the background colorful instead of gray;
 
    • ‘text-also’ to apply extra color to the text of the selected line;
-     [ part of 2.3.0-dev ]
 
    • ‘intense’ to increase the overall coloration;
 
@@ -1608,9 +1606,7 @@ File: modus-themes.info,  Node: Mouse hover effects,  Next: Markup,  Prev: Line 
 4.18 Option for mouseover effects
 =================================
 
-[ Part of 2.3.0-dev ]
-
-   Brief: Toggle intense mouse hover effects.
+Brief: Toggle intense mouse hover effects.
 
    Symbol: ‘modus-themes-intense-mouseovers’ (‘boolean’ type)
 
@@ -1870,9 +1866,7 @@ File: modus-themes.info,  Node: Org agenda,  Next: Heading styles,  Prev: Org mo
 4.24 Option for Org agenda constructs
 =====================================
 
-[ Tweaks as part of 2.3.0-dev ]
-
-   Brief: Control the style of the Org agenda.  Multiple parameters are
+Brief: Control the style of the Org agenda.  Multiple parameters are
 available, each with its own options.
 
    Symbol: ‘modus-themes-org-agenda’ (‘alist’ type, multiple styles)
@@ -2109,7 +2103,7 @@ followed by a presentation of all available properties:
         • ‘ultrabold’
    • ‘no-bold’ (deprecated alias of a ‘regular’ weight)
    • A floating point as a height multiple of the default or a cons cell
-     in the form of ‘(height . FLOAT)’ [ tweaked as part of 2.3.0-dev ]
+     in the form of ‘(height . FLOAT)’.
 
    By default (a ‘nil’ value for this variable), all headings have a
 bold typographic weight and use a desaturated text color.
@@ -4151,7 +4145,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • deadgrep
    • debbugs
    • deft
-   • devdocs [ part of 2.3.0-dev ]
+   • devdocs
    • dictionary
    • diff-hl
    • diff-mode
@@ -4274,7 +4268,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • mct
    • mentor
    • messages
-   • mini-modeline [ part of 2.3.0-dev ]
+   • mini-modeline
    • minimap
    • mmm-mode
    • mode-line
@@ -4633,6 +4627,15 @@ explained elsewhere in this document.  For example:
         `(fill-column-indicator ((,class :foreground ,bg-active)))))
 
    *note Face specs at scale using the themes' palette::.
+
+   To make the line thicker, set the height to be equal to the base font
+size instead of the one pixel we use.  This is done by specifying a rate
+instead of an absolute number, as in ‘:height 1.0’ versus ‘:height 1’.
+For example:
+
+     (modus-themes-with-colors
+       (custom-set-faces
+        `(fill-column-indicator ((,class :height 1.0 :background ,bg-inactive :foreground ,bg-inactive)))))
 
 
 File: modus-themes.info,  Node: Note on highlight-parenthesesel,  Next: Note on mmm-modeel background colors,  Prev: Note on display-fill-column-indicator-mode,  Up: Notes on individual packages
@@ -6440,96 +6443,96 @@ Node: Syntax styles34189
 Node: Mixed fonts36321
 Node: Link styles37585
 Node: Box buttons40059
-Node: Command prompts43411
-Node: Mode line45232
-Node: Tab style50801
-Node: Completion UIs51464
-Node: Mail citations55345
-Node: Fringes56491
-Node: Language checkers57231
-Node: Line highlighting59673
-Node: Line numbers61270
-Node: Mouse hover effects62351
-Node: Markup62992
-Node: Matching parentheses64592
-Node: Active region65969
-Node: Diffs67382
-Node: Org mode blocks69033
-Node: Org agenda71423
-Node: Heading styles80275
-Node: UI typeface85074
-Node: Advanced customization85973
-Node: More accurate colors in terminal emulators87644
-Node: Range of color with terminal emulators88885
-Node: Visualize the active Modus theme's palette91590
-Node: Per-theme customization settings92586
-Node: Case-by-case face specs using the themes' palette93942
-Node: Face specs at scale using the themes' palette98490
-Node: Remap face with local value103291
-Node: Cycle through arbitrary colors105716
-Node: Override colors112144
-Node: Override color saturation117382
-Node: Override colors through blending123063
-Node: Font configurations for Org and others125920
-Ref: Font configurations for Org and others-Footnote-1128736
-Node: Configure bold and italic faces128923
-Node: Custom Org todo keyword and priority faces133071
-Node: Custom Org emphasis faces136744
-Node: Update Org block delimiter fontification141545
-Node: Measure color contrast143462
-Node: Load theme depending on time of day146185
-Node: Backdrop for pdf-tools147178
-Node: Decrease mode line height150030
-Node: Toggle themes without reloading them154152
-Node: A theme-agnostic hook for theme loading155431
-Node: Diffs with only the foreground157833
-Node: Ediff without diff color-coding160947
-Node: Near-monochrome syntax highlighting163086
-Node: Face coverage172053
-Node: Supported packages172505
-Node: Indirectly covered packages179101
-Node: Notes on individual packages180158
-Node: Note on avy hints181251
-Node: Note on calendarel weekday and weekend colors182419
-Node: Note on underlines in compilation buffers183602
-Node: Note on inline Latex in Org buffers184449
-Node: Note on dimmerel185059
-Node: Note on display-fill-column-indicator-mode186544
-Node: Note on highlight-parenthesesel187538
-Node: Note on mmm-modeel background colors193527
-Node: Note for prism195842
-Node: Note for god-mode198996
-Node: Note on company-mode overlay pop-up200600
-Ref: Note on company-mode overlay pop-up-Footnote-1201290
-Ref: Note on company-mode overlay pop-up-Footnote-2201357
-Node: Note on ERC escaped color sequences201412
-Ref: Note on ERC escaped color sequences-Footnote-1202840
-Node: Note on powerline or spaceline202950
-Node: Note on SHR colors203364
-Node: Note on SHR fonts203788
-Node: Note on Ement colors and fonts204421
-Node: Note on Helm grep205920
-Node: Note on vc-annotate-background-mode207397
-Node: Note on pdf-tools link hints208282
-Node: Note on the Notmuch logo210747
-Node: Frequently Asked Questions211245
-Node: Is the contrast ratio about adjacent colors?211876
-Node: What does it mean to avoid exaggerations?213383
-Node: Why are colors mostly variants of blue magenta cyan?215212
-Node: What is the best setup for legibility?219525
-Node: Are these color schemes?222170
-Node: Port the Modus themes to other platforms?225890
-Node: Contributing228671
-Node: Sources of the themes229068
-Node: Issues you can help with229704
-Node: Patches require copyright assignment to the FSF230904
-Node: Acknowledgements233199
-Node: Meta236412
-Node: GNU Free Documentation License238891
-Node: Indices264243
-Node: Function index264422
-Node: Variable index265945
-Node: Concept index268232
+Node: Command prompts43356
+Node: Mode line45177
+Node: Tab style50672
+Node: Completion UIs51335
+Node: Mail citations55189
+Node: Fringes56335
+Node: Language checkers57075
+Node: Line highlighting59517
+Node: Line numbers61114
+Node: Mouse hover effects62195
+Node: Markup62810
+Node: Matching parentheses64410
+Node: Active region65787
+Node: Diffs67200
+Node: Org mode blocks68851
+Node: Org agenda71241
+Node: Heading styles80057
+Node: UI typeface84824
+Node: Advanced customization85723
+Node: More accurate colors in terminal emulators87394
+Node: Range of color with terminal emulators88635
+Node: Visualize the active Modus theme's palette91340
+Node: Per-theme customization settings92336
+Node: Case-by-case face specs using the themes' palette93692
+Node: Face specs at scale using the themes' palette98240
+Node: Remap face with local value103041
+Node: Cycle through arbitrary colors105466
+Node: Override colors111894
+Node: Override color saturation117132
+Node: Override colors through blending122813
+Node: Font configurations for Org and others125670
+Ref: Font configurations for Org and others-Footnote-1128486
+Node: Configure bold and italic faces128673
+Node: Custom Org todo keyword and priority faces132821
+Node: Custom Org emphasis faces136494
+Node: Update Org block delimiter fontification141295
+Node: Measure color contrast143212
+Node: Load theme depending on time of day145935
+Node: Backdrop for pdf-tools146928
+Node: Decrease mode line height149780
+Node: Toggle themes without reloading them153902
+Node: A theme-agnostic hook for theme loading155181
+Node: Diffs with only the foreground157583
+Node: Ediff without diff color-coding160697
+Node: Near-monochrome syntax highlighting162836
+Node: Face coverage171803
+Node: Supported packages172255
+Node: Indirectly covered packages178807
+Node: Notes on individual packages179864
+Node: Note on avy hints180957
+Node: Note on calendarel weekday and weekend colors182125
+Node: Note on underlines in compilation buffers183308
+Node: Note on inline Latex in Org buffers184155
+Node: Note on dimmerel184765
+Node: Note on display-fill-column-indicator-mode186250
+Node: Note on highlight-parenthesesel187648
+Node: Note on mmm-modeel background colors193637
+Node: Note for prism195952
+Node: Note for god-mode199106
+Node: Note on company-mode overlay pop-up200710
+Ref: Note on company-mode overlay pop-up-Footnote-1201400
+Ref: Note on company-mode overlay pop-up-Footnote-2201467
+Node: Note on ERC escaped color sequences201522
+Ref: Note on ERC escaped color sequences-Footnote-1202950
+Node: Note on powerline or spaceline203060
+Node: Note on SHR colors203474
+Node: Note on SHR fonts203898
+Node: Note on Ement colors and fonts204531
+Node: Note on Helm grep206030
+Node: Note on vc-annotate-background-mode207507
+Node: Note on pdf-tools link hints208392
+Node: Note on the Notmuch logo210857
+Node: Frequently Asked Questions211355
+Node: Is the contrast ratio about adjacent colors?211986
+Node: What does it mean to avoid exaggerations?213493
+Node: Why are colors mostly variants of blue magenta cyan?215322
+Node: What is the best setup for legibility?219635
+Node: Are these color schemes?222280
+Node: Port the Modus themes to other platforms?226000
+Node: Contributing228781
+Node: Sources of the themes229178
+Node: Issues you can help with229814
+Node: Patches require copyright assignment to the FSF231014
+Node: Acknowledgements233309
+Node: Meta236522
+Node: GNU Free Documentation License239001
+Node: Indices264353
+Node: Function index264532
+Node: Variable index266055
+Node: Concept index268342
 
 End Tag Table
 
