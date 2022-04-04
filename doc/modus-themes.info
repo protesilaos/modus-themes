@@ -5679,28 +5679,28 @@ Ideas and user feedback
      Alex Koen, Alex Peitsinis, Alexey Shmalko, Alok Singh, Anders
      Johansson, André Alexandre Gomes, Antonio Hernández Blas, Arif
      Rezai, Augusto Stoffel, Basil L. Contovounesios, Burgess Chang,
-     Christian Tietze, Christopher Dimech, Damien Cassou, Daniel
-     Mendler, Dario Gjorgjevski, David Edmondson, Davor Rotim, Divan
-     Santana, Eliraz Kedmi, Emanuele Michele Alberto Monterosso, Farasha
-     Euker, Feng Shu, Gautier Ponsinet, Gerry Agbobada, Gianluca
-     Recchia, Guilherme Semente, Gustavo Barros, Hörmetjan Yiltiz, Ilja
-     Kocken, Iris Garcia, Jeremy Friesen, Jerry Zhang, Johannes Grødem,
-     John Haman, Jorge Morais, Joshua O’Connor, Julio C.  Villasante,
-     Kenta Usami, Kevin Fleming, Kévin Le Gouguec, Kostadin Ninev, Len
-     Trigg, Lennart C.  Karssen, Magne Hov, Manuel Uberti, Mark Bestley,
-     Mark Burton, Markus Beppler, Mauro Aranda, Michael Goldenberg,
-     Morgan Smith, Morgan Willcock, Murilo Pereira, Nicky van Foreest,
-     Nicolas De Jaeghere, Paul Poloskov, Pengji Zhang, Pete Kazmier,
-     Peter Wu, Philip Kaludercic, Pierre Téchoueyres, Robert Hepple,
-     Roman Rudakov, Ryan Phillips, Rytis Paškauskas, Rudolf Adamkovič,
-     Sam Kleinman, Samuel Culpepper, Saša Janiška, Shreyas Ragavan,
-     Simon Pugnet, Tassilo Horn, Thibaut Verron, Thomas Heartman, Togan
-     Muftuoglu, Tony Zorman, Trey Merkley, Tomasz Hołubowicz, Toon
-     Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.  As well as users:
-     Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik,
-     Moesasji, Nick, TheBlob42, Trey, bepolymathe, bit9tream,
-     derek-upham, doolio, fleimgruber, gitrj95, iSeeU, jixiuf, okamsn,
-     pRot0ta1p.
+     Christian Tietze, Christopher Dimech, Christopher League, Damien
+     Cassou, Daniel Mendler, Dario Gjorgjevski, David Edmondson, Davor
+     Rotim, Divan Santana, Eliraz Kedmi, Emanuele Michele Alberto
+     Monterosso, Farasha Euker, Feng Shu, Gautier Ponsinet, Gerry
+     Agbobada, Gianluca Recchia, Guilherme Semente, Gustavo Barros,
+     Hörmetjan Yiltiz, Ilja Kocken, Iris Garcia, Jeremy Friesen, Jerry
+     Zhang, Johannes Grødem, John Haman, Jorge Morais, Joshua O’Connor,
+     Julio C.  Villasante, Kenta Usami, Kevin Fleming, Kévin Le Gouguec,
+     Kostadin Ninev, Len Trigg, Lennart C.  Karssen, Magne Hov, Manuel
+     Uberti, Mark Bestley, Mark Burton, Markus Beppler, Mauro Aranda,
+     Michael Goldenberg, Morgan Smith, Morgan Willcock, Murilo Pereira,
+     Nicky van Foreest, Nicolas De Jaeghere, Paul Poloskov, Pengji
+     Zhang, Pete Kazmier, Peter Wu, Philip Kaludercic, Pierre
+     Téchoueyres, Robert Hepple, Roman Rudakov, Ryan Phillips, Rytis
+     Paškauskas, Rudolf Adamkovič, Sam Kleinman, Samuel Culpepper, Saša
+     Janiška, Shreyas Ragavan, Simon Pugnet, Tassilo Horn, Thibaut
+     Verron, Thomas Heartman, Togan Muftuoglu, Tony Zorman, Trey
+     Merkley, Tomasz Hołubowicz, Toon Claes, Uri Sharf, Utkarsh Singh,
+     Vincent Foley.  As well as users: Ben, CsBigDataHub1, Emacs
+     Contrib, Eugene, Fourchaux, Fredrik, Moesasji, Nick, TheBlob42,
+     Trey, bepolymathe, bit9tream, derek-upham, doolio, fleimgruber,
+     gitrj95, iSeeU, jixiuf, okamsn, pRot0ta1p.
 
 Packaging
      Basil L. Contovounesios, Eli Zaretskii, Glenn Morris, Mauro Aranda,
@@ -6527,12 +6527,12 @@ Node: Sources of the themes229178
 Node: Issues you can help with229814
 Node: Patches require copyright assignment to the FSF231014
 Node: Acknowledgements233309
-Node: Meta236522
-Node: GNU Free Documentation License239001
-Node: Indices264353
-Node: Function index264532
-Node: Variable index266055
-Node: Concept index268342
+Node: Meta236542
+Node: GNU Free Documentation License239021
+Node: Indices264373
+Node: Function index264552
+Node: Variable index266075
+Node: Concept index268362
 
 End Tag Table
 
