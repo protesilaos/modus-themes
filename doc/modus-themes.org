@@ -4357,6 +4357,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + visible-mark
 + visual-regexp
 + vterm
++ vundo [ part of {{{development-version}}} ]
 + wcheck-mode
 + web-mode
 + wgrep

@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://gitlab.com/protesilaos/modus-themes
 ;; Version: 2.3.0
-;; Last-Modified: <2022-04-04 16:12:51 +0300>
+;; Last-Modified: <2022-04-05 09:26:57 +0300>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -352,6 +352,7 @@
 ;;     visible-mark
 ;;     visual-regexp
 ;;     vterm
+;;     vundo
 ;;     wcheck-mode
 ;;     web-mode
 ;;     wgrep
@@ -7491,6 +7492,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(vterm-color-underline ((,class :foreground ,fg-special-warm :underline t)))
     `(vterm-color-white ((,class :background "gray65" :foreground "gray65")))
     `(vterm-color-yellow ((,class :background ,yellow :foreground ,yellow)))
+;;;;; vundo
+    `(vundo-highlight ((,class :inherit (bold vundo-node) :foreground ,red-intense)))
 ;;;;; wcheck-mode
     `(wcheck-default-face ((,class :foreground ,red :underline t)))
 ;;;;; web-mode
