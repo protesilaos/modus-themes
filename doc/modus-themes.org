@@ -5520,8 +5520,8 @@ in which you can contribute to their ongoing development.
 
 The ~modus-operandi~ and ~modus-vivendi~ themes are built into Emacs 28.
 
-The source code of the themes is [[https://gitlab.com/protesilaos/modus-themes/][available on GitLab]], for the time
-being.  A [[https://github.com/protesilaos/modus-themes/][mirror on GitHub]] is also on offer.
+The source code of the themes is [[https://git.sr.ht/~protesilaos/modus-themes][available on SourceHut]].  Or check the
+[[https://gitlab.com/protesilaos/modus-themes/][GitLab mirror (former main source)]] and the [[https://github.com/protesilaos/modus-themes/][GitHub mirror]].
 
 An HTML version of this manual is provided as an extension of the
 [[https://protesilaos.com/emacs/modus-themes/][author's personal website]] (does not rely on any non-free code).
@@ -5532,7 +5532,8 @@ An HTML version of this manual is provided as an extension of the
 :end:
 #+cindex: Contributing
 
-A few tasks you can help with:
+A few tasks you can help with by sending an email to the general
+[[https://lists.sr.ht/~protesilaos/modus-themes][modus-themes public mailing list]].
 
 + Suggest refinements to packages that are covered.
 + Report packages not covered thus far.
@@ -5540,7 +5541,8 @@ A few tasks you can help with:
 + Help expand the documentation of covered-but-not-styled packages.
 + Suggest refinements to the color palette.
 + Help expand this document or any other piece of documentation.
-+ Merge requests for code refinements.
++ Send patches for code refinements (if you need, ask me for help with
+  Git---we all start out as beginners).
 
 [[#h:111773e2-f26f-4b68-8c4f-9794ca6b9633][Patches require copyright assignment to the FSF]].
 

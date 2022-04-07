@@ -3,9 +3,9 @@
 ;; Copyright (C) 2019-2022  Free Software Foundation, Inc.
 
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
-;; URL: https://gitlab.com/protesilaos/modus-themes
-;; Version: 2.3.0
-;; Last-Modified: <2022-04-05 09:26:57 +0300>
+;; URL: https://git.sr.ht/~protesilaos/modus-themes
+;; Version: 2.3.2
+;; Last-Modified: <2022-04-07 12:52:40 +0300>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 

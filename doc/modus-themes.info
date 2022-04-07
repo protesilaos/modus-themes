@@ -5555,10 +5555,11 @@ File: modus-themes.info,  Node: Sources of the themes,  Next: Issues you can hel
 
 The ‘modus-operandi’ and ‘modus-vivendi’ themes are built into Emacs 28.
 
-   The source code of the themes is available on GitLab
-(https://gitlab.com/protesilaos/modus-themes/), for the time being.  A
-mirror on GitHub (https://github.com/protesilaos/modus-themes/) is also
-on offer.
+   The source code of the themes is available on SourceHut
+(https://git.sr.ht/~protesilaos/modus-themes).  Or check the GitLab
+mirror (former main source)
+(https://gitlab.com/protesilaos/modus-themes/) and the GitHub mirror
+(https://github.com/protesilaos/modus-themes/).
 
    An HTML version of this manual is provided as an extension of the
 author’s personal website (https://protesilaos.com/emacs/modus-themes/)
@@ -5570,7 +5571,9 @@ File: modus-themes.info,  Node: Issues you can help with,  Next: Patches require
 9.2 Issues you can help with
 ============================
 
-A few tasks you can help with:
+A few tasks you can help with by sending an email to the general
+modus-themes public mailing list
+(https://lists.sr.ht/~protesilaos/modus-themes).
 
    • Suggest refinements to packages that are covered.
    • Report packages not covered thus far.
@@ -5578,7 +5581,8 @@ A few tasks you can help with:
    • Help expand the documentation of covered-but-not-styled packages.
    • Suggest refinements to the color palette.
    • Help expand this document or any other piece of documentation.
-   • Merge requests for code refinements.
+   • Send patches for code refinements (if you need, ask me for help
+     with Git—we all start out as beginners).
 
    *note Patches require copyright assignment to the FSF::.
 
@@ -6525,15 +6529,15 @@ Node: Are these color schemes?222315
 Node: Port the Modus themes to other platforms?226035
 Node: Contributing228816
 Node: Sources of the themes229213
-Node: Issues you can help with229849
-Node: Patches require copyright assignment to the FSF231049
-Node: Acknowledgements233344
-Node: Meta236577
-Node: GNU Free Documentation License239056
-Node: Indices264408
-Node: Function index264587
-Node: Variable index266110
-Node: Concept index268397
+Node: Issues you can help with229912
+Node: Patches require copyright assignment to the FSF231303
+Node: Acknowledgements233598
+Node: Meta236831
+Node: GNU Free Documentation License239310
+Node: Indices264662
+Node: Function index264841
+Node: Variable index266364
+Node: Concept index268651
 
 End Tag Table
 
