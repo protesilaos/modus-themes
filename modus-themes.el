@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://git.sr.ht/~protesilaos/modus-themes
 ;; Version: 2.3.2
-;; Last-Modified: <2022-04-07 12:52:40 +0300>
+;; Last-Modified: <2022-04-08 08:44:55 +0300>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -339,6 +339,7 @@
 ;;     tomatinho
 ;;     transient (pop-up windows like Magit's)
 ;;     trashed
+;;     tree-sitter
 ;;     treemacs
 ;;     tty-menu
 ;;     tuareg
@@ -7380,6 +7381,24 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(trashed-marked ((,class :inherit modus-themes-mark-alt)))
     `(trashed-restored ((,class :inherit modus-themes-mark-sel)))
     `(trashed-symlink ((,class :inherit modus-themes-link-symlink)))
+;;;;; tree-sitter
+    `(tree-sitter-hl-face:attribute ((,class :inherit font-lock-variable-name-face)))
+    `(tree-sitter-hl-face:constant.builtin ((,class :inherit tree-sitter-hl-face:constant)))
+    `(tree-sitter-hl-face:escape ((,class :inherit font-lock-regexp-grouping-backslash)))
+    `(tree-sitter-hl-face:function ((,class :inherit font-lock-function-name-face)))
+    `(tree-sitter-hl-face:function.call ((,class :inherit tree-sitter-hl-face:function)))
+    `(tree-sitter-hl-face:label (( )))
+    `(tree-sitter-hl-face:method.call (( )))
+    `(tree-sitter-hl-face:operator ((,class :inherit bold)))
+    `(tree-sitter-hl-face:property (( )))
+    `(tree-sitter-hl-face:property.definition ((,class :inherit font-lock-variable-name-face)))
+    `(tree-sitter-hl-face:punctuation (( )))
+    `(tree-sitter-hl-face:punctuation.bracket (( )))
+    `(tree-sitter-hl-face:punctuation.delimiter (( )))
+    `(tree-sitter-hl-face:punctuation.special ((,class :inherit font-lock-regexp-grouping-construct)))
+    `(tree-sitter-hl-face:string.special ((,class :inherit tree-sitter-hl-face:string)))
+    `(tree-sitter-hl-face:tag ((,class :inherit font-lock-function-name-face)))
+    `(tree-sitter-hl-face:type.argument (( )))
 ;;;;; treemacs
     `(treemacs-directory-collapsed-face ((,class :foreground ,magenta-alt)))
     `(treemacs-directory-face ((,class :inherit dired-directory)))
