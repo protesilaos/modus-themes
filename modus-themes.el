@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://git.sr.ht/~protesilaos/modus-themes
 ;; Version: 2.3.2
-;; Last-Modified: <2022-04-08 08:44:55 +0300>
+;; Last-Modified: <2022-04-08 12:05:53 +0300>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -7389,7 +7389,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(tree-sitter-hl-face:function.call ((,class :inherit tree-sitter-hl-face:function)))
     `(tree-sitter-hl-face:label (( )))
     `(tree-sitter-hl-face:method.call (( )))
-    `(tree-sitter-hl-face:operator ((,class :inherit bold)))
+    `(tree-sitter-hl-face:operator ((,class :inherit modus-themes-bold)))
     `(tree-sitter-hl-face:property (( )))
     `(tree-sitter-hl-face:property.definition ((,class :inherit font-lock-variable-name-face)))
     `(tree-sitter-hl-face:punctuation (( )))
