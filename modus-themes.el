@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://git.sr.ht/~protesilaos/modus-themes
 ;; Version: 2.3.2
-;; Last-Modified: <2022-04-08 12:05:53 +0300>
+;; Last-Modified: <2022-04-08 12:39:10 +0300>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -5654,12 +5654,12 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(font-lock-preprocessor-face ((,class ,@(modus-themes--syntax-extra
                                               red-alt-other red-alt-other-faint
                                               blue-alt blue-alt-faint))))
-    `(font-lock-regexp-grouping-backslash ((,class :inherit bold
+    `(font-lock-regexp-grouping-backslash ((,class :inherit modus-themes-bold
                                                    ,@(modus-themes--syntax-string
                                                       fg-escape-char-backslash yellow-alt-faint
                                                       yellow-alt magenta-alt
                                                       red-faint green-alt-other-faint))))
-    `(font-lock-regexp-grouping-construct ((,class :inherit bold
+    `(font-lock-regexp-grouping-construct ((,class :inherit modus-themes-bold
                                                    ,@(modus-themes--syntax-string
                                                       fg-escape-char-construct red-alt-other-faint
                                                       red-alt-other blue-alt-other
