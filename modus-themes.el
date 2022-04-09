@@ -4594,7 +4594,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(elisp-shorthand-font-lock-face ((,class :inherit font-lock-variable-name-face)))
     `(error ((,class :inherit bold :foreground ,red)))
     `(escape-glyph ((,class :foreground ,fg-escape-char-construct)))
-    `(file-name-shadow ((,class :inherit (shadow italic))))
+    `(file-name-shadow ((,class :inherit (shadow))))
     `(header-line ((,class :inherit modus-themes-ui-variable-pitch
                            :background ,bg-header :foreground ,fg-header)))
     `(header-line-highlight ((,class :inherit highlight)))
