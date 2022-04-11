@@ -5582,7 +5582,7 @@ will send you the assignment form for your past and future changes.
 
 Please use your full legal name (in ASCII characters) as the subject
 line of the message.
-----------------------------------------------------------------------
+
 REQUEST: SEND FORM FOR PAST AND FUTURE CHANGES
 
 [What is the name of the program or package you're contributing to?]
@@ -5679,7 +5679,7 @@ Jaeghere, and Omar Antolín Camarena for their long time contributions
 and insightful commentary on key aspects of the themes' design and/or
 aspects of their functionality.
 
-* Meta
+* Other notes about the project
 :properties:
 :custom_id: h:13752581-4378-478c-af17-165b6e76bc1b
 :end:
@@ -5710,6 +5710,8 @@ And here are the canonical sources of this project's documentation:
 + Manual :: <https://protesilaos.com/emacs/modus-themes>
 + Change Log :: <https://protesilaos.com/emacs/modus-themes-changelog>
 + Screenshots :: <https://protesilaos.com/emacs/modus-themes-pictures>
++ Git repository :: https://git.sr.ht/~protesilaos/modus-themes
++ Mailing list :: https://lists.sr.ht/~protesilaos/modus-themes
 
 * GNU Free Documentation License
 :properties:

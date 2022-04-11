@@ -4,6 +4,7 @@
 
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://git.sr.ht/~protesilaos/modus-themes
+;; Mailing list: https://lists.sr.ht/~protesilaos/modus-themes
 ;; Version: 2.3.2
 ;; Last-Modified: <2022-04-08 12:39:10 +0300>
 ;; Package-Requires: ((emacs "27.1"))
