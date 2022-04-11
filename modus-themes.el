@@ -6,7 +6,6 @@
 ;; URL: https://git.sr.ht/~protesilaos/modus-themes
 ;; Mailing list: https://lists.sr.ht/~protesilaos/modus-themes
 ;; Version: 2.3.2
-;; Last-Modified: <2022-04-08 12:39:10 +0300>
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -7778,9 +7777,4 @@ by virtue of calling either of `modus-themes-load-operandi' and
       (add-to-list 'custom-theme-load-path dir))))
 
 (provide 'modus-themes)
-
-;; Local Variables:
-;; time-stamp-pattern: "Last-Modified: <%Y-%02m-%02d %02H:%02M:%02S %5z>"
-;; End:
-
 ;;; modus-themes.el ends here
