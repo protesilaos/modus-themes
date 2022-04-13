@@ -4400,6 +4400,7 @@ supported by the themes.
 + dtache
 + easy-kill
 + edit-indirect
++ egerrit
 + elfeed-summary
 + evil-owl
 + flyspell-correct

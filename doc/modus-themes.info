@@ -4420,6 +4420,7 @@ supported by the themes.
    • dtache
    • easy-kill
    • edit-indirect
+   • egerrit
    • elfeed-summary
    • evil-owl
    • flyspell-correct
@@ -6502,48 +6503,48 @@ Node: Near-monochrome syntax highlighting162861
 Node: Face coverage171828
 Node: Supported packages172280
 Node: Indirectly covered packages178886
-Node: Notes on individual packages179943
-Node: Note on avy hints181036
-Node: Note on calendarel weekday and weekend colors182204
-Node: Note on underlines in compilation buffers183387
-Node: Note on inline Latex in Org buffers184234
-Node: Note on dimmerel184844
-Node: Note on display-fill-column-indicator-mode186329
-Node: Note on highlight-parenthesesel187727
-Node: Note on mmm-modeel background colors193716
-Node: Note for prism196031
-Node: Note for god-mode199185
-Node: Note on company-mode overlay pop-up200789
-Ref: Note on company-mode overlay pop-up-Footnote-1201479
-Ref: Note on company-mode overlay pop-up-Footnote-2201546
-Node: Note on ERC escaped color sequences201601
-Ref: Note on ERC escaped color sequences-Footnote-1203029
-Node: Note on powerline or spaceline203139
-Node: Note on SHR colors203553
-Node: Note on SHR fonts203977
-Node: Note on Ement colors and fonts204610
-Node: Note on Helm grep206109
-Node: Note on vc-annotate-background-mode207586
-Node: Note on pdf-tools link hints208471
-Node: Note on the Notmuch logo210936
-Node: Frequently Asked Questions211434
-Node: Is the contrast ratio about adjacent colors?212065
-Node: What does it mean to avoid exaggerations?213572
-Node: Why are colors mostly variants of blue magenta cyan?215401
-Node: What is the best setup for legibility?219714
-Node: Are these color schemes?222359
-Node: Port the Modus themes to other platforms?226079
-Node: Contributing228860
-Node: Sources of the themes229257
-Node: Issues you can help with229956
-Node: Patches require copyright assignment to the FSF231347
-Node: Acknowledgements233567
-Node: Other notes about the project236845
-Node: GNU Free Documentation License239531
-Node: Indices264908
-Node: Function index265087
-Node: Variable index266610
-Node: Concept index268897
+Node: Notes on individual packages179958
+Node: Note on avy hints181051
+Node: Note on calendarel weekday and weekend colors182219
+Node: Note on underlines in compilation buffers183402
+Node: Note on inline Latex in Org buffers184249
+Node: Note on dimmerel184859
+Node: Note on display-fill-column-indicator-mode186344
+Node: Note on highlight-parenthesesel187742
+Node: Note on mmm-modeel background colors193731
+Node: Note for prism196046
+Node: Note for god-mode199200
+Node: Note on company-mode overlay pop-up200804
+Ref: Note on company-mode overlay pop-up-Footnote-1201494
+Ref: Note on company-mode overlay pop-up-Footnote-2201561
+Node: Note on ERC escaped color sequences201616
+Ref: Note on ERC escaped color sequences-Footnote-1203044
+Node: Note on powerline or spaceline203154
+Node: Note on SHR colors203568
+Node: Note on SHR fonts203992
+Node: Note on Ement colors and fonts204625
+Node: Note on Helm grep206124
+Node: Note on vc-annotate-background-mode207601
+Node: Note on pdf-tools link hints208486
+Node: Note on the Notmuch logo210951
+Node: Frequently Asked Questions211449
+Node: Is the contrast ratio about adjacent colors?212080
+Node: What does it mean to avoid exaggerations?213587
+Node: Why are colors mostly variants of blue magenta cyan?215416
+Node: What is the best setup for legibility?219729
+Node: Are these color schemes?222374
+Node: Port the Modus themes to other platforms?226094
+Node: Contributing228875
+Node: Sources of the themes229272
+Node: Issues you can help with229971
+Node: Patches require copyright assignment to the FSF231362
+Node: Acknowledgements233582
+Node: Other notes about the project236860
+Node: GNU Free Documentation License239546
+Node: Indices264923
+Node: Function index265102
+Node: Variable index266625
+Node: Concept index268912
 
 End Tag Table
 
