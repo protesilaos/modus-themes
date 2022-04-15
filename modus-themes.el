@@ -1450,9 +1450,8 @@ The actual styling of the face is done by `modus-themes-faces'."
 
 (defface modus-themes-variable-pitch nil
   "Generic face for applying a conditional `variable-pitch'.
-This behaves in accordance with `modus-themes-mixed-fonts',
-`modus-themes-variable-pitch-headings' for all heading levels,
-and `modus-themes-variable-pitch-ui'.
+This behaves in accordance with `modus-themes-mixed-fonts' and/or
+`modus-themes-variable-pitch-ui'.
 
 The actual styling of the face is done by `modus-themes-faces'."
   :group 'modus-themes-faces)
