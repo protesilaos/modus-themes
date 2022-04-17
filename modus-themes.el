@@ -408,6 +408,30 @@ cover the blue-cyan-magenta side of the spectrum."
   :prefix "modus-themes-"
   :tag "Modus Themes Faces")
 
+(defvar modus-themes--version "2.4.0-dev"
+  "Current version of the Modus themes.")
+
+;;;###autoload
+(defun modus-themes-version (&optional insert)
+  "Print `modus-themes--version' in the echo area.
+If optional INSERT argument is provided from Lisp or as a prefix
+argument, insert the `modus-themes--version' at point."
+  (interactive "P")
+  (if-let ((version modus-themes--version)
+           ((or insert current-prefix-arg)))
+      (insert version)
+    (message version)))
+
+;;;###autoload
+(defun modus-themes-report-bug ()
+  "Submit a bug report or issue to the Modus themes developers."
+  (reporter-submit-bug-report
+   "~protesilaos/modus-themes@lists.sr.ht"
+   (format "modus-themes (%s)\n" modus-themes--version)
+   ;; I am just getting started with this.  Let's first see what people
+   ;; think about it.
+   nil nil nil nil))
+
 ;;; Variables for each theme variant
 
 ;;;; Modus Operandi

@@ -5575,7 +5575,8 @@ File: modus-themes.info,  Node: Issues you can help with,  Next: Patches require
 
 A few tasks you can help with by sending an email to the general
 modus-themes public mailing list
-(https://lists.sr.ht/~protesilaos/modus-themes).
+(https://lists.sr.ht/~protesilaos/modus-themes) (or use the command
+‘modus-themes-report-bug’ [part of 2.4.0-dev]).
 
    • Suggest refinements to packages that are covered.
    • Report packages not covered thus far.
@@ -5591,6 +5592,10 @@ modus-themes public mailing list
    It is preferable that your feedback includes some screenshots, GIFs,
 or short videos, as well as further instructions to reproduce a given
 setup.  Though this is not a requirement.
+
+   Also consider mentioning the version of the themes you are using,
+such as by invoking the command ‘modus-themes-version’ [part of
+2.4.0-dev].
 
    Whatever you do, bear in mind the overarching objective of the Modus
 themes: to keep a contrast ratio that is greater or equal to 7:1 between
@@ -6289,23 +6294,27 @@ B.1 Function index
 * Menu:
 
 * modus-themes-color:                    Case-by-case face specs using the themes' palette.
-                                                                (line 6)
+                                                               (line  6)
 * modus-themes-color-alts:               Case-by-case face specs using the themes' palette.
-                                                                (line 6)
+                                                               (line  6)
 * modus-themes-contrast:                 Measure color contrast.
-                                                                (line 6)
+                                                               (line  6)
 * modus-themes-list-colors:              Visualize the active Modus theme's palette.
-                                                                (line 6)
+                                                               (line  6)
 * modus-themes-list-colors-current:      Visualize the active Modus theme's palette.
-                                                                (line 6)
-* modus-themes-load-operandi:            Enable and load.       (line 6)
-* modus-themes-load-themes:              Enable and load.       (line 6)
-* modus-themes-load-vivendi:             Enable and load.       (line 6)
-* modus-themes-toggle:                   Enable and load.       (line 6)
+                                                               (line  6)
+* modus-themes-load-operandi:            Enable and load.      (line  6)
+* modus-themes-load-themes:              Enable and load.      (line  6)
+* modus-themes-load-vivendi:             Enable and load.      (line  6)
+* modus-themes-report-bug:               Issues you can help with.
+                                                               (line  6)
+* modus-themes-toggle:                   Enable and load.      (line  6)
+* modus-themes-version:                  Issues you can help with.
+                                                               (line 26)
 * modus-themes-wcag-formula:             Measure color contrast.
-                                                                (line 6)
+                                                               (line  6)
 * modus-themes-with-colors:              Face specs at scale using the themes' palette.
-                                                                (line 6)
+                                                               (line  6)
 
 
 File: modus-themes.info,  Node: Variable index,  Next: Concept index,  Prev: Function index,  Up: Indices
@@ -6537,14 +6546,14 @@ Node: Port the Modus themes to other platforms?226094
 Node: Contributing228875
 Node: Sources of the themes229272
 Node: Issues you can help with229971
-Node: Patches require copyright assignment to the FSF231362
-Node: Acknowledgements233582
-Node: Other notes about the project236860
-Node: GNU Free Documentation License239546
-Node: Indices264923
-Node: Function index265102
-Node: Variable index266625
-Node: Concept index268912
+Node: Patches require copyright assignment to the FSF231583
+Node: Acknowledgements233803
+Node: Other notes about the project237081
+Node: GNU Free Documentation License239767
+Node: Indices265144
+Node: Function index265323
+Node: Variable index267126
+Node: Concept index269413
 
 End Tag Table
 
