@@ -7510,7 +7510,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; vertico
     `(vertico-current ((,class :inherit modus-themes-completion-selected)))
 ;;;;; vertico-quick
-    `(vertico-quick1 ((,class :inherit (modus-themes-intense-blue bold))))
+    `(vertico-quick1 ((,class :inherit (modus-themes-special-cold bold))))
     `(vertico-quick2 ((,class :inherit (modus-themes-refine-magenta bold))))
 ;;;;; vimish-fold
     `(vimish-fold-fringe ((,class :foreground ,cyan-active)))
