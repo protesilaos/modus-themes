@@ -4789,7 +4789,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; avy
     `(avy-background-face ((,class :background ,bg-dim :foreground ,fg-dim :extend t)))
     `(avy-goto-char-timer-face ((,class :inherit (modus-themes-intense-neutral bold))))
-    `(avy-lead-face ((,class :inherit (modus-themes-intense-blue bold modus-themes-reset-soft))))
+    `(avy-lead-face ((,class :inherit (modus-themes-special-cold bold modus-themes-reset-soft))))
     `(avy-lead-face-0 ((,class :inherit (modus-themes-refine-magenta bold modus-themes-reset-soft))))
     `(avy-lead-face-1 ((,class :inherit (modus-themes-special-warm modus-themes-reset-soft))))
     `(avy-lead-face-2 ((,class :inherit (modus-themes-refine-green bold modus-themes-reset-soft))))
