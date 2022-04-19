@@ -7704,6 +7704,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(flymake-error-bitmap '(flymake-double-exclamation-mark modus-themes-fringe-red))
     `(flymake-warning-bitmap '(exclamation-mark modus-themes-fringe-yellow))
     `(flymake-note-bitmap '(exclamation-mark modus-themes-fringe-cyan))
+;;;; highlight-changes
+    `(highlight-changes-colors nil)
+    `(highlight-changes-face-list '(success warning error bold bold-italic))
 ;;;; ibuffer
     `(ibuffer-deletion-face 'modus-themes-mark-del)
     `(ibuffer-filter-group-name-face 'modus-themes-pseudo-header)
