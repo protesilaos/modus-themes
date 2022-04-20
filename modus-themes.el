@@ -110,6 +110,7 @@
 ;;     completions
 ;;     consult
 ;;     corfu
+;;     corfu-quick
 ;;     counsel
 ;;     counsel-css
 ;;     cov
@@ -586,7 +587,8 @@ argument, insert the `modus-themes--version' at point."
     ;; while bg-tab-inactive should be combined with fg-dim, whereas
     ;; bg-tab-inactive-alt goes together with fg-main
     ;;
-    ;; bg-completion-* variants are meant to be combined with fg-main
+    ;; bg-completion-* and bg-char-* variants are meant to be combined
+    ;; with fg-main
     ;;
     ;; fg-escape-char-construct and fg-escape-char-backslash can
     ;; be combined bg-main, bg-dim, bg-alt
@@ -619,6 +621,10 @@ argument, insert the `modus-themes--version' at point."
 
     (bg-completion . "#b7dbff")
     (bg-completion-subtle . "#def3ff")
+
+    (bg-char-0 . "#7feaff")
+    (bg-char-1 . "#ffaaff")
+    (bg-char-2 . "#dff000")
 
     (bg-tab-active . "#f6f6f6")
     (bg-tab-inactive . "#b7b7b7")
@@ -832,7 +838,8 @@ symbol and the latter as a string.")
     ;; while bg-tab-inactive should be combined with fg-dim, whereas
     ;; bg-tab-inactive-alt goes together with fg-main
     ;;
-    ;; bg-completion-* variants are meant to be combined with fg-main
+    ;; bg-completion-* and bg-char-* variants are meant to be combined
+    ;; with fg-main
     ;;
     ;; fg-escape-char-construct and fg-escape-char-backslash can
     ;; be combined bg-main, bg-dim, bg-alt
@@ -865,6 +872,10 @@ symbol and the latter as a string.")
 
     (bg-completion . "#142f69")
     (bg-completion-subtle . "#0e194b")
+
+    (bg-char-0 . "#0050af")
+    (bg-char-1 . "#7f1f7f")
+    (bg-char-2 . "#625a00")
 
     (bg-tab-active . "#0e0e0e")
     (bg-tab-inactive . "#424242")
@@ -4789,10 +4800,10 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; avy
     `(avy-background-face ((,class :background ,bg-dim :foreground ,fg-dim :extend t)))
     `(avy-goto-char-timer-face ((,class :inherit (modus-themes-intense-neutral bold))))
-    `(avy-lead-face ((,class :inherit (modus-themes-special-cold bold modus-themes-reset-soft))))
-    `(avy-lead-face-0 ((,class :inherit (modus-themes-refine-magenta bold modus-themes-reset-soft))))
+    `(avy-lead-face ((,class :inherit (bold modus-themes-reset-soft) :background ,bg-char-0)))
+    `(avy-lead-face-0 ((,class :inherit (bold modus-themes-reset-soft) :background ,bg-char-1)))
     `(avy-lead-face-1 ((,class :inherit (modus-themes-special-warm modus-themes-reset-soft))))
-    `(avy-lead-face-2 ((,class :inherit (modus-themes-refine-green bold modus-themes-reset-soft))))
+    `(avy-lead-face-2 ((,class :inherit (bold modus-themes-reset-soft) :background ,bg-char-2)))
 ;;;;; aw (ace-window)
     `(aw-background-face ((,class :foreground ,fg-unfocused)))
     `(aw-key-face ((,class :inherit modus-themes-key-binding)))
@@ -5022,6 +5033,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(corfu-bar ((,class :background ,fg-alt)))
     `(corfu-border ((,class :background ,bg-active)))
     `(corfu-default ((,class :background ,bg-alt)))
+;;;;; corfu-quick
+    `(corfu-quick1 ((,class :inherit bold :background ,bg-char-0)))
+    `(corfu-quick2 ((,class :inherit bold :background ,bg-char-1)))
 ;;;;; counsel
     `(counsel-active-mode ((,class :foreground ,magenta-alt-other)))
     `(counsel-application-name ((,class :foreground ,red-alt-other)))
@@ -7510,8 +7524,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; vertico
     `(vertico-current ((,class :inherit modus-themes-completion-selected)))
 ;;;;; vertico-quick
-    `(vertico-quick1 ((,class :inherit (modus-themes-special-cold bold))))
-    `(vertico-quick2 ((,class :inherit (modus-themes-refine-magenta bold))))
+    `(vertico-quick1 ((,class :inherit bold :background ,bg-char-0)))
+    `(vertico-quick2 ((,class :inherit bold :background ,bg-char-1)))
 ;;;;; vimish-fold
     `(vimish-fold-fringe ((,class :foreground ,cyan-active)))
     `(vimish-fold-mouse-face ((,class :inherit modus-themes-intense-blue)))
