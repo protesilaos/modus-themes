@@ -22,9 +22,9 @@ For some demo content, check:
 
 Sources:
 
-+ Homepage: https://protesilaos.com/emacs/modus-themes.
-+ Git repository: https://git.sr.ht/~protesilaos/modus-themes.
-+ Mailing list: https://lists.sr.ht/~protesilaos/modus-themes.
++ Homepage: <https://protesilaos.com/emacs/modus-themes>.
++ Git repository: <https://git.sr.ht/~protesilaos/modus-themes>.
++ Mailing list: <https://lists.sr.ht/~protesilaos/modus-themes>.
 
 ## Quick setup for the latest version
 
