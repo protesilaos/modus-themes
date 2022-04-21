@@ -20,6 +20,12 @@ For some demo content, check:
 + The screenshots of the themes <https://protesilaos.com/emacs/modus-themes-pictures/>.
 + My videos on Emacs <https://protesilaos.com/code-casts/>.
 
+Sources:
+
++ Homepage: https://protesilaos.com/emacs/modus-themes.
++ Git repository: https://git.sr.ht/~protesilaos/modus-themes.
++ Mailing list: https://lists.sr.ht/~protesilaos/modus-themes.
+
 ## Quick setup for the latest version
 
 ### Built-in version
