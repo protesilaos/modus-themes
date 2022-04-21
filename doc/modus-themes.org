@@ -5290,8 +5290,8 @@ and hints of green give us suitable shades of purple.
 
 Due to the need of maintaining some difference in hueness between
 adjacent colors, it is not possible to make red, green, and yellow the
-primary colors, because blue could not be used to control their
-luminance and, thus the relevant space would shrink considerably.
+main colors, because blue cannot be used to control their luminance and,
+thus the relevant space will shrink considerably.
 
 [[#h:5ce7ae2e-9348-4e55-b4cf-9302345b1826][Is the contrast ratio about adjacent colors?]]
 

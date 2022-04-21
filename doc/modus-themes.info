@@ -5319,8 +5319,8 @@ and hints of green give us suitable shades of purple.
 
    Due to the need of maintaining some difference in hueness between
 adjacent colors, it is not possible to make red, green, and yellow the
-primary colors, because blue could not be used to control their
-luminance and, thus the relevant space would shrink considerably.
+main colors, because blue cannot be used to control their luminance and,
+thus the relevant space will shrink considerably.
 
    *note Is the contrast ratio about adjacent colors?::
 
@@ -6545,20 +6545,20 @@ Node: Frequently Asked Questions211694
 Node: Is the contrast ratio about adjacent colors?212325
 Node: What does it mean to avoid exaggerations?213832
 Node: Why are colors mostly variants of blue magenta cyan?215661
-Node: What is the best setup for legibility?219974
-Node: Are these color schemes?222619
-Node: Port the Modus themes to other platforms?226339
-Node: Contributing229120
-Node: Sources of the themes229517
-Node: Issues you can help with230216
-Node: Patches require copyright assignment to the FSF231828
-Node: Acknowledgements234048
-Node: Other notes about the project237326
-Node: GNU Free Documentation License240012
-Node: Indices265389
-Node: Function index265568
-Node: Variable index267371
-Node: Concept index269658
+Node: What is the best setup for legibility?219967
+Node: Are these color schemes?222612
+Node: Port the Modus themes to other platforms?226332
+Node: Contributing229113
+Node: Sources of the themes229510
+Node: Issues you can help with230209
+Node: Patches require copyright assignment to the FSF231821
+Node: Acknowledgements234041
+Node: Other notes about the project237319
+Node: GNU Free Documentation License240005
+Node: Indices265382
+Node: Function index265561
+Node: Variable index267364
+Node: Concept index269651
 
 End Tag Table
 
