@@ -4102,6 +4102,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + breakpoint (provided by the built-in {{{file(gdb-mi.el)}}} library)
 + calendar and diary
 + calfw
++ calibredb [ part of {{{development-version}}} ]
 + centaur-tabs
 + cfrs
 + change-log and log-view (such as ~vc-print-log~, ~vc-print-root-log~)
@@ -5661,14 +5662,14 @@ The Modus themes are a collective effort.  Every bit of work matters.
   David Edmondson, Davor Rotim, Divan Santana, Eliraz Kedmi, Emanuele
   Michele Alberto Monterosso, Farasha Euker, Feng Shu, Gautier Ponsinet,
   Gerry Agbobada, Gianluca Recchia, Guilherme Semente, Gustavo Barros,
-  Hörmetjan Yiltiz, Ilja Kocken, Iris Garcia, Jeremy Friesen, Jerry
-  Zhang, Johannes Grødem, John Haman, Jorge Morais, Joshua O'Connor,
-  Julio C. Villasante, Kenta Usami, Kevin Fleming, Kévin Le Gouguec,
-  Kostadin Ninev, Len Trigg, Lennart C. Karssen, Magne Hov, Manuel
-  Uberti, Mark Bestley, Mark Burton, Markus Beppler, Mauro Aranda,
-  Michael Goldenberg, Morgan Smith, Morgan Willcock, Murilo Pereira,
-  Nicky van Foreest, Nicolas De Jaeghere, Paul Poloskov, Pengji Zhang,
-  Pete Kazmier, Peter Wu, Philip Kaludercic, Pierre Téchoueyres,
+  Hörmetjan Yiltiz, Ilja Kocken, Iris Garcia, Ivan Popovych, Jeremy
+  Friesen, Jerry Zhang, Johannes Grødem, John Haman, Jorge Morais,
+  Joshua O'Connor, Julio C. Villasante, Kenta Usami, Kevin Fleming,
+  Kévin Le Gouguec, Kostadin Ninev, Len Trigg, Lennart C. Karssen, Magne
+  Hov, Manuel Uberti, Mark Bestley, Mark Burton, Markus Beppler, Mauro
+  Aranda, Michael Goldenberg, Morgan Smith, Morgan Willcock, Murilo
+  Pereira, Nicky van Foreest, Nicolas De Jaeghere, Paul Poloskov, Pengji
+  Zhang, Pete Kazmier, Peter Wu, Philip Kaludercic, Pierre Téchoueyres,
   Przemysław Kryger, Robert Hepple, Roman Rudakov, Ryan Phillips, Rytis
   Paškauskas, Rudolf Adamkovič, Sam Kleinman, Samuel Culpepper, Saša
   Janiška, Shreyas Ragavan, Simon Pugnet, Tassilo Horn, Thibaut Verron,

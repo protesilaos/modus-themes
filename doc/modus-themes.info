@@ -4120,6 +4120,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • breakpoint (provided by the built-in ‘gdb-mi.el’ library)
    • calendar and diary
    • calfw
+   • calibredb [ part of 2.4.0-dev ]
    • centaur-tabs
    • cfrs
    • change-log and log-view (such as ‘vc-print-log’,
@@ -5701,23 +5702,24 @@ Ideas and user feedback
      Rotim, Divan Santana, Eliraz Kedmi, Emanuele Michele Alberto
      Monterosso, Farasha Euker, Feng Shu, Gautier Ponsinet, Gerry
      Agbobada, Gianluca Recchia, Guilherme Semente, Gustavo Barros,
-     Hörmetjan Yiltiz, Ilja Kocken, Iris Garcia, Jeremy Friesen, Jerry
-     Zhang, Johannes Grødem, John Haman, Jorge Morais, Joshua O’Connor,
-     Julio C.  Villasante, Kenta Usami, Kevin Fleming, Kévin Le Gouguec,
-     Kostadin Ninev, Len Trigg, Lennart C.  Karssen, Magne Hov, Manuel
-     Uberti, Mark Bestley, Mark Burton, Markus Beppler, Mauro Aranda,
-     Michael Goldenberg, Morgan Smith, Morgan Willcock, Murilo Pereira,
-     Nicky van Foreest, Nicolas De Jaeghere, Paul Poloskov, Pengji
-     Zhang, Pete Kazmier, Peter Wu, Philip Kaludercic, Pierre
-     Téchoueyres, Przemysław Kryger, Robert Hepple, Roman Rudakov, Ryan
-     Phillips, Rytis Paškauskas, Rudolf Adamkovič, Sam Kleinman, Samuel
-     Culpepper, Saša Janiška, Shreyas Ragavan, Simon Pugnet, Tassilo
-     Horn, Thibaut Verron, Thomas Heartman, Togan Muftuoglu, Tony
-     Zorman, Trey Merkley, Tomasz Hołubowicz, Toon Claes, Uri Sharf,
-     Utkarsh Singh, Vincent Foley.  As well as users: Ben,
-     CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji,
-     Nick, TheBlob42, Trey, bepolymathe, bit9tream, derek-upham, doolio,
-     fleimgruber, gitrj95, iSeeU, jixiuf, okamsn, pRot0ta1p.
+     Hörmetjan Yiltiz, Ilja Kocken, Iris Garcia, Ivan Popovych, Jeremy
+     Friesen, Jerry Zhang, Johannes Grødem, John Haman, Jorge Morais,
+     Joshua O’Connor, Julio C.  Villasante, Kenta Usami, Kevin Fleming,
+     Kévin Le Gouguec, Kostadin Ninev, Len Trigg, Lennart C.  Karssen,
+     Magne Hov, Manuel Uberti, Mark Bestley, Mark Burton, Markus
+     Beppler, Mauro Aranda, Michael Goldenberg, Morgan Smith, Morgan
+     Willcock, Murilo Pereira, Nicky van Foreest, Nicolas De Jaeghere,
+     Paul Poloskov, Pengji Zhang, Pete Kazmier, Peter Wu, Philip
+     Kaludercic, Pierre Téchoueyres, Przemysław Kryger, Robert Hepple,
+     Roman Rudakov, Ryan Phillips, Rytis Paškauskas, Rudolf Adamkovič,
+     Sam Kleinman, Samuel Culpepper, Saša Janiška, Shreyas Ragavan,
+     Simon Pugnet, Tassilo Horn, Thibaut Verron, Thomas Heartman, Togan
+     Muftuoglu, Tony Zorman, Trey Merkley, Tomasz Hołubowicz, Toon
+     Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.  As well as users:
+     Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik,
+     Moesasji, Nick, TheBlob42, Trey, bepolymathe, bit9tream,
+     derek-upham, doolio, fleimgruber, gitrj95, iSeeU, jixiuf, okamsn,
+     pRot0ta1p.
 
 Packaging
      Basil L. Contovounesios, Eli Zaretskii, Glenn Morris, Mauro Aranda,
@@ -6516,49 +6518,49 @@ Node: Ediff without diff color-coding160926
 Node: Near-monochrome syntax highlighting163065
 Node: Face coverage172032
 Node: Supported packages172484
-Node: Indirectly covered packages179131
-Node: Notes on individual packages180203
-Node: Note on avy hints181296
-Node: Note on calendarel weekday and weekend colors182464
-Node: Note on underlines in compilation buffers183647
-Node: Note on inline Latex in Org buffers184494
-Node: Note on dimmerel185104
-Node: Note on display-fill-column-indicator-mode186589
-Node: Note on highlight-parenthesesel187987
-Node: Note on mmm-modeel background colors193976
-Node: Note for prism196291
-Node: Note for god-mode199445
-Node: Note on company-mode overlay pop-up201049
-Ref: Note on company-mode overlay pop-up-Footnote-1201739
-Ref: Note on company-mode overlay pop-up-Footnote-2201806
-Node: Note on ERC escaped color sequences201861
-Ref: Note on ERC escaped color sequences-Footnote-1203289
-Node: Note on powerline or spaceline203399
-Node: Note on SHR colors203813
-Node: Note on SHR fonts204237
-Node: Note on Ement colors and fonts204870
-Node: Note on Helm grep206369
-Node: Note on vc-annotate-background-mode207846
-Node: Note on pdf-tools link hints208731
-Node: Note on the Notmuch logo211196
-Node: Frequently Asked Questions211694
-Node: Is the contrast ratio about adjacent colors?212325
-Node: What does it mean to avoid exaggerations?213832
-Node: Why are colors mostly variants of blue magenta cyan?215661
-Node: What is the best setup for legibility?219967
-Node: Are these color schemes?222612
-Node: Port the Modus themes to other platforms?226332
-Node: Contributing229113
-Node: Sources of the themes229510
-Node: Issues you can help with230209
-Node: Patches require copyright assignment to the FSF231821
-Node: Acknowledgements234041
-Node: Other notes about the project237319
-Node: GNU Free Documentation License240005
-Node: Indices265382
-Node: Function index265561
-Node: Variable index267364
-Node: Concept index269651
+Node: Indirectly covered packages179170
+Node: Notes on individual packages180242
+Node: Note on avy hints181335
+Node: Note on calendarel weekday and weekend colors182503
+Node: Note on underlines in compilation buffers183686
+Node: Note on inline Latex in Org buffers184533
+Node: Note on dimmerel185143
+Node: Note on display-fill-column-indicator-mode186628
+Node: Note on highlight-parenthesesel188026
+Node: Note on mmm-modeel background colors194015
+Node: Note for prism196330
+Node: Note for god-mode199484
+Node: Note on company-mode overlay pop-up201088
+Ref: Note on company-mode overlay pop-up-Footnote-1201778
+Ref: Note on company-mode overlay pop-up-Footnote-2201845
+Node: Note on ERC escaped color sequences201900
+Ref: Note on ERC escaped color sequences-Footnote-1203328
+Node: Note on powerline or spaceline203438
+Node: Note on SHR colors203852
+Node: Note on SHR fonts204276
+Node: Note on Ement colors and fonts204909
+Node: Note on Helm grep206408
+Node: Note on vc-annotate-background-mode207885
+Node: Note on pdf-tools link hints208770
+Node: Note on the Notmuch logo211235
+Node: Frequently Asked Questions211733
+Node: Is the contrast ratio about adjacent colors?212364
+Node: What does it mean to avoid exaggerations?213871
+Node: Why are colors mostly variants of blue magenta cyan?215700
+Node: What is the best setup for legibility?220006
+Node: Are these color schemes?222651
+Node: Port the Modus themes to other platforms?226371
+Node: Contributing229152
+Node: Sources of the themes229549
+Node: Issues you can help with230248
+Node: Patches require copyright assignment to the FSF231860
+Node: Acknowledgements234080
+Node: Other notes about the project237378
+Node: GNU Free Documentation License240064
+Node: Indices265441
+Node: Function index265620
+Node: Variable index267423
+Node: Concept index269710
 
 End Tag Table
 

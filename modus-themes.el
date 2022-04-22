@@ -4589,6 +4589,22 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(cfw:face-toolbar-button-off ((,class :inherit shadow)))
     `(cfw:face-toolbar-button-on ((,class :inherit bold :background ,blue-nuanced-bg
                                           :foreground ,blue-alt)))
+;;;;; calibredb
+    `(calibredb-archive-face ((,class :foreground ,magenta-alt-faint)))
+    `(calibredb-author-face ((,class :foreground ,blue-faint)))
+    `(calibredb-comment-face ((,class :inherit shadow)))
+    `(calibredb-date-face ((,class :foreground ,cyan)))
+    `(calibredb-edit-annotation-header-title-face ((,class :inherit bold)))
+    `(calibredb-favorite-face ((,class :foreground ,red-alt)))
+    `(calibredb-file-face (( )))
+    `(calibredb-format-face ((,class :foreground ,cyan-faint)))
+    `(calibredb-highlight-face ((,class :inherit success)))
+    `(calibredb-id-face (( )))
+    `(calibredb-ids-face (( )))
+    `(calibredb-search-header-highlight-face ((,class :inherit modus-themes-hl-line)))
+    `(calibredb-mark-face ((,class :inherit modus-themes-mark-sel)))
+    `(calibredb-size-face (( )))
+    `(calibredb-tag-face ((,class :foreground ,magenta-alt-faint)))
 ;;;;; centaur-tabs
     `(centaur-tabs-active-bar-face ((,class :background ,blue-active)))
     `(centaur-tabs-close-mouse-face ((,class :inherit bold :foreground ,red-active :underline t)))
