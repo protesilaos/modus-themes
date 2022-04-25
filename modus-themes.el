@@ -4602,7 +4602,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(calibredb-id-face (( )))
     `(calibredb-ids-face (( )))
     `(calibredb-search-header-highlight-face ((,class :inherit modus-themes-hl-line)))
-    `(calibredb-search-header-library-name-face (( )))
+    `(calibredb-search-header-library-name-face ((,class :foreground ,blue-active)))
     `(calibredb-search-header-library-path-face ((,class :inherit bold)))
     `(calibredb-search-header-sort-face ((,class :inherit bold :foreground ,magenta-active)))
     `(calibredb-search-header-total-face ((,class :inherit bold :foreground ,cyan-active)))
