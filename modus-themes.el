@@ -5449,7 +5449,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(forge-topic-unread ((,class :inherit bold :foreground ,fg-main)))
 ;;;;; fountain-mode
     `(fountain-character ((,class :foreground ,blue-alt-other)))
-    `(fountain-comment ((,class :inherit modus-themes-slant :foreground ,fg-alt)))
+    `(fountain-comment ((,class :inherit font-lock-comment-face)))
     `(fountain-dialog ((,class :foreground ,blue-alt)))
     `(fountain-metadata-key ((,class :foreground ,green-alt-other)))
     `(fountain-metadata-value ((,class :foreground ,blue)))
