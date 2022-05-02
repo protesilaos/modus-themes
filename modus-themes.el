@@ -5483,11 +5483,11 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(geiser-font-lock-xref-link ((,class :inherit button)))
 ;;;;; git-commit
     `(git-commit-comment-action ((,class :inherit font-lock-comment-face)))
-    `(git-commit-comment-branch-local ((,class :inherit modus-themes-slant :foreground ,blue-alt)))
-    `(git-commit-comment-branch-remote ((,class :inherit modus-themes-slant :foreground ,magenta-alt)))
-    `(git-commit-comment-detached ((,class :inherit modus-themes-slant :foreground ,cyan-alt)))
-    `(git-commit-comment-file ((,class :inherit modus-themes-slant :foreground ,cyan)))
-    `(git-commit-comment-heading ((,class :inherit (bold modus-themes-slant))))
+    `(git-commit-comment-branch-local ((,class :inherit font-lock-comment-face :foreground ,blue-alt)))
+    `(git-commit-comment-branch-remote ((,class :inherit font-lock-comment-face :foreground ,magenta-alt)))
+    `(git-commit-comment-detached ((,class :inherit font-lock-comment-face :foreground ,cyan-alt)))
+    `(git-commit-comment-file ((,class :inherit font-lock-comment-face :foreground ,cyan)))
+    `(git-commit-comment-heading ((,class :inherit (bold font-lock-comment-face))))
     `(git-commit-keyword ((,class :foreground ,magenta)))
     `(git-commit-known-pseudo-header ((,class :foreground ,cyan-alt-other)))
     `(git-commit-nonempty-second-line ((,class :inherit error)))
@@ -5505,8 +5505,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(git-gutter-fr:deleted ((,class :inherit modus-themes-fringe-red)))
     `(git-gutter-fr:modified ((,class :inherit modus-themes-fringe-yellow)))
 ;;;;; git-rebase
-    `(git-rebase-comment-hash ((,class :inherit modus-themes-slant :foreground ,cyan)))
-    `(git-rebase-comment-heading  ((,class :inherit (bold modus-themes-slant))))
+    `(git-rebase-comment-hash ((,class :inherit font-lock-comment-face :foreground ,cyan)))
+    `(git-rebase-comment-heading  ((,class :inherit (bold font-lock-comment-face))))
     `(git-rebase-description ((,class :foreground ,fg-main)))
     `(git-rebase-hash ((,class :foreground ,cyan-alt-other)))
 ;;;;; git-timemachine
