@@ -5878,7 +5878,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(kaocha-runner-warning-face ((,class :inherit warning)))
 ;;;;; keycast
     `(keycast-command ((,class :inherit bold :foreground ,blue-active)))
-    `(keycast-key ((,class ,@(modus-themes--mode-line-padded-box blue-active)
+    ;; FIXME 2022-05-03: The padding breaks `keycast-tab-bar-mode'
+    `(keycast-key ((,class ;; ,@(modus-themes--mode-line-padded-box blue-active)
                            :background ,blue-active :foreground ,bg-main)))
 ;;;;; ledger-mode
     `(ledger-font-auto-xact-face ((,class :foreground ,magenta)))

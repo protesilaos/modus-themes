@@ -5695,11 +5695,11 @@ Contributions to code or documentation
 Ideas and user feedback
      Aaron Jensen, Adam Porter, Adam Spiers, Adrian Manea, Alex Griffin,
      Alex Koen, Alex Peitsinis, Alexey Shmalko, Alok Singh, Anders
-     Johansson, André Alexandre Gomes, Antonio Hernández Blas, Arif
-     Rezai, Augusto Stoffel, Basil L. Contovounesios, Burgess Chang,
-     Christian Tietze, Christopher Dimech, Christopher League, Damien
-     Cassou, Daniel Mendler, Dario Gjorgjevski, David Edmondson, Davor
-     Rotim, Divan Santana, Eliraz Kedmi, Emanuele Michele Alberto
+     Johansson, André Alexandre Gomes, Andrew Tropin, Antonio Hernández
+     Blas, Arif Rezai, Augusto Stoffel, Basil L. Contovounesios, Burgess
+     Chang, Christian Tietze, Christopher Dimech, Christopher League,
+     Damien Cassou, Daniel Mendler, Dario Gjorgjevski, David Edmondson,
+     Davor Rotim, Divan Santana, Eliraz Kedmi, Emanuele Michele Alberto
      Monterosso, Farasha Euker, Feng Shu, Gautier Ponsinet, Gerry
      Agbobada, Gianluca Recchia, Guilherme Semente, Gustavo Barros,
      Hörmetjan Yiltiz, Ilja Kocken, Iris Garcia, Ivan Popovych, Jeremy
@@ -6555,12 +6555,12 @@ Node: Sources of the themes229549
 Node: Issues you can help with230248
 Node: Patches require copyright assignment to the FSF231860
 Node: Acknowledgements234080
-Node: Other notes about the project237378
-Node: GNU Free Documentation License240064
-Node: Indices265441
-Node: Function index265620
-Node: Variable index267423
-Node: Concept index269710
+Node: Other notes about the project237393
+Node: GNU Free Documentation License240079
+Node: Indices265456
+Node: Function index265635
+Node: Variable index267438
+Node: Concept index269725
 
 End Tag Table
 
