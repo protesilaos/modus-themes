@@ -5685,7 +5685,7 @@ of this sort):
 + [[https://protesilaos.com/codelog/2022-01-02-review-modus-themes-org-habit-colours/][Modus themes: review of the org-habit graph colours]] (2022-01-02)
 + [[https://protesilaos.com/codelog/2022-01-03-modus-themes-port-faq/][Re: VSCode or Vim ports of the Emacs modus-themes?]] (2022-01-03)
 
-And here are the canonical sources of this project's documentation:
+And here are the canonical sources of this project:
 
 + Manual :: <https://protesilaos.com/emacs/modus-themes>
 + Change Log :: <https://protesilaos.com/emacs/modus-themes-changelog>
