@@ -4441,40 +4441,6 @@ supported by the themes.
 This section covers information that may be of interest to users of
 individual packages.
 
-** Note on avy hints
-:properties:
-:custom_id: h:2fdce705-6de7-44e6-ab7f-18f59af99e01
-:end:
-
-Hints can appear everywhere, in wildly varying contexts, hence, their
-appearance, by necessity, is a compromise.  However, there are various
-options for making them stand out. First is dimming the surroundings:
-
-#+begin_src emacs-lisp
-(setq avy-background t)
-#+end_src
-
-Dimming works well when you find it difficult to spot hints, any hint.
-Second is limiting the number of faces used by hints:
-
-#+begin_src emacs-lisp
-(setq avy-lead-faces
-      '(avy-lead-face
-        avy-lead-face-1
-        avy-lead-face-1
-        avy-lead-face-1
-        avy-lead-face-1))
-#+end_src
-
-Limiting the number of faces works well with longer hints when you find
-it difficult to identify individual hints, especially with hints
-touching each other.  The first character of the hint will have an
-intense color, the remaining ones the same neutral color.
-
-Third is preferring commands that produce fewer candidates.  Fewer hints
-is less noise: ~avy-goto-char-timer~ is an excellent alternative to
-~avy-goto-char~.
-
 ** Note on calendar.el weekday and weekend colors
 :properties:
 :custom_id: h:b2db46fb-32f4-44fd-8e11-d2b261cf51ae
