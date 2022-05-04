@@ -5684,6 +5684,8 @@ of this sort):
 + [[https://protesilaos.com/codelog/2021-06-02-modus-themes-org-agenda/][Introducing the variable modus-themes-org-agenda]] (2021-06-02)
 + [[https://protesilaos.com/codelog/2022-01-02-review-modus-themes-org-habit-colours/][Modus themes: review of the org-habit graph colours]] (2022-01-02)
 + [[https://protesilaos.com/codelog/2022-01-03-modus-themes-port-faq/][Re: VSCode or Vim ports of the Emacs modus-themes?]] (2022-01-03)
++ [[https://protesilaos.com/codelog/2022-04-20-modus-themes-case-study-avy/][Modus themes: case study on Avy faces and colour combinations]] (2022-04-20)
++ [[https://protesilaos.com/codelog/2022-04-21-modus-themes-colour-theory/][Emacs: colour theory and techniques used in the Modus themes]] (2022-04-21)
 
 And here are the canonical sources of this project:
 
