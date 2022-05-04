@@ -5750,8 +5750,14 @@ details of this sort):
    • Re: VSCode or Vim ports of the Emacs modus-themes?
      (https://protesilaos.com/codelog/2022-01-03-modus-themes-port-faq/)
      (2022-01-03)
+   • Modus themes: case study on Avy faces and colour combinations
+     (https://protesilaos.com/codelog/2022-04-20-modus-themes-case-study-avy/)
+     (2022-04-20)
+   • Emacs: colour theory and techniques used in the Modus themes
+     (https://protesilaos.com/codelog/2022-04-21-modus-themes-colour-theory/)
+     (2022-04-21)
 
-   And here are the canonical sources of this project’s documentation:
+   And here are the canonical sources of this project:
 
 Manual
      <https://protesilaos.com/emacs/modus-themes>
@@ -6522,11 +6528,11 @@ Node: Issues you can help with229008
 Node: Patches require copyright assignment to the FSF230620
 Node: Acknowledgements232840
 Node: Other notes about the project236153
-Node: GNU Free Documentation License238839
-Node: Indices264216
-Node: Function index264395
-Node: Variable index266198
-Node: Concept index268485
+Node: GNU Free Documentation License239151
+Node: Indices264528
+Node: Function index264707
+Node: Variable index266510
+Node: Concept index268797
 
 End Tag Table
 
