@@ -2981,11 +2981,11 @@ foreground.  INTENSEFG is an alternative to the default."
      (cond
       ((and (memq 'bold properties)
             (memq 'italic properties))
-       (list 'modus-themes-fixed-pitch 'bold-italic))
+       (list 'bold-italic 'modus-themes-fixed-pitch))
       ((memq 'italic properties)
-       (list 'modus-themes-fixed-pitch 'italic))
+       (list 'italic 'modus-themes-fixed-pitch))
       ((memq 'bold properties)
-       (list 'modus-themes-fixed-pitch 'bold))
+       (list 'bold 'modus-themes-fixed-pitch))
       (t 'modus-themes-fixed-pitch))
      :background
      (cond
