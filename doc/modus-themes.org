@@ -5646,10 +5646,11 @@ The Modus themes are a collective effort.  Every bit of work matters.
   bepolymathe, bit9tream, derek-upham, doolio, fleimgruber, gitrj95,
   iSeeU, jixiuf, okamsn, pRot0ta1p.
 
-+ Packaging :: Basil L.{{{space()}}} Contovounesios, Eli Zaretskii, Glenn
-  Morris, Mauro Aranda, Richard Stallman, Stefan Kangas (core Emacs),
-  Stefan Monnier (GNU Elpa), André Alexandre Gomes, Dimakakos Dimos,
-  Morgan Smith, Nicolas Goaziou (Guix), Dhavan Vaidya (Debian).
++ Packaging :: Basil L.{{{space()}}} Contovounesios, Eli Zaretskii,
+  Glenn Morris, Mauro Aranda, Richard Stallman, Stefan Kangas (core
+  Emacs), Stefan Monnier (GNU Elpa), André Alexandre Gomes, Andrew
+  Tropin, Dimakakos Dimos, Morgan Smith, Nicolas Goaziou (Guix), Dhavan
+  Vaidya (Debian).
 
 + Inspiration for certain features :: Bozhidar Batsov (zenburn-theme),
   Fabrice Niessen (leuven-theme).

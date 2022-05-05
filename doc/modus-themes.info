@@ -5691,8 +5691,8 @@ Ideas and user feedback
 Packaging
      Basil L. Contovounesios, Eli Zaretskii, Glenn Morris, Mauro Aranda,
      Richard Stallman, Stefan Kangas (core Emacs), Stefan Monnier (GNU
-     Elpa), André Alexandre Gomes, Dimakakos Dimos, Morgan Smith,
-     Nicolas Goaziou (Guix), Dhavan Vaidya (Debian).
+     Elpa), André Alexandre Gomes, Andrew Tropin, Dimakakos Dimos,
+     Morgan Smith, Nicolas Goaziou (Guix), Dhavan Vaidya (Debian).
 
 Inspiration for certain features
      Bozhidar Batsov (zenburn-theme), Fabrice Niessen (leuven-theme).
@@ -6527,12 +6527,12 @@ Node: Sources of the themes228309
 Node: Issues you can help with229008
 Node: Patches require copyright assignment to the FSF230620
 Node: Acknowledgements232840
-Node: Other notes about the project236153
-Node: GNU Free Documentation License239151
-Node: Indices264528
-Node: Function index264707
-Node: Variable index266510
-Node: Concept index268797
+Node: Other notes about the project236168
+Node: GNU Free Documentation License239166
+Node: Indices264543
+Node: Function index264722
+Node: Variable index266525
+Node: Concept index268812
 
 End Tag Table
 
