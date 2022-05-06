@@ -5401,7 +5401,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(font-lock-doc-face ((,class :inherit modus-themes-slant
                                   ,@(modus-themes--syntax-string
                                      fg-docstring fg-special-cold
-                                     fg-special-mild magenta-nuanced-fg
+                                     fg-special-mild fg-special-calm
                                      fg-special-mild magenta-nuanced-fg))))
     `(font-lock-function-name-face ((,class ,@(modus-themes--syntax-extra
                                                magenta magenta-faint
@@ -5415,7 +5415,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                                yellow yellow-faint))))
     `(font-lock-preprocessor-face ((,class ,@(modus-themes--syntax-extra
                                               red-alt-other red-alt-other-faint
-                                              blue-alt blue-alt-faint))))
+                                              cyan-alt-other cyan-alt-faint))))
     `(font-lock-regexp-grouping-backslash ((,class :inherit modus-themes-bold
                                                    ,@(modus-themes--syntax-string
                                                       fg-escape-char-backslash yellow-alt-faint
@@ -5428,17 +5428,18 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                                       blue-faint blue-alt-other-faint))))
     `(font-lock-string-face ((,class ,@(modus-themes--syntax-string
                                         blue-alt blue-alt-faint
-                                        green-alt-other red-alt
+                                        green-alt-other red-alt-other
                                         green-alt-faint red-alt-faint))))
     `(font-lock-type-face ((,class :inherit modus-themes-bold
-                                   ,@(modus-themes--syntax-foreground
-                                      cyan-alt-other cyan-alt-faint))))
+                                   ,@(modus-themes--syntax-extra
+                                      cyan-alt-other cyan-alt-faint
+                                      magenta-alt-other magenta-alt-other-faint))))
     `(font-lock-variable-name-face ((,class ,@(modus-themes--syntax-extra
                                                cyan cyan-faint
-                                               blue-alt-other blue-alt-other-faint))))
+                                               blue-alt blue-alt-faint))))
     `(font-lock-warning-face ((,class :inherit modus-themes-bold
                                       ,@(modus-themes--syntax-comment
-                                         yellow-active red-active red-faint yellow-faint))))
+                                         yellow-active yellow-alt yellow-alt-faint yellow-faint))))
 ;;;;; forge
     `(forge-post-author ((,class :inherit bold :foreground ,fg-main)))
     `(forge-post-date ((,class :foreground ,fg-special-cold)))
