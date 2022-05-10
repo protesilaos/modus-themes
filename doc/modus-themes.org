@@ -4470,6 +4470,24 @@ weekends uniformly.
 For changes to take effect, the Calendar buffer needs to be generated
 anew.
 
+** Note on php-mode multiline comments
+:PROPERTIES:
+:CUSTOM_ID: h:d0a3157b-9c04-46e8-8742-5fb2a7ae8798
+:END:
+
+Depending on your build of Emacs and/or the environment it runs in,
+multiline comments in PHP with the =php-mode= package use the
+~font-lock-doc-face~ instead of ~font-lock-comment-face~.
+
+This seems to make all comments use the appropriate face:
+
+#+begin_src emacs-lisp
+(defun my-multine-comments ()
+  (setq-local c-doc-face-name 'font-lock-comment-face))
+
+(add-hook 'php-mode-hook #'my-multine-comments)
+#+end_src
+
 ** Note on underlines in compilation buffers
 :properties:
 :custom_id: h:420f5a33-c7a9-4112-9b04-eaf2cbad96bd
