@@ -2928,8 +2928,11 @@ Those are stored in `modus-themes-faces' and
 
 (defun modus-themes--current-theme ()
   "Return current modus theme."
-  (car (seq-filter (lambda (arg) (string-match-p "^modus" (symbol-name arg)))
-                   custom-enabled-themes)))
+  (car
+   (seq-filter
+    (lambda (theme)
+      (string-match-p "^modus" (symbol-name theme)))
+    custom-enabled-themes)))
 
 ;; Helper functions that are meant to ease the implementation of the
 ;; above customization variables.
