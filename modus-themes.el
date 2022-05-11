@@ -7547,4 +7547,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
       (add-to-list 'custom-theme-load-path dir))))
 
 (provide 'modus-themes)
+
+;; Local Variables:
+;; no-byte-compile: t
+;; End:
 ;;; modus-themes.el ends here

@@ -50,23 +50,26 @@
 
 
 
-(eval-and-compile
-  (unless (and (fboundp 'require-theme)
-               load-file-name
-               (equal (file-name-directory load-file-name)
-                      (expand-file-name "themes/" data-directory))
-               (require-theme 'modus-themes t))
-    (require 'modus-themes))
+;; Special setup for emacs.git (the themes are built into Emacs)
+(unless (and (fboundp 'require-theme)
+             load-file-name
+             (equal (file-name-directory load-file-name)
+                    (expand-file-name "themes/" data-directory))
+             (require-theme 'modus-themes t))
+  (require 'modus-themes))
 
-  (deftheme modus-vivendi
-    "Elegant, highly legible and customizable dark theme.
+(deftheme modus-vivendi
+  "Elegant, highly legible and customizable dark theme.
 Conforms with the highest legibility standard for color contrast
 between background and foreground in any given piece of text,
 which corresponds to a minimum contrast in relative luminance of
 7:1 (WCAG AAA standard).")
 
-  (modus-themes-theme modus-vivendi)
+(modus-themes-theme modus-vivendi)
 
-  (provide-theme 'modus-vivendi))
+(provide-theme 'modus-vivendi)
 
+;; Local Variables:
+;; no-byte-compile: t
+;; End:
 ;;; modus-vivendi-theme.el ends here
