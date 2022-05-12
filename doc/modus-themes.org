@@ -211,6 +211,34 @@ guix package -i emacs-modus-themes
 
 They are now ready to be used: [[#h:3f3c3728-1b34-437d-9d0c-b110f5b161a9][Enable and load]].
 
+** Dealing with byte compilation errors
+:properties:
+:custom_id: h:e6268471-e847-4c9d-998f-49a83257b7f1
+:end:
+
+From time to time, we receive bug reports pertaining to errors with byte
+compilation.  These seldom have to do with faulty code in the themes: it
+might be a shortcoming of =package.el=, some regression in the current
+development target of Emacs, a misconfiguration in an otherwise exotic
+setup, and the like.
+
+The common solution with a stable version of Emacs is to:
+
+1. Delete the =modus-themes= package.
+2. Close the current Emacs session.
+3. Install the =modus-themes= again.
+
+For those building Emacs directly from source, the solution may involve
+reverting to an earlier commit in emacs.git.
+
+At any rate, if you encounter such an issue please report it: we will
+either fix the bug on our end if it is truly ours, or help forward it to
+the relevant upstream maintainer.  Whatever you do, please understand
+that a build failure does not mean we are necessarily doing something
+wrong.
+
+[[#h:6536c8d5-3f98-43ab-a787-b94120e735e8][Issues you can help with]].
+
 * Enable and load
 :properties:
 :custom_id: h:3f3c3728-1b34-437d-9d0c-b110f5b161a9
