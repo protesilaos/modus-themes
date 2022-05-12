@@ -4494,6 +4494,49 @@ weekends uniformly.
 For changes to take effect, the Calendar buffer needs to be generated
 anew.
 
+** Note on git-gutter in Doom Emacs
+:PROPERTIES:
+:CUSTOM_ID: h:a195e37c-e58c-4148-b254-8ba1ed8a731a
+:END:
+
+The =git-gutter= and =git-gutter-fr= packages default to drawing bitmaps
+for the indicators they display (e.g. bitmap of a plus sign for added
+lines).  In Doom Emacs, these bitmaps are replaced with contiguous lines
+which may look nicer, but require a change to the foreground of the
+relevant faces to yield the desired colour combinations.
+
+Since this is Doom-specific, we urge users to apply changes in their
+local setup.  Below is some sample code, based on what we cover at
+length elsewhere in this manual:
+
+[[#h:f4651d55-8c07-46aa-b52b-bed1e53463bb][Advanced customization]].
+
+[[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Face specs at scale using the themes' palette]].
+
+#+begin_src emacs-lisp
+(defun my-modus-themes-custom-faces ()
+  (modus-themes-with-colors
+    (custom-set-faces
+     ;; Replace green with blue if you use `modus-themes-deuteranopia'.
+     `(git-gutter-fr:added ((,class :foreground ,green-fringe-bg)))
+     `(git-gutter-fr:deleted ((,class :foreground ,red-fringe-bg)))
+     `(git-gutter-fr:modified ((,class :foreground ,yellow-fringe-bg))))))
+
+(add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
+#+end_src
+
+If the above does not work, try this instead:
+
+#+begin_src emacs-lisp
+(after! modus-themes
+  (modus-themes-with-colors
+    (custom-set-faces
+     ;; Replace green with blue if you use `modus-themes-deuteranopia'.
+     `(git-gutter-fr:added ((,class :foreground ,green-fringe-bg)))
+     `(git-gutter-fr:deleted ((,class :foreground ,red-fringe-bg)))
+     `(git-gutter-fr:modified ((,class :foreground ,yellow-fringe-bg))))))
+#+end_src
+
 ** Note on php-mode multiline comments
 :PROPERTIES:
 :CUSTOM_ID: h:d0a3157b-9c04-46e8-8742-5fb2a7ae8798
@@ -5669,24 +5712,24 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Christopher Dimech, Christopher League, Damien Cassou, Daniel Mendler,
   Dario Gjorgjevski, David Edmondson, Davor Rotim, Divan Santana, Eliraz
   Kedmi, Emanuele Michele Alberto Monterosso, Farasha Euker, Feng Shu,
-  Gautier Ponsinet, Gerry Agbobada, Gianluca Recchia, Guilherme Semente,
-  Gustavo Barros, Hörmetjan Yiltiz, Ilja Kocken, Iris Garcia, Ivan
-  Popovych, Jeremy Friesen, Jerry Zhang, Johannes Grødem, John Haman,
-  Jorge Morais, Joshua O'Connor, Julio C. Villasante, Kenta Usami, Kevin
-  Fleming, Kévin Le Gouguec, Kostadin Ninev, Len Trigg, Lennart
-  C. Karssen, Magne Hov, Manuel Uberti, Mark Bestley, Mark Burton,
-  Markus Beppler, Mauro Aranda, Michael Goldenberg, Morgan Smith, Morgan
-  Willcock, Murilo Pereira, Nicky van Foreest, Nicolas De Jaeghere, Paul
-  Poloskov, Pengji Zhang, Pete Kazmier, Peter Wu, Philip Kaludercic,
-  Pierre Téchoueyres, Przemysław Kryger, Robert Hepple, Roman Rudakov,
-  Ryan Phillips, Rytis Paškauskas, Rudolf Adamkovič, Sam Kleinman,
-  Samuel Culpepper, Saša Janiška, Shreyas Ragavan, Simon Pugnet, Tassilo
-  Horn, Thibaut Verron, Thomas Heartman, Togan Muftuoglu, Tony Zorman,
-  Trey Merkley, Tomasz Hołubowicz, Toon Claes, Uri Sharf, Utkarsh Singh,
-  Vincent Foley.  As well as users: Ben, CsBigDataHub1, Emacs Contrib,
-  Eugene, Fourchaux, Fredrik, Moesasji, Nick, TheBlob42, Trey,
-  bepolymathe, bit9tream, derek-upham, doolio, fleimgruber, gitrj95,
-  iSeeU, jixiuf, okamsn, pRot0ta1p.
+  Gautier Ponsinet, Gerry Agbobada, Gianluca Recchia, Gonçalo Marrafa,
+  Guilherme Semente, Gustavo Barros, Hörmetjan Yiltiz, Ilja Kocken, Iris
+  Garcia, Ivan Popovych, Jeremy Friesen, Jerry Zhang, Johannes Grødem,
+  John Haman, Jorge Morais, Joshua O'Connor, Julio C. Villasante, Kenta
+  Usami, Kevin Fleming, Kévin Le Gouguec, Kostadin Ninev, Len Trigg,
+  Lennart C. Karssen, Magne Hov, Manuel Uberti, Mark Bestley, Mark
+  Burton, Markus Beppler, Mauro Aranda, Michael Goldenberg, Morgan
+  Smith, Morgan Willcock, Murilo Pereira, Nicky van Foreest, Nicolas De
+  Jaeghere, Paul Poloskov, Pengji Zhang, Pete Kazmier, Peter Wu, Philip
+  Kaludercic, Pierre Téchoueyres, Przemysław Kryger, Robert Hepple,
+  Roman Rudakov, Ryan Phillips, Rytis Paškauskas, Rudolf Adamkovič, Sam
+  Kleinman, Samuel Culpepper, Saša Janiška, Shreyas Ragavan, Simon
+  Pugnet, Tassilo Horn, Thibaut Verron, Thomas Heartman, Togan
+  Muftuoglu, Tony Zorman, Trey Merkley, Tomasz Hołubowicz, Toon Claes,
+  Uri Sharf, Utkarsh Singh, Vincent Foley.  As well as users: Ben,
+  CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji,
+  Nick, TheBlob42, Trey, bepolymathe, bit9tream, derek-upham, doolio,
+  fleimgruber, gitrj95, iSeeU, jixiuf, okamsn, pRot0ta1p.
 
 + Packaging :: Basil L.{{{space()}}} Contovounesios, Eli Zaretskii,
   Glenn Morris, Mauro Aranda, Richard Stallman, Stefan Kangas (core
