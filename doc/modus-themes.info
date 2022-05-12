@@ -81,6 +81,7 @@ Installation
 * Install manually from source::
 * Install from the archives::
 * Install on GNU/Linux::
+* Dealing with byte compilation errors::
 
 Install on GNU/Linux
 
@@ -295,6 +296,7 @@ packages for distributions of GNU/Linux.
 * Install manually from source::
 * Install from the archives::
 * Install on GNU/Linux::
+* Dealing with byte compilation errors::
 
 
 File: modus-themes.info,  Node: Install manually from source,  Next: Install from the archives,  Up: Installation
@@ -327,19 +329,15 @@ File: modus-themes.info,  Node: Install from the archives,  Next: Install on GNU
 The ‘modus-themes’ package is available from the GNU ELPA archive, which
 is configured by default.
 
-   Prior to querying any package archive, make sure to have updated the
-index, with ‘M-x package-refresh-contents’.  Then all you need to do is
-type ‘M-x package-install’ and specify the ‘modus-themes’.
-
-   Note that older versions of the themes used to be distributed as
-standalone packages.  This practice has been discontinued starting with
-version 1.0.0 of this project.
+   Prior to querying any package archive, make sure to update the index,
+with ‘M-x package-refresh-contents’.  Then all you need to do is type
+‘M-x package-install’ and specify the ‘modus-themes’.
 
    Once installed, the themes are ready to be used: *note Enable and
 load::.
 
 
-File: modus-themes.info,  Node: Install on GNU/Linux,  Prev: Install from the archives,  Up: Installation
+File: modus-themes.info,  Node: Install on GNU/Linux,  Next: Dealing with byte compilation errors,  Prev: Install from the archives,  Up: Installation
 
 2.3 Install on GNU/Linux
 ========================
@@ -377,6 +375,35 @@ Users of Guix can get the themes with this command:
      guix package -i emacs-modus-themes
 
    They are now ready to be used: *note Enable and load::.
+
+
+File: modus-themes.info,  Node: Dealing with byte compilation errors,  Prev: Install on GNU/Linux,  Up: Installation
+
+2.4 Dealing with byte compilation errors
+========================================
+
+From time to time, we receive bug reports pertaining to errors with byte
+compilation.  These seldom have to do with faulty code in the themes: it
+might be a shortcoming of ‘package.el’, some regression in the current
+development target of Emacs, a misconfiguration in an otherwise exotic
+setup, and the like.
+
+   The common solution with a stable version of Emacs is to:
+
+  1. Delete the ‘modus-themes’ package.
+  2. Close the current Emacs session.
+  3. Install the ‘modus-themes’ again.
+
+   For those building Emacs directly from source, the solution may
+involve reverting to an earlier commit in emacs.git.
+
+   At any rate, if you encounter such an issue please report it: we will
+either fix the bug on our end if it is truly ours, or help forward it to
+the relevant upstream maintainer.  Whatever you do, please understand
+that a build failure does not mean we are necessarily doing something
+wrong.
+
+   *note Issues you can help with::.
 
 
 File: modus-themes.info,  Node: Enable and load,  Next: Customization Options,  Prev: Installation,  Up: Top
@@ -6442,117 +6469,118 @@ B.3 Concept index
 
 Tag Table:
 Node: Top872
-Node: Overview7632
-Node: How do the themes look like9756
-Node: Learn about the latest changes10270
-Node: Installation10658
-Node: Install manually from source11139
-Node: Install from the archives11964
-Node: Install on GNU/Linux12741
-Node: Debian 11 Bullseye13189
-Node: GNU Guix13499
-Node: Enable and load13782
-Node: Sample configuration with and without use-package17321
-Node: Differences between loading and enabling20225
-Node: Customization Options22234
-Node: Custom reload theme30614
-Node: Deuteranopia style31404
-Node: Bold constructs32835
-Node: Italic constructs33669
-Node: Syntax styles34436
-Node: Mixed fonts36568
-Node: Link styles37832
-Node: Box buttons40306
-Node: Command prompts43603
-Node: Mode line45424
-Node: Tab style50919
-Node: Completion UIs51582
-Node: Mail citations55436
-Node: Fringes56582
-Node: Language checkers57322
-Node: Line highlighting59764
-Node: Line numbers61361
-Node: Mouse hover effects62442
-Node: Markup63057
-Node: Matching parentheses64657
-Node: Active region66034
-Node: Diffs67447
-Node: Org mode blocks69098
-Node: Org agenda71488
-Node: Heading styles80304
-Node: UI typeface85071
-Node: Advanced customization85970
-Node: More accurate colors in terminal emulators87641
-Node: Range of color with terminal emulators88882
-Node: Visualize the active Modus theme's palette91587
-Node: Per-theme customization settings92583
-Node: Case-by-case face specs using the themes' palette93939
-Node: Face specs at scale using the themes' palette98487
-Node: Remap face with local value103288
-Node: Cycle through arbitrary colors105713
-Node: Override colors112141
-Node: Override color saturation117379
-Node: Override colors through blending123060
-Node: Font configurations for Org and others125917
-Ref: Font configurations for Org and others-Footnote-1128733
-Node: Configure bold and italic faces128920
-Node: Custom Org todo keyword and priority faces133068
-Node: Custom Org emphasis faces136741
-Node: Update Org block delimiter fontification141542
-Node: Measure color contrast143459
-Node: Load theme depending on time of day146182
-Node: Backdrop for pdf-tools147175
-Node: Decrease mode line height150027
-Node: Toggle themes without reloading them154149
-Node: A theme-agnostic hook for theme loading155428
-Node: Diffs with only the foreground157830
-Node: Ediff without diff color-coding160944
-Node: Near-monochrome syntax highlighting163083
-Node: Face coverage172050
-Node: Supported packages172502
-Node: Indirectly covered packages179188
-Node: Notes on individual packages180260
-Node: Note on calendarel weekday and weekend colors181371
-Node: Note on php-mode multiline comments182522
-Node: Note on underlines in compilation buffers183227
-Node: Note on inline Latex in Org buffers184064
-Node: Note on dimmerel184674
-Node: Note on display-fill-column-indicator-mode186159
-Node: Note on highlight-parenthesesel187557
-Node: Note on mmm-modeel background colors193546
-Node: Note for prism195861
-Node: Note for god-mode199015
-Node: Note on company-mode overlay pop-up200619
-Ref: Note on company-mode overlay pop-up-Footnote-1201309
-Ref: Note on company-mode overlay pop-up-Footnote-2201376
-Node: Note on ERC escaped color sequences201431
-Ref: Note on ERC escaped color sequences-Footnote-1202859
-Node: Note on powerline or spaceline202969
-Node: Note on SHR colors203383
-Node: Note on SHR fonts203807
-Node: Note on Ement colors and fonts204440
-Node: Note on Helm grep205939
-Node: Note on vc-annotate-background-mode207416
-Node: Note on pdf-tools link hints208301
-Node: Note on the Notmuch logo210766
-Node: Frequently Asked Questions211264
-Node: Is the contrast ratio about adjacent colors?211895
-Node: What does it mean to avoid exaggerations?213402
-Node: Why are colors mostly variants of blue magenta cyan?215231
-Node: What is the best setup for legibility?219537
-Node: Are these color schemes?222182
-Node: Port the Modus themes to other platforms?225902
-Node: Contributing228683
-Node: Sources of the themes229080
-Node: Issues you can help with229779
-Node: Patches require copyright assignment to the FSF231391
-Node: Acknowledgements233611
-Node: Other notes about the project236939
-Node: GNU Free Documentation License239937
-Node: Indices265314
-Node: Function index265493
-Node: Variable index267296
-Node: Concept index269583
+Node: Overview7673
+Node: How do the themes look like9797
+Node: Learn about the latest changes10311
+Node: Installation10699
+Node: Install manually from source11221
+Node: Install from the archives12046
+Node: Install on GNU/Linux12645
+Node: Debian 11 Bullseye13138
+Node: GNU Guix13448
+Node: Dealing with byte compilation errors13731
+Node: Enable and load14889
+Node: Sample configuration with and without use-package18428
+Node: Differences between loading and enabling21332
+Node: Customization Options23341
+Node: Custom reload theme31721
+Node: Deuteranopia style32511
+Node: Bold constructs33942
+Node: Italic constructs34776
+Node: Syntax styles35543
+Node: Mixed fonts37675
+Node: Link styles38939
+Node: Box buttons41413
+Node: Command prompts44710
+Node: Mode line46531
+Node: Tab style52026
+Node: Completion UIs52689
+Node: Mail citations56543
+Node: Fringes57689
+Node: Language checkers58429
+Node: Line highlighting60871
+Node: Line numbers62468
+Node: Mouse hover effects63549
+Node: Markup64164
+Node: Matching parentheses65764
+Node: Active region67141
+Node: Diffs68554
+Node: Org mode blocks70205
+Node: Org agenda72595
+Node: Heading styles81411
+Node: UI typeface86178
+Node: Advanced customization87077
+Node: More accurate colors in terminal emulators88748
+Node: Range of color with terminal emulators89989
+Node: Visualize the active Modus theme's palette92694
+Node: Per-theme customization settings93690
+Node: Case-by-case face specs using the themes' palette95046
+Node: Face specs at scale using the themes' palette99594
+Node: Remap face with local value104395
+Node: Cycle through arbitrary colors106820
+Node: Override colors113248
+Node: Override color saturation118486
+Node: Override colors through blending124167
+Node: Font configurations for Org and others127024
+Ref: Font configurations for Org and others-Footnote-1129840
+Node: Configure bold and italic faces130027
+Node: Custom Org todo keyword and priority faces134175
+Node: Custom Org emphasis faces137848
+Node: Update Org block delimiter fontification142649
+Node: Measure color contrast144566
+Node: Load theme depending on time of day147289
+Node: Backdrop for pdf-tools148282
+Node: Decrease mode line height151134
+Node: Toggle themes without reloading them155256
+Node: A theme-agnostic hook for theme loading156535
+Node: Diffs with only the foreground158937
+Node: Ediff without diff color-coding162051
+Node: Near-monochrome syntax highlighting164190
+Node: Face coverage173157
+Node: Supported packages173609
+Node: Indirectly covered packages180295
+Node: Notes on individual packages181367
+Node: Note on calendarel weekday and weekend colors182478
+Node: Note on php-mode multiline comments183629
+Node: Note on underlines in compilation buffers184334
+Node: Note on inline Latex in Org buffers185171
+Node: Note on dimmerel185781
+Node: Note on display-fill-column-indicator-mode187266
+Node: Note on highlight-parenthesesel188664
+Node: Note on mmm-modeel background colors194653
+Node: Note for prism196968
+Node: Note for god-mode200122
+Node: Note on company-mode overlay pop-up201726
+Ref: Note on company-mode overlay pop-up-Footnote-1202416
+Ref: Note on company-mode overlay pop-up-Footnote-2202483
+Node: Note on ERC escaped color sequences202538
+Ref: Note on ERC escaped color sequences-Footnote-1203966
+Node: Note on powerline or spaceline204076
+Node: Note on SHR colors204490
+Node: Note on SHR fonts204914
+Node: Note on Ement colors and fonts205547
+Node: Note on Helm grep207046
+Node: Note on vc-annotate-background-mode208523
+Node: Note on pdf-tools link hints209408
+Node: Note on the Notmuch logo211873
+Node: Frequently Asked Questions212371
+Node: Is the contrast ratio about adjacent colors?213002
+Node: What does it mean to avoid exaggerations?214509
+Node: Why are colors mostly variants of blue magenta cyan?216338
+Node: What is the best setup for legibility?220644
+Node: Are these color schemes?223289
+Node: Port the Modus themes to other platforms?227009
+Node: Contributing229790
+Node: Sources of the themes230187
+Node: Issues you can help with230886
+Node: Patches require copyright assignment to the FSF232498
+Node: Acknowledgements234718
+Node: Other notes about the project238046
+Node: GNU Free Documentation License241044
+Node: Indices266421
+Node: Function index266600
+Node: Variable index268403
+Node: Concept index270690
 
 End Tag Table
 
