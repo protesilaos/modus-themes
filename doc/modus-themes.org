@@ -169,13 +169,9 @@ The themes are now ready to be used: [[#h:3f3c3728-1b34-437d-9d0c-b110f5b161a9][
 The ~modus-themes~ package is available from the GNU ELPA archive, which
 is configured by default.
 
-Prior to querying any package archive, make sure to have updated the
-index, with {{{kbd(M-x package-refresh-contents)}}}.  Then all you need to do
+Prior to querying any package archive, make sure to update the index,
+with {{{kbd(M-x package-refresh-contents)}}}.  Then all you need to do
 is type {{{kbd(M-x package-install)}}} and specify the ~modus-themes~.
-
-Note that older versions of the themes used to be distributed as
-standalone packages.  This practice has been discontinued starting with
-version 1.0.0 of this project.
 
 Once installed, the themes are ready to be used: [[#h:3f3c3728-1b34-437d-9d0c-b110f5b161a9][Enable and load]].
 
