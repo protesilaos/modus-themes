@@ -6457,9 +6457,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                           :background ,bg-alt)))
     `(org-column-title ((,class :inherit (bold modus-themes-fixed-pitch default)
                                 :underline t :background ,bg-alt)))
-    `(org-date ((,class :inherit ,(if modus-themes-mixed-fonts
-                                      '(fixed-pitch modus-themes-link-symlink)
-                                    'modus-themes-link-symlink))))
+    `(org-date ((,class :inherit (modus-themes-link-symlink modus-themes-fixed-pitch))))
     `(org-date-selected ((,class :foreground ,blue-alt :inverse-video t)))
     `(org-dispatcher-highlight ((,class :inherit (bold modus-themes-mark-alt))))
     `(org-document-info ((,class :foreground ,fg-special-cold)))
