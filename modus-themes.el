@@ -5898,6 +5898,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(ledger-font-payee-uncleared-face ((,class :foreground ,red-alt-other)))
     `(ledger-font-xact-highlight-face ((,class :background ,bg-hl-alt)))
 ;;;;; line numbers (display-line-numbers-mode and global variant)
+    ;; Here we cannot inherit `modus-themes-fixed-pitch'.  We need to
+    ;; fall back to `default' otherwise line numbers do not scale when
+    ;; using `text-scale-adjust'.
     `(line-number
       ((,class :inherit ,(if modus-themes-mixed-fonts 'fixed-pitch 'default)
                ,@(modus-themes--line-numbers
