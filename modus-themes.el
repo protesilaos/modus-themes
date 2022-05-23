@@ -4172,7 +4172,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                   bg-diff-heading fg-diff-heading
                   cyan-nuanced-bg cyan-nuanced-fg
                   bg-header fg-main
-                  nil nil
+                  bg-header fg-main
                   t))))
 ;;;;; deuteranopia-specific
     `(modus-themes-grue ((,class :foreground ,@(modus-themes--deuteran blue green))))
