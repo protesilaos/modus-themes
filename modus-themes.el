@@ -3524,7 +3524,7 @@ property."
                         if (natnump x) return x)
                        1))))
 
-(defun modus-themes--diff (mainbg mainfg altbg altfg &optional deuteranbg deuteranfg  bg-only-fg)
+(defun modus-themes--diff (mainbg mainfg altbg altfg &optional deubg deufg deualtbg deualtfg bg-only-fg)
   "Color combinations for `modus-themes-diffs'.
 
 MAINBG must be one of the dedicated backgrounds for diffs while
@@ -3534,13 +3534,20 @@ ALTBG needs to be a slightly accented background that is meant to
 be combined with ALTFG.  Both must be less intense than MAINBG
 and MAINFG respectively.
 
-DEUTERANBG and DEUTERANFG must be combinations of colors that account
-for red-green color defficiency (deuteranopia).
+DEUBG and DEUFG must be combinations of colors that account for
+red-green color defficiency (deuteranopia).  They are the
+equivalent of MAINBG and MAINFG.
 
-Optional BG-ONLY-FG applies ALTFG else leaves the foreground
-unspecified."
+DEUALTBG and DEUALTFG are the equivalent of ALTBG and ALTFG for
+deuteranopia.
+
+Optional non-nil BG-ONLY-FG applies ALTFG else leaves the
+foreground unspecified."
   (if modus-themes-deuteranopia
-      (list :background (or deuteranbg mainbg) :foreground (or deuteranfg mainfg))
+      (pcase modus-themes-diffs
+        ('desaturated (list :background (or deualtbg altbg) :foreground (or deualtfg altfg)))
+        ('bg-only (list :background (or deualtbg altbg) :foreground (if bg-only-fg (or deualtfg altfg) 'unspecified)))
+        (_ (list :background (or deubg mainbg) :foreground (or deufg mainfg))))
     (pcase modus-themes-diffs
       ('desaturated (list :background altbg :foreground altfg))
       ('bg-only (list :background altbg :foreground (if bg-only-fg altfg 'unspecified)))
@@ -4122,7 +4129,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
       ((,class ,@(modus-themes--diff
                   bg-diff-focus-added fg-diff-focus-added
                   green-nuanced-bg fg-diff-added
-                  bg-diff-focus-added-deuteran fg-diff-focus-added-deuteran))))
+                  bg-diff-focus-added-deuteran fg-diff-focus-added-deuteran
+                  blue-nuanced-bg fg-diff-added-deuteran))))
     `(modus-themes-diff-changed
       ((,class ,@(modus-themes--diff
                   bg-diff-focus-changed fg-diff-focus-changed
@@ -4135,7 +4143,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
       ((,class ,@(modus-themes--diff
                   bg-diff-refine-added fg-diff-refine-added
                   bg-diff-focus-added fg-diff-focus-added
-                  bg-diff-refine-added-deuteran fg-diff-refine-added-deuteran))))
+                  bg-diff-refine-added-deuteran fg-diff-refine-added-deuteran
+                  bg-diff-focus-added-deuteran fg-diff-focus-added-deuteran))))
     `(modus-themes-diff-refine-changed
       ((,class ,@(modus-themes--diff
                   bg-diff-refine-changed fg-diff-refine-changed
@@ -4148,7 +4157,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
       ((,class ,@(modus-themes--diff
                   bg-diff-focus-added fg-diff-focus-added
                   bg-diff-added fg-diff-added
-                  bg-diff-focus-added-deuteran fg-diff-focus-added-deuteran))))
+                  bg-diff-focus-added-deuteran fg-diff-focus-added-deuteran
+                  bg-diff-added-deuteran fg-diff-added-deuteran))))
     `(modus-themes-diff-focus-changed
       ((,class ,@(modus-themes--diff
                   bg-diff-focus-changed fg-diff-focus-changed
@@ -4162,6 +4172,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                   bg-diff-heading fg-diff-heading
                   cyan-nuanced-bg cyan-nuanced-fg
                   bg-header fg-main
+                  nil nil
                   t))))
 ;;;;; deuteranopia-specific
     `(modus-themes-grue ((,class :foreground ,@(modus-themes--deuteran blue green))))
@@ -6001,7 +6012,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(magit-diff-added ((,class ,@(modus-themes--diff
                                    bg-diff-added fg-diff-added
                                    green-nuanced-bg fg-diff-added
-                                   bg-diff-added-deuteran fg-diff-added-deuteran))))
+                                   bg-diff-added-deuteran fg-diff-added-deuteran
+                                   blue-nuanced-bg fg-diff-added-deuteran))))
     `(magit-diff-added-highlight ((,class :inherit modus-themes-diff-focus-added)))
     `(magit-diff-base ((,class ,@(modus-themes--diff
                                   bg-diff-changed fg-diff-changed
@@ -6022,6 +6034,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                           bg-active fg-inactive
                                           bg-inactive fg-inactive
                                           bg-inactive fg-inactive
+                                          nil nil
                                           t))))
     ;; NOTE: we do not follow the pattern of inheriting from
     ;; modus-themes-grue-* faces, as this is a special case.
