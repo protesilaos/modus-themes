@@ -4081,6 +4081,44 @@ comments are gray.  Regexp constructs are adapted accordingly.
     (set-face-attribute 'font-lock-warning-face nil :inherit 'modus-themes-bold :foreground red-nuanced-fg)))
 #+end_src
 
+** Custom hl-todo colors
+:PROPERTIES:
+:CUSTOM_ID: h:2ef83a21-2f0a-441e-9634-473feb940743
+:END:
+
+The =hl-todo= package provides the user option ~hl-todo-keyword-faces~:
+it specifies a pair of keyword and corresponding color value.  The Modus
+themes configure that option in the interest of legibility.  While this
+works for our purposes, users may still prefer to apply their custom
+values, in which case the following approach is necessary:
+
+#+begin_src emacs-lisp
+(defun my-modus-themes-hl-todo-faces ()
+  (setq hl-todo-keyword-faces '(("TODO" . "#ff0000")
+                                ("HACK" . "#ffff00")
+                                ("XXX" . "#00ffff")
+                                ("NOTE" . "#ff00ff"))))
+
+(add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-hl-todo-faces)
+#+end_src
+
+Or include a ~let~ form, if needed:
+
+#+begin_src emacs-lisp
+(defun my-modus-themes-hl-todo-faces ()
+  (let ((red "#ff0000")
+        (blue "#0000ff"))
+    (setq hl-todo-keyword-faces `(("TODO" . ,blue)
+                                  ("HACK" . ,red)
+                                  ("XXX" . ,red)
+                                  ("NOTE" . ,blue)))))
+
+(add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-hl-todo-faces)
+#+end_src
+
+Normally, we do not touch user options, though this is an exception:
+otherwise the defaults are not always legible.
+
 * Face coverage
 :properties:
 :custom_id: h:a9c8f29d-7f72-4b54-b74b-ddefe15d6a19
