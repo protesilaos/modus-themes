@@ -5109,7 +5109,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(ein:cell-output-stderr ((,class :background ,red-nuanced-bg :extend t)))
     `(ein:markdowncell-input-area-face (( )))
     `(ein:notification-tab-normal ((,class :underline t)))
-    `(ein:rawcell-input-prompt-face ((,class :background ,blue-intense-bg :extend t)))
 ;;;;; eglot
     `(eglot-mode-line ((,class :inherit modus-themes-bold :foreground ,magenta-active)))
 ;;;;; el-search
