@@ -5,7 +5,7 @@
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://git.sr.ht/~protesilaos/modus-themes
 ;; Mailing list: https://lists.sr.ht/~protesilaos/modus-themes
-;; Version: 2.4.0
+;; Version: 2.4.1
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -108,7 +108,7 @@ cover the blue-cyan-magenta side of the spectrum."
   :prefix "modus-themes-"
   :tag "Modus Themes Faces")
 
-(defvar modus-themes--version "2.4.0"
+(defvar modus-themes--version "2.5.0-dev"
   "Current version of the Modus themes.
 
 The version either is the last tagged release, such as '2.4.0',
@@ -130,6 +130,7 @@ argument, insert the `modus-themes--version' at point."
 ;;;###autoload
 (defun modus-themes-report-bug ()
   "Submit a bug report or issue to the Modus themes developers."
+  (interactive)
   (reporter-submit-bug-report
    "~protesilaos/modus-themes@lists.sr.ht"
    (format "modus-themes (%s)\n" modus-themes--version)
