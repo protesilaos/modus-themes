@@ -4576,6 +4576,11 @@ If the above does not work, try this instead:
      `(git-gutter-fr:modified ((,class :foreground ,yellow-fringe-bg))))))
 #+end_src
 
+Replace ~green-fringe-bg~ with ~blue-fringe-bg~ if you want to optimize
+for red-green color deficiency.
+
+[[#h:3ed03a48-20d8-4ce7-b214-0eb7e4c79abe][Option for red-green color deficiency or deuteranopia]].
+
 ** Note on php-mode multiline comments
 :PROPERTIES:
 :CUSTOM_ID: h:d0a3157b-9c04-46e8-8742-5fb2a7ae8798
