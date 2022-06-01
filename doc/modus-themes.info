@@ -43,11 +43,11 @@ customization options for the ‘modus-operandi’ and ‘modus-vivendi’
 themes, and provides every other piece of information pertinent to them.
 
    The documentation furnished herein corresponds to stable version
-2.3.0, released on 2022-04-01.  Any reference to a newer feature which
+2.4.0, released on 2022-06-01.  Any reference to a newer feature which
 does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
-   Current development target is 2.4.0-dev.
+   Current development target is 2.5.0-dev.
 
    • Homepage: <https://protesilaos.com/emacs/modus-themes>.
    • Git repository: <https://git.sr.ht/~protesilaos/modus-themes>.
@@ -4185,7 +4185,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • breakpoint (provided by the built-in ‘gdb-mi.el’ library)
    • calendar and diary
    • calfw
-   • calibredb [ part of 2.4.0-dev ]
+   • calibredb
    • centaur-tabs
    • cfrs
    • change-log and log-view (such as ‘vc-print-log’,
@@ -4201,7 +4201,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • completions
    • consult
    • corfu
-   • corfu-quick [ part of 2.4.0-dev ]
+   • corfu-quick
    • counsel*
    • counsel-css
    • cov
@@ -4236,7 +4236,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • easy-jekyll
    • ebdb
    • ediff
-   • ein (Emacs IPython Notebook) [ part of 2.4.0-dev ]
+   • ein (Emacs IPython Notebook)
    • eglot
    • el-search
    • eldoc-box
@@ -4450,7 +4450,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • visible-mark
    • visual-regexp
    • vterm
-   • vundo [ part of 2.4.0-dev ]
+   • vundo
    • wcheck-mode
    • web-mode
    • wgrep
@@ -5681,7 +5681,7 @@ File: modus-themes.info,  Node: Issues you can help with,  Next: Patches require
 A few tasks you can help with by sending an email to the general
 modus-themes public mailing list
 (https://lists.sr.ht/~protesilaos/modus-themes) (or use the command
-‘modus-themes-report-bug’ [part of 2.4.0-dev]).
+‘modus-themes-report-bug’).
 
    • Suggest refinements to packages that are covered.
    • Report packages not covered thus far.
@@ -5699,8 +5699,7 @@ or short videos, as well as further instructions to reproduce a given
 setup.  Though this is not a requirement.
 
    Also consider mentioning the version of the themes you are using,
-such as by invoking the command ‘modus-themes-version’ [part of
-2.4.0-dev].
+such as by invoking the command ‘modus-themes-version’.
 
    Whatever you do, bear in mind the overarching objective of the Modus
 themes: to keep a contrast ratio that is greater or equal to 7:1 between
@@ -6625,50 +6624,50 @@ Node: Near-monochrome syntax highlighting164279
 Node: Custom hl-todo colors173276
 Node: Face coverage174760
 Node: Supported packages175212
-Node: Indirectly covered packages181956
-Node: Notes on individual packages183028
-Node: Note on calendarel weekday and weekend colors184176
-Node: Note on git-gutter in Doom Emacs185324
-Node: Note on php-mode multiline comments187352
-Node: Note on underlines in compilation buffers188044
-Node: Note on inline Latex in Org buffers188881
-Node: Note on dimmerel189491
-Node: Note on display-fill-column-indicator-mode190976
-Node: Note on highlight-parenthesesel192374
-Node: Note on mmm-modeel background colors198363
-Node: Note for prism200678
-Node: Note for god-mode203834
-Node: Note on company-mode overlay pop-up205438
-Ref: Note on company-mode overlay pop-up-Footnote-1206128
-Ref: Note on company-mode overlay pop-up-Footnote-2206195
-Node: Note on ERC escaped color sequences206250
-Ref: Note on ERC escaped color sequences-Footnote-1207678
-Node: Note on powerline or spaceline207788
-Node: Note on SHR colors208202
-Node: Note on SHR fonts208626
-Node: Note on Ement colors and fonts209259
-Node: Note on Helm grep210758
-Node: Note on vc-annotate-background-mode212235
-Node: Note on pdf-tools link hints213120
-Node: Note on the Notmuch logo215585
-Node: Frequently Asked Questions216083
-Node: Is the contrast ratio about adjacent colors?216714
-Node: What does it mean to avoid exaggerations?218221
-Node: Why are colors mostly variants of blue magenta cyan?220050
-Node: What is the best setup for legibility?224356
-Node: Are these color schemes?227001
-Node: Port the Modus themes to other platforms?230721
-Node: Contributing233502
-Node: Sources of the themes233899
-Node: Issues you can help with234598
-Node: Patches require copyright assignment to the FSF236210
-Node: Acknowledgements238430
-Node: Other notes about the project241805
-Node: GNU Free Documentation License244803
-Node: Indices270180
-Node: Function index270359
-Node: Variable index272162
-Node: Concept index274449
+Node: Indirectly covered packages181868
+Node: Notes on individual packages182940
+Node: Note on calendarel weekday and weekend colors184088
+Node: Note on git-gutter in Doom Emacs185236
+Node: Note on php-mode multiline comments187264
+Node: Note on underlines in compilation buffers187956
+Node: Note on inline Latex in Org buffers188793
+Node: Note on dimmerel189403
+Node: Note on display-fill-column-indicator-mode190888
+Node: Note on highlight-parenthesesel192286
+Node: Note on mmm-modeel background colors198275
+Node: Note for prism200590
+Node: Note for god-mode203746
+Node: Note on company-mode overlay pop-up205350
+Ref: Note on company-mode overlay pop-up-Footnote-1206040
+Ref: Note on company-mode overlay pop-up-Footnote-2206107
+Node: Note on ERC escaped color sequences206162
+Ref: Note on ERC escaped color sequences-Footnote-1207590
+Node: Note on powerline or spaceline207700
+Node: Note on SHR colors208114
+Node: Note on SHR fonts208538
+Node: Note on Ement colors and fonts209171
+Node: Note on Helm grep210670
+Node: Note on vc-annotate-background-mode212147
+Node: Note on pdf-tools link hints213032
+Node: Note on the Notmuch logo215497
+Node: Frequently Asked Questions215995
+Node: Is the contrast ratio about adjacent colors?216626
+Node: What does it mean to avoid exaggerations?218133
+Node: Why are colors mostly variants of blue magenta cyan?219962
+Node: What is the best setup for legibility?224268
+Node: Are these color schemes?226913
+Node: Port the Modus themes to other platforms?230633
+Node: Contributing233414
+Node: Sources of the themes233811
+Node: Issues you can help with234510
+Node: Patches require copyright assignment to the FSF236082
+Node: Acknowledgements238302
+Node: Other notes about the project241677
+Node: GNU Free Documentation License244675
+Node: Indices270052
+Node: Function index270231
+Node: Variable index272034
+Node: Concept index274321
 
 End Tag Table
 

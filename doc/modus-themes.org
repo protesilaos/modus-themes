@@ -5,9 +5,9 @@
 #+options: ':t toc:nil author:t email:t num:t
 #+startup: content
 
-#+macro: stable-version 2.3.0
-#+macro: release-date 2022-04-01
-#+macro: development-version 2.4.0-dev
+#+macro: stable-version 2.4.0
+#+macro: release-date 2022-06-01
+#+macro: development-version 2.5.0-dev
 #+macro: file @@texinfo:@file{@@$1@@texinfo:}@@
 #+macro: space @@texinfo:@: @@
 #+macro: kbd @@texinfo:@kbd{@@$1@@texinfo:}@@
@@ -4164,7 +4164,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + breakpoint (provided by the built-in {{{file(gdb-mi.el)}}} library)
 + calendar and diary
 + calfw
-+ calibredb [ part of {{{development-version}}} ]
++ calibredb
 + centaur-tabs
 + cfrs
 + change-log and log-view (such as ~vc-print-log~, ~vc-print-root-log~)
@@ -4179,7 +4179,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + completions
 + consult
 + corfu
-+ corfu-quick [ part of {{{development-version}}} ]
++ corfu-quick
 + counsel*
 + counsel-css
 + cov
@@ -4214,7 +4214,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + easy-jekyll
 + ebdb
 + ediff
-+ ein (Emacs IPython Notebook) [ part of {{{development-version}}} ]
++ ein (Emacs IPython Notebook)
 + eglot
 + el-search
 + eldoc-box
@@ -4427,7 +4427,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + visible-mark
 + visual-regexp
 + vterm
-+ vundo [ part of {{{development-version}}} ]
++ vundo
 + wcheck-mode
 + web-mode
 + wgrep
@@ -5638,7 +5638,7 @@ An HTML version of this manual is provided as an extension of the
 #+findex: modus-themes-report-bug
 A few tasks you can help with by sending an email to the general
 [[https://lists.sr.ht/~protesilaos/modus-themes][modus-themes public mailing list]] (or use the command
-~modus-themes-report-bug~ [part of {{{development-version}}}]).
+~modus-themes-report-bug~).
 
 + Suggest refinements to packages that are covered.
 + Report packages not covered thus far.
@@ -5657,8 +5657,7 @@ setup.  Though this is not a requirement.
 
 #+findex: modus-themes-version
 Also consider mentioning the version of the themes you are using, such
-as by invoking the command ~modus-themes-version~ [part of
-{{{development-version}}}].
+as by invoking the command ~modus-themes-version~.
 
 Whatever you do, bear in mind the overarching objective of the Modus
 themes: to keep a contrast ratio that is greater or equal to 7:1 between

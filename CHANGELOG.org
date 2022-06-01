@@ -15,6 +15,342 @@ For further details, please consult these additional resources:
 + Manual :: <https://protesilaos.com/emacs/modus-themes>
 + Screenshots :: <https://protesilaos.com/emacs/modus-themes-pictures>
 
+* 2.4.0
+
+#+begin_src text
+Modus themes version 2.4.0
+
+By Protesilaos Stavrou <info@protesilaos.com> on 2022-06-01
+
+This entry documents the changes made to the project since the
+publication of version 2.3.0 on 2022-04-01.  It spans more than 60
+commits to an already stable project.
+
+The 'modus-operandi' and 'modus-vivendi' themes are built into Emacs-28
+(next stable release) or later, and are available on GNU ELPA as well as
+other archives.  Emacs-28 ships version 1.6.0, while the current
+'master' branch (i.e. Emacs-29) and, by extension, GNU ELPA include the
+latest tagged release.  The packaged version is available as
+'modus-themes'.
+
+Read the manual inside Emacs by evaluating:
+
+    (info "(modus-themes) Top")
+
+Or visit: <https://protesilaos.com/emacs/modus-themes>.
+
+
+Migration to SourceHut
+======================
+
+The sources of the project are as follows:
+
+- Git repo on SourceHut: <https://git.sr.ht/~protesilaos/modus-themes>
+  - Mirrors:
+    - GitHub: <https://github.com/protesilaos/modus-themes>
+    - GitLab: <https://gitlab.com/protesilaos/modus-themes>
+- Mailing list: <https://lists.sr.ht/~protesilaos/modus-themes>
+
+- Official manual: <https://protesilaos.com/emacs/modus-themes>
+- Change log: <https://protesilaos.com/emacs/modus-themes-changelog>
+- Colour palette: <https://protesilaos.com/emacs/modus-themes-colors>
+- Sample pictures: <https://protesilaos.com/emacs/modus-themes-pictures>
+
+It is still possible to open issues on either of the mirrors and I will
+handle them in a timely fashion, though I encourage you to at least try
+the mailing list workflow---it is ordinary email (just remember to
+"reply to all").
+
+Further reading that is relevant to SourceHut:
+
+- Moving all my Emacs projects to SourceHut:
+  <https://protesilaos.com/codelog/2022-04-07-all-emacs-projects-sourcehut/>
+
+- Primer on formatting Git patches with Emacs (Magit):
+  <https://protesilaos.com/codelog/2022-04-09-simple-guide-git-patches-emacs/>
+
+
+Problems with byte compilation on Emacs 29
+==========================================
+
+For some time between mid-April to mid-May, users of Emacs 29 could not
+byte compile the Modus themes.  This has now been fixed in emacs.git,
+per bug#55414: <https://debbugs.gnu.org/cgi/bugreport.cgi?bug=55414>.
+Thanks to everyone involved (A-Z): Alan Mackenzie, Eli Zaretskii, Lars
+Ingebrigtsen, Mattias Engdegård, Stefan Monnier.
+
+
+Messages about invalid face attributes while using the centaur-tabs
+===================================================================
+
+I mentioned this issue in the previous change log as well: upstream does
+not allow us to use indirection in faces (the ':inherit' attribute).
+This is not our bug.  It is standard behaviour for themes to use
+inheritance.
+
+I have an open pull request on the matter (since 2022-02-24):
+<https://github.com/ema2159/centaur-tabs/pull/179>.
+
+Relevant reports:
+
+- <https://github.com/protesilaos/modus-themes/issues/30>
+- <https://gitlab.com/protesilaos/modus-themes/-/issues/288>
+- <https://github.com/protesilaos/modus-themes/issues/15>
+
+
+Support for new faces or face groups
+====================================
+
+Directly supported
+------------------
+
+These are packages whose faces we override to make them work with the
+themes.
+
+- 'calibredb'.  I have tried to limit the wanton use of colour in the
+  relevant buffers and also align the package with the overall style of
+  the themes.  The currently selected line is affected by the user
+  option 'modus-themes-hl-line'.
+
+  Thanks to Ivan Popovych for the feedback on the official mailing list:
+  <https://lists.sr.ht/~protesilaos/modus-themes/%3C87zgkgroi7.fsf%40gmail.com%3E>.
+
+  Ivan also introduced some new faces to 'calibredb', which I helped
+  test.  See: <https://github.com/chenyanming/calibredb.el/pull/60>.
+
+- 'ein' (Emacs IPython Notebook).  We support its code blocks with the
+  appropriate colouration, while avoiding exaggerations.  Thanks to
+  Maxime Tréca for the feedback in issue 31 over at the GitHub mirror:
+  <https://github.com/protesilaos/modus-themes/issues/31>.
+
+- 'tree-sitter'.  My intent was to reduce the overall colouration
+  produced by the default 'tree-sitter' faces.  These tweaks give us
+  good results, though there still are some cases where 'tree-sitter'
+  exaggerates the styles it uses, such as by combining types with
+  constants to produce ad-hoc (anonymous) faces.  We cannot do anything
+  about anonymous faces at the theme level.  As such, we may get an
+  additional bold weight (when 'modus-themes-bold-constructs' is
+  non-nil) when we would rather not have it and/or a different colour
+  than the one desired.
+
+  Thanks to Przemysław Kryger for the feedback in issue 303 over at the
+  GitLab mirror: <https://gitlab.com/protesilaos/modus-themes/-/issues/303>.
+
+  If you are involved in the 'tree-sitter' project, please eliminate all
+  anonymous faces and replace them with symbols (i.e. defface) that are
+  editable by the user/theme.  You are welcome to contact me if you need
+  help/ideas.
+
+- 'vundo'
+
+
+Indirectly supported
+--------------------
+
+These are packages that either (i) inherit from base faces we already
+support, or (ii) use colours from the Modus themes' palette.  A list of
+them is available in the manual.
+
+- egerrit.  an in-development package by Niklas Eklund which provides an
+  Emacs interface to Gerrit: <https://git.sr.ht/~niklaseklund/egerrit>.
+
+
+Changes to supported face
+=========================
+
+- Reworked the internal functions that handle the styling of diffs to
+  allow the user option 'modus-themes-deuteranopia' to combine with the
+  styles of the 'modus-themes-diffs' option.
+
+  Before, when 'modus-themes-deuteranopia' was non-nil it would affect
+  diffs by forcibly applying the default style of 'modus-themes-diffs'
+  (fairly prominent background colours) with the primary difference of
+  replacing greens with blues.
+
+  Now all combinations work as expected.  For example:
+
+      (setq modus-themes-deuteranopia t
+            modus-themes-diffs 'desaturated) ; nil, 'desaturated, 'bg-only
+
+  Thanks to Kevin Le Gouguec for the feedback on the mailing list:
+  <https://lists.sr.ht/~protesilaos/modus-themes/%3C878rqt4jhm.fsf@gmail.com%3E>
+
+- Conducted a major (and highly demanding) review of the colours used by
+  Avy in the interest of optimising the contrast between its constructs.
+  Read the analysis: <https://protesilaos.com/codelog/2022-04-20-modus-themes-case-study-avy/>.
+
+  Thanks to Daniel Mendler and Damien Cassou for their feedback on the
+  mailing list:
+
+  - <https://lists.sr.ht/~protesilaos/modus-themes/%3C83f18e2e-d726-0248-72f5-95e896cbcf4c%40daniel-mendler.de%3E>
+  - <https://lists.sr.ht/~protesilaos/modus-themes/%3C87czhgt5nm.fsf%40cassou.me%3E>
+
+- Updated the 'vertico-quick' faces to be consistent with Avy.
+
+- Made the 'line-number' face conform with the user option
+  'modus-themes-mixed-fonts'.  This means that if the user option is
+  non-nil, line numbers of 'display-line-numbers-mode' will use a
+  monospaced typeface at all times (inheriting the 'fixed-pitch' face,
+  as explained in the themes' manual).  Otherwise they use whatever font
+  the 'default' face has.  This makes it better when the user enables
+  'variable-pitch-mode' but still wants spacing-sensitive constructs to
+  remain monospaced.
+
+  Thanks to Christopher League for the feedback in issue 302 over at the
+  GitLab mirror: <https://gitlab.com/protesilaos/modus-themes/-/issues/302>.
+
+- Aligned the regexp construct faces with the meaning of the user option
+  'modus-themes-bold-constructs'.  They will use a bold weight only when
+  the user option is non-nil.  This design is consistent with all other
+  aspects of syntax highlighting.  These specific faces were
+  unconditionally bold due to a mistake of mine.
+
+  Remember to check the manual on what "a bold weight" means, as we make
+  everything easy to customise (e.g. if you prefer a semibold weight):
+  <https://protesilaos.com/emacs/modus-themes#h:2793a224-2109-4f61-a106-721c57c01375>.
+
+- Removed the typographic emphasis from the 'file-name-shadow' face by
+  no longer inheriting the 'italic' face.  Thanks to Nicolas De Jaeghere
+  for the patch.
+
+  [ Nicolas has assigned copyright to the Free Software Foundation. ]
+
+- Stopped using the 'inverse-video' face attribute in 'powerline'.  We
+  now apply the colours directly.  The reason is that 'inverse-video'
+  makes it tricky to override the face as it swaps the foreground with
+  the background.  That behaviour is only needed in special cases:
+  'powerline' is not one of them.
+
+  Thanks to Thibaut Verron for the feedback in issue 305 over at the
+  GitLab mirror: <https://gitlab.com/protesilaos/modus-themes/-/issues/305>.
+
+- Ensured that git commit/rebase comments (as seen in the workflow of
+  the 'magit' package) inherit from appropriate font-lock faces.  This
+  makes it possible to customise 'font-lock-comment-face' and have the
+  changes apply to those elements as well.  Such a customisation can,
+  for example, involve the change of the font family or the addition of
+  a background colour.  We want the whole comment block, including those
+  special keywords from Git, to look consistent. This change also makes
+  git-{commit,rebase}-comment-heading attain the foreground colour of
+  comments, instead of the default one (black or white), making it look
+  part of the comment block.
+
+- Tweaked the 'fountain' package comments to be the same as all others.
+  This avoids inconsistencies, such as when the user opts for something
+  like the following:
+
+      (setq modus-themes-syntax '(yellow-comments))
+
+- Disabled padding in the 'keycast' package, meaning that the box around
+  the key indicator always has the same height, even if the user opts
+  for a padding value in 'modus-themes-mode-line' (read the manual or
+  its doc string for how to assign a padding).
+
+  This is in response to a change upstream that introduces the
+  'keycast-tab-bar-mode', which re-uses the faces that were originally
+  intended for the mode line in the tab-bar.  Ideally, upstream will
+  provide distinct faces for each context so that we can have padding in
+  the mode line but not the tab-bar.  However, I have not had the
+  opportunity to suggest such a change and/or prepare the relevant patch
+  (it is not straightforward).
+
+- Refined some colour combinations for the "alternative syntax" style
+  that is available when the user option 'modus-themes-syntax' includes
+  the 'alt-syntax' property.  These tweaks pertain to changes in hue
+  that improve the appearance of certain faces in their context.
+
+- Enabled conditional use of 'fixed-pitch' for key bindings.  This
+  happens when the user option 'modus-themes-mixed-fonts' is non-nil
+  (all spacing-sensitive elements become monospaced even if the user
+  opts for a default font that is proportionately spaced or activates
+  the 'variable-pitch-mode').  Thanks to Manuel Giraud for the patch.
+
+  [ Manuel has assigned copyright to the Free Software Foundation. ]
+
+- Covered the face rotation option of 'highlight-changes-mode'.  It is
+  done with the 'highlight-changes-rotate-faces' command when
+  'highlight-changes-mode' is enabled (the mode is built into Emacs).
+
+  Thanks to Philip Kaludercic for the feedback on the mailing list:
+  https://lists.sr.ht/~protesilaos/modus-themes/<878rs14il4.fsf@posteo.net>
+
+
+Updates to the manual
+=====================
+
+- Acknowledged Andrew Tropin as one of the contributors to the Guix
+  package of the Modus themes.  The latest patch to that end:
+  <https://issues.guix.gnu.org/55268>.
+
+- Rewrote the note on 'fill-column-indicator' to show how the user can
+  use a thicker line than the one we style by default.
+
+- Wrote a note in manual about 'php-mode' multiline comments which use
+  the 'font-lock-doc-face' instead of 'font-lock-comment-face'.  Sample
+  code is provided to ensure consistency between all types of comments.
+
+- Added note about custom 'hl-todo' colours, specifically the user
+  option 'hl-todo-keyword-faces' (which the themes customise as an
+  exception to the rule, otherwise the default colours would not always
+  be accessible).
+
+  This is in relation to the mailing list thread on the matter with
+  feedback from Vincent Foley and Christian Tietze:
+  <https://lists.sr.ht/~protesilaos/modus-themes/%3C871qwh1r88.fsf%40era.co%3E>.
+
+- Elaborated on the style of 'git-gutter' faces in Doom Emacs, which are
+  not as the Modus themes intend.  Basically, the problem is that Doom
+  changes the way that package draws its bitmaps: the faces we configure
+  no longer appear as intended and sensitive colouration is lost.
+
+  Thanks to Gonçalo Marrafa for reporting the issue, testing the code we
+  recommend on Doom Emacs, and suggesting the inclusion of the reference
+  to the 'after!' call (a macro that Doom defines).
+
+
+Miscellaneous
+=============
+
+- Dedicated the colours of the Modus themes---just the colours---to the
+  public domain.  The Emacs package as a whole is still distributed
+  under the terms of the GNU General Public License.  The announcement:
+  <https://protesilaos.com/codelog/2022-05-10-modus-themes-palette-cc0/>
+
+- Stopped using a timestamp in the modus-themes.el file.  It could lead
+  to situations where there was a mismatch between the latest change and
+  the recorded time.  It also introduced a barrier to entry for
+  contributors, as they need to set up 'time-stamp.el'.
+
+- Removed the unnecessary 'require' call to the 'seq' library and made
+  the necessary changes.  Thanks to Daniel Mendler for the patch.
+
+  [ Daniel has assigned copyright to the Free Software Foundation. ]
+
+- Applied the correct order of inheritance for all markup faces.  This
+  fixes a problem where not all typographic attributes where applied to
+  the faces when 'modus-themes-mixed-fonts' was non-nil and the value of
+  'modus-themes-markup' included '(bold italic)'.
+
+- Tweaked how 'org-date' conditionally uses 'fixed-pitch'.  Basically,
+  we remove an internal stylistic inconsistency.  There is no
+  user-facing change.  Thanks to Manuel Giraud for the patch.
+
+- Implemented the command 'modus-themes-report-bug'.  It might help
+  users find the email address of the mailing list and get started with
+  the email-centric workflow of SourceHut.  Note this is but a first
+  step in that direction.  If you think it can be improved, please
+  report as much (or send a patch).
+
+- Included the command 'modus-themes-version', which prints in the echo
+  area the current version of the package.  With an optional prefix
+  argument, it inserts the string at point.
+
+  The version either is the last tagged release, such as '2.4.0', or an
+  in-development version like '2.5.0-dev'.  As we use semantic
+  versioning, tags of the '2.4.1' sort are not considered: those would
+  count as part of '2.5.0-dev'.
+#+end_src
+
 * 2.3.0
 
 #+begin_src text
