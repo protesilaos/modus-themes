@@ -109,7 +109,12 @@ cover the blue-cyan-magenta side of the spectrum."
   :tag "Modus Themes Faces")
 
 (defvar modus-themes--version "2.4.0-dev"
-  "Current version of the Modus themes.")
+  "Current version of the Modus themes.
+
+The version either is the last tagged release, such as '2.4.0',
+or an in-development version like '2.5.0-dev'.  As we use
+semantic versioning, tags of the '2.4.1' sort are not reported:
+those would count as part of '2.5.0-dev'.")
 
 ;;;###autoload
 (defun modus-themes-version (&optional insert)
