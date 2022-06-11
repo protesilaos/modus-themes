@@ -5926,7 +5926,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     ;; fall back to `default' otherwise line numbers do not scale when
     ;; using `text-scale-adjust'.
     `(line-number
-      ((,class :inherit ,(if modus-themes-mixed-fonts 'fixed-pitch 'default)
+      ((,class :inherit ,(if modus-themes-mixed-fonts '(fixed-pitch default) 'default)
                ,@(modus-themes--line-numbers
                   fg-alt bg-dim
                   fg-unfocused))))
