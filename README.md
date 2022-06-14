@@ -22,9 +22,15 @@ For some demo content, check:
 
 Sources:
 
-+ Homepage: <https://protesilaos.com/emacs/modus-themes>.
-+ Git repository: <https://git.sr.ht/~protesilaos/modus-themes>.
-+ Mailing list: <https://lists.sr.ht/~protesilaos/modus-themes>.
++ Package name (GNU ELPA): `modus-themes` (also built into Emacs >= 28)
++ Official manual: <https://protesilaos.com/emacs/modus-themes>
++ Change log: <https://protesilaos.com/emacs/modus-themes-changelog>
++ Colour palette: <https://protesilaos.com/emacs/modus-themes-colors>
++ Git repo on SourceHut: <https://git.sr.ht/~protesilaos/modus-themes>
+  - Mirrors:
+    + GitHub: <https://github.com/protesilaos/modus-themes>
+    + GitLab: <https://gitlab.com/protesilaos/modus-themes>
++ Mailing list: <https://lists.sr.ht/~protesilaos/modus-themes>
 
 ## Quick setup for the latest version
 
