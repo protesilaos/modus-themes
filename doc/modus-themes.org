@@ -4289,6 +4289,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + imenu-list
 + indium
 + info
++ info+ (info-plus) [ part of {{{development-version}}} ]
 + info-colors
 + interaction-log
 + ioccur
@@ -5739,17 +5740,17 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Gautier Ponsinet, Gerry Agbobada, Gianluca Recchia, Gonçalo Marrafa,
   Guilherme Semente, Gustavo Barros, Hörmetjan Yiltiz, Ilja Kocken, Iris
   Garcia, Ivan Popovych, Jeremy Friesen, Jerry Zhang, Johannes Grødem,
-  John Haman, Jorge Morais, Joshua O'Connor, Julio C. Villasante, Kenta
-  Usami, Kevin Fleming, Kévin Le Gouguec, Kostadin Ninev, Len Trigg,
-  Lennart C. Karssen, Magne Hov, Manuel Uberti, Mark Bestley, Mark
-  Burton, Markus Beppler, Mauro Aranda, Maxime Tréca, Michael
-  Goldenberg, Morgan Smith, Morgan Willcock, Murilo Pereira, Nicky van
-  Foreest, Nicolas De Jaeghere, Paul Poloskov, Pengji Zhang, Pete
-  Kazmier, Peter Wu, Philip Kaludercic, Pierre Téchoueyres, Przemysław
-  Kryger, Robert Hepple, Roman Rudakov, Ryan Phillips, Rytis Paškauskas,
-  Rudolf Adamkovič, Sam Kleinman, Samuel Culpepper, Saša Janiška,
-  Shreyas Ragavan, Simon Pugnet, Tassilo Horn, Thibaut Verron, Thomas
-  Heartman, Togan Muftuoglu, Tony Zorman, Trey Merkley, Tomasz
+  John Haman, Jonas Collberg, Jorge Morais, Joshua O'Connor, Julio
+  C. Villasante, Kenta Usami, Kevin Fleming, Kévin Le Gouguec, Kostadin
+  Ninev, Len Trigg, Lennart C. Karssen, Magne Hov, Manuel Uberti, Mark
+  Bestley, Mark Burton, Markus Beppler, Mauro Aranda, Maxime Tréca,
+  Michael Goldenberg, Morgan Smith, Morgan Willcock, Murilo Pereira,
+  Nicky van Foreest, Nicolas De Jaeghere, Paul Poloskov, Pengji Zhang,
+  Pete Kazmier, Peter Wu, Philip Kaludercic, Pierre Téchoueyres,
+  Przemysław Kryger, Robert Hepple, Roman Rudakov, Ryan Phillips, Rytis
+  Paškauskas, Rudolf Adamkovič, Sam Kleinman, Samuel Culpepper, Saša
+  Janiška, Shreyas Ragavan, Simon Pugnet, Tassilo Horn, Thibaut Verron,
+  Thomas Heartman, Togan Muftuoglu, Tony Zorman, Trey Merkley, Tomasz
   Hołubowicz, Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.  As
   well as users: Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux,
   Fredrik, Moesasji, Nick, TheBlob42, Trey, bepolymathe, bit9tream,
