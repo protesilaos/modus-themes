@@ -4330,7 +4330,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                       cyan-alt-other blue-alt-other fg-alt
                                       cyan-nuanced-bg blue-refine-bg fg-main
                                       bg-alt bg-active))))
-    `(modus-themes-reset-hard ((,class :inherit (fixed-pitch modus-themes-reset-soft))))
+    `(modus-themes-reset-hard ((,class :inherit (fixed-pitch modus-themes-reset-soft)
+                                       :family ,(face-attribute 'default :family))))
     `(modus-themes-reset-soft ((,class :background ,bg-main :foreground ,fg-main
                                        :weight normal :slant normal :strike-through nil
                                        :box nil :underline nil :overline nil :extend nil)))
