@@ -5716,18 +5716,20 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; helpful
     `(helpful-heading ((,class :inherit modus-themes-heading-1)))
 ;;;;; highlight region or ad-hoc regexp
-    `(hi-aquamarine ((,class :background ,cyan-subtle-bg :foreground ,fg-main)))
-    `(hi-black-b ((,class :inherit bold :background ,fg-main :foreground ,bg-main)))
-    `(hi-black-hb ((,class :inherit bold :background ,fg-alt :foreground ,bg-main)))
-    `(hi-blue ((,class :background ,blue-subtle-bg :foreground ,fg-main)))
+    ;; HACK 2022-06-23: The :inverse-video prevents hl-line-mode from
+    ;; overriding the background.  Such an override really defeats the
+    ;; purpose of setting those highlights.
+    `(hi-aquamarine ((,class :background ,bg-main :foreground ,cyan :inverse-video t)))
+    `(hi-black-b ((,class :inverse-video t)))
+    `(hi-black-hb ((,class :background ,bg-main :foreground ,fg-alt :inverse-video t)))
+    `(hi-blue ((,class :background ,bg-main :foreground ,blue-alt :inverse-video t)))
     `(hi-blue-b ((,class :inherit (bold hi-blue))))
-    `(hi-green ((,class :background ,green-subtle-bg :foreground ,fg-main)))
+    `(hi-green ((,class :background ,bg-main :foreground ,green :inverse-video t)))
     `(hi-green-b ((,class :inherit (bold hi-green))))
-    `(hi-pink ((,class :background ,magenta-subtle-bg :foreground ,fg-main)))
-    `(hi-pink-b ((,class :inherit (bold hi-pink))))
-    `(hi-red-b ((,class :inherit bold :background ,red-intense-bg :foreground ,fg-main)))
-    `(hi-salmon ((,class :background ,red-subtle-bg :foreground ,fg-main)))
-    `(hi-yellow ((,class :background ,yellow-subtle-bg :foreground ,fg-main)))
+    `(hi-pink ((,class :background ,bg-main :foreground ,magenta :inverse-video t)))
+    `(hi-red-b ((,class :inherit bold :background ,bg-main :foreground ,red :inverse-video t)))
+    `(hi-salmon ((,class :background ,bg-main :foreground ,red-alt-faint :inverse-video t)))
+    `(hi-yellow ((,class :background ,bg-main :foreground ,yellow-alt :inverse-video t)))
     `(highlight ((,class ,@(if modus-themes-intense-mouseovers
                                (list :background blue-intense-bg :foreground fg-main)
                              (list :background cyan-subtle-bg :foreground fg-main)))))
