@@ -6653,7 +6653,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(outline-minor-0 (()))
 ;;;;; package (M-x list-packages)
     `(package-description ((,class :foreground ,fg-special-cold)))
-    `(package-help-section-name ((,class :inherit bold :foreground ,magenta-alt-other)))
+    `(package-help-section-name ((,class :inherit bold :foreground ,cyan)))
     `(package-name ((,class :inherit button)))
     `(package-status-available ((,class :foreground ,fg-special-mild)))
     `(package-status-avail-obso ((,class :inherit error)))
