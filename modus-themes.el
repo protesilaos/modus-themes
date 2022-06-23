@@ -6655,7 +6655,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(package-description ((,class :foreground ,fg-special-cold)))
     `(package-help-section-name ((,class :inherit bold :foreground ,cyan)))
     `(package-name ((,class :inherit button)))
-    `(package-status-available ((,class :foreground ,fg-special-mild)))
+    `(package-status-available ((,class :foreground ,cyan-alt-other)))
     `(package-status-avail-obso ((,class :inherit error)))
     `(package-status-built-in ((,class :foreground ,magenta)))
     `(package-status-dependency ((,class :foreground ,magenta-alt-other)))
