@@ -1476,6 +1476,9 @@ with underlines.
 This style affects several packages that enable ~hl-line-mode~, such as
 =elfeed=, =notmuch=, and =mu4e=.
 
+[ Also check the =lin= package on GNU ELPA (by the author of the
+  modus-themes) for a stylistic enhancement to ~hl-line-mode~. ]
+
 ** Option for line numbers
 :properties:
 :alt_title: Line numbers
