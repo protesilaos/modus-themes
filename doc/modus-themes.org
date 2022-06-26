@@ -3120,6 +3120,9 @@ the ~variable-pitch~ (proportional spacing) and ~fixed-pitch~ (monospaced)
 faces respectively.  It may also be convenient to set your main typeface
 by configuring the ~default~ face the same way.
 
+[ The =fontaine= package on GNU ELPA (by the author of the modus-themes)
+  is designed to handle this case. ]
+
 Put something like this in your initialization file (also consider
 reading the doc string of ~set-face-attribute~):
 
