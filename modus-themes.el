@@ -7066,14 +7066,14 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(symbol-overlay-face-8 ((,class :inherit modus-themes-refine-cyan)))
 ;;;;; syslog-mode
     `(syslog-debug ((,class :inherit bold :foreground ,cyan-alt-other)))
-    `(syslog-error ((,class :inherit bold :foreground ,red)))
+    `(syslog-error ((,class :inherit error)))
     `(syslog-file ((,class :inherit bold :foreground ,fg-special-cold)))
     `(syslog-hide ((,class :background ,bg-main :foreground ,fg-main)))
     `(syslog-hour ((,class :inherit bold :foreground ,magenta-alt-other)))
-    `(syslog-info ((,class :inherit bold :foreground ,blue-alt-other)))
+    `(syslog-info ((,class :inherit success)))
     `(syslog-ip ((,class :inherit bold :foreground ,fg-special-mild :underline t)))
     `(syslog-su ((,class :inherit bold :foreground ,red-alt)))
-    `(syslog-warn ((,class :inherit bold :foreground ,yellow)))
+    `(syslog-warn ((,class :inherit warning)))
 ;;;;; tab-bar-groups
     `(tab-bar-groups-tab-1 ((,class :inherit modus-themes-ui-variable-pitch :foreground ,blue-tab)))
     `(tab-bar-groups-tab-2 ((,class :inherit modus-themes-ui-variable-pitch :foreground ,red-tab)))
