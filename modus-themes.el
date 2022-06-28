@@ -4879,13 +4879,12 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(debbugs-gnu-stale-5 ((,class :foreground ,red-alt)))
     `(debbugs-gnu-tagged ((,class :foreground ,magenta-alt)))
 ;;;;; deft
-    `(deft-filter-string-error-face ((,class :inherit modus-themes-refine-red)))
-    `(deft-filter-string-face ((,class :foreground ,green-intense)))
-    `(deft-header-face ((,class :inherit bold :foreground ,fg-special-warm)))
-    `(deft-separator-face ((,class :inherit shadow)))
+    `(deft-filter-string-face ((,class :inherit bold :foreground ,blue)))
+    `(deft-header-face ((,class :foreground ,fg-special-warm)))
+    `(deft-separator-face ((,class :foreground "gray50")))
     `(deft-summary-face ((,class :inherit (shadow modus-themes-slant))))
-    `(deft-time-face ((,class :foreground ,fg-special-cold)))
-    `(deft-title-face ((,class :inherit bold :foreground ,fg-main)))
+    `(deft-time-face ((,class :foreground ,cyan)))
+    `(deft-title-face ((,class :inherit bold)))
 ;;;;; devdocs
     `(devdocs-code-block ((,class :inherit modus-themes-fixed-pitch :background ,bg-dim :extend t)))
 ;;;;; dictionary
