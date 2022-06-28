@@ -6611,8 +6611,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-journal-calendar-scheduled-face ((,class :inherit modus-themes-slant :foreground ,red-alt-other)))
     `(org-journal-highlight ((,class :foreground ,magenta-alt)))
 ;;;;; org-noter
-    `(org-noter-no-notes-exist-face ((,class :inherit bold :foreground ,red-active)))
-    `(org-noter-notes-exist-face ((,class :inherit bold :foreground ,green-active)))
+    `(org-noter-no-notes-exist-face ((,class :inherit error)))
+    `(org-noter-notes-exist-face ((,class :inherit success)))
 ;;;;; org-pomodoro
     `(org-pomodoro-mode-line ((,class :foreground ,red-active)))
     `(org-pomodoro-mode-line-break ((,class :foreground ,cyan-active)))
