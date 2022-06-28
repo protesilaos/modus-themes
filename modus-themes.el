@@ -6635,9 +6635,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-table-sticky-header-face ((,class :inherit modus-themes-special-cold)))
 ;;;;; org-tree-slide
     `(org-tree-slide-header-overlay-face ((,class :inherit org-document-title)))
-;;;;; org-treescope
-    `(org-treescope-faces--markerinternal-midday ((,class :inherit modus-themes-intense-blue)))
-    `(org-treescope-faces--markerinternal-range ((,class :inherit modus-themes-special-mild)))
 ;;;;; origami
     `(origami-fold-header-face ((,class :background ,bg-dim :foreground ,fg-dim :box t)))
     `(origami-fold-replacement-face ((,class :background ,bg-alt :foreground ,fg-alt)))
