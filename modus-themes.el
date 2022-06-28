@@ -7005,7 +7005,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(speedbar-button-face ((,class :inherit button)))
     `(speedbar-directory-face ((,class :inherit bold :foreground ,blue)))
     `(speedbar-file-face ((,class :foreground ,fg-main)))
-    `(speedbar-highlight-face ((,class :inherit modus-themes-subtle-blue)))
+    `(speedbar-highlight-face ((,class :inherit highlight)))
     `(speedbar-selected-face ((,class :inherit bold :foreground ,cyan)))
     `(speedbar-separator-face ((,class :inherit modus-themes-intense-neutral)))
     `(speedbar-tag-face ((,class :foreground ,yellow-alt-other)))
