@@ -4310,6 +4310,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + kaocha-runner
 + keycast
 + ledger-mode
++ leerzeichen [ part of {{{development-version}}} ]
 + line numbers (~display-line-numbers-mode~ and global variant)
 + lsp-mode
 + lsp-ui

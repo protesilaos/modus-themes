@@ -5944,6 +5944,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(ledger-font-payee-pending-face ((,class :foreground ,yellow)))
     `(ledger-font-payee-uncleared-face ((,class :foreground ,red-alt-other)))
     `(ledger-font-xact-highlight-face ((,class :background ,bg-hl-alt)))
+;;;;; leerzeichen
+    `(leerzeichen ((,class :background ,bg-whitespace :foreground ,fg-whitespace)))
 ;;;;; line numbers (display-line-numbers-mode and global variant)
     ;; Here we cannot inherit `modus-themes-fixed-pitch'.  We need to
     ;; fall back to `default' otherwise line numbers do not scale when
