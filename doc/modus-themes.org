@@ -4198,6 +4198,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + deadgrep
 + debbugs
 + deft
++ denote
 + devdocs
 + dictionary
 + diff-hl
