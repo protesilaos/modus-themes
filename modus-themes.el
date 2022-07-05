@@ -4888,7 +4888,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(deft-title-face ((,class :inherit bold)))
 ;;;;; denote
     `(denote-faces-date ((,class :foreground ,cyan)))
-    `(denote-faces-keywords ((,class :inherit bold :foreground ,magenta-alt)))
+    `(denote-faces-keywords ((,class :inherit modus-themes-bold :foreground ,magenta-alt)))
 ;;;;; devdocs
     `(devdocs-code-block ((,class :inherit modus-themes-fixed-pitch :background ,bg-dim :extend t)))
 ;;;;; dictionary
