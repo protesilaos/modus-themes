@@ -6875,8 +6875,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(semantic-tag-boundary-face ((,class :overline ,blue-intense)))
     `(semantic-unmatched-syntax-face ((,class :underline ,fg-lang-error)))
 ;;;;; sesman
-    `(sesman-browser-button-face ((,class :foreground ,blue-alt-other :underline t)))
-    `(sesman-browser-highligh-face ((,class :inherit modus-themes-subtle-blue)))
+    `(sesman-browser-button-face ((,class :inherit button)))
+    `(sesman-browser-highligh-face ((,class :inherit highlight)))
     `(sesman-buffer-face ((,class :foreground ,magenta)))
     `(sesman-directory-face ((,class :inherit bold :foreground ,blue)))
     `(sesman-project-face ((,class :inherit bold :foreground ,magenta-alt-other)))
