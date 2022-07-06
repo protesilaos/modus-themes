@@ -6261,8 +6261,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(markup-title-4-face ((,class :inherit modus-themes-heading-5)))
     `(markup-title-5-face ((,class :inherit modus-themes-heading-6)))
     `(markup-verbatim-face ((,class :inherit modus-themes-fixed-pitch :background ,bg-alt)))
-;;;;; mct
-    `(mct-highlight-candidate ((,class :inherit modus-themes-completion-selected)))
 ;;;;; mentor
     `(mentor-download-message ((,class :foreground ,fg-special-warm)))
     `(mentor-download-name ((,class :foreground ,fg-special-cold)))
