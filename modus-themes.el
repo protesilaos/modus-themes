@@ -4820,8 +4820,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(ctrlf-highlight-active ((,class :inherit (modus-themes-search-success bold))))
     `(ctrlf-highlight-line ((,class :inherit modus-themes-hl-line)))
     `(ctrlf-highlight-passive ((,class :inherit modus-themes-search-success-lazy)))
-;;;;; cursor-flash
-    `(cursor-flash-face ((,class :inherit modus-themes-intense-blue)))
 ;;;;; custom (M-x customize)
     `(custom-button ((,class :inherit modus-themes-box-button)))
     `(custom-button-mouse ((,class :inherit (highlight custom-button))))
