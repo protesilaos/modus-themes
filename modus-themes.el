@@ -6851,10 +6851,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; selectrum
     `(selectrum-current-candidate ((,class :inherit modus-themes-completion-selected)))
     `(selectrum-mouse-highlight ((,class :inherit highlight)))
-    `(selectrum-quick-keys-highlight
-      ((,class :inherit modus-themes-refine-red)))
-    `(selectrum-quick-keys-match
-      ((,class :inherit (bold modus-themes-search-success))))
+    `(selectrum-quick-keys-highlight ((,class :inherit bold :background ,bg-char-0)))
+    `(selectrum-quick-keys-match ((,class :inherit bold :background ,bg-char-1)))
 ;;;;; selectrum-prescient
     `(selectrum-prescient-primary-highlight ((,class :inherit modus-themes-completion-match-0)))
     `(selectrum-prescient-secondary-highlight ((,class :inherit modus-themes-completion-match-1)))
