@@ -4475,8 +4475,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(anzu-match-3 ((,class :inherit modus-themes-subtle-yellow)))
     `(anzu-mode-line ((,class :inherit (bold modus-themes-search-success-modeline))))
     `(anzu-mode-line-no-match ((,class :inherit bold :foreground ,red-active)))
-    `(anzu-replace-highlight ((,class :inherit modus-themes-refine-yellow :underline t)))
     `(anzu-replace-to ((,class :inherit (modus-themes-search-success bold))))
+    `(anzu-replace-highlight ((,class :inherit modus-themes-refine-red :underline t)))
 ;;;;; apropos
     `(apropos-button ((,class :foreground ,magenta-alt-other)))
     `(apropos-function-button ((,class :foreground ,magenta)))
@@ -5860,7 +5860,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(isearch-group-2 ((,class :inherit modus-themes-refine-magenta)))
     `(lazy-highlight ((,class :inherit modus-themes-search-success-lazy)))
     `(match ((,class :inherit modus-themes-special-calm)))
-    `(query-replace ((,class :inherit (modus-themes-intense-yellow bold))))
+    `(query-replace ((,class :inherit modus-themes-intense-red)))
 ;;;;; ivy
     `(ivy-action ((,class :inherit modus-themes-key-binding)))
     `(ivy-confirm-face ((,class :inherit success)))
