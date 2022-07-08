@@ -4475,8 +4475,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(anzu-match-3 ((,class :inherit modus-themes-subtle-yellow)))
     `(anzu-mode-line ((,class :inherit (bold modus-themes-search-success-modeline))))
     `(anzu-mode-line-no-match ((,class :inherit bold :foreground ,red-active)))
-    `(anzu-replace-to ((,class :inherit (modus-themes-search-success bold))))
     `(anzu-replace-highlight ((,class :inherit modus-themes-refine-red :underline t)))
+    `(anzu-replace-to ((,class :inherit modus-themes-search-success)))
 ;;;;; apropos
     `(apropos-button ((,class :foreground ,magenta-alt-other)))
     `(apropos-function-button ((,class :foreground ,magenta)))
@@ -4735,7 +4735,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(company-tooltip-scrollbar-thumb ((,class :background ,fg-active)))
     `(company-tooltip-scrollbar-track ((,class :background ,bg-active)))
     `(company-tooltip-search ((,class :inherit (modus-themes-search-success-lazy bold))))
-    `(company-tooltip-search-selection ((,class :inherit (modus-themes-search-success bold) :underline t)))
+    `(company-tooltip-search-selection ((,class :inherit modus-themes-search-success :underline t)))
     `(company-tooltip-selection ((,class :inherit modus-themes-completion-selected-popup)))
 ;;;;; company-posframe
     `(company-posframe-active-backend-name ((,class :inherit bold :background ,bg-active :foreground ,blue-active)))
@@ -4813,7 +4813,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; csv-mode
     `(csv-separator-face ((,class :foreground ,red-intense)))
 ;;;;; ctrlf
-    `(ctrlf-highlight-active ((,class :inherit (modus-themes-search-success bold))))
+    `(ctrlf-highlight-active ((,class :inherit modus-themes-search-success)))
     `(ctrlf-highlight-line ((,class :inherit modus-themes-hl-line)))
     `(ctrlf-highlight-passive ((,class :inherit modus-themes-search-success-lazy)))
 ;;;;; custom (M-x customize)
@@ -5316,7 +5316,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(evil-ex-lazy-highlight ((,class :inherit modus-themes-search-success-lazy)))
     `(evil-ex-search ((,class :inherit modus-themes-search-success)))
     `(evil-ex-substitute-matches ((,class :inherit modus-themes-refine-yellow :underline t)))
-    `(evil-ex-substitute-replacement ((,class :inherit (modus-themes-search-success bold))))
+    `(evil-ex-substitute-replacement ((,class :inherit modus-themes-search-success)))
 ;;;;; evil-goggles
     `(evil-goggles-change-face ((,class :inherit modus-themes-refine-yellow)))
     `(evil-goggles-commentary-face ((,class :inherit (modus-themes-subtle-neutral modus-themes-slant))))
@@ -5854,7 +5854,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(ioccur-regexp-face ((,class :inherit (modus-themes-intense-magenta bold))))
     `(ioccur-title-face ((,class :inherit modus-themes-pseudo-header :foreground ,fg-special-cold)))
 ;;;;; isearch, occur, and the like
-    `(isearch ((,class :inherit (modus-themes-search-success bold))))
+    `(isearch ((,class :inherit modus-themes-search-success)))
     `(isearch-fail ((,class :inherit modus-themes-refine-red)))
     `(isearch-group-1 ((,class :inherit modus-themes-refine-blue)))
     `(isearch-group-2 ((,class :inherit modus-themes-refine-magenta)))
@@ -6712,7 +6712,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(pomidor-work-face ((,class :inherit modus-themes-grue)))
 ;;;;; popup
     `(popup-face ((,class :background ,bg-alt :foreground ,fg-main)))
-    `(popup-isearch-match ((,class :inherit (modus-themes-search-success bold))))
+    `(popup-isearch-match ((,class :inherit modus-themes-search-success)))
     `(popup-menu-mouse-face ((,class :inherit highlight)))
     `(popup-menu-selection-face ((,class :inherit modus-themes-completion-selected-popup)))
     `(popup-scroll-bar-background-face ((,class :background ,bg-active)))
