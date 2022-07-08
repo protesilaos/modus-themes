@@ -1103,6 +1103,14 @@ This is intended for use in modes such as Dired, Ibuffer, Proced.
 The actual styling of the face is done by `modus-themes-faces'."
   :group 'modus-themes-faces)
 
+(defface modus-themes-heading-0 nil
+  "General purpose face for use as the document's title.
+The exact attributes assigned to this face are contingent on the
+values assigned to the `modus-themes-headings' variable.
+
+The actual styling of the face is done by `modus-themes-faces'."
+  :group 'modus-themes-faces)
+
 (defface modus-themes-heading-1 nil
   "General purpose face for use in headings level 1.
 The exact attributes assigned to this face are contingent on the
@@ -1577,14 +1585,19 @@ speaking, is not limited to mouse usage."
 This is a helper variable intended for internal use.")
 
 (defcustom modus-themes-headings nil
-  "Heading styles with optional list of values for levels 1-8.
+  "Heading styles with optional list of values for levels 0-8.
 
 This is an alist that accepts a (key . list-of-values)
 combination.  The key is either a number, representing the
-heading's level or t, which pertains to the fallback style.  The
-list of values covers symbols that refer to properties, as
-described below.  Here is a sample, followed by a presentation of
-all available properties:
+heading's level (0-8) or t, which pertains to the fallback style.
+
+Level 0 is a special heading: it is used for what counts as a
+document title or equivalent, such as the #+title construct we
+find in Org files.  Levels 1-8 are regular headings.
+
+The list of values covers symbols that refer to properties, as
+described below.  Here is a complete sample, followed by a
+presentation of all available properties:
 
     (setq modus-themes-headings
           (quote ((1 . (background overline variable-pitch 1.5))
@@ -1669,12 +1682,12 @@ For Org users, the extent of the heading depends on the variable
 and `background' properties.  Depending on the version of Org,
 there may be others, such as `org-fontify-done-headline'."
   :group 'modus-themes
-  :package-version '(modus-themes . "2.3.0")
+  :package-version '(modus-themes . "2.5.0")
   :version "29.1"
   :type `(alist
           :options ,(mapcar (lambda (el)
                               (list el modus-themes--headings-choice))
-                            '(1 2 3 4 5 6 7 8 t))
+                            '(0 1 2 3 4 5 6 7 8 t))
           :key-type symbol
           :value-type ,modus-themes--headings-choice)
   :set #'modus-themes--set-option
@@ -4210,6 +4223,10 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(modus-themes-mark-symbol ((,class :inherit bold :foreground ,blue-alt)))
 ;;;;; heading levels
     ;; styles for regular headings used in Org, Markdown, Info, etc.
+    `(modus-themes-heading-0
+      ((,class ,@(modus-themes--heading
+                  0 cyan-alt-other blue-alt
+                  cyan-nuanced-bg bg-alt bg-region))))
     `(modus-themes-heading-1
       ((,class ,@(modus-themes--heading
                   1 fg-main magenta-alt-other
@@ -6511,7 +6528,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-dispatcher-highlight ((,class :inherit (bold modus-themes-mark-alt))))
     `(org-document-info ((,class :foreground ,fg-special-cold)))
     `(org-document-info-keyword ((,class :inherit (shadow modus-themes-fixed-pitch))))
-    `(org-document-title ((,class :inherit modus-themes-heading-1 :background ,bg-main :overline nil :foreground ,fg-special-cold)))
+    `(org-document-title ((,class :inherit modus-themes-heading-0)))
     `(org-done ((,class :inherit modus-themes-grue)))
     `(org-drawer ((,class :inherit (shadow modus-themes-fixed-pitch))))
     `(org-ellipsis (())) ; inherits from the heading's color

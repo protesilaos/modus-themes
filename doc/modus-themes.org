@@ -2001,16 +2001,23 @@ Putting it all together, the alist can look like this:
 :end:
 #+vindex: modus-themes-headings
 
-Brief: Control the style of headings.  This can be particularised for
-each level of heading (e.g. Org has eight levels).
+[ Updated as part of {{{development-version}}} ]
+
+Brief: Heading styles with optional list of values for levels 0-8.
 
 Symbol: ~modus-themes-headings~ (=alist= type, multiple properties)
 
-This is an alist that accepts a =(key . list-of-values)= combination.  The
-key is either a number, representing the heading's level or ~t~, which
-pertains to the fallback style.  The list of values covers symbols that
-refer to properties, as described below.  Here is a sample, followed by
-a presentation of all available properties:
+This is an alist that accepts a =(key . list-of-values)= combination.
+The key is either a number, representing the heading's level (0-8) or t,
+which pertains to the fallback style.
+
+Level 0 is a special heading: it is used for what counts as a document
+title or equivalent, such as the =#+title= construct we find in Org
+files.  Levels 1-8 are regular headings.
+
+The list of values covers symbols that refer to properties, as described
+below.  Here is a complete sample, followed by a presentation of all
+available properties:
 
 #+begin_src emacs-lisp
 (setq modus-themes-headings

@@ -2100,16 +2100,23 @@ File: modus-themes.info,  Node: Heading styles,  Next: UI typeface,  Prev: Org a
 4.25 Option for the headings’ overall style
 ===========================================
 
-Brief: Control the style of headings.  This can be particularised for
-each level of heading (e.g.  Org has eight levels).
+[ Updated as part of 2.5.0-dev ]
+
+   Brief: Heading styles with optional list of values for levels 0-8.
 
    Symbol: ‘modus-themes-headings’ (‘alist’ type, multiple properties)
 
    This is an alist that accepts a ‘(key . list-of-values)’ combination.
-The key is either a number, representing the heading’s level or ‘t’,
-which pertains to the fallback style.  The list of values covers symbols
-that refer to properties, as described below.  Here is a sample,
-followed by a presentation of all available properties:
+The key is either a number, representing the heading’s level (0-8) or t,
+which pertains to the fallback style.
+
+   Level 0 is a special heading: it is used for what counts as a
+document title or equivalent, such as the ‘#+title’ construct we find in
+Org files.  Levels 1-8 are regular headings.
+
+   The list of values covers symbols that refer to properties, as
+described below.  Here is a complete sample, followed by a presentation
+of all available properties:
 
      (setq modus-themes-headings
            '((1 . (background overline variable-pitch 1.5))
@@ -6577,80 +6584,80 @@ Node: Diffs68718
 Node: Org mode blocks70369
 Node: Org agenda72759
 Node: Heading styles81575
-Node: UI typeface86342
-Node: Advanced customization87241
-Node: More accurate colors in terminal emulators88938
-Node: Range of color with terminal emulators90179
-Node: Visualize the active Modus theme's palette92884
-Node: Per-theme customization settings93880
-Node: Case-by-case face specs using the themes' palette95236
-Node: Face specs at scale using the themes' palette99784
-Node: Remap face with local value104585
-Node: Cycle through arbitrary colors107010
-Node: Override colors113438
-Node: Override color saturation118676
-Node: Override colors through blending124357
-Node: Font configurations for Org and others127214
-Ref: Font configurations for Org and others-Footnote-1130147
-Node: Configure bold and italic faces130334
-Node: Custom Org todo keyword and priority faces134482
-Node: Custom Org emphasis faces138155
-Node: Update Org block delimiter fontification142956
-Node: Measure color contrast144873
-Node: Load theme depending on time of day147596
-Node: Backdrop for pdf-tools148589
-Node: Decrease mode line height151441
-Node: Toggle themes without reloading them155563
-Node: A theme-agnostic hook for theme loading156842
-Node: Diffs with only the foreground159244
-Node: Ediff without diff color-coding162358
-Node: Near-monochrome syntax highlighting164497
-Node: Custom hl-todo colors173494
-Node: Face coverage174978
-Node: Supported packages175430
-Node: Indirectly covered packages182109
-Node: Notes on individual packages183181
-Node: Note on calendarel weekday and weekend colors184289
-Node: Note on git-gutter in Doom Emacs185437
-Node: Note on php-mode multiline comments187465
-Node: Note on underlines in compilation buffers188157
-Node: Note on inline Latex in Org buffers188994
-Node: Note on dimmerel189604
-Node: Note on display-fill-column-indicator-mode191089
-Node: Note on highlight-parenthesesel192487
-Node: Note on mmm-modeel background colors198476
-Node: Note for prism200791
-Node: Note for god-mode203947
-Node: Note on company-mode overlay pop-up205551
-Ref: Note on company-mode overlay pop-up-Footnote-1206241
-Ref: Note on company-mode overlay pop-up-Footnote-2206308
-Node: Note on ERC escaped color sequences206363
-Ref: Note on ERC escaped color sequences-Footnote-1207791
-Node: Note on powerline or spaceline207901
-Node: Note on SHR colors208315
-Node: Note on SHR fonts208739
-Node: Note on Ement colors and fonts209372
-Node: Note on Helm grep210871
-Node: Note on pdf-tools link hints212341
-Node: Note on the Notmuch logo214788
-Node: Frequently Asked Questions215286
-Node: Is the contrast ratio about adjacent colors?215917
-Node: What does it mean to avoid exaggerations?217424
-Node: Why are colors mostly variants of blue magenta cyan?219253
-Node: What is the best setup for legibility?223559
-Node: Are these color schemes?226204
-Node: Port the Modus themes to other platforms?229924
-Node: Contributing232705
-Node: Sources of the themes233102
-Node: Issues you can help with233801
-Node: Patches require copyright assignment to the FSF235373
-Node: Acknowledgements237593
-Node: Other notes about the project240984
-Node: GNU Free Documentation License243982
-Node: Indices269359
-Node: Function index269538
-Node: Variable index271341
-Node: Concept index273628
+Node: UI typeface86524
+Node: Advanced customization87423
+Node: More accurate colors in terminal emulators89120
+Node: Range of color with terminal emulators90361
+Node: Visualize the active Modus theme's palette93066
+Node: Per-theme customization settings94062
+Node: Case-by-case face specs using the themes' palette95418
+Node: Face specs at scale using the themes' palette99966
+Node: Remap face with local value104767
+Node: Cycle through arbitrary colors107192
+Node: Override colors113620
+Node: Override color saturation118858
+Node: Override colors through blending124539
+Node: Font configurations for Org and others127396
+Ref: Font configurations for Org and others-Footnote-1130329
+Node: Configure bold and italic faces130516
+Node: Custom Org todo keyword and priority faces134664
+Node: Custom Org emphasis faces138337
+Node: Update Org block delimiter fontification143138
+Node: Measure color contrast145055
+Node: Load theme depending on time of day147778
+Node: Backdrop for pdf-tools148771
+Node: Decrease mode line height151623
+Node: Toggle themes without reloading them155745
+Node: A theme-agnostic hook for theme loading157024
+Node: Diffs with only the foreground159426
+Node: Ediff without diff color-coding162540
+Node: Near-monochrome syntax highlighting164679
+Node: Custom hl-todo colors173676
+Node: Face coverage175160
+Node: Supported packages175612
+Node: Indirectly covered packages182291
+Node: Notes on individual packages183363
+Node: Note on calendarel weekday and weekend colors184471
+Node: Note on git-gutter in Doom Emacs185619
+Node: Note on php-mode multiline comments187647
+Node: Note on underlines in compilation buffers188339
+Node: Note on inline Latex in Org buffers189176
+Node: Note on dimmerel189786
+Node: Note on display-fill-column-indicator-mode191271
+Node: Note on highlight-parenthesesel192669
+Node: Note on mmm-modeel background colors198658
+Node: Note for prism200973
+Node: Note for god-mode204129
+Node: Note on company-mode overlay pop-up205733
+Ref: Note on company-mode overlay pop-up-Footnote-1206423
+Ref: Note on company-mode overlay pop-up-Footnote-2206490
+Node: Note on ERC escaped color sequences206545
+Ref: Note on ERC escaped color sequences-Footnote-1207973
+Node: Note on powerline or spaceline208083
+Node: Note on SHR colors208497
+Node: Note on SHR fonts208921
+Node: Note on Ement colors and fonts209554
+Node: Note on Helm grep211053
+Node: Note on pdf-tools link hints212523
+Node: Note on the Notmuch logo214970
+Node: Frequently Asked Questions215468
+Node: Is the contrast ratio about adjacent colors?216099
+Node: What does it mean to avoid exaggerations?217606
+Node: Why are colors mostly variants of blue magenta cyan?219435
+Node: What is the best setup for legibility?223741
+Node: Are these color schemes?226386
+Node: Port the Modus themes to other platforms?230106
+Node: Contributing232887
+Node: Sources of the themes233284
+Node: Issues you can help with233983
+Node: Patches require copyright assignment to the FSF235555
+Node: Acknowledgements237775
+Node: Other notes about the project241166
+Node: GNU Free Documentation License244164
+Node: Indices269541
+Node: Function index269720
+Node: Variable index271523
+Node: Concept index273810
 
 End Tag Table
 
