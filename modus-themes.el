@@ -4267,7 +4267,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                        bg-special-faint-calm))))
 ;;;;; search
     `(modus-themes-search-success ((,class :inherit modus-themes-intense-yellow)))
-    `(modus-themes-search-success-lazy ((,class :inherit modus-themes-special-cold)))
+    `(modus-themes-search-success-lazy ((,class :inherit modus-themes-subtle-cyan)))
     `(modus-themes-search-success-modeline ((,class :foreground ,@(modus-themes--deuteran
                                                                    blue-active
                                                                    green-active))))
