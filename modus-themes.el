@@ -4266,12 +4266,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
       ((,class ,@(modus-themes--markup magenta-alt magenta-intense bg-alt
                                        bg-special-faint-calm))))
 ;;;;; search
-    `(modus-themes-search-success ((,class :inherit ,@(modus-themes--deuteran
-                                                       'modus-themes-intense-blue
-                                                       'modus-themes-intense-green))))
-    `(modus-themes-search-success-lazy ((,class :inherit ,@(modus-themes--deuteran
-                                                            'modus-themes-special-mild
-                                                            'modus-themes-refine-cyan))))
+    `(modus-themes-search-success ((,class :inherit modus-themes-intense-yellow)))
+    `(modus-themes-search-success-lazy ((,class :inherit modus-themes-special-cold)))
     `(modus-themes-search-success-modeline ((,class :foreground ,@(modus-themes--deuteran
                                                                    blue-active
                                                                    green-active))))
