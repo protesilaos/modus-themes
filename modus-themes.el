@@ -1468,7 +1468,7 @@ For form, see `modus-themes-operandi-colors'."
   :type '(alist :key-type symbol :value-type color)
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
-  :link '(info-link "(modus-themes) Override colors (DIY)"))
+  :link '(info-link "(modus-themes) Override colors"))
 
 (defcustom modus-themes-vivendi-color-overrides nil
   "Override colors in the Modus Vivendi palette.
@@ -1480,7 +1480,7 @@ For form, see `modus-themes-vivendi-colors'."
   :type '(alist :key-type symbol :value-type color)
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
-  :link '(info-link "(modus-themes) Override colors (DIY)"))
+  :link '(info-link "(modus-themes) Override colors"))
 
 ;; The byte compiler complains when a defcustom isn't a top level form
 (let* ((names (mapcar (lambda (pair)
