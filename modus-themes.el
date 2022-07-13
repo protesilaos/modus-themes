@@ -6159,8 +6159,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(makefile-makepp-perl ((,class :background ,cyan-nuanced-bg)))
     `(makefile-space ((,class :background ,magenta-nuanced-bg)))
 ;;;;; man
-    `(Man-overstrike ((,class :inherit bold :foreground ,fg-special-calm)))
+    `(Man-overstrike ((,class :inherit bold :foreground ,magenta-alt)))
     `(Man-reverse ((,class :inherit modus-themes-subtle-magenta)))
+    `(Man-underline ((,class :foreground ,cyan-alt-other :underline t)))
 ;;;;; marginalia
     `(marginalia-archive ((,class :foreground ,cyan-alt-other)))
     `(marginalia-char ((,class :foreground ,magenta)))
@@ -7459,8 +7460,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(writegood-weasels-face ((,class :inherit modus-themes-lang-error)))
 ;;;;; woman
     `(woman-addition ((,class :foreground ,magenta-alt-other)))
-    `(woman-bold ((,class :inherit bold :foreground ,fg-special-calm)))
-    `(woman-unknown ((,class :foreground ,cyan)))
+    `(woman-bold ((,class :inherit bold :foreground ,magenta-alt)))
+    `(woman-italic ((,class :inherit italic :foreground ,cyan)))
+    `(woman-unknown ((,class :foreground ,green-alt)))
 ;;;;; xah-elisp-mode
     `(xah-elisp-at-symbol ((,class :inherit font-lock-warning-face)))
     `(xah-elisp-cap-variable ((,class :inherit font-lock-preprocessor-face)))
