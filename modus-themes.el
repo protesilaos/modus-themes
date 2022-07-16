@@ -6488,14 +6488,12 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-agenda-column-dateline ((,class :background ,bg-alt)))
     `(org-agenda-current-time ((,class :foreground ,blue-alt-other-faint)))
     `(org-agenda-date ((,class ,@(modus-themes--agenda-date cyan fg-main))))
-    `(org-agenda-date-today ((,class ,@(modus-themes--agenda-date cyan fg-main
-                                                                  nil nil
-                                                                  bg-special-cold t t))))
-    `(org-agenda-date-weekend ((,class ,@(modus-themes--agenda-date cyan-alt-other-faint fg-alt
-                                                                    cyan fg-main))))
-    `(org-agenda-date-weekend-today ((,class ,@(modus-themes--agenda-date cyan-alt-other-faint fg-alt
-                                                                          cyan fg-main
-                                                                          bg-special-cold t t))))
+    `(org-agenda-date-today
+      ((,class ,@(modus-themes--agenda-date cyan fg-main nil nil bg-special-cold t t))))
+    `(org-agenda-date-weekend
+      ((,class ,@(modus-themes--agenda-date cyan-alt-other-faint fg-alt cyan fg-main))))
+    `(org-agenda-date-weekend-today
+      ((,class ,@(modus-themes--agenda-date cyan-alt-other-faint fg-alt cyan fg-main bg-special-cold t t))))
     `(org-agenda-diary ((,class :inherit org-agenda-calendar-sexp)))
     `(org-agenda-dimmed-todo-face ((,class :inherit shadow)))
     `(org-agenda-done ((,class :inherit modus-themes-grue-nuanced)))
