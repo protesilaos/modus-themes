@@ -2856,7 +2856,6 @@ both themes and expands to some more assosiations in the palette:
               (bg-inactive . "#f6ece5")
               (bg-region . "#c6bab1")
               (bg-header . "#ede3e0")
-              (bg-tab-bar . "#dcd3d3")
               (bg-tab-active . "#fdf6eb")
               (bg-tab-inactive . "#c8bab8"))
             modus-themes-vivendi-color-overrides
@@ -2868,7 +2867,6 @@ both themes and expands to some more assosiations in the palette:
               (bg-inactive . "#1a1e39")
               (bg-region . "#393a53")
               (bg-header . "#202037")
-              (bg-tab-bar . "#262b41")
               (bg-tab-active . "#120f18")
               (bg-tab-inactive . "#3a3a5a")))
     (setq modus-themes-operandi-color-overrides nil
@@ -2887,7 +2885,6 @@ look like this:
   (bg-inactive . "#e6e6e6")
   (bg-region . "#b5b5b5")
   (bg-header . "#e4e4e4")
-  (bg-tab-bar . "#d1d1d4")
   (bg-tab-active . "#f5f5f5")
   (bg-tab-inactive . "#c0c0c0"))
 #+end_src
