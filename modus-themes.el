@@ -955,7 +955,7 @@ The actual styling of the face is done by `modus-themes-faces'."
   :group 'modus-themes-faces)
 
 (defface modus-themes-special-cold nil
-  "Combines the 'special cold' background and foreground values.
+  "Combines the special cold background and foreground values.
 This is intended for cases when a neutral gray background is not
 suitable and where a combination of more saturated colors would
 not be appropriate.
@@ -964,7 +964,7 @@ The actual styling of the face is done by `modus-themes-faces'."
   :group 'modus-themes-faces)
 
 (defface modus-themes-special-mild nil
-  "Combines the 'special mild' background and foreground values.
+  "Combines the special mild background and foreground values.
 This is intended for cases when a neutral gray background is not
 suitable and where a combination of more saturated colors would
 not be appropriate.
@@ -973,7 +973,7 @@ The actual styling of the face is done by `modus-themes-faces'."
   :group 'modus-themes-faces)
 
 (defface modus-themes-special-warm nil
-  "Combines the 'special warm' background and foreground values.
+  "Combines the special warm background and foreground values.
 This is intended for cases when a neutral gray background is not
 suitable and where a combination of more saturated colors would
 not be appropriate.
@@ -982,7 +982,7 @@ The actual styling of the face is done by `modus-themes-faces'."
   :group 'modus-themes-faces)
 
 (defface modus-themes-special-calm nil
-  "Combines the 'special calm' background and foreground values.
+  "Combines the special calm background and foreground values.
 This is intended for cases when a neutral gray background is not
 suitable and where a combination of more saturated colors would
 not be appropriate.
@@ -991,7 +991,7 @@ The actual styling of the face is done by `modus-themes-faces'."
   :group 'modus-themes-faces)
 
 (defface modus-themes-diff-added nil
-  "Combines green colors for the 'added' state in diffs.
+  "Combines green colors for the added state in diffs.
 The applied colors are contingent on the value assigned to
 `modus-themes-diffs'.
 
@@ -999,7 +999,7 @@ The actual styling of the face is done by `modus-themes-faces'."
   :group 'modus-themes-faces)
 
 (defface modus-themes-diff-changed nil
-  "Combines yellow colors for the 'changed' state in diffs.
+  "Combines yellow colors for the changed state in diffs.
 The applied colors are contingent on the value assigned to
 `modus-themes-diffs'.
 
@@ -1007,7 +1007,7 @@ The actual styling of the face is done by `modus-themes-faces'."
   :group 'modus-themes-faces)
 
 (defface modus-themes-diff-removed nil
-  "Combines red colors for the 'removed' state in diffs.
+  "Combines red colors for the removed state in diffs.
 The applied colors are contingent on the value assigned to
 `modus-themes-diffs'.
 
@@ -1015,7 +1015,7 @@ The actual styling of the face is done by `modus-themes-faces'."
   :group 'modus-themes-faces)
 
 (defface modus-themes-diff-refine-added nil
-  "Combines green colors for word-wise 'added' state in diffs.
+  "Combines green colors for word-wise added state in diffs.
 The applied colors are contingent on the value assigned to
 `modus-themes-diffs'.
 
@@ -1023,7 +1023,7 @@ The actual styling of the face is done by `modus-themes-faces'."
   :group 'modus-themes-faces)
 
 (defface modus-themes-diff-refine-changed nil
-  "Combines yellow colors for word-wise 'changed' state in diffs.
+  "Combines yellow colors for word-wise changed state in diffs.
 The applied colors are contingent on the value assigned to
 `modus-themes-diffs'.
 
@@ -1031,7 +1031,7 @@ The actual styling of the face is done by `modus-themes-faces'."
   :group 'modus-themes-faces)
 
 (defface modus-themes-diff-refine-removed nil
-  "Combines red colors for word-wise 'removed' state in diffs.
+  "Combines red colors for word-wise removed state in diffs.
 The applied colors are contingent on the value assigned to
 `modus-themes-diffs'.
 
@@ -1039,7 +1039,7 @@ The actual styling of the face is done by `modus-themes-faces'."
   :group 'modus-themes-faces)
 
 (defface modus-themes-diff-focus-added nil
-  "Combines green colors for the focused 'added' state in diffs.
+  "Combines green colors for the focused added state in diffs.
 The applied colors are contingent on the value assigned to
 `modus-themes-diffs'.
 
@@ -1047,7 +1047,7 @@ The actual styling of the face is done by `modus-themes-faces'."
   :group 'modus-themes-faces)
 
 (defface modus-themes-diff-focus-changed nil
-  "Combines yellow colors for the focused 'changed' state in.
+  "Combines yellow colors for the focused changed state in.
 The applied colors are contingent on the value assigned to
 `modus-themes-diffs'.
 
@@ -1055,7 +1055,7 @@ The actual styling of the face is done by `modus-themes-faces'."
   :group 'modus-themes-faces)
 
 (defface modus-themes-diff-focus-removed nil
-  "Combines red colors for the focused 'removed' state in diffs.
+  "Combines red colors for the focused removed state in diffs.
 The applied colors are contingent on the value assigned to
 `modus-themes-diffs'.
 
@@ -1841,6 +1841,7 @@ value are passed as a symbol.  Those are:
   yellow, green, blue, in tinted and shaded versions.  They cover
   the full set of information provided by the `org-habit'
   consistency graph.
+
 - `simplified' is like the default except that it removes the
   dichotomy between current and future variants by applying
   uniform color-coded values.  It applies a total of four colors:
@@ -1849,15 +1850,17 @@ value are passed as a symbol.  Those are:
   the default.  The intent is to shift focus towards the
   distinction between the four states of a habit task, rather
   than each state's present/future outlook.
+
 - `traffic-light' further reduces the available colors to red,
   yellow, and green.  As in `simplified', present and future
-  variants appear uniformly, but differently from it, the 'clear'
+  variants appear uniformly, but differently from it, the CLEAR
   state is rendered in a green hue, instead of the original blue.
   This is meant to capture the use-case where a habit task being
-  \"too early\" is less important than it being \"too late\".
-  The difference between ready and clear states is attenuated by
+  too early is less important than it being too late.  The
+  difference between READY and CLEAR states is attenuated by
   painting both of them using shades of green.  This option thus
   highlights the alert and overdue states.
+
 - When `modus-themes-deuteranopia' is non-nil the exact style of
   the habit graph adapts to the needs of users with red-green
   color deficiency by substituting every instance of green with
@@ -2074,7 +2077,7 @@ active mode line.  The inactive mode lines remain two-dimensional
 and are toned down a bit, relative to the default style.
 
 The `moody' property optimizes the mode line for use with the
-library of the same name (hereinafter referred to as 'Moody').
+library of the same name (hereinafter referred to as Moody).
 In practice, it removes the box effect and replaces it with
 underline and overline properties.  It also tones down the
 inactive mode lines.  Despite its intended purpose, this option
@@ -3127,10 +3130,10 @@ theme's fallback text color."
 
 (defun modus-themes--paren (normalbg intensebg)
   "Conditional use of intense colors for matching parentheses.
-NORMALBG should be the special palette color 'bg-paren-match' or
+NORMALBG should be the special palette color bg-paren-match or
 something similar.  INTENSEBG must be easier to discern next to
 other backgrounds, such as the special palette color
-'bg-paren-match-intense'."
+bg-paren-match-intense."
   (let ((properties (modus-themes--list-or-warn 'modus-themes-paren-match)))
     (list :inherit
           (if (memq 'bold properties)
@@ -3396,8 +3399,8 @@ clearly distinguishes past, present, future tasks."
 (defun modus-themes--agenda-habit (default traffic simple &optional default-d traffic-d simple-d)
   "Specify background values for `modus-themes-org-agenda' habits.
 DEFAULT is the original foregrounc color.  TRAFFIC is to be used
-when the 'traffic-light' style is applied, while SIMPLE
-corresponds to the 'simplified style'.
+when the traffic-light style is applied, while SIMPLE corresponds
+to the simplified style.
 
 Optional DEFAULT-D, TRAFFIC-D, SIMPLE-D are alternatives to the
 main colors, meant for dopia when `modus-themes-deuteranopia' is
