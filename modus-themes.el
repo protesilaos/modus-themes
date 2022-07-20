@@ -1047,7 +1047,7 @@ The actual styling of the face is done by `modus-themes-faces'."
   :group 'modus-themes-faces)
 
 (defface modus-themes-diff-focus-changed nil
-  "Combines yellow colors for the focused changed state in.
+  "Combines yellow colors for the focused changed state in diffs.
 The applied colors are contingent on the value assigned to
 `modus-themes-diffs'.
 
