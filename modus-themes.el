@@ -3214,7 +3214,7 @@ an alternative to the default value."
            ((and (memq 'alt-syntax properties)
                  (memq 'yellow-comments properties)
                  (not (memq 'green-strings properties)))
-            (or faint-yellow yellow))
+            yellow)
            ((memq 'yellow-comments properties)
             yellow)
            ((memq 'faint properties)
