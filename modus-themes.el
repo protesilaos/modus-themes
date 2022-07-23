@@ -4388,7 +4388,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(mm-uu-extract ((,class :background ,bg-dim :foreground ,fg-special-mild)))
     `(next-error ((,class :inherit modus-themes-subtle-red :extend t)))
     `(pgtk-im-0 ((,class :inherit modus-themes-refine-cyan)))
-    `(rectangle-preview ((,class :background ,bg-special-faint-warm :foreground ,fg-special-warm)))
+    `(rectangle-preview ((,class :inherit modus-themes-special-warm)))
     `(region ((,class ,@(modus-themes--region bg-region fg-main
                                               bg-hl-alt-intense bg-region-accent
                                               bg-region-accent-subtle))))
