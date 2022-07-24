@@ -196,6 +196,9 @@ sudo apt install elpa-modus-themes
 
 They are now ready to be used: [[#h:3f3c3728-1b34-437d-9d0c-b110f5b161a9][Enable and load]].
 
+NOTE that Debian's package is severely out-of-date as of this writing
+2022-07-24 09:57 +0300.
+
 *** GNU Guix
 :properties:
 :custom_id: h:a4ca52cd-869f-46a5-9e16-4d9665f5b88e
