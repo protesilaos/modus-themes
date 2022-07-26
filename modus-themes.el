@@ -6739,12 +6739,12 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(popup-summary-face ((,class :background ,bg-active :foreground ,fg-inactive)))
     `(popup-tip-face ((,class :inherit modus-themes-refine-yellow)))
 ;;;;; powerline
-    `(powerline-active0 ((,class :background ,blue-faint :foreground ,bg-main)))
-    `(powerline-active1 ((,class :background ,blue-nuanced-bg :foreground ,blue-nuanced-fg)))
-    `(powerline-active2 ((,class :background ,bg-active :foreground ,fg-active)))
-    `(powerline-inactive0 ((,class :background ,bg-special-cold :foreground ,fg-special-cold)))
-    `(powerline-inactive1 ((,class :background ,bg-dim :foreground ,fg-inactive)))
-    `(powerline-inactive2 ((,class :background ,bg-inactive :foreground ,fg-inactive)))
+    `(powerline-active0 ((,class :background ,fg-unfocused :foreground ,bg-main)))
+    `(powerline-active1 ((,class :inherit mode-line-active)))
+    `(powerline-active2 ((,class :inherit mode-line-inactive)))
+    `(powerline-inactive0 ((,class :background ,bg-active :foreground ,fg-alt)))
+    `(powerline-inactive1 ((,class :background ,bg-main :foreground ,fg-alt)))
+    `(powerline-inactive2 ((,class :inherit mode-line-inactive)))
 ;;;;; powerline-evil
     `(powerline-evil-base-face ((,class :background ,fg-main :foreground ,bg-main)))
     `(powerline-evil-emacs-face ((,class :inherit modus-themes-active-magenta)))
