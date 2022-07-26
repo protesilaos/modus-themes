@@ -5485,7 +5485,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                                blue-alt blue-alt-faint))))
     `(font-lock-warning-face ((,class :inherit modus-themes-bold
                                       ,@(modus-themes--syntax-foreground
-                                         yellow-active yellow-alt-faint))))
+                                         yellow yellow-alt-faint))))
 ;;;;; forge
     `(forge-post-author ((,class :inherit bold :foreground ,fg-main)))
     `(forge-post-date ((,class :foreground ,fg-special-cold)))
