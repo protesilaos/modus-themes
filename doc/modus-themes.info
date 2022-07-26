@@ -135,6 +135,7 @@ Advanced customization
 * Override colors::
 * Override color saturation::
 * Override colors through blending::
+* Override colors completely::
 * Font configurations for Org and others::
 * Configure bold and italic faces::
 * Custom Org todo keyword and priority faces::
@@ -364,6 +365,9 @@ The themes are part of Debian 11 Bullseye.  Get them with:
      sudo apt install elpa-modus-themes
 
    They are now ready to be used: *note Enable and load::.
+
+   NOTE that Debian’s package is severely out-of-date as of this writing
+2022-07-24 09:57 +0300.
 
 
 File: modus-themes.info,  Node: GNU Guix,  Prev: Debian 11 Bullseye,  Up: Install on GNU/Linux
@@ -1347,9 +1351,9 @@ Brief: Set the overall style of completion framework interfaces.
    Symbol: ‘modus-themes-completions’ (‘alist’ type properties)
 
    This affects Company, Corfu, Flx, Helm, Icomplete/Fido, Ido, Ivy,
-Mct, Orderless, Selectrum, Vertico.  The value is an alist that takes
-the form of a ‘(key . properties)’ combination.  Here is a sample,
-followed by a description of the particularities:
+Orderless, Selectrum, Vertico.  The value is an alist that takes the
+form of a ‘(key . properties)’ combination.  Here is a sample, followed
+by a description of the particularities:
 
      (setq modus-themes-completions
            '((matches . (extrabold background intense))
@@ -2277,6 +2281,7 @@ such, they are labelled as “do-it-yourself” or “DIY”.
 * Override colors::
 * Override color saturation::
 * Override colors through blending::
+* Override colors completely::
 * Font configurations for Org and others::
 * Configure bold and italic faces::
 * Custom Org todo keyword and priority faces::
@@ -2979,6 +2984,9 @@ design of the themes (the WCAG AAA legibility standard).  Alternatively,
 this can also be done programmatically (*note Override color
 saturation::).
 
+   The above are expanded into a fully fledged derivative elsewhere in
+this document (*note Override colors completely::).
+
    For manual interventions it is advised to inspect the source code of
 ‘modus-themes-operandi-colors’ and ‘modus-themes-vivendi-colors’ for the
 inline commentary: it explains what the intended use of each palette
@@ -3105,7 +3113,7 @@ inspiration from the ‘modus-themes-toggle’ we already provide:
          ('modus-vivendi (modus-themes-load-vivendi))))
 
 
-File: modus-themes.info,  Node: Override colors through blending,  Next: Font configurations for Org and others,  Prev: Override color saturation,  Up: Advanced customization
+File: modus-themes.info,  Node: Override colors through blending,  Next: Override colors completely,  Prev: Override color saturation,  Up: Advanced customization
 
 5.11 Override colors through blending
 =====================================
@@ -3168,9 +3176,288 @@ help of the ‘my-modus-themes-tint-palette’ function.
      (modus-themes-tinted-mode 1)
 
 
-File: modus-themes.info,  Node: Font configurations for Org and others,  Next: Configure bold and italic faces,  Prev: Override colors through blending,  Up: Advanced customization
+File: modus-themes.info,  Node: Override colors completely,  Next: Font configurations for Org and others,  Prev: Override colors through blending,  Up: Advanced customization
 
-5.12 Font configurations for Org and others
+5.12 Override colors completely
+===============================
+
+Based on the ideas we have already covered in these sections, the
+following code block provides a complete, bespoke pair of color palettes
+which override the defaults.  They are implemented as a minor mode, as
+explained before (*note Override colors::).  We call them “Summertime”
+for convenience.
+
+     ;; Read the relevant blog post:
+     ;; <https://protesilaos.com/codelog/2022-07-26-modus-themes-color-override-demo/>
+     (define-minor-mode modus-themes-summertime
+       "Refashion the Modus themes by overriding their colors.
+
+     This is a complete technology demonstration to show how to
+     manually override the colors of the Modus themes.  I have taken
+     good care of those overrides to make them work as a fully fledged
+     color scheme that is compatible with all user options of the
+     Modus themes.
+
+     These overrides are usable by those who (i) like something more
+     fancy than the comparatively austere looks of the Modus themes,
+     and (ii) can cope with a lower contrast ratio.
+
+     The overrides are set up as a minor mode, so that the user can
+     activate the effect on demand.  Those who want to load the
+     overrides at all times can either add them directly to their
+     configuration or enable `modus-themes-summertime' BEFORE loading
+     either of the Modus themes (if the overrides are evaluated after
+     the theme, the theme must be reloaded).
+
+     Remember that all changes to theme-related variables require a
+     reload of the theme to take effect (the Modus themes have lots of
+     user options, apart from those overrides).
+
+     The `modus-themes-summertime' IS NOT an official extension to the
+     Modus themes and DOES NOT comply with its lofty accessibility
+     standards.  It is included in the official manual as guidance for
+     those who want to make use of the color overriding facility we
+     provide."
+       :init-value nil
+       :global t
+       (if modus-themes-summertime
+           (setq modus-themes-operandi-color-overrides
+                 '((bg-main . "#fff0f2")
+                   (bg-dim . "#fbe6ef")
+                   (bg-alt . "#f5dae6")
+                   (bg-hl-line . "#fad8e3")
+                   (bg-active . "#efcadf")
+                   (bg-inactive . "#f3ddef")
+                   (bg-active-accent . "#ffbbef")
+                   (bg-region . "#dfc5d1")
+                   (bg-region-accent . "#efbfef")
+                   (bg-region-accent-subtle . "#ffd6ef")
+                   (bg-header . "#edd3e0")
+                   (bg-tab-active . "#ffeff2")
+                   (bg-tab-inactive . "#f8d3ef")
+                   (bg-tab-inactive-accent . "#ffd9f5")
+                   (bg-tab-inactive-alt . "#e5c0d5")
+                   (bg-tab-inactive-alt-accent . "#f3cce0")
+                   (fg-main . "#543f78")
+                   (fg-dim . "#5f476f")
+                   (fg-alt . "#7f6f99")
+                   (fg-unfocused . "#8f6f9f")
+                   (fg-active . "#563068")
+                   (fg-inactive . "#8a5698")
+                   (fg-docstring . "#5f5fa7")
+                   (fg-comment-yellow . "#a9534f")
+                   (fg-escape-char-construct . "#8b207f")
+                   (fg-escape-char-backslash . "#a06d00")
+                   (bg-special-cold . "#d3e0f4")
+                   (bg-special-faint-cold . "#e0efff")
+                   (bg-special-mild . "#c4ede0")
+                   (bg-special-faint-mild . "#e0f0ea")
+                   (bg-special-warm . "#efd0c4")
+                   (bg-special-faint-warm . "#ffe4da")
+                   (bg-special-calm . "#f0d3ea")
+                   (bg-special-faint-calm . "#fadff9")
+                   (fg-special-cold . "#405fb8")
+                   (fg-special-mild . "#407f74")
+                   (fg-special-warm . "#9d6f4f")
+                   (fg-special-calm . "#af509f")
+                   (bg-completion . "#ffc5e5")
+                   (bg-completion-subtle . "#f7cfef")
+                   (red . "#ed2f44")
+                   (red-alt . "#e0403d")
+                   (red-alt-other . "#e04059")
+                   (red-faint . "#ed4f44")
+                   (red-alt-faint . "#e0603d")
+                   (red-alt-other-faint . "#e06059")
+                   (green . "#217a3c")
+                   (green-alt . "#417a1c")
+                   (green-alt-other . "#006f3c")
+                   (green-faint . "#318a4c")
+                   (green-alt-faint . "#518a2c")
+                   (green-alt-other-faint . "#20885c")
+                   (yellow . "#b06202")
+                   (yellow-alt . "#a95642")
+                   (yellow-alt-other . "#a06f42")
+                   (yellow-faint . "#b07232")
+                   (yellow-alt-faint . "#a96642")
+                   (yellow-alt-other-faint . "#a08042")
+                   (blue . "#275ccf")
+                   (blue-alt . "#475cc0")
+                   (blue-alt-other . "#3340ef")
+                   (blue-faint . "#476ce0")
+                   (blue-alt-faint . "#575ccf")
+                   (blue-alt-other-faint . "#3f60d7")
+                   (magenta . "#bf317f")
+                   (magenta-alt . "#d033c0")
+                   (magenta-alt-other . "#844fe4")
+                   (magenta-faint . "#bf517f")
+                   (magenta-alt-faint . "#d053c0")
+                   (magenta-alt-other-faint . "#846fe4")
+                   (cyan . "#007a9f")
+                   (cyan-alt . "#3f709f")
+                   (cyan-alt-other . "#107f7f")
+                   (cyan-faint . "#108aaf")
+                   (cyan-alt-faint . "#3f80af")
+                   (cyan-alt-other-faint . "#3088af")
+                   (red-active . "#cd2f44")
+                   (green-active . "#116a6c")
+                   (yellow-active . "#993602")
+                   (blue-active . "#475ccf")
+                   (magenta-active . "#7f2ccf")
+                   (cyan-active . "#007a8f")
+                   (red-nuanced-bg . "#ffdbd0")
+                   (red-nuanced-fg . "#ed6f74")
+                   (green-nuanced-bg . "#dcf0dd")
+                   (green-nuanced-fg . "#3f9a4c")
+                   (yellow-nuanced-bg . "#fff3aa")
+                   (yellow-nuanced-fg . "#b47232")
+                   (blue-nuanced-bg . "#e3e3ff")
+                   (blue-nuanced-fg . "#201f6f")
+                   (magenta-nuanced-bg . "#fdd0ff")
+                   (magenta-nuanced-fg . "#c0527f")
+                   (cyan-nuanced-bg . "#dbefff")
+                   (cyan-nuanced-fg . "#0f3f60")
+                   (bg-diff-heading . "#b7cfe0")
+                   (fg-diff-heading . "#041645")
+                   (bg-diff-added . "#d6f0d6")
+                   (fg-diff-added . "#004520")
+                   (bg-diff-changed . "#fcefcf")
+                   (fg-diff-changed . "#524200")
+                   (bg-diff-removed . "#ffe0ef")
+                   (fg-diff-removed . "#891626")
+                   (bg-diff-refine-added . "#84cfa4")
+                   (fg-diff-refine-added . "#002a00")
+                   (bg-diff-refine-changed . "#cccf8f")
+                   (fg-diff-refine-changed . "#302010")
+                   (bg-diff-refine-removed . "#da92b0")
+                   (fg-diff-refine-removed . "#500010")
+                   (bg-diff-focus-added . "#a6e5c6")
+                   (fg-diff-focus-added . "#002c00")
+                   (bg-diff-focus-changed . "#ecdfbf")
+                   (fg-diff-focus-changed . "#392900")
+                   (bg-diff-focus-removed . "#efbbcf")
+                   (fg-diff-focus-removed . "#5a0010"))
+                 modus-themes-vivendi-color-overrides
+                 '((bg-main . "#25152a")
+                   (bg-dim . "#2a1930")
+                   (bg-alt . "#382443")
+                   (bg-hl-line . "#332650")
+                   (bg-active . "#463358")
+                   (bg-inactive . "#2d1f3a")
+                   (bg-active-accent . "#50308f")
+                   (bg-region . "#5d4a67")
+                   (bg-region-accent . "#60509f")
+                   (bg-region-accent-subtle . "#3f285f")
+                   (bg-header . "#3a2543")
+                   (bg-tab-active . "#26162f")
+                   (bg-tab-inactive . "#362647")
+                   (bg-tab-inactive-accent . "#36265a")
+                   (bg-tab-inactive-alt . "#3e2f5a")
+                   (bg-tab-inactive-alt-accent . "#3e2f6f")
+                   (fg-main . "#debfe0")
+                   (fg-dim . "#d0b0da")
+                   (fg-alt . "#ae85af")
+                   (fg-unfocused . "#8e7f9f")
+                   (fg-active . "#cfbfef")
+                   (fg-inactive . "#b0a0c0")
+                   (fg-docstring . "#c8d9f7")
+                   (fg-comment-yellow . "#cf9a70")
+                   (fg-escape-char-construct . "#ff75aa")
+                   (fg-escape-char-backslash . "#dbab40")
+                   (bg-special-cold . "#2a3f58")
+                   (bg-special-faint-cold . "#1e283f")
+                   (bg-special-mild . "#0f3f31")
+                   (bg-special-faint-mild . "#0f281f")
+                   (bg-special-warm . "#44331f")
+                   (bg-special-faint-warm . "#372213")
+                   (bg-special-calm . "#4a314f")
+                   (bg-special-faint-calm . "#3a223f")
+                   (fg-special-cold . "#c0b0ff")
+                   (fg-special-mild . "#bfe0cf")
+                   (fg-special-warm . "#edc0a6")
+                   (fg-special-calm . "#ff9fdf")
+                   (bg-completion . "#502d70")
+                   (bg-completion-subtle . "#451d65")
+                   (red . "#ff5f6f")
+                   (red-alt . "#ff8f6d")
+                   (red-alt-other . "#ff6f9d")
+                   (red-faint . "#ffa0a0")
+                   (red-alt-faint . "#f5aa80")
+                   (red-alt-other-faint . "#ff9fbf")
+                   (green . "#51ca5c")
+                   (green-alt . "#71ca3c")
+                   (green-alt-other . "#51ca9c")
+                   (green-faint . "#78bf78")
+                   (green-alt-faint . "#99b56f")
+                   (green-alt-other-faint . "#88bf99")
+                   (yellow . "#f0b262")
+                   (yellow-alt . "#f0e242")
+                   (yellow-alt-other . "#d0a272")
+                   (yellow-faint . "#d2b580")
+                   (yellow-alt-faint . "#cabf77")
+                   (yellow-alt-other-faint . "#d0ba95")
+                   (blue . "#778cff")
+                   (blue-alt . "#8f90ff")
+                   (blue-alt-other . "#8380ff")
+                   (blue-faint . "#82b0ec")
+                   (blue-alt-faint . "#a0acef")
+                   (blue-alt-other-faint . "#80b2f0")
+                   (magenta . "#ff70cf")
+                   (magenta-alt . "#ff77f0")
+                   (magenta-alt-other . "#ca7fff")
+                   (magenta-faint . "#e0b2d6")
+                   (magenta-alt-faint . "#ef9fe4")
+                   (magenta-alt-other-faint . "#cfa6ff")
+                   (cyan . "#30cacf")
+                   (cyan-alt . "#60caff")
+                   (cyan-alt-other . "#40b79f")
+                   (cyan-faint . "#90c4ed")
+                   (cyan-alt-faint . "#a0bfdf")
+                   (cyan-alt-other-faint . "#a4d0bb")
+                   (red-active . "#ff6059")
+                   (green-active . "#64dc64")
+                   (yellow-active . "#ffac80")
+                   (blue-active . "#4fafff")
+                   (magenta-active . "#cf88ff")
+                   (cyan-active . "#50d3d0")
+                   (red-nuanced-bg . "#440a1f")
+                   (red-nuanced-fg . "#ffcccc")
+                   (green-nuanced-bg . "#002904")
+                   (green-nuanced-fg . "#b8e2b8")
+                   (yellow-nuanced-bg . "#422000")
+                   (yellow-nuanced-fg . "#dfdfb0")
+                   (blue-nuanced-bg . "#1f1f5f")
+                   (blue-nuanced-fg . "#bfd9ff")
+                   (magenta-nuanced-bg . "#431641")
+                   (magenta-nuanced-fg . "#e5cfef")
+                   (cyan-nuanced-bg . "#042f49")
+                   (cyan-nuanced-fg . "#a8e5e5")
+                   (bg-diff-heading . "#304466")
+                   (fg-diff-heading . "#dae7ff")
+                   (bg-diff-added . "#0a383a")
+                   (fg-diff-added . "#94ba94")
+                   (bg-diff-changed . "#2a2000")
+                   (fg-diff-changed . "#b0ba9f")
+                   (bg-diff-removed . "#50163f")
+                   (fg-diff-removed . "#c6adaa")
+                   (bg-diff-refine-added . "#006a46")
+                   (fg-diff-refine-added . "#e0f6e0")
+                   (bg-diff-refine-changed . "#585800")
+                   (fg-diff-refine-changed . "#ffffcc")
+                   (bg-diff-refine-removed . "#952838")
+                   (fg-diff-refine-removed . "#ffd9eb")
+                   (bg-diff-focus-added . "#1d4c3f")
+                   (fg-diff-focus-added . "#b4dfb4")
+                   (bg-diff-focus-changed . "#424200")
+                   (fg-diff-focus-changed . "#d0daaf")
+                   (bg-diff-focus-removed . "#6f0f39")
+                   (fg-diff-focus-removed . "#eebdba")))
+         (setq modus-themes-operandi-color-overrides nil
+               modus-themes-vivendi-color-overrides nil)))
+
+
+File: modus-themes.info,  Node: Font configurations for Org and others,  Next: Configure bold and italic faces,  Prev: Override colors completely,  Up: Advanced customization
+
+5.13 Font configurations for Org and others
 ===========================================
 
 The themes are designed to optionally cope well with mixed font
@@ -3240,7 +3527,7 @@ account for those finer increments.
 
 File: modus-themes.info,  Node: Configure bold and italic faces,  Next: Custom Org todo keyword and priority faces,  Prev: Font configurations for Org and others,  Up: Advanced customization
 
-5.13 Configure bold and italic faces
+5.14 Configure bold and italic faces
 ====================================
 
 The Modus themes do not hardcode a ‘:weight’ or ‘:slant’ attribute in
@@ -3328,7 +3615,7 @@ bulk).
 
 File: modus-themes.info,  Node: Custom Org todo keyword and priority faces,  Next: Custom Org emphasis faces,  Prev: Configure bold and italic faces,  Up: Advanced customization
 
-5.14 Custom Org todo keyword and priority faces
+5.15 Custom Org todo keyword and priority faces
 ===============================================
 
 Users of ‘org-mode’ have the option to configure various keywords and
@@ -3411,7 +3698,7 @@ specs using the themes' palette.
 
 File: modus-themes.info,  Node: Custom Org emphasis faces,  Next: Update Org block delimiter fontification,  Prev: Custom Org todo keyword and priority faces,  Up: Advanced customization
 
-5.15 Custom Org emphasis faces
+5.16 Custom Org emphasis faces
 ==============================
 
 Org provides the user option ‘org-emphasis-alist’ which assosiates a
@@ -3531,7 +3818,7 @@ invoke ‘M-x org-mode-restart’.
 
 File: modus-themes.info,  Node: Update Org block delimiter fontification,  Next: Measure color contrast,  Prev: Custom Org emphasis faces,  Up: Advanced customization
 
-5.16 Update Org block delimiter fontification
+5.17 Update Org block delimiter fontification
 =============================================
 
 As noted in the section about ‘modus-themes-org-blocks’, Org contains a
@@ -3571,7 +3858,7 @@ intervention can be circumvented by tweaking the function thus:
 
 File: modus-themes.info,  Node: Measure color contrast,  Next: Load theme depending on time of day,  Prev: Update Org block delimiter fontification,  Up: Advanced customization
 
-5.17 Measure color contrast
+5.18 Measure color contrast
 ===========================
 
 The themes provide the functions ‘modus-themes-wcag-formula’ and
@@ -3636,7 +3923,7 @@ of the themes’ colors: *note Override colors::.
 
 File: modus-themes.info,  Node: Load theme depending on time of day,  Next: Backdrop for pdf-tools,  Prev: Measure color contrast,  Up: Advanced customization
 
-5.18 Load theme depending on time of day
+5.19 Load theme depending on time of day
 ========================================
 
 While we do provide ‘modus-themes-toggle’ to manually switch between the
@@ -3662,7 +3949,7 @@ location using the built-in ‘solar.el’ and then configuring the
 
 File: modus-themes.info,  Node: Backdrop for pdf-tools,  Next: Decrease mode line height,  Prev: Load theme depending on time of day,  Up: Advanced customization
 
-5.19 Backdrop for pdf-tools
+5.20 Backdrop for pdf-tools
 ===========================
 
 Most PDF files use a white background for their page, making it
@@ -3729,7 +4016,7 @@ to dark mode when ‘modus-themes-toggle’ is called.
 
 File: modus-themes.info,  Node: Decrease mode line height,  Next: Toggle themes without reloading them,  Prev: Backdrop for pdf-tools,  Up: Advanced customization
 
-5.20 Decrease mode line height
+5.21 Decrease mode line height
 ==============================
 
 By default, the mode line of the Modus themes is set to 1 pixel width
@@ -3819,7 +4106,7 @@ needs to be specified as well:
 
 File: modus-themes.info,  Node: Toggle themes without reloading them,  Next: A theme-agnostic hook for theme loading,  Prev: Decrease mode line height,  Up: Advanced customization
 
-5.21 Toggle themes without reloading them
+5.22 Toggle themes without reloading them
 =========================================
 
 Users who have a stable setup and who only ever need to toggle between
@@ -3846,7 +4133,7 @@ their own command which calls ‘enable-theme’ instead of ‘load-theme’:
 
 File: modus-themes.info,  Node: A theme-agnostic hook for theme loading,  Next: Diffs with only the foreground,  Prev: Toggle themes without reloading them,  Up: Advanced customization
 
-5.22 A theme-agnostic hook for theme loading
+5.23 A theme-agnostic hook for theme loading
 ============================================
 
 The themes are designed with the intent to be useful to Emacs users of
@@ -3896,7 +4183,7 @@ what the implications are of advising a function).
 
 File: modus-themes.info,  Node: Diffs with only the foreground,  Next: Ediff without diff color-coding,  Prev: A theme-agnostic hook for theme loading,  Up: Advanced customization
 
-5.23 Diffs with only the foreground
+5.24 Diffs with only the foreground
 ===================================
 
 Buffers that show differences between versions of a file or buffer, such
@@ -3950,7 +4237,7 @@ standard and aesthetic quality of the themes is not compromised.
 
 File: modus-themes.info,  Node: Ediff without diff color-coding,  Next: Near-monochrome syntax highlighting,  Prev: Diffs with only the foreground,  Up: Advanced customization
 
-5.24 Ediff without diff color-coding
+5.25 Ediff without diff color-coding
 ====================================
 
 Ediff uses the same color-coding as ordinary diffs in ‘diff-mode’,
@@ -3988,7 +4275,7 @@ coloration.
 
 File: modus-themes.info,  Node: Near-monochrome syntax highlighting,  Next: Custom hl-todo colors,  Prev: Ediff without diff color-coding,  Up: Advanced customization
 
-5.25 Near-monochrome syntax highlighting
+5.26 Near-monochrome syntax highlighting
 ========================================
 
 While the Modus themes do provide a user option to control the overall
@@ -4113,7 +4400,7 @@ and comments are gray.  Regexp constructs are adapted accordingly.
 
 File: modus-themes.info,  Node: Custom hl-todo colors,  Prev: Near-monochrome syntax highlighting,  Up: Advanced customization
 
-5.26 Custom hl-todo colors
+5.27 Custom hl-todo colors
 ==========================
 
 The ‘hl-todo’ package provides the user option ‘hl-todo-keyword-faces’:
@@ -5804,9 +6091,9 @@ Ideas and user feedback
      Muftuoglu, Tony Zorman, Trey Merkley, Tomasz Hołubowicz, Toon
      Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.  As well as users:
      Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik,
-     Moesasji, Nick, TheBlob42, Trey, bepolymathe, bit9tream,
-     derek-upham, doolio, fleimgruber, gitrj95, iSeeU, jixiuf, okamsn,
-     pRot0ta1p.
+     Moesasji, Nick, Summer Emacs, TheBlob42, Trey, bepolymathe,
+     bit9tream, derek-upham, doolio, fleimgruber, gitrj95, iSeeU,
+     jixiuf, okamsn, pRot0ta1p.
 
 Packaging
      Basil L. Contovounesios, Eli Zaretskii, Glenn Morris, Mauro Aranda,
@@ -5817,10 +6104,12 @@ Packaging
 Inspiration for certain features
      Bozhidar Batsov (zenburn-theme), Fabrice Niessen (leuven-theme).
 
-   Special thanks (from A-Z) to Gustavo Barros, Manuel Uberti, Nicolas
-De Jaeghere, and Omar Antolín Camarena for their long time contributions
-and insightful commentary on key aspects of the themes’ design and/or
-aspects of their functionality.
+   Special thanks (from A-Z) to Daniel Mendler, Gustavo Barros, Manuel
+Uberti, Nicolas De Jaeghere, and Omar Antolín Camarena for their long
+time contributions and insightful commentary on key aspects of the
+themes’ design and/or aspects of their functionality.
+
+   All errors are my own.
 
 
 File: modus-themes.info,  Node: Other notes about the project,  Next: GNU Free Documentation License,  Prev: Acknowledgements,  Up: Top
@@ -6543,119 +6832,120 @@ B.3 Concept index
 
 Tag Table:
 Node: Top872
-Node: Overview7696
-Node: How do the themes look like9820
-Node: Learn about the latest changes10334
-Node: Installation10722
-Node: Install manually from source11244
-Node: Install from the archives12069
-Node: Install on GNU/Linux12668
-Node: Debian 11 Bullseye13161
-Node: GNU Guix13471
-Node: Dealing with byte compilation errors13754
-Node: Enable and load14912
-Node: Sample configuration with and without use-package18451
-Node: Differences between loading and enabling21355
-Node: Customization Options23364
-Node: Custom reload theme31744
-Node: Deuteranopia style32534
-Node: Bold constructs33965
-Node: Italic constructs34799
-Node: Syntax styles35566
-Node: Mixed fonts37698
-Node: Link styles38962
-Node: Box buttons41436
-Node: Command prompts44733
-Node: Mode line46554
-Node: Tab style52049
-Node: Completion UIs52712
-Node: Mail citations56566
-Node: Fringes57712
-Node: Language checkers58452
-Node: Line highlighting60894
-Node: Line numbers62632
-Node: Mouse hover effects63713
-Node: Markup64328
-Node: Matching parentheses65928
-Node: Active region67305
-Node: Diffs68718
-Node: Org mode blocks70369
-Node: Org agenda72759
-Node: Heading styles81575
-Node: UI typeface86524
-Node: Advanced customization87423
-Node: More accurate colors in terminal emulators89120
-Node: Range of color with terminal emulators90361
-Node: Visualize the active Modus theme's palette93066
-Node: Per-theme customization settings94062
-Node: Case-by-case face specs using the themes' palette95418
-Node: Face specs at scale using the themes' palette99966
-Node: Remap face with local value104767
-Node: Cycle through arbitrary colors107192
-Node: Override colors113620
-Node: Override color saturation118738
-Node: Override colors through blending124419
-Node: Font configurations for Org and others127276
-Ref: Font configurations for Org and others-Footnote-1130209
-Node: Configure bold and italic faces130396
-Node: Custom Org todo keyword and priority faces134544
-Node: Custom Org emphasis faces138217
-Node: Update Org block delimiter fontification143018
-Node: Measure color contrast144935
-Node: Load theme depending on time of day147658
-Node: Backdrop for pdf-tools148651
-Node: Decrease mode line height151503
-Node: Toggle themes without reloading them155625
-Node: A theme-agnostic hook for theme loading156904
-Node: Diffs with only the foreground159306
-Node: Ediff without diff color-coding162420
-Node: Near-monochrome syntax highlighting164559
-Node: Custom hl-todo colors173556
-Node: Face coverage175040
-Node: Supported packages175492
-Node: Indirectly covered packages182171
-Node: Notes on individual packages183243
-Node: Note on calendarel weekday and weekend colors184351
-Node: Note on git-gutter in Doom Emacs185499
-Node: Note on php-mode multiline comments187527
-Node: Note on underlines in compilation buffers188219
-Node: Note on inline Latex in Org buffers189056
-Node: Note on dimmerel189666
-Node: Note on display-fill-column-indicator-mode191151
-Node: Note on highlight-parenthesesel192549
-Node: Note on mmm-modeel background colors198538
-Node: Note for prism200853
-Node: Note for god-mode204009
-Node: Note on company-mode overlay pop-up205613
-Ref: Note on company-mode overlay pop-up-Footnote-1206303
-Ref: Note on company-mode overlay pop-up-Footnote-2206370
-Node: Note on ERC escaped color sequences206425
-Ref: Note on ERC escaped color sequences-Footnote-1207853
-Node: Note on powerline or spaceline207963
-Node: Note on SHR colors208377
-Node: Note on SHR fonts208801
-Node: Note on Ement colors and fonts209434
-Node: Note on Helm grep210933
-Node: Note on pdf-tools link hints212403
-Node: Note on the Notmuch logo214850
-Node: Frequently Asked Questions215348
-Node: Is the contrast ratio about adjacent colors?215979
-Node: What does it mean to avoid exaggerations?217486
-Node: Why are colors mostly variants of blue magenta cyan?219315
-Node: What is the best setup for legibility?223621
-Node: Are these color schemes?226266
-Node: Port the Modus themes to other platforms?229986
-Node: Contributing232767
-Node: Sources of the themes233164
-Node: Issues you can help with233863
-Node: Patches require copyright assignment to the FSF235435
-Node: Acknowledgements237655
-Node: Other notes about the project241067
-Node: GNU Free Documentation License244065
-Node: Indices269442
-Node: Function index269621
-Node: Variable index271424
-Node: Concept index273711
+Node: Overview7727
+Node: How do the themes look like9851
+Node: Learn about the latest changes10365
+Node: Installation10753
+Node: Install manually from source11275
+Node: Install from the archives12100
+Node: Install on GNU/Linux12699
+Node: Debian 11 Bullseye13192
+Node: GNU Guix13602
+Node: Dealing with byte compilation errors13885
+Node: Enable and load15043
+Node: Sample configuration with and without use-package18582
+Node: Differences between loading and enabling21486
+Node: Customization Options23495
+Node: Custom reload theme31875
+Node: Deuteranopia style32665
+Node: Bold constructs34096
+Node: Italic constructs34930
+Node: Syntax styles35697
+Node: Mixed fonts37829
+Node: Link styles39093
+Node: Box buttons41567
+Node: Command prompts44864
+Node: Mode line46685
+Node: Tab style52180
+Node: Completion UIs52843
+Node: Mail citations56692
+Node: Fringes57838
+Node: Language checkers58578
+Node: Line highlighting61020
+Node: Line numbers62758
+Node: Mouse hover effects63839
+Node: Markup64454
+Node: Matching parentheses66054
+Node: Active region67431
+Node: Diffs68844
+Node: Org mode blocks70495
+Node: Org agenda72885
+Node: Heading styles81701
+Node: UI typeface86650
+Node: Advanced customization87549
+Node: More accurate colors in terminal emulators89277
+Node: Range of color with terminal emulators90518
+Node: Visualize the active Modus theme's palette93223
+Node: Per-theme customization settings94219
+Node: Case-by-case face specs using the themes' palette95575
+Node: Face specs at scale using the themes' palette100123
+Node: Remap face with local value104924
+Node: Cycle through arbitrary colors107349
+Node: Override colors113777
+Node: Override color saturation119019
+Node: Override colors through blending124700
+Node: Override colors completely127545
+Node: Font configurations for Org and others141047
+Ref: Font configurations for Org and others-Footnote-1143974
+Node: Configure bold and italic faces144161
+Node: Custom Org todo keyword and priority faces148309
+Node: Custom Org emphasis faces151982
+Node: Update Org block delimiter fontification156783
+Node: Measure color contrast158700
+Node: Load theme depending on time of day161423
+Node: Backdrop for pdf-tools162416
+Node: Decrease mode line height165268
+Node: Toggle themes without reloading them169390
+Node: A theme-agnostic hook for theme loading170669
+Node: Diffs with only the foreground173071
+Node: Ediff without diff color-coding176185
+Node: Near-monochrome syntax highlighting178324
+Node: Custom hl-todo colors187321
+Node: Face coverage188805
+Node: Supported packages189257
+Node: Indirectly covered packages195936
+Node: Notes on individual packages197008
+Node: Note on calendarel weekday and weekend colors198116
+Node: Note on git-gutter in Doom Emacs199264
+Node: Note on php-mode multiline comments201292
+Node: Note on underlines in compilation buffers201984
+Node: Note on inline Latex in Org buffers202821
+Node: Note on dimmerel203431
+Node: Note on display-fill-column-indicator-mode204916
+Node: Note on highlight-parenthesesel206314
+Node: Note on mmm-modeel background colors212303
+Node: Note for prism214618
+Node: Note for god-mode217774
+Node: Note on company-mode overlay pop-up219378
+Ref: Note on company-mode overlay pop-up-Footnote-1220068
+Ref: Note on company-mode overlay pop-up-Footnote-2220135
+Node: Note on ERC escaped color sequences220190
+Ref: Note on ERC escaped color sequences-Footnote-1221618
+Node: Note on powerline or spaceline221728
+Node: Note on SHR colors222142
+Node: Note on SHR fonts222566
+Node: Note on Ement colors and fonts223199
+Node: Note on Helm grep224698
+Node: Note on pdf-tools link hints226168
+Node: Note on the Notmuch logo228615
+Node: Frequently Asked Questions229113
+Node: Is the contrast ratio about adjacent colors?229744
+Node: What does it mean to avoid exaggerations?231251
+Node: Why are colors mostly variants of blue magenta cyan?233080
+Node: What is the best setup for legibility?237386
+Node: Are these color schemes?240031
+Node: Port the Modus themes to other platforms?243751
+Node: Contributing246532
+Node: Sources of the themes246929
+Node: Issues you can help with247628
+Node: Patches require copyright assignment to the FSF249200
+Node: Acknowledgements251420
+Node: Other notes about the project254889
+Node: GNU Free Documentation License257887
+Node: Indices283264
+Node: Function index283443
+Node: Variable index285246
+Node: Concept index287533
 
 End Tag Table
 
