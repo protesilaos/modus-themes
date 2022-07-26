@@ -1200,7 +1200,7 @@ Brief: Set the overall style of completion framework interfaces.
 
 Symbol: ~modus-themes-completions~ (=alist= type properties)
 
-This affects Company, Corfu, Flx, Helm, Icomplete/Fido, Ido, Ivy, Mct,
+This affects Company, Corfu, Flx, Helm, Icomplete/Fido, Ido, Ivy,
 Orderless, Selectrum, Vertico.  The value is an alist that takes the
 form of a =(key . properties)= combination.  Here is a sample, followed
 by a description of the particularities:
