@@ -5763,9 +5763,9 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Thibaut Verron, Thomas Heartman, Togan Muftuoglu, Tony Zorman, Trey
   Merkley, Tomasz Hołubowicz, Toon Claes, Uri Sharf, Utkarsh Singh,
   Vincent Foley.  As well as users: Ben, CsBigDataHub1, Emacs Contrib,
-  Eugene, Fourchaux, Fredrik, Moesasji, Nick, TheBlob42, Trey,
-  bepolymathe, bit9tream, derek-upham, doolio, fleimgruber, gitrj95,
-  iSeeU, jixiuf, okamsn, pRot0ta1p.
+  Eugene, Fourchaux, Fredrik, Moesasji, Nick, Summer Emacs, TheBlob42,
+  Trey, bepolymathe, bit9tream, derek-upham, doolio, fleimgruber,
+  gitrj95, iSeeU, jixiuf, okamsn, pRot0ta1p.
 
 + Packaging :: Basil L.{{{space()}}} Contovounesios, Eli Zaretskii,
   Glenn Morris, Mauro Aranda, Richard Stallman, Stefan Kangas (core
@@ -5776,10 +5776,12 @@ The Modus themes are a collective effort.  Every bit of work matters.
 + Inspiration for certain features :: Bozhidar Batsov (zenburn-theme),
   Fabrice Niessen (leuven-theme).
 
-Special thanks (from A-Z) to Gustavo Barros, Manuel Uberti, Nicolas De
-Jaeghere, and Omar Antolín Camarena for their long time contributions
-and insightful commentary on key aspects of the themes' design and/or
-aspects of their functionality.
+Special thanks (from A-Z) to Daniel Mendler, Gustavo Barros, Manuel
+Uberti, Nicolas De Jaeghere, and Omar Antolín Camarena for their long
+time contributions and insightful commentary on key aspects of the
+themes' design and/or aspects of their functionality.
+
+All errors are my own.
 
 * Other notes about the project
 :properties:
