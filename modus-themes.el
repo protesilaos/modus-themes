@@ -3899,30 +3899,38 @@ pressed button style, else the released button."
 
 ;;;;; List colors (a variant of M-x list-colors-display)
 
-(defun modus-themes--list-colors-render (buffer palette)
-  "Render colors in BUFFER from PALETTE.
+(defun modus-themes--list-colors-render (buffer theme &rest _)
+  "Render colors in BUFFER from THEME.
 Routine for `modus-themes-list-colors'."
-  (with-help-window buffer
-    (with-current-buffer standard-output
-      (erase-buffer)
-      ;; We need this to properly render the first line.
-      (insert " ")
-      (dolist (cell palette)
-        (let* ((name (car cell))
-               (color (cdr cell))
-               (fg (readable-foreground-color color))
-               (pad (make-string 5 ?\s)))
-          (let ((old-point (point)))
-            (insert (format "%s %s" color pad))
-            (put-text-property old-point (point) 'face `( :foreground ,color)))
-          (let ((old-point (point)))
-            (insert (format " %s %s %s\n" color pad name))
-            (put-text-property old-point (point)
-                               'face `( :background ,color
-                                        :foreground ,fg
-                                        :extend t)))
-          ;; We need this to properly render the last line.
-          (insert " "))))))
+  (let ((palette (seq-uniq (modus-themes--palette theme)
+                           (lambda (x y)
+                             (eq (car x) (car y)))))
+        (current-buffer buffer)
+        (current-theme theme))
+    (with-help-window buffer
+      (with-current-buffer standard-output
+        (erase-buffer)
+        ;; We need this to properly render the first line.
+        (insert " ")
+        (dolist (cell palette)
+          (let* ((name (car cell))
+                 (color (cdr cell))
+                 (fg (readable-foreground-color color))
+                 (pad (make-string 5 ?\s)))
+            (let ((old-point (point)))
+              (insert (format "%s %s" color pad))
+              (put-text-property old-point (point) 'face `( :foreground ,color)))
+            (let ((old-point (point)))
+              (insert (format " %s %s %s\n" color pad name))
+              (put-text-property old-point (point)
+                                 'face `( :background ,color
+                                          :foreground ,fg
+                                          :extend t)))
+            ;; We need this to properly render the last line.
+            (insert " ")))
+        (setq-local revert-buffer-function
+                    (lambda (_ignore-auto _noconfirm)
+                       (modus-themes--list-colors-render current-buffer current-theme)))))))
 
 (defvar modus-themes--list-colors-prompt-history '()
   "Minibuffer history for `modus-themes--list-colors-prompt'.")
@@ -3939,13 +3947,9 @@ Helper function for `modus-themes-list-colors'."
 (defun modus-themes-list-colors (theme)
   "Preview palette of the Modus THEME of choice."
   (interactive (list (intern (modus-themes--list-colors-prompt))))
-  (let ((palette (pcase theme
-                   ('modus-operandi modus-themes-operandi-colors)
-                   ('modus-vivendi modus-themes-vivendi-colors)
-                   (_ (user-error "`%s' is not a Modus theme" theme)))))
-    (modus-themes--list-colors-render
-     (format "*%s-list-colors*" theme)
-     palette)))
+  (modus-themes--list-colors-render
+   (format "*%s-list-colors*" theme)
+   theme))
 
 (defun modus-themes-list-colors-current ()
   "Call `modus-themes-list-colors' for the current Modus theme."
