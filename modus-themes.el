@@ -3897,7 +3897,7 @@ pressed button style, else the released button."
 
 ;;;; Utilities for DIY users
 
-;;;;; List colors (a respin of M-x list-colors-display)
+;;;;; List colors (a variant of M-x list-colors-display)
 
 (defun modus-themes--list-colors-render (buffer palette)
   "Render colors in BUFFER from PALETTE.
