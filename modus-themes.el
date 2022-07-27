@@ -3938,8 +3938,7 @@ Helper function for `modus-themes-list-colors'."
 
 (defun modus-themes-list-colors (theme)
   "Preview palette of the Modus THEME of choice."
-  (interactive
-   (list (intern (modus-themes--list-colors-prompt))))
+  (interactive (list (intern (modus-themes--list-colors-prompt))))
   (let ((palette (pcase theme
                    ('modus-operandi modus-themes-operandi-colors)
                    ('modus-vivendi modus-themes-vivendi-colors)
