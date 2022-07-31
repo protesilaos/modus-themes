@@ -4371,6 +4371,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(comint-highlight-input ((,class :inherit bold)))
     `(comint-highlight-prompt ((,class :inherit modus-themes-prompt)))
     `(confusingly-reordered ((,class :inherit modus-themes-lang-error)))
+    `(edmacro-label ((,class :inherit bold :foreground ,cyan)))
     `(elisp-shorthand-font-lock-face ((,class :inherit font-lock-variable-name-face)))
     `(error ((,class :inherit bold :foreground ,red)))
     `(escape-glyph ((,class :foreground ,fg-escape-char-construct)))
