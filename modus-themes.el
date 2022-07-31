@@ -3910,6 +3910,10 @@ Routine for `modus-themes-list-colors'."
     (with-help-window buffer
       (with-current-buffer standard-output
         (erase-buffer)
+        (when (<= (display-color-cells) 256)
+          (insert (concat "Your display terminal may not render all color previews!\n"
+                          "It seems to only support <= 256 colors.\n\n"))
+          (put-text-property (point-min) (point) 'face 'warning))
         ;; We need this to properly render the first line.
         (insert " ")
         (dolist (cell palette)
