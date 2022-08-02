@@ -4876,12 +4876,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(dap-ui-sessions-stack-frame-face ((,class :inherit bold :foreground ,magenta-alt)))
     `(dap-ui-sessions-terminated-active-face ((,class :inherit bold :foreground ,fg-alt)))
     `(dap-ui-sessions-terminated-face ((,class :inherit shadow)))
-;;;;; dashboard (emacs-dashboard)
-    `(dashboard-banner-logo-title ((,class :inherit bold :foreground ,fg-special-cold)))
-    `(dashboard-footer ((,class :inherit bold :foreground ,fg-special-mild)))
-    `(dashboard-heading ((,class :inherit bold :foreground ,fg-special-warm)))
-    `(dashboard-navigator ((,class :foreground ,cyan-alt-other)))
-    `(dashboard-text-banner ((,class :foreground ,fg-dim)))
 ;;;;; deadgrep
     `(deadgrep-filename-face ((,class :inherit bold :foreground ,fg-special-cold)))
     `(deadgrep-match-face ((,class :inherit modus-themes-special-calm)))
