@@ -5084,7 +5084,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(dynamic-ruler-negative-face ((,class :inherit modus-themes-intense-neutral)))
     `(dynamic-ruler-positive-face ((,class :inherit modus-themes-intense-yellow)))
 ;;;;; easy-jekyll
-    `(easy-jekyll-help-face ((,class :background ,bg-dim :foreground ,cyan-alt-other)))
+    `(easy-jekyll-help-face ((,class :background ,bg-dim :foreground ,blue-alt-other)))
 ;;;;; ebdb
     `(ebdb-address-default ((,class :foreground ,fg-special-calm)))
     `(ebdb-defunct ((,class :inherit shadow)))
