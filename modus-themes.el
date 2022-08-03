@@ -5080,9 +5080,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(doom-modeline-unread-number ((,class :inherit italic :foreground ,fg-active)))
     `(doom-modeline-urgent ((,class :inherit bold :foreground ,red-active)))
     `(doom-modeline-warning ((,class :inherit bold :foreground ,yellow-active)))
-;;;;; dynamic-ruler
-    `(dynamic-ruler-negative-face ((,class :inherit modus-themes-intense-neutral)))
-    `(dynamic-ruler-positive-face ((,class :inherit modus-themes-intense-yellow)))
 ;;;;; easy-jekyll
     `(easy-jekyll-help-face ((,class :background ,bg-dim :foreground ,blue-alt-other)))
 ;;;;; ebdb

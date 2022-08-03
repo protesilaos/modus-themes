@@ -4527,7 +4527,6 @@ have lots of extensions, so the “full support” may not be 100% true…
    • diredp (dired+)
    • display-fill-column-indicator-mode
    • doom-modeline
-   • dynamic-ruler
    • easy-jekyll
    • ebdb
    • ediff
@@ -4785,6 +4784,7 @@ supported by the themes.
    • define-word
    • disk-usage
    • dtache
+   • dynamic-ruler
    • easy-kill
    • edit-indirect
    • egerrit
@@ -6903,7 +6903,7 @@ Node: Near-monochrome syntax highlighting178324
 Node: Custom hl-todo colors187321
 Node: Face coverage188805
 Node: Supported packages189257
-Node: Indirectly covered packages195916
+Node: Indirectly covered packages195895
 Node: Notes on individual packages197023
 Node: Note on calendarel weekday and weekend colors198131
 Node: Note on git-gutter in Doom Emacs199279
