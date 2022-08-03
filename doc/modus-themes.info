@@ -4664,7 +4664,6 @@ have lots of extensions, so the “full support” may not be 100% true…
    • package (what you get with ‘M-x list-packages’)
    • page-break-lines
    • pandoc-mode
-   • paradox
    • paren-face
    • pass
    • pdf-tools
@@ -6902,49 +6901,49 @@ Node: Near-monochrome syntax highlighting178324
 Node: Custom hl-todo colors187321
 Node: Face coverage188805
 Node: Supported packages189257
-Node: Indirectly covered packages195878
-Node: Notes on individual packages197006
-Node: Note on calendarel weekday and weekend colors198114
-Node: Note on git-gutter in Doom Emacs199262
-Node: Note on php-mode multiline comments201290
-Node: Note on underlines in compilation buffers201982
-Node: Note on inline Latex in Org buffers202819
-Node: Note on dimmerel203429
-Node: Note on display-fill-column-indicator-mode204914
-Node: Note on highlight-parenthesesel206312
-Node: Note on mmm-modeel background colors212301
-Node: Note for prism214616
-Node: Note for god-mode217772
-Node: Note on company-mode overlay pop-up219376
-Ref: Note on company-mode overlay pop-up-Footnote-1220066
-Ref: Note on company-mode overlay pop-up-Footnote-2220133
-Node: Note on ERC escaped color sequences220188
-Ref: Note on ERC escaped color sequences-Footnote-1221616
-Node: Note on powerline or spaceline221726
-Node: Note on SHR colors222140
-Node: Note on SHR fonts222564
-Node: Note on Ement colors and fonts223197
-Node: Note on Helm grep224696
-Node: Note on pdf-tools link hints226166
-Node: Note on the Notmuch logo228613
-Node: Frequently Asked Questions229111
-Node: Is the contrast ratio about adjacent colors?229742
-Node: What does it mean to avoid exaggerations?231249
-Node: Why are colors mostly variants of blue magenta cyan?233078
-Node: What is the best setup for legibility?237384
-Node: Are these color schemes?240029
-Node: Port the Modus themes to other platforms?243749
-Node: Contributing246530
-Node: Sources of the themes246927
-Node: Issues you can help with247626
-Node: Patches require copyright assignment to the FSF249198
-Node: Acknowledgements251418
-Node: Other notes about the project254887
-Node: GNU Free Documentation License257885
-Node: Indices283262
-Node: Function index283441
-Node: Variable index285244
-Node: Concept index287531
+Node: Indirectly covered packages195863
+Node: Notes on individual packages196991
+Node: Note on calendarel weekday and weekend colors198099
+Node: Note on git-gutter in Doom Emacs199247
+Node: Note on php-mode multiline comments201275
+Node: Note on underlines in compilation buffers201967
+Node: Note on inline Latex in Org buffers202804
+Node: Note on dimmerel203414
+Node: Note on display-fill-column-indicator-mode204899
+Node: Note on highlight-parenthesesel206297
+Node: Note on mmm-modeel background colors212286
+Node: Note for prism214601
+Node: Note for god-mode217757
+Node: Note on company-mode overlay pop-up219361
+Ref: Note on company-mode overlay pop-up-Footnote-1220051
+Ref: Note on company-mode overlay pop-up-Footnote-2220118
+Node: Note on ERC escaped color sequences220173
+Ref: Note on ERC escaped color sequences-Footnote-1221601
+Node: Note on powerline or spaceline221711
+Node: Note on SHR colors222125
+Node: Note on SHR fonts222549
+Node: Note on Ement colors and fonts223182
+Node: Note on Helm grep224681
+Node: Note on pdf-tools link hints226151
+Node: Note on the Notmuch logo228598
+Node: Frequently Asked Questions229096
+Node: Is the contrast ratio about adjacent colors?229727
+Node: What does it mean to avoid exaggerations?231234
+Node: Why are colors mostly variants of blue magenta cyan?233063
+Node: What is the best setup for legibility?237369
+Node: Are these color schemes?240014
+Node: Port the Modus themes to other platforms?243734
+Node: Contributing246515
+Node: Sources of the themes246912
+Node: Issues you can help with247611
+Node: Patches require copyright assignment to the FSF249183
+Node: Acknowledgements251403
+Node: Other notes about the project254872
+Node: GNU Free Documentation License257870
+Node: Indices283247
+Node: Function index283426
+Node: Variable index285229
+Node: Concept index287516
 
 End Tag Table
 

@@ -4639,7 +4639,6 @@ have lots of extensions, so the "full support" may not be 100% true…
 + package (what you get with {{{kbd(M-x list-packages)}}})
 + page-break-lines
 + pandoc-mode
-+ paradox
 + paren-face
 + pass
 + pdf-tools

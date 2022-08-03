@@ -6669,19 +6669,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(pandoc-directive-braces-face ((,class :foreground ,blue-alt-other)))
     `(pandoc-directive-contents-face ((,class :foreground ,cyan-alt-other)))
     `(pandoc-directive-type-face ((,class :foreground ,magenta)))
-;;;;; paradox
-    `(paradox-archive-face ((,class :foreground ,fg-special-mild)))
-    `(paradox-comment-face ((,class :inherit font-lock-comment-face)))
-    `(paradox-commit-tag-face ((,class :inherit modus-themes-refine-magenta :box t)))
-    `(paradox-description-face ((,class :foreground ,fg-special-cold)))
-    `(paradox-description-face-multiline ((,class :foreground ,fg-special-cold)))
-    `(paradox-download-face ((,class :inherit modus-themes-bold :foreground ,blue-alt-other)))
-    `(paradox-highlight-face ((,class :inherit modus-themes-bold :foreground ,cyan-alt-other)))
-    `(paradox-homepage-button-face ((,class :foreground ,magenta-alt-other :underline t)))
-    `(paradox-mode-line-face ((,class :inherit bold :foreground ,cyan-active)))
-    `(paradox-name-face ((,class :foreground ,blue :underline t)))
-    `(paradox-star-face ((,class :foreground ,magenta)))
-    `(paradox-starred-face ((,class :foreground ,magenta-alt)))
 ;;;;; paren-face
     `(parenthesis ((,class :foreground ,fg-unfocused)))
 ;;;;; pass
