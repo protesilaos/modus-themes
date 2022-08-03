@@ -15,7 +15,437 @@ For further details, please consult these additional resources:
 + Manual :: <https://protesilaos.com/emacs/modus-themes>
 + Screenshots :: <https://protesilaos.com/emacs/modus-themes-pictures>
 
+* 2.5.0
+:PROPERTIES:
+:CUSTOM_ID: h:32438044-6eee-4909-8e5a-860ce1457049
+:END:
+
+#+begin_src text
+Modus themes version 2.5.0
+
+By Protesilaos Stavrou <info@protesilaos.com> on 2022-08-03
+
+This entry documents the changes made to the project since the
+publication of version 2.4.0 on 2022-06-01.  It spans more than 60
+commits to an already stable project.
+
+The 'modus-operandi' and 'modus-vivendi' themes are built into Emacs-28
+(latest stable release) or later, and are available on GNU ELPA as well
+as other archives.  Emacs-28 ships version 1.6.0, while the current
+'master' branch (i.e. Emacs-29) and, by extension, GNU ELPA include the
+latest tagged release.  The packaged version is available as
+'modus-themes'.
+
+Read the manual inside Emacs by evaluating:
+
+    (info "(modus-themes) Top")
+
+Or visit: <https://protesilaos.com/emacs/modus-themes> (the website only
+documents the latest version).
+
+
+Enhancement to the user option 'modus-themes-headings'
+======================================================
+
+The user option 'modus-themes-headings' now reads a level 0 heading in
+addition to numbers 1--8.  Heading 0 accepts the same list of properties
+as all other levels (please consult the doc string of the user option or
+the corresponding entry in the manual).  Currently only the value of the
+Org #+title is affected (face is 'org-document-title'), but we may cover
+more faces if needed.
+
+Sample configuration:
+
+    ;; The `modus-themes-headings' is an alist with lots of possible
+    ;; combinations, including per-heading-level tweaks: read the
+    ;; manual or its doc string.
+    (setq modus-themes-headings
+          '((0 . (variable-pitch light (height 2.2)))
+            (1 . (rainbow variable-pitch light (height 1.6)))
+            (2 . (rainbow variable-pitch light (height 1.4)))
+            (3 . (rainbow variable-pitch regular (height 1.3)))
+            (4 . (rainbow regular (height 1.2)))
+            (5 . (rainbow (height 1.1)))
+            (t . (variable-pitch extrabold)))
+
+Given this change, I am also tweaking the default foreground value of
+the 'org-document-title'.  It is a bit more saturated than before, but
+remains close to the spirit of the previous one.
+
+Thanks to Rudolf Adamkovič for proposing the idea on the mailing list:
+<https://lists.sr.ht/~protesilaos/modus-themes/%3Cm2y1x5tewl.fsf@me.com%3E>.
+
+
+Stylistic tweak to the user option 'modus-themes-syntax'
+========================================================
+
+Prevented the 'alt-syntax' property from desaturating the effect of the
+'yellow-comments' property when the two would be combined.  Such as:
+
+    (setq modus-themes-syntax '(alt-syntax yellow-comments))
+
+The previous design was incorrect because it was always using the faint
+variant of the yellow comments, as if the user had specified:
+
+    (setq modus-themes-syntax '(alt-syntax faint yellow-comments))
+
+[ Read the doc string of 'modus-themes-syntax' or the manual for an
+  explanation of all properties and their combinations. ]
+
+
+Review of the Isearch (and related) colours
+===========================================
+
+Emacs' standard search has a face for the currently matched query and
+all its inactive matches.  The faces are 'isearch' and 'lazy-highlight',
+respectively.  Before, we were using a green background by default for
+the 'isearch' face and a cyan background for the 'lazy-highlight'.  This
+was a choice that was made in the early days of the project when the
+palette was not yet fully realised.
+
+Green and cyan do not always contrast well side-by-side (subject to
+hardware capabilities and environmental lighting), so the 'isearch' face
+also had an added bold weight.  This was not my preference, but it was
+necessary under the circumstances.  The previous combinations were also
+not ideal when the user option 'modus-themes-deuteranopia' was set to a
+non-nil value: the blue background which was used instead of the green
+one could be conflated with the subtle teal of the 'lazy-highlight'
+under certain circumstances, such as poor colour reproduction at the
+monitor level or in terminal emulators with limited colour support.
+
+The new colours (intense yellow for active matches and subtle cyan for
+lazy ones) are complementary, meaning that they are naturally easy to
+tell apart.
+
+[ Read "Colour theory and techniques used in the Modus themes":
+  <https://protesilaos.com/codelog/2022-04-21-modus-themes-colour-theory/> ]
+
+These specific hues are also well-suited for users with red-green colour
+deficiency: yellow stays as-is, while the cyan colour becomes a bit more
+grey though remains distinct.  As such, we do not need to run the helper
+function 'modus-themes--deuteran' to set the style based on the value of
+'modus-themes-deuteranopia'.
+
+The new colours do not clash with the style of the relevant 'match' face
+(used by 'M-x occur', 'M-x grep', and related), nor with the various
+permutations of the 'region' face (subject to the user option
+'modus-themes-region').
+
+Finally, the bold weight has been removed from the 'isearch' face.  It
+was always a kludge.  Also, it would make paragraphs rendered in the
+'variable-pitch' face (or proportional fonts in general) jump around as
+the user would move between the matches, because bold letters occupy
+more space than their regular weight counterparts so they affect the
+length of the line.  This problem was reported by Augusto Stoffel on the
+mailing list: <https://lists.sr.ht/~protesilaos/modus-themes/%3C87sfnbswe9.fsf@gmail.com%3E>.
+
+
+Rewrote parts of the colour preview commands
+============================================
+
+The 'modus-themes-list-colors', 'modus-themes-list-colors-current' are
+commands that produce a buffer which shows previews of every entry in
+the palette.  Their code has been simplified and they now produce a
+warning when the display terminal has limited colour support.
+Furthermore, they read any overrides as specified in the user options
+'modus-themes-operandi-color-overrides', 'modus-themes-vivendi-color-overrides'.
+
+
+The "summertime" re-spin of colour overrides
+============================================
+
+The manual now includes a complete hand-crafted example of a pair of
+themes that override the default palette.  This is done as a technology
+demonstration.  It is not considered an "official" extension of the
+Modus themes and will never be part of the code base as it does not
+conform with our lofty accessibility standards.  However, I took great
+care in picking the colour overrides in the hope that users will (i)
+have a usable theme, should they opt for it, and (ii) they recognise the
+potential of our colour-overriding feature.
+
+Screenshots and related information:
+<https://protesilaos.com/codelog/2022-07-26-modus-themes-color-override-demo/>.
+
+Thanks to user “Summer Emacs” for (i) suggesting the name “summertime”,
+(ii) testing variants of this in her setup, and (iii) sending me
+feedback on possible tweaks and refinements. All errors are my own.
+
+The idea for this project came from an exchange where Summer discovered
+an old theme of mine (from my pre-Emacs days) and asked if I had
+anything like it for Emacs.  Voilà!
+
+[ This information is shared with permission. ]
+
+As for whether I have more plans... "Perhaps!" ;)
+
+
+Removed support for certain packages or face groups
+===================================================
+
+I periodically install and use the packages we support to see if they
+have any updates we need to cover but also to confirm that they work.
+Usually, the user does not learn about this work, as I don't need to
+make any changes or will make some minor tweaks.  When I think that the
+package is not in a good shape, I remove it from the list of explicitly
+supported packages, meaning that the modus-themes no longer cover the
+faces it defines.  The removal of any package is done on a case-by-case
+basis.  If you disagree with this decision, please inform me about and I
+shall reconsider.
+
+,* centaur-tabs :: Those of you who have been reading these release notes
+  are aware of a bug in centaur-tabs which basically prevents us from
+  using the standard ':inherit' attribute to style the centaur-tabs
+  faces.  I have sent a patch to fix it, but have received no response
+  since February: <https://github.com/ema2159/centaur-tabs/pull/179>.
+  To me, this gives the package the "unmaintained" status, though I am
+  happy to revert the change as soon as it gets the maintenance it
+  needs.
+
+  Relevant reports (and I got many others in my private inbox):
+
+  - <https://github.com/protesilaos/modus-themes/issues/30>
+  - <https://gitlab.com/protesilaos/modus-themes/-/issues/288>
+  - <https://github.com/protesilaos/modus-themes/issues/15>
+
+,* cursor-flash :: its default face should be visible enough.
+
+,* dynamic-ruler :: The package does not build on my Emacs 29.  Also, its
+  default faces are usable even without our recolouring.
+
+,* emacs-dashboard :: Its default faces inherit from basic faces that we
+  already support.
+
+,* frog-menu :: I have not seen this package being used anywhere.  I
+  suspect it is because it has not found a niche between transient,
+  hydra, and embark.
+
+,* mct :: A few months ago I announced that its development is
+  discontinued.  Either use vertico or switch to what Emacs provides as
+  a built-in option: <https://protesilaos.com/codelog/2022-04-14-emacs-discontinue-mct/>.
+
+,* org-treescope :: The package points to a GitHub repo, which is
+  archived.  The current source is on GitLab, but the package is not
+  updated accordingly.  This makes me believe it is not actively
+  maintained and am thus removing it from the list.
+
+,* paradox :: When I tried paradox, it took over my C-c g binding which I
+  have for Magit.  As an Emacs user, I consider this an unacceptable
+  transgression.  Looking at paradox's git repo, the project is not
+  maintained.  If things change, I am happy to reinstate support for it.
+
+,* vc-annotate (built-in) :: It has not been working properly for a long
+  time now.  Colours are unset and are not re-applied when switching
+  between the 'modus-operandi' and 'modus-vivendi' themes.
+
+  Furthermore, the way 'vc-annotate-color-map' intersects with
+  'vc-annotate-background-mode' puts us in an awkward spot: when the
+  mode is non-nil, the mapped values are used as backgrounds WITHOUT
+  giving us the chance to make the appropriate adjustments to the
+  foreground (so we end up with inaccessible colour combinations).  This
+  means that we must fix a problem which is not ours by overriding the
+  user option of the background altogether.  A theme outright disabling
+  user options is bad form.
+
+  Even documenting a user-level set of configurations will not suffice,
+  as the results are unreliable.  I tried the code which I copy further
+  below to test annotation with/without background, plus the change in
+  values when switching between modus-operandi and modus-vivendi.
+  Again, colours are not updated properly (I know the buffer of 'M-x
+  vc-annotate' needs to be generated again), as 'modus-operandi' may
+  retain the values set by 'modus-vivendi' or vice-versa.
+
+  Ultimately, I feel 'vc-annotate' needs to be refactored to use
+  ordinary faces in ordinary ways.  Or, at least, not try to outsmart
+  the user/theme about the choice of colours.
+
+  Thanks to Philip Kaludercic for starting the thread about the
+  'vc-annotate-background-mode' which reminded me about this problem:
+  <https://lists.sr.ht/~protesilaos/modus-themes/%3C875ylfxkgi.fsf@posteo.net%3E>.
+
+  The code I alluded to:
+
+      (setq vc-annotate-background-mode nil)
+
+      (defun my-modus-themes-vc-annotate ()
+        ;; Actual values are for demo purposes
+        (modus-themes-with-colors
+          (if vc-annotate-background-mode
+              (setq vc-annotate-background bg-alt
+                    vc-annotate-color-map
+                    `((20 .  ,red-intense-bg)
+                      (40 .  ,red-subtle-bg)
+                      (60 .  ,red-refine-bg)
+                      (80 .  ,yellow-intense-bg)
+                      (100 . ,yellow-subtle-bg)
+                      (120 . ,yellow-refine-bg)
+                      (140 . ,magenta-intense-bg)
+                      (160 . ,magenta-subtle-bg)
+                      (180 . ,magenta-refine-bg)
+                      (200 . ,cyan-intense-bg)
+                      (220 . ,cyan-subtle-bg)
+                      (240 . ,cyan-refine-bg)
+                      (260 . ,green-intense-bg)
+                      (280 . ,green-subtle-bg)
+                      (300 . ,green-refine-bg)
+                      (320 . ,blue-intense-bg)
+                      (340 . ,blue-subtle-bg)
+                      (360 . ,blue-refine-bg)))
+            (setq vc-annotate-background nil
+                  vc-annotate-color-map
+                  `((20 . ,red)
+                    (40 . ,magenta)
+                    (60 . ,magenta-alt)
+                    (80 . ,red-alt)
+                    (100 . ,yellow)
+                    (120 . ,yellow-alt)
+                    (140 . ,fg-special-warm)
+                    (160 . ,fg-special-mild)
+                    (180 . ,green)
+                    (200 . ,green-alt)
+                    (220 . ,cyan-alt-other)
+                    (240 . ,cyan-alt)
+                    (260 . ,cyan)
+                    (280 . ,fg-special-cold)
+                    (300 . ,blue)
+                    (320 . ,blue-alt)
+                    (340 . ,blue-alt-other)
+                    (360 . ,magenta-alt-other))))))
+
+      (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-vc-annotate)
+
+
+Revised supported faces or face groups
+======================================
+
+,* Enhanced the default background colour of the current date in the Org
+  agenda.  This is a subtle change, all things considered, which makes
+  it easier to discern where the highlight is while it remains close to
+  the spirit of the previous design.  The idea is to not add too much
+  saturation here, because the buffer is already "busy" with lots of
+  highlights.  Thanks to Daniel Mendler for the feedback on the mailing
+  list: <https://lists.sr.ht/~protesilaos/modus-themes/%3C3d8b1096-a7db-1e08-fefe-d39bed4a7ea3@daniel-mendler.de%3E>.
+
+,* Restyled the 'M-x man' and 'M-x woman' faces to have a bit more
+  saturation.  A while ago I desaturated the 'Man-overstrike' and
+  'woman-bold' faces on the premise that the added bold weight would be
+  sufficient.  However, the bold weight may sometimes not draw the
+  desired attention, such as at small point sizes or with certain font
+  configurations.  As such, the added intensity in colour is necessary.
+
+,* Changed the Selectrum quick key faces ('selectrum-quick-keys-match'
+  and 'selectrum-quick-keys-highlight') to have the same style as Avy,
+  Vertico's own "quick keys", and related.  For a technical analysis,
+  read "Modus themes: case study on Avy faces and colour combinations":
+  <https://protesilaos.com/codelog/2022-04-20-modus-themes-case-study-avy/>.
+
+,* Made internal adjustments so that 'M-x list-packages' inherits from
+  the standard 'success', 'warning', and 'error' faces instead of adding
+  its own face attributes.  In practice, the user will notice a change
+  for new packages in the listing if 'modus-themes-deuteranopia' is
+  non-nil.
+
+,* Introduced the same inheritance rules as above for the 'syslog'
+  package (mutatis mutandis).
+
+,* Increased the saturation of the 'package-status-available' face, which
+  is shown in the 'M-x list-packages' buffer.  The overall effect is
+  subtle, though sufficiently noticeable.
+
+,* Revised the faces of the 'deft' package to make it look consistent
+  with the rest of the theme's relevant interfaces (to the extent
+  possible as Deft uses a non-standard presentation).
+
+,* Aligned the 'speedbar-highlight-face' with the user option
+  'modus-themes-intense-mouseovers'.
+
+,* Refined the 'highlight-thing' face (see package of the same name).
+  This makes it stand out more and it also aligns it with the standard
+  'match' face, which is pertinent here.
+
+,* Amplified the saturation of the 'dired-git-info' face.  Makes it
+  easier to differentiate the Git commit text from the Dired listing,
+  without drawing too much attention to itself.
+
+,* Adjusted the hue of the 'easy-jekyll-help-face' from teal to blue.
+  This makes it look more like the standard 'help-key-binding' face,
+  although 'easy-jekyll' does not align with upstream Emacs in this
+  regard.
+
+,* Intensified the background of 'rectangle-preview' to work even in
+  cases where a grey background is already on display.  This face is
+  used for the 'string-rectangle' command (e.g. C-x SPC to draw a
+  rectangle and C-t to insert text in its stead---works as a simple
+  "multiple cursors" on a straight line).
+
+
+Support for new faces or face groups
+====================================
+
+,* chart (built-in)
+,* denote
+,* edmacro-label (Emacs 29)
+,* info+
+,* leerzeichen
+
+A comment on 'info+'.  As is the case with PACKAGE+ packages from the
+Emacs Wiki, info+ defines lots of faces that hardcode colour values
+instead of inheriting from basic faces.  It does so for no good reason
+and the results will likely not look decent in any theme.  Furthermore,
+these faces colourise too much even when the colour values can be
+appropriately combined (ceteris paribus), making the buffer harder to
+read.
+
+The support I add for info+ is consistent with the design principles of
+the modus-themes, one of which is to avoid exaggerations as those
+indirectly affect legibility.  As such, some of the changes I introduce
+here outright remove colouration, while others align the various
+constructs with the overall aesthetic of the themes.
+
+Note that, by default, info+ adds clickable buttons to glossary terms.
+This produces awkward combinations such as by buttonising the "string"
+component inside of what actually is a function's argument.  So you
+have, say, FORMAT-[STRING] where "[]" represents the button: the FORMAT
+gets one face and the [STRING] another, even though they are part of a
+single argument.  To me this looks broken and is counter-productive,
+though it is not up to the theme to decide how packages fontify the
+various constructs.  At any rate, button styles at the theme level are
+controlled by the user option 'modus-themes-box-buttons'.
+
+Thanks to Jonas Collberg for the feedback in issue 33 over at the GitHub
+mirror: <https://github.com/protesilaos/modus-themes/issues/33>.
+
+
+Miscellaneous
+=============
+
+,* Named the mailing list address as the =Maintainer:= of Denote.
+  Together with the other package headers, they help the user find our
+  primary sources and/or communication channels.  This change conforms
+  with work being done upstream in package.el by Philip Kaludercic.  I
+  was informed about it here:
+  <https://lists.sr.ht/~protesilaos/general-issues/%3C875ykl84yi.fsf%40posteo.net%3E>.
+
+,* Addressed byte compilation warnings in doc strings pertaining to the
+  use of literal quotes.  Thanks to Matt Armstrong and Rudolf Adamkovič
+  for the feedback on the mailing list:
+  <https://lists.sr.ht/~protesilaos/modus-themes/%3C87bktlvgyy.fsf@rfc20.org%3E>.
+
+,* Fixed the ':link' value in the declaration of the user options
+  'modus-themes-operandi-color-overrides', 'modus-themes-vivendi-color-overrides'.
+  It once again directs to the correct heading in the manual.
+
+,* Documented all the aforementioned, where necessary.
+
+,* Mentioned my 'fontaine' and 'lin' packages in the relevant sections of
+  the manual.  The former helps set fonts and switch between font
+  presents.  The latter is a stylistic variant of hl-line (its
+  documentation explains its raison d'être).
+#+end_src
+
 * 2.4.0
+:PROPERTIES:
+:CUSTOM_ID: h:ee0dcce9-3481-4533-8ded-a9a1f5269a41
+:END:
 
 #+begin_src text
 Modus themes version 2.4.0
@@ -352,6 +782,9 @@ Miscellaneous
 #+end_src
 
 * 2.3.0
+:PROPERTIES:
+:CUSTOM_ID: h:f95fb7e2-fcc8-43f6-bde5-27fe51b1bdd5
+:END:
 
 #+begin_src text
 Modus themes version 2.3.0
@@ -649,6 +1082,9 @@ Thanks once again to everyone involved!
 #+end_src
 
 * 2.2.0
+:PROPERTIES:
+:CUSTOM_ID: h:251849ee-3328-48c7-af5f-d1d6daca3a97
+:END:
 
 #+begin_src text
 Modus themes version 2.2.0
@@ -756,6 +1192,9 @@ Miscellaneous changes
 #+end_src
 
 * 2.1.0
+:PROPERTIES:
+:CUSTOM_ID: h:15098250-7b41-404b-86e1-9a99984976b9
+:END:
 
 #+begin_src text
 Modus themes version 2.1.0
@@ -1462,6 +1901,9 @@ intense work which further iterated on an already solid base.
 #+end_src
 
 * 2.0.0
+:PROPERTIES:
+:CUSTOM_ID: h:46d92baa-eff3-4973-bac0-cf762b457e2d
+:END:
 
 #+begin_src text
 Modus themes version 2.0.0
@@ -1841,6 +2283,9 @@ Miscellaneous
 #+end_src
 
 * 1.7.0
+:PROPERTIES:
+:CUSTOM_ID: h:22de7065-f54c-4944-b47f-3cc8a30551c8
+:END:
 
 #+begin_src text
 Modus themes version 1.7.0
@@ -2071,6 +2516,9 @@ Thanks once again to everyone involved!
 #+end_src
 
 * 1.6.0
+:PROPERTIES:
+:CUSTOM_ID: h:e4b9945c-1db8-4626-abc9-372469b19253
+:END:
 
 #+begin_src text
 Modus themes version 1.6.0
@@ -2421,6 +2869,9 @@ themes, version 1.6.0, as part of the next stable release of Emacs.
 #+end_src
 
 * 1.5.0
+:PROPERTIES:
+:CUSTOM_ID: h:05fc633d-69d6-4b5e-aade-1f9e4ba30ed3
+:END:
 
 #+begin_src text
 Modus themes version 1.5.0
@@ -2859,6 +3310,9 @@ Thanks again to everyone involved!
 #+end_src
 
 * 1.4.0
+:PROPERTIES:
+:CUSTOM_ID: h:4c643e3c-5284-4fab-97e8-217bc1c02f5d
+:END:
 
 #+begin_src text
 Modus themes version 1.4.0
@@ -3175,6 +3629,9 @@ Miscellaneous
 #+end_src
 
 * 1.3.0
+:PROPERTIES:
+:CUSTOM_ID: h:5063c0c5-832e-4577-936e-d602b07d6d79
+:END:
 
 #+begin_src text
 Modus themes version 1.3.0
@@ -3541,6 +3998,9 @@ Thanks once again to everyone involved!
 #+end_src
 
 * 1.2.0
+:PROPERTIES:
+:CUSTOM_ID: h:751083a7-3514-40f5-9928-17a11de5b439
+:END:
 
 #+begin_src text
 Modus themes version 1.2.0
@@ -3891,6 +4351,9 @@ Miscellaneous
 
 
 * 1.1.0
+:PROPERTIES:
+:CUSTOM_ID: h:bb0e16a9-8a8b-4b1b-9d62-b1715295247b
+:END:
 
 #+begin_src text
 Modus themes version 1.1.0
@@ -4349,6 +4812,9 @@ terms of face coverage, and (iv) meticulously designed throughout.
 #+end_src
 
 * 1.0.0
+:PROPERTIES:
+:CUSTOM_ID: h:94b5915e-1085-4859-ac9f-daf91e007741
+:END:
 
 #+begin_src text
 Modus themes version 1.0.0
@@ -4753,6 +5219,9 @@ it may have introduced.
 #+end_src
 
 * 0.13.0
+:PROPERTIES:
+:CUSTOM_ID: h:b529ec46-2a9f-4844-9760-4708d2ca575b
+:END:
 
 #+begin_src text
 Modus Operandi and Modus Vivendi version 0.13.0
@@ -5281,6 +5750,9 @@ Thanks again to everyone who helped improve the themes!
 #+end_src
 
 * 0.12.0
+:PROPERTIES:
+:CUSTOM_ID: h:9d9394c1-84b6-4c23-8936-fe4f2f43301d
+:END:
 
 #+begin_src text
 Modus Operandi and Modus Vivendi version 0.12.0
@@ -5582,6 +6054,9 @@ their thoughts.  The people already mentioned herein:
 #+end_src
 
 * 0.11.0
+:PROPERTIES:
+:CUSTOM_ID: h:7a453154-3486-45a8-9249-9183ad49ff42
+:END:
 
 #+begin_src text
 Modus Operandi and Modus Vivendi version 0.11.0
@@ -5843,6 +6318,9 @@ https://gitlab.com/protesilaos/modus-themes/-/issues
 #+end_src
 
 * 0.10.0
+:PROPERTIES:
+:CUSTOM_ID: h:de114a53-7cbd-49aa-bf24-d1f1f0bf342e
+:END:
 
 #+begin_src text
 Modus Operandi and Modus Vivendi version 0.10.0
@@ -5962,6 +6440,9 @@ My thanks to Basil and André for their contributions!
 #+end_src
 
 * 0.9.0
+:PROPERTIES:
+:CUSTOM_ID: h:96ccc8b9-2d5e-4857-bf25-4e094e17bfed
+:END:
 
 #+begin_src text
 Modus Operandi and Modus Vivendi version 0.9.0
@@ -6117,6 +6598,9 @@ Added support for
 #+end_src
 
 * 0.8.0
+:PROPERTIES:
+:CUSTOM_ID: h:afa34aec-7079-4c45-8e16-ab4e7cc8cd6a
+:END:
 
 #+begin_src text
 Modus Operandi and Modus Vivendi version 0.8.0
@@ -6288,6 +6772,9 @@ Miscellaneous changes and concluding remarks
 #+end_src
 
 * 0.7.0
+:PROPERTIES:
+:CUSTOM_ID: h:353114b7-6980-4622-8057-b8cbb8361a8a
+:END:
 
 #+begin_src text
 Modus Operandi and Modus Vivendi version 0.7.0
@@ -6518,6 +7005,9 @@ Software Foundation.
 #+end_src
 
 * 0.6.0
+:PROPERTIES:
+:CUSTOM_ID: h:c8c33ff2-6f75-4642-a27e-ee6e8abc493e
+:END:
 
 #+begin_src text
 This release contains lots of refinements and additions.
@@ -6616,6 +7106,9 @@ list of supported packages.
 #+end_src
 
 * 0.5.0
+:PROPERTIES:
+:CUSTOM_ID: h:dffc2bd4-6597-4be4-88f6-b349be7ebc6e
+:END:
 
 #+begin_src text
 This release contains support for several new packages and lots of
@@ -6698,6 +7191,9 @@ Refinements:
 #+end_src
 
 * 0.4.0
+:PROPERTIES:
+:CUSTOM_ID: h:1597e301-f9df-4aac-8ec5-b8ecf34f2930
+:END:
 
 #+begin_src text
 This is an overview of the changes since version 0.3.0 (2019-12-25).
@@ -6748,6 +7244,9 @@ Miscellaneous:
 #+end_src
 
 * 0.3.0
+:PROPERTIES:
+:CUSTOM_ID: h:cb0ca8dc-3960-4490-b3c4-27d10cf6ed44
+:END:
 
 #+begin_src text
 Overview of changes since 0.2.0 (2019-12-18):
@@ -6808,6 +7307,9 @@ Overview of changes since 0.2.0 (2019-12-18):
 #+end_src
 
 * 0.2.0
+:PROPERTIES:
+:CUSTOM_ID: h:c9746d04-adf4-41b1-9b7c-6caaf17f8816
+:END:
 
 #+begin_src text
 Overview of changes since 0.1.0 (2019-12-09):
@@ -6839,6 +7341,9 @@ contrast between the elements.
 #+end_src
 
 * 0.1.0
+:PROPERTIES:
+:CUSTOM_ID: h:e14e612e-6951-4812-bc88-62c498bd5644
+:END:
 
 #+begin_src text
 First stable release of Modus Operandi and Modus Vivendi.

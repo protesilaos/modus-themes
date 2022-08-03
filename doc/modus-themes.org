@@ -4,9 +4,9 @@
 #+language:              en
 #+options:               ':t toc:nil author:t email:t num:t
 #+startup:               content
-#+macro:                 stable-version 2.4.0
-#+macro:                 release-date 2022-06-01
-#+macro:                 development-version 2.5.0-dev
+#+macro:                 stable-version 2.5.0
+#+macro:                 release-date 2022-08-03
+#+macro:                 development-version 2.6.0-dev
 #+macro:                 file @@texinfo:@file{@@$1@@texinfo:}@@
 #+macro:                 space @@texinfo:@: @@
 #+macro:                 kbd @@texinfo:@kbd{@@$1@@texinfo:}@@
@@ -2003,8 +2003,6 @@ Putting it all together, the alist can look like this:
 :custom_id: h:271eff19-97aa-4090-9415-a6463c2f9ae1
 :end:
 #+vindex: modus-themes-headings
-
-[ Updated as part of {{{development-version}}} ]
 
 Brief: Heading styles with optional list of values for levels 0-8.
 
@@ -4461,7 +4459,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + calibredb
 + cfrs
 + change-log and log-view (such as ~vc-print-log~, ~vc-print-root-log~)
-+ chart [ part of {{{development-version}}} ]
++ chart
 + cider
 + circe
 + citar
@@ -4486,7 +4484,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + deadgrep
 + debbugs
 + deft
-+ denote [ part of {{{development-version}}} ]
++ denote
 + devdocs
 + dictionary
 + diff-hl
@@ -4580,7 +4578,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + imenu-list
 + indium
 + info
-+ info+ (info-plus) [ part of {{{development-version}}} ]
++ info+ (info-plus)
 + info-colors
 + interaction-log
 + ioccur
@@ -4595,7 +4593,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + kaocha-runner
 + keycast
 + ledger-mode
-+ leerzeichen [ part of {{{development-version}}} ]
++ leerzeichen
 + line numbers (~display-line-numbers-mode~ and global variant)
 + lsp-mode
 + lsp-ui
