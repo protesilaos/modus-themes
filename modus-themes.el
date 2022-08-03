@@ -5740,7 +5740,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; highlight-numbers
     `(highlight-numbers-number ((,class :foreground ,blue-alt-other)))
 ;;;;; highlight-thing
-    `(highlight-thing ((,class :background ,bg-alt :foreground ,cyan)))
+    `(highlight-thing ((,class :inherit modus-themes-special-calm)))
 ;;;;; hl-defined
     `(hdefd-functions ((,class :foreground ,blue)))
     `(hdefd-undefined ((,class :foreground ,red-alt)))
