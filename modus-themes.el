@@ -4970,7 +4970,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(dired-git-branch-else ((,class :inherit bold :foreground ,magenta-alt)))
     `(dired-git-branch-master ((,class :inherit bold :foreground ,magenta-alt-other)))
 ;;;;; dired-git-info
-    `(dgi-commit-message-face ((,class :foreground ,fg-special-mild)))
+    `(dgi-commit-message-face ((,class :foreground ,cyan-alt-other)))
 ;;;;; dired-narrow
     `(dired-narrow-blink ((,class :inherit (modus-themes-subtle-cyan bold))))
 ;;;;; dired-subtree
