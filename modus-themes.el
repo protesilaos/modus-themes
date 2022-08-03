@@ -5408,13 +5408,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(flx-highlight-face ((,class :inherit modus-themes-completion-match-0)))
 ;;;;; freeze-it
     `(freeze-it-show ((,class :background ,bg-dim :foreground ,fg-special-warm)))
-;;;;; frog-menu
-    `(frog-menu-action-keybinding-face ((,class :inherit modus-themes-key-binding)))
-    `(frog-menu-actions-face ((,class :foreground ,magenta)))
-    `(frog-menu-border ((,class :background ,bg-active)))
-    `(frog-menu-candidates-face ((,class :foreground ,fg-main)))
-    `(frog-menu-posframe-background-face ((,class :background ,bg-dim)))
-    `(frog-menu-prompt-face ((,class :foreground ,cyan)))
 ;;;;; focus
     `(focus-unfocused ((,class :foreground ,fg-unfocused)))
 ;;;;; fold-this
