@@ -7490,6 +7490,10 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;; awesome-tray
     `(awesome-tray-mode-line-active-color ,blue)
     `(awesome-tray-mode-line-inactive-color ,bg-active)
+;;;; chart
+    `(chart-face-color-list
+      '( ,red-graph-0-bg ,green-graph-0-bg ,yellow-graph-0-bg ,blue-graph-0-bg ,magenta-graph-0-bg ,cyan-graph-0-bg
+         ,red-graph-1-bg ,green-graph-1-bg ,yellow-graph-1-bg ,blue-graph-1-bg ,magenta-graph-1-bg ,cyan-graph-1-bg))
 ;;;; exwm
     `(exwm-floating-border-color ,fg-window-divider-inner)
 ;;;; flymake fringe indicators
