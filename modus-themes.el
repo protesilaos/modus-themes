@@ -109,7 +109,7 @@ cover the blue-cyan-magenta side of the spectrum."
   :prefix "modus-themes-"
   :tag "Modus Themes Faces")
 
-(defvar modus-themes--version "2.5.0"
+(defvar modus-themes--version "2.6.0-dev"
   "Current version of the Modus themes.
 
 The version either is the last tagged release, such as '2.4.0',
