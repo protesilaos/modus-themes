@@ -361,7 +361,7 @@ package configurations in their setup.  We use this as an example:
   :config
   ;; Load the theme of your choice:
   (load-theme 'modus-operandi) ;; OR (load-theme 'modus-vivendi)
-  :bind ("<f5>" . modus-themes-toggle)
+  :bind ("<f5>" . modus-themes-toggle))
 
 
 
