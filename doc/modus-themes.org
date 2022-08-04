@@ -4853,6 +4853,8 @@ length elsewhere in this manual:
 (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
 #+end_src
 
+As always, re-load the theme for changes to take effect.
+
 If the above does not work, try this instead:
 
 #+begin_src emacs-lisp
@@ -4887,6 +4889,8 @@ This seems to make all comments use the appropriate face:
 
 (add-hook 'php-mode-hook #'my-multine-comments)
 #+end_src
+
+As always, re-load the theme for changes to take effect.
 
 ** Note on underlines in compilation buffers
 :properties:
@@ -5126,6 +5130,8 @@ implementation:
 
 (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-highlight-parentheses)
 #+end_src
+
+As always, re-load the theme for changes to take effect.
 
 ** Note on mmm-mode.el background colors
 :properties:
