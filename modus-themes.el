@@ -6963,11 +6963,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(smerge-refined-changed (()))
     `(smerge-refined-removed ((,class :inherit modus-themes-diff-refine-removed)))
     `(smerge-upper ((,class :inherit modus-themes-diff-removed)))
-;;;;; solaire
-    `(solaire-default-face ((,class :inherit default :background ,bg-alt :foreground ,fg-dim)))
-    `(solaire-line-number-face ((,class :inherit solaire-default-face :foreground ,fg-unfocused)))
-    `(solaire-hl-line-face ((,class :background ,bg-active)))
-    `(solaire-org-hide-face ((,class :background ,bg-alt :foreground ,bg-alt)))
 ;;;;; spaceline
     `(spaceline-evil-emacs ((,class :inherit modus-themes-active-magenta)))
     `(spaceline-evil-insert ((,class :inherit modus-themes-active-green)))
