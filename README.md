@@ -57,7 +57,7 @@ With `use-package`:
   :config
   ;; Load the theme of your choice:
   (load-theme 'modus-operandi) ;; OR (load-theme 'modus-vivendi)
-  :bind ("<f5>" . modus-themes-toggle)
+  :bind ("<f5>" . modus-themes-toggle))
 ```
 
 Without `use-package`:
