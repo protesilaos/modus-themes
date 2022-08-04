@@ -32,12 +32,6 @@ Sources:
     + GitLab: <https://gitlab.com/protesilaos/modus-themes>
 + Mailing list: <https://lists.sr.ht/~protesilaos/modus-themes>
 
-NOTE FOR DOOM EMACS USERS: Doom uses [the Solaire
-package](https://github.com/hlissner/emacs-solaire-mode) to dim some
-parts of the Emacs frame.  As that deviates from the default looks of
-the theme and as you have not explicitly opted in to Solaire, consider
-disabling `solaire-mode`.
-
 ## Quick setup for the latest version
 
 ### Built-in version
