@@ -6497,7 +6497,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                        bg-dim fg-special-cold
                                        bg-alt fg-alt))))
     `(org-block-end-line ((,class :inherit org-block-begin-line)))
-    `(org-checkbox (( )))
+    `(org-checkbox ((,class :foreground ,yellow-alt-other)))
     `(org-checkbox-statistics-done ((,class :inherit org-done)))
     `(org-checkbox-statistics-todo ((,class :inherit org-todo)))
     `(org-clock-overlay ((,class :background ,yellow-nuanced-bg :foreground ,red-alt-faint)))
