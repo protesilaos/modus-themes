@@ -6358,6 +6358,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(mu4e-moved-face ((,class :inherit modus-themes-slant :foreground ,yellow)))
     `(mu4e-ok-face ((,class :inherit bold :foreground ,green)))
     `(mu4e-region-code ((,class :inherit modus-themes-special-calm)))
+    `(mu4e-related-face ((,class :inherit (italic shadow))))
     `(mu4e-replied-face ((,class :foreground ,blue)))
     `(mu4e-special-header-value-face ((,class :inherit message-header-subject)))
     `(mu4e-system-face ((,class :inherit modus-themes-slant :foreground ,fg-mark-del)))
