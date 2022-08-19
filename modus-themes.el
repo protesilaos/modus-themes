@@ -6183,7 +6183,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(markdown-comment-face ((,class :inherit font-lock-comment-face)))
     `(markdown-footnote-marker-face ((,class :inherit bold :foreground ,cyan-alt)))
     `(markdown-footnote-text-face ((,class :inherit modus-themes-slant :foreground ,fg-main)))
-    `(markdown-gfm-checkbox-face ((,class :foreground ,cyan-alt-other)))
+    `(markdown-gfm-checkbox-face ((,class :foreground ,yellow-alt-other)))
     `(markdown-header-delimiter-face ((,class :inherit modus-themes-bold :foreground ,fg-dim)))
     `(markdown-header-face ((t nil)))
     `(markdown-header-face-1 ((,class :inherit modus-themes-heading-1)))
