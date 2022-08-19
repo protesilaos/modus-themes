@@ -15,6 +15,119 @@ For further details, please consult these additional resources:
 + Manual :: <https://protesilaos.com/emacs/modus-themes>
 + Screenshots :: <https://protesilaos.com/emacs/modus-themes-pictures>
 
+* 2.6.0
+:PROPERTIES:
+:CUSTOM_ID: h:fc108f65-3e0b-4e28-8030-86c797cb2b25
+:END:
+
+#+begin_src text
+Modus themes version 2.6.0
+
+By Protesilaos Stavrou <info@protesilaos.com> on 2022-08-19
+
+
+Changes to supported faces or face groups
+=========================================
+
+,* Made the 'font-lock-warning-face' adapt to comments.  This changes the
+  face from a yellow to a red hue when the user adds a value to
+  'modus-themes-syntax' which includes 'yellow-comments' property.
+  Before, this face was indistinguishable from yellow comments due to a
+  regression in version 2.5.0 of the themes.  Thanks to Augusto Stoffel
+  and Manuel Uberti for their feedback on the mailing list:
+  <https://lists.sr.ht/~protesilaos/modus-themes/%3C87r11k1c22.fsf%40gmail.com%3E>.
+
+,* Applied a consistent foreground color (a not-so-intense yellow hue) to
+  the 'org-checkbox' and 'markdown-gfm-checkbox-face'.  The change comes
+  from the discussion on the mailing list where it became apparent that
+  a bit of colour is needed for such constructs:
+  <https://lists.sr.ht/~protesilaos/modus-themes/%3Cm2fsi9cja4.fsf%40me.com%3E>.
+
+  Thanks to Rudolf Adamkovič, Christian Tietze, and Karthik Chikmagalur
+  for their participation.
+
+,* Added support for the 'mu4e-related-face'.  Thanks to Simon Pugnet for
+  the feedback on the mailing list:
+  <https://lists.sr.ht/~protesilaos/modus-themes/%3C87edxhvqwp.fsf@polaris64.net%3E>.
+
+,* Included support for the 'consult-preview-insertion' face.  There are
+  two reasons for adding this:
+
+  1. It decouples it from the 'region' face, which means that the user
+     option 'modus-themes-region' no longer has an unintended effect on
+     it.
+
+  2. It makes it look consistent with the 'rectangle-preview' face (see
+     it in action with C-x SPC, move point down a few lines, type C-t
+     and then insert some text).  I feel these sort of previews need to
+     look the same, though I don't have a strong attachment to the style
+     now in use.
+
+
+Removed support for the 'solaire' package
+=========================================
+
+The 'solaire-mode' package dims the background of what it considers
+ancillary "UI" buffers, such as the minibuffer and Dired buffers.  The
+Modus themes used to support Solaire on the premise that the user was
+(i) opting in to it, (ii) understood why certain buffers were more gray,
+and (iii) knew what other adjustments had to be made to prevent broken
+visuals (e.g. the default style of the 'modus-themes-completions' uses a
+subtle gray background for the selection, which with Solaire becomes
+practically invisible).
+
+However, the assumption that users opt in to this feature does not
+always hold true.  There are cases where it is enabled by default such
+as in the popular Doom Emacs configuration.  Thus, the unsuspecting user
+who loads 'modus-operandi' or 'modus-vivendi' without the requisite
+customizations is getting a sub-par experience; an experience that we
+did not intend and cannot genuinely fix.
+
+[ Relevant reading about "The case of git-gutter, the modus-themes, and
+  Doom Emacs":
+  <https://protesilaos.com/codelog/2022-08-04-doom-git-gutter-modus-themes/> ]
+
+Because the Modus themes are meant to work everywhere, we cannot make an
+exception for Doom Emacs and/or Solaire users.  Furthermore, we shall
+not introduce hacks, such as by adding a check in all relevant faces to
+be adjusted based on Solaire or whatever other package.  Hacks of this
+sort are unsustainable and penalize the entire userbase.  Besides, the
+themes are built into Emacs and we must keep their standard high.
+
+The fundamental constraint with Solaire is that Emacs does not have a
+real distinction between "content" and "UI" buffers.  For themes to work
+with Solaire, they need to be designed around that package.  Such is an
+arrangement that compromises on our accessibility standards and/or
+hinders our efforts to provide the best possible experience while using
+the Modus themes.
+
+As such, 'solaire-mode' is not---and will not be---supported by the
+Modus themes (or any other of my themes, for that matter).  Users who
+want it must style the faces manually.  Below is some sample code, based
+on what we cover at length in the manual:
+
+    (defun my-modus-themes-custom-faces ()
+      (modus-themes-with-colors
+        (custom-set-faces
+         `(solaire-default-face ((,class :inherit default :background ,bg-alt :foreground ,fg-dim)))
+         `(solaire-line-number-face ((,class :inherit solaire-default-face :foreground ,fg-unfocused)))
+         `(solaire-hl-line-face ((,class :background ,bg-active)))
+         `(solaire-org-hide-face ((,class :background ,bg-alt :foreground ,bg-alt))))))
+
+    (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
+
+
+Changes to the manual
+=====================
+
+,* Added a missing parenthesis to a sample code block.  Thanks to Paul
+  David for the contribution in pull request 39 on the GitHub mirror:
+  <https://github.com/protesilaos/modus-themes/pull/39>.
+
+,* Clarified the wording of individual statements pertaining to the need
+  of reloading a theme for changes to user options to become effective.
+#+end_src
+
 * 2.5.0
 :PROPERTIES:
 :CUSTOM_ID: h:32438044-6eee-4909-8e5a-860ce1457049

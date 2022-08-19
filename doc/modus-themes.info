@@ -43,11 +43,11 @@ customization options for the ‘modus-operandi’ and ‘modus-vivendi’
 themes, and provides every other piece of information pertinent to them.
 
    The documentation furnished herein corresponds to stable version
-2.5.0, released on 2022-08-03.  Any reference to a newer feature which
+2.6.0, released on 2022-08-19.  Any reference to a newer feature which
 does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
-   Current development target is 2.6.0-dev.
+   Current development target is 2.7.0-dev.
 
    • Homepage: <https://protesilaos.com/emacs/modus-themes>.
    • Git repository: <https://git.sr.ht/~protesilaos/modus-themes>.
