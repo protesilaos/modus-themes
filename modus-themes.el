@@ -103,7 +103,7 @@ cover the blue-cyan-magenta side of the spectrum."
   :tag "Modus Themes")
 
 (defgroup modus-themes-faces ()
-  "Faces defined my `modus-operandi' and `modus-vivendi'."
+  "Faces defined by `modus-operandi' and `modus-vivendi'."
   :group 'modus-themes
   :link '(info-link "(modus-themes) Top")
   :prefix "modus-themes-"
