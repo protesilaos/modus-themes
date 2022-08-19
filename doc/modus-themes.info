@@ -4439,31 +4439,39 @@ File: modus-themes.info,  Node: Add support for solaire-mode,  Prev: Custom hl-t
 =================================
 
 The ‘solaire-mode’ package dims the background of what it considers
-ancillary buffers, such as the minibuffer and Dired buffers.  The Modus
-themes used to support Solaire on the premise that the user was (i)
-opting in to it, (ii) understood why certain buffers were more gray, and
-(iii) knew what other adjustments had to be made to prevent broken
+ancillary “UI” buffers, such as the minibuffer and Dired buffers.  The
+Modus themes used to support Solaire on the premise that the user was
+(i) opting in to it, (ii) understood why certain buffers were more gray,
+and (iii) knew what other adjustments had to be made to prevent broken
 visuals (e.g.  the default style of the ‘modus-themes-completions’ uses
 a subtle gray background for the selection, which with Solaire becomes
 practically invisible).
 
-   However, the assumption that users opt-in to this feature does not
-always hold true in many cases as it is enabled by default in at least
-the very popular Doom Emacs configuration.  Thus, the unsuspecting user
+   However, the assumption that users opt in to this feature does not
+always hold true.  There are cases where it is enabled by defaultsuch as
+in the popular Doom Emacs configuration.  Thus, the unsuspecting user
 who loads ‘modus-operandi’ or ‘modus-vivendi’ without the requisite
 customizations is getting a sub-par experience; an experience that we
-did not intend.
+did not intend and cannot genuinely fix.
 
    Because the Modus themes are meant to work everywhere, we cannot make
-an exception for Doom Emacs users.  Furthermore, we shall not introduce
-hacks, such as by adding a check in all relevant faces to be adjusted
-based on Solaire or whatever other package.  Hacks of this sort are
-unsustainable and penalize all users.  Besides, the themes are built
-into Emacs and we must keep their standard high.
+an exception for Doom Emacs and/or Solaire users.  Furthermore, we shall
+not introduce hacks, such as by adding a check in all relevant faces to
+be adjusted based on Solaire or whatever other package.  Hacks of this
+sort are unsustainable and penalize the entire userbase.  Besides, the
+themes are built into Emacs and we must keep their standard high.
+
+   The fundamental constraint with Solaire is that Emacs does not have a
+real distinction between “content” and “UI” buffers.  For themes to work
+with Solaire, they need to be designed around that package.  Such is an
+arrangement that compromises on our accessibility standards and/or
+hinders our efforts to provide the best possible experience while using
+the Modus themes.
 
    As such, ‘solaire-mode’ is not—and will not be—supported by the Modus
-themes.  Users who want it must style the faces manually.  Below is some
-sample code, based on what we cover at length elsewhere in this manual:
+themes (or any other of my themes, for that matter).  Users who want it
+must style the faces manually.  Below is some sample code, based on what
+we cover at length elsewhere in this manual:
 
    *note Advanced customization::.
 
@@ -6954,51 +6962,51 @@ Node: Ediff without diff color-coding176215
 Node: Near-monochrome syntax highlighting178354
 Node: Custom hl-todo colors187351
 Node: Add support for solaire-mode188872
-Node: Face coverage191302
-Node: Supported packages191754
-Node: Indirectly covered packages198257
-Node: Notes on individual packages199385
-Node: Note on calendarel weekday and weekend colors200493
-Node: Note on git-gutter in Doom Emacs201641
-Node: Note on php-mode multiline comments203730
-Node: Note on underlines in compilation buffers204483
-Node: Note on inline Latex in Org buffers205320
-Node: Note on dimmerel205930
-Node: Note on display-fill-column-indicator-mode207415
-Node: Note on highlight-parenthesesel208813
-Node: Note on mmm-modeel background colors214863
-Node: Note for prism217178
-Node: Note for god-mode220334
-Node: Note on company-mode overlay pop-up221938
-Ref: Note on company-mode overlay pop-up-Footnote-1222628
-Ref: Note on company-mode overlay pop-up-Footnote-2222695
-Node: Note on ERC escaped color sequences222750
-Ref: Note on ERC escaped color sequences-Footnote-1224178
-Node: Note on powerline or spaceline224288
-Node: Note on SHR colors224702
-Node: Note on SHR fonts225126
-Node: Note on Ement colors and fonts225759
-Node: Note on Helm grep227258
-Node: Note on pdf-tools link hints228728
-Node: Note on the Notmuch logo231175
-Node: Frequently Asked Questions231673
-Node: Is the contrast ratio about adjacent colors?232304
-Node: What does it mean to avoid exaggerations?233811
-Node: Why are colors mostly variants of blue magenta cyan?235640
-Node: What is the best setup for legibility?239946
-Node: Are these color schemes?242591
-Node: Port the Modus themes to other platforms?246311
-Node: Contributing249092
-Node: Sources of the themes249489
-Node: Issues you can help with250188
-Node: Patches require copyright assignment to the FSF251760
-Node: Acknowledgements253980
-Node: Other notes about the project257461
-Node: GNU Free Documentation License260459
-Node: Indices285836
-Node: Function index286015
-Node: Variable index287818
-Node: Concept index290105
+Node: Face coverage191790
+Node: Supported packages192242
+Node: Indirectly covered packages198745
+Node: Notes on individual packages199873
+Node: Note on calendarel weekday and weekend colors200981
+Node: Note on git-gutter in Doom Emacs202129
+Node: Note on php-mode multiline comments204218
+Node: Note on underlines in compilation buffers204971
+Node: Note on inline Latex in Org buffers205808
+Node: Note on dimmerel206418
+Node: Note on display-fill-column-indicator-mode207903
+Node: Note on highlight-parenthesesel209301
+Node: Note on mmm-modeel background colors215351
+Node: Note for prism217666
+Node: Note for god-mode220822
+Node: Note on company-mode overlay pop-up222426
+Ref: Note on company-mode overlay pop-up-Footnote-1223116
+Ref: Note on company-mode overlay pop-up-Footnote-2223183
+Node: Note on ERC escaped color sequences223238
+Ref: Note on ERC escaped color sequences-Footnote-1224666
+Node: Note on powerline or spaceline224776
+Node: Note on SHR colors225190
+Node: Note on SHR fonts225614
+Node: Note on Ement colors and fonts226247
+Node: Note on Helm grep227746
+Node: Note on pdf-tools link hints229216
+Node: Note on the Notmuch logo231663
+Node: Frequently Asked Questions232161
+Node: Is the contrast ratio about adjacent colors?232792
+Node: What does it mean to avoid exaggerations?234299
+Node: Why are colors mostly variants of blue magenta cyan?236128
+Node: What is the best setup for legibility?240434
+Node: Are these color schemes?243079
+Node: Port the Modus themes to other platforms?246799
+Node: Contributing249580
+Node: Sources of the themes249977
+Node: Issues you can help with250676
+Node: Patches require copyright assignment to the FSF252248
+Node: Acknowledgements254468
+Node: Other notes about the project257949
+Node: GNU Free Documentation License260947
+Node: Indices286324
+Node: Function index286503
+Node: Variable index288306
+Node: Concept index290593
 
 End Tag Table
 

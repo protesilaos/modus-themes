@@ -4417,32 +4417,39 @@ otherwise the defaults are not always legible.
 :END:
 
 The =solaire-mode= package dims the background of what it considers
-ancillary buffers, such as the minibuffer and Dired buffers.  The Modus
-themes used to support Solaire on the premise that the user was (i)
-opting in to it, (ii) understood why certain buffers were more gray, and
-(iii) knew what other adjustments had to be made to prevent broken
+ancillary "UI" buffers, such as the minibuffer and Dired buffers.  The
+Modus themes used to support Solaire on the premise that the user was
+(i) opting in to it, (ii) understood why certain buffers were more gray,
+and (iii) knew what other adjustments had to be made to prevent broken
 visuals (e.g. the default style of the ~modus-themes-completions~ uses a
 subtle gray background for the selection, which with Solaire becomes
 practically invisible).
 
-However, the assumption that users opt-in to this feature does not
-always hold true in many cases as it is enabled by default in at least
-the very popular Doom Emacs configuration.  Thus, the unsuspecting user
+However, the assumption that users opt in to this feature does not
+always hold true.  There are cases where it is enabled by defaultsuch as
+in the popular Doom Emacs configuration.  Thus, the unsuspecting user
 who loads ~modus-operandi~ or ~modus-vivendi~ without the requisite
 customizations is getting a sub-par experience; an experience that we
-did not intend.
+did not intend and cannot genuinely fix.
 
 Because the Modus themes are meant to work everywhere, we cannot make an
-exception for Doom Emacs users.  Furthermore, we shall not introduce
-hacks, such as by adding a check in all relevant faces to be adjusted
-based on Solaire or whatever other package.  Hacks of this sort are
-unsustainable and penalize all users.  Besides, the themes are built
-into Emacs and we must keep their standard high.
+exception for Doom Emacs and/or Solaire users.  Furthermore, we shall
+not introduce hacks, such as by adding a check in all relevant faces to
+be adjusted based on Solaire or whatever other package.  Hacks of this
+sort are unsustainable and penalize the entire userbase.  Besides, the
+themes are built into Emacs and we must keep their standard high.
+
+The fundamental constraint with Solaire is that Emacs does not have a
+real distinction between "content" and "UI" buffers.  For themes to work
+with Solaire, they need to be designed around that package.  Such is an
+arrangement that compromises on our accessibility standards and/or
+hinders our efforts to provide the best possible experience while using
+the Modus themes.
 
 As such, =solaire-mode= is not---and will not be---supported by the
-Modus themes.  Users who want it must style the faces manually.  Below
-is some sample code, based on what we cover at length elsewhere in this
-manual:
+Modus themes (or any other of my themes, for that matter).  Users who
+want it must style the faces manually.  Below is some sample code, based
+on what we cover at length elsewhere in this manual:
 
 [[#h:f4651d55-8c07-46aa-b52b-bed1e53463bb][Advanced customization]].
 
