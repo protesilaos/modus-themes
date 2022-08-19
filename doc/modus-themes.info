@@ -2265,7 +2265,7 @@ things with precision (*note Customization Options::).
    This section is of interest only to users who are prepared to
 maintain their own local tweaks and who are willing to deal with any
 possible incompatibilities between versioned releases of the themes.  As
-such, they are labelled as “do-it-yourself” or “DIY”.
+such, they are labeled as “do-it-yourself” or “DIY”.
 
 * Menu:
 
@@ -2712,7 +2712,7 @@ this example:
    Whenever we enter a ‘diff-mode’ buffer, we now get a magenta-colored
 region.
 
-   Perhaps you may wish to generalise those findings in to a set of
+   Perhaps you may wish to generalize those findings in to a set of
 functions that also accept an arbitrary face.  We shall leave the
 experimentation up to you.
 
@@ -3701,7 +3701,7 @@ File: modus-themes.info,  Node: Custom Org emphasis faces,  Next: Update Org blo
 5.16 Custom Org emphasis faces
 ==============================
 
-Org provides the user option ‘org-emphasis-alist’ which assosiates a
+Org provides the user option ‘org-emphasis-alist’ which associates a
 character with a face, list of faces, or face attributes.  The default
 specification of that variable looks like this:
 
@@ -4938,7 +4938,7 @@ The ‘git-gutter’ and ‘git-gutter-fr’ packages default to drawing bitmaps
 for the indicators they display (e.g.  bitmap of a plus sign for added
 lines).  In Doom Emacs, these bitmaps are replaced with contiguous lines
 which may look nicer, but require a change to the foreground of the
-relevant faces to yield the desired colour combinations.
+relevant faces to yield the desired color combinations.
 
    Since this is Doom-specific, we urge users to apply changes in their
 local setup.  Below is some sample code, based on what we cover at
@@ -6933,80 +6933,80 @@ Node: Org agenda72920
 Node: Heading styles81736
 Node: UI typeface86648
 Node: Advanced customization87547
-Node: More accurate colors in terminal emulators89308
-Node: Range of color with terminal emulators90549
-Node: Visualize the active Modus theme's palette93254
-Node: Per-theme customization settings94250
-Node: Case-by-case face specs using the themes' palette95606
-Node: Face specs at scale using the themes' palette100154
-Node: Remap face with local value104955
-Node: Cycle through arbitrary colors107380
-Node: Override colors113808
-Node: Override color saturation119050
-Node: Override colors through blending124731
-Node: Override colors completely127576
-Node: Font configurations for Org and others141078
-Ref: Font configurations for Org and others-Footnote-1144005
-Node: Configure bold and italic faces144192
-Node: Custom Org todo keyword and priority faces148340
-Node: Custom Org emphasis faces152013
-Node: Update Org block delimiter fontification156814
-Node: Measure color contrast158731
-Node: Load theme depending on time of day161454
-Node: Backdrop for pdf-tools162447
-Node: Decrease mode line height165299
-Node: Toggle themes without reloading them169421
-Node: A theme-agnostic hook for theme loading170700
-Node: Diffs with only the foreground173102
-Node: Ediff without diff color-coding176216
-Node: Near-monochrome syntax highlighting178355
-Node: Custom hl-todo colors187352
-Node: Add support for solaire-mode188873
-Node: Face coverage191791
-Node: Supported packages192243
-Node: Indirectly covered packages198746
-Node: Notes on individual packages199874
-Node: Note on calendarel weekday and weekend colors200982
-Node: Note on git-gutter in Doom Emacs202130
-Node: Note on php-mode multiline comments204219
-Node: Note on underlines in compilation buffers204972
-Node: Note on inline Latex in Org buffers205809
-Node: Note on dimmerel206419
-Node: Note on display-fill-column-indicator-mode207904
-Node: Note on highlight-parenthesesel209302
-Node: Note on mmm-modeel background colors215352
-Node: Note for prism217667
-Node: Note for god-mode220823
-Node: Note on company-mode overlay pop-up222427
-Ref: Note on company-mode overlay pop-up-Footnote-1223117
-Ref: Note on company-mode overlay pop-up-Footnote-2223184
-Node: Note on ERC escaped color sequences223239
-Ref: Note on ERC escaped color sequences-Footnote-1224667
-Node: Note on powerline or spaceline224777
-Node: Note on SHR colors225191
-Node: Note on SHR fonts225615
-Node: Note on Ement colors and fonts226248
-Node: Note on Helm grep227747
-Node: Note on pdf-tools link hints229217
-Node: Note on the Notmuch logo231664
-Node: Frequently Asked Questions232162
-Node: Is the contrast ratio about adjacent colors?232793
-Node: What does it mean to avoid exaggerations?234300
-Node: Why are colors mostly variants of blue magenta cyan?236129
-Node: What is the best setup for legibility?240435
-Node: Are these color schemes?243080
-Node: Port the Modus themes to other platforms?246800
-Node: Contributing249581
-Node: Sources of the themes249978
-Node: Issues you can help with250677
-Node: Patches require copyright assignment to the FSF252249
-Node: Acknowledgements254469
-Node: Other notes about the project257950
-Node: GNU Free Documentation License260948
-Node: Indices286325
-Node: Function index286504
-Node: Variable index288307
-Node: Concept index290594
+Node: More accurate colors in terminal emulators89307
+Node: Range of color with terminal emulators90548
+Node: Visualize the active Modus theme's palette93253
+Node: Per-theme customization settings94249
+Node: Case-by-case face specs using the themes' palette95605
+Node: Face specs at scale using the themes' palette100153
+Node: Remap face with local value104954
+Node: Cycle through arbitrary colors107379
+Node: Override colors113807
+Node: Override color saturation119049
+Node: Override colors through blending124730
+Node: Override colors completely127575
+Node: Font configurations for Org and others141077
+Ref: Font configurations for Org and others-Footnote-1144004
+Node: Configure bold and italic faces144191
+Node: Custom Org todo keyword and priority faces148339
+Node: Custom Org emphasis faces152012
+Node: Update Org block delimiter fontification156813
+Node: Measure color contrast158730
+Node: Load theme depending on time of day161453
+Node: Backdrop for pdf-tools162446
+Node: Decrease mode line height165298
+Node: Toggle themes without reloading them169420
+Node: A theme-agnostic hook for theme loading170699
+Node: Diffs with only the foreground173101
+Node: Ediff without diff color-coding176215
+Node: Near-monochrome syntax highlighting178354
+Node: Custom hl-todo colors187351
+Node: Add support for solaire-mode188872
+Node: Face coverage191790
+Node: Supported packages192242
+Node: Indirectly covered packages198745
+Node: Notes on individual packages199873
+Node: Note on calendarel weekday and weekend colors200981
+Node: Note on git-gutter in Doom Emacs202129
+Node: Note on php-mode multiline comments204217
+Node: Note on underlines in compilation buffers204970
+Node: Note on inline Latex in Org buffers205807
+Node: Note on dimmerel206417
+Node: Note on display-fill-column-indicator-mode207902
+Node: Note on highlight-parenthesesel209300
+Node: Note on mmm-modeel background colors215350
+Node: Note for prism217665
+Node: Note for god-mode220821
+Node: Note on company-mode overlay pop-up222425
+Ref: Note on company-mode overlay pop-up-Footnote-1223115
+Ref: Note on company-mode overlay pop-up-Footnote-2223182
+Node: Note on ERC escaped color sequences223237
+Ref: Note on ERC escaped color sequences-Footnote-1224665
+Node: Note on powerline or spaceline224775
+Node: Note on SHR colors225189
+Node: Note on SHR fonts225613
+Node: Note on Ement colors and fonts226246
+Node: Note on Helm grep227745
+Node: Note on pdf-tools link hints229215
+Node: Note on the Notmuch logo231662
+Node: Frequently Asked Questions232160
+Node: Is the contrast ratio about adjacent colors?232791
+Node: What does it mean to avoid exaggerations?234298
+Node: Why are colors mostly variants of blue magenta cyan?236127
+Node: What is the best setup for legibility?240433
+Node: Are these color schemes?243078
+Node: Port the Modus themes to other platforms?246798
+Node: Contributing249579
+Node: Sources of the themes249976
+Node: Issues you can help with250675
+Node: Patches require copyright assignment to the FSF252247
+Node: Acknowledgements254467
+Node: Other notes about the project257948
+Node: GNU Free Documentation License260946
+Node: Indices286323
+Node: Function index286502
+Node: Variable index288305
+Node: Concept index290592
 
 End Tag Table
 
