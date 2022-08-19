@@ -3239,7 +3239,7 @@ an alternative to the default value."
   "Search for `modus-themes--heading' weight in LIST."
   (catch 'found
     (dolist (elt list)
-      (when (memq elt modus-themes--weights)
+      (when (memq elt modus-themes-weights)
         (throw 'found elt)))))
 
 (defun modus-themes--heading (level fg fg-alt bg bg-gray border)
