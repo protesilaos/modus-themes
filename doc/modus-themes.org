@@ -4738,6 +4738,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + smerge
 + spaceline
 + speedbar
++ spell-fu [ part of {{{development-version}}} ]
 + stripes
 + suggest
 + switch-window
@@ -6072,14 +6073,14 @@ The Modus themes are a collective effort.  Every bit of work matters.
 + Author/maintainer :: Protesilaos Stavrou.
 
 + Contributions to code or documentation :: Alex Griffin, Anders
-  Johansson, Basil L.{{{space()}}} Contovounesios, Björn Lindström,
-  Carlo Zancanaro, Christian Tietze, Daniel Mendler, Eli Zaretskii,
-  Fritz Grabo, Illia Ostapyshyn, Kévin Le Gouguec, Kostadin Ninev,
-  Madhavan Krishnan, Manuel Giraud, Markus Beppler, Matthew Stevenson,
-  Mauro Aranda, Nicolas De Jaeghere, Paul David, Philip Kaludercic,
-  Pierre Téchoueyres, Rudolf Adamkovič, Stephen Gildea, Shreyas Ragavan,
-  Stefan Kangas, Utkarsh Singh, Vincent Murphy, Xinglu Chen, Yuanchen
-  Xie.
+  Johansson, Antonio Ruiz, Basil L.{{{space()}}} Contovounesios, Björn
+  Lindström, Carlo Zancanaro, Christian Tietze, Daniel Mendler, Eli
+  Zaretskii, Fritz Grabo, Illia Ostapyshyn, Kévin Le Gouguec, Kostadin
+  Ninev, Madhavan Krishnan, Manuel Giraud, Markus Beppler, Matthew
+  Stevenson, Mauro Aranda, Nicolas De Jaeghere, Paul David, Philip
+  Kaludercic, Pierre Téchoueyres, Rudolf Adamkovič, Stephen Gildea,
+  Shreyas Ragavan, Stefan Kangas, Utkarsh Singh, Vincent Murphy, Xinglu
+  Chen, Yuanchen Xie.
 
 + Ideas and user feedback :: Aaron Jensen, Adam Porter, Adam Spiers,
   Adrian Manea, Alex Griffin, Alex Koen, Alex Peitsinis, Alexey Shmalko,
