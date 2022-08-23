@@ -6988,6 +6988,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(speedbar-selected-face ((,class :inherit bold :foreground ,cyan)))
     `(speedbar-separator-face ((,class :inherit modus-themes-intense-neutral)))
     `(speedbar-tag-face ((,class :foreground ,yellow-alt-other)))
+;;;;; spell-fu
+    `(spell-fu-incorrect-face ((,class :inherit modus-themes-lang-error)))
 ;;;;; stripes
     `(stripes ((,class :background ,bg-alt)))
 ;;;;; suggest
