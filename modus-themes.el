@@ -5041,7 +5041,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(diredp-tagged-autofile-name ((,class :inherit modus-themes-refine-magenta)))
     `(diredp-write-priv ((,class :foreground ,cyan)))
 ;;;;; display-fill-column-indicator-mode
-    `(fill-column-indicator ((,class :height 1 :background ,bg-inactive :foreground ,bg-inactive)))
+    `(fill-column-indicator ((,class :height 1 :background ,bg-region :foreground ,bg-region)))
 ;;;;; doom-modeline
     `(doom-modeline-bar ((,class :inherit modus-themes-active-blue)))
     `(doom-modeline-bar-inactive ((,class :background ,fg-inactive :foreground ,bg-main)))
