@@ -634,7 +634,7 @@ symbol and the latter as a string.")
     (bg-diff-focus-added . "#1d3c25") (fg-diff-focus-added . "#b4ddb4")
     (bg-diff-focus-added-deuteran . "#003959") (fg-diff-focus-added-deuteran . "#bfe4ff")
     (bg-diff-focus-changed . "#424200") (fg-diff-focus-changed . "#d0daaf")
-    (bg-diff-focus-removed . "#500f29") (fg-diff-focus-removed . "#eebdba")
+    (bg-diff-focus-removed . "#601f29") (fg-diff-focus-removed . "#eebdba")
 
     (bg-mark-sel . "#002f2f") (fg-mark-sel . "#60cfa2")
     (bg-mark-del . "#5a0000") (fg-mark-del . "#ff99aa")
