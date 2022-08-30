@@ -4743,6 +4743,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(company-preview-common ((,class :inherit company-echo-common)))
     `(company-preview-search ((,class :inherit modus-themes-special-calm)))
     `(company-template-field ((,class :inherit modus-themes-intense-magenta)))
+    `(company-scrollbar-bg ((,class :background ,bg-active)))
+    `(company-scrollbar-fg ((,class :background ,fg-active)))
     `(company-tooltip ((,class :background ,bg-alt)))
     `(company-tooltip-annotation ((,class :inherit completions-annotations)))
     `(company-tooltip-common ((,class :inherit company-echo-common)))
