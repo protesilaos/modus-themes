@@ -4532,7 +4532,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(font-latex-string-face ((,class :inherit font-lock-string-face)))
     `(font-latex-subscript-face ((,class :height 0.95)))
     `(font-latex-superscript-face ((,class :height 0.95)))
-    `(font-latex-underline-face ((,c :inherit underline)))
+    `(font-latex-underline-face ((,class :inherit underline)))
     `(font-latex-verbatim-face ((,class :inherit modus-themes-markup-verbatim)))
     `(font-latex-warning-face ((,class :inherit font-lock-warning-face)))
     `(tex-verbatim ((,class :inherit modus-themes-markup-verbatim)))
