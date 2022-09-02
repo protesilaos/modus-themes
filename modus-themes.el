@@ -4826,6 +4826,13 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(cperl-nonoverridable-face ((,class :foreground unspecified)))
     `(cperl-array-face ((,class :inherit font-lock-keyword-face)))
     `(cperl-hash-face ((,class :inherit font-lock-variable-name-face)))
+;;;;; crontab-mode
+    `(crontab-minute ((,class :foreground ,blue-alt)))
+    `(crontab-hour ((,class :foreground ,magenta-alt-other)))
+    `(crontab-month-day ((,class :foreground ,magenta-alt)))
+    `(crontab-month ((,class :foreground ,blue)))
+    `(crontab-week-day ((,class :foreground ,cyan)))
+    `(crontab-predefined ((,class :foreground ,blue-alt)))
 ;;;;; css-mode
     `(css-property ((,class :inherit font-lock-type-face)))
     `(css-selector ((,class :inherit font-lock-keyword-face)))
