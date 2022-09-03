@@ -180,6 +180,7 @@ Notes on individual packages
 * Note on Helm grep::
 * Note on pdf-tools link hints::
 * Note on the Notmuch logo::
+* Note on goto-address-mode faces::
 
 Frequently Asked Questions
 
@@ -4901,6 +4902,7 @@ individual packages.
 * Note on Helm grep::
 * Note on pdf-tools link hints::
 * Note on the Notmuch logo::
+* Note on goto-address-mode faces::
 
 
 File: modus-themes.info,  Node: Note on calendarel weekday and weekend colors,  Next: Note on git-gutter in Doom Emacs,  Up: Notes on individual packages
@@ -5614,7 +5616,7 @@ your initialization file after you’ve customized any faces.
                  "-draw"       "text %X,%Y '%c'"))))
 
 
-File: modus-themes.info,  Node: Note on the Notmuch logo,  Prev: Note on pdf-tools link hints,  Up: Notes on individual packages
+File: modus-themes.info,  Node: Note on the Notmuch logo,  Next: Note on goto-address-mode faces,  Prev: Note on pdf-tools link hints,  Up: Notes on individual packages
 
 7.20 Note on the Notmuch logo
 =============================
@@ -5625,6 +5627,31 @@ enlarging the height of the line, which negatively impacts the shape of
 those buttons.  Disabling the logo fixes the problem:
 
      (setq notmuch-show-logo nil)
+
+
+File: modus-themes.info,  Node: Note on goto-address-mode faces,  Prev: Note on the Notmuch logo,  Up: Notes on individual packages
+
+7.21 Note on goto-address-mode faces
+====================================
+
+The built-in ‘goto-address-mode’ uses heuristics to identify URLs and
+email addresses in the current buffer.  It then applies a face to them
+to change their style.  Some packages, such as ‘notmuch’, use this
+minor-mode automatically.
+
+   The faces are not declared with ‘defface’, meaning that it is better
+that the theme does not modify them.  The user is thus encouraged to
+consider including this in their setup:
+
+     (setq goto-address-url-face 'link
+           goto-address-url-mouse-face 'highlight
+           goto-address-mail-face 'link
+           goto-address-mail-mouse-face 'highlight)
+
+   My personal preference is to set ‘goto-address-mail-face’ to nil,
+because it otherwise adds too much visual noise to the buffer (email
+addresses stand out more, due to the use of the uncommon ‘@’ caharacter
+but also because they are often enclosed in angled brackets).
 
 
 File: modus-themes.info,  Node: Frequently Asked Questions,  Next: Contributing,  Prev: Notes on individual packages,  Up: Top
@@ -6894,121 +6921,122 @@ B.3 Concept index
 
 Tag Table:
 Node: Top872
-Node: Overview7760
-Node: How do the themes look like9884
-Node: Learn about the latest changes10398
-Node: Installation10786
-Node: Install manually from source11308
-Node: Install from the archives12133
-Node: Install on GNU/Linux12732
-Node: Debian 11 Bullseye13225
-Node: GNU Guix13635
-Node: Dealing with byte compilation errors13918
-Node: Enable and load15076
-Node: Sample configuration with and without use-package18615
-Node: Differences between loading and enabling21520
-Node: Customization Options23529
-Node: Custom reload theme31909
-Node: Deuteranopia style32698
-Node: Bold constructs34129
-Node: Italic constructs34963
-Node: Syntax styles35730
-Node: Mixed fonts37862
-Node: Link styles39126
-Node: Box buttons41600
-Node: Command prompts44897
-Node: Mode line46718
-Node: Tab style52213
-Node: Completion UIs52876
-Node: Mail citations56726
-Node: Fringes57872
-Node: Language checkers58612
-Node: Line highlighting61054
-Node: Line numbers62792
-Node: Mouse hover effects63873
-Node: Markup64488
-Node: Matching parentheses66088
-Node: Active region67465
-Node: Diffs68878
-Node: Org mode blocks70529
-Node: Org agenda72919
-Node: Heading styles81735
-Node: UI typeface86647
-Node: Advanced customization87546
-Node: More accurate colors in terminal emulators89306
-Node: Range of color with terminal emulators90547
-Node: Visualize the active Modus theme's palette93252
-Node: Per-theme customization settings94248
-Node: Case-by-case face specs using the themes' palette95604
-Node: Face specs at scale using the themes' palette100152
-Node: Remap face with local value104953
-Node: Cycle through arbitrary colors107378
-Node: Override colors113805
-Node: Override color saturation119047
-Node: Override colors through blending124728
-Node: Override colors completely127573
-Node: Font configurations for Org and others141075
-Ref: Font configurations for Org and others-Footnote-1144002
-Node: Configure bold and italic faces144189
-Node: Custom Org todo keyword and priority faces148337
-Node: Custom Org emphasis faces152010
-Node: Update Org block delimiter fontification156811
-Node: Measure color contrast158728
-Node: Load theme depending on time of day161451
-Node: Backdrop for pdf-tools162444
-Node: Decrease mode line height165296
-Node: Toggle themes without reloading them169418
-Node: A theme-agnostic hook for theme loading170697
-Node: Diffs with only the foreground173099
-Node: Ediff without diff color-coding176213
-Node: Near-monochrome syntax highlighting178352
-Node: Custom hl-todo colors187349
-Node: Add support for solaire-mode188870
-Node: Face coverage191788
-Node: Supported packages192240
-Node: Indirectly covered packages198823
-Node: Notes on individual packages199951
-Node: Note on calendarel weekday and weekend colors201059
-Node: Note on git-gutter in Doom Emacs202207
-Node: Note on php-mode multiline comments204295
-Node: Note on underlines in compilation buffers205048
-Node: Note on inline Latex in Org buffers205885
-Node: Note on dimmerel206495
-Node: Note on display-fill-column-indicator-mode207980
-Node: Note on highlight-parenthesesel209378
-Node: Note on mmm-modeel background colors215428
-Node: Note for prism217743
-Node: Note for god-mode220899
-Node: Note on company-mode overlay pop-up222503
-Ref: Note on company-mode overlay pop-up-Footnote-1223193
-Ref: Note on company-mode overlay pop-up-Footnote-2223260
-Node: Note on ERC escaped color sequences223315
-Ref: Note on ERC escaped color sequences-Footnote-1224743
-Node: Note on powerline or spaceline224853
-Node: Note on SHR colors225267
-Node: Note on SHR fonts225691
-Node: Note on Ement colors and fonts226324
-Node: Note on Helm grep227823
-Node: Note on pdf-tools link hints229293
-Node: Note on the Notmuch logo231740
-Node: Frequently Asked Questions232238
-Node: Is the contrast ratio about adjacent colors?232869
-Node: What does it mean to avoid exaggerations?234376
-Node: Why are colors mostly variants of blue magenta cyan?236205
-Node: What is the best setup for legibility?240511
-Node: Are these color schemes?243156
-Node: Port the Modus themes to other platforms?246876
-Node: Contributing249657
-Node: Sources of the themes250054
-Node: Issues you can help with250753
-Node: Patches require copyright assignment to the FSF252325
-Node: Acknowledgements254545
-Node: Other notes about the project258063
-Node: GNU Free Documentation License261061
-Node: Indices286438
-Node: Function index286617
-Node: Variable index288420
-Node: Concept index290707
+Node: Overview7796
+Node: How do the themes look like9920
+Node: Learn about the latest changes10434
+Node: Installation10822
+Node: Install manually from source11344
+Node: Install from the archives12169
+Node: Install on GNU/Linux12768
+Node: Debian 11 Bullseye13261
+Node: GNU Guix13671
+Node: Dealing with byte compilation errors13954
+Node: Enable and load15112
+Node: Sample configuration with and without use-package18651
+Node: Differences between loading and enabling21556
+Node: Customization Options23565
+Node: Custom reload theme31945
+Node: Deuteranopia style32734
+Node: Bold constructs34165
+Node: Italic constructs34999
+Node: Syntax styles35766
+Node: Mixed fonts37898
+Node: Link styles39162
+Node: Box buttons41636
+Node: Command prompts44933
+Node: Mode line46754
+Node: Tab style52249
+Node: Completion UIs52912
+Node: Mail citations56762
+Node: Fringes57908
+Node: Language checkers58648
+Node: Line highlighting61090
+Node: Line numbers62828
+Node: Mouse hover effects63909
+Node: Markup64524
+Node: Matching parentheses66124
+Node: Active region67501
+Node: Diffs68914
+Node: Org mode blocks70565
+Node: Org agenda72955
+Node: Heading styles81771
+Node: UI typeface86683
+Node: Advanced customization87582
+Node: More accurate colors in terminal emulators89342
+Node: Range of color with terminal emulators90583
+Node: Visualize the active Modus theme's palette93288
+Node: Per-theme customization settings94284
+Node: Case-by-case face specs using the themes' palette95640
+Node: Face specs at scale using the themes' palette100188
+Node: Remap face with local value104989
+Node: Cycle through arbitrary colors107414
+Node: Override colors113841
+Node: Override color saturation119083
+Node: Override colors through blending124764
+Node: Override colors completely127609
+Node: Font configurations for Org and others141111
+Ref: Font configurations for Org and others-Footnote-1144038
+Node: Configure bold and italic faces144225
+Node: Custom Org todo keyword and priority faces148373
+Node: Custom Org emphasis faces152046
+Node: Update Org block delimiter fontification156847
+Node: Measure color contrast158764
+Node: Load theme depending on time of day161487
+Node: Backdrop for pdf-tools162480
+Node: Decrease mode line height165332
+Node: Toggle themes without reloading them169454
+Node: A theme-agnostic hook for theme loading170733
+Node: Diffs with only the foreground173135
+Node: Ediff without diff color-coding176249
+Node: Near-monochrome syntax highlighting178388
+Node: Custom hl-todo colors187385
+Node: Add support for solaire-mode188906
+Node: Face coverage191824
+Node: Supported packages192276
+Node: Indirectly covered packages198859
+Node: Notes on individual packages199987
+Node: Note on calendarel weekday and weekend colors201131
+Node: Note on git-gutter in Doom Emacs202279
+Node: Note on php-mode multiline comments204367
+Node: Note on underlines in compilation buffers205120
+Node: Note on inline Latex in Org buffers205957
+Node: Note on dimmerel206567
+Node: Note on display-fill-column-indicator-mode208052
+Node: Note on highlight-parenthesesel209450
+Node: Note on mmm-modeel background colors215500
+Node: Note for prism217815
+Node: Note for god-mode220971
+Node: Note on company-mode overlay pop-up222575
+Ref: Note on company-mode overlay pop-up-Footnote-1223265
+Ref: Note on company-mode overlay pop-up-Footnote-2223332
+Node: Note on ERC escaped color sequences223387
+Ref: Note on ERC escaped color sequences-Footnote-1224815
+Node: Note on powerline or spaceline224925
+Node: Note on SHR colors225339
+Node: Note on SHR fonts225763
+Node: Note on Ement colors and fonts226396
+Node: Note on Helm grep227895
+Node: Note on pdf-tools link hints229365
+Node: Note on the Notmuch logo231812
+Node: Note on goto-address-mode faces232350
+Node: Frequently Asked Questions233452
+Node: Is the contrast ratio about adjacent colors?234083
+Node: What does it mean to avoid exaggerations?235590
+Node: Why are colors mostly variants of blue magenta cyan?237419
+Node: What is the best setup for legibility?241725
+Node: Are these color schemes?244370
+Node: Port the Modus themes to other platforms?248090
+Node: Contributing250871
+Node: Sources of the themes251268
+Node: Issues you can help with251967
+Node: Patches require copyright assignment to the FSF253539
+Node: Acknowledgements255759
+Node: Other notes about the project259277
+Node: GNU Free Documentation License262275
+Node: Indices287652
+Node: Function index287831
+Node: Variable index289634
+Node: Concept index291921
 
 End Tag Table
 

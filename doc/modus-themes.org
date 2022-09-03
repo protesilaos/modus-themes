@@ -5598,6 +5598,32 @@ those buttons.  Disabling the logo fixes the problem:
 (setq notmuch-show-logo nil)
 #+end_src
 
+** Note on goto-address-mode faces
+:PROPERTIES:
+:CUSTOM_ID: h:2d74236a-e41c-4616-8735-75f949a67334
+:END:
+
+The built-in ~goto-address-mode~ uses heuristics to identify URLs and
+email addresses in the current buffer.  It then applies a face to them
+to change their style.  Some packages, such as =notmuch=, use this
+minor-mode automatically.
+
+The faces are not declared with ~defface~, meaning that it is better
+that the theme does not modify them.  The user is thus encouraged to
+consider including this in their setup:
+
+#+begin_src emacs-lisp
+(setq goto-address-url-face 'link
+      goto-address-url-mouse-face 'highlight
+      goto-address-mail-face 'link
+      goto-address-mail-mouse-face 'highlight)
+#+end_src
+
+My personal preference is to set ~goto-address-mail-face~ to nil,
+because it otherwise adds too much visual noise to the buffer (email
+addresses stand out more, due to the use of the uncommon =@= caharacter
+but also because they are often enclosed in angled brackets).
+
 * Frequently Asked Questions
 :properties:
 :custom_id: h:b3384767-30d3-4484-ba7f-081729f03a47
