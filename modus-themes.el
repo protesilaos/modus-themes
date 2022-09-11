@@ -6734,6 +6734,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(powerline-evil-operator-face ((,class :inherit modus-themes-active-yellow)))
     `(powerline-evil-replace-face ((,class :inherit modus-themes-active-red)))
     `(powerline-evil-visual-face ((,class :inherit modus-themes-active-cyan)))
+;;;;; prescient
+    `(prescient-primary-highlight ((,class :inherit modus-themes-completion-match-0)))
+    `(prescient-secondary-highlight ((,class :inherit modus-themes-completion-match-1)))
 ;;;;; proced
     `(proced-mark ((,class :inherit modus-themes-mark-symbol)))
     `(proced-marked ((,class :inherit modus-themes-mark-alt)))
@@ -6852,9 +6855,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(selectrum-mouse-highlight ((,class :inherit highlight)))
     `(selectrum-quick-keys-highlight ((,class :inherit bold :background ,bg-char-0)))
     `(selectrum-quick-keys-match ((,class :inherit bold :background ,bg-char-1)))
-;;;;; selectrum-prescient
-    `(selectrum-prescient-primary-highlight ((,class :inherit modus-themes-completion-match-0)))
-    `(selectrum-prescient-secondary-highlight ((,class :inherit modus-themes-completion-match-1)))
 ;;;;; semantic
     `(semantic-complete-inline-face ((,class :foreground ,fg-special-warm :underline t)))
     `(semantic-decoration-on-fileless-includes ((,class :inherit modus-themes-refine-green)))
