@@ -4659,6 +4659,18 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(calibredb-mark-face ((,class :inherit modus-themes-mark-sel)))
     `(calibredb-size-face (( )))
     `(calibredb-tag-face ((,class :foreground ,magenta-alt-faint)))
+;;;;; centaur-tabs
+    `(centaur-tabs-active-bar-face ((,class :background ,blue-active)))
+    `(centaur-tabs-close-mouse-face ((,class :inherit bold :foreground ,red-active :underline t)))
+    `(centaur-tabs-close-selected ((,class :inherit centaur-tabs-selected)))
+    `(centaur-tabs-close-unselected ((,class :inherit centaur-tabs-unselected)))
+    `(centaur-tabs-modified-marker-selected ((,class :inherit centaur-tabs-selected)))
+    `(centaur-tabs-modified-marker-unselected ((,class :inherit centaur-tabs-unselected)))
+    `(centaur-tabs-default ((,class :background ,bg-main)))
+    `(centaur-tabs-selected ((,class :inherit modus-themes-tab-active)))
+    `(centaur-tabs-selected-modified ((,class :inherit (italic centaur-tabs-selected))))
+    `(centaur-tabs-unselected ((,class :inherit modus-themes-tab-inactive)))
+    `(centaur-tabs-unselected-modified ((,class :inherit (italic centaur-tabs-unselected))))
 ;;;;; cfrs
     `(cfrs-border-color ((,class :background ,fg-window-divider-inner)))
 ;;;;; change-log and log-view (`vc-print-log' and `vc-print-root-log')
