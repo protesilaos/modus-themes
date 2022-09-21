@@ -7551,7 +7551,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(xterm-color-names-bright ["gray35" ,red-alt ,green-alt ,yellow-alt ,blue-alt ,magenta-alt ,cyan-alt "white"])
     (if (or (eq modus-themes-org-blocks 'tinted-background)
             (eq modus-themes-org-blocks 'rainbow))
-        `(org-src-block-faces              ; TODO this list should be expanded
+        `(org-src-block-faces
           `(("emacs-lisp" modus-themes-nuanced-magenta)
             ("elisp" modus-themes-nuanced-magenta)
             ("clojure" modus-themes-nuanced-magenta)
