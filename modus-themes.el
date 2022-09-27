@@ -4683,6 +4683,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(change-log-list ((,class :foreground ,magenta-alt)))
     `(change-log-name ((,class :foreground ,magenta-alt-other)))
     `(log-edit-header ((,class :foreground ,fg-special-warm)))
+    `(log-edit-headers-separator ((,class :height 1 :background ,fg-window-divider-inner :extend t)))
     `(log-edit-summary ((,class :inherit bold :foreground ,blue)))
     `(log-edit-unknown-header ((,class :inherit shadow)))
     `(log-view-commit-body ((,class :foreground ,blue-nuanced-fg)))
