@@ -3902,6 +3902,7 @@ package:
 (use-package circadian                  ; you need to install this
   :ensure
   :after solar
+  :config
   (setq circadian-themes '((:sunrise . modus-operandi)
                            (:sunset  . modus-vivendi)))
   (circadian-setup))
