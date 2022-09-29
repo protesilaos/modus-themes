@@ -6105,12 +6105,12 @@ The Modus themes are a collective effort.  Every bit of work matters.
 + Contributions to code or documentation :: Alex Griffin, Anders
   Johansson, Antonio Ruiz, Basil L.{{{space()}}} Contovounesios, Björn
   Lindström, Carlo Zancanaro, Christian Tietze, Daniel Mendler, Eli
-  Zaretskii, Fritz Grabo, Illia Ostapyshyn, Kévin Le Gouguec, Kostadin
-  Ninev, Madhavan Krishnan, Manuel Giraud, Markus Beppler, Matthew
-  Stevenson, Mauro Aranda, Nicolas De Jaeghere, Paul David, Philip
-  Kaludercic, Pierre Téchoueyres, Rudolf Adamkovič, Stephen Gildea,
-  Shreyas Ragavan, Stefan Kangas, Utkarsh Singh, Vincent Murphy, Xinglu
-  Chen, Yuanchen Xie, okamsn.
+  Zaretskii, Fritz Grabo, Illia Ostapyshyn, Kévin Le Gouguec, Koen van
+  Greevenbroek, Kostadin Ninev, Madhavan Krishnan, Manuel Giraud,
+  Markus Beppler, Matthew Stevenson, Mauro Aranda, Nicolas De
+  Jaeghere, Paul David, Philip Kaludercic, Pierre Téchoueyres, Rudolf
+  Adamkovič, Stephen Gildea, Shreyas Ragavan, Stefan Kangas, Utkarsh
+  Singh, Vincent Murphy, Xinglu Chen, Yuanchen Xie, okamsn.
 
 + Ideas and user feedback :: Aaron Jensen, Adam Porter, Adam Spiers,
   Adrian Manea, Alex Griffin, Alex Koen, Alex Peitsinis, Alexey Shmalko,
