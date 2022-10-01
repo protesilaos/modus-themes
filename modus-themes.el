@@ -5632,7 +5632,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(gnus-summary-low-read ((,class :inherit italic :foreground ,fg-alt)))
     `(gnus-summary-low-ticked ((,class :inherit italic :foreground ,red-refine-fg)))
     `(gnus-summary-low-undownloaded ((,class :inherit italic :foreground ,yellow-refine-fg)))
-    `(gnus-summary-low-unread ((,class :inherit bold :foreground ,fg-special-cold)))
+    `(gnus-summary-low-unread ((,class :inherit italic :foreground ,fg-special-cold)))
     `(gnus-summary-normal-ancient ((,class :foreground ,fg-special-calm)))
     `(gnus-summary-normal-read ((,class :inherit shadow)))
     `(gnus-summary-normal-ticked ((,class :foreground ,red-alt-other)))

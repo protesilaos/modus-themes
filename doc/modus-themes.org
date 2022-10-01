@@ -6113,26 +6113,27 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Singh, Vincent Murphy, Xinglu Chen, Yuanchen Xie, okamsn.
 
 + Ideas and user feedback :: Aaron Jensen, Adam Porter, Adam Spiers,
-  Adrian Manea, Alex Griffin, Alex Koen, Alex Peitsinis, Alexey Shmalko,
-  Alok Singh, Anders Johansson, André Alexandre Gomes, Andrew Tropin,
-  Antonio Hernández Blas, Arif Rezai, Augusto Stoffel, Basil
+  Adrian Manea, Alex Griffin, Alex Koen, Alex Peitsinis, Alexey
+  Shmalko, Alok Singh, Anders Johansson, André Alexandre Gomes, Andrew
+  Tropin, Antonio Hernández Blas, Arif Rezai, Augusto Stoffel, Basil
   L.{{{space()}}} Contovounesios, Burgess Chang, Christian Tietze,
-  Christopher Dimech, Christopher League, Damien Cassou, Daniel Mendler,
-  Dario Gjorgjevski, David Edmondson, Davor Rotim, Divan Santana, Eliraz
-  Kedmi, Emanuele Michele Alberto Monterosso, Farasha Euker, Feng Shu,
-  Gautier Ponsinet, Gerry Agbobada, Gianluca Recchia, Gonçalo Marrafa,
-  Guilherme Semente, Gustavo Barros, Hörmetjan Yiltiz, Ilja Kocken, Iris
-  Garcia, Ivan Popovych, Jeremy Friesen, Jerry Zhang, Johannes Grødem,
-  John Haman, Jonas Collberg, Jorge Morais, Joshua O'Connor, Julio
-  C. Villasante, Kenta Usami, Kevin Fleming, Kévin Le Gouguec, Kostadin
-  Ninev, Len Trigg, Lennart C. Karssen, Luis Miguel Castañeda, Magne
-  Hov, Manuel Uberti, Mark Bestley, Mark Burton, Markus Beppler, Matt
-  Armstrong, Mauro Aranda, Maxime Tréca, Michael Goldenberg, Morgan
-  Smith, Morgan Willcock, Murilo Pereira, Nicky van Foreest, Nicolas De
-  Jaeghere, Paul Poloskov, Pengji Zhang, Pete Kazmier, Peter Wu, Philip
+  Christopher Dimech, Christopher League, Damien Cassou, Daniel
+  Mendler, Dario Gjorgjevski, David Edmondson, Davor Rotim, Divan
+  Santana, Eliraz Kedmi, Emanuele Michele Alberto Monterosso, Farasha
+  Euker, Feng Shu, Gautier Ponsinet, Gerry Agbobada, Gianluca Recchia,
+  Gonçalo Marrafa, Guilherme Semente, Gustavo Barros, Hörmetjan
+  Yiltiz, Ilja Kocken, Iris Garcia, Ivan Popovych, Jeremy Friesen,
+  Jerry Zhang, Johannes Grødem, John Haman, Jonas Collberg, Jorge
+  Morais, Joshua O'Connor, Julio C. Villasante, Kenta Usami, Kevin
+  Fleming, Kévin Le Gouguec, Kostadin Ninev, Len Trigg, Lennart
+  C. Karssen, Luis Miguel Castañeda, Magne Hov, Manuel Uberti, Mark
+  Bestley, Mark Burton, Mark Simpson, Markus Beppler, Matt Armstrong,
+  Mauro Aranda, Maxime Tréca, Michael Goldenberg, Morgan Smith, Morgan
+  Willcock, Murilo Pereira, Nicky van Foreest, Nicolas De Jaeghere,
+  Paul Poloskov, Pengji Zhang, Pete Kazmier, Peter Wu, Philip
   Kaludercic, Pierre Téchoueyres, Przemysław Kryger, Robert Hepple,
-  Roman Rudakov, Ryan Phillips, Rytis Paškauskas, Rudolf Adamkovič, Sam
-  Kleinman, Samuel Culpepper, Saša Janiška, Shreyas Ragavan, Simon
+  Roman Rudakov, Ryan Phillips, Rytis Paškauskas, Rudolf Adamkovič,
+  Sam Kleinman, Samuel Culpepper, Saša Janiška, Shreyas Ragavan, Simon
   Pugnet, Tassilo Horn, Thibaut Verron, Thomas Heartman, Togan
   Muftuoglu, Tony Zorman, Trey Merkley, Tomasz Hołubowicz, Toon Claes,
   Uri Sharf, Utkarsh Singh, Vincent Foley.  As well as users: Ben,
