@@ -5613,7 +5613,7 @@ minor-mode automatically.
 
 The faces are not declared with ~defface~, meaning that it is better
 that the theme does not modify them.  The user is thus encouraged to
-consider including this in their setup:
+consider including (or equivalent) this in their setup:
 
 #+begin_src emacs-lisp
 (setq goto-address-url-face 'link
@@ -5622,10 +5622,10 @@ consider including this in their setup:
       goto-address-mail-mouse-face 'highlight)
 #+end_src
 
-My personal preference is to set ~goto-address-mail-face~ to nil,
-because it otherwise adds too much visual noise to the buffer (email
-addresses stand out more, due to the use of the uncommon =@= caharacter
-but also because they are often enclosed in angled brackets).
+My personal preference is to set ~goto-address-mail-face~ to nil, as
+it otherwise adds too much visual noise to the buffer (email addresses
+stand out more, due to the use of the uncommon =@= character but also
+because they are often enclosed in angled brackets).
 
 * Frequently Asked Questions
 :properties:
