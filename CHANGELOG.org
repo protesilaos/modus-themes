@@ -15,6 +15,182 @@ For further details, please consult these additional resources:
 + Manual :: <https://protesilaos.com/emacs/modus-themes>
 + Screenshots :: <https://protesilaos.com/emacs/modus-themes-pictures>
 
+* 2.7.0
+:PROPERTIES:
+:CUSTOM_ID: h:4d86106c-1df5-4f5f-bc6c-f14f5d13403b
+:END:
+
+#+begin_src text
+Modus themes version 2.7.0
+
+By Protesilaos Stavrou <info@protesilaos.com> on 2022-10-01
+
+
+Support for packages or faces
+=============================
+
+,* Reinstated support for 'centaur-tabs'.  I had removed it in commit
+  2235ce5 (done on 2022-08-02) for version 2.5.0 of the modus-themes.
+  At the time I wrote:
+
+      centaur-tabs has a bug where it cannot read the value of a face if it
+      uses the standard ':inherit' attribute.  I have sent a patch to fix it,
+      but have received no response since February:
+      <https://github.com/ema2159/centaur-tabs/pull/179>.
+
+      Relevant reports:
+
+      - <https://github.com/protesilaos/modus-themes/issues/30>
+      - <https://gitlab.com/protesilaos/modus-themes/-/issues/288>
+      - <https://github.com/protesilaos/modus-themes/issues/15>
+
+      I am happy to reinstate support for centaur-tabs as soon as the package
+      gets the maintenance it needs.
+
+  My patch/pull-request is now merged and the package is actively
+  maintained once again.  Hence the decision to bring back support for
+  it, as promised.
+
+,* Applied styles for the 'icon-button' face of Emacs 29.
+
+,* Styled the 'log-edit-headers-separator' face of Emacs 29 (it was
+  introduced upstream by a patch of mine).
+
+,* Made the 'gnus-summary-low-unread' face inherit from the 'italic'
+  face like the rest of that subgroup of faces.  This helps
+  differentiate it from the 'gnus-summary-high-unread' face.  Thanks
+  to Mark Simpson for pointing out the possibility of conflating those
+  two faces: <https://lists.sr.ht/~protesilaos/modus-themes/%3Cm2r0zszc2z.fsf@gmail.com%3E>.
+
+,* Covered the 'read-multiple-choice-face' by adding a noticeable
+  background colour to it.  The default attributes it has, which look
+  like other key bindings (bold and blue) plus an underline are
+  technically okay, though the context of this face is in the echo
+  area which is one line tall.  Moreover, the highlighted keys are
+  inlined with other text.  These make it difficult to spot the
+  highlights without some extra spacing.  I use the addition of a
+  background in Org's export dispatcher interface which also has some
+  unique requirements (the 'org-dispatcher-highlight' face).  The
+  principle is to have theme-wide consistency (e.g. "all key bindings
+  must look the same") EXCEPT when the specifics require a different
+  set of styles in the interest of usability.
+
+,* Extended the coverage of the 'auctex' package's faces to include the
+  'font-latex-underline-face'.  Thanks to Luis Miguel Castañeda for
+  reporting a typo I made which caused an error:
+  <https://lists.sr.ht/~protesilaos/modus-themes/%3C7h7d2oudpb.fsf@imaginarymagnitude.net%3E>
+
+,* Added support for 'crontab-mode'.  Thanks to Antonio Ruiz for the
+  patch: <https://lists.sr.ht/~protesilaos/modus-themes/patches/35080>.  It
+  is below the ~15 line threshold and thus requires no copyright
+  assignment to the Free Software Foundation.
+
+,* Extended support for the 'company' package's 'company-scrollbar-bg'
+  and 'company-scrollbar-fg' faces.
+
+,* Added support for the 'spell-fu' package.  Thanks to Antonio Ruiz
+  for the patch: <https://lists.sr.ht/~protesilaos/modus-themes/%3C87fshnq7uv.fsf%40purelymail.com%3E>.
+  Same as further above for Antonio's copyright status.
+
+,* Moved the 'selectrum-prescient' faces to the 'prescient' group, to
+  be consistent with changes in the respective upstream packages.
+  Thanks to okamsn for the contribution, which was done in pull
+  request 41 on the GitHub mirror: <https://github.com/protesilaos/modus-themes/pull/41>.
+  The user okamsn has assigned copyright assignment to the Free
+  Software Foundation, although this patch is within the allowed
+  limits.
+
+
+Change to 'fill-column-indicator'
+=================================
+
+Made the 'fill-column-indicator' face more noticeable.  It is what the
+'display-fill-column-indicator-mode' uses to draw a line on where the
+'fill-column' is.
+
+This change is in response to private messages I received as well as
+this, at parts impolite and toxic, thread that I refrained from
+participating in:
+<https://lists.gnu.org/archive/html/help-gnu-emacs/2022-08/msg00255.html>.
+
+[ I do not follow that mailing list, by the way.  All my projects have
+  multiple communication channels and I always reply in a timely
+  fashion.  Social media, fora about Emacs, generic mailing lists,
+  etc. are not among those channels.
+  <https://protesilaos.com/codelog/2022-07-24-report-issues-official-channels/>. ]
+
+The core idea is that the previous design was (1) considered
+"invisible" and (2) it prevented the customisation of the user option
+'display-fill-column-indicator-character'.
+
+I am addressing point 1, but point 2 puts us in an awkward spot as we
+would then not be allowed to use a background and a height value.  Not
+doing so produces a dashed line by default, with the dashes further
+apart the greater the line-spacing is (especially in, say, Org
+headings that can have a greater height than paragraph text).  It
+looks broken and I keep getting requests to fix what is not the
+themes' fault.  So no, the themes will remain opinionated in this
+regard by ignoring 'display-fill-column-indicator-character' through
+the styling they apply to make the line contiguous.
+
+For context, also read Emacs bug#57424 and please don't take my words
+in a private message out of context.  If I need to state my opinion in
+a public setting, I know how to do it.
+<https://debbugs.gnu.org/cgi/bugreport.cgi?bug=57424>.
+
+
+Refinement to modus-vivendi 'bg-diff-focus-removed' colour
+==========================================================
+
+Made the default removed diff background slightly more luminant.  The
+colour is seen in diff-mode, ediff, and the Magit focused diff hunk.
+
+When the user option 'modus-themes-diffs' is set to either 'bg-only' or
+'desaturated', this colour is used to highlight word-wise ("refined")
+changes.  The increased luminance lets it stand out more compared to the
+more subtle backdrop.
+
+Thanks to Kévin Le Gouguec for bringing this issue to my attention and
+for discussing it with me:
+<https://lists.sr.ht/~protesilaos/modus-themes/%3C87bks4i9tg.fsf@gmail.com%3E>
+
+
+Note about 'goto-address-mode'
+==============================
+
+Quote from the manual:
+
+    The built-in 'goto-address-mode' uses heuristics to identify URLs and
+    email addresses in the current buffer.  It then applies a face to them
+    to change their style.  Some packages, such as 'notmuch', use this
+    minor-mode automatically.
+
+    The faces are not declared with 'defface', meaning that it is better
+    that the theme does not modify them.  The user is thus encouraged to
+    consider including (or equivalent) this in their setup:
+
+        (setq goto-address-url-face 'link
+              goto-address-url-mouse-face 'highlight
+              goto-address-mail-face 'link
+              goto-address-mail-mouse-face 'highlight)
+
+    My personal preference is to set 'goto-address-mail-face' to nil, as
+    it otherwise adds too much visual noise to the buffer (email addresses
+    stand out more, due to the use of the uncommon '@' character but also
+    because they are often enclosed in angled brackets).
+
+
+Changes to the manual
+=====================
+
+,* Fixed a few typos and ensured that spelling using American English
+  as that is what emacs.git requires.
+
+,* Added the missing ':config' keywords from the example configuration
+  of the 'circadian' package.  Thanks to Koen van Greevenbroek for the
+  patch: <https://lists.sr.ht/~protesilaos/modus-themes/%3C8735cb6zm3.fsf%40posteo.net%3E>.
+#+end_src
+
 * 2.6.0
 :PROPERTIES:
 :CUSTOM_ID: h:fc108f65-3e0b-4e28-8030-86c797cb2b25

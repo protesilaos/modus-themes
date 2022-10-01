@@ -43,11 +43,11 @@ customization options for the ‘modus-operandi’ and ‘modus-vivendi’
 themes, and provides every other piece of information pertinent to them.
 
    The documentation furnished herein corresponds to stable version
-2.6.0, released on 2022-08-19.  Any reference to a newer feature which
+2.7.0, released on 2022-10-01.  Any reference to a newer feature which
 does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
-   Current development target is 2.7.0-dev.
+   Current development target is 2.8.0-dev.
 
    • Homepage: <https://protesilaos.com/emacs/modus-themes>.
    • Git repository: <https://git.sr.ht/~protesilaos/modus-themes>.
@@ -4541,8 +4541,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • calendar and diary
    • calfw
    • calibredb
-   • centaur-tabs [ Part of 2.7.0-dev.  It was removed for a while as
-     the package was not maintained.  We are bringing back support.  ]
+   • centaur-tabs
    • cfrs
    • change-log and log-view (such as ‘vc-print-log’,
      ‘vc-print-root-log’)
@@ -4563,7 +4562,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • counsel-css
    • cov
    • cperl-mode
-   • crontab-mode [ Part of 2.7.0-dev ]
+   • crontab-mode
    • css-mode
    • csv-mode
    • ctrlf
@@ -4737,8 +4736,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • powerline
    • powerline-evil
    • prism (*note Note for prism.el: Note for prism.)
-   • presient [ Part of 2.7.0-dev.  The faces were originally in
-     ‘selectrum’.  ]
+   • presient
    • proced
    • prodigy
    • pulse
@@ -4772,7 +4770,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • smerge
    • spaceline
    • speedbar
-   • spell-fu [ part of 2.7.0-dev ]
+   • spell-fu
    • stripes
    • suggest
    • switch-window
@@ -5646,17 +5644,17 @@ minor-mode automatically.
 
    The faces are not declared with ‘defface’, meaning that it is better
 that the theme does not modify them.  The user is thus encouraged to
-consider including this in their setup:
+consider including (or equivalent) this in their setup:
 
      (setq goto-address-url-face 'link
            goto-address-url-mouse-face 'highlight
            goto-address-mail-face 'link
            goto-address-mail-mouse-face 'highlight)
 
-   My personal preference is to set ‘goto-address-mail-face’ to nil,
-because it otherwise adds too much visual noise to the buffer (email
-addresses stand out more, due to the use of the uncommon ‘@’ caharacter
-but also because they are often enclosed in angled brackets).
+   My personal preference is to set ‘goto-address-mail-face’ to nil, as
+it otherwise adds too much visual noise to the buffer (email addresses
+stand out more, due to the use of the uncommon ‘@’ character but also
+because they are often enclosed in angled brackets).
 
 
 File: modus-themes.info,  Node: Frequently Asked Questions,  Next: Contributing,  Prev: Notes on individual packages,  Up: Top
@@ -6999,50 +6997,50 @@ Node: Custom hl-todo colors187400
 Node: Add support for solaire-mode188921
 Node: Face coverage191839
 Node: Supported packages192291
-Node: Indirectly covered packages199109
-Node: Notes on individual packages200237
-Node: Note on calendarel weekday and weekend colors201381
-Node: Note on git-gutter in Doom Emacs202529
-Node: Note on php-mode multiline comments204617
-Node: Note on underlines in compilation buffers205370
-Node: Note on inline Latex in Org buffers206207
-Node: Note on dimmerel206817
-Node: Note on display-fill-column-indicator-mode208302
-Node: Note on highlight-parenthesesel209700
-Node: Note on mmm-modeel background colors215750
-Node: Note for prism218065
-Node: Note for god-mode221221
-Node: Note on company-mode overlay pop-up222825
-Ref: Note on company-mode overlay pop-up-Footnote-1223515
-Ref: Note on company-mode overlay pop-up-Footnote-2223582
-Node: Note on ERC escaped color sequences223637
-Ref: Note on ERC escaped color sequences-Footnote-1225065
-Node: Note on powerline or spaceline225175
-Node: Note on SHR colors225589
-Node: Note on SHR fonts226013
-Node: Note on Ement colors and fonts226646
-Node: Note on Helm grep228145
-Node: Note on pdf-tools link hints229615
-Node: Note on the Notmuch logo232062
-Node: Note on goto-address-mode faces232600
-Node: Frequently Asked Questions233702
-Node: Is the contrast ratio about adjacent colors?234333
-Node: What does it mean to avoid exaggerations?235840
-Node: Why are colors mostly variants of blue magenta cyan?237669
-Node: What is the best setup for legibility?241975
-Node: Are these color schemes?244620
-Node: Port the Modus themes to other platforms?248340
-Node: Contributing251121
-Node: Sources of the themes251518
-Node: Issues you can help with252217
-Node: Patches require copyright assignment to the FSF253789
-Node: Acknowledgements256009
-Node: Other notes about the project259578
-Node: GNU Free Documentation License262576
-Node: Indices287953
-Node: Function index288132
-Node: Variable index289935
-Node: Concept index292222
+Node: Indirectly covered packages198866
+Node: Notes on individual packages199994
+Node: Note on calendarel weekday and weekend colors201138
+Node: Note on git-gutter in Doom Emacs202286
+Node: Note on php-mode multiline comments204374
+Node: Note on underlines in compilation buffers205127
+Node: Note on inline Latex in Org buffers205964
+Node: Note on dimmerel206574
+Node: Note on display-fill-column-indicator-mode208059
+Node: Note on highlight-parenthesesel209457
+Node: Note on mmm-modeel background colors215507
+Node: Note for prism217822
+Node: Note for god-mode220978
+Node: Note on company-mode overlay pop-up222582
+Ref: Note on company-mode overlay pop-up-Footnote-1223272
+Ref: Note on company-mode overlay pop-up-Footnote-2223339
+Node: Note on ERC escaped color sequences223394
+Ref: Note on ERC escaped color sequences-Footnote-1224822
+Node: Note on powerline or spaceline224932
+Node: Note on SHR colors225346
+Node: Note on SHR fonts225770
+Node: Note on Ement colors and fonts226403
+Node: Note on Helm grep227902
+Node: Note on pdf-tools link hints229372
+Node: Note on the Notmuch logo231819
+Node: Note on goto-address-mode faces232357
+Node: Frequently Asked Questions233469
+Node: Is the contrast ratio about adjacent colors?234100
+Node: What does it mean to avoid exaggerations?235607
+Node: Why are colors mostly variants of blue magenta cyan?237436
+Node: What is the best setup for legibility?241742
+Node: Are these color schemes?244387
+Node: Port the Modus themes to other platforms?248107
+Node: Contributing250888
+Node: Sources of the themes251285
+Node: Issues you can help with251984
+Node: Patches require copyright assignment to the FSF253556
+Node: Acknowledgements255776
+Node: Other notes about the project259345
+Node: GNU Free Documentation License262343
+Node: Indices287720
+Node: Function index287899
+Node: Variable index289702
+Node: Concept index291989
 
 End Tag Table
 
