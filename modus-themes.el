@@ -5742,17 +5742,43 @@ by virtue of calling either of `modus-themes-load-operandi' and
     ;; HACK 2022-06-23: The :inverse-video prevents hl-line-mode from
     ;; overriding the background.  Such an override really defeats the
     ;; purpose of setting those highlights.
-    `(hi-aquamarine ((,class :background ,bg-main :foreground ,cyan :inverse-video t)))
+    ;;
+    ;; NOTE 2022-10-04: We do not use the ,class here but instead
+    ;; hardcode color values.  We have to do this as the themes lack
+    ;; entries in their palette for such an edge case.  Defining those
+    ;; entries is not appropriate.
+    `(hi-aquamarine ((((class color) (min-colors 88) (background light))
+                      :background "white" :foreground "#227f9f" :inverse-video t)
+                     (((class color) (min-colors 88) (background dark))
+                      :background "black" :foreground "#66cbdc" :inverse-video t)))
     `(hi-black-b ((,class :inverse-video t)))
     `(hi-black-hb ((,class :background ,bg-main :foreground ,fg-alt :inverse-video t)))
-    `(hi-blue ((,class :background ,bg-main :foreground ,blue-alt :inverse-video t)))
+    `(hi-blue ((((class color) (min-colors 88) (background light))
+                :background "white" :foreground "#3366dd" :inverse-video t)
+               (((class color) (min-colors 88) (background dark))
+                :background "black" :foreground "#aaccff" :inverse-video t)))
     `(hi-blue-b ((,class :inherit (bold hi-blue))))
-    `(hi-green ((,class :background ,bg-main :foreground ,green :inverse-video t)))
+    `(hi-green ((((class color) (min-colors 88) (background light))
+                  :background "white" :foreground "#008a00" :inverse-video t)
+                 (((class color) (min-colors 88) (background dark))
+                  :background "black" :foreground "#66dd66" :inverse-video t)))
     `(hi-green-b ((,class :inherit (bold hi-green))))
-    `(hi-pink ((,class :background ,bg-main :foreground ,magenta :inverse-video t)))
-    `(hi-red-b ((,class :inherit bold :background ,bg-main :foreground ,red :inverse-video t)))
-    `(hi-salmon ((,class :background ,bg-main :foreground ,red-alt-faint :inverse-video t)))
-    `(hi-yellow ((,class :background ,bg-main :foreground ,yellow-alt :inverse-video t)))
+    `(hi-pink ((((class color) (min-colors 88) (background light))
+                  :background "white" :foreground "#bd30aa" :inverse-video t)
+                 (((class color) (min-colors 88) (background dark))
+                  :background "black" :foreground "#ff88ee" :inverse-video t)))
+    `(hi-red-b ((((class color) (min-colors 88) (background light))
+                  :background "white" :foreground "#dd0000" :inverse-video t)
+                 (((class color) (min-colors 88) (background dark))
+                  :background "black" :foreground "#f06666" :inverse-video t)))
+    `(hi-salmon ((((class color) (min-colors 88) (background light))
+                  :background "white" :foreground "#bf555a" :inverse-video t)
+                 (((class color) (min-colors 88) (background dark))
+                  :background "black" :foreground "#e08a50" :inverse-video t)))
+    `(hi-yellow ((((class color) (min-colors 88) (background light))
+                  :background "white" :foreground "#af6400" :inverse-video t)
+                 (((class color) (min-colors 88) (background dark))
+                  :background "black" :foreground "#faea00" :inverse-video t)))
     `(highlight ((,class ,@(if modus-themes-intense-mouseovers
                                (list :background blue-intense-bg :foreground fg-main)
                              (list :background cyan-subtle-bg :foreground fg-main)))))
