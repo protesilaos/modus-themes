@@ -4798,9 +4798,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(consult-line-number-prefix ((,class :foreground ,fg-unfocused)))
     `(consult-narrow-indicator ((,class :foreground ,magenta-alt)))
     `(consult-preview-cursor ((,class :inherit modus-themes-intense-blue)))
-    `(consult-preview-error ((,class :inherit modus-themes-intense-red)))
     `(consult-preview-insertion ((,class :inherit modus-themes-special-warm)))
-    `(consult-preview-line ((,class :background ,bg-hl-alt-intense)))
 ;;;;; corfu
     `(corfu-current ((,class :inherit modus-themes-completion-selected-popup)))
     `(corfu-bar ((,class :background ,fg-alt)))
