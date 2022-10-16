@@ -4089,7 +4089,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     ('modus-vivendi (modus-themes-load-operandi))
     (_ (modus-themes--load-prompt))))
 
-(when (or (fboundp 'toggle-theme) (>= emacs-major-version 29))
+(when (fboundp 'toggle-theme)
   (define-obsolete-function-alias
     'modus-themes-toggle
     'toggle-theme
