@@ -4089,6 +4089,12 @@ by virtue of calling either of `modus-themes-load-operandi' and
     ('modus-vivendi (modus-themes-load-operandi))
     (_ (modus-themes--load-prompt))))
 
+(when (or (fboundp 'toggle-theme) (>= emacs-major-version 29))
+  (define-obsolete-function-alias
+    'modus-themes-toggle
+    'toggle-theme
+    "2.8.0"))
+
 
 
 ;;;; Face specifications
