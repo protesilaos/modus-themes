@@ -7193,7 +7193,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(term-color-yellow ((,class :background ,yellow :foreground ,yellow)))
     `(term-underline ((,class :underline t)))
 ;;;;; textsec
-    `(textsec-suspicious ((,class :inherit modus-themes-refine-red)))
+    `(textsec-suspicious (()))
 ;;;;; tomatinho
     `(tomatinho-ok-face ((,class :foreground ,blue-intense)))
     `(tomatinho-pause-face ((,class :foreground ,yellow-intense)))
