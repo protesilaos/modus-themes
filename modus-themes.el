@@ -7134,10 +7134,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; table (built-in table.el)
     `(table-cell ((,class :background ,blue-nuanced-bg)))
 ;;;;; telega
-    ;; FIXME 2021-03-28: Some aspects of `telega' are not fully
-    ;; supported or have not been tested thoroughly.  Please understand
-    ;; that I do not use that service because it requires a smartphone
-    ;; and I have none.  Help with testing is appreciated.
     `(telega-button ((,class :box t :foreground ,blue)))
     `(telega-button-active ((,class :box ,blue-intense-bg :background ,blue-intense-bg :foreground ,fg-main)))
     `(telega-button-highlight ((,class :inherit modus-themes-subtle-magenta)))
