@@ -6176,18 +6176,18 @@ Ideas and user feedback
      Miguel Castañeda, Magne Hov, Manuel Uberti, Mark Bestley, Mark
      Burton, Mark Simpson, Markus Beppler, Matt Armstrong, Mauro Aranda,
      Maxime Tréca, Michael Goldenberg, Morgan Smith, Morgan Willcock,
-     Murilo Pereira, Nicky van Foreest, Nicolas De Jaeghere, Paul
-     Poloskov, Pengji Zhang, Pete Kazmier, Peter Wu, Philip Kaludercic,
-     Pierre Téchoueyres, Przemysław Kryger, Robert Hepple, Roman
-     Rudakov, Ryan Phillips, Rytis Paškauskas, Rudolf Adamkovič, Sam
-     Kleinman, Samuel Culpepper, Saša Janiška, Shreyas Ragavan, Simon
-     Pugnet, Tassilo Horn, Thibaut Verron, Thomas Heartman, Togan
-     Muftuoglu, Tony Zorman, Trey Merkley, Tomasz Hołubowicz, Toon
-     Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.  As well as users:
-     Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik,
-     Moesasji, Nick, Summer Emacs, TheBlob42, Trey, bepolymathe,
-     bit9tream, derek-upham, doolio, fleimgruber, gitrj95, iSeeU,
-     jixiuf, okamsn, pRot0ta1p.
+     Murilo Pereira, Nicky van Foreest, Nicolas De Jaeghere, Pablo
+     Stafforini, Paul Poloskov, Pengji Zhang, Pete Kazmier, Peter Wu,
+     Philip Kaludercic, Pierre Téchoueyres, Przemysław Kryger, Robert
+     Hepple, Roman Rudakov, Ryan Phillips, Rytis Paškauskas, Rudolf
+     Adamkovič, Sam Kleinman, Samuel Culpepper, Saša Janiška, Shreyas
+     Ragavan, Simon Pugnet, Tassilo Horn, Thibaut Verron, Thomas
+     Heartman, Togan Muftuoglu, Tony Zorman, Trey Merkley, Tomasz
+     Hołubowicz, Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.
+     As well as users: Ben, CsBigDataHub1, Emacs Contrib, Eugene,
+     Fourchaux, Fredrik, Moesasji, Nick, Summer Emacs, TheBlob42, Trey,
+     bepolymathe, bit9tream, derek-upham, doolio, fleimgruber, gitrj95,
+     iSeeU, jixiuf, okamsn, pRot0ta1p.
 
 Packaging
      Basil L. Contovounesios, Eli Zaretskii, Glenn Morris, Mauro Aranda,
@@ -7036,12 +7036,12 @@ Node: Sources of the themes251286
 Node: Issues you can help with251985
 Node: Patches require copyright assignment to the FSF253557
 Node: Acknowledgements255777
-Node: Other notes about the project259368
-Node: GNU Free Documentation License262366
-Node: Indices287743
-Node: Function index287922
-Node: Variable index289725
-Node: Concept index292012
+Node: Other notes about the project259385
+Node: GNU Free Documentation License262383
+Node: Indices287760
+Node: Function index287939
+Node: Variable index289742
+Node: Concept index292029
 
 End Tag Table
 
