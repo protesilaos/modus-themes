@@ -7140,7 +7140,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(telega-chat-prompt ((,class :inherit bold)))
     `(telega-entity-type-code ((,class :inherit modus-themes-markup-verbatim)))
     `(telega-entity-type-mention ((,class :foreground ,cyan)))
-    `(telega-entity-type-pre ((,class :inherit modus-themes-fixed-pitch :background ,bg-dim :foreground ,fg-special-mild :extend t)))
+    `(telega-entity-type-pre ((,class :inherit modus-themes-markup-code)))
     `(telega-entity-type-spoiler ((,class :background ,fg-main :foreground ,fg-main)))
     `(telega-msg-heading ((,class :background ,bg-alt)))
     `(telega-msg-self-title ((,class :inherit bold)))
