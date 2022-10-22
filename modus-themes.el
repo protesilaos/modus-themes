@@ -123,10 +123,7 @@ those would count as part of '1.1.0-dev'.")
 If optional INSERT argument is provided from Lisp or as a prefix
 argument, insert the `modus-themes--version' at point."
   (interactive "P")
-  (if-let ((version modus-themes--version)
-           ((or insert current-prefix-arg)))
-      (insert version)
-    (message version)))
+  (funcall (if insert 'insert 'message) modus-themes--version))
 
 ;;;###autoload
 (defun modus-themes-report-bug ()
