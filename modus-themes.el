@@ -2213,9 +2213,9 @@ interest of optimizing for such a use-case."
   "Control the style of completion user interfaces.
 
 This affects Company, Corfu, Flx, Helm, Icomplete/Fido, Ido, Ivy,
-Mct, Orderless, Selectrum, Vertico.  The value is an alist that
-takes the form of a (key . properties) combination.  Here is a
-sample, followed by a description of the particularities:
+Orderless, Selectrum, Vertico.  The value is an alist that takes
+the form of a (key . properties) combination.  Here is a sample,
+followed by a description of the particularities:
 
     (setq modus-themes-completions
           (quote ((matches . (extrabold background intense))
