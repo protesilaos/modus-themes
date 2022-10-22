@@ -1361,26 +1361,6 @@ The actual styling of the face is done by `modus-themes-faces'."
 The actual styling of the face is done by `modus-themes-faces'."
   :group 'modus-themes-faces)
 
-(define-obsolete-face-alias
- 'modus-themes-completion-standard-first-match
- 'modus-themes-completion-selected
- "2.2.0")
-
-(define-obsolete-face-alias
- 'modus-themes-completion-standard-selected
- 'modus-themes-completion-selected
- "2.2.0")
-
-(define-obsolete-face-alias
- 'modus-themes-completion-extra-selected
- 'modus-themes-completion-selected
- "2.2.0")
-
-(define-obsolete-face-alias
- 'modus-themes-completion-key-binding
- 'modus-themes-key-binding
- "2.2.0")
-
 (defface modus-themes-completion-selected nil
   "Face for current selection in completion UIs.
 The actual styling of the face is done by `modus-themes-faces'."
@@ -2521,8 +2501,6 @@ Also check the variables `org-hide-emphasis-markers',
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Markup"))
 
-(make-obsolete 'modus-themes-intense-markup 'modus-themes-markup "2.1.0")
-
 (defcustom modus-themes-paren-match nil
   "Control the style of matching parentheses or delimiters.
 
@@ -3224,11 +3202,6 @@ an alternative to the default value."
   "Get cdr of KEY in ALIST."
   (cdr (assoc key alist)))
 
-(define-obsolete-variable-alias
-  'modus-themes--heading-weights
-  'modus-themes-weights
-  "2.1.0")
-
 (defconst modus-themes-weights
   '( thin ultralight extralight light semilight regular medium
      semibold bold heavy extrabold ultrabold)
@@ -3580,9 +3553,6 @@ foreground unspecified."
   (if modus-themes-deuteranopia
       (list deuteran)
     (list main)))
-
-(make-obsolete 'modus-themes--completion 'modus-themes--completion-line "2.3.0")
-(make-obsolete 'modus-themes--completion 'modus-themes--completion-match "2.3.0")
 
 (defun modus-themes--completion-line (key bg fg bgintense fgintense &optional bgaccent bgaccentintense)
   "Styles for `modus-themes-completions'.
