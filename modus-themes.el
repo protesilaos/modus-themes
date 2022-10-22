@@ -88,7 +88,7 @@
   (require 'subr-x))
 
 (defgroup modus-themes ()
-  "Options for `modus-operandi', `modus-vivendi'.
+  "Options for `modus-operandi', `modus-vivendi' themes.
 The Modus themes conform with the WCAG AAA standard for color
 contrast between background and foreground combinations (a
 minimum contrast of 7:1---the highest standard of its kind).  The
@@ -103,7 +103,7 @@ cover the blue-cyan-magenta side of the spectrum."
   :tag "Modus Themes")
 
 (defgroup modus-themes-faces ()
-  "Faces defined by `modus-operandi' and `modus-vivendi'."
+  "Faces defined by `modus-operandi' and `modus-vivendi' themes."
   :group 'modus-themes
   :link '(info-link "(modus-themes) Top")
   :prefix "modus-themes-"
