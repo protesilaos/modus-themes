@@ -1941,8 +1941,8 @@ visible yet close to the main buffer background color.
 
 With `intense' use a more pronounced gray background color."
   :group 'modus-themes
-  :package-version '(modus-themes . "2.8.0")
-  :version "29.1"
+  :package-version '(modus-themes . "1.0.0")
+  :version "28.1"
   :type '(choice
           (const :format "[%v] %t\n" :tag "No visible fringes" nil)
           (const :format "[%v] %t\n" :tag "Subtle gray background" subtle)
