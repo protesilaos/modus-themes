@@ -1346,13 +1346,12 @@ Possible values:
 2. ~subtle~
 3. ~intense~
 
-The default is to use the same color as that of the main background,
-meaning that the fringes are not obvious though they still occupy the
-space given to them by ~fringe-mode~.
+When the value is nil, do not apply a distinct background color.
 
-Options ~subtle~ and ~intense~ apply a gray background, making the fringes
-visible.  The difference between the two is one of degree, as their
-names imply.
+With a value of ~subtle~ use a gray background color that is
+visible yet close to the main buffer background color.
+
+With ~intense~ use a more pronounced gray background color.
 
 ** Option for language checkers
 :properties:

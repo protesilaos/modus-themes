@@ -1932,19 +1932,21 @@ For example:
   :link '(info-link "(modus-themes) Org agenda"))
 
 (defcustom modus-themes-fringes nil
-  "Define the visibility of fringes.
+  "Control the visibility of fringes.
 
-Nil means the fringes have no background color.  Option `subtle'
-will apply a grayscale value that is visible yet close to the
-main buffer background color.  Option `intense' will use a more
-pronounced grayscale value."
+When the value is nil, do not apply a distinct background color.
+
+With a value of `subtle' use a gray background color that is
+visible yet close to the main buffer background color.
+
+With `intense' use a more pronounced gray background color."
   :group 'modus-themes
-  :package-version '(modus-themes . "1.0.0")
-  :version "28.1"
+  :package-version '(modus-themes . "2.8.0")
+  :version "29.1"
   :type '(choice
-          (const :format "[%v] %t\n" :tag "No visible fringes (default)" nil)
-          (const :format "[%v] %t\n" :tag "Subtle grayscale background" subtle)
-          (const :format "[%v] %t\n" :tag "Intense grayscale background" intense))
+          (const :format "[%v] %t\n" :tag "No visible fringes" nil)
+          (const :format "[%v] %t\n" :tag "Subtle gray background" subtle)
+          (const :format "[%v] %t\n" :tag "Intense gray background" intense))
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Fringes"))
