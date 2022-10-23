@@ -1332,20 +1332,22 @@ not touch.
 :end:
 #+vindex: modus-themes-fringes
 
+[ Default value changed as part of {{{development-version}}}. ]
+
 Brief: Control the overall coloration of the fringes.
 
 Symbol: ~modus-themes-fringes~ (=choice= type)
 
 Possible values:
 
-1. ~nil~ (default)
+1. ~nil~
 2. ~subtle~
 3. ~intense~
 
 When the value is nil, do not apply a distinct background color.
 
 With a value of ~subtle~ use a gray background color that is
-visible yet close to the main buffer background color.
+visible yet close to the main background color.
 
 With ~intense~ use a more pronounced gray background color.
 

@@ -1911,18 +1911,18 @@ For example:
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Org agenda"))
 
-(defcustom modus-themes-fringes nil
+(defcustom modus-themes-fringes 'subtle
   "Control the visibility of fringes.
 
 When the value is nil, do not apply a distinct background color.
 
 With a value of `subtle' use a gray background color that is
-visible yet close to the main buffer background color.
+visible yet close to the main background color.
 
 With `intense' use a more pronounced gray background color."
   :group 'modus-themes
-  :package-version '(modus-themes . "1.0.0")
-  :version "28.1"
+  :package-version '(modus-themes . "3.0.0")
+  :version "29.1"
   :type '(choice
           (const :format "[%v] %t\n" :tag "No visible fringes" nil)
           (const :format "[%v] %t\n" :tag "Subtle gray background" subtle)
