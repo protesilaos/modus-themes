@@ -2399,11 +2399,11 @@ In user configuration files the form may look like this:
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Command prompts"))
 
-(defcustom modus-themes-hl-line nil
-  "Control the current line highlight of HL-line mode.
+(defcustom modus-themes-hl-line '(intense)
+  "Control the current line highlight of `hl-line-mode'.
 
 The value is a list of properties, each designated by a symbol.
-The default (a nil value or an empty list) is a subtle gray
+With a nil value, or an empty list, the style is a subtle gray
 background color.
 
 The property `accented' changes the background to a colored
@@ -2429,11 +2429,12 @@ In user configuration files the form may look like this:
 
     (setq modus-themes-hl-line (quote (underline accented)))
 
-Set `x-underline-at-descent-line' to a non-nil value for better
-results with underlines."
+Set `x-underline-at-descent-line' to a non-nil value so that the
+placement of the underline coincides with the lower boundary of
+the colored background."
   :group 'modus-themes
-  :package-version '(modus-themes . "1.5.0")
-  :version "28.1"
+  :package-version '(modus-themes . "3.0.0")
+  :version "29.1"
   :type '(set :tag "Properties" :greedy t
               (const :tag "Colored background" accented)
               (const :tag "Underline" underline)

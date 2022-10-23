@@ -1426,19 +1426,21 @@ respectively.
 :end:
 #+vindex: modus-themes-hl-line
 
+[ Default value changed as part of {{{development-version}}}. ]
+
 Brief: Control the style of the current line of ~hl-line-mode~.
 
 Symbol: ~modus-themes-hl-line~ (=choice= type, list of properties)
 
-Possible values are expressed as a list of properties (default is ~nil~ or
-an empty list).  The list can include any of the following symbols:
+The value is a list of properties, each designated by a symbol.  With
+a nil value, or an empty list, the style is a subtle gray background
+color.
+
+Possible properties are the following symbols:
 
 + ~accented~
 + ~intense~
 + ~underline~
-
-The default (a ~nil~ value or an empty list) is a subtle gray background
-color.
 
 The property ~accented~ changes the background to a colored variant.
 
@@ -1466,8 +1468,9 @@ In user configuration files the form may look like this:
 (setq modus-themes-hl-line '(underline accented))
 #+end_src
 
-Set ~x-underline-at-descent-line~ to a non-nil value for better results
-with underlines.
+Set ~x-underline-at-descent-line~ to a non-nil value so that the
+placement of the underline coincides with the lower boundary of the
+colored background.
 
 This style affects several packages that enable ~hl-line-mode~, such as
 =elfeed=, =notmuch=, and =mu4e=.
