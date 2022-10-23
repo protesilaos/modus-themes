@@ -4278,8 +4278,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
                   magenta-subtle-bg magenta-intense))))
     `(modus-themes-completion-match-1
       ((,class ,@(modus-themes--completion-match
-                  'matches bg-special-faint-cold cyan
-                  cyan-subtle-bg cyan-intense))))
+                  'matches bg-special-faint-cold blue
+                  blue-subtle-bg blue-intense))))
     `(modus-themes-completion-match-2
       ((,class ,@(modus-themes--completion-match
                   'matches bg-special-faint-mild green
