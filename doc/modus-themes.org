@@ -6,7 +6,7 @@
 #+startup:               content
 #+macro:                 stable-version 2.7.0
 #+macro:                 release-date 2022-10-01
-#+macro:                 development-version 2.8.0-dev
+#+macro:                 development-version 3.0.0-dev
 #+macro:                 file @@texinfo:@file{@@$1@@texinfo:}@@
 #+macro:                 space @@texinfo:@: @@
 #+macro:                 kbd @@texinfo:@kbd{@@$1@@texinfo:}@@
