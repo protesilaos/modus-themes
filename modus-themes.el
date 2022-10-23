@@ -2191,13 +2191,16 @@ interest of optimizing for such a use-case."
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Diffs"))
 
-(defcustom modus-themes-completions nil
+(defcustom modus-themes-completions
+  '((selection . (intense))
+    (popup . (intense)))
   "Control the style of completion user interfaces.
 
 This affects Company, Corfu, Flx, Helm, Icomplete/Fido, Ido, Ivy,
 Orderless, Selectrum, Vertico.  The value is an alist that takes
-the form of a (key . properties) combination.  Here is a sample,
-followed by a description of the particularities:
+the form of a (KEY . PROPERTIES) combination.  KEY is a symbol,
+while PROPERTIES is a list.  Here is a sample, followed by a
+description of the particularities:
 
     (setq modus-themes-completions
           (quote ((matches . (extrabold background intense))
@@ -2205,10 +2208,11 @@ followed by a description of the particularities:
                   (popup . (accented)))))
 
 The `matches' key refers to the highlighted characters that
-correspond to the user's input.  By default (nil or an empty
-list), they have a bold weight and a colored foreground.  The
-list of properties may include any of the following symbols
-regardless of the order they may appear in:
+correspond to the user's input.  When its properties are nil or
+an empty list, matching characters in the user interface will
+have a bold weight and a colored foreground.  The list of
+properties may include any of the following symbols regardless of
+the order they may appear in:
 
 - `background' to add a background color;
 
@@ -2225,10 +2229,10 @@ regardless of the order they may appear in:
   that bold will be used.
 
 The `selection' key applies to the current line or currently
-matched candidate, depending on the specifics of the User
-Interface.  By default (nil or an empty list), it has a subtle
-gray background, a bold weight, and the base foreground value
-for the text.  The list of properties it accepts is as
+matched candidate, depending on the specifics of the user
+interface.  When its properties are nil or an empty list, it has
+a subtle gray background, a bold weight, and the base foreground
+value for the text.  The list of properties it accepts is as
 follows (order is not significant):
 
 - `accented' to make the background colorful instead of gray;
@@ -2247,7 +2251,11 @@ follows (order is not significant):
   variable `modus-themes-weights'.  The absence of a weight means
   that bold will be used.
 
-The `popup' key takes the same values as `selection'.
+The `popup' key takes the same values as `selection'.  The only
+difference is that it applies specifically to user interfaces
+that display an inline popup and thus have slightly different
+styling requirements than the minibuffer.  The two prominent
+packages are `company' and `corfu'.
 
 Apart from specifying each key separately, a fallback list is
 accepted.  This is only useful when the desired aesthetic is the
@@ -2269,22 +2277,14 @@ the corresponding key is simply ignored (`matches' does not have
 `accented' and `text-also', while `selection' and `popup' do not
 have `background').
 
-A concise expression of those associations can be written as
-follows, where the `car' is always the key and the `cdr' is the
-list of properties (whatever order they may appear in):
-
-    (setq modus-themes-completions
-          (quote ((matches extrabold background intense)
-                  (selection semibold accented intense)
-                  (popup accented))))
-
 Check the manual for tweaking `bold' and `italic' faces: Info
 node `(modus-themes) Configure bold and italic faces'.
 
-Also refer to the Orderless documentation for its intersection
-with Company (if you choose to use those in tandem)."
+Also refer to the documentation of the `orderless' package for
+its intersection with `company' (if you choose to use those in
+tandem)."
   :group 'modus-themes
-  :package-version '(modus-themes . "2.3.0")
+  :package-version '(modus-themes . "3.0.0")
   :version "29.1"
   :type `(set
           (cons :tag "Matches"
