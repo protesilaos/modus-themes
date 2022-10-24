@@ -5397,7 +5397,7 @@ https://github.com/tumashu/company-posframe/]
 :custom_id: h:98bdf319-1e32-4469-8a01-771200fba65c
 :end:
 
-The built-in IRC client ~erc~ has the ability to colorise any text using
+The built-in IRC client ~erc~ has the ability to colorize any text using
 escape sequences that start with =^C= (inserted with {{{kbd(C-q C-c)}}}) and are
 followed by a number for the foreground and background.[fn:: This page
 explains the basics, though it is not specific to Emacs:
@@ -5956,7 +5956,7 @@ the themes, which is partially fleshed out in this manual.
 
 With regard to the artistic aspect (where "art" qua skill may amount to
 an imprecise science), there is no hard-and-fast rule in effect as it
-requires one to exercise discretion and make decisions based on
+requires one to exercize discretion and make decisions based on
 context-dependent information or constraints.  As is true with most
 things in life, when in doubt, do not cling on to the letter of the law
 but try to understand its spirit.
