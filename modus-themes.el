@@ -4896,11 +4896,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; diff-hl
     `(diff-hl-change ((,class :inherit modus-themes-fringe-yellow)))
     `(diff-hl-delete ((,class :inherit modus-themes-fringe-red)))
-    `(diff-hl-dired-change ((,class :inherit diff-hl-change)))
-    `(diff-hl-dired-delete ((,class :inherit diff-hl-delete)))
-    `(diff-hl-dired-ignored ((,class :inherit dired-ignored)))
-    `(diff-hl-dired-insert ((,class :inherit diff-hl-insert)))
-    `(diff-hl-dired-unknown ((,class :inherit dired-ignored)))
     `(diff-hl-insert ((,class :inherit modus-themes-grue-background-active)))
     `(diff-hl-reverted-hunk-highlight ((,class :background ,fg-main :foreground ,bg-main)))
 ;;;;; diff-mode
