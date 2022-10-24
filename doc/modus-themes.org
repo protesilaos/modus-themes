@@ -4754,7 +4754,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + tab-bar-groups
 + tab-bar-mode
 + tab-line-mode
-+ table (built-in table.el)
++ table (built-in {{{file(table.el)}}})
 + telega
 + telephone-line
 + terraform-mode
@@ -4769,7 +4769,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + tuareg
 + typescript
 + undo-tree
-+ vc (vc-dir.el, vc-hooks.el)
++ vc ({{{file(vc-dir.el)}}}, {{{file(vc-hooks.el)}}})
 + vertico
 + vertico-quick
 + vimish-fold
