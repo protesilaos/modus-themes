@@ -6476,7 +6476,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(nxml-ref ((,class :inherit modus-themes-bold :foreground ,fg-special-mild)))
     `(rng-error ((,class :inherit error)))
 ;;;;; olivetti
-    `(olivetti-fringe (( )))
+    `(olivetti-fringe ((,class :background ,bg-main)))
 ;;;;; orderless
     `(orderless-match-face-0 ((,class :inherit modus-themes-completion-match-0)))
     `(orderless-match-face-1 ((,class :inherit modus-themes-completion-match-1)))

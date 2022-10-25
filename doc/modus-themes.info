@@ -6176,20 +6176,20 @@ Ideas and user feedback
      Villasante, Kenta Usami, Kevin Fleming, Kévin Le Gouguec, Kevin
      Kainan Li, Kostadin Ninev, Len Trigg, Lennart C.  Karssen, Luis
      Miguel Castañeda, Magne Hov, Manuel Uberti, Mark Bestley, Mark
-     Burton, Mark Simpson, Markus Beppler, Matt Armstrong, Mauro Aranda,
-     Maxime Tréca, Michael Goldenberg, Morgan Smith, Morgan Willcock,
-     Murilo Pereira, Nicky van Foreest, Nicolas De Jaeghere, Pablo
-     Stafforini, Paul Poloskov, Pengji Zhang, Pete Kazmier, Peter Wu,
-     Philip Kaludercic, Pierre Téchoueyres, Przemysław Kryger, Robert
-     Hepple, Roman Rudakov, Ryan Phillips, Rytis Paškauskas, Rudolf
-     Adamkovič, Sam Kleinman, Samuel Culpepper, Saša Janiška, Shreyas
-     Ragavan, Simon Pugnet, Tassilo Horn, Thibaut Verron, Thomas
-     Heartman, Togan Muftuoglu, Tony Zorman, Trey Merkley, Tomasz
-     Hołubowicz, Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.
-     As well as users: Ben, CsBigDataHub1, Emacs Contrib, Eugene,
-     Fourchaux, Fredrik, Moesasji, Nick, Summer Emacs, TheBlob42, Trey,
-     bepolymathe, bit9tream, derek-upham, doolio, fleimgruber, gitrj95,
-     iSeeU, jixiuf, okamsn, pRot0ta1p.
+     Burton, Mark Simpson, Markus Beppler, Matt Armstrong, Matthias
+     Fuchs, Mauro Aranda, Maxime Tréca, Michael Goldenberg, Morgan
+     Smith, Morgan Willcock, Murilo Pereira, Nicky van Foreest, Nicolas
+     De Jaeghere, Pablo Stafforini, Paul Poloskov, Pengji Zhang, Pete
+     Kazmier, Peter Wu, Philip Kaludercic, Pierre Téchoueyres,
+     Przemysław Kryger, Robert Hepple, Roman Rudakov, Ryan Phillips,
+     Rytis Paškauskas, Rudolf Adamkovič, Sam Kleinman, Samuel Culpepper,
+     Saša Janiška, Shreyas Ragavan, Simon Pugnet, Tassilo Horn, Thibaut
+     Verron, Thomas Heartman, Togan Muftuoglu, Tony Zorman, Trey
+     Merkley, Tomasz Hołubowicz, Toon Claes, Uri Sharf, Utkarsh Singh,
+     Vincent Foley.  As well as users: Ben, CsBigDataHub1, Emacs
+     Contrib, Eugene, Fourchaux, Fredrik, Moesasji, Nick, Summer Emacs,
+     TheBlob42, Trey, bepolymathe, bit9tream, derek-upham, doolio,
+     fleimgruber, gitrj95, iSeeU, jixiuf, okamsn, pRot0ta1p.
 
 Packaging
      Basil L. Contovounesios, Eli Zaretskii, Glenn Morris, Mauro Aranda,
@@ -7038,12 +7038,12 @@ Node: Sources of the themes251422
 Node: Issues you can help with252121
 Node: Patches require copyright assignment to the FSF253693
 Node: Acknowledgements255913
-Node: Other notes about the project259521
-Node: GNU Free Documentation License262519
-Node: Indices287896
-Node: Function index288075
-Node: Variable index289878
-Node: Concept index292165
+Node: Other notes about the project259538
+Node: GNU Free Documentation License262536
+Node: Indices287913
+Node: Function index288092
+Node: Variable index289895
+Node: Concept index292182
 
 End Tag Table
 
