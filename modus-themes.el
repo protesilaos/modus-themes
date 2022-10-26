@@ -5790,6 +5790,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(iflipb-other-buffer-face ((,class :inherit shadow)))
 ;;;;; image-dired
     `(image-dired-thumb-flagged ((,class :background ,red-intense-bg)))
+    `(image-dired-thumb-header-file-name ((,class :inherit bold)))
+    `(image-dired-thumb-header-file-size ((,class :foreground ,blue-active)))
     `(image-dired-thumb-mark ((,class :inherit modus-themes-grue-background-intense)))
 ;;;;; imenu-list
     `(imenu-list-entry-face-0 ((,class :foreground ,cyan)))
