@@ -815,7 +815,7 @@ File: modus-themes.info,  Node: Deuteranopia style,  Next: Bold constructs,  Pre
 4.2 Option for red-green color deficiency or deuteranopia
 =========================================================
 
-Brief: When non-nil use red/blue color-coding instead of red/green,
+Brief: When non-‘nil’ use red/blue color-coding instead of red/green,
 where appropriate.
 
    Symbol: ‘modus-themes-deuteranopia’ (‘boolean’ type)
@@ -861,7 +861,7 @@ Brief: Use bold for code syntax highlighting and related.
    The default is to use a bold typographic weight only when it is
 required.
 
-   With a non-nil value (‘t’) display several syntactic constructs in
+   With a non-‘nil’ value (‘t’) display several syntactic constructs in
 bold weight.  This concerns keywords and other important aspects of code
 syntax.  It also affects certain mode line indicators and command-line
 prompts.
@@ -889,7 +889,7 @@ Brief: Use italics for code syntax highlighting and related.
    The default is to not use slanted text forms (italics) unless it is
 absolutely necessary.
 
-   With a non-nil value (‘t’) choose to render more faces in italics.
+   With a non-‘nil’ value (‘t’) choose to render more faces in italics.
 This typically affects documentation strings and code comments.
 
    Advanced users may also want to configure the exact attributes of the
@@ -972,7 +972,7 @@ constructs (affects font families).
   1. ‘nil’ (default)
   2. ‘t’
 
-   When set to non-nil (‘t’), configure some spacing-sensitive faces
+   When set to non-‘nil’ (‘t’), configure some spacing-sensitive faces
 like Org tables and code blocks to always inherit from the ‘fixed-pitch’
 face.  This is to ensure that certain constructs like code blocks and
 tables remain monospaced even when users opt for a mode that remaps
@@ -1256,7 +1256,7 @@ default value is 1 and does not need to be specified explicitly.  The
 padding has no effect when the ‘moody’ property is also used, because
 Moody already applies its own tweaks.  To ensure that the underline is
 placed at the bottom of the mode line, set ‘x-underline-at-descent-line’
-to non-nil (this is not needed when the ‘borderless’ property is also
+to non-‘nil’ (this is not needed when the ‘borderless’ property is also
 set).  For users on Emacs 29, the ‘x-use-underline-position-properties’
 variable must also be set to nil.
 
@@ -1313,7 +1313,7 @@ accessible).
 
    Furthermore, because Moody expects an underline and overline instead
 of a box style, it is strongly advised to set
-‘x-underline-at-descent-line’ to a non-nil value.
+‘x-underline-at-descent-line’ to a non-‘nil’ value.
 
    Finally, note that various packages which heavily modify the mode
 line, such as ‘doom-modeline’, ‘nano-modeline’, ‘powerline’, ‘spaceline’
@@ -1336,7 +1336,7 @@ Brief: Toggle accent colors for tabbed interfaces.
    • ‘t’
 
    By default, all tab interfaces use backgrounds which are shades of
-gray.  When this option is set to non-nil, the backgrounds become
+gray.  When this option is set to non-‘nil’, the backgrounds become
 colorful.
 
    This affects the built-in ‘tab-bar-mode’ and ‘tab-line-mode’, as well
@@ -1603,7 +1603,7 @@ in these examples:
 
      (setq modus-themes-hl-line '(underline accented))
 
-   Set ‘x-underline-at-descent-line’ to a non-nil value so that the
+   Set ‘x-underline-at-descent-line’ to a non-‘nil’ value so that the
 placement of the underline coincides with the lower boundary of the
 colored background.
 
@@ -1637,10 +1637,10 @@ to bring more attention to itself.
 counterpart ‘display-line-numbers-minor-tick’ use appropriate styles
 that involve a bespoke background and foreground combination.
 
-   With a non-nil value (‘t’), line numbers have no background of their
-own.  Instead they retain the primary background of the theme, blending
-with the rest of the buffer.  Foreground values for all relevant faces
-are updated to accommodate this aesthetic.
+   With a non-‘nil’ value (‘t’), line numbers have no background of
+their own.  Instead they retain the primary background of the theme,
+blending with the rest of the buffer.  Foreground values for all
+relevant faces are updated to accommodate this aesthetic.
 
 
 File: modus-themes.info,  Node: Mouse hover effects,  Next: Markup,  Prev: Line numbers,  Up: Customization Options
@@ -1658,7 +1658,8 @@ Brief: Toggle intense mouse hover effects.
   2. ‘t’
 
    By default all mouseover effects apply a highlight with a subtle
-colored background.  When non-nil, these have a more pronounced effect.
+colored background.  When non-‘nil’, these have a more pronounced
+effect.
 
    Note that this affects the generic ‘highlight’ which, strictly
 speaking, is not limited to mouse usage.
@@ -1829,11 +1830,11 @@ foregrounds.
 (‘nil’), though it tones down all relevant colors.
 
    Option ‘bg-only’ applies a background but does not override the
-text’s foreground.  This makes it suitable for a non-nil value passed to
-‘diff-font-lock-syntax’ (note: Magit does not support syntax
+text’s foreground.  This makes it suitable for a non-‘nil’ value passed
+to ‘diff-font-lock-syntax’ (note: Magit does not support syntax
 highlighting in diffs—last checked on 2021-12-02).
 
-   When the user option ‘modus-themes-deuteranopia’ is non-nil, all
+   When the user option ‘modus-themes-deuteranopia’ is non-‘nil’, all
 diffs will use a red/blue color-coding system instead of the standard
 red/green.  Other stylistic changes are made in the interest of
 optimizing for such a use-case.
@@ -1893,8 +1894,9 @@ depending on the contents of the block.  Disable the extension of such
 backgrounds by setting ‘org-fontify-whole-block-delimiter-line’ to nil.
 
    Code blocks use their major mode’s colors only when the variable
-‘org-src-fontify-natively’ is non-nil.  While quote/verse blocks require
-setting ‘org-fontify-quote-and-verse-blocks’ to a non-nil value.
+‘org-src-fontify-natively’ is non-‘nil’.  While quote/verse blocks
+require setting ‘org-fontify-quote-and-verse-blocks’ to a non-‘nil’
+value.
 
    *note Update Org block delimiter fontification::.
 
@@ -2071,8 +2073,8 @@ are passed as a symbol.  Those are:
      ready and clear states is attenuated by painting both of them using
      shades of green.  This option thus highlights the alert and overdue
      states.
-   • When ‘modus-themes-deuteranopia’ is non-nil the exact style of the
-     habit graph adapts to the needs of users with red-green color
+   • When ‘modus-themes-deuteranopia’ is non-‘nil’ the exact style of
+     the habit graph adapts to the needs of users with red-green color
      deficiency by substituting every instance of green with blue or
      cyan (depending on the specifics).
 
@@ -2206,7 +2208,7 @@ in these examples:
              (t . (overline semibold))))
 
    When defining the styles per heading level, it is possible to pass a
-non-nil value (‘t’) instead of a list of properties.  This will retain
+non-‘nil’ value (‘t’) instead of a list of properties.  This will retain
 the original aesthetic for that level.  For example:
 
      (setq modus-themes-headings
@@ -2247,7 +2249,7 @@ bar, and tab line.
    The default is to use the same font as the rest of Emacs, which
 usually is a monospaced family.
 
-   With a non-nil value (‘t’) apply a proportionately spaced typeface.
+   With a non-‘nil’ value (‘t’) apply a proportionately spaced typeface.
 This is done by assigning the ‘variable-pitch’ face to the relevant
 items.
 
@@ -4783,7 +4785,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • tab-bar-groups
    • tab-bar-mode
    • tab-line-mode
-   • table (built-in table.el)
+   • table (built-in ‘table.el’)
    • telega
    • telephone-line
    • terraform-mode
@@ -4798,7 +4800,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • tuareg
    • typescript
    • undo-tree
-   • vc (vc-dir.el, vc-hooks.el)
+   • vc (‘vc-dir.el’, ‘vc-hooks.el’)
    • vertico
    • vertico-quick
    • vimish-fold
@@ -4823,8 +4825,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • yasnippet
    • ztree
 
-   Plus many other miscellaneous faces that are provided by the upstream
-GNU Emacs distribution.
+   Plus many other miscellaneous faces that are provided by Emacs.
 
 
 File: modus-themes.info,  Node: Indirectly covered packages,  Prev: Supported packages,  Up: Face coverage
@@ -5429,7 +5430,7 @@ File: modus-themes.info,  Node: Note on ERC escaped color sequences,  Next: Note
 7.13 Note on ERC escaped color sequences
 ========================================
 
-The built-in IRC client ‘erc’ has the ability to colorise any text using
+The built-in IRC client ‘erc’ has the ability to colorize any text using
 escape sequences that start with ‘^C’ (inserted with ‘C-q C-c’) and are
 followed by a number for the foreground and background.(1)  Possible
 numbers are 0-15, with the first entry being the foreground and the
@@ -5491,8 +5492,8 @@ File: modus-themes.info,  Node: Note on SHR fonts,  Next: Note on Ement colors a
 
 By default, packages that build on top of the Simple HTML Remember
 (‘shr’) use proportionately spaced fonts.  This is controlled by the
-user option ‘shr-use-fonts’, which is set to non-nil by default.  To use
-the standard font instead, set that variable to nil.
+user option ‘shr-use-fonts’, which is set to non-‘nil’ by default.  To
+use the standard font instead, set that variable to nil.
 
    *note Font configurations for Org and others::.
 
@@ -5993,7 +5994,7 @@ of the themes, which is partially fleshed out in this manual.
 
    With regard to the artistic aspect (where “art” qua skill may amount
 to an imprecise science), there is no hard-and-fast rule in effect as it
-requires one to exercise discretion and make decisions based on
+requires one to exercize discretion and make decisions based on
 context-dependent information or constraints.  As is true with most
 things in life, when in doubt, do not cling on to the letter of the law
 but try to understand its spirit.
@@ -6944,106 +6945,106 @@ Node: Differences between loading and enabling21556
 Node: Customization Options23565
 Node: Custom reload theme31945
 Node: Deuteranopia style32734
-Node: Bold constructs34165
-Node: Italic constructs34999
-Node: Syntax styles35766
-Node: Mixed fonts37898
-Node: Link styles39162
-Node: Box buttons41636
-Node: Command prompts44933
-Node: Mode line46754
-Node: Tab style52249
-Node: Completion UIs52912
-Node: Mail citations56838
-Node: Fringes57984
-Node: Language checkers58668
-Node: Line highlighting61110
-Node: Line numbers62927
-Node: Mouse hover effects64008
-Node: Markup64623
-Node: Matching parentheses66223
-Node: Active region67600
-Node: Diffs69013
-Node: Org mode blocks70664
-Node: Org agenda73054
-Node: Heading styles81870
-Node: UI typeface86782
-Node: Advanced customization87681
-Node: More accurate colors in terminal emulators89441
-Node: Range of color with terminal emulators90682
-Node: Visualize the active Modus theme's palette93387
-Node: Per-theme customization settings94383
-Node: Case-by-case face specs using the themes' palette95739
-Node: Face specs at scale using the themes' palette100287
-Node: Remap face with local value105088
-Node: Cycle through arbitrary colors107513
-Node: Override colors113940
-Node: Override color saturation119182
-Node: Override colors through blending124863
-Node: Override colors completely127708
-Node: Font configurations for Org and others141210
-Ref: Font configurations for Org and others-Footnote-1144137
-Node: Configure bold and italic faces144324
-Node: Custom Org todo keyword and priority faces148472
-Node: Custom Org emphasis faces152145
-Node: Update Org block delimiter fontification156946
-Node: Measure color contrast158863
-Node: Load theme depending on time of day161586
-Node: Backdrop for pdf-tools162594
-Node: Decrease mode line height165446
-Node: Toggle themes without reloading them169568
-Node: A theme-agnostic hook for theme loading170847
-Node: Diffs with only the foreground173249
-Node: Ediff without diff color-coding176363
-Node: Near-monochrome syntax highlighting178502
-Node: Custom hl-todo colors187499
-Node: Add support for solaire-mode189020
-Node: Face coverage191938
-Node: Supported packages192390
-Node: Indirectly covered packages199003
-Node: Notes on individual packages200131
-Node: Note on calendarel weekday and weekend colors201275
-Node: Note on git-gutter in Doom Emacs202423
-Node: Note on php-mode multiline comments204511
-Node: Note on underlines in compilation buffers205264
-Node: Note on inline Latex in Org buffers206101
-Node: Note on dimmerel206711
-Node: Note on display-fill-column-indicator-mode208196
-Node: Note on highlight-parenthesesel209594
-Node: Note on mmm-modeel background colors215644
-Node: Note for prism217959
-Node: Note for god-mode221115
-Node: Note on company-mode overlay pop-up222719
-Ref: Note on company-mode overlay pop-up-Footnote-1223409
-Ref: Note on company-mode overlay pop-up-Footnote-2223476
-Node: Note on ERC escaped color sequences223531
-Ref: Note on ERC escaped color sequences-Footnote-1224959
-Node: Note on powerline or spaceline225069
-Node: Note on SHR colors225483
-Node: Note on SHR fonts225907
-Node: Note on Ement colors and fonts226540
-Node: Note on Helm grep228039
-Node: Note on pdf-tools link hints229509
-Node: Note on the Notmuch logo231956
-Node: Note on goto-address-mode faces232494
-Node: Frequently Asked Questions233606
-Node: Is the contrast ratio about adjacent colors?234237
-Node: What does it mean to avoid exaggerations?235744
-Node: Why are colors mostly variants of blue magenta cyan?237573
-Node: What is the best setup for legibility?241879
-Node: Are these color schemes?244524
-Node: Port the Modus themes to other platforms?248244
-Node: Contributing251025
-Node: Sources of the themes251422
-Node: Issues you can help with252121
-Node: Patches require copyright assignment to the FSF253693
-Node: Acknowledgements255913
-Node: Other notes about the project259538
-Node: GNU Free Documentation License262536
-Node: Indices287913
-Node: Function index288092
-Node: Variable index289895
-Node: Concept index292182
+Node: Bold constructs34171
+Node: Italic constructs35011
+Node: Syntax styles35784
+Node: Mixed fonts37916
+Node: Link styles39186
+Node: Box buttons41660
+Node: Command prompts44957
+Node: Mode line46778
+Node: Tab style52285
+Node: Completion UIs52954
+Node: Mail citations56880
+Node: Fringes58026
+Node: Language checkers58710
+Node: Line highlighting61152
+Node: Line numbers62975
+Node: Mouse hover effects64062
+Node: Markup64683
+Node: Matching parentheses66283
+Node: Active region67660
+Node: Diffs69073
+Node: Org mode blocks70736
+Node: Org agenda73138
+Node: Heading styles81960
+Node: UI typeface86878
+Node: Advanced customization87783
+Node: More accurate colors in terminal emulators89543
+Node: Range of color with terminal emulators90784
+Node: Visualize the active Modus theme's palette93489
+Node: Per-theme customization settings94485
+Node: Case-by-case face specs using the themes' palette95841
+Node: Face specs at scale using the themes' palette100389
+Node: Remap face with local value105190
+Node: Cycle through arbitrary colors107615
+Node: Override colors114042
+Node: Override color saturation119284
+Node: Override colors through blending124965
+Node: Override colors completely127810
+Node: Font configurations for Org and others141312
+Ref: Font configurations for Org and others-Footnote-1144239
+Node: Configure bold and italic faces144426
+Node: Custom Org todo keyword and priority faces148574
+Node: Custom Org emphasis faces152247
+Node: Update Org block delimiter fontification157048
+Node: Measure color contrast158965
+Node: Load theme depending on time of day161688
+Node: Backdrop for pdf-tools162696
+Node: Decrease mode line height165548
+Node: Toggle themes without reloading them169670
+Node: A theme-agnostic hook for theme loading170949
+Node: Diffs with only the foreground173351
+Node: Ediff without diff color-coding176465
+Node: Near-monochrome syntax highlighting178604
+Node: Custom hl-todo colors187601
+Node: Add support for solaire-mode189122
+Node: Face coverage192040
+Node: Supported packages192492
+Node: Indirectly covered packages199093
+Node: Notes on individual packages200221
+Node: Note on calendarel weekday and weekend colors201365
+Node: Note on git-gutter in Doom Emacs202513
+Node: Note on php-mode multiline comments204601
+Node: Note on underlines in compilation buffers205354
+Node: Note on inline Latex in Org buffers206191
+Node: Note on dimmerel206801
+Node: Note on display-fill-column-indicator-mode208286
+Node: Note on highlight-parenthesesel209684
+Node: Note on mmm-modeel background colors215734
+Node: Note for prism218049
+Node: Note for god-mode221205
+Node: Note on company-mode overlay pop-up222809
+Ref: Note on company-mode overlay pop-up-Footnote-1223499
+Ref: Note on company-mode overlay pop-up-Footnote-2223566
+Node: Note on ERC escaped color sequences223621
+Ref: Note on ERC escaped color sequences-Footnote-1225049
+Node: Note on powerline or spaceline225159
+Node: Note on SHR colors225573
+Node: Note on SHR fonts225997
+Node: Note on Ement colors and fonts226636
+Node: Note on Helm grep228135
+Node: Note on pdf-tools link hints229605
+Node: Note on the Notmuch logo232052
+Node: Note on goto-address-mode faces232590
+Node: Frequently Asked Questions233702
+Node: Is the contrast ratio about adjacent colors?234333
+Node: What does it mean to avoid exaggerations?235840
+Node: Why are colors mostly variants of blue magenta cyan?237669
+Node: What is the best setup for legibility?241975
+Node: Are these color schemes?244620
+Node: Port the Modus themes to other platforms?248340
+Node: Contributing251121
+Node: Sources of the themes251518
+Node: Issues you can help with252217
+Node: Patches require copyright assignment to the FSF253789
+Node: Acknowledgements256009
+Node: Other notes about the project259634
+Node: GNU Free Documentation License262632
+Node: Indices288009
+Node: Function index288188
+Node: Variable index289991
+Node: Concept index292278
 
 End Tag Table
 
