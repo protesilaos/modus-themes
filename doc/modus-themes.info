@@ -1095,7 +1095,7 @@ symbols:
      in the form of ‘(height . FLOAT)’
    • ‘all-buttons’
 
-   The default (a nil value or an empty list) is a gray background
+   The default (a ‘nil’ value or an empty list) is a gray background
 combined with a pseudo three-dimensional effect.
 
    The ‘flat’ property makes the button two dimensional.
@@ -1226,7 +1226,7 @@ box effect, color, and border visibility:
    • A floating point to set the height of the mode line’s text.  It can
      also be a cons cell in the form of ‘(height . FLOAT)’.
 
-   The default (a nil value or an empty list) is a two-dimensional
+   The default (a ‘nil’ value or an empty list) is a two-dimensional
 rectangle with a border around it.  The active and the inactive mode
 lines use different shades of grayscale values for the background,
 foreground, border.
@@ -1366,10 +1366,10 @@ the particularities:
              (popup . (accented))))
 
    The ‘matches’ key refers to the highlighted characters that
-correspond to the user’s input.  When its properties are nil or an empty
-list, matching characters in the user interface will have a bold weight
-and a colored foreground.  The list of properties may include any of the
-following symbols regardless of the order they may appear in:
+correspond to the user’s input.  When its properties are ‘nil’ or an
+empty list, matching characters in the user interface will have a bold
+weight and a colored foreground.  The list of properties may include any
+of the following symbols regardless of the order they may appear in:
 
    • ‘background’ to add a background color;
 
@@ -1386,8 +1386,8 @@ following symbols regardless of the order they may appear in:
 
    The ‘selection’ key applies to the current line or currently matched
 candidate, depending on the specifics of the user interface.  When its
-properties are nil or an empty list, it has a subtle gray background, a
-bold weight, and the base foreground value for the text.  The list of
+properties are ‘nil’ or an empty list, it has a subtle gray background,
+a bold weight, and the base foreground value for the text.  The list of
 properties it accepts is as follows (order is not significant):
 
    • ‘accented’ to make the background colorful instead of gray;
@@ -1451,7 +1451,7 @@ Brief: Set the overall style of citations/quotes when composing emails.
   3. ‘faint’
   4. ‘monochrome’
 
-   By default (a nil value) citations are styled with contrasting hues
+   By default (a ‘nil’ value) citations are styled with contrasting hues
 to denote their depth.  Colors are easy to tell apart because they
 complement each other, but they otherwise are not very prominent.
 
@@ -1572,7 +1572,7 @@ File: modus-themes.info,  Node: Line highlighting,  Next: Line numbers,  Prev: L
    Symbol: ‘modus-themes-hl-line’ (‘choice’ type, list of properties)
 
    The value is a list of properties, each designated by a symbol.  With
-a nil value, or an empty list, the style is a subtle gray background
+a ‘nil’ value, or an empty list, the style is a subtle gray background
 color.
 
    Possible properties are the following symbols:
@@ -2006,8 +2006,9 @@ of the following properties:
 shown on the agenda, also known as events, (ii) entries imported from
 the diary, and (iii) other items that derive from a symbolic expression
 or sexp (phases of the moon, holidays, etc.).  By default all those look
-the same and have a subtle foreground color (the default is a nil value
-or an empty list).  This key accepts a list of properties.  Those are:
+the same and have a subtle foreground color (the default is a ‘nil’
+value or an empty list).  This key accepts a list of properties.  Those
+are:
 
    • ‘accented’ applies an accent value to the event’s foreground,
      replacing the original gray.  It makes all entries stand out more.
@@ -2036,7 +2037,7 @@ or an empty list).  This key accepts a list of properties.  Those are:
 (a ‘nil’ value), those use varying shades of yellow to denote (i) a past
 or current date and (ii) a future date.  Valid values are symbols:
 
-   • nil (default);
+   • ‘nil’ (default);
    • ‘uniform’ to make all scheduled dates the same color;
    • ‘rainbow’ to use contrasting colors for past, present, future
      scheduled dates.
@@ -6951,100 +6952,100 @@ Node: Syntax styles35784
 Node: Mixed fonts37916
 Node: Link styles39186
 Node: Box buttons41660
-Node: Command prompts44957
-Node: Mode line46778
-Node: Tab style52285
-Node: Completion UIs52954
-Node: Mail citations56880
-Node: Fringes58026
-Node: Language checkers58710
-Node: Line highlighting61152
-Node: Line numbers62975
-Node: Mouse hover effects64062
-Node: Markup64683
-Node: Matching parentheses66283
-Node: Active region67660
-Node: Diffs69073
-Node: Org mode blocks70736
-Node: Org agenda73138
-Node: Heading styles81960
-Node: UI typeface86878
-Node: Advanced customization87783
-Node: More accurate colors in terminal emulators89543
-Node: Range of color with terminal emulators90784
-Node: Visualize the active Modus theme's palette93489
-Node: Per-theme customization settings94485
-Node: Case-by-case face specs using the themes' palette95841
-Node: Face specs at scale using the themes' palette100389
-Node: Remap face with local value105190
-Node: Cycle through arbitrary colors107615
-Node: Override colors114042
-Node: Override color saturation119284
-Node: Override colors through blending124965
-Node: Override colors completely127810
-Node: Font configurations for Org and others141312
-Ref: Font configurations for Org and others-Footnote-1144239
-Node: Configure bold and italic faces144426
-Node: Custom Org todo keyword and priority faces148574
-Node: Custom Org emphasis faces152247
-Node: Update Org block delimiter fontification157048
-Node: Measure color contrast158965
-Node: Load theme depending on time of day161688
-Node: Backdrop for pdf-tools162696
-Node: Decrease mode line height165548
-Node: Toggle themes without reloading them169670
-Node: A theme-agnostic hook for theme loading170949
-Node: Diffs with only the foreground173351
-Node: Ediff without diff color-coding176465
-Node: Near-monochrome syntax highlighting178604
-Node: Custom hl-todo colors187601
-Node: Add support for solaire-mode189122
-Node: Face coverage192040
-Node: Supported packages192492
-Node: Indirectly covered packages199093
-Node: Notes on individual packages200221
-Node: Note on calendarel weekday and weekend colors201365
-Node: Note on git-gutter in Doom Emacs202513
-Node: Note on php-mode multiline comments204601
-Node: Note on underlines in compilation buffers205354
-Node: Note on inline Latex in Org buffers206191
-Node: Note on dimmerel206801
-Node: Note on display-fill-column-indicator-mode208286
-Node: Note on highlight-parenthesesel209684
-Node: Note on mmm-modeel background colors215734
-Node: Note for prism218049
-Node: Note for god-mode221205
-Node: Note on company-mode overlay pop-up222809
-Ref: Note on company-mode overlay pop-up-Footnote-1223499
-Ref: Note on company-mode overlay pop-up-Footnote-2223566
-Node: Note on ERC escaped color sequences223621
-Ref: Note on ERC escaped color sequences-Footnote-1225049
-Node: Note on powerline or spaceline225159
-Node: Note on SHR colors225573
-Node: Note on SHR fonts225997
-Node: Note on Ement colors and fonts226636
-Node: Note on Helm grep228135
-Node: Note on pdf-tools link hints229605
-Node: Note on the Notmuch logo232052
-Node: Note on goto-address-mode faces232590
-Node: Frequently Asked Questions233702
-Node: Is the contrast ratio about adjacent colors?234333
-Node: What does it mean to avoid exaggerations?235840
-Node: Why are colors mostly variants of blue magenta cyan?237669
-Node: What is the best setup for legibility?241975
-Node: Are these color schemes?244620
-Node: Port the Modus themes to other platforms?248340
-Node: Contributing251121
-Node: Sources of the themes251518
-Node: Issues you can help with252217
-Node: Patches require copyright assignment to the FSF253789
-Node: Acknowledgements256009
-Node: Other notes about the project259634
-Node: GNU Free Documentation License262632
-Node: Indices288009
-Node: Function index288188
-Node: Variable index289991
-Node: Concept index292278
+Node: Command prompts44963
+Node: Mode line46784
+Node: Tab style52297
+Node: Completion UIs52966
+Node: Mail citations56904
+Node: Fringes58056
+Node: Language checkers58740
+Node: Line highlighting61182
+Node: Line numbers63011
+Node: Mouse hover effects64098
+Node: Markup64719
+Node: Matching parentheses66319
+Node: Active region67696
+Node: Diffs69109
+Node: Org mode blocks70772
+Node: Org agenda73174
+Node: Heading styles82008
+Node: UI typeface86926
+Node: Advanced customization87831
+Node: More accurate colors in terminal emulators89591
+Node: Range of color with terminal emulators90832
+Node: Visualize the active Modus theme's palette93537
+Node: Per-theme customization settings94533
+Node: Case-by-case face specs using the themes' palette95889
+Node: Face specs at scale using the themes' palette100437
+Node: Remap face with local value105238
+Node: Cycle through arbitrary colors107663
+Node: Override colors114090
+Node: Override color saturation119332
+Node: Override colors through blending125013
+Node: Override colors completely127858
+Node: Font configurations for Org and others141360
+Ref: Font configurations for Org and others-Footnote-1144287
+Node: Configure bold and italic faces144474
+Node: Custom Org todo keyword and priority faces148622
+Node: Custom Org emphasis faces152295
+Node: Update Org block delimiter fontification157096
+Node: Measure color contrast159013
+Node: Load theme depending on time of day161736
+Node: Backdrop for pdf-tools162744
+Node: Decrease mode line height165596
+Node: Toggle themes without reloading them169718
+Node: A theme-agnostic hook for theme loading170997
+Node: Diffs with only the foreground173399
+Node: Ediff without diff color-coding176513
+Node: Near-monochrome syntax highlighting178652
+Node: Custom hl-todo colors187649
+Node: Add support for solaire-mode189170
+Node: Face coverage192088
+Node: Supported packages192540
+Node: Indirectly covered packages199141
+Node: Notes on individual packages200269
+Node: Note on calendarel weekday and weekend colors201413
+Node: Note on git-gutter in Doom Emacs202561
+Node: Note on php-mode multiline comments204649
+Node: Note on underlines in compilation buffers205402
+Node: Note on inline Latex in Org buffers206239
+Node: Note on dimmerel206849
+Node: Note on display-fill-column-indicator-mode208334
+Node: Note on highlight-parenthesesel209732
+Node: Note on mmm-modeel background colors215782
+Node: Note for prism218097
+Node: Note for god-mode221253
+Node: Note on company-mode overlay pop-up222857
+Ref: Note on company-mode overlay pop-up-Footnote-1223547
+Ref: Note on company-mode overlay pop-up-Footnote-2223614
+Node: Note on ERC escaped color sequences223669
+Ref: Note on ERC escaped color sequences-Footnote-1225097
+Node: Note on powerline or spaceline225207
+Node: Note on SHR colors225621
+Node: Note on SHR fonts226045
+Node: Note on Ement colors and fonts226684
+Node: Note on Helm grep228183
+Node: Note on pdf-tools link hints229653
+Node: Note on the Notmuch logo232100
+Node: Note on goto-address-mode faces232638
+Node: Frequently Asked Questions233750
+Node: Is the contrast ratio about adjacent colors?234381
+Node: What does it mean to avoid exaggerations?235888
+Node: Why are colors mostly variants of blue magenta cyan?237717
+Node: What is the best setup for legibility?242023
+Node: Are these color schemes?244668
+Node: Port the Modus themes to other platforms?248388
+Node: Contributing251169
+Node: Sources of the themes251566
+Node: Issues you can help with252265
+Node: Patches require copyright assignment to the FSF253837
+Node: Acknowledgements256057
+Node: Other notes about the project259682
+Node: GNU Free Documentation License262680
+Node: Indices288057
+Node: Function index288236
+Node: Variable index290039
+Node: Concept index292326
 
 End Tag Table
 
