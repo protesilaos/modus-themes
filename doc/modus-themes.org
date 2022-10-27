@@ -5543,9 +5543,9 @@ ANSI color number 1 (red) from the already-supported array of
 :end:
 
 Hints are drawn by [[https://imagemagick.org/][ImageMagick]], not Emacs, i.e., ImageMagick doesn't
-know about the hint face unless you tell ImageMagick about it. By
+know about the hint face unless you tell ImageMagick about it.  By
 default, only the foreground and background color attributes are
-passed. The below snippet adds to those the various font attributes.  As
+passed.  The below snippet adds to those the various font attributes.  As
 it queries various faces, specifically ~pdf-links-read-link~ and the faces
 it inherits, it needs to be added to your initialization file after
 you've customized any faces.
@@ -5816,9 +5816,9 @@ In general, an additional source of light other than that of the monitor
 can help reduce eye strain: the eyes are more relaxed when they do not
 have to focus on one point to gather light.
 
-The monitor's display settings must be accounted for. Gamma values, in
+The monitor's display settings must be accounted for.  Gamma values, in
 particular, need to be calibrated to neither amplify nor distort the
-perception of black. Same principle for sharpness, brightness, and
+perception of black.  Same principle for sharpness, brightness, and
 contrast as determined by the hardware, which all have an effect on how
 text is read on the screen.
 
