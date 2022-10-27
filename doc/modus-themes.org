@@ -632,7 +632,7 @@ to user options to take effect ([[#h:3f3c3728-1b34-437d-9d0c-b110f5b161a9][Enabl
 :end:
 #+vindex: modus-themes-deuteranopia
 
-Brief: When non-nil use red/blue color-coding instead of red/green,
+Brief: When non-~nil~ use red/blue color-coding instead of red/green,
 where appropriate.
 
 Symbol: ~modus-themes-deuteranopia~ (=boolean= type)
@@ -679,7 +679,7 @@ Possible values:
 The default is to use a bold typographic weight only when it is
 required.
 
-With a non-nil value (~t~) display several syntactic constructs in bold
+With a non-~nil~ value (~t~) display several syntactic constructs in bold
 weight.  This concerns keywords and other important aspects of code
 syntax.  It also affects certain mode line indicators and command-line
 prompts.
@@ -709,7 +709,7 @@ Possible values:
 The default is to not use slanted text forms (italics) unless it is
 absolutely necessary.
 
-With a non-nil value (~t~) choose to render more faces in italics.  This
+With a non-~nil~ value (~t~) choose to render more faces in italics.  This
 typically affects documentation strings and code comments.
 
 Advanced users may also want to configure the exact attributes of the
@@ -799,7 +799,7 @@ Possible values:
 1. ~nil~ (default)
 2. ~t~
 
-When set to non-nil (~t~), configure some spacing-sensitive faces like Org
+When set to non-~nil~ (~t~), configure some spacing-sensitive faces like Org
 tables and code blocks to always inherit from the ~fixed-pitch~ face.
 This is to ensure that certain constructs like code blocks and tables
 remain monospaced even when users opt for a mode that remaps typeface
@@ -1097,7 +1097,7 @@ of NATNUM pixels at the boundaries of the mode lines.  The default value
 is 1 and does not need to be specified explicitly.  The padding has no
 effect when the ~moody~ property is also used, because Moody already
 applies its own tweaks.  To ensure that the underline is placed at the
-bottom of the mode line, set ~x-underline-at-descent-line~ to non-nil
+bottom of the mode line, set ~x-underline-at-descent-line~ to non-~nil~
 (this is not needed when the ~borderless~ property is also set).  For
 users on Emacs 29, the ~x-use-underline-position-properties~ variable must
 also be set to nil.
@@ -1159,7 +1159,7 @@ colors (which have been carefully designed to be highly accessible).
 
 Furthermore, because Moody expects an underline and overline instead of
 a box style, it is strongly advised to set ~x-underline-at-descent-line~
-to a non-nil value.
+to a non-~nil~ value.
 
 Finally, note that various packages which heavily modify the mode line,
 such as =doom-modeline=, =nano-modeline=, =powerline=, =spaceline= may not look
@@ -1183,7 +1183,7 @@ Possible values:
 + ~t~
 
 By default, all tab interfaces use backgrounds which are shades of gray.
-When this option is set to non-nil, the backgrounds become colorful.
+When this option is set to non-~nil~, the backgrounds become colorful.
 
 This affects the built-in ~tab-bar-mode~ and ~tab-line-mode~, as well as the
 Centaur tabs package.
@@ -1470,7 +1470,7 @@ In user configuration files the form may look like this:
 (setq modus-themes-hl-line '(underline accented))
 #+end_src
 
-Set ~x-underline-at-descent-line~ to a non-nil value so that the
+Set ~x-underline-at-descent-line~ to a non-~nil~ value so that the
 placement of the underline coincides with the lower boundary of the
 colored background.
 
@@ -1506,7 +1506,7 @@ Similarly, the faces for ~display-line-numbers-major-tick~ and its
 counterpart ~display-line-numbers-minor-tick~ use appropriate styles that
 involve a bespoke background and foreground combination.
 
-With a non-nil value (~t~), line numbers have no background of their own.
+With a non-~nil~ value (~t~), line numbers have no background of their own.
 Instead they retain the primary background of the theme, blending with
 the rest of the buffer.  Foreground values for all relevant faces are
 updated to accommodate this aesthetic.
@@ -1529,7 +1529,7 @@ Possible value:
 2. ~t~
 
 By default all mouseover effects apply a highlight with a subtle colored
-background.  When non-nil, these have a more pronounced effect.
+background.  When non-~nil~, these have a more pronounced effect.
 
 Note that this affects the generic ~highlight~ which, strictly speaking,
 is not limited to mouse usage.
@@ -1713,11 +1713,11 @@ Option ~desaturated~ follows the same principles as with the default
 (~nil~), though it tones down all relevant colors.
 
 Option ~bg-only~ applies a background but does not override the text's
-foreground.  This makes it suitable for a non-nil value passed to
+foreground.  This makes it suitable for a non-~nil~ value passed to
 ~diff-font-lock-syntax~ (note: Magit does not support syntax highlighting
 in diffs---last checked on 2021-12-02).
 
-When the user option ~modus-themes-deuteranopia~ is non-nil, all diffs
+When the user option ~modus-themes-deuteranopia~ is non-~nil~, all diffs
 will use a red/blue color-coding system instead of the standard
 red/green.  Other stylistic changes are made in the interest of
 optimizing for such a use-case.
@@ -1776,8 +1776,8 @@ of the block.  Disable the extension of such backgrounds by setting
 ~org-fontify-whole-block-delimiter-line~ to nil.
 
 Code blocks use their major mode's colors only when the variable
-~org-src-fontify-natively~ is non-nil.  While quote/verse blocks require
-setting ~org-fontify-quote-and-verse-blocks~ to a non-nil value.
+~org-src-fontify-natively~ is non-~nil~.  While quote/verse blocks require
+setting ~org-fontify-quote-and-verse-blocks~ to a non-~nil~ value.
 
 [[#h:f44cc6e3-b0f1-4a5e-8a90-9e48fa557b50][Update Org block delimiter fontification]].
 
@@ -1963,7 +1963,7 @@ passed as a symbol.  Those are:
   being too late.  The difference between ready and clear states is
   attenuated by painting both of them using shades of green.  This
   option thus highlights the alert and overdue states.
-- When ~modus-themes-deuteranopia~ is non-nil the exact style of the habit
+- When ~modus-themes-deuteranopia~ is non-~nil~ the exact style of the habit
   graph adapts to the needs of users with red-green color deficiency by
   substituting every instance of green with blue or cyan (depending on
   the specifics).
@@ -2108,7 +2108,7 @@ In user configuration files the form may look like this:
 #+end_src
 
 When defining the styles per heading level, it is possible to pass a
-non-nil value (~t~) instead of a list of properties.  This will retain the
+non-~nil~ value (~t~) instead of a list of properties.  This will retain the
 original aesthetic for that level.  For example:
 
 #+begin_src emacs-lisp
@@ -2153,7 +2153,7 @@ and tab line.
 The default is to use the same font as the rest of Emacs, which usually
 is a monospaced family.
 
-With a non-nil value (~t~) apply a proportionately spaced typeface.  This
+With a non-~nil~ value (~t~) apply a proportionately spaced typeface.  This
 is done by assigning the ~variable-pitch~ face to the relevant items.
 
 [[#h:defcf4fc-8fa8-4c29-b12e-7119582cc929][Font configurations for Org and others]].
@@ -5453,7 +5453,7 @@ Consult the doc string of ~shr-use-colors~.
 
 By default, packages that build on top of the Simple HTML Remember (=shr=)
 use proportionately spaced fonts.  This is controlled by the user option
-~shr-use-fonts~, which is set to non-nil by default.  To use the standard
+~shr-use-fonts~, which is set to non-~nil~ by default.  To use the standard
 font instead, set that variable to nil.
 
 [[#h:defcf4fc-8fa8-4c29-b12e-7119582cc929][Font configurations for Org and others]].
