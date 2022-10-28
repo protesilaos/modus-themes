@@ -35,6 +35,7 @@ Current development target is {{{development-version}}}.
 + Homepage: https://protesilaos.com/emacs/modus-themes.
 + Git repository: https://git.sr.ht/~protesilaos/modus-themes.
 + Mailing list: https://lists.sr.ht/~protesilaos/modus-themes.
++ Backronym: My Old Display Unexpectedly Sharpened ... themes
 
 #+toc: headlines 8 insert TOC here, with eight headline levels
 

@@ -31,6 +31,7 @@ Sources:
     + GitHub: <https://github.com/protesilaos/modus-themes>
     + GitLab: <https://gitlab.com/protesilaos/modus-themes>
 + Mailing list: <https://lists.sr.ht/~protesilaos/modus-themes>
++ Backronym: My Old Display Unexpectedly Sharpened ... themes
 
 ## Quick setup for the latest version
 
