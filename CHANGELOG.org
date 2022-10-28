@@ -15,6 +15,182 @@ For further details, please consult these additional resources:
 + Manual :: <https://protesilaos.com/emacs/modus-themes>
 + Screenshots :: <https://protesilaos.com/emacs/modus-themes-pictures>
 
+* 3.0.0
+:PROPERTIES:
+:CUSTOM_ID: h:6829db8d-52c5-43a8-a026-f213dcfaced9
+:END:
+
+#+begin_src text
+Modus themes version 3.0.0
+
+By Protesilaos Stavrou <info@protesilaos.com> on 2022-10-28
+
+
+The version that will ship with Emacs 29
+========================================
+
+The 'modus-operandi' and 'modus-vivendi' themes (package name is
+'modus-themes') have been a part of Emacs since August 2020.  Emacs 28
+ships with version 1.6.0 of the themes.  Emacs 29 will include version
+3.0.0.
+
+There is no clean upgrade path from the old version of the themes to
+the current one.  Users are advised to review their configurations and
+consult with the detailed manual of the themes.
+
+I am available to answer any questions, either via my personal email
+or on the official sources of the themes.  Find the full list here:
+<https://protesilaos.com/emacs>.
+
+
+Minor breaking changes
+======================
+
+I have changed the default value of the following user options:
+
+1. 'modus-themes-hl-line'
+2. 'modus-themes-completions'
+3. 'modus-themes-fringes'
+
+In the case of the first two, the background of the highlighted line
+is made to look a bit more intense.
+
+For the fringes, this tweak makes them visible, using a subtle grey
+colour.  By default, "fringe" is an 8-pixel-wide area to the left and
+right side of an Emacs window.
+
+The intent of these changes is to make the out-of-the-box experience
+consistent with the accessibility considerations of the Modus themes.
+Specifically because some users may not realise that the themes are
+highly customisable.
+
+To revert to the old defaults, users must include this (or equivalent)
+in their init file:
+
+    (setq modus-themes-completions nil
+          modus-themes-hl-line nil
+          modus-themes-fringes nil)
+
+As always, changes to theme user options take effect upon a reload of
+the theme.
+
+This was announced on my website:
+<https://protesilaos.com/codelog/2022-10-23-breaking-modus-themes-3-0-0-notice/>.
+
+
+Support for new faces or changes to existing ones
+=================================================
+
+,* Refined the 'telega' faces for inline code and preformatted
+  elements.  The faces are 'telega-entity-type-code' and
+  'telega-entity-type-pre', respectively.  This change makes them
+  subject to the style specified in the user option
+  'modus-themes-markup'.
+
+  Thanks to Pablo Stafforini for showing me screenshots of how they
+  look, as I am not a telega/telegram user and cannot do this myself.
+  Done as part of issue 170 on the GitLab mirror:
+  <https://gitlab.com/protesilaos/modus-themes/-/issues/170#note_1143975582>.
+
+,* Removed all attributes from the 'textsec-suspicious' face.  By
+  default, it applies a background, but does not affect the
+  foreground.  The result is thus inaccessible in many cases
+  (e.g. blue links against a red background).  There is no need for
+  such a background though, as the warnings are accompanied by the
+  relevant emoji: ⚠️.
+
+  To support this face, we need it to affect the foreground as well.
+
+,* Deleted some 'consult' "preview" faces in the interest of
+  consistency.  This is to match the current style of the project:
+  <https://github.com/minad/consult/commit/1343e39fefcf8a28a7a415aa4b0a8ff7094370bf>.
+
+,* Expanded support of the built-in 'diff-mode' faces to include the
+  'diff-changed-unspecified'.  It is made to look the same as
+  'diff-changed', i.e. yellow-tinted.  There is a good chance that a
+  user will never see this face in action (I only encountered it
+  once).
+
+,* Reworked all the 'highlight-regexp' faces (like 'hi-yellow') to use
+  bespoke colour values.
+
+  These faces need to have a background that is consistent with their
+  semantics.  Furthermore, they need to use the 'inverse-video'
+  attribute which, in turn, affects the combinations of colour we can
+  apply.  Our accented backgrounds are designed to contrast well with
+  our nominal main foreground values, whereas this case demands
+  coloured backgrounds that contrast nicely with what would normally
+  be the main background colour.  As such, we cannot apply our
+  ordinary entries from each theme's palette.  It would be inefficient
+  to expand the palette of each theme just for this edge case.
+
+  Thanks to Kevin Kainan Li for the feedback on the mailing list, where
+  they informed me that the previous design was too dark/mute (and I
+  agreed with that assessment) and provided feedback on my samples:
+  <https://lists.sr.ht/~protesilaos/modus-themes/%3CCAMTq2Vp3Nnzv-i9wJdq4-OJ4X_QfWXySpUtAieBy0dgKLEOSBg%40mail.gmail.com%3E>.
+
+,* Recoloured the 'modus-themes-completion-match-1' to use a shade of
+  blue instead of cyan.  This contributes to the distinctiveness of
+  those matches relative to 'modus-themes-completion-match-0' and the
+  other groups.  These faces are used in completion User Interfaces,
+  such as 'vertico', 'corfu', 'orderless'.  They are subject to the
+  user option 'modus-themes-completions'.
+
+,* Added support for the 'olivetti-fringe' face.  Its background is the
+  same as the main background, meaning that the fringes are invisible
+  when 'olivetti-mode' is enabled.  Thanks to Matthias Fuchs for
+  producing a report that helped me track this problem.  It was done
+  in issue 46 on the GitHub mirror:
+  <https://github.com/protesilaos/modus-themes/issues/46>.
+
+
+Miscellaneous
+=============
+
+,* Added the new Emacs 29 theme properties to 'modus-operandi' and
+  'modus-vivendi'.  These make the themes work with the new built-in
+  command 'toggle-theme'.  Thanks to Philip Kaludercic for the patch
+  and for the work on this in emacs.git:
+  <https://lists.gnu.org/archive/html/bug-gnu-emacs/2022-10/msg00886.html>.
+
+,* Refrained from deprecating the 'modus-themes-toggle' command in
+  favour of the new generic 'toggle-theme'.
+
+  The 'toggle-theme' is not functionally equivalent to the command
+  'modus-themes-toggle' due to the optional arguments it accepts.
+  With 'toggle-theme' we are prompted to confirm loading the theme,
+  due to how unsafe themes can be...  Further, we are asked to add the
+  loaded theme to the list of "safe" themes.  This only applies to the
+  packaged version of the 'modus-themes', not the items that are built
+  into Emacs.
+
+  These prompts are consistent with how 'load-theme' works, but not
+  with what the user of 'modus-themes-toggle' has come to expect.
+  
+  Users who do not like to maintain a 'custom-file' (like me) are thus
+  penalised each time they invoke the command.
+
+  The 'modus-themes-toggle' will only be deprecated if there is, say,
+  a user option in Emacs that disables those prompts each time a theme
+  is loaded.  Basically, we need an arrangement that just toggles
+  themes without questions.
+
+  Thanks to Rudolf Adamkovič for suggesting the idea and to Philip
+  Kaludercic for the 'toggle-theme' (and related functionality):
+  <https://lists.sr.ht/~protesilaos/modus-themes/%3C877d116lh4.fsf%40posteo.net%3E#%3Cm2lepgrd8l.fsf@me.com%3E>.
+
+,* Corrected the one-line description of the 'modus-vivendi' theme,
+  which was describing itself as a "light" theme.
+
+,* Ensured that the manual and all doc strings in the code use American
+  English, per the convention of emacs.git (my CHANGELOG still uses
+  what I prefer).  Thanks to Stefan Kangas for contributing to this
+  effort with a patch that properly renders 'non-nil' in the texinfo
+  output as 'non-@code{nil}'.
+
+,* Made other minor tweaks and refinements.
+#+end_src
+
 * 2.7.0
 :PROPERTIES:
 :CUSTOM_ID: h:4d86106c-1df5-4f5f-bc6c-f14f5d13403b
@@ -52,6 +228,7 @@ Support for packages or faces
   it, as promised.
 
 ,* Applied styles for the 'icon-button' face of Emacs 29.
+
 
 ,* Styled the 'log-edit-headers-separator' face of Emacs 29 (it was
   introduced upstream by a patch of mine).
