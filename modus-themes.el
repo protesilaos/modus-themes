@@ -6385,7 +6385,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(mu4e-view-body-face ((,class :foreground ,fg-main)))
     `(mu4e-warning-face ((,class :inherit warning)))
 ;;;;; multiple-cursors
-    `(mc/cursor-bar-face ((,class :height 1 :background ,fg-main)))
+    `(mc/cursor-bar-face ((,class :height 1 :foreground ,fg-main :background ,bg-main)))
     `(mc/cursor-face ((,class :inverse-video t)))
     `(mc/region-face ((,class :inherit region)))
 ;;;;; nano-modeline
