@@ -4517,6 +4517,7 @@ affected face groups.  The items with an appended asterisk ‘*’ tend to
 have lots of extensions, so the “full support” may not be 100% true…
 
    • ace-window
+   • agda2-mode [Part of 3.1.0-dev.]
    • alert
    • all-the-icons
    • all-the-icons-dired
@@ -6171,13 +6172,13 @@ Ideas and user feedback
      Popovych, Jeremy Friesen, Jerry Zhang, Johannes Grødem, John Haman,
      Jonas Collberg, Jorge Morais, Joshua O’Connor, Julio C.
      Villasante, Kenta Usami, Kevin Fleming, Kévin Le Gouguec, Kevin
-     Kainan Li, Kostadin Ninev, Len Trigg, Lennart C.  Karssen, Luis
-     Miguel Castañeda, Magne Hov, Manuel Uberti, Mark Bestley, Mark
-     Burton, Mark Simpson, Markus Beppler, Matt Armstrong, Matthias
-     Fuchs, Mauro Aranda, Maxime Tréca, Michael Goldenberg, Morgan
-     Smith, Morgan Willcock, Murilo Pereira, Nicky van Foreest, Nicolas
-     De Jaeghere, Pablo Stafforini, Paul Poloskov, Pengji Zhang, Pete
-     Kazmier, Peter Wu, Philip Kaludercic, Pierre Téchoueyres,
+     Kainan Li, Kostadin Ninev, Laith Bahodi, Len Trigg, Lennart C.
+     Karssen, Luis Miguel Castañeda, Magne Hov, Manuel Uberti, Mark
+     Bestley, Mark Burton, Mark Simpson, Markus Beppler, Matt Armstrong,
+     Matthias Fuchs, Mauro Aranda, Maxime Tréca, Michael Goldenberg,
+     Morgan Smith, Morgan Willcock, Murilo Pereira, Nicky van Foreest,
+     Nicolas De Jaeghere, Pablo Stafforini, Paul Poloskov, Pengji Zhang,
+     Pete Kazmier, Peter Wu, Philip Kaludercic, Pierre Téchoueyres,
      Przemysław Kryger, Robert Hepple, Roman Rudakov, Ryan Phillips,
      Rytis Paškauskas, Rudolf Adamkovič, Sam Kleinman, Samuel Culpepper,
      Saša Janiška, Shreyas Ragavan, Simon Pugnet, Tassilo Horn, Thibaut
@@ -6997,50 +6998,50 @@ Node: Custom hl-todo colors187557
 Node: Add support for solaire-mode189078
 Node: Face coverage191996
 Node: Supported packages192448
-Node: Indirectly covered packages199028
-Node: Notes on individual packages200156
-Node: Note on calendarel weekday and weekend colors201300
-Node: Note on git-gutter in Doom Emacs202448
-Node: Note on php-mode multiline comments204536
-Node: Note on underlines in compilation buffers205289
-Node: Note on inline Latex in Org buffers206126
-Node: Note on dimmerel206736
-Node: Note on display-fill-column-indicator-mode208221
-Node: Note on highlight-parenthesesel209619
-Node: Note on mmm-modeel background colors215669
-Node: Note for prism217984
-Node: Note for god-mode221140
-Node: Note on company-mode overlay pop-up222744
-Ref: Note on company-mode overlay pop-up-Footnote-1223434
-Ref: Note on company-mode overlay pop-up-Footnote-2223501
-Node: Note on ERC escaped color sequences223556
-Ref: Note on ERC escaped color sequences-Footnote-1224984
-Node: Note on powerline or spaceline225094
-Node: Note on SHR colors225508
-Node: Note on SHR fonts225932
-Node: Note on Ement colors and fonts226571
-Node: Note on Helm grep228070
-Node: Note on pdf-tools link hints229540
-Node: Note on the Notmuch logo231987
-Node: Note on goto-address-mode faces232525
-Node: Frequently Asked Questions233637
-Node: Is the contrast ratio about adjacent colors?234268
-Node: What does it mean to avoid exaggerations?235775
-Node: Why are colors mostly variants of blue magenta cyan?237604
-Node: What is the best setup for legibility?241910
-Node: Are these color schemes?244555
-Node: Port the Modus themes to other platforms?248275
-Node: Contributing251056
-Node: Sources of the themes251453
-Node: Issues you can help with252152
-Node: Patches require copyright assignment to the FSF253724
-Node: Acknowledgements255944
-Node: Other notes about the project259584
-Node: GNU Free Documentation License262582
-Node: Indices287959
-Node: Function index288138
-Node: Variable index289941
-Node: Concept index292228
+Node: Indirectly covered packages199067
+Node: Notes on individual packages200195
+Node: Note on calendarel weekday and weekend colors201339
+Node: Note on git-gutter in Doom Emacs202487
+Node: Note on php-mode multiline comments204575
+Node: Note on underlines in compilation buffers205328
+Node: Note on inline Latex in Org buffers206165
+Node: Note on dimmerel206775
+Node: Note on display-fill-column-indicator-mode208260
+Node: Note on highlight-parenthesesel209658
+Node: Note on mmm-modeel background colors215708
+Node: Note for prism218023
+Node: Note for god-mode221179
+Node: Note on company-mode overlay pop-up222783
+Ref: Note on company-mode overlay pop-up-Footnote-1223473
+Ref: Note on company-mode overlay pop-up-Footnote-2223540
+Node: Note on ERC escaped color sequences223595
+Ref: Note on ERC escaped color sequences-Footnote-1225023
+Node: Note on powerline or spaceline225133
+Node: Note on SHR colors225547
+Node: Note on SHR fonts225971
+Node: Note on Ement colors and fonts226610
+Node: Note on Helm grep228109
+Node: Note on pdf-tools link hints229579
+Node: Note on the Notmuch logo232026
+Node: Note on goto-address-mode faces232564
+Node: Frequently Asked Questions233676
+Node: Is the contrast ratio about adjacent colors?234307
+Node: What does it mean to avoid exaggerations?235814
+Node: Why are colors mostly variants of blue magenta cyan?237643
+Node: What is the best setup for legibility?241949
+Node: Are these color schemes?244594
+Node: Port the Modus themes to other platforms?248314
+Node: Contributing251095
+Node: Sources of the themes251492
+Node: Issues you can help with252191
+Node: Patches require copyright assignment to the FSF253763
+Node: Acknowledgements255983
+Node: Other notes about the project259636
+Node: GNU Free Documentation License262634
+Node: Indices288011
+Node: Function index288190
+Node: Variable index289993
+Node: Concept index292280
 
 End Tag Table
 

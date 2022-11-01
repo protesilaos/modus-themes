@@ -4487,6 +4487,7 @@ affected face groups.  The items with an appended asterisk =*= tend to
 have lots of extensions, so the "full support" may not be 100% true…
 
 + ace-window
++ agda2-mode [Part of {{{development-version}}}.]
 + alert
 + all-the-icons
 + all-the-icons-dired
@@ -6121,21 +6122,21 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Yiltiz, Ilja Kocken, Iris Garcia, Ivan Popovych, Jeremy Friesen,
   Jerry Zhang, Johannes Grødem, John Haman, Jonas Collberg, Jorge
   Morais, Joshua O'Connor, Julio C. Villasante, Kenta Usami, Kevin
-  Fleming, Kévin Le Gouguec, Kevin Kainan Li, Kostadin Ninev, Len
-  Trigg, Lennart C. Karssen, Luis Miguel Castañeda, Magne Hov, Manuel
-  Uberti, Mark Bestley, Mark Burton, Mark Simpson, Markus Beppler,
-  Matt Armstrong, Matthias Fuchs, Mauro Aranda, Maxime Tréca, Michael
-  Goldenberg, Morgan Smith, Morgan Willcock, Murilo Pereira, Nicky van
-  Foreest, Nicolas De Jaeghere, Pablo Stafforini, Paul Poloskov,
-  Pengji Zhang, Pete Kazmier, Peter Wu, Philip Kaludercic, Pierre
-  Téchoueyres, Przemysław Kryger, Robert Hepple, Roman Rudakov, Ryan
-  Phillips, Rytis Paškauskas, Rudolf Adamkovič, Sam Kleinman, Samuel
-  Culpepper, Saša Janiška, Shreyas Ragavan, Simon Pugnet, Tassilo
-  Horn, Thibaut Verron, Thomas Heartman, Togan Muftuoglu, Tony Zorman,
-  Trey Merkley, Tomasz Hołubowicz, Toon Claes, Uri Sharf, Utkarsh
-  Singh, Vincent Foley.  As well as users: Ben, CsBigDataHub1, Emacs
-  Contrib, Eugene, Fourchaux, Fredrik, Moesasji, Nick, Summer Emacs,
-  TheBlob42, Trey, bepolymathe, bit9tream, derek-upham, doolio,
+  Fleming, Kévin Le Gouguec, Kevin Kainan Li, Kostadin Ninev, Laith
+  Bahodi, Len Trigg, Lennart C. Karssen, Luis Miguel Castañeda, Magne
+  Hov, Manuel Uberti, Mark Bestley, Mark Burton, Mark Simpson, Markus
+  Beppler, Matt Armstrong, Matthias Fuchs, Mauro Aranda, Maxime Tréca,
+  Michael Goldenberg, Morgan Smith, Morgan Willcock, Murilo Pereira,
+  Nicky van Foreest, Nicolas De Jaeghere, Pablo Stafforini, Paul
+  Poloskov, Pengji Zhang, Pete Kazmier, Peter Wu, Philip Kaludercic,
+  Pierre Téchoueyres, Przemysław Kryger, Robert Hepple, Roman Rudakov,
+  Ryan Phillips, Rytis Paškauskas, Rudolf Adamkovič, Sam Kleinman,
+  Samuel Culpepper, Saša Janiška, Shreyas Ragavan, Simon Pugnet,
+  Tassilo Horn, Thibaut Verron, Thomas Heartman, Togan Muftuoglu, Tony
+  Zorman, Trey Merkley, Tomasz Hołubowicz, Toon Claes, Uri Sharf,
+  Utkarsh Singh, Vincent Foley.  As well as users: Ben, CsBigDataHub1,
+  Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji, Nick, Summer
+  Emacs, TheBlob42, Trey, bepolymathe, bit9tream, derek-upham, doolio,
   fleimgruber, gitrj95, iSeeU, jixiuf, okamsn, pRot0ta1p.
 
 + Packaging :: Basil L.{{{space()}}} Contovounesios, Eli Zaretskii,
