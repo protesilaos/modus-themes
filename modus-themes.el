@@ -4736,6 +4736,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; citar
     `(citar ((,class :inherit shadow)))
     `(citar-highlight (( )))
+;;;;; clojure-mode
+    `(clojure-keyword-face ((,class :inherit font-lock-builtin-face)))
 ;;;;; color-rg
     `(color-rg-font-lock-column-number ((,class :foreground ,magenta-alt-other)))
     `(color-rg-font-lock-command ((,class :inherit bold :foreground ,fg-main)))

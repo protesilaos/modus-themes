@@ -1,4 +1,4 @@
-This is modus-themes.info, produced by makeinfo version 6.8 from
+This is modus-themes.info, produced by makeinfo version 7.0 from
 modus-themes.texi.
 
 Copyright (C) 2020-2022 Free Software Foundation, Inc.
@@ -4549,6 +4549,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • cider
    • circe
    • citar
+   • clojure-mode [Part of 3.1.0-dev]
    • color-rg
    • column-enforce-mode
    • company-mode*
@@ -6998,50 +6999,50 @@ Node: Custom hl-todo colors187557
 Node: Add support for solaire-mode189078
 Node: Face coverage191996
 Node: Supported packages192448
-Node: Indirectly covered packages199067
-Node: Notes on individual packages200195
-Node: Note on calendarel weekday and weekend colors201339
-Node: Note on git-gutter in Doom Emacs202487
-Node: Note on php-mode multiline comments204575
-Node: Note on underlines in compilation buffers205328
-Node: Note on inline Latex in Org buffers206165
-Node: Note on dimmerel206775
-Node: Note on display-fill-column-indicator-mode208260
-Node: Note on highlight-parenthesesel209658
-Node: Note on mmm-modeel background colors215708
-Node: Note for prism218023
-Node: Note for god-mode221179
-Node: Note on company-mode overlay pop-up222783
-Ref: Note on company-mode overlay pop-up-Footnote-1223473
-Ref: Note on company-mode overlay pop-up-Footnote-2223540
-Node: Note on ERC escaped color sequences223595
-Ref: Note on ERC escaped color sequences-Footnote-1225023
-Node: Note on powerline or spaceline225133
-Node: Note on SHR colors225547
-Node: Note on SHR fonts225971
-Node: Note on Ement colors and fonts226610
-Node: Note on Helm grep228109
-Node: Note on pdf-tools link hints229579
-Node: Note on the Notmuch logo232026
-Node: Note on goto-address-mode faces232564
-Node: Frequently Asked Questions233676
-Node: Is the contrast ratio about adjacent colors?234307
-Node: What does it mean to avoid exaggerations?235814
-Node: Why are colors mostly variants of blue magenta cyan?237643
-Node: What is the best setup for legibility?241949
-Node: Are these color schemes?244594
-Node: Port the Modus themes to other platforms?248314
-Node: Contributing251095
-Node: Sources of the themes251492
-Node: Issues you can help with252191
-Node: Patches require copyright assignment to the FSF253763
-Node: Acknowledgements255983
-Node: Other notes about the project259636
-Node: GNU Free Documentation License262634
-Node: Indices288011
-Node: Function index288190
-Node: Variable index289993
-Node: Concept index292280
+Node: Indirectly covered packages199107
+Node: Notes on individual packages200235
+Node: Note on calendarel weekday and weekend colors201379
+Node: Note on git-gutter in Doom Emacs202527
+Node: Note on php-mode multiline comments204615
+Node: Note on underlines in compilation buffers205368
+Node: Note on inline Latex in Org buffers206205
+Node: Note on dimmerel206815
+Node: Note on display-fill-column-indicator-mode208300
+Node: Note on highlight-parenthesesel209698
+Node: Note on mmm-modeel background colors215748
+Node: Note for prism218063
+Node: Note for god-mode221219
+Node: Note on company-mode overlay pop-up222823
+Ref: Note on company-mode overlay pop-up-Footnote-1223513
+Ref: Note on company-mode overlay pop-up-Footnote-2223580
+Node: Note on ERC escaped color sequences223635
+Ref: Note on ERC escaped color sequences-Footnote-1225063
+Node: Note on powerline or spaceline225173
+Node: Note on SHR colors225587
+Node: Note on SHR fonts226011
+Node: Note on Ement colors and fonts226650
+Node: Note on Helm grep228149
+Node: Note on pdf-tools link hints229619
+Node: Note on the Notmuch logo232066
+Node: Note on goto-address-mode faces232604
+Node: Frequently Asked Questions233716
+Node: Is the contrast ratio about adjacent colors?234347
+Node: What does it mean to avoid exaggerations?235854
+Node: Why are colors mostly variants of blue magenta cyan?237683
+Node: What is the best setup for legibility?241989
+Node: Are these color schemes?244634
+Node: Port the Modus themes to other platforms?248354
+Node: Contributing251135
+Node: Sources of the themes251532
+Node: Issues you can help with252231
+Node: Patches require copyright assignment to the FSF253803
+Node: Acknowledgements256023
+Node: Other notes about the project259676
+Node: GNU Free Documentation License262674
+Node: Indices288051
+Node: Function index288230
+Node: Variable index290033
+Node: Concept index292320
 
 End Tag Table
 
