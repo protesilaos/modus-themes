@@ -4143,9 +4143,9 @@ it will likely not be able to benefit from macro calls that read the
 active theme, such as ~modus-themes-with-colors~.  Not all Emacs
 themes have the same capabilities.
 
-In this document, we always mention ~modus-themes-post-load-hook~
-though the user can replace it with ~after-enable-theme-hook~ should
-they need to (provided they understand the implications).
+In this document, we cover ~modus-themes-after-load-theme-hook~ though
+the user can replace it with ~after-enable-theme-hook~ should they
+need to (provided they understand the implications).
 
 ** Diffs with only the foreground
 :properties:
