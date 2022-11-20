@@ -4174,12 +4174,14 @@ such as ‘modus-themes-toggle’ and the others mentioned above.
 ‘enable-theme’ is called internally by ‘load-theme’, so the hook works
 everywhere.
 
-   Now this specific piece of Elisp may be simple for experienced users,
-but it is not easy to read for newcomers, including the author of the
-Modus themes for the first several months of their time as an Emacs
-user.  Hence our hesitation to recommend it as part of the standard
-setup of the Modus themes (it is generally a good idea to understand
-what the implications are of advising a function).
+   The downside of the theme-agnostic hook is that any functions added
+to it will likely not be able to benefit from macro calls that read the
+active theme, such as ‘modus-themes-with-colors’.  Not all Emacs themes
+have the same capabilities.
+
+   In this document, we always mention ‘modus-themes-post-load-hook’
+though the user can replace it with ‘after-enable-theme-hook’ should
+they need to (provided they understand the implications).
 
 
 File: modus-themes.info,  Node: Diffs with only the foreground,  Next: Ediff without diff color-coding,  Prev: A theme-agnostic hook for theme loading,  Up: Advanced customization
@@ -6992,57 +6994,57 @@ Node: Backdrop for pdf-tools162652
 Node: Decrease mode line height165504
 Node: Toggle themes without reloading them169626
 Node: A theme-agnostic hook for theme loading170905
-Node: Diffs with only the foreground173307
-Node: Ediff without diff color-coding176421
-Node: Near-monochrome syntax highlighting178560
-Node: Custom hl-todo colors187557
-Node: Add support for solaire-mode189078
-Node: Face coverage191996
-Node: Supported packages192448
-Node: Indirectly covered packages199107
-Node: Notes on individual packages200235
-Node: Note on calendarel weekday and weekend colors201379
-Node: Note on git-gutter in Doom Emacs202527
-Node: Note on php-mode multiline comments204615
-Node: Note on underlines in compilation buffers205368
-Node: Note on inline Latex in Org buffers206205
-Node: Note on dimmerel206815
-Node: Note on display-fill-column-indicator-mode208300
-Node: Note on highlight-parenthesesel209698
-Node: Note on mmm-modeel background colors215748
-Node: Note for prism218063
-Node: Note for god-mode221219
-Node: Note on company-mode overlay pop-up222823
-Ref: Note on company-mode overlay pop-up-Footnote-1223513
-Ref: Note on company-mode overlay pop-up-Footnote-2223580
-Node: Note on ERC escaped color sequences223635
-Ref: Note on ERC escaped color sequences-Footnote-1225063
-Node: Note on powerline or spaceline225173
-Node: Note on SHR colors225587
-Node: Note on SHR fonts226011
-Node: Note on Ement colors and fonts226650
-Node: Note on Helm grep228149
-Node: Note on pdf-tools link hints229619
-Node: Note on the Notmuch logo232066
-Node: Note on goto-address-mode faces232604
-Node: Frequently Asked Questions233716
-Node: Is the contrast ratio about adjacent colors?234347
-Node: What does it mean to avoid exaggerations?235854
-Node: Why are colors mostly variants of blue magenta cyan?237683
-Node: What is the best setup for legibility?241989
-Node: Are these color schemes?244634
-Node: Port the Modus themes to other platforms?248354
-Node: Contributing251135
-Node: Sources of the themes251532
-Node: Issues you can help with252231
-Node: Patches require copyright assignment to the FSF253803
-Node: Acknowledgements256023
-Node: Other notes about the project259676
-Node: GNU Free Documentation License262674
-Node: Indices288051
-Node: Function index288230
-Node: Variable index290033
-Node: Concept index292320
+Node: Diffs with only the foreground173360
+Node: Ediff without diff color-coding176474
+Node: Near-monochrome syntax highlighting178613
+Node: Custom hl-todo colors187610
+Node: Add support for solaire-mode189131
+Node: Face coverage192049
+Node: Supported packages192501
+Node: Indirectly covered packages199160
+Node: Notes on individual packages200288
+Node: Note on calendarel weekday and weekend colors201432
+Node: Note on git-gutter in Doom Emacs202580
+Node: Note on php-mode multiline comments204668
+Node: Note on underlines in compilation buffers205421
+Node: Note on inline Latex in Org buffers206258
+Node: Note on dimmerel206868
+Node: Note on display-fill-column-indicator-mode208353
+Node: Note on highlight-parenthesesel209751
+Node: Note on mmm-modeel background colors215801
+Node: Note for prism218116
+Node: Note for god-mode221272
+Node: Note on company-mode overlay pop-up222876
+Ref: Note on company-mode overlay pop-up-Footnote-1223566
+Ref: Note on company-mode overlay pop-up-Footnote-2223633
+Node: Note on ERC escaped color sequences223688
+Ref: Note on ERC escaped color sequences-Footnote-1225116
+Node: Note on powerline or spaceline225226
+Node: Note on SHR colors225640
+Node: Note on SHR fonts226064
+Node: Note on Ement colors and fonts226703
+Node: Note on Helm grep228202
+Node: Note on pdf-tools link hints229672
+Node: Note on the Notmuch logo232119
+Node: Note on goto-address-mode faces232657
+Node: Frequently Asked Questions233769
+Node: Is the contrast ratio about adjacent colors?234400
+Node: What does it mean to avoid exaggerations?235907
+Node: Why are colors mostly variants of blue magenta cyan?237736
+Node: What is the best setup for legibility?242042
+Node: Are these color schemes?244687
+Node: Port the Modus themes to other platforms?248407
+Node: Contributing251188
+Node: Sources of the themes251585
+Node: Issues you can help with252284
+Node: Patches require copyright assignment to the FSF253856
+Node: Acknowledgements256076
+Node: Other notes about the project259729
+Node: GNU Free Documentation License262727
+Node: Indices288104
+Node: Function index288283
+Node: Variable index290086
+Node: Concept index292373
 
 End Tag Table
 

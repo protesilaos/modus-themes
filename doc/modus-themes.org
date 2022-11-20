@@ -4138,12 +4138,14 @@ also has the benefit that it does not depend on functions such as
 ~modus-themes-toggle~ and the others mentioned above.  ~enable-theme~ is
 called internally by ~load-theme~, so the hook works everywhere.
 
-Now this specific piece of Elisp may be simple for experienced users,
-but it is not easy to read for newcomers, including the author of the
-Modus themes for the first several months of their time as an Emacs
-user.  Hence our hesitation to recommend it as part of the standard
-setup of the Modus themes (it is generally a good idea to understand
-what the implications are of advising a function).
+The downside of the theme-agnostic hook is that any functions added to
+it will likely not be able to benefit from macro calls that read the
+active theme, such as ~modus-themes-with-colors~.  Not all Emacs
+themes have the same capabilities.
+
+In this document, we always mention ~modus-themes-post-load-hook~
+though the user can replace it with ~after-enable-theme-hook~ should
+they need to (provided they understand the implications).
 
 ** Diffs with only the foreground
 :properties:
