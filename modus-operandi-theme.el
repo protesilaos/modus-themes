@@ -65,10 +65,7 @@
 Conforms with the highest legibility standard for color contrast
 between background and foreground in any given piece of text,
 which corresponds to a minimum contrast in relative luminance of
-7:1 (WCAG AAA standard)."
-    :background-mode 'light
-    :kind 'color-scheme
-    :family 'modus)
+7:1 (WCAG AAA standard).")
 
   (modus-themes-theme modus-operandi)
 
