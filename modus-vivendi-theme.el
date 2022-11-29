@@ -115,7 +115,7 @@ which corresponds to a minimum contrast in relative luminance of
       (cyan            "#00d3d0")
       (cyan-warmer     "#4ae2f0")
       (cyan-cooler     "#6ae4b9")
-      (cyan-faint      "#9ac4ed")
+      (cyan-faint      "#9ac8e0")
       (cyan-intense    "#00eff0")
 
 ;;; Common accent backgrounds
