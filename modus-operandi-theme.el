@@ -276,6 +276,15 @@ which corresponds to a minimum contrast in relative luminance of
       (success green)
       (note cyan)
 
+      (mail-0 blue-warmer)
+      (mail-1 magenta)
+      (mail-2 green-warmer)
+      (mail-3 yellow-warmer)
+      (mail-4 cyan)
+      (mail-recipient magenta-cooler)
+      (mail-subject blue-cooler)
+      (mail-other magenta-warmer)
+
       (heading-0 cyan-cooler)
       (heading-1 fg-main)
       (heading-2 fg-special-warm)
