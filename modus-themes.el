@@ -2886,7 +2886,7 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(git-commit-keyword ((,c :foreground ,keyword)))
     `(git-commit-nonempty-second-line ((,c :inherit error)))
     `(git-commit-overlong-summary ((,c :inherit warning)))
-    `(git-commit-summary ((,c :inherit bold :foreground ,accent-0)))
+    `(git-commit-summary ((,c :inherit bold :foreground ,note)))
 ;;;;; git-gutter
     `(git-gutter:added ((,c :background ,@(modus-themes--deuteran bg-added-intense-deuteran bg-added-intense))))
     `(git-gutter:deleted ((,c :inherit modus-themes-intense-red)))
