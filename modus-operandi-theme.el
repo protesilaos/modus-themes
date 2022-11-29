@@ -226,7 +226,7 @@ which corresponds to a minimum contrast in relative luminance of
       (underline-note cyan-intense)
 
       (accent-0 blue-warmer)
-      (accent-1 red)
+      (accent-1 red-cooler)
       (accent-2 green-cooler)
       (accent-3 magenta-warmer)
 
