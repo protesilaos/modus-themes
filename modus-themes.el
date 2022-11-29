@@ -58,7 +58,6 @@
 ;;     modus-themes-paren-match                    (choice)
 ;;     modus-themes-prompts                        (choice)
 ;;     modus-themes-region                         (choice)
-;;     modus-themes-syntax                         (choice)
 ;;
 ;; There also exist two unique customization variables for overriding
 ;; color palette values.  The specifics are documented in the manual.
@@ -1886,58 +1885,7 @@ In user configuration files the form may look like this:
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Matching parentheses"))
 
-(defcustom modus-themes-syntax nil
-  "Control the overall style of code syntax highlighting.
-
-The value is a list of properties, each designated by a symbol.
-The default (a nil value or an empty list) is to use a balanced
-combination of colors on the cyan-blue-magenta side of the
-spectrum.  There is little to no use of greens, yellows, and
-reds.  Comments are gray, strings are blue colored, doc strings
-are a shade of cyan, while color combinations are designed to
-avoid exaggerations.
-
-The property `faint' fades the saturation of all applicable
-colors, where that is possible or appropriate.
-
-The property `yellow-comments' applies a yellow color to
-comments.
-
-The property `green-strings' applies a green color to strings and
-a green tint to doc strings.
-
-The property `alt-syntax' changes the combination of colors
-beyond strings and comments, so that the effective palette is
-broadened to provide greater variety relative to the default.
-
-Combinations of any of those properties are expressed as a list,
-like in these examples:
-
-    (faint)
-    (green-strings yellow-comments)
-    (alt-syntax green-strings yellow-comments)
-    (faint alt-syntax green-strings yellow-comments)
-
-The order in which the properties are set is not significant.
-
-In user configuration files the form may look like this:
-
-    (setq modus-themes-syntax (quote (faint alt-syntax)))
-
-Independent of this variable, users may also control the use of a
-bold weight or italic text: `modus-themes-bold-constructs' and
-`modus-themes-italic-constructs'."
-  :group 'modus-themes
-  :package-version '(modus-themes . "1.5.0")
-  :version "28.1"
-  :type '(set :tag "Properties" :greedy t
-              (const :tag "Faint colors" faint)
-              (const :tag "Yellow comments" yellow-comments)
-              (const :tag "Green strings" green-strings)
-              (const :tag "Alternative set of colors" alt-syntax))
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
-  :link '(info-link "(modus-themes) Syntax styles"))
+(make-obsolete 'modus-themes-syntax nil "3.0.0")
 
 (defcustom modus-themes-links nil
   "Set the style of links.
@@ -2367,79 +2315,6 @@ bg-paren-match-intense."
           (if (memq 'underline properties)
               t
             nil))))
-
-(defun modus-themes--syntax-foreground (fg faint)
-  "Apply foreground value to code syntax.
-FG is the default.  FAINT is typically the same color in its
-desaturated version."
-  (let ((properties (modus-themes--list-or-warn 'modus-themes-syntax)))
-    (list :foreground
-          (cond
-           ((memq 'faint properties)
-            faint)
-           (fg)))))
-
-(defun modus-themes--syntax-extra (fg faint alt &optional faint-alt)
-  "Apply foreground value to code syntax.
-FG is the default.  FAINT is typically the same color in its
-desaturated version.  ALT is another hue while optional FAINT-ALT
-is its subtle alternative."
-  (let ((properties (modus-themes--list-or-warn 'modus-themes-syntax)))
-    (list :foreground
-          (cond
-           ((and (memq 'alt-syntax properties)
-                 (memq 'faint properties))
-            (or faint-alt alt))
-           ((memq 'faint properties)
-            faint)
-           ((memq 'alt-syntax properties)
-            alt)
-           (fg)))))
-
-(defun modus-themes--syntax-string (fg faint green alt &optional faint-green faint-alt)
-  "Apply foreground value to strings in code syntax.
-FG is the default.  FAINT is typically the same color in its
-desaturated version.  GREEN is a color variant in that side of
-the spectrum.  ALT is another hue.  Optional FAINT-GREEN is a
-subtle alternative to GREEN.  Optional FAINT-ALT is a subtle
-alternative to ALT."
-  (let ((properties (modus-themes--list-or-warn 'modus-themes-syntax)))
-    (list :foreground
-          (cond
-           ((and (memq 'faint properties)
-                 (memq 'green-strings properties))
-            (or faint-green green))
-           ((and (memq 'alt-syntax properties)
-                 (memq 'faint properties))
-            (or faint-alt faint))
-           ((memq 'faint properties)
-            faint)
-           ((memq 'green-strings properties)
-            green)
-           ((memq 'alt-syntax properties)
-            alt)
-           (fg)))))
-
-(defun modus-themes--syntax-comment (fg yellow &optional faint-yellow faint)
-  "Apply foreground value to strings in code syntax.
-FG is the default.  YELLOW is a color variant of that name while
-optional FAINT-YELLOW is its subtle variant.  Optional FAINT is
-an alternative to the default value."
-  (let ((properties (modus-themes--list-or-warn 'modus-themes-syntax)))
-    (list :foreground
-          (cond
-           ((and (memq 'faint properties)
-                 (memq 'yellow-comments properties))
-            (or faint-yellow yellow))
-           ((and (memq 'alt-syntax properties)
-                 (memq 'yellow-comments properties)
-                 (not (memq 'green-strings properties)))
-            yellow)
-           ((memq 'yellow-comments properties)
-            yellow)
-           ((memq 'faint properties)
-            (or faint fg))
-           (fg)))))
 
 (defun modus-themes--key-cdr (key alist)
   "Get cdr of KEY in ALIST."
@@ -4547,59 +4422,21 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; fold-this
     `(fold-this-overlay ((,c :inherit modus-themes-special-mild)))
 ;;;;; font-lock
-    `(font-lock-builtin-face ((,c :inherit modus-themes-bold
-                                      ,@(modus-themes--syntax-extra
-                                         magenta-warmer magenta-warmer-faint
-                                         magenta magenta-faint))))
+    `(font-lock-builtin-face ((,c :inherit modus-themes-bold :foreground ,builtin)))
     `(font-lock-comment-delimiter-face ((,c :inherit font-lock-comment-face)))
-    `(font-lock-comment-face ((,c :inherit modus-themes-slant
-                                      ,@(modus-themes--syntax-comment
-                                         fg-alt fg-comment-yellow yellow-cooler-faint))))
-    `(font-lock-constant-face ((,c ,@(modus-themes--syntax-extra
-                                          blue-cooler blue-cooler-faint
-                                          magenta-cooler magenta-cooler-faint))))
-    `(font-lock-doc-face ((,c :inherit modus-themes-slant
-                                  ,@(modus-themes--syntax-string
-                                     fg-docstring fg-special-cold
-                                     fg-special-mild fg-special-calm
-                                     fg-special-mild magenta-nuanced-fg))))
-    `(font-lock-function-name-face ((,c ,@(modus-themes--syntax-extra
-                                               magenta magenta-faint
-                                               magenta-warmer magenta-warmer-faint))))
-    `(font-lock-keyword-face ((,c :inherit modus-themes-bold
-                                      ,@(modus-themes--syntax-extra
-                                         magenta-cooler magenta-cooler-faint
-                                         cyan cyan-faint))))
-    `(font-lock-negation-char-face ((,c :inherit modus-themes-bold
-                                            ,@(modus-themes--syntax-foreground
-                                               yellow yellow-faint))))
-    `(font-lock-preprocessor-face ((,c ,@(modus-themes--syntax-extra
-                                              red-cooler red-cooler-faint
-                                              cyan-cooler cyan-warmer-faint))))
-    `(font-lock-regexp-grouping-backslash ((,c :inherit modus-themes-bold
-                                                   ,@(modus-themes--syntax-string
-                                                      fg-escape-char-backslash yellow-warmer-faint
-                                                      yellow-warmer magenta-warmer
-                                                      red-faint green-cooler-faint))))
-    `(font-lock-regexp-grouping-construct ((,c :inherit modus-themes-bold
-                                                   ,@(modus-themes--syntax-string
-                                                      fg-escape-char-construct red-cooler-faint
-                                                      red-cooler blue-cooler
-                                                      blue-faint blue-cooler-faint))))
-    `(font-lock-string-face ((,c ,@(modus-themes--syntax-string
-                                        blue-warmer blue-warmer-faint
-                                        green-cooler red-cooler
-                                        green-warmer-faint red-warmer-faint))))
-    `(font-lock-type-face ((,c :inherit modus-themes-bold
-                                   ,@(modus-themes--syntax-extra
-                                      cyan-cooler cyan-warmer-faint
-                                      magenta-cooler magenta-cooler-faint))))
-    `(font-lock-variable-name-face ((,c ,@(modus-themes--syntax-extra
-                                               cyan cyan-faint
-                                               blue-warmer blue-warmer-faint))))
-    `(font-lock-warning-face ((,c :inherit modus-themes-bold
-                                      ,@(modus-themes--syntax-comment
-                                         yellow red yellow-warmer-faint red-faint))))
+    `(font-lock-comment-face ((,c :inherit modus-themes-slant :foreground ,comment)))
+    `(font-lock-constant-face ((,c :foreground ,constant)))
+    `(font-lock-doc-face ((,c :inherit modus-themes-slant :foreground ,docstring)))
+    `(font-lock-function-name-face ((,c :foreground ,fnname)))
+    `(font-lock-keyword-face ((,c :inherit modus-themes-bold :foreground ,magenta-cooler)))
+    `(font-lock-negation-char-face ((,c :inherit modus-themes-bold :foreground ,err)))
+    `(font-lock-preprocessor-face ((,c :foreground ,preprocessor)))
+    `(font-lock-regexp-grouping-backslash ((,c :inherit modus-themes-bold :foreground ,rx-backslash)))
+    `(font-lock-regexp-grouping-construct ((,c :inherit modus-themes-bold :foreground ,rx-construct)))
+    `(font-lock-string-face ((,c :foreground ,string)))
+    `(font-lock-type-face ((,c :inherit modus-themes-bold :foreground ,type)))
+    `(font-lock-variable-name-face ((,c :foreground ,variable)))
+    `(font-lock-warning-face ((,c :inherit modus-themes-bold :foreground ,warning)))
 ;;;;; forge
     `(forge-post-author ((,c :inherit bold :foreground ,fg-main)))
     `(forge-post-date ((,c :foreground ,fg-special-cold)))
@@ -6266,16 +6103,12 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(telephone-line-evil-operator ((,c :inherit telephone-line-evil :background ,yellow-subtle-bg)))
     `(telephone-line-evil-replace ((,c :inherit telephone-line-evil :background ,red-intense-bg)))
     `(telephone-line-evil-visual ((,c :inherit telephone-line-evil :background ,cyan-intense-bg)))
-    `(telephone-line-projectile ((,c :foreground ,cyan-active)))
+    `(telephone-line-projectile ((,c :foreground ,cyan)))
     `(telephone-line-unimportant ((,c :foreground ,fg-inactive)))
-    `(telephone-line-warning ((,c :inherit bold :foreground ,yellow-active)))
+    `(telephone-line-warning ((,c :inherit bold :foreground ,yellow)))
 ;;;;; terraform-mode
-    `(terraform--resource-name-face ((,c ,@(modus-themes--syntax-string
-                                                magenta-cooler magenta-cooler-faint
-                                                red-warmer red-warmer))))
-    `(terraform--resource-type-face ((,c ,@(modus-themes--syntax-string
-                                                green green-faint
-                                                blue-warmer magenta-warmer))))
+    `(terraform--resource-name-face ((,c :foreground ,keyword)))
+    `(terraform--resource-type-face ((,c :foreground ,type)))
 ;;;;; term
     `(term ((,c :background ,bg-main :foreground ,fg-main)))
     `(term-bold ((,c :inherit bold)))
