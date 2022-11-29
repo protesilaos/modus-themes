@@ -87,9 +87,9 @@ which corresponds to a minimum contrast in relative luminance of
 
 ;;; Common accent foregrounds
 
-      (red             "#ff8059")
-      (red-warmer      "#ef8b50")
-      (red-cooler      "#ff9077")
+      (red             "#ff5f59")
+      (red-warmer      "#ff6b55")
+      (red-cooler      "#ff658f")
       (red-faint       "#efa080")
       (red-intense     "#ff5f5f")
       (green           "#44bc44")
