@@ -228,7 +228,7 @@ which corresponds to a minimum contrast in relative luminance of
       (accent-0 blue-warmer)
       (accent-1 red-cooler)
       (accent-2 green-cooler)
-      (accent-3 magenta-warmer)
+      (accent-3 magenta)
 
       (mail-0 blue-warmer)
       (mail-1 magenta)
