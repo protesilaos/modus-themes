@@ -3274,7 +3274,7 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(magit-diff-file-heading ((,c :inherit bold :foreground ,accent-0)))
     `(magit-diff-file-heading-highlight ((,c :inherit magit-diff-file-heading :background ,bg-inactive)))
     `(magit-diff-file-heading-selection ((,c :inherit bold :background ,bg-hover-alt)))
-    `(magit-diff-hunk-heading ((,c :inherit bold :background ,bg-dim)))
+    `(magit-diff-hunk-heading ((,c :inherit bold :background ,bg-inactive)))
     `(magit-diff-hunk-heading-highlight ((,c :inherit bold :background ,bg-active)))
     `(magit-diff-hunk-heading-selection ((,c :inherit bold :background ,bg-hover-alt)))
     `(magit-diff-hunk-region ((,c :inherit bold)))
