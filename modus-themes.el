@@ -1527,11 +1527,11 @@ bg-paren-match-intense."
       (when (memq elt modus-themes-weights)
         (throw 'found elt)))))
 
-(defun modus-themes--heading (level fg fg-alt)
+(defun modus-themes--heading (level fg rainbow)
   "Conditional styles for `modus-themes-headings'.
 
 LEVEL is the heading's position in their order.  FG is the
-default text color.  FG-ALT is an accented, more saturated value
+default text color.  RAINBOW is an accented, more saturated value
 than the default."
   (let* ((key (modus-themes--key-cdr level modus-themes-headings))
          (style (or key (modus-themes--key-cdr t modus-themes-headings)))
@@ -1554,7 +1554,7 @@ than the default."
            ((memq 'monochrome properties)
             'unspecified)
            ((memq 'rainbow properties)
-            fg-alt)
+            rainbow)
            (fg))
           :height
           (modus-themes--property-lookup properties 'height #'floatp 'unspecified)
