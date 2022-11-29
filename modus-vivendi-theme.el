@@ -307,6 +307,15 @@ which corresponds to a minimum contrast in relative luminance of
       (heading-rainbow-8 yellow)
 
       (bg-whitespace "#101424") (fg-whitespace "#aa9e9f")
+      (rainbow-0 fg-main)
+      (rainbow-1 magenta-cooler)
+      (rainbow-2 cyan-intense)
+      (rainbow-3 yellow-intense)
+      (rainbow-4 magenta-intense)
+      (rainbow-5 green-intense)
+      (rainbow-6 red-cooler)
+      (rainbow-7 blue-intense)
+      (rainbow-8 yellow)
 
       (bg-diff-heading                "#304466") (fg-diff-heading                "#dae7ff")
       (bg-diff-added                  "#0a280a") (fg-diff-added                  "#94ba94")
