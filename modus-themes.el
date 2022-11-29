@@ -1975,39 +1975,7 @@ the spectrum."
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Deuteranopia style"))
 
-(defcustom modus-themes-mail-citations nil
-  "Control the color of citations/quotes in messages or emails.
-
-By default (a nil value) citations are styled with contrasting
-hues to denote their depth.  Colors are easy to tell apart
-because they complement each other, but they otherwise are not
-very prominent.
-
-Option `intense' is similar to the default in terms of using
-contrasting and complementary hues, but applies more saturated
-colors.
-
-Option `faint' maintains the same color-based distinction between
-citation levels though the colors it uses have subtle differences
-between them.
-
-Option `monochrome' turns all quotes into a shade of gray.
-
-Whatever the value assigned to this variable, citations in emails
-are controlled by typographic elements and/or indentation, which
-the themes do not touch."
-  :group 'modus-themes
-  :package-version '(modus-themes . "2.1.0")
-  :version "29.1"
-  :type '(choice
-          (const :format "[%v] %t\n" :tag "Colorful email citations with contrasting hues (default)" nil)
-          (const :format "[%v] %t\n" :tag "Like the default, but with more saturated colors" intense)
-          (const :format "[%v] %t\n" :tag "Like the default, but with less saturated colors" faint)
-          (const :format "[%v] %t\n" :tag "Deprecated alias of `faint'" desaturated)
-          (const :format "[%v] %t\n" :tag "Uniformly gray mail citations" monochrome))
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
-  :link '(info-link "(modus-themes) Mail citations"))
+(make-obsolete 'modus-themes-mail-citations nil "3.0.0")
 
 (defcustom modus-themes-tabs-accented nil
   "Toggle accented tab backgrounds, instead of the default gray.
@@ -2791,18 +2759,6 @@ more prominent alternatives."
                 (memq 'underline properties))
             lineneutral)
            ('unspecified)))))
-
-(defun modus-themes--mail-cite (mainfg intensefg subtlefg)
-  "Combinations for `modus-themes-mail-citations'.
-
-MAINFG is an accented foreground value.  SUBTLEFG is its
-desaturated counterpart.  INTENSEFG is a more saturated variant."
-  (pcase modus-themes-mail-citations
-    ('monochrome (list :inherit 'shadow))
-    ('intense (list :foreground intensefg))
-    ('faint (list :foreground subtlefg))
-    ('desaturated (list :foreground subtlefg))
-    (_ (list :foreground mainfg))))
 
 (defun modus-themes--tab (bg &optional bgaccent fg fgaccent box-p bold-p var-p)
   "Helper function for tabs.
