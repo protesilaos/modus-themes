@@ -41,14 +41,10 @@
 ;;     modus-themes-org-agenda                     (alist)
 ;;     modus-themes-bold-constructs                (boolean)
 ;;     modus-themes-deuteranopia                   (boolean)
-;;     modus-themes-inhibit-reload                 (boolean)
-;;     modus-themes-intense-mouseovers             (boolean)
 ;;     modus-themes-italic-constructs              (boolean)
 ;;     modus-themes-mixed-fonts                    (boolean)
 ;;     modus-themes-subtle-line-numbers            (boolean)
 ;;     modus-themes-variable-pitch-ui              (boolean)
-;;     modus-themes-box-buttons                    (choice)
-;;     modus-themes-diffs                          (choice)
 ;;     modus-themes-fringes                        (choice)
 ;;     modus-themes-hl-line                        (choice)
 ;;     modus-themes-links                          (choice)
@@ -356,36 +352,17 @@ see `modus-themes-reset-soft'."
 
 ;;; Customization variables
 
-(defcustom modus-themes-inhibit-reload t
-  "Control theme reload when setting options with Customize.
+(defcustom modus-themes-after-load-theme-hook nil
+  "Hook that runs after loading a Modus theme.
+This is used by the command `modus-themes-toggle'."
+  :type 'hook
+  :package-version '(modus-themes . "4.0.0")
+  :version "30.1"
+  :group 'modus-themes)
 
-By default, customizing a theme-related user option through the
-Custom interfaces or with `customize-set-variable' will not
-reload the currently active Modus theme.
+(defalias 'modus-themes-post-load-hook 'modus-themes-after-load-theme-hook)
 
-Enable this behavior by setting this variable to nil."
-  :group 'modus-themes
-  :package-version '(modus-themes . "1.5.0")
-  :version "28.1"
-  :type 'boolean
-  :link '(info-link "(modus-themes) Custom reload theme"))
-
-(defun modus-themes--set-option (sym val)
-  "Custom setter for theme related user options.
-Will set SYM to VAL, and reload the current theme, unless
-`modus-themes-inhibit-reload' is non-nil."
-  (set-default sym val)
-  (unless (or modus-themes-inhibit-reload
-              ;; Check if a theme is being loaded, in which case we
-              ;; don't want to reload a theme if the setter is
-              ;; invoked. `custom--inhibit-theme-enable' is set to nil
-              ;; by `enable-theme'.
-              (null (bound-and-true-p custom--inhibit-theme-enable)))
-    (let ((modus-themes-inhibit-reload t))
-      (pcase (modus-themes--current-theme)
-        ('modus-operandi (modus-themes-load-operandi))
-        ('modus-vivendi (modus-themes-load-vivendi))))))
-
+(make-obsolete 'modus-themes-inhibit-reload nil "4.0.0")
 (make-obsolete 'modus-themes-operandi-color-overrides nil "4.0.0")
 (make-obsolete 'modus-themes-vivendi-color-overrides nil "4.0.0")
 
@@ -397,8 +374,6 @@ Will set SYM to VAL, and reload the current theme, unless
   :package-version '(modus-themes . "1.5.0")
   :version "28.1"
   :type 'boolean
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Italic constructs"))
 
 (defcustom modus-themes-bold-constructs nil
@@ -407,8 +382,6 @@ Will set SYM to VAL, and reload the current theme, unless
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
   :type 'boolean
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Bold constructs"))
 
 (defcustom modus-themes-variable-pitch-ui nil
@@ -418,8 +391,6 @@ This includes the mode line, header line, tab bar, and tab line."
   :package-version '(modus-themes . "1.1.0")
   :version "28.1"
   :type 'boolean
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) UI typeface"))
 
 (defcustom modus-themes-mixed-fonts nil
@@ -430,27 +401,16 @@ tables and code blocks, to remain monospaced when users opt for
 something like the command `variable-pitch-mode'.
 
 Users may need to explicitly configure the font family of
-`fixed-pitch' in order to get a consistent experience."
+`fixed-pitch' in order to get a consistent experience with their
+typography (also check the `fontaine' package on GNU ELPA (by
+Protesilaos))."
   :group 'modus-themes
   :package-version '(modus-themes . "1.7.0")
   :version "29.1"
   :type 'boolean
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Mixed fonts"))
 
-(defcustom modus-themes-intense-mouseovers nil
-  "When non-nil use more intense style for mouse hover effects.
-
-This affects the generic `highlight' face which, strictly
-speaking, is not limited to mouse usage."
-  :group 'modus-themes
-  :package-version '(modus-themes . "2.3.0")
-  :version "29.1"
-  :type 'boolean
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
-  :link '(info-link "(modus-themes) Mouse hover effects"))
+(make-obsolete 'modus-themes-intense-mouseovers nil "4.0.0")
 
 (defconst modus-themes--headings-choice
   '(set :tag "Properties" :greedy t
@@ -574,8 +534,6 @@ will retain the original aesthetic for that level.  For example:
                             '(0 1 2 3 4 5 6 7 8 t))
           :key-type symbol
           :value-type ,modus-themes--headings-choice)
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Heading styles"))
 
 (defcustom modus-themes-org-agenda nil
@@ -814,8 +772,6 @@ For example:
                 (choice (const :tag "Follow the original design of `org-habit' (default)" nil)
                         (const :tag "Do not distinguish between present and future variants" simplified)
                         (const :tag "Use only red, yellow, green" traffic-light))))
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Org agenda"))
 
 (defcustom modus-themes-fringes 'subtle
@@ -834,8 +790,6 @@ With `intense' use a more pronounced gray background color."
           (const :format "[%v] %t\n" :tag "No visible fringes" nil)
           (const :format "[%v] %t\n" :tag "Subtle gray background" subtle)
           (const :format "[%v] %t\n" :tag "Intense gray background" intense))
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Fringes"))
 
 (make-obsolete 'modus-themes-lang-checkers nil "4.0.0")
@@ -887,8 +841,6 @@ respectively."
           (const :format "[%v] %t\n" :tag "Alias for `gray-background'" greyscale)
           (const :format "[%v] %t\n" :tag "Color-coded background per programming language" tinted-background)
           (const :format "[%v] %t\n" :tag "Alias for `tinted-background'" rainbow)) ; back compat
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Org mode blocks"))
 
 (defcustom modus-themes-mode-line nil
@@ -1006,46 +958,16 @@ instead of a box style, it is strongly advised to set
                (cons :tag "Cons cell of `(height . FLOAT)'"
                      (const :tag "The `height' key (constant)" height)
                      (float :tag "Floating point"))))
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Mode line"))
 
-(defcustom modus-themes-diffs nil
-  "Adjust the overall style of diffs.
-
-The default (nil) uses fairly intense color combinations for
-diffs, by applying prominently colored backgrounds, with
-appropriately tinted foregrounds.
-
-Option `desaturated' follows the same principles as with the
-default (nil), though it tones down all relevant colors.
-
-Option `bg-only' applies a background but does not override the
-text's foreground.  This makes it suitable for a non-nil value
-passed to `diff-font-lock-syntax' (note: Magit does not support
-syntax highlighting in diffs---last checked on 2021-12-02).
-
-When the user option `modus-themes-deuteranopia' is non-nil, all
-diffs will use a red/blue color-coding system instead of the
-standard red/green.  Other stylistic changes are made in the
-interest of optimizing for such a use-case."
-  :group 'modus-themes
-  :package-version '(modus-themes . "2.0.0")
-  :version "29.1"
-  :type '(choice
-          (const :format "[%v] %t\n" :tag "Intensely colored backgrounds (default)" nil)
-          (const :format "[%v] %t\n" :tag "Slightly accented backgrounds with tinted text" desaturated)
-          (const :format "[%v] %t\n" :tag "Apply color-coded backgrounds; keep syntax colors intact" bg-only))
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
-  :link '(info-link "(modus-themes) Diffs"))
+(make-obsolete 'modus-themes-diffs nil "4.0.0")
 
 (defcustom modus-themes-completions
   '((selection . (intense))
     (popup . (intense)))
   "Control the style of completion user interfaces.
 
-This affects Company, Corfu, Flx, Helm, Icomplete/Fido, Ido, Ivy,
+This affects Company, Corfu, Flx, Icomplete/Fido, Ido, Ivy,
 Orderless, Vertico.  The value is an alist that takes the form of
 a (KEY . PROPERTIES) combination.  KEY is a symbol, while
 PROPERTIES is a list.  Here is a sample, followed by a
@@ -1195,8 +1117,6 @@ tandem)."
                      (const :tag "Increased coloration" intense)
                      (const :tag "Italic font (oblique or slanted forms)" italic)
                      (const :tag "Underline" underline))))
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Completion UIs"))
 
 (defcustom modus-themes-prompts nil
@@ -1232,53 +1152,9 @@ In user configuration files the form may look like this:
               (const :tag "With Background" background)
               (const :tag "Bold font weight" bold)
               (const :tag "Italic font slant" italic))
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Command prompts"))
 
-(defcustom modus-themes-hl-line '(intense)
-  "Control the current line highlight of `hl-line-mode'.
-
-The value is a list of properties, each designated by a symbol.
-With a nil value, or an empty list, the style is a subtle gray
-background color.
-
-The property `accented' changes the background to a colored
-variant.
-
-An `underline' property draws a line below the highlighted area.
-Its color is similar to the background, so gray by default or an
-accent color when `accented' is also set.
-
-An `intense' property amplifies the colors in use, which may be
-both the background and the underline.
-
-Combinations of any of those properties are expressed as a list,
-like in these examples:
-
-    (intense)
-    (underline intense)
-    (accented intense underline)
-
-The order in which the properties are set is not significant.
-
-In user configuration files the form may look like this:
-
-    (setq modus-themes-hl-line (quote (underline accented)))
-
-Set `x-underline-at-descent-line' to a non-nil value so that the
-placement of the underline coincides with the lower boundary of
-the colored background."
-  :group 'modus-themes
-  :package-version '(modus-themes . "3.0.0")
-  :version "29.1"
-  :type '(set :tag "Properties" :greedy t
-              (const :tag "Colored background" accented)
-              (const :tag "Underline" underline)
-              (const :tag "Intense style" intense))
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
-  :link '(info-link "(modus-themes) Line highlighting"))
+(make-obsolete 'modus-themes-hl-line nil "4.0.0")
 
 (defcustom modus-themes-subtle-line-numbers nil
   "Use more subtle style for command `display-line-numbers-mode'."
@@ -1286,8 +1162,6 @@ the colored background."
   :package-version '(modus-themes . "1.2.0")
   :version "28.1"
   :type 'boolean
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Line numbers"))
 
 (make-obsolete 'modus-themes-markup nil "4.0.0")
@@ -1327,8 +1201,6 @@ In user configuration files the form may look like this:
               (const :tag "Bold weight" bold)
               (const :tag "Intense background color" intense)
               (const :tag "Underline" underline))
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Matching parentheses"))
 
 (make-obsolete 'modus-themes-syntax nil "4.0.0")
@@ -1345,59 +1217,39 @@ turns the color of the line into a subtle gray, while the
 `no-underline' property removes the line altogether.  If both of
 those are set, the latter takes precedence.
 
-For text coloration, a `faint' property desaturates the color of
-the text and the underline, unless the underline is affected by
-the aforementioned properties.  While a `no-color' property
-removes the color from the text.  If both of those are set, the
-latter takes precedence.
-
 A `bold' property applies a heavy typographic weight to the text
 of the link.
 
 An `italic' property adds a slant to the link's text (italic or
 oblique forms, depending on the typeface).
 
-A `background' property applies a subtle tinted background color.
-
-In case both `no-underline' and `no-color' are set, then a subtle
-gray background is applied to all links.  This can still be
-combined with the `bold' and `italic' properties.
-
 Combinations of any of those properties are expressed as a list,
 like in these examples:
 
-    (faint)
-    (no-underline faint)
-    (no-color no-underline bold)
-    (italic bold background no-color no-underline)
+    (bold)
+    (neutral-underline bold)
+    (italic bold no-underline)
 
 The order in which the properties are set is not significant.
 
 In user configuration files the form may look like this:
 
-    (setq modus-themes-links (quote (neutral-underline background)))
+    (setq modus-themes-links (quote (neutral-underline bold)))
 
 The placement of the underline, meaning its proximity to the
 text, is controlled by `x-use-underline-position-properties',
 `x-underline-at-descent-line', `underline-minimum-offset'.
 Please refer to their documentation strings."
   :group 'modus-themes
-  :package-version '(modus-themes . "1.5.0")
-  :version "28.1"
+  :package-version '(modus-themes . "4.0.0")
+  :version "30.1"
   :type '(set :tag "Properties" :greedy t
-              (choice :tag "Text coloration"
-                      (const :tag "Saturared color (default)" nil)
-                      (const :tag "Faint coloration" faint)
-                      (const :tag "No color (use main black/white)" no-color))
               (choice :tag "Underline"
                       (const :tag "Same color as text (default)" nil)
                       (const :tag "Neutral (gray) underline color" neutral-underline)
                       (const :tag "No underline" no-underline))
               (const :tag "Bold font weight" bold)
-              (const :tag "Italic font slant" italic)
-              (const :tag "Subtle background color" background))
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
+              (const :tag "Italic font slant" italic))
   :link '(info-link "(modus-themes) Link styles"))
 
 (defcustom modus-themes-region nil
@@ -1437,8 +1289,6 @@ In user configuration files the form may look like this:
               (const :tag "Do not extend to the edge of the window" no-extend)
               (const :tag "Background only (preserve underlying colors)" bg-only)
               (const :tag "Accented background" accented))
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Active region"))
 
 (defcustom modus-themes-deuteranopia nil
@@ -1464,8 +1314,6 @@ the spectrum."
   :package-version '(modus-themes . "2.0.0")
   :version "29.1"
   :type 'boolean
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Deuteranopia style"))
 
 (make-obsolete 'modus-themes-mail-citations nil "4.0.0")
@@ -1908,35 +1756,6 @@ property."
                         if (natnump x) return x)
                        1))))
 
-(defun modus-themes--diff (mainbg mainfg altbg altfg &optional deubg deufg deualtbg deualtfg bg-only-fg)
-  "Color combinations for `modus-themes-diffs'.
-
-MAINBG must be one of the dedicated backgrounds for diffs while
-MAINFG must be the same for the foreground.
-
-ALTBG needs to be a slightly accented background that is meant to
-be combined with ALTFG.  Both must be less intense than MAINBG
-and MAINFG respectively.
-
-DEUBG and DEUFG must be combinations of colors that account for
-red-green color defficiency (deuteranopia).  They are the
-equivalent of MAINBG and MAINFG.
-
-DEUALTBG and DEUALTFG are the equivalent of ALTBG and ALTFG for
-deuteranopia.
-
-Optional non-nil BG-ONLY-FG applies ALTFG else leaves the
-foreground unspecified."
-  (if modus-themes-deuteranopia
-      (pcase modus-themes-diffs
-        ('desaturated (list :background (or deualtbg altbg) :foreground (or deualtfg altfg)))
-        ('bg-only (list :background (or deualtbg altbg) :foreground (if bg-only-fg (or deualtfg altfg) 'unspecified)))
-        (_ (list :background (or deubg mainbg) :foreground (or deufg mainfg))))
-    (pcase modus-themes-diffs
-      ('desaturated (list :background altbg :foreground altfg))
-      ('bg-only (list :background altbg :foreground (if bg-only-fg altfg 'unspecified)))
-      (_ (list :background mainbg :foreground mainfg)))))
-
 (defun modus-themes--deuteran (deuteran main)
   "Determine whether to color-code success as DEUTERAN or MAIN."
   (if modus-themes-deuteranopia
@@ -2120,100 +1939,6 @@ combined with all colors used to fontify text."
            ((memq 'no-extend properties)
             nil)
            (t)))))
-
-(defun modus-themes--hl-line
-    (bgdefault bgintense bgaccent bgaccentsubtle lineneutral lineaccent lineneutralintense lineaccentintense)
-  "Apply `modus-themes-hl-line' styles.
-
-BGDEFAULT is a subtle neutral background.  BGINTENSE is like the
-default, but more prominent.  BGACCENT is a prominent accented
-background, while BGACCENTSUBTLE is more subtle.  LINENEUTRAL and
-LINEACCENT are color values that can remain distinct against the
-buffer's possible backgrounds: the former is neutral, the latter
-is accented.  LINENEUTRALINTENSE and LINEACCENTINTENSE are their
-more prominent alternatives."
-  (let ((properties (modus-themes--list-or-warn 'modus-themes-hl-line)))
-    (list :background
-          (cond
-           ((and (memq 'intense properties)
-                 (memq 'accented properties))
-            bgaccent)
-           ((memq 'accented properties)
-            bgaccentsubtle)
-           ((memq 'intense properties)
-            bgintense)
-           (bgdefault))
-          :underline
-          (cond
-           ((and (memq 'intense properties)
-                 (memq 'accented properties)
-                 (memq 'underline properties))
-            lineaccentintense)
-           ((and (memq 'accented properties)
-                 (memq 'underline properties))
-            lineaccent)
-           ((and (memq 'intense properties)
-                 (memq 'underline properties))
-            lineneutralintense)
-           ((or (memq 'no-background properties)
-                (memq 'underline properties))
-            lineneutral)
-           ('unspecified)))))
-
-(defun modus-themes--button (bg bgfaint bgaccent bgaccentfaint border &optional pressed-button-p)
-  "Apply `modus-themes-box-buttons' styles.
-
-BG is the main background.  BGFAINT is its subtle alternative.
-BGACCENT is its accented variant and BGACCENTFAINT is the same
-but less intense.  BORDER is the color around the box.
-
-When optional PRESSED-BUTTON-P is non-nil, the box uses the
-pressed button style, else the released button."
-  (let* ((properties modus-themes-box-buttons)
-         (weight (modus-themes--weight properties)))
-    (list :inherit
-          (cond
-           ((and (memq 'variable-pitch properties)
-                 (eq weight 'bold))
-            (list 'bold 'variable-pitch))
-           ((memq 'variable-pitch properties)
-            'variable-pitch)
-           ((eq weight 'bold)
-            'bold)
-           ('unspecified))
-          :background
-          (cond
-           ((and (memq 'accented properties)
-                 (memq 'faint properties)
-                 bgaccentfaint))
-           ((memq 'faint properties)
-            bgfaint)
-           ((memq 'accented properties)
-            bgaccent)
-           (bg))
-          :box
-          (cond
-           ((memq 'underline properties)
-            'unspecified)
-           ((memq 'flat properties)
-            (list :line-width -1 :color border))
-           ((list :line-width -1
-                  :style (if pressed-button-p
-                             'pressed-button
-                           'released-button)
-                  :color border)))
-          :weight
-          (cond
-           ((eq weight 'bold)
-            'unspecified) ; we :inherit the `bold' face above
-           (weight weight)
-           ('unspecified))
-          :height
-          (modus-themes--property-lookup properties 'height #'floatp 'unspecified)
-          :underline
-          (if (memq 'underline properties)
-              t
-            'unspecified))))
 
 
 
