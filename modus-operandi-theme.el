@@ -269,7 +269,7 @@ which corresponds to a minimum contrast in relative luminance of
       (rainbow-7 blue-intense)
       (rainbow-8 magenta)
 
-      (prose-code cyan)
+      (prose-code green-cooler)
       (prose-macro magenta-cooler)
       (prose-verbatim magenta-warmer))
     "The entire palette of the `modus-operandi' theme.
