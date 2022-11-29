@@ -3633,7 +3633,7 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(org-column-title ((,c :inherit (bold default) :underline t :background ,bg-dim)))
     `(org-date ((,c :inherit modus-themes-fixed-pitch :foreground ,date)))
     `(org-date-selected ((,c :foreground ,date :inverse-video t)))
-    `(org-document-info ((,c :foreground ,rainbow-1)))
+    `(org-document-info ((,c :foreground ,fg-alt)))
     `(org-document-info-keyword ((,c :inherit shadow)))
     `(org-document-title ((,c :inherit modus-themes-heading-0)))
     `(org-done ((,c :inherit modus-themes-grue)))
