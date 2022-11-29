@@ -6410,15 +6410,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(syslog-ip ((,c :inherit bold :foreground ,fg-special-mild :underline t)))
     `(syslog-su ((,c :inherit bold :foreground ,red-warmer)))
     `(syslog-warn ((,c :inherit warning)))
-;;;;; tab-bar-groups
-    `(tab-bar-groups-tab-1 ((,c :inherit modus-themes-ui-variable-pitch :foreground ,blue-tab)))
-    `(tab-bar-groups-tab-2 ((,c :inherit modus-themes-ui-variable-pitch :foreground ,red-tab)))
-    `(tab-bar-groups-tab-3 ((,c :inherit modus-themes-ui-variable-pitch :foreground ,green-tab)))
-    `(tab-bar-groups-tab-4 ((,c :inherit modus-themes-ui-variable-pitch :foreground ,orange-tab)))
-    `(tab-bar-groups-tab-5 ((,c :inherit modus-themes-ui-variable-pitch :foreground ,purple-tab)))
-    `(tab-bar-groups-tab-6 ((,c :inherit modus-themes-ui-variable-pitch :foreground ,cyan-tab)))
-    `(tab-bar-groups-tab-7 ((,c :inherit modus-themes-ui-variable-pitch :foreground ,yellow-tab)))
-    `(tab-bar-groups-tab-8 ((,c :inherit modus-themes-ui-variable-pitch :foreground ,magenta-tab)))
 ;;;;; tab-bar-mode
     `(tab-bar ((,c :inherit modus-themes-tab-backdrop)))
     `(tab-bar-tab-group-current ((,c ,@(modus-themes--tab bg-tab-active)

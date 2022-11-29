@@ -262,15 +262,6 @@ which corresponds to a minimum contrast in relative luminance of
       (bg-tab-inactive-alt        "#595959")
       (bg-tab-inactive-alt-accent "#505588")
 
-      (red-tab     "#ffc0bf")
-      (green-tab   "#88ef88")
-      (yellow-tab  "#d2e580")
-      (orange-tab  "#f5ca80")
-      (blue-tab    "#92d9ff")
-      (cyan-tab    "#60e7e0")
-      (magenta-tab "#ffb8ff")
-      (purple-tab  "#cfcaff")
-
       (fg-escape-char-construct "#e7a59a")
       (fg-escape-char-backslash "#abab00")
 
