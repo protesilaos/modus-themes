@@ -1474,11 +1474,12 @@ combines with the theme's primary background (white/black)."
   "Conditional use of colors for text prompt faces.
 FG is the prompt's standard foreground.  BG is a background
 color that is combined with FG-FOR-BG."
-  (let ((properties (modus-themes--list-or-warn 'modus-themes-prompts)))
+  (let* ((properties (modus-themes--list-or-warn 'modus-themes-prompts))
+         (background (memq 'background properties)))
     (list :background
-          (if (memq 'background properties) bg 'unspecified)
+          (if background bg 'unspecified)
           :foreground
-          (if (memq 'background properties) 'unspecified fg)
+          (if background 'unspecified fg)
           :inherit
           (cond
            ((and (memq 'bold properties)
@@ -1688,22 +1689,13 @@ non-nil."
         ('simplified (list :background simple))
         (_ (list :background default)))))))
 
-(defun modus-themes--org-block (bgblk fgdefault &optional fgblk)
-  "Conditionally set the background of Org blocks.
-BGBLK applies to a distinct neutral background.  Else blocks have
-no background of their own (the default), so they look the same
-as the rest of the buffer.  FGDEFAULT is used when no distinct
-background is present.  While optional FGBLK specifies a
-foreground value that can be combined with BGBLK.
-
-`modus-themes-org-blocks' also accepts `tinted-background' (alias
-`rainbow') as a value which applies to `org-src-block-faces' (see
-the theme's source code)."
+(defun modus-themes--org-block (fg bg)
+  "Conditionally set the FG and BG of Org blocks."
   (if (or (eq modus-themes-org-blocks 'gray-background)
           (eq modus-themes-org-blocks 'grayscale)
           (eq modus-themes-org-blocks 'greyscale))
-      (list :background bgblk :foreground (or fgblk fgdefault) :extend t)
-    (list :background 'unspecified :foreground fgdefault)))
+      (list :background bg :foreground fg :extend t)
+    (list :foreground fg)))
 
 (defun modus-themes--org-block-delim (bgaccent fgaccent bg fg)
   "Conditionally set the styles of Org block delimiters.
@@ -1907,12 +1899,10 @@ own."
      :weight
      (if (and weight (null bold)) weight 'unspecified))))
 
-(defun modus-themes--link (fg fgfaint underline bg bgneutral)
+(defun modus-themes--link (fg underline)
   "Conditional application of link styles.
 FG is the link's default color for its text and underline
-property.  FGFAINT is a desaturated color for the text and
-underline.  UNDERLINE is a gray color only for the undeline.  BG
-is a background color and BGNEUTRAL is its fallback value."
+property.  UNDERLINE is a gray color only for the undeline."
   (let ((properties (modus-themes--list-or-warn 'modus-themes-links)))
     (list :inherit
           (cond
@@ -1924,20 +1914,10 @@ is a background color and BGNEUTRAL is its fallback value."
            ((memq 'bold properties)
             'bold)
            ('unspecified))
-          :background
-          (cond
-           ((and (memq 'no-color properties)
-                 (memq 'no-underline properties))
-            bgneutral)
-           ((memq 'background properties)
-            bg)
-           ('unspecified))
           :foreground
           (cond
            ((memq 'no-color properties)
             'unspecified)
-           ((memq 'faint properties)
-            fgfaint)
            (fg))
           :underline
           (cond
