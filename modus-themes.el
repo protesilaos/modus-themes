@@ -998,9 +998,7 @@ speaking, is not limited to mouse usage."
 
 (defconst modus-themes--headings-choice
   '(set :tag "Properties" :greedy t
-        (const :tag "Background color" background)
         (const :tag "Proportionately spaced font (variable-pitch)" variable-pitch)
-        (const :tag "Overline" overline)
         (choice :tag "Font weight (must be supported by the typeface)"
                 (const :tag "Bold (default)" nil)
                 (const :tag "Thin" thin)
@@ -1041,9 +1039,9 @@ described below.  Here is a complete sample, followed by a
 presentation of all available properties:
 
     (setq modus-themes-headings
-          (quote ((1 . (background overline variable-pitch 1.5))
-                  (2 . (overline rainbow 1.3))
-                  (3 . (overline 1.1))
+          (quote ((1 . (variable-pitch 1.5))
+                  (2 . (rainbow 1.3))
+                  (3 . (1.1))
                   (t . (monochrome)))))
 
 By default (a nil value for this variable), all headings have a
@@ -1053,12 +1051,6 @@ monospaced), and a height that is equal to the `default' face's
 height.
 
 A `rainbow' property makes the text color more saturated.
-
-An `overline' property draws a line above the area of the
-heading.
-
-A `background' property applies a subtle tinted color to the
-background of the heading.
 
 A `monochrome' property makes the heading the same as the base
 color, which is that of the `default' face's foreground.  When
@@ -1091,18 +1083,18 @@ like in these examples:
 
     (semibold)
     (rainbow background)
-    (overline monochrome semibold 1.3)
-    (overline monochrome semibold (height 1.3)) ; same as above
-    (overline monochrome semibold (height . 1.3)) ; same as above
+    (monochrome semibold 1.3)
+    (monochrome semibold (height 1.3)) ; same as above
+    (monochrome semibold (height . 1.3)) ; same as above
 
 The order in which the properties are set is not significant.
 
 In user configuration files the form may look like this:
 
     (setq modus-themes-headings
-          (quote ((1 . (background overline rainbow 1.5))
-                  (2 . (background overline 1.3))
-                  (t . (overline semibold)))))
+          (quote ((1 . (rainbow 1.5))
+                  (2 . (1.3))
+                  (t . (semibold)))))
 
 When defining the styles per heading level, it is possible to
 pass a non-nil value (t) instead of a list of properties.  This
@@ -1110,21 +1102,16 @@ will retain the original aesthetic for that level.  For example:
 
     (setq modus-themes-headings
           (quote ((1 . t)           ; keep the default style
-                  (2 . (background overline))
+                  (2 . (semibold rainbow))
                   (t . (rainbow))))) ; style for all other headings
 
     (setq modus-themes-headings
-          (quote ((1 . (background overline))
+          (quote ((1 . (variable-pitch extrabold 1.5))
                   (2 . (rainbow semibold))
-                  (t . t)))) ; default style for all other levels
-
-For Org users, the extent of the heading depends on the variable
-`org-fontify-whole-heading-line'.  This affects the `overline'
-and `background' properties.  Depending on the version of Org,
-there may be others, such as `org-fontify-done-headline'."
+                  (t . t)))) ; default style for all other levels"
   :group 'modus-themes
-  :package-version '(modus-themes . "2.5.0")
-  :version "29.1"
+  :package-version '(modus-themes . "3.0.0")
+  :version "30.1"
   :type `(alist
           :options ,(mapcar (lambda (el)
                               (list el modus-themes--headings-choice))
@@ -2570,15 +2557,12 @@ an alternative to the default value."
       (when (memq elt modus-themes-weights)
         (throw 'found elt)))))
 
-(defun modus-themes--heading (level fg fg-alt bg bg-gray border)
+(defun modus-themes--heading (level fg fg-alt)
   "Conditional styles for `modus-themes-headings'.
 
 LEVEL is the heading's position in their order.  FG is the
 default text color.  FG-ALT is an accented, more saturated value
-than the default.  BG is a nuanced, typically accented,
-background that can work well with either of the foreground
-values.  BG-GRAY is a gray background.  BORDER is a color value
-that combines well with the background and foreground."
+than the default."
   (let* ((key (modus-themes--key-cdr level modus-themes-headings))
          (style (or key (modus-themes--key-cdr t modus-themes-headings)))
          (style-listp (listp style))
@@ -2595,14 +2579,6 @@ that combines well with the background and foreground."
            ((or weight (memq 'no-bold properties))
             var)
            (varbold))
-          :background
-          (cond
-           ((and (memq 'monochrome properties)
-                 (memq 'background properties))
-            bg-gray)
-           ((memq 'background properties)
-            bg)
-           ('unspecified))
           :foreground
           (cond
            ((memq 'monochrome properties)
@@ -2613,11 +2589,7 @@ that combines well with the background and foreground."
           :height
           (modus-themes--property-lookup properties 'height #'floatp 'unspecified)
           :weight
-          (or weight 'unspecified)
-          :overline
-          (if (memq 'overline properties)
-              border
-            'unspecified))))
+          (or weight 'unspecified))))
 
 (defun modus-themes--agenda-structure (fg)
   "Control the style of the Org agenda structure.
@@ -3518,42 +3490,15 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(modus-themes-mark-symbol ((,c :inherit bold :foreground ,blue-warmer)))
 ;;;;; heading levels
     ;; styles for regular headings used in Org, Markdown, Info, etc.
-    `(modus-themes-heading-0
-      ((,c ,@(modus-themes--heading
-                  0 cyan-cooler blue-warmer
-                  cyan-nuanced-bg bg-alt bg-region))))
-    `(modus-themes-heading-1
-      ((,c ,@(modus-themes--heading
-                  1 fg-main magenta-cooler
-                  magenta-nuanced-bg bg-alt bg-region))))
-    `(modus-themes-heading-2
-      ((,c ,@(modus-themes--heading
-                  2 fg-special-warm magenta-warmer
-                  red-nuanced-bg bg-alt bg-region))))
-    `(modus-themes-heading-3
-      ((,c ,@(modus-themes--heading
-                  3 fg-special-cold blue
-                  blue-nuanced-bg bg-alt bg-region))))
-    `(modus-themes-heading-4
-      ((,c ,@(modus-themes--heading
-                  4 fg-special-mild cyan
-                  cyan-nuanced-bg bg-alt bg-region))))
-    `(modus-themes-heading-5
-      ((,c ,@(modus-themes--heading
-                  5 fg-special-calm green-cooler
-                  green-nuanced-bg bg-alt bg-region))))
-    `(modus-themes-heading-6
-      ((,c ,@(modus-themes--heading
-                  6 yellow-nuanced-fg yellow-cooler
-                  yellow-nuanced-bg bg-alt bg-region))))
-    `(modus-themes-heading-7
-      ((,c ,@(modus-themes--heading
-                  7 red-nuanced-fg red-warmer
-                  red-nuanced-bg bg-alt bg-region))))
-    `(modus-themes-heading-8
-      ((,c ,@(modus-themes--heading
-                  8 magenta-nuanced-fg magenta
-                  bg-alt bg-alt bg-region))))
+    `(modus-themes-heading-0 ((,c ,@(modus-themes--heading 0 heading-0 heading-rainbow-0))))
+    `(modus-themes-heading-1 ((,c ,@(modus-themes--heading 1 heading-1 heading-rainbow-1))))
+    `(modus-themes-heading-2 ((,c ,@(modus-themes--heading 2 heading-2 heading-rainbow-2))))
+    `(modus-themes-heading-3 ((,c ,@(modus-themes--heading 3 heading-3 heading-rainbow-3))))
+    `(modus-themes-heading-4 ((,c ,@(modus-themes--heading 4 heading-4 heading-rainbow-4))))
+    `(modus-themes-heading-5 ((,c ,@(modus-themes--heading 5 heading-5 heading-rainbow-5))))
+    `(modus-themes-heading-6 ((,c ,@(modus-themes--heading 6 heading-6 heading-rainbow-6))))
+    `(modus-themes-heading-7 ((,c ,@(modus-themes--heading 7 heading-7 heading-rainbow-7))))
+    `(modus-themes-heading-8 ((,c ,@(modus-themes--heading 8 heading-8 heading-rainbow-8))))
 ;;;;; language checkers
     `(modus-themes-lang-error ((,c ,@(modus-themes--lang-check
                                           fg-lang-underline-error fg-lang-error

@@ -285,8 +285,26 @@ which corresponds to a minimum contrast in relative luminance of
 
       (fg-docstring      "#b0d6f5")
       (fg-comment-yellow "#d0a070")
+      (heading-0 cyan-cooler)
+      (heading-1 fg-main)
+      (heading-2 fg-special-warm)
+      (heading-3 fg-special-cold)
+      (heading-4 fg-special-calm)
+      (heading-5 fg-special-mild)
+      (heading-6 yellow-faint)
+      (heading-7 red-faint)
+      (heading-8 magenta-faint)
 
       (bg-header "#212121") (fg-header "#dddddd")
+      (heading-rainbow-0 blue-warmer)
+      (heading-rainbow-1 magenta-cooler)
+      (heading-rainbow-2 magenta)
+      (heading-rainbow-3 magenta-warmer)
+      (heading-rainbow-4 red-cooler)
+      (heading-rainbow-5 red)
+      (heading-rainbow-6 red-warmer)
+      (heading-rainbow-7 yellow-warmer)
+      (heading-rainbow-8 yellow)
 
       (bg-whitespace "#101424") (fg-whitespace "#aa9e9f")
 
