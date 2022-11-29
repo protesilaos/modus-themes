@@ -266,6 +266,7 @@ which corresponds to a minimum contrast in relative luminance of
       (link-visited magenta-cooler)
       (name fg-special-cold)
       (prompt cyan-cooler)
+      (bg-prompt cyan-refine-bg)
 
       (rx-construct green-cooler)
       (rx-backslash magenta)

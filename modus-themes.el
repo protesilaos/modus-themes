@@ -1716,15 +1716,6 @@ subtle accented foreground color.
 The property `background' applies a background color to the
 prompt's text.  By default, this is a subtle accented value.
 
-The property `intense' makes the foreground color more prominent.
-If the `background' property is also set, it amplifies the value
-of the background as well.
-
-The property `gray' changes the prompt's colors to grayscale.
-This affects the foreground and, if the `background' property is
-also set, the background.  Its effect is subtle, unless it is
-combined with the `intense' property.
-
 The property `bold' makes the text use a bold typographic weight.
 Similarly, `italic' adds a slant to the font's forms (italic or
 oblique forms, depending on the typeface).
@@ -1732,23 +1723,20 @@ oblique forms, depending on the typeface).
 Combinations of any of those properties are expressed as a list,
 like in these examples:
 
-    (intense)
-    (bold intense)
-    (intense bold gray)
-    (intense background gray bold)
+    (background)
+    (bold italic)
+    (italic bold background)
 
 The order in which the properties are set is not significant.
 
 In user configuration files the form may look like this:
 
-    (setq modus-themes-prompts (quote (background gray)))"
+    (setq modus-themes-prompts (quote (background italic)))"
   :group 'modus-themes
-  :package-version '(modus-themes . "1.5.0")
-  :version "28.1"
+  :package-version '(modus-themes . "3.0.0")
+  :version "30.1"
   :type '(set :tag "Properties" :greedy t
               (const :tag "With Background" background)
-              (const :tag "Intense" intense)
-              (const :tag "Grayscale" gray)
               (const :tag "Bold font weight" bold)
               (const :tag "Italic font slant" italic))
   :set #'modus-themes--set-option
@@ -2206,50 +2194,15 @@ combines with the theme's primary background (white/black)."
       (list :background (or altbg 'unspecified) :foreground altfg)
     (list :background mainbg :foreground mainfg)))
 
-(defun modus-themes--prompt (mainfg intensefg grayfg subtlebg intensebg intensebg-fg subtlebggray intensebggray)
+(defun modus-themes--prompt (fg bg)
   "Conditional use of colors for text prompt faces.
-MAINFG is the prompt's standard foreground.  INTENSEFG is a more
-prominent alternative to the main foreground, while GRAYFG is a
-less luminant shade of gray.
-
-SUBTLEBG is a subtle accented background that works with either
-MAINFG or INTENSEFG.
-
-INTENSEBG is a more pronounced accented background color that
-should be combinable with INTENSEBG-FG.
-
-SUBTLEBGGRAY and INTENSEBGGRAY are background values.  The former
-can be combined with GRAYFG, while the latter only works with the
-theme's fallback text color."
+FG is the prompt's standard foreground.  BG is a background
+color that is combined with FG-FOR-BG."
   (let ((properties (modus-themes--list-or-warn 'modus-themes-prompts)))
-    (list :foreground
-          (cond
-           ((and (memq 'gray properties)
-                 (memq 'intense properties))
-            'unspecified)
-           ((memq 'gray properties)
-            grayfg)
-           ((and (memq 'background properties)
-                 (memq 'intense properties))
-            intensebg-fg)
-           ((memq 'intense properties)
-            intensefg)
-           (mainfg))
-          :background
-          (cond
-           ((and (memq 'gray properties)
-                 (memq 'background properties)
-                 (memq 'intense properties))
-            intensebggray)
-           ((and (memq 'gray properties)
-                 (memq 'background properties))
-            subtlebggray)
-           ((and (memq 'background properties)
-                 (memq 'intense properties))
-            intensebg)
-           ((memq 'background properties)
-            subtlebg)
-           ('unspecified))
+    (list :background
+          (if (memq 'background properties) bg 'unspecified)
+          :foreground
+          (if (memq 'background properties) 'unspecified fg)
           :inherit
           (cond
            ((and (memq 'bold properties)
@@ -3296,10 +3249,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                        fg-alt blue-intense)
                                     :extend t)))
     `(modus-themes-key-binding ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind)))
-    `(modus-themes-prompt ((,c ,@(modus-themes--prompt
-                                      cyan-cooler blue-cooler fg-alt
-                                      cyan-nuanced-bg blue-refine-bg fg-main
-                                      bg-alt bg-active))))
+    `(modus-themes-prompt ((,c ,@(modus-themes--prompt prompt bg-prompt))))
     `(modus-themes-reset-hard ((,c :inherit (fixed-pitch modus-themes-reset-soft)
                                        :family ,(face-attribute 'default :family))))
     `(modus-themes-reset-soft ((,c :background ,bg-main :foreground ,fg-main
