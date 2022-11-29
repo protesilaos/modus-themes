@@ -54,7 +54,6 @@
 ;;     modus-themes-lang-checkers                  (choice)
 ;;     modus-themes-links                          (choice)
 ;;     modus-themes-mail-citations                 (choice)
-;;     modus-themes-markup                         (choice)
 ;;     modus-themes-mode-line                      (choice)
 ;;     modus-themes-org-blocks                     (choice)
 ;;     modus-themes-paren-match                    (choice)
@@ -1918,54 +1917,7 @@ the colored background."
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Line numbers"))
 
-(defcustom modus-themes-markup nil
-  "Style markup in Org, Markdown, and others.
-
-This affects constructs such as Org's =verbatim= and ~code~.
-
-The value is a list of properties, each designated by a symbol.
-The default (a nil value or an empty list) is a foreground
-color.
-
-The `italic' property applies a typographic slant (italics).
-
-The `bold' property applies a heavier typographic weight.
-
-The `background' property adds a background color.  The
-background is a shade of gray, unless the `intense' property is
-also set.
-
-The `intense' property amplifies the existing coloration.  When
-`background' is used, the background color is enhanced as well
-and becomes tinted instead of being gray.
-
-Combinations of any of those properties are expressed as a list,
-like in these examples:
-
-    (bold)
-    (bold italic)
-    (bold italic intense)
-    (bold italic intense background)
-
-The order in which the properties are set is not significant.
-
-In user configuration files the form may look like this:
-
-    (setq modus-themes-markup (quote (bold italic)))
-
-Also check the variables `org-hide-emphasis-markers',
-`org-hide-macro-markers'."
-  :group 'modus-themes
-  :package-version '(modus-themes . "2.1.0")
-  :version "29.1"
-  :type '(set :tag "Properties" :greedy t
-              (const :tag "Added background" background)
-              (const :tag "Intense colors" intense)
-              (const :tag "Bold weight" bold)
-              (const :tag "Italics (slanted text)" italic))
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
-  :link '(info-link "(modus-themes) Markup"))
+(make-obsolete 'modus-themes-markup nil "3.0.0")
 
 (defcustom modus-themes-paren-match nil
   "Control the style of matching parentheses or delimiters.
@@ -2412,42 +2364,6 @@ combines with the theme's primary background (white/black)."
   (if modus-themes-subtle-line-numbers
       (list :background (or altbg 'unspecified) :foreground altfg)
     (list :background mainbg :foreground mainfg)))
-
-(defun modus-themes--markup (mainfg intensefg subtlebg intensebg)
-  "Conditional use of colors for markup in Org and others.
-MAINFG is the default foreground.  SUBTLEBG is a gray background.
-INTENSEBG is a colorful background for use with the main
-foreground.  INTENSEFG is an alternative to the default."
-  (let ((properties modus-themes-markup))
-    (list
-     :inherit
-     (cond
-      ((and (memq 'bold properties)
-            (memq 'italic properties))
-       (list 'bold-italic 'modus-themes-fixed-pitch))
-      ((memq 'italic properties)
-       (list 'italic 'modus-themes-fixed-pitch))
-      ((memq 'bold properties)
-       (list 'bold 'modus-themes-fixed-pitch))
-      (t 'modus-themes-fixed-pitch))
-     :background
-     (cond
-      ((and (memq 'background properties)
-            (memq 'intense properties))
-       intensebg)
-      ((memq 'background properties)
-       subtlebg)
-      (t
-       'unspecified))
-     :foreground
-     (cond
-      ((and (memq 'background properties)
-            (memq 'intense properties))
-       mainfg)
-      ((memq 'intense properties)
-       intensefg)
-      (t
-       mainfg)))))
 
 (defun modus-themes--lang-check (underline subtlefg intensefg intensefg-alt subtlebg intensebg faintfg)
   "Conditional use of foreground colors for language checkers.
@@ -3652,15 +3568,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(modus-themes-link-broken ((,c :inherit button ,@(modus-themes--link-color red red-faint))))
     `(modus-themes-link-symlink ((,c :inherit button ,@(modus-themes--link-color cyan cyan-faint))))
 ;;;;; markup
-    `(modus-themes-markup-code
-      ((,c ,@(modus-themes--markup cyan-alt-other cyan-intense bg-alt
-                                       bg-special-faint-mild))))
-    `(modus-themes-markup-macro
-      ((,c ,@(modus-themes--markup magenta-alt-other purple-intense bg-alt
-                                       bg-special-faint-cold))))
-    `(modus-themes-markup-verbatim
-      ((,c ,@(modus-themes--markup magenta-alt magenta-intense bg-alt
-                                       bg-special-faint-calm))))
+    `(modus-themes-markup-code ((,c :foreground ,cyan-cooler)))
+    `(modus-themes-markup-macro ((,c :foreground ,magenta-cooler)))
+    `(modus-themes-markup-verbatim ((,c :foreground ,magenta-warmer)))
 ;;;;; search
     `(modus-themes-search-success ((,c :inherit modus-themes-intense-yellow)))
     `(modus-themes-search-success-lazy ((,c :inherit modus-themes-subtle-cyan)))
