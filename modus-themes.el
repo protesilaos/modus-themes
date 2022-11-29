@@ -1322,6 +1322,85 @@ the spectrum."
 
 
 
+;;; Helper functions for theme setup
+
+(defconst modus-themes-items '(modus-operandi modus-vivendi)
+  "Symbols of the Modus themes.")
+
+(declare-function cl-remove-if-not "cl-seq" (cl-pred cl-list &rest cl-keys))
+
+(defun modus-themes--list-enabled-themes ()
+  "Return list of `custom-enabled-themes' with modus- prefix."
+  (cl-remove-if-not
+   (lambda (theme)
+     (string-prefix-p "modus-" (symbol-name theme)))
+   custom-enabled-themes))
+
+(defun modus-themes--enable-themes ()
+  "Enable the Modus themes."
+  (mapc (lambda (theme)
+          (unless (memq theme custom-known-themes)
+            (load-theme theme :no-confirm :no-enable)))
+        modus-themes-items))
+
+(defun modus-themes--list-known-themes ()
+  "Return list of `custom-known-themes' with modus- prefix."
+  (modus-themes--enable-themes)
+  (cl-remove-if-not
+   (lambda (theme)
+     (string-prefix-p "modus-" (symbol-name theme)))
+   custom-known-themes))
+
+(defun modus-themes--current-theme ()
+  "Return first enabled Modus theme."
+  (car (modus-themes--list-enabled-themes)))
+
+(defun modus-themes--palette (theme)
+  "Return THEME palette as a symbol."
+  (when theme
+    (intern (format "%s-palette" theme))))
+
+(defun modus-themes--current-theme-palette ()
+  "Return palette of active Ef theme, else produce `user-error'."
+  (if-let* ((palette (modus-themes--palette (modus-themes--current-theme))))
+      (symbol-value palette)
+    (user-error "No enabled Modus theme could be found")))
+
+(defun modus-themes-load-theme (theme)
+  "Load THEME while disabling other Modus themes.
+Run `'modus-themes-after-load-theme-hook'."
+  (mapc #'disable-theme (modus-themes--list-known-themes))
+  (load-theme theme :no-confirm)
+  (run-hooks 'modus-themes-after-load-theme-hook))
+
+;;;; Commands
+
+(make-obsolete 'modus-themes-load-themes nil "4.0.0")
+(make-obsolete 'modus-themes-load-operandi nil "4.0.0")
+(make-obsolete 'modus-themes-load-vivendi nil "4.0.0")
+
+(defvar modus-themes--select-theme-history nil
+  "Minibuffer history of `modus-themes--select-prompt'.")
+
+(defun modus-themes--select-prompt ()
+  "Minibuffer prompt to select a Modus theme."
+    (intern
+     (completing-read
+      "Select Modus theme: "
+      (modus-themes--list-known-themes)
+      nil t nil
+      'modus-themes--select-theme-history)))
+
+;;;###autoload
+(defun modus-themes-toggle ()
+  "Toggle between `modus-operandi' and `modus-vivendi' themes.
+Also runs `modus-themes-after-load-theme-hook' at its last stage."
+  (interactive)
+  (pcase (modus-themes--current-theme)
+    ('modus-operandi (modus-themes-load-theme 'modus-vivendi))
+    ('modus-vivendi (modus-themes-load-theme 'modus-operandi))
+    (_ (modus-themes-load-theme (modus-themes--select-prompt)))))
+
 ;;; Internal functions
 
 (defun modus-themes--warn (option)
@@ -1351,25 +1430,6 @@ list given LIST-PRED, using DEFAULT as a fallback."
             ((listp val)))
       (car val)
     val))
-
-(defun modus-themes--palette (theme)
-  "Return THEME palette as a symbol."
-  (when theme
-    (intern (format "%s-palette" theme))))
-
-(defun modus-themes--current-theme-palette ()
-  "Return palette of active Ef theme, else produce `user-error'."
-  (if-let* ((palette (modus-themes--palette (modus-themes--current-theme))))
-      (symbol-value palette)
-    (user-error "No enabled Modus theme could be found")))
-
-(defun modus-themes--current-theme ()
-  "Return current modus theme."
-  (car
-   (seq-filter
-    (lambda (theme)
-      (string-match-p "^modus" (symbol-name theme)))
-    custom-enabled-themes)))
 
 ;; Helper functions that are meant to ease the implementation of the
 ;; above customization variables.
@@ -2030,71 +2090,6 @@ C1 and C2 are color values written in hexadecimal RGB."
 
 (make-obsolete 'modus-themes-color nil "4.0.0")
 (make-obsolete 'modus-themes-color-alts nil "4.0.0")
-
-
-
-;;;; Commands
-
-;;;###autoload
-(defun modus-themes-load-themes ()
-  "Ensure that the Modus themes are in `custom-enabled-themes'.
-
-This function is intended for use in package declarations such as
-those defined with the help of `use-package'.  The idea is to add
-this function to the `:init' stage of the package's loading, so
-that subsequent calls that assume the presence of a loaded theme,
-like `modus-themes-toggle' or `modus-themes-load-operandi', will
-continue to work as intended even if they are lazy-loaded (such
-as when they are declared in the `:config' phase)."
-  (unless (or (custom-theme-p 'modus-operandi)
-              (custom-theme-p 'modus-vivendi))
-    (load-theme 'modus-operandi t t)
-    (load-theme 'modus-vivendi t t)))
-
-(defvar modus-themes-after-load-theme-hook nil
-  "Hook that runs after the `modus-themes-toggle' routines.")
-
-;;;###autoload
-(defun modus-themes-load-operandi ()
-  "Load `modus-operandi' and disable `modus-vivendi'.
-Also run `modus-themes-after-load-theme-hook'."
-  (interactive)
-  (disable-theme 'modus-vivendi)
-  (load-theme 'modus-operandi t)
-  (run-hooks 'modus-themes-after-load-theme-hook))
-
-;;;###autoload
-(defun modus-themes-load-vivendi ()
-  "Load `modus-vivendi' and disable `modus-operandi'.
-Also run `modus-themes-after-load-theme-hook'."
-  (interactive)
-  (disable-theme 'modus-operandi)
-  (load-theme 'modus-vivendi t)
-  (run-hooks 'modus-themes-after-load-theme-hook))
-
-(defun modus-themes--load-prompt ()
-  "Helper for `modus-themes-toggle'."
-  (let ((theme
-         (intern
-          (completing-read "Load Modus theme (will disable all others): "
-                           '(modus-operandi modus-vivendi) nil t))))
-    (mapc #'disable-theme custom-enabled-themes)
-    (pcase theme
-      ('modus-operandi (modus-themes-load-operandi))
-      ('modus-vivendi (modus-themes-load-vivendi)))))
-
-;;;###autoload
-(defun modus-themes-toggle ()
-  "Toggle between `modus-operandi' and `modus-vivendi' themes.
-Also runs `modus-themes-after-load-theme-hook' at its last stage
-by virtue of calling either of `modus-themes-load-operandi' and
-`modus-themes-load-vivendi' functions."
-  (interactive)
-  (modus-themes-load-themes)
-  (pcase (modus-themes--current-theme)
-    ('modus-operandi (modus-themes-load-vivendi))
-    ('modus-vivendi (modus-themes-load-operandi))
-    (_ (modus-themes--load-prompt))))
 
 
 
