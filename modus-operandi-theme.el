@@ -78,7 +78,7 @@ which corresponds to a minimum contrast in relative luminance of
       (bg-main          "#ffffff")
       (bg-dim           "#f0f0f0")
       (fg-main          "#000000")
-      (fg-dim           "#505050")
+      (fg-dim           "#585858")
       (fg-alt           "#305f70")
       (bg-active        "#c4c4c4")
       (bg-inactive      "#e0e0e0")
@@ -192,7 +192,7 @@ which corresponds to a minimum contrast in relative luminance of
 ;;;; Mappings
 
       (builtin magenta-warmer)
-      (comment red-faint)
+      (comment fg-dim)
       (constant blue-cooler)
       (docstring green-faint)
       (fnname magenta)
