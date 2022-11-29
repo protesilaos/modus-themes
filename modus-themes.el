@@ -6,7 +6,7 @@
 ;; Maintainer: Modus-Themes Development <~protesilaos/modus-themes@lists.sr.ht>
 ;; URL: https://git.sr.ht/~protesilaos/modus-themes
 ;; Mailing-List: https://lists.sr.ht/~protesilaos/modus-themes
-;; Version: 3.0.0
+;; Version: 4.0.0
 ;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
@@ -106,7 +106,7 @@ cover the blue-cyan-magenta side of the spectrum."
   :prefix "modus-themes-"
   :tag "Modus Themes Faces")
 
-(defvar modus-themes--version "3.1.0-dev"
+(defvar modus-themes--version "4.0.0-dev"
   "Current version of the Modus themes.
 
 The version either is the last tagged release, such as '1.0.0',
@@ -300,12 +300,12 @@ or for completion interfaces.
 The actual styling of the face is done by `modus-themes-faces'."
   :group 'modus-themes-faces)
 
-(make-obsolete 'modus-themes-active-red nil "3.0.0")
-(make-obsolete 'modus-themes-active-green nil "3.0.0")
-(make-obsolete 'modus-themes-active-yellow nil "3.0.0")
-(make-obsolete 'modus-themes-active-blue nil "3.0.0")
-(make-obsolete 'modus-themes-active-magenta nil "3.0.0")
-(make-obsolete 'modus-themes-active-cyan nil "3.0.0")
+(make-obsolete 'modus-themes-active-red nil "4.0.0")
+(make-obsolete 'modus-themes-active-green nil "4.0.0")
+(make-obsolete 'modus-themes-active-yellow nil "4.0.0")
+(make-obsolete 'modus-themes-active-blue nil "4.0.0")
+(make-obsolete 'modus-themes-active-magenta nil "4.0.0")
+(make-obsolete 'modus-themes-active-cyan nil "4.0.0")
 
 (defface modus-themes-fringe-red nil
   "A red background meant for use on the fringe or similar.
@@ -630,13 +630,7 @@ values assigned to the `modus-themes-headings' variable.
 The actual styling of the face is done by `modus-themes-faces'."
   :group 'modus-themes-faces)
 
-(defface modus-themes-hl-line nil
-  "General purpose face for the current line.
-The exact attributes assigned to this face are contingent on the
-values assigned to the `modus-themes-hl-line' variable.
-
-The actual styling of the face is done by `modus-themes-faces'."
-  :group 'modus-themes-faces)
+(make-obsolete 'modus-themes-hl-line nil "4.0.0")
 
 (defface modus-themes-bold nil
   "Generic face for applying a conditional bold weight.
@@ -789,9 +783,9 @@ The actual styling of the face is done by `modus-themes-faces'."
 The actual styling of the face is done by `modus-themes-faces'."
   :group 'modus-themes-faces)
 
-(make-obsolete 'modus-themes-tab-backdrop nil "3.0.0")
-(make-obsolete 'modus-themes-tab-active nil "3.0.0")
-(make-obsolete 'modus-themes-tab-inactive nil "3.0.0")
+(make-obsolete 'modus-themes-tab-backdrop nil "4.0.0")
+(make-obsolete 'modus-themes-tab-active nil "4.0.0")
+(make-obsolete 'modus-themes-tab-inactive nil "4.0.0")
 
 (defface modus-themes-markup-code nil
   "Face of inline code markup.
@@ -838,15 +832,8 @@ The actual styling of the face is done by `modus-themes-faces'."
 The actual styling of the face is done by `modus-themes-faces'."
   :group 'modus-themes-faces)
 
-(defface modus-themes-box-button nil
-  "Face for widget buttons (e.g. in the Custom UI).
-The actual styling of the face is done by `modus-themes-faces'."
-  :group 'modus-themes-faces)
-
-(defface modus-themes-box-button-pressed nil
-  "Face for pressed widget buttons (e.g. in the Custom UI).
-The actual styling of the face is done by `modus-themes-faces'."
-  :group 'modus-themes-faces)
+(make-obsolete 'modus-themes-box-button nil "4.0.0")
+(make-obsolete 'modus-themes-box-button-pressed nil "4.0.0")
 
 
 
@@ -882,8 +869,8 @@ Will set SYM to VAL, and reload the current theme, unless
         ('modus-operandi (modus-themes-load-operandi))
         ('modus-vivendi (modus-themes-load-vivendi))))))
 
-(make-obsolete 'modus-themes-operandi-color-overrides nil "3.0.0")
-(make-obsolete 'modus-themes-vivendi-color-overrides nil "3.0.0")
+(make-obsolete 'modus-themes-operandi-color-overrides nil "4.0.0")
+(make-obsolete 'modus-themes-vivendi-color-overrides nil "4.0.0")
 
 (defvaralias 'modus-themes-slanted-constructs 'modus-themes-italic-constructs)
 
@@ -1062,7 +1049,7 @@ will retain the original aesthetic for that level.  For example:
                   (2 . (rainbow semibold))
                   (t . t)))) ; default style for all other levels"
   :group 'modus-themes
-  :package-version '(modus-themes . "3.0.0")
+  :package-version '(modus-themes . "4.0.0")
   :version "30.1"
   :type `(alist
           :options ,(mapcar (lambda (el)
@@ -1334,7 +1321,7 @@ With `intense' use a more pronounced gray background color."
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Fringes"))
 
-(make-obsolete 'modus-themes-lang-checkers nil "3.0.0")
+(make-obsolete 'modus-themes-lang-checkers nil "4.0.0")
 
 (defcustom modus-themes-org-blocks nil
   "Set the overall style of Org code blocks, quotes, and the like.
@@ -1722,7 +1709,7 @@ In user configuration files the form may look like this:
 
     (setq modus-themes-prompts (quote (background italic)))"
   :group 'modus-themes
-  :package-version '(modus-themes . "3.0.0")
+  :package-version '(modus-themes . "4.0.0")
   :version "30.1"
   :type '(set :tag "Properties" :greedy t
               (const :tag "With Background" background)
@@ -1786,7 +1773,7 @@ the colored background."
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Line numbers"))
 
-(make-obsolete 'modus-themes-markup nil "3.0.0")
+(make-obsolete 'modus-themes-markup nil "4.0.0")
 
 (defcustom modus-themes-paren-match nil
   "Control the style of matching parentheses or delimiters.
@@ -1827,7 +1814,7 @@ In user configuration files the form may look like this:
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Matching parentheses"))
 
-(make-obsolete 'modus-themes-syntax nil "3.0.0")
+(make-obsolete 'modus-themes-syntax nil "4.0.0")
 
 (defcustom modus-themes-links nil
   "Set the style of links.
@@ -1964,92 +1951,9 @@ the spectrum."
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Deuteranopia style"))
 
-(make-obsolete 'modus-themes-mail-citations nil "3.0.0")
-
-(make-obsolete 'modus-themes-tabs-accented nil "3.0.0")
-
-(defcustom modus-themes-box-buttons nil
-  "Control the style of buttons in the Custom UI and related.
-
-The value is a list of properties, each designated by a symbol.
-The default (a nil value or an empty list) is a gray background
-combined with a pseudo three-dimensional effect.
-
-The `flat' property makes the button two dimensional.
-
-The `accented' property changes the background from gray to an
-accent color.
-
-The `faint' property reduces the overall coloration.
-
-The `variable-pitch' property applies a proportionately spaced
-typeface to the button's text.
-
-The `underline' property draws a line below the affected text and
-removes whatever box effect.  This is optimal when Emacs runs
-inside a terminal emulator.  If `flat' and `underline' are
-defined together, the latter takes precedence.
-
-The symbol of a weight attribute adjusts the font of the button
-accordingly, such as `light', `semibold', etc.  Valid symbols are
-defined in the variable `modus-themes-weights'.
-
-A number, expressed as a floating point (e.g. 0.9), adjusts the
-height of the button's text to that many times the base font
-size.  The default height is the same as 1.0, though it need not
-be explicitly stated.  Instead of a floating point, an acceptable
-value can be in the form of a cons cell like (height . FLOAT)
-or (height FLOAT), where FLOAT is the given number.
-
-The `all-buttons' property extends the box button effect (or the
-aforementioned properties) to the faces of the generic widget
-library.  By default, those do not look like the buttons of the
-Custom UI as they are ordinary text wrapped in square brackets.
-
-Combinations of any of those properties are expressed as a list,
-like in these examples:
-
-    (flat)
-    (variable-pitch flat)
-    (variable-pitch flat semibold 0.9)
-    (variable-pitch flat semibold (height 0.9)) ; same as above
-    (variable-pitch flat semibold (height . 0.9)) ; same as above
-
-The order in which the properties are set is not significant.
-
-In user configuration files the form may look like this:
-
-    (setq modus-themes-box-buttons (quote (variable-pitch flat 0.9)))"
-  :group 'modus-themes
-  :package-version '(modus-themes . "2.3.0")
-  :version "29.1"
-  :type '(set :tag "Properties" :greedy t
-              (const :tag "Two-dimensional button" flat)
-              (const :tag "Accented background instead of gray" accented)
-              (const :tag "Reduce overall coloration" faint)
-              (const :tag "Proportionately spaced font (variable-pitch)" variable-pitch)
-              (const :tag "Underline instead of a box effect" underline)
-              (const :tag "Apply box button style to generic widget faces" all-buttons)
-              (choice :tag "Font weight (must be supported by the typeface)"
-                      (const :tag "Thin" thin)
-                      (const :tag "Ultra-light" ultralight)
-                      (const :tag "Extra-light" extralight)
-                      (const :tag "Light" light)
-                      (const :tag "Semi-light" semilight)
-                      (const :tag "Regular (default)" nil)
-                      (const :tag "Medium" medium)
-                      (const :tag "Bold" bold)
-                      (const :tag "Semi-bold" semibold)
-                      (const :tag "Extra-bold" extrabold)
-                      (const :tag "Ultra-bold" ultrabold))
-              (radio :tag "Height"
-                     (float :tag "Floating point to adjust height by")
-                     (cons :tag "Cons cell of `(height . FLOAT)'"
-                           (const :tag "The `height' key (constant)" height)
-                           (float :tag "Floating point"))))
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
-  :link '(info-link "(modus-themes) Box buttons"))
+(make-obsolete 'modus-themes-mail-citations nil "4.0.0")
+(make-obsolete 'modus-themes-tabs-accented nil "4.0.0")
+(make-obsolete 'modus-themes-box-buttons nil "4.0.0")
 
 
 
@@ -2882,8 +2786,8 @@ C1 and C2 are color values written in hexadecimal RGB."
                (+ (modus-themes-wcag-formula c2) 0.05))))
     (max ct (/ ct))))
 
-(make-obsolete 'modus-themes-color nil "3.0.0")
-(make-obsolete 'modus-themes-color-alts nil "3.0.0")
+(make-obsolete 'modus-themes-color nil "4.0.0")
+(make-obsolete 'modus-themes-color-alts nil "4.0.0")
 
 
 
