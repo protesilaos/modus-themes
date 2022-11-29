@@ -115,7 +115,7 @@ which corresponds to a minimum contrast in relative luminance of
       (cyan            "#00d3d0")
       (cyan-warmer     "#4ae2f0")
       (cyan-cooler     "#6ae4b9")
-      (cyan-faint      "#90c4ed")
+      (cyan-faint      "#9ac4ed")
       (cyan-intense    "#00eff0")
 
 ;;; Common accent backgrounds
@@ -194,7 +194,7 @@ which corresponds to a minimum contrast in relative luminance of
       (builtin magenta-warmer)
       (comment red-faint)
       (constant blue-cooler)
-      (docstring green-faint)
+      (docstring cyan-faint)
       (fnname magenta)
       (keyword magenta-cooler)
       (preprocessor red-cooler)
