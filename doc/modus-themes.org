@@ -1202,8 +1202,8 @@ Brief: Set the overall style of completion framework interfaces.
 Symbol: ~modus-themes-completions~ (=alist= type properties)
 
 This affects Company, Corfu, Flx, Helm, Icomplete/Fido, Ido, Ivy,
-Orderless, Selectrum, Vertico.  The value is an alist that takes the
-form of a =(KEY . PROPERTIES)= combination.  =KEY= is a symbol, while
+Orderless, Vertico.  The value is an alist that takes the form of a
+=(KEY . PROPERTIES)= combination.  =KEY= is a symbol, while
 =PROPERTIES= is a list.  Here is a sample, followed by a description
 of the particularities:
 
@@ -4724,8 +4724,6 @@ have lots of extensions, so the "full support" may not be 100% true…
 + ripgrep
 + rmail
 + ruler-mode
-+ selectrum
-+ selectrum-prescient
 + semantic
 + sesman
 + shell-script-mode

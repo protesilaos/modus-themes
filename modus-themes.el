@@ -2197,9 +2197,9 @@ interest of optimizing for such a use-case."
   "Control the style of completion user interfaces.
 
 This affects Company, Corfu, Flx, Helm, Icomplete/Fido, Ido, Ivy,
-Orderless, Selectrum, Vertico.  The value is an alist that takes
-the form of a (KEY . PROPERTIES) combination.  KEY is a symbol,
-while PROPERTIES is a list.  Here is a sample, followed by a
+Orderless, Vertico.  The value is an alist that takes the form of
+a (KEY . PROPERTIES) combination.  KEY is a symbol, while
+PROPERTIES is a list.  Here is a sample, followed by a
 description of the particularities:
 
     (setq modus-themes-completions
@@ -6890,11 +6890,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(ruler-mode-margins ((,class :inherit ruler-mode-default :foreground ,bg-main)))
     `(ruler-mode-pad ((,class :inherit ruler-mode-default :background ,bg-active :foreground ,fg-inactive)))
     `(ruler-mode-tab-stop ((,class :inherit ruler-mode-default :foreground ,fg-special-warm)))
-;;;;; selectrum
-    `(selectrum-current-candidate ((,class :inherit modus-themes-completion-selected)))
-    `(selectrum-mouse-highlight ((,class :inherit highlight)))
-    `(selectrum-quick-keys-highlight ((,class :inherit bold :background ,bg-char-0)))
-    `(selectrum-quick-keys-match ((,class :inherit bold :background ,bg-char-1)))
 ;;;;; semantic
     `(semantic-complete-inline-face ((,class :foreground ,fg-special-warm :underline t)))
     `(semantic-decoration-on-fileless-includes ((,class :inherit modus-themes-refine-green)))
