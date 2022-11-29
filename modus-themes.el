@@ -931,39 +931,8 @@ Will set SYM to VAL, and reload the current theme, unless
         ('modus-operandi (modus-themes-load-operandi))
         ('modus-vivendi (modus-themes-load-vivendi))))))
 
-(defcustom modus-themes-operandi-color-overrides nil
-  "Override colors in the Modus Operandi palette.
-
-For form, see `modus-themes-operandi-colors'."
-  :group 'modus-themes
-  :package-version '(modus-themes . "1.1.0")
-  :version "28.1"
-  :type '(alist :key-type symbol :value-type color)
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
-  :link '(info-link "(modus-themes) Override colors"))
-
-(defcustom modus-themes-vivendi-color-overrides nil
-  "Override colors in the Modus Vivendi palette.
-
-For form, see `modus-themes-vivendi-colors'."
-  :group 'modus-themes
-  :package-version '(modus-themes . "1.1.0")
-  :version "28.1"
-  :type '(alist :key-type symbol :value-type color)
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
-  :link '(info-link "(modus-themes) Override colors"))
-
-;; The byte compiler complains when a defcustom isn't a top level form
-(let* ((names (mapcar (lambda (pair)
-                        (symbol-name (car pair)))
-                      modus-themes-operandi-colors))
-       (colors (mapcar #'intern (sort names #'string<))))
-  (put 'modus-themes-operandi-color-overrides
-       'custom-options (copy-sequence colors))
-  (put 'modus-themes-vivendi-color-overrides
-       'custom-options (copy-sequence colors)))
+(make-obsolete 'modus-themes-operandi-color-overrides nil "3.0.0")
+(make-obsolete 'modus-themes-vivendi-color-overrides nil "3.0.0")
 
 (defvaralias 'modus-themes-slanted-constructs 'modus-themes-italic-constructs)
 
