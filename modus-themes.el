@@ -51,7 +51,6 @@
 ;;     modus-themes-diffs                          (choice)
 ;;     modus-themes-fringes                        (choice)
 ;;     modus-themes-hl-line                        (choice)
-;;     modus-themes-lang-checkers                  (choice)
 ;;     modus-themes-links                          (choice)
 ;;     modus-themes-mail-citations                 (choice)
 ;;     modus-themes-mode-line                      (choice)
@@ -1382,65 +1381,7 @@ With `intense' use a more pronounced gray background color."
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Fringes"))
 
-(defcustom modus-themes-lang-checkers nil
-  "Control the style of spelling and code checkers/linters.
-
-The value is a list of properties, each designated by a symbol.
-The default (nil) applies a color-coded underline to the affected
-text, while it leaves the original foreground intact.  If the
-display spec of Emacs has support for it, the underline's style
-is that of a wave, otherwise it is a straight line.
-
-The property `straight-underline' ensures that the underline
-under the affected text is always drawn as a straight line.
-
-The property `text-also' applies the same color of the underline
-to the affected text.
-
-The property `background' adds a color-coded background.
-
-The property `intense' amplifies the applicable colors if
-`background' and/or `text-also' are set.  If `intense' is set on
-its own, then it implies `text-also'.
-
-The property `faint' uses nuanced colors for the underline and
-for the foreground when `text-also' is included.  If both `faint'
-and `intense' are specified, the former takes precedence.
-
-Combinations of any of those properties can be expressed in a
-list, as in those examples:
-
-    (background)
-    (straight-underline intense)
-    (background text-also straight-underline)
-
-The order in which the properties are set is not significant.
-
-In user configuration files the form may look like this:
-
-    (setq modus-themes-lang-checkers (quote (text-also background)))
-
-NOTE: The placement of the straight underline, though not the
-wave style, is controlled by the built-in variables
-`underline-minimum-offset', `x-underline-at-descent-line',
-`x-use-underline-position-properties'.
-
-To disable fringe indicators for Flymake or Flycheck, refer to
-variables `flymake-fringe-indicator-position' and
-`flycheck-indication-mode', respectively."
-  :group 'modus-themes
-  :package-version '(modus-themes . "1.7.0")
-  :version "29.1"
-  :type '(set :tag "Properties" :greedy t
-              (const :tag "Straight underline" straight-underline)
-              (const :tag "Colorise text as well" text-also)
-              (const :tag "With background" background)
-              (choice :tag "Overall coloration"
-                      (const :tag "Intense colors" intense)
-                      (const :tag "Faint colors" faint)))
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
-  :link '(info-link "(modus-themes) Language checkers"))
+(make-obsolete 'modus-themes-lang-checkers nil "3.0.0")
 
 (defcustom modus-themes-org-blocks nil
   "Set the overall style of Org code blocks, quotes, and the like.
@@ -2351,47 +2292,6 @@ combines with the theme's primary background (white/black)."
   (if modus-themes-subtle-line-numbers
       (list :background (or altbg 'unspecified) :foreground altfg)
     (list :background mainbg :foreground mainfg)))
-
-(defun modus-themes--lang-check (underline subtlefg intensefg intensefg-alt subtlebg intensebg faintfg)
-  "Conditional use of foreground colors for language checkers.
-UNDERLINE is a color-code value for the affected text's underline
-property.  SUBTLEFG and INTENSEFG follow the same color-coding
-pattern and represent a value that is faint or vibrant
-respectively.  INTENSEFG-ALT is used when the intensity is high.
-SUBTLEBG and INTENSEBG are color-coded background colors that
-differ in overall intensity.  FAINTFG is a nuanced color."
-  (let ((properties (modus-themes--list-or-warn 'modus-themes-lang-checkers)))
-    (list :underline
-          (list :color
-                (if (memq 'faint properties)
-                    faintfg underline)
-                :style
-                (if (memq 'straight-underline properties)
-                    'line 'wave))
-          :background
-          (cond
-           ((and (memq 'background properties)
-                 (memq 'faint properties))
-            subtlebg)
-           ((and (memq 'background properties)
-                 (memq 'intense properties))
-            intensebg)
-           ((memq 'background properties)
-            subtlebg)
-           ('unspecified))
-          :foreground
-          (cond
-           ((and (memq 'faint properties)
-                 (memq 'text-also properties))
-            faintfg)
-           ((and (memq 'background properties)
-                 (memq 'intense properties))
-            intensefg-alt)
-           ((memq 'intense properties)
-            intensefg)
-           ((memq 'text-also properties)
-            subtlefg)
-           ('unspecified)))))
 
 (defun modus-themes--prompt (mainfg intensefg grayfg subtlebg intensebg intensebg-fg subtlebggray intensebggray)
   "Conditional use of colors for text prompt faces.
@@ -3500,15 +3400,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(modus-themes-heading-7 ((,c ,@(modus-themes--heading 7 heading-7 heading-rainbow-7))))
     `(modus-themes-heading-8 ((,c ,@(modus-themes--heading 8 heading-8 heading-rainbow-8))))
 ;;;;; language checkers
-    `(modus-themes-lang-error ((,c ,@(modus-themes--lang-check
-                                          fg-lang-underline-error fg-lang-error
-                                          red red-refine-fg red-nuanced-bg red-refine-bg red-faint))))
-    `(modus-themes-lang-note ((,c ,@(modus-themes--lang-check
-                                         fg-lang-underline-note fg-lang-note
-                                         blue-warmer blue-refine-fg blue-nuanced-bg blue-refine-bg blue-faint))))
-    `(modus-themes-lang-warning ((,c ,@(modus-themes--lang-check
-                                            fg-lang-underline-warning fg-lang-warning
-                                            yellow yellow-refine-fg yellow-nuanced-bg yellow-refine-bg yellow-faint))))
+    `(modus-themes-lang-error ((,c :foreground ,err)))
+    `(modus-themes-lang-note ((,c :foreground ,note)))
+    `(modus-themes-lang-warning ((,c :foreground ,warning)))
 ;;;;; links
     `(modus-themes-link-broken ((,c :inherit button ,@(modus-themes--link-color red red-faint))))
     `(modus-themes-link-symlink ((,c :inherit button ,@(modus-themes--link-color cyan cyan-faint))))
