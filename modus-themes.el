@@ -3390,33 +3390,8 @@ C1 and C2 are color values written in hexadecimal RGB."
                (+ (modus-themes-wcag-formula c2) 0.05))))
     (max ct (/ ct))))
 
-;;;;; Retrieve colors from the themes
-
-(defun modus-themes-current-palette ()
-  "Return current color palette."
-  (modus-themes--palette (modus-themes--current-theme)))
-
-;;;###autoload
-(defun modus-themes-color (color)
-  "Return color value for COLOR from current palette.
-COLOR is a key in `modus-themes-operandi-colors' or
-`modus-themes-vivendi-colors'."
-  (alist-get color (modus-themes-current-palette)))
-
-;;;###autoload
-(defun modus-themes-color-alts (light-color dark-color)
-  "Return color value from current palette.
-When Modus Operandi is enabled, return color value for color
-LIGHT-COLOR.  When Modus Vivendi is enabled, return color value
-for DARK-COLOR.  LIGHT-COLOR and DARK-COLOR are keys in
-`modus-themes-operandi-colors' or `modus-themes-vivendi-colors'."
-  (let* ((theme (modus-themes--current-theme))
-         (color (pcase theme
-                  ('modus-operandi light-color)
-                  ('modus-vivendi dark-color)
-                  (_theme
-                   (error "'%s' is not a Modus theme" theme)))))
-    (alist-get color (modus-themes--palette theme))))
+(make-obsolete 'modus-themes-color nil "3.0.0")
+(make-obsolete 'modus-themes-color-alts nil "3.0.0")
 
 
 
