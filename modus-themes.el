@@ -789,20 +789,9 @@ The actual styling of the face is done by `modus-themes-faces'."
 The actual styling of the face is done by `modus-themes-faces'."
   :group 'modus-themes-faces)
 
-(defface modus-themes-tab-backdrop nil
-  "Face of backdrop in tabbed interfaces.
-The actual styling of the face is done by `modus-themes-faces'."
-  :group 'modus-themes-faces)
-
-(defface modus-themes-tab-active nil
-  "Face of active tab.
-The actual styling of the face is done by `modus-themes-faces'."
-  :group 'modus-themes-faces)
-
-(defface modus-themes-tab-inactive nil
-  "Face of inactive tab.
-The actual styling of the face is done by `modus-themes-faces'."
-  :group 'modus-themes-faces)
+(make-obsolete 'modus-themes-tab-backdrop nil "3.0.0")
+(make-obsolete 'modus-themes-tab-active nil "3.0.0")
+(make-obsolete 'modus-themes-tab-inactive nil "3.0.0")
 
 (defface modus-themes-markup-code nil
   "Face of inline code markup.
@@ -1977,17 +1966,7 @@ the spectrum."
 
 (make-obsolete 'modus-themes-mail-citations nil "3.0.0")
 
-(defcustom modus-themes-tabs-accented nil
-  "Toggle accented tab backgrounds, instead of the default gray.
-This affects the built-in tab-bar mode and tab-line mode, as well
-as the Centaur tabs package."
-  :group 'modus-themes
-  :package-version '(modus-themes . "1.6.0")
-  :version "28.1"
-  :type 'boolean
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
-  :link '(info-link "(modus-themes) Tab style"))
+(make-obsolete 'modus-themes-tabs-accented nil "3.0.0")
 
 (defcustom modus-themes-box-buttons nil
   "Control the style of buttons in the Custom UI and related.
@@ -2760,30 +2739,6 @@ more prominent alternatives."
             lineneutral)
            ('unspecified)))))
 
-(defun modus-themes--tab (bg &optional bgaccent fg fgaccent box-p bold-p var-p)
-  "Helper function for tabs.
-BG is the default background, while BGACCENT is its more colorful
-alternative.  Optional FG is a foreground color that combines
-with BG.  Same principle FGACCENT.
-
-BOX-P and BOLD-P determine the use of a box property and the
-application of a bold weight, respectively.  VAR-P controls the
-application of a variable-pitch font."
-  (let ((background (if modus-themes-tabs-accented (or bgaccent bg) bg))
-        (foreground (if modus-themes-tabs-accented (or fgaccent fg) fg)))
-    (list
-     :inherit (cond
-               ((and bold-p var-p)
-                (if modus-themes-variable-pitch-ui
-                    '(variable-pitch bold)
-                  '(bold)))
-               (bold-p 'bold)
-               (var-p (when modus-themes-variable-pitch-ui 'variable-pitch))
-               ('unspecified))
-     :background background
-     :foreground (or foreground 'unspecified)
-     :box (if box-p (list :line-width 2 :color background) 'unspecified))))
-
 (defun modus-themes--button (bg bgfaint bgaccent bgaccentfaint border &optional pressed-button-p)
   "Apply `modus-themes-box-buttons' styles.
 
@@ -3154,10 +3109,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(modus-themes-search-success-modeline ((,c :foreground ,@(modus-themes--deuteran
                                                                    blue
                                                                    green))))
-;;;;; tabs
-    `(modus-themes-tab-active ((,c ,@(modus-themes--tab bg-tab-active nil nil nil t t))))
-    `(modus-themes-tab-backdrop ((,c ,@(modus-themes--tab bg-active bg-active-accent nil nil nil nil t))))
-    `(modus-themes-tab-inactive ((,c ,@(modus-themes--tab bg-tab-inactive bg-tab-inactive-accent fg-dim nil t))))
 ;;;;; completion frameworks
     `(modus-themes-completion-match-0
       ((,c ,@(modus-themes--completion-match
@@ -5907,23 +5858,21 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(syslog-su ((,c :inherit bold :foreground ,red-warmer)))
     `(syslog-warn ((,c :inherit warning)))
 ;;;;; tab-bar-mode
-    `(tab-bar ((,c :inherit modus-themes-tab-backdrop)))
-    `(tab-bar-tab-group-current ((,c ,@(modus-themes--tab bg-tab-active)
-                                         :box (:line-width (2 . -2) :color "gray50"))))
-    `(tab-bar-tab-group-inactive ((,c ,@(modus-themes--tab bg-tab-inactive bg-tab-inactive-accent fg-dim)
-                                          :box (:line-width (2 . -2) :color "gray50"))))
-    `(tab-bar-tab ((,c :inherit modus-themes-tab-active)))
-    `(tab-bar-tab-inactive ((,c :inherit modus-themes-tab-inactive)))
+    `(tab-bar ((,c :inherit ef-themes-ui-variable-pitch :background ,bg-inactive)))
+    `(tab-bar-tab-group-current ((,c :inherit bold :background ,bg-main :box (:line-width -2 :color ,bg-main) :foreground ,fg-alt)))
+    `(tab-bar-tab-group-inactive ((,c :background ,bg-inactive :box (:line-width -2 :color ,bg-inactive) :foreground ,fg-alt)))
+    `(tab-bar-tab ((,c :inherit bold :box (:line-width -2 :color ,bg-main) :background ,bg-main)))
+    `(tab-bar-tab-inactive ((,c :box (:line-width -2 :color ,bg-active) :background ,bg-active)))
+    `(tab-bar-tab-ungrouped ((,c :inherit tab-bar-tab-inactive)))
 ;;;;; tab-line-mode
-    `(tab-line ((,c :inherit modus-themes-tab-backdrop :height 0.95)))
-    `(tab-line-close-highlight ((,c :foreground ,red)))
-    `(tab-line-highlight ((,c :inherit modus-themes-intense-blue)))
-    `(tab-line-tab ((,c :inherit modus-themes-tab-active)))
-    `(tab-line-tab-current ((,c :inherit tab-line-tab)))
-    `(tab-line-tab-inactive ((,c :inherit modus-themes-tab-inactive)))
-    `(tab-line-tab-inactive-alternate ((,c ,@(modus-themes--tab bg-tab-inactive-alt
-                                                                    bg-tab-inactive-alt-accent fg-main nil t))))
-    `(tab-line-tab-modified ((,c :foreground ,red-faint)))
+    `(tab-line ((,c :inherit modus-themes-ui-variable-pitch :background ,bg-inactive :height 0.95)))
+    `(tab-line-close-highlight ((,c :foreground ,err)))
+    `(tab-line-highlight ((,c :inherit highlight)))
+    `(tab-line-tab (( )))
+    `(tab-line-tab-current ((,c :inherit bold :box (:line-width -2 :color ,bg-main) :background ,bg-main)))
+    `(tab-line-tab-inactive ((,c :box (:line-width -2 :color ,bg-active) :background ,bg-active)))
+    `(tab-line-tab-inactive-alternate ((,c :inherit tab-line-tab-inactive :foreground ,fg-alt)))
+    `(tab-line-tab-modified ((,c :foreground ,warning)))
 ;;;;; table (built-in table.el)
     `(table-cell ((,c :background ,blue-nuanced-bg)))
 ;;;;; telega
