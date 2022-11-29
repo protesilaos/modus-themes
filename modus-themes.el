@@ -3191,8 +3191,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
       ((,c ,@(modus-themes--diff
                   bg-diff-heading fg-diff-heading
                   cyan-nuanced-bg cyan-nuanced-fg
-                  bg-header fg-main
-                  bg-header fg-main
+                  bg-active fg-main
+                  bg-active fg-main
                   t))))
 ;;;;; deuteranopia-specific
     `(modus-themes-grue ((,c :foreground ,@(modus-themes--deuteran blue success))))
@@ -3213,13 +3213,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; mark indicators
     ;; color combinations intended for Dired, Ibuffer, or equivalent
     `(modus-themes-pseudo-header ((,c :inherit bold :foreground ,fg-main)))
-    `(modus-themes-mark-alt ((,c :inherit bold :background ,bg-mark-alt :foreground ,fg-mark-alt)))
-    `(modus-themes-mark-del ((,c :inherit bold :background ,bg-mark-del :foreground ,fg-mark-del)))
-    `(modus-themes-mark-sel ((,c :inherit bold
-                                     :background ,@(modus-themes--deuteran
-                                                    cyan-refine-bg
-                                                    bg-mark-sel)
-                                     :foreground ,fg-mark-sel)))
+    `(modus-themes-mark-alt ((,c :inherit bold :background ,yellow-refine-bg :foreground ,yellow-refine-fg)))
+    `(modus-themes-mark-del ((,c :inherit bold :background ,red-refine-bg :foreground ,red-refine-fg)))
+    `(modus-themes-mark-sel ((,c :inherit bold :background ,cyan-refine-bg :foreground ,cyan-refine-fg)))
     `(modus-themes-mark-symbol ((,c :inherit bold :foreground ,blue-warmer)))
 ;;;;; heading levels
     ;; styles for regular headings used in Org, Markdown, Info, etc.
@@ -3256,29 +3252,29 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; completion frameworks
     `(modus-themes-completion-match-0
       ((,c ,@(modus-themes--completion-match
-                  'matches bg-special-faint-calm magenta-warmer
+                  'matches magenta-refine-bg magenta-warmer
                   magenta-subtle-bg magenta-intense))))
     `(modus-themes-completion-match-1
       ((,c ,@(modus-themes--completion-match
-                  'matches bg-special-faint-cold blue
+                  'matches blue-refine-bg blue
                   blue-subtle-bg blue-intense))))
     `(modus-themes-completion-match-2
       ((,c ,@(modus-themes--completion-match
-                  'matches bg-special-faint-mild green
+                  'matches green-refine-bg green
                   green-subtle-bg green-intense))))
     `(modus-themes-completion-match-3
       ((,c ,@(modus-themes--completion-match
-                  'matches bg-special-faint-warm yellow
+                  'matches yellow-refine-bg yellow
                   yellow-subtle-bg yellow-intense))))
     `(modus-themes-completion-selected
       ((,c ,@(modus-themes--completion-line
                   'selection bg-inactive blue-warmer
-                  bg-active blue-active
+                  bg-active blue
                   bg-completion-subtle bg-completion))))
     `(modus-themes-completion-selected-popup
       ((,c ,@(modus-themes--completion-line
                   'popup bg-active blue-warmer
-                  bg-region blue-active
+                  bg-region blue
                   cyan-subtle-bg cyan-refine-bg))))
 ;;;;; buttons
     `(modus-themes-box-button
@@ -3299,8 +3295,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                        bg-region blue-intense-bg
                                        fg-alt blue-intense)
                                     :extend t)))
-    `(modus-themes-key-binding ((,c :inherit (bold modus-themes-fixed-pitch)
-                                        :foreground ,blue-cooler)))
+    `(modus-themes-key-binding ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind)))
     `(modus-themes-prompt ((,c ,@(modus-themes--prompt
                                       cyan-cooler blue-cooler fg-alt
                                       cyan-nuanced-bg blue-refine-bg fg-main
@@ -3316,32 +3311,31 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(cursor ((,c :background ,fg-main)))
     `(fringe ((,c ,@(modus-themes--fringe bg-main bg-inactive bg-active)
                       :foreground ,fg-main)))
-    `(vertical-border ((,c :foreground ,fg-window-divider-inner)))
+    `(vertical-border ((,c :foreground ,border)))
 ;;;;; basic and/or ungrouped styles
     `(bold ((,c :weight bold)))
     `(bold-italic ((,c :inherit (bold italic))))
     `(underline ((,c :underline ,fg-alt)))
     `(buffer-menu-buffer ((,c :inherit bold)))
-    `(child-frame-border ((,c :background ,fg-window-divider-inner)))
+    `(child-frame-border ((,c :background ,border)))
     `(comint-highlight-input ((,c :inherit bold)))
     `(comint-highlight-prompt ((,c :inherit modus-themes-prompt)))
     `(confusingly-reordered ((,c :inherit modus-themes-lang-error)))
     `(edmacro-label ((,c :inherit bold :foreground ,cyan)))
     `(elisp-shorthand-font-lock-face ((,c :inherit font-lock-variable-name-face)))
-    `(error ((,c :inherit bold :foreground ,red)))
-    `(escape-glyph ((,c :foreground ,fg-escape-char-construct)))
+    `(error ((,c :inherit bold :foreground ,err)))
+    `(escape-glyph ((,c :foreground ,err)))
     `(file-name-shadow ((,c :inherit shadow)))
-    `(header-line ((,c :inherit modus-themes-ui-variable-pitch
-                           :background ,bg-header :foreground ,fg-header)))
+    `(header-line ((,c :inherit modus-themes-ui-variable-pitch :background ,bg-active)))
     `(header-line-highlight ((,c :inherit highlight)))
     `(help-argument-name ((,c :inherit modus-themes-slant :foreground ,cyan)))
     `(help-key-binding ((,c :inherit modus-themes-key-binding)))
-    `(homoglyph ((,c :foreground ,red-warmer-faint)))
-    `(ibuffer-locked-buffer ((,c :foreground ,yellow-cooler-faint)))
+    `(homoglyph ((,c :foreground ,warning)))
+    `(ibuffer-locked-buffer ((,c :foreground ,warning)))
     `(icon-button ((,c :inherit modus-themes-box-button)))
     `(italic ((,c :slant italic)))
-    `(nobreak-hyphen ((,c :foreground ,fg-escape-char-construct)))
-    `(nobreak-space ((,c :foreground ,fg-escape-char-construct :underline t)))
+    `(nobreak-hyphen ((,c :foreground ,err)))
+    `(nobreak-space ((,c :foreground ,err :underline t)))
     `(menu ((,c :inverse-video unspecified :inherit modus-themes-intense-neutral)))
     `(minibuffer-prompt ((,c :inherit modus-themes-prompt)))
     `(mm-command-output ((,c :foreground ,red-cooler)))
@@ -3351,22 +3345,22 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(read-multiple-choice-face ((,c :inherit (bold modus-themes-mark-alt))))
     `(rectangle-preview ((,c :inherit modus-themes-special-warm)))
     `(region ((,c ,@(modus-themes--region bg-region fg-main
-                                              bg-hl-alt-intense bg-region-accent
-                                              bg-region-accent-subtle))))
+                                          bg-active bg-region-accent
+                                          bg-region-accent-subtle))))
     `(secondary-selection ((,c :inherit modus-themes-special-cold)))
     `(separator-line ((,c :underline ,bg-region)))
-    `(shadow ((,c :foreground ,fg-alt)))
+    `(shadow ((,c :foreground "gray50")))
     `(success ((,c :inherit (bold modus-themes-grue))))
     `(trailing-whitespace ((,c :background ,red-intense-bg)))
     `(warning ((,c :inherit bold :foreground ,yellow)))
 ;;;;; buttons, links, widgets
     `(button ((,c ,@(modus-themes--link
-                         blue-cooler blue-cooler-faint
-                         bg-region blue-nuanced-bg bg-alt))))
+                     link blue-faint
+                     bg-region blue-nuanced-bg bg-alt))))
     `(link ((,c :inherit button)))
     `(link-visited ((,c :inherit button
-                            ,@(modus-themes--link-color
-                               magenta-cooler magenta-cooler-faint fg-alt))))
+                        ,@(modus-themes--link-color
+                           link-visited magenta-faint fg-alt))))
     `(tooltip ((,c :background ,bg-special-cold :foreground ,fg-main)))
     `(widget-button ((,c ,@(if (memq 'all-buttons modus-themes-box-buttons)
                                    (list :inherit 'modus-themes-box-button)
@@ -3423,13 +3417,13 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(all-the-icons-dblue ((,c :foreground ,blue-faint)))
     `(all-the-icons-dcyan ((,c :foreground ,cyan-faint)))
     `(all-the-icons-dgreen ((,c :foreground ,green)))
-    `(all-the-icons-dmaroon ((,c :foreground ,magenta-warmer-faint)))
-    `(all-the-icons-dorange ((,c :foreground ,red-warmer-faint)))
+    `(all-the-icons-dmaroon ((,c :foreground ,magenta-faint)))
+    `(all-the-icons-dorange ((,c :foreground ,red-faint)))
     `(all-the-icons-dpink ((,c :foreground ,magenta-faint)))
-    `(all-the-icons-dpurple ((,c :foreground ,magenta-cooler-faint)))
+    `(all-the-icons-dpurple ((,c :foreground ,magenta-faint)))
     `(all-the-icons-dred ((,c :foreground ,red-faint)))
-    `(all-the-icons-dsilver ((,c :foreground ,cyan-warmer-faint)))
-    `(all-the-icons-dyellow ((,c :foreground ,yellow-warmer-faint)))
+    `(all-the-icons-dsilver ((,c :foreground ,cyan-faint)))
+    `(all-the-icons-dyellow ((,c :foreground ,yellow-faint)))
     `(all-the-icons-green ((,c :foreground ,green-intense)))
     `(all-the-icons-lblue ((,c :foreground ,blue-cooler)))
     `(all-the-icons-lcyan ((,c :foreground ,cyan)))
@@ -3439,7 +3433,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(all-the-icons-lpink ((,c :foreground ,magenta)))
     `(all-the-icons-lpurple ((,c :foreground ,magenta-faint)))
     `(all-the-icons-lred ((,c :foreground ,red)))
-    `(all-the-icons-lsilver ((,c :foreground ,fg-docstring)))
     `(all-the-icons-lyellow ((,c :foreground ,yellow-warmer)))
     `(all-the-icons-maroon ((,c :foreground ,magenta-intense)))
     `(all-the-icons-pink ((,c :foreground ,fg-special-calm)))
@@ -3532,7 +3525,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(avy-lead-face-1 ((,c :inherit (modus-themes-special-warm modus-themes-reset-soft))))
     `(avy-lead-face-2 ((,c :inherit (bold modus-themes-reset-soft) :background ,bg-char-2)))
 ;;;;; aw (ace-window)
-    `(aw-background-face ((,c :foreground ,fg-unfocused)))
+    `(aw-background-face ((,c :foreground "gray50")))
     `(aw-key-face ((,c :inherit modus-themes-key-binding)))
     `(aw-leading-char-face ((,c :inherit (bold modus-themes-reset-soft) :height 1.5
                                     :foreground ,red-intense)))
@@ -3571,9 +3564,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(bongo-currently-playing-track ((,c :inherit bold)))
     `(bongo-elapsed-track-part ((,c :inherit modus-themes-subtle-magenta :underline t)))
     `(bongo-filled-seek-bar ((,c :background ,blue-intense-bg :foreground ,fg-main)))
-    `(bongo-marked-track ((,c :foreground ,fg-mark-alt)))
-    `(bongo-marked-track-line ((,c :background ,bg-mark-alt)))
-    `(bongo-played-track ((,c :foreground ,fg-unfocused :strike-through t)))
+    `(bongo-marked-track ((,c :foreground ,note)))
+    `(bongo-marked-track-line ((,c :inherit modus-themes-mark-sel)))
+    `(bongo-played-track ((,c :inherit shadow :strike-through t)))
     `(bongo-track-length ((,c :inherit shadow)))
     `(bongo-track-title ((,c :foreground ,blue)))
     `(bongo-unfilled-seek-bar ((,c :background ,bg-special-cold :foreground ,fg-main)))
@@ -3591,7 +3584,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; calendar and diary
     `(calendar-month-header ((,c :inherit modus-themes-pseudo-header)))
     `(calendar-today ((,c :inherit bold :underline t)))
-    `(calendar-weekday-header ((,c :foreground ,fg-unfocused)))
+    `(calendar-weekday-header ((,c :inherit shadow)))
     `(calendar-weekend-header ((,c :foreground ,red-faint)))
     `(diary ((,c :background ,blue-nuanced-bg :foreground ,blue-cooler)))
     `(diary-anniversary ((,c :foreground ,red-cooler)))
@@ -3602,8 +3595,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(cfw:face-day-title ((,c :foreground ,fg-main)))
     `(cfw:face-default-content ((,c :foreground ,green-warmer)))
     `(cfw:face-default-day ((,c :inherit (cfw:face-day-title bold))))
-    `(cfw:face-disable ((,c :foreground ,fg-unfocused)))
-    `(cfw:face-grid ((,c :foreground ,fg-window-divider-outer)))
+    `(cfw:face-disable ((,c :inherit shadow)))
+    `(cfw:face-grid ((,c :foreground "gray50")))
     `(cfw:face-header ((,c :inherit bold :foreground ,fg-main)))
     `(cfw:face-holiday ((,c :foreground ,magenta-cooler)))
     `(cfw:face-periods ((,c :foreground ,cyan-cooler)))
@@ -3618,7 +3611,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(cfw:face-toolbar-button-on ((,c :inherit bold :background ,blue-nuanced-bg
                                           :foreground ,blue-warmer)))
 ;;;;; calibredb
-    `(calibredb-archive-face ((,c :foreground ,magenta-warmer-faint)))
+    `(calibredb-archive-face ((,c :foreground ,magenta-faint)))
     `(calibredb-author-face ((,c :foreground ,blue-faint)))
     `(calibredb-comment-face ((,c :inherit shadow)))
     `(calibredb-date-face ((,c :foreground ,cyan)))
@@ -3651,7 +3644,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(centaur-tabs-unselected ((,c :inherit modus-themes-tab-inactive)))
     `(centaur-tabs-unselected-modified ((,c :inherit (italic centaur-tabs-unselected))))
 ;;;;; cfrs
-    `(cfrs-border-color ((,c :background ,fg-window-divider-inner)))
+    `(cfrs-border-color ((,c :background ,border)))
 ;;;;; change-log and log-view (`vc-print-log' and `vc-print-root-log')
     `(change-log-acknowledgment ((,c :inherit shadow)))
     `(change-log-conditionals ((,c :foreground ,yellow)))
@@ -3662,7 +3655,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(change-log-list ((,c :foreground ,magenta-warmer)))
     `(change-log-name ((,c :foreground ,magenta-cooler)))
     `(log-edit-header ((,c :foreground ,fg-special-warm)))
-    `(log-edit-headers-separator ((,c :height 1 :background ,fg-window-divider-inner :extend t)))
+    `(log-edit-headers-separator ((,c :height 1 :background ,border :extend t)))
     `(log-edit-summary ((,c :inherit bold :foreground ,blue)))
     `(log-edit-unknown-header ((,c :inherit shadow)))
     `(log-view-commit-body ((,c :foreground ,blue-nuanced-fg)))
@@ -3707,7 +3700,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(circe-fool-face ((,c :inherit shadow)))
     `(circe-highlight-nick-face ((,c :inherit bold :foreground ,blue)))
     `(circe-prompt-face ((,c :inherit modus-themes-prompt)))
-    `(circe-server-face ((,c :foreground ,fg-unfocused)))
+    `(circe-server-face ((,c :inherit shadow)))
     `(lui-button-face ((,c :inherit button)))
     `(lui-highlight-face ((,c :foreground ,magenta-warmer)))
     `(lui-time-stamp-face ((,c :foreground ,blue-nuanced-fg)))
@@ -3776,7 +3769,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(consult-imenu-prefix ((,c :inherit shadow)))
     `(consult-key ((,c :inherit modus-themes-key-binding)))
     `(consult-line-number ((,c :foreground ,fg-special-warm)))
-    `(consult-line-number-prefix ((,c :foreground ,fg-unfocused)))
+    `(consult-line-number-prefix ((,c :inherit shadow)))
     `(consult-narrow-indicator ((,c :foreground ,magenta-warmer)))
     `(consult-preview-cursor ((,c :inherit modus-themes-intense-blue)))
     `(consult-preview-insertion ((,c :inherit modus-themes-special-warm)))
@@ -3850,7 +3843,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(custom-modified ((,c :inherit modus-themes-subtle-cyan)))
     `(custom-rogue ((,c :inherit modus-themes-refine-magenta)))
     `(custom-set ((,c :foreground ,blue-warmer)))
-    `(custom-state ((,c :foreground ,red-warmer-faint)))
+    `(custom-state ((,c :foreground ,red-faint)))
     `(custom-themed ((,c :inherit modus-themes-subtle-blue)))
     `(custom-variable-obsolete ((,c :inherit shadow)))
     `(custom-variable-tag ((,c :foreground ,cyan)))
@@ -3913,7 +3906,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(diff-added ((,c :inherit modus-themes-diff-added)))
     `(diff-changed ((,c :inherit modus-themes-diff-changed :extend t)))
     `(diff-changed-unspecified ((,c :inherit diff-changed)))
-    `(diff-context ((,c ,@(unless (eq modus-themes-diffs 'bg-only) (list :foreground fg-unfocused)))))
+    `(diff-context ((,c ,@(unless (eq modus-themes-diffs 'bg-only) (list :foreground "gray50")))))
     `(diff-error ((,c :inherit modus-themes-intense-red)))
     `(diff-file-header ((,c :inherit (bold diff-header))))
     `(diff-function ((,c :inherit modus-themes-diff-heading)))
@@ -4110,9 +4103,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(elfeed-log-warn-level-face ((,c :inherit warning)))
     `(elfeed-search-date-face ((,c :foreground ,cyan)))
     `(elfeed-search-feed-face ((,c :foreground ,blue-faint)))
-    `(elfeed-search-tag-face ((,c :foreground ,magenta-warmer-faint)))
     `(elfeed-search-filter-face ((,c :inherit bold :foreground ,magenta)))
     `(elfeed-search-last-update-face ((,c :inherit bold :foreground ,cyan)))
+    `(elfeed-search-tag-face ((,c :foreground ,magenta-faint)))
     `(elfeed-search-title-face ((,c :foreground ,fg-dim)))
     `(elfeed-search-unread-count-face ((,c :inherit bold :foreground ,fg-active)))
     `(elfeed-search-unread-title-face ((,c :inherit bold :foreground ,fg-main)))
@@ -4132,7 +4125,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; ement (ement.el)
     `(ement-room-fully-read-marker ((,c :background ,cyan-subtle-bg)))
     `(ement-room-membership ((,c :inherit shadow)))
-    `(ement-room-mention ((,c :background ,bg-hl-alt-intense)))
+    `(ement-room-mention ((,c :inherit highlight)))
     `(ement-room-name ((,c :inherit bold)))
     `(ement-room-reactions ((,c :inherit shadow)))
     `(ement-room-read-receipt-marker ((,c :background ,yellow-subtle-bg)))
@@ -4188,7 +4181,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(erc-direct-msg-face ((,c :foreground ,fg-special-warm)))
     `(erc-error-face ((,c :inherit bold :foreground ,red)))
     `(erc-fool-face ((,c :inherit shadow)))
-    `(erc-header-line ((,c :background ,bg-header :foreground ,fg-header)))
+    `(erc-header-line ((,c :background ,bg-active)))
     `(erc-input-face ((,c :foreground ,magenta)))
     `(erc-inverse-face ((,c :inherit erc-default-face :inverse-video t)))
     `(erc-keyword-face ((,c :inherit bold :foreground ,magenta-cooler)))
@@ -4376,7 +4369,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; freeze-it
     `(freeze-it-show ((,c :background ,bg-dim :foreground ,fg-special-warm)))
 ;;;;; focus
-    `(focus-unfocused ((,c :foreground ,fg-unfocused)))
+    `(focus-unfocused ((,c :inherit shadow)))
 ;;;;; fold-this
     `(fold-this-overlay ((,c :inherit modus-themes-special-mild)))
 ;;;;; font-lock
@@ -4428,7 +4421,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                                     :background ,yellow-nuanced-bg
                                                     :foreground ,yellow-cooler)))
     `(geiser-font-lock-autodoc-identifier ((,c :foreground ,cyan)))
-    `(geiser-font-lock-doc-button ((,c :inherit button :foreground ,fg-docstring)))
+    `(geiser-font-lock-doc-button ((,c :inherit button :foreground ,fg-special-cold)))
     `(geiser-font-lock-doc-link ((,c :inherit button)))
     `(geiser-font-lock-error-link ((,c :inherit button :foreground ,red)))
     `(geiser-font-lock-image-button ((,c :inherit button :foreground ,green-warmer)))
@@ -4508,8 +4501,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(gnus-group-news-4-empty ((,c :foreground ,cyan-nuanced-fg)))
     `(gnus-group-news-5 ((,c :inherit bold :foreground ,red-nuanced-fg)))
     `(gnus-group-news-5-empty ((,c :foreground ,red-nuanced-fg)))
-    `(gnus-group-news-6 ((,c :inherit bold :foreground ,fg-unfocused)))
-    `(gnus-group-news-6-empty ((,c :foreground ,fg-unfocused)))
+    `(gnus-group-news-6 ((,c :inherit (shadow bold))))
+    `(gnus-group-news-6-empty ((,c :inherit shadow)))
     `(gnus-group-news-low ((,c :inherit bold :foreground ,green-nuanced-fg)))
     `(gnus-group-news-low-empty ((,c :foreground ,green-nuanced-fg)))
     `(gnus-header-content ((,c :inherit message-header-other)))
@@ -4617,7 +4610,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(helm-prefarg ((,c :foreground ,red)))
     `(helm-resume-need-update ((,c :inherit modus-themes-special-calm)))
     `(helm-selection ((,c :inherit modus-themes-completion-selected)))
-    `(helm-selection-line ((,c :background ,bg-hl-alt-intense)))
+    `(helm-selection-line ((,c :inherit highlight)))
     `(helm-separator ((,c :foreground ,fg-special-mild)))
     `(helm-time-zone-current ((,c :foreground ,green)))
     `(helm-time-zone-home ((,c :foreground ,magenta)))
@@ -4707,7 +4700,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; hydra
     `(hydra-face-amaranth ((,c :inherit bold :foreground ,yellow-warmer)))
     `(hydra-face-blue ((,c :inherit bold :foreground ,blue)))
-    `(hydra-face-pink ((,c :inherit bold :foreground ,magenta-warmer-faint)))
+    `(hydra-face-pink ((,c :inherit bold :foreground ,magenta-faint)))
     `(hydra-face-red ((,c :inherit bold :foreground ,red-faint)))
     `(hydra-face-teal ((,c :inherit bold :foreground ,cyan-cooler)))
 ;;;;; icomplete
@@ -4835,7 +4828,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(ivy-subdir ((,c :foreground ,blue)))
     `(ivy-virtual ((,c :foreground ,magenta-cooler)))
 ;;;;; ivy-posframe
-    `(ivy-posframe-border ((,c :background ,fg-window-divider-inner)))
+    `(ivy-posframe-border ((,c :background ,border)))
     `(ivy-posframe-cursor ((,c :background ,fg-main :foreground ,bg-main)))
 ;;;;; jira (org-jira)
     `(jiralib-comment-face ((,c :background ,bg-alt)))
@@ -4897,9 +4890,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(ledger-font-payee-cleared-face ((,c :foreground ,blue-warmer)))
     `(ledger-font-payee-pending-face ((,c :foreground ,yellow)))
     `(ledger-font-payee-uncleared-face ((,c :foreground ,red-cooler)))
-    `(ledger-font-xact-highlight-face ((,c :background ,bg-hl-alt)))
+    `(ledger-font-xact-highlight-face ((,c :inherit highlight)))
 ;;;;; leerzeichen
-    `(leerzeichen ((,c :background ,bg-whitespace :foreground ,fg-whitespace)))
+    `(leerzeichen ((,c :background ,bg-alt)))
 ;;;;; line numbers (display-line-numbers-mode and global variant)
     ;; Here we cannot inherit `modus-themes-fixed-pitch'.  We need to
     ;; fall back to `default' otherwise line numbers do not scale when
@@ -4908,7 +4901,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
       ((,c :inherit ,(if modus-themes-mixed-fonts '(fixed-pitch default) 'default)
                ,@(modus-themes--line-numbers
                   fg-alt bg-dim
-                  fg-unfocused))))
+                  "gray50"))))
     `(line-number-current-line
       ((,c :inherit (bold line-number)
                ,@(modus-themes--line-numbers
@@ -4949,11 +4942,11 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(lsp-lens-face ((,c  :inherit shadow :height 0.8)))
     `(lsp-lens-mouse-face ((,c :height 0.8 :foreground ,blue-cooler :underline t)))
     `(lsp-ui-doc-background ((,c :background ,bg-alt)))
-    `(lsp-ui-doc-header ((,c :background ,bg-header :foreground ,fg-header)))
+    `(lsp-ui-doc-header ((,c :background ,bg-active)))
     `(lsp-ui-doc-url ((,c :inherit button)))
     `(lsp-ui-peek-filename ((,c :foreground ,fg-special-warm)))
-    `(lsp-ui-peek-footer ((,c :background ,bg-header :foreground ,fg-header)))
-    `(lsp-ui-peek-header ((,c :background ,bg-header :foreground ,fg-header)))
+    `(lsp-ui-peek-footer ((,c :background ,bg-active)))
+    `(lsp-ui-peek-header ((,c :background ,bg-active)))
     `(lsp-ui-peek-highlight ((,c :inherit modus-themes-subtle-blue)))
     `(lsp-ui-peek-line-number ((,c :inherit shadow)))
     `(lsp-ui-peek-list ((,c :background ,bg-dim)))
@@ -5011,7 +5004,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
                                   bg-diff-changed fg-diff-changed
                                   yellow-nuanced-bg fg-diff-changed))))
     `(magit-diff-base-highlight ((,c :inherit modus-themes-diff-focus-changed)))
-    `(magit-diff-context ((,c ,@(unless (eq modus-themes-diffs 'bg-only) (list :foreground fg-unfocused)))))
+    `(magit-diff-context ((,c ,@(unless (eq modus-themes-diffs 'bg-only) (list :foreground "gray50")))))
     `(magit-diff-context-highlight ((,c ,@(modus-themes--diff
                                                bg-inactive fg-inactive
                                                bg-dim fg-alt
@@ -5044,7 +5037,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(magit-diff-removed-highlight ((,c :inherit modus-themes-diff-focus-removed)))
     `(magit-diffstat-added ((,c :inherit modus-themes-grue)))
     `(magit-diffstat-removed ((,c :foreground ,red)))
-    `(magit-dimmed ((,c :foreground ,fg-unfocused)))
+    `(magit-dimmed ((,c :inherit shadow)))
     `(magit-filename ((,c :foreground ,fg-special-cold)))
     `(magit-hash ((,c :inherit shadow)))
     `(magit-head ((,c :inherit magit-branch-local)))
@@ -5056,8 +5049,8 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(magit-log-author ((,c :foreground ,cyan)))
     `(magit-log-date ((,c :inherit shadow)))
     `(magit-log-graph ((,c :foreground ,fg-dim)))
-    `(magit-mode-line-process ((,c :inherit bold :foreground ,cyan-active)))
-    `(magit-mode-line-process-error ((,c :inherit bold :foreground ,red-active)))
+    `(magit-mode-line-process ((,c :inherit bold :foreground ,cyan)))
+    `(magit-mode-line-process-error ((,c :inherit bold :foreground ,red)))
     `(magit-process-ng ((,c :inherit error)))
     `(magit-process-ok ((,c :inherit success)))
     `(magit-reflog-amend ((,c :inherit warning)))
@@ -5106,7 +5099,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(marginalia-archive ((,c :foreground ,cyan-cooler)))
     `(marginalia-char ((,c :foreground ,magenta)))
     `(marginalia-date ((,c :foreground ,cyan)))
-    `(marginalia-documentation ((,c :inherit modus-themes-slant :foreground ,fg-docstring)))
+    `(marginalia-documentation ((,c :inherit modus-themes-slant :foreground ,fg-special-cold)))
     `(marginalia-file-name ((,c :foreground ,blue-faint)))
     `(marginalia-file-owner ((,c :foreground ,red-faint)))
     `(marginalia-file-priv-dir ((,c :foreground ,blue-warmer)))
@@ -5117,17 +5110,17 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(marginalia-file-priv-rare ((,c :foreground ,red)))
     `(marginalia-file-priv-read ((,c :foreground ,fg-main)))
     `(marginalia-file-priv-write ((,c :foreground ,cyan)))
-    `(marginalia-function ((,c :foreground ,magenta-warmer-faint)))
+    `(marginalia-function ((,c :foreground ,magenta-faint)))
     `(marginalia-key ((,c :inherit modus-themes-key-binding)))
     `(marginalia-lighter ((,c :foreground ,blue-warmer)))
-    `(marginalia-list ((,c :foreground ,magenta-cooler-faint)))
+    `(marginalia-list ((,c :foreground ,magenta-faint)))
     `(marginalia-mode ((,c :foreground ,cyan)))
-    `(marginalia-modified ((,c :foreground ,magenta-warmer-faint)))
+    `(marginalia-modified ((,c :foreground ,magenta-faint)))
     `(marginalia-null ((,c :inherit shadow)))
     `(marginalia-number ((,c :foreground ,cyan)))
-    `(marginalia-size ((,c :foreground ,cyan-cooler-faint)))
+    `(marginalia-size ((,c :foreground ,cyan-faint)))
     `(marginalia-string ((,c :foreground ,blue-warmer)))
-    `(marginalia-symbol ((,c :foreground ,blue-cooler-faint)))
+    `(marginalia-symbol ((,c :foreground ,blue-faint)))
     `(marginalia-true ((,c :foreground ,fg-main)))
     `(marginalia-type ((,c :foreground ,cyan-cooler)))
     `(marginalia-value ((,c :foreground ,cyan)))
@@ -5227,9 +5220,9 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(mentor-tracker-name ((,c :foreground ,magenta-warmer)))
 ;;;;; messages
     `(message-cited-text-1 ((,c ,@(modus-themes--mail-cite blue-faint blue fg-special-cold))))
-    `(message-cited-text-2 ((,c ,@(modus-themes--mail-cite yellow-faint yellow yellow-warmer-faint))))
-    `(message-cited-text-3 ((,c ,@(modus-themes--mail-cite magenta-warmer-faint magenta-warmer fg-special-calm))))
-    `(message-cited-text-4 ((,c ,@(modus-themes--mail-cite cyan-cooler-faint cyan-cooler fg-special-mild))))
+    `(message-cited-text-2 ((,c ,@(modus-themes--mail-cite yellow-faint yellow yellow-faint))))
+    `(message-cited-text-3 ((,c ,@(modus-themes--mail-cite magenta-faint magenta fg-special-calm))))
+    `(message-cited-text-4 ((,c ,@(modus-themes--mail-cite cyan-faint cyan fg-special-mild))))
     `(message-header-cc ((,c :foreground ,blue-cooler)))
     `(message-header-name ((,c :inherit bold :foreground ,cyan)))
     `(message-header-newsgroups ((,c :inherit message-header-other)))
@@ -5241,7 +5234,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(message-separator ((,c :inherit modus-themes-intense-neutral)))
 ;;;;; mini-modeline
     `(mini-modeline-mode-line ((,c :background ,blue-intense :height 0.14)))
-    `(mini-modeline-mode-line-inactive ((,c :background ,fg-window-divider-inner :height 0.1)))
+    `(mini-modeline-mode-line-inactive ((,c :background ,border :height 0.1)))
 ;;;;; minimap
     `(minimap-active-region-background ((,c :background ,bg-active)))
     `(minimap-current-line-face ((,c :background ,cyan-intense-bg :foreground ,fg-main)))
@@ -5317,7 +5310,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(mu4e-related-face ((,c :inherit (italic shadow))))
     `(mu4e-replied-face ((,c :foreground ,blue)))
     `(mu4e-special-header-value-face ((,c :inherit message-header-subject)))
-    `(mu4e-system-face ((,c :inherit modus-themes-slant :foreground ,fg-mark-del)))
+    `(mu4e-system-face ((,c :inherit modus-themes-slant :foreground ,err)))
     `(mu4e-title-face ((,c :foreground ,fg-main)))
     `(mu4e-trashed-face ((,c :foreground ,red)))
     `(mu4e-unread-face ((,c :inherit bold)))
@@ -5429,14 +5422,14 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-agenda-calendar-sexp ((,c ,@(modus-themes--agenda-event blue-warmer t))))
     `(org-agenda-clocking ((,c :background ,yellow-nuanced-bg :foreground ,red-warmer)))
     `(org-agenda-column-dateline ((,c :background ,bg-alt)))
-    `(org-agenda-current-time ((,c :foreground ,blue-cooler-faint)))
+    `(org-agenda-current-time ((,c :foreground ,blue-faint)))
     `(org-agenda-date ((,c ,@(modus-themes--agenda-date cyan fg-main))))
     `(org-agenda-date-today
       ((,c ,@(modus-themes--agenda-date cyan fg-main nil nil bg-special-cold t t))))
     `(org-agenda-date-weekend
-      ((,c ,@(modus-themes--agenda-date cyan-cooler-faint fg-alt cyan fg-main))))
+      ((,c ,@(modus-themes--agenda-date cyan-faint fg-alt cyan fg-main))))
     `(org-agenda-date-weekend-today
-      ((,c ,@(modus-themes--agenda-date cyan-cooler-faint fg-alt cyan fg-main bg-special-cold t t))))
+      ((,c ,@(modus-themes--agenda-date cyan-faint fg-alt cyan fg-main bg-special-cold t t))))
     `(org-agenda-diary ((,c :inherit org-agenda-calendar-sexp)))
     `(org-agenda-dimmed-todo-face ((,c :inherit shadow)))
     `(org-agenda-done ((,c :inherit modus-themes-grue-nuanced)))
@@ -5459,7 +5452,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-checkbox ((,c :foreground ,yellow-cooler)))
     `(org-checkbox-statistics-done ((,c :inherit org-done)))
     `(org-checkbox-statistics-todo ((,c :inherit org-todo)))
-    `(org-clock-overlay ((,c :background ,yellow-nuanced-bg :foreground ,red-warmer-faint)))
+    `(org-clock-overlay ((,c :background ,yellow-nuanced-bg :foreground ,red-faint)))
     `(org-code ((,c :inherit modus-themes-markup-code :extend t)))
     `(org-column ((,c :inherit (modus-themes-fixed-pitch default)
                           :background ,bg-alt)))
@@ -5476,7 +5469,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-ellipsis (())) ; inherits from the heading's color
     `(org-footnote ((,c :inherit button
                             ,@(modus-themes--link-color
-                               blue-warmer blue-warmer-faint))))
+                               blue blue-faint))))
     `(org-formula ((,c :inherit modus-themes-fixed-pitch :foreground ,red-warmer)))
     `(org-habit-alert-face ((,c ,@(modus-themes--agenda-habit
                                        yellow-graph-0-bg
@@ -5587,7 +5580,6 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(org-roam-title ((,c :inherit modus-themes-pseudo-header)))
 ;;;;; org-superstar
     `(org-superstar-item ((,c :foreground ,fg-main)))
-    `(org-superstar-leading ((,c :foreground ,fg-whitespace)))
 ;;;;; org-table-sticky-header
     `(org-table-sticky-header-face ((,c :inherit modus-themes-special-cold)))
 ;;;;; org-tree-slide
@@ -5622,7 +5614,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(package-status-new ((,c :inherit success)))
     `(package-status-unsigned ((,c :inherit error)))
 ;;;;; page-break-lines
-    `(page-break-lines ((,c :inherit default :foreground ,fg-window-divider-outer)))
+    `(page-break-lines ((,c :inherit default :foreground "gray50")))
 ;;;;; pandoc-mode
     `(pandoc-citation-key-face ((,c :background ,bg-dim :foreground ,magenta-warmer)))
     `(pandoc-directive-@@-face ((,c :background ,bg-dim :foreground ,blue-cooler)))
@@ -5630,7 +5622,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(pandoc-directive-contents-face ((,c :foreground ,cyan-cooler)))
     `(pandoc-directive-type-face ((,c :foreground ,magenta)))
 ;;;;; paren-face
-    `(parenthesis ((,c :foreground ,fg-unfocused)))
+    `(parenthesis ((,c :inherit shadow)))
 ;;;;; pass
     `(pass-mode-directory-face ((,c :inherit bold :foreground ,fg-special-cold)))
     `(pass-mode-entry-face ((,c :background ,bg-main :foreground ,fg-main)))
@@ -5666,7 +5658,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(popup-summary-face ((,c :background ,bg-active :foreground ,fg-inactive)))
     `(popup-tip-face ((,c :inherit modus-themes-refine-yellow)))
 ;;;;; powerline
-    `(powerline-active0 ((,c :background ,fg-unfocused :foreground ,bg-main)))
+    `(powerline-active0 ((,c :background "gray50" :foreground ,bg-main)))
     `(powerline-active1 ((,c :inherit mode-line-active)))
     `(powerline-active2 ((,c :inherit mode-line-inactive)))
     `(powerline-inactive0 ((,c :background ,bg-active :foreground ,fg-alt)))
@@ -5700,7 +5692,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(pyim-page-subword ((,c :background ,bg-inactive)))
 ;;;;; quick-peek
     `(quick-peek-background-face ((,c :background ,bg-alt)))
-    `(quick-peek-border-face ((,c :background ,fg-window-divider-inner :height 1)))
+    `(quick-peek-border-face ((,c :background ,border :height 1)))
     `(quick-peek-padding-face ((,c :background ,bg-alt :height 0.15)))
 ;;;;; racket-mode
     `(racket-debug-break-face ((,c :inherit modus-themes-intense-red)))
@@ -5712,7 +5704,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(racket-keyword-argument-face ((,c :foreground ,red-warmer)))
     `(racket-logger-config-face ((,c :inherit (shadow modus-themes-slant))))
     `(racket-logger-debug-face ((,c :foreground ,blue-cooler)))
-    `(racket-logger-info-face ((,c :foreground ,fg-lang-note)))
+    `(racket-logger-info-face ((,c :foreground ,note)))
     `(racket-logger-topic-face ((,c :inherit modus-themes-slant :foreground ,magenta)))
     `(racket-selfeval-face ((,c :foreground ,green-warmer)))
     `(racket-xp-error-face ((,c :inherit modus-themes-lang-error)))
@@ -5767,7 +5759,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(reb-regexp-grouping-construct ((,c :inherit font-lock-regexp-grouping-construct)))
 ;;;;; rg (rg.el)
     `(rg-column-number-face ((,c :foreground ,magenta-cooler)))
-    `(rg-context-face ((,c :foreground ,fg-unfocused)))
+    `(rg-context-face ((,c :inherit shadow)))
     `(rg-error-face ((,c :inherit bold :foreground ,red)))
     `(rg-file-tag-face ((,c :foreground ,fg-special-cold)))
     `(rg-filename-face ((,c :inherit bold :foreground ,fg-special-cold)))
@@ -5779,7 +5771,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(rg-toggle-on-face ((,c :inherit bold :foreground ,cyan)))
     `(rg-warning-face ((,c :inherit bold :foreground ,yellow)))
 ;;;;; ripgrep
-    `(ripgrep-context-face ((,c :foreground ,fg-unfocused)))
+    `(ripgrep-context-face ((,c :inherit shadow)))
     `(ripgrep-error-face ((,c :inherit bold :foreground ,red)))
     `(ripgrep-hit-face ((,c :foreground ,cyan)))
     `(ripgrep-match-face ((,c :inherit modus-themes-special-calm)))
@@ -5790,7 +5782,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(ruler-mode-column-number ((,c :inherit ruler-mode-default :foreground ,fg-main)))
     `(ruler-mode-comment-column ((,c :inherit ruler-mode-default :foreground ,red)))
     `(ruler-mode-current-column ((,c :inherit ruler-mode-default :background ,blue-subtle-bg :foreground ,fg-main)))
-    `(ruler-mode-default ((,c :inherit default :background ,bg-alt :foreground ,fg-unfocused)))
+    `(ruler-mode-default ((,c :inherit default :background ,bg-alt :foreground "gray50")))
     `(ruler-mode-fill-column ((,c :inherit ruler-mode-default :foreground ,green)))
     `(ruler-mode-fringes ((,c :inherit ruler-mode-default :foreground ,cyan)))
     `(ruler-mode-goal-column ((,c :inherit ruler-mode-default :foreground ,blue)))
@@ -5808,7 +5800,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(semantic-highlight-func-current-tag-face ((,c :background ,bg-alt)))
     `(semantic-idle-symbol-highlight ((,c :inherit modus-themes-special-mild)))
     `(semantic-tag-boundary-face ((,c :overline ,blue-intense)))
-    `(semantic-unmatched-syntax-face ((,c :underline ,fg-lang-error)))
+    `(semantic-unmatched-syntax-face ((,c :underline ,err)))
 ;;;;; sesman
     `(sesman-browser-button-face ((,c :inherit button)))
     `(sesman-browser-highligh-face ((,c :inherit highlight)))
@@ -5955,7 +5947,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(swiper-background-match-face-2 ((,c :inherit modus-themes-completion-match-0)))
     `(swiper-background-match-face-3 ((,c :inherit modus-themes-completion-match-1)))
     `(swiper-background-match-face-4 ((,c :inherit modus-themes-completion-match-2)))
-    `(swiper-line-face ((,c :background ,bg-hl-alt-intense)))
+    `(swiper-line-face ((,c :inherit highlight)))
     `(swiper-match-face-1 (( )))
     `(swiper-match-face-2 ((,c :inherit modus-themes-completion-match-0)))
     `(swiper-match-face-3 ((,c :inherit modus-themes-completion-match-1)))
@@ -6025,7 +6017,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(tab-line-tab-inactive ((,c :inherit modus-themes-tab-inactive)))
     `(tab-line-tab-inactive-alternate ((,c ,@(modus-themes--tab bg-tab-inactive-alt
                                                                     bg-tab-inactive-alt-accent fg-main nil t))))
-    `(tab-line-tab-modified ((,c :foreground ,red-cooler-faint)))
+    `(tab-line-tab-modified ((,c :foreground ,red-faint)))
 ;;;;; table (built-in table.el)
     `(table-cell ((,c :background ,blue-nuanced-bg)))
 ;;;;; telega
@@ -6100,7 +6092,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(transient-key ((,c :inherit modus-themes-key-binding)))
     `(transient-mismatched-key ((,c :underline t)))
     `(transient-nonstandard-key ((,c :underline t)))
-    `(transient-pink ((,c :inherit bold :foreground ,magenta-warmer-faint)))
+    `(transient-pink ((,c :inherit bold :foreground ,magenta)))
     `(transient-purple ((,c :inherit bold :foreground ,magenta-cooler)))
     `(transient-red ((,c :inherit bold :foreground ,red-faint)))
     `(transient-teal ((,c :inherit bold :foreground ,cyan-cooler)))
@@ -6192,31 +6184,33 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(undo-tree-visualizer-register-face ((,c :foreground ,magenta-intense)))
     `(undo-tree-visualizer-unmodified-face ((,c :foreground ,green-intense)))
 ;;;;; vc (vc-dir.el, vc-hooks.el)
-    `(vc-dir-directory ((,c :foreground ,blue)))
-    `(vc-dir-file ((,c :foreground ,fg-main)))
-    `(vc-dir-header ((,c :foreground ,cyan-cooler)))
-    `(vc-dir-header-value ((,c :foreground ,magenta-cooler)))
-    `(vc-dir-mark-indicator ((,c :foreground ,blue-cooler)))
-    `(vc-dir-status-edited ((,c :foreground ,yellow)))
+    `(vc-dir-directory (( )))
+    `(vc-dir-file ((,c :foreground ,name)))
+    `(vc-dir-header ((,c :inherit bold)))
+    `(vc-dir-header-value ((,c :foreground ,string)))
+    `(vc-dir-mark-indicator (( )))
+    `(vc-dir-status-edited ((,c :inherit italic)))
     `(vc-dir-status-ignored ((,c :inherit shadow)))
-    `(vc-dir-status-up-to-date ((,c :foreground ,cyan)))
+    `(vc-dir-status-up-to-date ((,c :foreground ,note)))
     `(vc-dir-status-warning ((,c :inherit error)))
-    `(vc-conflict-state ((,c :inherit bold :foreground ,red-active)))
-    `(vc-edited-state ((,c :foreground ,yellow-active)))
-    `(vc-locally-added-state ((,c :foreground ,cyan-active)))
-    `(vc-locked-state ((,c :foreground ,blue-active)))
-    `(vc-missing-state ((,c :inherit modus-themes-slant :foreground ,magenta-active)))
-    `(vc-needs-update-state ((,c :inherit modus-themes-slant :foreground ,green-active)))
-    `(vc-removed-state ((,c :foreground ,red-active)))
-    `(vc-state-base ((,c :foreground ,fg-active)))
-    `(vc-up-to-date-state ((,c :foreground ,fg-special-cold)))
+    `(vc-conflict-state ((,c :inherit error)))
+    `(vc-edited-state ((,c :inherit italic)))
+    `(vc-git-log-edit-summary-max-warning ((,c :inherit error)))
+    `(vc-git-log-edit-summary-target-warning ((,c :inherit warning)))
+    `(vc-locally-added-state ((,c :inherit italic)))
+    `(vc-locked-state ((,c :inherit success)))
+    `(vc-missing-state ((,c :inherit error)))
+    `(vc-needs-update-state ((,c :inherit error)))
+    `(vc-removed-state ((,c :inherit error)))
+    `(vc-state-base (( )))
+    `(vc-up-to-date-state (( )))
 ;;;;; vertico
     `(vertico-current ((,c :inherit modus-themes-completion-selected)))
 ;;;;; vertico-quick
     `(vertico-quick1 ((,c :inherit bold :background ,bg-char-0)))
     `(vertico-quick2 ((,c :inherit bold :background ,bg-char-1)))
 ;;;;; vimish-fold
-    `(vimish-fold-fringe ((,c :foreground ,cyan-active)))
+    `(vimish-fold-fringe ((,c :foreground ,cyan)))
     `(vimish-fold-mouse-face ((,c :inherit modus-themes-intense-blue)))
     `(vimish-fold-overlay ((,c :background ,bg-alt :foreground ,fg-special-cold)))
 ;;;;; visible-mark
@@ -6321,7 +6315,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(web-mode-underline-face ((,c :underline t)))
     `(web-mode-variable-name-face ((,c :inherit font-lock-variable-name-face)))
     `(web-mode-warning-face ((,c :inherit font-lock-warning-face)))
-    `(web-mode-whitespace-face ((,c :background ,bg-whitespace :foreground ,fg-whitespace)))
+    `(web-mode-whitespace-face ((,c :background ,bg-alt)))
 ;;;;; wgrep
     `(wgrep-delete-face ((,c :inherit warning)))
     `(wgrep-done-face ((,c :inherit success)))
@@ -6342,19 +6336,19 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; whitespace-mode
     `(whitespace-big-indent ((,c :inherit modus-themes-subtle-red)))
     `(whitespace-empty ((,c :inherit modus-themes-intense-magenta)))
-    `(whitespace-hspace ((,c :background ,bg-whitespace :foreground ,fg-whitespace)))
-    `(whitespace-indentation ((,c :background ,bg-whitespace :foreground ,fg-whitespace)))
+    `(whitespace-hspace ((,c :background ,bg-alt)))
+    `(whitespace-indentation ((,c :background ,bg-alt)))
     `(whitespace-line ((,c :inherit modus-themes-subtle-yellow)))
-    `(whitespace-newline ((,c :background ,bg-whitespace :foreground ,fg-whitespace)))
-    `(whitespace-space ((,c :background ,bg-whitespace :foreground ,fg-whitespace)))
+    `(whitespace-newline ((,c :background ,bg-alt)))
+    `(whitespace-space ((,c :background ,bg-alt)))
     `(whitespace-space-after-tab ((,c :inherit modus-themes-subtle-magenta)))
     `(whitespace-space-before-tab ((,c :inherit modus-themes-subtle-cyan)))
-    `(whitespace-tab ((,c :background ,bg-whitespace :foreground ,fg-whitespace)))
+    `(whitespace-tab ((,c :background ,bg-alt)))
     `(whitespace-trailing ((,c :inherit modus-themes-intense-red)))
 ;;;;; window-divider-mode
-    `(window-divider ((,c :foreground ,fg-window-divider-inner)))
-    `(window-divider-first-pixel ((,c :foreground ,fg-window-divider-outer)))
-    `(window-divider-last-pixel ((,c :foreground ,fg-window-divider-outer)))
+    `(window-divider ((,c :foreground ,border)))
+    `(window-divider-first-pixel ((,c :foreground "gray50")))
+    `(window-divider-last-pixel ((,c :foreground "gray50")))
 ;;;;; winum
     `(winum-face ((,c :inherit modus-themes-bold :foreground ,cyan)))
 ;;;;; writegood-mode
@@ -6378,7 +6372,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
 ;;;;; yaml-mode
     `(yaml-tab-face ((,c :inherit modus-themes-intense-red)))
 ;;;;; yasnippet
-    `(yas-field-highlight-face ((,c :background ,bg-hl-alt-intense)))
+    `(yas-field-highlight-face ((,c :inherit highlight)))
 ;;;;; ztree
     `(ztreep-arrow-face ((,c :foreground ,fg-inactive)))
     `(ztreep-diff-header-face ((,c :inherit bold :height 1.2 :foreground ,fg-special-cold)))
@@ -6407,7 +6401,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
       '( ,red-graph-0-bg ,green-graph-0-bg ,yellow-graph-0-bg ,blue-graph-0-bg ,magenta-graph-0-bg ,cyan-graph-0-bg
          ,red-graph-1-bg ,green-graph-1-bg ,yellow-graph-1-bg ,blue-graph-1-bg ,magenta-graph-1-bg ,cyan-graph-1-bg))
 ;;;; exwm
-    `(exwm-floating-border-color ,fg-window-divider-inner)
+    `(exwm-floating-border-color ,border)
 ;;;; flymake fringe indicators
     `(flymake-error-bitmap '(flymake-double-exclamation-mark modus-themes-fringe-red))
     `(flymake-warning-bitmap '(exclamation-mark modus-themes-fringe-yellow))
