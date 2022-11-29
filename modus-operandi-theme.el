@@ -169,9 +169,9 @@ which corresponds to a minimum contrast in relative luminance of
 
 ;;; Diffs
 
-      (bg-added          "#d5f8d5")
-      (bg-added-faint    "#e5ffe5")
-      (bg-added-refine   "#c6e8c6")
+      (bg-added          "#c1f2d1")
+      (bg-added-faint    "#d8f8e1")
+      (bg-added-refine   "#b1e4c1")
       (bg-added-intense  "#8cca8c")
 
       (bg-added-deuteran         "#dbdbff")
