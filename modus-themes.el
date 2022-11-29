@@ -2849,7 +2849,7 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(font-lock-doc-face ((,c :inherit modus-themes-slant :foreground ,docstring)))
     `(font-lock-function-name-face ((,c :foreground ,fnname)))
     `(font-lock-keyword-face ((,c :inherit modus-themes-bold :foreground ,keyword)))
-    `(font-lock-negation-char-face ((,c :inherit modus-themes-bold :foreground ,err)))
+    `(font-lock-negation-char-face ((,c :inherit error)))
     `(font-lock-preprocessor-face ((,c :foreground ,preprocessor)))
     `(font-lock-regexp-grouping-backslash ((,c :inherit modus-themes-bold :foreground ,rx-backslash)))
     `(font-lock-regexp-grouping-construct ((,c :inherit modus-themes-bold :foreground ,rx-construct)))
