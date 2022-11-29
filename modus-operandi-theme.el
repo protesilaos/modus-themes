@@ -73,47 +73,33 @@ which corresponds to a minimum contrast in relative luminance of
     "3.0.0")
 
   (defconst modus-operandi-palette
-    '(;; base values
-      (bg-main "#ffffff")
-      (bg-dim  "#f8f8f8")
-      (bg-alt  "#f0f0f0")
-      (fg-main "#000000")
-      (fg-dim  "#282828")
-      (fg-alt  "#505050")
-
-      (border "#888888")
-      ;; specifically for on/off states and must be combined with
-      ;; themselves, though the backgrounds are also meant to be used with
-      ;; other "active" values, defined further below; bg-active-accent
-      ;; can work as a substitute for bg-active
-      (bg-active        "#d7d7d7")
-      (bg-inactive      "#efefef")
+    '(
+;;; Basic values
+      (bg-main          "#ffffff")
+      (bg-dim           "#f0f0f0")
+      (fg-main          "#000000")
+      (fg-dim           "#505050")
+      (fg-alt           "#305f70")
+      (bg-active        "#c4c4c4")
+      (bg-inactive      "#e0e0e0")
       (bg-active-accent "#d0d6ff")
-      (fg-active        "#0a0a0a")
-      (fg-inactive      "#404148")
-      ;; these special values are intended as alternatives to the base
-      ;; values for cases where we need to avoid confusion between the
-      ;; highlighted constructs; they must either be used as pairs based
-      ;; on their name or each can be combined with {fg,bg}-{main,alt,dim}
-      ;; always in accordance with their role as background or foreground
-      (bg-special-cold "#dde3f4") (fg-special-cold "#093060")
-      (bg-special-mild "#c4ede0") (fg-special-mild "#184034")
-      (bg-special-warm "#f0e0d4") (fg-special-warm "#5d3026")
-      (bg-special-calm "#f8ddea") (fg-special-calm "#61284f")
-      ;; foregrounds that can be combined with bg-main, bg-dim, bg-alt
+      (border           "#888888")
+
+;;; Common accent foregrounds
+
       (red             "#a60000")
       (red-warmer      "#972500")
       (red-cooler      "#a0132f")
-      (red-faint       "#7f1010")
+      (red-faint       "#7f2020")
       (red-intense     "#d00000")
-      (green           "#005e00")
-      (green-warmer    "#315b00")
-      (green-cooler    "#145c33")
-      (green-faint     "#104410")
+      (green           "#006800")
+      (green-warmer    "#316500")
+      (green-cooler    "#00663f")
+      (green-faint     "#104f30")
       (green-intense   "#008900")
-      (yellow          "#813e00")
-      (yellow-warmer   "#70480f")
-      (yellow-cooler   "#863927")
+      (yellow          "#6f5f00")
+      (yellow-warmer   "#813e00")
+      (yellow-cooler   "#6a4f2f")
       (yellow-faint    "#5f4400")
       (yellow-intense  "#808000")
       (blue            "#0031a9")
@@ -131,31 +117,25 @@ which corresponds to a minimum contrast in relative luminance of
       (cyan-cooler     "#005a5f")
       (cyan-faint      "#005077")
       (cyan-intense    "#008899")
-      ;; the "subtle" values below be combined with fg-dim, while the
-      ;; "intense" should be paired with fg-main
-      (red-subtle-bg      "#f2b0a2")
-      (red-intense-bg     "#ff9f9f")
-      (green-subtle-bg    "#aecf90")
-      (green-intense-bg   "#5ada88")
-      (yellow-subtle-bg   "#e4c340")
-      (yellow-intense-bg  "#f5df23")
-      (blue-subtle-bg     "#b5d0ff")
-      (blue-intense-bg    "#77baff")
-      (magenta-subtle-bg  "#f0d3ff")
-      (magenta-intense-bg "#d5baff")
-      (cyan-subtle-bg     "#c0efff")
-      (cyan-intense-bg    "#42cbd4")
-      ;; those background values must be combined with fg-main and should
-      ;; only be used for indicators that are placed on the fringes
-      (red-fringe-bg     "#f08290")
-      (green-fringe-bg   "#62c86a")
-      (yellow-fringe-bg  "#dbba3f")
-      (blue-fringe-bg    "#82afff")
-      (magenta-fringe-bg "#e0a3ff")
-      (cyan-fringe-bg    "#2fcddf")
-      ;; those background values should only be used for graphs or similar
-      ;; applications where colored blocks are expected to be positioned
-      ;; next to each other
+
+;;; Common accent backgrounds
+
+      (bg-red      "#ff8f88")
+      (bg-green    "#8adf80")
+      (bg-yellow   "#fac200")
+      (bg-blue     "#cbcfff")
+      (bg-magenta  "#df8fff")
+      (bg-cyan     "#88c8ff")
+
+      (bg-red-subtle      "#ffcfbf")
+      (bg-green-subtle    "#b3fabf")
+      (bg-yellow-subtle   "#fff576")
+      (bg-blue-subtle     "#ccdfff")
+      (bg-magenta-subtle  "#ffddff")
+      (bg-cyan-subtle     "#bfefff")
+
+;;; Graphs
+
       (red-graph-0-bg     "#ef7969")
       (red-graph-1-bg     "#ffaab4")
       (green-graph-0-bg   "#4faa09")
@@ -168,91 +148,53 @@ which corresponds to a minimum contrast in relative luminance of
       (magenta-graph-1-bg "#fad0ff")
       (cyan-graph-0-bg    "#70d3f0")
       (cyan-graph-1-bg    "#afefff")
-      ;; the following are for cases where both the foreground and the
-      ;; background need to have a similar hue and so must be combined
-      ;; with themselves, even though the foregrounds can be paired with
-      ;; any of the base backgrounds
-      (red-refine-bg      "#ffcccc") (red-refine-fg      "#780000")
-      (green-refine-bg    "#aceaac") (green-refine-fg    "#004c00")
-      (yellow-refine-bg   "#fff29a") (yellow-refine-fg   "#604000")
-      (blue-refine-bg     "#8fcfff") (blue-refine-fg     "#002f88")
-      (magenta-refine-bg  "#ffccff") (magenta-refine-fg  "#770077")
-      (cyan-refine-bg     "#8eecf4") (cyan-refine-fg     "#004850")
-      ;; the "nuanced" backgrounds can be combined with all of the above
-      ;; foregrounds, as well as those included here, while the "nuanced"
-      ;; foregrounds can in turn also be combined with bg-main, bg-dim,
-      ;; bg-alt
-      (red-nuanced-bg      "#fff1f0") (red-nuanced-fg      "#5f0000")
-      (green-nuanced-bg    "#ecf7ed") (green-nuanced-fg    "#004000")
-      (yellow-nuanced-bg   "#fff3da") (yellow-nuanced-fg   "#3f3000")
-      (blue-nuanced-bg     "#f3f3ff") (blue-nuanced-fg     "#201f55")
-      (magenta-nuanced-bg  "#fdf0ff") (magenta-nuanced-fg  "#541f4f")
-      (cyan-nuanced-bg     "#ebf6fa") (cyan-nuanced-fg     "#0f3360")
-      ;; the following are reserved for specific cases
-      ;;
-      ;; bg-hl-line is between bg-dim and bg-alt, so it should
-      ;; work with all accents that cover those two, plus bg-main
-      ;;
-      ;; bg-hl-alt and bg-hl-alt-intense should only be used when no
-      ;; other grayscale or fairly neutral background is available to
-      ;; properly draw attention to a given construct
-      ;;
-      ;; bg-header is between bg-active and bg-inactive, so it
-      ;; can be combined with any of the "active" values, plus the
-      ;; "special" and base foreground colors
-      ;;
-      ;; bg-paren-match, bg-paren-match-intense, bg-region,
-      ;; bg-region-accent and bg-tab-active must be combined with fg-main,
-      ;; while bg-tab-inactive should be combined with fg-dim, whereas
-      ;; bg-tab-inactive-alt goes together with fg-main
-      ;;
-      ;; bg-completion-* and bg-char-* variants are meant to be combined
-      ;; with fg-main
-      ;;
-      ;; fg-escape-char-construct and fg-escape-char-backslash can
-      ;; be combined bg-main, bg-dim, bg-alt
-      ;;
-      ;; fg-lang-error, fg-lang-warning, fg-lang-note can be
-      ;; combined with bg-main, bg-dim, bg-alt
-      ;;
-      ;; fg-mark-sel, fg-mark-del, fg-mark-alt can be combined
-      ;; with bg-main, bg-dim, bg-alt, bg-hl-line
-      ;;
-      ;; fg-unfocused must be combined with bg-main
-      ;;
-      ;; fg-docstring, fg-comment-yellow can be combined with
-      ;; bg-main, bg-dim, bg-alt
-      ;;
-      ;; the window divider colors apply to faces with just an fg value
-      ;;
-      ;; all pairs are combinable with themselves
-      (bg-hl-line                "#f2eff3")
-      (bg-hl-line-intense        "#e0e0e0")
-      (bg-hl-line-intense-accent "#cfe2ff")
-      (bg-paren-match            "#e0af82")
-      (bg-paren-match-intense    "#c488ff")
-      (bg-paren-expression       "#dff0ff")
-      (bg-region                 "#bcbcbc")
-      (bg-region-accent          "#afafef")
-      (bg-region-accent-subtle   "#efdfff")
 
-      (bg-completion        "#b7dbff")
-      (bg-completion-subtle "#def3ff")
+;;; Special purpose
+
+      (bg-completion           "#b0c0fc")
+      (bg-hover                "#94d4ff")
+      (bg-hover-alt            "#c0c3ef")
+      (bg-hl-line              "#d0d6ec")
+      (bg-paren-match          "#e0af82")
+      (bg-paren-match-intense  "#c488ff")
+      (bg-paren-expression     "#dff0ff")
+      (bg-region               "#bcbcbc")
+      (bg-region-accent        "#a0a0e9")
+      (bg-region-accent-subtle "#efdfff")
+      (bg-prompt               "#afe5df")
 
       (bg-char-0 "#7feaff")
       (bg-char-1 "#ffaaff")
       (bg-char-2 "#dff000")
 
-      (bg-tab-active              "#f6f6f6")
-      (bg-tab-inactive            "#b7b7b7")
-      (bg-tab-inactive-accent     "#a9b4f6")
-      (bg-tab-inactive-alt        "#9f9f9f")
-      (bg-tab-inactive-alt-accent "#9fa6d0")
+;;; Diffs
+
+      (bg-added          "#d5f8d5")
+      (bg-added-faint    "#e5ffe5")
+      (bg-added-refine   "#c6e8c6")
+      (bg-added-intense  "#8cca8c")
+
+      (bg-added-deuteran         "#dbdbff")
+      (bg-added-faint-deuteran   "#e4e4ff")
+      (bg-added-refine-deuteran  "#c0c0ef")
+      (bg-added-intense-deuteran "#8fcfff")
+
+      (bg-changed         "#ffdfa9")
+      (bg-changed-faint   "#ffefbf")
+      (bg-changed-refine  "#fac090")
+      (bg-changed-intense "#dfd23a")
+
+      (bg-removed         "#ffd8d5")
+      (bg-removed-faint   "#ffe9e9")
+      (bg-removed-refine  "#f3b5af")
+      (bg-removed-intense "#d84a4f")
+
+;;;; Mappings
 
       (builtin magenta-warmer)
-      (comment fg-alt)
+      (comment red-faint)
       (constant blue-cooler)
-      (docstring fg-special-cold)
+      (docstring green-faint)
       (fnname magenta)
       (keyword magenta-cooler)
       (preprocessor red-cooler)
@@ -262,26 +204,38 @@ which corresponds to a minimum contrast in relative luminance of
 
       (date cyan)
       (keybind blue-cooler)
-      (link blue-cooler)
-      (link-visited magenta-cooler)
-      (name fg-special-cold)
+      (link blue-warmer)
+      (link-alt magenta)
+      (name magenta-warmer)
       (prompt cyan-cooler)
-      (bg-prompt cyan-refine-bg)
 
       (rx-construct green-cooler)
       (rx-backslash magenta)
+
+      (search-current bg-yellow)
+      (search-lazy bg-cyan)
+      (search-match bg-magenta-subtle)
 
       (err red)
       (warning yellow)
       (success green)
       (note cyan)
 
+      (underline-err red-intense)
+      (underline-warning yellow-intense)
+      (underline-note cyan-intense)
+
+      (accent-0 blue-warmer)
+      (accent-1 magenta-warmer)
+      (accent-2 green-cooler)
+      (accent-3 red-warmer)
+
       (mail-0 blue-warmer)
       (mail-1 magenta)
       (mail-2 green-warmer)
       (mail-3 yellow-warmer)
       (mail-4 cyan)
-      (mail-recipient magenta-cooler)
+      (mail-recipient magenta-cooler) ; compare with name and keep them similar
       (mail-subject blue-cooler)
       (mail-other magenta-warmer)
 
@@ -308,28 +262,16 @@ which corresponds to a minimum contrast in relative luminance of
       (rainbow-0 fg-main)
       (rainbow-1 magenta-cooler)
       (rainbow-2 cyan-intense)
-      (rainbow-3 yellow-intense)
-      (rainbow-4 magenta-intense)
-      (rainbow-5 green-intense)
-      (rainbow-6 red-cooler)
+      (rainbow-3 red-cooler)
+      (rainbow-4 green-intense)
+      (rainbow-5 magenta-intense)
+      (rainbow-6 yellow-intense)
       (rainbow-7 blue-intense)
-      (rainbow-8 yellow)
+      (rainbow-8 magenta)
 
-      (bg-diff-heading                "#b7cfe0") (fg-diff-heading                "#041645")
-      (bg-diff-added                  "#d4fad4") (fg-diff-added                  "#004500")
-      (bg-diff-added-deuteran         "#daefff") (fg-diff-added-deuteran         "#002044")
-      (bg-diff-changed                "#fcefcf") (fg-diff-changed                "#524200")
-      (bg-diff-removed                "#ffe8ef") (fg-diff-removed                "#691616")
-
-      (bg-diff-refine-added           "#94cf94") (fg-diff-refine-added           "#002a00")
-      (bg-diff-refine-added-deuteran  "#77c0ef") (fg-diff-refine-added-deuteran  "#000035")
-      (bg-diff-refine-changed         "#cccf8f") (fg-diff-refine-changed         "#302010")
-      (bg-diff-refine-removed         "#daa2b0") (fg-diff-refine-removed         "#400000")
-
-      (bg-diff-focus-added            "#bbeabb") (fg-diff-focus-added            "#002c00")
-      (bg-diff-focus-added-deuteran   "#bacfff") (fg-diff-focus-added-deuteran   "#001755")
-      (bg-diff-focus-changed          "#ecdfbf") (fg-diff-focus-changed          "#392900")
-      (bg-diff-focus-removed          "#efcbcf") (fg-diff-focus-removed          "#4a0000"))
+      (prose-code cyan)
+      (prose-macro magenta-cooler)
+      (prose-verbatim magenta-warmer))
     "The entire palette of the `modus-operandi' theme.
 Each element has the form (NAME HEX) with the former as a
 symbol and the latter as a string.")
