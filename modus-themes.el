@@ -3597,7 +3597,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(modus-themes-completion-match-3
       ((,c ,@(modus-themes--completion-match
                   'matches bg-special-faint-warm yellow
-                  yellow-subtle-bg orange-intense))))
+                  yellow-subtle-bg yellow-intense))))
     `(modus-themes-completion-selected
       ((,c ,@(modus-themes--completion-line
                   'selection bg-inactive blue-warmer
@@ -3770,10 +3770,7 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(all-the-icons-lsilver ((,c :foreground ,fg-docstring)))
     `(all-the-icons-lyellow ((,c :foreground ,yellow-warmer)))
     `(all-the-icons-maroon ((,c :foreground ,magenta-intense)))
-    `(all-the-icons-orange ((,c :foreground ,orange-intense)))
     `(all-the-icons-pink ((,c :foreground ,fg-special-calm)))
-    `(all-the-icons-purple ((,c :foreground ,magenta-cooler)))
-    `(all-the-icons-purple-alt ((,c :foreground ,purple-intense)))
     `(all-the-icons-red ((,c :foreground ,red-intense)))
     `(all-the-icons-red-warmer ((,c :foreground ,red-cooler)))
     `(all-the-icons-silver ((,c :foreground ,fg-special-cold)))
@@ -6133,14 +6130,14 @@ by virtue of calling either of `modus-themes-load-operandi' and
     `(rainbow-delimiters-base-error-face ((,c :background ,red-subtle-bg :foreground ,fg-main)))
     `(rainbow-delimiters-base-face ((,c :foreground ,fg-main)))
     `(rainbow-delimiters-depth-1-face ((,c :foreground ,fg-main)))
-    `(rainbow-delimiters-depth-2-face ((,c :foreground ,magenta-intense)))
+    `(rainbow-delimiters-depth-2-face ((,c :foreground ,magenta-cooler)))
     `(rainbow-delimiters-depth-3-face ((,c :foreground ,cyan-intense)))
-    `(rainbow-delimiters-depth-4-face ((,c :foreground ,orange-intense)))
-    `(rainbow-delimiters-depth-5-face ((,c :foreground ,purple-intense)))
+    `(rainbow-delimiters-depth-4-face ((,c :foreground ,yellow-intense)))
+    `(rainbow-delimiters-depth-5-face ((,c :foreground ,magenta-intense)))
     `(rainbow-delimiters-depth-6-face ((,c :foreground ,green-intense)))
-    `(rainbow-delimiters-depth-7-face ((,c :foreground ,red-intense)))
+    `(rainbow-delimiters-depth-7-face ((,c :foreground ,red-cooler)))
     `(rainbow-delimiters-depth-8-face ((,c :foreground ,blue-intense)))
-    `(rainbow-delimiters-depth-9-face ((,c :foreground ,yellow-intense)))
+    `(rainbow-delimiters-depth-9-face ((,c :foreground ,yellow)))
     `(rainbow-delimiters-mismatched-face ((,c :inherit (bold modus-themes-refine-yellow))))
     `(rainbow-delimiters-unmatched-face ((,c :inherit (bold modus-themes-refine-red))))
 ;;;;; rcirc
