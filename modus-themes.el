@@ -2387,41 +2387,15 @@ list given LIST-PRED, using DEFAULT as a fallback."
     val))
 
 (defun modus-themes--palette (theme)
-  "Return color palette for Modus theme THEME.
-THEME is a symbol, either `modus-operandi' or `modus-vivendi'."
-  (pcase theme
-    ('modus-operandi
-     (append modus-themes-operandi-color-overrides
-             modus-themes-operandi-colors))
-    ('modus-vivendi
-     (append modus-themes-vivendi-color-overrides
-             modus-themes-vivendi-colors))
-    (_theme
-     (error "'%s' is not a Modus theme" theme))))
+  "Return THEME palette as a symbol."
+  (when theme
+    (intern (format "%s-palette" theme))))
 
-(defvar modus-themes-faces)
-(defvar modus-themes-custom-variables)
-
-(defmacro modus-themes-theme (name)
-  "Bind NAME's color palette around face specs and variables.
-
-NAME should be the proper name of a Modus theme, either
-`modus-operandi' or `modus-vivendi'.
-
-Face specifications are passed to `custom-theme-set-faces'.
-While variables are handled by `custom-theme-set-variables'.
-Those are stored in `modus-themes-faces' and
-`modus-themes-custom-variables' respectively."
-  (declare (indent 0))
-  (let ((palette-sym (gensym))
-        (colors (mapcar #'car modus-themes-operandi-colors)))
-    `(let* ((class '((class color) (min-colors 89)))
-            (,palette-sym (modus-themes--palette ',name))
-            ,@(mapcar (lambda (color)
-                        (list color `(alist-get ',color ,palette-sym)))
-                      colors))
-       (custom-theme-set-faces ',name ,@modus-themes-faces)
-       (custom-theme-set-variables ',name ,@modus-themes-custom-variables))))
+(defun modus-themes--current-theme-palette ()
+  "Return palette of active Ef theme, else produce `user-error'."
+  (if-let* ((palette (modus-themes--palette (modus-themes--current-theme))))
+      (symbol-value palette)
+    (user-error "No enabled Modus theme could be found")))
 
 (defun modus-themes--current-theme ()
   "Return current modus theme."
@@ -3474,21 +3448,6 @@ for DARK-COLOR.  LIGHT-COLOR and DARK-COLOR are keys in
                   (_theme
                    (error "'%s' is not a Modus theme" theme)))))
     (alist-get color (modus-themes--palette theme))))
-
-(defmacro modus-themes-with-colors (&rest body)
-  "Evaluate BODY with colors from current palette bound.
-For colors bound, see `modus-themes-operandi-colors' or
-`modus-themes-vivendi-colors'."
-  (declare (indent 0))
-  (let ((palette-sym (gensym))
-        (colors (mapcar #'car modus-themes-operandi-colors)))
-    `(let* ((class '((class color) (min-colors 89)))
-            (,palette-sym (modus-themes-current-palette))
-            ,@(mapcar (lambda (color)
-                        (list color `(alist-get ',color ,palette-sym)))
-                      colors))
-       (ignore class ,@colors)          ; Silence unused variable warnings
-       ,@body)))
 
 
 
@@ -7087,6 +7046,58 @@ by virtue of calling either of `modus-themes-load-operandi' and
             ("docker" modus-themes-nuanced-cyan)))
       `(org-src-block-faces '())))
   "Custom variables for `modus-themes-theme'.")
+
+;;; Theme macros
+
+;;;; Instantiate a Modus theme
+
+;;;###autoload
+(defmacro modus-themes-theme (name palette)
+  "Bind NAME's color PALETTE around face specs and variables.
+Face specifications are passed to `custom-theme-set-faces'.
+While variables are handled by `custom-theme-set-variables'.
+Those are stored in `modus-themes-faces' and
+`modus-themes-custom-variables' respectively."
+  (declare (indent 0))
+  (let ((sym (gensym))
+        (colors (mapcar #'car (symbol-value palette))))
+    `(let* ((c '((class color) (min-colors 256)))
+            (,sym ,palette)
+            ,@(mapcar (lambda (color)
+                        (list color
+                              `(let* ((value (car (alist-get ',color ,sym))))
+                                 (if (stringp value)
+                                     value
+                                   (car (alist-get value ,sym))))))
+                      colors))
+       (custom-theme-set-faces ',name ,@modus-themes-faces)
+       (custom-theme-set-variables ',name ,@modus-themes-custom-variables))))
+
+;;;; Use theme colors
+
+(defmacro modus-themes-with-colors (&rest body)
+  "Evaluate BODY with colors from current palette bound."
+  (declare (indent 0))
+  (let* ((sym (gensym))
+         ;; NOTE 2022-08-23: We just give it a sample palette at this
+         ;; stage.  It only needs to collect each car.  Then we
+         ;; instantiate the actual theme's palette.  We have to do this
+         ;; otherwise the macro does not work properly when called from
+         ;; inside a function.
+         (colors (mapcar #'car (modus-themes--current-theme-palette))))
+    `(let* ((c '((class color) (min-colors 256)))
+            (,sym (modus-themes--current-theme-palette))
+            ,@(mapcar (lambda (color)
+                        (list color
+                              `(let* ((value (car (alist-get ',color ,sym))))
+                                 (if (stringp value)
+                                     value
+                                   (car (alist-get value ,sym))))))
+                      colors))
+       (ignore c ,@colors)            ; Silence unused variable warnings
+       ,@body)))
+
+;;;; Add themes from package to path
 
 ;;;###autoload
 (when load-file-name
