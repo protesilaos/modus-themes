@@ -126,9 +126,7 @@ demonstration:
       modus-themes-bold-constructs nil
       modus-themes-mixed-fonts nil
       modus-themes-subtle-line-numbers nil
-      modus-themes-intense-mouseovers nil
       modus-themes-deuteranopia t
-      modus-themes-tabs-accented t
       modus-themes-variable-pitch-ui nil
       modus-themes-inhibit-reload t ; only applies to `customize-set-variable' and related
 
@@ -151,44 +149,26 @@ demonstration:
       ;; Same as above:
       ;; modus-themes-mode-line '(accented borderless 4 0.9)
 
-      ;; Options for `modus-themes-markup' are either nil, or a list
-      ;; that can combine any of `bold', `italic', `background',
-      ;; `intense'.
-      modus-themes-markup '(background italic)
-
       ;; Options for `modus-themes-syntax' are either nil (the default),
       ;; or a list of properties that may include any of those symbols:
       ;; `faint', `yellow-comments', `green-strings', `alt-syntax'
       modus-themes-syntax nil
-
-      ;; Options for `modus-themes-hl-line' are either nil (the default),
-      ;; or a list of properties that may include any of those symbols:
-      ;; `accented', `underline', `intense'
-      modus-themes-hl-line '(underline accented)
 
       ;; Options for `modus-themes-paren-match' are either nil (the
       ;; default), or a list of properties that may include any of those
       ;; symbols: `bold', `intense', `underline'
       modus-themes-paren-match '(bold intense)
 
-      ;; Options for `modus-themes-links' are either nil (the default),
-      ;; or a list of properties that may include any of those symbols:
-      ;; `neutral-underline' OR `no-underline', `faint' OR `no-color',
-      ;; `bold', `italic', `background'
-      modus-themes-links '(neutral-underline background)
-
-      ;; Options for `modus-themes-box-buttons' are either nil (the
-      ;; default), or a list that can combine any of `flat', `accented',
-      ;; `faint', `variable-pitch', `underline', `all-buttons', the
-      ;; symbol of any font weight as listed in `modus-themes-weights',
-      ;; and a floating point number (e.g. 0.9) for the height of the
-      ;; button's text.
-      modus-themes-box-buttons '(variable-pitch flat faint 0.9)
+      ;; Options for `modus-themes-links' are either nil (the
+      ;; default), or a list of properties that may include any of
+      ;; those symbols: `neutral-underline' OR `no-underline', `bold',
+      ;; `italic'.
+      modus-themes-links '(neutral-underline)
 
       ;; Options for `modus-themes-prompts' are either nil (the
       ;; default), or a list of properties that may include any of those
-      ;; symbols: `background', `bold', `gray', `intense', `italic'
-      modus-themes-prompts '(intense bold)
+      ;; symbols: `background', `bold', `italic'.
+      modus-themes-prompts '(italic bold)
 
       ;; The `modus-themes-completions' is an alist that reads three
       ;; keys: `matches', `selection', `popup'.  Each accepts a nil
@@ -206,8 +186,6 @@ demonstration:
       modus-themes-completions '((matches . (extrabold))
                                  (selection . (semibold accented))
                                  (popup . (accented intense)))
-
-      modus-themes-mail-citations nil ; {nil,'intense,'faint,'monochrome}
 
       ;; Options for `modus-themes-region' are either nil (the default),
       ;; or a list of properties that may include any of those symbols:
@@ -227,8 +205,8 @@ demonstration:
         (habit . traffic-light))
 
       modus-themes-headings ; this is an alist: read the manual or its doc string
-      '((1 . (overline background variable-pitch 1.3))
-        (2 . (rainbow overline 1.1))
+      '((1 . (variable-pitch 1.3))
+        (2 . (rainbow 1.1))
         (t . (semibold))))
 ```
 
