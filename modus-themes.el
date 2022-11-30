@@ -2319,7 +2319,7 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(avy-goto-char-timer-face ((,c :inherit (modus-themes-intense-neutral bold))))
     `(avy-lead-face ((,c :inherit (bold modus-themes-reset-soft) :background ,bg-char-0)))
     `(avy-lead-face-0 ((,c :inherit (bold modus-themes-reset-soft) :background ,bg-char-1)))
-    `(avy-lead-face-1 ((,c :inherit (modus-themes-special-warm modus-themes-reset-soft))))
+    `(avy-lead-face-1 ((,c :inherit modus-themes-reset-soft :background ,bg-inactive)))
     `(avy-lead-face-2 ((,c :inherit (bold modus-themes-reset-soft) :background ,bg-char-2)))
 ;;;;; aw (ace-window)
     `(aw-background-face ((,c :foreground "gray50")))
@@ -3138,7 +3138,7 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(ioccur-cursor ((,c :foreground ,fg-main)))
     `(ioccur-invalid-regexp ((,c :foreground ,red)))
     `(ioccur-match-face ((,c :inherit match)))
-    `(ioccur-match-overlay-face ((,c :inherit modus-themes-special-cold :extend t)))
+    `(ioccur-match-overlay-face ((,c :background ,bg-inactive :extend t)))
     `(ioccur-num-line-face ((,c :inherit shadow)))
     `(ioccur-overlay-face ((,c :inherit modus-themes-intense-blue :extend t)))
     `(ioccur-regexp-face ((,c :inherit (modus-themes-intense-magenta bold))))
@@ -3170,8 +3170,8 @@ C1 and C2 are color values written in hexadecimal RGB."
 ;;;;; jira (org-jira)
     `(jiralib-comment-face ((,c :background ,bg-inactive)))
     `(jiralib-comment-header-face ((,c :inherit bold)))
-    `(jiralib-issue-info-face ((,c :inherit modus-themes-special-warm)))
-    `(jiralib-issue-info-header-face ((,c :inherit (modus-themes-special-warm bold))))
+    `(jiralib-issue-info-face ((,c :background ,bg-inactive)))
+    `(jiralib-issue-info-header-face ((,c :inherit bold :background ,bg-inactive)))
     `(jiralib-issue-summary-face ((,c :inherit bold)))
     `(jiralib-link-filter-face ((,c :underline t)))
     `(jiralib-link-issue-face ((,c :underline t)))
@@ -3993,7 +3993,7 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(swiper-match-face-3 ((,c :inherit modus-themes-completion-match-1)))
     `(swiper-match-face-4 ((,c :inherit modus-themes-completion-match-2)))
 ;;;;; symbol-overlay
-    `(symbol-overlay-default-face ((,c :inherit modus-themes-special-warm)))
+    `(symbol-overlay-default-face ((,c :background ,bg-inactive)))
     `(symbol-overlay-face-1 ((,c :inherit modus-themes-intense-blue)))
     `(symbol-overlay-face-2 ((,c :inherit modus-themes-intense-magenta)))
     `(symbol-overlay-face-3 ((,c :inherit modus-themes-intense-yellow)))
@@ -4069,7 +4069,7 @@ C1 and C2 are color values written in hexadecimal RGB."
 ;;;;; textsec
     `(textsec-suspicious (( )))
 ;;;;; transient
-    `(transient-active-infix ((,c :inherit modus-themes-special-mild)))
+    `(transient-active-infix ((,c :inherit highlight)))
     `(transient-amaranth ((,c :inherit bold :foreground ,yellow-warmer)))
     ;; Placate the compiler for what is a spurious warning.  We also
     ;; have to do this with `eldoc-highlight-function-argument'.
