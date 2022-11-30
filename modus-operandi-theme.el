@@ -113,9 +113,9 @@ which corresponds to a minimum contrast in relative luminance of
       (magenta-cooler  "#5f1ab6")
       (magenta-faint   "#752f50")
       (magenta-intense "#dd22dd")
-      (cyan            "#00538b")
+      (cyan            "#005e8b")
       (cyan-warmer     "#3f578f")
-      (cyan-cooler     "#005a5f")
+      (cyan-cooler     "#005f5f")
       (cyan-faint      "#005077")
       (cyan-intense    "#008899")
 
