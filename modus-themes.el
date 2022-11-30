@@ -2673,8 +2673,7 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(el-search-occur-match ((,c :inherit match)))
 ;;;;; eldoc
     ;; NOTE: see https://github.com/purcell/package-lint/issues/187
-    ;; TODO 2022-11-29: Review ELDOC face and do the same for Geiser
-    (list 'eldoc-highlight-function-argument `((,c :inherit bold :background ,bg-dim :foreground ,accent-1)))
+    (list 'eldoc-highlight-function-argument `((,c :inherit modus-themes-mark-alt)))
 ;;;;; eldoc-box
     `(eldoc-box-body ((,c :background ,bg-dim :foreground ,fg-main)))
     `(eldoc-box-border ((,c :background ,border)))
@@ -2865,7 +2864,7 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(forge-topic-unmerged ((,c :inherit modus-themes-slant :foreground ,warning)))
     `(forge-topic-unread ((,c :inherit bold :foreground ,fg-main)))
 ;;;;; geiser
-    `(geiser-font-lock-autodoc-current-arg `((,c :inherit bold :foreground ,magenta-intense)))
+    `(geiser-font-lock-autodoc-current-arg `((,c :inherit modus-themes-mark-alt)))
     `(geiser-font-lock-autodoc-identifier ((,c :foreground ,docstring)))
     `(geiser-font-lock-doc-button ((,c :inherit button)))
     `(geiser-font-lock-doc-link ((,c :inherit button)))
