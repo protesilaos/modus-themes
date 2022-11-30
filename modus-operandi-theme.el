@@ -218,7 +218,7 @@ which corresponds to a minimum contrast in relative luminance of
       (search-match bg-magenta-subtle)
 
       (err red)
-      (warning yellow)
+      (warning yellow-warmer)
       (success green)
       (note cyan)
 
