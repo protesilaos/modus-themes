@@ -152,7 +152,7 @@ which corresponds to a minimum contrast in relative luminance of
 
 ;;; Special purpose
 
-      (bg-completion           "#b0e4f7")
+      (bg-completion           "#baeaff")
       (bg-hover                "#94d4ff")
       (bg-hover-alt            "#c0c3ef")
       (bg-hl-line              "#d0d6ec")
@@ -162,7 +162,7 @@ which corresponds to a minimum contrast in relative luminance of
       (bg-region               "#bcbcbc")
       (bg-region-accent        "#a0a0e9")
       (bg-region-accent-subtle "#efdfff")
-      (bg-prompt               "#afe5df")
+      (bg-prompt               "#bbe5d0")
 
       (bg-char-0 "#7feaff")
       (bg-char-1 "#ffaaff")
