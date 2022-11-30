@@ -2334,15 +2334,15 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(binder-sidebar-tags ((,c :foreground ,variable)))
 ;;;;; bongo
     `(bongo-album-title (( )))
-    `(bongo-artist ((,c :foreground ,rainbow-0)))
+    `(bongo-artist ((,c :foreground ,variable)))
     `(bongo-currently-playing-track ((,c :inherit bold)))
     `(bongo-elapsed-track-part ((,c :background ,bg-inactive :underline t)))
     `(bongo-filled-seek-bar ((,c :background ,bg-hover)))
-    `(bongo-marked-track ((,c :inherit ef-themes-mark-other)))
+    `(bongo-marked-track ((,c :inherit modus-themes-mark-alt)))
     `(bongo-marked-track-line ((,c :background ,bg-dim)))
     `(bongo-played-track ((,c :inherit shadow :strike-through t)))
     `(bongo-track-length ((,c :inherit shadow)))
-    `(bongo-track-title ((,c :foreground ,rainbow-1)))
+    `(bongo-track-title ((,c :foreground ,builtin)))
     `(bongo-unfilled-seek-bar ((,c :background ,bg-dim)))
 ;;;;; boon
     `(boon-modeline-cmd ((,c :inherit modus-themes-intense-blue)))
