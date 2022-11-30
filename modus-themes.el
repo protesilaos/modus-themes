@@ -3670,7 +3670,7 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(org-special-keyword ((,c :inherit (shadow modus-themes-fixed-pitch))))
     `(org-table ((,c :inherit modus-themes-fixed-pitch :foreground ,fg-alt)))
     `(org-table-header ((,c :inherit (bold org-table))))
-    `(org-tag ((,c :foreground ,fg-alt)))
+    `(org-tag ((,c :foreground ,fg-dim)))
     `(org-tag-group ((,c :inherit (bold org-tag))))
     `(org-target ((,c :underline t)))
     `(org-time-grid ((,c :foreground ,fg-dim)))
