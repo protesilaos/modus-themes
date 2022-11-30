@@ -2606,8 +2606,8 @@ C1 and C2 are color values written in hexadecimal RGB."
 ;;;;; display-fill-column-indicator-mode
     `(fill-column-indicator ((,c :height 1 :background ,bg-region :foreground ,bg-region)))
 ;;;;; doom-modeline
-    `(doom-modeline-bar ((,c :inherit modus-themes-intense-blue)))
-    `(doom-modeline-bar-inactive ((,c :background ,bg-inactive)))
+    `(doom-modeline-bar ((,c :background ,blue)))
+    `(doom-modeline-bar-inactive ((,c :background "gray50")))
     `(doom-modeline-battery-charging ((,c :foreground ,success)))
     `(doom-modeline-battery-critical ((,c :underline t :foreground ,err)))
     `(doom-modeline-battery-error ((,c :underline t :foreground ,err)))
