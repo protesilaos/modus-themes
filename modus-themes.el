@@ -2165,7 +2165,7 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(error ((,c :inherit bold :foreground ,err)))
     `(escape-glyph ((,c :foreground ,err)))
     `(file-name-shadow ((,c :inherit shadow)))
-    `(header-line ((,c :inherit modus-themes-ui-variable-pitch :background ,bg-active)))
+    `(header-line ((,c :inherit modus-themes-ui-variable-pitch :background ,bg-inactive)))
     `(header-line-highlight ((,c :inherit highlight)))
     `(help-argument-name ((,c :inherit modus-themes-slant :foreground ,variable)))
     `(help-key-binding ((,c :inherit modus-themes-key-binding)))
