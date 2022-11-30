@@ -75,6 +75,7 @@ which corresponds to a minimum contrast in relative luminance of
   (defconst modus-vivendi-palette
     '(
 ;;; Basic values
+
       (bg-main          "#000000")
       (bg-dim           "#1e1e1e")
       (fg-main          "#ffffff")

@@ -75,6 +75,7 @@ which corresponds to a minimum contrast in relative luminance of
   (defconst modus-operandi-palette
     '(
 ;;; Basic values
+
       (bg-main          "#ffffff")
       (bg-dim           "#f0f0f0")
       (fg-main          "#000000")
@@ -97,23 +98,23 @@ which corresponds to a minimum contrast in relative luminance of
       (green-cooler    "#00663f")
       (green-faint     "#104f30")
       (green-intense   "#008900")
-      (yellow          "#665800")
+      (yellow          "#6f5500")
       (yellow-warmer   "#814900")
       (yellow-cooler   "#6f533f")
       (yellow-faint    "#505300")
       (yellow-intense  "#808000")
       (blue            "#0031a9")
-      (blue-warmer     "#2544bb")
-      (blue-cooler     "#0000c0")
+      (blue-warmer     "#354fcf")
+      (blue-cooler     "#0000b0")
       (blue-faint      "#003497")
       (blue-intense    "#0000ff")
       (magenta         "#721045")
       (magenta-warmer  "#8f0075")
-      (magenta-cooler  "#5317ac")
+      (magenta-cooler  "#5f1ab6")
       (magenta-faint   "#752f50")
       (magenta-intense "#dd22dd")
       (cyan            "#00538b")
-      (cyan-warmer     "#30517f")
+      (cyan-warmer     "#3f578f")
       (cyan-cooler     "#005a5f")
       (cyan-faint      "#005077")
       (cyan-intense    "#008899")
@@ -151,7 +152,7 @@ which corresponds to a minimum contrast in relative luminance of
 
 ;;; Special purpose
 
-      (bg-completion           "#b0c0fc")
+      (bg-completion           "#b0e4f7")
       (bg-hover                "#94d4ff")
       (bg-hover-alt            "#c0c3ef")
       (bg-hl-line              "#d0d6ec")
@@ -228,7 +229,7 @@ which corresponds to a minimum contrast in relative luminance of
       (accent-0 blue-warmer)
       (accent-1 red-cooler)
       (accent-2 green-cooler)
-      (accent-3 magenta)
+      (accent-3 yellow-warmer)
 
       (mail-0 blue-warmer)
       (mail-1 magenta)
@@ -247,7 +248,7 @@ which corresponds to a minimum contrast in relative luminance of
       (heading-5 blue-faint)
       (heading-6 yellow-faint)
       (heading-7 red-faint)
-      (heading-8 fg-dim)
+      (heading-8 cyan-warmer)
 
       (heading-rainbow-0 green-cooler)
       (heading-rainbow-1 magenta-cooler)
