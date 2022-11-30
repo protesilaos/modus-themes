@@ -1127,7 +1127,7 @@ The default (a nil value or an empty list) means to only use a
 subtle accented foreground color.
 
 The property `background' applies a background color to the
-prompt's text.  By default, this is a subtle accented value.
+prompt's text.
 
 The property `bold' makes the text use a bold typographic weight.
 Similarly, `italic' adds a slant to the font's forms (italic or
