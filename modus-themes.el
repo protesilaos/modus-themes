@@ -2148,8 +2148,7 @@ C1 and C2 are color values written in hexadecimal RGB."
 ;;;;; absolute essentials
     `(default ((,c :background ,bg-main :foreground ,fg-main)))
     `(cursor ((,c :background ,fg-main)))
-    `(fringe ((,c ,@(modus-themes--fringe bg-main bg-inactive bg-active)
-                  :foreground ,fg-main)))
+    `(fringe ((,c ,@(modus-themes--fringe bg-main bg-inactive bg-active) :foreground ,fg-main)))
     `(vertical-border ((,c :foreground ,border)))
 ;;;;; basic and/or ungrouped styles
     `(bold ((,c :weight bold)))
@@ -2180,7 +2179,7 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(mm-command-output ((,c :foreground ,mail-4)))
     `(mm-uu-extract ((,c :foreground ,mail-4)))
     `(next-error ((,c :inherit modus-themes-subtle-red :extend t)))
-    `(pgtk-im-0 ((,c :inherit modus-themes-refine-cyan)))
+    `(pgtk-im-0 ((,c :inherit modus-themes-intense-cyan)))
     `(read-multiple-choice-face ((,c :inherit (bold modus-themes-mark-alt))))
     `(rectangle-preview ((,c :inherit secondary-selection)))
     `(region ((,c ,@(modus-themes--region bg-region fg-main
@@ -2289,7 +2288,7 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(anzu-match-3 ((,c :inherit modus-themes-subtle-yellow)))
     `(anzu-mode-line ((,c :inherit bold)))
     `(anzu-mode-line-no-match ((,c :inherit error)))
-    `(anzu-replace-highlight ((,c :inherit modus-themes-refine-red :underline t)))
+    `(anzu-replace-highlight ((,c :inherit modus-themes-intense-red :underline t)))
     `(anzu-replace-to ((,c :inherit modus-themes-search-current)))
 ;;;;; auctex and Tex
     `(font-latex-bold-face ((,c :inherit bold)))
@@ -2406,7 +2405,7 @@ C1 and C2 are color values written in hexadecimal RGB."
 ;;;;; clojure-mode
     `(clojure-keyword-face ((,c :inherit font-lock-builtin-face)))
 ;;;;; column-enforce-mode
-    `(column-enforce-face ((,c :inherit modus-themes-refine-yellow)))
+    `(column-enforce-face ((,c :inherit modus-themes-intense-yellow)))
 ;;;;; company-mode
     `(company-echo-common ((,c :inherit modus-themes-completion-match-0)))
     `(company-preview ((,c :background ,bg-dim :foreground ,fg-dim)))
@@ -2794,7 +2793,7 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(evil-ex-info ((,c :inherit font-lock-type-face)))
     `(evil-ex-lazy-highlight ((,c :inherit modus-themes-search-lazy)))
     `(evil-ex-search ((,c :inherit modus-themes-search-current)))
-    `(evil-ex-substitute-matches ((,c :inherit modus-themes-refine-yellow :underline t)))
+    `(evil-ex-substitute-matches ((,c :inherit modus-themes-intense-yellow :underline t)))
     `(evil-ex-substitute-replacement ((,c :inherit modus-themes-search-current)))
 ;;;;; eww
     `(eww-invalid-certificate ((,c :foreground ,err)))
@@ -3064,7 +3063,7 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(ido-subdir ((,c :foreground ,accent-0)))
     `(ido-virtual ((,c :foreground ,accent-1)))
 ;;;;; iedit
-    `(iedit-occurrence ((,c :inherit modus-themes-refine-blue)))
+    `(iedit-occurrence ((,c :inherit modus-themes-intense-blue)))
     `(iedit-read-only-occurrence ((,c :inherit modus-themes-intense-yellow)))
 ;;;;; iflipb
     `(iflipb-current-buffer-face ((,c :inherit bold :foreground ,name)))
@@ -3141,14 +3140,14 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(ioccur-match-face ((,c :inherit match)))
     `(ioccur-match-overlay-face ((,c :inherit modus-themes-special-cold :extend t)))
     `(ioccur-num-line-face ((,c :inherit shadow)))
-    `(ioccur-overlay-face ((,c :inherit modus-themes-refine-blue :extend t)))
+    `(ioccur-overlay-face ((,c :inherit modus-themes-intense-blue :extend t)))
     `(ioccur-regexp-face ((,c :inherit (modus-themes-intense-magenta bold))))
     `(ioccur-title-face ((,c :inherit bold :foreground ,name)))
 ;;;;; isearch, occur, and the like
     `(isearch ((,c :inherit modus-themes-search-current)))
-    `(isearch-fail ((,c :inherit modus-themes-refine-red)))
-    `(isearch-group-1 ((,c :inherit modus-themes-refine-blue)))
-    `(isearch-group-2 ((,c :inherit modus-themes-refine-magenta)))
+    `(isearch-fail ((,c :inherit modus-themes-intense-red)))
+    `(isearch-group-1 ((,c :inherit modus-themes-intense-blue)))
+    `(isearch-group-2 ((,c :inherit modus-themes-intense-magenta)))
     `(lazy-highlight ((,c :inherit modus-themes-search-lazy)))
     `(match ((,c :background ,search-match :foreground ,fg-main)))
     `(query-replace ((,c :inherit modus-themes-intense-red)))
@@ -3765,7 +3764,7 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(popup-scroll-bar-background-face ((,c :background ,bg-active)))
     `(popup-scroll-bar-foreground-face (( )))
     `(popup-summary-face ((,c :background ,bg-active :foreground ,fg-dim)))
-    `(popup-tip-face ((,c :inherit modus-themes-refine-yellow)))
+    `(popup-tip-face ((,c :inherit modus-themes-intense-yellow)))
 ;;;;; prescient
     `(prescient-primary-highlight ((,c :inherit modus-themes-completion-match-0)))
     `(prescient-secondary-highlight ((,c :inherit modus-themes-completion-match-1)))
@@ -3810,8 +3809,8 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(rainbow-delimiters-depth-7-face ((,c :foreground ,rainbow-6)))
     `(rainbow-delimiters-depth-8-face ((,c :foreground ,rainbow-7)))
     `(rainbow-delimiters-depth-9-face ((,c :foreground ,rainbow-8)))
-    `(rainbow-delimiters-mismatched-face ((,c :inherit (bold modus-themes-refine-yellow))))
-    `(rainbow-delimiters-unmatched-face ((,c :inherit (bold modus-themes-refine-red))))
+    `(rainbow-delimiters-mismatched-face ((,c :inherit (bold modus-themes-intense-yellow))))
+    `(rainbow-delimiters-unmatched-face ((,c :inherit (bold modus-themes-intense-red))))
 ;;;;; rcirc
     `(rcirc-bright-nick ((,c :inherit bold :foreground ,accent-2)))
     `(rcirc-dim-nick ((,c :inherit shadow)))
@@ -3830,10 +3829,10 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(recursion-indicator-general ((,c :inherit success)))
     `(recursion-indicator-minibuffer ((,c :inherit error)))
 ;;;;; regexp-builder (re-builder)
-    `(reb-match-0 ((,c :inherit modus-themes-refine-cyan)))
+    `(reb-match-0 ((,c :inherit modus-themes-intense-cyan)))
     `(reb-match-1 ((,c :inherit modus-themes-subtle-magenta)))
     `(reb-match-2 ((,c :inherit modus-themes-subtle-green)))
-    `(reb-match-3 ((,c :inherit modus-themes-refine-yellow)))
+    `(reb-match-3 ((,c :inherit modus-themes-intense-yellow)))
     `(reb-regexp-grouping-backslash ((,c :inherit font-lock-regexp-grouping-backslash)))
     `(reb-regexp-grouping-construct ((,c :inherit font-lock-regexp-grouping-construct)))
 ;;;;; rg (rg.el)
@@ -3996,13 +3995,13 @@ C1 and C2 are color values written in hexadecimal RGB."
 ;;;;; symbol-overlay
     `(symbol-overlay-default-face ((,c :inherit modus-themes-special-warm)))
     `(symbol-overlay-face-1 ((,c :inherit modus-themes-intense-blue)))
-    `(symbol-overlay-face-2 ((,c :inherit modus-themes-refine-magenta)))
+    `(symbol-overlay-face-2 ((,c :inherit modus-themes-intense-magenta)))
     `(symbol-overlay-face-3 ((,c :inherit modus-themes-intense-yellow)))
     `(symbol-overlay-face-4 ((,c :inherit modus-themes-intense-magenta)))
     `(symbol-overlay-face-5 ((,c :inherit modus-themes-intense-red)))
-    `(symbol-overlay-face-6 ((,c :inherit modus-themes-refine-red)))
+    `(symbol-overlay-face-6 ((,c :inherit modus-themes-intense-red)))
     `(symbol-overlay-face-7 ((,c :inherit modus-themes-intense-cyan)))
-    `(symbol-overlay-face-8 ((,c :inherit modus-themes-refine-cyan)))
+    `(symbol-overlay-face-8 ((,c :inherit modus-themes-intense-cyan)))
 ;;;;; syslog-mode
     `(syslog-debug ((,c :inherit italic)))
     `(syslog-error ((,c :inherit error)))
@@ -4193,8 +4192,8 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(vr/group-0 ((,c :inherit modus-themes-intense-blue)))
     `(vr/group-1 ((,c :inherit modus-themes-intense-magenta)))
     `(vr/group-2 ((,c :inherit modus-themes-intense-green)))
-    `(vr/match-0 ((,c :inherit modus-themes-refine-yellow)))
-    `(vr/match-1 ((,c :inherit modus-themes-refine-yellow)))
+    `(vr/match-0 ((,c :inherit modus-themes-intense-yellow)))
+    `(vr/match-1 ((,c :inherit modus-themes-intense-yellow)))
     `(vr/match-separator-face ((,c :inherit (modus-themes-intense-neutral bold))))
 ;;;;; vterm
     `(vterm-color-black ((,c :background "gray35" :foreground "gray35")))
