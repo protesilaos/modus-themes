@@ -990,51 +990,53 @@ as intended with all possible combinations of this user option.
 :end:
 #+vindex: modus-themes-completions
 
+[ Refactored with breaking changes as part of {{{development-version}}}.
+  We remove the optional intense styles as there now is a uniform
+  intensity: the subtle gray selection line is no longer available. ]
+
 Brief: Set the overall style of completion framework interfaces.
 
 Symbol: ~modus-themes-completions~ (=alist= type properties)
 
 This affects Company, Corfu, Flx, Icomplete/Fido, Ido, Ivy, Orderless,
-Vertico.  The value is an alist that takes the form of a =(KEY
-. PROPERTIES)= combination.  =KEY= is a symbol, while =PROPERTIES= is
-a list.  Here is a sample, followed by a description of the
-particularities:
+Vertico.  The value is an alist of expressions, each of which takes
+the form of =(KEY . LIST-OF-PROPERTIES)=.  =KEY= is a symbol, while
+=PROPERTIES= is a list.  Here is a sample, followed by a description
+of the particularities:
 
 #+begin_src emacs-lisp
 (setq modus-themes-completions
-      '((matches . (extrabold background intense))
-        (selection . (semibold accented intense))
-        (popup . (accented))))
+      '((matches . (extrabold background))
+        (selection . (semibold accented))))
 #+end_src
 
 The ~matches~ key refers to the highlighted characters that correspond
-to the user's input.  When its properties are ~nil~ or an empty list,
+to the user's input.  When its properties are nil or an empty list,
 matching characters in the user interface will have a bold weight and
 a colored foreground.  The list of properties may include any of the
 following symbols regardless of the order they may appear in:
 
 - ~background~ to add a background color;
 
-- ~intense~ to increase the overall coloration (also amplifies
-  the ~background~, if present);
-
 - ~underline~ to draw a line below the characters;
 
 - ~italic~ to use a slanted font (italic or oblique forms);
 
-- The symbol of a font weight attribute such as ~light~, ~semibold~, et
-  cetera.  Valid symbols are defined in the ~modus-themes-weights~
-  variable.  The absence of a weight means that bold will be used.
+- The symbol of a font weight attribute such as ~light~,
+  ~semibold~, et cetera.  Valid symbols are defined in the
+  variable ~modus-themes-weights~.  The absence of a weight means
+  that bold will be used.
 
 The ~selection~ key applies to the current line or currently matched
 candidate, depending on the specifics of the user interface.  When its
-properties are ~nil~ or an empty list, it has a subtle gray background,
+properties are nil or an empty list, it has a subtle gray background,
 a bold weight, and the base foreground value for the text.  The list
 of properties it accepts is as follows (order is not significant):
 
 - ~accented~ to make the background colorful instead of gray;
 
-- ~text-also~ to apply extra color to the text of the selected line;
+- ~text-also~ to apply extra color to the text of the selected
+  line;
 
 - ~intense~ to increase the overall coloration;
 
@@ -1042,38 +1044,36 @@ of properties it accepts is as follows (order is not significant):
 
 - ~italic~ to use a slanted font (italic or oblique forms);
 
-- The symbol of a font weight attribute such as ~light~, ~semibold~, et
-  cetera.  Valid symbols are defined in the ~modus-themes-weights~
-  variable.  The absence of a weight means that bold will be used.
+- The symbol of a font weight attribute such as ~light~,
+  ~semibold~, et cetera.  Valid symbols are defined in the
+  variable ~modus-themes-weights~.  The absence of a weight means
+  that bold will be used.
 
-The ~popup~ key takes the same values as ~selection~.  The only
-difference is that it applies specifically to user interfaces that
-display an inline popup and thus have slightly different styling
-requirements than the minibuffer.  The two prominent packages are
-=company= and =corfu=.
-
-Apart from specifying each key separately, a fallback list is accepted.
-This is only useful when the desired aesthetic is the same across all
-keys that are not explicitly referenced.  For example, this:
+Apart from specifying each key separately, a catch-all list is
+accepted.  This is only useful when the desired aesthetic is the same
+across all keys that are not explicitly referenced.  For example,
+this:
 
 #+begin_src emacs-lisp
 (setq modus-themes-completions
-      '((t . (extrabold intense))))
+      '((t . (extrabold underline))))
 #+end_src
 
 Is the same as:
 
 #+begin_src emacs-lisp
 (setq modus-themes-completions
-      '((matches . (extrabold intense))
-        (selection . (extrabold intense))
-        (popup . (extrabold intense))))
+      '((matches . (extrabold underline))
+        (selection . (extrabold underline))))
 #+end_src
 
-In the case of the fallback, any property that does not apply to the
-corresponding key is simply ignored (~matches~ does not have ~accented~
-and ~text-also~, while ~selection~ and ~popup~ do not have
+In the case of the catch-all, any property that does not apply to the
+corresponding key is simply ignored (~matches~ does not have
+~accented~ and ~text-also~, while ~selection~ does not have
 ~background~).
+
+Check the manual for tweaking ~bold~ and ~italic~ faces: Info node
+~(modus-themes) Configure bold and italic faces~.
 
 [[#h:2793a224-2109-4f61-a106-721c57c01375][Configure bold and italic faces]].
 
