@@ -110,7 +110,7 @@ which corresponds to a minimum contrast in relative luminance of
       (blue-intense    "#0000ff")
       (magenta         "#721045")
       (magenta-warmer  "#8f0075")
-      (magenta-cooler  "#5f1ab6")
+      (magenta-cooler  "#531ab6")
       (magenta-faint   "#752f50")
       (magenta-intense "#dd22dd")
       (cyan            "#005e8b")
