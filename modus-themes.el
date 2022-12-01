@@ -2237,8 +2237,6 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(diary-anniversary ((,c :foreground ,accent-1)))
     `(diary-time ((,c :foreground ,date)))
     `(holiday ((,c :background ,bg-dim :foreground ,accent-2)))
-;;;;; cfrs
-    `(cfrs-border-color ((,c :background ,border)))
 ;;;;; change-log and log-view (`vc-print-log' and `vc-print-root-log')
     `(change-log-acknowledgment ((,c :foreground ,identifier)))
     `(change-log-conditionals ((,c :inherit error)))

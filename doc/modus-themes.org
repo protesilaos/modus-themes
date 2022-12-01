@@ -3236,7 +3236,6 @@ have lots of extensions, so the "full support" may not be 100% true…
 + boon
 + bookmark
 + calendar and diary
-+ cfrs
 + change-log and log-view (such as ~vc-print-log~, ~vc-print-root-log~)
 + chart
 + cider
