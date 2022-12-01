@@ -232,6 +232,10 @@ which corresponds to a minimum contrast in relative luminance of
       (accent-1 magenta-warmer)
       (accent-2 cyan)
       (accent-3 red)
+      (bg-accent-0 bg-blue-subtle)
+      (bg-accent-1 bg-magenta-subtle)
+      (bg-accent-2 bg-cyan-subtle)
+      (bg-accent-3 bg-red-subtle)
 
       (mail-0 blue)
       (mail-1 yellow-warmer)
