@@ -2579,8 +2579,8 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(dired-subtree-depth-6-face (()))
 ;;;;; diredfl
     `(diredfl-autofile-name ((,c :background ,bg-inactive)))
-    `(diredfl-compressed-file-name ((,c :foreground ,yellow-cooler)))
-    `(diredfl-compressed-file-suffix ((,c :foreground ,red)))
+    `(diredfl-compressed-file-name ((,c :foreground ,warning)))
+    `(diredfl-compressed-file-suffix ((,c :foreground ,err)))
     `(diredfl-date-time ((,c :foreground ,date)))
     `(diredfl-deletion ((,c :inherit dired-flagged)))
     `(diredfl-deletion-file-name ((,c :inherit diredfl-deletion)))
