@@ -2364,7 +2364,7 @@ C1 and C2 are color values written in hexadecimal RGB."
 ;;;;; cfrs
     `(cfrs-border-color ((,c :background ,border)))
 ;;;;; change-log and log-view (`vc-print-log' and `vc-print-root-log')
-    `(change-log-acknowledgment ((,c :inherit shadow)))
+    `(change-log-acknowledgment ((,c :foreground ,identifier)))
     `(change-log-conditionals ((,c :inherit error)))
     `(change-log-date ((,c :foreground ,date)))
     `(change-log-email ((,c :foreground ,fg-alt)))
@@ -2378,7 +2378,7 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(log-edit-unknown-header ((,c :inherit shadow)))
     `(log-view-commit-body (( )))
     `(log-view-file ((,c :inherit bold)))
-    `(log-view-message ((,c :inherit shadow)))
+    `(log-view-message ((,c :foreground ,identifier)))
 ;;;;; cider
     `(cider-deprecated-face ((,c :inherit warning)))
     `(cider-enlightened-face ((,c :box ,warning)))
@@ -2896,10 +2896,10 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(git-gutter-fr:deleted ((,c :inherit modus-themes-intense-red)))
     `(git-gutter-fr:modified ((,c :inherit modus-themes-intense-yellow)))
 ;;;;; git-rebase
-    `(git-rebase-comment-hash ((,c :inherit font-lock-comment-face :foreground ,constant)))
+    `(git-rebase-comment-hash ((,c :inherit (bold font-lock-comment-face) :foreground ,identifier)))
     `(git-rebase-comment-heading  ((,c :inherit (bold font-lock-comment-face))))
     `(git-rebase-description ((,c :foreground ,fg-main)))
-    `(git-rebase-hash ((,c :foreground ,constant)))
+    `(git-rebase-hash ((,c :foreground ,identifier)))
 ;;;;; git-timemachine
     `(git-timemachine-commit ((,c :inherit warning)))
     `(git-timemachine-minibuffer-author-face ((,c :foreground ,name)))
@@ -3284,7 +3284,7 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(magit-diffstat-removed ((,c :inherit error)))
     `(magit-dimmed ((,c :inherit shadow)))
     `(magit-filename ((,c :foreground ,name)))
-    `(magit-hash ((,c :inherit shadow)))
+    `(magit-hash ((,c :foreground ,identifier)))
     `(magit-head ((,c :inherit magit-branch-local)))
     `(magit-header-line ((,c :inherit bold)))
     `(magit-header-line-key ((,c :inherit modus-themes-key-binding)))
