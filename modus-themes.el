@@ -2231,8 +2231,8 @@ C1 and C2 are color values written in hexadecimal RGB."
 ;;;;; calendar and diary
     `(calendar-month-header ((,c :inherit bold)))
     `(calendar-today ((,c :inherit bold :underline t)))
-    `(calendar-weekday-header ((,c :foreground ,fg-alt)))
-    `(calendar-weekend-header ((,c :inherit calendar-weekday-header)))
+    `(calendar-weekday-header ((,c :foreground ,fg-dim)))
+    `(calendar-weekend-header ((,c :foreground ,err)))
     `(diary ((,c :background ,bg-dim :foreground ,accent-0)))
     `(diary-anniversary ((,c :foreground ,accent-1)))
     `(diary-time ((,c :foreground ,date)))
