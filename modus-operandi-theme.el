@@ -237,8 +237,8 @@ which corresponds to a minimum contrast in relative luminance of
       (mail-3 yellow-warmer)
       (mail-4 cyan-cooler)
       (mail-recipient magenta-cooler) ; compare with name and keep them similar
-      (mail-subject blue-cooler)
-      (mail-other magenta-warmer)
+      (mail-subject magenta-warmer)
+      (mail-other cyan)
 
       (heading-0 cyan-cooler)
       (heading-1 fg-main)
