@@ -1862,7 +1862,7 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(boon-modeline-off ((,c :inherit modus-themes-intense-yellow)))
     `(boon-modeline-spc ((,c :inherit modus-themes-intense-green)))
 ;;;;; bookmark
-    `(bookmark-face ((,c :inherit modus-themes-fringe-cyan)))
+    `(bookmark-face ((,c :inherit success)))
     `(bookmark-menu-bookmark ((,c :inherit bold)))
 ;;;;; calendar and diary
     `(calendar-month-header ((,c :inherit bold)))
