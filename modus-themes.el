@@ -3120,9 +3120,9 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(org-agenda-filter-regexp ((,c :inherit bold :foreground ,err)))
     `(org-agenda-filter-tags ((,c :inherit bold :foreground ,err)))
     `(org-agenda-restriction-lock ((,c :background ,bg-dim :foreground ,fg-dim)))
-    `(org-agenda-structure ((,c :inherit modus-themes-heading-0)))
-    `(org-agenda-structure-filter ((,c :inherit org-agenda-structure :foreground ,heading-rainbow-1)))
-    `(org-agenda-structure-secondary ((,c :foreground ,heading-rainbow-1)))
+    `(org-agenda-structure ((,c :inherit modus-themes-heading-0 :foreground ,fg-alt)))
+    `(org-agenda-structure-filter ((,c :inherit org-agenda-structure :foreground ,warning)))
+    `(org-agenda-structure-secondary ((,c :inherit font-lock-doc-face)))
     `(org-archived ((,c :background ,bg-inactive :foreground ,fg-main)))
     `(org-block ((,c :inherit modus-themes-fixed-pitch ,@(modus-themes--org-block fg-main bg-dim))))
     `(org-block-begin-line ((,c :inherit modus-themes-fixed-pitch
