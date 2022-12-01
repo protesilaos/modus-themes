@@ -3304,7 +3304,7 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(quick-peek-border-face ((,c :background ,border :height 1)))
     `(quick-peek-padding-face ((,c :background ,bg-inactive :height 0.15)))
 ;;;;; rainbow-delimiters
-    `(rainbow-delimiters-base-error-face ((,c :background ,bg-red-subtle :foreground ,fg-main)))
+    `(rainbow-delimiters-base-error-face ((,c :inherit modus-themes-subtle-red)))
     `(rainbow-delimiters-base-face ((,c :foreground ,fg-main)))
     `(rainbow-delimiters-depth-1-face ((,c :foreground ,rainbow-0)))
     `(rainbow-delimiters-depth-2-face ((,c :foreground ,rainbow-1)))
