@@ -226,10 +226,10 @@ which corresponds to a minimum contrast in relative luminance of
       (underline-warning yellow-intense)
       (underline-note cyan-intense)
 
-      (accent-0 blue-warmer)
-      (accent-1 red-cooler)
-      (accent-2 green-cooler)
-      (accent-3 yellow-warmer)
+      (accent-0 blue)
+      (accent-1 magenta-warmer)
+      (accent-2 cyan)
+      (accent-3 red)
 
       (mail-0 blue)
       (mail-1 yellow-warmer)
