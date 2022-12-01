@@ -159,7 +159,7 @@ which corresponds to a minimum contrast in relative luminance of
       (bg-paren-match          "#6f3355")
       (bg-paren-match-intense  "#7416b5")
       (bg-paren-expression     "#221044")
-      (bg-region               "#3c3c3c")
+      (bg-region               "#606060")
       (bg-region-accent        "#4f3d88")
       (bg-region-accent-subtle "#240f55")
       (bg-prompt               "#2c5a55")
