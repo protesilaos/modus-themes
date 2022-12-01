@@ -4071,7 +4071,7 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(transient-amaranth ((,c :inherit bold :foreground ,yellow-warmer)))
     ;; Placate the compiler for what is a spurious warning.  We also
     ;; have to do this with `eldoc-highlight-function-argument'.
-    (list 'transient-argument `((,c :inherit (bold modus-themes-subtle-cyan))))
+    (list 'transient-argument `((,c :inherit (bold modus-themes-mark-alt))))
     `(transient-blue ((,c :inherit bold :foreground ,blue)))
     `(transient-disabled-suffix ((,c :inherit modus-themes-intense-red)))
     `(transient-enabled-suffix ((,c :inherit modus-themes-subtle-cyan)))
@@ -4087,7 +4087,7 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(transient-teal ((,c :inherit bold :foreground ,cyan-cooler)))
     `(transient-unreachable ((,c :inherit shadow)))
     `(transient-unreachable-key ((,c :inherit shadow)))
-    `(transient-value ((,c :inherit (bold modus-themes-subtle-yellow))))
+    `(transient-value ((,c :inherit (bold modus-themes-mark-sel))))
 ;;;;; trashed
     `(trashed-deleted ((,c :inherit modus-themes-mark-del)))
     `(trashed-directory ((,c :foreground ,accent-0)))
