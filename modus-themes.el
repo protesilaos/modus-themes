@@ -102,6 +102,8 @@ cover the blue-cyan-magenta side of the spectrum."
   :prefix "modus-themes-"
   :tag "Modus Themes Faces")
 
+(make-obsolete 'modus-themes-operandi-colors nil "4.0.0")
+(make-obsolete 'modus-themes-vivendi-colors nil "4.0.0")
 (make-obsolete 'modus-themes-version nil "4.0.0")
 (make-obsolete 'modus-themes-report-bug nil "4.0.0")
 

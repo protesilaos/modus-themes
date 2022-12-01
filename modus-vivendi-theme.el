@@ -67,11 +67,6 @@ between background and foreground in any given piece of text,
 which corresponds to a minimum contrast in relative luminance of
 7:1 (WCAG AAA standard).")
 
-  (define-obsolete-variable-alias
-    'modus-themes-vivendi-colors
-    'modus-vivendi-palette
-    "3.0.0")
-
   (defconst modus-vivendi-palette
     '(
 ;;; Basic values
