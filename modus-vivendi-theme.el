@@ -71,7 +71,7 @@ which corresponds to a minimum contrast in relative luminance of
       (red             "#ff5f59")
       (red-warmer      "#ff6b55")
       (red-cooler      "#ff7f9f")
-      (red-faint       "#efa080")
+      (red-faint       "#ff9580")
       (red-intense     "#ff5f5f")
       (green           "#44bc44")
       (green-warmer    "#70b900")
