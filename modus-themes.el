@@ -3283,7 +3283,7 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(magit-diffstat-added ((,c :inherit success)))
     `(magit-diffstat-removed ((,c :inherit error)))
     `(magit-dimmed ((,c :inherit shadow)))
-    `(magit-filename ((,c :foreground ,name)))
+    `(magit-filename ((,c :foreground ,accent-2)))
     `(magit-hash ((,c :foreground ,identifier)))
     `(magit-head ((,c :inherit magit-branch-local)))
     `(magit-header-line ((,c :inherit bold)))
