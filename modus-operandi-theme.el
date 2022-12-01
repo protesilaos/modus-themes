@@ -209,6 +209,7 @@ which corresponds to a minimum contrast in relative luminance of
       (link-alt magenta)
       (name magenta-warmer)
       (identifier yellow)
+      (tag magenta-faint)
       (prompt cyan-cooler)
 
       (rx-construct green-cooler)
