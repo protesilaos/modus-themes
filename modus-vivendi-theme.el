@@ -244,12 +244,12 @@ which corresponds to a minimum contrast in relative luminance of
 
       (heading-0 cyan-cooler)
       (heading-1 fg-main)
-      (heading-2 cyan-faint)
-      (heading-3 magenta-faint)
-      (heading-4 green-faint)
-      (heading-5 blue-faint)
-      (heading-6 yellow-faint)
-      (heading-7 red-faint)
+      (heading-2 yellow-faint)
+      (heading-3 blue-faint)
+      (heading-4 magenta)
+      (heading-5 green-faint)
+      (heading-6 red-faint)
+      (heading-7 cyan-faint)
       (heading-8 fg-dim)
 
       (heading-rainbow-0 green-cooler)
