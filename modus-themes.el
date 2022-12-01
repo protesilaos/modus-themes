@@ -222,32 +222,32 @@ argument, insert the `modus-themes--version' at point."
   "Generic face for applying a conditional bold weight.
 This behaves in accordance with `modus-themes-bold-constructs'."
   :package-version '(modus-themes . "4.0.0")
-   :version "30.1"
+  :version "30.1"
   :group 'modus-themes-faces)
 
 (defface modus-themes-slant nil
   "Generic face for applying a conditional slant (italics).
 This behaves in accordance with `modus-themes-italic-constructs'."
   :package-version '(modus-themes . "4.0.0")
-   :version "30.1"
+  :version "30.1"
   :group 'modus-themes-faces)
 
 (defface modus-themes-key-binding nil
   "Face for key bindings."
   :package-version '(modus-themes . "4.0.0")
-   :version "30.1"
+  :version "30.1"
   :group 'modus-themes-faces)
 
 (defface modus-themes-fixed-pitch nil
   "Face for `fixed-pitch' if `modus-themes-mixed-fonts' is non-nil."
   :package-version '(modus-themes . "4.0.0")
-   :version "30.1"
+  :version "30.1"
   :group 'modus-themes-faces)
 
 (defface modus-themes-ui-variable-pitch nil
   "Face for `variable-pitch' if `modus-themes-variable-pitch-ui' is non-nil."
   :package-version '(modus-themes . "4.0.0")
-   :version "30.1"
+  :version "30.1"
   :group 'modus-themes-faces)
 
 (defface modus-themes-reset-soft nil
@@ -736,13 +736,13 @@ For example:
                              (const :tag "Extra-bold" extrabold)
                              (const :tag "Ultra-bold" ultrabold))
                      (radio :tag "Scaling"
-                             (const :tag "Slight increase in height (default)" nil)
-                             (const :tag "Do not scale" no-scale)
-                             (radio :tag "Number (float) to adjust height by"
-                                    (float :tag "Just the number")
-                                    (cons :tag "Cons cell of `(height . FLOAT)'"
-                                          (const :tag "The `height' key (constant)" height)
-                                          (float :tag "Floating point"))))))
+                            (const :tag "Slight increase in height (default)" nil)
+                            (const :tag "Do not scale" no-scale)
+                            (radio :tag "Number (float) to adjust height by"
+                                   (float :tag "Just the number")
+                                   (cons :tag "Cons cell of `(height . FLOAT)'"
+                                         (const :tag "The `height' key (constant)" height)
+                                         (float :tag "Floating point"))))))
           (cons :tag "Date header" :greedy t
                 (const header-date)
                 (set :tag "Header presentation" :greedy t
@@ -752,10 +752,10 @@ For example:
                      (const :tag "Make all dates bold" bold-all)
                      (const :tag "Make today underlined; remove the background" underline-today)
                      (radio :tag "Number (float) to adjust height by"
-                                    (float :tag "Just the number")
-                                    (cons :tag "Cons cell of `(height . FLOAT)'"
-                                          (const :tag "The `height' key (constant)" height)
-                                          (float :tag "Floating point")))))
+                            (float :tag "Just the number")
+                            (cons :tag "Cons cell of `(height . FLOAT)'"
+                                  (const :tag "The `height' key (constant)" height)
+                                  (float :tag "Floating point")))))
           (cons :tag "Event entry" :greedy t
                 (const event)
                 (set :tag "Text presentation" :greedy t
@@ -949,15 +949,15 @@ instead of a box style, it is strongly advised to set
               (const :tag "Colored background" accented)
               (const :tag "Without border color" borderless)
               (radio :tag "Padding"
-               (natnum :tag "Natural number (e.g. 4)")
-               (cons :tag "Cons cell of `(padding . NATNUM)'"
-                     (const :tag "The `padding' key (constant)" padding)
-                     (natnum :tag "Natural number")))
+                     (natnum :tag "Natural number (e.g. 4)")
+                     (cons :tag "Cons cell of `(padding . NATNUM)'"
+                           (const :tag "The `padding' key (constant)" padding)
+                           (natnum :tag "Natural number")))
               (radio :tag "Height"
-               (float :tag "Floating point (e.g. 0.9)")
-               (cons :tag "Cons cell of `(height . FLOAT)'"
-                     (const :tag "The `height' key (constant)" height)
-                     (float :tag "Floating point"))))
+                     (float :tag "Floating point (e.g. 0.9)")
+                     (cons :tag "Cons cell of `(height . FLOAT)'"
+                           (const :tag "The `height' key (constant)" height)
+                           (float :tag "Floating point"))))
   :link '(info-link "(modus-themes) Mode line"))
 
 (make-obsolete 'modus-themes-diffs nil "4.0.0")
@@ -1384,12 +1384,12 @@ Run `'modus-themes-after-load-theme-hook'."
 
 (defun modus-themes--select-prompt ()
   "Minibuffer prompt to select a Modus theme."
-    (intern
-     (completing-read
-      "Select Modus theme: "
-      (modus-themes--list-known-themes)
-      nil t nil
-      'modus-themes--select-theme-history)))
+  (intern
+   (completing-read
+    "Select Modus theme: "
+    (modus-themes--list-known-themes)
+    nil t nil
+    'modus-themes--select-theme-history)))
 
 ;;;###autoload
 (defun modus-themes-toggle ()
@@ -2021,7 +2021,7 @@ Routine for `modus-themes-list-colors'."
             (insert " ")))
         (setq-local revert-buffer-function
                     (lambda (_ignore-auto _noconfirm)
-                       (modus-themes--list-colors-render current-buffer current-theme)))))))
+                      (modus-themes--list-colors-render current-buffer current-theme)))))))
 
 (defvar modus-themes--list-colors-prompt-history '()
   "Minibuffer history for `modus-themes--list-colors-prompt'.")
