@@ -1200,15 +1200,12 @@ bg-paren-match-intense."
 
 LEVEL is the heading's position in their order.  FG is the
 default text color.  RAINBOW is an accented, more saturated value
-than the default."
+than FG."
   (let* ((key (modus-themes--key-cdr level modus-themes-headings))
          (style (or key (modus-themes--key-cdr t modus-themes-headings)))
          (style-listp (listp style))
          (properties style)
          (var (when (memq 'variable-pitch properties) 'variable-pitch))
-         (varbold (if var
-                      (append (list 'bold) (list var))
-                    'bold))
          (weight (when style-listp (modus-themes--weight style))))
     (list :inherit
           (cond
@@ -1216,7 +1213,8 @@ than the default."
            ;; deprecate a variable's value.
            ((or weight (memq 'no-bold properties))
             var)
-           (varbold))
+           (var (append (list 'bold) (list var)))
+           ('bold))
           :foreground
           (cond
            ((memq 'monochrome properties)
