@@ -3188,6 +3188,15 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(org-verbatim ((,c :inherit modus-themes-prose-verbatim)))
     `(org-verse ((,c :inherit org-block)))
     `(org-warning ((,c :inherit warning)))
+;;;;; org-habit
+    `(org-habit-alert-face ((,c :background ,yellow-graph-0-bg :foreground "black"))) ; fg is special case
+    `(org-habit-alert-future-face ((,c :background ,yellow-graph-1-bg)))
+    `(org-habit-clear-face ((,c :background ,blue-graph-0-bg :foreground "black"))) ; fg is special case
+    `(org-habit-clear-future-face ((,c :background ,blue-graph-1-bg)))
+    `(org-habit-overdue-face ((,c :background ,red-graph-0-bg)))
+    `(org-habit-overdue-future-face ((,c :background ,red-graph-1-bg)))
+    `(org-habit-ready-face ((,c :background ,@(modus-themes--deuteran green-graph-0-bg blue-graph-0-bg) :foreground "black"))) ; fg is special case
+    `(org-habit-ready-future-face ((,c :background ,@(modus-themes--deuteran green-graph-1-bg blue-graph-1-bg))))
 ;;;;; org-journal
     `(org-journal-calendar-entry-face ((,c :inherit modus-themes-slant :foreground ,date)))
     `(org-journal-calendar-scheduled-face ((,c :inherit (modus-themes-slant org-scheduled))))
