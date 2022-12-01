@@ -27,26 +27,11 @@
 
 ;;; Commentary:
 ;;
-;; Modus Vivendi is the dark variant of the Modus themes (Modus Operandi
-;; is the light one).  The themes are designed for color-contrast
-;; accessibility.  More specifically:
-;;
-;;     1. Provide a consistent minimum contrast ratio between background
-;;     and foreground values of 7:1 or higher.  This meets the highest
-;;     such accessibility criterion per the guidelines of the Worldwide
-;;     Web Consortium's Working Group on Accessibility (WCAG AAA
-;;     standard).
-;;
-;;     2. Offer as close to full face coverage as possible.  The list is
-;;     already quite long, with more additions to follow as part of the
-;;     ongoing development process.
-;;
-;; For a complete view of the project, also refer to the following files
-;; (should be distributed in the same repository/directory as the
-;; current item):
-;;
-;; - modus-themes.el            (Main code shared between the themes)
-;; - modus-operandi-theme.el    (Light theme)
+;; The Modus themes conform with the highest standard for
+;; color-contrast accessibility between background and foreground
+;; values (WCAG AAA).  Please refer to the official Info manual for
+;; further documentation (distributed with the themes, or available
+;; at: <https://protesilaos.com/emacs/modus-themes>).
 
 ;;; Code:
 
