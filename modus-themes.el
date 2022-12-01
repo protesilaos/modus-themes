@@ -3303,17 +3303,6 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(quick-peek-background-face ((,c :background ,bg-inactive)))
     `(quick-peek-border-face ((,c :background ,border :height 1)))
     `(quick-peek-padding-face ((,c :background ,bg-inactive :height 0.15)))
-;;;;; rainbow-blocks
-    `(rainbow-blocks-depth-1-face ((,c :foreground ,rainbow-0)))
-    `(rainbow-blocks-depth-2-face ((,c :foreground ,rainbow-1)))
-    `(rainbow-blocks-depth-3-face ((,c :foreground ,rainbow-2)))
-    `(rainbow-blocks-depth-4-face ((,c :foreground ,rainbow-3)))
-    `(rainbow-blocks-depth-5-face ((,c :foreground ,rainbow-4)))
-    `(rainbow-blocks-depth-6-face ((,c :foreground ,rainbow-5)))
-    `(rainbow-blocks-depth-7-face ((,c :foreground ,rainbow-6)))
-    `(rainbow-blocks-depth-8-face ((,c :foreground ,rainbow-7)))
-    `(rainbow-blocks-depth-9-face ((,c :foreground ,rainbow-8)))
-    `(rainbow-blocks-unmatched-face ((,c :foreground ,err)))
 ;;;;; rainbow-delimiters
     `(rainbow-delimiters-base-error-face ((,c :background ,bg-red-subtle :foreground ,fg-main)))
     `(rainbow-delimiters-base-face ((,c :foreground ,fg-main)))
