@@ -4641,10 +4641,8 @@ An HTML version of this manual is provided as an extension of the
 :end:
 #+cindex: Contributing
 
-#+findex: modus-themes-report-bug
 A few tasks you can help with by sending an email to the general
-[[https://lists.sr.ht/~protesilaos/modus-themes][modus-themes public mailing list]] (or use the command
-~modus-themes-report-bug~).
+[[https://lists.sr.ht/~protesilaos/modus-themes][modus-themes public mailing list]].
 
 + Suggest refinements to packages that are covered.
 + Report packages not covered thus far.
@@ -4660,10 +4658,6 @@ A few tasks you can help with by sending an email to the general
 It is preferable that your feedback includes some screenshots, GIFs, or
 short videos, as well as further instructions to reproduce a given
 setup.  Though this is not a requirement.
-
-#+findex: modus-themes-version
-Also consider mentioning the version of the themes you are using, such
-as by invoking the command ~modus-themes-version~.
 
 Whatever you do, bear in mind the overarching objective of the Modus
 themes: to keep a contrast ratio that is greater or equal to 7:1 between

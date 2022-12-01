@@ -102,32 +102,8 @@ cover the blue-cyan-magenta side of the spectrum."
   :prefix "modus-themes-"
   :tag "Modus Themes Faces")
 
-(defvar modus-themes--version "4.0.0-dev"
-  "Current version of the Modus themes.
-
-The version either is the last tagged release, such as '1.0.0',
-or an in-development version like '1.1.0-dev'.  As we use
-semantic versioning, tags of the '1.0.1' sort are not reported:
-those would count as part of '1.1.0-dev'.")
-
-;;;###autoload
-(defun modus-themes-version (&optional insert)
-  "Print `modus-themes--version' in the echo area.
-If optional INSERT argument is provided from Lisp or as a prefix
-argument, insert the `modus-themes--version' at point."
-  (interactive "P")
-  (funcall (if insert 'insert 'message) modus-themes--version))
-
-;;;###autoload
-(defun modus-themes-report-bug ()
-  "Submit a bug report or issue to the Modus themes developers."
-  (interactive)
-  (reporter-submit-bug-report
-   "~protesilaos/modus-themes@lists.sr.ht"
-   (format "modus-themes (%s)\n" modus-themes--version)
-   ;; I am just getting started with this.  Let's first see what people
-   ;; think about it.
-   nil nil nil nil))
+(make-obsolete 'modus-themes-version nil "4.0.0")
+(make-obsolete 'modus-themes-report-bug nil "4.0.0")
 
 
 
