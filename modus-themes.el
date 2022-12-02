@@ -400,8 +400,8 @@ available properties:
           (quote ((1 . (variable-pitch 1.5))
                   (2 . (rainbow 1.3))
                   (3 . (1.1))
-                  (agenda-date (1.3))
-                  (agenda-structure (variable-pitch light 1.8))
+                  (agenda-date . (1.3))
+                  (agenda-structure . (variable-pitch light 1.8))
                   (t . (monochrome)))))
 
 By default (a nil value for this variable), all headings have a
