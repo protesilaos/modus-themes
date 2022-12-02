@@ -1341,16 +1341,6 @@ property."
               fg-distant
             'unspecified))))
 
-;; Basically this is just for the keycast key indicator.
-(defun modus-themes--mode-line-padded-box (color)
-  "Set padding of mode line box attribute with given COLOR."
-  (list :box (list :color color
-                   :line-width
-                   (or (cl-loop
-                        for x in modus-themes-mode-line
-                        if (natnump x) return x)
-                       1))))
-
 (defun modus-themes--deuteran (deuteran main)
   "Determine whether to color-code success as DEUTERAN or MAIN."
   (if modus-themes-deuteranopia
