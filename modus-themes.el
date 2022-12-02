@@ -379,24 +379,29 @@ Protesilaos))."
 This is a helper variable intended for internal use.")
 
 (defcustom modus-themes-headings nil
-  "Heading styles with optional list of values for levels 0-8.
+  "Heading styles with optional list of values per heading level.
 
-This is an alist that accepts a (key . list-of-values)
-combination.  The key is either a number, representing the
+This is an alist that accepts a (KEY . LIST-OF-VALUES)
+combination.  The KEY is either a number, representing the
 heading's level (0-8) or t, which pertains to the fallback style.
+The named keys `agenda-date' and `agenda-structure' apply to the
+Org agenda.
 
-Level 0 is a special heading: it is used for what counts as a
-document title or equivalent, such as the #+title construct we
-find in Org files.  Levels 1-8 are regular headings.
+Level 0 is used for what counts as a document title or
+equivalent, such as the #+title construct we find in Org files.
+Levels 1-8 are regular headings.
 
-The list of values covers symbols that refer to properties, as
-described below.  Here is a complete sample, followed by a
-presentation of all available properties:
+The LIST-OF-VALUES covers symbols that refer to properties, as
+described below.  Here is a complete sample with various
+stylistic combinations, followed by a presentation of all
+available properties:
 
     (setq modus-themes-headings
           (quote ((1 . (variable-pitch 1.5))
                   (2 . (rainbow 1.3))
                   (3 . (1.1))
+                  (agenda-date (1.3))
+                  (agenda-structure (variable-pitch light 1.8))
                   (t . (monochrome)))))
 
 By default (a nil value for this variable), all headings have a
@@ -470,7 +475,7 @@ will retain the original aesthetic for that level.  For example:
   :type `(alist
           :options ,(mapcar (lambda (el)
                               (list el modus-themes--headings-choice))
-                            '(0 1 2 3 4 5 6 7 8 t))
+                            '(0 1 2 3 4 5 6 7 8 t agenda-date agenda-structure))
           :key-type symbol
           :value-type ,modus-themes--headings-choice)
   :link '(info-link "(modus-themes) Heading styles"))
@@ -1195,12 +1200,12 @@ bg-paren-match-intense."
       (when (memq elt modus-themes-weights)
         (throw 'found elt)))))
 
-(defun modus-themes--heading (level fg rainbow)
+(defun modus-themes--heading (level fg &optional rainbow)
   "Conditional styles for `modus-themes-headings'.
 
 LEVEL is the heading's position in their order.  FG is the
-default text color.  RAINBOW is an accented, more saturated value
-than FG."
+default text color.  Optional RAINBOW is an accented, more
+saturated value than FG."
   (let* ((key (modus-themes--key-cdr level modus-themes-headings))
          (style (or key (modus-themes--key-cdr t modus-themes-headings)))
          (style-listp (listp style))
@@ -3108,7 +3113,7 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(org-agenda-calendar-sexp ((,c :inherit (italic org-agenda-calendar-event))))
     `(org-agenda-column-dateline ((,c :background ,bg-inactive)))
     `(org-agenda-current-time ((,c :foreground ,fg-main)))
-    `(org-agenda-date ((,c :inherit modus-themes-heading-2 :foreground ,date)))
+    `(org-agenda-date ((,c ,@(modus-themes--heading 'agenda-date date))))
     `(org-agenda-date-today ((,c :inherit org-agenda-date :underline t)))
     `(org-agenda-date-weekend ((,c :inherit org-agenda-date :foreground ,err)))
     `(org-agenda-date-weekend-today ((,c :inherit org-agenda-date-today :foreground ,err)))
@@ -3120,7 +3125,7 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(org-agenda-filter-regexp ((,c :inherit bold :foreground ,err)))
     `(org-agenda-filter-tags ((,c :inherit bold :foreground ,err)))
     `(org-agenda-restriction-lock ((,c :background ,bg-dim :foreground ,fg-dim)))
-    `(org-agenda-structure ((,c :inherit modus-themes-heading-0 :foreground ,fg-alt)))
+    `(org-agenda-structure ((,c ,@(modus-themes--heading 'agenda-structure fg-alt))))
     `(org-agenda-structure-filter ((,c :inherit org-agenda-structure :foreground ,warning)))
     `(org-agenda-structure-secondary ((,c :inherit font-lock-doc-face)))
     `(org-archived ((,c :background ,bg-inactive :foreground ,fg-main)))
