@@ -2953,7 +2953,7 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(mode-line-active ((,c :inherit mode-line)))
     `(mode-line-buffer-id ((,c :inherit bold)))
     `(mode-line-emphasis ((,c :inherit bold :foreground ,note)))
-    `(mode-line-highlight ((,c :inherit highlight)))
+    `(mode-line-highlight ((,c :background ,bg-hover :foreground ,fg-main :box ,fg-main)))
     `(mode-line-inactive ((,c :inherit modus-themes-ui-variable-pitch
                               ,@(modus-themes--mode-line-attrs
                                  fg-dim bg-inactive
