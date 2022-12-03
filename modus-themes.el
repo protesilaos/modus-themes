@@ -2421,6 +2421,7 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(git-timemachine-minibuffer-author-face ((,c :foreground ,name)))
     `(git-timemachine-minibuffer-detail-face ((,c :foreground ,fg-main)))
 ;;;;; gnus
+    ;; TODO 2022-12-03: Review Gnus faces
     `(gnus-button ((,c :inherit button)))
     `(gnus-cite-1 ((,c :inherit message-cited-text-1)))
     `(gnus-cite-2 ((,c :inherit message-cited-text-2)))
