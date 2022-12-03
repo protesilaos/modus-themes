@@ -3276,6 +3276,22 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(popup-scroll-bar-foreground-face (( )))
     `(popup-summary-face ((,c :background ,bg-active :foreground ,fg-dim)))
     `(popup-tip-face ((,c :inherit modus-themes-intense-yellow)))
+;;;;; powerline
+    `(powerline-active0 ((,c :background ,fg-dim :foreground ,bg-main)))
+    `(powerline-active1 ((,c :inherit mode-line-active)))
+    `(powerline-active2 ((,c :inherit mode-line-inactive)))
+    `(powerline-inactive0 ((,c :background ,bg-active :foreground ,fg-dim)))
+    `(powerline-inactive1 ((,c :background ,bg-main :foreground ,fg-dim)))
+    `(powerline-inactive2 ((,c :inherit mode-line-inactive)))
+;;;;; powerline-evil
+    `(powerline-evil-base-face ((,c :background ,fg-main :foreground ,bg-main)))
+    `(powerline-evil-emacs-face ((,c :inherit modus-themes-intense-magenta)))
+    `(powerline-evil-insert-face ((,c :inherit modus-themes-intense-green)))
+    `(powerline-evil-motion-face ((,c :inherit modus-themes-intense-blue)))
+    `(powerline-evil-normal-face ((,c :background ,fg-alt :foreground ,bg-main)))
+    `(powerline-evil-operator-face ((,c :inherit modus-themes-intense-yellow)))
+    `(powerline-evil-replace-face ((,c :inherit modus-themes-intense-red)))
+    `(powerline-evil-visual-face ((,c :inherit modus-themes-intense-cyan)))
 ;;;;; prescient
     `(prescient-primary-highlight ((,c :inherit modus-themes-completion-match-0)))
     `(prescient-secondary-highlight ((,c :inherit modus-themes-completion-match-1)))
