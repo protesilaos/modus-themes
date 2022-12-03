@@ -128,15 +128,8 @@ demonstration:
       modus-themes-subtle-line-numbers nil
       modus-themes-deuteranopia t
       modus-themes-variable-pitch-ui nil
-      modus-themes-inhibit-reload t ; only applies to `customize-set-variable' and related
 
       modus-themes-fringes nil ; {nil,'subtle,'intense}
-
-      ;; Options for `modus-themes-lang-checkers' are either nil (the
-      ;; default), or a list of properties that may include any of those
-      ;; symbols: `straight-underline', `text-also', `background',
-      ;; `intense' OR `faint'.
-      modus-themes-lang-checkers nil
 
       ;; Options for `modus-themes-mode-line' are either nil, or a list
       ;; that can combine any of `3d' OR `moody', `borderless',
@@ -148,16 +141,6 @@ demonstration:
 
       ;; Same as above:
       ;; modus-themes-mode-line '(accented borderless 4 0.9)
-
-      ;; Options for `modus-themes-syntax' are either nil (the default),
-      ;; or a list of properties that may include any of those symbols:
-      ;; `faint', `yellow-comments', `green-strings', `alt-syntax'
-      modus-themes-syntax nil
-
-      ;; Options for `modus-themes-paren-match' are either nil (the
-      ;; default), or a list of properties that may include any of those
-      ;; symbols: `bold', `intense', `underline'
-      modus-themes-paren-match '(bold intense)
 
       ;; Options for `modus-themes-links' are either nil (the
       ;; default), or a list of properties that may include any of
@@ -192,17 +175,7 @@ demonstration:
       ;; `no-extend', `bg-only', `accented'
       modus-themes-region '(bg-only no-extend)
 
-      ;; Options for `modus-themes-diffs': nil, 'desaturated, 'bg-only
-      modus-themes-diffs 'desaturated
-
       modus-themes-org-blocks 'gray-background ; {nil,'gray-background,'tinted-background}
-
-      modus-themes-org-agenda ; this is an alist: read the manual or its doc string
-      '((header-block . (variable-pitch 1.3))
-        (header-date . (grayscale workaholic bold-today 1.1))
-        (event . (accented varied))
-        (scheduled . uniform)
-        (habit . traffic-light))
 
       modus-themes-headings ; this is an alist: read the manual or its doc string
       '((1 . (variable-pitch 1.3))

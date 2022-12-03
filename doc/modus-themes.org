@@ -475,12 +475,6 @@ this manual.
 
       modus-themes-fringes nil ; {nil,'subtle,'intense}
 
-      ;; Options for `modus-themes-lang-checkers' are either nil (the
-      ;; default), or a list of properties that may include any of those
-      ;; symbols: `straight-underline', `text-also', `background',
-      ;; `intense' OR `faint'.
-      modus-themes-lang-checkers nil
-
       ;; Options for `modus-themes-mode-line' are either nil, or a list
       ;; that can combine any of `3d' OR `moody', `borderless',
       ;; `accented', a natural number for extra padding (or a cons cell
@@ -491,11 +485,6 @@ this manual.
 
       ;; Same as above:
       ;; modus-themes-mode-line '(accented borderless 4 0.9)
-
-      ;; Options for `modus-themes-syntax' are either nil (the default),
-      ;; or a list of properties that may include any of those symbols:
-      ;; `faint', `yellow-comments', `green-strings', `alt-syntax'
-      modus-themes-syntax nil
 
       ;; Options for `modus-themes-links' are either nil (the
       ;; default), or a list of properties that may include any of
@@ -529,9 +518,6 @@ this manual.
       ;; or a list of properties that may include any of those symbols:
       ;; `no-extend', `bg-only', `accented'
       modus-themes-region '(bg-only no-extend)
-
-      ;; Options for `modus-themes-diffs': nil, 'desaturated, 'bg-only
-      modus-themes-diffs 'desaturated
 
       modus-themes-org-blocks 'gray-background ; {nil,'gray-background,'tinted-background}
 
