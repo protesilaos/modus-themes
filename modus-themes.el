@@ -1967,9 +1967,6 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(deft-summary-face ((,c :inherit (shadow modus-themes-slant))))
     `(deft-time-face ((,c :foreground ,date)))
     `(deft-title-face ((,c :inherit bold)))
-;;;;; denote
-    `(denote-faces-date ((,c :foreground ,date)))
-    `(denote-faces-keywords ((,c :foreground ,name)))
 ;;;;; devdocs
     `(devdocs-code-block ((,c :inherit modus-themes-fixed-pitch :background ,bg-dim :extend t)))
 ;;;;; dictionary

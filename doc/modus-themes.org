@@ -2976,7 +2976,6 @@ have lots of extensions, so the "full support" may not be 100% true…
 + custom (what you get with {{{kbd(M-x customize)}}})
 + deadgrep
 + deft
-+ denote
 + devdocs
 + dictionary
 + diff-hl
@@ -3203,6 +3202,7 @@ supported by the themes.
 + counsel-org-capture-string
 + dashboard (emacs-dashboard)
 + define-word
++ denote
 + disk-usage
 + dtache
 + dynamic-ruler
