@@ -3219,12 +3219,14 @@ supported by the themes.
 + highlight-defined
 + highlight-escape-sequences (~hes-mode~)
 + i3wm-config-mode
++ lin
 + minibuffer-line
 + no-emoji
 + org-remark
 + parrot
 + perl-mode
 + php-mode
++ pulsar
 + rjsx-mode
 + side-hustle
 + spell-fu
