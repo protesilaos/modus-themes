@@ -497,11 +497,6 @@ this manual.
       ;; `faint', `yellow-comments', `green-strings', `alt-syntax'
       modus-themes-syntax nil
 
-      ;; Options for `modus-themes-paren-match' are either nil (the
-      ;; default), or a list of properties that may include any of those
-      ;; symbols: `bold', `intense', `underline'
-      modus-themes-paren-match '(bold intense)
-
       ;; Options for `modus-themes-links' are either nil (the
       ;; default), or a list of properties that may include any of
       ;; those symbols: `neutral-underline' OR `no-underline', `bold',
@@ -1197,56 +1192,6 @@ With a non-~nil~ value (~t~), line numbers have no background of their own.
 Instead they retain the primary background of the theme, blending with
 the rest of the buffer.  Foreground values for all relevant faces are
 updated to accommodate this aesthetic.
-
-** Option for parenthesis matching
-:properties:
-:alt_title: Matching parentheses
-:description: Choose between various styles for matching delimiters/parentheses
-:custom_id: h:e66a7e4d-a512-4bc7-9f86-fbbb5923bf37
-:end:
-#+vindex: modus-themes-paren-match
-
-Brief: Control the style of matching delimiters produced by
-~show-paren-mode~.
-
-Symbol: ~modus-themes-paren-match~ (=choice= type, list of properties)
-
-Possible values are expressed as a list of properties (default is ~nil~ or
-an empty list).  The list can include any of the following symbols:
-
-+ ~bold~
-+ ~intense~
-+ ~underline~
-
-The default (a ~nil~ value or an empty list) is a subtle background color.
-
-The ~bold~ property adds a bold weight to the characters of the matching
-delimiters.
-
-The ~intense~ property applies a more prominent background color to the
-delimiters.
-
-The ~underline~ property draws a straight line under the affected text.
-
-Combinations of any of those properties are expressed as a list, like in
-these examples:
-
-#+begin_src emacs-lisp
-(bold)
-(underline intense)
-(bold intense underline)
-#+end_src
-
-The order in which the properties are set is not significant.
-
-In user configuration files the form may look like this:
-
-#+begin_src emacs-lisp
-(setq modus-themes-paren-match '(bold intense))
-#+end_src
-
-This customization variable affects the built-in ~show-paren-mode~ and the
-=smartparens= package.
 
 ** Option for active region
 :properties:

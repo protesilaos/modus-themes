@@ -838,44 +838,7 @@ In user configuration files the form may look like this:
   :link '(info-link "(modus-themes) Line numbers"))
 
 (make-obsolete 'modus-themes-markup nil "4.0.0")
-
-(defcustom modus-themes-paren-match nil
-  "Control the style of matching parentheses or delimiters.
-
-The value is a list of properties, each designated by a symbol.
-The default (a nil value or an empty list) is a subtle background
-color.
-
-The `bold' property adds a bold weight to the characters of the
-matching delimiters.
-
-The `intense' property applies a more prominent background color
-to the delimiters.
-
-The `underline' property draws a straight line under the affected
-text.
-
-Combinations of any of those properties are expressed as a list,
-like in these examples:
-
-    (bold)
-    (underline intense)
-    (bold intense underline)
-
-The order in which the properties are set is not significant.
-
-In user configuration files the form may look like this:
-
-    (setq modus-themes-paren-match (quote (bold intense)))"
-  :group 'modus-themes
-  :package-version '(modus-themes . "1.5.0")
-  :version "28.1"
-  :type '(set :tag "Properties" :greedy t
-              (const :tag "Bold weight" bold)
-              (const :tag "Intense background color" intense)
-              (const :tag "Underline" underline))
-  :link '(info-link "(modus-themes) Matching parentheses"))
-
+(make-obsolete 'modus-themes-paren-match nil "4.0.0")
 (make-obsolete 'modus-themes-syntax nil "4.0.0")
 
 (defcustom modus-themes-links nil
@@ -1163,26 +1126,6 @@ color that is combined with FG-FOR-BG."
            ((memq 'bold properties)
             'bold)
            ('unspecified)))))
-
-(defun modus-themes--paren (normalbg intensebg)
-  "Conditional use of intense colors for matching parentheses.
-NORMALBG should be the special palette color bg-paren-match or
-something similar.  INTENSEBG must be easier to discern next to
-other backgrounds, such as the special palette color
-bg-paren-match-intense."
-  (let ((properties (modus-themes--list-or-warn 'modus-themes-paren-match)))
-    (list :inherit
-          (if (memq 'bold properties)
-              'bold
-            'unspecified)
-          :background
-          (if (memq 'intense properties)
-              intensebg
-            normalbg)
-          :underline
-          (if (memq 'underline properties)
-              t
-            nil))))
 
 (defun modus-themes--key-cdr (key alist)
   "Get cdr of KEY in ALIST."
@@ -3409,9 +3352,7 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(shortdoc-heading ((,c :inherit bold)))
     `(shortdoc-section (())) ; remove the default's variable-pitch style
 ;;;;; show-paren-mode
-    `(show-paren-match ((,c ,@(modus-themes--paren bg-paren-match
-                                                   bg-paren-match-intense)
-                            :foreground ,fg-main)))
+    `(show-paren-match ((,c :background ,bg-paren-match :foreground ,fg-main)))
     `(show-paren-match-expression ((,c :background ,bg-paren-expression)))
     `(show-paren-mismatch ((,c :inherit modus-themes-intense-red)))
 ;;;;; shr
