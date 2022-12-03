@@ -1049,8 +1049,8 @@ Run `'modus-themes-after-load-theme-hook'."
 ;;;; Commands
 
 (make-obsolete 'modus-themes-load-themes nil "4.0.0")
-(make-obsolete 'modus-themes-load-operandi nil "4.0.0")
-(make-obsolete 'modus-themes-load-vivendi nil "4.0.0")
+(make-obsolete 'modus-themes-load-operandi nil "4.0.0; Check `modus-themes-load-theme'")
+(make-obsolete 'modus-themes-load-vivendi nil "4.0.0; Check `modus-themes-load-theme'")
 
 (defvar modus-themes--select-theme-history nil
   "Minibuffer history of `modus-themes--select-prompt'.")
