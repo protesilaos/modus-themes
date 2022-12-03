@@ -186,7 +186,7 @@ which corresponds to a minimum contrast in relative luminance of
       (keybind blue-cooler)
       (link blue-warmer)
       (link-alt magenta)
-      (name magenta-warmer)
+      (name magenta)
       (identifier yellow-faint)
       (tag magenta-faint)
       (prompt cyan-cooler)
