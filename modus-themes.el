@@ -1432,6 +1432,7 @@ property.  UNDERLINE is a gray color only for the undeline."
             underline)
            (t)))))
 
+;; TODO 2022-12-03: Merge this into `modus-themes--link'?
 (defun modus-themes--link-color (fg fgfaint &optional neutralfg)
   "Extend `modus-themes--link'.
 FG is the main accented foreground.  FGFAINT is also accented,
