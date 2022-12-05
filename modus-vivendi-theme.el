@@ -246,14 +246,14 @@ which corresponds to a minimum contrast in relative luminance of
       (heading-rainbow-8 green-faint)
 
       (rainbow-0 fg-main)
-      (rainbow-1 magenta-warmer)
+      (rainbow-1 magenta-intense)
       (rainbow-2 cyan-intense)
       (rainbow-3 red-warmer)
       (rainbow-4 yellow-intense)
       (rainbow-5 magenta-cooler)
       (rainbow-6 green-intense)
-      (rainbow-7 blue-intense)
-      (rainbow-8 magenta-intense)
+      (rainbow-7 blue-warmer)
+      (rainbow-8 magenta-warmer)
 
       (prose-code cyan-cooler)
       (prose-macro magenta-cooler)
