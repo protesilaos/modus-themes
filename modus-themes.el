@@ -1020,15 +1020,32 @@ the spectrum."
   "Return first enabled Modus theme."
   (car (modus-themes--list-enabled-themes)))
 
-(defun modus-themes--palette (theme)
-  "Return THEME palette as a symbol."
-  (when theme
-    (intern (format "%s-palette" theme))))
+(defun modus-themes--palette-symbol (theme &optional overrides)
+  "Return THEME palette as a symbol.
+With optional OVERRIDES, return THEME palette overrides as a
+symbol."
+  (when-let ((suffix (cond
+                      ((and theme overrides)
+                       "palette-overrides")
+                      (theme
+                       "palette"))))
+    (intern (format "%s-%s" theme suffix))))
 
-(defun modus-themes--current-theme-palette ()
-  "Return palette of active Ef theme, else produce `user-error'."
-  (if-let* ((palette (modus-themes--palette (modus-themes--current-theme))))
-      (symbol-value palette)
+(defun modus-themes--palette-value (theme &optional overrides)
+  "Return palette value of THEME with optional OVERRIDES."
+  (let ((base-value (symbol-value (modus-themes--palette-symbol theme))))
+    (if overrides
+        (append (symbol-value (modus-themes--palette-symbol theme :overrides)) base-value)
+      base-value)))
+
+(defun modus-themes--current-theme-palette (&optional overrides)
+  "Return palette value of active Modus theme, else produce `user-error'.
+With optional OVERRIDES return palette value plus whatever
+overrides."
+  (if-let ((theme (modus-themes--current-theme)))
+      (if overrides
+          (modus-themes--palette-value theme :overrides)
+        (modus-themes--palette-value theme))
     (user-error "No enabled Modus theme could be found")))
 
 (defun modus-themes-load-theme (theme)
@@ -1493,7 +1510,7 @@ combined with all colors used to fontify text."
 Routine for `modus-themes-list-colors'."
   (let ((palette (seq-remove (lambda (cell)
                                (symbolp (cadr cell)))
-                             (symbol-value (modus-themes--palette theme))))
+                             (modus-themes--palette-value theme :overrides)))
         (current-buffer buffer)
         (current-theme theme))
     (with-help-window buffer
@@ -3973,7 +3990,7 @@ corresponding entries."
          ;; inside a function.
          (colors (mapcar #'car (modus-themes--current-theme-palette))))
     `(let* ((c '((class color) (min-colors 256)))
-            (,sym (modus-themes--current-theme-palette))
+            (,sym (modus-themes--current-theme-palette :overrides))
             ,@(mapcar (lambda (color)
                         (list color
                               `(let* ((value (car (alist-get ',color ,sym))))
