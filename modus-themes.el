@@ -291,7 +291,9 @@ see `modus-themes-reset-soft'."
 
 ;;; Customization variables
 
-(defconst modus-themes-items '(modus-operandi modus-vivendi)
+(defconst modus-themes-items
+  '( modus-operandi modus-vivendi
+     modus-operandi-tinted modus-vivendi-tinted)
   "Symbols of the Modus themes.")
 
 (defcustom modus-themes-to-toggle '(modus-operandi modus-vivendi)
