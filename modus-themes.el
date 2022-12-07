@@ -3883,17 +3883,20 @@ C1 and C2 are color values written in hexadecimal RGB."
 ;;;; Instantiate a Modus theme
 
 ;;;###autoload
-(defmacro modus-themes-theme (name palette)
+(defmacro modus-themes-theme (name palette &optional overrides)
   "Bind NAME's color PALETTE around face specs and variables.
 Face specifications are passed to `custom-theme-set-faces'.
 While variables are handled by `custom-theme-set-variables'.
 Those are stored in `modus-themes-faces' and
-`modus-themes-custom-variables' respectively."
+`modus-themes-custom-variables' respectively.
+
+Optional OVERRIDES are appended to PALETTE, overriding
+corresponding entries."
   (declare (indent 0))
   (let ((sym (gensym))
         (colors (mapcar #'car (symbol-value palette))))
     `(let* ((c '((class color) (min-colors 256)))
-            (,sym ,palette)
+            (,sym (append ,overrides ,palette))
             ,@(mapcar (lambda (color)
                         (list color
                               `(let* ((value (car (alist-get ',color ,sym))))
