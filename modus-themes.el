@@ -1695,8 +1695,8 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(nobreak-space ((,c :foreground ,err :underline t)))
     `(menu ((,c :inverse-video unspecified :background ,bg-active :foreground ,fg-main)))
     `(minibuffer-prompt ((,c :inherit modus-themes-prompt)))
-    `(mm-command-output ((,c :foreground ,mail-4)))
-    `(mm-uu-extract ((,c :foreground ,mail-4)))
+    `(mm-command-output ((,c :foreground ,mail-part)))
+    `(mm-uu-extract ((,c :foreground ,mail-part)))
     `(next-error ((,c :inherit modus-themes-subtle-red :extend t)))
     `(pgtk-im-0 ((,c :inherit modus-themes-intense-cyan)))
     `(read-multiple-choice-face ((,c :inherit (bold modus-themes-mark-alt))))
@@ -2950,10 +2950,10 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(markup-title-5-face ((,c :inherit modus-themes-heading-6)))
     `(markup-verbatim-face ((,c :inherit modus-themes-fixed-pitch :foreground ,prose-verbatim)))
 ;;;;; messages
-    `(message-cited-text-1 ((,c :foreground ,mail-0)))
-    `(message-cited-text-2 ((,c :foreground ,mail-1)))
-    `(message-cited-text-3 ((,c :foreground ,mail-2)))
-    `(message-cited-text-4 ((,c :foreground ,mail-3)))
+    `(message-cited-text-1 ((,c :foreground ,mail-cite-0)))
+    `(message-cited-text-2 ((,c :foreground ,mail-cite-1)))
+    `(message-cited-text-3 ((,c :foreground ,mail-cite-2)))
+    `(message-cited-text-4 ((,c :foreground ,mail-cite-3)))
     `(message-header-name ((,c :inherit bold)))
     `(message-header-newsgroups ((,c :inherit message-header-other)))
     `(message-header-to ((,c :inherit bold :foreground ,mail-recipient)))
@@ -2961,7 +2961,7 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(message-header-subject ((,c :inherit bold :foreground ,mail-subject)))
     `(message-header-xheader ((,c :inherit message-header-other)))
     `(message-header-other ((,c :foreground ,mail-other)))
-    `(message-mml ((,c :foreground ,mail-4)))
+    `(message-mml ((,c :foreground ,mail-part)))
     `(message-separator ((,c :background ,bg-active)))
 ;;;;; minimap
     `(minimap-active-region-background ((,c :background ,bg-active)))
@@ -3060,7 +3060,7 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(neo-vc-user-face ((,c :inherit warning)))
 ;;;;; notmuch
     `(notmuch-crypto-decryption ((,c :inherit bold)))
-    `(notmuch-crypto-part-header ((,c :foreground ,mail-4))) ; like `message-mml'
+    `(notmuch-crypto-part-header ((,c :foreground ,mail-part))) ; like `message-mml'
     `(notmuch-crypto-signature-bad ((,c :inherit error)))
     `(notmuch-crypto-signature-good ((,c :inherit success)))
     `(notmuch-crypto-signature-good-key ((,c :inherit success)))
