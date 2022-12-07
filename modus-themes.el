@@ -1491,9 +1491,9 @@ combined with all colors used to fontify text."
 (defun modus-themes--list-colors-render (buffer theme &rest _)
   "Render colors in BUFFER from THEME.
 Routine for `modus-themes-list-colors'."
-  (let ((palette (seq-uniq (modus-themes--palette theme)
-                           (lambda (x y)
-                             (eq (car x) (car y)))))
+  (let ((palette (seq-remove (lambda (cell)
+                               (symbolp (cadr cell)))
+                             (symbol-value (modus-themes--palette theme))))
         (current-buffer buffer)
         (current-theme theme))
     (with-help-window buffer
@@ -1507,7 +1507,7 @@ Routine for `modus-themes-list-colors'."
         (insert " ")
         (dolist (cell palette)
           (let* ((name (car cell))
-                 (color (cdr cell))
+                 (color (cadr cell))
                  (fg (readable-foreground-color color))
                  (pad (make-string 5 ?\s)))
             (let ((old-point (point)))
@@ -1534,7 +1534,7 @@ Helper function for `modus-themes-list-colors'."
   (let ((def (format "%s" (modus-themes--current-theme))))
     (completing-read
      (format "Use palette from theme [%s]: " def)
-     '(modus-operandi modus-vivendi) nil t nil
+     (modus-themes--list-known-themes) nil t nil
      'modus-themes--list-colors-prompt-history def)))
 
 (defun modus-themes-list-colors (theme)
