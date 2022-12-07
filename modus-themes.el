@@ -63,10 +63,10 @@ cover the blue-cyan-magenta side of the spectrum."
   :prefix "modus-themes-"
   :tag "Modus Themes Faces")
 
-(make-obsolete 'modus-themes-operandi-colors nil "4.0.0")
-(make-obsolete 'modus-themes-vivendi-colors nil "4.0.0")
-(make-obsolete 'modus-themes-version nil "4.0.0")
-(make-obsolete 'modus-themes-report-bug nil "4.0.0")
+(make-obsolete-variable 'modus-themes-operandi-colors nil "4.0.0")
+(make-obsolete-variable 'modus-themes-vivendi-colors nil "4.0.0")
+(make-obsolete-variable 'modus-themes-version nil "4.0.0")
+(make-obsolete-variable 'modus-themes-report-bug nil "4.0.0")
 
 
 
@@ -228,64 +228,64 @@ see `modus-themes-reset-soft'."
    :version "30.1"
    :group 'modus-themes-faces))
 
-(make-obsolete 'modus-themes-subtle-neutral nil "4.0.0")
-(make-obsolete 'modus-themes-intense-neutral nil "4.0.0")
-(make-obsolete 'modus-themes-refine-red nil "4.0.0")
-(make-obsolete 'modus-themes-refine-green nil "4.0.0")
-(make-obsolete 'modus-themes-refine-yellow nil "4.0.0")
-(make-obsolete 'modus-themes-refine-blue nil "4.0.0")
-(make-obsolete 'modus-themes-refine-magenta nil "4.0.0")
-(make-obsolete 'modus-themes-refine-cyan nil "4.0.0")
-(make-obsolete 'modus-themes-active-red nil "4.0.0")
-(make-obsolete 'modus-themes-active-green nil "4.0.0")
-(make-obsolete 'modus-themes-active-yellow nil "4.0.0")
-(make-obsolete 'modus-themes-active-blue nil "4.0.0")
-(make-obsolete 'modus-themes-active-magenta nil "4.0.0")
-(make-obsolete 'modus-themes-active-cyan nil "4.0.0")
-(make-obsolete 'modus-themes-fringe-red nil "4.0.0")
-(make-obsolete 'modus-themes-fringe-green nil "4.0.0")
-(make-obsolete 'modus-themes-fringe-yellow nil "4.0.0")
-(make-obsolete 'modus-themes-fringe-blue nil "4.0.0")
-(make-obsolete 'modus-themes-fringe-magenta nil "4.0.0")
-(make-obsolete 'modus-themes-fringe-cyan nil "4.0.0")
-(make-obsolete 'modus-themes-grue-nuanced nil "4.0.0")
-(make-obsolete 'modus-themes-red-nuanced nil "4.0.0")
-(make-obsolete 'modus-themes-green-nuanced nil "4.0.0")
-(make-obsolete 'modus-themes-yellow-nuanced nil "4.0.0")
-(make-obsolete 'modus-themes-blue-nuanced nil "4.0.0")
-(make-obsolete 'modus-themes-magenta-nuanced nil "4.0.0")
-(make-obsolete 'modus-themes-cyan-nuanced nil "4.0.0")
-(make-obsolete 'modus-themes-special-calm nil "4.0.0")
-(make-obsolete 'modus-themes-special-cold nil "4.0.0")
-(make-obsolete 'modus-themes-special-mild nil "4.0.0")
-(make-obsolete 'modus-themes-special-warm nil "4.0.0")
-(make-obsolete 'modus-themes-diff-added nil "4.0.0")
-(make-obsolete 'modus-themes-diff-changed nil "4.0.0")
-(make-obsolete 'modus-themes-diff-removed nil "4.0.0")
-(make-obsolete 'modus-themes-diff-refine-added nil "4.0.0")
-(make-obsolete 'modus-themes-diff-refine-changed nil "4.0.0")
-(make-obsolete 'modus-themes-diff-refine-removed nil "4.0.0")
-(make-obsolete 'modus-themes-diff-focus-added nil "4.0.0")
-(make-obsolete 'modus-themes-diff-focus-changed nil "4.0.0")
-(make-obsolete 'modus-themes-diff-focus-removed nil "4.0.0")
-(make-obsolete 'modus-themes-diff-heading nil "4.0.0")
-(make-obsolete 'modus-themes-pseudo-header nil "4.0.0")
-(make-obsolete 'modus-themes-mark-symbol nil "4.0.0")
-(make-obsolete 'modus-themes-hl-line nil "4.0.0")
-(make-obsolete 'modus-themes-search-success-modeline nil "4.0.0")
-(make-obsolete 'modus-themes-grue-active nil "4.0.0")
-(make-obsolete 'modus-themes-grue-background-active nil "4.0.0")
-(make-obsolete 'modus-themes-grue-background-intense nil "4.0.0")
-(make-obsolete 'modus-themes-grue-background-subtle nil "4.0.0")
-(make-obsolete 'modus-themes-grue-background-refine nil "4.0.0")
-(make-obsolete 'modus-themes-link-broken nil "4.0.0")
-(make-obsolete 'modus-themes-link-symlink nil "4.0.0")
-(make-obsolete 'modus-themes-tab-backdrop nil "4.0.0")
-(make-obsolete 'modus-themes-tab-active nil "4.0.0")
-(make-obsolete 'modus-themes-tab-inactive nil "4.0.0")
-(make-obsolete 'modus-themes-completion-selected-popup nil "4.0.0")
-(make-obsolete 'modus-themes-box-button nil "4.0.0")
-(make-obsolete 'modus-themes-box-button-pressed nil "4.0.0")
+(make-obsolete-variable 'modus-themes-subtle-neutral nil "4.0.0")
+(make-obsolete-variable 'modus-themes-intense-neutral nil "4.0.0")
+(make-obsolete-variable 'modus-themes-refine-red nil "4.0.0")
+(make-obsolete-variable 'modus-themes-refine-green nil "4.0.0")
+(make-obsolete-variable 'modus-themes-refine-yellow nil "4.0.0")
+(make-obsolete-variable 'modus-themes-refine-blue nil "4.0.0")
+(make-obsolete-variable 'modus-themes-refine-magenta nil "4.0.0")
+(make-obsolete-variable 'modus-themes-refine-cyan nil "4.0.0")
+(make-obsolete-variable 'modus-themes-active-red nil "4.0.0")
+(make-obsolete-variable 'modus-themes-active-green nil "4.0.0")
+(make-obsolete-variable 'modus-themes-active-yellow nil "4.0.0")
+(make-obsolete-variable 'modus-themes-active-blue nil "4.0.0")
+(make-obsolete-variable 'modus-themes-active-magenta nil "4.0.0")
+(make-obsolete-variable 'modus-themes-active-cyan nil "4.0.0")
+(make-obsolete-variable 'modus-themes-fringe-red nil "4.0.0")
+(make-obsolete-variable 'modus-themes-fringe-green nil "4.0.0")
+(make-obsolete-variable 'modus-themes-fringe-yellow nil "4.0.0")
+(make-obsolete-variable 'modus-themes-fringe-blue nil "4.0.0")
+(make-obsolete-variable 'modus-themes-fringe-magenta nil "4.0.0")
+(make-obsolete-variable 'modus-themes-fringe-cyan nil "4.0.0")
+(make-obsolete-variable 'modus-themes-grue-nuanced nil "4.0.0")
+(make-obsolete-variable 'modus-themes-red-nuanced nil "4.0.0")
+(make-obsolete-variable 'modus-themes-green-nuanced nil "4.0.0")
+(make-obsolete-variable 'modus-themes-yellow-nuanced nil "4.0.0")
+(make-obsolete-variable 'modus-themes-blue-nuanced nil "4.0.0")
+(make-obsolete-variable 'modus-themes-magenta-nuanced nil "4.0.0")
+(make-obsolete-variable 'modus-themes-cyan-nuanced nil "4.0.0")
+(make-obsolete-variable 'modus-themes-special-calm nil "4.0.0")
+(make-obsolete-variable 'modus-themes-special-cold nil "4.0.0")
+(make-obsolete-variable 'modus-themes-special-mild nil "4.0.0")
+(make-obsolete-variable 'modus-themes-special-warm nil "4.0.0")
+(make-obsolete-variable 'modus-themes-diff-added nil "4.0.0")
+(make-obsolete-variable 'modus-themes-diff-changed nil "4.0.0")
+(make-obsolete-variable 'modus-themes-diff-removed nil "4.0.0")
+(make-obsolete-variable 'modus-themes-diff-refine-added nil "4.0.0")
+(make-obsolete-variable 'modus-themes-diff-refine-changed nil "4.0.0")
+(make-obsolete-variable 'modus-themes-diff-refine-removed nil "4.0.0")
+(make-obsolete-variable 'modus-themes-diff-focus-added nil "4.0.0")
+(make-obsolete-variable 'modus-themes-diff-focus-changed nil "4.0.0")
+(make-obsolete-variable 'modus-themes-diff-focus-removed nil "4.0.0")
+(make-obsolete-variable 'modus-themes-diff-heading nil "4.0.0")
+(make-obsolete-variable 'modus-themes-pseudo-header nil "4.0.0")
+(make-obsolete-variable 'modus-themes-mark-symbol nil "4.0.0")
+(make-obsolete-variable 'modus-themes-hl-line nil "4.0.0")
+(make-obsolete-variable 'modus-themes-search-success-modeline nil "4.0.0")
+(make-obsolete-variable 'modus-themes-grue-active nil "4.0.0")
+(make-obsolete-variable 'modus-themes-grue-background-active nil "4.0.0")
+(make-obsolete-variable 'modus-themes-grue-background-intense nil "4.0.0")
+(make-obsolete-variable 'modus-themes-grue-background-subtle nil "4.0.0")
+(make-obsolete-variable 'modus-themes-grue-background-refine nil "4.0.0")
+(make-obsolete-variable 'modus-themes-link-broken nil "4.0.0")
+(make-obsolete-variable 'modus-themes-link-symlink nil "4.0.0")
+(make-obsolete-variable 'modus-themes-tab-backdrop nil "4.0.0")
+(make-obsolete-variable 'modus-themes-tab-active nil "4.0.0")
+(make-obsolete-variable 'modus-themes-tab-inactive nil "4.0.0")
+(make-obsolete-variable 'modus-themes-completion-selected-popup nil "4.0.0")
+(make-obsolete-variable 'modus-themes-box-button nil "4.0.0")
+(make-obsolete-variable 'modus-themes-box-button-pressed nil "4.0.0")
 
 
 
@@ -301,9 +301,9 @@ This is used by the command `modus-themes-toggle'."
 
 (defalias 'modus-themes-post-load-hook 'modus-themes-after-load-theme-hook)
 
-(make-obsolete 'modus-themes-inhibit-reload nil "4.0.0")
-(make-obsolete 'modus-themes-operandi-color-overrides nil "4.0.0")
-(make-obsolete 'modus-themes-vivendi-color-overrides nil "4.0.0")
+(make-obsolete-variable 'modus-themes-inhibit-reload nil "4.0.0")
+(make-obsolete-variable 'modus-themes-operandi-color-overrides nil "4.0.0")
+(make-obsolete-variable 'modus-themes-vivendi-color-overrides nil "4.0.0")
 
 (defvaralias 'modus-themes-slanted-constructs 'modus-themes-italic-constructs)
 
@@ -349,7 +349,7 @@ Protesilaos))."
   :type 'boolean
   :link '(info-link "(modus-themes) Mixed fonts"))
 
-(make-obsolete 'modus-themes-intense-mouseovers nil "4.0.0")
+(make-obsolete-variable 'modus-themes-intense-mouseovers nil "4.0.0")
 
 (defconst modus-themes--headings-choice
   '(set :tag "Properties" :greedy t
@@ -480,7 +480,7 @@ will retain the original aesthetic for that level.  For example:
           :value-type ,modus-themes--headings-choice)
   :link '(info-link "(modus-themes) Heading styles"))
 
-(make-obsolete 'modus-themes-org-agenda nil "4.0.0")
+(make-obsolete-variable 'modus-themes-org-agenda nil "4.0.0")
 
 (defcustom modus-themes-fringes 'subtle
   "Control the visibility of fringes.
@@ -500,7 +500,7 @@ With `intense' use a more pronounced gray background color."
           (const :format "[%v] %t\n" :tag "Intense gray background" intense))
   :link '(info-link "(modus-themes) Fringes"))
 
-(make-obsolete 'modus-themes-lang-checkers nil "4.0.0")
+(make-obsolete-variable 'modus-themes-lang-checkers nil "4.0.0")
 
 (defcustom modus-themes-org-blocks nil
   "Set the overall style of Org code blocks, quotes, and the like.
@@ -668,7 +668,7 @@ instead of a box style, it is strongly advised to set
                            (float :tag "Floating point"))))
   :link '(info-link "(modus-themes) Mode line"))
 
-(make-obsolete 'modus-themes-diffs nil "4.0.0")
+(make-obsolete-variable 'modus-themes-diffs nil "4.0.0")
 
 (defcustom modus-themes-completions nil
   "Control the style of completion user interfaces.
@@ -827,7 +827,7 @@ In user configuration files the form may look like this:
               (const :tag "Italic font slant" italic))
   :link '(info-link "(modus-themes) Command prompts"))
 
-(make-obsolete 'modus-themes-hl-line nil "4.0.0")
+(make-obsolete-variable 'modus-themes-hl-line nil "4.0.0")
 
 (defcustom modus-themes-subtle-line-numbers nil
   "Use more subtle style for command `display-line-numbers-mode'."
@@ -837,9 +837,9 @@ In user configuration files the form may look like this:
   :type 'boolean
   :link '(info-link "(modus-themes) Line numbers"))
 
-(make-obsolete 'modus-themes-markup nil "4.0.0")
-(make-obsolete 'modus-themes-paren-match nil "4.0.0")
-(make-obsolete 'modus-themes-syntax nil "4.0.0")
+(make-obsolete-variable 'modus-themes-markup nil "4.0.0")
+(make-obsolete-variable 'modus-themes-paren-match nil "4.0.0")
+(make-obsolete-variable 'modus-themes-syntax nil "4.0.0")
 
 (defcustom modus-themes-links nil
   "Set the style of links.
@@ -952,9 +952,9 @@ the spectrum."
   :type 'boolean
   :link '(info-link "(modus-themes) Deuteranopia style"))
 
-(make-obsolete 'modus-themes-mail-citations nil "4.0.0")
-(make-obsolete 'modus-themes-tabs-accented nil "4.0.0")
-(make-obsolete 'modus-themes-box-buttons nil "4.0.0")
+(make-obsolete-variable 'modus-themes-mail-citations nil "4.0.0")
+(make-obsolete-variable 'modus-themes-tabs-accented nil "4.0.0")
+(make-obsolete-variable 'modus-themes-box-buttons nil "4.0.0")
 
 
 
