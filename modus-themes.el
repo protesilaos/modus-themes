@@ -291,6 +291,36 @@ see `modus-themes-reset-soft'."
 
 ;;; Customization variables
 
+(defconst modus-themes-items '(modus-operandi modus-vivendi)
+  "Symbols of the Modus themes.")
+
+(defcustom modus-themes-to-toggle '(modus-operandi modus-vivendi)
+  "Specify two Modus themes for `modus-themes-toggle' command.
+The variable `modus-themes-items' contains the symbols of all
+official themes that form part of this collection.
+
+The default value of this user option includes the original
+themes: `modus-operandi' (light) and `modus-vivendi' (dark).
+
+If the value is nil or otherwise does not specify two valid Modus
+themes, the command `modus-themes-toggle' reverts to selecting a
+theme from the list of available Modus themes.  In effect, it is
+the same as using the command `modus-themes-select'."
+  :type `(choice
+          (const :tag "No toggle" nil)
+          (list :tag "Pick two themes to toggle between"
+                (choice :tag "Theme one of two"
+                        ,@(mapcar (lambda (theme)
+                                    (list 'const theme))
+                                  modus-themes-items))
+                (choice :tag "Theme two of two"
+                        ,@(mapcar (lambda (theme)
+                                    (list 'const theme))
+                                  modus-themes-items))))
+  :package-version '(modus-themes . "4.0.0")
+  :version "30.1"
+  :group 'modus-themes)
+
 (defcustom modus-themes-after-load-theme-hook nil
   "Hook that runs after loading a Modus theme.
 This is used by the command `modus-themes-toggle'."
@@ -960,9 +990,6 @@ the spectrum."
 
 ;;; Helper functions for theme setup
 
-(defconst modus-themes-items '(modus-operandi modus-vivendi)
-  "Symbols of the Modus themes.")
-
 (declare-function cl-remove-if-not "cl-seq" (cl-pred cl-list &rest cl-keys))
 
 (defun modus-themes--list-enabled-themes ()
@@ -1028,14 +1055,38 @@ Run `'modus-themes-after-load-theme-hook'."
     'modus-themes--select-theme-history)))
 
 ;;;###autoload
+(defun modus-themes-select (theme)
+  "Load a Modus THEME using minibuffer completion.
+Run `modus-themes-after-load-theme-hook' after loading the theme."
+  (interactive (list (modus-themes--select-prompt)))
+  (modus-themes-load-theme theme))
+
+(defun modus-themes--toggle-theme-p ()
+  "Return non-nil if `modus-themes-to-toggle' are valid."
+  (mapc (lambda (theme)
+          (if (or (memq theme modus-themes-items)
+                  (memq theme (modus-themes--list-known-themes)))
+              theme
+            (user-error "`%s' is not part of `modus-themes-items'" theme)))
+        modus-themes-to-toggle))
+
+;;;###autoload
 (defun modus-themes-toggle ()
-  "Toggle between `modus-operandi' and `modus-vivendi' themes.
-Also runs `modus-themes-after-load-theme-hook' at its last stage."
+  "Toggle between the two `modus-themes-to-toggle'.
+If `modus-themes-to-toggle' does not specify two Ef themes, inform
+the user about it while prompting with completion for a theme
+among our collection (this is practically the same as the
+`modus-themes-select' command).
+
+Run `modus-themes-post-load-hook' after loading the theme."
   (interactive)
-  (pcase (modus-themes--current-theme)
-    ('modus-operandi (modus-themes-load-theme 'modus-vivendi))
-    ('modus-vivendi (modus-themes-load-theme 'modus-operandi))
-    (_ (modus-themes-load-theme (modus-themes--select-prompt)))))
+  (if-let* ((themes (modus-themes--toggle-theme-p))
+            (one (car themes))
+            (two (cadr themes)))
+      (if (eq (car custom-enabled-themes) one)
+          (modus-themes-load-theme two)
+        (modus-themes-load-theme one))
+    (modus-themes-load-theme (modus-themes--select-prompt))))
 
 ;;; Internal functions
 
