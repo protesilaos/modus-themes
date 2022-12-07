@@ -168,6 +168,7 @@ which corresponds to a minimum contrast in relative luminance of
 
 ;;;; Mappings
 
+      (cursor fg-main)
       (builtin magenta-warmer)
       (comment fg-dim)
       (constant blue-cooler)

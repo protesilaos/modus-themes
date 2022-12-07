@@ -1666,7 +1666,7 @@ C1 and C2 are color values written in hexadecimal RGB."
 ;;;; standard faces
 ;;;;; absolute essentials
     `(default ((,c :background ,bg-main :foreground ,fg-main)))
-    `(cursor ((,c :background ,fg-main)))
+    `(cursor ((,c :background ,cursor)))
     `(fringe ((,c ,@(modus-themes--fringe bg-main bg-inactive bg-active) :foreground ,fg-main)))
     `(vertical-border ((,c :foreground ,border)))
 ;;;;; basic and/or ungrouped styles
