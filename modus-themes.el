@@ -323,6 +323,8 @@ the same as using the command `modus-themes-select'."
   :version "30.1"
   :group 'modus-themes)
 
+(defvaralias 'modus-themes-post-load-hook 'modus-themes-after-load-theme-hook)
+
 (defcustom modus-themes-after-load-theme-hook nil
   "Hook that runs after loading a Modus theme.
 This is used by the command `modus-themes-toggle'."
@@ -330,8 +332,6 @@ This is used by the command `modus-themes-toggle'."
   :package-version '(modus-themes . "4.0.0")
   :version "30.1"
   :group 'modus-themes)
-
-(defalias 'modus-themes-post-load-hook 'modus-themes-after-load-theme-hook)
 
 (make-obsolete-variable 'modus-themes-inhibit-reload nil "4.0.0")
 (make-obsolete-variable 'modus-themes-operandi-color-overrides nil "4.0.0")
