@@ -233,16 +233,6 @@ which corresponds to a minimum contrast in relative luminance of
       (heading-7 cyan-warmer)
       (heading-8 fg-dim)
 
-      (heading-rainbow-0 green-cooler)
-      (heading-rainbow-1 magenta-cooler)
-      (heading-rainbow-2 magenta-warmer)
-      (heading-rainbow-3 blue-warmer)
-      (heading-rainbow-4 green-warmer)
-      (heading-rainbow-5 yellow)
-      (heading-rainbow-6 red-faint)
-      (heading-rainbow-7 magenta-faint)
-      (heading-rainbow-8 cyan-faint)
-
       (rainbow-0 fg-main)
       (rainbow-1 magenta-intense)
       (rainbow-2 cyan-intense)

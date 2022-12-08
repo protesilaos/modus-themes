@@ -522,9 +522,11 @@ this manual.
       modus-themes-org-blocks 'gray-background ; {nil,'gray-background,'tinted-background}
 
       modus-themes-headings ; this is an alist: read the manual or its doc string
-      '((1 . (variable-pitch 1.3))
-        (2 . (rainbow 1.1))
-        (t . (semibold))))
+      '((1 . (variable-pitch 1.5))
+        (2 . (1.3))
+        (agenda-date . (1.3))
+        (agenda-structure . (variable-pitch light 1.8))
+        (t . (1.1))))
 #+end_src
 
 ** Option for red-green color deficiency or deuteranopia
@@ -1333,9 +1335,9 @@ and ~rainbow~.  Those will continue to work as they are aliases for
 #+vindex: modus-themes-headings
 
 [ Refactored with breaking changes as part of {{{development-version}}}.
-  Removed the optional styles of an added background and overline.
-  Added =agenda-date= and =agenda-structure= keys for the Org agenda
-  headings. ]
+  Removed the optional styles of an added foreground, background, and
+  overline.  Added =agenda-date= and =agenda-structure= keys for the
+  Org agenda headings. ]
 
 Brief: Heading styles with optional list of values per heading level.
 
@@ -1357,17 +1359,14 @@ combinations, followed by a presentation of all available properties:
 #+begin_src emacs-lisp
 (setq modus-themes-headings
       '((1 . (variable-pitch 1.5))
-        (2 . (rainbow 1.3))
-        (3 . (1.1))
+        (2 . (1.3))
         (agenda-date . (1.3))
         (agenda-structure . (variable-pitch light 1.8))
-        (t . (monochrome))))
+        (t . (1.1))))
 #+end_src
 
 Properties:
 
-+ ~rainbow~
-+ ~monochrome~
 + A font weight, which must be supported by the underlying typeface:
   - ~thin~
   - ~ultralight~
@@ -1381,19 +1380,11 @@ Properties:
   - ~heavy~
   - ~extrabold~
   - ~ultrabold~
-+ ~no-bold~ (deprecated alias of a ~regular~ weight)
 + A floating point as a height multiple of the default or a cons cell in
   the form of =(height . FLOAT)=.
 
 By default (a ~nil~ value for this variable), all headings have a bold
 typographic weight and use a desaturated text color.
-
-A ~rainbow~ property makes the text color more saturated.
-
-A ~monochrome~ property makes the heading the same as the base color,
-which is that of the ~default~ face's foreground.  When ~background~ is also
-set, ~monochrome~ changes its color to gray.  If both ~monochrome~ and
-~rainbow~ are set, the former takes precedence.
 
 A ~variable-pitch~ property changes the font family of the heading to that
 of the ~variable-pitch~ face (normally a proportionately spaced typeface).
@@ -1419,10 +1410,9 @@ these examples:
 
 #+begin_src emacs-lisp
 (semibold)
-(rainbow semibold)
-(monochrome semibold 1.3)
-(monochrome semibold (height 1.3)) ; same as above
-(monochrome semibold (height . 1.3)) ; same as above
+(variable-pitch semibold 1.3)
+(variable-pitch semibold (height 1.3)) ; same as above
+(variable-pitch semibold (height . 1.3)) ; same as above
 #+end_src
 
 The order in which the properties are set is not significant.
@@ -1431,9 +1421,11 @@ In user configuration files the form may look like this:
 
 #+begin_src emacs-lisp
 (setq modus-themes-headings
-      '((1 . (rainbow 1.5))
+      '((1 . (variable-pitch 1.5))
         (2 . (1.3))
-        (t . (semibold))))
+        (agenda-date . (1.3))
+        (agenda-structure . (variable-pitch light 1.8))
+        (t . (1.1))))
 #+end_src
 
 When defining the styles per heading level, it is possible to pass a
@@ -1443,12 +1435,12 @@ original aesthetic for that level.  For example:
 #+begin_src emacs-lisp
 (setq modus-themes-headings
       '((1 . t)           ; keep the default style
-        (2 . (semibold rainbow))
+        (2 . (semibold 1.2))
         (t . (rainbow)))) ; style for all other headings
 
 (setq modus-themes-headings
       '((1 . (variable-pitch 1.5))
-        (2 . (rainbow semibold))
+        (2 . (semibold))
         (t . t))) ; default style for all other levels
 #+end_src
 

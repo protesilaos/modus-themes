@@ -402,11 +402,7 @@ Protesilaos))."
                (float :tag "Floating point to adjust height by")
                (cons :tag "Cons cell of `(height . FLOAT)'"
                      (const :tag "The `height' key (constant)" height)
-                     (float :tag "Floating point")))
-        (choice :tag "Colors"
-                (const :tag "Subtle colors" nil)
-                (const :tag "Rainbow colors" rainbow)
-                (const :tag "Monochrome" monochrome)))
+                     (float :tag "Floating point"))))
   "Refer to the doc string of `modus-themes-headings'.
 This is a helper variable intended for internal use.")
 
@@ -430,25 +426,16 @@ available properties:
 
     (setq modus-themes-headings
           (quote ((1 . (variable-pitch 1.5))
-                  (2 . (rainbow 1.3))
-                  (3 . (1.1))
+                  (2 . (1.3))
                   (agenda-date . (1.3))
                   (agenda-structure . (variable-pitch light 1.8))
-                  (t . (monochrome)))))
+                  (t . (1.1)))))
 
 By default (a nil value for this variable), all headings have a
 bold typographic weight, use a desaturated text color, have a
 font family that is the same as the `default' face (typically
 monospaced), and a height that is equal to the `default' face's
 height.
-
-A `rainbow' property makes the text color more saturated.
-
-A `monochrome' property makes the heading the same as the base
-color, which is that of the `default' face's foreground.  When
-`background' is also set, `monochrome' changes its color to gray.
-If both `monochrome' and `rainbow' are set, the former takes
-precedence.
 
 A `variable-pitch' property changes the font family of the
 heading to that of the `variable-pitch' face (normally a
@@ -474,19 +461,20 @@ Combinations of any of those properties are expressed as a list,
 like in these examples:
 
     (semibold)
-    (rainbow background)
-    (monochrome semibold 1.3)
-    (monochrome semibold (height 1.3)) ; same as above
-    (monochrome semibold (height . 1.3)) ; same as above
+    (variable-pitch semibold 1.3)
+    (variable-pitch semibold (height 1.3)) ; same as above
+    (variable-pitch semibold (height . 1.3)) ; same as above
 
 The order in which the properties are set is not significant.
 
 In user configuration files the form may look like this:
 
     (setq modus-themes-headings
-          (quote ((1 . (rainbow 1.5))
+          (quote ((1 . (variable-pitch 1.5))
                   (2 . (1.3))
-                  (t . (semibold)))))
+                  (agenda-date . (1.3))
+                  (agenda-structure . (variable-pitch light 1.8))
+                  (t . (1.1)))))
 
 When defining the styles per heading level, it is possible to
 pass a non-nil value (t) instead of a list of properties.  This
@@ -494,12 +482,12 @@ will retain the original aesthetic for that level.  For example:
 
     (setq modus-themes-headings
           (quote ((1 . t)           ; keep the default style
-                  (2 . (semibold rainbow))
-                  (t . (rainbow))))) ; style for all other headings
+                  (2 . (semibold 1.2))
+                  (t . (variable-pitch))))) ; style for all other headings
 
     (setq modus-themes-headings
           (quote ((1 . (variable-pitch extrabold 1.5))
-                  (2 . (rainbow semibold))
+                  (2 . (semibold))
                   (t . t)))) ; default style for all other levels"
   :group 'modus-themes
   :package-version '(modus-themes . "4.0.0")
@@ -1208,12 +1196,11 @@ color that is combined with FG-FOR-BG."
       (when (memq elt modus-themes-weights)
         (throw 'found elt)))))
 
-(defun modus-themes--heading (level fg &optional rainbow)
+(defun modus-themes--heading (level fg)
   "Conditional styles for `modus-themes-headings'.
 
 LEVEL is the heading's position in their order.  FG is the
-default text color.  Optional RAINBOW is an accented, more
-saturated value than FG."
+default text color."
   (let* ((key (modus-themes--key-cdr level modus-themes-headings))
          (style (or key (modus-themes--key-cdr t modus-themes-headings)))
          (style-listp (listp style))
@@ -1228,17 +1215,9 @@ saturated value than FG."
             var)
            (var (append (list 'bold) (list var)))
            ('bold))
-          :foreground
-          (cond
-           ((memq 'monochrome properties)
-            'unspecified)
-           ((memq 'rainbow properties)
-            rainbow)
-           (fg))
-          :height
-          (modus-themes--property-lookup properties 'height #'floatp 'unspecified)
-          :weight
-          (or weight 'unspecified))))
+          :foreground fg
+          :height (modus-themes--property-lookup properties 'height #'floatp 'unspecified)
+          :weight (or weight 'unspecified))))
 
 (defun modus-themes--org-block (fg bg)
   "Conditionally set the FG and BG of Org blocks."
@@ -1596,15 +1575,15 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(modus-themes-mark-symbol ((,c :inherit bold)))
 ;;;;; heading levels
     ;; styles for regular headings used in Org, Markdown, Info, etc.
-    `(modus-themes-heading-0 ((,c ,@(modus-themes--heading 0 heading-0 heading-rainbow-0))))
-    `(modus-themes-heading-1 ((,c ,@(modus-themes--heading 1 heading-1 heading-rainbow-1))))
-    `(modus-themes-heading-2 ((,c ,@(modus-themes--heading 2 heading-2 heading-rainbow-2))))
-    `(modus-themes-heading-3 ((,c ,@(modus-themes--heading 3 heading-3 heading-rainbow-3))))
-    `(modus-themes-heading-4 ((,c ,@(modus-themes--heading 4 heading-4 heading-rainbow-4))))
-    `(modus-themes-heading-5 ((,c ,@(modus-themes--heading 5 heading-5 heading-rainbow-5))))
-    `(modus-themes-heading-6 ((,c ,@(modus-themes--heading 6 heading-6 heading-rainbow-6))))
-    `(modus-themes-heading-7 ((,c ,@(modus-themes--heading 7 heading-7 heading-rainbow-7))))
-    `(modus-themes-heading-8 ((,c ,@(modus-themes--heading 8 heading-8 heading-rainbow-8))))
+    `(modus-themes-heading-0 ((,c ,@(modus-themes--heading 0 heading-0))))
+    `(modus-themes-heading-1 ((,c ,@(modus-themes--heading 1 heading-1))))
+    `(modus-themes-heading-2 ((,c ,@(modus-themes--heading 2 heading-2))))
+    `(modus-themes-heading-3 ((,c ,@(modus-themes--heading 3 heading-3))))
+    `(modus-themes-heading-4 ((,c ,@(modus-themes--heading 4 heading-4))))
+    `(modus-themes-heading-5 ((,c ,@(modus-themes--heading 5 heading-5))))
+    `(modus-themes-heading-6 ((,c ,@(modus-themes--heading 6 heading-6))))
+    `(modus-themes-heading-7 ((,c ,@(modus-themes--heading 7 heading-7))))
+    `(modus-themes-heading-8 ((,c ,@(modus-themes--heading 8 heading-8))))
 ;;;;; language checkers
     `(modus-themes-lang-error ((,c  :underline (:style wave :color ,underline-err))))
     `(modus-themes-lang-note ((,c  :underline (:style wave :color ,underline-note))))
