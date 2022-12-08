@@ -70,7 +70,7 @@ cover the blue-cyan-magenta side of the spectrum."
 
 
 
-;;; Custom faces
+;;;; Custom faces
 
 ;; These faces are used internally to ensure consistency between various
 ;; groups and to streamline the evaluation of relevant customization
@@ -289,7 +289,7 @@ see `modus-themes-reset-soft'."
 
 
 
-;;; Customization variables
+;;;; Customization variables
 
 (defconst modus-themes-items
   '( modus-operandi modus-vivendi
@@ -973,7 +973,29 @@ the spectrum."
 
 
 
-;;; Helper functions for theme setup
+;;;; Helper functions for theme setup
+
+;; This is the WCAG formula: https://www.w3.org/TR/WCAG20-TECHS/G18.html
+(defun modus-themes-wcag-formula (hex)
+  "Get WCAG value of color value HEX.
+The value is defined in hexadecimal RGB notation, such as those in
+`modus-themes-operandi-colors' and `modus-themes-vivendi-colors'."
+  (cl-loop for k in '(0.2126 0.7152 0.0722)
+           for x in (color-name-to-rgb hex)
+           sum (* k (if (<= x 0.03928)
+                        (/ x 12.92)
+                      (expt (/ (+ x 0.055) 1.055) 2.4)))))
+
+;;;###autoload
+(defun modus-themes-contrast (c1 c2)
+  "Measure WCAG contrast ratio between C1 and C2.
+C1 and C2 are color values written in hexadecimal RGB."
+  (let ((ct (/ (+ (modus-themes-wcag-formula c1) 0.05)
+               (+ (modus-themes-wcag-formula c2) 0.05))))
+    (max ct (/ ct))))
+
+(make-obsolete 'modus-themes-color nil "4.0.0")
+(make-obsolete 'modus-themes-color-alts nil "4.0.0")
 
 (declare-function cl-remove-if-not "cl-seq" (cl-pred cl-list &rest cl-keys))
 
@@ -1090,7 +1112,70 @@ Run `modus-themes-post-load-hook' after loading the theme."
         (modus-themes-load-theme one))
     (modus-themes-load-theme (modus-themes--select-prompt))))
 
-;;; Internal functions
+(defun modus-themes--list-colors-render (buffer theme &rest _)
+  "Render colors in BUFFER from THEME.
+Routine for `modus-themes-list-colors'."
+  (let ((palette (seq-remove (lambda (cell)
+                               (symbolp (cadr cell)))
+                             (modus-themes--palette-value theme :overrides)))
+        (current-buffer buffer)
+        (current-theme theme))
+    (with-help-window buffer
+      (with-current-buffer standard-output
+        (erase-buffer)
+        (when (<= (display-color-cells) 256)
+          (insert (concat "Your display terminal may not render all color previews!\n"
+                          "It seems to only support <= 256 colors.\n\n"))
+          (put-text-property (point-min) (point) 'face 'warning))
+        ;; We need this to properly render the first line.
+        (insert " ")
+        (dolist (cell palette)
+          (let* ((name (car cell))
+                 (color (cadr cell))
+                 (fg (readable-foreground-color color))
+                 (pad (make-string 5 ?\s)))
+            (let ((old-point (point)))
+              (insert (format "%s %s" color pad))
+              (put-text-property old-point (point) 'face `( :foreground ,color)))
+            (let ((old-point (point)))
+              (insert (format " %s %s %s\n" color pad name))
+              (put-text-property old-point (point)
+                                 'face `( :background ,color
+                                          :foreground ,fg
+                                          :extend t)))
+            ;; We need this to properly render the last line.
+            (insert " ")))
+        (setq-local revert-buffer-function
+                    (lambda (_ignore-auto _noconfirm)
+                      (modus-themes--list-colors-render current-buffer current-theme)))))))
+
+(defvar modus-themes--list-colors-prompt-history '()
+  "Minibuffer history for `modus-themes--list-colors-prompt'.")
+
+(defun modus-themes--list-colors-prompt ()
+  "Prompt for Modus theme.
+Helper function for `modus-themes-list-colors'."
+  (let ((def (format "%s" (modus-themes--current-theme))))
+    (completing-read
+     (format "Use palette from theme [%s]: " def)
+     (modus-themes--list-known-themes) nil t nil
+     'modus-themes--list-colors-prompt-history def)))
+
+(defun modus-themes-list-colors (theme)
+  "Preview palette of the Modus THEME of choice."
+  (interactive (list (intern (modus-themes--list-colors-prompt))))
+  (modus-themes--list-colors-render
+   (format "*%s-list-colors*" theme)
+   theme))
+
+(defun modus-themes-list-colors-current ()
+  "Call `modus-themes-list-colors' for the current Modus theme."
+  (interactive)
+  (modus-themes-list-colors (modus-themes--current-theme)))
+
+
+
+;;;; Internal functions
 
 (defun modus-themes--warn (option)
   "Warn that OPTION has changed."
@@ -1453,97 +1538,6 @@ is a less intense variant of BG."
           (if bg-only 'unspecified fg)
           :extend
           (if (memq 'no-extend properties) nil t))))
-
-
-
-;;;; Utilities for DIY users
-
-;;;;; List colors (a variant of M-x list-colors-display)
-
-(defun modus-themes--list-colors-render (buffer theme &rest _)
-  "Render colors in BUFFER from THEME.
-Routine for `modus-themes-list-colors'."
-  (let ((palette (seq-remove (lambda (cell)
-                               (symbolp (cadr cell)))
-                             (modus-themes--palette-value theme :overrides)))
-        (current-buffer buffer)
-        (current-theme theme))
-    (with-help-window buffer
-      (with-current-buffer standard-output
-        (erase-buffer)
-        (when (<= (display-color-cells) 256)
-          (insert (concat "Your display terminal may not render all color previews!\n"
-                          "It seems to only support <= 256 colors.\n\n"))
-          (put-text-property (point-min) (point) 'face 'warning))
-        ;; We need this to properly render the first line.
-        (insert " ")
-        (dolist (cell palette)
-          (let* ((name (car cell))
-                 (color (cadr cell))
-                 (fg (readable-foreground-color color))
-                 (pad (make-string 5 ?\s)))
-            (let ((old-point (point)))
-              (insert (format "%s %s" color pad))
-              (put-text-property old-point (point) 'face `( :foreground ,color)))
-            (let ((old-point (point)))
-              (insert (format " %s %s %s\n" color pad name))
-              (put-text-property old-point (point)
-                                 'face `( :background ,color
-                                          :foreground ,fg
-                                          :extend t)))
-            ;; We need this to properly render the last line.
-            (insert " ")))
-        (setq-local revert-buffer-function
-                    (lambda (_ignore-auto _noconfirm)
-                      (modus-themes--list-colors-render current-buffer current-theme)))))))
-
-(defvar modus-themes--list-colors-prompt-history '()
-  "Minibuffer history for `modus-themes--list-colors-prompt'.")
-
-(defun modus-themes--list-colors-prompt ()
-  "Prompt for Modus theme.
-Helper function for `modus-themes-list-colors'."
-  (let ((def (format "%s" (modus-themes--current-theme))))
-    (completing-read
-     (format "Use palette from theme [%s]: " def)
-     (modus-themes--list-known-themes) nil t nil
-     'modus-themes--list-colors-prompt-history def)))
-
-(defun modus-themes-list-colors (theme)
-  "Preview palette of the Modus THEME of choice."
-  (interactive (list (intern (modus-themes--list-colors-prompt))))
-  (modus-themes--list-colors-render
-   (format "*%s-list-colors*" theme)
-   theme))
-
-(defun modus-themes-list-colors-current ()
-  "Call `modus-themes-list-colors' for the current Modus theme."
-  (interactive)
-  (modus-themes-list-colors (modus-themes--current-theme)))
-
-;;;;; Formula to measure relative luminance
-
-;; This is the WCAG formula: https://www.w3.org/TR/WCAG20-TECHS/G18.html
-(defun modus-themes-wcag-formula (hex)
-  "Get WCAG value of color value HEX.
-The value is defined in hexadecimal RGB notation, such as those in
-`modus-themes-operandi-colors' and `modus-themes-vivendi-colors'."
-  (cl-loop for k in '(0.2126 0.7152 0.0722)
-           for x in (color-name-to-rgb hex)
-           sum (* k (if (<= x 0.03928)
-                        (/ x 12.92)
-                      (expt (/ (+ x 0.055) 1.055) 2.4)))))
-
-;;;###autoload
-(defun modus-themes-contrast (c1 c2)
-  "Measure WCAG contrast ratio between C1 and C2.
-C1 and C2 are color values written in hexadecimal RGB."
-  (let ((ct (/ (+ (modus-themes-wcag-formula c1) 0.05)
-               (+ (modus-themes-wcag-formula c2) 0.05))))
-    (max ct (/ ct))))
-
-(make-obsolete 'modus-themes-color nil "4.0.0")
-(make-obsolete 'modus-themes-color-alts nil "4.0.0")
 
 
 
