@@ -1265,10 +1265,6 @@ color that is combined with FG-FOR-BG."
             'bold)
            ('unspecified)))))
 
-(defun modus-themes--key-cdr (key alist)
-  "Get cdr of KEY in ALIST."
-  (cdr (assoc key alist)))
-
 (defconst modus-themes-weights
   '( thin ultralight extralight light semilight regular medium
      semibold bold heavy extrabold ultrabold)
@@ -1286,8 +1282,8 @@ color that is combined with FG-FOR-BG."
 
 LEVEL is the heading's position in their order.  FG is the
 default text color."
-  (let* ((key (modus-themes--key-cdr level modus-themes-headings))
-         (style (or key (modus-themes--key-cdr t modus-themes-headings)))
+  (let* ((key (alist-get level modus-themes-headings))
+         (style (or key (alist-get t modus-themes-headings)))
          (style-listp (listp style))
          (properties style)
          (var (when (memq 'variable-pitch properties) 'variable-pitch))
