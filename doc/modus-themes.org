@@ -516,7 +516,7 @@ this manual.
 
       ;; Options for `modus-themes-region' are either nil (the default),
       ;; or a list of properties that may include any of those symbols:
-      ;; `no-extend', `bg-only', `accented'
+      ;; `no-extend', `bg-only'.
       modus-themes-region '(bg-only no-extend)
 
       modus-themes-org-blocks 'gray-background ; {nil,'gray-background,'tinted-background}
@@ -1187,6 +1187,9 @@ updated to accommodate this aesthetic.
 :end:
 #+vindex: modus-themes-region
 
+[ Simplified as part of {{{development-version}}}.  It no longer
+  accepts an =accented= symbol. ]
+
 Brief: Control the style of the region.
 
 Symbol: ~modus-themes-region~ (=choice= type, list of properties)
@@ -1196,7 +1199,6 @@ an empty list).  The list can include any of the following symbols:
 
 + ~no-extend~
 + ~bg-only~
-+ ~accented~
 
 The default (a ~nil~ value or an empty list) is a prominent gray
 background that overrides all foreground colors in the area it
@@ -1208,15 +1210,12 @@ it does not reach the edge of the window.
 The ~bg-only~ property makes the region's background color more subtle to
 allow the underlying text to retain its foreground colors.
 
-The ~accented~ property applies a more colorful background to the region.
-
 Combinations of any of those properties are expressed as a list, like in
 these examples:
 
 #+begin_src emacs-lisp
 (no-extend)
-(bg-only accented)
-(accented bg-only no-extend)
+(bg-only no-extend)
 #+end_src
 
 The order in which the properties are set is not significant.

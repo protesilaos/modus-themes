@@ -935,15 +935,11 @@ The `bg-only' property makes the region's background color more
 subtle to allow the underlying text to retain its foreground
 colors.
 
-The `accented' property applies a more colorful background to the
-region.
-
-Combinations of any of those properties are expressed as a list,
-like in these examples:
+Combinations of properties are expressed as a list, like in these
+examples:
 
     (no-extend)
-    (bg-only accented)
-    (accented bg-only no-extend)
+    (bg-only no-extend)
 
 The order in which the properties are set is not significant.
 
@@ -951,12 +947,11 @@ In user configuration files the form may look like this:
 
     (setq modus-themes-region (quote (bg-only no-extend)))"
   :group 'modus-themes
-  :package-version '(modus-themes . "1.5.0")
-  :version "28.1"
+  :package-version '(modus-themes . "4.0.0")
+  :version "30.1"
   :type '(set :tag "Properties" :greedy t
               (const :tag "Do not extend to the edge of the window" no-extend)
-              (const :tag "Background only (preserve underlying colors)" bg-only)
-              (const :tag "Accented background" accented))
+              (const :tag "Background only (preserve underlying colors)" bg-only))
   :link '(info-link "(modus-themes) Active region"))
 
 (defcustom modus-themes-deuteranopia nil
@@ -1466,38 +1461,19 @@ yet desaturated.  Optional NEUTRALFG is a gray value."
             (or neutralfg 'unspecified))
            (t)))))
 
-(defun modus-themes--region (bg fg bgsubtle bgaccent bgaccentsubtle)
+(defun modus-themes--region (bg fg bgsubtle)
   "Apply `modus-themes-region' styles.
 
 BG and FG are the main values that are used by default.  BGSUBTLE
-is a subtle background value that can be combined with all colors
-used to fontify text and code syntax.  BGACCENT is a colored
-background that combines well with FG.  BGACCENTSUBTLE can be
-combined with all colors used to fontify text."
-  (let ((properties (modus-themes--list-or-warn 'modus-themes-region)))
+is a less intense variant of BG."
+  (let* ((properties (modus-themes--list-or-warn 'modus-themes-region))
+         (bg-only (memq 'bg-only properties)))
     (list :background
-          (cond
-           ((and (memq 'accented properties)
-                 (memq 'bg-only properties))
-            bgaccentsubtle)
-           ((memq 'accented properties)
-            bgaccent)
-           ((memq 'bg-only properties)
-            bgsubtle)
-           (bg))
+          (if bg-only bgsubtle bg)
           :foreground
-          (cond
-           ((and (memq 'accented properties)
-                 (memq 'bg-only properties))
-            'unspecified)
-           ((memq 'bg-only properties)
-            'unspecified)
-           (fg))
+          (if bg-only 'unspecified fg)
           :extend
-          (cond
-           ((memq 'no-extend properties)
-            nil)
-           (t)))))
+          (if (memq 'no-extend properties) nil t))))
 
 
 
@@ -1701,9 +1677,7 @@ C1 and C2 are color values written in hexadecimal RGB."
     `(pgtk-im-0 ((,c :inherit modus-themes-intense-cyan)))
     `(read-multiple-choice-face ((,c :inherit (bold modus-themes-mark-alt))))
     `(rectangle-preview ((,c :inherit secondary-selection)))
-    `(region ((,c ,@(modus-themes--region bg-region fg-main
-                                          bg-active bg-region-accent
-                                          bg-region-accent-subtle))))
+    `(region ((,c ,@(modus-themes--region bg-region fg-main bg-region-subtle))))
     `(secondary-selection ((,c :background ,bg-hover-secondary)))
     `(separator-line ((,c :underline ,bg-region)))
     `(shadow ((,c :foreground ,fg-dim)))

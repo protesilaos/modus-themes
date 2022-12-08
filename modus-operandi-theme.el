@@ -130,16 +130,15 @@ which corresponds to a minimum contrast in relative luminance of
 
 ;;; Special purpose
 
-      (bg-completion           "#baeaff")
-      (bg-hover                "#94d4ff")
-      (bg-hover-secondary      "#f5d0a0")
-      (bg-hl-line              "#d0d6ec")
-      (bg-paren-match          "#5fcfff")
-      (bg-paren-expression     "#efd3f5")
-      (bg-region               "#bcbcbc")
-      (bg-region-accent        "#a0a0e9")
-      (bg-region-accent-subtle "#efdfff")
-      (bg-prompt               "#bbe5d0")
+      (bg-completion       "#baeaff")
+      (bg-hover            "#94d4ff")
+      (bg-hover-secondary  "#f5d0a0")
+      (bg-hl-line          "#d0d6ec")
+      (bg-paren-match      "#5fcfff")
+      (bg-paren-expression "#efd3f5")
+      (bg-region           "#bcbcbc")
+      (bg-region-subtle    "#f0e0cc")
+      (bg-prompt           "#bbe5d0")
 
       (bg-char-0 "#7feaff")
       (bg-char-1 "#ffaaff")
