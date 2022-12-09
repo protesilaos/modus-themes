@@ -180,6 +180,7 @@ which corresponds to a minimum contrast in relative luminance of
       (variable cyan)
 
       (date cyan)
+      (weekend red-faint) ; for M-x calendar and Org agenda
       (keybind blue-cooler)
       (link blue-warmer)
       (link-alt magenta)
