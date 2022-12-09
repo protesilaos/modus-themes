@@ -149,21 +149,25 @@ which corresponds to a minimum contrast in relative luminance of
       (bg-added-faint    "#002915")
       (bg-added-refine   "#034f36")
       (bg-added-intense  "#237f3f")
+      (fg-added          "#a0e0a0")
 
       (bg-added-deuteran         "#00234f")
       (bg-added-faint-deuteran   "#00143f")
       (bg-added-refine-deuteran  "#03395f")
       (bg-added-intense-deuteran "#03699f")
+      (fg-added-deuteran         "#bbccff")
 
       (bg-changed         "#363300")
       (bg-changed-faint   "#2a1f00")
       (bg-changed-refine  "#4a4a00")
       (bg-changed-intense "#8a7a00")
+      (fg-changed         "#efef80")
 
       (bg-removed         "#4f111f")
       (bg-removed-faint   "#380a13")
       (bg-removed-refine  "#781a33")
       (bg-removed-intense "#b81a1f")
+      (fg-removed         "#ffbfbf")
 
 ;;;; Mappings
 
