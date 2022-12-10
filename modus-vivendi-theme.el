@@ -254,7 +254,8 @@ which corresponds to a minimum contrast in relative luminance of
 Each element has the form (NAME HEX) with the former as a
 symbol and the latter as a string.")
 
-  (defvar modus-vivendi-palette-overrides nil)
+  (defvar modus-vivendi-palette-overrides nil
+    "Overrides for `modus-vivendi-palette'.")
 
   (modus-themes-theme modus-vivendi modus-vivendi-palette modus-vivendi-palette-overrides)
 
