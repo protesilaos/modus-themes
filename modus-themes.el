@@ -2504,10 +2504,6 @@ is a less intense variant of BG."
     `(highlight-numbers-number ((,c :foreground ,constant)))
 ;;;;; highlight-thing
     `(highlight-thing ((,c :inherit match)))
-;;;;; hl-defined
-    `(hdefd-functions ((,c :foreground ,note)))
-    `(hdefd-undefined ((,c :foreground ,err)))
-    `(hdefd-variables ((,c :foreground ,variable)))
 ;;;;; hl-fill-column
     `(hl-fill-column-face ((,c :background ,bg-active)))
 ;;;;; hl-todo
