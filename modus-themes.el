@@ -1706,8 +1706,8 @@ is a less intense variant of BG."
 ;;;;; annotate
     `(annotate-annotation ((,c :inherit modus-themes-subtle-blue)))
     `(annotate-annotation-secondary ((,c :inherit modus-themes-subtle-magenta)))
-    `(annotate-highlight ((,c :background ,blue-subtle-bg :underline ,blue-intense)))
-    `(annotate-highlight-secondary ((,c :background ,magenta-subtle-bg :underline ,magenta-intense)))
+    `(annotate-highlight ((,c :background ,bg-blue-subtle :underline ,blue-intense)))
+    `(annotate-highlight-secondary ((,c :background ,bg-magenta-subtle :underline ,magenta-intense)))
 ;;;;; ansi-color
     ;; Those are in Emacs28.
     `(ansi-color-black ((,c :background "black" :foreground "black")))
