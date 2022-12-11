@@ -1960,7 +1960,7 @@ is a less intense variant of BG."
     `(custom-modified ((,c :inherit custom-changed)))
     `(custom-rogue ((,c :inherit custom-invalid)))
     `(custom-set ((,c :inherit success)))
-    `(custom-state ((,c :foreground ,fg-alt)))
+    `(custom-state ((,c :foreground ,warning)))
     `(custom-themed ((,c :inherit custom-changed)))
     `(custom-variable-obsolete ((,c :inherit shadow)))
     `(custom-face-tag ((,c :inherit bold :foreground ,type)))
