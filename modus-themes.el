@@ -2562,7 +2562,7 @@ is a less intense variant of BG."
 ;;;;; info
     `(Info-quoted ((,c :inherit modus-themes-prose-verbatim))) ; the capitalization is canonical
     `(info-header-node ((,c :inherit (shadow bold))))
-    `(info-header-xref ((,c :foreground ,name)))
+    `(info-header-xref ((,c :foreground ,link)))
     `(info-index-match ((,c :inherit match)))
     `(info-menu-header ((,c :inherit bold)))
     `(info-menu-star ((,c :foreground ,red-intense)))
