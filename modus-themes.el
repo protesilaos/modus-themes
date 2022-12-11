@@ -2331,14 +2331,6 @@ is a less intense variant of BG."
     `(font-lock-type-face ((,c :inherit modus-themes-bold :foreground ,type)))
     `(font-lock-variable-name-face ((,c :foreground ,variable)))
     `(font-lock-warning-face ((,c :inherit modus-themes-bold :foreground ,warning)))
-;;;;; forge
-    `(forge-post-author ((,c :inherit bold :foreground ,name)))
-    `(forge-post-date ((,c :foreground ,date)))
-    `(forge-topic-closed ((,c :inherit shadow)))
-    `(forge-topic-merged ((,c :inherit shadow)))
-    `(forge-topic-open ((,c :foreground ,note)))
-    `(forge-topic-unmerged ((,c :inherit modus-themes-slant :foreground ,warning)))
-    `(forge-topic-unread ((,c :inherit bold :foreground ,fg-main)))
 ;;;;; geiser
     `(geiser-font-lock-autodoc-current-arg `((,c :inherit modus-themes-mark-alt)))
     `(geiser-font-lock-autodoc-identifier ((,c :foreground ,docstring)))
