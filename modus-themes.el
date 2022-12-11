@@ -2748,7 +2748,7 @@ is a less intense variant of BG."
     `(magit-diff-hunk-heading-selection ((,c :inherit bold :background ,bg-hover-secondary)))
     `(magit-diff-hunk-region ((,c :inherit bold)))
     `(magit-diff-lines-boundary ((,c :background ,fg-main)))
-    `(magit-diff-lines-heading ((,c :background ,fg-dim :foreground ,bg-inactive)))
+    `(magit-diff-lines-heading ((,c :background ,fg-dim :foreground ,bg-main)))
     `(magit-diff-removed ((,c :background ,bg-removed-faint :foreground ,fg-removed)))
     `(magit-diff-removed-highlight ((,c :background ,bg-removed :foreground ,fg-removed)))
     `(magit-diffstat-added ((,c :inherit success)))
