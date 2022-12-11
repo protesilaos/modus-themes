@@ -560,15 +560,12 @@ Older versions of the themes provided options `grayscale' (or
 are aliases for `gray-background' and `tinted-background',
 respectively."
   :group 'modus-themes
-  :package-version '(modus-themes . "2.1.0")
-  :version "28.1"
+  :package-version '(modus-themes . "4.0.0")
+  :version "30.1"
   :type '(choice
           (const :format "[%v] %t\n" :tag "No Org block background (default)" nil)
           (const :format "[%v] %t\n" :tag "Subtle gray block background" gray-background)
-          (const :format "[%v] %t\n" :tag "Alias for `gray-background'" grayscale) ; for backward compatibility
-          (const :format "[%v] %t\n" :tag "Alias for `gray-background'" greyscale)
-          (const :format "[%v] %t\n" :tag "Color-coded background per programming language" tinted-background)
-          (const :format "[%v] %t\n" :tag "Alias for `tinted-background'" rainbow)) ; back compat
+          (const :format "[%v] %t\n" :tag "Color-coded background per programming language" tinted-background))
   :link '(info-link "(modus-themes) Org mode blocks"))
 
 (defcustom modus-themes-mode-line nil
@@ -1302,32 +1299,13 @@ default text color."
 
 (defun modus-themes--org-block (fg bg)
   "Conditionally set the FG and BG of Org blocks."
-  (if (or (eq modus-themes-org-blocks 'gray-background)
-          (eq modus-themes-org-blocks 'grayscale)
-          (eq modus-themes-org-blocks 'greyscale))
-      (list :background bg :foreground fg :extend t)
-    (list :foreground fg)))
-
-(defun modus-themes--org-block-delim (bgaccent fgaccent bg fg)
-  "Conditionally set the styles of Org block delimiters.
-BG, FG, BGACCENT, FGACCENT apply a background and foreground
-color respectively.
-
-The former pair is a grayscale combination that should be more
-distinct than the background of the block.  It is applied to the
-default styles or when `modus-themes-org-blocks' is set
-to `grayscale' (or `greyscale').
-
-The latter pair should be more subtle than the background of the
-block, as it is used when `modus-themes-org-blocks' is
-set to `rainbow'."
-  (pcase modus-themes-org-blocks
-    ('gray-background (list :background bg :foreground fg :extend t))
-    ('grayscale (list :background bg :foreground fg :extend t))
-    ('greyscale (list :background bg :foreground fg :extend t))
-    ('tinted-background (list :background bgaccent :foreground fgaccent :extend nil))
-    ('rainbow (list :background bgaccent :foreground fgaccent :extend nil))
-    (_ (list :foreground fg :extend nil))))
+  (let ((gray (or (eq modus-themes-org-blocks 'gray-background)
+                  (eq modus-themes-org-blocks 'grayscale)
+                  (eq modus-themes-org-blocks 'greyscale))))
+    (list :inherit 'modus-themes-fixed-pitch
+          :background (if gray bg 'unspecified)
+          :foreground fg
+          :extend (if gray t 'unspecified))))
 
 (defun modus-themes--mode-line-attrs
     (fg bg fg-alt bg-alt fg-accent bg-accent border border-3d &optional alt-style fg-distant)
@@ -3088,10 +3066,8 @@ is a less intense variant of BG."
     `(org-agenda-structure-filter ((,c :inherit org-agenda-structure :foreground ,warning)))
     `(org-agenda-structure-secondary ((,c :inherit font-lock-doc-face)))
     `(org-archived ((,c :background ,bg-inactive :foreground ,fg-main)))
-    `(org-block ((,c :inherit modus-themes-fixed-pitch ,@(modus-themes--org-block fg-main bg-dim))))
-    `(org-block-begin-line ((,c :inherit modus-themes-fixed-pitch
-                                ,@(modus-themes--org-block
-                                   fg-dim bg-inactive))))
+    `(org-block ((,c ,@(modus-themes--org-block fg-main bg-dim))))
+    `(org-block-begin-line ((,c ,@(modus-themes--org-block fg-dim bg-inactive))))
     `(org-block-end-line ((,c :inherit org-block-begin-line)))
     `(org-checkbox ((,c :foreground ,warning)))
     `(org-checkbox-statistics-done ((,c :inherit org-done)))
@@ -3872,24 +3848,24 @@ is a less intense variant of BG."
     (if (or (eq modus-themes-org-blocks 'tinted-background)
             (eq modus-themes-org-blocks 'rainbow))
         `(org-src-block-faces
-          `(("emacs-lisp" modus-themes-nuanced-magenta)
-            ("elisp" modus-themes-nuanced-magenta)
-            ("clojure" modus-themes-nuanced-magenta)
-            ("clojurescript" modus-themes-nuanced-magenta)
-            ("c" modus-themes-nuanced-blue)
-            ("c++" modus-themes-nuanced-blue)
-            ("sh" modus-themes-nuanced-green)
-            ("shell" modus-themes-nuanced-green)
-            ("html" modus-themes-nuanced-yellow)
-            ("xml" modus-themes-nuanced-yellow)
-            ("css" modus-themes-nuanced-red)
-            ("scss" modus-themes-nuanced-red)
-            ("python" modus-themes-nuanced-green)
-            ("ipython" modus-themes-nuanced-magenta)
-            ("r" modus-themes-nuanced-cyan)
-            ("yaml" modus-themes-nuanced-cyan)
-            ("conf" modus-themes-nuanced-cyan)
-            ("docker" modus-themes-nuanced-cyan)))
+          `(("emacs-lisp" (:inherit modus-themes-subtle-magenta :extend t))
+            ("elisp" (:inherit modus-themes-subtle-magenta :extend t))
+            ("clojure" (:inherit modus-themes-subtle-magenta :extend t))
+            ("clojurescript" (:inherit modus-themes-subtle-magenta :extend t))
+            ("c" (:inherit modus-themes-subtle-blue :extend t))
+            ("c++" (:inherit modus-themes-subtle-blue :extend t))
+            ("sh" (:inherit modus-themes-subtle-green :extend t))
+            ("shell" (:inherit modus-themes-subtle-green :extend t))
+            ("html" (:inherit modus-themes-subtle-yellow :extend t))
+            ("xml" (:inherit modus-themes-subtle-yellow :extend t))
+            ("css" (:inherit modus-themes-subtle-red :extend t))
+            ("scss" (:inherit modus-themes-subtle-red :extend t))
+            ("python" (:inherit modus-themes-subtle-green :extend t))
+            ("ipython" (:inherit modus-themes-subtle-magenta :extend t))
+            ("r" (:inherit modus-themes-subtle-cyan :extend t))
+            ("yaml" (:inherit modus-themes-subtle-cyan :extend t))
+            ("conf" (:inherit modus-themes-subtle-cyan :extend t))
+            ("docker" (:inherit modus-themes-subtle-cyan :extend t))))
       `(org-src-block-faces '())))
   "Custom variables for `modus-themes-theme'.")
 
