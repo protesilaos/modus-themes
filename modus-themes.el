@@ -1987,7 +1987,7 @@ is a less intense variant of BG."
     `(dictionary-reference-face ((,c :inherit link)))
     `(dictionary-word-definition-face (( )))
     `(dictionary-word-entry-face ((,c :inherit font-lock-comment-face)))
-                                        ;';;; diff-hl
+;;;;; diff-hl
     `(diff-hl-change ((,c :background ,bg-changed-intense)))
     `(diff-hl-delete ((,c :background ,bg-removed-intense)))
     `(diff-hl-insert ((,c :background ,@(modus-themes--deuteran bg-added-intense-deuteran bg-added-intense))))
