@@ -42,7 +42,7 @@
   (require 'subr-x))
 
 (defgroup modus-themes ()
-  "Options for `modus-operandi', `modus-vivendi' themes.
+  "User options for the Modus themes.
 The Modus themes conform with the WCAG AAA standard for color
 contrast between background and foreground combinations (a
 minimum contrast of 7:1---the highest standard of its kind).  The
