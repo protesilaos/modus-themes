@@ -2311,8 +2311,6 @@ is a less intense variant of BG."
     `(flyspell-incorrect ((,c :inherit modus-themes-lang-error)))
 ;;;;; flx
     `(flx-highlight-face ((,c :inherit modus-themes-completion-match-0)))
-;;;;; freeze-it
-    `(freeze-it-show ((,c :inherit shadow)))
 ;;;;; focus
     `(focus-unfocused ((,c :foreground "gray50")))
 ;;;;; fold-this

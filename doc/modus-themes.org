@@ -3009,7 +3009,6 @@ have lots of extensions, so the "full support" may not be 100% true…
 + flymake
 + flyspell
 + flx
-+ freeze-it
 + focus
 + fold-this
 + font-lock (generic syntax highlighting)
@@ -3206,6 +3205,7 @@ supported by the themes.
 + evil-owl
 + flyspell-correct
 + fortran-mode
++ freeze-it
 + git-walktree
 + goggles
 + highlight-defined
