@@ -2517,8 +2517,6 @@ is a less intense variant of BG."
 ;;;;; icomplete
     `(icomplete-first-match ((,c :inherit modus-themes-completion-match-0)))
     `(icomplete-selected-match ((,c :inherit modus-themes-completion-selected)))
-;;;;; icomplete-vertical
-    `(icomplete-vertical-separator ((,c :inherit shadow)))
 ;;;;; ido-mode
     `(ido-first-match ((,c :inherit modus-themes-completion-match-0)))
     `(ido-incomplete-regexp ((,c :inherit error)))
