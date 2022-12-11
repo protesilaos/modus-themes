@@ -105,9 +105,9 @@ which corresponds to a minimum contrast in relative luminance of
       (bg-magenta  "#a050cf")
       (bg-cyan     "#2270be")
 
-      (bg-red-subtle      "#72002a")
+      (bg-red-subtle      "#620f2a")
       (bg-green-subtle    "#00422a")
-      (bg-yellow-subtle   "#603000")
+      (bg-yellow-subtle   "#4a4000")
       (bg-blue-subtle     "#242679")
       (bg-magenta-subtle  "#552f5f")
       (bg-cyan-subtle     "#004065")
