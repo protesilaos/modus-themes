@@ -1102,7 +1102,7 @@ the user about it while prompting with completion for a theme
 among our collection (this is practically the same as the
 `modus-themes-select' command).
 
-Run `modus-themes-post-load-hook' after loading the theme."
+Run `modus-themes-after-load-theme-hook' after loading the theme."
   (interactive)
   (if-let* ((themes (modus-themes--toggle-theme-p))
             (one (car themes))
