@@ -316,12 +316,12 @@ consequences.  The user must manually reload the theme."
 Will set SYM to VAL, and reload the current theme, unless
 `modus-themes-custom-auto-reload' is nil."
   (set-default sym val)
-  (when (or modus-themes-custom-auto-reload
-            ;; Check if a theme is being loaded, in which case we
-            ;; don't want to reload a theme if the setter is
-            ;; invoked. `custom--inhibit-theme-enable' is set to nil
-            ;; by `enable-theme'.
-            (bound-and-true-p custom--inhibit-theme-enable))
+  (when (and modus-themes-custom-auto-reload
+             ;; Check if a theme is being loaded, in which case we
+             ;; don't want to reload a theme if the setter is
+             ;; invoked. `custom--inhibit-theme-enable' is set to nil
+             ;; by `enable-theme'.
+             (bound-and-true-p custom--inhibit-theme-enable))
     (when-let* ((modus-themes-custom-auto-reload t)
                 (theme (modus-themes--current-theme)))
       (modus-themes-load-theme theme))))
