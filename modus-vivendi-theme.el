@@ -76,8 +76,8 @@ which corresponds to a minimum contrast in relative luminance of
       (green-faint     "#88ca9f")
       (green-intense   "#44df44")
       (yellow          "#d0bc00")
-      (yellow-warmer   "#c0c530")
-      (yellow-cooler   "#d3b55f")
+      (yellow-warmer   "#fec43f")
+      (yellow-cooler   "#dfaf7a")
       (yellow-faint    "#d2b580")
       (yellow-intense  "#efef00")
       (blue            "#2fafff")
@@ -201,7 +201,7 @@ which corresponds to a minimum contrast in relative luminance of
       (search-match bg-magenta-subtle)
 
       (err red)
-      (warning yellow)
+      (warning yellow-warmer)
       (success green)
       (note cyan)
 
