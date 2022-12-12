@@ -291,6 +291,41 @@ see `modus-themes-reset-soft'."
 
 ;;;; Customization variables
 
+(defcustom modus-themes-custom-auto-reload t
+  "Automatically reload theme after setting options with Customize.
+
+All theme user options take effect when a theme is loaded.  Any
+subsequent changes require the theme to be reloaded.
+
+When this variable has a non-nil value, any change made via the
+Custom UI or related functions such as `customize-set-variable'
+and `setopt' (Emacs 29), will trigger a reload automatically.
+
+With a nil value, changes to user options have no further
+consequences.  The user must manually reload the theme."
+  :group 'modus-themes
+  :package-version '(modus-themes . "4.0.0")
+  :version "30.1"
+  :type 'boolean
+  :link '(info-link "(modus-themes) Custom reload theme"))
+
+(make-obsolete-variable 'modus-themes-inhibit-reload 'modus-themes-custom-auto-reload "4.0.0")
+
+(defun modus-themes--set-option (sym val)
+  "Custom setter for theme related user options.
+Will set SYM to VAL, and reload the current theme, unless
+`modus-themes-custom-auto-reload' is nil."
+  (set-default sym val)
+  (when (or modus-themes-custom-auto-reload
+            ;; Check if a theme is being loaded, in which case we
+            ;; don't want to reload a theme if the setter is
+            ;; invoked. `custom--inhibit-theme-enable' is set to nil
+            ;; by `enable-theme'.
+            (bound-and-true-p custom--inhibit-theme-enable))
+    (when-let* ((modus-themes-custom-auto-reload t)
+                (theme (modus-themes--current-theme)))
+      (modus-themes-load-theme theme))))
+
 (defconst modus-themes-items
   '( modus-operandi modus-vivendi
      modus-operandi-tinted modus-vivendi-tinted)
@@ -321,6 +356,8 @@ the same as using the command `modus-themes-select'."
                                   modus-themes-items))))
   :package-version '(modus-themes . "4.0.0")
   :version "30.1"
+  :set #'modus-themes--set-option
+  :initialize #'custom-initialize-default
   :group 'modus-themes)
 
 (defvaralias 'modus-themes-post-load-hook 'modus-themes-after-load-theme-hook)
@@ -331,9 +368,10 @@ This is used by the command `modus-themes-toggle'."
   :type 'hook
   :package-version '(modus-themes . "4.0.0")
   :version "30.1"
+  :set #'modus-themes--set-option
+  :initialize #'custom-initialize-default
   :group 'modus-themes)
 
-(make-obsolete-variable 'modus-themes-inhibit-reload nil "4.0.0")
 (make-obsolete-variable 'modus-themes-operandi-color-overrides nil "4.0.0")
 (make-obsolete-variable 'modus-themes-vivendi-color-overrides nil "4.0.0")
 
@@ -345,6 +383,8 @@ This is used by the command `modus-themes-toggle'."
   :package-version '(modus-themes . "1.5.0")
   :version "28.1"
   :type 'boolean
+  :set #'modus-themes--set-option
+  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Italic constructs"))
 
 (defcustom modus-themes-bold-constructs nil
@@ -353,6 +393,8 @@ This is used by the command `modus-themes-toggle'."
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
   :type 'boolean
+  :set #'modus-themes--set-option
+  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Bold constructs"))
 
 (defcustom modus-themes-variable-pitch-ui nil
@@ -362,6 +404,8 @@ This includes the mode line, header line, tab bar, and tab line."
   :package-version '(modus-themes . "1.1.0")
   :version "28.1"
   :type 'boolean
+  :set #'modus-themes--set-option
+  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) UI typeface"))
 
 (defcustom modus-themes-mixed-fonts nil
@@ -379,6 +423,8 @@ Protesilaos))."
   :package-version '(modus-themes . "1.7.0")
   :version "29.1"
   :type 'boolean
+  :set #'modus-themes--set-option
+  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Mixed fonts"))
 
 (make-obsolete-variable 'modus-themes-intense-mouseovers nil "4.0.0")
@@ -498,6 +544,8 @@ will retain the original aesthetic for that level.  For example:
                             '(0 1 2 3 4 5 6 7 8 t agenda-date agenda-structure))
           :key-type symbol
           :value-type ,modus-themes--headings-choice)
+  :set #'modus-themes--set-option
+  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Heading styles"))
 
 (make-obsolete-variable 'modus-themes-org-agenda nil "4.0.0")
@@ -518,6 +566,8 @@ With `intense' use a more pronounced gray background color."
           (const :format "[%v] %t\n" :tag "No visible fringes" nil)
           (const :format "[%v] %t\n" :tag "Subtle gray background" subtle)
           (const :format "[%v] %t\n" :tag "Intense gray background" intense))
+  :set #'modus-themes--set-option
+  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Fringes"))
 
 (make-obsolete-variable 'modus-themes-lang-checkers nil "4.0.0")
@@ -566,6 +616,8 @@ respectively."
           (const :format "[%v] %t\n" :tag "No Org block background (default)" nil)
           (const :format "[%v] %t\n" :tag "Subtle gray block background" gray-background)
           (const :format "[%v] %t\n" :tag "Color-coded background per programming language" tinted-background))
+  :set #'modus-themes--set-option
+  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Org mode blocks"))
 
 (defcustom modus-themes-mode-line nil
@@ -683,6 +735,8 @@ instead of a box style, it is strongly advised to set
                      (cons :tag "Cons cell of `(height . FLOAT)'"
                            (const :tag "The `height' key (constant)" height)
                            (float :tag "Floating point"))))
+  :set #'modus-themes--set-option
+  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Mode line"))
 
 (make-obsolete-variable 'modus-themes-diffs nil "4.0.0")
@@ -807,6 +861,8 @@ tandem)."
                      (const :tag "With accented background" accented)
                      (const :tag "Italic font (oblique or slanted forms)" italic)
                      (const :tag "Underline" underline))))
+  :set #'modus-themes--set-option
+  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Completion UIs"))
 
 (defcustom modus-themes-prompts nil
@@ -842,6 +898,8 @@ In user configuration files the form may look like this:
               (const :tag "With Background" background)
               (const :tag "Bold font weight" bold)
               (const :tag "Italic font slant" italic))
+  :set #'modus-themes--set-option
+  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Command prompts"))
 
 (make-obsolete-variable 'modus-themes-hl-line nil "4.0.0")
@@ -852,6 +910,8 @@ In user configuration files the form may look like this:
   :package-version '(modus-themes . "1.2.0")
   :version "28.1"
   :type 'boolean
+  :set #'modus-themes--set-option
+  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Line numbers"))
 
 (make-obsolete-variable 'modus-themes-markup nil "4.0.0")
@@ -903,6 +963,8 @@ Please refer to their documentation strings."
                       (const :tag "No underline" no-underline))
               (const :tag "Bold font weight" bold)
               (const :tag "Italic font slant" italic))
+  :set #'modus-themes--set-option
+  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Link styles"))
 
 (defcustom modus-themes-region nil
@@ -937,6 +999,8 @@ In user configuration files the form may look like this:
   :type '(set :tag "Properties" :greedy t
               (const :tag "Do not extend to the edge of the window" no-extend)
               (const :tag "Background only (preserve underlying colors)" bg-only))
+  :set #'modus-themes--set-option
+  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Active region"))
 
 (defcustom modus-themes-deuteranopia nil
@@ -962,6 +1026,8 @@ the spectrum."
   :package-version '(modus-themes . "2.0.0")
   :version "29.1"
   :type 'boolean
+  :set #'modus-themes--set-option
+  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Deuteranopia style"))
 
 (make-obsolete-variable 'modus-themes-mail-citations nil "4.0.0")
