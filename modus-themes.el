@@ -1544,27 +1544,6 @@ property.  UNDERLINE is a gray color only for the undeline."
             underline)
            (t)))))
 
-;; TODO 2022-12-03: Merge this into `modus-themes--link'?
-(defun modus-themes--link-color (fg fgfaint &optional neutralfg)
-  "Extend `modus-themes--link'.
-FG is the main accented foreground.  FGFAINT is also accented,
-yet desaturated.  Optional NEUTRALFG is a gray value."
-  (let ((properties (modus-themes--list-or-warn 'modus-themes-links)))
-    (list :foreground
-          (cond
-           ((memq 'no-color properties)
-            (or neutralfg 'unspecified))
-           ((memq 'faint properties)
-            fgfaint)
-           (fg))
-          :underline
-          (cond
-           ((memq 'no-underline properties)
-            'unspecified)
-           ((memq 'neutral-underline properties)
-            (or neutralfg 'unspecified))
-           (t)))))
-
 (defun modus-themes--region (bg fg bgsubtle)
   "Apply `modus-themes-region' styles.
 
@@ -1622,9 +1601,6 @@ is a less intense variant of BG."
     `(modus-themes-lang-error ((,c  :underline (:style wave :color ,underline-err))))
     `(modus-themes-lang-note ((,c  :underline (:style wave :color ,underline-note))))
     `(modus-themes-lang-warning ((,c  :underline (:style wave :color ,underline-warning))))
-;;;;; links
-    `(modus-themes-link-broken ((,c :inherit button ,@(modus-themes--link-color red red-faint))))
-    `(modus-themes-link-symlink ((,c :inherit button ,@(modus-themes--link-color cyan cyan-faint))))
 ;;;;; markup
     `(modus-themes-prose-code ((,c :foreground ,prose-code)))
     `(modus-themes-prose-macro ((,c :foreground ,prose-macro)))
@@ -1700,7 +1676,7 @@ is a less intense variant of BG."
 ;;;;; buttons, links, widgets
     `(button ((,c ,@(modus-themes--link link border))))
     `(link ((,c :inherit button)))
-    `(link-visited ((,c :inherit button ,@(modus-themes--link link-alt border))))
+    `(link-visited ((,c :inherit button ,@(modus-themes--link link-visited border))))
     `(tooltip ((,c :background ,bg-active)))
 ;;;;; agda2-mode
     `(agda2-highlight-bound-variable-face ((,c :inherit font-lock-variable-name-face)))
@@ -2089,7 +2065,7 @@ is a less intense variant of BG."
 ;;;;; dim-autoload
     `(dim-autoload-cookie-line ((,c :inherit font-lock-comment-face)))
 ;;;;; dired
-    `(dired-broken-symlink ((,c :inherit modus-themes-link-broken)))
+    `(dired-broken-symlink ((,c :inherit button :foreground ,err)))
     `(dired-directory ((,c :foreground ,accent-0)))
     `(dired-flagged ((,c :inherit modus-themes-mark-del)))
     `(dired-header ((,c :inherit bold)))
@@ -2097,7 +2073,7 @@ is a less intense variant of BG."
     `(dired-mark ((,c :inherit bold)))
     `(dired-marked ((,c :inherit modus-themes-mark-sel)))
     `(dired-perm-write ((,c :inherit shadow)))
-    `(dired-symlink ((,c :inherit modus-themes-link-symlink)))
+    `(dired-symlink ((,c :inherit button :foreground ,link-symbolic)))
     `(dired-warning ((,c :inherit warning)))
 ;;;;; dired-async
     `(dired-async-failures ((,c :inherit error)))
@@ -3635,7 +3611,6 @@ is a less intense variant of BG."
     `(trashed-mark ((,c :inherit bold)))
     `(trashed-marked ((,c :inherit modus-themes-mark-alt)))
     `(trashed-restored ((,c :inherit modus-themes-mark-sel)))
-    `(trashed-symlink ((,c :inherit modus-themes-link-symlink)))
 ;;;;; tree-sitter
     `(tree-sitter-hl-face:attribute ((,c :inherit font-lock-variable-name-face)))
     `(tree-sitter-hl-face:constant.builtin ((,c :inherit tree-sitter-hl-face:constant)))
@@ -3855,7 +3830,7 @@ is a less intense variant of BG."
     `(window-divider-last-pixel ((,c :foreground "gray50")))
 ;;;;; widget
     `(widget-button ((,c :inherit bold :foreground ,link)))
-    `(widget-button-pressed ((,c :inherit widget-buton :foreground ,link-alt)))
+    `(widget-button-pressed ((,c :inherit widget-buton :foreground ,link-visited)))
     `(widget-documentation ((,c :inherit font-lock-doc-face)))
     `(widget-field ((,c :background ,bg-inactive :foreground ,fg-main :extend nil)))
     `(widget-inactive ((,c :inherit shadow :background ,bg-dim)))

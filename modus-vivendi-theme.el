@@ -187,7 +187,8 @@ which corresponds to a minimum contrast in relative luminance of
       (weekend red-faint) ; for M-x calendar and Org agenda
       (keybind blue-cooler)
       (link blue-warmer)
-      (link-alt magenta)
+      (link-symbolic cyan)
+      (link-visited magenta)
       (name magenta)
       (identifier yellow-faint)
       (tag magenta-faint)
