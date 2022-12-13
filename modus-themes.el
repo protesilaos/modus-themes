@@ -2640,12 +2640,12 @@ is a less intense variant of BG."
     `(info-colors-ref-item-variable ((,c :inherit font-lock-variable-name-face)))
 ;;;;; ioccur
     `(ioccur-cursor ((,c :foreground ,fg-main)))
-    `(ioccur-invalid-regexp ((,c :foreground ,red)))
+    `(ioccur-invalid-regexp ((,c :inherit error)))
     `(ioccur-match-face ((,c :inherit match)))
     `(ioccur-match-overlay-face ((,c :background ,bg-inactive :extend t)))
     `(ioccur-num-line-face ((,c :inherit shadow)))
-    `(ioccur-overlay-face ((,c :inherit modus-themes-intense-blue :extend t)))
-    `(ioccur-regexp-face ((,c :inherit (modus-themes-intense-magenta bold))))
+    `(ioccur-overlay-face ((,c :background ,bg-hl-line :extend t)))
+    `(ioccur-regexp-face ((,c :inherit (modus-themes-search-current bold))))
     `(ioccur-title-face ((,c :inherit bold :foreground ,name)))
 ;;;;; isearch, occur, and the like
     `(isearch ((,c :inherit modus-themes-search-current)))
