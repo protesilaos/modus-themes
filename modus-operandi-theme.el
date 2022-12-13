@@ -198,9 +198,9 @@ which corresponds to a minimum contrast in relative luminance of
       (rx-construct green-cooler)
       (rx-backslash magenta)
 
-      (search-current bg-yellow)
-      (search-lazy bg-cyan)
-      (search-match bg-magenta-subtle)
+      (bg-search-current bg-yellow)
+      (bg-search-lazy bg-cyan)
+      (bg-search-match bg-magenta-subtle)
 
       (err red)
       (warning yellow-warmer)
