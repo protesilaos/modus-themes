@@ -220,14 +220,14 @@ which corresponds to a minimum contrast in relative luminance of
       (bg-accent-2 bg-cyan-subtle)
       (bg-accent-3 bg-red-subtle)
 
-      (mail-cite-0 blue)
+      (mail-cite-0 blue-faint)
       (mail-cite-1 yellow-warmer)
       (mail-cite-2 magenta)
-      (mail-cite-3 green-cooler)
+      (mail-cite-3 green-warmer)
       (mail-part cyan-cooler)
       (mail-recipient magenta-cooler) ; compare with name and keep them similar
       (mail-subject magenta-warmer)
-      (mail-other cyan)
+      (mail-other magenta-faint)
 
       (heading-0 cyan-cooler)
       (heading-1 fg-main)
