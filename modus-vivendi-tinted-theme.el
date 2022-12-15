@@ -240,16 +240,6 @@ which corresponds to a minimum contrast in relative luminance of
       (heading-7 cyan-faint)
       (heading-8 fg-dim)
 
-      (rainbow-0 fg-main)
-      (rainbow-1 magenta-warmer)
-      (rainbow-2 cyan-intense)
-      (rainbow-3 red-warmer)
-      (rainbow-4 yellow-intense)
-      (rainbow-5 magenta-cooler)
-      (rainbow-6 green-intense)
-      (rainbow-7 blue-intense)
-      (rainbow-8 magenta-intense)
-
       (prose-code cyan-cooler)
       (prose-macro magenta-cooler)
       (prose-verbatim magenta-warmer))
