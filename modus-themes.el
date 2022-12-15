@@ -3102,7 +3102,7 @@ is a less intense variant of BG."
     `(prodigy-red-face ((,c :inherit error)))
     `(prodigy-yellow-face ((,c :inherit warning)))
 ;;;;; pulse
-    `(pulse-highlight-start-face ((,c :background ,bg-active-accent :extend t)))
+    `(pulse-highlight-start-face ((,c :background ,bg-blue :extend t)))
 ;;;;; pyim
     `(pyim-page ((,c :background ,bg-active)))
     `(pyim-page-selection ((,c :inherit bold :background ,bg-active :foreground ,note)))
