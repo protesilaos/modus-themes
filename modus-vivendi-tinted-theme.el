@@ -136,7 +136,7 @@ which corresponds to a minimum contrast in relative luminance of
       (bg-paren-expression "#453040")
       (bg-region           "#555a66")
       (bg-region-subtle    "#0f4f30")
-      (bg-prompt           "#2c5a55")
+      (bg-prompt           "#5f3a60")
 
       (bg-char-0 "#0050af")
       (bg-char-1 "#7f1f7f")
