@@ -2027,7 +2027,6 @@ is a less intense variant of BG."
     `(ement-room-timestamp-header ((,c :inherit bold :foreground ,date)))
     `(ement-room-user ((,c :inherit bold :foreground ,accent-0)))
 ;;;;; emms
-    ;; TODO 2022-11-29: Review EMMS faces
     `(emms-browser-album-face ((,c :foreground ,keyword)))
     `(emms-browser-artist-face ((,c :foreground ,variable)))
     `(emms-browser-composer-face ((,c :foreground ,builtin)))
