@@ -1397,8 +1397,8 @@ is a less intense variant of BG."
     `(modus-themes-prose-macro ((,c :foreground ,prose-macro)))
     `(modus-themes-prose-verbatim ((,c :foreground ,prose-verbatim)))
 ;;;;; search
-    `(modus-themes-search-current ((,c :background ,bg-search-current :foreground ,fg-main)))
-    `(modus-themes-search-lazy ((,c :background ,bg-search-lazy :foreground ,fg-main)))
+    `(modus-themes-search-current ((,c :background ,bg-yellow :foreground ,fg-main)))
+    `(modus-themes-search-lazy ((,c :background ,bg-cyan :foreground ,fg-main)))
 ;;;;; completion frameworks
     `(modus-themes-completion-match-0 ((,c ,@(modus-themes--completion-match accent-0 bg-accent-0))))
     `(modus-themes-completion-match-1 ((,c ,@(modus-themes--completion-match accent-1 bg-accent-1))))
@@ -2444,7 +2444,7 @@ is a less intense variant of BG."
     `(isearch-group-1 ((,c :inherit modus-themes-intense-blue)))
     `(isearch-group-2 ((,c :inherit modus-themes-intense-magenta)))
     `(lazy-highlight ((,c :inherit modus-themes-search-lazy)))
-    `(match ((,c :background ,bg-search-match :foreground ,fg-main)))
+    `(match ((,c :background ,bg-magenta-subtle :foreground ,fg-main)))
     `(query-replace ((,c :inherit modus-themes-intense-red)))
 ;;;;; ivy
     `(ivy-action ((,c :inherit modus-themes-key-binding)))
