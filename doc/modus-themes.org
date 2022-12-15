@@ -809,7 +809,7 @@ their documentation strings.
 ** Option for command prompt styles
 :properties:
 :alt_title: Command prompts
-:description: Choose among plain, subtle, or intense prompts
+:description: Control the style of command prompts
 :custom_id: h:db5a9a7c-2928-4a28-b0f0-6f2b9bd52ba1
 :end:
 #+vindex: modus-themes-prompts
@@ -952,7 +952,7 @@ intersection with ~company~ (if you choose to use those in tandem).
 ** Option for fringe visibility
 :properties:
 :alt_title: Fringes
-:description: Choose among invisible, subtle, or intense fringe styles
+:description: Control the overall coloration of the fringes
 :custom_id: h:1983c3fc-74f6-44f3-b917-967c403bebae
 :end:
 #+vindex: modus-themes-fringes
@@ -973,75 +973,6 @@ With a value of ~subtle~ use a gray background color that is
 visible yet close to the main background color.
 
 With ~intense~ use a more pronounced gray background color.
-
-** Option for language checkers
-:properties:
-:alt_title: Language checkers
-:description: Control the style of language checkers/linters
-:custom_id: h:4b13743a-8ebf-4d2c-a043-cceba10b1eb4
-:end:
-#+vindex: modus-themes-lang-checkers
-
-Brief: Control the style of in-buffer warnings and errors produced by
-spell checkers, code linters, and the like.
-
-Symbol: ~modus-themes-lang-checkers~ (=choice= type, list of properties)
-
-Possible values are expressed as a list of properties (default is ~nil~ or
-an empty list).  The list can include any of the following symbols:
-
-+ ~straight-underline~
-+ ~text-also~
-+ ~background~
-+ Overall coloration:
-  - ~intense~
-  - ~faint~
-
-The default (a ~nil~ value or an empty list) applies a color-coded
-underline to the affected text, while it leaves the original foreground
-intact.  If the display spec of Emacs has support for it, the
-underline's style is that of a wave, otherwise it is a straight line.
-
-The property ~straight-underline~ ensures that the underline under the
-affected text is always drawn as a straight line.
-
-The property ~text-also~ applies the same color of the underline to the
-affected text.
-
-The property ~background~ adds a color-coded background.
-
-The property ~intense~ amplifies the applicable colors if ~background~
-and/or ~text-also~ are set.  If ~intense~ is set on its own, then it implies
-~text-also~.
-
-The property ~faint~ uses nuanced colors for the underline and for the
-foreground when ~text-also~ is included.  If both ~faint~ and ~intense~ are
-specified, the former takes precedence.
-
-Combinations of any of those properties can be expressed in a list, as
-in those examples:
-
-#+begin_src emacs-lisp
-(background)
-(straight-underline intense)
-(background text-also straight-underline)
-#+end_src
-
-The order in which the properties are set is not significant.
-
-In user configuration files the form may look like this:
-
-#+begin_src emacs-lisp
-(setq modus-themes-lang-checkers '(text-also background))
-#+end_src
-
-NOTE: The placement of the straight underline, though not the wave
-style, is controlled by the built-in variables ~underline-minimum-offset~,
-~x-underline-at-descent-line~, ~x-use-underline-position-properties~.
-
-To disable fringe indicators for Flymake or Flycheck, refer to variables
-~flymake-fringe-indicator-position~ and ~flycheck-indication-mode~,
-respectively.
 
 ** Option for line numbers
 :properties:
@@ -1120,53 +1051,6 @@ In user configuration files the form may look like this:
 #+begin_src emacs-lisp
 (setq modus-themes-region '(bg-only no-extend))
 #+end_src
-
-** Option for diff buffer looks
-:properties:
-:alt_title: Diffs
-:description: Choose among intense, desaturated, or background-only diffs
-:custom_id: h:ea7ac54f-5827-49bd-b09f-62424b3b6427
-:end:
-#+vindex: modus-themes-diffs
-
-Brief: Set the overall style of diffs.
-
-Symbol: ~modus-themes-diffs~ (=choice= type)
-
-Possible values:
-
-1. ~nil~ (default)
-2. ~desaturated~
-3. ~bg-only~
-
-The default (~nil~) uses fairly intense color combinations for diffs, by
-applying prominently colored backgrounds, with appropriately tinted
-foregrounds.
-
-Option ~desaturated~ follows the same principles as with the default
-(~nil~), though it tones down all relevant colors.
-
-Option ~bg-only~ applies a background but does not override the text's
-foreground.  This makes it suitable for a non-~nil~ value passed to
-~diff-font-lock-syntax~ (note: Magit does not support syntax highlighting
-in diffs---last checked on 2021-12-02).
-
-When the user option ~modus-themes-deuteranopia~ is non-~nil~, all diffs
-will use a red/blue color-coding system instead of the standard
-red/green.  Other stylistic changes are made in the interest of
-optimizing for such a use-case.
-
-[[#h:3ed03a48-20d8-4ce7-b214-0eb7e4c79abe][Option for red-green color deficiency or deuteranopia]].
-
-In versions before =2.0.0= there was an option for foreground-only diffs.
-This is no longer supported at the theme level because there are cases
-where the perceived contrast and overall contextuality were not good
-enough although the applied colors were technically above the 7:1
-contrast threshold.
-
-[[#h:e2aed9eb-5e1e-45ec-bbd7-bc4faeab3236][Diffs with only the foreground]].
-
-[[#h:b0b31802-0216-427e-b071-1a47adcfe608][Ediff without diff color-coding]].
 
 ** Option for org-mode block styles
 :properties:
@@ -3390,6 +3274,9 @@ the variables ~highlight-parentheses-background-colors~ and/or
 So we can have something like this (the doc string of
 ~modus-themes-with-colors~ explains where the names of the colors can be
 found):
+
+# TODO 2022-12-15: Review highlight-parentheses-colors as it mentions
+# obsolete values.
 
 #+begin_src emacs-lisp
 (modus-themes-with-colors
