@@ -492,8 +492,8 @@ this manual.
       ;; value (or empty list) or a list of properties that can include
       ;; any of the following (for WEIGHT read further below):
       ;;
-      ;; `matches' - `background', `intense', `underline', `italic', WEIGHT
-      ;; `selection' - `accented', `intense', `underline', `italic', `text-also' WEIGHT
+      ;; `matches' - `background', `underline', `italic', WEIGHT
+      ;; `selection' - `underline', `italic', `text-also' WEIGHT
       ;; `popup' - same as `selected'
       ;; `t' - applies to any key not explicitly referenced (check docs)
       ;;
@@ -501,8 +501,7 @@ this manual.
       ;; covered in `modus-themes-weights'.  Bold is used in the absence
       ;; of an explicit WEIGHT.
       modus-themes-completions '((matches . (extrabold))
-                                 (selection . (semibold accented))
-                                 (popup . (accented intense)))
+                                 (selection . (semibold italic)))
 
       ;; Options for `modus-themes-region' are either nil (the default),
       ;; or a list of properties that may include any of those symbols:
@@ -831,10 +830,10 @@ an empty list).  The list can include any of the following symbols:
 + ~italic~
 
 The default (a ~nil~ value or an empty list) means to only use a subtle
-accented foreground color.
+colored foreground color.
 
 The property ~background~ applies a background color to the prompt's text.
-By default, this is a subtle accented value.
+By default, this is a subtle colored value.
 
 The property ~bold~ makes the text use a bold typographic weight.
 Similarly, ~italic~ adds a slant to the font's forms (italic or oblique
@@ -882,7 +881,7 @@ of the particularities:
 #+begin_src emacs-lisp
 (setq modus-themes-completions
       '((matches . (extrabold background))
-        (selection . (semibold accented))))
+        (selection . (semibold italic))))
 #+end_src
 
 The ~matches~ key refers to the highlighted characters that correspond
@@ -908,12 +907,8 @@ properties are nil or an empty list, it has a subtle gray background,
 a bold weight, and the base foreground value for the text.  The list
 of properties it accepts is as follows (order is not significant):
 
-- ~accented~ to make the background colorful instead of gray;
-
 - ~text-also~ to apply extra color to the text of the selected
   line;
-
-- ~intense~ to increase the overall coloration;
 
 - ~underline~ to draw a line below the characters;
 
@@ -944,8 +939,7 @@ Is the same as:
 
 In the case of the catch-all, any property that does not apply to the
 corresponding key is simply ignored (~matches~ does not have
-~accented~ and ~text-also~, while ~selection~ does not have
-~background~).
+~text-also~, while ~selection~ does not have ~background~).
 
 Check the manual for tweaking ~bold~ and ~italic~ faces: Info node
 ~(modus-themes) Configure bold and italic faces~.

@@ -634,7 +634,7 @@ by a description of the particularities:
 
     (setq modus-themes-completions
           (quote ((matches . (extrabold background))
-                  (selection . (semibold accented)))))
+                  (selection . (semibold italic)))))
 
 The `matches' key refers to the highlighted characters that
 correspond to the user's input.  When its properties are nil or
@@ -661,12 +661,8 @@ a subtle gray background, a bold weight, and the base foreground
 value for the text.  The list of properties it accepts is as
 follows (order is not significant):
 
-- `accented' to make the background colorful instead of gray;
-
 - `text-also' to apply extra color to the text of the selected
   line;
-
-- `intense' to increase the overall coloration;
 
 - `underline' to draw a line below the characters;
 
@@ -693,8 +689,7 @@ Is the same as:
 
 In the case of the catch-all, any property that does not apply to
 the corresponding key is simply ignored (`matches' does not have
-`accented' and `text-also', while `selection' does not have
-`background').
+`text-also', while `selection' does not have `background').
 
 Check the manual for tweaking `bold' and `italic' faces: Info
 node `(modus-themes) Configure bold and italic faces'.
@@ -740,7 +735,6 @@ tandem)."
                              (const :tag "Extra-bold" extrabold)
                              (const :tag "Ultra-bold" ultrabold))
                      (const :tag "Apply color to the line's text" text-also)
-                     (const :tag "With accented background" accented)
                      (const :tag "Italic font (oblique or slanted forms)" italic)
                      (const :tag "Underline" underline))))
   :set #'modus-themes--set-option
@@ -752,7 +746,7 @@ tandem)."
 
 The value is a list of properties, each designated by a symbol.
 The default (a nil value or an empty list) means to only use a
-subtle accented foreground color.
+subtle colored foreground color.
 
 The property `background' applies a background color to the
 prompt's text.
@@ -1261,10 +1255,8 @@ default text color."
       (list deuteran)
     (list main)))
 
-(defun modus-themes--completion-line (bg fg &optional bgaccent)
-  "Styles for `modus-themes-completions'.
-BG and FG are the main colors.  BGACCENT is an accented variant
-of BG."
+(defun modus-themes--completion-line (bg fg)
+  "Styles for `modus-themes-completions' with BG and FG colors."
   (let* ((var (modus-themes--list-or-warn 'modus-themes-completions))
          (properties (or (alist-get 'selection var) (alist-get t var)))
          (italic (memq 'italic properties))
@@ -1279,10 +1271,7 @@ of BG."
        'unspecified)
       (italic 'bold-italic)
       ('bold))
-     :background
-     (if (memq 'accented properties)
-         bgaccent
-       bg)
+     :background bg
      :foreground
      (if (memq 'text-also properties)
          fg
@@ -1415,7 +1404,7 @@ is a less intense variant of BG."
     `(modus-themes-completion-match-1 ((,c ,@(modus-themes--completion-match accent-1 bg-accent-1))))
     `(modus-themes-completion-match-2 ((,c ,@(modus-themes--completion-match accent-2 bg-accent-2))))
     `(modus-themes-completion-match-3 ((,c ,@(modus-themes--completion-match accent-3 bg-accent-3))))
-    `(modus-themes-completion-selected ((,c ,@(modus-themes--completion-line bg-active fg-main bg-completion))))
+    `(modus-themes-completion-selected ((,c ,@(modus-themes--completion-line bg-completion fg-main))))
 ;;;;; typography
     `(modus-themes-bold ((,c ,@(modus-themes--bold-weight))))
     `(modus-themes-fixed-pitch ((,c ,@(modus-themes--fixed-pitch))))
