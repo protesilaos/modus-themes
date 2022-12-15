@@ -1775,13 +1775,12 @@ is a less intense variant of BG."
     `(cperl-array-face ((,c :inherit font-lock-keyword-face)))
     `(cperl-hash-face ((,c :inherit font-lock-variable-name-face)))
 ;;;;; crontab-mode
-    ;; TODO 2022-11-29: Review crontab-mode faces
-    `(crontab-minute ((,c :foreground ,blue-warmer)))
-    `(crontab-hour ((,c :foreground ,magenta-cooler)))
-    `(crontab-month-day ((,c :foreground ,magenta-warmer)))
-    `(crontab-month ((,c :foreground ,blue)))
-    `(crontab-week-day ((,c :foreground ,cyan)))
-    `(crontab-predefined ((,c :foreground ,blue-warmer)))
+    `(crontab-minute ((,c :foreground ,string)))
+    `(crontab-hour ((,c :foreground ,keyword)))
+    `(crontab-month-day ((,c :foreground ,builtin)))
+    `(crontab-month ((,c :foreground ,constant)))
+    `(crontab-week-day ((,c :foreground ,variable)))
+    `(crontab-predefined ((,c :foreground ,string)))
 ;;;;; css-mode
     `(css-property ((,c :inherit font-lock-type-face)))
     `(css-selector ((,c :inherit font-lock-keyword-face)))
