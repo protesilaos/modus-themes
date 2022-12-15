@@ -197,7 +197,7 @@ which corresponds to a minimum contrast in relative luminance of
       (link-symbolic cyan)
       (link-visited magenta)
       (name magenta)
-      (identifier yellow)
+      (identifier yellow-cooler)
       (tag magenta-faint)
       (prompt cyan-cooler)
 
