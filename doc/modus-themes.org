@@ -476,17 +476,6 @@ this manual.
 
       modus-themes-fringes nil ; {nil,'subtle,'intense}
 
-      ;; Options for `modus-themes-mode-line' are either nil, or a list
-      ;; that can combine any of `3d' OR `moody', `borderless',
-      ;; `accented', a natural number for extra padding (or a cons cell
-      ;; of padding and NATNUM), and a floating point for the height of
-      ;; the text relative to the base font size (or a cons cell of
-      ;; height and FLOAT)
-      modus-themes-mode-line '(accented borderless (padding . 4) (height . 0.9))
-
-      ;; Same as above:
-      ;; modus-themes-mode-line '(accented borderless 4 0.9)
-
       ;; Options for `modus-themes-links' are either nil (the
       ;; default), or a list of properties that may include any of
       ;; those symbols: `neutral-underline' OR `no-underline', `bold',
@@ -867,128 +856,6 @@ In user configuration files the form may look like this:
 #+begin_src emacs-lisp
 (setq modus-themes-prompts '(background italic))
 #+end_src
-
-** Option for mode line presentation
-:properties:
-:alt_title: Mode line
-:description: Choose among several styles, with or without borders
-:custom_id: h:27943af6-d950-42d0-bc23-106e43f50a24
-:end:
-#+vindex: modus-themes-mode-line
-
-Brief: Control the style of the mode lines.
-
-Symbol: ~modus-themes-mode-line~ (=choice= type, list of properties)
-
-Possible values, which can be expressed as a list of combinations of box
-effect, color, and border visibility:
-
-+ Overall style:
-  - ~3d~
-  - ~moody~
-+ ~accented~
-+ ~borderless~
-+ A natural number > 1 for extra padding or a cons cell in the form of
-  ~(padding . NATNUM)~.
-+ A floating point to set the height of the mode line's text.  It can
-  also be a cons cell in the form of ~(height . FLOAT)~.
-
-The default (a ~nil~ value or an empty list) is a two-dimensional
-rectangle with a border around it.  The active and the inactive mode
-lines use different shades of grayscale values for the background,
-foreground, border.
-
-The ~3d~ property applies a three-dimensional effect to the active mode
-line.  The inactive mode lines remain two-dimensional and are toned down
-a bit, relative to the default style.
-
-The ~moody~ property optimizes the mode line for use with the library of
-the same name (hereinafter referred to as 'Moody').  In practice, it
-removes the box effect and replaces it with underline and overline
-properties.  It also tones down the inactive mode lines.  Despite its
-intended purpose, this option can also be used without the Moody library
-(please consult the themes' manual on this point for more details).  If
-both ~3d~ and ~moody~ properties are set, the latter takes precedence.
-
-The ~borderless~ property removes the color of the borders.  It does not
-actually remove the borders, but only makes their color the same as the
-background, effectively creating some padding.
-
-The ~accented~ property ensures that the active mode line uses a colored
-background instead of the standard shade of gray.
-
-A positive integer (natural number or natnum) applies a padding effect
-of NATNUM pixels at the boundaries of the mode lines.  The default value
-is 1 and does not need to be specified explicitly.  The padding has no
-effect when the ~moody~ property is also used, because Moody already
-applies its own tweaks.  To ensure that the underline is placed at the
-bottom of the mode line, set ~x-underline-at-descent-line~ to non-~nil~
-(this is not needed when the ~borderless~ property is also set).  For
-users on Emacs 29, the ~x-use-underline-position-properties~ variable must
-also be set to nil.
-
-The padding can also be expressed as a cons cell in the form of
-=(padding . NATNUM)= or =(padding NATNUM)= where the key is constant and
-NATNUM is the desired natural number.
-
-A floating point applies an adjusted height to the mode line's text as a
-multiple of the main font size.  The default rate is 1.0 and does not
-need to be specified.  Apart from a floating point, the height may also
-be expressed as a cons cell in the form of =(height . FLOAT)= or
-=(height FLOAT)= where the key is constant and the FLOAT is the desired
-number.
-
-Combinations of any of those properties are expressed as a list, like in
-these examples:
-
-#+begin_src emacs-lisp
-(accented)
-(borderless 3d)
-(moody accented borderless)
-#+end_src
-
-Same as above, using the padding and height as an example (these
-all yield the same result):
-
-#+begin_src emacs-lisp
-(accented borderless 4 0.9)
-(accented borderless (padding . 4) (height . 0.9))
-(accented borderless (padding 4) (height 0.9))
-#+end_src
-
-The order in which the properties are set is not significant.
-
-In user configuration files the form may look like this:
-
-#+begin_src emacs-lisp
-(setq modus-themes-mode-line '(borderless accented))
-#+end_src
-
-Note that Moody does not expose any faces that the themes could style
-directly.  Instead it re-purposes existing ones to render its tabs and
-ribbons.  As such, there may be cases where the contrast ratio falls
-below the 7:1 target that the themes conform with (WCAG AAA).  To hedge
-against this, we configure a fallback foreground for the ~moody~ property,
-which will come into effect when the background of the mode line changes
-to something less accessible, such as Moody ribbons (read the doc string
-of ~set-face-attribute~, specifically ~:distant-foreground~).  This fallback
-is activated when Emacs determines that the background and foreground of
-the given construct are too close to each other in terms of color
-distance.  In practice, users will need to experiment with the variable
-~face-near-same-color-threshold~ to trigger the effect.  We find that a
-value of =45000= shall suffice, contrary to the default =30000=.  Though for
-the combinations that involve the ~accented~ and ~moody~ properties, as
-mentioned above, that should be raised up to =70000=.  Do not set it too
-high, because it has the adverse effect of always overriding the default
-colors (which have been carefully designed to be highly accessible).
-
-Furthermore, because Moody expects an underline and overline instead of
-a box style, it is strongly advised to set ~x-underline-at-descent-line~
-to a non-~nil~ value.
-
-Finally, note that various packages which heavily modify the mode line,
-such as =doom-modeline=, =nano-modeline=, =powerline=, =spaceline= may not look
-as intended with all possible combinations of this user option.
 
 ** Option for completion framework aesthetics
 :properties:
@@ -1731,6 +1598,8 @@ like ~modus-operandi~ and ~modus-vivendi~.
 
 This is how it works:
 
+#  TODO 2022-12-15: Revise DIY code that references the mode line.
+
 #+begin_src emacs-lisp
 (modus-themes-with-colors
   (custom-set-faces
@@ -2461,6 +2330,8 @@ of accessibility as our out-of-the-box design has a prominent color
 around the mode line (a border) to make its boundaries clear.  With a
 negative width the border and the text on the mode line can feel a bit
 more difficult to read under certain scenaria.
+
+#  TODO 2022-12-15: The modus-themes-mode-line is deprecated.
 
 Furthermore, the user option ~modus-themes-mode-line~ ([[#h:27943af6-d950-42d0-bc23-106e43f50a24][Mode line]]) does not
 allow for such a negative value because there are many edge cases that
@@ -3768,6 +3639,8 @@ the status of {{{kbd(M-x god-mode)}}} are instead encouraged by upstream to
 set up their own configurations, such as by changing the ~mode-line~ face
 ([[#h:f4651d55-8c07-46aa-b52b-bed1e53463bb][Advanced customization]]).  This is an adaptation of the approach
 followed in the upstream README:
+
+#  TODO 2022-12-15: Revise DIY code god-mode, as it uses obsolete colours.
 
 #+begin_src emacs-lisp
 (defun my-god-mode-update-mode-line ()

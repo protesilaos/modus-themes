@@ -171,6 +171,13 @@ which corresponds to a minimum contrast in relative luminance of
 
 ;;;; Mappings
 
+      (bg-mode-line-active        bg-active)
+      (fg-mode-line-active        fg-main)
+      (border-mode-line-active    fg-dim)
+      (bg-mode-line-inactive      bg-inactive)
+      (fg-mode-line-inactive      fg-dim)
+      (border-mode-line-inactive  border)
+
       (cursor fg-main)
       (builtin magenta-warmer)
       (comment fg-dim)

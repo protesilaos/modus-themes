@@ -620,125 +620,7 @@ respectively."
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Org mode blocks"))
 
-(defcustom modus-themes-mode-line nil
-  "Control the overall style of the mode line.
-
-The value is a list of properties, each designated by a symbol.
-The default (a nil value or an empty list) is a two-dimensional
-rectangle with a border around it.  The active and the inactive
-mode lines use different shades of grayscale values for the
-background, foreground, border.
-
-The `3d' property applies a three-dimensional effect to the
-active mode line.  The inactive mode lines remain two-dimensional
-and are toned down a bit, relative to the default style.
-
-The `moody' property optimizes the mode line for use with the
-library of the same name (hereinafter referred to as Moody).
-In practice, it removes the box effect and replaces it with
-underline and overline properties.  It also tones down the
-inactive mode lines.  Despite its intended purpose, this option
-can also be used without the Moody library (please consult the
-themes' manual on this point for more details).  If both `3d' and
-`moody' properties are set, the latter takes precedence.
-
-The `borderless' property removes the color of the borders.  It
-does not actually remove the borders, but only makes their color
-the same as the background, effectively creating some padding.
-
-The `accented' property ensures that the active mode line uses a
-colored background instead of the standard shade of gray.
-
-A positive integer (natural number or natnum) applies a padding
-effect of NATNUM pixels at the boundaries of the mode lines.  The
-default value is 1 and does not need to be specified explicitly.
-The padding has no effect when the `moody' property is also used,
-because Moody already applies its own tweaks.  To ensure that the
-underline is placed at the bottom of the mode line, set
-`x-underline-at-descent-line' to non-nil (this is not needed when
-the `borderless' property is also set).  For users on Emacs 29,
-the `x-use-underline-position-properties' variable must also be
-set to nil.
-
-The padding can also be expressed as a cons cell in the form
-of (padding . NATNUM) or (padding NATNUM) where the key is
-constant and NATNUM is the desired natural number.
-
-A floating point (e.g. 0.9) applies an adjusted height to the
-mode line's text as a multiple of the main font size.  The
-default rate is 1.0 and does not need to be specified.  Apart
-from a floating point, the height may also be expressed as a cons
-cell in the form of (height . FLOAT) or (height FLOAT) where the
-key is constant and the FLOAT is the desired number.
-
-Combinations of any of those properties are expressed as a list,
-like in these examples:
-
-    (accented)
-    (borderless 3d)
-    (moody accented borderless)
-
-Same as above, using the padding and height as an example (these
-all yield the same result):
-
-    (accented borderless 4 0.9)
-    (accented borderless (padding . 4) (height . 0.9))
-    (accented borderless (padding 4) (height 0.9))
-
-The order in which the properties are set is not significant.
-
-In user configuration files the form may look like this:
-
-    (setq modus-themes-mode-line (quote (borderless accented)))
-
-Note that Moody does not expose any faces that the themes could
-style directly.  Instead it re-purposes existing ones to render
-its tabs and ribbons.  As such, there may be cases where the
-contrast ratio falls below the 7:1 target that the themes conform
-with (WCAG AAA).  To hedge against this, we configure a fallback
-foreground for the `moody' property, which will come into effect
-when the background of the mode line changes to something less
-accessible, such as Moody ribbons (read the doc string of
-`set-face-attribute', specifically `:distant-foreground').  This
-fallback is activated when Emacs determines that the background
-and foreground of the given construct are too close to each other
-in terms of color distance.  In practice, users will need to
-experiment with the variable `face-near-same-color-threshold' to
-trigger the effect.  We find that a value of 45000 shall suffice,
-contrary to the default 30000.  Though for the combinations that
-involve the `accented' and `moody' properties, as mentioned
-above, that should be raised up to 70000.  Do not set it too
-high, because it has the adverse effect of always overriding the
-default colors (which have been carefully designed to be highly
-accessible).
-
-Furthermore, because Moody expects an underline and overline
-instead of a box style, it is strongly advised to set
-`x-underline-at-descent-line' to a non-nil value."
-  :group 'modus-themes
-  :package-version '(modus-themes . "2.3.0")
-  :version "29.1"
-  :type '(set :tag "Properties" :greedy t
-              (choice :tag "Overall style"
-                      (const :tag "Rectangular Border" nil)
-                      (const :tag "3d borders" 3d)
-                      (const :tag "No box effects (Moody-compatible)" moody))
-              (const :tag "Colored background" accented)
-              (const :tag "Without border color" borderless)
-              (radio :tag "Padding"
-                     (natnum :tag "Natural number (e.g. 4)")
-                     (cons :tag "Cons cell of `(padding . NATNUM)'"
-                           (const :tag "The `padding' key (constant)" padding)
-                           (natnum :tag "Natural number")))
-              (radio :tag "Height"
-                     (float :tag "Floating point (e.g. 0.9)")
-                     (cons :tag "Cons cell of `(height . FLOAT)'"
-                           (const :tag "The `height' key (constant)" height)
-                           (float :tag "Floating point"))))
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
-  :link '(info-link "(modus-themes) Mode line"))
-
+(make-obsolete-variable 'modus-themes-mode-line nil "4.0.0")
 (make-obsolete-variable 'modus-themes-diffs nil "4.0.0")
 
 (defcustom modus-themes-completions nil
@@ -1372,86 +1254,6 @@ default text color."
           :background (if gray bg 'unspecified)
           :foreground fg
           :extend (if gray t 'unspecified))))
-
-(defun modus-themes--mode-line-attrs
-    (fg bg fg-alt bg-alt fg-accent bg-accent border border-3d &optional alt-style fg-distant)
-  "Color combinations for `modus-themes-mode-line'.
-
-FG and BG are the default colors.  FG-ALT and BG-ALT are meant to
-accommodate the options for a 3D mode line or a `moody' compliant
-one.  FG-ACCENT and BG-ACCENT are used for all variants.  BORDER
-applies to all permutations of the mode line, except the
-three-dimensional effect, where BORDER-3D is used instead.
-
-Optional ALT-STYLE applies an appropriate style to the mode
-line's box property.
-
-Optional FG-DISTANT should be close to the main background
-values.  It is intended to be used as a distant-foreground
-property."
-  (let* ((properties (modus-themes--list-or-warn 'modus-themes-mode-line))
-         (padding (modus-themes--property-lookup properties 'padding #'natnump 1))
-         (height (modus-themes--property-lookup properties 'height #'floatp 'unspecified))
-         (padded (> padding 1))
-         (base (cond ((memq 'accented properties)
-                      (cons fg-accent bg-accent))
-                     ((and (or (memq 'moody properties)
-                               (memq '3d properties))
-                           (not (memq 'borderless properties)))
-                      (cons fg-alt bg-alt))
-                     ((cons fg bg))))
-         (line (cond ((not (or (memq 'moody properties) padded))
-                      'unspecified)
-                     ((and (not (memq 'moody properties))
-                           padded
-                           (memq 'borderless properties))
-                      'unspecified)
-                     ((and (memq 'borderless properties)
-                           (memq 'accented properties))
-                      bg-accent)
-                     ((memq 'borderless properties)
-                      bg)
-                     (border))))
-    (list :foreground (car base)
-          :background (cdr base)
-          :height height
-          :box
-          (cond ((memq 'moody properties)
-                 'unspecified)
-                ((and (memq '3d properties) padded)
-                 (list :line-width padding
-                       :color
-                       (cond ((and (memq 'accented properties)
-                                   (memq 'borderless properties))
-                              bg-accent)
-                             ((or (memq 'accented properties)
-                                  (memq 'borderless properties))
-                              bg)
-                             (bg-alt))
-                       :style (when alt-style 'released-button)))
-                ((and (memq 'accented properties) padded)
-                 (list :line-width padding :color bg-accent))
-                ((memq '3d properties)
-                 (list :line-width padding
-                       :color
-                       (cond ((and (memq 'accented properties)
-                                   (memq 'borderless properties))
-                              bg-accent)
-                             ((memq 'borderless properties) bg)
-                             (border-3d))
-                       :style (when alt-style 'released-button)))
-                ((and (memq 'accented properties)
-                      (memq 'borderless properties))
-                 (list :line-width padding :color bg-accent))
-                ((or (memq 'borderless properties) padded)
-                 (list :line-width padding :color bg))
-                (border))
-          :overline line
-          :underline line
-          :distant-foreground
-          (if (memq 'moody properties)
-              fg-distant
-            'unspecified))))
 
 (defun modus-themes--deuteran (deuteran main)
   "Determine whether to color-code success as DEUTERAN or MAIN."
@@ -2948,22 +2750,17 @@ is a less intense variant of BG."
     `(minimap-current-line-face ((,c :background ,bg-cyan :foreground ,fg-main)))
 ;;;;; mode-line
     `(mode-line ((,c :inherit modus-themes-ui-variable-pitch
-                     ,@(modus-themes--mode-line-attrs
-                        fg-main bg-active
-                        fg-dim bg-active
-                        fg-main bg-active-accent
-                        fg-dim bg-active
-                        'alt-style bg-main))))
+                     :box ,border-mode-line-active
+                     :background ,bg-mode-line-active
+                     :foreground ,fg-mode-line-active)))
     `(mode-line-active ((,c :inherit mode-line)))
     `(mode-line-buffer-id ((,c :inherit bold)))
     `(mode-line-emphasis ((,c :inherit bold :foreground ,note)))
     `(mode-line-highlight ((,c :background ,bg-hover :foreground ,fg-main :box ,fg-main)))
     `(mode-line-inactive ((,c :inherit modus-themes-ui-variable-pitch
-                              ,@(modus-themes--mode-line-attrs
-                                 fg-dim bg-inactive
-                                 fg-dim bg-dim
-                                 fg-dim bg-inactive
-                                 bg-region bg-active))))
+                              :box ,border-mode-line-inactive
+                              :background ,bg-mode-line-inactive
+                              :foreground ,fg-mode-line-inactive)))
 ;;;;; mood-line
     `(mood-line-modified ((,c :inherit italic)))
     `(mood-line-status-error ((,c :inherit error)))
