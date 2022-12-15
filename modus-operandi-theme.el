@@ -100,7 +100,7 @@ which corresponds to a minimum contrast in relative luminance of
 
       (bg-red      "#ff8f88")
       (bg-green    "#8adf80")
-      (bg-yellow   "#fac200")
+      (bg-yellow   "#f3d000")
       (bg-blue     "#bfc9ff")
       (bg-magenta  "#dfa0f0")
       (bg-cyan     "#a4d5f9")

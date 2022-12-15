@@ -97,11 +97,11 @@ which corresponds to a minimum contrast in relative luminance of
 
 ;;; Common accent backgrounds
 
-      (bg-red      "#c02f30")
+      (bg-red      "#9d1f1f")
       (bg-green    "#2f822f")
-      (bg-yellow   "#8f5040")
-      (bg-blue     "#4648c2")
-      (bg-magenta  "#904fbf")
+      (bg-yellow   "#7a6100")
+      (bg-blue     "#1640b0")
+      (bg-magenta  "#7030af")
       (bg-cyan     "#2266ae")
 
       (bg-red-subtle      "#620f2a")
