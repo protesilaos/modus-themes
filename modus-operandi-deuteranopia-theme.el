@@ -75,7 +75,7 @@ which corresponds to a minimum contrast in relative luminance of
       (green-cooler    "#00663f")
       (green-faint     "#2a5045")
       (green-intense   "#008900")
-      (yellow          "#6f5500")
+      (yellow          "#7b5000")
       (yellow-warmer   "#884900")
       (yellow-cooler   "#7a4f2f")
       (yellow-faint    "#624416")
