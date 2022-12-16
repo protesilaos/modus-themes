@@ -218,7 +218,7 @@ which corresponds to a minimum contrast in relative luminance of
       (mail-cite-0 blue-warmer)
       (mail-cite-1 yellow)
       (mail-cite-2 blue-cooler)
-      (mail-cite-3 yellow-cooler)
+      (mail-cite-3 yellow-faint)
       (mail-part blue)
       (mail-recipient blue)
       (mail-subject yellow-warmer)
