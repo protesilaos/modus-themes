@@ -761,8 +761,20 @@ an empty list).  The list can include any of the following symbols:
 + Underline style:
   - ~neutral-underline~
   - ~no-underline~
-+ ~bold~
 + ~italic~
++ A font weight, which must be supported by the underlying typeface:
+  - ~thin~
+  - ~ultralight~
+  - ~extralight~
+  - ~light~
+  - ~semilight~
+  - ~regular~
+  - ~medium~
+  - ~semibold~
+  - ~bold~
+  - ~heavy~
+  - ~extrabold~
+  - ~ultrabold~
 
 The default (a ~nil~ value or an empty list) is a prominent text color,
 typically blue, with an underline of the same color.
@@ -772,11 +784,13 @@ color of the line into a subtle gray, while the ~no-underline~ property
 removes the line altogether.  If both of those are set, the latter takes
 precedence.
 
-A ~bold~ property applies a heavy typographic weight to the text of the
-link.
+The ~italic~ property adds a slant to the font's forms (italic or
+oblique forms, depending on the typeface).
 
-An ~italic~ property adds a slant to the link's text (italic or oblique
-forms, depending on the typeface).
+The symbol of a font weight attribute such as ~light~, ~semibold~, et
+cetera, adds the given weight to links.  Valid symbols are defined in
+the variable ~modus-themes-weights~.  The absence of a weight means
+that the one of the underlying text will be used.
 
 A ~background~ property applies a subtle tinted background color.
 
@@ -815,7 +829,8 @@ their documentation strings.
 #+vindex: modus-themes-prompts
 
 [ Refactored as part of {{{development-version}}}.  Removed the
-optional gray and intense stylistic permutations. ]
+optional gray and intense stylistic permutations.  Made it possible to
+specify any font weight. ]
 
 Brief: Control the style of command prompts (e.g. minibuffer, shell, IRC
 clients).
@@ -826,8 +841,21 @@ Possible values are expressed as a list of properties (default is ~nil~ or
 an empty list).  The list can include any of the following symbols:
 
 + ~background~
-+ ~bold~
 + ~italic~
++ ~italic~
++ A font weight, which must be supported by the underlying typeface:
+  - ~thin~
+  - ~ultralight~
+  - ~extralight~
+  - ~light~
+  - ~semilight~
+  - ~regular~
+  - ~medium~
+  - ~semibold~
+  - ~bold~
+  - ~heavy~
+  - ~extrabold~
+  - ~ultrabold~
 
 The default (a ~nil~ value or an empty list) means to only use a subtle
 colored foreground color.
@@ -835,9 +863,13 @@ colored foreground color.
 The property ~background~ applies a background color to the prompt's text.
 By default, this is a subtle colored value.
 
-The property ~bold~ makes the text use a bold typographic weight.
-Similarly, ~italic~ adds a slant to the font's forms (italic or oblique
-forms, depending on the typeface).
+The ~italic~ property adds a slant to the font's forms (italic or
+oblique forms, depending on the typeface).
+
+The symbol of a font weight attribute such as ~light~, ~semibold~, et
+cetera, adds the given weight to links.  Valid symbols are defined in
+the variable ~modus-themes-weights~.  The absence of a weight means
+that the one of the underlying text will be used.
 
 Combinations of any of those properties are expressed as a list, like in
 these examples:
@@ -1148,7 +1180,7 @@ Properties:
   - ~regular~
   - ~medium~
   - ~semibold~
-  - ~bold~
+  - ~bold~ (default)
   - ~heavy~
   - ~extrabold~
   - ~ultrabold~
@@ -1165,8 +1197,6 @@ The symbol of a weight attribute adjusts the font of the heading
 accordingly, such as ~light~, ~semibold~, etc.  Valid symbols are
 defined in the variable ~modus-themes-weights~.  The absence of a weight
 means that bold will be used by virtue of inheriting the ~bold~ face.
-For backward compatibility, the ~no-bold~ value is accepted, though
-users are encouraged to specify a ~regular~ weight instead.
 
 [[#h:2793a224-2109-4f61-a106-721c57c01375][Configure bold and italic faces]].
 

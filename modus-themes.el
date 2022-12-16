@@ -429,21 +429,26 @@ Protesilaos))."
 
 (make-obsolete-variable 'modus-themes-intense-mouseovers nil "4.0.0")
 
-(defconst modus-themes--headings-choice
-  '(set :tag "Properties" :greedy t
+(defconst modus-themes--weight-widget
+  '(choice :tag "Font weight (must be supported by the typeface)"
+           (const :tag "Unspecified (use whatever the default is)" nil)
+           (const :tag "Thin" thin)
+           (const :tag "Ultra-light" ultralight)
+           (const :tag "Extra-light" extralight)
+           (const :tag "Light" light)
+           (const :tag "Semi-light" semilight)
+           (const :tag "Regular" regular)
+           (const :tag "Medium" medium)
+           (const :tag "Semi-bold" semibold)
+           (const :tag "Bold" bold)
+           (const :tag "Extra-bold" extrabold)
+           (const :tag "Ultra-bold" ultrabold))
+  "List of supported font weights used by `defcustom' forms.")
+
+(defconst modus-themes--headings-widget
+  `(set :tag "Properties" :greedy t
         (const :tag "Proportionately spaced font (variable-pitch)" variable-pitch)
-        (choice :tag "Font weight (must be supported by the typeface)"
-                (const :tag "Bold (default)" nil)
-                (const :tag "Thin" thin)
-                (const :tag "Ultra-light" ultralight)
-                (const :tag "Extra-light" extralight)
-                (const :tag "Light" light)
-                (const :tag "Semi-light" semilight)
-                (const :tag "Regular" regular)
-                (const :tag "Medium" medium)
-                (const :tag "Semi-bold" semibold)
-                (const :tag "Extra-bold" extrabold)
-                (const :tag "Ultra-bold" ultrabold))
+        ,modus-themes--weight-widget
         (radio :tag "Height"
                (float :tag "Floating point to adjust height by")
                (cons :tag "Cons cell of `(height . FLOAT)'"
@@ -492,9 +497,7 @@ accordingly, such as `light', `semibold', etc.  Valid symbols are
 defined in the variable `modus-themes-weights'.  The absence of a
 weight means that bold will be used by virtue of inheriting the
 `bold' face (check the manual for tweaking bold and italic
-faces).  For backward compatibility, the `no-bold' value is
-accepted, though users are encouraged to specify a `regular'
-weight instead.
+faces).
 
 A number, expressed as a floating point (e.g. 1.5), adjusts the
 height of the heading to that many times the base font size.  The
@@ -540,10 +543,10 @@ will retain the original aesthetic for that level.  For example:
   :version "30.1"
   :type `(alist
           :options ,(mapcar (lambda (el)
-                              (list el modus-themes--headings-choice))
+                              (list el modus-themes--headings-widget))
                             '(0 1 2 3 4 5 6 7 8 t agenda-date agenda-structure))
           :key-type symbol
-          :value-type ,modus-themes--headings-choice)
+          :value-type ,modus-themes--headings-widget)
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Heading styles"))
@@ -695,36 +698,14 @@ tandem)."
           (cons :tag "Matches"
                 (const matches)
                 (set :tag "Style of matches" :greedy t
-                     (choice :tag "Font weight (must be supported by the typeface)"
-                             (const :tag "Bold (default)" nil)
-                             (const :tag "Thin" thin)
-                             (const :tag "Ultra-light" ultralight)
-                             (const :tag "Extra-light" extralight)
-                             (const :tag "Light" light)
-                             (const :tag "Semi-light" semilight)
-                             (const :tag "Regular" regular)
-                             (const :tag "Medium" medium)
-                             (const :tag "Semi-bold" semibold)
-                             (const :tag "Extra-bold" extrabold)
-                             (const :tag "Ultra-bold" ultrabold))
+                     ,modus-themes--weight-widget
                      (const :tag "With added background" background)
                      (const :tag "Italic font (oblique or slanted forms)" italic)
                      (const :tag "Underline" underline)))
           (cons :tag "Selection"
                 (const selection)
                 (set :tag "Style of selection" :greedy t
-                     (choice :tag "Font weight (must be supported by the typeface)"
-                             (const :tag "Bold (default)" nil)
-                             (const :tag "Thin" thin)
-                             (const :tag "Ultra-light" ultralight)
-                             (const :tag "Extra-light" extralight)
-                             (const :tag "Light" light)
-                             (const :tag "Semi-light" semilight)
-                             (const :tag "Regular" regular)
-                             (const :tag "Medium" medium)
-                             (const :tag "Semi-bold" semibold)
-                             (const :tag "Extra-bold" extrabold)
-                             (const :tag "Ultra-bold" ultrabold))
+                     ,modus-themes--weight-widget
                      (const :tag "Apply color to the line's text" text-also)
                      (const :tag "Italic font (oblique or slanted forms)" italic)
                      (const :tag "Underline" underline))))
@@ -742,9 +723,13 @@ subtle colored foreground color.
 The property `background' applies a background color to the
 prompt's text.
 
-The property `bold' makes the text use a bold typographic weight.
-Similarly, `italic' adds a slant to the font's forms (italic or
+The `italic' property adds a slant to the font's forms (italic or
 oblique forms, depending on the typeface).
+
+The symbol of a font weight attribute such as `light', `semibold',
+et cetera, adds the given weight to links.  Valid symbols are
+defined in the variable `modus-themes-weights'.  The absence of a
+weight means that the one of the underlying text will be used.
 
 Combinations of any of those properties are expressed as a list,
 like in these examples:
@@ -761,10 +746,10 @@ In user configuration files the form may look like this:
   :group 'modus-themes
   :package-version '(modus-themes . "4.0.0")
   :version "30.1"
-  :type '(set :tag "Properties" :greedy t
+  :type `(set :tag "Properties" :greedy t
               (const :tag "With Background" background)
-              (const :tag "Bold font weight" bold)
-              (const :tag "Italic font slant" italic))
+              (const :tag "Italic font slant" italic)
+              ,modus-themes--weight-widget)
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Command prompts"))
@@ -797,11 +782,13 @@ turns the color of the line into a subtle gray, while the
 `no-underline' property removes the line altogether.  If both of
 those are set, the latter takes precedence.
 
-A `bold' property applies a heavy typographic weight to the text
-of the link.
-
 An `italic' property adds a slant to the link's text (italic or
 oblique forms, depending on the typeface).
+
+The symbol of a font weight attribute such as `light', `semibold',
+et cetera, adds the given weight to links.  Valid symbols are
+defined in the variable `modus-themes-weights'.  The absence of a
+weight means that the one of the underlying text will be used.
 
 Combinations of any of those properties are expressed as a list,
 like in these examples:
@@ -823,13 +810,13 @@ Please refer to their documentation strings."
   :group 'modus-themes
   :package-version '(modus-themes . "4.0.0")
   :version "30.1"
-  :type '(set :tag "Properties" :greedy t
+  :type `(set :tag "Properties" :greedy t
               (choice :tag "Underline"
                       (const :tag "Same color as text (default)" nil)
                       (const :tag "Neutral (gray) underline color" neutral-underline)
                       (const :tag "No underline" no-underline))
-              (const :tag "Bold font weight" bold)
-              (const :tag "Italic font slant" italic))
+              (const :tag "Italic font slant" italic)
+              ,modus-themes--weight-widget)
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Link styles"))
@@ -1179,12 +1166,9 @@ combines with the theme's primary background (white/black)."
 FG is the prompt's standard foreground.  BG is a background
 color that is combined with FG-FOR-BG."
   (let* ((properties (modus-themes--list-or-warn 'modus-themes-prompts))
-         (background (memq 'background properties)))
-    (list :background
-          (if background bg 'unspecified)
-          :foreground
-          (if background 'unspecified fg)
-          :inherit
+         (background (memq 'background properties))
+         (weight (modus-themes--weight properties)))
+    (list :inherit
           (cond
            ((and (memq 'bold properties)
                  (memq 'italic properties))
@@ -1193,7 +1177,16 @@ color that is combined with FG-FOR-BG."
             'italic)
            ((memq 'bold properties)
             'bold)
-           ('unspecified)))))
+           ('unspecified))
+          :background (if background bg 'unspecified)
+          :foreground (if background 'unspecified fg)
+          :weight
+          ;; If we have `bold' specifically, we inherit the face of
+          ;; the same name.  This allows the user to customise that
+          ;; face, such as to change its font family.
+          (if (and weight (not (eq weight 'bold)))
+              weight
+            'unspecified))))
 
 (defconst modus-themes-weights
   '( thin ultralight extralight light semilight regular medium
@@ -1302,7 +1295,8 @@ FG and BG are the main colors."
   "Conditional application of link styles.
 FG is the link's default color for its text and underline
 property.  UNDERLINE is a gray color only for the undeline."
-  (let ((properties (modus-themes--list-or-warn 'modus-themes-links)))
+  (let* ((properties (modus-themes--list-or-warn 'modus-themes-links))
+         (weight (modus-themes--weight properties)))
     (list :inherit
           (cond
            ((and (memq 'bold properties)
@@ -1313,18 +1307,21 @@ property.  UNDERLINE is a gray color only for the undeline."
            ((memq 'bold properties)
             'bold)
            ('unspecified))
-          :foreground
-          (cond
-           ((memq 'no-color properties)
-            'unspecified)
-           (fg))
+          :foreground fg
           :underline
           (cond
            ((memq 'no-underline properties)
             'unspecified)
            ((memq 'neutral-underline properties)
             underline)
-           (t)))))
+           (t))
+          :weight
+          ;; If we have `bold' specifically, we inherit the face of
+          ;; the same name.  This allows the user to customise that
+          ;; face, such as to change its font family.
+          (if (and weight (not (eq weight 'bold)))
+              weight
+            'unspecified))))
 
 (defun modus-themes--region (bg fg bgsubtle)
   "Apply `modus-themes-region' styles.
