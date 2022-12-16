@@ -2779,7 +2779,7 @@ is a less intense variant of BG."
     `(mu4e-header-highlight-face ((,c :inherit highlight)))
     `(mu4e-header-key-face ((,c :inherit message-header-name)))
     `(mu4e-header-marks-face ((,c :inherit mu4e-special-header-value-face)))
-    `(mu4e-header-title-face ((,c :foreground ,fg-alt))) ; TODO 2022-12-15: Review mu4e
+    `(mu4e-header-title-face ((,c :foreground ,fg-alt)))
     `(mu4e-header-value-face ((,c :inherit message-header-other)))
     `(mu4e-highlight-face ((,c :inherit modus-themes-key-binding)))
     `(mu4e-link-face ((,c :inherit link)))
