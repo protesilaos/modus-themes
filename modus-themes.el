@@ -585,30 +585,21 @@ block's contents.  It also affects the begin and end lines of the
 block as they get another shade of gray as their background,
 which differentiates them from the contents of the block.  All
 background colors extend to the edge of the window, giving the
-area a rectangular, \"blocky\" presentation.
+area a rectangular, \"blocky\" presentation.  If the begin/end
+lines do not extend in this way, check the value of the Org user
+option `org-fontify-whole-block-delimiter-line'.
 
-Option `tinted-background' uses a slightly colored background for
-the contents of the block.  The exact color will depend on the
+Option `tinted-background' uses a colored background for the
+contents of the block.  The exact color value will depend on the
 programming language and is controlled by the variable
 `org-src-block-faces' (refer to the theme's source code for the
 current association list).  For this to take effect, the Org
-buffer needs to be restarted with `org-mode-restart'.  In this
-scenario, it may be better to inhibit the extension of the
-delimiter lines' background to the edge of the window because Org
-does not provide a mechanism to update their colors depending on
-the contents of the block.  Disable the extension of such
-backgrounds by setting `org-fontify-whole-block-delimiter-line'
-to nil.
+buffer needs to be restarted with `org-mode-restart'.
 
-Code blocks use their major mode's colors only when the variable
-`org-src-fontify-natively' is non-nil.  While quote/verse blocks
-require setting `org-fontify-quote-and-verse-blocks' to a non-nil
-value.
-
-Older versions of the themes provided options `grayscale' (or
-`greyscale') and `rainbow'.  Those will continue to work as they
-are aliases for `gray-background' and `tinted-background',
-respectively."
+Code blocks use their major mode's fontification (syntax
+highlighting) only when the variable `org-src-fontify-natively'
+is non-nil.  While quote/verse blocks require setting
+`org-fontify-quote-and-verse-blocks' to a non-nil value."
   :group 'modus-themes
   :package-version '(modus-themes . "4.0.0")
   :version "30.1"
@@ -1242,7 +1233,7 @@ default text color."
 (defun modus-themes--org-block (fg bg)
   "Conditionally set the FG and BG of Org blocks."
   (let ((gray (or (eq modus-themes-org-blocks 'gray-background)
-                  (eq modus-themes-org-blocks 'grayscale)
+                  (eq modus-themes-org-blocks 'grayscale) ; for backward compatibility
                   (eq modus-themes-org-blocks 'greyscale))))
     (list :inherit 'modus-themes-fixed-pitch
           :background (if gray bg 'unspecified)
