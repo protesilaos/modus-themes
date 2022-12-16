@@ -174,7 +174,7 @@ which corresponds to a minimum contrast in relative luminance of
 
       (cursor fg-main)
       (builtin magenta-warmer)
-      (comment fg-dim)
+      (comment yellow)
       (constant blue-cooler)
       (docstring green-faint)
       (fnname magenta)
