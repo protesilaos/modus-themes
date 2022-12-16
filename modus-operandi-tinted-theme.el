@@ -144,22 +144,16 @@ which corresponds to a minimum contrast in relative luminance of
 
 ;;; Diffs
 
-      (bg-added          "#c1f2d1")
-      (bg-added-faint    "#d8f8e1")
-      (bg-added-refine   "#b1e4c1")
-      (bg-added-intense  "#8cca8c")
-      (fg-added          "#005000")
-
-      (bg-added-deuteran         "#dbdbff")
-      (bg-added-faint-deuteran   "#e4e4ff")
-      (bg-added-refine-deuteran  "#c0c0ef")
-      (bg-added-intense-deuteran "#8fcfff")
-      (fg-added-deuteran         "#303399")
+      (bg-added           "#c1f2d1")
+      (bg-added-faint     "#d8f8e1")
+      (bg-added-refine    "#aee5be")
+      (bg-added-intense   "#8cca8c")
+      (fg-added           "#005000")
 
       (bg-changed         "#ffdfa9")
       (bg-changed-faint   "#ffefbf")
       (bg-changed-refine  "#fac090")
-      (bg-changed-intense "#dfd23a")
+      (bg-changed-intense "#d7c20a")
       (fg-changed         "#553d00")
 
       (bg-removed         "#ffd8d5")
@@ -205,8 +199,7 @@ which corresponds to a minimum contrast in relative luminance of
 
       (err red)
       (warning yellow-warmer)
-      (success green)
-      (note cyan)
+      (info green)
 
       (underline-err red-intense)
       (underline-warning yellow-intense)

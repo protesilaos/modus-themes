@@ -1,4 +1,4 @@
-;;; modus-operandi-theme.el --- Elegant, highly legible and customizable light theme -*- lexical-binding:t -*-
+;;; modus-operandi-deuteranopia-theme.el --- Elegant, highly legible and customizable light theme -*- lexical-binding:t -*-
 
 ;; Copyright (C) 2019-2022  Free Software Foundation, Inc.
 
@@ -43,14 +43,14 @@
                (require-theme 'modus-themes t))
     (require 'modus-themes))
 
-  (deftheme modus-operandi
+  (deftheme modus-operandi-deuteranopia
     "Elegant, highly legible and customizable light theme.
 Conforms with the highest legibility standard for color contrast
 between background and foreground in any given piece of text,
 which corresponds to a minimum contrast in relative luminance of
 7:1 (WCAG AAA standard).")
 
-  (defconst modus-operandi-palette
+  (defconst modus-operandi-deuteranopia-palette
     '(
 ;;; Basic values
 
@@ -137,7 +137,7 @@ which corresponds to a minimum contrast in relative luminance of
       (bg-paren-expression "#efd3f5")
       (bg-region           "#bcbcbc")
       (bg-region-subtle    "#f0e0cc")
-      (bg-prompt           "#dbc5f0")
+      (bg-prompt           "#ebc580")
 
       (bg-char-0 "#7feaff")
       (bg-char-1 "#ffaaff")
@@ -145,23 +145,23 @@ which corresponds to a minimum contrast in relative luminance of
 
 ;;; Diffs
 
-      (bg-added           "#c1f2d1")
-      (bg-added-faint     "#d8f8e1")
-      (bg-added-refine    "#aee5be")
-      (bg-added-intense   "#8cca8c")
-      (fg-added           "#005000")
+      (bg-added           "#d5d5ff")
+      (bg-added-faint     "#e4e4ff")
+      (bg-added-refine    "#b5b5ef")
+      (bg-added-intense   "#579acc")
+      (fg-added           "#333399")
 
-      (bg-changed         "#ffdfa9")
-      (bg-changed-faint   "#ffefbf")
-      (bg-changed-refine  "#fac090")
-      (bg-changed-intense "#d7c20a")
-      (fg-changed         "#553d00")
+      (bg-changed         "#eecfdf")
+      (bg-changed-faint   "#f0dde5")
+      (bg-changed-refine  "#e0b0d0")
+      (bg-changed-intense "#9f7abf")
+      (fg-changed         "#6f1343")
 
-      (bg-removed         "#ffd8d5")
-      (bg-removed-faint   "#ffe9e9")
-      (bg-removed-refine  "#f3b5af")
-      (bg-removed-intense "#d84a4f")
-      (fg-removed         "#8f1313")
+      (bg-removed         "#fff588")
+      (bg-removed-faint   "#f2f2bb")
+      (bg-removed-refine  "#f0e068")
+      (bg-removed-intense "#d7c20a")
+      (fg-removed         "#553d00")
 
 ;;;; Mappings
 
@@ -185,44 +185,44 @@ which corresponds to a minimum contrast in relative luminance of
       (variable cyan)
 
       (date cyan)
-      (weekend red-faint) ; for M-x calendar and Org agenda
+      (weekend blue) ; for M-x calendar and Org agenda
       (keybind blue-cooler)
       (link blue-warmer)
       (link-symbolic cyan)
-      (link-visited magenta)
-      (name magenta)
-      (identifier yellow-cooler)
+      (link-visited yellow-faint)
+      (name blue-cooler)
+      (identifier yellow-faint)
       (tag magenta-faint)
       (prompt cyan-cooler)
 
-      (rx-construct green-cooler)
-      (rx-backslash magenta)
+      (rx-construct yellow-cooler)
+      (rx-backslash blue-cooler)
 
-      (err red)
-      (warning yellow-warmer)
-      (info green)
+      (err yellow-warmer)
+      (warning yellow-cooler)
+      (info blue)
 
       (underline-err red-intense)
       (underline-warning yellow-intense)
       (underline-note cyan-intense)
 
       (accent-0 blue)
-      (accent-1 magenta-warmer)
+      (accent-1 yellow-warmer)
       (accent-2 cyan)
-      (accent-3 red)
+      (accent-3 magenta-cooler)
       (bg-accent-0 bg-blue-subtle)
-      (bg-accent-1 bg-magenta-subtle)
+      (bg-accent-1 bg-yellow-subtle)
       (bg-accent-2 bg-cyan-subtle)
-      (bg-accent-3 bg-red-subtle)
+      (bg-accent-3 bg-magenta-subtle)
 
-      (mail-cite-0 blue-faint)
-      (mail-cite-1 yellow-warmer)
-      (mail-cite-2 cyan-cooler)
-      (mail-cite-3 red-cooler)
-      (mail-part cyan)
-      (mail-recipient magenta-cooler)
-      (mail-subject magenta-warmer)
-      (mail-other magenta-faint)
+      (mail-cite-0 blue-warmer)
+      (mail-cite-1 yellow)
+      (mail-cite-2 blue-cooler)
+      (mail-cite-3 yellow-cooler)
+      (mail-part blue)
+      (mail-recipient blue)
+      (mail-subject yellow-warmer)
+      (mail-other cyan-faint)
 
       (heading-0 cyan-cooler)
       (heading-1 fg-main)
@@ -237,18 +237,18 @@ which corresponds to a minimum contrast in relative luminance of
       (prose-code green-cooler)
       (prose-macro magenta-cooler)
       (prose-verbatim magenta-warmer))
-    "The entire palette of the `modus-operandi' theme.
+    "The entire palette of the `modus-operandi-deuteranopia' theme.
 Each element has the form (NAME HEX) with the former as a
 symbol and the latter as a string.")
 
-  (defvar modus-operandi-palette-overrides nil
-    "Overrides for `modus-operandi-palette'.")
+  (defvar modus-operandi-deuteranopia-palette-overrides nil
+    "Overrides for `modus-operandi-deuteranopia-palette'.")
 
-  (modus-themes-theme modus-operandi modus-operandi-palette modus-operandi-palette-overrides)
+  (modus-themes-theme modus-operandi-deuteranopia modus-operandi-deuteranopia-palette modus-operandi-deuteranopia-palette-overrides)
 
-  (provide-theme 'modus-operandi))
+  (provide-theme 'modus-operandi-deuteranopia))
 
 ;;;###theme-autoload
-(put 'modus-operandi 'theme-properties '(:background-mode light :kind color-scheme :family modus))
+(put 'modus-operandi-deuteranopia 'theme-properties '(:background-mode light :kind color-scheme :family modus))
 
-;;; modus-operandi-theme.el ends here
+;;; modus-operandi-deuteranopia-theme.el ends here

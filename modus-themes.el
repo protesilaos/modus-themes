@@ -211,11 +211,6 @@ see `modus-themes-reset-soft'."
   "Generic face for command prompts."
   :group 'modus-themes-faces)
 
-;; "Grue" is "green" and "blue".
-(defface modus-themes-grue nil
-  "Generic face for `modus-themes-deuteranopia' foreground."
-  :group 'modus-themes-faces)
-
 (defface modus-themes-completion-selected nil
   "Face for current selection in completion UIs."
   :group 'modus-themes-faces)
@@ -248,6 +243,7 @@ see `modus-themes-reset-soft'."
 (make-obsolete-variable 'modus-themes-fringe-blue nil "4.0.0")
 (make-obsolete-variable 'modus-themes-fringe-magenta nil "4.0.0")
 (make-obsolete-variable 'modus-themes-fringe-cyan nil "4.0.0")
+(make-obsolete-variable 'modus-themes-grue nil "4.0.0")
 (make-obsolete-variable 'modus-themes-grue-nuanced nil "4.0.0")
 (make-obsolete-variable 'modus-themes-red-nuanced nil "4.0.0")
 (make-obsolete-variable 'modus-themes-green-nuanced nil "4.0.0")
@@ -328,7 +324,8 @@ Will set SYM to VAL, and reload the current theme, unless
 
 (defconst modus-themes-items
   '( modus-operandi modus-vivendi
-     modus-operandi-tinted modus-vivendi-tinted)
+     modus-operandi-tinted modus-vivendi-tinted
+     modus-operandi-deuteranopia modus-vivendi-deuteranopia)
   "Symbols of the Modus themes.")
 
 (defcustom modus-themes-to-toggle '(modus-operandi modus-vivendi)
@@ -857,33 +854,7 @@ In user configuration files the form may look like this:
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Active region"))
 
-(defcustom modus-themes-deuteranopia nil
-  "When non-nil use red/blue color-coding instead of red/green.
-
-This is to account for red-green color deficiency, also know as
-deuteranopia and variants.  It applies to all contexts where
-there can be a color-coded distinction between failure or
-success, a to-do or done state, a mark for deletion versus a mark
-for selection (e.g. in Dired), current and lazily highlighted
-search matches, removed lines in diffs as opposed to added ones,
-and so on.
-
-Note that this does not change all colors throughout the active
-theme, but only applies to cases that have color-coding
-significance.  For example, regular code syntax highlighting is
-not affected.  There is no such need because of the themes'
-overarching commitment to the highest legibility standard, which
-ensures that text is readable regardless of hue, as well as the
-predominance of colors on the blue-cyan-magenta-purple side of
-the spectrum."
-  :group 'modus-themes
-  :package-version '(modus-themes . "2.0.0")
-  :version "29.1"
-  :type 'boolean
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
-  :link '(info-link "(modus-themes) Deuteranopia style"))
-
+(make-obsolete-variable 'modus-themes-deuteranopia nil "4.0.0")
 (make-obsolete-variable 'modus-themes-mail-citations nil "4.0.0")
 (make-obsolete-variable 'modus-themes-tabs-accented nil "4.0.0")
 (make-obsolete-variable 'modus-themes-box-buttons nil "4.0.0")
@@ -1233,12 +1204,6 @@ default text color."
           :foreground fg
           :extend (if gray t 'unspecified))))
 
-(defun modus-themes--deuteran (deuteran main)
-  "Determine whether to color-code success as DEUTERAN or MAIN."
-  (if modus-themes-deuteranopia
-      (list deuteran)
-    (list main)))
-
 (defun modus-themes--completion-line (bg fg)
   "Styles for `modus-themes-completions' with BG and FG colors."
   (let* ((var (modus-themes--list-or-warn 'modus-themes-completions))
@@ -1399,7 +1364,6 @@ is a less intense variant of BG."
     `(modus-themes-slant ((,c ,@(modus-themes--slant))))
     `(modus-themes-ui-variable-pitch ((,c ,@(modus-themes--variable-pitch-ui))))
 ;;;;; other custom faces
-    `(modus-themes-grue ((,c :foreground ,@(modus-themes--deuteran blue success))))
     `(modus-themes-key-binding ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind)))
     `(modus-themes-prompt ((,c ,@(modus-themes--prompt prompt bg-prompt))))
     `(modus-themes-reset-hard ((,c :inherit (fixed-pitch modus-themes-reset-soft)
@@ -1449,7 +1413,7 @@ is a less intense variant of BG."
     `(secondary-selection ((,c :background ,bg-hover-secondary)))
     `(separator-line ((,c :underline ,bg-region)))
     `(shadow ((,c :foreground ,fg-dim)))
-    `(success ((,c :inherit (bold modus-themes-grue))))
+    `(success ((,c :inherit bold :foreground ,info)))
     `(trailing-whitespace ((,c :background ,bg-red)))
     `(warning ((,c :inherit bold :foreground ,warning)))
 ;;;;; buttons, links, widgets
@@ -1686,7 +1650,7 @@ is a less intense variant of BG."
     `(cider-enlightened-face ((,c :box ,warning)))
     `(cider-enlightened-local-face ((,c :inherit warning)))
     `(cider-error-highlight-face ((,c :inherit modus-themes-lang-error)))
-    `(cider-fringe-good-face ((,c :inherit modus-themes-grue)))
+    `(cider-fringe-good-face ((,c :foreground ,info)))
     `(cider-instrumented-face ((,c :box ,err)))
     `(cider-reader-conditional-face ((,c :inherit font-lock-type-face)))
     `(cider-repl-prompt-face ((,c :inherit minibuffer-prompt)))
@@ -1729,11 +1693,11 @@ is a less intense variant of BG."
 ;;;;; compilation
     `(compilation-column-number ((,c :inherit compilation-line-number)))
     `(compilation-error ((,c :inherit modus-themes-bold :foreground ,err)))
-    `(compilation-info ((,c :inherit modus-themes-bold :foreground ,note)))
+    `(compilation-info ((,c :inherit modus-themes-bold :foreground ,info)))
     `(compilation-line-number ((,c :inherit shadow)))
     `(compilation-mode-line-exit ((,c :inherit bold)))
     `(compilation-mode-line-fail ((,c :inherit modus-themes-bold :foreground ,err)))
-    `(compilation-mode-line-run ((,c :inherit modus-themes-bold :foreground ,note)))
+    `(compilation-mode-line-run ((,c :inherit modus-themes-bold :foreground ,info)))
     `(compilation-warning ((,c :inherit modus-themes-bold :foreground ,warning)))
 ;;;;; completions
     `(completions-annotations ((,c :inherit modus-themes-slant :foreground ,docstring)))
@@ -1819,14 +1783,14 @@ is a less intense variant of BG."
 ;;;;; diff-hl
     `(diff-hl-change ((,c :background ,bg-changed-intense)))
     `(diff-hl-delete ((,c :background ,bg-removed-intense)))
-    `(diff-hl-insert ((,c :background ,@(modus-themes--deuteran bg-added-intense-deuteran bg-added-intense))))
+    `(diff-hl-insert ((,c :background ,bg-added-intense)))
     `(diff-hl-reverted-hunk-highlight ((,c :background ,fg-main :foreground ,bg-main)))
 ;;;;; diff-mode
-    `(diff-added ((,c :background ,@(modus-themes--deuteran bg-added-deuteran bg-added))))
+    `(diff-added ((,c :background ,bg-added)))
     `(diff-changed ((,c :background ,bg-changed :extend t)))
     `(diff-changed-unspecified ((,c :inherit diff-changed)))
     `(diff-removed ((,c :background ,bg-removed)))
-    `(diff-refine-added ((,c :background ,@(modus-themes--deuteran bg-added-refine-deuteran bg-added-refine))))
+    `(diff-refine-added ((,c :background ,bg-added-refine)))
     `(diff-refine-changed ((,c :background ,bg-changed-refine)))
     `(diff-refine-removed ((,c :background ,bg-removed-refine)))
     `(diff-indicator-added ((,c :inherit (success diff-added))))
@@ -1906,7 +1870,7 @@ is a less intense variant of BG."
 ;;;;; doom-modeline
     `(doom-modeline-bar ((,c :background ,blue)))
     `(doom-modeline-bar-inactive ((,c :background "gray50")))
-    `(doom-modeline-battery-charging ((,c :foreground ,success)))
+    `(doom-modeline-battery-charging ((,c :foreground ,info)))
     `(doom-modeline-battery-critical ((,c :underline t :foreground ,err)))
     `(doom-modeline-battery-error ((,c :underline t :foreground ,err)))
     `(doom-modeline-battery-full (( )))
@@ -1917,7 +1881,7 @@ is a less intense variant of BG."
     `(doom-modeline-buffer-modified ((,c :foreground ,err)))
     `(doom-modeline-buffer-path (( )))
     `(doom-modeline-evil-emacs-state ((,c :inherit italic)))
-    `(doom-modeline-evil-insert-state ((,c :foreground ,note)))
+    `(doom-modeline-evil-insert-state ((,c :foreground ,info)))
     `(doom-modeline-evil-motion-state (( )))
     `(doom-modeline-evil-normal-state (( )))
     `(doom-modeline-evil-operator-state ((,c :inherit bold)))
@@ -2041,7 +2005,7 @@ is a less intense variant of BG."
     `(epa-validity-disabled ((,c :foreground ,err)))
     `(epa-validity-high ((,c :inherit success)))
     `(epa-validity-low ((,c :inherit shadow)))
-    `(epa-validity-medium ((,c :foreground ,note)))
+    `(epa-validity-medium ((,c :foreground ,info)))
 ;;;;; erc
     `(erc-action-face ((,c :foreground ,accent-2)))
     `(erc-bold-face ((,c :inherit bold)))
@@ -2093,7 +2057,7 @@ is a less intense variant of BG."
     `(evil-ex-substitute-replacement ((,c :inherit modus-themes-search-current)))
 ;;;;; eww
     `(eww-invalid-certificate ((,c :foreground ,err)))
-    `(eww-valid-certificate ((,c :foreground ,note)))
+    `(eww-valid-certificate ((,c :foreground ,info)))
     `(eww-form-checkbox ((,c :inherit eww-form-text)))
     `(eww-form-file ((,c :inherit eww-form-submit)))
     `(eww-form-select ((,c :inherit eww-form-submit)))
@@ -2101,7 +2065,7 @@ is a less intense variant of BG."
     `(eww-form-text ((,c :inherit widget-field)))
     `(eww-form-textarea ((,c :inherit eww-form-text)))
 ;;;;; eyebrowse
-    `(eyebrowse-mode-line-active ((,c :inherit bold :foreground ,note)))
+    `(eyebrowse-mode-line-active ((,c :inherit mode-line-emphasis)))
 ;;;;; flycheck
     `(flycheck-error ((,c :inherit modus-themes-lang-error)))
     `(flycheck-fringe-error ((,c :inherit modus-themes-intense-red)))
@@ -2156,7 +2120,7 @@ is a less intense variant of BG."
     `(geiser-font-lock-doc-button ((,c :inherit button)))
     `(geiser-font-lock-doc-link ((,c :inherit button)))
     `(geiser-font-lock-error-link ((,c :inherit button :foreground ,err)))
-    `(geiser-font-lock-image-button ((,c :inherit button :foreground ,note)))
+    `(geiser-font-lock-image-button ((,c :inherit button :foreground ,info)))
     `(geiser-font-lock-repl-input ((,c :inherit bold)))
     `(geiser-font-lock-repl-output ((,c :inherit font-lock-keyword-face)))
     `(geiser-font-lock-repl-prompt ((,c :inherit modus-themes-prompt)))
@@ -2171,17 +2135,17 @@ is a less intense variant of BG."
     `(git-commit-keyword ((,c :foreground ,keyword)))
     `(git-commit-nonempty-second-line ((,c :inherit error)))
     `(git-commit-overlong-summary ((,c :inherit warning)))
-    `(git-commit-summary ((,c :inherit bold :foreground ,note)))
+    `(git-commit-summary ((,c :inherit bold :foreground ,info)))
 ;;;;; git-gutter
-    `(git-gutter:added ((,c :background ,@(modus-themes--deuteran bg-added-intense-deuteran bg-added-intense))))
-    `(git-gutter:deleted ((,c :inherit modus-themes-intense-red)))
-    `(git-gutter:modified ((,c :inherit modus-themes-intense-yellow)))
+    `(git-gutter:added ((,c :background ,bg-added-intense)))
+    `(git-gutter:deleted ((,c :background ,bg-removed-intense)))
+    `(git-gutter:modified ((,c :background ,bg-changed-intense)))
     `(git-gutter:separator ((,c :inherit modus-themes-intense-cyan)))
     `(git-gutter:unchanged ((,c :inherit modus-themes-intense-magenta)))
 ;;;;; git-gutter-fr
-    `(git-gutter-fr:added ((,c :background ,@(modus-themes--deuteran bg-added-intense-deuteran bg-added-intense))))
-    `(git-gutter-fr:deleted ((,c :inherit modus-themes-intense-red)))
-    `(git-gutter-fr:modified ((,c :inherit modus-themes-intense-yellow)))
+    `(git-gutter-fr:added ((,c :background ,bg-added-intense)))
+    `(git-gutter-fr:deleted ((,c :background ,bg-removed-intense)))
+    `(git-gutter-fr:modified ((,c :background ,bg-changed-intense)))
 ;;;;; git-rebase
     `(git-rebase-comment-hash ((,c :inherit (bold font-lock-comment-face) :foreground ,identifier)))
     `(git-rebase-comment-heading  ((,c :inherit (bold font-lock-comment-face))))
@@ -2461,7 +2425,7 @@ is a less intense variant of BG."
     `(journalctl-finished-face ((,c :inherit success)))
     `(journalctl-host-face ((,c :foreground ,name)))
     `(journalctl-process-face ((,c :foreground ,warning)))
-    `(journalctl-starting-face ((,c :foreground ,note)))
+    `(journalctl-starting-face ((,c :foreground ,info)))
     `(journalctl-timestamp-face ((,c :foreground ,date)))
     `(journalctl-warning-face ((,c :inherit warning)))
 ;;;;; js2-mode
@@ -2543,10 +2507,8 @@ is a less intense variant of BG."
     `(magit-branch-warning ((,c :inherit warning)))
     `(magit-cherry-equivalent ((,c :foreground ,magenta)))
     `(magit-cherry-unmatched ((,c :foreground ,cyan)))
-    `(magit-diff-added ((,c :background ,@(modus-themes--deuteran bg-added-faint-deuteran bg-added-faint)
-                            :foreground ,@(modus-themes--deuteran fg-added-deuteran fg-added))))
-    `(magit-diff-added-highlight ((,c :background ,@(modus-themes--deuteran bg-added-deuteran bg-added)
-                                      :foreground ,@(modus-themes--deuteran fg-added-deuteran fg-added))))
+    `(magit-diff-added ((,c :background ,bg-added-faint :foreground ,fg-added)))
+    `(magit-diff-added-highlight ((,c :background ,bg-added :foreground ,fg-added)))
     `(magit-diff-base ((,c :background ,bg-changed-faint :foreground ,fg-changed)))
     `(magit-diff-base-highlight ((,c :background ,bg-changed :foreground ,fg-changed)))
     `(magit-diff-context ((,c :inherit shadow)))
@@ -2729,7 +2691,7 @@ is a less intense variant of BG."
                      :foreground ,fg-mode-line-active)))
     `(mode-line-active ((,c :inherit mode-line)))
     `(mode-line-buffer-id ((,c :inherit bold)))
-    `(mode-line-emphasis ((,c :inherit bold :foreground ,note)))
+    `(mode-line-emphasis ((,c :inherit bold :foreground ,info)))
     `(mode-line-highlight ((,c :background ,bg-hover :foreground ,fg-main :box ,fg-main)))
     `(mode-line-inactive ((,c :inherit modus-themes-ui-variable-pitch
                               :box ,border-mode-line-inactive
@@ -2738,9 +2700,9 @@ is a less intense variant of BG."
 ;;;;; mood-line
     `(mood-line-modified ((,c :inherit italic)))
     `(mood-line-status-error ((,c :inherit error)))
-    `(mood-line-status-info ((,c :inherit success)))
+    `(mood-line-status-info ((,c :foreground ,info)))
     `(mood-line-status-neutral (( )))
-    `(mood-line-status-success ((,c :inherit modus-themes-grue)))
+    `(mood-line-status-success ((,c :inherit success)))
     `(mood-line-status-warning ((,c :inherit warning)))
     `(mood-line-unimportant ((,c :inherit shadow)))
 ;;;;; mpdel
@@ -2762,7 +2724,7 @@ is a less intense variant of BG."
     `(mu4e-draft-face ((,c :foreground ,warning)))
     `(mu4e-flagged-face ((,c :foreground ,err)))
     `(mu4e-footer-face ((,c :inherit italic :foreground ,fg-alt)))
-    `(mu4e-forwarded-face ((,c :inherit italic :foreground ,note)))
+    `(mu4e-forwarded-face ((,c :inherit italic :foreground ,info)))
     `(mu4e-header-face ((,c :inherit shadow)))
     `(mu4e-header-highlight-face ((,c :inherit highlight)))
     `(mu4e-header-key-face ((,c :inherit message-header-name)))
@@ -2776,7 +2738,7 @@ is a less intense variant of BG."
     `(mu4e-ok-face ((,c :inherit success)))
     `(mu4e-region-code ((,c :foreground ,builtin)))
     `(mu4e-related-face ((,c :inherit (italic shadow))))
-    `(mu4e-replied-face ((,c :foreground ,note)))
+    `(mu4e-replied-face ((,c :foreground ,info)))
     `(mu4e-special-header-value-face ((,c :inherit message-header-subject)))
     `(mu4e-system-face ((,c :inherit italic)))
     `(mu4e-title-face (( )))
@@ -2825,7 +2787,7 @@ is a less intense variant of BG."
     `(notmuch-search-non-matching-authors ((,c :inherit shadow)))
     `(notmuch-search-subject ((,c :foreground ,fg-main)))
     `(notmuch-search-unread-face ((,c :inherit bold)))
-    `(notmuch-tag-added ((,c :underline ,note)))
+    `(notmuch-tag-added ((,c :underline ,info)))
     `(notmuch-tag-deleted ((,c :strike-through ,err)))
     `(notmuch-tag-face ((,c :foreground ,accent-0)))
     `(notmuch-tag-flagged ((,c :foreground ,err)))
@@ -2909,7 +2871,7 @@ is a less intense variant of BG."
     `(org-document-info ((,c :foreground ,fg-alt)))
     `(org-document-info-keyword ((,c :inherit shadow)))
     `(org-document-title ((,c :inherit modus-themes-heading-0)))
-    `(org-done ((,c :inherit modus-themes-grue)))
+    `(org-done ((,c :foreground ,info)))
     `(org-drawer ((,c :inherit (shadow modus-themes-fixed-pitch))))
     `(org-ellipsis (( ))) ; inherits from the heading's color
     `(org-footnote ((,c :inherit link)))
@@ -2961,8 +2923,8 @@ is a less intense variant of BG."
     `(org-habit-clear-future-face ((,c :background ,blue-graph-1-bg)))
     `(org-habit-overdue-face ((,c :background ,red-graph-0-bg)))
     `(org-habit-overdue-future-face ((,c :background ,red-graph-1-bg)))
-    `(org-habit-ready-face ((,c :background ,@(modus-themes--deuteran green-graph-0-bg blue-graph-0-bg) :foreground "black"))) ; fg is special case
-    `(org-habit-ready-future-face ((,c :background ,@(modus-themes--deuteran green-graph-1-bg blue-graph-1-bg))))
+    `(org-habit-ready-face ((,c :background ,blue-graph-0-bg :foreground "black"))) ; fg is special case
+    `(org-habit-ready-future-face ((,c :background ,blue-graph-1-bg)))
 ;;;;; org-journal
     `(org-journal-calendar-entry-face ((,c :inherit modus-themes-slant :foreground ,date)))
     `(org-journal-calendar-scheduled-face ((,c :inherit (modus-themes-slant org-scheduled))))
@@ -2972,7 +2934,7 @@ is a less intense variant of BG."
     `(org-noter-notes-exist-face ((,c :inherit success)))
 ;;;;; org-pomodoro
     `(org-pomodoro-mode-line ((,c :foreground ,err)))
-    `(org-pomodoro-mode-line-break ((,c :foreground ,note)))
+    `(org-pomodoro-mode-line-break ((,c :foreground ,info)))
     `(org-pomodoro-mode-line-overtime ((,c :inherit error)))
 ;;;;; org-recur
     `(org-recur ((,c :foreground ,fg-alt)))
@@ -3079,7 +3041,7 @@ is a less intense variant of BG."
     `(pulse-highlight-start-face ((,c :background ,bg-blue :extend t)))
 ;;;;; pyim
     `(pyim-page ((,c :background ,bg-active)))
-    `(pyim-page-selection ((,c :inherit bold :background ,bg-active :foreground ,note)))
+    `(pyim-page-selection ((,c :inherit bold :background ,bg-active :foreground ,info)))
     `(pyim-page-subword ((,c :background ,bg-inactive)))
 ;;;;; quick-peek
     `(quick-peek-background-face ((,c :background ,bg-inactive)))
@@ -3218,7 +3180,7 @@ is a less intense variant of BG."
     `(sly-style-warning-face ((,c :inherit modus-themes-lang-note)))
     `(sly-warning-face ((,c :inherit modus-themes-lang-warning)))
 ;;;;; smart-mode-line
-    `(sml/charging ((,c :foreground ,success)))
+    `(sml/charging ((,c :foreground ,info)))
     `(sml/discharging ((,c :foreground ,err)))
     `(sml/filename ((,c :inherit bold :foreground ,name)))
     `(sml/folder (( )))
@@ -3445,7 +3407,7 @@ is a less intense variant of BG."
     `(vc-dir-mark-indicator (( )))
     `(vc-dir-status-edited ((,c :inherit italic)))
     `(vc-dir-status-ignored ((,c :inherit shadow)))
-    `(vc-dir-status-up-to-date ((,c :foreground ,note)))
+    `(vc-dir-status-up-to-date ((,c :foreground ,info)))
     `(vc-dir-status-warning ((,c :inherit error)))
     `(vc-conflict-state ((,c :inherit error)))
     `(vc-edited-state ((,c :inherit italic)))

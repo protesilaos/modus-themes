@@ -1,4 +1,4 @@
-;;; modus-vivendi-theme.el --- Elegant, highly legible and customizable dark theme -*- lexical-binding:t -*-
+;;; modus-vivendi-deuteranopia-theme.el --- Elegant, highly legible and customizable dark theme -*- lexical-binding:t -*-
 
 ;; Copyright (C) 2019-2022  Free Software Foundation, Inc.
 
@@ -42,14 +42,14 @@
                (require-theme 'modus-themes t))
     (require 'modus-themes))
 
-  (deftheme modus-vivendi
+  (deftheme modus-vivendi-deuteranopia
     "Elegant, highly legible and customizable dark theme.
 Conforms with the highest legibility standard for color contrast
 between background and foreground in any given piece of text,
 which corresponds to a minimum contrast in relative luminance of
 7:1 (WCAG AAA standard).")
 
-  (defconst modus-vivendi-palette
+  (defconst modus-vivendi-deuteranopia-palette
     '(
 ;;; Basic values
 
@@ -136,7 +136,7 @@ which corresponds to a minimum contrast in relative luminance of
       (bg-paren-expression "#453040")
       (bg-region           "#5c5c5c")
       (bg-region-subtle    "#4f1c2f")
-      (bg-prompt           "#5f3a60")
+      (bg-prompt           "#5f3f20")
 
       (bg-char-0 "#0050af")
       (bg-char-1 "#7f1f7f")
@@ -144,23 +144,23 @@ which corresponds to a minimum contrast in relative luminance of
 
 ;;; Diffs
 
-      (bg-added           "#00381f")
-      (bg-added-faint     "#002910")
-      (bg-added-refine    "#034f2f")
-      (bg-added-intense   "#237f3f")
-      (fg-added           "#a0e0a0")
+      (bg-added           "#003366")
+      (bg-added-faint     "#001f4f")
+      (bg-added-refine    "#0f4f7f")
+      (bg-added-intense   "#0f4fbf")
+      (fg-added           "#c4d5ff")
 
-      (bg-changed         "#363300")
-      (bg-changed-faint   "#2a1f00")
-      (bg-changed-refine  "#4a4a00")
-      (bg-changed-intense "#8a7a00")
-      (fg-changed         "#efef80")
+      (bg-changed         "#2f123f")
+      (bg-changed-faint   "#1f022f")
+      (bg-changed-refine  "#3f325f")
+      (bg-changed-intense "#7f42af")
+      (fg-changed         "#e3cfff")
 
-      (bg-removed         "#4f1119")
-      (bg-removed-faint   "#380a0f")
-      (bg-removed-refine  "#781a1f")
-      (bg-removed-intense "#b81a1f")
-      (fg-removed         "#ffbfbf")
+      (bg-removed         "#3f3f00")
+      (bg-removed-faint   "#281f00")
+      (bg-removed-refine  "#535300")
+      (bg-removed-intense "#dfd23a")
+      (fg-removed         "#d4d48f")
 
 ;;;; Mappings
 
@@ -184,44 +184,44 @@ which corresponds to a minimum contrast in relative luminance of
       (variable cyan)
 
       (date cyan)
-      (weekend red-faint) ; for M-x calendar and Org agenda
+      (weekend blue) ; for M-x calendar and Org agenda
       (keybind blue-cooler)
       (link blue-warmer)
       (link-symbolic cyan)
-      (link-visited magenta)
-      (name magenta)
+      (link-visited yellow-faint)
+      (name blue-cooler)
       (identifier yellow-faint)
       (tag magenta-faint)
       (prompt cyan-cooler)
 
-      (rx-construct green-cooler)
-      (rx-backslash magenta)
+      (rx-construct yellow-cooler)
+      (rx-backslash blue-cooler)
 
-      (err red)
-      (warning yellow-warmer)
-      (info green)
+      (err yellow-warmer)
+      (warning yellow-cooler)
+      (info blue)
 
       (underline-err red-intense)
       (underline-warning yellow-intense)
       (underline-note cyan-intense)
 
       (accent-0 blue-cooler)
-      (accent-1 magenta-warmer)
+      (accent-1 yellow)
       (accent-2 cyan-cooler)
-      (accent-3 yellow)
+      (accent-3 magenta-warmer)
       (bg-accent-0 bg-blue-subtle)
-      (bg-accent-1 bg-magenta-subtle)
+      (bg-accent-1 bg-yellow-subtle)
       (bg-accent-2 bg-cyan-subtle)
-      (bg-accent-3 bg-yellow-subtle)
+      (bg-accent-3 bg-magenta-subtle)
 
       (mail-cite-0 blue-warmer)
       (mail-cite-1 yellow-cooler)
-      (mail-cite-2 cyan-cooler)
-      (mail-cite-3 red-cooler)
+      (mail-cite-2 blue-cooler)
+      (mail-cite-3 yellow)
       (mail-part blue)
-      (mail-recipient magenta-cooler)
-      (mail-subject magenta-warmer)
-      (mail-other magenta-faint)
+      (mail-recipient blue)
+      (mail-subject yellow-warmer)
+      (mail-other cyan-faint)
 
       (heading-0 cyan-cooler)
       (heading-1 fg-main)
@@ -236,18 +236,18 @@ which corresponds to a minimum contrast in relative luminance of
       (prose-code cyan-cooler)
       (prose-macro magenta-cooler)
       (prose-verbatim magenta-warmer))
-    "The entire palette of the `modus-vivendi' theme.
+    "The entire palette of the `modus-vivendi-deuteranopia' theme.
 Each element has the form (NAME HEX) with the former as a
 symbol and the latter as a string.")
 
-  (defvar modus-vivendi-palette-overrides nil
-    "Overrides for `modus-vivendi-palette'.")
+  (defvar modus-vivendi-deuteranopia-palette-overrides nil
+    "Overrides for `modus-vivendi-deuteranopia-palette'.")
 
-  (modus-themes-theme modus-vivendi modus-vivendi-palette modus-vivendi-palette-overrides)
+  (modus-themes-theme modus-vivendi-deuteranopia modus-vivendi-deuteranopia-palette modus-vivendi-deuteranopia-palette-overrides)
 
-  (provide-theme 'modus-vivendi))
+  (provide-theme 'modus-vivendi-deuteranopia))
 
 ;;;###theme-autoload
-(put 'modus-vivendi 'theme-properties '(:background-mode dark :kind color-scheme :family modus))
+(put 'modus-vivendi-deuteranopia 'theme-properties '(:background-mode dark :kind color-scheme :family modus))
 
-;;; modus-vivendi-theme.el ends here
+;;; modus-vivendi-deuteranopia-theme.el ends here

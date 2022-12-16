@@ -84,6 +84,8 @@ To ensure that users have a consistently accessible experience, the
 themes strive to achieve as close to full face coverage as possible
 ([[#h:a9c8f29d-7f72-4b54-b74b-ddefe15d6a19][Face coverage]]).
 
+#  TODO 2022-12-16: Update "overview" reference to deueteranopia.
+
 Furthermore, the themes are designed to empower users with red-green
 color deficiency (deuteranopia).  This is achieved in three ways:
 
@@ -470,7 +472,6 @@ this manual.
       modus-themes-bold-constructs nil
       modus-themes-mixed-fonts nil
       modus-themes-subtle-line-numbers nil
-      modus-themes-deuteranopia t
       modus-themes-variable-pitch-ui nil
       modus-themes-custom-auto-reload t
 
@@ -548,41 +549,6 @@ UI or related functions such as ~customize-set-variable~ and ~setopt~
 
 With a nil value, changes to user options have no further consequences:
 the user must manually reload the theme ([[#h:3f3c3728-1b34-437d-9d0c-b110f5b161a9][Enable and load]]).
-
-** Option for red-green color deficiency or deuteranopia
-:properties:
-:alt_title: Deuteranopia style
-:description: Toggle red/blue color-coding instead of red/green
-:custom_id: h:3ed03a48-20d8-4ce7-b214-0eb7e4c79abe
-:end:
-#+vindex: modus-themes-deuteranopia
-
-Brief: When non-~nil~ use red/blue color-coding instead of red/green,
-where appropriate.
-
-Symbol: ~modus-themes-deuteranopia~ (=boolean= type)
-
-Possible values:
-
-1. ~nil~ (default)
-2. ~t~
-
-This is to account for red-green color deficiency, also know as
-deuteranopia and variants.  It applies to all contexts where there can
-be a color-coded distinction between failure or success, a to-do or done
-state, a mark for deletion versus a mark for selection (e.g. in Dired),
-current and lazily highlighted search matches, removed lines in diffs as
-opposed to added ones, and so on.
-
-Note that this does not change all colors throughout the active theme,
-but only applies to cases that have color-coding significance.  For
-example, regular code syntax highlighting is not affected.  There is no
-such need because of the themes' overarching commitment to the highest
-legibility standard, which ensures that text is readable regardless of
-hue, as well as the predominance of colors on the
-blue-cyan-magenta-purple side of the spectrum.
-
-[[#h:0b26cb47-9733-4cb1-87d9-50850cb0386e][Why are colors mostly variants of blue, magenta, cyan?]].
 
 ** Option for more bold constructs
 :properties:
@@ -2401,6 +2367,8 @@ need to (provided they understand the implications).
 :end:
 #+cindex: Foreground-only diffs
 
+#  TODO 2022-12-16: Review diff DIY for deuteranopia.
+
 Buffers that show differences between versions of a file or buffer, such
 as in ~diff-mode~ and ~ediff~ always use color-coded background and
 foreground combinations.
@@ -3091,6 +3059,8 @@ length elsewhere in this manual:
 [[#h:f4651d55-8c07-46aa-b52b-bed1e53463bb][Advanced customization]].
 
 [[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Face specs at scale using the themes' palette]].
+
+#  TODO 2022-12-16: Review git-gutter DIY for deuteranopia.
 
 #+begin_src emacs-lisp
 (defun my-modus-themes-custom-faces ()
@@ -4107,10 +4077,12 @@ standards are not compromised and (ii) the overall character of the
 themes remains consistent.
 
 The former criterion should be crystal clear as it pertains to the
-scientific foundations of the themes: high legibility and taking care of
-the needs of users with red-green color deficiency (deuteranopia) by
-avoiding red+green color coding paradigms and/or by providing red+blue
-variants.
+scientific foundations of the themes: high legibility and taking care
+of the needs of users with red-green color deficiency (deuteranopia)
+by avoiding red+green color coding paradigms and/or by providing
+yellow+blue variants.
+
+#  TODO 2022-12-16: Add reference to deuteranopia themes to above paragraph.
 
 The latter criterion is the "je ne sais quoi" of the artistic aspect of
 the themes, which is partially fleshed out in this manual.
