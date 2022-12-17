@@ -198,15 +198,6 @@ text should not be underlined as well) yet still blend in.  Also
 see `modus-themes-reset-hard'."
   :group 'modus-themes-faces)
 
-(defface modus-themes-reset-hard nil
-  "Generic face to set all face properties to nil.
-
-This is intended to be inherited by faces that should not retain
-properties from their context (e.g. an overlay over an underlined
-text should not be underlined as well) and not blend in.  Also
-see `modus-themes-reset-soft'."
-  :group 'modus-themes-faces)
-
 (defface modus-themes-prompt nil
   "Generic face for command prompts."
   :group 'modus-themes-faces)
@@ -223,6 +214,7 @@ see `modus-themes-reset-soft'."
    :version "30.1"
    :group 'modus-themes-faces))
 
+(make-obsolete-variable 'modus-themes-reset-hard nil "4.0.0")
 (make-obsolete-variable 'modus-themes-subtle-neutral nil "4.0.0")
 (make-obsolete-variable 'modus-themes-intense-neutral nil "4.0.0")
 (make-obsolete-variable 'modus-themes-refine-red nil "4.0.0")
@@ -1366,8 +1358,6 @@ is a less intense variant of BG."
 ;;;;; other custom faces
     `(modus-themes-key-binding ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind)))
     `(modus-themes-prompt ((,c ,@(modus-themes--prompt prompt bg-prompt))))
-    `(modus-themes-reset-hard ((,c :inherit (fixed-pitch modus-themes-reset-soft)
-                                   :family ,(face-attribute 'default :family))))
     `(modus-themes-reset-soft ((,c :background ,bg-main :foreground ,fg-main
                                    :weight normal :slant normal :strike-through nil
                                    :box nil :underline nil :overline nil :extend nil)))
