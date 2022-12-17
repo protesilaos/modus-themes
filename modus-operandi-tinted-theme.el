@@ -237,8 +237,12 @@ which corresponds to a minimum contrast in relative luminance of
       (prose-macro magenta-cooler)
       (prose-verbatim magenta-warmer))
     "The entire palette of the `modus-operandi-tinted' theme.
-Each element has the form (NAME HEX) with the former as a
-symbol and the latter as a string.")
+Color values have the form (COLOR-NAME HEX-VALUE) with the former
+as a symbol and the latter as a string.
+
+Semantic color mappings have the form (MAPPING-NAME COLOR-NAME)
+with both as symbols.  The latter is a color that already exists
+in the palette and is associated with a HEX-VALUE.")
 
   (defvar modus-operandi-tinted-palette-overrides nil
     "Overrides for `modus-operandi-tinted-palette'.")
