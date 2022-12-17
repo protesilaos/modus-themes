@@ -3652,6 +3652,9 @@ is a less intense variant of BG."
 
 ;;;; Instantiate a Modus theme
 
+(defvar modus-themes-common-overrides nil
+  "Overrides for all modus themes.")
+
 ;;;###autoload
 (defmacro modus-themes-theme (name palette &optional overrides)
   "Bind NAME's color PALETTE around face specs and variables.
@@ -3666,7 +3669,7 @@ corresponding entries."
   (let ((sym (gensym))
         (colors (mapcar #'car (symbol-value palette))))
     `(let* ((c '((class color) (min-colors 256)))
-            (,sym (append ,overrides ,palette))
+            (,sym (append ,overrides modus-themes-common-overrides ,palette))
             ,@(mapcar (lambda (color)
                         (list color
                               `(let* ((value (car (alist-get ',color ,sym))))
