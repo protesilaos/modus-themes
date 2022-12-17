@@ -116,18 +116,18 @@ standard).")
 
 ;;; Graphs
 
-      (bg-graph-red-0     "#ef7969")
-      (bg-graph-red-1     "#ffaab4")
-      (bg-graph-green-0   "#4faa09")
-      (bg-graph-green-1   "#8fef00")
+      (bg-graph-red-0     "#b0b029")
+      (bg-graph-red-1     "#e0cab4")
+      (bg-graph-green-0   "#90b7c0")
+      (bg-graph-green-1   "#a3dfe5")
       (bg-graph-yellow-0  "#ffcf00")
       (bg-graph-yellow-1  "#f9ff00")
-      (bg-graph-blue-0    "#7090ff")
+      (bg-graph-blue-0    "#7f9fff")
       (bg-graph-blue-1    "#9fc6ff")
-      (bg-graph-magenta-0 "#e07fff")
-      (bg-graph-magenta-1 "#fad0ff")
-      (bg-graph-cyan-0    "#70d3f0")
-      (bg-graph-cyan-1    "#afefff")
+      (bg-graph-magenta-0 "#b0b0d0")
+      (bg-graph-magenta-1 "#d0dfdf")
+      (bg-graph-cyan-0    "#6faad9")
+      (bg-graph-cyan-1    "#bfe0ff")
 
 ;;; Special purpose
 
