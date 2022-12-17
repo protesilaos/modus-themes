@@ -2907,14 +2907,14 @@ is a less intense variant of BG."
     `(org-verse ((,c :inherit org-block)))
     `(org-warning ((,c :inherit warning)))
 ;;;;; org-habit
-    `(org-habit-alert-face ((,c :background ,yellow-graph-0-bg :foreground "black"))) ; fg is special case
-    `(org-habit-alert-future-face ((,c :background ,yellow-graph-1-bg)))
-    `(org-habit-clear-face ((,c :background ,blue-graph-0-bg :foreground "black"))) ; fg is special case
-    `(org-habit-clear-future-face ((,c :background ,blue-graph-1-bg)))
-    `(org-habit-overdue-face ((,c :background ,red-graph-0-bg)))
-    `(org-habit-overdue-future-face ((,c :background ,red-graph-1-bg)))
-    `(org-habit-ready-face ((,c :background ,blue-graph-0-bg :foreground "black"))) ; fg is special case
-    `(org-habit-ready-future-face ((,c :background ,blue-graph-1-bg)))
+    `(org-habit-alert-face ((,c :background ,bg-graph-yellow-0 :foreground "black"))) ; fg is special case
+    `(org-habit-alert-future-face ((,c :background ,bg-graph-yellow-1)))
+    `(org-habit-clear-face ((,c :background ,bg-graph-blue-0 :foreground "black"))) ; fg is special case
+    `(org-habit-clear-future-face ((,c :background ,bg-graph-blue-1)))
+    `(org-habit-overdue-face ((,c :background ,bg-graph-red-0)))
+    `(org-habit-overdue-future-face ((,c :background ,bg-graph-red-1)))
+    `(org-habit-ready-face ((,c :background ,bg-graph-blue-0 :foreground "black"))) ; fg is special case
+    `(org-habit-ready-future-face ((,c :background ,bg-graph-blue-1)))
 ;;;;; org-journal
     `(org-journal-calendar-entry-face ((,c :inherit modus-themes-slant :foreground ,date)))
     `(org-journal-calendar-scheduled-face ((,c :inherit (modus-themes-slant org-scheduled))))
@@ -3585,8 +3585,8 @@ is a less intense variant of BG."
     `(ansi-color-names-vector ["gray35" ,red ,green ,yellow ,blue ,magenta ,cyan "gray65"])
 ;;;; chart
     `(chart-face-color-list
-      '( ,red-graph-0-bg ,green-graph-0-bg ,yellow-graph-0-bg ,blue-graph-0-bg ,magenta-graph-0-bg ,cyan-graph-0-bg
-         ,red-graph-1-bg ,green-graph-1-bg ,yellow-graph-1-bg ,blue-graph-1-bg ,magenta-graph-1-bg ,cyan-graph-1-bg))
+      '( ,bg-graph-red-0 ,bg-graph-green-0 ,bg-graph-yellow-0 ,bg-graph-blue-0 ,bg-graph-magenta-0 ,bg-graph-cyan-0
+         ,bg-graph-red-1 ,bg-graph-green-1 ,bg-graph-yellow-1 ,bg-graph-blue-1 ,bg-graph-magenta-1 ,bg-graph-cyan-1))
 ;;;; exwm
     `(exwm-floating-border-color ,border)
 ;;;; flymake fringe indicators

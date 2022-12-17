@@ -113,18 +113,18 @@ which corresponds to a minimum contrast in relative luminance of
 
 ;;; Graphs
 
-      (red-graph-0-bg     "#ef7969")
-      (red-graph-1-bg     "#ffaab4")
-      (green-graph-0-bg   "#4faa09")
-      (green-graph-1-bg   "#8fef00")
-      (yellow-graph-0-bg  "#ffcf00")
-      (yellow-graph-1-bg  "#f9ff00")
-      (blue-graph-0-bg    "#7090ff")
-      (blue-graph-1-bg    "#9fc6ff")
-      (magenta-graph-0-bg "#e07fff")
-      (magenta-graph-1-bg "#fad0ff")
-      (cyan-graph-0-bg    "#70d3f0")
-      (cyan-graph-1-bg    "#afefff")
+      (bg-graph-red-0     "#ef7969")
+      (bg-graph-red-1     "#ffaab4")
+      (bg-graph-green-0   "#4faa09")
+      (bg-graph-green-1   "#8fef00")
+      (bg-graph-yellow-0  "#ffcf00")
+      (bg-graph-yellow-1  "#f9ff00")
+      (bg-graph-blue-0    "#7090ff")
+      (bg-graph-blue-1    "#9fc6ff")
+      (bg-graph-magenta-0 "#e07fff")
+      (bg-graph-magenta-1 "#fad0ff")
+      (bg-graph-cyan-0    "#70d3f0")
+      (bg-graph-cyan-1    "#afefff")
 
 ;;; Special purpose
 
