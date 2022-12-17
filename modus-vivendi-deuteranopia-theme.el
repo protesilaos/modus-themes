@@ -44,10 +44,12 @@
 
   (deftheme modus-vivendi-deuteranopia
     "Elegant, highly legible and customizable dark theme.
-Conforms with the highest legibility standard for color contrast
-between background and foreground in any given piece of text,
-which corresponds to a minimum contrast in relative luminance of
-7:1 (WCAG AAA standard).")
+This variant is optimized for users with red-green color
+deficiency (deuteranopia).  It conforms with the highest
+legibility standard for color contrast between background and
+foreground in any given piece of text, which corresponds to a
+minimum contrast in relative luminance of 7:1 (WCAG AAA
+standard).")
 
   (defconst modus-vivendi-deuteranopia-palette
     '(
