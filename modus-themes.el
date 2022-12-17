@@ -935,7 +935,7 @@ overrides."
 
 (defun modus-themes-load-theme (theme)
   "Load THEME while disabling other Modus themes.
-Run `'modus-themes-after-load-theme-hook'."
+Run `modus-themes-after-load-theme-hook'."
   (mapc #'disable-theme (modus-themes--list-known-themes))
   (load-theme theme :no-confirm)
   (run-hooks 'modus-themes-after-load-theme-hook))
