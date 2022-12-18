@@ -171,6 +171,7 @@ which corresponds to a minimum contrast in relative luminance of
       (fg-mode-line-inactive      fg-dim)
       (border-mode-line-inactive  border)
 
+      (fringe bg-inactive)
       (cursor magenta-warmer)
       (builtin magenta-warmer)
       (comment red-faint)

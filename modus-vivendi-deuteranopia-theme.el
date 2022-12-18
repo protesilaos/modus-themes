@@ -173,6 +173,7 @@ standard).")
       (fg-mode-line-inactive      fg-dim)
       (border-mode-line-inactive  border)
 
+      (fringe bg-inactive)
       (cursor fg-main)
       (builtin magenta-warmer)
       (comment yellow-cooler)

@@ -541,27 +541,7 @@ will retain the original aesthetic for that level.  For example:
   :link '(info-link "(modus-themes) Heading styles"))
 
 (make-obsolete-variable 'modus-themes-org-agenda nil "4.0.0")
-
-(defcustom modus-themes-fringes 'subtle
-  "Control the visibility of fringes.
-
-When the value is nil, do not apply a distinct background color.
-
-With a value of `subtle' use a gray background color that is
-visible yet close to the main background color.
-
-With `intense' use a more pronounced gray background color."
-  :group 'modus-themes
-  :package-version '(modus-themes . "3.0.0")
-  :version "29.1"
-  :type '(choice
-          (const :format "[%v] %t\n" :tag "No visible fringes" nil)
-          (const :format "[%v] %t\n" :tag "Subtle gray background" subtle)
-          (const :format "[%v] %t\n" :tag "Intense gray background" intense))
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
-  :link '(info-link "(modus-themes) Fringes"))
-
+(make-obsolete-variable 'modus-themes-fringes nil "4.0.0")
 (make-obsolete-variable 'modus-themes-lang-checkers nil "4.0.0")
 
 (defcustom modus-themes-org-blocks nil
@@ -1107,15 +1087,6 @@ list given LIST-PRED, using DEFAULT as a fallback."
   (when modus-themes-variable-pitch-ui
     (list :inherit 'variable-pitch)))
 
-(defun modus-themes--fringe (mainbg subtlebg intensebg)
-  "Conditional use of background colors for fringes.
-MAINBG is the default.  SUBTLEBG should be a subtle grayscale
-value.  INTENSEBG must be a more pronounced grayscale color."
-  (pcase modus-themes-fringes
-    ('intense (list :background intensebg))
-    ('subtle (list :background subtlebg))
-    (_ (list :background mainbg))))
-
 (defun modus-themes--line-numbers (mainfg mainbg altfg &optional altbg)
   "Conditional use of colors for line numbers.
 MAINBG and MAINFG are the default colors.  ALTFG is a color that
@@ -1365,7 +1336,7 @@ is a less intense variant of BG."
 ;;;;; absolute essentials
     `(default ((,c :background ,bg-main :foreground ,fg-main)))
     `(cursor ((,c :background ,cursor)))
-    `(fringe ((,c ,@(modus-themes--fringe bg-main bg-inactive bg-active) :foreground ,fg-main)))
+    `(fringe ((,c :background ,fringe :foreground ,fg-main)))
     `(vertical-border ((,c :foreground ,border)))
 ;;;;; basic and/or ungrouped styles
     `(bold ((,c :weight bold)))
