@@ -3594,6 +3594,13 @@ is a less intense variant of BG."
         ("DEPRECATED" . ,info)))
 ;;;; pdf-tools
     `(pdf-view-midnight-colors '(,fg-main . ,bg-dim))
+;;;; rcirc-color
+    `(rcirc-colors
+      '(  ,red          ,green          ,blue          ,yellow          ,magenta          ,cyan
+          ,red-warmer   ,green-warmer   ,blue-warmer   ,yellow-warmer   ,magenta-warmer   ,cyan-warmer
+          ,red-cooler   ,green-cooler   ,blue-cooler   ,yellow-cooler   ,magenta-cooler   ,cyan-cooler
+          ,red-faint    ,green-faint    ,blue-faint    ,yellow-faint    ,magenta-faint    ,cyan-faint
+          ,red-intense  ,green-intense  ,blue-intense  ,yellow-intense  ,magenta-intense  ,cyan-intense))
 ;;;; org-src-block-faces
     (if (or (eq modus-themes-org-blocks 'tinted-background)
             (eq modus-themes-org-blocks 'rainbow))
