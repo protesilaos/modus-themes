@@ -831,6 +831,24 @@ In user configuration files the form may look like this:
 (make-obsolete-variable 'modus-themes-tabs-accented nil "4.0.0")
 (make-obsolete-variable 'modus-themes-box-buttons nil "4.0.0")
 
+(defcustom modus-themes-common-palette-overrides nil
+  "Set palette overrides for all the Modus themes.
+
+Mirror the elements of a theme's palette, overriding their value.
+The palette variables are named THEME-NAME-palette, while
+individual theme overrides are THEME-NAME-palette-overrides.  The
+THEME-NAME is one of the symbols in `modus-themes-items'.
+
+Individual theme overrides take precedence over these common
+overrides."
+  :group 'modus-themes
+  :package-version '(modus-themes . "4.0.0")
+  :version "30.1"
+  :type '(repeat (list symbol (choice symbol string))) ; TODO 2022-12-18: Refine overrides' :type
+  :set #'modus-themes--set-option
+  :initialize #'custom-initialize-default
+  :link '(info-link "(modus-themes) Palette overrides"))
+
 
 
 ;;;; Helper functions for theme setup
@@ -3630,9 +3648,6 @@ is a less intense variant of BG."
 
 ;;;; Instantiate a Modus theme
 
-(defvar modus-themes-common-overrides nil
-  "Overrides for all modus themes.")
-
 ;;;###autoload
 (defmacro modus-themes-theme (name palette &optional overrides)
   "Bind NAME's color PALETTE around face specs and variables.
@@ -3647,7 +3662,7 @@ corresponding entries."
   (let ((sym (gensym))
         (colors (mapcar #'car (symbol-value palette))))
     `(let* ((c '((class color) (min-colors 256)))
-            (,sym (append ,overrides modus-themes-common-overrides ,palette))
+            (,sym (append ,overrides modus-themes-common-palette-overrides ,palette))
             ,@(mapcar (lambda (color)
                         (list color
                               `(let* ((value (car (alist-get ',color ,sym))))

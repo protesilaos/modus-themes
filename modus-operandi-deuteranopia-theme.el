@@ -247,10 +247,19 @@ Semantic color mappings have the form (MAPPING-NAME COLOR-NAME)
 with both as symbols.  The latter is a color that already exists
 in the palette and is associated with a HEX-VALUE.")
 
-  (defvar modus-operandi-deuteranopia-palette-overrides nil
-    "Overrides for `modus-operandi-deuteranopia-palette'.")
+  (defcustom modus-operandi-deuteranopia-palette-overrides nil
+    "Overrides for `modus-operandi-deuteranopia-palette'."
+    :group 'modus-themes
+    :package-version '(modus-themes . "4.0.0")
+    :version "30.1"
+    :type '(repeat (list symbol (choice symbol string))) ; TODO 2022-12-18: Refine overrides' :type
+    :set #'modus-themes--set-option
+    :initialize #'custom-initialize-default
+    :link '(info-link "(modus-themes) Palette overrides"))
 
-  (modus-themes-theme modus-operandi-deuteranopia modus-operandi-deuteranopia-palette modus-operandi-deuteranopia-palette-overrides)
+  (modus-themes-theme modus-operandi-deuteranopia
+                      modus-operandi-deuteranopia-palette
+                      modus-operandi-deuteranopia-palette-overrides)
 
   (provide-theme 'modus-operandi-deuteranopia))
 

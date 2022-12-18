@@ -244,10 +244,19 @@ Semantic color mappings have the form (MAPPING-NAME COLOR-NAME)
 with both as symbols.  The latter is a color that already exists
 in the palette and is associated with a HEX-VALUE.")
 
-  (defvar modus-vivendi-tinted-palette-overrides nil
-    "Overrides for `modus-vivendi-tinted-palette'.")
+  (defcustom modus-vivendi-tinted-palette-overrides nil
+    "Overrides for `modus-vivendi-tinted-palette'."
+    :group 'modus-themes
+    :package-version '(modus-themes . "4.0.0")
+    :version "30.1"
+    :type '(repeat (list symbol (choice symbol string))) ; TODO 2022-12-18: Refine overrides' :type
+    :set #'modus-themes--set-option
+    :initialize #'custom-initialize-default
+    :link '(info-link "(modus-themes) Palette overrides"))
 
-  (modus-themes-theme modus-vivendi-tinted modus-vivendi-tinted-palette modus-vivendi-tinted-palette-overrides)
+  (modus-themes-theme modus-vivendi-tinted
+                      modus-vivendi-tinted-palette
+                      modus-vivendi-tinted-palette-overrides)
 
   (provide-theme 'modus-vivendi-tinted))
 
