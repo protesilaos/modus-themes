@@ -1151,6 +1151,126 @@ is done by assigning the ~variable-pitch~ face to the relevant items.
 
 [[#h:defcf4fc-8fa8-4c29-b12e-7119582cc929][Font configurations for Org and others]].
 
+** Option for palette overrides
+:properties:
+:alt_title: Palette overrides
+:description: Refashion color values and/or semantic color mappings
+:custom_id: h:34c7a691-19bb-4037-8d2f-67a07edab150
+:end:
+
+Each Modus theme specifies a color palette that declares named color
+values and semantic color mappings:
+
++ Named colors consist of a symbol and a string that specifies a
+  hexadecimal RGB value.  For example: =(blue-warmer "#354fcf")=.
+
++ The semantic color mappings associate an abstract construct with a
+  given named color from the palette, like =(heading-2 yellow-faint)=.
+  Both elements of the list are symbols, though the ~cadr~ (value) can
+  be a string that specifies a color, such as =(heading-2 "#354fcf")=.
+
+#+vindex: modus-themes-common-palette-overrides
+Both of those subsets can be overridden, thus refashioning the theme.
+Overrides are either shared, by being stored in the user option
+~modus-themes-common-palette-overrides~, or they are specific to the
+theme they name.  In the latter case, the naming scheme of each
+palette variable is =THEME-NAME-palette-overrides=, thus yielding:
+
+#+vindex: modus-operandi-palette-overrides
++ ~modus-operandi-palette-overrides~
+
+#+vindex: modus-operandi-deuteranopia-palette-overrides
++ ~modus-operandi-deuteranopia-palette-overrides~
+
+#+vindex: modus-operandi-tinted-palette-overrides
++ ~modus-operandi-tinted-palette-overrides~
+
+#+vindex: modus-vivendi-palette-overrides
++ ~modus-vivendi-palette-overrides~
+
+#+vindex: modus-vivendi-deuteranopia-palette-overrides
++ ~modus-vivendi-deuteranopia-palette-overrides~
+
+#+vindex: modus-vivendi-tinted-palette-overrides
++ ~modus-vivendi-tinted-palette-overrides~
+
+Theme-specific overrides take precedence over the shared ones.  It is
+strongly advised that shared overrides do NOT alter color values, as
+those will not be appropriate for both dark and light themes.  Common
+overrides are best limited to the semantic color mappings as those use
+the color value that corresponds to the active theme (e.g. make the
+cursor =blue-warmer= in all themes, whatever the value of
+=blue-warmer= is in each theme).
+
+The value of any overrides' variable must mirror a theme's palette.
+Palette variables are named after their theme as =THEME-NAME-palette=.
+For example, the ~modus-operandi-palette~ is like this:
+
+#+begin_src emacs-lisp
+(defconst modus-operandi-palette
+    '(
+;;; Basic values
+
+      (bg-main     "#ffffff")
+      (bg-dim      "#f0f0f0")
+      (fg-main     "#000000")
+
+      ;; ...
+
+      (red         "#a60000")
+      (red-warmer  "#972500")
+      (red-cooler  "#a0132f")
+      (red-faint   "#7f0000")
+      (red-intense "#d00000")
+
+      ;; ...
+
+;;;; Mappings
+
+      ;; ...
+
+      (cursor fg-main)
+      (builtin magenta-warmer)
+      (comment fg-dim)
+      (constant blue-cooler)
+      (docstring green-faint)
+      (fnname magenta)
+      (keyword magenta-cooler)
+
+      ;; ...
+      ))
+#+end_src
+
+The ~modus-operandi-palette-overrides~ target the entries that need to
+be changed.  For example, to make the main foreground colour a dark
+gray instead of pure black, use a shade of red for comments, and apply
+a cyan hue to keywords:
+
+#+begin_src emacs-lisp
+(setq modus-operandi-palette-overrides
+      '((fg-main "#333333")
+        (comment red-faint)
+        (keyword cyan-cooler)))
+#+end_src
+
+Changes take effect upon theme reload ([[#h:9001527a-4e2c-43e0-98e8-3ef72d770639][Custom reload theme]]).
+Overrides are removed by setting their variable to a ~nil~ value.
+
+The common accented foregrounds in each palette follow a predictable
+naming scheme: =HUE{,-warmer,-cooler,-faint,-intense}=.  =HUE= is one
+of the six basic colors: red, green, blue, yellow, magenta, cyan.
+
+Named colors that are meant to be used as backgrounds contain =bg= in
+their name, such as =bg-red=.  While special purpose foregrounds that
+are meant to be combined with such backgrounds, contain =fg= in their
+name, such as =fg-removed= which complements =bg-removed=.
+
+Named colors can be previewed, such as with the command
+~modus-themes-list-colors~ ([[#h:f4d4b71b-2ca5-4c3d-b0b4-9bfd7aa7fb4d][Preview theme colors]]).
+
+For a video tutorial that users of all skill levels can approach,
+watch: https://protesilaos.com/codelog/2022-12-17-modus-themes-v4-demo/.
+
 * Advanced customization
 :properties:
 :custom_id: h:f4651d55-8c07-46aa-b52b-bed1e53463bb
@@ -1266,7 +1386,7 @@ xterm*color14:    #6ae4b9
 xterm*color15:    #ffffff
 #+end_src
 
-** Visualize the active Modus theme's palette
+** Preview theme colors
 :properties:
 :custom_id: h:f4d4b71b-2ca5-4c3d-b0b4-9bfd7aa7fb4d
 :end:
