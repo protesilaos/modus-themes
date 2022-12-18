@@ -1,3 +1,15 @@
+
+
+
+NOTE 2022-12-18: This document is out-of-date.  I am currently working
+on the `version-4` branch and will update this as the last step before
+merging everything into `main`.
+
+
+
+
+
+
 # Modus themes for GNU Emacs (Modus Operandi and Modus Vivendi)
 
 A pair of highly accessible themes that conform with the WCAG AAA
