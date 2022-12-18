@@ -486,21 +486,21 @@ this manual.
       ;; symbols: `background', `bold', `italic'.
       modus-themes-prompts '(italic bold)
 
-      ;; The `modus-themes-completions' is an alist that reads three
-      ;; keys: `matches', `selection', `popup'.  Each accepts a nil
-      ;; value (or empty list) or a list of properties that can include
-      ;; any of the following (for WEIGHT read further below):
+      ;; The `modus-themes-completions' is an alist that reads two
+      ;; keys: `matches', `selection'.  Each accepts a nil value (or
+      ;; empty list) or a list of properties that can include any of
+      ;; the following (for WEIGHT read further below):
       ;;
       ;; `matches' - `background', `underline', `italic', WEIGHT
       ;; `selection' - `underline', `italic', `text-also' WEIGHT
-      ;; `popup' - same as `selected'
       ;; `t' - applies to any key not explicitly referenced (check docs)
       ;;
       ;; WEIGHT is a symbol such as `semibold', `light', or anything
       ;; covered in `modus-themes-weights'.  Bold is used in the absence
       ;; of an explicit WEIGHT.
-      modus-themes-completions '((matches . (extrabold))
-                                 (selection . (semibold italic)))
+      modus-themes-completions
+      '((matches . (extrabold))
+        (selection . (semibold italic)))
 
       ;; Options for `modus-themes-region' are either nil (the default),
       ;; or a list of properties that may include any of those symbols:
