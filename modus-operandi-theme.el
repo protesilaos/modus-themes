@@ -184,6 +184,8 @@ which corresponds to a minimum contrast in relative luminance of
       (string blue-warmer)
       (type cyan-cooler)
       (variable cyan)
+      (rx-construct green-cooler)
+      (rx-backslash magenta)
 
       (date cyan)
       (weekend red-faint) ; for M-x calendar and Org agenda
@@ -195,9 +197,6 @@ which corresponds to a minimum contrast in relative luminance of
       (identifier yellow-cooler)
       (tag magenta-faint)
       (prompt cyan-cooler)
-
-      (rx-construct green-cooler)
-      (rx-backslash magenta)
 
       (err red)
       (warning yellow-warmer)

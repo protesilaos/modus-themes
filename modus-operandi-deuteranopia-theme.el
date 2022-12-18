@@ -186,6 +186,8 @@ standard).")
       (string blue-warmer)
       (type cyan-cooler)
       (variable cyan)
+      (rx-construct yellow-cooler)
+      (rx-backslash blue-cooler)
 
       (date cyan)
       (weekend blue) ; for M-x calendar and Org agenda
@@ -197,9 +199,6 @@ standard).")
       (identifier yellow-faint)
       (tag magenta-faint)
       (prompt cyan-cooler)
-
-      (rx-construct yellow-cooler)
-      (rx-backslash blue-cooler)
 
       (err yellow-warmer)
       (warning yellow-cooler)
