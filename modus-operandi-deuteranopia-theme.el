@@ -248,7 +248,13 @@ with both as symbols.  The latter is a color that already exists
 in the palette and is associated with a HEX-VALUE.")
 
   (defcustom modus-operandi-deuteranopia-palette-overrides nil
-    "Overrides for `modus-operandi-deuteranopia-palette'."
+    "Overrides for `modus-operandi-deuteranopia-palette'.
+
+Mirror the elements of the aforementioned palette, overriding
+their value.
+
+For overrides that are shared across all of the Modus themes,
+refer to `modus-themes-common-palette-overrides'."
     :group 'modus-themes
     :package-version '(modus-themes . "4.0.0")
     :version "30.1"
