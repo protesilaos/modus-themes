@@ -144,10 +144,10 @@ which corresponds to a minimum contrast in relative luminance of
 
 ;;; Diffs
 
-      (bg-added           "#003826")
-      (bg-added-faint     "#002915")
-      (bg-added-refine    "#034f36")
-      (bg-added-intense   "#237f3f")
+      (bg-added           "#003a2f")
+      (bg-added-faint     "#002922")
+      (bg-added-refine    "#035542")
+      (bg-added-intense   "#237f4f")
       (fg-added           "#a0e0a0")
 
       (bg-changed         "#363300")
@@ -156,10 +156,10 @@ which corresponds to a minimum contrast in relative luminance of
       (bg-changed-intense "#8a7a00")
       (fg-changed         "#efef80")
 
-      (bg-removed         "#4f111f")
-      (bg-removed-faint   "#380a13")
-      (bg-removed-refine  "#781a33")
-      (bg-removed-intense "#b81a1f")
+      (bg-removed         "#4f1127")
+      (bg-removed-faint   "#380a19")
+      (bg-removed-refine  "#781a3a")
+      (bg-removed-intense "#b81a26")
       (fg-removed         "#ffbfbf")
 
 ;;;; Mappings
