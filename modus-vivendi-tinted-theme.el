@@ -183,6 +183,7 @@ which corresponds to a minimum contrast in relative luminance of
       (comment red-faint)
       (constant blue-cooler)
       (docstring cyan-faint)
+      (docmarkup magenta-faint)
       (fnname magenta)
       (keyword magenta-cooler)
       (preprocessor red-cooler)
