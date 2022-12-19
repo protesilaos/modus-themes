@@ -3658,11 +3658,36 @@ is a less intense variant of BG."
     `(pdf-view-midnight-colors '(,fg-main . ,bg-dim))
 ;;;; rcirc-color
     `(rcirc-colors
-      '( ,red          ,green          ,blue          ,yellow          ,magenta          ,cyan
-         ,red-warmer   ,green-warmer   ,blue-warmer   ,yellow-warmer   ,magenta-warmer   ,cyan-warmer
-         ,red-cooler   ,green-cooler   ,blue-cooler   ,yellow-cooler   ,magenta-cooler   ,cyan-cooler
-         ,red-faint    ,green-faint    ,blue-faint    ,yellow-faint    ,magenta-faint    ,cyan-faint
-         ,red-intense  ,green-intense  ,blue-intense  ,yellow-intense  ,magenta-intense  ,cyan-intense))
+      '(modus-themes-fg-red
+        modus-themes-fg-green
+        modus-themes-fg-blue
+        modus-themes-fg-yellow
+        modus-themes-fg-magenta
+        modus-themes-fg-cyan
+        modus-themes-fg-red-warmer
+        modus-themes-fg-green-warmer
+        modus-themes-fg-blue-warmer
+        modus-themes-fg-yellow-warmer
+        modus-themes-fg-magenta-warmer
+        modus-themes-fg-cyan-warmer
+        modus-themes-fg-red-cooler
+        modus-themes-fg-green-cooler
+        modus-themes-fg-blue-cooler
+        modus-themes-fg-yellow-cooler
+        modus-themes-fg-magenta-cooler
+        modus-themes-fg-cyan-cooler
+        modus-themes-fg-red-faint
+        modus-themes-fg-green-faint
+        modus-themes-fg-blue-faint
+        modus-themes-fg-yellow-faint
+        modus-themes-fg-magenta-faint
+        modus-themes-fg-cyan-faint
+        modus-themes-fg-red-intense
+        modus-themes-fg-green-intense
+        modus-themes-fg-blue-intense
+        modus-themes-fg-yellow-intense
+        modus-themes-fg-magenta-intense
+        modus-themes-fg-cyan-intense))
 ;;;; org-src-block-faces
     (if (or (eq modus-themes-org-blocks 'tinted-background)
             (eq modus-themes-org-blocks 'rainbow))
