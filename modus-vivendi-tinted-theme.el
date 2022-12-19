@@ -62,6 +62,19 @@ which corresponds to a minimum contrast in relative luminance of
       (bg-inactive      "#2b3045")
       (border           "#61647a")
 
+;;; User Interface
+
+      (bg-mode-line-active        "#4a4f6a")
+      (fg-mode-line-active        "#ffffff")
+      (border-mode-line-active    "#979797")
+      (bg-mode-line-inactive      "#2b3046")
+      (fg-mode-line-inactive      "#969696")
+      (border-mode-line-inactive  "#61647b")
+
+      (bg-tab-bar      "#2c3045")
+      (bg-tab-current  "#0d0e1c")
+      (bg-tab-other    "#4a4f6a")
+
 ;;; Common accent foregrounds
 
       (red             "#ff5f59")
@@ -163,13 +176,6 @@ which corresponds to a minimum contrast in relative luminance of
       (fg-removed         "#ffbfbf")
 
 ;;;; Mappings
-
-      (bg-mode-line-active        bg-active)
-      (fg-mode-line-active        fg-main)
-      (border-mode-line-active    fg-dim)
-      (bg-mode-line-inactive      bg-inactive)
-      (fg-mode-line-inactive      fg-dim)
-      (border-mode-line-inactive  border)
 
       (fringe bg-inactive)
       (cursor magenta-warmer)

@@ -64,6 +64,19 @@ standard).")
       (bg-inactive      "#303030")
       (border           "#646464")
 
+;;; User Interface
+
+      (bg-mode-line-active        "#525252")
+      (fg-mode-line-active        "#ffffff")
+      (border-mode-line-active    "#979797")
+      (bg-mode-line-inactive      "#2f2f2f")
+      (fg-mode-line-inactive      "#969696")
+      (border-mode-line-inactive  "#636363")
+
+      (bg-tab-bar      "#313131")
+      (bg-tab-current  "#000000")
+      (bg-tab-other    "#545454")
+
 ;;; Common accent foregrounds
 
       (red             "#ff5f59")
@@ -165,13 +178,6 @@ standard).")
       (fg-removed         "#d4d48f")
 
 ;;;; Mappings
-
-      (bg-mode-line-active        bg-active)
-      (fg-mode-line-active        fg-main)
-      (border-mode-line-active    fg-dim)
-      (bg-mode-line-inactive      bg-inactive)
-      (fg-mode-line-inactive      fg-dim)
-      (border-mode-line-inactive  border)
 
       (fringe bg-inactive)
       (cursor fg-main)
