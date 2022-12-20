@@ -97,6 +97,23 @@ standard).")
       (cyan-faint      "#9ac8e0")
       (cyan-intense    "#00eff0")
 
+;;; Uncommon accent foregrounds
+
+      (amaranth   "#f0636f")
+      (amber      "#df7f3f")
+      (turquoise  "#43c39f")
+      (azure      "#5faaff")
+      (purple     "#af89ff")
+      (amethyst   "#e085ef")
+      (rose       "#ef69af")
+      (rust       "#cf6f5c")
+      (gold       "#bf8f5b")
+      (olive      "#8ab960")
+      (slate      "#669fbf")
+      (indigo     "#9080d9")
+      (maroon     "#cf7aa7")
+      (pink       "#e0a5b4")
+
 ;;; Common accent backgrounds
 
       (bg-red      "#9d1f1f")
