@@ -246,6 +246,15 @@ standard).")
       (mail-subject yellow-warmer)
       (mail-other cyan-faint)
 
+      (prose-block fg-dim)
+      (prose-code cyan-cooler)
+      (prose-macro magenta-cooler)
+      (prose-metadata fg-dim)
+      (prose-metadata-value fg-alt)
+      (prose-table fg-alt)
+      (prose-tag magenta-faint)
+      (prose-verbatim magenta-warmer)
+
       (heading-0 cyan-cooler)
       (heading-1 fg-main)
       (heading-2 yellow-faint)
@@ -254,16 +263,7 @@ standard).")
       (heading-5 green-faint)
       (heading-6 red-faint)
       (heading-7 cyan-faint)
-      (heading-8 fg-dim)
-
-      (prose-tag magenta-faint)
-      (prose-table fg-alt)
-      (prose-block fg-dim)
-      (prose-metadata fg-dim)
-      (prose-metadata-value fg-alt)
-      (prose-code cyan-cooler)
-      (prose-macro magenta-cooler)
-      (prose-verbatim magenta-warmer))
+      (heading-8 fg-dim))
     "The entire palette of the `modus-vivendi-deuteranopia' theme.
 Color values have the form (COLOR-NAME HEX-VALUE) with the former
 as a symbol and the latter as a string.
