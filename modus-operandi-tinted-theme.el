@@ -62,19 +62,6 @@ which corresponds to a minimum contrast in relative luminance of
       (bg-inactive      "#dfd5cf")
       (border           "#9f9690")
 
-;;; User Interface
-
-      (bg-mode-line-active        "#c9b8b1")
-      (fg-mode-line-active        "#000000")
-      (border-mode-line-active    "#545454")
-      (bg-mode-line-inactive      "#dfd6cd")
-      (fg-mode-line-inactive      "#585858")
-      (border-mode-line-inactive  "#9f9790")
-
-      (bg-tab-bar      "#e0d4ce")
-      (bg-tab-current  "#fbf7f0")
-      (bg-tab-other    "#c8b8b2")
-
 ;;; Common accent foregrounds
 
       (red             "#a60000")
@@ -154,6 +141,17 @@ which corresponds to a minimum contrast in relative luminance of
       (bg-char-0 "#7feaff")
       (bg-char-1 "#ffaaff")
       (bg-char-2 "#dff000")
+
+      (bg-mode-line-active        "#c9b8b1")
+      (fg-mode-line-active        "#000000")
+      (border-mode-line-active    "#545454")
+      (bg-mode-line-inactive      "#dfd6cd")
+      (fg-mode-line-inactive      "#585858")
+      (border-mode-line-inactive  "#9f9790")
+
+      (bg-tab-bar      "#e0d4ce")
+      (bg-tab-current  "#fbf7f0")
+      (bg-tab-other    "#c8b8b2")
 
 ;;; Diffs
 

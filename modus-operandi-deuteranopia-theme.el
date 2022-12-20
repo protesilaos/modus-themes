@@ -65,19 +65,6 @@ standard).")
       (bg-inactive      "#e0e0e0")
       (border           "#9f9f9f")
 
-;;; User Interface
-
-      (bg-mode-line-active        "#c3c3c3")
-      (fg-mode-line-active        "#000000")
-      (border-mode-line-active    "#545454")
-      (bg-mode-line-inactive      "#e1e1e1")
-      (fg-mode-line-inactive      "#585858")
-      (border-mode-line-inactive  "#a0a0a0")
-
-      (bg-tab-bar      "#dfdfdf")
-      (bg-tab-current  "#ffffff")
-      (bg-tab-other    "#c2c2c2")
-
 ;;; Common accent foregrounds
 
       (red             "#a60000")
@@ -157,6 +144,17 @@ standard).")
       (bg-char-0 "#7feaff")
       (bg-char-1 "#ffaaff")
       (bg-char-2 "#dff000")
+
+      (bg-mode-line-active        "#c3c3c3")
+      (fg-mode-line-active        "#000000")
+      (border-mode-line-active    "#545454")
+      (bg-mode-line-inactive      "#e1e1e1")
+      (fg-mode-line-inactive      "#585858")
+      (border-mode-line-inactive  "#a0a0a0")
+
+      (bg-tab-bar      "#dfdfdf")
+      (bg-tab-current  "#ffffff")
+      (bg-tab-other    "#c2c2c2")
 
 ;;; Diffs
 
