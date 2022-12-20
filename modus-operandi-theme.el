@@ -256,6 +256,10 @@ which corresponds to a minimum contrast in relative luminance of
       (heading-7 cyan-warmer)
       (heading-8 fg-dim)
 
+      (prose-table fg-alt)
+      (prose-block fg-dim)
+      (prose-metadata fg-dim)
+      (prose-metadata-value fg-alt)
       (prose-code green-cooler)
       (prose-macro magenta-cooler)
       (prose-verbatim magenta-warmer))
