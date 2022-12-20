@@ -249,11 +249,13 @@ standard).")
 
       (prose-block fg-dim)
       (prose-code green-cooler)
+      (prose-done blue)
       (prose-macro magenta-cooler)
       (prose-metadata fg-dim)
       (prose-metadata-value fg-alt)
       (prose-table fg-alt)
       (prose-tag magenta-faint)
+      (prose-todo yellow-warmer)
       (prose-verbatim magenta-warmer)
 
       (heading-0 cyan-cooler)

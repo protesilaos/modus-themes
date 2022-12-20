@@ -2903,7 +2903,7 @@ is a less intense variant of BG."
     `(org-document-info ((,c :foreground ,prose-metadata-value)))
     `(org-document-info-keyword ((,c :foreground ,prose-metadata)))
     `(org-document-title ((,c :inherit modus-themes-heading-0)))
-    `(org-done ((,c :foreground ,info)))
+    `(org-done ((,c :foreground ,prose-done)))
     `(org-drawer ((,c :inherit modus-themes-fixed-pitch :foreground ,prose-metadata)))
     `(org-ellipsis (( ))) ; inherits from the heading's color
     `(org-footnote ((,c :inherit link)))
@@ -2942,7 +2942,7 @@ is a less intense variant of BG."
     `(org-tag-group ((,c :inherit (bold org-tag))))
     `(org-target ((,c :underline t)))
     `(org-time-grid ((,c :foreground ,fg-dim)))
-    `(org-todo ((,c :foreground ,err)))
+    `(org-todo ((,c :foreground ,prose-todo)))
     `(org-upcoming-deadline ((,c :foreground ,warning)))
     `(org-upcoming-distant-deadline ((,c :inherit org-upcoming-deadline)))
     `(org-verbatim ((,c :inherit modus-themes-prose-verbatim)))
