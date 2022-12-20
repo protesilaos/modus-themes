@@ -3743,6 +3743,7 @@ corresponding entries."
                                      value
                                    (car (alist-get value ,sym))))))
                       colors))
+       (ignore c ,@colors)            ; Silence unused variable warnings
        (custom-theme-set-faces ',name ,@modus-themes-faces)
        (custom-theme-set-variables ',name ,@modus-themes-custom-variables))))
 
