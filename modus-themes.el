@@ -2925,7 +2925,7 @@ is a less intense variant of BG."
     `(org-link ((,c :inherit link)))
     `(org-list-dt ((,c :inherit bold)))
     `(org-macro ((,c :inherit modus-themes-prose-macro)))
-    `(org-meta-line ((,c :inherit (shadow modus-themes-fixed-pitch))))
+    `(org-meta-line ((,c :inherit modus-themes-fixed-pitch :foreground ,prose-metadata)))
     `(org-mode-line-clock (( )))
     `(org-mode-line-clock-overrun ((,c :inherit bold :foreground ,err)))
     `(org-priority ((,c :foreground ,prose-tag)))
