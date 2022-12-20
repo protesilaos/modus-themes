@@ -234,11 +234,11 @@ which corresponds to a minimum contrast in relative luminance of
       (bg-accent-3 bg-red-subtle)
 
       (date-common cyan)
-      (date-weekend red-faint)
       (date-deadline red)
       (date-event fg-alt)
       (date-holiday magenta)
       (date-scheduled yellow-warmer)
+      (date-weekend red-faint)
 
       (mail-cite-0 blue-faint)
       (mail-cite-1 yellow-warmer)

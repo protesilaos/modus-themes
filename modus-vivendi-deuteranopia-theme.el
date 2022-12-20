@@ -236,11 +236,11 @@ standard).")
       (bg-accent-3 bg-magenta-subtle)
 
       (date-common cyan)
-      (date-weekend blue)
       (date-deadline yellow-warmer)
       (date-event fg-alt)
       (date-holiday magenta)
       (date-scheduled yellow-cooler)
+      (date-weekend blue)
 
       (mail-cite-0 blue-warmer)
       (mail-cite-1 yellow-cooler)
