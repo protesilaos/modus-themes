@@ -208,8 +208,6 @@ which corresponds to a minimum contrast in relative luminance of
       (rx-construct green-cooler)
       (rx-backslash magenta)
 
-      (date cyan)
-      (weekend red-faint) ; for M-x calendar and Org agenda
       (keybind blue-cooler)
       (link blue-warmer)
       (link-symbolic cyan)
@@ -234,6 +232,13 @@ which corresponds to a minimum contrast in relative luminance of
       (bg-accent-1 bg-magenta-subtle)
       (bg-accent-2 bg-cyan-subtle)
       (bg-accent-3 bg-yellow-subtle)
+
+      (date-common cyan)
+      (date-weekend red-faint)
+      (date-deadline red)
+      (date-event fg-alt)
+      (date-holiday magenta)
+      (date-scheduled yellow-warmer)
 
       (mail-cite-0 blue-warmer)
       (mail-cite-1 yellow-cooler)

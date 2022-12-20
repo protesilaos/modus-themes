@@ -210,8 +210,6 @@ standard).")
       (rx-construct yellow-cooler)
       (rx-backslash blue-cooler)
 
-      (date cyan)
-      (weekend blue) ; for M-x calendar and Org agenda
       (keybind blue-cooler)
       (link blue-warmer)
       (link-symbolic cyan)
@@ -236,6 +234,13 @@ standard).")
       (bg-accent-1 bg-yellow-subtle)
       (bg-accent-2 bg-cyan-subtle)
       (bg-accent-3 bg-magenta-subtle)
+
+      (date-common cyan)
+      (date-weekend blue)
+      (date-deadline yellow-warmer)
+      (date-event fg-alt)
+      (date-holiday magenta)
+      (date-scheduled yellow-cooler)
 
       (mail-cite-0 blue-warmer)
       (mail-cite-1 yellow-cooler)
