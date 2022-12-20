@@ -1411,8 +1411,8 @@ underlying value it references.  For example a line with =#a60000= (a
 shade of red) will show red text followed by a stripe with that same
 color as a backdrop.
 
-The name of the buffer describes the given Modus theme.  It is thus
-called =*modus-operandi-list-colors*= or =*modus-vivendi-list-colors*=.
+The name of the buffer describes the given Modus theme, such as
+=*modus-operandi-list-colors*=.
 
 ** Per-theme customization settings
 :properties:
