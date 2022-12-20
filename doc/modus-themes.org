@@ -1390,15 +1390,21 @@ xterm*color15:    #ffffff
 :properties:
 :custom_id: h:f4d4b71b-2ca5-4c3d-b0b4-9bfd7aa7fb4d
 :end:
-#+findex: modus-themes-list-colors
-#+findex: modus-themes-list-colors-current
 #+cindex: Preview color values
 
+#+findex: modus-themes-list-colors
+#+findex: modus-themes-list-colors-current
 The command ~modus-themes-list-colors~ prompts for a choice between
 =modus-operandi= and =modus-vivendi= to produce a help buffer that shows a
 preview of each variable in the given theme's color palette.  The
 command ~modus-themes-list-colors-current~ skips the prompt, using the
 current Modus theme.
+
+#+findex: modus-themes-preview-colors
+#+findex: modus-themes-preview-colors-current
+Aliases for those commands are ~modus-themes-preview-colors~ and
+~modus-themes-preview-colors-current~. [ These aliases are part of
+{{{development-version}}}. ]
 
 Each row shows a foreground and background coloration using the
 underlying value it references.  For example a line with =#a60000= (a

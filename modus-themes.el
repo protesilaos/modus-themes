@@ -1058,10 +1058,16 @@ Helper function for `modus-themes-list-colors'."
    (format "*%s-list-colors*" theme)
    theme))
 
+(defalias 'modus-themes-preview-colors 'modus-themes-list-colors
+  "Alias of `modus-themes-list-colors'.")
+
 (defun modus-themes-list-colors-current ()
   "Call `modus-themes-list-colors' for the current Modus theme."
   (interactive)
   (modus-themes-list-colors (modus-themes--current-theme)))
+
+(defalias 'modus-themes-preview-colors-current 'modus-themes-list-colors-current
+  "Alias of `modus-themes-list-colors-current'.")
 
 
 
