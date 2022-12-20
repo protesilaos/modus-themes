@@ -217,7 +217,6 @@ which corresponds to a minimum contrast in relative luminance of
       (link-visited magenta)
       (name magenta)
       (identifier yellow-cooler)
-      (tag magenta-faint)
       (prompt cyan-cooler)
 
       (err red)
@@ -256,6 +255,7 @@ which corresponds to a minimum contrast in relative luminance of
       (heading-7 cyan-warmer)
       (heading-8 fg-dim)
 
+      (prose-tag magenta-faint)
       (prose-table fg-alt)
       (prose-block fg-dim)
       (prose-metadata fg-dim)
