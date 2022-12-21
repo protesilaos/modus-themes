@@ -1607,15 +1607,25 @@ xterm*color15:    #ffffff
 :properties:
 :custom_id: h:f4d4b71b-2ca5-4c3d-b0b4-9bfd7aa7fb4d
 :end:
-#+cindex: Preview color values
+#+cindex: Preview named colors or semantic color mappings
 
 #+findex: modus-themes-list-colors
 #+findex: modus-themes-list-colors-current
 The command ~modus-themes-list-colors~ prompts for a choice between
-=modus-operandi= and =modus-vivendi= to produce a help buffer that shows a
-preview of each variable in the given theme's color palette.  The
+=modus-operandi= and =modus-vivendi= to produce a help buffer that
+shows a preview of the named colors in the given theme's palette.  The
 command ~modus-themes-list-colors-current~ skips the prompt, using the
 current Modus theme.
+
+When called with a prefix argument (=C-u= with the default key
+bindings), these commands will show a preview of the palette's
+semantic color mappings instead of the named colors.
+
+In this context, "named colors" are entries that associate a symbol to
+a string color value, such as =(blue-warmer "#354fcf")=.  Whereas
+"semantic color mappings" associate a named color to a symbol, like
+=(string blue-warmer)=, thus making the theme render all string
+constructs in the =blue-warmer= color value ([[#h:34c7a691-19bb-4037-8d2f-67a07edab150][Option for palette overrides]]).
 
 #+findex: modus-themes-preview-colors
 #+findex: modus-themes-preview-colors-current
@@ -1628,8 +1638,9 @@ underlying value it references.  For example a line with =#a60000= (a
 shade of red) will show red text followed by a stripe with that same
 color as a backdrop.
 
-The name of the buffer describes the given Modus theme, such as
-=*modus-operandi-list-colors*=.
+The name of the buffer describes the given Modus theme and what the
+contents are, such as =*modus-operandi-list-colors*= for named colors
+and ==*modus-operandi-list-mappings*= for the semantic color mappings.
 
 ** Per-theme customization settings
 :properties:

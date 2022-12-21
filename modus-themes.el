@@ -1002,14 +1002,20 @@ Run `modus-themes-after-load-theme-hook' after loading the theme."
         (modus-themes-load-theme one))
     (modus-themes-load-theme (modus-themes--select-prompt))))
 
-(defun modus-themes--list-colors-render (buffer theme &rest _)
-  "Render colors in BUFFER from THEME.
-Routine for `modus-themes-list-colors'."
-  (let ((palette (seq-remove (lambda (cell)
-                               (symbolp (cadr cell)))
-                             (modus-themes--palette-value theme :overrides)))
-        (current-buffer buffer)
-        (current-theme theme))
+(defun modus-themes--list-colors-render (buffer theme &optional mappings &rest _)
+  "Render colors in BUFFER from THEME for `modus-themes-list-colors'.
+Optional MAPPINGS changes the output to only list the semantic
+color mappings of the palette, instead of its named colors."
+  (let* ((current (modus-themes--palette-value theme :overrides))
+         (palette (if mappings
+                      (seq-remove (lambda (cell)
+                                    (stringp (cadr cell)))
+                                  current)
+                    (seq-remove (lambda (cell)
+                                  (symbolp (cadr cell)))
+                                current)))
+         (current-buffer buffer)
+         (current-theme theme))
     (with-help-window buffer
       (with-current-buffer standard-output
         (erase-buffer)
@@ -1022,15 +1028,20 @@ Routine for `modus-themes-list-colors'."
         (dolist (cell palette)
           (let* ((name (car cell))
                  (color (cadr cell))
-                 (fg (readable-foreground-color color))
+                 (mapping (if mappings
+                              (cadr (seq-find (lambda (c)
+                                                (eq (car c) color))
+                                              current))
+                            color))
+                 (fg (readable-foreground-color mapping))
                  (pad (make-string 5 ?\s)))
             (let ((old-point (point)))
-              (insert (format "%s %s" color pad))
-              (put-text-property old-point (point) 'face `( :foreground ,color)))
+              (insert (format "%s %s" mapping pad))
+              (put-text-property old-point (point) 'face `( :foreground ,mapping)))
             (let ((old-point (point)))
-              (insert (format " %s %s %s\n" color pad name))
+              (insert (format " %s %s %s\n" mapping pad name))
               (put-text-property old-point (point)
-                                 'face `( :background ,color
+                                 'face `( :background ,mapping
                                           :foreground ,fg
                                           :extend t)))
             ;; We need this to properly render the last line.
@@ -1051,20 +1062,25 @@ Helper function for `modus-themes-list-colors'."
      (modus-themes--list-known-themes) nil t nil
      'modus-themes--list-colors-prompt-history def)))
 
-(defun modus-themes-list-colors (theme)
-  "Preview palette of the Modus THEME of choice."
-  (interactive (list (intern (modus-themes--list-colors-prompt))))
+(defun modus-themes-list-colors (theme &optional mappings)
+  "Preview named colors of the Modus THEME of choice.
+With optional prefix argument for MAPPINGS preview the semantic
+color mappings instead of the named colors."
+  (interactive (list (intern (modus-themes--list-colors-prompt)) current-prefix-arg))
   (modus-themes--list-colors-render
-   (format "*%s-list-colors*" theme)
-   theme))
+   (format (if mappings "*%s-list-mappings*" "*%s-list-colors*") theme)
+   theme
+   mappings))
 
 (defalias 'modus-themes-preview-colors 'modus-themes-list-colors
   "Alias of `modus-themes-list-colors'.")
 
-(defun modus-themes-list-colors-current ()
-  "Call `modus-themes-list-colors' for the current Modus theme."
-  (interactive)
-  (modus-themes-list-colors (modus-themes--current-theme)))
+(defun modus-themes-list-colors-current (&optional mappings)
+  "Call `modus-themes-list-colors' for the current Modus theme.
+Optional prefix argument MAPPINGS has the same meaning as for
+`modus-themes-list-colors'."
+  (interactive "P")
+  (modus-themes-list-colors (modus-themes--current-theme) mappings))
 
 (defalias 'modus-themes-preview-colors-current 'modus-themes-list-colors-current
   "Alias of `modus-themes-list-colors-current'.")
