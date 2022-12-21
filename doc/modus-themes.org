@@ -1417,6 +1417,9 @@ section, though limited in scope ([[#h:76987530-6561-4ea2-846c-cf7031854dc0][Mak
 #+end_src
 
 **** Make box buttons more or less gray
+:PROPERTIES:
+:CUSTOM_ID: h:4f6b6ca3-f5bb-4830-8312-baa232305360
+:END:
 
 This is one of our practical examples to override the semantic colors
 of the Modus themes ([[#h:df1199d8-eaba-47db-805d-6b568a577bf3][Stylistic variants using palette overrides]]).  By
@@ -1466,6 +1469,9 @@ encounter in Org buffers.  The idea is to make those pop out more.
 #+end_src
 
 **** Make Org agenda more or less colorful
+:PROPERTIES:
+:CUSTOM_ID: h:a5af0452-a50f-481d-bf60-d8143f98105f
+:END:
 
 This is one of our practical examples to override the semantic colors
 of the Modus themes ([[#h:df1199d8-eaba-47db-805d-6b568a577bf3][Stylistic variants using palette overrides]]).
