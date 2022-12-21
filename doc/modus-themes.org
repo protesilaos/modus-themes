@@ -1416,6 +1416,31 @@ section, though limited in scope ([[#h:76987530-6561-4ea2-846c-cf7031854dc0][Mak
         (rx-backslash olive)))
 #+end_src
 
+**** Make box buttons more or less gray
+
+This is one of our practical examples to override the semantic colors
+of the Modus themes ([[#h:df1199d8-eaba-47db-805d-6b568a577bf3][Stylistic variants using palette overrides]]).  By
+default, the boxxed buttons that appear in {{{kbd(M-x customize)}}}
+and related are distinct shades of gray.  The following set of
+overrides removes the gray from the active buttons and amplifies it
+for the inactive ones.
+
+#+begin_src emacs-lisp
+;; These overrides are common to all Modus themes.  We also provide
+;; theme-specific options, such as `modus-operandi-palette-overrides'.
+;;
+;; In general, the theme-specific overrides are better for overriding
+;; color values, such as redefining what `blue-faint' looks like.  The
+;; common overrides are best used for changes to semantic color
+;; mappings, as we show below.
+
+(setq modus-themes-common-palette-overrides
+      '((bg-button-active bg-main)
+        (fg-button-active fg-main)
+        (bg-button-inactive bg-inactive)
+        (fg-button-inactive "gray50")))
+#+end_src
+
 **** Make TODO and DONE more intense
 :PROPERTIES:
 :CUSTOM_ID: h:b57bb50b-a863-4ea8-bb38-6de2275fa868

@@ -234,6 +234,11 @@ which corresponds to a minimum contrast in relative luminance of
       (bg-accent-2 bg-cyan-subtle)
       (bg-accent-3 bg-red-subtle)
 
+      (bg-button-active bg-active)
+      (fg-button-active fg-main)
+      (bg-button-inactive bg-dim)
+      (fg-button-inactive fg-dim)
+
       (date-common cyan)
       (date-deadline red)
       (date-event fg-alt)

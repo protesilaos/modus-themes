@@ -235,6 +235,11 @@ standard).")
       (bg-accent-2 bg-cyan-subtle)
       (bg-accent-3 bg-magenta-subtle)
 
+      (bg-button-active bg-active)
+      (fg-button-active fg-main)
+      (bg-button-inactive bg-dim)
+      (fg-button-inactive fg-dim)
+
       (date-common cyan)
       (date-deadline yellow-warmer)
       (date-event fg-alt)

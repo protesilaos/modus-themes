@@ -1444,7 +1444,7 @@ is a less intense variant of BG."
     `(help-key-binding ((,c :inherit modus-themes-key-binding)))
     `(homoglyph ((,c :foreground ,warning)))
     `(ibuffer-locked-buffer ((,c :foreground ,warning)))
-    `(icon-button ((,c :box ,fg-dim :background ,bg-active))) ; same as `custom-button'
+    `(icon-button ((,c :box t :background ,bg-button-active :foreground ,fg-button-active))) ; same as `custom-button'
     `(italic ((,c :slant italic)))
     `(nobreak-hyphen ((,c :foreground ,err)))
     `(nobreak-space ((,c :foreground ,err :underline t)))
@@ -1790,7 +1790,7 @@ is a less intense variant of BG."
     `(ctrlf-highlight-line ((,c :inherit highlight)))
     `(ctrlf-highlight-passive ((,c :inherit modus-themes-search-lazy)))
 ;;;;; custom (M-x customize)
-    `(custom-button ((,c :box ,fg-dim :background ,bg-active :foreground ,fg-main)))
+    `(custom-button ((,c :box t :background ,bg-button-active :foreground ,fg-button-active)))
     `(custom-button-mouse ((,c :inherit (highlight custom-button))))
     `(custom-button-pressed ((,c :inherit (secondary-selection custom-button))))
     `(custom-changed ((,c :background ,bg-changed)))
@@ -2108,7 +2108,7 @@ is a less intense variant of BG."
     `(eww-form-checkbox ((,c :inherit eww-form-text)))
     `(eww-form-file ((,c :inherit eww-form-submit)))
     `(eww-form-select ((,c :inherit eww-form-submit)))
-    `(eww-form-submit ((,c :box ,fg-dim :background ,bg-active :foreground ,fg-main)))
+    `(eww-form-submit ((,c :box t :background ,bg-button-active :foreground ,fg-button-active))) ; same as `custom-button'
     `(eww-form-text ((,c :inherit widget-field)))
     `(eww-form-textarea ((,c :inherit eww-form-text)))
 ;;;;; eyebrowse
@@ -2401,7 +2401,7 @@ is a less intense variant of BG."
     `(info-double-quoted-name ((,c :inherit font-lock-string-face)))
     `(info-file (( )))
     `(info-function-ref-item ((,c :inherit font-lock-function-name-face)))
-    `(info-glossary-word ((,c :inherit modus-themes-box-button)))
+    `(info-glossary-word ((,c :box t :background ,bg-button-active :foreground ,fg-button-active))) ; same as `custom-button'
     `(info-indented-text (( )))
     `(info-isolated-backquote (( )))
     `(info-isolated-quote (( )))
@@ -3615,7 +3615,7 @@ is a less intense variant of BG."
     `(widget-button-pressed ((,c :inherit widget-buton :foreground ,link-visited)))
     `(widget-documentation ((,c :inherit font-lock-doc-face)))
     `(widget-field ((,c :background ,bg-inactive :foreground ,fg-main :extend nil)))
-    `(widget-inactive ((,c :inherit shadow :background ,bg-dim)))
+    `(widget-inactive ((,c :background ,bg-button-inactive :foreground ,fg-button-inactive)))
     `(widget-single-line-field ((,c :inherit widget-field)))
 ;;;;; writegood-mode
     `(writegood-duplicates-face ((,c :inherit modus-themes-lang-error)))
