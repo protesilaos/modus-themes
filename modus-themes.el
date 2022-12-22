@@ -1596,7 +1596,7 @@ is a less intense variant of BG."
     `(rectangle-preview ((,c :inherit secondary-selection)))
     `(region ((,c ,@(modus-themes--region bg-region fg-main bg-region-subtle))))
     `(secondary-selection ((,c :background ,bg-hover-secondary)))
-    `(separator-line ((,c :underline ,bg-region)))
+    `(separator-line ((,c :underline ,bg-active)))
     `(shadow ((,c :foreground ,fg-dim)))
     `(success ((,c :inherit bold :foreground ,info)))
     `(trailing-whitespace ((,c :background ,bg-red)))
