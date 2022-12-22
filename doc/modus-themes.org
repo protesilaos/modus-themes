@@ -1126,6 +1126,9 @@ is done by assigning the ~variable-pitch~ face to the relevant items.
 :custom_id: h:34c7a691-19bb-4037-8d2f-67a07edab150
 :end:
 
+This section describes palette overrides in detail.  For a simpler
+alternative, use the presets we provide ([[#h:b0bc811c-227e-42ec-bf67-15e1f41eb7bc][Palette override presets]]).
+
 Each Modus theme specifies a color palette that declares named color
 values and semantic color mappings:
 
@@ -1238,6 +1241,46 @@ Named colors can be previewed, such as with the command
 
 For a video tutorial that users of all skill levels can approach,
 watch: https://protesilaos.com/codelog/2022-12-17-modus-themes-v4-demo/.
+
+*** Palette override presets
+:PROPERTIES:
+:CUSTOM_ID: h:b0bc811c-227e-42ec-bf67-15e1f41eb7bc
+:END:
+
+This section shows how to refashion the themes by opting in to the
+stylistic presets we provide.  Those presets override the default
+color mappings to amplify or tone down the overall coloration of the
+them.
+
+To make almost all aspects of the themes less intense, use this:
+
+#+begin_src emacs-lisp
+;; Always remember to reload the theme for changes to take effect!
+(setq modus-themes-common-palette-overrides modus-themes-preset-overrides-faint)
+#+end_src
+
+#+vindex: modus-themes-preset-overrides-faint
+With ~modus-themes-preset-overrides-faint~ the grays are toned down,
+gray backgrounds are removed from some contexts, and almost all accent
+colors are desaturated.  It makes the themes less attention-grabbing.
+
+On the opposite end of the stylistic spectrum, we have this
+
+#+begin_src emacs-lisp
+;; Always remember to reload the theme for changes to take effect!
+(setq modus-themes-common-palette-overrides modus-themes-preset-overrides-intense)
+#+end_src
+
+#+vindex: modus-themes-preset-overrides-intense
+The ~modus-themes-preset-overrides-intense~ makes many background
+colors accented instead of gray and increases coloration in a number
+of places.  Colors stand out more and are made easier to spot.
+
+Note that the user is not limited to those presets.  The system of
+overrides we provide makes it possible to tweak the value of each
+individual named color and to change how values are assigned to
+semantic color mappings ([[#h:34c7a691-19bb-4037-8d2f-67a07edab150][Option for palette overrides]]).  Subsequent
+sections provide examples ([[#h:df1199d8-eaba-47db-805d-6b568a577bf3][Stylistic variants using palette overrides]]).
 
 *** Stylistic variants using palette overrides
 :PROPERTIES:

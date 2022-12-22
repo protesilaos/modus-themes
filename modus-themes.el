@@ -853,6 +853,162 @@ overrides."
 
 
 
+;;;; Presets of palette overrides
+
+(defvar modus-themes-preset-overrides-faint
+  '((bg-completion       bg-inactive)
+    (bg-hover            bg-cyan)
+    (bg-hover-secondary  bg-magenta-subtle)
+    (bg-hl-line          bg-dim)
+    (bg-paren-match      bg-cyan)
+    (bg-region           bg-active)
+
+    (bg-mode-line-active        bg-inactive)
+    (border-mode-line-active    fg-dim)
+    (bg-mode-line-inactive      bg-dim)
+    (border-mode-line-inactive  bg-active)
+
+    (bg-tab-bar      bg-inactive)
+    (bg-tab-current  bg-main)
+    (bg-tab-other    bg-active)
+
+    (fringe bg-main)
+    (builtin maroon)
+    (comment fg-dim)
+    (constant blue-faint)
+    (docstring fg-alt)
+    (docmarkup magenta-faint)
+    (fnname pink)
+    (keyword indigo)
+    (preprocessor rust)
+    (string slate)
+    (type cyan-faint)
+    (variable cyan-faint)
+    (rx-construct gold)
+    (rx-backslash olive)
+
+    (underline-err red-faint)
+    (underline-warning yellow-faint)
+    (underline-note cyan-faint)
+
+    (bg-button-active bg-main)
+    (fg-button-active fg-main)
+    (bg-button-inactive bg-inactive)
+    (fg-button-inactive "gray50")
+
+    (date-common slate)
+    (date-deadline rust)
+    (date-event fg-alt)
+    (date-holiday magenta)
+    (date-scheduled yellow-faint)
+    (date-weekend pink)
+
+    (link blue-faint)
+    (link-symbolic cyan-faint)
+    (link-visited magenta-faint)
+    (name maroon)
+    (identifier fg-dim)
+    (prompt cyan-faint)
+
+    (bg-line-number-inactive bg-main)
+    (fg-line-number-inactive "gray50")
+    (bg-line-number-active bg-main)
+    (fg-line-number-active fg-main)
+
+    (mail-cite-0 cyan-faint)
+    (mail-cite-1 yellow-faint)
+    (mail-cite-2 green-faint)
+    (mail-cite-3 red-faint)
+    (mail-part olive)
+    (mail-recipient indigo)
+    (mail-subject maroon)
+    (mail-other slate)
+
+    (prose-code olive)
+    (prose-done green-faint)
+    (prose-macro indigo)
+    (prose-tag rust)
+    (prose-todo red-faint)
+    (prose-verbatim maroon))
+  "Preset for palette overrides with faint coloration.
+
+This changes many parts of the theme to make them look less
+colorful/intense.  Grays are toned down, gray backgrounds are
+removed from some contexts, and almost all accent colors are
+desaturated.
+
+To set a preset, assign its symbol without a quote as the value
+of the `modus-themes-common-palette-overrides' or as the value of
+theme-specific options such as `modus-operandi-palette-overrides'.
+
+Also see `modus-themes-preset-overrides-intense'.
+
+For overriding named colors and/or semantic color mappings read
+Info node `(modus-themes) Option for palette overrides'.")
+
+(defvar modus-themes-preset-overrides-intense
+  '((bg-region bg-magenta)
+
+    (bg-completion       bg-cyan)
+    (bg-hover            bg-yellow)
+    (bg-hover-secondary  bg-magenta)
+    (bg-hl-line          bg-cyan-subtle)
+
+    (bg-mode-line-active        bg-blue)
+    (fg-mode-line-active        fg-main)
+    (border-mode-line-active    blue-intense)
+
+    (fringe bg-active)
+    (comment red-faint)
+
+    (date-common cyan-intense)
+    (date-deadline red-intense)
+
+    (keybind blue-intense)
+    (prompt blue-intense)
+
+    (mail-cite-0 blue)
+    (mail-cite-1 yellow)
+    (mail-cite-2 cyan)
+    (mail-cite-3 red-cooler)
+    (mail-part magenta-warmer)
+    (mail-recipient azure)
+    (mail-subject red-warmer)
+    (mail-other blue-faint)
+
+    (prose-block red-faint)
+    (prose-done green-intense)
+    (prose-metadata cyan-faint)
+    (prose-metadata-value blue-cooler)
+    (prose-table cyan)
+    (prose-todo red-intense)
+
+    (heading-0 blue-warmer)
+    (heading-1 magenta-cooler)
+    (heading-2 magenta-warmer)
+    (heading-3 blue)
+    (heading-4 cyan)
+    (heading-5 green-warmer)
+    (heading-6 yellow)
+    (heading-7 red)
+    (heading-8 magenta))
+  "Preset for palette overrides with faint coloration.
+
+This changes many parts of the theme to make them look more
+colorful/intense.  Many background colors are accented and
+coloration is increased to pop out more.
+
+To set a preset, assign its symbol without a quote as the value
+of the `modus-themes-common-palette-overrides' or as the value of
+theme-specific options such as `modus-operandi-palette-overrides'.
+
+Also see `modus-themes-preset-overrides-faint'.
+
+For overriding named colors and/or semantic color mappings read
+Info node `(modus-themes) Option for palette overrides'.")
+
+
+
 ;;;; Helper functions for theme setup
 
 ;; This is the WCAG formula: https://www.w3.org/TR/WCAG20-TECHS/G18.html
