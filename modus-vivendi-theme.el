@@ -245,6 +245,11 @@ which corresponds to a minimum contrast in relative luminance of
       (date-scheduled yellow-warmer)
       (date-weekend red-faint)
 
+      (bg-line-number-inactive bg-dim)
+      (fg-line-number-inactive fg-dim)
+      (bg-line-number-active bg-active)
+      (fg-line-number-active fg-main)
+
       (mail-cite-0 blue-warmer)
       (mail-cite-1 yellow-cooler)
       (mail-cite-2 cyan-cooler)

@@ -736,17 +736,7 @@ In user configuration files the form may look like this:
   :link '(info-link "(modus-themes) Command prompts"))
 
 (make-obsolete-variable 'modus-themes-hl-line nil "4.0.0")
-
-(defcustom modus-themes-subtle-line-numbers nil
-  "Use more subtle style for command `display-line-numbers-mode'."
-  :group 'modus-themes
-  :package-version '(modus-themes . "1.2.0")
-  :version "28.1"
-  :type 'boolean
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
-  :link '(info-link "(modus-themes) Line numbers"))
-
+(make-obsolete-variable 'modus-themes-subtle-line-numbers nil "4.0.0")
 (make-obsolete-variable 'modus-themes-markup nil "4.0.0")
 (make-obsolete-variable 'modus-themes-paren-match nil "4.0.0")
 (make-obsolete-variable 'modus-themes-syntax nil "4.0.0")
@@ -1138,14 +1128,6 @@ list given LIST-PRED, using DEFAULT as a fallback."
   "Conditional use of `variable-pitch' in UI elements."
   (when modus-themes-variable-pitch-ui
     (list :inherit 'variable-pitch)))
-
-(defun modus-themes--line-numbers (mainfg mainbg altfg &optional altbg)
-  "Conditional use of colors for line numbers.
-MAINBG and MAINFG are the default colors.  ALTFG is a color that
-combines with the theme's primary background (white/black)."
-  (if modus-themes-subtle-line-numbers
-      (list :background (or altbg 'unspecified) :foreground altfg)
-    (list :background mainbg :foreground mainfg)))
 
 (defun modus-themes--prompt (fg bg)
   "Conditional use of colors for text prompt faces.
@@ -2519,26 +2501,10 @@ is a less intense variant of BG."
     ;; Here we cannot inherit `modus-themes-fixed-pitch'.  We need to
     ;; fall back to `default' otherwise line numbers do not scale when
     ;; using `text-scale-adjust'.
-    `(line-number
-      ((,c :inherit ,(if modus-themes-mixed-fonts '(fixed-pitch default) 'default)
-           ,@(modus-themes--line-numbers
-              fg-dim bg-dim
-              "gray50"))))
-    `(line-number-current-line
-      ((,c :inherit (bold line-number)
-           ,@(modus-themes--line-numbers
-              fg-main bg-active
-              blue-cooler))))
-    `(line-number-major-tick
-      ((,c :inherit (bold line-number)
-           ,@(modus-themes--line-numbers
-              err bg-inactive
-              err))))
-    `(line-number-minor-tick
-      ((,c :inherit (bold line-number)
-           ,@(modus-themes--line-numbers
-              fg-dim bg-inactive
-              fg-dim))))
+    `(line-number ((,c :inherit ,(if modus-themes-mixed-fonts '(fixed-pitch default) 'default) :background ,bg-line-number-inactive :foreground ,fg-line-number-inactive)))
+    `(line-number-current-line ((,c :inherit (bold line-number) :background ,bg-line-number-active :foreground ,fg-line-number-active)))
+    `(line-number-major-tick ((,c :inherit line-number :foreground ,err)))
+    `(line-number-minor-tick ((,c :inherit line-number :foreground ,fg-alt)))
 ;;;;; magit
     `(magit-bisect-bad ((,c :inherit error)))
     `(magit-bisect-good ((,c :inherit success)))

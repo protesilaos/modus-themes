@@ -248,6 +248,11 @@ standard).")
       (date-scheduled yellow-cooler)
       (date-weekend blue)
 
+      (bg-line-number-inactive bg-dim)
+      (fg-line-number-inactive fg-dim)
+      (bg-line-number-active bg-active)
+      (fg-line-number-active fg-main)
+
       (mail-cite-0 blue-warmer)
       (mail-cite-1 yellow)
       (mail-cite-2 blue-cooler)
