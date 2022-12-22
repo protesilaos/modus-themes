@@ -209,9 +209,6 @@ which corresponds to a minimum contrast in relative luminance of
       (rx-backslash magenta)
 
       (keybind blue-cooler)
-      (link blue-warmer)
-      (link-symbolic cyan)
-      (link-visited magenta)
       (name magenta)
       (identifier yellow-cooler)
       (prompt cyan-cooler)
@@ -249,6 +246,13 @@ which corresponds to a minimum contrast in relative luminance of
       (fg-line-number-inactive fg-dim)
       (bg-line-number-active bg-active)
       (fg-line-number-active fg-main)
+
+      (link blue-warmer)
+      (link-underline blue-warmer)
+      (link-symbolic cyan)
+      (link-symbolic-underline cyan)
+      (link-visited magenta)
+      (link-visited-underline magenta)
 
       (mail-cite-0 blue-faint)
       (mail-cite-1 yellow-warmer)

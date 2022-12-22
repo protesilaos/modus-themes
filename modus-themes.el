@@ -740,57 +740,7 @@ In user configuration files the form may look like this:
 (make-obsolete-variable 'modus-themes-markup nil "4.0.0")
 (make-obsolete-variable 'modus-themes-paren-match nil "4.0.0")
 (make-obsolete-variable 'modus-themes-syntax nil "4.0.0")
-
-(defcustom modus-themes-links nil
-  "Set the style of links.
-
-The value is a list of properties, each designated by a symbol.
-The default (a nil value or an empty list) is a prominent text
-color, typically blue, with an underline of the same color.
-
-For the style of the underline, a `neutral-underline' property
-turns the color of the line into a subtle gray, while the
-`no-underline' property removes the line altogether.  If both of
-those are set, the latter takes precedence.
-
-An `italic' property adds a slant to the link's text (italic or
-oblique forms, depending on the typeface).
-
-The symbol of a font weight attribute such as `light', `semibold',
-et cetera, adds the given weight to links.  Valid symbols are
-defined in the variable `modus-themes-weights'.  The absence of a
-weight means that the one of the underlying text will be used.
-
-Combinations of any of those properties are expressed as a list,
-like in these examples:
-
-    (bold)
-    (neutral-underline bold)
-    (italic bold no-underline)
-
-The order in which the properties are set is not significant.
-
-In user configuration files the form may look like this:
-
-    (setq modus-themes-links (quote (neutral-underline bold)))
-
-The placement of the underline, meaning its proximity to the
-text, is controlled by `x-use-underline-position-properties',
-`x-underline-at-descent-line', `underline-minimum-offset'.
-Please refer to their documentation strings."
-  :group 'modus-themes
-  :package-version '(modus-themes . "4.0.0")
-  :version "30.1"
-  :type `(set :tag "Properties" :greedy t
-              (choice :tag "Underline"
-                      (const :tag "Same color as text (default)" nil)
-                      (const :tag "Neutral (gray) underline color" neutral-underline)
-                      (const :tag "No underline" no-underline))
-              (const :tag "Italic font slant" italic)
-              ,modus-themes--weight-widget)
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
-  :link '(info-link "(modus-themes) Link styles"))
+(make-obsolete-variable 'modus-themes-links nil "4.0.0")
 
 (defcustom modus-themes-region nil
   "Control the overall style of the active region.
@@ -903,9 +853,6 @@ overrides."
     (date-scheduled yellow-faint)
     (date-weekend pink)
 
-    (link blue-faint)
-    (link-symbolic cyan-faint)
-    (link-visited magenta-faint)
     (name maroon)
     (identifier fg-dim)
     (prompt cyan-faint)
@@ -914,6 +861,13 @@ overrides."
     (fg-line-number-inactive "gray50")
     (bg-line-number-active bg-main)
     (fg-line-number-active fg-main)
+
+    (link blue-warmer)
+    (link-underline bg-active)
+    (link-symbolic cyan)
+    (link-symbolic-underline bg-active)
+    (link-visited magenta)
+    (link-visited-underline bg-active)
 
     (mail-cite-0 cyan-faint)
     (mail-cite-1 yellow-faint)
@@ -1409,38 +1363,6 @@ FG and BG are the main colors."
      :weight
      (if (and weight (null bold)) weight 'unspecified))))
 
-(defun modus-themes--link (fg underline)
-  "Conditional application of link styles.
-FG is the link's default color for its text and underline
-property.  UNDERLINE is a gray color only for the undeline."
-  (let* ((properties (modus-themes--list-or-warn 'modus-themes-links))
-         (weight (modus-themes--weight properties)))
-    (list :inherit
-          (cond
-           ((and (memq 'bold properties)
-                 (memq 'italic properties))
-            'bold-italic)
-           ((memq 'italic properties)
-            'italic)
-           ((memq 'bold properties)
-            'bold)
-           ('unspecified))
-          :foreground fg
-          :underline
-          (cond
-           ((memq 'no-underline properties)
-            'unspecified)
-           ((memq 'neutral-underline properties)
-            underline)
-           (t))
-          :weight
-          ;; If we have `bold' specifically, we inherit the face of
-          ;; the same name.  This allows the user to customise that
-          ;; face, such as to change its font family.
-          (if (and weight (not (eq weight 'bold)))
-              weight
-            'unspecified))))
-
 (defun modus-themes--region (bg fg bgsubtle)
   "Apply `modus-themes-region' styles.
 
@@ -1602,9 +1524,9 @@ is a less intense variant of BG."
     `(trailing-whitespace ((,c :background ,bg-red)))
     `(warning ((,c :inherit bold :foreground ,warning)))
 ;;;;; buttons, links, widgets
-    `(button ((,c ,@(modus-themes--link link border))))
+    `(button ((,c :foreground ,link :underline ,link-underline)))
     `(link ((,c :inherit button)))
-    `(link-visited ((,c :inherit button ,@(modus-themes--link link-visited border))))
+    `(link-visited ((,c :foreground ,link-visited :underline ,link-visited-underline)))
     `(tooltip ((,c :background ,bg-active)))
 ;;;;; agda2-mode
     `(agda2-highlight-bound-variable-face ((,c :inherit font-lock-variable-name-face)))
@@ -2000,7 +1922,7 @@ is a less intense variant of BG."
     `(dired-mark ((,c :inherit bold)))
     `(dired-marked ((,c :inherit modus-themes-mark-sel)))
     `(dired-perm-write ((,c :inherit shadow)))
-    `(dired-symlink ((,c :inherit button :foreground ,link-symbolic)))
+    `(dired-symlink ((,c :inherit button :foreground ,link-symbolic :underline ,link-symbolic-underline)))
     `(dired-warning ((,c :inherit warning)))
 ;;;;; dired-async
     `(dired-async-failures ((,c :inherit error)))
