@@ -1206,7 +1206,86 @@ This section contains practical examples of overriding the palette of
 the themes ([[#h:34c7a691-19bb-4037-8d2f-67a07edab150][Option for palette overrides]]).  Users can copy the code to
 their init file, evaluate it, and then re-load the theme for changes
 to take effect.  To apply overrides at startup simply define them
-before the call that loads the theme.
+before the call that loads the theme.  Remember that we also provide
+presets that are easier to apply ([[#h:b0bc811c-227e-42ec-bf67-15e1f41eb7bc][Palette override presets]]).
+
+**** Make use of alternative styles for code syntax
+:PROPERTIES:
+:CUSTOM_ID: h:943063da-7b27-4ba4-9afe-f8fe77652fd1
+:END:
+
+This is one of our practical examples to override the semantic colors
+of the Modus themes ([[#h:df1199d8-eaba-47db-805d-6b568a577bf3][Stylistic variants using palette overrides]]).  The
+idea here is to change how named colors are mapped to code syntax.
+Each of the following snippets give the ~modus-themes~ a different
+feel while editing code.
+
+Note that my ~modus-themes~ and ~ef-themes~ do not use the same
+palettes, so some things are different.  If you copy from the latter
+to the former, double-check that the entries exist in the given Modus
+theme palette.
+
+#+begin_src emacs-lisp
+;; Mimic `ef-night' theme (from my `ef-themes') for code syntax
+;; highlighting, while still using the Modus colors (and other
+;; mappings).
+(setq modus-themes-common-palette-overrides
+      '((builtin green-cooler)
+        (comment yellow-faint)
+        (constant magenta-cooler)
+        (fnname cyan-cooler)
+        (keyword blue-warmer)
+        (preprocessor red-warmer)
+        (docstring cyan-faint)
+        (string blue-cooler)
+        (type magenta-cooler)
+        (variable cyan)))
+
+;; Mimic `ef-summer' theme (from my `ef-themes') for code syntax
+;; highlighting, while still using the Modus colors (and other
+;; mappings).
+(setq modus-themes-common-palette-overrides
+      '((builtin magenta)
+        (comment yellow-faint)
+        (constant red-cooler)
+        (fnname magenta-warmer)
+        (keyword magenta-cooler)
+        (preprocessor green-warmer)
+        (docstring cyan-faint)
+        (string yellow-warmer)
+        (type cyan-warmer)
+        (variable blue-warmer)))
+
+;; Mimic `ef-bio' theme (from my `ef-themes') for code syntax
+;; highlighting, while still using the Modus colors (and other
+;; mappings).
+(setq modus-themes-common-palette-overrides
+      '((builtin green)
+        (comment yellow-faint)
+        (constant blue)
+        (fnname green-warmer)
+        (keyword green-cooler)
+        (preprocessor green)
+        (docstring green-faint)
+        (string magenta-cooler)
+        (type cyan-warmer)
+        (variable blue-warmer)))
+
+;; Mimic `ef-trio-light' theme (from my `ef-themes') for code syntax
+;; highlighting, while still using the Modus colors (and other
+;; mappings).
+(setq modus-themes-common-palette-overrides
+      '((builtin magenta-cooler)
+        (comment yellow-faint)
+        (constant magenta-warmer)
+        (fnname blue-warmer)
+        (keyword magenta)
+        (preprocessor red-cooler)
+        (docstring magenta-faint)
+        (string green-cooler)
+        (type cyan-cooler)
+        (variable cyan-warmer)))
+#+end_src
 
 **** Make box buttons more or less gray
 :PROPERTIES:
