@@ -1539,9 +1539,9 @@ is a less intense variant of BG."
     `(trailing-whitespace ((,c :background ,bg-red)))
     `(warning ((,c :inherit bold :foreground ,warning)))
 ;;;;; buttons, links, widgets
-    `(button ((,c :foreground ,link :underline ,link-underline)))
+    `(button ((,c :background ,bg-link :foreground ,fg-link :underline ,underline-link)))
     `(link ((,c :inherit button)))
-    `(link-visited ((,c :foreground ,link-visited :underline ,link-visited-underline)))
+    `(link-visited ((,c :background ,bg-link-visited :foreground ,fg-link-visited :underline ,underline-link-visited)))
     `(tooltip ((,c :background ,bg-active)))
 ;;;;; agda2-mode
     `(agda2-highlight-bound-variable-face ((,c :inherit font-lock-variable-name-face)))
@@ -1937,7 +1937,7 @@ is a less intense variant of BG."
     `(dired-mark ((,c :inherit bold)))
     `(dired-marked ((,c :inherit modus-themes-mark-sel)))
     `(dired-perm-write ((,c :inherit shadow)))
-    `(dired-symlink ((,c :inherit button :foreground ,link-symbolic :underline ,link-symbolic-underline)))
+    `(dired-symlink ((,c :inherit button :background ,bg-link-symbolic :foreground ,fg-link-symbolic :underline ,underline-link-symbolic)))
     `(dired-warning ((,c :inherit warning)))
 ;;;;; dired-async
     `(dired-async-failures ((,c :inherit error)))
@@ -1978,7 +1978,7 @@ is a less intense variant of BG."
     `(diredfl-flag-mark ((,c :inherit dired-marked)))
     `(diredfl-flag-mark-line ((,c :inherit dired-marked)))
     `(diredfl-ignored-file-name ((,c :inherit shadow)))
-    `(diredfl-link-priv ((,c :foreground ,link)))
+    `(diredfl-link-priv ((,c :foreground ,fg-link)))
     `(diredfl-no-priv ((,c :inherit shadow)))
     `(diredfl-number ((,c :inherit shadow)))
     `(diredfl-other-priv ((,c :foreground ,accent-2)))
@@ -2460,7 +2460,7 @@ is a less intense variant of BG."
 ;;;;; info
     `(Info-quoted ((,c :inherit modus-themes-prose-verbatim))) ; the capitalization is canonical
     `(info-header-node ((,c :inherit (shadow bold))))
-    `(info-header-xref ((,c :foreground ,link)))
+    `(info-header-xref ((,c :foreground ,fg-link)))
     `(info-index-match ((,c :inherit match)))
     `(info-menu-header ((,c :inherit bold)))
     `(info-menu-star ((,c :foreground ,red-intense)))
@@ -3387,8 +3387,8 @@ is a less intense variant of BG."
 ;;;;; table (built-in table.el)
     `(table-cell ((,c :background ,bg-dim)))
 ;;;;; telega
-    `(telega-button ((,c :box t :foreground ,link)))
-    `(telega-button-active ((,c :box ,link :background ,link :foreground ,bg-main)))
+    `(telega-button ((,c :box t :foreground ,fg-link)))
+    `(telega-button-active ((,c :box ,fg-link :background ,fg-link :foreground ,bg-main)))
     `(telega-button-highlight ((,c :inherit secondary-selection)))
     `(telega-chat-prompt ((,c :inherit modus-themes-prompt)))
     `(telega-entity-type-code ((,c :inherit modus-themes-prose-verbatim)))
@@ -3670,8 +3670,8 @@ is a less intense variant of BG."
     `(window-divider-first-pixel ((,c :foreground "gray50")))
     `(window-divider-last-pixel ((,c :foreground "gray50")))
 ;;;;; widget
-    `(widget-button ((,c :inherit bold :foreground ,link)))
-    `(widget-button-pressed ((,c :inherit widget-buton :foreground ,link-visited)))
+    `(widget-button ((,c :inherit bold :foreground ,fg-link)))
+    `(widget-button-pressed ((,c :inherit widget-buton :foreground ,fg-link-visited)))
     `(widget-documentation ((,c :inherit font-lock-doc-face)))
     `(widget-field ((,c :background ,bg-inactive :foreground ,fg-main :extend nil)))
     `(widget-inactive ((,c :background ,bg-button-inactive :foreground ,fg-button-inactive)))
@@ -3820,7 +3820,8 @@ corresponding entries."
             ,@(mapcar (lambda (color)
                         (list color
                               `(let* ((value (car (alist-get ',color ,sym))))
-                                 (if (stringp value)
+                                 (if (or (stringp value)
+                                         (memq value '(unspecified t)))
                                      value
                                    (car (alist-get value ,sym))))))
                       colors))
