@@ -218,6 +218,10 @@ see `modus-themes-reset-hard'."
   "Face for current selection in completion UIs."
   :group 'modus-themes-faces)
 
+(defface modus-themes-button nil
+  "Face for graphical buttons."
+  :group 'modus-themes-faces)
+
 (dotimes (n 4)
   (custom-declare-face
    (intern (format "modus-themes-completion-match-%d" n))
@@ -1470,6 +1474,7 @@ is a less intense variant of BG."
     `(modus-themes-slant ((,c ,@(modus-themes--slant))))
     `(modus-themes-ui-variable-pitch ((,c ,@(modus-themes--variable-pitch-ui))))
 ;;;;; other custom faces
+    `(modus-themes-button ((,c :inherit variable-pitch :box t :background ,bg-button-active :foreground ,fg-button-active)))
     `(modus-themes-key-binding ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind)))
     `(modus-themes-prompt ((,c ,@(modus-themes--prompt prompt bg-prompt))))
     `(modus-themes-reset-soft ((,c :background ,bg-main :foreground ,fg-main
@@ -1504,7 +1509,7 @@ is a less intense variant of BG."
     `(help-key-binding ((,c :inherit modus-themes-key-binding)))
     `(homoglyph ((,c :foreground ,warning)))
     `(ibuffer-locked-buffer ((,c :foreground ,warning)))
-    `(icon-button ((,c :box t :background ,bg-button-active :foreground ,fg-button-active))) ; same as `custom-button'
+    `(icon-button ((,c :inherit modus-themes-button)))
     `(italic ((,c :slant italic)))
     `(nobreak-hyphen ((,c :foreground ,err)))
     `(nobreak-space ((,c :foreground ,err :underline t)))
@@ -1850,7 +1855,7 @@ is a less intense variant of BG."
     `(ctrlf-highlight-line ((,c :inherit highlight)))
     `(ctrlf-highlight-passive ((,c :inherit modus-themes-search-lazy)))
 ;;;;; custom (M-x customize)
-    `(custom-button ((,c :box t :background ,bg-button-active :foreground ,fg-button-active)))
+    `(custom-button ((,c :inherit modus-themes-button)))
     `(custom-button-mouse ((,c :inherit (highlight custom-button))))
     `(custom-button-pressed ((,c :inherit (secondary-selection custom-button))))
     `(custom-changed ((,c :background ,bg-changed)))
@@ -2168,7 +2173,7 @@ is a less intense variant of BG."
     `(eww-form-checkbox ((,c :inherit eww-form-text)))
     `(eww-form-file ((,c :inherit eww-form-submit)))
     `(eww-form-select ((,c :inherit eww-form-submit)))
-    `(eww-form-submit ((,c :box t :background ,bg-button-active :foreground ,fg-button-active))) ; same as `custom-button'
+    `(eww-form-submit ((,c :inherit modus-themes-button)))
     `(eww-form-text ((,c :inherit widget-field)))
     `(eww-form-textarea ((,c :inherit eww-form-text)))
 ;;;;; eyebrowse
@@ -2461,7 +2466,7 @@ is a less intense variant of BG."
     `(info-double-quoted-name ((,c :inherit font-lock-string-face)))
     `(info-file (( )))
     `(info-function-ref-item ((,c :inherit font-lock-function-name-face)))
-    `(info-glossary-word ((,c :box t :background ,bg-button-active :foreground ,fg-button-active))) ; same as `custom-button'
+    `(info-glossary-word ((,c :inherit modus-themes-button)))
     `(info-indented-text (( )))
     `(info-isolated-backquote (( )))
     `(info-isolated-quote (( )))
