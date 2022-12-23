@@ -228,13 +228,13 @@ which corresponds to a minimum contrast in relative luminance of
       (underline-warning yellow-intense)
       (underline-note cyan-intense)
 
-      (accent-0 blue-cooler)
-      (accent-1 magenta-warmer)
-      (accent-2 cyan-cooler)
-      (accent-3 yellow)
       (bg-accent-0 bg-blue-subtle)
+      (fg-accent-0 blue-cooler)
       (bg-accent-1 bg-magenta-subtle)
+      (fg-accent-1 magenta-warmer)
       (bg-accent-2 bg-cyan-subtle)
+      (fg-accent-2 cyan-cooler)
+      (fg-accent-3 yellow)
       (bg-accent-3 bg-yellow-subtle)
 
       (bg-button-active bg-active)
