@@ -128,6 +128,13 @@ which corresponds to a minimum contrast in relative luminance of
       (bg-magenta-subtle  "#552f5f")
       (bg-cyan-subtle     "#004065")
 
+      (bg-red-nuanced     "#2c0614")
+      (bg-green-nuanced   "#001904")
+      (bg-yellow-nuanced  "#221000")
+      (bg-blue-nuanced    "#0f0e39")
+      (bg-magenta-nuanced "#230631")
+      (bg-cyan-nuanced    "#041529")
+
 ;;; Graphs
 
       (bg-graph-red-0     "#b52c2c")
