@@ -301,7 +301,14 @@ Mirror the elements of the aforementioned palette, overriding
 their value.
 
 For overrides that are shared across all of the Modus themes,
-refer to `modus-themes-common-palette-overrides'."
+refer to `modus-themes-common-palette-overrides'.
+
+Theme-specific overrides take precedence over shared overrides.
+The idea of common overrides is to change semantic color
+mappings, such as to make the cursor red.  Wherea theme-specific
+overrides can also be used to change the value of a named color,
+such as what hexadecimal RGB value the red-warmer symbol
+represents."
     :group 'modus-themes
     :package-version '(modus-themes . "4.0.0")
     :version "30.1"
