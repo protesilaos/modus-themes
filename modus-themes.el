@@ -1973,7 +1973,7 @@ is a less intense variant of BG."
     `(diredfl-tagged-autofile-name ((,c :inherit (diredfl-autofile-name dired-marked))))
     `(diredfl-write-priv ((,c :foreground ,accent-0)))
 ;;;;; display-fill-column-indicator-mode
-    `(fill-column-indicator ((,c :height 1 :background ,bg-region :foreground ,bg-region)))
+    `(fill-column-indicator ((,c :height 1 :background ,bg-active :foreground ,bg-active)))
 ;;;;; doom-modeline
     `(doom-modeline-bar ((,c :background ,blue)))
     `(doom-modeline-bar-inactive ((,c :background "gray50")))
