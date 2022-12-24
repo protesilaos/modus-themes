@@ -1209,6 +1209,32 @@ to take effect.  To apply overrides at startup simply define them
 before the call that loads the theme.  Remember that we also provide
 presets that are easier to apply ([[#h:b0bc811c-227e-42ec-bf67-15e1f41eb7bc][Palette override presets]]).
 
+**** Make the mode line borderless
+:PROPERTIES:
+:CUSTOM_ID: h:80ddba52-e188-411f-8cc0-480ebd75befe
+:END:
+
+This is one of our practical examples to override the semantic colors
+of the Modus themes ([[#h:df1199d8-eaba-47db-805d-6b568a577bf3][Stylistic variants using palette overrides]]).  To
+hide the border around the active and inactive mode lines, we need to
+set their color to that of the underlying background.
+
+[[#h:e8d781be-eefc-4a81-ac4e-5ed156190df7][Make the active mode line colorful]].
+
+#+begin_src emacs-lisp
+;; These overrides are common to all Modus themes.  We also provide
+;; theme-specific options, such as `modus-operandi-palette-overrides'.
+;;
+;; In general, the theme-specific overrides are better for overriding
+;; color values, such as redefining what `blue-faint' looks like.  The
+;; common overrides are best used for changes to semantic color
+;; mappings, as we show below.
+
+(setq modus-themes-common-palette-overrides
+      '((border-mode-line-active bg-mode-line-active)
+        (border-mode-line-inactive bg-mode-line-inactive)))
+#+end_src
+
 **** Make use of alternative styles for code syntax
 :PROPERTIES:
 :CUSTOM_ID: h:943063da-7b27-4ba4-9afe-f8fe77652fd1
