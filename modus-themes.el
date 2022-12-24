@@ -1462,9 +1462,9 @@ is a less intense variant of BG."
     `(modus-themes-heading-7 ((,c ,@(modus-themes--heading 7 heading-7))))
     `(modus-themes-heading-8 ((,c ,@(modus-themes--heading 8 heading-8))))
 ;;;;; language checkers
-    `(modus-themes-lang-error ((,c  :underline (:style wave :color ,underline-err))))
-    `(modus-themes-lang-note ((,c  :underline (:style wave :color ,underline-note))))
-    `(modus-themes-lang-warning ((,c  :underline (:style wave :color ,underline-warning))))
+    `(modus-themes-lang-error ((,c :underline (:style wave :color ,underline-err))))
+    `(modus-themes-lang-note ((,c :underline (:style wave :color ,underline-note))))
+    `(modus-themes-lang-warning ((,c :underline (:style wave :color ,underline-warning))))
 ;;;;; markup
     `(modus-themes-prose-code ((,c :foreground ,prose-code)))
     `(modus-themes-prose-macro ((,c :foreground ,prose-macro)))
@@ -2079,7 +2079,7 @@ is a less intense variant of BG."
     `(elfeed-score-date-face ((,c :foreground ,date-common)))
     `(elfeed-score-debug-level-face ((,c :inherit bold)))
     `(elfeed-score-error-level-face ((,c :inherit error)))
-    `(elfeed-score-info-level-face ((,c  :inherit success)))
+    `(elfeed-score-info-level-face ((,c :inherit success)))
     `(elfeed-score-warn-level-face ((,c :inherit warning)))
 ;;;;; elpher
     `(elpher-gemini-heading1 ((,c :inherit modus-themes-heading-1)))
@@ -2912,7 +2912,7 @@ is a less intense variant of BG."
 ;;;;; nxml-mode
     `(nxml-attribute-colon ((,c :foreground ,fg-main)))
     `(nxml-attribute-local-name ((,c :inherit font-lock-variable-name-face)))
-    `(nxml-attribute-prefix ((,c  :inherit font-lock-type-face)))
+    `(nxml-attribute-prefix ((,c :inherit font-lock-type-face)))
     `(nxml-attribute-value ((,c :inherit font-lock-constant-face)))
     `(nxml-cdata-section-CDATA ((,c :inherit error)))
     `(nxml-cdata-section-delimiter ((,c :inherit error)))
