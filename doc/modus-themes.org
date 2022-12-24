@@ -1235,6 +1235,48 @@ set their color to that of the underlying background.
         (border-mode-line-inactive bg-mode-line-inactive)))
 #+end_src
 
+**** Make the active mode line colorful
+:PROPERTIES:
+:CUSTOM_ID: h:e8d781be-eefc-4a81-ac4e-5ed156190df7
+:END:
+
+This is one of our practical examples to override the semantic colors
+of the Modus themes ([[#h:df1199d8-eaba-47db-805d-6b568a577bf3][Stylistic variants using palette overrides]]).
+Here we show some snippets that apply different stylistic variants.
+Of course, it is possible to use theme-specific overrides to, say,
+have a blue mode line for ~modus-operandi~ and a red one for
+~modus-vivendi~.
+
+[[#h:80ddba52-e188-411f-8cc0-480ebd75befe][Make the mode line borderless]].
+
+#+begin_src emacs-lisp
+;; These overrides are common to all Modus themes.  We also provide
+;; theme-specific options, such as `modus-operandi-palette-overrides'.
+;;
+;; In general, the theme-specific overrides are better for overriding
+;; color values, such as redefining what `blue-faint' looks like.  The
+;; common overrides are best used for changes to semantic color
+;; mappings, as we show below.
+
+;; Blue background, neutral foreground, intense blue border
+(setq modus-themes-common-palette-overrides
+      '((bg-mode-line-active bg-blue)
+        (fg-mode-line-active fg-main)
+        (border-mode-line-active blue-intense)))
+
+;; Subtle blue background, neutral foreground, intense blue border
+(setq modus-themes-common-palette-overrides
+      '((bg-mode-line-active bg-blue-subtle)
+        (fg-mode-line-active fg-main)
+        (border-mode-line-active blue-intense)))
+
+;; Subtle red background, red foreground, invisible border
+(setq modus-themes-common-palette-overrides
+      '((bg-mode-line-active bg-red-subtle)
+        (fg-mode-line-active red-warmer)
+        (border-mode-line-active bg-red-subtle)))
+#+end_src
+
 **** Make use of alternative styles for code syntax
 :PROPERTIES:
 :CUSTOM_ID: h:943063da-7b27-4ba4-9afe-f8fe77652fd1
