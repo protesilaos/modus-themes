@@ -199,21 +199,10 @@ which corresponds to a minimum contrast in relative luminance of
 
 ;;;; Mappings
 
+;;;;; General mappings
+
       (fringe bg-inactive)
       (cursor magenta-warmer)
-      (builtin magenta-warmer)
-      (comment red-faint)
-      (constant blue-cooler)
-      (docstring cyan-faint)
-      (docmarkup magenta-faint)
-      (fnname magenta)
-      (keyword magenta-cooler)
-      (preprocessor red-cooler)
-      (string blue-warmer)
-      (type cyan-cooler)
-      (variable cyan)
-      (rx-construct green-cooler)
-      (rx-backslash magenta)
 
       (keybind blue-cooler)
       (name magenta)
@@ -228,19 +217,41 @@ which corresponds to a minimum contrast in relative luminance of
       (underline-warning yellow-intense)
       (underline-note cyan-intense)
 
-      (bg-accent-0 bg-blue-subtle)
+;;;;; Code mappings
+
+      (builtin magenta-warmer)
+      (comment red-faint)
+      (constant blue-cooler)
+      (docstring cyan-faint)
+      (docmarkup magenta-faint)
+      (fnname magenta)
+      (keyword magenta-cooler)
+      (preprocessor red-cooler)
+      (string blue-warmer)
+      (type cyan-cooler)
+      (variable cyan)
+      (rx-construct green-cooler)
+      (rx-backslash magenta)
+
+;;;;; Accent mappings
+
       (fg-accent-0 blue-cooler)
-      (bg-accent-1 bg-magenta-subtle)
       (fg-accent-1 magenta-warmer)
-      (bg-accent-2 bg-cyan-subtle)
       (fg-accent-2 cyan-cooler)
       (fg-accent-3 yellow)
+      (bg-accent-0 bg-blue-subtle)
+      (bg-accent-1 bg-magenta-subtle)
+      (bg-accent-2 bg-cyan-subtle)
       (bg-accent-3 bg-yellow-subtle)
 
-      (bg-button-active bg-active)
+;;;;; Button mappings
+
       (fg-button-active fg-main)
-      (bg-button-inactive bg-dim)
       (fg-button-inactive fg-dim)
+      (bg-button-active bg-active)
+      (bg-button-inactive bg-dim)
+
+;;;;; Date mappings
 
       (date-common cyan)
       (date-deadline red)
@@ -249,20 +260,28 @@ which corresponds to a minimum contrast in relative luminance of
       (date-scheduled yellow-warmer)
       (date-weekend red-faint)
 
-      (bg-line-number-inactive bg-dim)
-      (fg-line-number-inactive fg-dim)
-      (bg-line-number-active bg-active)
-      (fg-line-number-active fg-main)
+;;;;; Line number mappings
 
-      (bg-link unspecified)
+      (fg-line-number-inactive fg-dim)
+      (fg-line-number-active fg-main)
+      (bg-line-number-inactive bg-dim)
+      (bg-line-number-active bg-active)
+
+;;;;; Link mappings
+
       (fg-link blue-warmer)
+      (bg-link unspecified)
       (underline-link t)
-      (bg-link-symbolic unspecified)
+
       (fg-link-symbolic cyan)
+      (bg-link-symbolic unspecified)
       (underline-link-symbolic t)
+
       (bg-link-visited unspecified)
       (fg-link-visited magenta)
       (underline-link-visited t)
+
+;;;;; Mail mappings
 
       (mail-cite-0 blue-warmer)
       (mail-cite-1 yellow-cooler)
@@ -272,6 +291,8 @@ which corresponds to a minimum contrast in relative luminance of
       (mail-recipient magenta-cooler)
       (mail-subject magenta-warmer)
       (mail-other magenta-faint)
+
+;;;;; Prose mappings
 
       (prose-block fg-dim)
       (prose-code cyan-cooler)
