@@ -1277,6 +1277,30 @@ have a blue mode line for ~modus-operandi~ and a red one for
         (border-mode-line-active bg-red-subtle)))
 #+end_src
 
+**** Make links use subtle or no underlines
+:PROPERTIES:
+:CUSTOM_ID: h:6c1d1dea-5cbf-4d92-b7bb-570a7a23ffe9
+:END:
+
+This is one of our practical examples to override the semantic colors
+of the Modus themes ([[#h:df1199d8-eaba-47db-805d-6b568a577bf3][Stylistic variants using palette overrides]]).  In
+this example, we showcase the special use of the ~unspecified~ symbol
+that underline mappings can read correctly.
+
+#+begin_src emacs-lisp
+;; Subtle underlines
+(setq modus-themes-common-palette-overrides
+      '((underline-link border)
+        (underline-link-visited border)
+        (underline-link-symbolic border)))
+
+;; No underlines
+(setq modus-themes-common-palette-overrides
+      '((underline-link unspecified)
+        (underline-link-visited unspecified)
+        (underline-link-symbolic unspecified)))
+#+end_src
+
 **** Make use of alternative styles for code syntax
 :PROPERTIES:
 :CUSTOM_ID: h:943063da-7b27-4ba4-9afe-f8fe77652fd1
