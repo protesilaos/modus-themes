@@ -951,15 +951,15 @@ Info node `(modus-themes) Option for palette overrides'.")
     (prose-table cyan)
     (prose-todo red-intense)
 
-    (heading-0 blue-warmer)
-    (heading-1 magenta-cooler)
-    (heading-2 magenta-warmer)
-    (heading-3 blue)
-    (heading-4 cyan)
-    (heading-5 green-warmer)
-    (heading-6 yellow)
-    (heading-7 red)
-    (heading-8 magenta))
+    (fg-heading-0 blue-warmer)
+    (fg-heading-1 magenta-cooler)
+    (fg-heading-2 magenta-warmer)
+    (fg-heading-3 blue)
+    (fg-heading-4 cyan)
+    (fg-heading-5 green-warmer)
+    (fg-heading-6 yellow)
+    (fg-heading-7 red)
+    (fg-heading-8 magenta))
   "Preset for palette overrides with faint coloration.
 
 This changes many parts of the theme to make them look more
@@ -1292,11 +1292,12 @@ color that is combined with FG-FOR-BG."
       (when (memq elt modus-themes-weights)
         (throw 'found elt)))))
 
-(defun modus-themes--heading (level fg)
+(defun modus-themes--heading (level fg &optional bg ol)
   "Conditional styles for `modus-themes-headings'.
 
 LEVEL is the heading's position in their order.  FG is the
-default text color."
+default text color.  Optional BG is an appropriate background.
+Optional OL is the color of an overline."
   (let* ((key (alist-get level modus-themes-headings))
          (style (or key (alist-get t modus-themes-headings)))
          (style-listp (listp style))
@@ -1311,7 +1312,9 @@ default text color."
             var)
            (var (append (list 'bold) (list var)))
            ('bold))
+          :background bg
           :foreground fg
+          :overline ol
           :height (modus-themes--property-lookup properties 'height #'floatp 'unspecified)
           :weight (or weight 'unspecified))))
 
@@ -1452,15 +1455,15 @@ is a less intense variant of BG."
     `(modus-themes-mark-symbol ((,c :inherit bold)))
 ;;;;; heading levels
     ;; styles for regular headings used in Org, Markdown, Info, etc.
-    `(modus-themes-heading-0 ((,c ,@(modus-themes--heading 0 heading-0))))
-    `(modus-themes-heading-1 ((,c ,@(modus-themes--heading 1 heading-1))))
-    `(modus-themes-heading-2 ((,c ,@(modus-themes--heading 2 heading-2))))
-    `(modus-themes-heading-3 ((,c ,@(modus-themes--heading 3 heading-3))))
-    `(modus-themes-heading-4 ((,c ,@(modus-themes--heading 4 heading-4))))
-    `(modus-themes-heading-5 ((,c ,@(modus-themes--heading 5 heading-5))))
-    `(modus-themes-heading-6 ((,c ,@(modus-themes--heading 6 heading-6))))
-    `(modus-themes-heading-7 ((,c ,@(modus-themes--heading 7 heading-7))))
-    `(modus-themes-heading-8 ((,c ,@(modus-themes--heading 8 heading-8))))
+    `(modus-themes-heading-0 ((,c ,@(modus-themes--heading 0 fg-heading-0 bg-heading-0 overline-heading-0))))
+    `(modus-themes-heading-1 ((,c ,@(modus-themes--heading 1 fg-heading-1 bg-heading-1 overline-heading-1))))
+    `(modus-themes-heading-2 ((,c ,@(modus-themes--heading 2 fg-heading-2 bg-heading-2 overline-heading-2))))
+    `(modus-themes-heading-3 ((,c ,@(modus-themes--heading 3 fg-heading-3 bg-heading-3 overline-heading-3))))
+    `(modus-themes-heading-4 ((,c ,@(modus-themes--heading 4 fg-heading-4 bg-heading-4 overline-heading-4))))
+    `(modus-themes-heading-5 ((,c ,@(modus-themes--heading 5 fg-heading-5 bg-heading-5 overline-heading-5))))
+    `(modus-themes-heading-6 ((,c ,@(modus-themes--heading 6 fg-heading-6 bg-heading-6 overline-heading-6))))
+    `(modus-themes-heading-7 ((,c ,@(modus-themes--heading 7 fg-heading-7 bg-heading-7 overline-heading-7))))
+    `(modus-themes-heading-8 ((,c ,@(modus-themes--heading 8 fg-heading-8 bg-heading-8 overline-heading-8))))
 ;;;;; language checkers
     `(modus-themes-lang-error ((,c :underline (:style wave :color ,underline-err))))
     `(modus-themes-lang-note ((,c :underline (:style wave :color ,underline-note))))
@@ -2441,14 +2444,14 @@ is a less intense variant of BG."
     `(image-dired-thumb-header-file-size ((,c :foreground ,constant)))
     `(image-dired-thumb-mark ((,c :inherit modus-themes-intense-cyan)))
 ;;;;; imenu-list
-    `(imenu-list-entry-face-0 ((,c :foreground ,heading-0)))
-    `(imenu-list-entry-face-1 ((,c :foreground ,heading-1)))
-    `(imenu-list-entry-face-2 ((,c :foreground ,heading-2)))
-    `(imenu-list-entry-face-3 ((,c :foreground ,heading-3)))
-    `(imenu-list-entry-subalist-face-0 ((,c :inherit bold :foreground ,heading-4 :underline t)))
-    `(imenu-list-entry-subalist-face-1 ((,c :inherit bold :foreground ,heading-5 :underline t)))
-    `(imenu-list-entry-subalist-face-2 ((,c :inherit bold :foreground ,heading-6 :underline t)))
-    `(imenu-list-entry-subalist-face-3 ((,c :inherit bold :foreground ,heading-7 :underline t)))
+    `(imenu-list-entry-face-0 ((,c :foreground ,fg-heading-0)))
+    `(imenu-list-entry-face-1 ((,c :foreground ,fg-heading-1)))
+    `(imenu-list-entry-face-2 ((,c :foreground ,fg-heading-2)))
+    `(imenu-list-entry-face-3 ((,c :foreground ,fg-heading-3)))
+    `(imenu-list-entry-subalist-face-0 ((,c :inherit bold :foreground ,fg-heading-4 :underline t)))
+    `(imenu-list-entry-subalist-face-1 ((,c :inherit bold :foreground ,fg-heading-5 :underline t)))
+    `(imenu-list-entry-subalist-face-2 ((,c :inherit bold :foreground ,fg-heading-6 :underline t)))
+    `(imenu-list-entry-subalist-face-3 ((,c :inherit bold :foreground ,fg-heading-7 :underline t)))
 ;;;;; indium
     `(indium-breakpoint-face ((,c :foreground ,err)))
     `(indium-frame-url-face ((,c :inherit (shadow button))))

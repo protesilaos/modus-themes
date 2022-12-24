@@ -1417,6 +1417,8 @@ of the Modus themes ([[#h:df1199d8-eaba-47db-805d-6b568a577bf3][Stylistic varian
 Here we show how to affect just the =TODO= and =DONE= keywords that we
 encounter in Org buffers.  The idea is to make those pop out more.
 
+[[#h:11297984-85ea-4678-abe9-a73aeab4676a][Make headings more or less colorful]].
+
 #+begin_src emacs-lisp
 ;; These overrides are common to all Modus themes.  We also provide
 ;; theme-specific options, such as `modus-operandi-palette-overrides'.
@@ -1429,6 +1431,63 @@ encounter in Org buffers.  The idea is to make those pop out more.
 (setq modus-themes-common-palette-overrides
       '((prose-done green-intense)   ; OR replace `green-intense' with `turquoise'
         (prose-todo red-intense)))   ; OR replace `red-intense' with `amaranth'
+#+end_src
+
+**** Make headings more or less colorful
+:PROPERTIES:
+:CUSTOM_ID: h:11297984-85ea-4678-abe9-a73aeab4676a
+:END:
+
+This is one of our practical examples to override the semantic colors
+of the Modus themes ([[#h:df1199d8-eaba-47db-805d-6b568a577bf3][Stylistic variants using palette overrides]]).
+Here we show how to alter the looks of headings, such as in Org mode.
+Using overrides here offers far more flexibility than what we could
+achieve with previous versions of the themes: the user can mix and
+match styles at will.
+
+[[#h:b57bb50b-a863-4ea8-bb38-6de2275fa868][Make TODO and DONE more intense]].
+
+#+begin_src emacs-lisp
+;; These overrides are common to all Modus themes.  We also provide
+;; theme-specific options, such as `modus-operandi-palette-overrides'.
+;;
+;; In general, the theme-specific overrides are better for overriding
+;; color values, such as redefining what `blue-faint' looks like.  The
+;; common overrides are best used for changes to semantic color
+;; mappings, as we show below.
+
+
+;; Apply more colorful foreground to some headings (headings 0-8).
+;; Level 0 is for Org #+title and related.
+(setq modus-themes-common-palette-overrides
+      '((fg-heading-1 blue-warmer)
+        (fg-heading-2 yellow-cooler)
+        (fg-heading-3 cyan-cooler)))
+
+;; Like the above, but with gradient colors
+(setq modus-themes-common-palette-overrides
+      '((fg-heading-1 blue)
+        (fg-heading-2 cyan)
+        (fg-heading-3 green)))
+
+;; Add color to level 1 heading, but use the main foreground for
+;; others
+(setq modus-themes-common-palette-overrides
+      '((fg-heading-1 blue)
+        (fg-heading-2 fg-main)
+        (fg-heading-3 fg-main)))
+
+;; Apply colorful foreground, background, and overline (headings 0-8)
+(setq modus-themes-common-palette-overrides
+      '((fg-heading-1 blue-warmer)
+        (bg-heading-1 bg-blue-nuanced)
+        (overline-heading-1 blue)))
+
+;; Apply gray scale foreground, background, and overline (headings 0-8)
+(setq modus-themes-common-palette-overrides
+      '((fg-heading-1 fg-main)
+        (bg-heading-1 bg-dim)
+        (overline-heading-1 border)))
 #+end_src
 
 **** Make Org agenda more or less colorful
