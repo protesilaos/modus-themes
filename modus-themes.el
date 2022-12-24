@@ -1286,7 +1286,7 @@ color that is combined with FG-FOR-BG."
   "List of font weights.")
 
 (defun modus-themes--weight (list)
-  "Search for `modus-themes--heading' weight in LIST."
+  "Search for `modus-themes-weights' weight in LIST."
   (catch 'found
     (dolist (elt list)
       (when (memq elt modus-themes-weights)
