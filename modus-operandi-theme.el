@@ -363,7 +363,7 @@ represents."
     :group 'modus-themes
     :package-version '(modus-themes . "4.0.0")
     :version "30.1"
-    :type '(repeat (list symbol (choice symbol string))) ; TODO 2022-12-18: Refine overrides' :type
+    :type '(repeat (list symbol (choice symbol string)))
     :set #'modus-themes--set-option
     :initialize #'custom-initialize-default
     :link '(info-link "(modus-themes) Palette overrides"))
