@@ -2736,7 +2736,7 @@ is a less intense variant of BG."
     `(markdown-highlighting-face ((,c :inherit secondary-selection)))
     `(markdown-inline-code-face ((,c :inherit modus-themes-prose-code)))
     `(markdown-italic-face ((,c :inherit italic)))
-    `(markdown-language-keyword-face ((,c :inherit modus-themes-fixed-pitch :background ,bg-dim)))
+    `(markdown-language-keyword-face ((,c :inherit modus-themes-fixed-pitch :foreground ,prose-block)))
     `(markdown-line-break-face ((,c :inherit nobreak-space)))
     `(markdown-link-face ((,c :inherit link)))
     `(markdown-markup-face ((,c :inherit shadow)))
