@@ -176,6 +176,10 @@ standard).")
       (fg-mode-line-inactive      "#585858")
       (border-mode-line-inactive  "#a0a0a0")
 
+      (modeline-err     "#704000")
+      (modeline-warning "#505000")
+      (modeline-info    "#023d92")
+
       (bg-tab-bar      "#dfdfdf")
       (bg-tab-current  "#ffffff")
       (bg-tab-other    "#c2c2c2")
