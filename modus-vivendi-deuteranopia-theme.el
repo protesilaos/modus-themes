@@ -204,12 +204,12 @@ standard).")
 ;;;;; General mappings
 
       (fringe bg-inactive)
-      (cursor fg-main)
+      (cursor yellow-intense)
 
       (keybind blue-cooler)
       (name blue-cooler)
       (identifier yellow-faint)
-      (prompt cyan-cooler)
+      (prompt blue)
 
       (err amber)
       (warning yellow-cooler)
