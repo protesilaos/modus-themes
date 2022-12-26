@@ -185,9 +185,9 @@ standard).")
 
 ;;; Diffs
 
-      (bg-added           "#003366")
-      (bg-added-faint     "#001f4f")
-      (bg-added-refine    "#0f4f7f")
+      (bg-added           "#003066")
+      (bg-added-faint     "#001a4f")
+      (bg-added-refine    "#0f4a77")
       (bg-added-intense   "#0f4fbf")
       (fg-added           "#c4d5ff")
 
@@ -197,9 +197,9 @@ standard).")
       (bg-changed-intense "#7f42af")
       (fg-changed         "#e3cfff")
 
-      (bg-removed         "#3f3f00")
+      (bg-removed         "#3d3d00")
       (bg-removed-faint   "#281f00")
-      (bg-removed-refine  "#535300")
+      (bg-removed-refine  "#515100")
       (bg-removed-intense "#dfd23a")
       (fg-removed         "#d4d48f")
 
