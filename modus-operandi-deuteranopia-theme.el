@@ -259,9 +259,9 @@ standard).")
       (date-common cyan)
       (date-deadline yellow-warmer)
       (date-event fg-alt)
-      (date-holiday magenta)
+      (date-holiday yellow-warmer)
       (date-scheduled yellow-cooler)
-      (date-weekend blue)
+      (date-weekend yellow-faint)
 
 ;;;;; Line number mappings
 
