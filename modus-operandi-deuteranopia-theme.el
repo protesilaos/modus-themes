@@ -303,7 +303,7 @@ standard).")
 ;;;;; Prose mappings
 
       (prose-block fg-dim)
-      (prose-code yellow)
+      (prose-code cyan-cooler)
       (prose-done blue)
       (prose-macro magenta-cooler)
       (prose-metadata fg-dim)
