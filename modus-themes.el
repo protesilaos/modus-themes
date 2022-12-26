@@ -2949,7 +2949,7 @@ is a less intense variant of BG."
     `(org-agenda-calendar-event ((,c :foreground ,date-event)))
     `(org-agenda-calendar-sexp ((,c :inherit (italic org-agenda-calendar-event))))
     `(org-agenda-column-dateline ((,c :background ,bg-inactive)))
-    `(org-agenda-current-time ((,c :foreground ,fg-main)))
+    `(org-agenda-current-time ((,c :foreground ,date-now)))
     `(org-agenda-date ((,c ,@(modus-themes--heading 'agenda-date date-common))))
     `(org-agenda-date-today ((,c :inherit org-agenda-date :underline t)))
     `(org-agenda-date-weekend ((,c :inherit org-agenda-date :foreground ,date-weekend)))

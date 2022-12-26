@@ -260,6 +260,7 @@ standard).")
       (date-deadline yellow-warmer)
       (date-event fg-alt)
       (date-holiday yellow-warmer)
+      (date-now blue-faint)
       (date-scheduled yellow-cooler)
       (date-weekend yellow-faint)
 
