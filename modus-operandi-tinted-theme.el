@@ -201,7 +201,7 @@ which corresponds to a minimum contrast in relative luminance of
 
 ;;;;; General mappings
 
-      (fringe bg-inactive)
+      (fringe bg-dim)
       (cursor red)
 
       (keybind blue-cooler)

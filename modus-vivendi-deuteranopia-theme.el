@@ -203,7 +203,7 @@ standard).")
 
 ;;;;; General mappings
 
-      (fringe bg-inactive)
+      (fringe bg-dim)
       (cursor yellow-intense)
 
       (keybind blue-cooler)
