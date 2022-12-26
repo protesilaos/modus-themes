@@ -274,15 +274,15 @@ standard).")
 
       (fg-link blue-warmer)
       (bg-link unspecified)
-      (underline-link t)
+      (underline-link blue-warmer)
 
       (fg-link-symbolic cyan)
       (bg-link-symbolic unspecified)
-      (underline-link-symbolic t)
+      (underline-link-symbolic cyan)
 
-      (bg-link-visited unspecified)
       (fg-link-visited yellow-faint)
-      (underline-link-visited t)
+      (bg-link-visited unspecified)
+      (underline-link-visited yellow-faint)
 
 ;;;;; Mail mappings
 

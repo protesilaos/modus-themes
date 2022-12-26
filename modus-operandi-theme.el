@@ -272,15 +272,15 @@ which corresponds to a minimum contrast in relative luminance of
 
       (fg-link blue-warmer)
       (bg-link unspecified)
-      (underline-link t)
+      (underline-link blue-warmer)
 
       (fg-link-symbolic cyan)
       (bg-link-symbolic unspecified)
-      (underline-link-symbolic t)
+      (underline-link-symbolic cyan)
 
-      (bg-link-visited unspecified)
       (fg-link-visited magenta)
-      (underline-link-visited t)
+      (bg-link-visited unspecified)
+      (underline-link-visited magenta)
 
 ;;;;; Mail mappings
 

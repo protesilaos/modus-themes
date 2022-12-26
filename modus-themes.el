@@ -3824,7 +3824,7 @@ corresponding entries."
                         (list color
                               `(let* ((value (car (alist-get ',color ,sym))))
                                  (if (or (stringp value)
-                                         (memq value '(unspecified t)))
+                                         (eq value 'unspecified))
                                      value
                                    (car (alist-get value ,sym))))))
                       colors))
