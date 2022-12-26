@@ -1407,7 +1407,7 @@ for the inactive ones.
         (fg-button-inactive "gray50")))
 #+end_src
 
-**** Make TODO and DONE more intense
+**** Make TODO and DONE more or less intense
 :PROPERTIES:
 :CUSTOM_ID: h:b57bb50b-a863-4ea8-bb38-6de2275fa868
 :END:
@@ -1415,7 +1415,8 @@ for the inactive ones.
 This is one of our practical examples to override the semantic colors
 of the Modus themes ([[#h:df1199d8-eaba-47db-805d-6b568a577bf3][Stylistic variants using palette overrides]]).
 Here we show how to affect just the =TODO= and =DONE= keywords that we
-encounter in Org buffers.  The idea is to make those pop out more.
+encounter in Org buffers.  The idea is to make those pop out more or
+to subdue them.
 
 [[#h:11297984-85ea-4678-abe9-a73aeab4676a][Make headings more or less colorful]].
 
@@ -1428,9 +1429,20 @@ encounter in Org buffers.  The idea is to make those pop out more.
 ;; common overrides are best used for changes to semantic color
 ;; mappings, as we show below.
 
+;; Increase intensity
 (setq modus-themes-common-palette-overrides
       '((prose-done green-intense)   ; OR replace `green-intense' with `turquoise'
         (prose-todo red-intense)))   ; OR replace `red-intense' with `amaranth'
+
+;; Tone down intensity
+(setq modus-themes-common-palette-overrides
+      '((prose-done green-faint)   ; OR replace `green-faint' with `olive'
+        (prose-todo red-faint)))   ; OR replace `red-faint' with `rust'
+
+;; Keep TODO at its default (so no override for it), but make DONE
+;; gray.
+(setq modus-themes-common-palette-overrides
+      '((prose-done fg-dim)))
 #+end_src
 
 **** Make headings more or less colorful
