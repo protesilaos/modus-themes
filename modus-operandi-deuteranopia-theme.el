@@ -169,7 +169,7 @@ standard).")
       (bg-char-1 "#ffaaff")
       (bg-char-2 "#dff000")
 
-      (bg-mode-line-active        "#c3c3c3")
+      (bg-mode-line-active        "#99c7ff")
       (fg-mode-line-active        "#000000")
       (border-mode-line-active    "#545454")
       (bg-mode-line-inactive      "#e1e1e1")
