@@ -718,8 +718,9 @@ In user configuration files the form may look like this:
 #+vindex: modus-themes-completions
 
 [ Refactored with breaking changes as part of {{{development-version}}}.
-  We remove the optional intense styles as there now is a uniform
-  intensity: the subtle gray selection line is no longer available. ]
+  We removed the optional intense styles as there now is a uniform
+  intensity: the subtle gray selection line is no longer available.
+  Changes to colors can be implemented via the overrides. ]
 
 Brief: Set the overall style of completion framework interfaces.
 
