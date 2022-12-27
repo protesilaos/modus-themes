@@ -474,32 +474,30 @@ a theme ([[#h:3f3c3728-1b34-437d-9d0c-b110f5b161a9][Enable and load]]).  If the 
 reloaded for changes to take effect.
 
 #+begin_src emacs-lisp
+;; In all of the following, WEIGHT is a symbol such as `semibold',
+;; `light', `bold', or anything mentioned in `modus-themes-weights'.
 (setq modus-themes-italic-constructs t
       modus-themes-bold-constructs nil
-      modus-themes-mixed-fonts nil
+      modus-themes-mixed-fonts t
       modus-themes-variable-pitch-ui nil
       modus-themes-custom-auto-reload t
 
       ;; Options for `modus-themes-prompts' are either nil (the
       ;; default), or a list of properties that may include any of those
-      ;; symbols: `background', `bold', `italic'.
-      modus-themes-prompts '(italic bold)
+      ;; symbols: `background', `italic', `WEIGHT'
+      modus-themes-prompts '(italic bold background)
 
       ;; The `modus-themes-completions' is an alist that reads two
       ;; keys: `matches', `selection'.  Each accepts a nil value (or
       ;; empty list) or a list of properties that can include any of
       ;; the following (for WEIGHT read further below):
       ;;
-      ;; `matches' - `background', `underline', `italic', WEIGHT
-      ;; `selection' - `underline', `italic', `text-also' WEIGHT
-      ;; `t' - applies to any key not explicitly referenced (check docs)
-      ;;
-      ;; WEIGHT is a symbol such as `semibold', `light', or anything
-      ;; covered in `modus-themes-weights'.  Bold is used in the absence
-      ;; of an explicit WEIGHT.
+      ;; `matches'   :: `background', `underline', `italic', `WEIGHT'
+      ;; `selection' :: `underline', `italic', `text-also', `WEIGHT'
+      ;; `t'         :: applies to any key not explicitly referenced (check docs)
       modus-themes-completions
       '((matches . (extrabold))
-        (selection . (semibold italic)))
+        (selection . (semibold italic text-also)))
 
       ;; Options for `modus-themes-region' are either nil (the default),
       ;; or a list of properties that may include any of those symbols:
@@ -508,12 +506,20 @@ reloaded for changes to take effect.
 
       modus-themes-org-blocks 'gray-background ; {nil,'gray-background,'tinted-background}
 
-      modus-themes-headings ; this is an alist: read the manual or its doc string
+      ;; The `modus-themes-headings' is an alist: read the manual's
+      ;; node about it or its doc string.  Basically, it supports
+      ;; per-level configurations for the optional use of
+      ;; `variable-pitch' typography, a height value as a multiple of
+      ;; the base font size (e.g. 1.5), and a `WEIGHT'.
+      modus-themes-headings
       '((1 . (variable-pitch 1.5))
         (2 . (1.3))
         (agenda-date . (1.3))
         (agenda-structure . (variable-pitch light 1.8))
         (t . (1.1))))
+
+;; Remember that more (MUCH MORE) can be done with overrides, which we
+;; document extensively in this manual.
 #+end_src
 
 ** Option for reloading the theme on custom change
