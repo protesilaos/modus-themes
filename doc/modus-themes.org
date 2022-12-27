@@ -256,29 +256,31 @@ wrong.
 #+cindex: Essential configuration
 
 Users of the built-in themes cannot ~require~ the package as usual
-because there is no package to speak of.  Instead, things are simpler as
-all one needs is to load the theme of their preference by adding either
-form to their init file:
+because there is no package to speak of.  Instead, things are simpler
+as built-in themes are considered safe.  All one needs is to load the
+theme of their preference by adding either form to their init file:
 
 #+begin_src emacs-lisp
 (load-theme 'modus-operandi)            ; Light theme
 (load-theme 'modus-vivendi)             ; Dark theme
 #+end_src
 
+Remember that the Modus themes are six themes ([[#h:f0f3dbcb-602d-40cf-b918-8f929c441baf][Overview]]).  Adapt the
+above snippet accordingly.
+
 Users of packaged variants of the themes must add a few more lines to
 ensure that everything works as intended.  First, one has to require the
-main library before loading either theme:
+main library before loading one of the themes:
 
 #+begin_src emacs-lisp
 (require 'modus-themes)
 #+end_src
 
-One can activate a theme with either of the following expressions:
+One can activate a theme with something like the following expression,
+replacing ~modus-operandi~ with their preferred Modus theme:
 
 #+begin_src emacs-lisp
-(load-theme 'modus-operandi :no-confim) ; Light theme
-;; OR
-(load-theme 'modus-vivendi :no-confim) ; Dark theme
+(load-theme 'modus-operandi :no-confim)
 #+end_src
 
 Changes to the available customization options must always be evaluated
@@ -288,20 +290,24 @@ new changes to take effect.
 This is how a basic setup could look like:
 
 #+begin_src emacs-lisp
-;;; For the built-in themes which cannot use `require':
-;; Add all your customizations prior to loading the themes
+;;; For the built-in themes which cannot use `require'.
+
+;; Add all your customizations prior to loading the themes.
 (setq modus-themes-italic-constructs t
       modus-themes-bold-constructs nil
       modus-themes-region '(bg-only no-extend))
 
-;; Load the theme of your choice:
-(load-theme 'modus-operandi) ;; OR (load-theme 'modus-vivendi)
+;; Load the theme of your choice.
+(load-theme 'modus-operandi)
 
+;; Optionally define a key to switch between Modus themes.  Also check
+;; the user option `modus-themes-to-toggle'.
 (define-key global-map (kbd "<f5>") #'modus-themes-toggle)
 
 
 
-;;; For packaged versions which must use `require':
+;;; For packaged versions which must use `require'.
+
 (require 'modus-themes)
 
 ;; Add all your customizations prior to loading the themes
@@ -309,28 +315,13 @@ This is how a basic setup could look like:
       modus-themes-bold-constructs nil
       modus-themes-region '(bg-only no-extend))
 
-;; Load the theme of your choice:
-(load-theme 'modus-operandi :no-confim) ;; OR (load-theme 'modus-vivendi :no-confim)
+;; Load the theme of your choice.
+(load-theme 'modus-operandi :no-confim)
 
 (define-key global-map (kbd "<f5>") #'modus-themes-toggle)
 #+end_src
 
 [[#h:e979734c-a9e1-4373-9365-0f2cd36107b8][Sample configuration with and without use-package]].
-
-TODO 2022-11-29 Review this point.
-
-With those granted, bear in mind a couple of technical points on
-~modus-themes-load-operandi~ and ~modus-themes-load-vivendi~, as well as
-~modus-themes-toggle~ which relies on them:
-
-1. Those functions call ~load-theme~.  Some users prefer to opt for
-   ~enable-theme~ instead ([[#h:e68560b3-7fb0-42bc-a151-e015948f8a35][Differences between loading and enabling]]).
-
-2. The functions will run the ~modus-themes-after-load-theme-hook~ as
-   their final step.  This can be employed for bespoke configurations
-   ([[#h:f4651d55-8c07-46aa-b52b-bed1e53463bb][Advanced customization]]).  Experienced users may not wish to rely on
-   such a hook and the functions that run it: they may prefer a custom
-   solution ([[#h:86f6906b-f090-46cc-9816-1fe8aeb38776][A theme-agnostic hook for theme loading]]).
 
 ** Sample configuration with and without use-package
 :properties:
