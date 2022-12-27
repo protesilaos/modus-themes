@@ -113,12 +113,8 @@ Emacs.
 :end:
 #+cindex: Screenshots
 
-Check the web page with [[https://protesilaos.com/emacs/modus-themes-pictures/][the screen shots]].  There are lots of scenarios
-on display that draw attention to details and important aspects in the
-design of the themes.  They also showcase the numerous customization
-options.
-
-[[#h:bf1c82f2-46c7-4eb2-ad00-dd11fdd8b53f][Customization options]].
+Check the web page with [[https://protesilaos.com/emacs/modus-themes-pictures/][the screen shots]].  Note that the themes are
+highly customizable ([[#h:bf1c82f2-46c7-4eb2-ad00-dd11fdd8b53f][Customization options]]).
 
 ** Learn about the latest changes
 :properties:
