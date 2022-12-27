@@ -1013,6 +1013,15 @@ original aesthetic for that level.  For example:
         (t . t))) ; default style for all other levels
 #+end_src
 
+Note that the text color of headings, of their background, and
+overline can all be set via the overrides.  It is possible to have any
+color combination for any heading level (something that could not be
+done in older versions of the themes).
+
+[[#h:34c7a691-19bb-4037-8d2f-67a07edab150][Option for palette overrides]].
+
+[[#h:11297984-85ea-4678-abe9-a73aeab4676a][Make headings more or less colorful]].
+
 ** Option for variable-pitch font in UI elements
 :properties:
 :alt_title: UI typeface
