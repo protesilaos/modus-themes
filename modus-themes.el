@@ -1993,7 +1993,7 @@ is a less intense variant of BG."
     `(fill-column-indicator ((,c :height 1 :background ,bg-active :foreground ,bg-active)))
 ;;;;; doom-modeline
     `(doom-modeline-bar ((,c :background ,blue)))
-    `(doom-modeline-bar-inactive ((,c :background "gray50")))
+    `(doom-modeline-bar-inactive ((,c :background ,border)))
     `(doom-modeline-battery-charging ((,c :foreground ,modeline-info)))
     `(doom-modeline-battery-critical ((,c :underline t :foreground ,modeline-err)))
     `(doom-modeline-battery-error ((,c :underline t :foreground ,modeline-err)))
