@@ -3389,17 +3389,19 @@ length elsewhere in this manual:
 
 [[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Face specs at scale using the themes' palette]].
 
-#  TODO 2022-12-16: Review git-gutter DIY for deuteranopia.
-#  TODO 2022-12-18: We no longer have fringe-specific backgrounds
-
 #+begin_src emacs-lisp
 (defun my-modus-themes-custom-faces ()
   (modus-themes-with-colors
     (custom-set-faces
-     ;; Replace green with blue if you use `modus-themes-deuteranopia'.
-     `(git-gutter-fr:added ((,c :foreground ,green-fringe-bg)))
-     `(git-gutter-fr:deleted ((,c :foreground ,red-fringe-bg)))
-     `(git-gutter-fr:modified ((,c :foreground ,yellow-fringe-bg))))))
+     ;; Make foreground the same as background for a uniform bar on
+     ;; Doom Emacs.
+     ;;
+     ;; Doom should not be implementing such hacks because themes
+     ;; cannot support them:
+     ;; <https://protesilaos.com/codelog/2022-08-04-doom-git-gutter-modus-themes/>.
+     `(git-gutter-fr:added ((,c :foreground ,bg-added-intense)))
+     `(git-gutter-fr:deleted ((,c :foreground ,bg-removed-intense)))
+     `(git-gutter-fr:modified ((,c :foreground ,bg-changed-intense))))))
 
 (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
 #+end_src
@@ -3412,16 +3414,16 @@ If the above does not work, try this instead:
 (after! modus-themes
   (modus-themes-with-colors
     (custom-set-faces
-     ;; Replace green with blue if you use `modus-themes-deuteranopia'.
-     `(git-gutter-fr:added ((,c :foreground ,green-fringe-bg)))
-     `(git-gutter-fr:deleted ((,c :foreground ,red-fringe-bg)))
-     `(git-gutter-fr:modified ((,c :foreground ,yellow-fringe-bg))))))
+     ;; Make foreground the same as background for a uniform bar on
+     ;; Doom Emacs.
+     ;;
+     ;; Doom should not be implementing such hacks because themes
+     ;; cannot support them:
+     ;; <https://protesilaos.com/codelog/2022-08-04-doom-git-gutter-modus-themes/>.
+     `(git-gutter-fr:added ((,c :foreground ,bg-added-intense)))
+     `(git-gutter-fr:deleted ((,c :foreground ,bg-removed-intense)))
+     `(git-gutter-fr:modified ((,c :foreground ,bg-changed-intense))))))
 #+end_src
-
-Replace ~green-fringe-bg~ with ~blue-fringe-bg~ if you want to optimize
-for red-green color deficiency.
-
-[[#h:3ed03a48-20d8-4ce7-b214-0eb7e4c79abe][Option for red-green color deficiency or deuteranopia]].
 
 ** Note on php-mode multiline comments
 :PROPERTIES:
