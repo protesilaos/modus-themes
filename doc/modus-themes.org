@@ -573,9 +573,9 @@ Possible values:
 The default is to use a bold typographic weight only when it is
 required.
 
-With a non-~nil~ value (~t~) display several syntactic constructs in bold
-weight.  This concerns keywords and other important aspects of code
-syntax.  It also affects certain mode line indicators and command-line
+With a non-~nil~ value (~t~) display several syntactic constructs in
+bold weight.  This concerns keywords and other important aspects of
+code syntax.  It also affects certain mode line indicators and command
 prompts.
 
 Advanced users may also want to configure the exact attributes of the
