@@ -3669,8 +3669,8 @@ is a less intense variant of BG."
     `(whitespace-trailing ((,c :inherit modus-themes-intense-red)))
 ;;;;; window-divider-mode
     `(window-divider ((,c :foreground ,border)))
-    `(window-divider-first-pixel ((,c :foreground "gray50")))
-    `(window-divider-last-pixel ((,c :foreground "gray50")))
+    `(window-divider-first-pixel ((,c :foreground ,bg-inactive)))
+    `(window-divider-last-pixel ((,c :foreground ,bg-inactive)))
 ;;;;; widget
     `(widget-button ((,c :inherit bold :foreground ,fg-link)))
     `(widget-button-pressed ((,c :inherit widget-buton :foreground ,fg-link-visited)))
