@@ -255,6 +255,11 @@ wrong.
 #+vindex: modus-themes-after-load-theme-hook
 #+cindex: Essential configuration
 
+NOTE that Emacs can load multiple themes, which typically produces
+undesirable results and undoes the work of the designer.  Use the
+~disable-theme~ command if you are trying other themes beside the
+Modus collection.
+
 Users of the built-in themes cannot ~require~ the package as usual
 because there is no package to speak of.  Instead, things are simpler
 as built-in themes are considered safe.  All one needs is to load the
