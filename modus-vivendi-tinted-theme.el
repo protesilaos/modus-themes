@@ -218,7 +218,7 @@ which corresponds to a minimum contrast in relative luminance of
 
       (err red)
       (warning yellow-warmer)
-      (info fg-alt)
+      (info cyan-cooler)
 
       (underline-err red-intense)
       (underline-warning yellow-intense)
