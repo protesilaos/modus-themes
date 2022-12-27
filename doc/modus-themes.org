@@ -812,7 +812,8 @@ intersection with ~company~ (if you choose to use those in tandem).
 #+vindex: modus-themes-region
 
 [ Simplified as part of {{{development-version}}}.  It no longer
-  accepts an =accented= symbol. ]
+  accepts an =accented= symbol.  Changes to colors can be implemented
+  via the overrides. ]
 
 Brief: Control the style of the region.
 
