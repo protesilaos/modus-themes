@@ -456,21 +456,22 @@ configure custom faces, where ~load-theme~ is expected, though
 
 [[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Face specs at scale using the themes' palette]].
 
-* Customization Options
+* Customization options
 :properties:
 :custom_id: h:bf1c82f2-46c7-4eb2-ad00-dd11fdd8b53f
 :end:
 
 The Modus themes are highly configurable, though they should work well
-without any further tweaks.  By default, all customization options are
-set to nil, unless otherwise noted in this manual.
+without any further tweaks.  We provide a variety of user options.
+The following code block provides an overview.  In addition to those
+variables, the themes support a comprehensive system of overrides: it
+can be used to make thoroughgoing changes to the looks of the themes
+([[#h:34c7a691-19bb-4037-8d2f-67a07edab150][Option for palette overrides]]).  We document everything at length in
+the pages of this manual and also provide ready-to-use code samples.
 
 Remember that all customization options must be evaluated before loading
 a theme ([[#h:3f3c3728-1b34-437d-9d0c-b110f5b161a9][Enable and load]]).  If the theme is already active, it must be
-reloaded for changes in user options to come into force.
-
-Below is a summary of what you will learn in the subsequent sections of
-this manual.
+reloaded for changes to take effect.
 
 #+begin_src emacs-lisp
 (setq modus-themes-italic-constructs t
