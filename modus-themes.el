@@ -1717,31 +1717,30 @@ is a less intense variant of BG."
     `(diary-time ((,c :foreground ,date-common)))
     `(holiday ((,c :foreground ,date-holiday)))
 ;;;;; calibredb
-    ;; TODO 2022-12-11: Needs to be reviewed before I re-enable it.  I
-    ;; had to change the applicable colours for the transition to
+    ;; NOTE 2022-12-27: Calibredb needs to be reviewed.  I had to
+    ;; change the applicable colours for the transition to
     ;; modus-themes version 4, but I cannot test this currently (it
     ;; depends on an external program).
-
-    ;; `(calibredb-archive-face ((,c :foreground ,fg-accent-3)))
-    ;; `(calibredb-author-face ((,c :foreground ,name)))
-    ;; `(calibredb-comment-face ((,c :inherit shadow)))
-    ;; `(calibredb-date-face ((,c :foreground ,date-common)))
-    ;; `(calibredb-edit-annotation-header-title-face ((,c :inherit bold)))
-    ;; `(calibredb-favorite-face ((,c :foreground ,red-alt)))
-    ;; `(calibredb-file-face (( )))
-    ;; `(calibredb-format-face ((,c :foreground ,fg-alt)))
-    ;; `(calibredb-highlight-face ((,c :inherit success)))
-    ;; `(calibredb-id-face (( )))
-    ;; `(calibredb-ids-face (( )))
-    ;; `(calibredb-search-header-highlight-face ((,c :inherit modus-themes-hl-line)))
-    ;; `(calibredb-search-header-library-name-face ((,c :foreground ,fg-accent-2)))
-    ;; `(calibredb-search-header-library-path-face ((,c :inherit bold)))
-    ;; `(calibredb-search-header-sort-face ((,c :inherit bold :foreground ,fg-accent-1)))
-    ;; `(calibredb-search-header-total-face ((,c :inherit bold :foreground ,fg-accent-0)))
-    ;; `(calibredb-search-header-filter-face ((,c :inherit bold)))
-    ;; `(calibredb-mark-face ((,c :inherit modus-themes-mark-sel)))
-    ;; `(calibredb-size-face (( )))
-    ;; `(calibredb-tag-face ((,c :foreground ,prose-tag)))
+    `(calibredb-archive-face ((,c :foreground ,fg-accent-3)))
+    `(calibredb-author-face ((,c :foreground ,name)))
+    `(calibredb-comment-face ((,c :inherit shadow)))
+    `(calibredb-date-face ((,c :foreground ,date-common)))
+    `(calibredb-edit-annotation-header-title-face ((,c :inherit bold)))
+    `(calibredb-favorite-face ((,c :foreground ,red-warmer)))
+    `(calibredb-file-face (( )))
+    `(calibredb-format-face ((,c :foreground ,fg-alt)))
+    `(calibredb-highlight-face ((,c :inherit success)))
+    `(calibredb-id-face (( )))
+    `(calibredb-ids-face (( )))
+    `(calibredb-search-header-highlight-face ((,c :inherit modus-themes-hl-line)))
+    `(calibredb-search-header-library-name-face ((,c :foreground ,fg-accent-2)))
+    `(calibredb-search-header-library-path-face ((,c :inherit bold)))
+    `(calibredb-search-header-sort-face ((,c :inherit bold :foreground ,fg-accent-1)))
+    `(calibredb-search-header-total-face ((,c :inherit bold :foreground ,fg-accent-0)))
+    `(calibredb-search-header-filter-face ((,c :inherit bold)))
+    `(calibredb-mark-face ((,c :inherit modus-themes-mark-sel)))
+    `(calibredb-size-face (( )))
+    `(calibredb-tag-face ((,c :foreground ,fg-alt)))
 ;;;;; centaur-tabs
     `(centaur-tabs-active-bar-face ((,c :background ,blue)))
     `(centaur-tabs-close-mouse-face ((,c :inherit bold :foreground ,red :underline t)))
