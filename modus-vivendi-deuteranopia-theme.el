@@ -190,18 +190,21 @@ standard).")
       (bg-added-refine    "#0f4a77")
       (bg-added-intense   "#0f4fbf")
       (fg-added           "#c4d5ff")
+      (fg-added-intense   "#a0afff")
 
       (bg-changed         "#2f123f")
       (bg-changed-faint   "#1f022f")
       (bg-changed-refine  "#3f325f")
       (bg-changed-intense "#7f42af")
       (fg-changed         "#e3cfff")
+      (fg-changed-intense "#c0a4ff")
 
       (bg-removed         "#3d3d00")
       (bg-removed-faint   "#281f00")
       (bg-removed-refine  "#515100")
       (bg-removed-intense "#dfd23a")
       (fg-removed         "#d4d48f")
+      (fg-removed-intense "#c0b05f")
 
 ;;;; Mappings
 
