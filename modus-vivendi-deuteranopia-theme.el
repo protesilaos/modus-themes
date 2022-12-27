@@ -223,8 +223,8 @@ standard).")
       (info blue)
 
       (underline-err yellow-intense)
-      (underline-warning amethyst)
-      (underline-note cyan-intense)
+      (underline-warning magenta-faint)
+      (underline-note cyan)
 
 ;;;;; Code mappings
 

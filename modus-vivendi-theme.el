@@ -221,8 +221,8 @@ which corresponds to a minimum contrast in relative luminance of
       (info cyan-cooler)
 
       (underline-err red-intense)
-      (underline-warning yellow-intense)
-      (underline-note cyan-intense)
+      (underline-warning yellow)
+      (underline-note cyan)
 
 ;;;;; Code mappings
 
