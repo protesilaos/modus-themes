@@ -542,7 +542,17 @@ will retain the original aesthetic for that level.  For example:
     (setq modus-themes-headings
           (quote ((1 . (variable-pitch extrabold 1.5))
                   (2 . (semibold))
-                  (t . t)))) ; default style for all other levels"
+                  (t . t)))) ; default style for all other levels
+
+Note that the text color of headings, of their background, and
+overline can all be set via the overrides.  It is possible to
+have any color combination for any heading level (something that
+could not be done in older versions of the themes).
+
+Read Info node `(modus-themes) Option for palette overrides' as
+well as Info node `(modus-themes) Make headings more or less
+colorful'.  Else check `modus-themes-common-palette-overrides'
+and related user options."
   :group 'modus-themes
   :package-version '(modus-themes . "4.0.0")
   :version "30.1"
