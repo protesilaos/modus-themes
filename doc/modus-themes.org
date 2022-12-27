@@ -135,6 +135,13 @@ On older versions of Emacs, they can be installed using Emacs' package
 manager or manually from their code repository.  There also exist
 packages for distributions of GNU/Linux.
 
+Emacs 28 ships with ~modus-themes~ version =1.6.0=.  Emacs 29 includes
+version =3.0.0=.  Emacs 30 provides a newer, refactored version that
+thoroughly refashions how the themes are implemented and customized.
+Such major versions are not backward-compatible due to the limited
+resources at the maintainer's disposal to support multiple versions of
+Emacs and of the themes across the years.
+
 ** Install manually from source
 :properties:
 :custom_id: h:da3414b7-1426-46b8-8e76-47b845b76fd0
