@@ -417,8 +417,8 @@ package declaration of the themes.
 The reason we recommend ~load-theme~ instead of the other option of
 ~enable-theme~ is that the former does a kind of "reset" on the face
 specs.  It quite literally loads (or reloads) the theme.  Whereas the
-latter simply puts an already loaded theme at the top of the list of
-enabled items, re-using whatever state was last loaded.
+~enable-theme~ function simply puts an already loaded theme to the top
+of the list of enabled items, re-using whatever state was last loaded.
 
 As such, ~load-theme~ reads all customizations that may happen during
 any given Emacs session: even after the initial setup of a theme.
@@ -437,10 +437,13 @@ session, are better off using something like this:
 
 #+begin_src emacs-lisp
 (require 'modus-themes)
+
+;; Activate your desired themes here
 (load-theme 'modus-operandi t t)
 (load-theme 'modus-vivendi t t)
 
-(enable-theme 'modus-operandi) ;; OR (enable-theme 'modus-vivendi)
+;; Enable the preferred one
+(enable-theme 'modus-operandi)
 #+end_src
 
 [[#h:b40aca50-a3b2-4c43-be58-2c26fcd14237][Toggle themes without reloading them]].
