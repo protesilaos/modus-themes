@@ -1312,9 +1312,9 @@ Optional OL is the color of an overline."
             var)
            (var (append (list 'bold) (list var)))
            ('bold))
-          :background bg
+          :background (or bg 'unspecified)
           :foreground fg
-          :overline ol
+          :overline (or ol 'unspecified)
           :height (modus-themes--property-lookup properties 'height #'floatp 'unspecified)
           :weight (or weight 'unspecified))))
 
