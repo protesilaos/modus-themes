@@ -3647,15 +3647,14 @@ is a less intense variant of BG."
 ;;;;; which-function-mode
     `(which-func ((,c :inherit bold :foreground ,modeline-info)))
 ;;;;; which-key
-    ;; TODO 2022-11-29: Review which-key
     `(which-key-command-description-face ((,c :foreground ,fg-main)))
-    `(which-key-group-description-face ((,c :foreground ,magenta-warmer)))
-    `(which-key-highlighted-command-face ((,c :foreground ,yellow :underline t)))
+    `(which-key-group-description-face ((,c :foreground ,err)))
+    `(which-key-highlighted-command-face ((,c :foreground ,warning :underline t)))
     `(which-key-key-face ((,c :inherit modus-themes-key-binding)))
     `(which-key-local-map-description-face ((,c :foreground ,fg-main)))
     `(which-key-note-face ((,c :inherit shadow)))
     `(which-key-separator-face ((,c :inherit shadow)))
-    `(which-key-special-key-face ((,c :inherit bold :foreground ,red-warmer)))
+    `(which-key-special-key-face ((,c :inherit error)))
 ;;;;; whitespace-mode
     `(whitespace-big-indent ((,c :inherit modus-themes-subtle-red)))
     `(whitespace-empty ((,c :inherit modus-themes-intense-magenta)))
