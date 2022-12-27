@@ -634,17 +634,12 @@ tables and code blocks to always inherit from the ~fixed-pitch~ face.
 This is to ensure that certain constructs like code blocks and tables
 remain monospaced even when users opt for a mode that remaps typeface
 families, such as the built-in {{{kbd(M-x variable-pitch-mode)}}}.  Otherwise
-the layout would appear broken, due to how spacing is done.
+the layout can appear broken, due to how spacing is done.
 
 For a consistent experience, user may need to specify the font family of
 the ~fixed-pitch~ face.
 
 [[#h:defcf4fc-8fa8-4c29-b12e-7119582cc929][Font configurations for Org and others]].
-
-Furthermore, users may prefer to use another package for handling mixed
-typeface configurations, rather than letting the theme do it, perhaps
-because a purpose-specific package has extra functionality.  Two
-possible options are ~org-variable-pitch~ and ~mixed-pitch~.
 
 ** Option for command prompt styles
 :properties:
