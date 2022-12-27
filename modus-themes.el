@@ -641,7 +641,7 @@ value for the text.  The list of properties it accepts is as
 follows (order is not significant):
 
 - `text-also' to apply extra color to the text of the selected
-  line;
+  line, if supported by the completion User Interface;
 
 - `underline' to draw a line below the characters;
 
