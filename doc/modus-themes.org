@@ -330,11 +330,14 @@ This is how a basic setup could look like:
 #+cindex: use-package configuration
 #+cindex: sample configuration
 
+What follows is a variant of what we demonstrate in the previous
+section ([[#h:3f3c3728-1b34-437d-9d0c-b110f5b161a9][Enable and load]]).
+
 It is common for Emacs users to rely on ~use-package~ for declaring
 package configurations in their setup.  We use this as an example:
 
 #+begin_src emacs-lisp
-;;; For the built-in themes which cannot use `require':
+;;; For the built-in themes which cannot use `require'.
 (use-package emacs
   :init
   ;; Add all your customizations prior to loading the themes
@@ -342,13 +345,13 @@ package configurations in their setup.  We use this as an example:
         modus-themes-bold-constructs nil
         modus-themes-region '(bg-only no-extend))
   :config
-  ;; Load the theme of your choice:
-  (load-theme 'modus-operandi) ;; OR (load-theme 'modus-vivendi)
+  ;; Load the theme of your choice.
+  (load-theme 'modus-operandi)
   :bind ("<f5>" . modus-themes-toggle))
 
 
 
-;;; For packaged versions which must use `require':
+;;; For packaged versions which must use `require'.
 (use-package modus-themes
   :ensure
   :init
@@ -357,8 +360,8 @@ package configurations in their setup.  We use this as an example:
         modus-themes-bold-constructs nil
         modus-themes-region '(bg-only no-extend))
   :config
-  ;; Load the theme of your choice:
-  (load-theme 'modus-operandi :no-confim) ;; OR (load-theme 'modus-vivendi :no-confim)
+  ;; Load the theme of your choice.
+  (load-theme 'modus-operandi :no-confim)
   :bind ("<f5>" . modus-themes-toggle))
 #+end_src
 
