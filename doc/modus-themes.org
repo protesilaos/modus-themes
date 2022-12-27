@@ -64,45 +64,45 @@ modify this GNU manual.”
 :custom_id: h:f0f3dbcb-602d-40cf-b918-8f929c441baf
 :end:
 
-The Modus themes are designed for accessible readability.  They conform
-with the highest standard for color contrast between any given
-combination of background and foreground values.  This corresponds to
-the WCAG AAA standard, which specifies a minimum rate of distance in
-relative luminance of 7:1.
+The Modus themes are designed for accessible readability.  They
+conform with the highest standard for color contrast between
+combinations of background and foreground values.  For small sized
+text, this corresponds to the WCAG AAA standard, which specifies a
+minimum rate of distance in relative luminance of 7:1.
 
-Modus Operandi (~modus-operandi~) is a light theme, while Modus Vivendi
-(~modus-vivendi~) is dark.  Each theme's color palette is designed to meet
-the needs of the numerous interfaces that are possible in the Emacs
-computing environment.
+The Modus themes consist of six themes, divided into three subgroups.
+
+- Main themes :: ~modus-operandi~ is the project's main light theme,
+  while ~modus-vivendi~ is its dark counterpart.  Those two themes are
+  part of the project since its inception.  They are designed to cover
+  a broad range of needs and are, in the opinion of the author, the
+  reference for what a highly legible "default" theme should look
+  like.
+
+- Tinted themes :: ~modus-operandi-tinted~ and ~modus-vivendi-tinted~
+  are variants of the two main themes.  They slightly tone down the
+  intensity of the background and provide a bit more color variety.
+  ~modus-operandi-tinted~ has a set of base tones that are shades of
+  light ochre (earthly colors), while ~modus-vivendi-tinted~ gives a
+  night sky impression.
+
+- Deuteranopia themes :: ~modus-operandi-deuteranopia~ and its
+  companion ~modus-vivendi-deuteranopia~ are optimized for users with
+  red-green color deficiency.  This means that they do not use red and
+  green hues for color-coding purposes, such as for diff removed and
+  added lines.  Instead, they implement colors that are discernible by
+  users with deueteranopia or deuteranomaly (mostly yellow and blue
+  hues).
+
+To ensure that users have a consistently accessible experience, the
+themes strive to achieve as close to full face coverage as possible,
+while still targeting a curated list of well-maintained packages
+([[#h:a9c8f29d-7f72-4b54-b74b-ddefe15d6a19][Face coverage]]).
 
 The overarching objective of this project is to always offer accessible
 color combinations.  There shall never be a compromise on this
 principle.  If there arises an inescapable trade-off between readability
 and stylistic considerations, we will always opt for the former.
-
-To ensure that users have a consistently accessible experience, the
-themes strive to achieve as close to full face coverage as possible
-([[#h:a9c8f29d-7f72-4b54-b74b-ddefe15d6a19][Face coverage]]).
-
-#  TODO 2022-12-16: Update "overview" reference to deueteranopia.
-
-Furthermore, the themes are designed to empower users with red-green
-color deficiency (deuteranopia).  This is achieved in three ways:
-
-1. The conformance with the highest legibility standard means that text
-   is always readable no matter the perception of its hue.
-
-2. Most contexts use colors on the blue-cyan-magenta-purple side of the
-   spectrum.  Put differently, green and/or red are seldom used, thus
-   minimizing the potential for confusion.
-
-   [[#h:0b26cb47-9733-4cb1-87d9-50850cb0386e][Why are colors mostly variants of blue, magenta, cyan?]].
-
-3. In contexts where a red/green color-coding is unavoidable, we provide
-   a universal toggle to customize the themes so that a red/blue scheme
-   is used instead.
-
-   [[#h:3ed03a48-20d8-4ce7-b214-0eb7e4c79abe][Option for red-green color deficiency or deuteranopia]].
 
 Starting with version 0.12.0 and onwards, the themes are built into GNU
 Emacs.
