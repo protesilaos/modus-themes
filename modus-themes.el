@@ -2948,6 +2948,7 @@ is a less intense variant of BG."
 ;;;;; org
     `(org-agenda-calendar-event ((,c :foreground ,date-event)))
     `(org-agenda-calendar-sexp ((,c :inherit (italic org-agenda-calendar-event))))
+    `(org-agenda-clocking ((,c :inherit modus-themes-mark-alt)))
     `(org-agenda-column-dateline ((,c :background ,bg-inactive)))
     `(org-agenda-current-time ((,c :foreground ,date-now)))
     `(org-agenda-date ((,c ,@(modus-themes--heading 'agenda-date date-common))))
