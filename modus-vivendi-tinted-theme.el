@@ -173,7 +173,7 @@ which corresponds to a minimum contrast in relative luminance of
       (fg-mode-line-inactive      "#969696")
       (border-mode-line-inactive  "#61647b")
 
-      (modeline-err     "#ffa0b0")
+      (modeline-err     "#ffa9bf")
       (modeline-warning "#dfcf43")
       (modeline-info    "#9fefff")
 
