@@ -3922,15 +3922,15 @@ A good theme is one that does so with consistency, though not
 uniformity.
 
 In practical terms, a color scheme is what one uses when, for example,
-they edit the first sixteen escape sequences of a terminal emulator to
-the hues of their preference.  The terminal offers the option to choose,
-say, the exact value of what counts as "red", but does not provide the
-means to control where that is mapped to and whether it should also have
-other qualities such as a bold weight for the underlying text or an
-added background color.  In contradistinction, Emacs uses constructs
-known as "faces" which allow the user/developer to specify where a given
-color will be used and whether it should be accompanied by other
-typographic or stylistic attributes.
+they replace the first sixteen escape sequences of a terminal emulator
+with color values of their preference.  The terminal offers the option
+to choose, say, the exact value of what counts as "red", but does not
+provide the means to control where that is mapped to and whether it
+should also have other qualities such as a bold weight for the
+underlying text or an added background color.  In contradistinction,
+Emacs uses constructs known as "faces" which allow the user/developer
+to specify where a given color will be used and whether it should be
+accompanied by other typographic or stylistic attributes.
 
 By configuring the multitude of faces on offer we thus control both
 which colors are applied and how they appear in their context.  When a
@@ -3949,8 +3949,6 @@ it is already understood that one must follow the indicator or headline
 to view its contents and (ii) underlining everything would make the
 interface virtually unusable.
 
-# TODO 2022-12-28: Review FAQ
-
 Again, one must exercise judgement in order to avoid discrimination,
 where "discrimination" refers to:
 
@@ -3961,9 +3959,9 @@ where "discrimination" refers to:
 
 (To treat similar things differently; to treat dissimilar things alike.)
 
-If, in other words, one was to enforce uniformity without accounting for
-the particular requirements of each case---the contextual demands for
-usability beyond matters of color---they would be making a
+If, in other words, one is to enforce uniformity without accounting
+for the particular requirements of each case---the contextual demands
+for usability beyond matters of color---they are making a
 not-so-obvious error of treating different cases as if they were the
 same.
 
