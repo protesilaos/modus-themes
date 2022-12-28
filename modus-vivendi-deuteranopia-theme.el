@@ -155,7 +155,6 @@ standard).")
       (bg-paren-expression "#453040")
       (bg-region           "#5c5c5c")
       (bg-region-subtle    "#4f1c2f")
-      (bg-prompt           "#5f3f20")
 
       (bg-char-0 "#0050af")
       (bg-char-1 "#7f1f7f")
@@ -209,7 +208,6 @@ standard).")
       (keybind blue-cooler)
       (name blue-cooler)
       (identifier yellow-faint)
-      (prompt blue)
 
       (err yellow-warmer)
       (warning yellow-cooler)
@@ -302,6 +300,11 @@ standard).")
       (mail-recipient blue)
       (mail-subject yellow-warmer)
       (mail-other cyan-faint)
+
+;;;;; Prompt mappings
+
+      (fg-prompt blue)
+      (bg-prompt unspecified)
 
 ;;;;; Prose mappings
 

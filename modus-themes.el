@@ -697,9 +697,6 @@ The value is a list of properties, each designated by a symbol.
 The default (a nil value or an empty list) means to only use a
 subtle colored foreground color.
 
-The property `background' applies a background color to the
-prompt's text.
-
 The `italic' property adds a slant to the font's forms (italic or
 oblique forms, depending on the typeface).
 
@@ -711,20 +708,18 @@ weight means that the one of the underlying text will be used.
 Combinations of any of those properties are expressed as a list,
 like in these examples:
 
-    (background)
     (bold italic)
-    (italic bold background)
+    (italic semibold)
 
 The order in which the properties are set is not significant.
 
 In user configuration files the form may look like this:
 
-    (setq modus-themes-prompts (quote (background italic)))"
+    (setq modus-themes-prompts (quote (extrabold italic)))"
   :group 'modus-themes
   :package-version '(modus-themes . "4.0.0")
   :version "30.1"
   :type `(set :tag "Properties" :greedy t
-              (const :tag "With Background" background)
               (const :tag "Italic font slant" italic)
               ,modus-themes--weight-widget)
   :set #'modus-themes--set-option
@@ -863,7 +858,6 @@ represents."
 
     (name maroon)
     (identifier fg-dim)
-    (prompt cyan-faint)
 
     (bg-line-number-inactive bg-main)
     (fg-line-number-inactive "gray50")
@@ -890,6 +884,8 @@ represents."
     (mail-recipient indigo)
     (mail-subject maroon)
     (mail-other slate)
+
+    (fg-prompt cyan-faint)
 
     (prose-code olive)
     (prose-done green-faint)
@@ -938,7 +934,6 @@ Info node `(modus-themes) Option for palette overrides'.")
     (date-weekend red-faint)
 
     (keybind blue-intense)
-    (prompt blue-intense)
 
     (mail-cite-0 blue)
     (mail-cite-1 yellow)
@@ -948,6 +943,8 @@ Info node `(modus-themes) Option for palette overrides'.")
     (mail-recipient cyan)
     (mail-subject red-warmer)
     (mail-other cyan-cooler)
+
+    (fg-prompt blue-intense)
 
     (prose-block red-faint)
     (prose-done green-intense)
@@ -1284,7 +1281,6 @@ list given LIST-PRED, using DEFAULT as a fallback."
 FG is the prompt's standard foreground.  BG is a background
 color that is combined with FG-FOR-BG."
   (let* ((properties (modus-themes--list-or-warn 'modus-themes-prompts))
-         (background (memq 'background properties))
          (weight (modus-themes--weight properties)))
     (list :inherit
           (cond
@@ -1296,8 +1292,8 @@ color that is combined with FG-FOR-BG."
            ((memq 'bold properties)
             'bold)
            ('unspecified))
-          :background (if background bg 'unspecified)
-          :foreground (if background 'unspecified fg)
+          :background bg
+          :foreground fg
           :weight
           ;; If we have `bold' specifically, we inherit the face of
           ;; the same name.  This allows the user to customise that
@@ -1510,7 +1506,7 @@ is a less intense variant of BG."
 ;;;;; other custom faces
     `(modus-themes-button ((,c :inherit variable-pitch :box ,border :background ,bg-button-active :foreground ,fg-button-active)))
     `(modus-themes-key-binding ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind)))
-    `(modus-themes-prompt ((,c ,@(modus-themes--prompt prompt bg-prompt))))
+    `(modus-themes-prompt ((,c ,@(modus-themes--prompt fg-prompt bg-prompt))))
     `(modus-themes-reset-soft ((,c :background ,bg-main :foreground ,fg-main
                                    :weight normal :slant normal :strike-through nil
                                    :box nil :underline nil :overline nil :extend nil)))

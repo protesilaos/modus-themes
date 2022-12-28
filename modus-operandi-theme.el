@@ -154,7 +154,6 @@ which corresponds to a minimum contrast in relative luminance of
       (bg-paren-expression "#efd3f5")
       (bg-region           "#bcbcbc")
       (bg-region-subtle    "#f0e0cc")
-      (bg-prompt           "#dbc5f0")
 
       (bg-char-0 "#7feaff")
       (bg-char-1 "#ffaaff")
@@ -208,7 +207,6 @@ which corresponds to a minimum contrast in relative luminance of
       (keybind blue-cooler)
       (name magenta)
       (identifier yellow-cooler)
-      (prompt cyan-cooler)
 
       (err red)
       (warning yellow-warmer)
@@ -301,6 +299,11 @@ which corresponds to a minimum contrast in relative luminance of
       (mail-recipient magenta-cooler)
       (mail-subject magenta-warmer)
       (mail-other magenta-faint)
+
+;;;;; Prompt mappings
+
+      (fg-prompt cyan-cooler)
+      (bg-prompt unspecified)
 
 ;;;;; Prose mappings
 
