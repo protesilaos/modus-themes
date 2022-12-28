@@ -3241,9 +3241,6 @@ So we can have something like this (the doc string of
 ~modus-themes-with-colors~ explains where the names of the colors can be
 found):
 
-# TODO 2022-12-15: Review highlight-parentheses-colors as it mentions
-# obsolete values.
-
 #+begin_src emacs-lisp
 (modus-themes-with-colors
     ;; Our preference for setting either background or foreground
