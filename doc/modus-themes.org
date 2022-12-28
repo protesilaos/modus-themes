@@ -4222,42 +4222,6 @@ themes' design and/or aspects of their functionality.
 
 All errors are my own.
 
-* Other notes about the project
-:properties:
-:custom_id: h:13752581-4378-478c-af17-165b6e76bc1b
-:end:
-#+cindex: Development notes
-
-If you are curious about the principles that govern the development of
-this project read the essay [[https://protesilaos.com/codelog/2020-03-17-design-modus-themes-emacs/][On the design of the Modus themes]]
-(2020-03-17).
-
-Here are some more publications for those interested in the kind of work
-that goes into this project (sometimes the commits also include details
-of this sort):
-
-+ [[https://protesilaos.com/codelog/2020-05-10-modus-operandi-palette-review/][Modus Operandi theme subtle palette review]] (2020-05-10)
-+ [[https://protesilaos.com/codelog/2020-06-13-modus-vivendi-palette-review/][Modus Vivendi theme subtle palette review]] (2020-06-13)
-+ [[https://protesilaos.com/codelog/2020-07-04-modus-themes-faint-colours/][Modus themes: new "faint syntax" option]] (2020-07-04)
-+ [[https://protesilaos.com/codelog/2020-07-08-modus-themes-nuanced-colours/][Modus themes: major review of "nuanced" colours]] (2020-07-08)
-+ [[https://protesilaos.com/codelog/2020-09-14-modus-themes-review-blues/][Modus themes: review of blue colours]] (2020-09-14)
-+ [[https://protesilaos.com/codelog/2020-12-27-modus-themes-review-rainbow-delimiters/][Modus themes: review rainbow-delimiters faces]] (2020-12-27)
-+ [[https://protesilaos.com/codelog/2021-01-11-modus-themes-review-select-faint-colours/][Modus themes: review of select "faint" colours]] (2021-01-11)
-+ [[https://protesilaos.com/codelog/2021-02-25-modus-themes-diffs-deuteranopia/][The Modus themes now cover deuteranopia in diffs]] (2021-02-25)
-+ [[https://protesilaos.com/codelog/2021-06-02-modus-themes-org-agenda/][Introducing the variable modus-themes-org-agenda]] (2021-06-02)
-+ [[https://protesilaos.com/codelog/2022-01-02-review-modus-themes-org-habit-colours/][Modus themes: review of the org-habit graph colours]] (2022-01-02)
-+ [[https://protesilaos.com/codelog/2022-01-03-modus-themes-port-faq/][Re: VSCode or Vim ports of the Emacs modus-themes?]] (2022-01-03)
-+ [[https://protesilaos.com/codelog/2022-04-20-modus-themes-case-study-avy/][Modus themes: case study on Avy faces and colour combinations]] (2022-04-20)
-+ [[https://protesilaos.com/codelog/2022-04-21-modus-themes-colour-theory/][Emacs: colour theory and techniques used in the Modus themes]] (2022-04-21)
-
-And here are the canonical sources of this project:
-
-+ Manual :: <https://protesilaos.com/emacs/modus-themes>
-+ Change Log :: <https://protesilaos.com/emacs/modus-themes-changelog>
-+ Screenshots :: <https://protesilaos.com/emacs/modus-themes-pictures>
-+ Git repository :: https://git.sr.ht/~protesilaos/modus-themes
-+ Mailing list :: https://lists.sr.ht/~protesilaos/modus-themes
-
 * GNU Free Documentation License
 :properties:
 :appendix: t
