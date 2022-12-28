@@ -1404,10 +1404,10 @@ theme palette.
 
 This is one of our practical examples to override the semantic colors
 of the Modus themes ([[#h:df1199d8-eaba-47db-805d-6b568a577bf3][Stylistic variants using palette overrides]]).  By
-default, the boxxed buttons that appear in {{{kbd(M-x customize)}}}
-and related are distinct shades of gray.  The following set of
-overrides removes the gray from the active buttons and amplifies it
-for the inactive ones.
+default, the boxed buttons that appear in {{{kbd(M-x customize)}}} and
+related are distinct shades of gray.  The following set of overrides
+removes the gray from the active buttons and amplifies it for the
+inactive ones.
 
 #+begin_src emacs-lisp
 ;; These overrides are common to all Modus themes.  We also provide
