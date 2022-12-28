@@ -1148,7 +1148,8 @@ color mappings of the palette, instead of its named colors."
   (let* ((current (modus-themes--palette-value theme :overrides))
          (palette (if mappings
                       (seq-remove (lambda (cell)
-                                    (stringp (cadr cell)))
+                                    (or (stringp (cadr cell))
+                                        (eq (cadr cell) 'unspecified)))
                                   current)
                     (seq-remove (lambda (cell)
                                   (symbolp (cadr cell)))
