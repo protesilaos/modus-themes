@@ -1797,7 +1797,7 @@ macro supplies those to any form called inside of it.  For example:
 The above return value is for ~modus-operandi~ when that is the active
 theme.  Switching to another theme and evaluating this code anew will
 give us the relevant results for that theme (remember that since
-version 4, the Modus themes collection consists of six items).  The
+version 4, the Modus themes consist of six items ([[#h:f0f3dbcb-602d-40cf-b918-8f929c441baf][Overview]])).  The
 same with ~modus-vivendi~ as the active theme:
 
 #+begin_src emacs-lisp
@@ -3994,13 +3994,13 @@ doing so would run contrary to how this project is maintained where
 details matter greatly.
 
 Each program has its own requirements so it won't always be
-possible---or indeed desirable---to have 1:1 correspondence between what
-applies to Emacs and what should be done elsewhere.  No port should ever
-strive to be a faithful copy of the Emacs implementation, as no other
-program is an Emacs equivalent, but instead try to follow the spirit of
-the design.  For example, some of the customization options accept a
-list as their value, or an alist, which may not be possible to reproduce
-on other platforms.
+possible---or indeed desirable---to have 1:1 correspondence between
+what applies to Emacs and what should be done elsewhere.  No port
+should ever strive to be a copy of the Emacs implementation, as no
+other program is an Emacs equivalent, but instead try to follow the
+spirit of the design.  For example, some of the customization options
+accept a list as their value, or an alist, which may not be possible
+to reproduce on other platforms.
 
 [[#h:bf1c82f2-46c7-4eb2-ad00-dd11fdd8b53f][Customization options]].
 
@@ -4013,9 +4013,7 @@ The former criterion should be crystal clear as it pertains to the
 scientific foundations of the themes: high legibility and taking care
 of the needs of users with red-green color deficiency (deuteranopia)
 by avoiding red+green color coding paradigms and/or by providing
-yellow+blue variants.
-
-#  TODO 2022-12-16: Add reference to deuteranopia themes to above paragraph.
+yellow+blue variants ([[#h:f0f3dbcb-602d-40cf-b918-8f929c441baf][Overview]]).
 
 The latter criterion is the "je ne sais quoi" of the artistic aspect of
 the themes, which is partially fleshed out in this manual.
