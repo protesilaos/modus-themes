@@ -484,17 +484,16 @@ reloaded for changes to take effect.
 
       ;; Options for `modus-themes-prompts' are either nil (the
       ;; default), or a list of properties that may include any of those
-      ;; symbols: `background', `italic', `WEIGHT'
-      modus-themes-prompts '(italic bold background)
+      ;; symbols: `italic', `WEIGHT'
+      modus-themes-prompts '(italic bold)
 
       ;; The `modus-themes-completions' is an alist that reads two
       ;; keys: `matches', `selection'.  Each accepts a nil value (or
       ;; empty list) or a list of properties that can include any of
       ;; the following (for WEIGHT read further below):
       ;;
-      ;; `matches'   :: `background', `underline', `italic', `WEIGHT'
-      ;; `selection' :: `underline', `italic', `text-also', `WEIGHT'
-      ;; `t'         :: applies to any key not explicitly referenced (check docs)
+      ;; `matches'   :: `underline', `italic', `WEIGHT'
+      ;; `selection' :: `underline', `italic', `WEIGHT'
       modus-themes-completions
       '((matches . (extrabold))
         (selection . (semibold italic text-also)))
