@@ -1527,11 +1527,12 @@ match styles at will.
 
 This is one of our practical examples to override the semantic colors
 of the Modus themes ([[#h:df1199d8-eaba-47db-805d-6b568a577bf3][Stylistic variants using palette overrides]]).
-Here we provide two distinct code blocks.  The first adds more color
-variety to the Org agenda (and related), while the latter uses faint
-coloration.  Mix and match at will, while also combining these styles
-with what we show in the other chapters with practical stylistic
-variants.
+Here we provide three distinct code blocks.  The first adds
+alternative and more varied colors to the Org agenda (and related).
+The second uses faint coloration.  The third makes the agenda use
+various shades of blue.  Mix and match at will, while also combining
+these styles with what we show in the other chapters with practical
+stylistic variants.
 
 #+begin_src emacs-lisp
 ;; These overrides are common to all Modus themes.  We also provide
@@ -1542,32 +1543,45 @@ variants.
 ;; common overrides are best used for changes to semantic color
 ;; mappings, as we show below.
 
+;; Make the Org agenda use alternative and varied colors.
 (setq modus-themes-common-palette-overrides
-      '((date-common azure)
-        (date-deadline red)             ; default
-        (date-event fg-alt)             ; default
-        (date-holiday magenta)          ; default
-        (date-scheduled gold)
-        (date-weekend amethyst)))
+      '((date-common cyan)   ; default value (for timestamps and more)
+        (date-deadline red-warmer)
+        (date-event magenta-warmer)
+        (date-holiday blue) ; for M-x calendar
+        (date-now yellow-warmer)
+        (date-scheduled magenta-cooler)
+        (date-weekday cyan-cooler)
+        (date-weekend blue-faint)))
 #+end_src
 
-And here is the same idea, but less colorful:
+An example with faint coloration:
 
 #+begin_src emacs-lisp
-;; These overrides are common to all Modus themes.  We also provide
-;; theme-specific options, such as `modus-operandi-palette-overrides'.
-;;
-;; In general, the theme-specific overrides are better for overriding
-;; color values, such as redefining what `blue-faint' looks like.  The
-;; common overrides are best used for changes to semantic color
-;; mappings, as we show below.
-
+;; Make the Org agenda use faint colors.
 (setq modus-themes-common-palette-overrides
-      '((date-common cyan-faint)
+      '((date-common cyan-faint) ; for timestamps and more
         (date-deadline red-faint)
-        (date-event fg-alt)             ; default
-        (date-holiday magenta)          ; default
+        (date-event fg-alt) ; default
+        (date-holiday magenta) ; default (for M-x calendar)
+        (date-now fg-main) ; default
         (date-scheduled yellow-faint)
+        (date-weekday fg-dim)
+        (date-weekend fg-dim)))
+#+end_src
+
+A third example that makes the agenda more blue:
+
+#+begin_src emacs-lisp
+;; Make the Org agenda use more blue instead of yellow and red.
+(setq modus-themes-common-palette-overrides
+      '((date-common cyan) ; default value (for timestamps and more)
+        (date-deadline blue-cooler)
+        (date-event blue-faint)
+        (date-holiday blue) ; for M-x calendar
+        (date-now blue-faint)
+        (date-scheduled blue)
+        (date-weekday fg-main)
         (date-weekend fg-dim)))
 #+end_src
 
