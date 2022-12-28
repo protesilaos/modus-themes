@@ -266,6 +266,7 @@ which corresponds to a minimum contrast in relative luminance of
       (date-holiday magenta)
       (date-now fg-main)
       (date-scheduled yellow-warmer)
+      (date-weekday cyan)
       (date-weekend red-faint)
 
 ;;;;; Line number mappings

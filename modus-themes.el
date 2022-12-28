@@ -1720,7 +1720,7 @@ is a less intense variant of BG."
 ;;;;; calendar and diary
     `(calendar-month-header ((,c :inherit bold)))
     `(calendar-today ((,c :inherit bold :underline t)))
-    `(calendar-weekday-header ((,c :foreground ,date-common)))
+    `(calendar-weekday-header ((,c :foreground ,date-weekday)))
     `(calendar-weekend-header ((,c :foreground ,date-weekend)))
     `(diary ((,c :background ,bg-dim :foreground ,fg-accent-0)))
     `(diary-anniversary ((,c :foreground ,fg-accent-1)))
@@ -2960,7 +2960,7 @@ is a less intense variant of BG."
     `(org-agenda-clocking ((,c :inherit modus-themes-mark-alt)))
     `(org-agenda-column-dateline ((,c :background ,bg-inactive)))
     `(org-agenda-current-time ((,c :foreground ,date-now)))
-    `(org-agenda-date ((,c ,@(modus-themes--heading 'agenda-date date-common))))
+    `(org-agenda-date ((,c ,@(modus-themes--heading 'agenda-date date-weekday))))
     `(org-agenda-date-today ((,c :inherit org-agenda-date :underline t)))
     `(org-agenda-date-weekend ((,c :inherit org-agenda-date :foreground ,date-weekend)))
     `(org-agenda-date-weekend-today ((,c :inherit org-agenda-date-today :foreground ,date-weekend)))

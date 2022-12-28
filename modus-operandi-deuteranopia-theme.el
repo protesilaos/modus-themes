@@ -269,6 +269,7 @@ standard).")
       (date-holiday yellow-warmer)
       (date-now blue-faint)
       (date-scheduled yellow-cooler)
+      (date-weekday cyan)
       (date-weekend yellow-faint)
 
 ;;;;; Line number mappings
