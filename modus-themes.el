@@ -2257,7 +2257,7 @@ is a less intense variant of BG."
     `(font-lock-variable-name-face ((,c :foreground ,variable)))
     `(font-lock-warning-face ((,c :inherit modus-themes-bold :foreground ,warning)))
 ;;;;; geiser
-    `(geiser-font-lock-autodoc-current-arg `((,c :inherit modus-themes-mark-alt)))
+    `(geiser-font-lock-autodoc-current-arg ((,c :inherit modus-themes-mark-alt)))
     `(geiser-font-lock-autodoc-identifier ((,c :foreground ,docstring)))
     `(geiser-font-lock-doc-button ((,c :inherit button)))
     `(geiser-font-lock-doc-link ((,c :inherit button)))
