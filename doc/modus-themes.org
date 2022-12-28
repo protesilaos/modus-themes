@@ -1319,6 +1319,15 @@ to the former, double-check that the entries exist in the given Modus
 theme palette.
 
 #+begin_src emacs-lisp
+;; These overrides are common to all Modus themes.  We also provide
+;; theme-specific options, such as `modus-operandi-palette-overrides'.
+;;
+;; In general, the theme-specific overrides are better for overriding
+;; color values, such as redefining what `blue-faint' looks like.  The
+;; common overrides are best used for changes to semantic color
+;; mappings, as we show below.
+
+
 ;; Mimic `ef-night' theme (from my `ef-themes') for code syntax
 ;; highlighting, while still using the Modus colors (and other
 ;; mappings).
