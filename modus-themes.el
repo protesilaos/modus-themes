@@ -1484,12 +1484,12 @@ is a less intense variant of BG."
     `(modus-themes-subtle-magenta ((,c :background ,bg-magenta-subtle :foreground ,fg-main)))
     `(modus-themes-subtle-cyan ((,c :background ,bg-cyan-subtle :foreground ,fg-main)))
 ;;;;; intense colored backgrounds
-    `(modus-themes-intense-red ((,c :background ,bg-red :foreground ,fg-main)))
-    `(modus-themes-intense-green ((,c :background ,bg-green :foreground ,fg-main)))
-    `(modus-themes-intense-yellow ((,c :background ,bg-yellow :foreground ,fg-main)))
-    `(modus-themes-intense-blue ((,c :background ,bg-blue :foreground ,fg-main)))
-    `(modus-themes-intense-magenta ((,c :background ,bg-magenta :foreground ,fg-main)))
-    `(modus-themes-intense-cyan ((,c :background ,bg-cyan :foreground ,fg-main)))
+    `(modus-themes-intense-red ((,c :background ,bg-red-intense :foreground ,fg-main)))
+    `(modus-themes-intense-green ((,c :background ,bg-green-intense :foreground ,fg-main)))
+    `(modus-themes-intense-yellow ((,c :background ,bg-yellow-intense :foreground ,fg-main)))
+    `(modus-themes-intense-blue ((,c :background ,bg-blue-intense :foreground ,fg-main)))
+    `(modus-themes-intense-magenta ((,c :background ,bg-magenta-intense :foreground ,fg-main)))
+    `(modus-themes-intense-cyan ((,c :background ,bg-cyan-intense :foreground ,fg-main)))
 ;;;;; mark indicators
     ;; color combinations intended for Dired, Ibuffer, or equivalent
     `(modus-themes-mark-alt ((,c :inherit bold :background ,bg-yellow-subtle :foreground ,yellow)))
@@ -1516,8 +1516,8 @@ is a less intense variant of BG."
     `(modus-themes-prose-macro ((,c :foreground ,prose-macro)))
     `(modus-themes-prose-verbatim ((,c :foreground ,prose-verbatim)))
 ;;;;; search
-    `(modus-themes-search-current ((,c :background ,bg-yellow :foreground ,fg-main)))
-    `(modus-themes-search-lazy ((,c :background ,bg-cyan :foreground ,fg-main)))
+    `(modus-themes-search-current ((,c :background ,bg-yellow-intense :foreground ,fg-main)))
+    `(modus-themes-search-lazy ((,c :background ,bg-cyan-intense :foreground ,fg-main)))
 ;;;;; completion frameworks
     `(modus-themes-completion-match-0 ((,c ,@(modus-themes--completion-match fg-accent-0 bg-accent-0))))
     `(modus-themes-completion-match-1 ((,c ,@(modus-themes--completion-match fg-accent-1 bg-accent-1))))
@@ -1582,7 +1582,7 @@ is a less intense variant of BG."
     `(separator-line ((,c :underline ,bg-active)))
     `(shadow ((,c :foreground ,fg-dim)))
     `(success ((,c :inherit bold :foreground ,info)))
-    `(trailing-whitespace ((,c :background ,bg-red)))
+    `(trailing-whitespace ((,c :background ,bg-red-intense)))
     `(warning ((,c :inherit bold :foreground ,warning)))
 ;;;;; buttons, links, widgets
     `(button ((,c :background ,bg-link :foreground ,fg-link :underline ,underline-link)))
@@ -1843,7 +1843,7 @@ is a less intense variant of BG."
     `(company-echo-common ((,c :inherit modus-themes-completion-match-0)))
     `(company-preview ((,c :background ,bg-dim :foreground ,fg-dim)))
     `(company-preview-common ((,c :inherit company-echo-common)))
-    `(company-preview-search ((,c :background ,bg-yellow)))
+    `(company-preview-search ((,c :background ,bg-yellow-intense)))
     `(company-scrollbar-bg ((,c :background ,bg-active)))
     `(company-scrollbar-fg ((,c :background ,fg-main)))
     `(company-template-field ((,c :background ,bg-active)))
@@ -2835,7 +2835,7 @@ is a less intense variant of BG."
     `(message-separator ((,c :background ,bg-active)))
 ;;;;; minimap
     `(minimap-active-region-background ((,c :background ,bg-active)))
-    `(minimap-current-line-face ((,c :background ,bg-cyan :foreground ,fg-main)))
+    `(minimap-current-line-face ((,c :background ,bg-cyan-intense :foreground ,fg-main)))
 ;;;;; mode-line
     `(mode-line ((,c :inherit modus-themes-ui-variable-pitch
                      :box ,border-mode-line-active
@@ -3146,7 +3146,7 @@ is a less intense variant of BG."
     `(pass-mode-entry-face ((,c :background ,bg-main :foreground ,fg-main)))
     `(pass-mode-header-face ((,c :inherit shadow)))
 ;;;;; pdf-tools
-    `(pdf-links-read-link ((,c :background ,fg-main :foreground ,bg-magenta :inherit bold))) ; Foreground is background and vice versa
+    `(pdf-links-read-link ((,c :background ,fg-main :foreground ,bg-magenta-intense :inherit bold))) ; Foreground is background and vice versa
     `(pdf-occur-document-face ((,c :inherit shadow)))
     `(pdf-occur-page-face ((,c :inherit shadow)))
 ;;;;; persp-mode
@@ -3192,7 +3192,7 @@ is a less intense variant of BG."
     `(prodigy-red-face ((,c :inherit error)))
     `(prodigy-yellow-face ((,c :inherit warning)))
 ;;;;; pulse
-    `(pulse-highlight-start-face ((,c :background ,bg-blue :extend t)))
+    `(pulse-highlight-start-face ((,c :background ,bg-blue-intense :extend t)))
 ;;;;; pyim
     `(pyim-page ((,c :background ,bg-active)))
     `(pyim-page-selection ((,c :inherit bold :background ,bg-active :foreground ,info)))
@@ -3584,11 +3584,11 @@ is a less intense variant of BG."
     `(vimish-fold-mouse-face ((,c :inherit modus-themes-intense-blue)))
     `(vimish-fold-overlay ((,c :background ,bg-inactive)))
 ;;;;; visible-mark
-    `(visible-mark-active ((,c :background ,bg-blue)))
-    `(visible-mark-face1 ((,c :background ,bg-cyan)))
-    `(visible-mark-face2 ((,c :background ,bg-yellow)))
-    `(visible-mark-forward-face1 ((,c :background ,bg-magenta)))
-    `(visible-mark-forward-face2 ((,c :background ,bg-green)))
+    `(visible-mark-active ((,c :background ,bg-blue-intense)))
+    `(visible-mark-face1 ((,c :background ,bg-cyan-intense)))
+    `(visible-mark-face2 ((,c :background ,bg-yellow-intense)))
+    `(visible-mark-forward-face1 ((,c :background ,bg-magenta-intense)))
+    `(visible-mark-forward-face2 ((,c :background ,bg-green-intense)))
 ;;;;; visual-regexp
     `(vr/group-0 ((,c :inherit modus-themes-intense-blue)))
     `(vr/group-1 ((,c :inherit modus-themes-intense-magenta)))

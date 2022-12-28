@@ -109,12 +109,12 @@ standard).")
 
 ;;; Common accent backgrounds
 
-      (bg-red      "#9d1f1f")
-      (bg-green    "#2f822f")
-      (bg-yellow   "#7a6100")
-      (bg-blue     "#1640b0")
-      (bg-magenta  "#7030af")
-      (bg-cyan     "#2266ae")
+      (bg-red-intense     "#9d1f1f")
+      (bg-green-intense   "#2f822f")
+      (bg-yellow-intense  "#7a6100")
+      (bg-blue-intense    "#1640b0")
+      (bg-magenta-intense "#7030af")
+      (bg-cyan-intense    "#2266ae")
 
       (bg-red-subtle      "#620f2a")
       (bg-green-subtle    "#00422a")
