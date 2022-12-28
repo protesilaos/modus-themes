@@ -3464,10 +3464,10 @@ implements an alternative to the typical coloration of code.  Instead of
 highlighting the syntactic constructs, it applies color to different
 levels of depth in the code structure.
 
-As {{{file(prism.el)}}} offers a broad range of customizations, we cannot
-style it directly at the theme level: that would run contrary to the
-spirit of the package.  Instead, we may offer preset color schemes.
-Those should offer a starting point for users to adapt to their needs.
+As =prism.el= offers a broad range of customizations, we cannot style
+it directly at the theme level: that would run contrary to the spirit
+of the package.  Instead, we may offer preset color schemes.  Those
+should offer a starting point for users to adapt to their needs.
 
 In the following code snippets, we employ the ~modus-themes-with-colors~
 macro: [[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Use the theme colors in custom code (modus-themes-with-colors)]].
@@ -3483,20 +3483,20 @@ These are the minimum recommended settings with 16 colors:
   :colors (modus-themes-with-colors
             (list fg-main
                   magenta
-                  cyan-alt-other
-                  magenta-alt-other
+                  cyan-cooler
+                  magenta-cooler
                   blue
-                  magenta-alt
-                  cyan-alt
-                  red-alt-other
+                  magenta-warmer
+                  cyan-warmer
+                  red-cooler
                   green
                   fg-main
                   cyan
                   yellow
-                  blue-alt
-                  red-alt
-                  green-alt-other
-                  fg-special-warm)))
+                  blue-warmer
+                  red-warmer
+                  green-cooler
+                  yellow-faint)))
 #+end_src
 
 With 8 colors:
@@ -3510,11 +3510,11 @@ With 8 colors:
   :colors (modus-themes-with-colors
             (list blue
                   magenta
-                  magenta-alt-other
-                  cyan-alt-other
+                  magenta-cooler
+                  cyan-cooler
                   fg-main
-                  blue-alt
-                  red-alt-other
+                  blue-warmer
+                  red-cooler
                   cyan)))
 #+end_src
 
@@ -3530,8 +3530,8 @@ to the themes' default aesthetic:
   :colors (modus-themes-with-colors
             (list blue
                   magenta
-                  magenta-alt-other
-                  green-alt)))
+                  magenta-cooler
+                  green-warmer)))
 #+end_src
 
 If you need to apply desaturation and lightening, you can use what the
@@ -3544,8 +3544,8 @@ examples with the 4, 8, 16 colors):
   :lightens (cl-loop for i from 0 below 16 collect (* i 2.5))
   :colors (modus-themes-with-colors
             (list fg-main
-                  cyan-alt-other
-                  magenta-alt-other
+                  cyan-cooler
+                  magenta-cooler
                   magenta)))
 #+end_src
 
