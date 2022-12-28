@@ -783,6 +783,8 @@ Is the same as:
         (selection . (extrabold underline))))
 #+end_src
 
+[[#h:d959f789-0517-4636-8780-18123f936f91][Make completion matches more or less colorful]].
+
 ** Option for active region
 :properties:
 :alt_title: Active region
@@ -1345,6 +1347,8 @@ This section contains practical examples of overriding the palette of
 the themes ([[#h:34c7a691-19bb-4037-8d2f-67a07edab150][Option for palette overrides]]).   Here we demonstrate how
 to activate background coloration for completion matches.  We show
 three different degrees of intensity.
+
+[[#h:f1c20c02-7b34-4c35-9c65-99170efb2882][Option for completion framework aesthetics]].
 
 #+begin_src emacs-lisp
 ;; These overrides are common to all Modus themes.  We also provide
