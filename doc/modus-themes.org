@@ -1910,12 +1910,12 @@ the background color of the ~region~ face.  This is the sample code:
 #+begin_src emacs-lisp
 (defvar my-rainbow-region-colors
   (modus-themes-with-colors
-    `((red . ,red-subtle-bg)
-      (green . ,green-subtle-bg)
-      (yellow . ,yellow-subtle-bg)
-      (blue . ,blue-subtle-bg)
-      (magenta . ,magenta-subtle-bg)
-      (cyan . ,cyan-subtle-bg)))
+    `((red . ,bg-red-subtle)
+      (green . ,bg-green-subtle)
+      (yellow . ,bg-yellow-subtle)
+      (blue . ,bg-blue-subtle)
+      (magenta . ,bg-magenta-subtle)
+      (cyan . ,bg-cyan-subtle)))
   "Sample list of color values for `my-rainbow-region'.")
 
 (defun my-rainbow-region (color)
