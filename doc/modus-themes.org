@@ -3252,14 +3252,14 @@ found):
 
         ;; Here we set color combinations that involve both a background
         ;; and a foreground value.
-        (setq highlight-parentheses-background-colors (list cyan-refine-bg
-                                                            magenta-refine-bg
-                                                            green-refine-bg
-                                                            yellow-refine-bg)
-              highlight-parentheses-colors (list cyan-refine-fg
-                                                 magenta-refine-fg
-                                                 green-refine-fg
-                                                 yellow-refine-fg))
+        (setq highlight-parentheses-background-colors (list bg-cyan-intense
+                                                            bg-magenta-intense
+                                                            bg-green-intense
+                                                            bg-yellow-intense)
+              highlight-parentheses-colors (list cyan
+                                                 magenta
+                                                 green
+                                                 yellow))
 
       ;; And here we pass only foreground colors while disabling any
       ;; backgrounds.
@@ -3299,14 +3299,14 @@ implementation:
 
         ;; Here we set color combinations that involve both a background
         ;; and a foreground value.
-        (setq highlight-parentheses-background-colors (list cyan-refine-bg
-                                                            magenta-refine-bg
-                                                            green-refine-bg
-                                                            yellow-refine-bg)
-              highlight-parentheses-colors (list cyan-refine-fg
-                                                 magenta-refine-fg
-                                                 green-refine-fg
-                                                 yellow-refine-fg))
+        (setq highlight-parentheses-background-colors (list bg-cyan-intense
+                                                            bg-magenta-intense
+                                                            bg-green-intense
+                                                            bg-yellow-intense)
+              highlight-parentheses-colors (list cyan
+                                                 magenta
+                                                 green
+                                                 yellow))
 
       ;; And here we pass only foreground colors while disabling any
       ;; backgrounds.
@@ -3368,14 +3368,14 @@ very high cost of degraded legibility.
 #+begin_src emacs-lisp
 (modus-themes-with-colors
   (custom-set-faces
-   `(mmm-cleanup-submode-face ((,c :background ,bg-yellow-refine)))
+   `(mmm-cleanup-submode-face ((,c :background ,bg-yellow-intense)))
    `(mmm-code-submode-face ((,c :background ,bg-inactive)))
-   `(mmm-comment-submode-face ((,c :background ,bg-blue-refine)))
-   `(mmm-declaration-submode-face ((,c :background ,bg-cyan-refine)))
+   `(mmm-comment-submode-face ((,c :background ,bg-blue-intense)))
+   `(mmm-declaration-submode-face ((,c :background ,bg-cyan-intense)))
    `(mmm-default-submode-face ((,c :background ,bg-dim)))
-   `(mmm-init-submode-face ((,c :background ,bg-magenta-refine)))
-   `(mmm-output-submode-face ((,c :background ,bg-red-refine)))
-   `(mmm-special-submode-face ((,c :background ,bg-green-refine)))))
+   `(mmm-init-submode-face ((,c :background ,bg-magenta-intense)))
+   `(mmm-output-submode-face ((,c :background ,bg-red-intense)))
+   `(mmm-special-submode-face ((,c :background ,bg-green-intense)))))
 #+end_src
 
 ** Note on prism.el
