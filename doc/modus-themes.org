@@ -3565,6 +3565,8 @@ instead of overlays.[fn::
 https://github.com/company-mode/company-mode/issues/1010][fn::
 https://github.com/tumashu/company-posframe/]
 
+Also consider the ~corfu~ package.
+
 ** Note on ERC escaped color sequences
 :properties:
 :custom_id: h:98bdf319-1e32-4469-8a01-771200fba65c
