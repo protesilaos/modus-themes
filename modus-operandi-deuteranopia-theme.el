@@ -100,13 +100,6 @@ standard).")
 
 ;;; Uncommon accent foregrounds
 
-      (amaranth   "#d3303a")
-      (amber      "#a45f22")
-      (turquoise  "#008858")
-      (azure      "#375cd8")
-      (purple     "#6052cf")
-      (amethyst   "#ba35af")
-      (rose       "#d50f7f")
       (rust       "#8a290f")
       (gold       "#80601f")
       (olive      "#56692d")
@@ -219,7 +212,7 @@ standard).")
       (identifier yellow-faint)
       (prompt blue)
 
-      (err amber)
+      (err yellow-warmer)
       (warning yellow-cooler)
       (info blue)
 

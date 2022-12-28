@@ -1449,8 +1449,8 @@ to subdue them.
 
 ;; Increase intensity
 (setq modus-themes-common-palette-overrides
-      '((prose-done green-intense)   ; OR replace `green-intense' with `turquoise'
-        (prose-todo red-intense)))   ; OR replace `red-intense' with `amaranth'
+      '((prose-done green-intense)
+        (prose-todo red-intense)))
 
 ;; Tone down intensity
 (setq modus-themes-common-palette-overrides
