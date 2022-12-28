@@ -1147,9 +1147,10 @@ naming scheme: =HUE{,-warmer,-cooler,-faint,-intense}=.  =HUE= is one
 of the six basic colors: red, green, blue, yellow, magenta, cyan.
 
 Named colors that are meant to be used as backgrounds contain =bg= in
-their name, such as =bg-red=.  While special purpose foregrounds that
-are meant to be combined with such backgrounds, contain =fg= in their
-name, such as =fg-removed= which complements =bg-removed=.
+their name, such as =bg-red-intense=.  While special purpose
+foregrounds that are meant to be combined with such backgrounds,
+contain =fg= in their name, such as =fg-removed= which complements
+=bg-removed=.
 
 Named colors can be previewed, such as with the command
 ~modus-themes-list-colors~ ([[#h:f4d4b71b-2ca5-4c3d-b0b4-9bfd7aa7fb4d][Preview theme colors]]).
