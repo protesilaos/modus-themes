@@ -1778,116 +1778,41 @@ For a more elaborate design, it is better to inspect the source code of
 :properties:
 :custom_id: h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae
 :end:
+#+cindex: Use colors from the palette anywhere
+
+Note that users most probably do not need the following.  Just rely on
+the comprehensive overrides we provide ([[#h:34c7a691-19bb-4037-8d2f-67a07edab150][Option for palette overrides]]).
+
 #+findex: modus-themes-with-colors
-#+cindex: Extracting colors en masse
-
-The ~modus-themes-with-colors~ macro lets you retrieve multiple color
-values by employing the backquote/backtick and comma notation.  The
-values are stored in the alists ~modus-themes-operandi-colors~ and
-~modus-themes-vivendi-colors~, while the macro always queries that of the
-active Modus theme (preview the current palette with the command
-~modus-themes-list-colors~).
-
-[[#h:f4d4b71b-2ca5-4c3d-b0b4-9bfd7aa7fb4d][Visualize the active Modus theme's palette]].
-
-Here is an abstract example that just returns a list of color values
-while ~modus-operandi~ is enabled:
+Advanced users may want to apply colors from the palette of the active
+Modus theme in their custom code.  The ~modus-themes-with-colors~
+macro supplies those to any form called inside of it.  For example:
 
 #+begin_src emacs-lisp
 (modus-themes-with-colors
-  (list fg-main
-        blue-faint
-        magenta
-        magenta-alt-other
-        cyan-alt-other
-        fg-special-cold
-        blue-alt
-        magenta-faint
-        cyan
-        fg-main
-        green-faint
-        red-alt-faint
-        blue-alt-faint
-        fg-special-warm
-        cyan-alt
-        blue))
-;; =>
-;; ("#000000" "#002f88" "#721045" "#5317ac"
-;;  "#005a5f" "#093060" "#2544bb" "#752f50"
-;;  "#00538b" "#000000" "#104410" "#702f00"
-;;  "#003f78" "#5d3026" "#30517f" "#0031a9")
+  (list blue-warmer magenta-cooler fg-added warning variable fg-heading-4))
+;; => ("#354fcf" "#531ab6" "#005000" "#884900" "#005e8b" "#721045")
 #+end_src
 
-Getting a list of colors may have its applications, though what you are
-most likely interested in is how to use those variables to configure
-several faces at once.  To do so we can rely on the built-in
-~custom-set-faces~ function, which sets face specifications for the
-special ~user~ theme.  That "theme" gets applied on top of regular themes
-like ~modus-operandi~ and ~modus-vivendi~.
-
-This is how it works:
-
-#  TODO 2022-12-15: Revise DIY code that references the mode line.
+The above return value is for ~modus-operandi~ when that is the active
+theme.  Switching to another theme and evaluating this code anew will
+give us the relevant results for that theme (remember that since
+version 4, the Modus themes collection consists of six items).  The
+same with ~modus-vivendi~ as the active theme:
 
 #+begin_src emacs-lisp
 (modus-themes-with-colors
-  (custom-set-faces
-   `(cursor ((,c :background ,blue)))
-   `(mode-line ((,c :background ,yellow-nuanced-bg
-                        :foreground ,yellow-nuanced-fg)))
-   `(mode-line-inactive ((,c :background ,blue-nuanced-bg
-                                 :foreground ,blue-nuanced-fg)))))
+  (list blue-warmer magenta-cooler fg-added warning variable fg-heading-4))
+;; => ("#79a8ff" "#b6a0ff" "#a0e0a0" "#fec43f" "#00d3d0" "#feacd0")
 #+end_src
 
-The above snippet will immediately refashion the faces it names once it
-is evaluated.  However, if you switch between the Modus themes, say,
-from ~modus-operandi~ to ~modus-vivendi~, the colors will not get updated to
-match those of the new theme.  To make things work across the themes, we
-need to employ the same technique we discussed in the previous section,
-namely, to pass our changes at the post-theme-load phase via a hook.
+The ~modus-themes-with-colors~ has access to the whole palette of the
+active theme, meaning that it can instantiate both (i) named colors
+like =blue-warmer= and (ii) semantic color mappings like =warning=.
+We provide commands to inspect those ([[#h:f4d4b71b-2ca5-4c3d-b0b4-9bfd7aa7fb4d][Preview theme colors]]).
 
-The themes provide the ~modus-themes-after-load-theme-hook~, which
-gets called from the ~modus-themes-load-theme~ function as well as the
-command ~modus-themes-toggle~.  With this knowledge, you can wrap the
-macro in a function and then assign that function to the hook.  Thus:
-
-#+begin_src emacs-lisp
-(defun my-modus-themes-custom-faces ()
-  (modus-themes-with-colors
-    (custom-set-faces
-     `(cursor ((,c :background ,blue)))
-     `(mode-line ((,c :background ,yellow-nuanced-bg
-                          :foreground ,yellow-nuanced-fg)))
-     `(mode-line-inactive ((,c :background ,blue-nuanced-bg
-                                   :foreground ,blue-nuanced-fg))))))
-
-(add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
-#+end_src
-
-[[#h:86f6906b-f090-46cc-9816-1fe8aeb38776][A theme-agnostic hook for theme loading]].
-
-To discover the faces defined by all loaded libraries, you may do
-{{{kbd(M-x list-faces-display)}}}.  Be warned that when you ~:inherit~ a face
-you are introducing an implicit dependency, so try to avoid doing so for
-libraries other than the built-in {{{file(faces.el)}}} (or at least understand
-that things may break if you inherit from a yet-to-be-loaded face).
-
-Also bear in mind that these examples are meant to work with the Modus
-themes.  If you are cycling between multiple themes you may encounter
-unforeseen issues, such as the colors of the Modus themes being applied
-to a non-Modus item.
-
-Finally, note that you can still use other functions where those make
-sense.  For example, the ~modus-themes-color-alts~ that was discussed in
-the previous section.  Adapt the above example like this:
-
-#+begin_src emacs-lisp
-...
-(modus-themes-with-colors
-  (custom-set-faces
-   `(cursor ((,c :background ,(modus-themes-color-alts 'blue 'green))))
-   ...))
-#+end_src
+Others sections in this manual show how to use the aforementioned
+macro ([[#h:f4651d55-8c07-46aa-b52b-bed1e53463bb][Advanced customization]]).
 
 ** Remap face with local value
 :properties:
