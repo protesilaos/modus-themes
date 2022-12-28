@@ -632,8 +632,6 @@ have a bold weight and a colored foreground.  The list of
 properties may include any of the following symbols regardless of
 the order they may appear in:
 
-- `background' to add a background color;
-
 - `underline' to draw a line below the characters;
 
 - `italic' to use a slanted font (italic or oblique forms);
@@ -649,9 +647,6 @@ interface.  When its properties are nil or an empty list, it has
 a subtle gray background, a bold weight, and the base foreground
 value for the text.  The list of properties it accepts is as
 follows (order is not significant):
-
-- `text-also' to apply extra color to the text of the selected
-  line, if supported by the completion User Interface;
 
 - `underline' to draw a line below the characters;
 
@@ -674,18 +669,7 @@ Is the same as:
 
     (setq modus-themes-completions
           (quote ((matches . (extrabold underline))
-                  (selection . (extrabold underline)))))
-
-In the case of the catch-all, any property that does not apply to
-the corresponding key is simply ignored (`matches' does not have
-`text-also', while `selection' does not have `background').
-
-Check the manual for tweaking `bold' and `italic' faces: Info
-node `(modus-themes) Configure bold and italic faces'.
-
-Also refer to the documentation of the `orderless' package for
-its intersection with `company' (if you choose to use those in
-tandem)."
+                  (selection . (extrabold underline)))))"
   :group 'modus-themes
   :package-version '(modus-themes . "4.0.0")
   :version "30.1"
@@ -694,14 +678,12 @@ tandem)."
                 (const matches)
                 (set :tag "Style of matches" :greedy t
                      ,modus-themes--weight-widget
-                     (const :tag "With added background" background)
                      (const :tag "Italic font (oblique or slanted forms)" italic)
                      (const :tag "Underline" underline)))
           (cons :tag "Selection"
                 (const selection)
                 (set :tag "Style of selection" :greedy t
                      ,modus-themes--weight-widget
-                     (const :tag "Apply color to the line's text" text-also)
                      (const :tag "Italic font (oblique or slanted forms)" italic)
                      (const :tag "Underline" underline))))
   :set #'modus-themes--set-option
@@ -1371,8 +1353,8 @@ Optional OL is the color of an overline."
           :foreground fg
           :extend (if gray t 'unspecified))))
 
-(defun modus-themes--completion-line (bg fg)
-  "Styles for `modus-themes-completions' with BG and FG colors."
+(defun modus-themes--completion-line (bg)
+  "Styles for `modus-themes-completions' with BG as the background."
   (let* ((var (modus-themes--list-or-warn 'modus-themes-completions))
          (properties (or (alist-get 'selection var) (alist-get t var)))
          (italic (memq 'italic properties))
@@ -1388,10 +1370,7 @@ Optional OL is the color of an overline."
       (italic 'bold-italic)
       ('bold))
      :background bg
-     :foreground
-     (if (memq 'text-also properties)
-         fg
-       'unspecified)
+     :foreground 'unspecified
      :underline
      (if (memq 'underline properties) t 'unspecified)
      :weight
@@ -1414,10 +1393,8 @@ FG and BG are the main colors."
        'unspecified)
       (italic 'bold-italic)
       ('bold))
-     :background
-     (if (memq 'background properties) bg 'unspecified)
-     :foreground
-     fg
+     :background bg
+     :foreground fg
      :underline
      (if (memq 'underline properties) t 'unspecified)
      :weight
@@ -1519,11 +1496,11 @@ is a less intense variant of BG."
     `(modus-themes-search-current ((,c :background ,bg-yellow-intense :foreground ,fg-main)))
     `(modus-themes-search-lazy ((,c :background ,bg-cyan-intense :foreground ,fg-main)))
 ;;;;; completion frameworks
-    `(modus-themes-completion-selected ((,c ,@(modus-themes--completion-line bg-completion fg-main))))
     `(modus-themes-completion-match-0 ((,c ,@(modus-themes--completion-match fg-completion-match-0 bg-completion-match-0))))
     `(modus-themes-completion-match-1 ((,c ,@(modus-themes--completion-match fg-completion-match-1 bg-completion-match-1))))
     `(modus-themes-completion-match-2 ((,c ,@(modus-themes--completion-match fg-completion-match-2 bg-completion-match-2))))
     `(modus-themes-completion-match-3 ((,c ,@(modus-themes--completion-match fg-completion-match-3 bg-completion-match-3))))
+    `(modus-themes-completion-selected ((,c ,@(modus-themes--completion-line bg-completion))))
 ;;;;; typography
     `(modus-themes-bold ((,c ,@(modus-themes--bold-weight))))
     `(modus-themes-fixed-pitch ((,c ,@(modus-themes--fixed-pitch))))

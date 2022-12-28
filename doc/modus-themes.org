@@ -744,8 +744,6 @@ matching characters in the user interface will have a bold weight and
 a colored foreground.  The list of properties may include any of the
 following symbols regardless of the order they may appear in:
 
-- ~background~ to add a background color;
-
 - ~underline~ to draw a line below the characters;
 
 - ~italic~ to use a slanted font (italic or oblique forms);
@@ -760,9 +758,6 @@ candidate, depending on the specifics of the user interface.  When its
 properties are nil or an empty list, it has a subtle gray background,
 a bold weight, and the base foreground value for the text.  The list
 of properties it accepts is as follows (order is not significant):
-
-- ~text-also~ to apply extra color to the text of the selected
-  line, if supported by the completion User Interface;
 
 - ~underline~ to draw a line below the characters;
 
@@ -790,18 +785,6 @@ Is the same as:
       '((matches . (extrabold underline))
         (selection . (extrabold underline))))
 #+end_src
-
-In the case of the catch-all, any property that does not apply to the
-corresponding key is simply ignored (~matches~ does not have
-~text-also~, while ~selection~ does not have ~background~).
-
-Check the manual for tweaking ~bold~ and ~italic~ faces: Info node
-~(modus-themes) Configure bold and italic faces~.
-
-[[#h:2793a224-2109-4f61-a106-721c57c01375][Configure bold and italic faces]].
-
-Also refer to the documentation of the ~orderless~ package for its
-intersection with ~company~ (if you choose to use those in tandem).
 
 ** Option for active region
 :properties:
