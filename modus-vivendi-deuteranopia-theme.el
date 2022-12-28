@@ -99,13 +99,13 @@ standard).")
 
 ;;; Uncommon accent foregrounds
 
-      (rust       "#cf6f5c")
-      (gold       "#bf8f5b")
-      (olive      "#8ab960")
-      (slate      "#669fbf")
-      (indigo     "#9080d9")
-      (maroon     "#cf7aa7")
-      (pink       "#e0a5b4")
+      (rust       "#db7b5f")
+      (gold       "#c0965b")
+      (olive      "#9cbd6f")
+      (slate      "#76afbf")
+      (indigo     "#9099d9")
+      (maroon     "#cf7fa7")
+      (pink       "#d09dc0")
 
 ;;; Common accent backgrounds
 
