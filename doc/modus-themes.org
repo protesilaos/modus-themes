@@ -4051,13 +4051,17 @@ in which you can contribute to their ongoing development.
 :end:
 #+cindex: Sources of the themes
 
-The ~modus-operandi~ and ~modus-vivendi~ themes are built into Emacs 28.
-
-The source code of the themes is [[https://git.sr.ht/~protesilaos/modus-themes][available on SourceHut]].  Or check the
-[[https://gitlab.com/protesilaos/modus-themes/][GitLab mirror (former main source)]] and the [[https://github.com/protesilaos/modus-themes/][GitHub mirror]].
-
-An HTML version of this manual is provided as an extension of the
-[[https://protesilaos.com/emacs/modus-themes/][author's personal website]] (does not rely on any non-free code).
++ Package name (GNU ELPA): ~modus-themes~
++ Official manual: <https://protesilaos.com/emacs/modus-themes>
++ Change log: <https://protesilaos.com/emacs/modus-themes-changelog>
++ Colour palette: <https://protesilaos.com/emacs/modus-themes-colors>
++ Sample pictures: <https://protesilaos.com/emacs/modus-themes-pictures>
++ Git repo on SourceHut: <https://git.sr.ht/~protesilaos/modus-themes>
+  - Mirrors:
+    + GitHub: <https://github.com/protesilaos/modus-themes>
+    + GitLab: <https://gitlab.com/protesilaos/modus-themes>
++ Mailing list: <https://lists.sr.ht/~protesilaos/modus-themes>
++ Backronym: My Old Display Unexpectedly Sharpened ... themes
 
 ** Issues you can help with
 :properties:
