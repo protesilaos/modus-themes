@@ -1652,7 +1652,7 @@ the background).  It thus falls back to the closest approximation, which
 seldom is appropriate for the purposes of the Modus themes.
 
 In such a case, the user is expected to update their terminal's color
-palette such as by adapting these resources:
+palette such as by adapting these resources ([[#h:f4d4b71b-2ca5-4c3d-b0b4-9bfd7aa7fb4d][Preview theme colors]]):
 
 #+begin_src emacs-lisp
 ! Theme: modus-operandi
