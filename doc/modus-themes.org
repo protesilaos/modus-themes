@@ -73,7 +73,7 @@ minimum rate of distance in relative luminance of 7:1.
 The Modus themes consist of six themes, divided into three subgroups.
 
 - Main themes :: ~modus-operandi~ is the project's main light theme,
-  while ~modus-vivendi~ is its dark counterpart.  Those two themes are
+  while ~modus-vivendi~ is its dark counterpart.  These two themes are
   part of the project since its inception.  They are designed to cover
   a broad range of needs and are, in the opinion of the author, the
   reference for what a highly legible "default" theme should look
