@@ -21,14 +21,15 @@
 
 #+texinfo: @insertcopying
 
-This manual, written by Protesilaos Stavrou, describes the customization
-options for the ~modus-operandi~ and ~modus-vivendi~ themes, and provides
-every other piece of information pertinent to them.
+This manual, written by Protesilaos Stavrou, describes the
+customization options for the ~modus-operandi~ and ~modus-vivendi~
+themes, and provides every other piece of information pertinent to
+them.
 
 The documentation furnished herein corresponds to stable version
-{{{stable-version}}}, released on {{{release-date}}}.  Any reference to a newer
-feature which does not yet form part of the latest tagged commit, is
-explicitly marked as such.
+{{{stable-version}}}, released on {{{release-date}}}.  Any reference
+to a newer feature which does not yet form part of the latest tagged
+commit, is explicitly marked as such.
 
 Current development target is {{{development-version}}}.
 
