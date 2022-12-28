@@ -3368,14 +3368,14 @@ very high cost of degraded legibility.
 #+begin_src emacs-lisp
 (modus-themes-with-colors
   (custom-set-faces
-   `(mmm-cleanup-submode-face ((,c :background ,yellow-refine-bg)))
-   `(mmm-code-submode-face ((,c :background ,bg-active)))
-   `(mmm-comment-submode-face ((,c :background ,blue-refine-bg)))
-   `(mmm-declaration-submode-face ((,c :background ,cyan-refine-bg)))
-   `(mmm-default-submode-face ((,c :background ,bg-alt)))
-   `(mmm-init-submode-face ((,c :background ,magenta-refine-bg)))
-   `(mmm-output-submode-face ((,c :background ,red-refine-bg)))
-   `(mmm-special-submode-face ((,c :background ,green-refine-bg)))))
+   `(mmm-cleanup-submode-face ((,c :background ,bg-yellow-refine)))
+   `(mmm-code-submode-face ((,c :background ,bg-inactive)))
+   `(mmm-comment-submode-face ((,c :background ,bg-blue-refine)))
+   `(mmm-declaration-submode-face ((,c :background ,bg-cyan-refine)))
+   `(mmm-default-submode-face ((,c :background ,bg-dim)))
+   `(mmm-init-submode-face ((,c :background ,bg-magenta-refine)))
+   `(mmm-output-submode-face ((,c :background ,bg-red-refine)))
+   `(mmm-special-submode-face ((,c :background ,bg-green-refine)))))
 #+end_src
 
 ** Note on prism.el
