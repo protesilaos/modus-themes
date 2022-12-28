@@ -3949,7 +3949,7 @@ it is already understood that one must follow the indicator or headline
 to view its contents and (ii) underlining everything would make the
 interface virtually unusable.
 
-[[#h:5808be52-361a-4d18-88fd-90129d206f9b][Option for links]].
+# TODO 2022-12-28: Review FAQ
 
 Again, one must exercise judgement in order to avoid discrimination,
 where "discrimination" refers to:
