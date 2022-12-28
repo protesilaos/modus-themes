@@ -236,14 +236,10 @@ which corresponds to a minimum contrast in relative luminance of
 
 ;;;;; Accent mappings
 
-      (fg-accent-0 blue)
-      (fg-accent-1 magenta-warmer)
-      (fg-accent-2 cyan)
-      (fg-accent-3 red)
-      (bg-accent-0 bg-blue-subtle)
-      (bg-accent-1 bg-magenta-subtle)
-      (bg-accent-2 bg-cyan-subtle)
-      (bg-accent-3 bg-red-subtle)
+      (accent-0 blue)
+      (accent-1 magenta-warmer)
+      (accent-2 cyan)
+      (accent-3 red)
 
 ;;;;; Button mappings
 
@@ -251,6 +247,17 @@ which corresponds to a minimum contrast in relative luminance of
       (fg-button-inactive fg-dim)
       (bg-button-active bg-active)
       (bg-button-inactive bg-dim)
+
+;;;;; Completion mappings
+
+      (fg-completion-match-0 blue)
+      (fg-completion-match-1 magenta-warmer)
+      (fg-completion-match-2 cyan)
+      (fg-completion-match-3 red)
+      (bg-completion-match-0 unspecified)
+      (bg-completion-match-1 unspecified)
+      (bg-completion-match-2 unspecified)
+      (bg-completion-match-3 unspecified)
 
 ;;;;; Date mappings
 

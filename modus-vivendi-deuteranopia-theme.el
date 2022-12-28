@@ -237,14 +237,10 @@ standard).")
 
 ;;;;; Accent mappings
 
-      (fg-accent-0 blue-cooler)
-      (fg-accent-1 yellow)
-      (fg-accent-2 cyan-cooler)
-      (fg-accent-3 magenta-warmer)
-      (bg-accent-0 bg-blue-subtle)
-      (bg-accent-1 bg-yellow-subtle)
-      (bg-accent-2 bg-cyan-subtle)
-      (bg-accent-3 bg-magenta-subtle)
+      (accent-0 blue-cooler)
+      (accent-1 yellow)
+      (accent-2 cyan-cooler)
+      (accent-3 magenta-warmer)
 
 ;;;;; Button mappings
 
@@ -252,6 +248,17 @@ standard).")
       (fg-button-inactive fg-dim)
       (bg-button-active bg-active)
       (bg-button-inactive bg-dim)
+
+;;;;; Completion mappings
+
+      (fg-completion-match-0 blue-cooler)
+      (fg-completion-match-1 yellow)
+      (fg-completion-match-2 cyan-cooler)
+      (fg-completion-match-3 magenta-warmer)
+      (bg-completion-match-0 unspecified)
+      (bg-completion-match-1 unspecified)
+      (bg-completion-match-2 unspecified)
+      (bg-completion-match-3 unspecified)
 
 ;;;;; Date mappings
 
