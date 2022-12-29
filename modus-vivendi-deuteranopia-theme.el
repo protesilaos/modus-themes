@@ -363,12 +363,16 @@ standard).")
       (overline-heading-7 unspecified)
       (overline-heading-8 unspecified))
     "The entire palette of the `modus-vivendi-deuteranopia' theme.
-Color values have the form (COLOR-NAME HEX-VALUE) with the former
+
+Named colors have the form (COLOR-NAME HEX-VALUE) with the former
 as a symbol and the latter as a string.
 
 Semantic color mappings have the form (MAPPING-NAME COLOR-NAME)
-with both as symbols.  The latter is a color that already exists
-in the palette and is associated with a HEX-VALUE.")
+with both as symbols.  The latter is a named color that already
+exists in the palette and is associated with a HEX-VALUE.
+
+Semantic color mappings cannot be recursive: their value must be
+either COLOR-NAME or HEX-VALUE.")
 
   (defcustom modus-vivendi-deuteranopia-palette-overrides nil
     "Overrides for `modus-vivendi-deuteranopia-palette'.

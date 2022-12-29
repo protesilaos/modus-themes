@@ -1054,6 +1054,8 @@ values and semantic color mappings:
   given named color from the palette, like =(heading-2 yellow-faint)=.
   Both elements of the list are symbols, though the ~cadr~ (value) can
   be a string that specifies a color, such as =(heading-2 "#354fcf")=.
+  Semantic color mappings cannot be recursive: their value must be
+  either a named color or a hexadecimal RGB value.
 
 #+vindex: modus-themes-common-palette-overrides
 Both of those subsets can be overridden, thus refashioning the theme.
@@ -1127,8 +1129,8 @@ For example, the ~modus-operandi-palette~ is like this:
       ))
 #+end_src
 
-The ~modus-operandi-palette-overrides~ target the entries that need to
-be changed.  For example, to make the main foreground colour a dark
+The ~modus-operandi-palette-overrides~ targets the entries that need
+to be changed.  For example, to make the main foreground colour a dark
 gray instead of pure black, use a shade of red for comments, and apply
 a cyan hue to keywords:
 
@@ -4318,7 +4320,8 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Utkarsh Singh, Vincent Foley.  As well as users: Ben, CsBigDataHub1,
   Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji, Nick, Summer
   Emacs, TheBlob42, Trey, bepolymathe, bit9tream, derek-upham, doolio,
-  fleimgruber, gitrj95, iSeeU, jixiuf, okamsn, pRot0ta1p, wakamenod.
+  fleimgruber, gitrj95, iSeeU, jixiuf, okamsn, pRot0ta1p, tumashu,
+  wakamenod.
 
 + Packaging :: Basil L.{{{space()}}} Contovounesios, Eli Zaretskii,
   Glenn Morris, Mauro Aranda, Richard Stallman, Stefan Kangas (core
