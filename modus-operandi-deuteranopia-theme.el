@@ -320,6 +320,18 @@ standard).")
       (prose-todo yellow-warmer)
       (prose-verbatim magenta-warmer)
 
+;;;;; Rainbow mappings
+
+      (rainbow-0 blue)
+      (rainbow-1 yellow)
+      (rainbow-2 blue-warmer)
+      (rainbow-3 yellow-cooler)
+      (rainbow-4 blue-cooler)
+      (rainbow-5 yellow-warmer)
+      (rainbow-6 blue-faint)
+      (rainbow-7 yellow-faint)
+      (rainbow-8 cyan)
+
 ;;;;; Heading mappings
 
       (fg-heading-0 cyan-cooler)

@@ -892,7 +892,17 @@ represents."
     (prose-macro indigo)
     (prose-tag rust)
     (prose-todo red-faint)
-    (prose-verbatim maroon))
+    (prose-verbatim maroon)
+
+    (rainbow-0 fg-main)
+    (rainbow-1 magenta)
+    (rainbow-2 cyan)
+    (rainbow-3 red-faint)
+    (rainbow-4 yellow-faint)
+    (rainbow-5 magenta-cooler)
+    (rainbow-6 green)
+    (rainbow-7 blue-warmer)
+    (rainbow-8 magenta-faint))
   "Preset for palette overrides with faint coloration.
 
 This changes many parts of the theme to make them look less
@@ -3178,15 +3188,15 @@ is a less intense variant of BG."
 ;;;;; rainbow-delimiters
     `(rainbow-delimiters-base-error-face ((,c :inherit modus-themes-subtle-red)))
     `(rainbow-delimiters-base-face ((,c :foreground ,fg-main)))
-    `(rainbow-delimiters-depth-1-face ((,c :foreground ,fg-main)))
-    `(rainbow-delimiters-depth-2-face ((,c :foreground ,magenta-intense)))
-    `(rainbow-delimiters-depth-3-face ((,c :foreground ,cyan-intense)))
-    `(rainbow-delimiters-depth-4-face ((,c :foreground ,red-warmer)))
-    `(rainbow-delimiters-depth-5-face ((,c :foreground ,yellow-intense)))
-    `(rainbow-delimiters-depth-6-face ((,c :foreground ,magenta-cooler)))
-    `(rainbow-delimiters-depth-7-face ((,c :foreground ,green-intense)))
-    `(rainbow-delimiters-depth-8-face ((,c :foreground ,blue-warmer)))
-    `(rainbow-delimiters-depth-9-face ((,c :foreground ,magenta-warmer)))
+    `(rainbow-delimiters-depth-1-face ((,c :foreground ,rainbow-0)))
+    `(rainbow-delimiters-depth-2-face ((,c :foreground ,rainbow-1)))
+    `(rainbow-delimiters-depth-3-face ((,c :foreground ,rainbow-2)))
+    `(rainbow-delimiters-depth-4-face ((,c :foreground ,rainbow-3)))
+    `(rainbow-delimiters-depth-5-face ((,c :foreground ,rainbow-4)))
+    `(rainbow-delimiters-depth-6-face ((,c :foreground ,rainbow-5)))
+    `(rainbow-delimiters-depth-7-face ((,c :foreground ,rainbow-6)))
+    `(rainbow-delimiters-depth-8-face ((,c :foreground ,rainbow-7)))
+    `(rainbow-delimiters-depth-9-face ((,c :foreground ,rainbow-8)))
     `(rainbow-delimiters-mismatched-face ((,c :inherit (bold modus-themes-intense-yellow))))
     `(rainbow-delimiters-unmatched-face ((,c :inherit (bold modus-themes-intense-red))))
 ;;;;; rcirc
