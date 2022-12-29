@@ -808,10 +808,10 @@ represents."
 
 (defvar modus-themes-preset-overrides-faint
   '((bg-completion       bg-inactive)
-    (bg-hover            bg-cyan)
+    (bg-hover            bg-cyan-subtle)
     (bg-hover-secondary  bg-magenta-subtle)
     (bg-hl-line          bg-dim)
-    (bg-paren-match      bg-cyan)
+    (bg-paren-match      bg-cyan-subtle)
     (bg-region           bg-active)
 
     (bg-mode-line-active        bg-inactive)
@@ -913,8 +913,8 @@ Info node `(modus-themes) Option for palette overrides'.")
   '((bg-region bg-cyan)
 
     (bg-completion       bg-cyan-subtle)
-    (bg-hover            bg-yellow)
-    (bg-hover-secondary  bg-magenta)
+    (bg-hover            bg-yellow-intense)
+    (bg-hover-secondary  bg-magenta-intense)
     (bg-hl-line          bg-cyan-subtle)
 
     (bg-mode-line-active      bg-blue-subtle)
