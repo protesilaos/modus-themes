@@ -4278,8 +4278,8 @@ The Modus themes are a collective effort.  Every bit of work matters.
 
 + Author/maintainer :: Protesilaos Stavrou.
 
-+ Contributions to code or documentation :: Alex Griffin, Aleksei
-  Gusev, Anders Johansson, Antonio Ruiz, Basil L.{{{space()}}}
++ Contributions to code or documentation :: Aleksei Gusev, Alex
+  Griffin, Anders Johansson, Antonio Ruiz, Basil L.{{{space()}}}
   Contovounesios, Björn Lindström, Carlo Zancanaro, Christian Tietze,
   Daniel Mendler, Eli Zaretskii, Fritz Grabo, Illia Ostapyshyn, Kévin
   Le Gouguec, Koen van Greevenbroek, Kostadin Ninev, Madhavan
