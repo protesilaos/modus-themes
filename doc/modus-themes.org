@@ -1234,8 +1234,8 @@ set their color to that of the underlying background.
 ;; mappings, as we show below.
 
 (setq modus-themes-common-palette-overrides
-      '((border-mode-line-active bg-mode-line-active)
-        (border-mode-line-inactive bg-mode-line-inactive)))
+      '((border-mode-line-active unspecified)
+        (border-mode-line-inactive unspecified)))
 #+end_src
 
 **** Make the active mode line colorful
