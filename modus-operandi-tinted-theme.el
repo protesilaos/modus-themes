@@ -149,8 +149,6 @@ which corresponds to a minimum contrast in relative luminance of
       (bg-hover            "#94d4ff")
       (bg-hover-secondary  "#f5d0a0")
       (bg-hl-line          "#f1d5d0")
-      (bg-paren-match      "#7fdfcf")
-      (bg-paren-expression "#efd3f5")
       (bg-region           "#c2bcb5")
       (bg-region-subtle    "#d9f2c0")
 
@@ -195,6 +193,12 @@ which corresponds to a minimum contrast in relative luminance of
       (bg-removed-intense "#d84a4f")
       (fg-removed         "#8f1313")
       (fg-removed-intense "#aa2222")
+
+;;;; Paren match
+
+      (bg-paren-match        "#7fdfcf")
+      (bg-paren-expression   "#efd3f5")
+      (underline-paren-match unspecified)
 
 ;;;; Mappings
 

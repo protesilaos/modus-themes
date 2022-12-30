@@ -152,8 +152,6 @@ standard).")
       (bg-hover            "#97dfed")
       (bg-hover-secondary  "#f5d0a0")
       (bg-hl-line          "#d0d6ec")
-      (bg-paren-match      "#5fcfff")
-      (bg-paren-expression "#efd3f5")
       (bg-region           "#bcbcbc")
       (bg-region-subtle    "#f0e0cc")
 
@@ -198,6 +196,12 @@ standard).")
       (bg-removed-intense "#d7c20a")
       (fg-removed         "#553d00")
       (fg-removed-intense "#655000")
+
+;;;; Paren match
+
+      (bg-paren-match        "#5fcfff")
+      (bg-paren-expression   "#efd3f5")
+      (underline-paren-match unspecified)
 
 ;;;; Mappings
 
