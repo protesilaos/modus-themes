@@ -1200,6 +1200,27 @@ individual named color and to change how values are assigned to
 semantic color mappings ([[#h:34c7a691-19bb-4037-8d2f-67a07edab150][Option for palette overrides]]).  Subsequent
 sections provide examples ([[#h:df1199d8-eaba-47db-805d-6b568a577bf3][Stylistic variants using palette overrides]]).
 
+It is also possible to use those presets as a basis and, for example,
+add to them code from the subsequent sections of this manual.  This is
+the general idea (extra space for didactic purposes):
+
+#+begin_src emacs-lisp
+(setq modus-themes-common-palette-overrides
+      `(
+        ;; From the section "Make the mode line borderless"
+        (border-mode-line-active unspecified)
+        (border-mode-line-inactive unspecified)
+
+        ;; From the section "Make matching parenthesis more or less intense"
+        (bg-paren-match bg-magenta-intense)
+        (underline-paren-match fg-main)
+
+        ;; And expand the preset here.  Note that the ,@ works because
+        ;; we use the backtick for this list, instead of a straight
+        ;; quote.
+        ,@modus-themes-preset-overrides-intense))
+#+end_src
+
 *** Stylistic variants using palette overrides
 :PROPERTIES:
 :CUSTOM_ID: h:df1199d8-eaba-47db-805d-6b568a577bf3
