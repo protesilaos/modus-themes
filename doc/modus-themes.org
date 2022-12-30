@@ -1193,6 +1193,8 @@ set their color to that of the underlying background.
 
 [[#h:e8d781be-eefc-4a81-ac4e-5ed156190df7][Make the active mode line colorful]].
 
+[[#h:5a0c58cc-f97f-429c-be08-927b9fbb0a9c][Add padding to mode line]].
+
 #+begin_src emacs-lisp
 ;; These overrides are common to all Modus themes.  We also provide
 ;; theme-specific options, such as `modus-operandi-palette-overrides'.
@@ -1254,6 +1256,8 @@ have a blue mode line for ~modus-operandi~ and a red one for
 ~modus-vivendi~.
 
 [[#h:80ddba52-e188-411f-8cc0-480ebd75befe][Make the mode line borderless]].
+
+[[#h:5a0c58cc-f97f-429c-be08-927b9fbb0a9c][Add padding to mode line]].
 
 #+begin_src emacs-lisp
 ;; These overrides are common to all Modus themes.  We also provide
@@ -2202,6 +2206,64 @@ We provide commands to inspect those ([[#h:f4d4b71b-2ca5-4c3d-b0b4-9bfd7aa7fb4d]
 
 Others sections in this manual show how to use the aforementioned
 macro ([[#h:f4651d55-8c07-46aa-b52b-bed1e53463bb][Advanced customization]]).
+
+** Add padding to mode line
+:PROPERTIES:
+:CUSTOM_ID: h:5a0c58cc-f97f-429c-be08-927b9fbb0a9c
+:END:
+
+Emacs faces do not have a concept of "padding" for the space between
+the text and its box boundaries.  We can approximate the effect by
+adding a =:box= attribute, making its border several pixels thick, and
+using the mode line's background color for it.  This way the thick
+border will not stand out and will appear as a continuation of the
+mode line.
+
+[[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Use theme colors in code with modus-themes-with-colors]].
+
+#+begin_src emacs-lisp
+(defun my-modus-themes-custom-faces ()
+  (modus-themes-with-colors
+    (custom-set-faces
+     ;; Add "padding" to the mode lines
+     `(mode-line ((,c :box (:line-width 10 :color ,bg-mode-line-active))))
+     `(mode-line-inactive ((,c :box (:line-width 10 :color ,bg-mode-line-inactive)))))))
+
+(add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
+#+end_src
+
+The above has the effect of removing the border around the mode lines.
+In older versions of the themes, we provided the option for a padded
+mode line which could also have borders around it.  Those were not
+real border, however, but an underline and an overline.  Adjusting the
+above:
+
+#+begin_src emacs-lisp
+(defun my-modus-themes-custom-faces ()
+  (modus-themes-with-colors
+    (custom-set-faces
+     ;; Add "padding" to the mode lines
+     `(mode-line ((,c :underline ,border-mode-line-active
+                      :overline ,border-mode-line-active
+                      :box (:line-width 10 :color ,bg-mode-line-active))))
+     `(mode-line-inactive ((,c :underline ,border-mode-line-inactive
+                               :overline ,border-mode-line-inactive
+                               :box (:line-width 10 :color ,bg-mode-line-inactive)))))))
+
+;; ESSENTIAL to make the underline move to the bottom of the box:
+(setq x-underline-at-descent-line t)
+
+(add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
+#+end_src
+
+The reason we no longer provide this option is because it depends on a
+non-nil value for ~x-underline-at-descent-line~.  That variable
+affects ALL underlines, including those of links.  The effect is
+intrusive and looks awkard in prose.
+
+As such, the Modus themes no longer provide that option but instead
+offer this piece of documentation to make the user fully aware of the
+state of affairs.
 
 ** Remap face with local value
 :properties:
