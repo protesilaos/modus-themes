@@ -1514,6 +1514,36 @@ theme palette.
         (variable cyan-warmer)))
 #+end_src
 
+**** Make matching parenthesis more or less intense
+:PROPERTIES:
+:CUSTOM_ID: h:259cf8f5-48ec-4b13-8a69-5d6387094468
+:END:
+
+This is one of our practical examples to override the semantic colors
+of the Modus themes ([[#h:df1199d8-eaba-47db-805d-6b568a577bf3][Stylistic variants using palette overrides]]).  In
+this code block we show how to change the background of matching
+delimiters when ~show-paren-mode~ is enabled.  We also demonstrate how
+to enable underlines for those highlights.
+
+#+begin_src emacs-lisp
+;; These overrides are common to all Modus themes.  We also provide
+;; theme-specific options, such as `modus-operandi-palette-overrides'.
+;;
+;; In general, the theme-specific overrides are better for overriding
+;; color values, such as redefining what `blue-faint' looks like.  The
+;; common overrides are best used for changes to semantic color
+;; mappings, as we show below.
+
+;; Change the background to a shade of magenta
+(setq modus-themes-common-palette-overrides
+      '((bg-paren-match bg-magenta-intense)))
+
+;; Enable underlines by applying a color to them
+(setq modus-themes-common-palette-overrides
+      '((bg-paren-match bg-magenta-intense)
+        (underline-paren-match fg-main)))
+#+end_src
+
 **** Make box buttons more or less gray
 :PROPERTIES:
 :CUSTOM_ID: h:4f6b6ca3-f5bb-4830-8312-baa232305360
