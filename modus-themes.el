@@ -2985,7 +2985,7 @@ is a less intense variant of BG."
     `(org-agenda-date-weekend-today ((,c :inherit org-agenda-date-today :foreground ,date-weekend)))
     `(org-agenda-diary ((,c :inherit org-agenda-calendar-sexp)))
     `(org-agenda-dimmed-todo-face ((,c :inherit shadow)))
-    `(org-agenda-done ((,c :inherit success)))
+    `(org-agenda-done ((,c :inherit org-done)))
     `(org-agenda-filter-category ((,c :inherit bold :foreground ,modeline-err)))
     `(org-agenda-filter-effort ((,c :inherit bold :foreground ,modeline-err)))
     `(org-agenda-filter-regexp ((,c :inherit bold :foreground ,modeline-err)))
