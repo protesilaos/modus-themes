@@ -1926,6 +1926,75 @@ A third example that makes the agenda more blue:
         (date-weekend fg-dim)))
 #+end_src
 
+**** Make mail citations and headers more or less colorful
+:PROPERTIES:
+:CUSTOM_ID: h:7da7a4ad-5d3a-4f11-9796-5a1abed0f0c4
+:END:
+
+This is one of our practical examples to override the semantic colors
+of the Modus themes ([[#h:df1199d8-eaba-47db-805d-6b568a577bf3][Stylistic variants using palette overrides]]).  In
+this section we show how to change the coloration of email message
+headers and citations.  Before we show the code, this is the anatomy
+of a message:
+
+#+begin_example message
+From: Protesilaos <info@protesilaos.com>
+To: Modus-Themes Development <~protesilaos/modus-themes@lists.sr.ht>
+Subject: Test subject
+--- Headers above this line; message and citations below ---
+This is some sample text
+
+> > Older quote
+> Newer quote
+#+end_example
+
+We thus have the following:
+
+#+begin_src emacs-lisp
+;; These overrides are common to all Modus themes.  We also provide
+;; theme-specific options, such as `modus-operandi-palette-overrides'.
+;;
+;; In general, the theme-specific overrides are better for overriding
+;; color values, such as redefining what `blue-faint' looks like.  The
+;; common overrides are best used for changes to semantic color
+;; mappings, as we show below.
+
+
+;; Reduce the intensity of mail citations and headers
+(setq modus-themes-common-palette-overrides
+      '((mail-cite-0 cyan-faint)
+        (mail-cite-1 yellow-faint)
+        (mail-cite-2 green-faint)
+        (mail-cite-3 red-faint)
+        (mail-part olive)
+        (mail-recipient indigo)
+        (mail-subject maroon)
+        (mail-other slate)))
+
+;; Make mail citations more intense; adjust the headers accordingly
+(setq modus-themes-common-palette-overrides
+      '((mail-cite-0 blue)
+        (mail-cite-1 yellow)
+        (mail-cite-2 green)
+        (mail-cite-3 magenta)
+        (mail-part magenta-cooler)
+        (mail-recipient cyan)
+        (mail-subject red-warmer)
+        (mail-other cyan-cooler)))
+
+;; Make all citations faint and neutral; make most headers green but
+;; use red for the subject lie so that it stands out
+(setq modus-themes-common-palette-overrides
+      '((mail-cite-0 fg-dim)
+        (mail-cite-1 fg-alt)
+        (mail-cite-2 fg-dim)
+        (mail-cite-3 fg-alt)
+        (mail-part yellow-cooler)
+        (mail-recipient green-cooler)
+        (mail-subject red-cooler)
+        (mail-other green)))
+#+end_src
+
 * Advanced customization
 :properties:
 :custom_id: h:f4651d55-8c07-46aa-b52b-bed1e53463bb
