@@ -732,43 +732,7 @@ In user configuration files the form may look like this:
 (make-obsolete-variable 'modus-themes-paren-match nil "4.0.0")
 (make-obsolete-variable 'modus-themes-syntax nil "4.0.0")
 (make-obsolete-variable 'modus-themes-links nil "4.0.0")
-
-(defcustom modus-themes-region nil
-  "Control the overall style of the active region.
-
-The value is a list of properties, each designated by a symbol.
-The default (a nil value or an empty list) is a prominent gray
-background that overrides all foreground colors in the area it
-encompasses.  Its reach extends to the edge of the window.
-
-The `no-extend' property limits the region to the end of the
-line, so that it does not reach the edge of the window.
-
-The `bg-only' property makes the region's background color more
-subtle to allow the underlying text to retain its foreground
-colors.
-
-Combinations of properties are expressed as a list, like in these
-examples:
-
-    (no-extend)
-    (bg-only no-extend)
-
-The order in which the properties are set is not significant.
-
-In user configuration files the form may look like this:
-
-    (setq modus-themes-region (quote (bg-only no-extend)))"
-  :group 'modus-themes
-  :package-version '(modus-themes . "4.0.0")
-  :version "30.1"
-  :type '(set :tag "Properties" :greedy t
-              (const :tag "Do not extend to the edge of the window" no-extend)
-              (const :tag "Background only (preserve underlying colors)" bg-only))
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
-  :link '(info-link "(modus-themes) Active region"))
-
+(make-obsolete-variable 'modus-themes-region nil "4.0.0")
 (make-obsolete-variable 'modus-themes-deuteranopia nil "4.0.0")
 (make-obsolete-variable 'modus-themes-mail-citations nil "4.0.0")
 (make-obsolete-variable 'modus-themes-tabs-accented nil "4.0.0")
@@ -1409,20 +1373,6 @@ FG and BG are the main colors."
      :weight
      (if (and weight (null bold)) weight 'unspecified))))
 
-(defun modus-themes--region (bg fg bgsubtle)
-  "Apply `modus-themes-region' styles.
-
-BG and FG are the main values that are used by default.  BGSUBTLE
-is a less intense variant of BG."
-  (let* ((properties (modus-themes--list-or-warn 'modus-themes-region))
-         (bg-only (memq 'bg-only properties)))
-    (list :background
-          (if bg-only bgsubtle bg)
-          :foreground
-          (if bg-only 'unspecified fg)
-          :extend
-          (if (memq 'no-extend properties) nil t))))
-
 
 
 ;;;; Face specifications
@@ -1563,7 +1513,7 @@ is a less intense variant of BG."
     `(pgtk-im-0 ((,c :inherit modus-themes-intense-cyan)))
     `(read-multiple-choice-face ((,c :inherit (bold modus-themes-mark-alt))))
     `(rectangle-preview ((,c :inherit secondary-selection)))
-    `(region ((,c ,@(modus-themes--region bg-region fg-main bg-region-subtle))))
+    `(region ((,c :background ,bg-region :foreground ,fg-region)))
     `(secondary-selection ((,c :background ,bg-hover-secondary)))
     `(separator-line ((,c :underline ,bg-active)))
     `(shadow ((,c :foreground ,fg-dim)))

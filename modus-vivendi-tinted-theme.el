@@ -150,7 +150,7 @@ which corresponds to a minimum contrast in relative luminance of
       (bg-hover-secondary  "#654a39")
       (bg-hl-line          "#303a6f")
       (bg-region           "#555a66")
-      (bg-region-subtle    "#0f4f30")
+      (fg-region           "#ffffff")
 
       (bg-char-0 "#0050af")
       (bg-char-1 "#7f1f7f")
