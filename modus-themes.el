@@ -920,7 +920,7 @@ For overriding named colors and/or semantic color mappings read
 Info node `(modus-themes) Option for palette overrides'.")
 
 (defvar modus-themes-preset-overrides-intense
-  '((bg-region bg-cyan)
+  '((bg-region bg-cyan-intense)
 
     (bg-completion       bg-cyan-subtle)
     (bg-hover            bg-yellow-intense)
