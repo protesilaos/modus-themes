@@ -3579,7 +3579,7 @@ is a less intense variant of BG."
     `(vr/group-2 ((,c :inherit modus-themes-intense-green)))
     `(vr/match-0 ((,c :inherit modus-themes-intense-yellow)))
     `(vr/match-1 ((,c :inherit modus-themes-intense-yellow)))
-    `(vr/match-separator-face ((,c :inherit (modus-themes-intense-neutral bold))))
+    `(vr/match-separator-face ((,c :inherit bold :background ,bg-active)))
 ;;;;; vterm
     `(vterm-color-black ((,c :background "gray35" :foreground "gray35")))
     `(vterm-color-blue ((,c :background ,blue :foreground ,blue)))
