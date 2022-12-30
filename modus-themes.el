@@ -1496,9 +1496,9 @@ is a less intense variant of BG."
     `(modus-themes-lang-note ((,c :underline (:style wave :color ,underline-note))))
     `(modus-themes-lang-warning ((,c :underline (:style wave :color ,underline-warning))))
 ;;;;; markup
-    `(modus-themes-prose-code ((,c :foreground ,prose-code)))
-    `(modus-themes-prose-macro ((,c :foreground ,prose-macro)))
-    `(modus-themes-prose-verbatim ((,c :foreground ,prose-verbatim)))
+    `(modus-themes-prose-code ((,c :inherit modus-themes-fixed-pitch :foreground ,prose-code)))
+    `(modus-themes-prose-macro ((,c :inherit modus-themes-fixed-pitch :foreground ,prose-macro)))
+    `(modus-themes-prose-verbatim ((,c :inherit modus-themes-fixed-pitch :foreground ,prose-verbatim)))
 ;;;;; search
     `(modus-themes-search-current ((,c :background ,bg-yellow-intense :foreground ,fg-main)))
     `(modus-themes-search-lazy ((,c :background ,bg-cyan-intense :foreground ,fg-main)))
