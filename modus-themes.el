@@ -3875,7 +3875,8 @@ corresponding entries."
             ,@(mapcar (lambda (color)
                         (list color
                               `(let* ((value (car (alist-get ',color ,sym))))
-                                 (if (stringp value)
+                                 (if (or (stringp value)
+                                         (eq value 'unspecified))
                                      value
                                    (car (alist-get value ,sym))))))
                       colors))
