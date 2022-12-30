@@ -1936,6 +1936,44 @@ We thus have the following:
         (mail-other green)))
 #+end_src
 
+**** Make the region preserve text colors, plus other styles
+:PROPERTIES:
+:CUSTOM_ID: h:c8605d37-66e1-42aa-986e-d7514c3af6fe
+:END:
+
+This is one of our practical examples to override the semantic colors
+of the Modus themes ([[#h:df1199d8-eaba-47db-805d-6b568a577bf3][Stylistic variants using palette overrides]]).
+Here we show how to make the region respect the underlying text colors
+or how to make the background more/less intense while combining it
+with an appropriate foreground value.
+
+#+begin_src emacs-lisp
+;; These overrides are common to all Modus themes.  We also provide
+;; theme-specific options, such as `modus-operandi-palette-overrides'.
+;;
+;; In general, the theme-specific overrides are better for overriding
+;; color values, such as redefining what `blue-faint' looks like.  The
+;; common overrides are best used for changes to semantic color
+;; mappings, as we show below.
+
+
+;; A background with no specific foreground (use foreground of
+;; underlying text)
+(setq modus-themes-common-palette-overrides
+      '((bg-region bg-ochre) ; try to replace `bg-ochre' with `bg-lavender', `bg-sage'
+        (fg-region unspecified)))
+
+;; Subtle gray with a prominent blue foreground
+(setq modus-themes-common-palette-overrides
+      '((bg-region bg-dim)
+        (fg-region blue-cooler)))
+
+;; Intense magenta background combined with the main foreground
+(setq modus-themes-common-palette-overrides
+      '((bg-region bg-magenta-intense)
+        (fg-region fg-main)))
+#+end_src
+
 * Advanced customization
 :properties:
 :custom_id: h:f4651d55-8c07-46aa-b52b-bed1e53463bb
