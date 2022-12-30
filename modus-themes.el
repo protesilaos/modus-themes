@@ -1076,7 +1076,9 @@ symbol."
   "Return palette value of THEME with optional OVERRIDES."
   (let ((base-value (symbol-value (modus-themes--palette-symbol theme))))
     (if overrides
-        (append (symbol-value (modus-themes--palette-symbol theme :overrides)) base-value)
+        (append (symbol-value (modus-themes--palette-symbol theme :overrides))
+                modus-themes-common-palette-overrides
+                base-value)
       base-value)))
 
 (defun modus-themes--current-theme-palette (&optional overrides)
