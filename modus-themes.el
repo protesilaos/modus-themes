@@ -823,7 +823,7 @@ represents."
     (bg-tab-current  bg-main)
     (bg-tab-other    bg-active)
 
-    (fringe bg-main)
+    (fringe unspecified)
     (builtin maroon)
     (comment fg-dim)
     (constant blue-faint)

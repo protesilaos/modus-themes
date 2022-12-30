@@ -1266,6 +1266,40 @@ set their color to that of the underlying background.
         (border-mode-line-inactive unspecified)))
 #+end_src
 
+**** Make the fringe invisible or another color
+:PROPERTIES:
+:CUSTOM_ID: h:c312dcac-36b6-4a1f-b1f5-ab1c9abe27b0
+:END:
+
+This is one of our practical examples to override the semantic colors
+of the Modus themes ([[#h:df1199d8-eaba-47db-805d-6b568a577bf3][Stylistic variants using palette overrides]]).
+Here we show how to make the fringe invisible or how to assign to it a
+different color.  The "fringe" is a small area to the right and left
+side of the Emacs window which shows indicators such as for truncation
+or continuation lines.
+
+#+begin_src emacs-lisp
+;; These overrides are common to all Modus themes.  We also provide
+;; theme-specific options, such as `modus-operandi-palette-overrides'.
+;;
+;; In general, the theme-specific overrides are better for overriding
+;; color values, such as redefining what `blue-faint' looks like.  The
+;; common overrides are best used for changes to semantic color
+;; mappings, as we show below.
+
+;; Make the fringe invisible
+(setq modus-themes-common-palette-overrides
+      '((fringe unspecified)))
+
+;; Make the fringe more intense
+(setq modus-themes-common-palette-overrides
+      '((fringe bg-active)))
+
+;; Make the fringe colorful, but nuanced
+(setq modus-themes-common-palette-overrides
+      '((fringe bg-blue-nuanced)))
+#+end_src
+
 **** Make the active mode line colorful
 :PROPERTIES:
 :CUSTOM_ID: h:e8d781be-eefc-4a81-ac4e-5ed156190df7
