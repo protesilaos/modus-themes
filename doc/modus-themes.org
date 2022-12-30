@@ -4455,8 +4455,8 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Utkarsh Singh, Vincent Foley.  As well as users: Ben, CsBigDataHub1,
   Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji, Nick, Summer
   Emacs, TheBlob42, Trey, bepolymathe, bit9tream, derek-upham, doolio,
-  fleimgruber, gitrj95, iSeeU, jixiuf, okamsn, pRot0ta1p, tumashu,
-  wakamenod.
+  fleimgruber, gitrj95, iSeeU, jixiuf, okamsn, pRot0ta1p, soaringbird,
+  tumashu, wakamenod.
 
 + Packaging :: Basil L.{{{space()}}} Contovounesios, Eli Zaretskii,
   Glenn Morris, Mauro Aranda, Richard Stallman, Stefan Kangas (core
