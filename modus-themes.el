@@ -1698,7 +1698,7 @@ is a less intense variant of BG."
     `(auto-dim-other-buffers-face ((,c :background ,bg-inactive)))
 ;;;;; avy
     `(avy-background-face ((,c :background ,bg-dim :foreground ,fg-dim :extend t)))
-    `(avy-goto-char-timer-face ((,c :inherit (modus-themes-intense-neutral bold))))
+    `(avy-goto-char-timer-face ((,c :inherit bold :background ,bg-active)))
     `(avy-lead-face ((,c :inherit (bold modus-themes-reset-soft) :background ,bg-char-0)))
     `(avy-lead-face-0 ((,c :inherit (bold modus-themes-reset-soft) :background ,bg-char-1)))
     `(avy-lead-face-1 ((,c :inherit modus-themes-reset-soft :background ,bg-inactive)))
