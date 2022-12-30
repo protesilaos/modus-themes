@@ -194,6 +194,12 @@ which corresponds to a minimum contrast in relative luminance of
       (fg-removed         "#ffbfbf")
       (fg-removed-intense "#ff9095")
 
+;;; Uncommon accent backgrounds
+
+      (bg-ochre    "#442c2f")
+      (bg-lavender "#38325c")
+      (bg-sage     "#0f3d30")
+
 ;;;; Paren match
 
       (bg-paren-match        "#2f7f9f")

@@ -131,6 +131,12 @@ standard).")
       (bg-magenta-nuanced "#fdf0ff")
       (bg-cyan-nuanced    "#ebf6fa")
 
+;;; Uncommon accent backgrounds
+
+      (bg-ochre    "#f0e0cc")
+      (bg-lavender "#dfdbfa")
+      (bg-sage     "#c0e7d4")
+
 ;;; Graphs
 
       (bg-graph-red-0     "#b0b029")
