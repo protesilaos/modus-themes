@@ -1501,6 +1501,8 @@ comments and green-ish strings.  For some users, those were still not
 good enough, as the exact values were hardcoded.  Here we show how to
 reproduce the effect, but also how to tweak it to one's liking.
 
+[[#h:c8767172-bf11-4c96-81dc-e736c464fc9c][Make code syntax use the old alt-syntax style]].
+
 [[#h:943063da-7b27-4ba4-9afe-f8fe77652fd1][Make use of alternative styles for code syntax]].
 
 #+begin_src emacs-lisp
@@ -1530,6 +1532,91 @@ reproduce the effect, but also how to tweak it to one's liking.
         (string yellow-cooler)))
 #+end_src
 
+**** Make code syntax use the old alt-syntax style
+:PROPERTIES:
+:CUSTOM_ID: h:c8767172-bf11-4c96-81dc-e736c464fc9c
+:END:
+
+This is one of our practical examples to override the semantic colors
+of the Modus themes ([[#h:df1199d8-eaba-47db-805d-6b568a577bf3][Stylistic variants using palette overrides]]).  In
+this section we show how to reproduce what previous versions of the
+Modus themes provided as a stylistic alternative for code syntax.  The
+upside of using overrides for this purpose is that we can tweak the
+style to our liking, but first let's start with its recreation:
+
+#+begin_src emacs-lisp
+;; These overrides are common to all Modus themes.  We also provide
+;; theme-specific options, such as `modus-operandi-palette-overrides'.
+;;
+;; In general, the theme-specific overrides are better for overriding
+;; color values, such as redefining what `blue-faint' looks like.  The
+;; common overrides are best used for changes to semantic color
+;; mappings, as we show below.
+
+
+;; The old "alt-syntax"
+(setq modus-themes-common-palette-overrides
+      '((builtin magenta)
+        (comment fg-dim)
+        (constant magenta-cooler)
+        (docstring magenta-faint)
+        (docmarkup green-faint)
+        (fnname magenta-warmer)
+        (keyword cyan)
+        (preprocessor cyan-cooler)
+        (string red-cooler)
+        (type magenta-cooler)
+        (variable blue-warmer)
+        (rx-construct magenta-warmer)
+        (rx-backslash blue-cooler)))
+#+end_src
+
+The "alt-syntax" could optionally use green strings and yellow
+comments ([[#h:26f53daa-0065-48dc-88ab-6a718d16cd95][Make comments yellow and strings green]]):
+
+#+begin_src emacs-lisp
+;; Same as above, but with yellow comments and green strings
+(setq modus-themes-common-palette-overrides
+      '((builtin magenta)
+        (comment yellow-faint)
+        (constant magenta-cooler)
+        (docstring green-faint)
+        (docmarkup magenta-faint)
+        (fnname magenta-warmer)
+        (keyword cyan)
+        (preprocessor cyan-cooler)
+        (string green-cooler)
+        (type magenta-cooler)
+        (variable blue-warmer)
+        (rx-construct magenta-warmer)
+        (rx-backslash blue-cooler)))
+#+end_src
+
+The standard "alt-syntax" has red strings.  As such, it is interesting
+to experiment with faintly red colored comments:
+
+#+begin_src emacs-lisp
+;; Like the old "alt-syntax" but with faint red comments
+(setq modus-themes-common-palette-overrides
+      '((builtin magenta)
+        (comment red-faint)
+        (constant magenta-cooler)
+        (docstring magenta-faint)
+        (docmarkup green-faint)
+        (fnname magenta-warmer)
+        (keyword cyan)
+        (preprocessor cyan-cooler)
+        (string red-cooler)
+        (type magenta-cooler)
+        (variable blue-warmer)
+        (rx-construct magenta-warmer)
+        (rx-backslash blue-cooler)))
+#+end_src
+
+The user can always mix and match styles to their liking.
+
+[[#h:943063da-7b27-4ba4-9afe-f8fe77652fd1][Make use of alternative styles for code syntax]].
+
 **** Make use of alternative styles for code syntax
 :PROPERTIES:
 :CUSTOM_ID: h:943063da-7b27-4ba4-9afe-f8fe77652fd1
@@ -1547,6 +1634,8 @@ to the former, double-check that the entries exist in the given Modus
 theme palette.
 
 [[#h:26f53daa-0065-48dc-88ab-6a718d16cd95][Make comments yellow and strings green]].
+
+[[*Make code syntax use the old alt-syntax style][Make code syntax use the old alt-syntax style]].
 
 #+begin_src emacs-lisp
 ;; These overrides are common to all Modus themes.  We also provide
@@ -4431,32 +4520,32 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Peitsinis, Alexey Shmalko, Alok Singh, Anders Johansson, André
   Alexandre Gomes, Andrew Tropin, Antonio Hernández Blas, Arif Rezai,
   Augusto Stoffel, Basil L.{{{space()}}} Contovounesios, Burgess
-  Chang, Christian Tietze, Christopher Dimech, Christopher League,
-  Damien Cassou, Daniel Mendler, Dario Gjorgjevski, David Edmondson,
-  Davor Rotim, Divan Santana, Eliraz Kedmi, Emanuele Michele Alberto
-  Monterosso, Farasha Euker, Feng Shu, Gautier Ponsinet, Gerry
-  Agbobada, Gianluca Recchia, Gonçalo Marrafa, Guilherme Semente,
-  Gustavo Barros, Hörmetjan Yiltiz, Ilja Kocken, Iris Garcia, Ivan
-  Popovych, James Ferguson, Jeremy Friesen, Jerry Zhang, Johannes
-  Grødem, John Haman, Jonas Collberg, Jorge Morais, Joshua O'Connor,
-  Julio C. Villasante, Kenta Usami, Kevin Fleming, Kévin Le Gouguec,
-  Kevin Kainan Li, Kostadin Ninev, Laith Bahodi, Len Trigg, Lennart
-  C. Karssen, Luis Miguel Castañeda, Magne Hov, Manuel Uberti, Mark
-  Bestley, Mark Burton, Mark Simpson, Markus Beppler, Matt Armstrong,
-  Matthias Fuchs, Mattias Engdegård, Mauro Aranda, Maxime Tréca,
-  Michael Goldenberg, Morgan Smith, Morgan Willcock, Murilo Pereira,
-  Nicky van Foreest, Nicolas De Jaeghere, Pablo Stafforini, Paul
-  Poloskov, Pengji Zhang, Pete Kazmier, Peter Wu, Philip Kaludercic,
-  Pierre Téchoueyres, Przemysław Kryger, Robert Hepple, Roman Rudakov,
-  Ryan Phillips, Rytis Paškauskas, Rudolf Adamkovič, Sam Kleinman,
-  Samuel Culpepper, Saša Janiška, Shreyas Ragavan, Simon Pugnet,
-  Tassilo Horn, Thibaut Verron, Thomas Heartman, Togan Muftuoglu, Tony
-  Zorman, Trey Merkley, Tomasz Hołubowicz, Toon Claes, Uri Sharf,
-  Utkarsh Singh, Vincent Foley.  As well as users: Ben, CsBigDataHub1,
-  Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji, Nick, Summer
-  Emacs, TheBlob42, Trey, bepolymathe, bit9tream, derek-upham, doolio,
-  fleimgruber, gitrj95, iSeeU, jixiuf, okamsn, pRot0ta1p, soaringbird,
-  tumashu, wakamenod.
+  Chang, Charlotte Van Petegem, Christian Tietze, Christopher Dimech,
+  Christopher League, Damien Cassou, Daniel Mendler, Dario
+  Gjorgjevski, David Edmondson, Davor Rotim, Divan Santana, Eliraz
+  Kedmi, Emanuele Michele Alberto Monterosso, Farasha Euker, Feng Shu,
+  Gautier Ponsinet, Gerry Agbobada, Gianluca Recchia, Gonçalo Marrafa,
+  Guilherme Semente, Gustavo Barros, Hörmetjan Yiltiz, Ilja Kocken,
+  Iris Garcia, Ivan Popovych, James Ferguson, Jeremy Friesen, Jerry
+  Zhang, Johannes Grødem, John Haman, Jonas Collberg, Jorge Morais,
+  Joshua O'Connor, Julio C. Villasante, Kenta Usami, Kevin Fleming,
+  Kévin Le Gouguec, Kevin Kainan Li, Kostadin Ninev, Laith Bahodi, Len
+  Trigg, Lennart C. Karssen, Luis Miguel Castañeda, Magne Hov, Manuel
+  Uberti, Mark Bestley, Mark Burton, Mark Simpson, Markus Beppler,
+  Matt Armstrong, Matthias Fuchs, Mattias Engdegård, Mauro Aranda,
+  Maxime Tréca, Michael Goldenberg, Morgan Smith, Morgan Willcock,
+  Murilo Pereira, Nicky van Foreest, Nicolas De Jaeghere, Pablo
+  Stafforini, Paul Poloskov, Pengji Zhang, Pete Kazmier, Peter Wu,
+  Philip Kaludercic, Pierre Téchoueyres, Przemysław Kryger, Robert
+  Hepple, Roman Rudakov, Ryan Phillips, Rytis Paškauskas, Rudolf
+  Adamkovič, Sam Kleinman, Samuel Culpepper, Saša Janiška, Shreyas
+  Ragavan, Simon Pugnet, Tassilo Horn, Thibaut Verron, Thomas
+  Heartman, Togan Muftuoglu, Tony Zorman, Trey Merkley, Tomasz
+  Hołubowicz, Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.  As
+  well as users: Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux,
+  Fredrik, Moesasji, Nick, Summer Emacs, TheBlob42, Trey, bepolymathe,
+  bit9tream, derek-upham, doolio, fleimgruber, gitrj95, iSeeU, jixiuf,
+  okamsn, pRot0ta1p, soaringbird, tumashu, wakamenod.
 
 + Packaging :: Basil L.{{{space()}}} Contovounesios, Eli Zaretskii,
   Glenn Morris, Mauro Aranda, Richard Stallman, Stefan Kangas (core
