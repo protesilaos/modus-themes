@@ -200,15 +200,15 @@ which corresponds to a minimum contrast in relative luminance of
       (fg-removed         "#ffbfbf")
       (fg-removed-intense "#ff9095")
 
-;;;; Paren match
+;;; Paren match
 
       (bg-paren-match        "#2f7f9f")
       (bg-paren-expression   "#453040")
       (underline-paren-match unspecified)
 
-;;;; Mappings
+;;; Mappings
 
-;;;;; General mappings
+;;;; General mappings
 
       (fringe bg-dim)
       (cursor fg-main)
@@ -225,7 +225,7 @@ which corresponds to a minimum contrast in relative luminance of
       (underline-warning yellow)
       (underline-note cyan)
 
-;;;;; Code mappings
+;;;; Code mappings
 
       (builtin magenta-warmer)
       (comment fg-dim)
@@ -241,21 +241,21 @@ which corresponds to a minimum contrast in relative luminance of
       (rx-construct green-cooler)
       (rx-backslash magenta)
 
-;;;;; Accent mappings
+;;;; Accent mappings
 
       (accent-0 blue-cooler)
       (accent-1 magenta-warmer)
       (accent-2 cyan-cooler)
       (accent-3 yellow)
 
-;;;;; Button mappings
+;;;; Button mappings
 
       (fg-button-active fg-main)
       (fg-button-inactive fg-dim)
       (bg-button-active bg-active)
       (bg-button-inactive bg-dim)
 
-;;;;; Completion mappings
+;;;; Completion mappings
 
       (fg-completion-match-0 blue-cooler)
       (fg-completion-match-1 magenta-warmer)
@@ -266,7 +266,7 @@ which corresponds to a minimum contrast in relative luminance of
       (bg-completion-match-2 unspecified)
       (bg-completion-match-3 unspecified)
 
-;;;;; Date mappings
+;;;; Date mappings
 
       (date-common cyan)
       (date-deadline red)
@@ -277,14 +277,14 @@ which corresponds to a minimum contrast in relative luminance of
       (date-weekday cyan)
       (date-weekend red-faint)
 
-;;;;; Line number mappings
+;;;; Line number mappings
 
       (fg-line-number-inactive fg-dim)
       (fg-line-number-active fg-main)
       (bg-line-number-inactive bg-dim)
       (bg-line-number-active bg-active)
 
-;;;;; Link mappings
+;;;; Link mappings
 
       (fg-link blue-warmer)
       (bg-link unspecified)
@@ -298,7 +298,7 @@ which corresponds to a minimum contrast in relative luminance of
       (bg-link-visited unspecified)
       (underline-link-visited magenta)
 
-;;;;; Mail mappings
+;;;; Mail mappings
 
       (mail-cite-0 blue-warmer)
       (mail-cite-1 yellow-cooler)
@@ -309,12 +309,12 @@ which corresponds to a minimum contrast in relative luminance of
       (mail-subject magenta-warmer)
       (mail-other magenta-faint)
 
-;;;;; Prompt mappings
+;;;; Prompt mappings
 
       (fg-prompt cyan-cooler)
       (bg-prompt unspecified)
 
-;;;;; Prose mappings
+;;;; Prose mappings
 
       (prose-block fg-dim)
       (prose-code cyan-cooler)
@@ -327,7 +327,7 @@ which corresponds to a minimum contrast in relative luminance of
       (prose-todo red)
       (prose-verbatim magenta-warmer)
 
-;;;;; Rainbow mappings
+;;;; Rainbow mappings
 
       (rainbow-0 fg-main)
       (rainbow-1 magenta-intense)
@@ -339,7 +339,7 @@ which corresponds to a minimum contrast in relative luminance of
       (rainbow-7 blue-warmer)
       (rainbow-8 magenta-warmer)
 
-;;;;; Heading mappings
+;;;; Heading mappings
 
       (fg-heading-0 cyan-cooler)
       (fg-heading-1 fg-main)

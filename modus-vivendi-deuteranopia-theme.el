@@ -202,15 +202,15 @@ standard).")
       (fg-removed         "#d4d48f")
       (fg-removed-intense "#c0b05f")
 
-;;;; Paren match
+;;; Paren match
 
       (bg-paren-match        "#2f7f9f")
       (bg-paren-expression   "#453040")
       (underline-paren-match unspecified)
 
-;;;; Mappings
+;;; Mappings
 
-;;;;; General mappings
+;;;; General mappings
 
       (fringe bg-dim)
       (cursor yellow-intense)
@@ -227,7 +227,7 @@ standard).")
       (underline-warning magenta-faint)
       (underline-note cyan)
 
-;;;;; Code mappings
+;;;; Code mappings
 
       (builtin magenta-warmer)
       (comment yellow-cooler)
@@ -243,21 +243,21 @@ standard).")
       (rx-construct yellow-cooler)
       (rx-backslash blue-cooler)
 
-;;;;; Accent mappings
+;;;; Accent mappings
 
       (accent-0 blue-cooler)
       (accent-1 yellow)
       (accent-2 cyan-cooler)
       (accent-3 magenta-warmer)
 
-;;;;; Button mappings
+;;;; Button mappings
 
       (fg-button-active fg-main)
       (fg-button-inactive fg-dim)
       (bg-button-active bg-active)
       (bg-button-inactive bg-dim)
 
-;;;;; Completion mappings
+;;;; Completion mappings
 
       (fg-completion-match-0 blue-cooler)
       (fg-completion-match-1 yellow)
@@ -268,7 +268,7 @@ standard).")
       (bg-completion-match-2 unspecified)
       (bg-completion-match-3 unspecified)
 
-;;;;; Date mappings
+;;;; Date mappings
 
       (date-common cyan)
       (date-deadline yellow-warmer)
@@ -279,14 +279,14 @@ standard).")
       (date-weekday cyan)
       (date-weekend yellow-faint)
 
-;;;;; Line number mappings
+;;;; Line number mappings
 
       (fg-line-number-inactive fg-dim)
       (fg-line-number-active fg-main)
       (bg-line-number-inactive bg-dim)
       (bg-line-number-active bg-active)
 
-;;;;; Link mappings
+;;;; Link mappings
 
       (fg-link blue-warmer)
       (bg-link unspecified)
@@ -300,7 +300,7 @@ standard).")
       (bg-link-visited unspecified)
       (underline-link-visited yellow-faint)
 
-;;;;; Mail mappings
+;;;; Mail mappings
 
       (mail-cite-0 blue-warmer)
       (mail-cite-1 yellow-cooler)
@@ -311,12 +311,12 @@ standard).")
       (mail-subject yellow-warmer)
       (mail-other cyan-faint)
 
-;;;;; Prompt mappings
+;;;; Prompt mappings
 
       (fg-prompt blue)
       (bg-prompt unspecified)
 
-;;;;; Prose mappings
+;;;; Prose mappings
 
       (prose-block fg-dim)
       (prose-code cyan-cooler)
@@ -329,7 +329,7 @@ standard).")
       (prose-todo yellow-warmer)
       (prose-verbatim magenta-warmer)
 
-;;;;; Rainbow mappings
+;;;; Rainbow mappings
 
       (rainbow-0 yellow-warmer)
       (rainbow-1 blue)
@@ -341,7 +341,7 @@ standard).")
       (rainbow-7 blue-faint)
       (rainbow-8 magenta-faint)
 
-;;;;; Heading mappings
+;;;; Heading mappings
 
       (fg-heading-0 cyan-cooler)
       (fg-heading-1 fg-main)
