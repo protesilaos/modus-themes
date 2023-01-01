@@ -1096,10 +1096,9 @@ Run `modus-themes-after-load-theme-hook' after loading the theme."
 ;;;###autoload
 (defun modus-themes-toggle ()
   "Toggle between the two `modus-themes-to-toggle'.
-If `modus-themes-to-toggle' does not specify two Modus themes, inform
-the user about it while prompting with completion for a theme
-among our collection (this is practically the same as the
-`modus-themes-select' command).
+If `modus-themes-to-toggle' does not specify two Modus themes,
+prompt with completion for a theme among our collection (this is
+practically the same as the `modus-themes-select' command).
 
 Run `modus-themes-after-load-theme-hook' after loading the theme."
   (interactive)
