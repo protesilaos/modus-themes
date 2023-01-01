@@ -206,8 +206,7 @@ This behaves in accordance with `modus-themes-italic-constructs'."
 
 This is intended to be inherited by faces that should not retain
 properties from their context (e.g. an overlay over an underlined
-text should not be underlined as well) yet still blend in.  Also
-see `modus-themes-reset-hard'."
+text should not be underlined as well) yet still blend in."
   :group 'modus-themes-faces)
 
 (defface modus-themes-prompt nil
@@ -977,8 +976,7 @@ Info node `(modus-themes) Option for palette overrides'.")
 ;; This is the WCAG formula: https://www.w3.org/TR/WCAG20-TECHS/G18.html
 (defun modus-themes-wcag-formula (hex)
   "Get WCAG value of color value HEX.
-The value is defined in hexadecimal RGB notation, such as those in
-`modus-themes-operandi-colors' and `modus-themes-vivendi-colors'."
+The value is defined in hexadecimal RGB notation, such #123456."
   (cl-loop for k in '(0.2126 0.7152 0.0722)
            for x in (color-name-to-rgb hex)
            sum (* k (if (<= x 0.03928)
