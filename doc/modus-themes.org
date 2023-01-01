@@ -4,9 +4,9 @@
 #+language:              en
 #+options:               ':t toc:nil author:t email:t num:t
 #+startup:               content
-#+macro:                 stable-version pre-4.0.0
-#+macro:                 release-date N/A
-#+macro:                 development-version 4.0.0-dev
+#+macro:                 stable-version 4.0.0
+#+macro:                 release-date 2023-01-01
+#+macro:                 development-version 4.1.0-dev
 #+macro:                 file @@texinfo:@file{@@$1@@texinfo:}@@
 #+macro:                 space @@texinfo:@: @@
 #+macro:                 kbd @@texinfo:@kbd{@@$1@@texinfo:}@@
@@ -22,9 +22,8 @@
 #+texinfo: @insertcopying
 
 This manual, written by Protesilaos Stavrou, describes the
-customization options for the ~modus-operandi~ and ~modus-vivendi~
-themes, and provides every other piece of information pertinent to
-them.
+customization options for the Modus themes, and provides every other
+piece of information pertinent to them.
 
 The documentation furnished herein corresponds to stable version
 {{{stable-version}}}, released on {{{release-date}}}.  Any reference
@@ -526,9 +525,6 @@ reloaded for changes to take effect.
 :end:
 #+vindex: modus-themes-custom-auto-reload
 
-[ Revised as part of {{{development-version}}}.  It used to be named
-  ~modus-themes-inhibit-reload~. ]
-
 Brief: Toggle reloading of the active theme when an option is changed
 through the Custom UI.
 
@@ -645,10 +641,6 @@ the ~fixed-pitch~ face.
 :end:
 #+vindex: modus-themes-prompts
 
-[ Refactored as part of {{{development-version}}}.  Made it possible
-to specify any font weight.  Removed all color permutations.  Use
-overrides for those. ]
-
 Brief: Control the style of command prompts (e.g. minibuffer, shell, IRC
 clients).
 
@@ -709,11 +701,6 @@ In user configuration files the form may look like this:
 :custom_id: h:f1c20c02-7b34-4c35-9c65-99170efb2882
 :end:
 #+vindex: modus-themes-completions
-
-[ Refactored with breaking changes as part of {{{development-version}}}.
-  We removed the optional intense styles as there now is a uniform
-  intensity: the subtle gray selection line is no longer available.
-  Changes to colors can be implemented via the overrides. ]
 
 Brief: Set the overall style of completion framework interfaces.
 
@@ -834,11 +821,6 @@ quote/verse blocks require setting
 :custom_id: h:271eff19-97aa-4090-9415-a6463c2f9ae1
 :end:
 #+vindex: modus-themes-headings
-
-[ Refactored with breaking changes as part of {{{development-version}}}.
-  Removed the optional styles of an added foreground, background, and
-  overline.  Added =agenda-date= and =agenda-structure= keys for the
-  Org agenda headings. ]
 
 Brief: Heading styles with optional list of values per heading level.
 
@@ -2286,8 +2268,7 @@ constructs in the =blue-warmer= color value ([[#h:34c7a691-19bb-4037-8d2f-67a07e
 #+findex: modus-themes-preview-colors
 #+findex: modus-themes-preview-colors-current
 Aliases for those commands are ~modus-themes-preview-colors~ and
-~modus-themes-preview-colors-current~. [ These aliases are part of
-{{{development-version}}}. ]
+~modus-themes-preview-colors-current~.
 
 Each row shows a foreground and background coloration using the
 underlying value it references.  For example a line with =#a60000= (a
@@ -3287,7 +3268,7 @@ affected face groups.  The items with an appended asterisk =*= tend to
 have lots of extensions, so the "full support" may not be 100% true…
 
 + ace-window
-+ agda2-mode [Part of {{{development-version}}}.]
++ agda2-mode
 + all-the-icons
 + all-the-icons-dired
 + all-the-icons-ibuffer
@@ -3309,7 +3290,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + cider
 + circe
 + citar
-+ clojure-mode [Part of {{{development-version}}}]
++ clojure-mode
 + column-enforce-mode
 + company-mode*
 + compilation-mode
@@ -3461,7 +3442,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + quick-peek
 + rainbow-delimiters
 + rcirc
-+ rcirc-color [Part of {{{development-version}}}]
++ rcirc-color
 + recursion-indicator
 + regexp-builder (also known as ~re-builder~)
 + rg (rg.el)

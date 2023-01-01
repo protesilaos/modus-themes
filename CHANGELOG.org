@@ -15,6 +15,703 @@ For further details, please consult these additional resources:
 + Manual :: <https://protesilaos.com/emacs/modus-themes>
 + Screenshots :: <https://protesilaos.com/emacs/modus-themes-pictures>
 
+* 4.0.0
+:PROPERTIES:
+:CUSTOM_ID: h:cd353ccc-daf5-4ee5-885a-b3f21be92b66
+:END:
+
+This is the biggest release in the history of the project.
+Previously, a new version would consist of about 100 commits to the
+Git repository.  This one includes 400+ of them in the span of one
+month.  The out-of-the-box looks of the themes are largely the same as
+before, though I have made a lot of internal changes that affect how
+the themes are instantiated and customised.
+
+As part of this development cycle, I produced publications informing
+users of the upcoming changes, while demonstrating the new feature of
+overriding the colour palette and its semantic mappings.
+
+- 2022-12-03 Emacs: breaking changes coming to 'modus-themes' version 4 :: <https://protesilaos.com/codelog/2022-12-03-modus-themes-v4-development/>
+- 2022-12-07 Emacs: change colour values and mappings in Modus themes version 4 :: <https://protesilaos.com/codelog/2022-12-07-modus-themes-4-colour-values-mappings/>
+- 2022-12-17 Emacs: modus-themes version 4 demo [video] :: <https://protesilaos.com/codelog/2022-12-17-modus-themes-v4-demo/>
+- 2022-12-28 Emacs: note for MELPA or Git users of the Modus themes ahead of version 4 :: <https://protesilaos.com/codelog/2022-12-28-note-modus-themes-4-melpa/>
+
+I did this in the hope of preparing users for the refactored Modus
+themes, though I understand that not everyone has had the chance to
+consult those entries.  The general idea is that *old custom code will
+not work* and most user options are either removed or confined to a
+more precise scope.
+
+Custom code will not work because the named colours of the palettes
+have changed.  Many user options are made redundant by the new
+overrides' system.  Specifically, if an option pertains to
+colouration, it is now done via overrides instead of the old method of
+me hardcoding styles (e.g. for stuff like "rainbow" headings).
+
+More details below.  This is a long entry.  Please take your time to
+study it before upgrading to the new version of the themes.
+
+** There now are six Modus themes for more legibility needs
+:PROPERTIES:
+:CUSTOM_ID: h:f305dd08-a713-4369-a16d-af9403ab6c22
+:END:
+
+Quoting from the manual's "Overview" section:
+
+#+begin_quote
+The Modus themes consist of six themes, divided into three subgroups.
+
+- Main themes :: ~modus-operandi~ is the project's main light theme,
+  while ~modus-vivendi~ is its dark counterpart.  These two themes are
+  part of the project since its inception.  They are designed to cover
+  a broad range of needs and are, in the opinion of the author, the
+  reference for what a highly legible "default" theme should look
+  like.
+
+- Tinted themes :: ~modus-operandi-tinted~ and ~modus-vivendi-tinted~
+  are variants of the two main themes.  They slightly tone down the
+  intensity of the background and provide a bit more color variety.
+  ~modus-operandi-tinted~ has a set of base tones that are shades of
+  light ochre (earthly colors), while ~modus-vivendi-tinted~ gives a
+  night sky impression.
+
+- Deuteranopia themes :: ~modus-operandi-deuteranopia~ and its
+  companion ~modus-vivendi-deuteranopia~ are optimized for users with
+  red-green color deficiency.  This means that they do not use red and
+  green hues for color-coding purposes, such as for diff removed and
+  added lines.  Instead, they implement colors that are discernible by
+  users with deueteranopia or deuteranomaly (mostly yellow and blue
+  hues).
+#+end_quote
+
+All six themes will be included in Emacs 30 (~modus-operandi~ and
+~modus-vivendi~ are in Emacs since August 2020).  I asked about it on
+the emacs-devel mailing list and received the approval of Eli
+Zaretskii, one of the Emacs maintainers.  The full thread:
+<https://lists.gnu.org/archive/html/emacs-devel/2022-12/msg00834.html>.
+
+*** New command to select one of the Modus themes
+:PROPERTIES:
+:CUSTOM_ID: h:e4f011c4-46d3-4e4f-ad3e-9a609ef8bd5e
+:END:
+
+The ~modus-themes-select~ command uses minibuffer completion to load
+one of the six themes in the collection.  Loading a Modus theme
+disables all other Modus themes.
+
+NOTE that Emacs can load multiple themes, which typically produces
+undesirable results and undoes the work of the designer.  Use the
+~disable-theme~ command if you are trying other themes beside the
+Modus collection.
+
+*** New user option to specify themes to toggle
+:PROPERTIES:
+:CUSTOM_ID: h:c4efdaca-505b-4724-81b4-4a5340cbcaba
+:END:
+
+The ~modus-themes-to-toggle~ is a variable that affects the command
+~modus-themes-toggle~.  By default, the toggling happens between the
+~modus-operandi~ and ~modus-vivendi~ themes, as was always the case.
+Though with the addition of new themes, it is possible to change this
+to something like:
+
+#+begin_src emacs-lisp
+(setq modus-themes-to-toggle '(modus-operandi-deuteranopia modus-vivendi-deuteranopia))
+#+end_src
+
+If ~modus-themes-to-toggle~ does not specify two Modus themes, the
+~modus-themes-toggle~ command will prompt with completion for a theme
+among the collection (this is practically the same as the aforementioned
+~modus-themes-select~ command).
+
+** Colour palettes and their overrides are much more powerful
+:PROPERTIES:
+:CUSTOM_ID: h:c20673d3-d992-4827-bd24-80329962dc8e
+:END:
+
+In previous versions, there were options to override colour values.
+Those were difficult to use as they (i) required expertise on picking
+the correct values and (ii) it was not clear which colour was used
+where.
+
+The new version broadens the colour palette to include *named colours*
+and *semantic colour mappings*.  Named colours are associations
+between a symbol and a colour value, such as =(blue-warmer "#354fcf")=.
+While semantic colour mappings apply those named colours to specific
+constructs such as =(heading-2 yellow-faint)= for all level 2 headings.
+
+What this means is that overrides can now be targeted at semantic
+mappings as well to refashion practically every aspect of the themes.
+The manual provides lots of examples that can be copied and used
+directly.  For example, it is possible to change the sequence of
+colours in headings so that, say, there is a colour-coding that
+denotes depth.  Links to relevant entries are included in this
+document.
+
+The ~modus-themes-common-palette-overrides~ user option contains
+entries that are shared between all the themes.  While there also
+exist theme-specific options such as ~modus-operandi-palette-overrides~.
+
+For technical insight into the palette overrides, consult the manual:
+<https://protesilaos.com/emacs/modus-themes#h:34c7a691-19bb-4037-8d2f-67a07edab150>.
+
+For practical examples check "Stylistic variants using palette
+overrides" and its subsections:
+<https://protesilaos.com/emacs/modus-themes#h:df1199d8-eaba-47db-805d-6b568a577bf3>.
+
+** Preset overrides for faint or intense colouration
+:PROPERTIES:
+:CUSTOM_ID: h:5ba76bb2-9ca8-4202-aca3-31aaca239d94
+:END:
+
+The palette overrides are comprehensive and can be tweaked in a
+detailed way.  Still, users may prefer to use the presets for a
+"faint" or "intense" style.  These presets showcase the new feature by
+styling elements that were previously not subject to configuration.
+They also provide the convenience of a common set of stylistic
+patterns.
+
+Read the "Palette override presets" section in the manual for how to
+use and/or extend those:
+<https://protesilaos.com/emacs/modus-themes#h:b0bc811c-227e-42ec-bf67-15e1f41eb7bc>.
+
+** Named colours are more meaningful
+:PROPERTIES:
+:CUSTOM_ID: h:94e59644-8ef8-4a46-9666-a241ba04b21a
+:END:
+
+In the past, the variants of the main accent colours were named like:
+
+- =red=
+- =red-alt=
+- =red-alt-other=
+
+The improved naming scheme changes those to:
+
+- =red=
+- =red-warmer=
+- =red-cooler=
+
+Semantically, the "warmer" variants have more yellow or red while the
+"cooler" ones have greater contribution of cyan or blue.  As such, the
+user can expect =green-warmer= to be an olive green and =green-cooler=
+to be that of the pine (though olive trees can have blue-green
+colouration and pine trees can be "warmer", but I digress).
+
+Named colours can be previewed with the commands
+~modus-themes-list-colors~ (alias ~modus-themes-preview-colors~) and
+~modus-themes-list-colors-current~ (alias
+~modus-themes-preview-colors-current~).
+
+Those commands accept a =C-u= prefix argument, in which case they show
+the semantic colour mappings.
+
+** Rationalisation of the colour palette
+:PROPERTIES:
+:CUSTOM_ID: h:cb378214-54a1-4b5b-a801-aa206b94ae38
+:END:
+
+In previous versions, there were a lot of named colours that were
+added ad-hoc, such as =fg-special-cold= and =bg-special-calm-faint=.
+There was no clear design pattern behind them, nor was it obvious
+where those colours should be used.  Furthermore, there were colours
+that were reserved for the various permutations of user options.
+
+This was too complex for users who wanted/needed to refashion aspects
+of the themes.  It was also difficult to maintain.
+
+The new palettes are more streamlined and their application is more
+predictable.  This only matters to users who tweak the themes: it
+makes their life easier, although it does render inapplicable any
+previous custom code.
+
+** Deprecation of user options
+:PROPERTIES:
+:CUSTOM_ID: h:fcaa0f80-7e78-44b1-ab04-90acb0046139
+:END:
+
+The following subsections explain the topics in further detail.  The
+general idea for this change is that palette overrides provide a more
+powerful, more flexible, and less complex alternative.  The code base
+is considerably smaller.
+
+With overrides, I can now provide support to cases such as:
+
+- Users who need different sets of greys as their monitor has
+  inadequate colour reproduction (this is much more common than you
+  think).
+- Users who want to make individual elements stand out, such as to
+  turn the delimiters of Org source blocks (the =#+begin_src= and
+  =#+end_src= lines) into, say, a shade of red.
+- Users who want to tone down the =TODO= and =DONE= keywords while
+  making headings more colourful.  Or the inverse, or any combination
+  in-between the extremes.
+- Users who want Org property drawers to be more colourful but inline
+  code to be faint.
+
+You get the idea...  All these and many more are now possible.
+Whereas in the past I would either have to tell people that it is not
+possible or hardcode a stylistic alternative via user options, thus
+further complicating the code base.
+
+Catering to all those use-cases is important due to the maximalist
+scope of the Modus themes: I cannot tell people to use another theme,
+because here is where they come for their legibility needs.  This is
+consistent with my experience that accessibility is not a
+one-size-fits-all and that the most accessible design is that which is
+flexible, ceteris paribus.
+
+*** ~modus-themes-intense-mouseovers~
+:PROPERTIES:
+:CUSTOM_ID: h:7f4a658a-613b-4ab9-bc05-d9aa6179830b
+:END:
+
+This user option would amplify the background colour of mouse hover
+effects (technically, the ~highlight~ and ~mode-line-highlight~
+faces).  It always used a blue colour.
+
+The same effect can now be achieved via overrides, except it is now
+possible to use any background colour or level of intensity that is
+provided by the themes' palette.  The manual provides concrete
+examples: <https://protesilaos.com/emacs/modus-themes#h:b5cab69d-d7cb-451c-8ff9-1f545ceb6caf>.
+
+*** ~modus-themes-org-agenda~
+:PROPERTIES:
+:CUSTOM_ID: h:778abb81-4bcb-4a5c-85eb-eec9f417a443
+:END:
+
+This was a complex user option that was hard to test, document, and
+maintain.  Most aspects of the Org agenda can be affected via
+overrides, as demonstrated in the manual:
+<https://protesilaos.com/emacs/modus-themes#h:a5af0452-a50f-481d-bf60-d8143f98105f>.
+
+*** ~modus-themes-fringes~
+:PROPERTIES:
+:CUSTOM_ID: h:b1ee38d7-45a0-474b-8c97-774f61462cc6
+:END:
+
+This user option provided two shades of grey and the option for an
+invisible background for the Emacs fringe.  The same and better can be
+done via overrides, as shown in the manual:
+<https://protesilaos.com/emacs/modus-themes#h:c312dcac-36b6-4a1f-b1f5-ab1c9abe27b0>.
+
+*** ~modus-themes-lang-checkers~
+:PROPERTIES:
+:CUSTOM_ID: h:ad06917b-a078-48c8-97e8-1182e085a15c
+:END:
+
+This was another complex user option that offered several stylistic
+variants of dubious value.  The main problem it had is that linter
+highlights are often applied automatically, so any super intense style
+becomes unusable.  Same when a file has lots of warnings/errors.
+
+The semantic colour mappings I provide for this case are limited to
+underlines, which I think is the most usable/legible design.  The
+manual provides concrete examples on how to tweak those:
+<https://protesilaos.com/emacs/modus-themes#h:03dbd5af-6bae-475e-85a2-cec189f69598>.
+
+*** ~modus-themes-mode-line~
+:PROPERTIES:
+:CUSTOM_ID: h:1b82b764-97f5-406a-8440-bae415c7d294
+:END:
+
+Yet another very complex user option that I removed in the interest of
+maintainability.  All its stylistic permutations (and more) for
+colours are possible via overrides:
+
+- Make the mode line borderless :: <https://protesilaos.com/emacs/modus-themes#h:80ddba52-e188-411f-8cc0-480ebd75befe>
+- Make the active mode line colorful :: <https://protesilaos.com/emacs/modus-themes#h:e8d781be-eefc-4a81-ac4e-5ed156190df7>
+
+It is also possible to add padding to the mode line, though I explain
+why this was always a dirty hack:
+<https://protesilaos.com/emacs/modus-themes#h:5a0c58cc-f97f-429c-be08-927b9fbb0a9c>.
+
+*** ~modus-themes-diffs~
+:PROPERTIES:
+:CUSTOM_ID: h:dd2879a4-37c1-4ded-bc7e-24a217248961
+:END:
+
+I have redesigned all diff-related colours to improve their usability.
+They are less intense than before, but still stand out clearly.  I am
+purposefully not documenting how to use overrides here as I want users
+to give this redesign a try.  We can always document and refine things
+at a later point.
+
+*** ~modus-themes-subtle-line-numbers~
+:PROPERTIES:
+:CUSTOM_ID: h:bcce1b94-a223-4324-b0a6-940e389819a8
+:END:
+
+This was a simple, but ultimately very limited option.  We can do much
+better with overrides because we can tweak every aspect of this
+interface without making the code more complex.  The manual shows how
+to do it in style:
+<https://protesilaos.com/emacs/modus-themes#h:b6466f51-cb58-4007-9ebe-53a27af655c7>.
+
+*** ~modus-themes-markup~
+:PROPERTIES:
+:CUSTOM_ID: h:5eedfd24-9480-4b76-8b64-e625d3220a8d
+:END:
+
+This was a poorly named user option that only affected inline code
+elements in prose.  The new semantic colour mappings provide more
+points of entry and thus make it easier to tweak things to one's
+liking (including tables, property drawers, source block delimiters
+(the =#+begin_src= and =#+end_src= lines)), and more.  The manual
+shows how:
+<https://protesilaos.com/emacs/modus-themes#h:bb5b396f-5532-4d52-ab13-149ca24854f1>.
+
+*** ~modus-themes-paren-match~
+:PROPERTIES:
+:CUSTOM_ID: h:8dbe54c3-5bfc-424c-8952-f68015f6c6c4
+:END:
+
+The colouration of matching parentheses of the ~show-paren-mode~ can
+still be affected via overrides:
+<https://protesilaos.com/emacs/modus-themes#h:259cf8f5-48ec-4b13-8a69-5d6387094468>.
+
+*** ~modus-themes-syntax~
+:PROPERTIES:
+:CUSTOM_ID: h:22910131-87bf-4c03-bbf4-aac3010b570a
+:END:
+
+This was a user option that controlled the colouration of programming
+modes.  We can reproduce it with overrides, except we now also have
+the freedom to adapt things further:
+
+- Make comments yellow and strings green :: <https://protesilaos.com/emacs/modus-themes#h:26f53daa-0065-48dc-88ab-6a718d16cd95>
+- Make code syntax use the old alt-syntax style :: <https://protesilaos.com/emacs/modus-themes#h:c8767172-bf11-4c96-81dc-e736c464fc9c>
+- Make use of alternative styles for code syntax :: <https://protesilaos.com/emacs/modus-themes#h:943063da-7b27-4ba4-9afe-f8fe77652fd1>
+
+*** ~modus-themes-links~
+:PROPERTIES:
+:CUSTOM_ID: h:68d41ee9-d277-45f9-a6cd-543dac9282c8
+:END:
+
+The colouration of links can now be affected via palette overrides, as
+documented in the manual:
+<https://protesilaos.com/emacs/modus-themes#h:6c1d1dea-5cbf-4d92-b7bb-570a7a23ffe9>.
+
+*** ~modus-themes-region~
+:PROPERTIES:
+:CUSTOM_ID: h:b97b78df-9ed9-4173-8de2-303851231e06
+:END:
+
+Overrides can be used to affect the region's colouration and/or to
+prevent the active region highlight from changing the underlying text
+colour.  As always, the manual covers the details:
+<https://protesilaos.com/emacs/modus-themes#h:c8605d37-66e1-42aa-986e-d7514c3af6fe>.
+
+*** ~modus-themes-deuteranopia~
+:PROPERTIES:
+:CUSTOM_ID: h:e5fee2a1-2ace-4b4b-9aea-554d2b4a7c2d
+:END:
+
+Instead of this rather limited option, users are advised to use the
+new bespoke themes: ~modus-operandi-deuteranopia~ and
+~modus-vivendi-deuteranopia~.  They are designed to cater to the needs
+of people with red-green colour deficiency.
+
+*** ~modus-themes-mail-citations~
+:PROPERTIES:
+:CUSTOM_ID: h:bb8a81c5-d0c1-4150-bf7a-254d1684d95e
+:END:
+
+All parts of an email composition buffer (per the standard
+=message.el= library) are configurable via palette overrides.  Not
+just citation lines, but also message headers.  The manual shows
+several stylistic alternatives:
+<https://protesilaos.com/emacs/modus-themes#h:7da7a4ad-5d3a-4f11-9796-5a1abed0f0c4>.
+
+Note that apart from this change, I also redesigned several faces that
+affect emails.  This was done in the interest of consistency and to
+avoid some exaggerations.
+
+*** ~modus-themes-tabs-accented~
+:PROPERTIES:
+:CUSTOM_ID: h:1574b5bc-d615-4053-9bbf-79396745519b
+:END:
+
+I do not provide documentation on how to reproduce this style because
+I think it was not widely used.  It is possible to do it with
+overrides.  If anyone needs it, they are invited to contact me about
+it.
+
+*** ~modus-themes-box-buttons~
+:PROPERTIES:
+:CUSTOM_ID: h:19c81a75-a65e-49cb-83e5-c44167821865
+:END:
+
+All "graphical" buttons use a proportionately spaced font
+(~variable-pitch~) by default as it helps with legibility.  The
+colours of those buttons can be changed by overriding the relevant
+entries:
+<https://protesilaos.com/emacs/modus-themes#h:4f6b6ca3-f5bb-4830-8312-baa232305360>.
+
+[ Use my ~fontaine~ package to affect fonts via faces and to apply
+  presets for various contexts. ]
+
+** Changes to remaining user options
+:PROPERTIES:
+:CUSTOM_ID: h:c93db0f4-1032-411a-881e-0c5fd23480cf
+:END:
+
+*** The ~modus-themes-headings~ also affects the Org agenda
+:PROPERTIES:
+:CUSTOM_ID: h:c2f088b6-dc84-4285-9ece-c877be6b274f
+:END:
+
+This user option applies to heading level 0 through 8 and also to the
+agenda date and structure constructs.  Here is a complete example:
+
+#+begin_src emacs-lisp
+(setq modus-themes-headings ; read the manual's entry of the doc string
+      '((0 . (variable-pitch light 1.9))
+        (1 . (variable-pitch light 1.8))
+        (2 . (variable-pitch regular 1.7))
+        (3 . (variable-pitch regular 1.6))
+        (4 . (variable-pitch regular 1.5))
+        (5 . (variable-pitch 1.4)) ; absence of weight means `bold'
+        (6 . (variable-pitch 1.3))
+        (7 . (variable-pitch 1.2))
+        (agenda-date . (semilight 1.5))
+        (agenda-structure . (variable-pitch light 1.9))
+        (t . (variable-pitch 1.1))))
+#+end_src
+
+*** The ~modus-themes-headings~ no longer affects colours
+:PROPERTIES:
+:CUSTOM_ID: h:bb0bac60-ad22-4699-9579-881431972294
+:END:
+
+All colour-related changes can be done via palette overrides.  This
+gives the user maximum flexibility on the choice of applied colours
+(e.g. to have alternating contrasting foregrounds or shades of the
+same hue).  The manual shows several examples:
+<https://protesilaos.com/emacs/modus-themes#h:11297984-85ea-4678-abe9-a73aeab4676a>.
+
+*** The ~modus-themes-completions~ is simpler
+:PROPERTIES:
+:CUSTOM_ID: h:0b29c525-7def-4149-a26b-70ca5e021a27
+:END:
+
+It no longer covers =popup= entries as distinct from =selection=.
+This is because I revised all the applicable colours and faces to
+consolidate styles.
+
+The =matches= and =selection= keys now read the same list of values.
+
+All changes to colours are done through palette overrides, as
+demonstrated in the manual (again, far more flexible):
+<https://protesilaos.com/emacs/modus-themes#h:d959f789-0517-4636-8780-18123f936f91>.
+
+*** The ~modus-themes-prompts~ is simpler
+:PROPERTIES:
+:CUSTOM_ID: h:7e5b9fea-b696-4e8a-bebe-a7fbb0eb460a
+:END:
+
+This user option now only affects the typographic features of prompts.
+It can read any font weight, as explained in its documentation.
+Colours are influenced by semantic colour mappings in the palette and
+can be overridden accordingly.  The manual shows several styles:
+<https://protesilaos.com/emacs/modus-themes#h:bd75b43a-0bf1-45e7-b8b4-20944ca8b7f8>.
+
+*** Auto-reload theme when configuring via Custom
+:PROPERTIES:
+:CUSTOM_ID: h:b26a2a1f-ee1e-4001-a3d0-4d4d7cb4fd5f
+:END:
+
+The user option ~modus-themes-custom-auto-reload~ supersedes the old
+~modus-themes-inhibit-reload~.  It is now set to a non-~nil~ value by
+default.
+
+We do this as a convenience for users who tweak theme settings via the
+Custom UI and who do not know that all modifications to user options
+require a theme re-load for changes to take effect.  Read more in the
+manual:
+<https://protesilaos.com/emacs/modus-themes#h:9001527a-4e2c-43e0-98e8-3ef72d770639>.
+
+** Deprecation of public functions
+:PROPERTIES:
+:CUSTOM_ID: h:8167bf46-7a43-4b46-b2ed-a66e5d73bb96
+:END:
+
+The ~modus-themes-color~ and ~modus-themes-color-alts~ are deprecated.
+Users are invited to concentrate on the ~modus-themes-with-colors~
+macro.  The manual provides several examples on that front.
+
+The ~modus-themes-load-themes~ is no longer necessary due to the
+refactoring of the code base.
+
+The ~modus-themes-load-operandi~ and ~modus-themes-load-vivendi~ are
+superseded by the general ~modus-themes-load-theme~.  It accepts the
+symbol of a Modus theme as its argument.
+
+The command ~modus-themes-report-bug~ is no more.  Just send an email
+to the mailing list or to me privately.  Find the information with
+=M-x describe-package= and then specify =modus-themes=.
+Alternatively, check my website: <https://protesilaos.com/contact>.
+
+** Removed support for some packages
+:PROPERTIES:
+:CUSTOM_ID: h:34ffc5ed-574d-44f1-8a27-c2e6bb8c69e0
+:END:
+
+These are the most notable packages that are no longer supported:
+
+- ~dired+~
+- ~lsp-mode~
+- ~helm~
+- ~treemacs~
+
+The reason is that they are very hard to use for me as an outsider.
+They provide lots of features, which means that I cannot easily
+identify faces in their context unless I become an expert in the
+relevant functionality.
+
+Other removed packages:
+
+- ~artbollocks-mode~.  Use ~writegood-mode~.
+- ~apropos~.  Its default faces are fine.
+- ~awesome-tray~.
+- ~bbdb~ and ~ebdb~.  They are hard to set up, but their faces are
+  usable.
+- ~calfw~.  Hard to set up and also seems to no longer be maintained.
+- ~easy-jekyll~
+- ~dir-treeview~
+- ~eros~
+- ~eshell-git-prompt~
+- ~eshell-prompt-extras~
+- ~eshell-syntax-highlighting~
+- ~evil-goggles~
+- ~evil-snipe~
+- ~evil-visual-mark-mode~
+- ~fountain-mode~.  I need someone who uses it to help me test it.
+- ~macrostep~
+- ~mentor~
+- ~mini-modeline~
+- ~mmm-mode~.  I need someone who uses it to help me test it.
+- ~org-table-sticky-header~.
+- ~phi-grep~
+- ~pomidor~
+- ~rainbow-blocks~.  Use Adam Porter's (aka alphapapa) =prism.el=.
+- ~semantic~
+- ~smartparens~
+- ~spaceline~
+- ~sx~
+- ~telephone-line~
+- ~tomatinho~
+- ~winum~
+- ~xterm-color~.
+
+** Thanks for their feedback on the development of version 4
+:PROPERTIES:
+:CUSTOM_ID: h:bdaa3eaf-67e8-4de8-b8d5-7b11fa28dbcd
+:END:
+
+In alphabetical order:
+
+- Aleksei Pirogov :: Noticed that there were no semantic colour
+  mappings for the ~rainbow-delimiters~ (and related), thus reminding
+  me to make the requisite arrangements.  Aleksei also spotted a
+  regression during the development of the "faint" overrides' preset.
+  These were done on the GitHub mirror:
+
+  - <https://github.com/protesilaos/modus-themes/issues/54>
+  - <https://github.com/protesilaos/modus-themes/issues/55>
+
+- Anders Johansson :: Pointed out some irregularities with the use of
+  ~make-obsolete~ in the =version-4= development branch.  I should be
+  using ~make-obsolete-variable~ in some cases:
+  <https://lists.sr.ht/~protesilaos/modus-themes/%3CCAKJdtO-dzvR%3D2BaSd5qPzwDE%3D%2BaJSR6js7ii1O6KD7oFOB7gDw%40mail.gmail.com%3E>
+
+- Charlotte Van Petegem :: Reminded me to document how to reproduce
+  the old "alt-syntax" style by using palette overrides:
+  <https://lists.sr.ht/~protesilaos/modus-themes/%3C877cy917jw.fsf%40vanpetegem.me%3E>
+
+- Christian Tietze :: Spotted a bug in how shared palette overrides
+  would not be read in certain scenaria.  Also suggested tweaks to the
+  documentation, which reminded me of tasks that still had to be done:
+
+  - <https://lists.sr.ht/~protesilaos/modus-themes/%3Cm1cz81rq9m.fsf%40christiantietze.de%3E>
+  - <https://lists.sr.ht/~protesilaos/modus-themes/%3Cm1fscxrr0s.fsf%40christiantietze.de%3E>
+  - <https://lists.sr.ht/~protesilaos/modus-themes/%3Cm1ilhtrs09.fsf%40christiantietze.de%3E>
+
+- Daniel Mendler (aka @minad on GitHub) :: Contacted me to comment on
+  the general redesign.  From the discussion I learnt that preset
+  overrides would be useful.  This information is shared with
+  permission, as it was done via a private channel.
+
+- James Ferguson :: Commented on the colours of the tab-bar and thus
+  inspired me to define relevant semantic colour mappings:
+  <https://lists.sr.ht/~protesilaos/modus-themes/%3CCAMtGdSnrKDGdagT7vGC9DnBZnOvkbM%3D4Nxwn3ts2tdO8YmUnxw%40mail.gmail.com%3E>
+
+- Philip Kaludercic :: Opined that the ~modus-themes-inhibit-reload~
+  should not be deprecated in the interest of usability.  As noted
+  above, its functionality is preserved and now enabled by default in
+  ~modus-themes-custom-auto-reload~.  Through the discussion we also
+  arrived at the concept of shared palette overrides instead of only
+  having theme-specific ones:
+
+  - <https://lists.sr.ht/~protesilaos/modus-themes/%3C87h6y3gyxx.fsf%40posteo.net%3E>
+  - <https://lists.sr.ht/~protesilaos/modus-themes/%3C87wn6qgjkx.fsf%40posteo.net%3E>
+
+- Tony Zorman :: Noted that there was no clear upgrade path to
+  version 4.  This helped me explain some of the technicalities of
+  packaging and of the themes' redesign, but also to update the
+  manual:
+  <https://lists.sr.ht/~protesilaos/modus-themes/%3C874jtew0gp.fsf%40hyperspace%3E>.
+
+- a1ks :: Reported a bug caused by the typo of an extra backtick.
+  This was done on the GitHub mirror:
+  <https://github.com/protesilaos/modus-themes/issues/53>.
+
+- soaringbind :: Identified some omissions in the code where I forgot
+  to update certain Avy and Org faces.  This continued in a second
+  thread about the use of some obsolete faces:
+
+  - <https://lists.sr.ht/~protesilaos/modus-themes/%3CNKXY2k1--3-9%40tuta.io%3E>
+  - <https://lists.sr.ht/~protesilaos/modus-themes/%3CNKd3jM_--3-9%40tuta.io%3E>
+
+- tumashu :: Experimented with the overrides and thus helped me
+  identify an area where the documentation could be improved.  This
+  was done on the GitHub mirror:
+
+  - <https://github.com/protesilaos/modus-themes/issues/56>
+  - <https://github.com/protesilaos/modus-themes/issues/57>
+
+- wakamenod :: Encountered a bug that was caused by a mistake of mine
+  that affected how themes are instantiated.  This was done on the
+  GitHub mirror: <https://github.com/protesilaos/modus-themes/issues/50>.
+
+** The largest release to date
+:PROPERTIES:
+:CUSTOM_ID: h:54a6bcd1-6ba0-42ed-8fdd-b83ee3efee73
+:END:
+
+There are many more changes that I did not describe.  This already
+lengthy document is me covering just the headline features.  The gist
+is that I spent the last month refactoring and testing the themes to
+ensure they can cope with the needs of users for years to come.
+
+I understand that the palette overrides are a new way of doing things
+and that some users may be inconvenienced over the short-term as they
+update their configurations.  I strongly believe that this system is
+better and the Modus themes can now cover all the legibility needs of
+users, while also catering to their aesthetic preferences.
+
++ Package name (GNU ELPA): ~modus-themes~
++ Official manual: <https://protesilaos.com/emacs/modus-themes>
++ Change log: <https://protesilaos.com/emacs/modus-themes-changelog>
++ Colour palette: <https://protesilaos.com/emacs/modus-themes-colors>
++ Sample pictures: <https://protesilaos.com/emacs/modus-themes-pictures>
++ Git repo on SourceHut: <https://git.sr.ht/~protesilaos/modus-themes>
+  - Mirrors:
+    + GitHub: <https://github.com/protesilaos/modus-themes>
+    + GitLab: <https://gitlab.com/protesilaos/modus-themes>
++ Mailing list: <https://lists.sr.ht/~protesilaos/modus-themes>
++ Backronym: My Old Display Unexpectedly Sharpened ... themes
+
 * 3.0.0
 :PROPERTIES:
 :CUSTOM_ID: h:6829db8d-52c5-43a8-a026-f213dcfaced9
@@ -166,7 +863,7 @@ Miscellaneous
 
   These prompts are consistent with how 'load-theme' works, but not
   with what the user of 'modus-themes-toggle' has come to expect.
-  
+
   Users who do not like to maintain a 'custom-file' (like me) are thus
   penalised each time they invoke the command.
 
@@ -1396,13 +2093,13 @@ Changes to supported faces or packages
 ,* Improved the colours used by 'avy' to always guarantee constrast in
   hueness between side-by-side characters with a variety of user
   settings.  I tried various styles, such as:
-      
+
       (setq avy-style 'pre)
       (setq avy-style 'at-full)
 
   For the sake of completeness, I also ran tests by modifying the
   'avy-lead-faces' (which is a 'defconst', not a 'defcustom'):
-      
+
       (setq avy-lead-faces
             '(avy-lead-face
               avy-lead-face-0
@@ -1429,7 +2126,7 @@ Changes to supported faces or packages
   Avy styles.  Thanks to Daniel Mendler (Vertico's developer) for the
   reminder:
   <https://gitlab.com/protesilaos/modus-themes/-/commit/404a9658196debdde95a51148fc62c5b2faccfb9#note_856454659>.
-  
+
 ,* Applied warmer though still not saturated colours for Org clocking
   overlays.  The previous style could be mistaken for a mouse highlight
   or the highlighted line if 'modus-themes-hl-line' included the

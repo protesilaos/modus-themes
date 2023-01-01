@@ -39,15 +39,15 @@ Copyright (C) 2020-2022 Free Software Foundation, Inc.
      modify this GNU manual.”
 
    This manual, written by Protesilaos Stavrou, describes the
-customization options for the ‘modus-operandi’ and ‘modus-vivendi’
-themes, and provides every other piece of information pertinent to them.
+customization options for the Modus themes, and provides every other
+piece of information pertinent to them.
 
    The documentation furnished herein corresponds to stable version
-pre-4.0.0, released on N/A.  Any reference to a newer feature which does
-not yet form part of the latest tagged commit, is explicitly marked as
-such.
+4.0.0, released on 2023-01-01.  Any reference to a newer feature which
+does not yet form part of the latest tagged commit, is explicitly marked
+as such.
 
-   Current development target is 4.0.0-dev.
+   Current development target is 4.1.0-dev.
 
    • Package name (GNU ELPA): ‘modus-themes’
    • Official manual: <https://protesilaos.com/emacs/modus-themes>
@@ -699,10 +699,7 @@ File: modus-themes.info,  Node: Custom reload theme,  Next: Bold constructs,  Up
 4.1 Option for reloading the theme on custom change
 ===================================================
 
-[ Revised as part of 4.0.0-dev.  It used to be named
-‘modus-themes-inhibit-reload’.  ]
-
-   Brief: Toggle reloading of the active theme when an option is changed
+Brief: Toggle reloading of the active theme when an option is changed
 through the Custom UI.
 
    Symbol: ‘modus-themes-custom-auto-reload’ (‘boolean’ type)
@@ -811,10 +808,7 @@ File: modus-themes.info,  Node: Command prompts,  Next: Completion UIs,  Prev: M
 4.5 Option for command prompt styles
 ====================================
 
-[ Refactored as part of 4.0.0-dev.  Made it possible to specify any font
-weight.  Removed all color permutations.  Use overrides for those.  ]
-
-   Brief: Control the style of command prompts (e.g.  minibuffer, shell,
+Brief: Control the style of command prompts (e.g.  minibuffer, shell,
 IRC clients).
 
    Symbol: ‘modus-themes-prompts’ (‘choice’ type, list of properties)
@@ -870,12 +864,7 @@ File: modus-themes.info,  Node: Completion UIs,  Next: Org mode blocks,  Prev: C
 4.6 Option for completion framework aesthetics
 ==============================================
 
-[ Refactored with breaking changes as part of 4.0.0-dev.  We removed the
-optional intense styles as there now is a uniform intensity: the subtle
-gray selection line is no longer available.  Changes to colors can be
-implemented via the overrides.  ]
-
-   Brief: Set the overall style of completion framework interfaces.
+Brief: Set the overall style of completion framework interfaces.
 
    Symbol: ‘modus-themes-completions’ (‘alist’ type properties)
 
@@ -984,12 +973,7 @@ File: modus-themes.info,  Node: Heading styles,  Next: UI typeface,  Prev: Org m
 4.8 Option for the headings’ overall style
 ==========================================
 
-[ Refactored with breaking changes as part of 4.0.0-dev.  Removed the
-optional styles of an added foreground, background, and overline.  Added
-‘agenda-date’ and ‘agenda-structure’ keys for the Org agenda headings.
-]
-
-   Brief: Heading styles with optional list of values per heading level.
+Brief: Heading styles with optional list of values per heading level.
 
    Symbol: ‘modus-themes-headings’ (‘alist’ type, multiple properties)
 
@@ -2427,8 +2411,7 @@ constructs in the ‘blue-warmer’ color value (*note Option for palette
 overrides: Palette overrides.).
 
    Aliases for those commands are ‘modus-themes-preview-colors’ and
-‘modus-themes-preview-colors-current’.  [ These aliases are part of
-4.0.0-dev.  ]
+‘modus-themes-preview-colors-current’.
 
    Each row shows a foreground and background coloration using the
 underlying value it references.  For example a line with ‘#a60000’ (a
@@ -3378,7 +3361,7 @@ affected face groups.  The items with an appended asterisk ‘*’ tend to
 have lots of extensions, so the “full support” may not be 100% true…
 
    • ace-window
-   • agda2-mode [Part of 4.0.0-dev.]
+   • agda2-mode
    • all-the-icons
    • all-the-icons-dired
    • all-the-icons-ibuffer
@@ -3401,7 +3384,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • cider
    • circe
    • citar
-   • clojure-mode [Part of 4.0.0-dev]
+   • clojure-mode
    • column-enforce-mode
    • company-mode*
    • compilation-mode
@@ -3554,7 +3537,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • quick-peek
    • rainbow-delimiters
    • rcirc
-   • rcirc-color [Part of 4.0.0-dev]
+   • rcirc-color
    • recursion-indicator
    • regexp-builder (also known as ‘re-builder’)
    • rg (rg.el)
@@ -5570,116 +5553,116 @@ B.3 Concept index
 
 Tag Table:
 Node: Top874
-Node: Overview7703
-Node: How do the themes look like10101
-Node: Learn about the latest changes10460
-Node: Installation10848
-Node: Install manually from source11778
-Node: Install from the archives12603
-Node: Install on GNU/Linux13202
-Node: Debian 11 Bullseye13695
-Node: GNU Guix14105
-Node: Dealing with byte compilation errors14388
-Node: Enable and load15546
-Node: Sample configuration with and without use-package18132
-Node: Differences between loading and enabling20718
-Node: Customization options22756
-Node: Custom reload theme26363
-Node: Bold constructs27361
-Node: Italic constructs28197
-Node: Mixed fonts28968
-Node: Command prompts29964
-Node: Completion UIs31916
-Node: Org mode blocks34916
-Node: Heading styles36796
-Node: UI typeface41378
-Node: Palette overrides42307
-Node: Palette override presets46739
-Node: Stylistic variants using palette overrides49236
-Node: Make the mode line borderless50895
-Node: Make the active mode line colorful52059
-Node: Make the fringe invisible or another color54006
-Node: Make links use subtle or no underlines55502
-Node: Make prompts more or less colorful56505
-Node: Make completion matches more or less colorful58175
-Node: Make comments yellow and strings green61982
-Node: Make code syntax use the old alt-syntax style63891
-Node: Make use of alternative styles for code syntax67178
-Node: Make matching parenthesis more or less intense70846
-Node: Make box buttons more or less gray72288
-Node: Make TODO and DONE more or less intense73600
-Node: Make headings more or less colorful75309
-Node: Make Org agenda more or less colorful77715
-Node: Make inline code in prose use alternative styles80453
-Node: Make mail citations and headers more or less colorful83018
-Node: Make the region preserve text colors plus other styles85719
-Node: Make mouse highlights more or less colorful87487
-Node: Make language underlines less colorful88800
-Node: Make line numbers use alternative styles90252
-Node: Advanced customization92154
-Node: More accurate colors in terminal emulators93604
-Node: Range of color with terminal emulators94845
-Node: Preview theme colors97559
-Node: Per-theme customization settings99296
-Node: Use theme colors in code with modus-themes-with-colors100661
-Node: Add padding to mode line102468
-Node: Remap face with local value105043
-Node: Font configurations for Org and others107464
-Ref: Font configurations for Org and others-Footnote-1110371
-Node: Configure bold and italic faces110558
-Node: Custom Org todo keyword and priority faces114713
-Node: Custom Org emphasis faces118278
-Node: Update Org block delimiter fontification123101
-Node: Measure color contrast125018
-Node: Load theme depending on time of day127716
-Node: Backdrop for pdf-tools128724
-Node: Toggle themes without reloading them131587
-Node: A theme-agnostic hook for theme loading132863
-Node: Custom hl-todo colors135285
-Node: Add support for solaire-mode136810
-Node: Face coverage139721
-Node: Supported packages140173
-Node: Indirectly covered packages145566
-Node: Notes on individual packages146919
-Node: Note on calendarel weekday and weekend colors148019
-Node: Note on git-gutter in Doom Emacs149167
-Node: Note on php-mode multiline comments151511
-Node: Note on underlines in compilation buffers152264
-Node: Note on inline Latex in Org buffers153101
-Node: Note on dimmerel153711
-Node: Note on display-fill-column-indicator-mode155196
-Node: Note on highlight-parenthesesel156595
-Node: Note on mmm-modeel background colors162573
-Node: Note for prism164873
-Node: Note on company-mode overlay pop-up168041
-Ref: Note on company-mode overlay pop-up-Footnote-1168771
-Ref: Note on company-mode overlay pop-up-Footnote-2168838
-Node: Note on ERC escaped color sequences168893
-Ref: Note on ERC escaped color sequences-Footnote-1170321
-Node: Note on powerline or spaceline170431
-Node: Note on SHR colors170845
-Node: Note on SHR fonts171269
-Node: Note on Ement colors and fonts171908
-Node: Note on pdf-tools link hints173418
-Node: Note on the Notmuch logo175878
-Node: Note on goto-address-mode faces176416
-Node: Frequently Asked Questions177528
-Node: Is the contrast ratio about adjacent colors?178159
-Node: What does it mean to avoid exaggerations?179666
-Node: Why are colors mostly variants of blue magenta cyan?181516
-Node: What is the best setup for legibility?185822
-Node: Are these color schemes?188467
-Node: Port the Modus themes to other platforms?192149
-Node: Contributing194921
-Node: Sources of the themes195318
-Node: Issues you can help with196212
-Node: Patches require copyright assignment to the FSF197603
-Node: Acknowledgements199823
-Node: GNU Free Documentation License203596
-Node: Indices228960
-Node: Function index229139
-Node: Variable index230171
-Node: Concept index231997
+Node: Overview7667
+Node: How do the themes look like10065
+Node: Learn about the latest changes10424
+Node: Installation10812
+Node: Install manually from source11742
+Node: Install from the archives12567
+Node: Install on GNU/Linux13166
+Node: Debian 11 Bullseye13659
+Node: GNU Guix14069
+Node: Dealing with byte compilation errors14352
+Node: Enable and load15510
+Node: Sample configuration with and without use-package18096
+Node: Differences between loading and enabling20682
+Node: Customization options22720
+Node: Custom reload theme26327
+Node: Bold constructs27230
+Node: Italic constructs28066
+Node: Mixed fonts28837
+Node: Command prompts29833
+Node: Completion UIs31638
+Node: Org mode blocks34385
+Node: Heading styles36265
+Node: UI typeface40619
+Node: Palette overrides41548
+Node: Palette override presets45980
+Node: Stylistic variants using palette overrides48477
+Node: Make the mode line borderless50136
+Node: Make the active mode line colorful51300
+Node: Make the fringe invisible or another color53247
+Node: Make links use subtle or no underlines54743
+Node: Make prompts more or less colorful55746
+Node: Make completion matches more or less colorful57416
+Node: Make comments yellow and strings green61223
+Node: Make code syntax use the old alt-syntax style63132
+Node: Make use of alternative styles for code syntax66419
+Node: Make matching parenthesis more or less intense70087
+Node: Make box buttons more or less gray71529
+Node: Make TODO and DONE more or less intense72841
+Node: Make headings more or less colorful74550
+Node: Make Org agenda more or less colorful76956
+Node: Make inline code in prose use alternative styles79694
+Node: Make mail citations and headers more or less colorful82259
+Node: Make the region preserve text colors plus other styles84960
+Node: Make mouse highlights more or less colorful86728
+Node: Make language underlines less colorful88041
+Node: Make line numbers use alternative styles89493
+Node: Advanced customization91395
+Node: More accurate colors in terminal emulators92845
+Node: Range of color with terminal emulators94086
+Node: Preview theme colors96800
+Node: Per-theme customization settings98494
+Node: Use theme colors in code with modus-themes-with-colors99859
+Node: Add padding to mode line101666
+Node: Remap face with local value104241
+Node: Font configurations for Org and others106662
+Ref: Font configurations for Org and others-Footnote-1109569
+Node: Configure bold and italic faces109756
+Node: Custom Org todo keyword and priority faces113911
+Node: Custom Org emphasis faces117476
+Node: Update Org block delimiter fontification122299
+Node: Measure color contrast124216
+Node: Load theme depending on time of day126914
+Node: Backdrop for pdf-tools127922
+Node: Toggle themes without reloading them130785
+Node: A theme-agnostic hook for theme loading132061
+Node: Custom hl-todo colors134483
+Node: Add support for solaire-mode136008
+Node: Face coverage138919
+Node: Supported packages139371
+Node: Indirectly covered packages144703
+Node: Notes on individual packages146056
+Node: Note on calendarel weekday and weekend colors147156
+Node: Note on git-gutter in Doom Emacs148304
+Node: Note on php-mode multiline comments150648
+Node: Note on underlines in compilation buffers151401
+Node: Note on inline Latex in Org buffers152238
+Node: Note on dimmerel152848
+Node: Note on display-fill-column-indicator-mode154333
+Node: Note on highlight-parenthesesel155732
+Node: Note on mmm-modeel background colors161710
+Node: Note for prism164010
+Node: Note on company-mode overlay pop-up167178
+Ref: Note on company-mode overlay pop-up-Footnote-1167908
+Ref: Note on company-mode overlay pop-up-Footnote-2167975
+Node: Note on ERC escaped color sequences168030
+Ref: Note on ERC escaped color sequences-Footnote-1169458
+Node: Note on powerline or spaceline169568
+Node: Note on SHR colors169982
+Node: Note on SHR fonts170406
+Node: Note on Ement colors and fonts171045
+Node: Note on pdf-tools link hints172555
+Node: Note on the Notmuch logo175015
+Node: Note on goto-address-mode faces175553
+Node: Frequently Asked Questions176665
+Node: Is the contrast ratio about adjacent colors?177296
+Node: What does it mean to avoid exaggerations?178803
+Node: Why are colors mostly variants of blue magenta cyan?180653
+Node: What is the best setup for legibility?184959
+Node: Are these color schemes?187604
+Node: Port the Modus themes to other platforms?191286
+Node: Contributing194058
+Node: Sources of the themes194455
+Node: Issues you can help with195349
+Node: Patches require copyright assignment to the FSF196740
+Node: Acknowledgements198960
+Node: GNU Free Documentation License202733
+Node: Indices228097
+Node: Function index228276
+Node: Variable index229308
+Node: Concept index231134
 
 End Tag Table
 
