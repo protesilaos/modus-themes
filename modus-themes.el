@@ -821,10 +821,10 @@ represents."
     (name maroon)
     (identifier fg-dim)
 
-    (bg-line-number-inactive bg-main)
-    (fg-line-number-inactive "gray50")
-    (bg-line-number-active bg-main)
     (fg-line-number-active fg-main)
+    (fg-line-number-inactive "gray50")
+    (bg-line-number-active unspecified)
+    (bg-line-number-inactive unspecified)
 
     (fg-link blue-faint)
     (bg-link unspecified)
