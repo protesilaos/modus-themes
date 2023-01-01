@@ -1724,6 +1724,8 @@ to subdue them.
 
 [[#h:11297984-85ea-4678-abe9-a73aeab4676a][Make headings more or less colorful]].
 
+[[#h:bb5b396f-5532-4d52-ab13-149ca24854f1][Make inline code in prose use alternative styles]].
+
 #+begin_src emacs-lisp
 ;; These overrides are common to all Modus themes.  We also provide
 ;; theme-specific options, such as `modus-operandi-palette-overrides'.
@@ -1869,6 +1871,66 @@ A third example that makes the agenda more blue:
         (date-scheduled blue)
         (date-weekday fg-main)
         (date-weekend fg-dim)))
+#+end_src
+
+**** Make inline code in prose use alternative styles
+:PROPERTIES:
+:CUSTOM_ID: h:bb5b396f-5532-4d52-ab13-149ca24854f1
+:END:
+
+This is one of our practical examples to override the semantic colors
+of the Modus themes ([[#h:df1199d8-eaba-47db-805d-6b568a577bf3][Stylistic variants using palette overrides]]).  In
+the following code block we show how to affect constructs such as
+Org's verbatim, code, and macro entries.  We also provide mappings for
+tables, property drawers, tags, and code block delimiters, though we
+do not show every possible permutation.
+
+[[#h:b57bb50b-a863-4ea8-bb38-6de2275fa868][Make TODO and DONE more or less intense]].
+
+#+begin_src emacs-lisp
+;; These overrides are common to all Modus themes.  We also provide
+;; theme-specific options, such as `modus-operandi-palette-overrides'.
+;;
+;; In general, the theme-specific overrides are better for overriding
+;; color values, such as redefining what `blue-faint' looks like.  The
+;; common overrides are best used for changes to semantic color
+;; mappings, as we show below.
+
+
+;; These are all the mappings at their default values for didactic
+;; purposes
+(setq modus-themes-common-palette-overrides
+      '((prose-block fg-dim)
+        (prose-code green-cooler)
+        (prose-done green)
+        (prose-macro magenta-cooler)
+        (prose-metadata fg-dim)
+        (prose-metadata-value fg-alt)
+        (prose-table fg-alt)
+        (prose-tag magenta-faint)
+        (prose-todo red)
+        (prose-verbatim magenta-warmer)))
+
+;; Make code block delimiters use a shade of red, tone down
+;; =verbatim=, ~code~, and {{{macro}}}, and amplify the style of
+;; property drawers
+(setq modus-themes-common-palette-overrides
+      '((prose-block red-faint)
+        (prose-code fg-dim)
+        (prose-macro magenta-faint)
+        (prose-metadata cyan)
+        (prose-metadata-value green-warmer)
+        (prose-verbatim fg-dim)))
+
+;; Like the above but with more color variety for the inline code
+;; elements
+(setq modus-themes-common-palette-overrides
+      '((prose-block red-faint)
+        (prose-code blue-cooler)
+        (prose-macro yellow-warmer)
+        (prose-metadata cyan)
+        (prose-metadata-value green-warmer)
+        (prose-verbatim red-warmer)))
 #+end_src
 
 **** Make mail citations and headers more or less colorful
