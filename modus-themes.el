@@ -726,7 +726,6 @@ In user configuration files the form may look like this:
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Command prompts"))
 
-(make-obsolete-variable 'modus-themes-hl-line nil "4.0.0")
 (make-obsolete-variable 'modus-themes-subtle-line-numbers nil "4.0.0")
 (make-obsolete-variable 'modus-themes-markup nil "4.0.0")
 (make-obsolete-variable 'modus-themes-paren-match nil "4.0.0")
@@ -1431,7 +1430,6 @@ FG and BG are the main colors."
     `(modus-themes-mark-alt ((,c :inherit bold :background ,bg-yellow-subtle :foreground ,yellow)))
     `(modus-themes-mark-del ((,c :inherit bold :background ,bg-red-subtle :foreground ,red)))
     `(modus-themes-mark-sel ((,c :inherit bold :background ,bg-cyan-subtle :foreground ,cyan)))
-    `(modus-themes-mark-symbol ((,c :inherit bold)))
 ;;;;; heading levels
     ;; styles for regular headings used in Org, Markdown, Info, etc.
     `(modus-themes-heading-0 ((,c ,@(modus-themes--heading 0 fg-heading-0 bg-heading-0 overline-heading-0))))
@@ -1711,7 +1709,7 @@ FG and BG are the main colors."
     `(calibredb-highlight-face ((,c :inherit success)))
     `(calibredb-id-face (( )))
     `(calibredb-ids-face (( )))
-    `(calibredb-search-header-highlight-face ((,c :inherit modus-themes-hl-line)))
+    `(calibredb-search-header-highlight-face ((,c :background ,bg-hl-line :extend t)))
     `(calibredb-search-header-library-name-face ((,c :foreground ,accent-2)))
     `(calibredb-search-header-library-path-face ((,c :inherit bold)))
     `(calibredb-search-header-sort-face ((,c :inherit bold :foreground ,accent-1)))
@@ -3575,7 +3573,7 @@ FG and BG are the main colors."
     `(web-mode-css-string-face ((,c :inherit web-mode-string-face)))
     `(web-mode-css-variable-face ((,c :inherit font-lock-variable-name-face)))
     `(web-mode-current-column-highlight-face ((,c :background ,bg-inactive)))
-    `(web-mode-current-element-highlight-face ((,c :inherit modus-themes-special-mild)))
+    `(web-mode-current-element-highlight-face ((,c :inherit modus-themes-cyan-subtle)))
     `(web-mode-doctype-face ((,c :inherit font-lock-doc-face)))
     `(web-mode-error-face ((,c :inherit modus-themes-intense-red)))
     `(web-mode-filter-face ((,c :inherit font-lock-function-name-face)))
