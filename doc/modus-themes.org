@@ -3022,12 +3022,10 @@ To remap the buffer's backdrop, we start with a function like this one:
 
 #+begin_src emacs-lisp
 (defun my-pdf-tools-backdrop ()
-  (let ((cur-palette (if (eq (car custom-enabled-themes) 'modus-operandi)
-			 modus-operandi-palette
-		       modus-vivendi-palette)))
+  (modus-themes-with-colors
     (face-remap-add-relative
      'default
-     `(:background ,(car (alist-get 'bg-dim cur-palette))))))
+     `(:background ,bg-dim))))
 
 (add-hook 'pdf-tools-enabled-hook #'my-pdf-tools-backdrop)
 #+end_src
@@ -3046,12 +3044,10 @@ at something like the following, which builds on the above example:
 
 #+begin_src emacs-lisp
 (defun my-pdf-tools-backdrop ()
-  (let ((cur-palette (if (eq (car custom-enabled-themes) 'modus-operandi)
-			 modus-operandi-palette
-		       modus-vivendi-palette)))
+  (modus-themes-with-colors
     (face-remap-add-relative
      'default
-     `(:background ,(car (alist-get 'bg-dim cur-palette))))))
+     `(:background ,bg-dim))))
 
 (defun my-pdf-tools-midnight-mode-toggle ()
   (when (derived-mode-p 'pdf-view-mode)
