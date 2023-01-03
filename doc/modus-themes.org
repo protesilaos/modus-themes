@@ -299,10 +299,11 @@ Changes to the available customization options must always be evaluated
 before loading a theme ([[#h:bf1c82f2-46c7-4eb2-ad00-dd11fdd8b53f][Customization Options]]).  Reload a theme for
 new changes to take effect.
 
-This is how a basic setup could look like:
+This is how a basic setup could look like ([[#h:b66b128d-54a4-4265-b59f-4d1ea2feb073][The require-theme for built-in Emacs themes]]):
 
 #+begin_src emacs-lisp
 ;;; For the built-in themes which cannot use `require'.
+(require-theme 'modus-themes)
 
 ;; Add all your customizations prior to loading the themes.
 (setq modus-themes-italic-constructs t
@@ -333,6 +334,32 @@ This is how a basic setup could look like:
 
 [[#h:e979734c-a9e1-4373-9365-0f2cd36107b8][Sample configuration with and without use-package]].
 
+** The ~require-theme~ for built-in Emacs themes
+:PROPERTIES:
+:CUSTOM_ID: h:b66b128d-54a4-4265-b59f-4d1ea2feb073
+:END:
+
+The version of the Modus themes that is included in Emacs CANNOT use
+the standard ~require~.  This is because the built-in themes are not
+included in the ~load-path~ (not my decision).  The ~require-theme~
+function must be used in this case as a replacement.  For example:
+
+#+begin_src emacs-lisp
+(require-theme 'modus-themes)
+
+;; All customizations here
+(setq modus-themes-bold-constructs t
+      modus-themes-italic-constructs t)
+
+;; Maybe define some palette overrides, such as by using our presets
+(setq modus-themes-common-palette-overrides
+      modus-themes-preset-overrides-intense)
+
+;; Load the theme of choice (built-in themes are always "safe" so they
+;; do not need the `no-require' argument of `load-theme'.
+(load-theme 'modus-operandi)
+#+end_src
+
 ** Sample configuration with and without use-package
 :properties:
 :custom_id: h:e979734c-a9e1-4373-9365-0f2cd36107b8
@@ -350,9 +377,15 @@ package configurations in their setup.  We use this as an example:
 ;;; For the built-in themes which cannot use `require'.
 (use-package emacs
   :init
+  (require-theme 'modus-themes) ; `require-theme' is ONLY for the built-in Modus themes
+
   ;; Add all your customizations prior to loading the themes
   (setq modus-themes-italic-constructs t
         modus-themes-bold-constructs nil)
+
+  ;; Maybe define some palette overrides, such as by using our presets
+  (setq modus-themes-common-palette-overrides
+        modus-themes-preset-overrides-intense)
   :config
   ;; Load the theme of your choice.
   (load-theme 'modus-operandi)
@@ -367,6 +400,10 @@ package configurations in their setup.  We use this as an example:
   ;; Add all your customizations prior to loading the themes
   (setq modus-themes-italic-constructs t
         modus-themes-bold-constructs nil)
+
+  ;; Maybe define some palette overrides, such as by using our presets
+  (setq modus-themes-common-palette-overrides
+        modus-themes-preset-overrides-intense)
   :config
   ;; Load the theme of your choice.
   (load-theme 'modus-operandi :no-confim)
@@ -376,24 +413,15 @@ package configurations in their setup.  We use this as an example:
 The same without ~use-package~:
 
 #+begin_src emacs-lisp
-;;; For the built-in themes which cannot use `require':
-;; Add all your customizations prior to loading the themes
-(setq modus-themes-italic-constructs t
-      modus-themes-bold-constructs nil)
-
-;; Load the theme of your choice:
-(load-theme 'modus-operandi) ;; OR (load-theme 'modus-vivendi)
-
-(define-key global-map (kbd "<f5>") #'modus-themes-toggle)
-
-
-
-;;; For packaged versions which must use `require':
-(require 'modus-themes)
+(require 'modus-themes) ; OR for the built-in themes: (require-theme 'modus-themes)
 
 ;; Add all your customizations prior to loading the themes
 (setq modus-themes-italic-constructs t
       modus-themes-bold-constructs nil)
+
+;; Maybe define some palette overrides, such as by using our presets
+(setq modus-themes-common-palette-overrides
+      modus-themes-preset-overrides-intense)
 
 ;; Load the theme of your choice:
 (load-theme 'modus-operandi :no-confim) ;; OR (load-theme 'modus-vivendi :no-confim)
