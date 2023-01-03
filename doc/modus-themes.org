@@ -4827,12 +4827,12 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Joshua O'Connor, Julio C. Villasante, Kenta Usami, Kevin Fleming,
   Kévin Le Gouguec, Kevin Kainan Li, Kostadin Ninev, Laith Bahodi, Len
   Trigg, Lennart C. Karssen, Luis Miguel Castañeda, Magne Hov, Manuel
-  Uberti, Mark Bestley, Mark Burton, Mark Simpson, Markus Beppler,
-  Matt Armstrong, Matthias Fuchs, Mattias Engdegård, Mauro Aranda,
-  Maxime Tréca, Michael Goldenberg, Morgan Smith, Morgan Willcock,
-  Murilo Pereira, Nicky van Foreest, Nicolas De Jaeghere, Pablo
-  Stafforini, Paul Poloskov, Pengji Zhang, Pete Kazmier, Peter Wu,
-  Philip Kaludercic, Pierre Téchoueyres, Przemysław Kryger, Robert
+  Giraud, Manuel Uberti, Mark Bestley, Mark Burton, Mark Simpson,
+  Markus Beppler, Matt Armstrong, Matthias Fuchs, Mattias Engdegård,
+  Mauro Aranda, Maxime Tréca, Michael Goldenberg, Morgan Smith, Morgan
+  Willcock, Murilo Pereira, Nicky van Foreest, Nicolas De Jaeghere,
+  Pablo Stafforini, Paul Poloskov, Pengji Zhang, Pete Kazmier, Peter
+  Wu, Philip Kaludercic, Pierre Téchoueyres, Przemysław Kryger, Robert
   Hepple, Roman Rudakov, Ryan Phillips, Rytis Paškauskas, Rudolf
   Adamkovič, Sam Kleinman, Samuel Culpepper, Saša Janiška, Shreyas
   Ragavan, Simon Pugnet, Tassilo Horn, Thibaut Verron, Thomas

@@ -1796,7 +1796,7 @@ FG and BG are the main colors."
     `(compilation-mode-line-exit ((,c :inherit bold)))
     `(compilation-mode-line-fail ((,c :inherit bold :foreground ,modeline-err)))
     `(compilation-mode-line-run ((,c :inherit bold :foreground ,modeline-warning)))
-    `(compilation-warning ((,c :inherit warning)))
+    `(compilation-warning ((,c :inherit modus-themes-bold :foreground ,warning)))
 ;;;;; completions
     `(completions-annotations ((,c :inherit modus-themes-slant :foreground ,docstring)))
     `(completions-common-part ((,c :inherit modus-themes-completion-match-0)))
