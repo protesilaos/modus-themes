@@ -356,8 +356,10 @@ function must be used in this case as a replacement.  For example:
       modus-themes-preset-overrides-intense)
 
 ;; Load the theme of choice (built-in themes are always "safe" so they
-;; do not need the `no-require' argument of `load-theme'.
+;; do not need the `no-require' argument of `load-theme').
 (load-theme 'modus-operandi)
+
+(define-key global-map (kbd "<f5>") #'modus-themes-toggle)
 #+end_src
 
 ** Sample configuration with and without use-package
@@ -424,7 +426,7 @@ The same without ~use-package~:
       modus-themes-preset-overrides-intense)
 
 ;; Load the theme of your choice:
-(load-theme 'modus-operandi :no-confim) ;; OR (load-theme 'modus-vivendi :no-confim)
+(load-theme 'modus-operandi :no-confim)
 
 (define-key global-map (kbd "<f5>") #'modus-themes-toggle)
 #+end_src
