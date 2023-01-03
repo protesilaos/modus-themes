@@ -2383,6 +2383,14 @@ We provide commands to inspect those ([[#h:f4d4b71b-2ca5-4c3d-b0b4-9bfd7aa7fb4d]
 Others sections in this manual show how to use the aforementioned
 macro ([[#h:f4651d55-8c07-46aa-b52b-bed1e53463bb][Advanced customization]]).
 
+Because the ~modus-themes-with-colors~ will most likely be used to
+customize faces, note that any function that calls it must be run at
+startup after the theme loads.  The same function must also be
+assigned to the ~modus-themes-after-load-theme-hook~ for its effects
+to persist and be updated when switching between Modus themes (e.g. to
+update the exact value of =blue-warmer= when toggling between
+~modus-operandi~ to ~modus-vivendi~.
+
 ** Add padding to mode line
 :PROPERTIES:
 :CUSTOM_ID: h:5a0c58cc-f97f-429c-be08-927b9fbb0a9c
@@ -4832,8 +4840,8 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Hołubowicz, Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.  As
   well as users: Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux,
   Fredrik, Moesasji, Nick, Summer Emacs, TheBlob42, Trey, bepolymathe,
-  bit9tream, derek-upham, doolio, fleimgruber, gitrj95, iSeeU, jixiuf,
-  okamsn, pRot0ta1p, soaringbird, tumashu, wakamenod.
+  bit9tream, bangedorrunt, derek-upham, doolio, fleimgruber, gitrj95,
+  iSeeU, jixiuf, okamsn, pRot0ta1p, soaringbird, tumashu, wakamenod.
 
 + Packaging :: Basil L.{{{space()}}} Contovounesios, Eli Zaretskii,
   Glenn Morris, Mauro Aranda, Richard Stallman, Stefan Kangas (core
