@@ -1893,9 +1893,8 @@ do not show every possible permutation.
         (prose-todo red)
         (prose-verbatim magenta-warmer)))
 
-;; Make code block delimiters use a shade of red, tone down
-;; =verbatim=, ~code~, and {{{macro}}}, and amplify the style of
-;; property drawers
+;; Make code block delimiters use a shade of red, tone down verbatim,
+;; code, and macro, and amplify the style of property drawers
 (setq modus-themes-common-palette-overrides
       '((prose-block red-faint)
         (prose-code fg-dim)
