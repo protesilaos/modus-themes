@@ -121,12 +121,12 @@ which corresponds to a minimum contrast in relative luminance of
       (bg-magenta-subtle  "#ffddff")
       (bg-cyan-subtle     "#bfefff")
 
-      (bg-red-nuanced     "#fff1f0")
-      (bg-green-nuanced   "#ecf7ed")
-      (bg-yellow-nuanced  "#fff3da")
-      (bg-blue-nuanced    "#f3f3ff")
-      (bg-magenta-nuanced "#fdf0ff")
-      (bg-cyan-nuanced    "#ebf6fa")
+      (bg-red-nuanced     "#ffe8f0")
+      (bg-green-nuanced   "#e0f5e0")
+      (bg-yellow-nuanced  "#f9ead0")
+      (bg-blue-nuanced    "#ebebff")
+      (bg-magenta-nuanced "#f6e7ff")
+      (bg-cyan-nuanced    "#e1f3fc")
 
 ;;; Uncommon accent backgrounds
 
