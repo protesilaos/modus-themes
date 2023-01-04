@@ -378,10 +378,7 @@ as a symbol and the latter as a string.
 
 Semantic color mappings have the form (MAPPING-NAME COLOR-NAME)
 with both as symbols.  The latter is a named color that already
-exists in the palette and is associated with a HEX-VALUE.
-
-Semantic color mappings cannot be recursive: their value must be
-either COLOR-NAME or HEX-VALUE.")
+exists in the palette and is associated with a HEX-VALUE.")
 
   (defcustom modus-operandi-palette-overrides nil
     "Overrides for `modus-operandi-palette'.

@@ -3778,6 +3778,27 @@ FG and BG are the main colors."
 
 ;;;; Instantiate a Modus theme
 
+(defun modus-themes--retrieve-palette-value (color palette)
+  "Return COLOR from PALETTE.
+Use recursion until COLOR is retrieved as a string.  Refrain from
+doing so if the value of COLOR is not a key in the PALETTE.
+
+Return `unspecified' if the value of COLOR cannot be determined.
+This symbol is accepted by faces and is thus harmless.
+
+This function is used in the macros `modus-themes-theme',
+`modus-themes-with-colors'."
+  (let ((value (car (alist-get color palette))))
+    (cond
+     ((or (stringp value)
+          (eq value 'unspecified))
+      value)
+     ((and (symbolp value)
+           (memq value (mapcar #'car palette)))
+      (modus-themes--retrieve-palette-value value palette))
+     (t
+      'unspecified))))
+
 ;;;###autoload
 (defmacro modus-themes-theme (name palette &optional overrides)
   "Bind NAME's color PALETTE around face specs and variables.
@@ -3795,11 +3816,7 @@ corresponding entries."
             (,sym (append ,overrides modus-themes-common-palette-overrides ,palette))
             ,@(mapcar (lambda (color)
                         (list color
-                              `(let* ((value (car (alist-get ',color ,sym))))
-                                 (if (or (stringp value)
-                                         (eq value 'unspecified))
-                                     value
-                                   (car (alist-get value ,sym))))))
+                              `(modus-themes--retrieve-palette-value ',color ,sym)))
                       colors))
        (ignore c ,@colors)            ; Silence unused variable warnings
        (custom-theme-set-faces ',name ,@modus-themes-faces)
@@ -3821,11 +3838,7 @@ corresponding entries."
             (,sym (modus-themes--current-theme-palette :overrides))
             ,@(mapcar (lambda (color)
                         (list color
-                              `(let* ((value (car (alist-get ',color ,sym))))
-                                 (if (or (stringp value)
-                                         (eq value 'unspecified))
-                                     value
-                                   (car (alist-get value ,sym))))))
+                              `(modus-themes--retrieve-palette-value ',color ,sym)))
                       colors))
        (ignore c ,@colors)            ; Silence unused variable warnings
        ,@body)))
