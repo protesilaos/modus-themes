@@ -1214,9 +1214,18 @@ set their color to that of the underlying background.
 ;; common overrides are best used for changes to semantic color
 ;; mappings, as we show below.
 
+;; Remove the border
 (setq modus-themes-common-palette-overrides
       '((border-mode-line-active unspecified)
         (border-mode-line-inactive unspecified)))
+
+;; Keep the border but make it the same color as the background of the
+;; mode line (thus appearing borderless).  The difference with the
+;; above is that this version is a bit thicker because the border are
+;; still there.
+(setq modus-themes-common-palette-overrides
+      '((border-mode-line-active bg-mode-line-active)
+        (border-mode-line-inactive bg-mode-line-inactive)))
 #+end_src
 
 **** Make the active mode line colorful
