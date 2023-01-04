@@ -1160,9 +1160,7 @@ values and semantic color mappings:
      given named color from the palette, like ‘(heading-2
      yellow-faint)’.  Both elements of the list are symbols, though the
      ‘cadr’ (value) can be a string that specifies a color, such as
-     ‘(heading-2 "#354fcf")’.  Semantic color mappings cannot be
-     recursive: their value must be either a named color or a
-     hexadecimal RGB value.
+     ‘(heading-2 "#354fcf")’.
 
    Both of those subsets can be overridden, thus refashioning the theme.
 Overrides are either shared, by being stored in the user option
@@ -1375,9 +1373,18 @@ set their color to that of the underlying background.
      ;; common overrides are best used for changes to semantic color
      ;; mappings, as we show below.
 
+     ;; Remove the border
      (setq modus-themes-common-palette-overrides
            '((border-mode-line-active unspecified)
              (border-mode-line-inactive unspecified)))
+
+     ;; Keep the border but make it the same color as the background of the
+     ;; mode line (thus appearing borderless).  The difference with the
+     ;; above is that this version is a bit thicker because the border are
+     ;; still there.
+     (setq modus-themes-common-palette-overrides
+           '((border-mode-line-active bg-mode-line-active)
+             (border-mode-line-inactive bg-mode-line-inactive)))
 
 
 File: modus-themes.info,  Node: Make the active mode line colorful,  Next: Make the fringe invisible or another color,  Prev: Make the mode line borderless,  Up: Stylistic variants using palette overrides
@@ -4937,21 +4944,21 @@ Ideas and user feedback
      Divan Santana, Eliraz Kedmi, Emanuele Michele Alberto Monterosso,
      Farasha Euker, Feng Shu, Gautier Ponsinet, Gerry Agbobada, Gianluca
      Recchia, Gonçalo Marrafa, Guilherme Semente, Gustavo Barros,
-     Hörmetjan Yiltiz, Ilja Kocken, Iris Garcia, Ivan Popovych, James
-     Ferguson, Jeremy Friesen, Jerry Zhang, Johannes Grødem, John Haman,
-     Jonas Collberg, Jorge Morais, Joshua O’Connor, Julio C.
-     Villasante, Kenta Usami, Kevin Fleming, Kévin Le Gouguec, Kevin
-     Kainan Li, Kostadin Ninev, Laith Bahodi, Len Trigg, Lennart C.
-     Karssen, Luis Miguel Castañeda, Magne Hov, Manuel Giraud, Manuel
-     Uberti, Mark Bestley, Mark Burton, Mark Simpson, Markus Beppler,
-     Matt Armstrong, Matthias Fuchs, Mattias Engdegård, Mauro Aranda,
-     Maxime Tréca, Michael Goldenberg, Morgan Smith, Morgan Willcock,
-     Murilo Pereira, Nicky van Foreest, Nicolas De Jaeghere, Pablo
-     Stafforini, Paul Poloskov, Pengji Zhang, Pete Kazmier, Peter Wu,
-     Philip Kaludercic, Pierre Téchoueyres, Przemysław Kryger, Robert
-     Hepple, Roman Rudakov, Ryan Phillips, Rytis Paškauskas, Rudolf
-     Adamkovič, Sam Kleinman, Samuel Culpepper, Saša Janiška, Shreyas
-     Ragavan, Simon Pugnet, Tassilo Horn, Thibaut Verron, Thomas
+     Hörmetjan Yiltiz, Ilja Kocken, Imran Khan, Iris Garcia, Ivan
+     Popovych, James Ferguson, Jeremy Friesen, Jerry Zhang, Johannes
+     Grødem, John Haman, Jonas Collberg, Jorge Morais, Joshua O’Connor,
+     Julio C.  Villasante, Kenta Usami, Kevin Fleming, Kévin Le Gouguec,
+     Kevin Kainan Li, Kostadin Ninev, Laith Bahodi, Len Trigg, Lennart
+     C.  Karssen, Luis Miguel Castañeda, Magne Hov, Manuel Giraud,
+     Manuel Uberti, Mark Bestley, Mark Burton, Mark Simpson, Markus
+     Beppler, Matt Armstrong, Matthias Fuchs, Mattias Engdegård, Mauro
+     Aranda, Maxime Tréca, Michael Goldenberg, Morgan Smith, Morgan
+     Willcock, Murilo Pereira, Nicky van Foreest, Nicolas De Jaeghere,
+     Pablo Stafforini, Paul Poloskov, Pengji Zhang, Pete Kazmier, Peter
+     Wu, Philip Kaludercic, Pierre Téchoueyres, Przemysław Kryger,
+     Robert Hepple, Roman Rudakov, Ryan Phillips, Rytis Paškauskas,
+     Rudolf Adamkovič, Sam Kleinman, Samuel Culpepper, Saša Janiška,
+     Shreyas Ragavan, Simon Pugnet, Tassilo Horn, Thibaut Verron, Thomas
      Heartman, Togan Muftuoglu, Tony Zorman, Trey Merkley, Tomasz
      Hołubowicz, Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.
      As well as users: Ben, CsBigDataHub1, Emacs Contrib, Eugene,
@@ -5502,12 +5509,12 @@ B.2 Variable index
 * Menu:
 
 * modus-operandi-deuteranopia-palette-overrides: Palette overrides.
-                                                               (line 32)
-* modus-operandi-palette-overrides:      Palette overrides.    (line 30)
-* modus-operandi-tinted-palette-overrides: Palette overrides.  (line 34)
+                                                               (line 30)
+* modus-operandi-palette-overrides:      Palette overrides.    (line 28)
+* modus-operandi-tinted-palette-overrides: Palette overrides.  (line 32)
 * modus-themes-after-load-theme-hook:    Enable and load.      (line  6)
 * modus-themes-bold-constructs:          Bold constructs.      (line  6)
-* modus-themes-common-palette-overrides: Palette overrides.    (line 24)
+* modus-themes-common-palette-overrides: Palette overrides.    (line 22)
 * modus-themes-completions:              Completion UIs.       (line  6)
 * modus-themes-custom-auto-reload:       Custom reload theme.  (line  6)
 * modus-themes-headings:                 Heading styles.       (line  6)
@@ -5521,9 +5528,9 @@ B.2 Variable index
 * modus-themes-prompts:                  Command prompts.      (line  6)
 * modus-themes-variable-pitch-ui:        UI typeface.          (line  6)
 * modus-vivendi-deuteranopia-palette-overrides: Palette overrides.
-                                                               (line 38)
-* modus-vivendi-palette-overrides:       Palette overrides.    (line 36)
-* modus-vivendi-tinted-palette-overrides: Palette overrides.   (line 40)
+                                                               (line 36)
+* modus-vivendi-palette-overrides:       Palette overrides.    (line 34)
+* modus-vivendi-tinted-palette-overrides: Palette overrides.   (line 38)
 
 
 File: modus-themes.info,  Node: Concept index,  Prev: Variable index,  Up: Indices
@@ -5621,92 +5628,92 @@ Node: Org mode blocks35982
 Node: Heading styles37862
 Node: UI typeface42216
 Node: Palette overrides43145
-Node: Palette override presets47577
-Node: Stylistic variants using palette overrides50074
-Node: Make the mode line borderless51733
-Node: Make the active mode line colorful52897
-Node: Make the fringe invisible or another color54844
-Node: Make links use subtle or no underlines56340
-Node: Make prompts more or less colorful57343
-Node: Make completion matches more or less colorful59013
-Node: Make comments yellow and strings green62820
-Node: Make code syntax use the old alt-syntax style64729
-Node: Make use of alternative styles for code syntax68016
-Node: Make matching parenthesis more or less intense71684
-Node: Make box buttons more or less gray73126
-Node: Make TODO and DONE more or less intense74438
-Node: Make headings more or less colorful76147
-Node: Make Org agenda more or less colorful78553
-Node: Make inline code in prose use alternative styles81291
-Node: Make mail citations and headers more or less colorful83838
-Node: Make the region preserve text colors plus other styles86539
-Node: Make mouse highlights more or less colorful88307
-Node: Make language underlines less colorful89620
-Node: Make line numbers use alternative styles91072
-Node: Advanced customization92974
-Node: More accurate colors in terminal emulators94424
-Node: Range of color with terminal emulators95665
-Node: Preview theme colors98379
-Node: Per-theme customization settings100073
-Node: Use theme colors in code with modus-themes-with-colors101438
-Node: Add padding to mode line103708
-Node: Remap face with local value106283
-Node: Font configurations for Org and others108704
-Ref: Font configurations for Org and others-Footnote-1111611
-Node: Configure bold and italic faces111798
-Node: Custom Org todo keyword and priority faces115953
-Node: Custom Org emphasis faces119518
-Node: Update Org block delimiter fontification124341
-Node: Measure color contrast126258
-Node: Load theme depending on time of day128956
-Node: Backdrop for pdf-tools129964
-Node: Toggle themes without reloading them132863
-Node: A theme-agnostic hook for theme loading134139
-Node: Custom hl-todo colors136561
-Node: Add support for solaire-mode138086
-Node: Face coverage140997
-Node: Supported packages141449
-Node: Indirectly covered packages146781
-Node: Notes on individual packages148134
-Node: Note on calendarel weekday and weekend colors149234
-Node: Note on git-gutter in Doom Emacs150382
-Node: Note on php-mode multiline comments152726
-Node: Note on underlines in compilation buffers153479
-Node: Note on inline Latex in Org buffers154316
-Node: Note on dimmerel154926
-Node: Note on display-fill-column-indicator-mode156411
-Node: Note on highlight-parenthesesel157810
-Node: Note on mmm-modeel background colors163788
-Node: Note for prism166088
-Node: Note on company-mode overlay pop-up169256
-Ref: Note on company-mode overlay pop-up-Footnote-1169986
-Ref: Note on company-mode overlay pop-up-Footnote-2170053
-Node: Note on ERC escaped color sequences170108
-Ref: Note on ERC escaped color sequences-Footnote-1171536
-Node: Note on powerline or spaceline171646
-Node: Note on SHR colors172060
-Node: Note on SHR fonts172484
-Node: Note on Ement colors and fonts173123
-Node: Note on pdf-tools link hints174633
-Node: Note on the Notmuch logo177093
-Node: Note on goto-address-mode faces177631
-Node: Frequently Asked Questions178743
-Node: Is the contrast ratio about adjacent colors?179374
-Node: What does it mean to avoid exaggerations?180881
-Node: Why are colors mostly variants of blue magenta cyan?182731
-Node: What is the best setup for legibility?187037
-Node: Are these color schemes?189682
-Node: Port the Modus themes to other platforms?193364
-Node: Contributing196136
-Node: Sources of the themes196533
-Node: Issues you can help with197427
-Node: Patches require copyright assignment to the FSF198818
-Node: Acknowledgements201038
-Node: GNU Free Documentation License204844
-Node: Indices230208
-Node: Function index230387
-Node: Variable index231419
-Node: Concept index233245
+Node: Palette override presets47452
+Node: Stylistic variants using palette overrides49949
+Node: Make the mode line borderless51608
+Node: Make the active mode line colorful53216
+Node: Make the fringe invisible or another color55163
+Node: Make links use subtle or no underlines56659
+Node: Make prompts more or less colorful57662
+Node: Make completion matches more or less colorful59332
+Node: Make comments yellow and strings green63139
+Node: Make code syntax use the old alt-syntax style65048
+Node: Make use of alternative styles for code syntax68335
+Node: Make matching parenthesis more or less intense72003
+Node: Make box buttons more or less gray73445
+Node: Make TODO and DONE more or less intense74757
+Node: Make headings more or less colorful76466
+Node: Make Org agenda more or less colorful78872
+Node: Make inline code in prose use alternative styles81610
+Node: Make mail citations and headers more or less colorful84157
+Node: Make the region preserve text colors plus other styles86858
+Node: Make mouse highlights more or less colorful88626
+Node: Make language underlines less colorful89939
+Node: Make line numbers use alternative styles91391
+Node: Advanced customization93293
+Node: More accurate colors in terminal emulators94743
+Node: Range of color with terminal emulators95984
+Node: Preview theme colors98698
+Node: Per-theme customization settings100392
+Node: Use theme colors in code with modus-themes-with-colors101757
+Node: Add padding to mode line104027
+Node: Remap face with local value106602
+Node: Font configurations for Org and others109023
+Ref: Font configurations for Org and others-Footnote-1111930
+Node: Configure bold and italic faces112117
+Node: Custom Org todo keyword and priority faces116272
+Node: Custom Org emphasis faces119837
+Node: Update Org block delimiter fontification124660
+Node: Measure color contrast126577
+Node: Load theme depending on time of day129275
+Node: Backdrop for pdf-tools130283
+Node: Toggle themes without reloading them133182
+Node: A theme-agnostic hook for theme loading134458
+Node: Custom hl-todo colors136880
+Node: Add support for solaire-mode138405
+Node: Face coverage141316
+Node: Supported packages141768
+Node: Indirectly covered packages147100
+Node: Notes on individual packages148453
+Node: Note on calendarel weekday and weekend colors149553
+Node: Note on git-gutter in Doom Emacs150701
+Node: Note on php-mode multiline comments153045
+Node: Note on underlines in compilation buffers153798
+Node: Note on inline Latex in Org buffers154635
+Node: Note on dimmerel155245
+Node: Note on display-fill-column-indicator-mode156730
+Node: Note on highlight-parenthesesel158129
+Node: Note on mmm-modeel background colors164107
+Node: Note for prism166407
+Node: Note on company-mode overlay pop-up169575
+Ref: Note on company-mode overlay pop-up-Footnote-1170305
+Ref: Note on company-mode overlay pop-up-Footnote-2170372
+Node: Note on ERC escaped color sequences170427
+Ref: Note on ERC escaped color sequences-Footnote-1171855
+Node: Note on powerline or spaceline171965
+Node: Note on SHR colors172379
+Node: Note on SHR fonts172803
+Node: Note on Ement colors and fonts173442
+Node: Note on pdf-tools link hints174952
+Node: Note on the Notmuch logo177412
+Node: Note on goto-address-mode faces177950
+Node: Frequently Asked Questions179062
+Node: Is the contrast ratio about adjacent colors?179693
+Node: What does it mean to avoid exaggerations?181200
+Node: Why are colors mostly variants of blue magenta cyan?183050
+Node: What is the best setup for legibility?187356
+Node: Are these color schemes?190001
+Node: Port the Modus themes to other platforms?193683
+Node: Contributing196455
+Node: Sources of the themes196852
+Node: Issues you can help with197746
+Node: Patches require copyright assignment to the FSF199137
+Node: Acknowledgements201357
+Node: GNU Free Documentation License205177
+Node: Indices230541
+Node: Function index230720
+Node: Variable index231752
+Node: Concept index233578
 
 End Tag Table
 
