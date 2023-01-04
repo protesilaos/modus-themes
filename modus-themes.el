@@ -3776,8 +3776,6 @@ FG and BG are the main colors."
 
 ;;; Theme macros
 
-;;;; Instantiate a Modus theme
-
 (defun modus-themes--retrieve-palette-value (color palette)
   "Return COLOR from PALETTE.
 Use recursion until COLOR is retrieved as a string.  Refrain from
@@ -3798,6 +3796,8 @@ This function is used in the macros `modus-themes-theme',
       (modus-themes--retrieve-palette-value value palette))
      (t
       'unspecified))))
+
+;;;; Instantiate a Modus theme
 
 ;;;###autoload
 (defmacro modus-themes-theme (name palette &optional overrides)
