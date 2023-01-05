@@ -1077,9 +1077,10 @@ overrides."
 
 (defun modus-themes--disable-themes ()
   "Disable themes per `modus-themes-disable-other-themes'."
-  (if modus-themes-disable-other-themes
-      (mapc #'disable-theme custom-enabled-themes)
-    (mapc #'disable-theme (modus-themes--list-known-themes))))
+  (mapc #'disable-theme
+        (if modus-themes-disable-other-themes
+            custom-enabled-themes
+          (modus-themes--list-known-themes))))
 
 (defun modus-themes-load-theme (theme)
   "Load THEME while disabling other themes.
