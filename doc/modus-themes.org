@@ -1255,7 +1255,7 @@ have a blue mode line for ~modus-operandi~ and a red one for
 
 ;; Blue background, neutral foreground, intense blue border
 (setq modus-themes-common-palette-overrides
-      '((bg-mode-line-active bg-blue)
+      '((bg-mode-line-active bg-blue-intense)
         (fg-mode-line-active fg-main)
         (border-mode-line-active blue-intense)))
 
@@ -4840,16 +4840,16 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Morgan Smith, Morgan Willcock, Murilo Pereira, Nicky van Foreest,
   Nicolas De Jaeghere, Pablo Stafforini, Paul Poloskov, Pengji Zhang,
   Pete Kazmier, Peter Wu, Philip Kaludercic, Pierre Téchoueyres,
-  Przemysław Kryger, Robert Hepple, Roman Rudakov, Ryan Phillips,
-  Rytis Paškauskas, Rudolf Adamkovič, Sam Kleinman, Samuel Culpepper,
-  Saša Janiška, Shreyas Ragavan, Simon Pugnet, Tassilo Horn, Thibaut
-  Verron, Thomas Heartman, Togan Muftuoglu, Tony Zorman, Trey Merkley,
-  Tomasz Hołubowicz, Toon Claes, Uri Sharf, Utkarsh Singh, Vincent
-  Foley.  As well as users: Ben, CsBigDataHub1, Emacs Contrib, Eugene,
-  Fourchaux, Fredrik, Moesasji, Nick, Summer Emacs, TheBlob42, Trey,
-  bepolymathe, bit9tream, bangedorrunt, derek-upham, doolio,
-  fleimgruber, gitrj95, iSeeU, jixiuf, okamsn, pRot0ta1p, soaringbird,
-  tumashu, wakamenod.
+  Przemysław Kryger, Robert Hepple, Roman Rudakov, Russell Sim, Ryan
+  Phillips, Rytis Paškauskas, Rudolf Adamkovič, Sam Kleinman, Samuel
+  Culpepper, Saša Janiška, Shreyas Ragavan, Simon Pugnet, Tassilo
+  Horn, Thibaut Verron, Thomas Heartman, Togan Muftuoglu, Tony Zorman,
+  Trey Merkley, Tomasz Hołubowicz, Toon Claes, Uri Sharf, Utkarsh
+  Singh, Vincent Foley.  As well as users: Ben, CsBigDataHub1, Emacs
+  Contrib, Eugene, Fourchaux, Fredrik, Moesasji, Nick, Summer Emacs,
+  TheBlob42, Trey, bepolymathe, bit9tream, bangedorrunt, derek-upham,
+  doolio, fleimgruber, gitrj95, iSeeU, jixiuf, okamsn, pRot0ta1p,
+  soaringbird, tumashu, wakamenod.
 
 + Packaging :: Basil L.{{{space()}}} Contovounesios, Eli Zaretskii,
   Glenn Morris, Mauro Aranda, Richard Stallman, Stefan Kangas (core
