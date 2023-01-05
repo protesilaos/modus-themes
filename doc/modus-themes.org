@@ -265,7 +265,7 @@ wrong.
 NOTE that Emacs can load multiple themes, which typically produces
 undesirable results and undoes the work of the designer.  Use the
 ~disable-theme~ command if you are trying other themes beside the
-Modus collection.
+Modus collection ([[#h:adb0c49a-f1f9-4690-868b-013a080eed68][Option for disabling other themes while loading Modus]]).
 
 Users of the built-in themes cannot ~require~ the package as usual
 because there is no package to speak of.  Instead, things are simpler
@@ -574,6 +574,40 @@ UI or related functions such as ~customize-set-variable~ and ~setopt~
 
 With a nil value, changes to user options have no further consequences:
 the user must manually reload the theme ([[#h:3f3c3728-1b34-437d-9d0c-b110f5b161a9][Enable and load]]).
+
+** Option for disabling other themes while loading Modus
+:properties:
+:alt_title: Disable other themes
+:description: Determine whether loading a Modus themes disables all others
+:custom_id: h:adb0c49a-f1f9-4690-868b-013a080eed68
+:end:
+#+vindex: modus-themes-disable-other-themes
+
+[ Part of {{{development-version}}}. ]
+
+Brief: Disable all other themes when loading a Modus theme.
+
+Symbol: ~modus-themes-disable-other-themes~ (=boolean= type)
+
+Possible values:
+
+1. ~nil~
+2. ~t~ (default)
+
+When the value is non-nil, the commands ~modus-themes-toggle~ and
+~modus-themes-select~, as well as the ~modus-themes-load-theme~
+function, will disable all other themes while loading the specified
+Modus theme.  This is done to ensure that Emacs does not blend two or
+more themes: such blends lead to awkward results that undermine the
+work of the designer.
+
+When the value is nil, the aforementioned commands and function will
+only disable other themes within the Modus collection.
+
+This option is provided because Emacs themes are not necessarily
+limited to colors/faces: they can consist of an arbitrary set of
+customizations.  Users who use such customization bundles must set
+this variable to a nil value.
 
 ** Option for more bold constructs
 :properties:

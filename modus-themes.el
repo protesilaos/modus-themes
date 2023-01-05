@@ -329,6 +329,29 @@ Will set SYM to VAL, and reload the current theme, unless
                 (theme (modus-themes--current-theme)))
       (modus-themes-load-theme theme))))
 
+(defcustom modus-themes-disable-other-themes t
+  "Disable all other themes when loading a Modus theme.
+
+When the value is non-nil, the commands `modus-themes-toggle' and
+`modus-themes-select', as well as the `modus-themes-load-theme'
+function, will disable all other themes while loading the
+specified Modus theme.  This is done to ensure that Emacs does
+not blend two or more themes: such blends lead to awkward results
+that undermine the work of the designer.
+
+When the value is nil, the aforementioned commands and function
+will only disable other themes within the Modus collection.
+
+This option is provided because Emacs themes are not necessarily
+limited to colors/faces: they can consist of an arbitrary set of
+customizations.  Users who use such customization bundles must
+set this variable to a nil value."
+  :group 'modus-themes
+  :package-version '(modus-themes . "4.1.0")
+  :version "30.1"
+  :type 'boolean
+  :link '(info-link "(modus-themes) Disable other themes"))
+
 (defconst modus-themes-items
   '( modus-operandi modus-vivendi
      modus-operandi-tinted modus-vivendi-tinted
@@ -1052,10 +1075,21 @@ overrides."
         (modus-themes--palette-value theme))
     (user-error "No enabled Modus theme could be found")))
 
+(defun modus-themes--disable-themes ()
+  "Disable themes per `modus-themes-disable-other-themes'."
+  (if modus-themes-disable-other-themes
+      (mapc #'disable-theme custom-enabled-themes)
+    (mapc #'disable-theme (modus-themes--list-known-themes))))
+
 (defun modus-themes-load-theme (theme)
-  "Load THEME while disabling other Modus themes.
-Run `modus-themes-after-load-theme-hook'."
-  (mapc #'disable-theme (modus-themes--list-known-themes))
+  "Load THEME while disabling other themes.
+
+Which themes are disabled is determined by the user option
+`modus-themes-disable-other-themes'.
+
+Run the `modus-themes-after-load-theme-hook' as the final step
+after loading the THEME."
+  (modus-themes--disable-themes)
   (load-theme theme :no-confirm)
   (run-hooks 'modus-themes-after-load-theme-hook))
 
@@ -1080,7 +1114,8 @@ Run `modus-themes-after-load-theme-hook'."
 ;;;###autoload
 (defun modus-themes-select (theme)
   "Load a Modus THEME using minibuffer completion.
-Run `modus-themes-after-load-theme-hook' after loading the theme."
+Run `modus-themes-after-load-theme-hook' after loading the theme.
+Disable other themes per `modus-themes-disable-other-themes'."
   (interactive (list (modus-themes--select-prompt)))
   (modus-themes-load-theme theme))
 
@@ -1100,7 +1135,8 @@ If `modus-themes-to-toggle' does not specify two Modus themes,
 prompt with completion for a theme among our collection (this is
 practically the same as the `modus-themes-select' command).
 
-Run `modus-themes-after-load-theme-hook' after loading the theme."
+Run `modus-themes-after-load-theme-hook' after loading the theme.
+Disable other themes per `modus-themes-disable-other-themes'."
   (interactive)
   (if-let* ((themes (modus-themes--toggle-theme-p))
             (one (car themes))
