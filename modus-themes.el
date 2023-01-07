@@ -1893,7 +1893,7 @@ FG and BG are the main colors."
     `(csv-separator-face ((,c :foreground ,red-intense)))
 ;;;;; ctrlf
     `(ctrlf-highlight-active ((,c :inherit modus-themes-search-current)))
-    `(ctrlf-highlight-line ((,c :inherit highlight)))
+    `(ctrlf-highlight-line ((,c :background ,bg-hl-line :extend t)))
     `(ctrlf-highlight-passive ((,c :inherit modus-themes-search-lazy)))
 ;;;;; custom (M-x customize)
     `(custom-button ((,c :inherit modus-themes-button)))
@@ -3375,7 +3375,7 @@ FG and BG are the main colors."
     `(swiper-background-match-face-2 ((,c :inherit modus-themes-completion-match-0)))
     `(swiper-background-match-face-3 ((,c :inherit modus-themes-completion-match-1)))
     `(swiper-background-match-face-4 ((,c :inherit modus-themes-completion-match-2)))
-    `(swiper-line-face ((,c :inherit highlight)))
+    `(swiper-line-face ((,c :background ,bg-hl-line :extend t)))
     `(swiper-match-face-1 (( )))
     `(swiper-match-face-2 ((,c :inherit modus-themes-completion-match-0)))
     `(swiper-match-face-3 ((,c :inherit modus-themes-completion-match-1)))
