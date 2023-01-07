@@ -90,6 +90,14 @@ cover the blue-cyan-magenta side of the spectrum."
 
 (dolist (color '(red green yellow blue magenta cyan))
   (custom-declare-face
+   (intern (format "modus-themes-nuanced-%s" color))
+   nil (format "Nuanced %s background." color)
+   :package-version '(modus-themes . "4.1.0")
+   :version "30.1"
+   :group 'modus-themes-faces))
+
+(dolist (color '(red green yellow blue magenta cyan))
+  (custom-declare-face
    (intern (format "modus-themes-subtle-%s" color))
    nil (format "Subtle %s background." color)
    :package-version '(modus-themes . "4.0.0")
@@ -1463,6 +1471,13 @@ FG and BG are the main colors."
     `(modus-themes-fg-cyan-cooler ((,c :foreground ,cyan-cooler)))
     `(modus-themes-fg-cyan-faint ((,c :foreground ,cyan-faint)))
     `(modus-themes-fg-cyan-intense ((,c :foreground ,cyan-intense)))
+;;;;; nuanced colored backgrounds
+    `(modus-themes-nuanced-red ((,c :background ,bg-red-nuanced :extend t)))
+    `(modus-themes-nuanced-green ((,c :background ,bg-green-nuanced :extend t)))
+    `(modus-themes-nuanced-yellow ((,c :background ,bg-yellow-nuanced :extend t)))
+    `(modus-themes-nuanced-blue ((,c :background ,bg-blue-nuanced :extend t)))
+    `(modus-themes-nuanced-magenta ((,c :background ,bg-magenta-nuanced :extend t)))
+    `(modus-themes-nuanced-cyan ((,c :background ,bg-cyan-nuanced :extend t)))
 ;;;;; subtle colored backgrounds
     `(modus-themes-subtle-red ((,c :background ,bg-red-subtle :foreground ,fg-main)))
     `(modus-themes-subtle-green ((,c :background ,bg-green-subtle :foreground ,fg-main)))
