@@ -2864,7 +2864,7 @@ FG and BG are the main colors."
     `(mu4e-footer-face ((,c :inherit italic :foreground ,fg-alt)))
     `(mu4e-forwarded-face ((,c :inherit italic :foreground ,info)))
     `(mu4e-header-face ((,c :inherit shadow)))
-    `(mu4e-header-highlight-face ((,c :inherit highlight)))
+    `(mu4e-header-highlight-face (,c :background ,bg-hl-line :extend t))
     `(mu4e-header-key-face ((,c :inherit message-header-name)))
     `(mu4e-header-marks-face ((,c :inherit mu4e-special-header-value-face)))
     `(mu4e-header-title-face ((,c :foreground ,fg-alt)))
