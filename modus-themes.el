@@ -1382,7 +1382,7 @@ Optional OL is the color of an overline."
                   (eq modus-themes-org-blocks 'greyscale))))
     (list :inherit 'modus-themes-fixed-pitch
           :background (if gray bg 'unspecified)
-          :foreground fg
+          :foreground (if gray 'unspecified fg)
           :extend (if gray t 'unspecified))))
 
 (defun modus-themes--completion-line (bg)
