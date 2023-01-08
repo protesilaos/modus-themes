@@ -646,13 +646,14 @@ is non-nil.  While quote/verse blocks require setting
   "Control the style of completion user interfaces.
 
 This affects Company, Corfu, Flx, Icomplete/Fido, Ido, Ivy,
-Orderless, Vertico.  The value is an alist of expressions, each
-of which takes the form of (KEY . LIST-OF-PROPERTIES).  KEY is a
-symbol, while PROPERTIES is a list.  Here is a sample, followed
-by a description of the particularities:
+Orderless, Vertico, and the standard Completions' buffer.  The
+value is an alist of expressions, each of which takes the form
+of (KEY . LIST-OF-PROPERTIES).  KEY is a symbol, while PROPERTIES
+is a list.  Here is a sample, followed by a description of the
+particularities:
 
     (setq modus-themes-completions
-          (quote ((matches . (extrabold background))
+          (quote ((matches . (extrabold underline))
                   (selection . (semibold italic)))))
 
 The `matches' key refers to the highlighted characters that

@@ -938,13 +938,13 @@ Brief: Set the overall style of completion framework interfaces.
    Symbol: ‘modus-themes-completions’ (‘alist’ type properties)
 
    This affects Company, Corfu, Flx, Icomplete/Fido, Ido, Ivy,
-Orderless, Vertico.  The value is an alist of expressions, each of which
-takes the form of ‘(KEY . LIST-OF-PROPERTIES)’.  ‘KEY’ is a symbol,
-while ‘PROPERTIES’ is a list.  Here is a sample, followed by a
-description of the particularities:
+Orderless, Vertico, and the standard Completions’ buffer.  The value is
+an alist of expressions, each of which takes the form of ‘(KEY .
+LIST-OF-PROPERTIES)’.  ‘KEY’ is a symbol, while ‘PROPERTIES’ is a list.
+Here is a sample, followed by a description of the particularities:
 
      (setq modus-themes-completions
-           '((matches . (extrabold background))
+           '((matches . (extrabold underline))
              (selection . (semibold italic))))
 
    The ‘matches’ key refers to the highlighted characters that
@@ -5662,96 +5662,96 @@ Node: Italic constructs31197
 Node: Mixed fonts31968
 Node: Command prompts32964
 Node: Completion UIs34769
-Node: Org mode blocks37516
-Node: Heading styles39396
-Node: UI typeface43750
-Node: Palette overrides44681
-Node: Palette override presets48988
-Node: Stylistic variants using palette overrides51485
-Node: Make the mode line borderless53144
-Node: Make the active mode line colorful54752
-Node: Make the fringe invisible or another color56707
-Node: Make links use subtle or no underlines58203
-Node: Make prompts more or less colorful59206
-Node: Make completion matches more or less colorful60876
-Node: Make comments yellow and strings green64683
-Node: Make code syntax use the old alt-syntax style66592
-Node: Make use of alternative styles for code syntax69879
-Node: Make matching parenthesis more or less intense73547
-Node: Make box buttons more or less gray74989
-Node: Make TODO and DONE more or less intense76301
-Node: Make headings more or less colorful78010
-Node: Make Org agenda more or less colorful80416
-Node: Make inline code in prose use alternative styles83154
-Node: Make mail citations and headers more or less colorful85701
-Node: Make the region preserve text colors plus other styles88402
-Node: Make mouse highlights more or less colorful90170
-Node: Make language underlines less colorful91483
-Node: Make line numbers use alternative styles92935
-Node: Advanced customization94837
-Node: More accurate colors in terminal emulators96287
-Node: Range of color with terminal emulators97528
-Node: Preview theme colors100242
-Node: Per-theme customization settings101936
-Node: Use theme colors in code with modus-themes-with-colors103301
-Node: Add padding to mode line105571
-Node: Remap face with local value108146
-Node: Font configurations for Org and others110567
-Ref: Font configurations for Org and others-Footnote-1113474
-Node: Configure bold and italic faces113661
-Node: Custom Org todo keyword and priority faces117816
-Node: Custom Org emphasis faces121381
-Node: Update Org block delimiter fontification126204
-Node: Measure color contrast128121
-Node: Load theme depending on time of day130819
-Node: Backdrop for pdf-tools131827
-Node: Toggle themes without reloading them134726
-Node: A theme-agnostic hook for theme loading136002
-Node: Custom hl-todo colors138424
-Node: Add support for solaire-mode139949
-Node: Face coverage142860
-Node: Supported packages143312
-Node: Indirectly covered packages148644
-Node: Notes on individual packages149997
-Node: Note on calendarel weekday and weekend colors151097
-Node: Note on git-gutter in Doom Emacs152245
-Node: Note on php-mode multiline comments154589
-Node: Note on underlines in compilation buffers155342
-Node: Note on inline Latex in Org buffers156179
-Node: Note on dimmerel156789
-Node: Note on display-fill-column-indicator-mode158274
-Node: Note on highlight-parenthesesel159673
-Node: Note on mmm-modeel background colors165651
-Node: Note for prism167951
-Node: Note on company-mode overlay pop-up171119
-Ref: Note on company-mode overlay pop-up-Footnote-1171849
-Ref: Note on company-mode overlay pop-up-Footnote-2171916
-Node: Note on ERC escaped color sequences171971
-Ref: Note on ERC escaped color sequences-Footnote-1173399
-Node: Note on powerline or spaceline173509
-Node: Note on SHR colors173923
-Node: Note on SHR fonts174347
-Node: Note on Ement colors and fonts174986
-Node: Note on pdf-tools link hints176496
-Node: Note on the Notmuch logo178956
-Node: Note on goto-address-mode faces179494
-Node: Frequently Asked Questions180606
-Node: Is the contrast ratio about adjacent colors?181237
-Node: What does it mean to avoid exaggerations?182744
-Node: Why are colors mostly variants of blue magenta cyan?184594
-Node: What is the best setup for legibility?188900
-Node: Are these color schemes?191545
-Node: Port the Modus themes to other platforms?195227
-Node: Contributing197999
-Node: Sources of the themes198396
-Node: Issues you can help with199290
-Node: Patches require copyright assignment to the FSF200681
-Node: Acknowledgements202901
-Node: GNU Free Documentation License206735
-Node: Indices232099
-Node: Function index232278
-Node: Variable index233310
-Node: Concept index235209
+Node: Org mode blocks37554
+Node: Heading styles39434
+Node: UI typeface43788
+Node: Palette overrides44719
+Node: Palette override presets49026
+Node: Stylistic variants using palette overrides51523
+Node: Make the mode line borderless53182
+Node: Make the active mode line colorful54790
+Node: Make the fringe invisible or another color56745
+Node: Make links use subtle or no underlines58241
+Node: Make prompts more or less colorful59244
+Node: Make completion matches more or less colorful60914
+Node: Make comments yellow and strings green64721
+Node: Make code syntax use the old alt-syntax style66630
+Node: Make use of alternative styles for code syntax69917
+Node: Make matching parenthesis more or less intense73585
+Node: Make box buttons more or less gray75027
+Node: Make TODO and DONE more or less intense76339
+Node: Make headings more or less colorful78048
+Node: Make Org agenda more or less colorful80454
+Node: Make inline code in prose use alternative styles83192
+Node: Make mail citations and headers more or less colorful85739
+Node: Make the region preserve text colors plus other styles88440
+Node: Make mouse highlights more or less colorful90208
+Node: Make language underlines less colorful91521
+Node: Make line numbers use alternative styles92973
+Node: Advanced customization94875
+Node: More accurate colors in terminal emulators96325
+Node: Range of color with terminal emulators97566
+Node: Preview theme colors100280
+Node: Per-theme customization settings101974
+Node: Use theme colors in code with modus-themes-with-colors103339
+Node: Add padding to mode line105609
+Node: Remap face with local value108184
+Node: Font configurations for Org and others110605
+Ref: Font configurations for Org and others-Footnote-1113512
+Node: Configure bold and italic faces113699
+Node: Custom Org todo keyword and priority faces117854
+Node: Custom Org emphasis faces121419
+Node: Update Org block delimiter fontification126242
+Node: Measure color contrast128159
+Node: Load theme depending on time of day130857
+Node: Backdrop for pdf-tools131865
+Node: Toggle themes without reloading them134764
+Node: A theme-agnostic hook for theme loading136040
+Node: Custom hl-todo colors138462
+Node: Add support for solaire-mode139987
+Node: Face coverage142898
+Node: Supported packages143350
+Node: Indirectly covered packages148682
+Node: Notes on individual packages150035
+Node: Note on calendarel weekday and weekend colors151135
+Node: Note on git-gutter in Doom Emacs152283
+Node: Note on php-mode multiline comments154627
+Node: Note on underlines in compilation buffers155380
+Node: Note on inline Latex in Org buffers156217
+Node: Note on dimmerel156827
+Node: Note on display-fill-column-indicator-mode158312
+Node: Note on highlight-parenthesesel159711
+Node: Note on mmm-modeel background colors165689
+Node: Note for prism167989
+Node: Note on company-mode overlay pop-up171157
+Ref: Note on company-mode overlay pop-up-Footnote-1171887
+Ref: Note on company-mode overlay pop-up-Footnote-2171954
+Node: Note on ERC escaped color sequences172009
+Ref: Note on ERC escaped color sequences-Footnote-1173437
+Node: Note on powerline or spaceline173547
+Node: Note on SHR colors173961
+Node: Note on SHR fonts174385
+Node: Note on Ement colors and fonts175024
+Node: Note on pdf-tools link hints176534
+Node: Note on the Notmuch logo178994
+Node: Note on goto-address-mode faces179532
+Node: Frequently Asked Questions180644
+Node: Is the contrast ratio about adjacent colors?181275
+Node: What does it mean to avoid exaggerations?182782
+Node: Why are colors mostly variants of blue magenta cyan?184632
+Node: What is the best setup for legibility?188938
+Node: Are these color schemes?191583
+Node: Port the Modus themes to other platforms?195265
+Node: Contributing198037
+Node: Sources of the themes198434
+Node: Issues you can help with199328
+Node: Patches require copyright assignment to the FSF200719
+Node: Acknowledgements202939
+Node: GNU Free Documentation License206773
+Node: Indices232137
+Node: Function index232316
+Node: Variable index233348
+Node: Concept index235247
 
 End Tag Table
 

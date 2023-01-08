@@ -772,14 +772,14 @@ Brief: Set the overall style of completion framework interfaces.
 Symbol: ~modus-themes-completions~ (=alist= type properties)
 
 This affects Company, Corfu, Flx, Icomplete/Fido, Ido, Ivy, Orderless,
-Vertico.  The value is an alist of expressions, each of which takes
-the form of =(KEY . LIST-OF-PROPERTIES)=.  =KEY= is a symbol, while
-=PROPERTIES= is a list.  Here is a sample, followed by a description
-of the particularities:
+Vertico, and the standard Completions' buffer.  The value is an alist
+of expressions, each of which takes the form of =(KEY . LIST-OF-PROPERTIES)=.
+=KEY= is a symbol, while =PROPERTIES= is a list.  Here is a sample,
+followed by a description of the particularities:
 
 #+begin_src emacs-lisp
 (setq modus-themes-completions
-      '((matches . (extrabold background))
+      '((matches . (extrabold underline))
         (selection . (semibold italic))))
 #+end_src
 
