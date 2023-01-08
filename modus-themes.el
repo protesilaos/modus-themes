@@ -1221,7 +1221,7 @@ color mappings of the palette, instead of its named colors."
             (insert " ")))
         (setq-local revert-buffer-function
                     (lambda (_ignore-auto _noconfirm)
-                      (modus-themes--list-colors-render current-buffer current-theme)))))))
+                      (modus-themes--list-colors-render current-buffer current-theme mappings)))))))
 
 (defvar modus-themes--list-colors-prompt-history '()
   "Minibuffer history for `modus-themes--list-colors-prompt'.")
