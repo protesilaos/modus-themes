@@ -1424,7 +1424,8 @@ three different degrees of intensity.
 ;; mappings, as we show below.
 
 ;; Add a nuanced background color to completion matches, while keeping
-;; their foreground intact.
+;; their foreground intact (foregrounds do not need to be specified in
+;; this case, but we do it for didactic purposes).
 (setq modus-themes-common-palette-overrides
       '((fg-completion-match-0 blue)
         (fg-completion-match-1 magenta-warmer)
