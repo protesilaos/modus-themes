@@ -646,7 +646,7 @@ is non-nil.  While quote/verse blocks require setting
   "Control the style of completion user interfaces.
 
 This affects Company, Corfu, Flx, Icomplete/Fido, Ido, Ivy,
-Orderless, Vertico, and the standard Completions' buffer.  The
+Orderless, Vertico, and the standard *Completions* buffer.  The
 value is an alist of expressions, each of which takes the form
 of (KEY . LIST-OF-PROPERTIES).  KEY is a symbol, while PROPERTIES
 is a list.  Here is a sample, followed by a description of the
@@ -2634,7 +2634,7 @@ FG and BG are the main colors."
     `(ledger-font-payee-cleared-face ((,c :inherit success)))
     `(ledger-font-payee-pending-face ((,c :inherit warning)))
     `(ledger-font-payee-uncleared-face ((,c :inherit error)))
-    `(ledger-font-xact-highlight-face ((,c :inherit highlight)))
+    `(ledger-font-xact-highlight-face ((,c :background ,bg-hl-line :extend t)))
 ;;;;; leerzeichen
     `(leerzeichen ((,c :background ,bg-inactive)))
 ;;;;; line numbers (display-line-numbers-mode and global variant)
