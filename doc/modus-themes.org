@@ -292,7 +292,7 @@ One can activate a theme with something like the following expression,
 replacing ~modus-operandi~ with their preferred Modus theme:
 
 #+begin_src emacs-lisp
-(load-theme 'modus-operandi :no-confim)
+(load-theme 'modus-operandi :no-confirm)
 #+end_src
 
 Changes to the available customization options must always be evaluated
@@ -327,7 +327,7 @@ This is how a basic setup could look like ([[#h:b66b128d-54a4-4265-b59f-4d1ea2fe
       modus-themes-bold-constructs nil)
 
 ;; Load the theme of your choice.
-(load-theme 'modus-operandi :no-confim)
+(load-theme 'modus-operandi :no-confirm)
 
 (define-key global-map (kbd "<f5>") #'modus-themes-toggle)
 #+end_src
@@ -378,7 +378,7 @@ package configurations in their setup.  We use this as an example:
 #+begin_src emacs-lisp
 ;;; For the built-in themes which cannot use `require'.
 (use-package emacs
-  :init
+  :config
   (require-theme 'modus-themes) ; `require-theme' is ONLY for the built-in Modus themes
 
   ;; Add all your customizations prior to loading the themes
@@ -388,7 +388,7 @@ package configurations in their setup.  We use this as an example:
   ;; Maybe define some palette overrides, such as by using our presets
   (setq modus-themes-common-palette-overrides
         modus-themes-preset-overrides-intense)
-  :config
+
   ;; Load the theme of your choice.
   (load-theme 'modus-operandi)
   :bind ("<f5>" . modus-themes-toggle))
@@ -397,8 +397,9 @@ package configurations in their setup.  We use this as an example:
 
 ;;; For packaged versions which must use `require'.
 (use-package modus-themes
-  :ensure
-  :init
+  :ensure t
+  :demand t
+  :config
   ;; Add all your customizations prior to loading the themes
   (setq modus-themes-italic-constructs t
         modus-themes-bold-constructs nil)
@@ -406,9 +407,9 @@ package configurations in their setup.  We use this as an example:
   ;; Maybe define some palette overrides, such as by using our presets
   (setq modus-themes-common-palette-overrides
         modus-themes-preset-overrides-intense)
-  :config
+
   ;; Load the theme of your choice.
-  (load-theme 'modus-operandi :no-confim)
+  (load-theme 'modus-operandi :no-confirm)
   :bind ("<f5>" . modus-themes-toggle))
 #+end_src
 
@@ -426,7 +427,7 @@ The same without ~use-package~:
       modus-themes-preset-overrides-intense)
 
 ;; Load the theme of your choice:
-(load-theme 'modus-operandi :no-confim)
+(load-theme 'modus-operandi :no-confirm)
 
 (define-key global-map (kbd "<f5>") #'modus-themes-toggle)
 #+end_src
@@ -3072,7 +3073,7 @@ package:
         calendar-longitude 33.36))
 
 (use-package circadian                  ; you need to install this
-  :ensure
+  :ensure t
   :after solar
   :config
   (setq circadian-themes '((:sunrise . modus-operandi)
