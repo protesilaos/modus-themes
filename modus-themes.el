@@ -2097,7 +2097,7 @@ FG and BG are the main colors."
     `(ein:markdowncell-input-area-face (( )))
     `(ein:notification-tab-normal ((,c :underline t)))
 ;;;;; eglot
-    `(eglot-mode-line ((,c :inherit bold :foreground ,modeline-info)))
+    `(eglot-mode-line ((,c :inherit modus-themes-bold :foreground ,modeline-info)))
 ;;;;; el-search
     `(el-search-highlight-in-prompt-face ((,c :inherit italic)))
     `(el-search-match ((,c :inherit modus-themes-search-current)))
