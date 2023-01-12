@@ -3078,8 +3078,8 @@ FG and BG are the main colors."
     `(org-habit-clear-future-face ((,c :background ,bg-graph-blue-1)))
     `(org-habit-overdue-face ((,c :background ,bg-graph-red-0)))
     `(org-habit-overdue-future-face ((,c :background ,bg-graph-red-1)))
-    `(org-habit-ready-face ((,c :background ,bg-graph-blue-0 :foreground "black"))) ; fg is special case
-    `(org-habit-ready-future-face ((,c :background ,bg-graph-blue-1)))
+    `(org-habit-ready-face ((,c :background ,bg-graph-green-0 :foreground "black"))) ; fg is special case
+    `(org-habit-ready-future-face ((,c :background ,bg-graph-green-1)))
 ;;;;; org-journal
     `(org-journal-calendar-entry-face ((,c :inherit modus-themes-slant :foreground ,date-common)))
     `(org-journal-calendar-scheduled-face ((,c :inherit (modus-themes-slant org-scheduled))))
