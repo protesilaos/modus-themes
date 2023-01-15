@@ -716,6 +716,12 @@ Is the same as:
                 (set :tag "Style of selection" :greedy t
                      ,modus-themes--weight-widget
                      (const :tag "Italic font (oblique or slanted forms)" italic)
+                     (const :tag "Underline" underline)))
+          (cons :tag "Fallback for both matches and selection"
+                (const t)
+                (set :tag "Style of both matches and selection" :greedy t
+                     ,modus-themes--weight-widget
+                     (const :tag "Italic font (oblique or slanted forms)" italic)
                      (const :tag "Underline" underline))))
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
