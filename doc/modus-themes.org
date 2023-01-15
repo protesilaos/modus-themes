@@ -2068,6 +2068,8 @@ Here we show how to make the region respect the underlying text colors
 or how to make the background more/less intense while combining it
 with an appropriate foreground value.
 
+[[#h:a5140c9c-18b2-45db-8021-38d0b5074116][Do not extend the region background]].
+
 #+begin_src emacs-lisp
 ;; These overrides are common to all Modus themes.  We also provide
 ;; theme-specific options, such as `modus-operandi-palette-overrides'.
@@ -2434,6 +2436,24 @@ assigned to the ~modus-themes-after-load-theme-hook~ for its effects
 to persist and be updated when switching between Modus themes (e.g. to
 update the exact value of =blue-warmer= when toggling between
 ~modus-operandi~ to ~modus-vivendi~.
+
+** Do not extend the region background
+:PROPERTIES:
+:CUSTOM_ID: h:a5140c9c-18b2-45db-8021-38d0b5074116
+:END:
+
+By the default, the background of the ~region~ face extends from the
+end of the line to the edge of the window.  To limit it to the end of
+the line, we need to override the face's =:extend= attribute.  Adding
+this to the Emacs configuration file will suffice:
+
+#+begin_src emacs-lisp
+;; Do not extend `region' background past the end of the line.
+(custom-set-faces
+ '(region ((t :extend nil))))
+#+end_src
+
+[[#h:c8605d37-66e1-42aa-986e-d7514c3af6fe][Make the region preserve text colors, plus other styles]].
 
 ** Add padding to mode line
 :PROPERTIES:
