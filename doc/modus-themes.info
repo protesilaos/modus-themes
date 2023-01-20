@@ -126,6 +126,7 @@ Stylistic variants using palette overrides
 
 * Make the mode line borderless::
 * Make the active mode line colorful::
+* Make the tab bar more or less colorful::
 * Make the fringe invisible or another color::
 * Make links use subtle or no underlines::
 * Make prompts more or less colorful::
@@ -1369,6 +1370,7 @@ Palette override presets::).
 
 * Make the mode line borderless::
 * Make the active mode line colorful::
+* Make the tab bar more or less colorful::
 * Make the fringe invisible or another color::
 * Make links use subtle or no underlines::
 * Make prompts more or less colorful::
@@ -1425,7 +1427,7 @@ set their color to that of the underlying background.
              (border-mode-line-inactive bg-mode-line-inactive)))
 
 
-File: modus-themes.info,  Node: Make the active mode line colorful,  Next: Make the fringe invisible or another color,  Prev: Make the mode line borderless,  Up: Stylistic variants using palette overrides
+File: modus-themes.info,  Node: Make the active mode line colorful,  Next: Make the tab bar more or less colorful,  Prev: Make the mode line borderless,  Up: Stylistic variants using palette overrides
 
 4.11.2.2 Make the active mode line colorful
 ...........................................
@@ -1467,9 +1469,60 @@ blue mode line for ‘modus-operandi’ and a red one for ‘modus-vivendi’.
              (border-mode-line-active bg-red-subtle)))
 
 
-File: modus-themes.info,  Node: Make the fringe invisible or another color,  Next: Make links use subtle or no underlines,  Prev: Make the active mode line colorful,  Up: Stylistic variants using palette overrides
+File: modus-themes.info,  Node: Make the tab bar more or less colorful,  Next: Make the fringe invisible or another color,  Prev: Make the active mode line colorful,  Up: Stylistic variants using palette overrides
 
-4.11.2.3 Make the fringe invisible or another color
+4.11.2.3 Make the tab bar more or less colorful
+...............................................
+
+This is one of our practical examples to override the semantic colors of
+the Modus themes (*note Stylistic variants using palette overrides::).
+Here we show how to affect the colors of the built-in ‘tab-bar-mode’ and
+‘tab-line-mode’.
+
+   For consistent theme-wide results, consider changing the mode line,
+fringes, and line numbers.  These are shown in other sections of this
+manual.
+
+     ;; These overrides are common to all Modus themes.  We also provide
+     ;; theme-specific options, such as `modus-operandi-palette-overrides'.
+     ;;
+     ;; In general, the theme-specific overrides are better for overriding
+     ;; color values, such as redefining what `blue-faint' looks like.  The
+     ;; common overrides are best used for changes to semantic color
+     ;; mappings, as we show below.
+
+
+     ;; Make the `tab-bar-mode' mode subtle while keepings its original
+     ;; gray aesthetic.
+     (setq modus-themes-common-palette-overrides
+           '((bg-tab-bar bg-main)
+             (bg-tab-current bg-active)
+             (bg-tab-other bg-dim)))
+
+     ;; Like the above, but the current tab has a colorful background and
+     ;; the inactive tabs have a slightly more noticeable gray background.
+     (setq modus-themes-common-palette-overrides
+           '((bg-tab-bar bg-main)
+             (bg-tab-current bg-cyan-intense)
+             (bg-tab-other bg-inactive)))
+
+     ;; Make the tabs colorful, using a monochromatic pattern (e.g. shades
+     ;; of cyan).
+     (setq modus-themes-common-palette-overrides
+           '((bg-tab-bar bg-cyan-nuanced)
+             (bg-tab-current bg-cyan-intense)
+             (bg-tab-other bg-cyan-subtle)))
+
+     ;; Like the above, but with a dichromatic pattern (cyan and magenta).
+     (setq modus-themes-common-palette-overrides
+           '((bg-tab-bar bg-cyan-nuanced)
+             (bg-tab-current bg-magenta-intense)
+             (bg-tab-other bg-cyan-subtle)))
+
+
+File: modus-themes.info,  Node: Make the fringe invisible or another color,  Next: Make links use subtle or no underlines,  Prev: Make the tab bar more or less colorful,  Up: Stylistic variants using palette overrides
+
+4.11.2.4 Make the fringe invisible or another color
 ...................................................
 
 This is one of our practical examples to override the semantic colors of
@@ -1502,7 +1555,7 @@ or continuation lines.
 
 File: modus-themes.info,  Node: Make links use subtle or no underlines,  Next: Make prompts more or less colorful,  Prev: Make the fringe invisible or another color,  Up: Stylistic variants using palette overrides
 
-4.11.2.4 Make links use subtle or no underlines
+4.11.2.5 Make links use subtle or no underlines
 ...............................................
 
 This is one of our practical examples to override the semantic colors of
@@ -1525,7 +1578,7 @@ that underline mappings can read correctly.
 
 File: modus-themes.info,  Node: Make prompts more or less colorful,  Next: Make completion matches more or less colorful,  Prev: Make links use subtle or no underlines,  Up: Stylistic variants using palette overrides
 
-4.11.2.5 Make prompts more or less colorful
+4.11.2.6 Make prompts more or less colorful
 ...........................................
 
 This section contains practical examples of overriding the palette of
@@ -1562,7 +1615,7 @@ prompts.
 
 File: modus-themes.info,  Node: Make completion matches more or less colorful,  Next: Make comments yellow and strings green,  Prev: Make prompts more or less colorful,  Up: Stylistic variants using palette overrides
 
-4.11.2.6 Make completion matches more or less colorful
+4.11.2.7 Make completion matches more or less colorful
 ......................................................
 
 This section contains practical examples of overriding the palette of
@@ -1646,7 +1699,7 @@ colors to two:
 
 File: modus-themes.info,  Node: Make comments yellow and strings green,  Next: Make code syntax use the old alt-syntax style,  Prev: Make completion matches more or less colorful,  Up: Stylistic variants using palette overrides
 
-4.11.2.7 Make comments yellow and strings green
+4.11.2.8 Make comments yellow and strings green
 ...............................................
 
 This is one of our practical examples to override the semantic colors of
@@ -1688,7 +1741,7 @@ reproduce the effect, but also how to tweak it to one’s liking.
 
 File: modus-themes.info,  Node: Make code syntax use the old alt-syntax style,  Next: Make use of alternative styles for code syntax,  Prev: Make comments yellow and strings green,  Up: Stylistic variants using palette overrides
 
-4.11.2.8 Make code syntax use the old alt-syntax style
+4.11.2.9 Make code syntax use the old alt-syntax style
 ......................................................
 
 This is one of our practical examples to override the semantic colors of
@@ -1768,8 +1821,8 @@ interesting to experiment with faintly red colored comments:
 
 File: modus-themes.info,  Node: Make use of alternative styles for code syntax,  Next: Make matching parenthesis more or less intense,  Prev: Make code syntax use the old alt-syntax style,  Up: Stylistic variants using palette overrides
 
-4.11.2.9 Make use of alternative styles for code syntax
-.......................................................
+4.11.2.10 Make use of alternative styles for code syntax
+........................................................
 
 This is one of our practical examples to override the semantic colors of
 the Modus themes (*note Stylistic variants using palette overrides::).
@@ -1858,7 +1911,7 @@ palette.
 
 File: modus-themes.info,  Node: Make matching parenthesis more or less intense,  Next: Make box buttons more or less gray,  Prev: Make use of alternative styles for code syntax,  Up: Stylistic variants using palette overrides
 
-4.11.2.10 Make matching parenthesis more or less intense
+4.11.2.11 Make matching parenthesis more or less intense
 ........................................................
 
 This is one of our practical examples to override the semantic colors of
@@ -1887,7 +1940,7 @@ to enable underlines for those highlights.
 
 File: modus-themes.info,  Node: Make box buttons more or less gray,  Next: Make TODO and DONE more or less intense,  Prev: Make matching parenthesis more or less intense,  Up: Stylistic variants using palette overrides
 
-4.11.2.11 Make box buttons more or less gray
+4.11.2.12 Make box buttons more or less gray
 ............................................
 
 This is one of our practical examples to override the semantic colors of
@@ -1913,7 +1966,7 @@ gray from the active buttons and amplifies it for the inactive ones.
 
 File: modus-themes.info,  Node: Make TODO and DONE more or less intense,  Next: Make headings more or less colorful,  Prev: Make box buttons more or less gray,  Up: Stylistic variants using palette overrides
 
-4.11.2.12 Make TODO and DONE more or less intense
+4.11.2.13 Make TODO and DONE more or less intense
 .................................................
 
 This is one of our practical examples to override the semantic colors of
@@ -1952,7 +2005,7 @@ subdue them.
 
 File: modus-themes.info,  Node: Make headings more or less colorful,  Next: Make Org agenda more or less colorful,  Prev: Make TODO and DONE more or less intense,  Up: Stylistic variants using palette overrides
 
-4.11.2.13 Make headings more or less colorful
+4.11.2.14 Make headings more or less colorful
 .............................................
 
 This is one of our practical examples to override the semantic colors of
@@ -2009,7 +2062,7 @@ less intense.
 
 File: modus-themes.info,  Node: Make Org agenda more or less colorful,  Next: Make inline code in prose use alternative styles,  Prev: Make headings more or less colorful,  Up: Stylistic variants using palette overrides
 
-4.11.2.14 Make Org agenda more or less colorful
+4.11.2.15 Make Org agenda more or less colorful
 ...............................................
 
 This is one of our practical examples to override the semantic colors of
@@ -2068,7 +2121,7 @@ what we show in the other chapters with practical stylistic variants.
 
 File: modus-themes.info,  Node: Make inline code in prose use alternative styles,  Next: Make mail citations and headers more or less colorful,  Prev: Make Org agenda more or less colorful,  Up: Stylistic variants using palette overrides
 
-4.11.2.15 Make inline code in prose use alternative styles
+4.11.2.16 Make inline code in prose use alternative styles
 ..........................................................
 
 This is one of our practical examples to override the semantic colors of
@@ -2126,7 +2179,7 @@ not show every possible permutation.
 
 File: modus-themes.info,  Node: Make mail citations and headers more or less colorful,  Next: Make the region preserve text colors plus other styles,  Prev: Make inline code in prose use alternative styles,  Up: Stylistic variants using palette overrides
 
-4.11.2.16 Make mail citations and headers more or less colorful
+4.11.2.17 Make mail citations and headers more or less colorful
 ...............................................................
 
 This is one of our practical examples to override the semantic colors of
@@ -2192,7 +2245,7 @@ a message:
 
 File: modus-themes.info,  Node: Make the region preserve text colors plus other styles,  Next: Make mouse highlights more or less colorful,  Prev: Make mail citations and headers more or less colorful,  Up: Stylistic variants using palette overrides
 
-4.11.2.17 Make the region preserve text colors, plus other styles
+4.11.2.18 Make the region preserve text colors, plus other styles
 .................................................................
 
 This is one of our practical examples to override the semantic colors of
@@ -2231,7 +2284,7 @@ an appropriate foreground value.
 
 File: modus-themes.info,  Node: Make mouse highlights more or less colorful,  Next: Make language underlines less colorful,  Prev: Make the region preserve text colors plus other styles,  Up: Stylistic variants using palette overrides
 
-4.11.2.18 Make mouse highlights more or less colorful
+4.11.2.19 Make mouse highlights more or less colorful
 .....................................................
 
 This is one of our practical examples to override the semantic colors of
@@ -2259,7 +2312,7 @@ mapping that covers mouse hover effects and related highlights:
 
 File: modus-themes.info,  Node: Make language underlines less colorful,  Next: Make line numbers use alternative styles,  Prev: Make mouse highlights more or less colorful,  Up: Stylistic variants using palette overrides
 
-4.11.2.19 Make language underlines less colorful
+4.11.2.20 Make language underlines less colorful
 ................................................
 
 This is one of our practical examples to override the semantic colors of
@@ -2291,7 +2344,7 @@ code linters and prose spell checkers.
 
 File: modus-themes.info,  Node: Make line numbers use alternative styles,  Prev: Make language underlines less colorful,  Up: Stylistic variants using palette overrides
 
-4.11.2.20 Make line numbers use alternative styles
+4.11.2.21 Make line numbers use alternative styles
 ..................................................
 
 This is one of our practical examples to override the semantic colors of
@@ -5664,119 +5717,120 @@ B.3 Concept index
 
 Tag Table:
 Node: Top874
-Node: Overview7849
-Node: How do the themes look like10247
-Node: Learn about the latest changes10606
-Node: Installation10994
-Node: Install manually from source11924
-Node: Install from the archives12749
-Node: Install on GNU/Linux13348
-Node: Debian 11 Bullseye13841
-Node: GNU Guix14251
-Node: Dealing with byte compilation errors14534
-Node: Enable and load15692
-Node: The require-theme for built-in Emacs themes18546
-Node: Sample configuration with and without use-package19666
-Node: Differences between loading and enabling22497
-Node: Customization options24535
-Node: Custom reload theme28283
-Node: Disable other themes29191
-Node: Bold constructs30399
-Node: Italic constructs31236
-Node: Mixed fonts32007
-Node: Command prompts33003
-Node: Completion UIs34808
-Node: Org mode blocks37598
-Node: Heading styles39478
-Node: UI typeface43832
-Node: Palette overrides44763
-Node: Palette override presets49070
-Node: Stylistic variants using palette overrides51567
-Node: Make the mode line borderless53226
-Node: Make the active mode line colorful54834
-Node: Make the fringe invisible or another color56789
-Node: Make links use subtle or no underlines58285
-Node: Make prompts more or less colorful59288
-Node: Make completion matches more or less colorful60958
-Node: Make comments yellow and strings green64864
-Node: Make code syntax use the old alt-syntax style66773
-Node: Make use of alternative styles for code syntax70060
-Node: Make matching parenthesis more or less intense73728
-Node: Make box buttons more or less gray75170
-Node: Make TODO and DONE more or less intense76482
-Node: Make headings more or less colorful78191
-Node: Make Org agenda more or less colorful80597
-Node: Make inline code in prose use alternative styles83335
-Node: Make mail citations and headers more or less colorful85882
-Node: Make the region preserve text colors plus other styles88583
-Node: Make mouse highlights more or less colorful90400
-Node: Make language underlines less colorful91713
-Node: Make line numbers use alternative styles93165
-Node: Advanced customization95067
-Node: More accurate colors in terminal emulators96557
-Node: Range of color with terminal emulators97798
-Node: Preview theme colors100512
-Node: Per-theme customization settings102206
-Node: Use theme colors in code with modus-themes-with-colors103571
-Node: Do not extend the region background105852
-Node: Add padding to mode line106650
-Node: Remap face with local value109206
-Node: Font configurations for Org and others111627
-Ref: Font configurations for Org and others-Footnote-1114534
-Node: Configure bold and italic faces114721
-Node: Custom Org todo keyword and priority faces118878
-Node: Custom Org emphasis faces122443
-Node: Update Org block delimiter fontification127266
-Node: Measure color contrast129183
-Node: Load theme depending on time of day131881
-Node: Backdrop for pdf-tools132891
-Node: Toggle themes without reloading them135790
-Node: A theme-agnostic hook for theme loading137066
-Node: Custom hl-todo colors139488
-Node: Add support for solaire-mode141013
-Node: Face coverage143924
-Node: Supported packages144376
-Node: Indirectly covered packages149708
-Node: Notes on individual packages151061
-Node: Note on calendarel weekday and weekend colors152161
-Node: Note on git-gutter in Doom Emacs153309
-Node: Note on php-mode multiline comments155653
-Node: Note on underlines in compilation buffers156406
-Node: Note on inline Latex in Org buffers157243
-Node: Note on dimmerel157853
-Node: Note on display-fill-column-indicator-mode159338
-Node: Note on highlight-parenthesesel160737
-Node: Note on mmm-modeel background colors166715
-Node: Note for prism169015
-Node: Note on company-mode overlay pop-up172183
-Ref: Note on company-mode overlay pop-up-Footnote-1172913
-Ref: Note on company-mode overlay pop-up-Footnote-2172980
-Node: Note on ERC escaped color sequences173035
-Ref: Note on ERC escaped color sequences-Footnote-1174463
-Node: Note on powerline or spaceline174573
-Node: Note on SHR colors174987
-Node: Note on SHR fonts175411
-Node: Note on Ement colors and fonts176050
-Node: Note on pdf-tools link hints177560
-Node: Note on the Notmuch logo180020
-Node: Note on goto-address-mode faces180558
-Node: Frequently Asked Questions181670
-Node: Is the contrast ratio about adjacent colors?182301
-Node: What does it mean to avoid exaggerations?183808
-Node: Why are colors mostly variants of blue magenta cyan?185658
-Node: What is the best setup for legibility?189964
-Node: Are these color schemes?192609
-Node: Port the Modus themes to other platforms?196291
-Node: Contributing199063
-Node: Sources of the themes199460
-Node: Issues you can help with200354
-Node: Patches require copyright assignment to the FSF201745
-Node: Acknowledgements203965
-Node: GNU Free Documentation License207833
-Node: Indices233197
-Node: Function index233376
-Node: Variable index234408
-Node: Concept index236307
+Node: Overview7892
+Node: How do the themes look like10290
+Node: Learn about the latest changes10649
+Node: Installation11037
+Node: Install manually from source11967
+Node: Install from the archives12792
+Node: Install on GNU/Linux13391
+Node: Debian 11 Bullseye13884
+Node: GNU Guix14294
+Node: Dealing with byte compilation errors14577
+Node: Enable and load15735
+Node: The require-theme for built-in Emacs themes18589
+Node: Sample configuration with and without use-package19709
+Node: Differences between loading and enabling22540
+Node: Customization options24578
+Node: Custom reload theme28326
+Node: Disable other themes29234
+Node: Bold constructs30442
+Node: Italic constructs31279
+Node: Mixed fonts32050
+Node: Command prompts33046
+Node: Completion UIs34851
+Node: Org mode blocks37641
+Node: Heading styles39521
+Node: UI typeface43875
+Node: Palette overrides44806
+Node: Palette override presets49113
+Node: Stylistic variants using palette overrides51610
+Node: Make the mode line borderless53312
+Node: Make the active mode line colorful54920
+Node: Make the tab bar more or less colorful56871
+Node: Make the fringe invisible or another color59108
+Node: Make links use subtle or no underlines60608
+Node: Make prompts more or less colorful61611
+Node: Make completion matches more or less colorful63281
+Node: Make comments yellow and strings green67187
+Node: Make code syntax use the old alt-syntax style69096
+Node: Make use of alternative styles for code syntax72383
+Node: Make matching parenthesis more or less intense76053
+Node: Make box buttons more or less gray77495
+Node: Make TODO and DONE more or less intense78807
+Node: Make headings more or less colorful80516
+Node: Make Org agenda more or less colorful82922
+Node: Make inline code in prose use alternative styles85660
+Node: Make mail citations and headers more or less colorful88207
+Node: Make the region preserve text colors plus other styles90908
+Node: Make mouse highlights more or less colorful92725
+Node: Make language underlines less colorful94038
+Node: Make line numbers use alternative styles95490
+Node: Advanced customization97392
+Node: More accurate colors in terminal emulators98882
+Node: Range of color with terminal emulators100123
+Node: Preview theme colors102837
+Node: Per-theme customization settings104531
+Node: Use theme colors in code with modus-themes-with-colors105896
+Node: Do not extend the region background108177
+Node: Add padding to mode line108975
+Node: Remap face with local value111531
+Node: Font configurations for Org and others113952
+Ref: Font configurations for Org and others-Footnote-1116859
+Node: Configure bold and italic faces117046
+Node: Custom Org todo keyword and priority faces121203
+Node: Custom Org emphasis faces124768
+Node: Update Org block delimiter fontification129591
+Node: Measure color contrast131508
+Node: Load theme depending on time of day134206
+Node: Backdrop for pdf-tools135216
+Node: Toggle themes without reloading them138115
+Node: A theme-agnostic hook for theme loading139391
+Node: Custom hl-todo colors141813
+Node: Add support for solaire-mode143338
+Node: Face coverage146249
+Node: Supported packages146701
+Node: Indirectly covered packages152033
+Node: Notes on individual packages153386
+Node: Note on calendarel weekday and weekend colors154486
+Node: Note on git-gutter in Doom Emacs155634
+Node: Note on php-mode multiline comments157978
+Node: Note on underlines in compilation buffers158731
+Node: Note on inline Latex in Org buffers159568
+Node: Note on dimmerel160178
+Node: Note on display-fill-column-indicator-mode161663
+Node: Note on highlight-parenthesesel163062
+Node: Note on mmm-modeel background colors169040
+Node: Note for prism171340
+Node: Note on company-mode overlay pop-up174508
+Ref: Note on company-mode overlay pop-up-Footnote-1175238
+Ref: Note on company-mode overlay pop-up-Footnote-2175305
+Node: Note on ERC escaped color sequences175360
+Ref: Note on ERC escaped color sequences-Footnote-1176788
+Node: Note on powerline or spaceline176898
+Node: Note on SHR colors177312
+Node: Note on SHR fonts177736
+Node: Note on Ement colors and fonts178375
+Node: Note on pdf-tools link hints179885
+Node: Note on the Notmuch logo182345
+Node: Note on goto-address-mode faces182883
+Node: Frequently Asked Questions183995
+Node: Is the contrast ratio about adjacent colors?184626
+Node: What does it mean to avoid exaggerations?186133
+Node: Why are colors mostly variants of blue magenta cyan?187983
+Node: What is the best setup for legibility?192289
+Node: Are these color schemes?194934
+Node: Port the Modus themes to other platforms?198616
+Node: Contributing201388
+Node: Sources of the themes201785
+Node: Issues you can help with202679
+Node: Patches require copyright assignment to the FSF204070
+Node: Acknowledgements206290
+Node: GNU Free Documentation License210158
+Node: Indices235522
+Node: Function index235701
+Node: Variable index236733
+Node: Concept index238632
 
 End Tag Table
 

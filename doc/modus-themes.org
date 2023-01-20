@@ -1308,6 +1308,58 @@ have a blue mode line for ~modus-operandi~ and a red one for
         (border-mode-line-active bg-red-subtle)))
 #+end_src
 
+**** Make the tab bar more or less colorful
+:PROPERTIES:
+:CUSTOM_ID: h:096658d7-a0bd-4a99-b6dc-9b20a20cda37
+:END:
+
+This is one of our practical examples to override the semantic colors
+of the Modus themes ([[#h:df1199d8-eaba-47db-805d-6b568a577bf3][Stylistic variants using palette overrides]]).
+Here we show how to affect the colors of the built-in ~tab-bar-mode~
+and ~tab-line-mode~.
+
+For consistent theme-wide results, consider changing the mode line,
+fringes, and line numbers.  These are shown in other sections of this
+manual.
+
+#+begin_src emacs-lisp
+;; These overrides are common to all Modus themes.  We also provide
+;; theme-specific options, such as `modus-operandi-palette-overrides'.
+;;
+;; In general, the theme-specific overrides are better for overriding
+;; color values, such as redefining what `blue-faint' looks like.  The
+;; common overrides are best used for changes to semantic color
+;; mappings, as we show below.
+
+
+;; Make the `tab-bar-mode' mode subtle while keepings its original
+;; gray aesthetic.
+(setq modus-themes-common-palette-overrides
+      '((bg-tab-bar bg-main)
+        (bg-tab-current bg-active)
+        (bg-tab-other bg-dim)))
+
+;; Like the above, but the current tab has a colorful background and
+;; the inactive tabs have a slightly more noticeable gray background.
+(setq modus-themes-common-palette-overrides
+      '((bg-tab-bar bg-main)
+        (bg-tab-current bg-cyan-intense)
+        (bg-tab-other bg-inactive)))
+
+;; Make the tabs colorful, using a monochromatic pattern (e.g. shades
+;; of cyan).
+(setq modus-themes-common-palette-overrides
+      '((bg-tab-bar bg-cyan-nuanced)
+        (bg-tab-current bg-cyan-intense)
+        (bg-tab-other bg-cyan-subtle)))
+
+;; Like the above, but with a dichromatic pattern (cyan and magenta).
+(setq modus-themes-common-palette-overrides
+      '((bg-tab-bar bg-cyan-nuanced)
+        (bg-tab-current bg-magenta-intense)
+        (bg-tab-other bg-cyan-subtle)))
+#+end_src
+
 **** Make the fringe invisible or another color
 :PROPERTIES:
 :CUSTOM_ID: h:c312dcac-36b6-4a1f-b1f5-ab1c9abe27b0
