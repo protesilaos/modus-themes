@@ -1127,6 +1127,47 @@ after loading the THEME."
   (load-theme theme :no-confirm)
   (run-hooks 'modus-themes-after-load-theme-hook))
 
+(defun modus-themes--retrieve-palette-value (color palette)
+  "Return COLOR from PALETTE.
+Use recursion until COLOR is retrieved as a string.  Refrain from
+doing so if the value of COLOR is not a key in the PALETTE.
+
+Return `unspecified' if the value of COLOR cannot be determined.
+This symbol is accepted by faces and is thus harmless.
+
+This function is used in the macros `modus-themes-theme',
+`modus-themes-with-colors'."
+  (let ((value (car (alist-get color palette))))
+    (cond
+     ((or (stringp value)
+          (eq value 'unspecified))
+      value)
+     ((and (symbolp value)
+           (memq value (mapcar #'car palette)))
+      (modus-themes--retrieve-palette-value value palette))
+     (t
+      'unspecified))))
+
+(defun modus-themes-get-color-value (color &optional overrides)
+  "Return color value of named COLOR for current Modus theme.
+
+COLOR is a symbol that represents a named color entry in the
+palette.
+
+If the value is the name of another color entry in the
+palette (so a mapping), recur until you find the underlying color
+value.
+
+With optional OVERRIDES as a non-nil value, account for palette
+overrides.  Else use the default palette.
+
+If COLOR is not present in the palette, return the `unspecified'
+symbol, which is safe when used as a face attribute's value."
+  (if-let* ((palette (modus-themes--current-theme-palette overrides))
+            (value (modus-themes--retrieve-palette-value color palette)))
+      value
+    'unspecified))
+
 ;;;; Commands
 
 (make-obsolete 'modus-themes-load-themes nil "4.0.0")
@@ -3852,47 +3893,6 @@ FG and BG are the main colors."
   "Custom variables for `modus-themes-theme'.")
 
 ;;; Theme macros
-
-(defun modus-themes--retrieve-palette-value (color palette)
-  "Return COLOR from PALETTE.
-Use recursion until COLOR is retrieved as a string.  Refrain from
-doing so if the value of COLOR is not a key in the PALETTE.
-
-Return `unspecified' if the value of COLOR cannot be determined.
-This symbol is accepted by faces and is thus harmless.
-
-This function is used in the macros `modus-themes-theme',
-`modus-themes-with-colors'."
-  (let ((value (car (alist-get color palette))))
-    (cond
-     ((or (stringp value)
-          (eq value 'unspecified))
-      value)
-     ((and (symbolp value)
-           (memq value (mapcar #'car palette)))
-      (modus-themes--retrieve-palette-value value palette))
-     (t
-      'unspecified))))
-
-(defun modus-themes-get-color-value (color &optional overrides)
-  "Return color value of named COLOR for current Modus theme.
-
-COLOR is a symbol that represents a named color entry in the
-palette.
-
-If the value is the name of another color entry in the
-palette (so a mapping), recur until you find the underlying color
-value.
-
-With optional OVERRIDES as a non-nil value, account for palette
-overrides.  Else use the default palette.
-
-If COLOR is not present in the palette, return the `unspecified'
-symbol, which is safe when used as a face attribute's value."
-  (if-let* ((palette (modus-themes--current-theme-palette overrides))
-            (value (modus-themes--retrieve-palette-value color palette)))
-      value
-    'unspecified))
 
 ;;;; Instantiate a Modus theme
 
