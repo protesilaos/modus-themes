@@ -2441,11 +2441,60 @@ equivalent the themes provide.
 For a more elaborate design, it is better to inspect the source code of
 ~modus-themes-toggle~ and relevant functions.
 
+** Get a single color from the palette
+:PROPERTIES:
+:CUSTOM_ID: h:1cc552c1-5f5f-4a56-ae78-7b69e8512c4e
+:END:
+
+[[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Use theme colors in code with modus-themes-with-colors]].
+
+#+findex: modus-themes-get-color-value
+The fuction ~modus-themes-get-color-value~ can be called from Lisp to
+return the value of a color from the active Modus theme palette.
+=COLOR= is a symbol that represents a named color entry in the
+palette.
+
+If the value is the name of another color entry in the palette (so a
+mapping), this function recurs until it finds the underlying color
+value.
+
+With an optional =OVERRIDES= argument as a non-nil value, it accounts
+for palette overrides.  Else it reads only the default palette.
+
+If =COLOR= is not present in the palette, this functions returns the
+=unspecified= symbol, which is safe when used as a face attribute's
+value.
+
+An example with ~modus-operandi~ to show how this function behaves
+with/without overrides and when recursive mappings are introduced.
+
+#+begin_src emacs-lisp
+;; Here we show the recursion of palette mappings.  In general, it is
+;; better for the user to specify named colors to avoid possible
+;; confusion with their configuration, though those still work as
+;; expected.
+(setq modus-themes-common-palette-overrides
+      '((cursor red)
+        (fg-mode-line-active cursor)
+        (border-mode-line-active fg-mode-line-active)))
+
+;; Ignore the overrides and get the original value.
+(modus-themes-get-color-value 'border-mode-line-active)
+;; => "#5a5a5a"
+
+;; Read from the overrides and deal with any recursion to find the
+;; underlying value.
+(modus-themes-get-color-value 'border-mode-line-active :overrides)
+;; => "#a60000"
+#+end_src
+
 ** Use theme colors in code with modus-themes-with-colors
 :properties:
 :custom_id: h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae
 :end:
 #+cindex: Use colors from the palette anywhere
+
+[[#h:1cc552c1-5f5f-4a56-ae78-7b69e8512c4e][Get a single color from the palette]].
 
 Note that users most probably do not need the following.  Just rely on
 the comprehensive overrides we provide ([[#h:34c7a691-19bb-4037-8d2f-67a07edab150][Option for palette overrides]]).

@@ -3874,6 +3874,26 @@ This function is used in the macros `modus-themes-theme',
      (t
       'unspecified))))
 
+(defun modus-themes-get-color-value (color &optional overrides)
+  "Return color value of named COLOR for current Modus theme.
+
+COLOR is a symbol that represents a named color entry in the
+palette.
+
+If the value is the name of another color entry in the
+palette (so a mapping), recur until you find the underlying color
+value.
+
+With optional OVERRIDES as a non-nil value, account for palette
+overrides.  Else use the default palette.
+
+If COLOR is not present in the palette, return the `unspecified'
+symbol, which is safe when used as a face attribute's value."
+  (if-let* ((palette (modus-themes--current-theme-palette overrides))
+            (value (modus-themes--retrieve-palette-value color palette)))
+      value
+    'unspecified))
+
 ;;;; Instantiate a Modus theme
 
 ;;;###autoload
