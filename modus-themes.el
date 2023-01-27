@@ -1225,15 +1225,12 @@ Disable other themes per `modus-themes-disable-other-themes'."
   "Render colors in BUFFER from THEME for `modus-themes-list-colors'.
 Optional MAPPINGS changes the output to only list the semantic
 color mappings of the palette, instead of its named colors."
-  (let* ((current (modus-themes--palette-value theme :overrides))
+  (let* ((current-palette (modus-themes--palette-value theme mappings))
          (palette (if mappings
                       (seq-remove (lambda (cell)
-                                    (or (stringp (cadr cell))
-                                        (eq (cadr cell) 'unspecified)))
-                                  current)
-                    (seq-remove (lambda (cell)
-                                  (symbolp (cadr cell)))
-                                current)))
+                                    (stringp (cadr cell)))
+                                  current-palette)
+                    current-palette))
          (current-buffer buffer)
          (current-theme theme))
     (with-help-window buffer
@@ -1247,21 +1244,20 @@ color mappings of the palette, instead of its named colors."
         (insert " ")
         (dolist (cell palette)
           (let* ((name (car cell))
-                 (color (cadr cell))
-                 (mapping (if mappings
-                              (cadr (seq-find (lambda (c)
-                                                (eq (car c) color))
-                                              current))
-                            color))
-                 (fg (readable-foreground-color mapping))
-                 (pad (make-string 5 ?\s)))
+                 (color (modus-themes-get-color-value name mappings))
+                 (pad (make-string 10 ?\s))
+                 (fg (if (eq color 'unspecified)
+                         (progn
+                           (readable-foreground-color (modus-themes-get-color-value 'bg-main))
+                           (setq pad (make-string 6 ?\s)))
+                       (readable-foreground-color color))))
             (let ((old-point (point)))
-              (insert (format "%s %s" mapping pad))
-              (put-text-property old-point (point) 'face `( :foreground ,mapping)))
+              (insert (format "%s %s" color pad))
+              (put-text-property old-point (point) 'face `( :foreground ,color)))
             (let ((old-point (point)))
-              (insert (format " %s %s %s\n" mapping pad name))
+              (insert (format " %s %s %s\n" color pad name))
               (put-text-property old-point (point)
-                                 'face `( :background ,mapping
+                                 'face `( :background ,color
                                           :foreground ,fg
                                           :extend t)))
             ;; We need this to properly render the last line.
