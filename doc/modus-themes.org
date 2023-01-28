@@ -2446,13 +2446,19 @@ For a more elaborate design, it is better to inspect the source code of
 :CUSTOM_ID: h:1cc552c1-5f5f-4a56-ae78-7b69e8512c4e
 :END:
 
+[ Part of {{{development-version}}}. ]
+
 [[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Use theme colors in code with modus-themes-with-colors]].
 
 #+findex: modus-themes-get-color-value
 The fuction ~modus-themes-get-color-value~ can be called from Lisp to
-return the value of a color from the active Modus theme palette.
+return the value of a color from the active Modus theme palette.  It
+takea a =COLOR= argument and an optional =OVERRIDES=.
+
 =COLOR= is a symbol that represents a named color entry in the
 palette.
+
+[[#h:f4d4b71b-2ca5-4c3d-b0b4-9bfd7aa7fb4d][Preview theme colors]].
 
 If the value is the name of another color entry in the palette (so a
 mapping), this function recurs until it finds the underlying color
@@ -2461,7 +2467,7 @@ value.
 With an optional =OVERRIDES= argument as a non-nil value, it accounts
 for palette overrides.  Else it reads only the default palette.
 
-If =COLOR= is not present in the palette, this functions returns the
+If =COLOR= is not present in the palette, this function returns the
 =unspecified= symbol, which is safe when used as a face attribute's
 value.
 
