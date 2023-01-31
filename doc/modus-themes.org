@@ -2467,6 +2467,8 @@ value.
 With an optional =OVERRIDES= argument as a non-nil value, it accounts
 for palette overrides.  Else it reads only the default palette.
 
+[[#h:34c7a691-19bb-4037-8d2f-67a07edab150][Option for palette overrides]].
+
 If =COLOR= is not present in the palette, this function returns the
 =unspecified= symbol, which is safe when used as a face attribute's
 value.
