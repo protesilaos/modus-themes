@@ -2529,22 +2529,24 @@ File: modus-themes.info,  Node: Preview theme colors,  Next: Per-theme customiza
 5.3 Preview theme colors
 ========================
 
-The command ‘modus-themes-list-colors’ prompts for a choice between
-‘modus-operandi’ and ‘modus-vivendi’ to produce a help buffer that shows
-a preview of the named colors in the given theme’s palette.  The command
-‘modus-themes-list-colors-current’ skips the prompt, using the current
-Modus theme.
+The command ‘modus-themes-list-colors’ uses minibuffer completion to
+select an item from the Modus themes and then produces a buffer with
+previews of its color palette entries.  The buffer has a naming scheme
+that reflects the given choice, like ‘modus-operandi-list-colors’ for
+the ‘modus-operandi’ theme.
+
+   The command ‘modus-themes-list-colors-current’ skips the minibuffer
+selection process and just produces a preview for the current Modus
+theme.
 
    When called with a prefix argument (‘C-u’ with the default key
 bindings), these commands will show a preview of the palette’s semantic
-color mappings instead of the named colors.
-
-   In this context, “named colors” are entries that associate a symbol
-to a string color value, such as ‘(blue-warmer "#354fcf")’.  Whereas
-“semantic color mappings” associate a named color to a symbol, like
-‘(string blue-warmer)’, thus making the theme render all string
-constructs in the ‘blue-warmer’ color value (*note Option for palette
-overrides: Palette overrides.).
+color mappings instead of the named colors.  In this context, “named
+colors” are entries that associate a symbol to a string color value,
+such as ‘(blue-warmer "#354fcf")’.  Whereas “semantic color mappings”
+associate a named color to a symbol, like ‘(string blue-warmer)’, thus
+making the theme render all string constructs in the ‘blue-warmer’ color
+value (*note Option for palette overrides: Palette overrides.).
 
    Aliases for those commands are ‘modus-themes-preview-colors’ and
 ‘modus-themes-preview-colors-current’.
@@ -5664,10 +5666,10 @@ B.1 Function index
 * modus-themes-get-color-value:          Get a single color from the palette.
                                                                (line 10)
 * modus-themes-list-colors:              Preview theme colors. (line  6)
-* modus-themes-list-colors-current:      Preview theme colors. (line  6)
+* modus-themes-list-colors-current:      Preview theme colors. (line 12)
 * modus-themes-load-theme:               Enable and load.      (line  6)
-* modus-themes-preview-colors:           Preview theme colors. (line 23)
-* modus-themes-preview-colors-current:   Preview theme colors. (line 23)
+* modus-themes-preview-colors:           Preview theme colors. (line 25)
+* modus-themes-preview-colors-current:   Preview theme colors. (line 25)
 * modus-themes-toggle:                   Enable and load.      (line  6)
 * modus-themes-wcag-formula:             Measure color contrast.
                                                                (line  6)
@@ -5832,68 +5834,68 @@ Node: Advanced customization97432
 Node: More accurate colors in terminal emulators98962
 Node: Range of color with terminal emulators100203
 Node: Preview theme colors102917
-Node: Per-theme customization settings104611
-Node: Get a single color from the palette105957
-Node: Use theme colors in code with modus-themes-with-colors108189
-Node: Do not extend the region background110522
-Node: Add padding to mode line111320
-Node: Remap face with local value113876
-Node: Font configurations for Org and others116297
-Ref: Font configurations for Org and others-Footnote-1119206
-Node: Configure bold and italic faces119393
-Node: Custom Org todo keyword and priority faces123550
-Node: Custom Org emphasis faces127115
-Node: Update Org block delimiter fontification131938
-Node: Measure color contrast133855
-Node: Load theme depending on time of day136553
-Node: Backdrop for pdf-tools137563
-Node: Toggle themes without reloading them140462
-Node: A theme-agnostic hook for theme loading141738
-Node: Custom hl-todo colors144160
-Node: Add support for solaire-mode145685
-Node: Face coverage148596
-Node: Supported packages149048
-Node: Indirectly covered packages154380
-Node: Notes on individual packages155733
-Node: Note on calendarel weekday and weekend colors156833
-Node: Note on git-gutter in Doom Emacs157981
-Node: Note on php-mode multiline comments160325
-Node: Note on underlines in compilation buffers161078
-Node: Note on inline Latex in Org buffers161915
-Node: Note on dimmerel162525
-Node: Note on display-fill-column-indicator-mode164010
-Node: Note on highlight-parenthesesel165409
-Node: Note on mmm-modeel background colors171387
-Node: Note for prism173687
-Node: Note on company-mode overlay pop-up176855
-Ref: Note on company-mode overlay pop-up-Footnote-1177585
-Ref: Note on company-mode overlay pop-up-Footnote-2177652
-Node: Note on ERC escaped color sequences177707
-Ref: Note on ERC escaped color sequences-Footnote-1179135
-Node: Note on powerline or spaceline179245
-Node: Note on SHR colors179659
-Node: Note on SHR fonts180083
-Node: Note on Ement colors and fonts180722
-Node: Note on pdf-tools link hints182232
-Node: Note on the Notmuch logo184692
-Node: Note on goto-address-mode faces185230
-Node: Frequently Asked Questions186342
-Node: Is the contrast ratio about adjacent colors?186973
-Node: What does it mean to avoid exaggerations?188480
-Node: Why are colors mostly variants of blue magenta cyan?190330
-Node: What is the best setup for legibility?194636
-Node: Are these color schemes?197281
-Node: Port the Modus themes to other platforms?200963
-Node: Contributing203735
-Node: Sources of the themes204132
-Node: Issues you can help with205026
-Node: Patches require copyright assignment to the FSF206417
-Node: Acknowledgements208637
-Node: GNU Free Documentation License212514
-Node: Indices237878
-Node: Function index238057
-Node: Variable index239240
-Node: Concept index241139
+Node: Per-theme customization settings104762
+Node: Get a single color from the palette106108
+Node: Use theme colors in code with modus-themes-with-colors108340
+Node: Do not extend the region background110673
+Node: Add padding to mode line111471
+Node: Remap face with local value114027
+Node: Font configurations for Org and others116448
+Ref: Font configurations for Org and others-Footnote-1119357
+Node: Configure bold and italic faces119544
+Node: Custom Org todo keyword and priority faces123701
+Node: Custom Org emphasis faces127266
+Node: Update Org block delimiter fontification132089
+Node: Measure color contrast134006
+Node: Load theme depending on time of day136704
+Node: Backdrop for pdf-tools137714
+Node: Toggle themes without reloading them140613
+Node: A theme-agnostic hook for theme loading141889
+Node: Custom hl-todo colors144311
+Node: Add support for solaire-mode145836
+Node: Face coverage148747
+Node: Supported packages149199
+Node: Indirectly covered packages154531
+Node: Notes on individual packages155884
+Node: Note on calendarel weekday and weekend colors156984
+Node: Note on git-gutter in Doom Emacs158132
+Node: Note on php-mode multiline comments160476
+Node: Note on underlines in compilation buffers161229
+Node: Note on inline Latex in Org buffers162066
+Node: Note on dimmerel162676
+Node: Note on display-fill-column-indicator-mode164161
+Node: Note on highlight-parenthesesel165560
+Node: Note on mmm-modeel background colors171538
+Node: Note for prism173838
+Node: Note on company-mode overlay pop-up177006
+Ref: Note on company-mode overlay pop-up-Footnote-1177736
+Ref: Note on company-mode overlay pop-up-Footnote-2177803
+Node: Note on ERC escaped color sequences177858
+Ref: Note on ERC escaped color sequences-Footnote-1179286
+Node: Note on powerline or spaceline179396
+Node: Note on SHR colors179810
+Node: Note on SHR fonts180234
+Node: Note on Ement colors and fonts180873
+Node: Note on pdf-tools link hints182383
+Node: Note on the Notmuch logo184843
+Node: Note on goto-address-mode faces185381
+Node: Frequently Asked Questions186493
+Node: Is the contrast ratio about adjacent colors?187124
+Node: What does it mean to avoid exaggerations?188631
+Node: Why are colors mostly variants of blue magenta cyan?190481
+Node: What is the best setup for legibility?194787
+Node: Are these color schemes?197432
+Node: Port the Modus themes to other platforms?201114
+Node: Contributing203886
+Node: Sources of the themes204283
+Node: Issues you can help with205177
+Node: Patches require copyright assignment to the FSF206568
+Node: Acknowledgements208788
+Node: GNU Free Documentation License212665
+Node: Indices238029
+Node: Function index238208
+Node: Variable index239391
+Node: Concept index241290
 
 End Tag Table
 
