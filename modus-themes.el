@@ -1249,11 +1249,11 @@ color mappings of the palette, instead of its named colors."
         (insert " ")
         (dolist (cell palette)
           (let* ((name (car cell))
-                 (color (modus-themes-get-color-value name mappings))
+                 (color (modus-themes-get-color-value name mappings theme))
                  (pad (make-string 10 ?\s))
                  (fg (if (eq color 'unspecified)
                          (progn
-                           (readable-foreground-color (modus-themes-get-color-value 'bg-main))
+                           (readable-foreground-color (modus-themes-get-color-value 'bg-main nil theme))
                            (setq pad (make-string 6 ?\s)))
                        (readable-foreground-color color))))
             (let ((old-point (point)))
