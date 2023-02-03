@@ -1926,6 +1926,7 @@ FG and BG are the main colors."
     `(consult-key ((,c :inherit modus-themes-key-binding)))
     `(consult-imenu-prefix ((,c :inherit shadow)))
     `(consult-line-number ((,c :inherit shadow)))
+    `(consult-line-number-prefix ((,c :inherit shadow)))
 ;;;;; corfu
     `(corfu-current ((,c :inherit modus-themes-completion-selected)))
     `(corfu-bar ((,c :background ,fg-dim)))
