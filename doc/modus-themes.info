@@ -552,40 +552,36 @@ What follows is a variant of what we demonstrate in the previous section
 package configurations in their setup.  We use this as an example:
 
      ;;; For the built-in themes which cannot use `require'.
-     (use-package emacs
-       :config
-       (require-theme 'modus-themes) ; `require-theme' is ONLY for the built-in Modus themes
-
-       ;; Add all your customizations prior to loading the themes
-       (setq modus-themes-italic-constructs t
-             modus-themes-bold-constructs nil)
+     (use-package modus-themes
+       :ensure nil ; `:ensure nil' is ONLY for the built-in Modus themes
+       :init
+       ;; Load the theme of your choice
+       (load-theme 'modus-operandi t)
+       :bind ("<f5>" . modus-themes-toggle)
+       :custom
+       (modus-themes-italic-constructs t)
+       (modus-themes-bold-constructs nil)
 
        ;; Maybe define some palette overrides, such as by using our presets
-       (setq modus-themes-common-palette-overrides
-             modus-themes-preset-overrides-intense)
-
-       ;; Load the theme of your choice.
-       (load-theme 'modus-operandi)
-       :bind ("<f5>" . modus-themes-toggle))
+       (modus-themes-common-palette-overrides)
+       (modus-themes-preset-overrides-intense))
 
 
 
      ;;; For packaged versions which must use `require'.
      (use-package modus-themes
        :ensure t
-       :demand t
-       :config
-       ;; Add all your customizations prior to loading the themes
-       (setq modus-themes-italic-constructs t
-             modus-themes-bold-constructs nil)
+       :init
+       ;; Load the theme of your choice
+       (load-theme 'modus-operandi t)
+       :bind ("<f5>" . modus-themes-toggle)
+       :custom
+       (modus-themes-italic-constructs t)
+       (modus-themes-bold-constructs nil)
 
        ;; Maybe define some palette overrides, such as by using our presets
-       (setq modus-themes-common-palette-overrides
-             modus-themes-preset-overrides-intense)
-
-       ;; Load the theme of your choice.
-       (load-theme 'modus-operandi :no-confirm)
-       :bind ("<f5>" . modus-themes-toggle))
+       (modus-themes-common-palette-overrides)
+       (modus-themes-preset-overrides-intense))
 
    The same without ‘use-package’:
 
