@@ -559,7 +559,6 @@ package configurations in their setup.  We use this as an example:
        (load-theme 'modus-operandi t)
        :bind ("<f5>" . modus-themes-toggle)
        :custom
-       ;; Add all your customizations prior to loading the themes
        (modus-themes-italic-constructs t)
        (modus-themes-bold-constructs nil)
 
@@ -577,7 +576,6 @@ package configurations in their setup.  We use this as an example:
        (load-theme 'modus-operandi t)
        :bind ("<f5>" . modus-themes-toggle)
        :custom
-       ;; Add all your customizations prior to loading the themes
        (modus-themes-italic-constructs t)
        (modus-themes-bold-constructs nil)
 
