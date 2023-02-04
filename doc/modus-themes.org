@@ -774,7 +774,7 @@ Symbol: ~modus-themes-completions~ (=alist= type properties)
 
 This affects Company, Corfu, Flx, Icomplete/Fido, Ido, Ivy, Orderless,
 Vertico, and the standard =*Completions*= buffer.  The value is an
-alist of expressions, each of which takes the form of =(KEY . LIST-OF-PROPERTIES)=.  
+alist of expressions, each of which takes the form of =(KEY . LIST-OF-PROPERTIES)=.
 =KEY= is a symbol, while =PROPERTIES= is a list.  Here is a sample,
 followed by a description of the particularities:
 
@@ -2251,6 +2251,72 @@ this section we show how to affect the ~display-line-numbers-mode~.
         (fg-line-number-active fg-main)
         (bg-line-number-inactive bg-inactive)
         (bg-line-number-active bg-cyan-intense)))
+#+end_src
+
+**** Make diffs use only a foreground
+:PROPERTIES:
+:CUSTOM_ID: h:b3761482-bcbf-4990-a41e-4866fb9dad15
+:END:
+
+[ Part of {{{development-version}}}. ]
+
+This is one of our practical examples to override the semantic colors
+of the Modus themes ([[#h:df1199d8-eaba-47db-805d-6b568a577bf3][Stylistic variants using palette overrides]]).  In
+this section we show how to change diff buffers (e.g. in ~magit~) to
+only use color-coded text without any added background.  What we
+basically do is to disable the applicable backgrounds and then
+intensify the foregrounds.  Since the deuteranopia-optimized themes do
+not use the red-green color coding, we make an extra set of
+adjustments for them by overriding their palettes directly instead of
+just using the "common" overrides.
+
+#+begin_src emacs-lisp
+;; Diffs with only foreground colours.  Word-wise ("refined") diffs
+;; have a gray background to draw attention to themselves.
+(setq modus-themes-common-palette-overrides
+      '((bg-added           unspecified)
+        (bg-added-faint     unspecified)
+        (bg-added-refine    bg-inactive)
+        (fg-added           green)
+        (fg-added-intense   green-intense)
+
+        (bg-changed         unspecified)
+        (bg-changed-faint   unspecified)
+        (bg-changed-refine  bg-inactive)
+        (fg-changed         yellow)
+        (fg-changed-intense yellow-intense)
+
+        (bg-removed         unspecified)
+        (bg-removed-faint   unspecified)
+        (bg-removed-refine  bg-inactive)
+        (fg-removed         red)
+        (fg-removed-intense red-intense)
+
+        (bg-diff-context    unspecified)))
+
+;; Because deuteranopia cannot use the typical red-yellow-green
+;; combination, we need to arrange for a yellow-purple-blue sequence.
+;; Notice that the above covers the "common" overrides, so we do not
+;; need to reproduce the whole list of them.
+(setq modus-operandi-deuteranopia-palette-overrides
+      '((fg-added           blue)
+        (fg-added-intense   blue-intense)
+
+        (fg-changed         magenta-cooler)
+        (fg-changed-intense magenta-intense)
+
+        (fg-removed         yellow-warmer)
+        (fg-removed-intense yellow-intense)))
+
+(setq modus-vivendi-deuteranopia-palette-overrides
+      '((fg-added           blue)
+        (fg-added-intense   blue-intense)
+
+        (fg-changed         magenta-cooler)
+        (fg-changed-intense magenta-intense)
+
+        (fg-removed         yellow)
+        (fg-removed-intense yellow-intense)))
 #+end_src
 
 * Advanced customization
