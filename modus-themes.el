@@ -1923,6 +1923,7 @@ FG and BG are the main colors."
     `(completions-first-difference ((,c :inherit modus-themes-completion-match-1)))
 ;;;;; consult
     `(consult-async-split ((,c :inherit error)))
+    `(consult-file ((,c :inherit modus-themes-bold :foreground ,info)))
     `(consult-key ((,c :inherit modus-themes-key-binding)))
     `(consult-imenu-prefix ((,c :inherit shadow)))
     `(consult-line-number ((,c :inherit shadow)))
