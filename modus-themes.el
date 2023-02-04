@@ -2132,7 +2132,7 @@ FG and BG are the main colors."
     `(ediff-even-diff-B ((,c :background ,bg-diff-context)))
     `(ediff-even-diff-C ((,c :background ,bg-diff-context)))
     `(ediff-fine-diff-A ((,c :inherit diff-refine-removed)))
-    `(ediff-fine-diff-Ancestor ((,c :inherit diff-refine-cyan)))
+    `(ediff-fine-diff-Ancestor ((,c :inherit modus-themes-subtle-cyan)))
     `(ediff-fine-diff-B ((,c :inherit diff-refine-added)))
     `(ediff-fine-diff-C ((,c :inherit diff-refine-changed)))
     `(ediff-odd-diff-A ((,c :inherit ediff-even-diff-A)))
