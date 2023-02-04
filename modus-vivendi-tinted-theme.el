@@ -194,6 +194,8 @@ which corresponds to a minimum contrast in relative luminance of
       (fg-removed         "#ffbfbf")
       (fg-removed-intense "#ff9095")
 
+      (bg-diff-context    "#1a1f30")
+
 ;;; Uncommon accent backgrounds
 
       (bg-ochre    "#442c2f")

@@ -202,6 +202,8 @@ standard).")
       (fg-removed         "#d4d48f")
       (fg-removed-intense "#d0b05f")
 
+      (bg-diff-context    "#1a1a1a")
+
 ;;; Paren match
 
       (bg-paren-match        "#2f7f9f")

@@ -200,6 +200,8 @@ which corresponds to a minimum contrast in relative luminance of
       (fg-removed         "#8f1313")
       (fg-removed-intense "#aa2222")
 
+      (bg-diff-context    "#efe9df")
+
 ;;; Paren match
 
       (bg-paren-match        "#7fdfcf")
