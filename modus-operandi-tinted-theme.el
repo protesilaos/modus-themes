@@ -182,14 +182,14 @@ which corresponds to a minimum contrast in relative luminance of
       (bg-added           "#c3ebc1")
       (bg-added-faint     "#dcf8d1")
       (bg-added-refine    "#acd6a5")
-      (bg-added-intense   "#8cca8c")
+      (bg-added-intense   "#6cc06c")
       (fg-added           "#005000")
       (fg-added-intense   "#006700")
 
       (bg-changed         "#ffdfa9")
       (bg-changed-faint   "#ffefbf")
       (bg-changed-refine  "#fac090")
-      (bg-changed-intense "#d7c20a")
+      (bg-changed-intense "#c0b200")
       (fg-changed         "#553d00")
       (fg-changed-intense "#655000")
 
