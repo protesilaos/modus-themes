@@ -2319,6 +2319,59 @@ just using the "common" overrides.
         (fg-removed-intense yellow-intense)))
 #+end_src
 
+**** Make deuteranopia diffs red and blue instead of yellow and blue
+:PROPERTIES:
+:CUSTOM_ID: h:16389ea1-4cb6-4b18-9409-384324113541
+:END:
+
+[ Part of {{{development-version}}}. ]
+
+This is one of our practical examples to override the semantic colors
+of the Modus themes ([[#h:df1199d8-eaba-47db-805d-6b568a577bf3][Stylistic variants using palette overrides]]).  In
+this section we show how to implement a red+blue color coding for
+diffs in the themes ~modus-operandi-deuteranopia~ and
+~modus-vivendi-deuteranopia~.  As those themes are optimized for users
+with red-green color deficiency, they do not use the typical red+green
+color coding for diffs, defaulting instead to yellow+blue which are
+discernible.  Users with deuteranomaly or, generally, those who like a
+different aesthetic, can use the following to make diffs use the
+red+yellow+blue color coding for removed, changed, and added lines
+respectively.  This is achieved by overriding the "changed" and
+"removed" entries to use the colors of regular ~modus-operandi~ and
+~modus-vivendi~.
+
+#+begin_src emacs-lisp
+(setq modus-operandi-deuteranopia-palette-overrides
+      '((bg-changed         "#ffdfa9")
+        (bg-changed-faint   "#ffefbf")
+        (bg-changed-refine  "#fac090")
+        (bg-changed-fringe  "#d7c20a")
+        (fg-changed         "#553d00")
+        (fg-changed-intense "#655000")
+
+        (bg-removed         "#ffd8d5")
+        (bg-removed-faint   "#ffe9e9")
+        (bg-removed-refine  "#f3b5af")
+        (bg-removed-fringe  "#d84a4f")
+        (fg-removed         "#8f1313")
+        (fg-removed-intense "#aa2222")))
+
+(setq modus-vivendi-deuteranopia-palette-overrides
+      '((bg-changed         "#363300")
+        (bg-changed-faint   "#2a1f00")
+        (bg-changed-refine  "#4a4a00")
+        (bg-changed-fringe  "#8a7a00")
+        (fg-changed         "#efef80")
+        (fg-changed-intense "#c0b05f")
+
+        (bg-removed         "#4f1119")
+        (bg-removed-faint   "#380a0f")
+        (bg-removed-refine  "#781a1f")
+        (bg-removed-fringe  "#b81a1f")
+        (fg-removed         "#ffbfbf")
+        (fg-removed-intense "#ff9095")))
+#+end_src
+
 * Advanced customization
 :properties:
 :custom_id: h:f4651d55-8c07-46aa-b52b-bed1e53463bb
