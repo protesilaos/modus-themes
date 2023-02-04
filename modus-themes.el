@@ -2000,9 +2000,9 @@ FG and BG are the main colors."
     `(dictionary-word-definition-face (( )))
     `(dictionary-word-entry-face ((,c :inherit font-lock-comment-face)))
 ;;;;; diff-hl
-    `(diff-hl-change ((,c :background ,bg-changed-intense)))
-    `(diff-hl-delete ((,c :background ,bg-removed-intense)))
-    `(diff-hl-insert ((,c :background ,bg-added-intense)))
+    `(diff-hl-change ((,c :background ,bg-changed-fringe)))
+    `(diff-hl-delete ((,c :background ,bg-removed-fringe)))
+    `(diff-hl-insert ((,c :background ,bg-added-fringe)))
     `(diff-hl-reverted-hunk-highlight ((,c :background ,fg-main :foreground ,bg-main)))
 ;;;;; diff-mode
     `(diff-added ((,c :background ,bg-added)))
@@ -2357,15 +2357,15 @@ FG and BG are the main colors."
     `(git-commit-overlong-summary ((,c :inherit warning)))
     `(git-commit-summary ((,c :inherit bold :foreground ,blue)))
 ;;;;; git-gutter
-    `(git-gutter:added ((,c :background ,bg-added-intense)))
-    `(git-gutter:deleted ((,c :background ,bg-removed-intense)))
-    `(git-gutter:modified ((,c :background ,bg-changed-intense)))
+    `(git-gutter:added ((,c :background ,bg-added-fringe)))
+    `(git-gutter:deleted ((,c :background ,bg-removed-fringe)))
+    `(git-gutter:modified ((,c :background ,bg-changed-fringe)))
     `(git-gutter:separator ((,c :inherit modus-themes-intense-cyan)))
     `(git-gutter:unchanged ((,c :inherit modus-themes-intense-magenta)))
 ;;;;; git-gutter-fr
-    `(git-gutter-fr:added ((,c :background ,bg-added-intense)))
-    `(git-gutter-fr:deleted ((,c :background ,bg-removed-intense)))
-    `(git-gutter-fr:modified ((,c :background ,bg-changed-intense)))
+    `(git-gutter-fr:added ((,c :background ,bg-added-fringe)))
+    `(git-gutter-fr:deleted ((,c :background ,bg-removed-fringe)))
+    `(git-gutter-fr:modified ((,c :background ,bg-changed-fringe)))
 ;;;;; git-rebase
     `(git-rebase-comment-hash ((,c :inherit (bold font-lock-comment-face) :foreground ,identifier)))
     `(git-rebase-comment-heading  ((,c :inherit (bold font-lock-comment-face))))
