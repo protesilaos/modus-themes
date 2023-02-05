@@ -1980,6 +1980,9 @@ FG and BG are the main colors."
     `(custom-group-tag ((,c :inherit bold :foreground ,builtin)))
     `(custom-group-tag-1 ((,c :inherit bold :foreground ,constant)))
     `(custom-variable-tag ((,c :inherit bold :foreground ,variable)))
+;;;;; dashboard
+    `(dashboard-heading ((,c :foreground ,name)))
+    `(dashboard-items-face (( ))) ; use the underlying style of all-the-icons
 ;;;;; deadgrep
     `(deadgrep-filename-face ((,c :inherit bold :foreground ,name)))
     `(deadgrep-match-face ((,c :inherit match)))

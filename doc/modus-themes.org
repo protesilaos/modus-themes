@@ -3642,6 +3642,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + csv-mode
 + ctrlf
 + custom (what you get with {{{kbd(M-x customize)}}})
+- dashboard [part of {{{development-version}}}]
 + deadgrep
 + deft
 + devdocs
@@ -5134,13 +5135,14 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Téchoueyres, Przemysław Kryger, Robert Hepple, Roman Rudakov,
   Russell Sim, Ryan Phillips, Rytis Paškauskas, Rudolf Adamkovič, Sam
   Kleinman, Samuel Culpepper, Saša Janiška, Shreyas Ragavan, Simon
-  Pugnet, Tassilo Horn, Thibaut Verron, Thomas Heartman, Togan
-  Muftuoglu, Tony Zorman, Trey Merkley, Tomasz Hołubowicz, Toon Claes,
-  Uri Sharf, Utkarsh Singh, Vincent Foley.  As well as users: Ben,
-  CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji,
-  Nick, Summer Emacs, TheBlob42, TitusMu, Trey, bepolymathe,
-  bit9tream, bangedorrunt, derek-upham, doolio, fleimgruber, gitrj95,
-  iSeeU, jixiuf, okamsn, pRot0ta1p, soaringbird, tumashu, wakamenod.
+  Pugnet, Tassilo Horn, Thanos Apollo, Thibaut Verron, Thomas
+  Heartman, Togan Muftuoglu, Tony Zorman, Trey Merkley, Tomasz
+  Hołubowicz, Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.  As
+  well as users: Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux,
+  Fredrik, Moesasji, Nick, Summer Emacs, TheBlob42, TitusMu, Trey,
+  bepolymathe, bit9tream, bangedorrunt, derek-upham, doolio,
+  fleimgruber, gitrj95, iSeeU, jixiuf, okamsn, pRot0ta1p, soaringbird,
+  tumashu, wakamenod.
 
 + Packaging :: Basil L.{{{space()}}} Contovounesios, Eli Zaretskii,
   Glenn Morris, Mauro Aranda, Richard Stallman, Stefan Kangas (core
