@@ -391,14 +391,14 @@ package configurations in their setup.  We use this as an example:
 
   ;; Load the theme of your choice.
   (load-theme 'modus-operandi)
-  :bind ("<f5>" . modus-themes-toggle))
+
+  (define-key global-map (kbd "<f5>") #'modus-themes-toggle))
 
 
 
 ;;; For packaged versions which must use `require'.
 (use-package modus-themes
   :ensure t
-  :demand t
   :config
   ;; Add all your customizations prior to loading the themes
   (setq modus-themes-italic-constructs t
@@ -409,8 +409,9 @@ package configurations in their setup.  We use this as an example:
         modus-themes-preset-overrides-intense)
 
   ;; Load the theme of your choice.
-  (load-theme 'modus-operandi :no-confirm)
-  :bind ("<f5>" . modus-themes-toggle))
+  (load-theme 'modus-operandi)
+
+  (define-key global-map (kbd "<f5>") #'modus-themes-toggle))
 #+end_src
 
 The same without ~use-package~:
@@ -5137,12 +5138,12 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Kleinman, Samuel Culpepper, Saša Janiška, Shreyas Ragavan, Simon
   Pugnet, Tassilo Horn, Thanos Apollo, Thibaut Verron, Thomas
   Heartman, Togan Muftuoglu, Tony Zorman, Trey Merkley, Tomasz
-  Hołubowicz, Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley.  As
-  well as users: Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux,
-  Fredrik, Moesasji, Nick, Summer Emacs, TheBlob42, TitusMu, Trey,
-  bepolymathe, bit9tream, bangedorrunt, derek-upham, doolio,
-  fleimgruber, gitrj95, iSeeU, jixiuf, okamsn, pRot0ta1p, soaringbird,
-  tumashu, wakamenod.
+  Hołubowicz, Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley,
+  Zoltan Kiraly.  As well as users: Ben, CsBigDataHub1, Emacs Contrib,
+  Eugene, Fourchaux, Fredrik, Moesasji, Nick, Summer Emacs, TheBlob42,
+  TitusMu, Trey, bepolymathe, bit9tream, bangedorrunt, derek-upham,
+  doolio, fleimgruber, gitrj95, iSeeU, jixiuf, okamsn, pRot0ta1p,
+  soaringbird, tumashu, wakamenod.
 
 + Packaging :: Basil L.{{{space()}}} Contovounesios, Eli Zaretskii,
   Glenn Morris, Mauro Aranda, Richard Stallman, Stefan Kangas (core
