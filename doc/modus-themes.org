@@ -155,8 +155,8 @@ Emacs and of the themes across the years.
 :end:
 
 In the following example, we are assuming that your Emacs files are
-stored in =~/.emacs.d= and that you want to place the Modus themes in
-=~/.emacs.d/modus-themes=.
+stored in {{{file(~/.emacs.d)}}} and that you want to place the Modus
+themes in {{{file(~/.emacs.d/modus-themes)}}}.
 
 1. Get the source and store it in the desired path by running the
    following in the command line shell:
@@ -230,17 +230,17 @@ They are now ready to be used: [[#h:3f3c3728-1b34-437d-9d0c-b110f5b161a9][Enable
 :custom_id: h:e6268471-e847-4c9d-998f-49a83257b7f1
 :end:
 
-From time to time, we receive bug reports pertaining to errors with byte
-compilation.  These seldom have to do with faulty code in the themes: it
-might be a shortcoming of =package.el=, some regression in the current
-development target of Emacs, a misconfiguration in an otherwise exotic
-setup, and the like.
+From time to time, we receive bug reports pertaining to errors with
+byte compilation.  These seldom have to do with faulty code in the
+themes: it might be a shortcoming of {{{file(package.el)}}}, some
+regression in the current development target of Emacs, a
+misconfiguration in an otherwise exotic setup, and the like.
 
 The common solution with a stable version of Emacs is to:
 
-1. Delete the =modus-themes= package.
+1. Delete the ~modus-themes~ package.
 2. Close the current Emacs session.
-3. Install the =modus-themes= again.
+3. Install the ~modus-themes~ again.
 
 For those building Emacs directly from source, the solution may involve
 reverting to an earlier commit in emacs.git.
@@ -2596,7 +2596,7 @@ With optional =THEME= as a symbol among ~modus-themes-items~, use the
 palette of that item.  Else use the current Modus theme.
 
 If =COLOR= is not present in the palette, this function returns the
-=unspecified= symbol, which is safe when used as a face attribute's
+~unspecified~ symbol, which is safe when used as a face attribute's
 value.
 
 An example with ~modus-operandi~ to show how this function behaves
@@ -3317,9 +3317,9 @@ While we do provide ~modus-themes-toggle~ to manually switch between the
 themes, users may also set up their system to perform such a task
 automatically at sunrise and sunset.
 
-This can be accomplished by specifying the coordinates of one's location
-using the built-in {{{file(solar.el)}}} and then configuring the =circadian=
-package:
+This can be accomplished by specifying the coordinates of one's
+location using the built-in {{{file(solar.el)}}} and then configuring
+the ~circadian~ package:
 
 #+begin_src emacs-lisp
 (use-package solar                      ; built-in
@@ -3492,11 +3492,12 @@ need to (provided they understand the implications).
 :CUSTOM_ID: h:2ef83a21-2f0a-441e-9634-473feb940743
 :END:
 
-The =hl-todo= package provides the user option ~hl-todo-keyword-faces~:
-it specifies a pair of keyword and corresponding color value.  The Modus
-themes configure that option in the interest of legibility.  While this
-works for our purposes, users may still prefer to apply their custom
-values, in which case the following approach is necessary:
+The ~hl-todo~ package provides the user option
+~hl-todo-keyword-faces~: it specifies a pair of keyword and
+corresponding color value.  The Modus themes configure that option in
+the interest of legibility.  While this works for our purposes, users
+may still prefer to apply their custom values, in which case the
+following approach is necessary:
 
 #+begin_src emacs-lisp
 (defun my-modus-themes-hl-todo-faces ()
@@ -3530,7 +3531,7 @@ otherwise the defaults are not always legible.
 :CUSTOM_ID: h:439c9e46-52e2-46be-b1dc-85841dd99671
 :END:
 
-The =solaire-mode= package dims the background of what it considers
+The ~solaire-mode~ package dims the background of what it considers
 ancillary "UI" buffers, such as the minibuffer and Dired buffers.  The
 Modus themes used to support Solaire on the premise that the user was
 (i) opting in to it, (ii) understood why certain buffers were more gray,
@@ -3560,7 +3561,7 @@ arrangement that compromises on our accessibility standards and/or
 hinders our efforts to provide the best possible experience while using
 the Modus themes.
 
-As such, =solaire-mode= is not---and will not be---supported by the
+As such, ~solaire-mode~ is not---and will not be---supported by the
 Modus themes (or any other of my themes, for that matter).  Users who
 want it must style the faces manually.  Below is some sample code, based
 on what we cover at length elsewhere in this manual:
@@ -3951,11 +3952,12 @@ anew.
 :CUSTOM_ID: h:a195e37c-e58c-4148-b254-8ba1ed8a731a
 :END:
 
-The =git-gutter= and =git-gutter-fr= packages default to drawing bitmaps
-for the indicators they display (e.g. bitmap of a plus sign for added
-lines).  In Doom Emacs, these bitmaps are replaced with contiguous lines
-which may look nicer, but require a change to the foreground of the
-relevant faces to yield the desired color combinations.
+The ~git-gutter~ and ~git-gutter-fr~ packages default to drawing
+bitmaps for the indicators they display (e.g. bitmap of a plus sign
+for added lines).  In Doom Emacs, these bitmaps are replaced with
+contiguous lines which may look nicer, but require a change to the
+foreground of the relevant faces to yield the desired color
+combinations.
 
 Since this is Doom-specific, we urge users to apply changes in their
 local setup.  Below is some sample code, based on what we cover at
@@ -4007,7 +4009,7 @@ If the above does not work, try this instead:
 :END:
 
 Depending on your build of Emacs and/or the environment it runs in,
-multiline comments in PHP with the =php-mode= package use the
+multiline comments in PHP with the ~php-mode~ package use the
 ~font-lock-doc-face~ instead of ~font-lock-comment-face~.
 
 This seems to make all comments use the appropriate face:
@@ -4136,10 +4138,10 @@ For example:
 :CUSTOM_ID: h:24bab397-dcb2-421d-aa6e-ec5bd622b913
 :END:
 
-The =highlight-parentheses= package provides contextual coloration of
+The ~highlight-parentheses~ package provides contextual coloration of
 surrounding parentheses, highlighting only those which are around the
-point.  The package expects users to customize the applicable colors on
-their own by configuring certain variables.
+point.  The package expects users to customize the applicable colors
+on their own by configuring certain variables.
 
 To make the Modus themes work as expected with this, we need to use some
 of the techniques that are discussed at length in the various
@@ -4323,10 +4325,11 @@ implements an alternative to the typical coloration of code.  Instead of
 highlighting the syntactic constructs, it applies color to different
 levels of depth in the code structure.
 
-As =prism.el= offers a broad range of customizations, we cannot style
-it directly at the theme level: that would run contrary to the spirit
-of the package.  Instead, we may offer preset color schemes.  Those
-should offer a starting point for users to adapt to their needs.
+As {{{file(prism.el)}}} offers a broad range of customizations, we
+cannot style it directly at the theme level: that would run contrary
+to the spirit of the package.  Instead, we may offer preset color
+schemes.  Those should offer a starting point for users to adapt to
+their needs.
 
 In the following code snippets, we employ the ~modus-themes-with-colors~
 macro: [[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Use theme colors in code with modus-themes-with-colors]].
@@ -4485,10 +4488,10 @@ Consult the doc string of ~shr-use-colors~.
 :end:
 #+cindex: Fonts in EWW, Elfeed, Ement, and SHR
 
-By default, packages that build on top of the Simple HTML Remember (=shr=)
-use proportionately spaced fonts.  This is controlled by the user option
-~shr-use-fonts~, which is set to non-~nil~ by default.  To use the standard
-font instead, set that variable to nil.
+By default, packages that build on top of the Simple HTML Remember
+(~shr~) use proportionately spaced fonts.  This is controlled by the
+user option ~shr-use-fonts~, which is set to non-~nil~ by default.  To
+use the standard font instead, set that variable to nil.
 
 [[#h:defcf4fc-8fa8-4c29-b12e-7119582cc929][Font configurations for Org and others]].
 
@@ -4505,9 +4508,10 @@ This is a non-exhaustive list.
 :custom_id: h:8e636056-356c-4ca7-bc78-ebe61031f585
 :end:
 
-The =ement.el= library by Adam Porter (also known as "alphapapa") defaults
-to a method of colorizing usernames in a rainbow style.  This is
-controlled by the user option ~ement-room-prism~ and can be disabled with:
+The {{{file(ement.el)}}} library by Adam Porter (also known as
+"alphapapa") defaults to a method of colorizing usernames in a rainbow
+style.  This is controlled by the user option ~ement-room-prism~ and
+can be disabled with:
 
 #+begin_src emacs-lisp
 (setq ement-room-prism nil)
@@ -4521,7 +4525,7 @@ slightly below our nominal target.  Try this instead:
 (setq ement-room-prism-minimum-contrast 7)
 #+end_src
 
-With regard to fonts, Ement depends on =shr= ([[#h:e6c5451f-6763-4be7-8fdb-b4706a422a4c][Note on SHR fonts]]).
+With regard to fonts, Ement depends on ~shr~ ([[#h:e6c5451f-6763-4be7-8fdb-b4706a422a4c][Note on SHR fonts]]).
 
 Since we are here, here is an excerpt from Ement's source code:
 
@@ -4610,7 +4614,7 @@ those buttons.  Disabling the logo fixes the problem:
 
 The built-in ~goto-address-mode~ uses heuristics to identify URLs and
 email addresses in the current buffer.  It then applies a face to them
-to change their style.  Some packages, such as =notmuch=, use this
+to change their style.  Some packages, such as ~notmuch~, use this
 minor-mode automatically.
 
 The faces are not declared with ~defface~, meaning that it is better
