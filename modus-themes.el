@@ -1640,7 +1640,7 @@ FG and BG are the main colors."
     `(button ((,c :background ,bg-link :foreground ,fg-link :underline ,underline-link)))
     `(link ((,c :inherit button)))
     `(link-visited ((,c :background ,bg-link-visited :foreground ,fg-link-visited :underline ,underline-link-visited)))
-    `(tooltip ((,c :background ,bg-active)))
+    `(tooltip ((,c :background ,bg-active :foreground ,fg-main)))
 ;;;;; agda2-mode
     `(agda2-highlight-bound-variable-face ((,c :inherit font-lock-variable-name-face)))
     `(agda2-highlight-catchall-clause-face ((,c :background ,bg-inactive)))
