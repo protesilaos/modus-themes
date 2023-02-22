@@ -2127,10 +2127,10 @@ FG and BG are the main colors."
     `(doom-modeline-urgent ((,c :inherit bold-italic :foreground ,modeline-err)))
     `(doom-modeline-warning ((,c :inherit warning)))
 ;;;;; ediff
-    `(ediff-current-diff-A ((,c :inherit diff-removed)))
+    `(ediff-current-diff-A ((,c :background ,bg-removed :foreground ,fg-removed)))
     `(ediff-current-diff-Ancestor ((,c :background ,bg-region))) ; TODO 2022-11-29: Needs review
-    `(ediff-current-diff-B ((,c :inherit diff-added)))
-    `(ediff-current-diff-C ((,c :inherit diff-changed)))
+    `(ediff-current-diff-B ((,c :background ,bg-added :foreground ,fg-added)))
+    `(ediff-current-diff-C ((,c :background ,bg-changed :foreground ,fg-changed)))
     `(ediff-even-diff-A ((,c :background ,bg-diff-context)))
     `(ediff-even-diff-Ancestor ((,c :background ,bg-diff-context)))
     `(ediff-even-diff-B ((,c :background ,bg-diff-context)))
