@@ -4,9 +4,9 @@
 #+language:              en
 #+options:               ':t toc:nil author:t email:t num:t
 #+startup:               content
-#+macro:                 stable-version 4.0.0
-#+macro:                 release-date 2023-01-01
-#+macro:                 development-version 4.1.0-dev
+#+macro:                 stable-version 4.1.0
+#+macro:                 release-date 2023-02-22
+#+macro:                 development-version 4.2.0-dev
 #+macro:                 file @@texinfo:@file{@@$1@@texinfo:}@@
 #+macro:                 space @@texinfo:@: @@
 #+macro:                 kbd @@texinfo:@kbd{@@$1@@texinfo:}@@
@@ -585,8 +585,6 @@ the user must manually reload the theme ([[#h:3f3c3728-1b34-437d-9d0c-b110f5b161
 :custom_id: h:adb0c49a-f1f9-4690-868b-013a080eed68
 :end:
 #+vindex: modus-themes-disable-other-themes
-
-[ Part of {{{development-version}}}. ]
 
 Brief: Disable all other themes when loading a Modus theme.
 
@@ -2259,8 +2257,6 @@ this section we show how to affect the ~display-line-numbers-mode~.
 :CUSTOM_ID: h:b3761482-bcbf-4990-a41e-4866fb9dad15
 :END:
 
-[ Part of {{{development-version}}}. ]
-
 This is one of our practical examples to override the semantic colors
 of the Modus themes ([[#h:df1199d8-eaba-47db-805d-6b568a577bf3][Stylistic variants using palette overrides]]).  In
 this section we show how to change diff buffers (e.g. in ~magit~) to
@@ -2324,8 +2320,6 @@ just using the "common" overrides.
 :PROPERTIES:
 :CUSTOM_ID: h:16389ea1-4cb6-4b18-9409-384324113541
 :END:
-
-[ Part of {{{development-version}}}. ]
 
 This is one of our practical examples to override the semantic colors
 of the Modus themes ([[#h:df1199d8-eaba-47db-805d-6b568a577bf3][Stylistic variants using palette overrides]]).  In
@@ -2568,8 +2562,6 @@ For a more elaborate design, it is better to inspect the source code of
 :PROPERTIES:
 :CUSTOM_ID: h:1cc552c1-5f5f-4a56-ae78-7b69e8512c4e
 :END:
-
-[ Part of {{{development-version}}}. ]
 
 [[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Use theme colors in code with modus-themes-with-colors]].
 
@@ -3644,7 +3636,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + csv-mode
 + ctrlf
 + custom (what you get with {{{kbd(M-x customize)}}})
-- dashboard [part of {{{development-version}}}]
+- dashboard
 + deadgrep
 + deft
 + devdocs
