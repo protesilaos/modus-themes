@@ -1153,7 +1153,22 @@ Named colors can be previewed, such as with the command
 For a video tutorial that users of all skill levels can approach,
 watch: https://protesilaos.com/codelog/2022-12-17-modus-themes-v4-demo/.
 
-*** Palette override presets
+* Advanced customization
+:properties:
+:custom_id: h:f4651d55-8c07-46aa-b52b-bed1e53463bb
+:end:
+
+Unlike the predefined customization options which follow a clear pattern
+of allowing the user to quickly specify their preference, the themes
+also provide a more flexible, albeit difficult, mechanism to control
+things with precision ([[#h:bf1c82f2-46c7-4eb2-ad00-dd11fdd8b53f][Customization Options]]).
+
+This section is of interest only to users who are prepared to maintain
+their own local tweaks and who are willing to deal with any possible
+incompatibilities between versioned releases of the themes.  As such,
+they are labeled as "do-it-yourself" or "DIY".
+
+** Palette override presets
 :PROPERTIES:
 :CUSTOM_ID: h:b0bc811c-227e-42ec-bf67-15e1f41eb7bc
 :END:
@@ -1214,7 +1229,7 @@ the general idea (extra space for didactic purposes):
         ,@modus-themes-preset-overrides-intense))
 #+end_src
 
-*** Stylistic variants using palette overrides
+** Stylistic variants using palette overrides
 :PROPERTIES:
 :CUSTOM_ID: h:df1199d8-eaba-47db-805d-6b568a577bf3
 :END:
@@ -1226,7 +1241,7 @@ to take effect.  To apply overrides at startup simply define them
 before the call that loads the theme.  Remember that we also provide
 presets that are easier to apply ([[#h:b0bc811c-227e-42ec-bf67-15e1f41eb7bc][Palette override presets]]).
 
-**** Make the mode line borderless
+*** Make the mode line borderless
 :PROPERTIES:
 :CUSTOM_ID: h:80ddba52-e188-411f-8cc0-480ebd75befe
 :END:
@@ -1263,7 +1278,7 @@ set their color to that of the underlying background.
         (border-mode-line-inactive bg-mode-line-inactive)))
 #+end_src
 
-**** Make the active mode line colorful
+*** Make the active mode line colorful
 :PROPERTIES:
 :CUSTOM_ID: h:e8d781be-eefc-4a81-ac4e-5ed156190df7
 :END:
@@ -1307,7 +1322,7 @@ have a blue mode line for ~modus-operandi~ and a red one for
         (border-mode-line-active bg-red-subtle)))
 #+end_src
 
-**** Make the tab bar more or less colorful
+*** Make the tab bar more or less colorful
 :PROPERTIES:
 :CUSTOM_ID: h:096658d7-a0bd-4a99-b6dc-9b20a20cda37
 :END:
@@ -1359,7 +1374,7 @@ manual.
         (bg-tab-other bg-cyan-subtle)))
 #+end_src
 
-**** Make the fringe invisible or another color
+*** Make the fringe invisible or another color
 :PROPERTIES:
 :CUSTOM_ID: h:c312dcac-36b6-4a1f-b1f5-ab1c9abe27b0
 :END:
@@ -1393,7 +1408,7 @@ or continuation lines.
       '((fringe bg-blue-nuanced)))
 #+end_src
 
-**** Make links use subtle or no underlines
+*** Make links use subtle or no underlines
 :PROPERTIES:
 :CUSTOM_ID: h:6c1d1dea-5cbf-4d92-b7bb-570a7a23ffe9
 :END:
@@ -1417,7 +1432,7 @@ that underline mappings can read correctly.
         (underline-link-symbolic unspecified)))
 #+end_src
 
-**** Make prompts more or less colorful
+*** Make prompts more or less colorful
 :PROPERTIES:
 :CUSTOM_ID: h:bd75b43a-0bf1-45e7-b8b4-20944ca8b7f8
 :END:
@@ -1454,7 +1469,7 @@ block we show how to add or remove color from prompts.
         (bg-prompt bg-yellow-subtle))) ; try to replace "subtle" with "intense"
 #+end_src
 
-**** Make completion matches more or less colorful
+*** Make completion matches more or less colorful
 :PROPERTIES:
 :CUSTOM_ID: h:d959f789-0517-4636-8780-18123f936f91
 :END:
@@ -1541,7 +1556,7 @@ colors to two:
 
 The user can mix and match to their liking.
 
-**** Make comments yellow and strings green
+*** Make comments yellow and strings green
 :PROPERTIES:
 :CUSTOM_ID: h:26f53daa-0065-48dc-88ab-6a718d16cd95
 :END:
@@ -1584,7 +1599,7 @@ reproduce the effect, but also how to tweak it to one's liking.
         (string yellow-cooler)))
 #+end_src
 
-**** Make code syntax use the old alt-syntax style
+*** Make code syntax use the old alt-syntax style
 :PROPERTIES:
 :CUSTOM_ID: h:c8767172-bf11-4c96-81dc-e736c464fc9c
 :END:
@@ -1669,7 +1684,7 @@ The user can always mix and match styles to their liking.
 
 [[#h:943063da-7b27-4ba4-9afe-f8fe77652fd1][Make use of alternative styles for code syntax]].
 
-**** Make use of alternative styles for code syntax
+*** Make use of alternative styles for code syntax
 :PROPERTIES:
 :CUSTOM_ID: h:943063da-7b27-4ba4-9afe-f8fe77652fd1
 :END:
@@ -1760,7 +1775,7 @@ theme palette.
         (variable cyan-warmer)))
 #+end_src
 
-**** Make matching parenthesis more or less intense
+*** Make matching parenthesis more or less intense
 :PROPERTIES:
 :CUSTOM_ID: h:259cf8f5-48ec-4b13-8a69-5d6387094468
 :END:
@@ -1790,7 +1805,7 @@ to enable underlines for those highlights.
         (underline-paren-match fg-main)))
 #+end_src
 
-**** Make box buttons more or less gray
+*** Make box buttons more or less gray
 :PROPERTIES:
 :CUSTOM_ID: h:4f6b6ca3-f5bb-4830-8312-baa232305360
 :END:
@@ -1818,7 +1833,7 @@ inactive ones.
         (fg-button-inactive "gray50")))
 #+end_src
 
-**** Make TODO and DONE more or less intense
+*** Make TODO and DONE more or less intense
 :PROPERTIES:
 :CUSTOM_ID: h:b57bb50b-a863-4ea8-bb38-6de2275fa868
 :END:
@@ -1858,7 +1873,7 @@ to subdue them.
       '((prose-done fg-dim)))
 #+end_src
 
-**** Make headings more or less colorful
+*** Make headings more or less colorful
 :PROPERTIES:
 :CUSTOM_ID: h:11297984-85ea-4678-abe9-a73aeab4676a
 :END:
@@ -1915,7 +1930,7 @@ match styles at will.
         (overline-heading-1 border)))
 #+end_src
 
-**** Make Org agenda more or less colorful
+*** Make Org agenda more or less colorful
 :PROPERTIES:
 :CUSTOM_ID: h:a5af0452-a50f-481d-bf60-d8143f98105f
 :END:
@@ -1980,7 +1995,7 @@ A third example that makes the agenda more blue:
         (date-weekend fg-dim)))
 #+end_src
 
-**** Make inline code in prose use alternative styles
+*** Make inline code in prose use alternative styles
 :PROPERTIES:
 :CUSTOM_ID: h:bb5b396f-5532-4d52-ab13-149ca24854f1
 :END:
@@ -2039,7 +2054,7 @@ do not show every possible permutation.
         (prose-verbatim red-warmer)))
 #+end_src
 
-**** Make mail citations and headers more or less colorful
+*** Make mail citations and headers more or less colorful
 :PROPERTIES:
 :CUSTOM_ID: h:7da7a4ad-5d3a-4f11-9796-5a1abed0f0c4
 :END:
@@ -2108,7 +2123,7 @@ We thus have the following:
         (mail-other green)))
 #+end_src
 
-**** Make the region preserve text colors, plus other styles
+*** Make the region preserve text colors, plus other styles
 :PROPERTIES:
 :CUSTOM_ID: h:c8605d37-66e1-42aa-986e-d7514c3af6fe
 :END:
@@ -2148,7 +2163,7 @@ with an appropriate foreground value.
         (fg-region fg-main)))
 #+end_src
 
-**** Make mouse highlights more or less colorful
+*** Make mouse highlights more or less colorful
 :PROPERTIES:
 :CUSTOM_ID: h:b5cab69d-d7cb-451c-8ff9-1f545ceb6caf
 :END:
@@ -2177,7 +2192,7 @@ mapping that covers mouse hover effects and related highlights:
       '((bg-hover bg-green-subtle)))
 #+end_src
 
-**** Make language underlines less colorful
+*** Make language underlines less colorful
 :PROPERTIES:
 :CUSTOM_ID: h:03dbd5af-6bae-475e-85a2-cec189f69598
 :END:
@@ -2210,7 +2225,7 @@ by code linters and prose spell checkers.
         (underline-note green-intense)))
 #+end_src
 
-**** Make line numbers use alternative styles
+*** Make line numbers use alternative styles
 :PROPERTIES:
 :CUSTOM_ID: h:b6466f51-cb58-4007-9ebe-53a27af655c7
 :END:
@@ -2252,7 +2267,7 @@ this section we show how to affect the ~display-line-numbers-mode~.
         (bg-line-number-active bg-cyan-intense)))
 #+end_src
 
-**** Make diffs use only a foreground
+*** Make diffs use only a foreground
 :PROPERTIES:
 :CUSTOM_ID: h:b3761482-bcbf-4990-a41e-4866fb9dad15
 :END:
@@ -2316,7 +2331,7 @@ just using the "common" overrides.
         (fg-removed-intense yellow-intense)))
 #+end_src
 
-**** Make deuteranopia diffs red and blue instead of yellow and blue
+*** Make deuteranopia diffs red and blue instead of yellow and blue
 :PROPERTIES:
 :CUSTOM_ID: h:16389ea1-4cb6-4b18-9409-384324113541
 :END:
@@ -2366,21 +2381,6 @@ respectively.  This is achieved by overriding the "changed" and
         (fg-removed         "#ffbfbf")
         (fg-removed-intense "#ff9095")))
 #+end_src
-
-* Advanced customization
-:properties:
-:custom_id: h:f4651d55-8c07-46aa-b52b-bed1e53463bb
-:end:
-
-Unlike the predefined customization options which follow a clear pattern
-of allowing the user to quickly specify their preference, the themes
-also provide a more flexible, albeit difficult, mechanism to control
-things with precision ([[#h:bf1c82f2-46c7-4eb2-ad00-dd11fdd8b53f][Customization Options]]).
-
-This section is of interest only to users who are prepared to maintain
-their own local tweaks and who are willing to deal with any possible
-incompatibilities between versioned releases of the themes.  As such,
-they are labeled as "do-it-yourself" or "DIY".
 
 ** More accurate colors in terminal emulators
 :PROPERTIES:
