@@ -3811,6 +3811,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • ivy*
    • ivy-posframe
    • jira (org-jira)
+   • jit-spell [Part of 4.2.0-dev]
    • journalctl-mode
    • js2-mode
    • julia
@@ -5967,47 +5968,47 @@ Node: Custom hl-todo colors149605
 Node: Add support for solaire-mode151130
 Node: Face coverage154041
 Node: Supported packages154493
-Node: Indirectly covered packages159842
-Node: Notes on individual packages161195
-Node: Note on calendarel weekday and weekend colors162295
-Node: Note on git-gutter in Doom Emacs163443
-Node: Note on php-mode multiline comments165787
-Node: Note on underlines in compilation buffers166540
-Node: Note on inline Latex in Org buffers167377
-Node: Note on dimmerel167987
-Node: Note on display-fill-column-indicator-mode169472
-Node: Note on highlight-parenthesesel170871
-Node: Note on mmm-modeel background colors176849
-Node: Note for prism179149
-Node: Note on company-mode overlay pop-up182317
-Ref: Note on company-mode overlay pop-up-Footnote-1183047
-Ref: Note on company-mode overlay pop-up-Footnote-2183114
-Node: Note on ERC escaped color sequences183169
-Ref: Note on ERC escaped color sequences-Footnote-1184597
-Node: Note on powerline or spaceline184707
-Node: Note on SHR colors185121
-Node: Note on SHR fonts185545
-Node: Note on Ement colors and fonts186184
-Node: Note on pdf-tools link hints187694
-Node: Note on the Notmuch logo190154
-Node: Note on goto-address-mode faces190692
-Node: Frequently Asked Questions191804
-Node: Is the contrast ratio about adjacent colors?192435
-Node: What does it mean to avoid exaggerations?193942
-Node: Why are colors mostly variants of blue magenta cyan?195792
-Node: What is the best setup for legibility?200098
-Node: Are these color schemes?202743
-Node: Port the Modus themes to other platforms?206425
-Node: Contributing209197
-Node: Sources of the themes209594
-Node: Issues you can help with210488
-Node: Patches require copyright assignment to the FSF211879
-Node: Acknowledgements214099
-Node: GNU Free Documentation License218030
-Node: Indices243394
-Node: Function index243573
-Node: Variable index244756
-Node: Concept index246655
+Node: Indirectly covered packages159879
+Node: Notes on individual packages161232
+Node: Note on calendarel weekday and weekend colors162332
+Node: Note on git-gutter in Doom Emacs163480
+Node: Note on php-mode multiline comments165824
+Node: Note on underlines in compilation buffers166577
+Node: Note on inline Latex in Org buffers167414
+Node: Note on dimmerel168024
+Node: Note on display-fill-column-indicator-mode169509
+Node: Note on highlight-parenthesesel170908
+Node: Note on mmm-modeel background colors176886
+Node: Note for prism179186
+Node: Note on company-mode overlay pop-up182354
+Ref: Note on company-mode overlay pop-up-Footnote-1183084
+Ref: Note on company-mode overlay pop-up-Footnote-2183151
+Node: Note on ERC escaped color sequences183206
+Ref: Note on ERC escaped color sequences-Footnote-1184634
+Node: Note on powerline or spaceline184744
+Node: Note on SHR colors185158
+Node: Note on SHR fonts185582
+Node: Note on Ement colors and fonts186221
+Node: Note on pdf-tools link hints187731
+Node: Note on the Notmuch logo190191
+Node: Note on goto-address-mode faces190729
+Node: Frequently Asked Questions191841
+Node: Is the contrast ratio about adjacent colors?192472
+Node: What does it mean to avoid exaggerations?193979
+Node: Why are colors mostly variants of blue magenta cyan?195829
+Node: What is the best setup for legibility?200135
+Node: Are these color schemes?202780
+Node: Port the Modus themes to other platforms?206462
+Node: Contributing209234
+Node: Sources of the themes209631
+Node: Issues you can help with210525
+Node: Patches require copyright assignment to the FSF211916
+Node: Acknowledgements214136
+Node: GNU Free Documentation License218067
+Node: Indices243431
+Node: Function index243610
+Node: Variable index244793
+Node: Concept index246692
 
 End Tag Table
 
