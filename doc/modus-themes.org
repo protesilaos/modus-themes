@@ -1995,6 +1995,24 @@ A third example that makes the agenda more blue:
         (date-weekend fg-dim)))
 #+end_src
 
+Yet another example that also affects =DONE= and =TODO= keywords:
+
+#+begin_src emacs-lisp
+;; Change dates to a set of more subtle combinations.  Deadlines are a
+;; shade of magenta, scheduled dates are a shade of green that
+;; complements that of the deadlines, weekday headings use the main
+;; foreground color while weekends are a shade of gray.  The DONE
+;; keyword is a faint blue-gray while TODO is yellow.
+(setq modus-themes-common-palette-overrides
+      '((date-deadline magenta-warmer)
+        (date-scheduled green-cooler)
+        (date-weekday fg-main)
+        (date-event fg-dim)
+        (date-now blue)
+        (prose-done fg-alt)
+        (prose-todo yellow)))
+#+end_src
+
 *** Make inline code in prose use alternative styles
 :PROPERTIES:
 :CUSTOM_ID: h:bb5b396f-5532-4d52-ab13-149ca24854f1
