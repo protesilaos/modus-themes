@@ -2153,6 +2153,7 @@ FG and BG are the main colors."
     `(ein:notification-tab-normal ((,c :underline t)))
 ;;;;; eglot
     `(eglot-mode-line ((,c :inherit modus-themes-bold :foreground ,modeline-info)))
+    `(eglot-diagnostic-tag-unnecessary-face ((,c :inherit modus-themes-lang-note)))
 ;;;;; el-search
     `(el-search-highlight-in-prompt-face ((,c :inherit italic)))
     `(el-search-match ((,c :inherit modus-themes-search-current)))
