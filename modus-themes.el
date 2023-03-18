@@ -2090,6 +2090,12 @@ FG and BG are the main colors."
     `(diredfl-symlink ((,c :inherit dired-symlink)))
     `(diredfl-tagged-autofile-name ((,c :inherit (diredfl-autofile-name dired-marked))))
     `(diredfl-write-priv ((,c :foreground ,accent-0)))
+;;;;; disk-usage
+    `(disk-usage-inaccessible ((,c :inherit error)))
+    `(disk-usage-percent ((,c :foreground ,accent-0)))
+    `(disk-usage-size ((,c :foreground ,accent-1)))
+    `(disk-usage-symlink ((,c :inherit dired-symlink)))
+    `(disk-usage-symlink-directory ((,c :inherit dired-symlink)))
 ;;;;; display-fill-column-indicator-mode
     `(fill-column-indicator ((,c :height 1 :background ,bg-active :foreground ,bg-active)))
 ;;;;; doom-modeline
