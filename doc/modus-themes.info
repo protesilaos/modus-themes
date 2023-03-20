@@ -3762,7 +3762,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • dired-narrow
    • dired-subtree
    • diredfl
-   • disk-usage
+   • disk-usage [Part of 4.2.0-dev]
    • display-fill-column-indicator-mode
    • doom-modeline
    • ediff
@@ -5986,47 +5986,47 @@ Node: Custom hl-todo colors150333
 Node: Add support for solaire-mode151858
 Node: Face coverage154769
 Node: Supported packages155221
-Node: Indirectly covered packages160625
-Node: Notes on individual packages161978
-Node: Note on calendarel weekday and weekend colors163078
-Node: Note on git-gutter in Doom Emacs164226
-Node: Note on php-mode multiline comments166570
-Node: Note on underlines in compilation buffers167323
-Node: Note on inline Latex in Org buffers168160
-Node: Note on dimmerel168770
-Node: Note on display-fill-column-indicator-mode170255
-Node: Note on highlight-parenthesesel171654
-Node: Note on mmm-modeel background colors177632
-Node: Note for prism179932
-Node: Note on company-mode overlay pop-up183100
-Ref: Note on company-mode overlay pop-up-Footnote-1183830
-Ref: Note on company-mode overlay pop-up-Footnote-2183897
-Node: Note on ERC escaped color sequences183952
-Ref: Note on ERC escaped color sequences-Footnote-1185380
-Node: Note on powerline or spaceline185490
-Node: Note on SHR colors185904
-Node: Note on SHR fonts186328
-Node: Note on Ement colors and fonts186967
-Node: Note on pdf-tools link hints188477
-Node: Note on the Notmuch logo190937
-Node: Note on goto-address-mode faces191475
-Node: Frequently Asked Questions192587
-Node: Is the contrast ratio about adjacent colors?193218
-Node: What does it mean to avoid exaggerations?194725
-Node: Why are colors mostly variants of blue magenta cyan?196575
-Node: What is the best setup for legibility?200881
-Node: Are these color schemes?203526
-Node: Port the Modus themes to other platforms?207208
-Node: Contributing209980
-Node: Sources of the themes210377
-Node: Issues you can help with211271
-Node: Patches require copyright assignment to the FSF212662
-Node: Acknowledgements214882
-Node: GNU Free Documentation License218836
-Node: Indices244200
-Node: Function index244379
-Node: Variable index245562
-Node: Concept index247461
+Node: Indirectly covered packages160645
+Node: Notes on individual packages161998
+Node: Note on calendarel weekday and weekend colors163098
+Node: Note on git-gutter in Doom Emacs164246
+Node: Note on php-mode multiline comments166590
+Node: Note on underlines in compilation buffers167343
+Node: Note on inline Latex in Org buffers168180
+Node: Note on dimmerel168790
+Node: Note on display-fill-column-indicator-mode170275
+Node: Note on highlight-parenthesesel171674
+Node: Note on mmm-modeel background colors177652
+Node: Note for prism179952
+Node: Note on company-mode overlay pop-up183120
+Ref: Note on company-mode overlay pop-up-Footnote-1183850
+Ref: Note on company-mode overlay pop-up-Footnote-2183917
+Node: Note on ERC escaped color sequences183972
+Ref: Note on ERC escaped color sequences-Footnote-1185400
+Node: Note on powerline or spaceline185510
+Node: Note on SHR colors185924
+Node: Note on SHR fonts186348
+Node: Note on Ement colors and fonts186987
+Node: Note on pdf-tools link hints188497
+Node: Note on the Notmuch logo190957
+Node: Note on goto-address-mode faces191495
+Node: Frequently Asked Questions192607
+Node: Is the contrast ratio about adjacent colors?193238
+Node: What does it mean to avoid exaggerations?194745
+Node: Why are colors mostly variants of blue magenta cyan?196595
+Node: What is the best setup for legibility?200901
+Node: Are these color schemes?203546
+Node: Port the Modus themes to other platforms?207228
+Node: Contributing210000
+Node: Sources of the themes210397
+Node: Issues you can help with211291
+Node: Patches require copyright assignment to the FSF212682
+Node: Acknowledgements214902
+Node: GNU Free Documentation License218856
+Node: Indices244220
+Node: Function index244399
+Node: Variable index245582
+Node: Concept index247481
 
 End Tag Table
 
