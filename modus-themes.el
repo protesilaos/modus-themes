@@ -1183,14 +1183,19 @@ symbol, which is safe when used as a face attribute's value."
 (defvar modus-themes--select-theme-history nil
   "Minibuffer history of `modus-themes--select-prompt'.")
 
+(defun modus-themes--annotate-theme (theme)
+  "Return completion annotation for THEME."
+  (format " -- %s" (car (split-string (get (intern theme) 'theme-documentation) "\\."))))
+
 (defun modus-themes--select-prompt ()
   "Minibuffer prompt to select a Modus theme."
-  (intern
-   (completing-read
-    "Select Modus theme: "
-    (modus-themes--list-known-themes)
-    nil t nil
-    'modus-themes--select-theme-history)))
+  (let ((completion-extra-properties `(:annotation-function ,#'modus-themes--annotate-theme)))
+    (intern
+     (completing-read
+      "Select Modus theme: "
+      (modus-themes--list-known-themes)
+      nil t nil
+      'modus-themes--select-theme-history))))
 
 ;;;###autoload
 (defun modus-themes-select (theme)
@@ -1278,7 +1283,8 @@ color mappings of the palette, instead of its named colors."
 (defun modus-themes--list-colors-prompt ()
   "Prompt for Modus theme.
 Helper function for `modus-themes-list-colors'."
-  (let ((def (format "%s" (modus-themes--current-theme))))
+  (let ((def (format "%s" (modus-themes--current-theme)))
+        (completion-extra-properties `(:annotation-function ,#'modus-themes--annotate-theme)))
     (completing-read
      (format "Use palette from theme [%s]: " def)
      (modus-themes--list-known-themes) nil t nil
