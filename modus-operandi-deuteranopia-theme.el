@@ -1,4 +1,4 @@
-;;; modus-operandi-deuteranopia-theme.el --- Elegant, highly legible and customizable light theme -*- lexical-binding:t -*-
+;;; modus-operandi-deuteranopia-theme.el --- Deuteranopia-optimized theme with a white background -*- lexical-binding:t -*-
 
 ;; Copyright (C) 2019-2023  Free Software Foundation, Inc.
 
@@ -44,7 +44,7 @@
     (require 'modus-themes))
 
   (deftheme modus-operandi-deuteranopia
-    "Elegant, highly legible and customizable light theme.
+    "Deuteranopia-optimized theme with a white background.
 This variant is optimized for users with red-green color
 deficiency (deuteranopia).  It conforms with the highest
 legibility standard for color contrast between background and

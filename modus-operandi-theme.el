@@ -1,4 +1,4 @@
-;;; modus-operandi-theme.el --- Elegant, highly legible and customizable light theme -*- lexical-binding:t -*-
+;;; modus-operandi-theme.el --- Elegant, highly legible theme with a white background -*- lexical-binding:t -*-
 
 ;; Copyright (C) 2019-2023  Free Software Foundation, Inc.
 
@@ -44,7 +44,7 @@
     (require 'modus-themes))
 
   (deftheme modus-operandi
-    "Elegant, highly legible and customizable light theme.
+    "Elegant, highly legible theme with a white background.
 Conforms with the highest legibility standard for color contrast
 between background and foreground in any given piece of text,
 which corresponds to a minimum contrast in relative luminance of

@@ -1,4 +1,4 @@
-;;; modus-operandi-tinted-theme.el --- Elegant, highly legible and customizable light theme -*- lexical-binding:t -*-
+;;; modus-operandi-tinted-theme.el --- Elegant, highly legible theme with a light ochre background -*- lexical-binding:t -*-
 
 ;; Copyright (C) 2019-2023  Free Software Foundation, Inc.
 
@@ -43,7 +43,7 @@
     (require 'modus-themes))
 
   (deftheme modus-operandi-tinted
-    "Elegant, highly legible and customizable light theme.
+    "Elegant, highly legible theme with a light ochre background.
 Conforms with the highest legibility standard for color contrast
 between background and foreground in any given piece of text,
 which corresponds to a minimum contrast in relative luminance of

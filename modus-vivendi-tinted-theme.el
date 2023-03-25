@@ -1,4 +1,4 @@
-;;; modus-vivendi-tinted-theme.el --- Elegant, highly legible and customizable dark theme -*- lexical-binding:t -*-
+;;; modus-vivendi-tinted-theme.el --- Elegant, highly legible theme with a night sky background -*- lexical-binding:t -*-
 
 ;; Copyright (C) 2019-2023  Free Software Foundation, Inc.
 
@@ -43,7 +43,7 @@
     (require 'modus-themes))
 
   (deftheme modus-vivendi-tinted
-    "Elegant, highly legible and customizable dark theme.
+    "Elegant, highly legible theme with a night sky background.
 Conforms with the highest legibility standard for color contrast
 between background and foreground in any given piece of text,
 which corresponds to a minimum contrast in relative luminance of
