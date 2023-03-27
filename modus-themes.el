@@ -2660,6 +2660,8 @@ FG and BG are the main colors."
     `(jiralib-link-project-face ((,c :underline t)))
 ;;;;; jit-spell
     `(jit-spell-misspelling ((,c :inherit modus-themes-lang-error)))
+;;;;; jinx
+    `(jinx-misspelled ((,c :inherit modus-themes-lang-error)))
 ;;;;; journalctl-mode
     `(journalctl-error-face ((,c :inherit error)))
     `(journalctl-finished-face ((,c :inherit success)))

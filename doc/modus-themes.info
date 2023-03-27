@@ -3829,6 +3829,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • ivy-posframe
    • jira (org-jira)
    • jit-spell [Part of 4.2.0-dev]
+   • jinx [Part of 4.2.0-dev]
    • journalctl-mode
    • js2-mode
    • julia
