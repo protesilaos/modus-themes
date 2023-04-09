@@ -5232,7 +5232,7 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Krishnan, Manuel Giraud, Markus Beppler, Matthew Stevenson, Mauro
   Aranda, Nacho Barrientos, Nicolas De Jaeghere, Paul David, Philip
   Kaludercic, Pierre Téchoueyres, Rudolf Adamkovič, Sergey
-  Nichiporchik, Stephen Gildea, Shreyas Ragavan, Stefan Kangas, Tomasz
+  Nichiporchik, Shreyas Ragavan, Stefan Kangas, Stephen Gildea, Tomasz
   Hołubowicz, Utkarsh Singh, Vincent Murphy, Xinglu Chen, Yuanchen
   Xie, okamsn.
 
