@@ -3439,7 +3439,7 @@ FG and BG are the main colors."
 ;;;;; smerge
     `(smerge-base ((,c :inherit diff-changed)))
     `(smerge-lower ((,c :inherit diff-added)))
-    `(smerge-markers ((,c :inherit diff-heading)))
+    `(smerge-markers ((,c :inherit diff-header)))
     `(smerge-refined-added ((,c :inherit diff-refine-added)))
     `(smerge-refined-changed (()))
     `(smerge-refined-removed ((,c :inherit diff-refine-removed)))
