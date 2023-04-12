@@ -2487,11 +2487,11 @@ manual, here is what Protesilaos uses:
 
         (bg-mode-line-inactive bg-dim)
         (border-mode-line-inactive bg-inactive)
-        ;; Make the prompts a shade of magenta (rosy), to fit in
-        ;; nicely with the overall blue-cyan-purple style of the
-        ;; other overrides.  Add a nuanced background as well.
+        ;; Make the prompts a shade of magenta, to fit in nicely with
+        ;; the overall blue-cyan-purple style of the other overrides.
+        ;; Add a nuanced background as well.
         (bg-prompt bg-magenta-nuanced)
-        (fg-prompt magenta)
+        (fg-prompt magenta-cooler)
         ;; Tweak some more constructs for stylistic constistency.
         (name blue-warmer)
         (identifier magenta-faint)
