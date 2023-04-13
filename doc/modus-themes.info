@@ -4213,9 +4213,9 @@ length elsewhere in this manual:
           ;; Doom should not be implementing such hacks because themes
           ;; cannot support them:
           ;; <https://protesilaos.com/codelog/2022-08-04-doom-git-gutter-modus-themes/>.
-          `(git-gutter-fr:added ((,c :foreground ,bg-added-intense)))
-          `(git-gutter-fr:deleted ((,c :foreground ,bg-removed-intense)))
-          `(git-gutter-fr:modified ((,c :foreground ,bg-changed-intense))))))
+          `(git-gutter-fr:added ((,c :foreground ,bg-added-fringe)))
+          `(git-gutter-fr:deleted ((,c :foreground ,bg-removed-fringe)))
+          `(git-gutter-fr:modified ((,c :foreground ,bg-changed-fringe))))))
 
      (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
 
