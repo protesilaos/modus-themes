@@ -1177,8 +1177,8 @@ they are labeled as "do-it-yourself" or "DIY".
 
 This section shows how to refashion the themes by opting in to the
 stylistic presets we provide.  Those presets override the default
-color mappings to amplify or tone down the overall coloration of the
-them.
+color mappings to amplify, tone down, or refashion the overall
+coloration of the themes.
 
 To make almost all aspects of the themes less intense, use this:
 
@@ -1203,6 +1203,21 @@ On the opposite end of the stylistic spectrum, we have this
 The ~modus-themes-preset-overrides-intense~ makes many background
 colors accented instead of gray and increases coloration in a number
 of places.  Colors stand out more and are made easier to spot.
+
+#+vindex: modus-themes-preset-overrides-cooler
+#+vindex: modus-themes-preset-overrides-warmer
+For some stylistic variation try the "cooler" and "warmer" presets:
+
+#+begin_src emacs-lisp
+;; This:
+(setq modus-themes-common-palette-overrides modus-themes-preset-overrides-cooler)
+
+;; Or:
+(setq modus-themes-common-palette-overrides modus-themes-preset-overrides-warmer)
+#+end_src
+
+[ The "warmer" and "cooler" preset overrides are part of
+  {{{development-version}}}. ]
 
 Note that the user is not limited to those presets.  The system of
 overrides we provide makes it possible to tweak the value of each

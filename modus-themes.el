@@ -928,11 +928,16 @@ colorful/intense.  Grays are toned down, gray backgrounds are
 removed from some contexts, and almost all accent colors are
 desaturated.
 
+All the preset overrides the themes provide (including this one):
+
+- `modus-themes-preset-overrides-faint'
+- `modus-themes-preset-overrides-intense'
+- `modus-themes-preset-overrides-cooler'
+- `modus-themes-preset-overrides-warmer'
+
 To set a preset, assign its symbol without a quote as the value
 of the `modus-themes-common-palette-overrides' or as the value of
 theme-specific options such as `modus-operandi-palette-overrides'.
-
-Also see `modus-themes-preset-overrides-intense'.
 
 For overriding named colors and/or semantic color mappings read
 Info node `(modus-themes) Option for palette overrides'.")
@@ -1016,11 +1021,124 @@ This changes many parts of the theme to make them look more
 colorful/intense.  Many background colors are accented and
 coloration is increased to pop out more.
 
+All the preset overrides the themes provide (including this one):
+
+- `modus-themes-preset-overrides-faint'
+- `modus-themes-preset-overrides-intense'
+- `modus-themes-preset-overrides-cooler'
+- `modus-themes-preset-overrides-warmer'
+
 To set a preset, assign its symbol without a quote as the value
 of the `modus-themes-common-palette-overrides' or as the value of
 theme-specific options such as `modus-operandi-palette-overrides'.
 
-Also see `modus-themes-preset-overrides-faint'.
+For overriding named colors and/or semantic color mappings read
+Info node `(modus-themes) Option for palette overrides'.")
+
+(defvar modus-themes-preset-overrides-cooler
+  '((fg-prompt blue-cooler)
+
+    (builtin magenta-faint)
+    (constant blue-cooler)
+    (fnname cyan-cooler)
+    (keyword magenta-cooler)
+    (preprocessor blue)
+    (string blue-warmer)
+    (type green-cooler)
+    (variable cyan)
+    (rx-construct blue-cooler)
+    (rx-backslash red)
+
+    (name blue-warmer)
+    (identifier magenta-faint)
+
+    (date-deadline magenta-cooler)
+    (date-scheduled yellow-cooler)
+    (date-weekday blue-faint)
+    (date-weekend red-faint)
+
+    (mail-cite-0 blue-faint)
+    (mail-cite-1 cyan-cooler)
+    (mail-cite-2 magenta-faint)
+    (mail-cite-3 yellow-cooler)
+    (mail-part cyan)
+    (mail-recipient blue-warmer)
+    (mail-subject magenta-cooler)
+    (mail-other blue)
+
+    (prose-tag fg-dim)
+    (prose-verbatim blue-cooler))
+  "Preset of palette overrides with cooler colors.
+
+This changes parts of the palette to use more blue and
+blue-tinted colors.
+
+All the preset overrides the themes provide (including this one):
+
+- `modus-themes-preset-overrides-faint'
+- `modus-themes-preset-overrides-intense'
+- `modus-themes-preset-overrides-cooler'
+- `modus-themes-preset-overrides-warmer'
+
+To set a preset, assign its symbol without a quote as the value
+of the `modus-themes-common-palette-overrides' or as the value of
+theme-specific options such as `modus-operandi-palette-overrides'.
+
+For overriding named colors and/or semantic color mappings read
+Info node `(modus-themes) Option for palette overrides'.")
+
+(defvar modus-themes-preset-overrides-warmer
+  '((fg-prompt magenta-warmer)
+
+    (builtin magenta)
+    (constant blue-warmer)
+    (fnname magenta-cooler)
+    (keyword magenta-warmer)
+    (preprocessor red-cooler)
+    (string olive)
+    (type cyan-cooler)
+    (variable cyan)
+    (rx-construct blue-cooler)
+    (rx-backslash red-warmer)
+
+    (name blue-warmer)
+    (identifier magenta)
+    (keybind magenta-warmer)
+
+    (accent-0 magenta-warmer)
+    (accent-1 cyan)
+    (accent-2 blue-warmer)
+    (accent-3 red-cooler)
+
+    (date-common cyan-cooler)
+    (date-holiday magenta-warmer)
+
+    (mail-cite-0 magenta-faint)
+    (mail-cite-1 cyan-cooler)
+    (mail-cite-2 green-warmer)
+    (mail-cite-3 red-faint)
+    (mail-part cyan)
+    (mail-recipient magenta)
+    (mail-subject blue-warmer)
+    (mail-other magenta-warmer)
+
+    (prose-macro red-cooler)
+    (prose-tag fg-dim))
+  "Preset of palette overrides with warmer colors.
+
+This changes many parts of the theme to use warmer colors,
+including green and yellow.
+
+All the preset overrides the themes provide (including this one):
+
+- `modus-themes-preset-overrides-faint'
+- `modus-themes-preset-overrides-intense'
+- `modus-themes-preset-overrides-cooler'
+- `modus-themes-preset-overrides-warmer'
+
+To set a preset, assign its symbol without a quote as the value
+of the `modus-themes-common-palette-overrides' or as the value of
+theme-specific options such as `modus-operandi-palette-overrides'.
 
 For overriding named colors and/or semantic color mappings read
 Info node `(modus-themes) Option for palette overrides'.")
