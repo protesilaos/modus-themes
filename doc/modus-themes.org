@@ -3876,7 +3876,6 @@ have lots of extensions, so the "full support" may not be 100% true…
 + minimap
 + mode-line
 + mood-line
-+ moody
 + mpdel
 + mu4e
 + multiple-cursors
