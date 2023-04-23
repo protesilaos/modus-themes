@@ -2446,8 +2446,11 @@ FG and BG are the main colors."
     `(flycheck-indicator-warning ((,c :inherit warning)))
 ;;;;; flymake
     `(flymake-error ((,c :inherit modus-themes-lang-error)))
+    `(flymake-error-echo ((,c :inherit error)))
     `(flymake-note ((,c :inherit modus-themes-lang-note)))
+    `(flymake-note-echo ((,c :inherit success)))
     `(flymake-warning ((,c :inherit modus-themes-lang-warning)))
+    `(flymake-warning-echo ((,c :inherit warning)))
 ;;;;; flyspell
     `(flyspell-duplicate ((,c :inherit modus-themes-lang-warning)))
     `(flyspell-incorrect ((,c :inherit modus-themes-lang-error)))
