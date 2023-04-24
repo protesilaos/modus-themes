@@ -3458,6 +3458,13 @@ FG and BG are the main colors."
 ;;;;; rmail
     `(rmail-header-name ((,c :inherit bold)))
     `(rmail-highlight ((,c :inherit bold :foreground ,mail-other)))
+;;;;; rst-mode
+    `(rst-level-1 ((,c :inherit modus-themes-heading-1)))
+    `(rst-level-2 ((,c :inherit modus-themes-heading-2)))
+    `(rst-level-3 ((,c :inherit modus-themes-heading-3)))
+    `(rst-level-4 ((,c :inherit modus-themes-heading-4)))
+    `(rst-level-5 ((,c :inherit modus-themes-heading-5)))
+    `(rst-level-6 ((,c :inherit modus-themes-heading-6)))
 ;;;;; ruler-mode
     `(ruler-mode-column-number ((,c :inherit ruler-mode-default)))
     `(ruler-mode-comment-column ((,c :inherit ruler-mode-default :foreground ,red)))
