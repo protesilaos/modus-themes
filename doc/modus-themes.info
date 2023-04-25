@@ -4014,6 +4014,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • rg (rg.el)
    • ripgrep
    • rmail
+   • rst-mode [Part of 4.2.0-dev.]
    • ruler-mode
    • sesman
    • shell-script-mode
@@ -5347,11 +5348,11 @@ Author/maintainer
 Contributions to code or documentation
      Aleksei Gusev, Alex Griffin, Anders Johansson, Antonio Ruiz, Basil
      L. Contovounesios, Björn Lindström, Carlo Zancanaro, Christian
-     Tietze, Daniel Mendler, Eli Zaretskii, Fritz Grabo, Illia
-     Ostapyshyn, Kévin Le Gouguec, Koen van Greevenbroek, Kostadin
-     Ninev, Madhavan Krishnan, Manuel Giraud, Markus Beppler, Matthew
-     Stevenson, Mauro Aranda, Nacho Barrientos, Nicolas De Jaeghere,
-     Paul David, Philip Kaludercic, Pierre Téchoueyres, Rudolf
+     Tietze, Daniel Mendler, David Edmondson, Eli Zaretskii, Fritz
+     Grabo, Illia Ostapyshyn, Kévin Le Gouguec, Koen van Greevenbroek,
+     Kostadin Ninev, Madhavan Krishnan, Manuel Giraud, Markus Beppler,
+     Matthew Stevenson, Mauro Aranda, Nacho Barrientos, Nicolas De
+     Jaeghere, Paul David, Philip Kaludercic, Pierre Téchoueyres, Rudolf
      Adamkovič, Sergey Nichiporchik, Shreyas Ragavan, Stefan Kangas,
      Stephen Gildea, Steve Downey, Tomasz Hołubowicz, Utkarsh Singh,
      Vincent Murphy, Xinglu Chen, Yuanchen Xie, okamsn.
@@ -6111,47 +6112,47 @@ Node: Custom hl-todo colors155641
 Node: Add support for solaire-mode157166
 Node: Face coverage160077
 Node: Supported packages160529
-Node: Indirectly covered packages165972
-Node: Notes on individual packages167325
-Node: Note on calendarel weekday and weekend colors168425
-Node: Note on git-gutter in Doom Emacs169573
-Node: Note on php-mode multiline comments171914
-Node: Note on underlines in compilation buffers172667
-Node: Note on inline Latex in Org buffers173504
-Node: Note on dimmerel174114
-Node: Note on display-fill-column-indicator-mode175599
-Node: Note on highlight-parenthesesel176998
-Node: Note on mmm-modeel background colors182976
-Node: Note for prism185276
-Node: Note on company-mode overlay pop-up188444
-Ref: Note on company-mode overlay pop-up-Footnote-1189174
-Ref: Note on company-mode overlay pop-up-Footnote-2189241
-Node: Note on ERC escaped color sequences189296
-Ref: Note on ERC escaped color sequences-Footnote-1190724
-Node: Note on powerline or spaceline190834
-Node: Note on SHR colors191248
-Node: Note on SHR fonts191672
-Node: Note on Ement colors and fonts192311
-Node: Note on pdf-tools link hints193821
-Node: Note on the Notmuch logo196281
-Node: Note on goto-address-mode faces196819
-Node: Frequently Asked Questions197931
-Node: Is the contrast ratio about adjacent colors?198562
-Node: What does it mean to avoid exaggerations?200069
-Node: Why are colors mostly variants of blue magenta cyan?201919
-Node: What is the best setup for legibility?206225
-Node: Are these color schemes?208870
-Node: Port the Modus themes to other platforms?212552
-Node: Contributing215324
-Node: Sources of the themes215721
-Node: Issues you can help with216615
-Node: Patches require copyright assignment to the FSF218006
-Node: Acknowledgements220226
-Node: GNU Free Documentation License224228
-Node: Indices249592
-Node: Function index249771
-Node: Variable index250954
-Node: Concept index253133
+Node: Indirectly covered packages166009
+Node: Notes on individual packages167362
+Node: Note on calendarel weekday and weekend colors168462
+Node: Note on git-gutter in Doom Emacs169610
+Node: Note on php-mode multiline comments171951
+Node: Note on underlines in compilation buffers172704
+Node: Note on inline Latex in Org buffers173541
+Node: Note on dimmerel174151
+Node: Note on display-fill-column-indicator-mode175636
+Node: Note on highlight-parenthesesel177035
+Node: Note on mmm-modeel background colors183013
+Node: Note for prism185313
+Node: Note on company-mode overlay pop-up188481
+Ref: Note on company-mode overlay pop-up-Footnote-1189211
+Ref: Note on company-mode overlay pop-up-Footnote-2189278
+Node: Note on ERC escaped color sequences189333
+Ref: Note on ERC escaped color sequences-Footnote-1190761
+Node: Note on powerline or spaceline190871
+Node: Note on SHR colors191285
+Node: Note on SHR fonts191709
+Node: Note on Ement colors and fonts192348
+Node: Note on pdf-tools link hints193858
+Node: Note on the Notmuch logo196318
+Node: Note on goto-address-mode faces196856
+Node: Frequently Asked Questions197968
+Node: Is the contrast ratio about adjacent colors?198599
+Node: What does it mean to avoid exaggerations?200106
+Node: Why are colors mostly variants of blue magenta cyan?201956
+Node: What is the best setup for legibility?206262
+Node: Are these color schemes?208907
+Node: Port the Modus themes to other platforms?212589
+Node: Contributing215361
+Node: Sources of the themes215758
+Node: Issues you can help with216652
+Node: Patches require copyright assignment to the FSF218043
+Node: Acknowledgements220263
+Node: GNU Free Documentation License224282
+Node: Indices249646
+Node: Function index249825
+Node: Variable index251008
+Node: Concept index253187
 
 End Tag Table
 

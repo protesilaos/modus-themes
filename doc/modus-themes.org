@@ -3922,6 +3922,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + rg (rg.el)
 + ripgrep
 + rmail
++ rst-mode [Part of {{{development-version}}}.]
 + ruler-mode
 + sesman
 + shell-script-mode
@@ -5241,11 +5242,11 @@ The Modus themes are a collective effort.  Every bit of work matters.
 + Contributions to code or documentation :: Aleksei Gusev, Alex
   Griffin, Anders Johansson, Antonio Ruiz, Basil L.{{{space()}}}
   Contovounesios, Björn Lindström, Carlo Zancanaro, Christian Tietze,
-  Daniel Mendler, Eli Zaretskii, Fritz Grabo, Illia Ostapyshyn, Kévin
-  Le Gouguec, Koen van Greevenbroek, Kostadin Ninev, Madhavan
-  Krishnan, Manuel Giraud, Markus Beppler, Matthew Stevenson, Mauro
-  Aranda, Nacho Barrientos, Nicolas De Jaeghere, Paul David, Philip
-  Kaludercic, Pierre Téchoueyres, Rudolf Adamkovič, Sergey
+  Daniel Mendler, David Edmondson, Eli Zaretskii, Fritz Grabo, Illia
+  Ostapyshyn, Kévin Le Gouguec, Koen van Greevenbroek, Kostadin Ninev,
+  Madhavan Krishnan, Manuel Giraud, Markus Beppler, Matthew Stevenson,
+  Mauro Aranda, Nacho Barrientos, Nicolas De Jaeghere, Paul David,
+  Philip Kaludercic, Pierre Téchoueyres, Rudolf Adamkovič, Sergey
   Nichiporchik, Shreyas Ragavan, Stefan Kangas, Stephen Gildea, Steve
   Downey, Tomasz Hołubowicz, Utkarsh Singh, Vincent Murphy, Xinglu
   Chen, Yuanchen Xie, okamsn.
