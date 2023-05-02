@@ -3187,8 +3187,8 @@ FG and BG are the main colors."
     `(orderless-match-face-2 ((,c :inherit modus-themes-completion-match-2)))
     `(orderless-match-face-3 ((,c :inherit modus-themes-completion-match-3)))
 ;;;;; org
-    `(org-agenda-calendar-event ((,c :foreground ,date-event)))
     `(org-agenda-calendar-daterange ((,c :foreground ,date-range)))
+    `(org-agenda-calendar-event ((,c :foreground ,date-event)))
     `(org-agenda-calendar-sexp ((,c :inherit (modus-themes-slant org-agenda-calendar-event))))
     `(org-agenda-clocking ((,c :inherit modus-themes-mark-alt)))
     `(org-agenda-column-dateline ((,c :background ,bg-inactive)))
