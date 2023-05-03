@@ -139,10 +139,10 @@ standard).")
 
 ;;; Graphs
 
-      (bg-graph-red-0     "#b0b029")
+      (bg-graph-red-0     "#d0b029")
       (bg-graph-red-1     "#e0cab4")
-      (bg-graph-green-0   "#90b7c0")
-      (bg-graph-green-1   "#a3dfe5")
+      (bg-graph-green-0   "#8ad080")
+      (bg-graph-green-1   "#afdfa5")
       (bg-graph-yellow-0  "#ffcf00")
       (bg-graph-yellow-1  "#f9ff00")
       (bg-graph-blue-0    "#7f9fff")
