@@ -2786,7 +2786,7 @@ FG and BG are the main colors."
 ;;;;; jit-spell
     `(jit-spell-misspelling ((,c :inherit modus-themes-lang-error)))
 ;;;;; jinx
-    `(jinx-misspelled ((,c :inherit modus-themes-lang-error)))
+    `(jinx-misspelled ((,c :inherit modus-themes-lang-warning)))
 ;;;;; journalctl-mode
     `(journalctl-error-face ((,c :inherit error)))
     `(journalctl-finished-face ((,c :inherit success)))
