@@ -3621,6 +3621,88 @@ In this document, we cover ~modus-themes-after-load-theme-hook~ though
 the user can replace it with ~after-enable-theme-hook~ should they
 need to (provided they understand the implications).
 
+** Use more spacious padding in Emacs frames
+:PROPERTIES:
+:CUSTOM_ID: h:43bcb5d0-e25f-470f-828c-662cee9e21f1
+:END:
+
+By default, Emacs frames try to maximize the number of characters that
+fit in the current visible portion of the buffer.  Users may prefer to
+have some extra padding instead.  This can make Emacs frames look more
+pleasant, but also make it easier to identify the currently active
+window.
+
+The way to implement such padding is two-fold:
+
+1. Instrument Emacs to use a higher value for the
+   ~internal-border-width~ of all frames, as well as for the
+   ~right-divider-width~.  The former concerns the outer boundaries of
+   Emacs frames, while the latter pertains to dividers between Emacs
+   windows.
+
+2. Make the relevant faces invisible by changing the value of their
+   relevant attributes to that of the current theme's main background.
+
+The parameters of Emacs frames are specified in the variables
+~initial-frame-alist~ and ~default-frame-alist~.  The "initial frame"
+refers to the first frame that appears on Emacs startup.  The
+"default" refers to the fallback values that apply to all other frames
+that Emacs creates (unless those are explicitly overridden by a
+bespoke ~make-frame~ call).
+
+In detail, first we use the same values for the two frame alist variables:
+
+#+begin_src emacs-lisp
+(dolist (var '(default-frame-alist initial-frame-alist))
+  (add-to-list var '(right-divider-width . 20))
+  (add-to-list var '(internal-border-width . 20)))
+#+end_src
+
+What the ~dolist~ does is to call ~add-to-list~ for the two variables
+we specify there.  This economizes on typing.
+
+Then we define a function that makes the relevant faces invisible.
+The reason we do this with a function is so we can hook it to the
+"post load" phase of a theme, thus applying the new background value
+(otherwise you keep the old background, which likely means that the
+faces will no longer be invisible).
+
+#+begin_src emacs-lisp
+(defun prot-emacs-invisible-dividers ()
+  "Make window dividers invisible.
+Add this to the `modus-themes-post-load-hook'."
+  (let ((bg (face-background 'default)))
+    (custom-set-faces
+     `(fringe ((t :background ,bg :foreground ,bg)))
+     `(window-divider ((t :background ,bg :foreground ,bg)))
+     `(window-divider-first-pixel ((t :background ,bg :foreground ,bg)))
+     `(window-divider-last-pixel ((t :background ,bg :foreground ,bg))))))
+
+(add-hook 'modus-themes-post-load-hook #'prot-emacs-invisible-dividers)
+#+end_src
+
+The above will work only for themes that belong to the Modus family.
+For users of Emacs version 29 or higher, there exists a theme-agnostic
+hook that takes a function with one argument---that of the theme---and
+calls in the the "post enable" phase of theme loading.  Here is the
+above snippet, with the necessary tweaks:
+
+#+begin_src emacs-lisp
+(defun prot-emacs-invisible-dividers (_theme)
+  "Make window dividers for THEME invisible."
+  (let ((bg (face-background 'default)))
+    (custom-set-faces
+     `(fringe ((t :background ,bg :foreground ,bg)))
+     `(window-divider ((t :background ,bg :foreground ,bg)))
+     `(window-divider-first-pixel ((t :background ,bg :foreground ,bg)))
+     `(window-divider-last-pixel ((t :background ,bg :foreground ,bg))))))
+
+(add-hook 'enable-theme-functions #'prot-emacs-invisible-dividers)
+#+end_src
+
+Users of older versions of Emacs can read the entry herein about
+defining their own theme-agnostic hook ([[#h:86f6906b-f090-46cc-9816-1fe8aeb38776][A theme-agnostic hook for theme loading]]).
+
 ** Custom hl-todo colors
 :PROPERTIES:
 :CUSTOM_ID: h:2ef83a21-2f0a-441e-9634-473feb940743
