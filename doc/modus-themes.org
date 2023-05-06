@@ -2725,7 +2725,9 @@ for palette overrides.  Else it reads only the default palette.
 [[#h:34c7a691-19bb-4037-8d2f-67a07edab150][Option for palette overrides]].
 
 With optional =THEME= as a symbol among ~modus-themes-items~, use the
-palette of that item.  Else use the current Modus theme.
+palette of that item.  Else use the current Modus theme. [As part of
+{{{development-version}}}, the ~modus-themes-items~ has an alias
+called ~modus-themes-collection~.]
 
 If =COLOR= is not present in the palette, this function returns the
 ~unspecified~ symbol, which is safe when used as a face attribute's

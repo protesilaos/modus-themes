@@ -360,6 +360,9 @@ set this variable to a nil value."
   :type 'boolean
   :link '(info-link "(modus-themes) Disable other themes"))
 
+(defvaralias 'modus-themes-collection 'modus-themes-items
+  "Alias of `modus-themes-items'.")
+
 (defconst modus-themes-items
   '( modus-operandi modus-vivendi
      modus-operandi-tinted modus-vivendi-tinted
