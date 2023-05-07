@@ -3621,7 +3621,7 @@ In this document, we cover ~modus-themes-after-load-theme-hook~ though
 the user can replace it with ~after-enable-theme-hook~ should they
 need to (provided they understand the implications).
 
-** Use more spacious padding in Emacs frames
+** Use more spacious margins or padding in Emacs frames
 :PROPERTIES:
 :CUSTOM_ID: h:43bcb5d0-e25f-470f-828c-662cee9e21f1
 :END:
@@ -3634,8 +3634,8 @@ window.
 
 The way to implement such padding is two-fold:
 
-1. Instrument Emacs to use a higher value for the
-   ~internal-border-width~ of all frames, as well as for the
+1. In the =early-init.el= file instruct Emacs to use a higher value
+   for the ~internal-border-width~ of all frames, as well as for the
    ~right-divider-width~.  The former concerns the outer boundaries of
    Emacs frames, while the latter pertains to dividers between Emacs
    windows.
@@ -3653,6 +3653,8 @@ bespoke ~make-frame~ call).
 In detail, first we use the same values for the two frame alist variables:
 
 #+begin_src emacs-lisp
+;; This must go in the early-init.el so that it applies to the initial
+;; frame.
 (dolist (var '(default-frame-alist initial-frame-alist))
   (add-to-list var '(right-divider-width . 20))
   (add-to-list var '(internal-border-width . 20)))
