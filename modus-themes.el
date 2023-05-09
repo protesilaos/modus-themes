@@ -3836,9 +3836,10 @@ FG and BG are the main colors."
     `(vterm-color-white ((,c :background "white" :foreground "gray65")))
     `(vterm-color-yellow ((,c :background ,yellow-warmer :foreground ,yellow)))
 ;;;;; vundo
-    `(vundo-highlight ((,c :inherit (bold vundo-node) :foreground ,red-intense)))
-    `(vundo-last-saved ((,c :inherit (bold vundo-node) :foreground ,cyan-intense)))
-    `(vundo-saved ((,c :inherit vundo-node :foreground ,cyan-intense)))
+    `(vundo-default ((,c :inherit shadow)))
+    `(vundo-highlight ((,c :inherit (bold vundo-node) :foreground ,red)))
+    `(vundo-last-saved ((,c :inherit (bold vundo-node) :foreground ,blue)))
+    `(vundo-saved ((,c :inherit vundo-node :foreground ,blue-intense)))
 ;;;;; wcheck-mode
     `(wcheck-default-face ((,c :foreground ,red :underline t)))
 ;;;;; web-mode
