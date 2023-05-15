@@ -3762,7 +3762,7 @@ load” phase of a theme, thus applying the new background value
 (otherwise you keep the old background, which likely means that the
 faces will no longer be invisible).
 
-     (defun prot-emacs-invisible-dividers ()
+     (defun my-modus-themes-invisible-dividers ()
        "Make window dividers invisible.
      Add this to the `modus-themes-post-load-hook'."
        (let ((bg (face-background 'default)))
@@ -3772,7 +3772,7 @@ faces will no longer be invisible).
           `(window-divider-first-pixel ((t :background ,bg :foreground ,bg)))
           `(window-divider-last-pixel ((t :background ,bg :foreground ,bg))))))
 
-     (add-hook 'modus-themes-post-load-hook #'prot-emacs-invisible-dividers)
+     (add-hook 'modus-themes-post-load-hook #'my-modus-themes-invisible-dividers)
 
    The above will work only for themes that belong to the Modus family.
 For users of Emacs version 29 or higher, there exists a theme-agnostic
@@ -3780,7 +3780,7 @@ hook that takes a function with one argument—that of the theme—and calls
 in the the “post enable” phase of theme loading.  Here is the above
 snippet, with the necessary tweaks:
 
-     (defun prot-emacs-invisible-dividers (_theme)
+     (defun my-modus-themes-invisible-dividers (_theme)
        "Make window dividers for THEME invisible."
        (let ((bg (face-background 'default)))
          (custom-set-faces
@@ -3789,7 +3789,7 @@ snippet, with the necessary tweaks:
           `(window-divider-first-pixel ((t :background ,bg :foreground ,bg)))
           `(window-divider-last-pixel ((t :background ,bg :foreground ,bg))))))
 
-     (add-hook 'enable-theme-functions #'prot-emacs-invisible-dividers)
+     (add-hook 'enable-theme-functions #'my-modus-themes-invisible-dividers)
 
    Users of older versions of Emacs can read the entry herein about
 defining their own theme-agnostic hook (*note A theme-agnostic hook for
@@ -6195,51 +6195,51 @@ Node: Backdrop for pdf-tools149263
 Node: Toggle themes without reloading them152162
 Node: A theme-agnostic hook for theme loading153438
 Node: Use more spacious margins or padding in Emacs frames155891
-Node: Custom hl-todo colors159757
-Node: Add support for solaire-mode161295
-Node: Face coverage164206
-Node: Supported packages164658
-Node: Indirectly covered packages170171
-Node: Notes on individual packages171524
-Node: Note on calendarel weekday and weekend colors172624
-Node: Note on git-gutter in Doom Emacs173772
-Node: Note on php-mode multiline comments176113
-Node: Note on underlines in compilation buffers176866
-Node: Note on inline Latex in Org buffers177703
-Node: Note on dimmerel178313
-Node: Note on display-fill-column-indicator-mode179798
-Node: Note on highlight-parenthesesel181197
-Node: Note on mmm-modeel background colors187175
-Node: Note for prism189475
-Node: Note on company-mode overlay pop-up192643
-Ref: Note on company-mode overlay pop-up-Footnote-1193373
-Ref: Note on company-mode overlay pop-up-Footnote-2193440
-Node: Note on ERC escaped color sequences193495
-Ref: Note on ERC escaped color sequences-Footnote-1194923
-Node: Note on powerline or spaceline195033
-Node: Note on SHR colors195447
-Node: Note on SHR fonts195871
-Node: Note on Ement colors and fonts196510
-Node: Note on pdf-tools link hints198020
-Node: Note on the Notmuch logo200480
-Node: Note on goto-address-mode faces201018
-Node: Frequently Asked Questions202130
-Node: Is the contrast ratio about adjacent colors?202761
-Node: What does it mean to avoid exaggerations?204268
-Node: Why are colors mostly variants of blue magenta cyan?206118
-Node: What is the best setup for legibility?210424
-Node: Are these color schemes?213069
-Node: Port the Modus themes to other platforms?216751
-Node: Contributing219523
-Node: Sources of the themes219920
-Node: Issues you can help with220814
-Node: Patches require copyright assignment to the FSF222205
-Node: Acknowledgements224425
-Node: GNU Free Documentation License228483
-Node: Indices253847
-Node: Function index254026
-Node: Variable index255209
-Node: Concept index257388
+Node: Custom hl-todo colors159777
+Node: Add support for solaire-mode161315
+Node: Face coverage164226
+Node: Supported packages164678
+Node: Indirectly covered packages170191
+Node: Notes on individual packages171544
+Node: Note on calendarel weekday and weekend colors172644
+Node: Note on git-gutter in Doom Emacs173792
+Node: Note on php-mode multiline comments176133
+Node: Note on underlines in compilation buffers176886
+Node: Note on inline Latex in Org buffers177723
+Node: Note on dimmerel178333
+Node: Note on display-fill-column-indicator-mode179818
+Node: Note on highlight-parenthesesel181217
+Node: Note on mmm-modeel background colors187195
+Node: Note for prism189495
+Node: Note on company-mode overlay pop-up192663
+Ref: Note on company-mode overlay pop-up-Footnote-1193393
+Ref: Note on company-mode overlay pop-up-Footnote-2193460
+Node: Note on ERC escaped color sequences193515
+Ref: Note on ERC escaped color sequences-Footnote-1194943
+Node: Note on powerline or spaceline195053
+Node: Note on SHR colors195467
+Node: Note on SHR fonts195891
+Node: Note on Ement colors and fonts196530
+Node: Note on pdf-tools link hints198040
+Node: Note on the Notmuch logo200500
+Node: Note on goto-address-mode faces201038
+Node: Frequently Asked Questions202150
+Node: Is the contrast ratio about adjacent colors?202781
+Node: What does it mean to avoid exaggerations?204288
+Node: Why are colors mostly variants of blue magenta cyan?206138
+Node: What is the best setup for legibility?210444
+Node: Are these color schemes?213089
+Node: Port the Modus themes to other platforms?216771
+Node: Contributing219543
+Node: Sources of the themes219940
+Node: Issues you can help with220834
+Node: Patches require copyright assignment to the FSF222225
+Node: Acknowledgements224445
+Node: GNU Free Documentation License228503
+Node: Indices253867
+Node: Function index254046
+Node: Variable index255229
+Node: Concept index257408
 
 End Tag Table
 

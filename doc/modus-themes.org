@@ -3670,7 +3670,7 @@ The reason we do this with a function is so we can hook it to the
 faces will no longer be invisible).
 
 #+begin_src emacs-lisp
-(defun prot-emacs-invisible-dividers ()
+(defun my-modus-themes-invisible-dividers ()
   "Make window dividers invisible.
 Add this to the `modus-themes-post-load-hook'."
   (let ((bg (face-background 'default)))
@@ -3680,7 +3680,7 @@ Add this to the `modus-themes-post-load-hook'."
      `(window-divider-first-pixel ((t :background ,bg :foreground ,bg)))
      `(window-divider-last-pixel ((t :background ,bg :foreground ,bg))))))
 
-(add-hook 'modus-themes-post-load-hook #'prot-emacs-invisible-dividers)
+(add-hook 'modus-themes-post-load-hook #'my-modus-themes-invisible-dividers)
 #+end_src
 
 The above will work only for themes that belong to the Modus family.
@@ -3690,7 +3690,7 @@ calls in the the "post enable" phase of theme loading.  Here is the
 above snippet, with the necessary tweaks:
 
 #+begin_src emacs-lisp
-(defun prot-emacs-invisible-dividers (_theme)
+(defun my-modus-themes-invisible-dividers (_theme)
   "Make window dividers for THEME invisible."
   (let ((bg (face-background 'default)))
     (custom-set-faces
@@ -3699,7 +3699,7 @@ above snippet, with the necessary tweaks:
      `(window-divider-first-pixel ((t :background ,bg :foreground ,bg)))
      `(window-divider-last-pixel ((t :background ,bg :foreground ,bg))))))
 
-(add-hook 'enable-theme-functions #'prot-emacs-invisible-dividers)
+(add-hook 'enable-theme-functions #'my-modus-themes-invisible-dividers)
 #+end_src
 
 Users of older versions of Emacs can read the entry herein about
