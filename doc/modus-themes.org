@@ -1125,7 +1125,7 @@ For example, the ~modus-operandi-palette~ is like this:
 #+end_src
 
 The ~modus-operandi-palette-overrides~ targets the entries that need
-to be changed.  For example, to make the main foreground colour a dark
+to be changed.  For example, to make the main foreground color a dark
 gray instead of pure black, use a shade of red for comments, and apply
 a cyan hue to keywords:
 
@@ -2318,7 +2318,7 @@ adjustments for them by overriding their palettes directly instead of
 just using the "common" overrides.
 
 #+begin_src emacs-lisp
-;; Diffs with only foreground colours.  Word-wise ("refined") diffs
+;; Diffs with only foreground colors.  Word-wise ("refined") diffs
 ;; have a gray background to draw attention to themselves.
 (setq modus-themes-common-palette-overrides
       '((bg-added           unspecified)

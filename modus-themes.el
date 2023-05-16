@@ -1944,7 +1944,7 @@ FG and BG are the main colors."
     `(holiday ((,c :foreground ,date-holiday)))
 ;;;;; calibredb
     ;; NOTE 2022-12-27: Calibredb needs to be reviewed.  I had to
-    ;; change the applicable colours for the transition to
+    ;; change the applicable colors for the transition to
     ;; modus-themes version 4, but I cannot test this currently (it
     ;; depends on an external program).
     `(calibredb-archive-face ((,c :foreground ,accent-3)))
