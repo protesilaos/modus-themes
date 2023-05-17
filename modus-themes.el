@@ -2694,10 +2694,10 @@ FG and BG are the main colors."
     `(iflipb-current-buffer-face ((,c :inherit bold :foreground ,name)))
     `(iflipb-other-buffer-face ((,c :inherit shadow)))
 ;;;;; image-dired
-    `(image-dired-thumb-flagged ((,c :inherit modus-themes-intense-red)))
+    `(image-dired-thumb-flagged ((,c :inherit modus-themes-mark-del :box (:line-width -3))))
     `(image-dired-thumb-header-file-name ((,c :inherit bold)))
     `(image-dired-thumb-header-file-size ((,c :foreground ,constant)))
-    `(image-dired-thumb-mark ((,c :inherit modus-themes-intense-cyan)))
+    `(image-dired-thumb-mark ((,c :inherit modus-themes-mark-sel :box (:line-width -3))))
 ;;;;; imenu-list
     `(imenu-list-entry-face-0 ((,c :foreground ,fg-heading-0)))
     `(imenu-list-entry-face-1 ((,c :foreground ,fg-heading-1)))
