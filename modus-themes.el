@@ -1769,7 +1769,7 @@ FG and BG are the main colors."
     `(mm-command-output ((,c :foreground ,mail-part)))
     `(mm-uu-extract ((,c :foreground ,mail-part)))
     `(next-error ((,c :inherit modus-themes-prominent-error :extend t)))
-    `(pgtk-im-0 ((,c :inherit modus-themes-intense-cyan)))
+    `(pgtk-im-0 ((,c :inherit modus-themes-prominent-note)))
     `(read-multiple-choice-face ((,c :inherit (bold modus-themes-mark-alt))))
     `(rectangle-preview ((,c :inherit secondary-selection)))
     `(region ((,c :background ,bg-region :foreground ,fg-region)))
