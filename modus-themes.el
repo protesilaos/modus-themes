@@ -1909,9 +1909,9 @@ FG and BG are the main colors."
     `(aw-minibuffer-leading-char-face ((,c :inherit modus-themes-key-binding)))
     `(aw-mode-line-face ((,c :inherit bold)))
 ;;;;; binder
-    `(binder-sidebar-highlight ((,c :inherit modus-themes-subtle-cyan)))
+    `(binder-sidebar-highlight ((,c :inherit modus-themes-hl-line)))
     `(binder-sidebar-marked ((,c :inherit modus-themes-mark-sel)))
-    `(binder-sidebar-missing ((,c :inherit modus-themes-subtle-red)))
+    `(binder-sidebar-missing ((,c :inherit modus-themes-mark-del)))
     `(binder-sidebar-tags ((,c :foreground ,variable)))
 ;;;;; bongo
     `(bongo-album-title (( )))
