@@ -3708,7 +3708,7 @@ FG and BG are the main colors."
     ;; have to do this with `eldoc-highlight-function-argument'.
     (list 'transient-argument `((,c :inherit (bold modus-themes-mark-alt))))
     `(transient-blue ((,c :inherit bold :foreground ,blue)))
-    `(transient-disabled-suffix ((,c :inherit modus-themes-intense-red)))
+    `(transient-disabled-suffix ((,c :inherit modus-themes-mark-del)))
     `(transient-enabled-suffix ((,c :inherit modus-themes-subtle-cyan)))
     `(transient-heading ((,c :inherit bold :foreground ,fg-main)))
     `(transient-inactive-argument ((,c :inherit shadow)))
