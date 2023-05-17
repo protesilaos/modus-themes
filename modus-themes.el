@@ -1906,7 +1906,7 @@ FG and BG are the main colors."
     `(aw-background-face ((,c :foreground "gray50")))
     `(aw-key-face ((,c :inherit modus-themes-key-binding)))
     `(aw-leading-char-face ((,c :inherit (bold modus-themes-reset-soft) :height 1.5 :foreground ,red-intense)))
-    `(aw-minibuffer-leading-char-face ((,c :inherit (modus-themes-intense-red bold))))
+    `(aw-minibuffer-leading-char-face ((,c :inherit modus-themes-key-binding)))
     `(aw-mode-line-face ((,c :inherit bold)))
 ;;;;; binder
     `(binder-sidebar-highlight ((,c :inherit modus-themes-subtle-cyan)))
