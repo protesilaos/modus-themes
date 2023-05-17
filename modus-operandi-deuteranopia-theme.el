@@ -312,7 +312,7 @@ standard).")
       (mail-cite-3 yellow-faint)
       (mail-part blue)
       (mail-recipient blue)
-      (mail-subject yellow-warmer)
+      (mail-subject yellow-cooler)
       (mail-other cyan-faint)
 
 ;;;; Mark mappings
