@@ -3875,7 +3875,7 @@ FG and BG are the main colors."
     `(web-mode-current-column-highlight-face ((,c :background ,bg-inactive)))
     `(web-mode-current-element-highlight-face ((,c :inherit modus-themes-cyan-subtle)))
     `(web-mode-doctype-face ((,c :inherit font-lock-doc-face)))
-    `(web-mode-error-face ((,c :inherit modus-themes-intense-red)))
+    `(web-mode-error-face ((,c :inherit error)))
     `(web-mode-filter-face ((,c :inherit font-lock-function-name-face)))
     `(web-mode-folded-face ((,c :underline t)))
     `(web-mode-function-call-face ((,c :inherit font-lock-function-name-face)))
@@ -3913,7 +3913,7 @@ FG and BG are the main colors."
     `(web-mode-type-face ((,c :inherit font-lock-builtin-face)))
     `(web-mode-underline-face ((,c :underline t)))
     `(web-mode-variable-name-face ((,c :inherit font-lock-variable-name-face)))
-    `(web-mode-warning-face ((,c :inherit font-lock-warning-face)))
+    `(web-mode-warning-face ((,c :inherit warning)))
     `(web-mode-whitespace-face ((,c :background ,bg-inactive)))
 ;;;;; wgrep
     `(wgrep-delete-face ((,c :inherit warning)))
