@@ -128,6 +128,14 @@ cover the blue-cyan-magenta side of the spectrum."
    :version "30.1"
    :group 'modus-themes-faces))
 
+(dolist (scope '(note warning error))
+  (custom-declare-face
+   (intern (format "modus-themes-prominent-%s" scope))
+   nil (format "Prominent notification of type %s." scope)
+   :package-version '(modus-themes . "4.2.0")
+   :version "30.1"
+   :group 'modus-themes-faces))
+
 (dolist (scope '(current lazy))
   (custom-declare-face
    (intern (format "modus-themes-search-%s" scope))
@@ -1690,6 +1698,10 @@ FG and BG are the main colors."
     `(modus-themes-lang-error ((,c :underline (:style wave :color ,underline-err))))
     `(modus-themes-lang-note ((,c :underline (:style wave :color ,underline-note))))
     `(modus-themes-lang-warning ((,c :underline (:style wave :color ,underline-warning))))
+;;;;; prominent semantic notes
+    `(modus-themes-prominent-error ((,c :background ,bg-prominent-err :foreground ,fg-prominent-err)))
+    `(modus-themes-prominent-note ((,c :background ,bg-prominent-note :foreground ,fg-prominent-note)))
+    `(modus-themes-prominent-warning ((,c :background ,bg-prominent-warning :foreground ,fg-prominent-warning)))
 ;;;;; markup
     `(modus-themes-prose-code ((,c :inherit modus-themes-fixed-pitch :foreground ,prose-code)))
     `(modus-themes-prose-macro ((,c :inherit modus-themes-fixed-pitch :foreground ,prose-macro)))
@@ -1756,7 +1768,7 @@ FG and BG are the main colors."
     `(minibuffer-prompt ((,c :inherit modus-themes-prompt)))
     `(mm-command-output ((,c :foreground ,mail-part)))
     `(mm-uu-extract ((,c :foreground ,mail-part)))
-    `(next-error ((,c :inherit modus-themes-subtle-red :extend t)))
+    `(next-error ((,c :inherit modus-themes-prominent-error :extend t)))
     `(pgtk-im-0 ((,c :inherit modus-themes-intense-cyan)))
     `(read-multiple-choice-face ((,c :inherit (bold modus-themes-mark-alt))))
     `(rectangle-preview ((,c :inherit secondary-selection)))
@@ -1869,7 +1881,7 @@ FG and BG are the main colors."
     `(anzu-match-3 ((,c :inherit modus-themes-subtle-yellow)))
     `(anzu-mode-line ((,c :inherit bold)))
     `(anzu-mode-line-no-match ((,c :inherit error)))
-    `(anzu-replace-highlight ((,c :inherit modus-themes-intense-red :underline t)))
+    `(anzu-replace-highlight ((,c :inherit modus-themes-prominent-error :underline t)))
     `(anzu-replace-to ((,c :inherit modus-themes-search-current)))
 ;;;;; auctex and Tex
     `(font-latex-bold-face ((,c :inherit bold)))
@@ -2021,7 +2033,7 @@ FG and BG are the main colors."
 ;;;;; clojure-mode
     `(clojure-keyword-face ((,c :inherit font-lock-builtin-face)))
 ;;;;; column-enforce-mode
-    `(column-enforce-face ((,c :inherit modus-themes-intense-yellow)))
+    `(column-enforce-face ((,c :inherit modus-themes-prominent-error)))
 ;;;;; company-mode
     `(company-echo-common ((,c :inherit modus-themes-completion-match-0)))
     `(company-preview ((,c :background ,bg-dim :foreground ,fg-dim)))
@@ -2392,8 +2404,8 @@ FG and BG are the main colors."
     `(erc-timestamp-face ((,c :foreground ,date-common)))
     `(erc-underline-face ((,c :underline t)))
 ;;;;; ert
-    `(ert-test-result-expected ((,c :inherit modus-themes-intense-cyan)))
-    `(ert-test-result-unexpected ((,c :inherit modus-themes-intense-red)))
+    `(ert-test-result-expected ((,c :inherit modus-themes-prominent-note)))
+    `(ert-test-result-unexpected ((,c :inherit modus-themes-prominent-error)))
 ;;;;; eshell
     `(eshell-ls-archive ((,c :foreground ,accent-2)))
     `(eshell-ls-backup ((,c :inherit shadow)))
@@ -2430,9 +2442,9 @@ FG and BG are the main colors."
     `(eyebrowse-mode-line-active ((,c :inherit mode-line-emphasis)))
 ;;;;; flycheck
     `(flycheck-error ((,c :inherit modus-themes-lang-error)))
-    `(flycheck-fringe-error ((,c :inherit modus-themes-intense-red)))
-    `(flycheck-fringe-info ((,c :inherit modus-themes-intense-cyan)))
-    `(flycheck-fringe-warning ((,c :inherit modus-themes-intense-yellow)))
+    `(flycheck-fringe-error ((,c :inherit modus-themes-prominent-error)))
+    `(flycheck-fringe-info ((,c :inherit modus-themes-prominent-note)))
+    `(flycheck-fringe-warning ((,c :inherit modus-themes-prominent-warning)))
     `(flycheck-info ((,c :inherit modus-themes-lang-note)))
     `(flycheck-warning ((,c :inherit modus-themes-lang-warning)))
 ;;;;; flycheck-color-mode-line
@@ -2758,12 +2770,12 @@ FG and BG are the main colors."
     `(ioccur-title-face ((,c :inherit bold :foreground ,name)))
 ;;;;; isearch, occur, and the like
     `(isearch ((,c :inherit modus-themes-search-current)))
-    `(isearch-fail ((,c :inherit modus-themes-intense-red)))
+    `(isearch-fail ((,c :inherit modus-themes-prominent-error)))
     `(isearch-group-1 ((,c :inherit modus-themes-intense-blue)))
     `(isearch-group-2 ((,c :inherit modus-themes-intense-magenta)))
     `(lazy-highlight ((,c :inherit modus-themes-search-lazy)))
     `(match ((,c :background ,bg-magenta-subtle :foreground ,fg-main)))
-    `(query-replace ((,c :inherit modus-themes-intense-red)))
+    `(query-replace ((,c :inherit modus-themes-prominent-error)))
 ;;;;; ivy
     `(ivy-action ((,c :inherit modus-themes-key-binding)))
     `(ivy-confirm-face ((,c :inherit success)))
@@ -3426,7 +3438,7 @@ FG and BG are the main colors."
     `(quick-peek-border-face ((,c :background ,border :height 1)))
     `(quick-peek-padding-face ((,c :background ,bg-inactive :height 0.15)))
 ;;;;; rainbow-delimiters
-    `(rainbow-delimiters-base-error-face ((,c :inherit modus-themes-subtle-red)))
+    `(rainbow-delimiters-base-error-face ((,c :inherit modus-themes-prominent-error)))
     `(rainbow-delimiters-base-face ((,c :foreground ,fg-main)))
     `(rainbow-delimiters-depth-1-face ((,c :foreground ,rainbow-0)))
     `(rainbow-delimiters-depth-2-face ((,c :foreground ,rainbow-1)))
@@ -3438,7 +3450,7 @@ FG and BG are the main colors."
     `(rainbow-delimiters-depth-8-face ((,c :foreground ,rainbow-7)))
     `(rainbow-delimiters-depth-9-face ((,c :foreground ,rainbow-8)))
     `(rainbow-delimiters-mismatched-face ((,c :inherit (bold modus-themes-intense-yellow))))
-    `(rainbow-delimiters-unmatched-face ((,c :inherit (bold modus-themes-intense-red))))
+    `(rainbow-delimiters-unmatched-face ((,c :inherit (bold modus-themes-prominent-error))))
 ;;;;; rcirc
     `(rcirc-bright-nick ((,c :inherit bold :foreground ,accent-2)))
     `(rcirc-dim-nick ((,c :inherit shadow)))
@@ -3517,7 +3529,7 @@ FG and BG are the main colors."
 ;;;;; show-paren-mode
     `(show-paren-match ((,c :background ,bg-paren-match :foreground ,fg-main :underline ,underline-paren-match)))
     `(show-paren-match-expression ((,c :background ,bg-paren-expression)))
-    `(show-paren-mismatch ((,c :inherit modus-themes-intense-red)))
+    `(show-paren-mismatch ((,c :inherit modus-themes-prominent-error)))
 ;;;;; shr
     `(shr-abbreviation ((,c :inherit modus-themes-lang-note)))
     `(shr-code ((,c :inherit modus-themes-prose-verbatim)))
@@ -3579,7 +3591,7 @@ FG and BG are the main colors."
     `(sml/name-filling ((,c :inherit warning)))
     `(sml/not-modified ((,c :inherit sml/global)))
     `(sml/numbers-separator ((,c :inherit sml/global)))
-    `(sml/outside-modified ((,c :inherit modus-themes-intense-red)))
+    `(sml/outside-modified ((,c :inherit modus-themes-prominent-error)))
     `(sml/position-percentage ((,c :inherit sml/global)))
     `(sml/prefix ((,c :foreground ,fg-alt)))
     `(sml/process ((,c :inherit sml/prefix)))
@@ -3987,9 +3999,9 @@ FG and BG are the main colors."
 ;;;; exwm
     `(exwm-floating-border-color ,border)
 ;;;; flymake fringe indicators
-    `(flymake-error-bitmap '(flymake-double-exclamation-mark modus-themes-intense-red))
-    `(flymake-warning-bitmap '(exclamation-mark modus-themes-intense-yellow))
-    `(flymake-note-bitmap '(exclamation-mark modus-themes-intense-cyan))
+    `(flymake-error-bitmap '(flymake-double-exclamation-mark modus-themes-prominent-error))
+    `(flymake-warning-bitmap '(exclamation-mark modus-themes-prominent-warning))
+    `(flymake-note-bitmap '(exclamation-mark modus-themes-prominent-note))
 ;;;; highlight-changes
     `(highlight-changes-colors nil)
     `(highlight-changes-face-list '(success warning error bold bold-italic))

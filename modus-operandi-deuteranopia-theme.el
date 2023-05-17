@@ -230,6 +230,13 @@ standard).")
       (underline-warning magenta-faint)
       (underline-note cyan)
 
+      (bg-prominent-err bg-yellow-intense)
+      (fg-prominent-err fg-main)
+      (bg-prominent-warning bg-magenta-intense)
+      (fg-prominent-warning fg-main)
+      (bg-prominent-note bg-cyan-intense)
+      (fg-prominent-note fg-main)
+
 ;;;; Code mappings
 
       (builtin magenta-warmer)

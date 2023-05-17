@@ -227,6 +227,13 @@ which corresponds to a minimum contrast in relative luminance of
       (underline-warning yellow)
       (underline-note cyan)
 
+      (bg-prominent-err bg-red-intense)
+      (fg-prominent-err fg-main)
+      (bg-prominent-warning bg-yellow-intense)
+      (fg-prominent-warning fg-main)
+      (bg-prominent-note bg-cyan-intense)
+      (fg-prominent-note fg-main)
+
 ;;;; Code mappings
 
       (builtin magenta-warmer)
