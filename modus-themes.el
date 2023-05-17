@@ -3449,7 +3449,7 @@ FG and BG are the main colors."
     `(rainbow-delimiters-depth-7-face ((,c :foreground ,rainbow-6)))
     `(rainbow-delimiters-depth-8-face ((,c :foreground ,rainbow-7)))
     `(rainbow-delimiters-depth-9-face ((,c :foreground ,rainbow-8)))
-    `(rainbow-delimiters-mismatched-face ((,c :inherit (bold modus-themes-intense-yellow))))
+    `(rainbow-delimiters-mismatched-face ((,c :inherit (bold modus-themes-prominent-warning))))
     `(rainbow-delimiters-unmatched-face ((,c :inherit (bold modus-themes-prominent-error))))
 ;;;;; rcirc
     `(rcirc-bright-nick ((,c :inherit bold :foreground ,accent-2)))
