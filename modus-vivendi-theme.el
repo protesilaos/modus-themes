@@ -342,6 +342,11 @@ which corresponds to a minimum contrast in relative luminance of
       (rainbow-7 blue-warmer)
       (rainbow-8 magenta-warmer)
 
+;;;; Space mappings
+
+      (bg-space unspecified)
+      (fg-space border)
+
 ;;;; Heading mappings
 
       (fg-heading-0 cyan-cooler)

@@ -344,6 +344,11 @@ standard).")
       (rainbow-7 blue-faint)
       (rainbow-8 magenta-faint)
 
+;;;; Space mappings
+
+      (bg-space unspecified)
+      (fg-space border)
+
 ;;;; Heading mappings
 
       (fg-heading-0 cyan-cooler)
