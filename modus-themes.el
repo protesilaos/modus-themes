@@ -2721,7 +2721,7 @@ FG and BG are the main colors."
     `(info-header-xref ((,c :foreground ,fg-link)))
     `(info-index-match ((,c :inherit match)))
     `(info-menu-header ((,c :inherit bold)))
-    `(info-menu-star ((,c :foreground ,red-intense)))
+    `(info-menu-star ((,c :inherit error)))
     `(info-node ((,c :inherit bold)))
     `(info-title-1 ((,c :inherit modus-themes-heading-1)))
     `(info-title-2 ((,c :inherit modus-themes-heading-2)))
