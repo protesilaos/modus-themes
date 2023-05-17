@@ -2688,8 +2688,8 @@ FG and BG are the main colors."
     `(ido-subdir ((,c :foreground ,accent-0)))
     `(ido-virtual ((,c :foreground ,accent-1)))
 ;;;;; iedit
-    `(iedit-occurrence ((,c :inherit modus-themes-intense-blue)))
-    `(iedit-read-only-occurrence ((,c :inherit modus-themes-intense-yellow)))
+    `(iedit-occurrence ((,c :inherit modus-themes-search-lazy)))
+    `(iedit-read-only-occurrence ((,c :inherit modus-themes-search-current)))
 ;;;;; iflipb
     `(iflipb-current-buffer-face ((,c :inherit bold :foreground ,name)))
     `(iflipb-other-buffer-face ((,c :inherit shadow)))
