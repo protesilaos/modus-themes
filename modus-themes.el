@@ -2374,7 +2374,7 @@ FG and BG are the main colors."
     `(erc-button ((,c :inherit button)))
     `(erc-command-indicator-face ((,c :inherit bold :foreground ,accent-3)))
     `(erc-current-nick-face ((,c :inherit match)))
-    `(erc-dangerous-host-face ((,c :inherit modus-themes-intense-red)))
+    `(erc-dangerous-host-face ((,c :inherit error)))
     `(erc-direct-msg-face ((,c :inherit shadow)))
     `(erc-error-face ((,c :inherit error)))
     `(erc-fool-face ((,c :inherit shadow)))
