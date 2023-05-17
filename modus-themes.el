@@ -2194,7 +2194,7 @@ FG and BG are the main colors."
 ;;;;; dired-git-info
     `(dgi-commit-message-face ((,c :foreground ,docstring)))
 ;;;;; dired-narrow
-    `(dired-narrow-blink ((,c :inherit (modus-themes-subtle-cyan bold))))
+    `(dired-narrow-blink ((,c :inherit (modus-themes-prominent-warning bold))))
 ;;;;; dired-subtree
     ;; remove backgrounds from dired-subtree faces, else they break
     ;; dired-{flagged,marked} and any other face that sets a background
