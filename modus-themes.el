@@ -1765,7 +1765,7 @@ FG and BG are the main colors."
     `(separator-line ((,c :underline ,bg-active)))
     `(shadow ((,c :foreground ,fg-dim)))
     `(success ((,c :inherit bold :foreground ,info)))
-    `(trailing-whitespace ((,c :background ,bg-red-intense)))
+    `(trailing-whitespace ((,c :background ,bg-space-err)))
     `(warning ((,c :inherit bold :foreground ,warning)))
 ;;;;; buttons, links, widgets
     `(button ((,c :background ,bg-link :foreground ,fg-link :underline ,underline-link)))
@@ -3933,7 +3933,7 @@ FG and BG are the main colors."
     `(which-key-separator-face ((,c :inherit shadow)))
     `(which-key-special-key-face ((,c :inherit error)))
 ;;;;; whitespace-mode
-    `(whitespace-big-indent ((,c :inherit modus-themes-subtle-red)))
+    `(whitespace-big-indent ((,c :background ,bg-space-err)))
     `(whitespace-empty ((,c :inherit modus-themes-intense-magenta)))
     `(whitespace-hspace ((,c :background ,bg-space :foreground ,fg-space)))
     `(whitespace-indentation ((,c :background ,bg-space :foreground ,fg-space)))
@@ -3943,7 +3943,7 @@ FG and BG are the main colors."
     `(whitespace-space-after-tab ((,c :inherit modus-themes-subtle-magenta)))
     `(whitespace-space-before-tab ((,c :inherit modus-themes-subtle-cyan)))
     `(whitespace-tab ((,c :background ,bg-space :foreground ,fg-space)))
-    `(whitespace-trailing ((,c :inherit modus-themes-intense-red)))
+    `(whitespace-trailing ((,c :background ,bg-space-err)))
 ;;;;; window-divider-mode
     `(window-divider ((,c :foreground ,border)))
     `(window-divider-first-pixel ((,c :foreground ,bg-inactive)))
@@ -3970,7 +3970,7 @@ FG and BG are the main colors."
     `(xah-elisp-command-face ((,c :inherit font-lock-type-face)))
     `(xah-elisp-dollar-symbol ((,c :inherit font-lock-variable-name-face)))
 ;;;;; yaml-mode
-    `(yaml-tab-face ((,c :inherit modus-themes-intense-red)))
+    `(yaml-tab-face ((,c :background ,bg-space-err)))
 ;;;;; yasnippet
     `(yas-field-highlight-face ((,c :inherit highlight))))
   "Face specs for use with `modus-themes-theme'.")

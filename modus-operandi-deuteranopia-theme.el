@@ -358,6 +358,7 @@ standard).")
 
       (bg-space unspecified)
       (fg-space border)
+      (bg-space-err bg-yellow-intense)
 
 ;;;; Heading mappings
 

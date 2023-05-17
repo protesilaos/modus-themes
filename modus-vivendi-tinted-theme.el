@@ -325,6 +325,7 @@ which corresponds to a minimum contrast in relative luminance of
 
       (fg-prompt cyan-cooler)
       (bg-prompt unspecified)
+      (bg-space-err bg-red-intense)
 
 ;;;; Prose mappings
 

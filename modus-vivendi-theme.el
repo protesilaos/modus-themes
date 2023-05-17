@@ -355,6 +355,7 @@ which corresponds to a minimum contrast in relative luminance of
 
       (bg-space unspecified)
       (fg-space border)
+      (bg-space-err bg-red-intense)
 
 ;;;; Heading mappings
 
