@@ -1672,9 +1672,9 @@ FG and BG are the main colors."
     `(modus-themes-intense-cyan ((,c :background ,bg-cyan-intense :foreground ,fg-main)))
 ;;;;; mark indicators
     ;; color combinations intended for Dired, Ibuffer, or equivalent
-    `(modus-themes-mark-alt ((,c :inherit bold :background ,bg-yellow-subtle :foreground ,yellow)))
-    `(modus-themes-mark-del ((,c :inherit bold :background ,bg-red-subtle :foreground ,red)))
-    `(modus-themes-mark-sel ((,c :inherit bold :background ,bg-cyan-subtle :foreground ,cyan)))
+    `(modus-themes-mark-alt ((,c :inherit bold :background ,bg-mark-other :foreground ,fg-mark-other)))
+    `(modus-themes-mark-del ((,c :inherit bold :background ,bg-mark-delete :foreground ,fg-mark-delete)))
+    `(modus-themes-mark-sel ((,c :inherit bold :background ,bg-mark-select :foreground ,fg-mark-select)))
 ;;;;; heading levels
     ;; styles for regular headings used in Org, Markdown, Info, etc.
     `(modus-themes-heading-0 ((,c ,@(modus-themes--heading 0 fg-heading-0 bg-heading-0 overline-heading-0))))

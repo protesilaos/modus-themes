@@ -315,6 +315,15 @@ standard).")
       (mail-subject yellow-warmer)
       (mail-other cyan-faint)
 
+;;;; Mark mappings
+
+      (bg-mark-delete bg-yellow-subtle)
+      (fg-mark-delete yellow)
+      (bg-mark-select bg-cyan-subtle)
+      (fg-mark-select cyan)
+      (bg-mark-other bg-magenta-subtle)
+      (fg-mark-other magenta)
+
 ;;;; Prompt mappings
 
       (fg-prompt blue)

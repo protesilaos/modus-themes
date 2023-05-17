@@ -313,6 +313,15 @@ which corresponds to a minimum contrast in relative luminance of
       (mail-subject magenta-warmer)
       (mail-other magenta-faint)
 
+;;;; Mark mappings
+
+      (bg-mark-delete bg-red-subtle)
+      (fg-mark-delete red)
+      (bg-mark-select bg-cyan-subtle)
+      (fg-mark-select cyan)
+      (bg-mark-other bg-yellow-subtle)
+      (fg-mark-other yellow)
+
 ;;;; Prompt mappings
 
       (fg-prompt cyan-cooler)
