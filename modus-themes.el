@@ -2427,7 +2427,7 @@ FG and BG are the main colors."
     `(evil-ex-info ((,c :inherit font-lock-type-face)))
     `(evil-ex-lazy-highlight ((,c :inherit modus-themes-search-lazy)))
     `(evil-ex-search ((,c :inherit modus-themes-search-current)))
-    `(evil-ex-substitute-matches ((,c :inherit modus-themes-intense-yellow :underline t)))
+    `(evil-ex-substitute-matches ((,c :inherit modus-themes-prominent-error :underline t)))
     `(evil-ex-substitute-replacement ((,c :inherit modus-themes-search-current)))
 ;;;;; eww
     `(eww-invalid-certificate ((,c :foreground ,err)))
