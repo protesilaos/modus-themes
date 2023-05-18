@@ -374,7 +374,8 @@ set this variable to a nil value."
 (defconst modus-themes-items
   '( modus-operandi modus-vivendi
      modus-operandi-tinted modus-vivendi-tinted
-     modus-operandi-deuteranopia modus-vivendi-deuteranopia)
+     modus-operandi-deuteranopia modus-vivendi-deuteranopia
+     modus-operandi-tritanopia modus-vivendi-tritanopia)
   "Symbols of the Modus themes.")
 
 (defcustom modus-themes-to-toggle '(modus-operandi modus-vivendi)
@@ -2277,7 +2278,7 @@ FG and BG are the main colors."
     `(doom-modeline-warning ((,c :inherit warning)))
 ;;;;; ediff
     `(ediff-current-diff-A ((,c :background ,bg-removed :foreground ,fg-removed)))
-    `(ediff-current-diff-Ancestor ((,c :background ,bg-region))) ; TODO 2022-11-29: Needs review
+    `(ediff-current-diff-Ancestor ((,c :background ,bg-region)))
     `(ediff-current-diff-B ((,c :background ,bg-added :foreground ,fg-added)))
     `(ediff-current-diff-C ((,c :background ,bg-changed :foreground ,fg-changed)))
     `(ediff-even-diff-A ((,c :background ,bg-diff-context)))

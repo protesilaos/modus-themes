@@ -77,7 +77,7 @@ combinations of background and foreground values.  For small sized
 text, this corresponds to the WCAG AAA standard, which specifies a
 minimum rate of distance in relative luminance of 7:1.
 
-The Modus themes consist of six themes, divided into three subgroups.
+The Modus themes consist of eight themes, divided into four subgroups.
 
 - Main themes :: ~modus-operandi~ is the project's main light theme,
   while ~modus-vivendi~ is its dark counterpart.  These two themes are
@@ -100,6 +100,14 @@ The Modus themes consist of six themes, divided into three subgroups.
   added lines.  Instead, they implement colors that are discernible by
   users with deueteranopia or deuteranomaly (mostly yellow and blue
   hues).
+
+- Tritanopia themes :: ~modus-operandi-tritanopia~ and its counterpart
+  ~modus-vivendi-tritanopia~ are optimized for users with blue-yellow
+  color deficiency.  The idea is the same as with the deuteranopia
+  variants: color coding relies only on hues that are accessible to
+  people with tritanopia or tritanomaly.
+
+[ The tritanopia themes are part of {{{development-version}}}. ]
 
 To ensure that users have a consistently accessible experience, the
 themes strive to achieve as close to full face coverage as possible,
@@ -1068,6 +1076,9 @@ palette variable is =THEME-NAME-palette-overrides=, thus yielding:
 #+vindex: modus-operandi-tinted-palette-overrides
 + ~modus-operandi-tinted-palette-overrides~
 
+#+vindex: modus-operandi-tritanopia-palette-overrides
++ ~modus-operandi-tritanopia-palette-overrides~
+
 #+vindex: modus-vivendi-palette-overrides
 + ~modus-vivendi-palette-overrides~
 
@@ -1076,6 +1087,11 @@ palette variable is =THEME-NAME-palette-overrides=, thus yielding:
 
 #+vindex: modus-vivendi-tinted-palette-overrides
 + ~modus-vivendi-tinted-palette-overrides~
+
+#+vindex: modus-vivendi-tritanopia-palette-overrides
++ ~modus-vivendi-tritanopia-palette-overrides~
+
+[ The tritanopia themes are part of {{{development-version}}}. ]
 
 Theme-specific overrides take precedence over the shared ones.  It is
 strongly advised that shared overrides do NOT alter color values, as
@@ -5170,9 +5186,10 @@ themes remains consistent.
 
 The former criterion should be crystal clear as it pertains to the
 scientific foundations of the themes: high legibility and taking care
-of the needs of users with red-green color deficiency (deuteranopia)
-by avoiding red+green color coding paradigms and/or by providing
-yellow+blue variants ([[#h:f0f3dbcb-602d-40cf-b918-8f929c441baf][Overview]]).
+of the needs of users with red-green/blue-yellow color deficiency
+(deuteranopia and tritanopia) by avoiding red+green color coding
+paradigms and/or by providing yellow+blue variants for deuteranopia
+and red+cyan for tritanopia ([[#h:f0f3dbcb-602d-40cf-b918-8f929c441baf][Overview]]).
 
 The latter criterion is the "je ne sais quoi" of the artistic aspect of
 the themes, which is partially fleshed out in this manual.
