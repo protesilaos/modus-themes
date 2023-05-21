@@ -339,7 +339,7 @@ standard).")
 ;;;; Prose mappings
 
       (prose-block fg-dim)
-      (prose-code magenta-warmer)
+      (prose-code cyan)
       (prose-done cyan)
       (prose-macro red-warmer)
       (prose-metadata fg-dim)
@@ -347,7 +347,7 @@ standard).")
       (prose-table fg-alt)
       (prose-tag fg-alt)
       (prose-todo red)
-      (prose-verbatim cyan)
+      (prose-verbatim magenta-warmer)
 
 ;;;; Rainbow mappings
 
