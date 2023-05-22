@@ -1951,8 +1951,8 @@ FG and BG are the main colors."
     `(calendar-today ((,c :inherit bold :underline t)))
     `(calendar-weekday-header ((,c :foreground ,date-weekday)))
     `(calendar-weekend-header ((,c :foreground ,date-weekend)))
-    `(diary ((,c :background ,bg-dim :foreground ,accent-0)))
-    `(diary-anniversary ((,c :foreground ,accent-1)))
+    `(diary ((,c :foreground ,date-common)))
+    `(diary-anniversary ((,c :foreground ,date-holiday)))
     `(diary-time ((,c :foreground ,date-common)))
     `(holiday ((,c :foreground ,date-holiday)))
 ;;;;; calibredb
