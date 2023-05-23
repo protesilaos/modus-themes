@@ -1254,10 +1254,13 @@ Which themes are disabled is determined by the user option
 `modus-themes-disable-other-themes'.
 
 Run the `modus-themes-after-load-theme-hook' as the final step
-after loading the THEME."
+after loading the THEME.
+
+Return THEME."
   (modus-themes--disable-themes)
   (load-theme theme :no-confirm)
-  (run-hooks 'modus-themes-after-load-theme-hook))
+  (run-hooks 'modus-themes-after-load-theme-hook)
+  theme)
 
 (defun modus-themes--retrieve-palette-value (color palette)
   "Return COLOR from PALETTE.
