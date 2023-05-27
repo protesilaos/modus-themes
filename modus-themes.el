@@ -52,6 +52,8 @@ for people with red-green or blue-yellow color
 deficiency (deuteranopia or tritanopia, respectively)."
   :group 'faces
   :link '(info-link "(modus-themes) Top")
+  :link '(url-link :tag "Homepage" "https://protesilaos.com/emacs/modus-themes")
+  :link '(url-link :tag "Sample pictures" "https://protesilaos.com/emacs/modus-themes-pictures")
   :prefix "modus-themes-"
   :tag "Modus Themes")
 
@@ -59,6 +61,8 @@ deficiency (deuteranopia or tritanopia, respectively)."
   "Faces defined by the Modus themes."
   :group 'modus-themes
   :link '(info-link "(modus-themes) Top")
+  :link '(url-link :tag "Homepage" "https://protesilaos.com/emacs/modus-themes")
+  :link '(url-link :tag "Sample pictures" "https://protesilaos.com/emacs/modus-themes-pictures")
   :prefix "modus-themes-"
   :tag "Modus Themes Faces")
 
