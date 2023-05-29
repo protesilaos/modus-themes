@@ -315,7 +315,7 @@ standard).")
 
       (mail-cite-0 blue-warmer)
       (mail-cite-1 yellow)
-      (mail-cite-2 blue-cooler)
+      (mail-cite-2 cyan-faint)
       (mail-cite-3 yellow-faint)
       (mail-part blue)
       (mail-recipient blue)
