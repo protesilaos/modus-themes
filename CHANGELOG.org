@@ -15,6 +15,326 @@ For further details, please consult these additional resources:
 + Manual :: <https://protesilaos.com/emacs/modus-themes>
 + Screenshots :: <https://protesilaos.com/emacs/modus-themes-pictures>
 
+* 4.2.0
+:PROPERTIES:
+:CUSTOM_ID: h:29370d83-23c4-415b-afbf-ad85d4296c86
+:END:
+
+** I won a Google award for the Modus themes
+:PROPERTIES:
+:CUSTOM_ID: h:1ffc8660-511d-4fa8-aff4-11da8246a186
+:END:
+
+Report here: <https://protesilaos.com/codelog/2023-05-25-emacs-google-award/>.
+
+This is not a "change" per se, but it is worth documenting here.  It
+shows how important accessibility can be in empowering people to use
+their computer and, in our case, to exercise their software freedoms.
+
+The Modus themes tend to one aspect of accessibility.  They do not
+exhaust the topic, though they should at least raise awareness about
+the significance of tending to the usability needs of everyone.  The
+effort I put into documenting the themes (and my other packages)
+should be understood in this light as a means of helping people enjoy
+their software freedom by learning how to use and extend the program
+in question.
+
+** New tritanopia-optimised themes
+:PROPERTIES:
+:CUSTOM_ID: h:b92706b0-9d53-4015-8916-9db3c0c87068
+:END:
+
+I have created a pair of light and dark themes that are intended for
+people with blue-yellow colour deficiency (tritanopia).  These are
+~modus-operandi-tritanopia~ (light) and ~modus-vivendi-tritanopia~
+(dark).  Screenshots of all the Modus themes are available on my
+website: <https://protesilaos.com/emacs/modus-themes-pictures>.
+
+The entire collection is now described in the manual as follows:
+
+#+begin_quote
+The Modus themes consist of eight themes, divided into four subgroups.
+
+- Main themes :: ~modus-operandi~ is the project's main light theme,
+  while ~modus-vivendi~ is its dark counterpart.  These two themes are
+  part of the project since its inception.  They are designed to cover
+  a broad range of needs and are, in the opinion of the author, the
+  reference for what a highly legible "default" theme should look
+  like.
+
+- Tinted themes :: ~modus-operandi-tinted~ and ~modus-vivendi-tinted~
+  are variants of the two main themes.  They slightly tone down the
+  intensity of the background and provide a bit more color variety.
+  ~modus-operandi-tinted~ has a set of base tones that are shades of
+  light ochre (earthly colors), while ~modus-vivendi-tinted~ gives a
+  night sky impression.
+
+- Deuteranopia themes :: ~modus-operandi-deuteranopia~ and its
+  companion ~modus-vivendi-deuteranopia~ are optimized for users with
+  red-green color deficiency.  This means that they do not use red and
+  green hues for color-coding purposes, such as for diff removed and
+  added lines.  Instead, they implement colors that are discernible by
+  users with deueteranopia or deuteranomaly (mostly yellow and blue
+  hues).
+
+- Tritanopia themes :: ~modus-operandi-tritanopia~ and its counterpart
+  ~modus-vivendi-tritanopia~ are optimized for users with blue-yellow
+  color deficiency.  The idea is the same as with the deuteranopia
+  variants: color coding relies only on hues that are accessible to
+  people with tritanopia or tritanomaly, namely, shades of red and
+  cyan.
+#+end_quote
+
+** Recalibrated the "graph" colours in all themes
+:PROPERTIES:
+:CUSTOM_ID: h:60bb2797-2db6-4d47-9d27-7d1f32291707
+:END:
+
+The new palette subset improves the contrast of all the relevant
+colours when presented side-by-side.  These are most notably used by
+the ~org-habit~ consistency graph, which is displayed in the Org
+agenda.  The deuteranopia and tritanopia themes have their own bespoke
+colours for this purpose, due to their specific requirements for
+colour coding (e.g. they cannot use green).
+
+** Faces or face groups
+:PROPERTIES:
+:CUSTOM_ID: h:4b68159e-d998-4781-b202-74a3dcc8ae8e
+:END:
+
+- Introduced a subtle 3D effect for clickable buttons, replacing the
+  previous 2D design.  I realised the flat style creates ambiguity
+  between the button and the text fields.  This happens, for example,
+  with =M-x customize-variable= for ~org-capture-templates~ which has
+  lots of button and text field combinations.  The added sense of
+  depth helps with the usability of these buttons because it makes
+  them unambiguous.  Personally, I prefer the 2D approach, but here we
+  have a trade-off between usability and aesthetics.  According to
+  what I state in the manual:
+
+  #+begin_quote
+  If there arises an inescapable trade-off between usability and
+  stylistic considerations, we will always opt for the former.
+  #+end_quote
+
+- Refashioned the ~whitespace-mode~ to be much more subtle and added
+  the concomitant semantic colour mappings.
+
+  The previous style involved the use of a dim grey background for
+  each invisible character.  While this is was good to spot invisible
+  characters quickly, it was a major hindrance for users who want to
+  run ~whitespace-mode~ at all times (e.g. for the Python programming
+  language which is space-sensitive).
+
+  We thus remove the backgrounds by default but provide the option to
+  reinstate them via palette overrides (as documented at length in the
+  manual).  To this end, we have two new semantic colour mappings for
+  ordinary space, its invisible characters, as well as space errors.
+
+  Thanks to Christian Tietze and Oliver Epper for their feedback in
+  issue 80 on the GitHub mirror:
+  <https://github.com/protesilaos/modus-themes/issues/80>.
+
+- Applied a more subtle background for faces ~menu-bar-mode~,
+  ~tool-bar-mode~, ~scroll-bar-mode~.  They do not need to stand out
+  so much because the toolkit already takes care of that.  Also, we do
+  not want to dillute the semantic value of either ~bg-tab-bar~ or
+  ~fringe~ palette colour mappings that I was wrongly using before in
+  this context.  Note that those faces may not apply, depending on the
+  underlying tool kit.  For example, I encounter them with the Lucid
+  build of Emacs, though not with the GTK one.
+
+- Fix the critical typo of 'widget-buton', which prevented the actual
+  ~widget-button~ face from being affected by the themes.  Thanks to
+  Steve Downey for pointing it out in issue 73 on the GitHub mirror:
+  <https://github.com/protesilaos/modus-themes/issues/73>.
+
+- Added support for the ~disk-usage~ package.  It is made to look like
+  Dired, to the extent possible.  Thanks to Nacho Barrientos for the
+  patch: <https://lists.sr.ht/~protesilaos/modus-themes/patches/39822>.
+  The change is small and does not require copyright assignment to the
+  Free Software Foundation.
+
+- Made the ~eglot-diagnostic-tag-unnecessary-face~ look like a
+  warning.  By default it inherits the ~shadow~ face, which makes it
+  counter-intuitive as it dims the text instead of bringing it to our
+  attention.  The intent of ~eglot-diagnostic-tag-unnecessary-face~ is
+  to highlight unused symbols, so this is better presented as a
+  warning.
+
+  Thanks to Augusto Stoffel for bringing this matter to my attention.
+  This was done via a private channel and the information is shared
+  with permission.
+
+- Changed the ~smerge-markers~ to inherit from ~diff-header~ instead
+  of ~diff-heading~.  Thanks to Steve Downey for the contribution.
+  This was done in pull request 74 on the GitHub mirror:
+  <https://github.com/protesilaos/modus-themes/pull/74>.  The change
+  is small and does not require copyright assignment to the Free
+  Software Foundation.
+
+- Added support for the ~jinx~ package.  This was originally done by
+  Tomasz Hołubowicz in pull request 71 on the GitHub mirror:
+  <https://github.com/protesilaos/modus-themes/pull/71>.  The change
+  is small and does not require copyright assignment to the Free
+  Software Foundation.  I then modified it to make the underlines look
+  like warnings instead of errors.  This is because of how the package
+  works: it automatically highlights misspellings in the visible
+  portion of the buffer.  There are cases where this results in a very
+  intense presentation, which can be distracting.  We want to reduce
+  the overall intensity and not draw too much attention to those
+  highlights.
+
+- Extended coverage of Org to the new ~org-agenda-calendar-daterange~
+  face (part of Org version 9.7).  Thanks to Gautier Ponsinet for the
+  patch, which I received via a private channel.  The change is small
+  and does not require copyright assignment to the Free Software
+  Foundation.  In addition to this, I introduced a new semantic colour
+  mapping in the themes' palette called ~date-range~.  This can be
+  used with the palette overrides, which are documented at length in
+  the manual (there are lots of copy-pastable examples as well).
+
+- Supported all of the new faces of the built-in ~proced~ package.
+  These are part of Emacs 29 and make the ~proced~ buffers more
+  colourful, subject to the user option ~proced-enable-color-flag~.
+  As always, the themes strive to avoid exaggerations, meaning that I
+  apply colour with restraint: not all faces need to stand out.
+
+- Included the ~rst-mode~ in the list of explicitly supported
+  packages, making its heading look like those of Org, Markdown, etc.
+  Thanks to David Edmondson for the patch:
+  <https://lists.sr.ht/~protesilaos/modus-themes/patches/40625>.  I
+  believe David has already assigned copyright to the Free Software
+  Foundation, though this patch is small anyway.
+
+- Covered all the new faces of the built-in ~flymake~ package.  These
+  concern the inline feedback messages (Emacs 30) as well as those
+  that appear in the echo area (Emacs 29).  The former are subject to
+  the user option ~flymake-show-diagnostics-at-end-of-line~.
+
+- Reduced the intensity of the ~which-key~ prefix descriptions.  Those
+  are the keymaps that displayed by ~which-key~ to hint that typing
+  the given key will open a new ~which-key~ page with more keys.
+
+- Configured new ~vundo-saved~ and ~vundo-last-saved~ faces of the
+  ~vundo~ package.  They are designed to be easy to read, without
+  going over-the-top.  Thanks to Nicolas Semrau for bringing this
+  matter to my attention in issue 79 on the GitHub mirror:
+  <https://github.com/protesilaos/modus-themes/issues/79>.
+
+- Removed the deprecated ~consult-preview-cursor~ face and made the
+  requisite adjustments to the ~consult~ faces.  This was done in
+  commit =267b0c9= of the Consult Git repository.  Discussed here:
+  <https://github.com/minad/consult/issues/764#issuecomment-1537491625>.
+
+- Instructed the ~shr-selected-link~ face of the built-in ~shr~
+  package to use a "mark selection" style instead of the semantically
+  incorrect "intense red" it had before.  This change is helpful for
+  those who override the palette of their Modus theme of choice, while
+  it also allows us to have varied colours depending on the
+  requirements of each theme (e.g. deuteranopia/tritanopia compared to
+  the defaults).
+
+- Did the same as above, mutatis mutandis, for the faces
+  ~transient-disabled-suffix~, ~web-mode-error-face~,
+  ~erc-dangerous-host-face~, ~aw-minibuffer-leading-char-face~,
+  ~binder-sidebar-highlight~, ~binder-sidebar-missing~,
+  ~image-dired-thumb-flagged~, ~image-dired-thumb-mark~,
+  ~info-menu-star~, ~rainbow-delimiters-mismatched-face~,
+  ~evil-ex-substitute-matches~, ~iedit-occurrence~,
+  ~iedit-read-only-occurrence~, ~pgtk-im-0~, ~dired-narrow-blink~.
+
+- Enhanced the ~image-dired~ mark faces with a box border, as the use
+  of a background alone can be obscured by the underlying image
+  thumbnail, depending on its figures/colours.
+
+- Removed the backgrounds from the ~powerline-evil~ faces and
+  simplified their overral presentation in the interest of
+  maintainability.  The old styles were hard to predict and test.
+  There could easily be conflicts, such as if the user would override
+  the colours of the mode line.
+
+- Ensured that ~diary~ and ~holiday~ colours are distinct and legible,
+  without being too intense.
+
+** Changes to the manual or other documentation
+:PROPERTIES:
+:CUSTOM_ID: h:d3c12dd0-4231-420b-a212-b6bd571c5c34
+:END:
+
+- Updated the doc string of the primary customisation group defined by
+  the themes to reflect the support for the case of tritanopia.
+
+- Included links to the web page of the manual and the one with the
+  sample pictures in the customisation groups.  Those links appear in
+  the various Custom UI buffers.
+
+- Introduced an annotation function for all commands that involve
+  minibuffer completion.  The annotations display the one-line
+  description of each theme, making it easier for a user to pick their
+  preferred choice (e.g. when using the ~modus-themes-select~
+  command).
+
+- Defined semantic colour mappings for "marks".  These are used by
+  ~dired~, ~trashed~, ~proced~, and others.  These is no change to the
+  default appearance of what users are already familiar with, though
+  it is now possible to override those styles.
+
+- Complemented the subset of semantic colour mappings for
+  errors/warnings with "prominent" variants.  Those employ a
+  background and foreground combination.  They are used in all sorts
+  of contexts, such as for fringe errors (~flymake~, ~flycheck~, ...),
+  ~query-replace~, ~isearch-fail~, and others.
+
+- Wrote sample code on how to add "padding" to the Emacs frame and the
+  space between the Emacs windows.  This makes for a presentation that
+  some users find easier to work with.
+
+- Corrected the sample code for ~git-gutter~ to use the appropriate
+  symbols from the theme palette.  Thanks to Christian Tietze for the
+  patch: <https://lists.sr.ht/~protesilaos/modus-themes/patches/40354>.
+  The change is small and does not require copyright assignment to the
+  Free Software Foundation.
+
+- Removed ~moody~ from the list of packages explicitly supported by
+  the themes.  We stopped supporting it since version 4 that removed
+  the relevant user option for the mode line.  The idea is that the
+  mode line is better handled by the user without interference from
+  the theme, due to the number of options available (and how brittle
+  those can be when interacting with unpredictable face definitions).
+  Thanks to Nicolas De Jaeghere for reminding me to remove ~moody~
+  from the manual:
+  <https://lists.sr.ht/~protesilaos/modus-themes/%3Cypi9jzyclqxy.fsf%40gmail.com%3E#%3C87jzybdgg1.fsf@dejaeghe.re%3E>.
+
+** Miscellaneous
+:PROPERTIES:
+:CUSTOM_ID: h:7240990a-2b4d-442c-a15c-84c8d8b26622
+:END:
+
+- Added two new preset palette overrides to make the overall
+  presentation "warmer" or "cooler".  Those are called
+  ~modus-themes-preset-overrides-warmer~ and
+  ~modus-themes-preset-overrides-cooler~, respectively.  The manual
+  explains how those presets can be used.  I suggest the user does not
+  add such overrides if they intend to load any of the deuteranopia or
+  tritanopia themes, due to the specific requirements of their design.
+
+- Refined the deuteranopia yellows for warnings, errors, and comments.
+  These otherwise slight adjustments make it considerably easier to
+  tell apart distinct elements that may be positioned close together.
+
+- Tweaked the deuteranopia semantic colour mappings for emails.  The
+  subject line use a more appropriate colour value, while level 3
+  quotes stand out a bit more than they did before, without being
+  needlessly intense.
+
+- Arranged for the ~modus-themes-load-theme~ function return the value
+  of the =THEME= argument it accepts.  The intent is to allow other
+  functions that call this one to capture the return value for their
+  purposes (such as with a ~let~ binding).  Thank to Oliver Epper for
+  the feedback in issue 78 on the GitHub mirror:
+  <https://github.com/protesilaos/modus-themes/issues/78>.
+
 * 4.1.0
 :PROPERTIES:
 :CUSTOM_ID: h:d028f117-8a74-4c0c-b838-9f6bf2b43c19
@@ -141,7 +461,7 @@ and the information is shared with permission.
   ~consult~ package.  We use the ~shadow~ face in all interfaces where
   line numbers are contextual information (Occur, Grep,...).  With
   Consult, this was not the case for commands like ~consult-line~.
- 
+
   Thanks to Daniel Mendler (also known as @minad) for bringing this
   matter to my attention:
   <https://lists.sr.ht/~protesilaos/ef-themes/%3Cb03413a6-cb77-615d-145d-db4eb710bfca%40daniel-mendler.de%3E>.
@@ -201,7 +521,7 @@ and the information is shared with permission.
   weight only when the user option ~modus-themes-bold-constructs~ is
   set to a non-nil value.  Thanks to Marko Kocic for reporting an
   issue that brought this matter to my attention:
-  
+
   - <https://lists.sr.ht/~protesilaos/modus-themes/%3C35588839.256749.1673272214728%40office.mailbox.org%3E>
   - <https://lists.sr.ht/~protesilaos/modus-themes/%3C874jszvk5g.fsf%40protesilaos.com%3E>
   - <https://lists.sr.ht/~protesilaos/modus-themes/%3C87ilhfu101.fsf%40protesilaos.com%3E>
@@ -278,10 +598,10 @@ and the information is shared with permission.
   contribution.  Sergey's contribution is within the ~15 line limit
   and thus does not require copyright assignment to the Free Software
   Foundation.
-  
+
   This was done in merge request 59 on the GitLab mirror:
   <https://gitlab.com/protesilaos/modus-themes/-/merge_requests/59>.
-  
+
   The prepatory discussion took place in issue 310 on the same mirror:
   <https://gitlab.com/protesilaos/modus-themes/-/issues/310>.
 
@@ -290,7 +610,7 @@ and the information is shared with permission.
   Kiraly for informing me about the fact that the ~:bind~ keyword
   delays the load of the package until the given command is invoked:
   <https://github.com/protesilaos/modus-themes/pull/67>.
-  
+
   Streamlining the configuration makes it easier for me to propose one
   set of basic configurations without the need to know what a
   configuration macro is doing behind the scenes.

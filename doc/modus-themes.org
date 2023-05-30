@@ -4,9 +4,9 @@
 #+language:              en
 #+options:               ':t toc:nil author:t email:t num:t
 #+startup:               content
-#+macro:                 stable-version 4.1.0
-#+macro:                 release-date 2023-02-22
-#+macro:                 development-version 4.2.0-dev
+#+macro:                 stable-version 4.2.0
+#+macro:                 release-date 2023-05-30
+#+macro:                 development-version 4.3.0-dev
 #+macro:                 file @@texinfo:@file{@@$1@@texinfo:}@@
 #+macro:                 space @@texinfo:@: @@
 #+macro:                 kbd @@texinfo:@kbd{@@$1@@texinfo:}@@
@@ -105,19 +105,19 @@ The Modus themes consist of eight themes, divided into four subgroups.
   ~modus-vivendi-tritanopia~ are optimized for users with blue-yellow
   color deficiency.  The idea is the same as with the deuteranopia
   variants: color coding relies only on hues that are accessible to
-  people with tritanopia or tritanomaly.
-
-[ The tritanopia themes are part of {{{development-version}}}. ]
+  people with tritanopia or tritanomaly, namely, shades of red and
+  cyan.
 
 To ensure that users have a consistently accessible experience, the
 themes strive to achieve as close to full face coverage as possible,
 while still targeting a curated list of well-maintained packages
 ([[#h:a9c8f29d-7f72-4b54-b74b-ddefe15d6a19][Face coverage]]).
 
-The overarching objective of this project is to always offer accessible
-color combinations.  There shall never be a compromise on this
-principle.  If there arises an inescapable trade-off between readability
-and stylistic considerations, we will always opt for the former.
+The overarching objective of this project is to always offer
+accessible color combinations.  There shall never be a compromise on
+this principle.  If there arises an inescapable trade-off between
+usability and stylistic considerations, we will always opt for the
+former.
 
 Starting with version 0.12.0 and onwards, the themes are built into GNU
 Emacs.
@@ -1091,8 +1091,6 @@ palette variable is =THEME-NAME-palette-overrides=, thus yielding:
 #+vindex: modus-vivendi-tritanopia-palette-overrides
 + ~modus-vivendi-tritanopia-palette-overrides~
 
-[ The tritanopia themes are part of {{{development-version}}}. ]
-
 Theme-specific overrides take precedence over the shared ones.  It is
 strongly advised that shared overrides do NOT alter color values, as
 those will not be appropriate for both dark and light themes.  Common
@@ -1231,9 +1229,6 @@ For some stylistic variation try the "cooler" and "warmer" presets:
 ;; Or:
 (setq modus-themes-common-palette-overrides modus-themes-preset-overrides-warmer)
 #+end_src
-
-[ The "warmer" and "cooler" preset overrides are part of
-  {{{development-version}}}. ]
 
 Note that the user is not limited to those presets.  The system of
 overrides we provide makes it possible to tweak the value of each
@@ -2740,10 +2735,9 @@ for palette overrides.  Else it reads only the default palette.
 
 [[#h:34c7a691-19bb-4037-8d2f-67a07edab150][Option for palette overrides]].
 
-With optional =THEME= as a symbol among ~modus-themes-items~, use the
-palette of that item.  Else use the current Modus theme. [As part of
-{{{development-version}}}, the ~modus-themes-items~ has an alias
-called ~modus-themes-collection~.]
+With optional =THEME= as a symbol among ~modus-themes-items~ (alias
+~modus-themes-collection~), use the palette of that item.  Else use
+the current Modus theme.
 
 If =COLOR= is not present in the palette, this function returns the
 ~unspecified~ symbol, which is safe when used as a face attribute's
@@ -3893,7 +3887,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + dired-narrow
 + dired-subtree
 + diredfl
-+ disk-usage [Part of {{{development-version}}}]
++ disk-usage
 + display-fill-column-indicator-mode
 + doom-modeline
 + ediff
@@ -3958,8 +3952,8 @@ have lots of extensions, so the "full support" may not be 100% true…
 + ivy*
 + ivy-posframe
 + jira (org-jira)
-+ jit-spell [Part of {{{development-version}}}]
-+ jinx [Part of {{{development-version}}}]
++ jit-spell
++ jinx
 + journalctl-mode
 + js2-mode
 + julia
@@ -4011,7 +4005,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + powerline
 + prism ([[#h:a94272e0-99da-4149-9e80-11a7e67a2cf2][Note for prism.el]])
 + prescient
-+ proced [Expanded as part of {{{development-version}}}.]
++ proced
 + prodigy
 + pulse
 + pyim
@@ -4024,7 +4018,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + rg (rg.el)
 + ripgrep
 + rmail
-+ rst-mode [Part of {{{development-version}}}.]
++ rst-mode
 + ruler-mode
 + sesman
 + shell-script-mode
