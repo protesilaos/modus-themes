@@ -4065,6 +4065,9 @@ have lots of extensions, so the “full support” may not be 100% true…
    • mpdel
    • mu4e
    • multiple-cursors
+   • nerd-icons [Part of 4.3.0-dev.]
+   • nerd-icons-dired [Part of 4.3.0-dev.]
+   • nerd-icons-ibuffer [Part of 4.3.0-dev.]
    • neotree
    • notmuch
    • num3-mode
@@ -6214,47 +6217,47 @@ Node: Custom hl-todo colors160194
 Node: Add support for solaire-mode161732
 Node: Face coverage164643
 Node: Supported packages165095
-Node: Indirectly covered packages170494
-Node: Notes on individual packages171847
-Node: Note on calendarel weekday and weekend colors172947
-Node: Note on git-gutter in Doom Emacs174095
-Node: Note on php-mode multiline comments176436
-Node: Note on underlines in compilation buffers177189
-Node: Note on inline Latex in Org buffers178026
-Node: Note on dimmerel178636
-Node: Note on display-fill-column-indicator-mode180121
-Node: Note on highlight-parenthesesel181520
-Node: Note on mmm-modeel background colors187498
-Node: Note for prism189798
-Node: Note on company-mode overlay pop-up192966
-Ref: Note on company-mode overlay pop-up-Footnote-1193696
-Ref: Note on company-mode overlay pop-up-Footnote-2193763
-Node: Note on ERC escaped color sequences193818
-Ref: Note on ERC escaped color sequences-Footnote-1195246
-Node: Note on powerline or spaceline195356
-Node: Note on SHR colors195770
-Node: Note on SHR fonts196194
-Node: Note on Ement colors and fonts196839
-Node: Note on pdf-tools link hints198349
-Node: Note on the Notmuch logo200809
-Node: Note on goto-address-mode faces201347
-Node: Frequently Asked Questions202465
-Node: Is the contrast ratio about adjacent colors?203096
-Node: What does it mean to avoid exaggerations?204603
-Node: Why are colors mostly variants of blue magenta cyan?206453
-Node: What is the best setup for legibility?210759
-Node: Are these color schemes?213404
-Node: Port the Modus themes to other platforms?217086
-Node: Contributing219930
-Node: Sources of the themes220327
-Node: Issues you can help with221221
-Node: Patches require copyright assignment to the FSF222612
-Node: Acknowledgements224832
-Node: GNU Free Documentation License228909
-Node: Indices254273
-Node: Function index254452
-Node: Variable index255635
-Node: Concept index258091
+Node: Indirectly covered packages170625
+Node: Notes on individual packages171978
+Node: Note on calendarel weekday and weekend colors173078
+Node: Note on git-gutter in Doom Emacs174226
+Node: Note on php-mode multiline comments176567
+Node: Note on underlines in compilation buffers177320
+Node: Note on inline Latex in Org buffers178157
+Node: Note on dimmerel178767
+Node: Note on display-fill-column-indicator-mode180252
+Node: Note on highlight-parenthesesel181651
+Node: Note on mmm-modeel background colors187629
+Node: Note for prism189929
+Node: Note on company-mode overlay pop-up193097
+Ref: Note on company-mode overlay pop-up-Footnote-1193827
+Ref: Note on company-mode overlay pop-up-Footnote-2193894
+Node: Note on ERC escaped color sequences193949
+Ref: Note on ERC escaped color sequences-Footnote-1195377
+Node: Note on powerline or spaceline195487
+Node: Note on SHR colors195901
+Node: Note on SHR fonts196325
+Node: Note on Ement colors and fonts196970
+Node: Note on pdf-tools link hints198480
+Node: Note on the Notmuch logo200940
+Node: Note on goto-address-mode faces201478
+Node: Frequently Asked Questions202596
+Node: Is the contrast ratio about adjacent colors?203227
+Node: What does it mean to avoid exaggerations?204734
+Node: Why are colors mostly variants of blue magenta cyan?206584
+Node: What is the best setup for legibility?210890
+Node: Are these color schemes?213535
+Node: Port the Modus themes to other platforms?217217
+Node: Contributing220061
+Node: Sources of the themes220458
+Node: Issues you can help with221352
+Node: Patches require copyright assignment to the FSF222743
+Node: Acknowledgements224963
+Node: GNU Free Documentation License229040
+Node: Indices254404
+Node: Function index254583
+Node: Variable index255766
+Node: Concept index258222
 
 End Tag Table
 
