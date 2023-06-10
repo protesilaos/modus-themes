@@ -3150,20 +3150,20 @@ have something like this:
 #+end_src
 
 You could then use a variant of the following to inherit from a face
-that uses the styles you want and also to preserve the properties
-applied by the ~org-todo~ face (in case there is a difference between the
-two):
+that uses the styles you want and also to preserve the attributes
+applied by the ~org-todo~ face (in case there is a difference between
+the two):
 
 #+begin_src emacs-lisp
 (setq org-todo-keyword-faces
-      '(("MEET" . '(bold org-todo))
-        ("STUDY" . '(warning org-todo))
-        ("WRITE" . '(shadow org-todo))))
+      '(("MEET" . (:inherit (bold org-todo)))
+        ("STUDY" . (:inherit (warning org-todo)))
+        ("WRITE" . (:inherit (shadow org-todo)))))
 #+end_src
 
 This will refashion the keywords you specify, while letting the other
-items in ~org-todo-keywords~ use their original styles (which are defined
-in the ~org-todo~ and ~org-done~ faces).
+items in ~org-todo-keywords~ use their original styles, which are
+defined in the ~org-todo~ and ~org-done~ faces.
 
 If you want back the defaults, try specifying just the ~org-todo~ face:
 
@@ -3174,24 +3174,27 @@ If you want back the defaults, try specifying just the ~org-todo~ face:
         ("WRITE" . org-todo)))
 #+end_src
 
-When you inherit from multiple faces, you need to quote the list as
+Or set ~org-todo-keyword-faces~ to ~nil~.
+
+When you inherit from multiple faces, you need to do it the way it is
 shown further above.  The order is significant: the first entry is
-applied on top of the second, overriding any properties that are
-explicitly set for both of them: any property that is not specified is
-not overridden, so, for example, if ~org-todo~ has a background and a
-foreground, while ~font-lock-type-face~ only has a foreground, the merged
-face will include the background of the former and the foreground of the
-latter.  If you do not want to blend multiple faces, you do not need a
-quoted list.  A pattern of =keyword . face= will suffice.
+applied on top of the second, overriding any attributes that are
+explicitly set for both of them: any attribute that is not specified
+is not overridden, so, for example, if ~org-todo~ has a background and
+a foreground, while ~font-lock-type-face~ only has a foreground, the
+merged face will include the background of the former and the
+foreground of the latter.  If you do not want to blend multiple faces,
+you only specify one by name without parentheses or an =:inherit=
+keyword.  A pattern of =keyword . face= will suffice.
 
 Both approaches can be used simultaneously, as illustrated in this
 configuration of the priority cookies:
 
 #+begin_src emacs-lisp
 (setq org-priority-faces
-      '((?A . '(bold org-priority))
+      '((?A . (:inherit (bold org-priority)))
         (?B . org-priority)
-        (?C . '(shadow org-priority))))
+        (?C . (:inherit (shadow org-priority)))))
 #+end_src
 
 To find all the faces that are loaded in your current Emacs session, use
