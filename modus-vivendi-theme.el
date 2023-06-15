@@ -281,6 +281,7 @@ which corresponds to a minimum contrast in relative luminance of
       (date-deadline red)
       (date-event fg-alt)
       (date-holiday red-cooler)
+      (date-holiday-other blue)
       (date-now fg-main)
       (date-range fg-alt)
       (date-scheduled yellow-warmer)
