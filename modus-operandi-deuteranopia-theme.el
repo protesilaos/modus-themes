@@ -57,7 +57,7 @@ standard).")
 ;;; Basic values
 
       (bg-main          "#ffffff")
-      (bg-dim           "#f0f0f0")
+      (bg-dim           "#f2f2f2")
       (fg-main          "#000000")
       (fg-dim           "#595959")
       (fg-alt           "#193668")
