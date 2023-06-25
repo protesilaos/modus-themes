@@ -3732,10 +3732,14 @@ File: modus-themes.info,  Node: Use more spacious margins or padding in Emacs fr
 5.22 Use more spacious margins or padding in Emacs frames
 =========================================================
 
-By default, Emacs frames try to maximize the number of characters that
-fit in the current visible portion of the buffer.  Users may prefer to
-have some extra padding instead.  This can make Emacs frames look more
-pleasant, but also make it easier to identify the currently active
+[ UPDATE 2023-06-25: Instead of following these instructions, you can
+simply install my ‘spacious-padding’ package from GNU ELPA.  It
+implements the padding and provides relevant user options.  ]
+
+   By default, Emacs frames try to maximize the number of characters
+that fit in the current visible portion of the buffer.  Users may prefer
+to have some extra padding instead.  This can make Emacs frames look
+more pleasant, but also make it easier to identify the currently active
 window.
 
    The way to implement such padding is two-fold:
@@ -6216,51 +6220,51 @@ Node: Backdrop for pdf-tools149834
 Node: Toggle themes without reloading them152733
 Node: A theme-agnostic hook for theme loading154009
 Node: Use more spacious margins or padding in Emacs frames156462
-Node: Custom hl-todo colors160348
-Node: Add support for solaire-mode161886
-Node: Face coverage164797
-Node: Supported packages165249
-Node: Indirectly covered packages170779
-Node: Notes on individual packages172132
-Node: Note on calendarel weekday and weekend colors173232
-Node: Note on git-gutter in Doom Emacs174380
-Node: Note on php-mode multiline comments176721
-Node: Note on underlines in compilation buffers177474
-Node: Note on inline Latex in Org buffers178311
-Node: Note on dimmerel178921
-Node: Note on display-fill-column-indicator-mode180406
-Node: Note on highlight-parenthesesel181805
-Node: Note on mmm-modeel background colors187783
-Node: Note for prism190083
-Node: Note on company-mode overlay pop-up193251
-Ref: Note on company-mode overlay pop-up-Footnote-1193981
-Ref: Note on company-mode overlay pop-up-Footnote-2194048
-Node: Note on ERC escaped color sequences194103
-Ref: Note on ERC escaped color sequences-Footnote-1195531
-Node: Note on powerline or spaceline195641
-Node: Note on SHR colors196055
-Node: Note on SHR fonts196479
-Node: Note on Ement colors and fonts197124
-Node: Note on pdf-tools link hints198634
-Node: Note on the Notmuch logo201094
-Node: Note on goto-address-mode faces201632
-Node: Frequently Asked Questions202750
-Node: Is the contrast ratio about adjacent colors?203381
-Node: What does it mean to avoid exaggerations?204888
-Node: Why are colors mostly variants of blue magenta cyan?206738
-Node: What is the best setup for legibility?211044
-Node: Are these color schemes?213689
-Node: Port the Modus themes to other platforms?217371
-Node: Contributing220215
-Node: Sources of the themes220612
-Node: Issues you can help with221506
-Node: Patches require copyright assignment to the FSF222897
-Node: Acknowledgements225117
-Node: GNU Free Documentation License229211
-Node: Indices254575
-Node: Function index254754
-Node: Variable index255937
-Node: Concept index258393
+Node: Custom hl-todo colors160552
+Node: Add support for solaire-mode162090
+Node: Face coverage165001
+Node: Supported packages165453
+Node: Indirectly covered packages170983
+Node: Notes on individual packages172336
+Node: Note on calendarel weekday and weekend colors173436
+Node: Note on git-gutter in Doom Emacs174584
+Node: Note on php-mode multiline comments176925
+Node: Note on underlines in compilation buffers177678
+Node: Note on inline Latex in Org buffers178515
+Node: Note on dimmerel179125
+Node: Note on display-fill-column-indicator-mode180610
+Node: Note on highlight-parenthesesel182009
+Node: Note on mmm-modeel background colors187987
+Node: Note for prism190287
+Node: Note on company-mode overlay pop-up193455
+Ref: Note on company-mode overlay pop-up-Footnote-1194185
+Ref: Note on company-mode overlay pop-up-Footnote-2194252
+Node: Note on ERC escaped color sequences194307
+Ref: Note on ERC escaped color sequences-Footnote-1195735
+Node: Note on powerline or spaceline195845
+Node: Note on SHR colors196259
+Node: Note on SHR fonts196683
+Node: Note on Ement colors and fonts197328
+Node: Note on pdf-tools link hints198838
+Node: Note on the Notmuch logo201298
+Node: Note on goto-address-mode faces201836
+Node: Frequently Asked Questions202954
+Node: Is the contrast ratio about adjacent colors?203585
+Node: What does it mean to avoid exaggerations?205092
+Node: Why are colors mostly variants of blue magenta cyan?206942
+Node: What is the best setup for legibility?211248
+Node: Are these color schemes?213893
+Node: Port the Modus themes to other platforms?217575
+Node: Contributing220419
+Node: Sources of the themes220816
+Node: Issues you can help with221710
+Node: Patches require copyright assignment to the FSF223101
+Node: Acknowledgements225321
+Node: GNU Free Documentation License229415
+Node: Indices254779
+Node: Function index254958
+Node: Variable index256141
+Node: Concept index258597
 
 End Tag Table
 

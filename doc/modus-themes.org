@@ -3639,6 +3639,10 @@ need to (provided they understand the implications).
 :CUSTOM_ID: h:43bcb5d0-e25f-470f-828c-662cee9e21f1
 :END:
 
+[ UPDATE 2023-06-25: Instead of following these instructions, you can
+  simply install my ~spacious-padding~ package from GNU ELPA.  It
+  implements the padding and provides relevant user options. ]
+
 By default, Emacs frames try to maximize the number of characters that
 fit in the current visible portion of the buffer.  Users may prefer to
 have some extra padding instead.  This can make Emacs frames look more
