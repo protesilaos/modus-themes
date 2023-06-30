@@ -197,7 +197,7 @@ standard).")
 
       (bg-removed         "#3d3d00")
       (bg-removed-faint   "#281f00")
-      (bg-removed-refine  "#515100")
+      (bg-removed-refine  "#555500")
       (bg-removed-fringe  "#d0c03f")
       (fg-removed         "#d4d48f")
       (fg-removed-intense "#d0b05f")
