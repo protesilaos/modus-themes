@@ -162,8 +162,8 @@ standard).")
       (fg-region           "#ffffff")
 
       (bg-char-0 "#922a00")
-      (bg-char-1 "#4f3f7f")
-      (bg-char-2 "#00709f")
+      (bg-char-1 "#00709f")
+      (bg-char-2 "#5f3faf")
 
       (bg-mode-line-active        "#003c52")
       (fg-mode-line-active        "#f0f0f0")
