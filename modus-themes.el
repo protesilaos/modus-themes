@@ -2111,9 +2111,6 @@ FG and BG are the main colors."
     `(crontab-month ((,c :foreground ,constant)))
     `(crontab-week-day ((,c :foreground ,variable)))
     `(crontab-predefined ((,c :foreground ,string)))
-;;;;; css-mode
-    `(css-property ((,c :inherit font-lock-type-face)))
-    `(css-selector ((,c :inherit font-lock-keyword-face)))
 ;;;;; csv-mode
     `(csv-separator-face ((,c :foreground ,red-intense)))
 ;;;;; ctrlf
