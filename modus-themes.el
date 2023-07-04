@@ -2417,6 +2417,11 @@ FG and BG are the main colors."
 ;;;;; ert
     `(ert-test-result-expected ((,c :inherit modus-themes-prominent-note)))
     `(ert-test-result-unexpected ((,c :inherit modus-themes-prominent-error)))
+;;;;; erts-mode
+    `(erts-mode-end-test ((,c :inherit error)))
+    `(erts-mode-specification-name ((,c :inherit bold)))
+    `(erts-mode-specification-value ((,c :foreground ,string)))
+    `(erts-mode-start-test ((,c :inherit success)))
 ;;;;; eshell
     `(eshell-ls-archive ((,c :foreground ,accent-2)))
     `(eshell-ls-backup ((,c :inherit shadow)))
