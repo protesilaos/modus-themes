@@ -154,7 +154,7 @@ standard).")
 ;;; Special purpose
 
       (bg-completion       "#2f447f")
-      (bg-hover            "#004f70")
+      (bg-hover            "#45605e")
       (bg-hover-secondary  "#654a39")
       (bg-hl-line          "#2f3849")
       (bg-region           "#5a5a5a")
