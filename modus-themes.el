@@ -1346,12 +1346,13 @@ Disable other themes per `modus-themes-disable-other-themes'."
 
 (defun modus-themes--toggle-theme-p ()
   "Return non-nil if `modus-themes-to-toggle' are valid."
-  (mapc (lambda (theme)
-          (if (or (memq theme modus-themes-items)
-                  (memq theme (modus-themes--list-known-themes)))
-              theme
-            (user-error "`%s' is not part of `modus-themes-items'" theme)))
-        modus-themes-to-toggle))
+  (mapc
+   (lambda (theme)
+     (if (or (memq theme modus-themes-items)
+             (memq theme (modus-themes--list-known-themes)))
+         theme
+       (user-error "`%s' is not part of `modus-themes-items'" theme)))
+   modus-themes-to-toggle))
 
 ;;;###autoload
 (defun modus-themes-toggle ()
