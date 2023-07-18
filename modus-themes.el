@@ -1367,9 +1367,7 @@ Disable other themes per `modus-themes-disable-other-themes'."
   (if-let* ((themes (modus-themes--toggle-theme-p))
             (one (car themes))
             (two (cadr themes)))
-      (if (eq (car custom-enabled-themes) one)
-          (modus-themes-load-theme two)
-        (modus-themes-load-theme one))
+      (modus-themes-load-theme (if (eq (car custom-enabled-themes) one) two one))
     (modus-themes-load-theme (modus-themes--select-prompt))))
 
 (defun modus-themes--list-colors-render (buffer theme &optional mappings &rest _)
