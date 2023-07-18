@@ -1326,13 +1326,24 @@ symbol, which is safe when used as a face attribute's value."
              (doc-string (get symbol 'theme-documentation)))
     (format " -- %s" (car (split-string doc-string "\\.")))))
 
+(defun modus-themes--completion-table (category candidates)
+  "Pass appropriate metadata CATEGORY to completion CANDIDATES."
+  (lambda (string pred action)
+    (if (eq action 'metadata)
+        `(metadata (category . ,category))
+      (complete-with-action action candidates string pred))))
+
+(defun modus-themes--completion-table-candidates ()
+  "Render `modus-themes--list-known-themes' as completion with theme category."
+  (modus-themes--completion-table 'theme (modus-themes--list-known-themes)))
+
 (defun modus-themes--select-prompt ()
   "Minibuffer prompt to select a Modus theme."
   (let ((completion-extra-properties `(:annotation-function ,#'modus-themes--annotate-theme)))
     (intern
      (completing-read
       "Select Modus theme: "
-      (modus-themes--list-known-themes)
+      (modus-themes--completion-table-candidates)
       nil t nil
       'modus-themes--select-theme-history))))
 
@@ -1425,7 +1436,8 @@ Helper function for `modus-themes-list-colors'."
         (completion-extra-properties `(:annotation-function ,#'modus-themes--annotate-theme)))
     (completing-read
      (format "Use palette from theme [%s]: " def)
-     (modus-themes--list-known-themes) nil t nil
+     (modus-themes--completion-table-candidates)
+     nil t nil
      'modus-themes--list-colors-prompt-history def)))
 
 (defun modus-themes-list-colors (theme &optional mappings)
