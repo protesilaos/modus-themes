@@ -997,9 +997,9 @@ Info node `(modus-themes) Option for palette overrides'.")
 
     (prose-block red-faint)
     (prose-done green-intense)
-    (prose-metadata cyan-faint)
+    (prose-metadata magenta-faint)
     (prose-metadata-value blue-cooler)
-    (prose-table cyan)
+    (prose-table blue)
     (prose-todo red-intense)
 
     (fg-heading-0 blue-cooler)
