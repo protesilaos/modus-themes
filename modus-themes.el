@@ -841,8 +841,6 @@ represents."
 
 (defvar modus-themes-preset-overrides-faint
   '((bg-completion       bg-inactive)
-    (bg-hover            bg-cyan-subtle)
-    (bg-hover-secondary  bg-magenta-subtle)
     (bg-hl-line          bg-dim)
     (bg-paren-match      bg-cyan-subtle)
     (bg-region           bg-active)
