@@ -3871,6 +3871,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + completions
 + consult
 + corfu
++ corfu-candidate-overlay [Part of {{{development-version}}}]
 + corfu-quick
 + counsel*
 + cperl-mode
