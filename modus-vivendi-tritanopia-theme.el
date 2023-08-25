@@ -43,6 +43,7 @@
                (require-theme 'modus-themes t))
     (require 'modus-themes))
 
+;;;###theme-autoload
   (deftheme modus-vivendi-tritanopia
     "Tritanopia-optimized theme with a black background.
 This variant is optimized for users with blue-yellow color
@@ -50,7 +51,10 @@ deficiency (tritanopia).  It conforms with the highest
 legibility standard for color contrast between background and
 foreground in any given piece of text, which corresponds to a
 minimum contrast in relative luminance of 7:1 (WCAG AAA
-standard).")
+standard)."
+    :background-mode 'dark
+    :kind 'color-scheme
+    :family 'modus)
 
   (defconst modus-vivendi-tritanopia-palette
     '(
@@ -478,8 +482,5 @@ represents."
                       modus-vivendi-tritanopia-palette-overrides)
 
   (provide-theme 'modus-vivendi-tritanopia))
-
-;;;###theme-autoload
-(put 'modus-vivendi-tritanopia 'theme-properties '(:background-mode dark :kind color-scheme :family modus))
 
 ;;; modus-vivendi-tritanopia-theme.el ends here

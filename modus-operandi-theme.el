@@ -43,12 +43,16 @@
                (require-theme 'modus-themes t))
     (require 'modus-themes))
 
+;;;###theme-autoload
   (deftheme modus-operandi
     "Elegant, highly legible theme with a white background.
 Conforms with the highest legibility standard for color contrast
 between background and foreground in any given piece of text,
 which corresponds to a minimum contrast in relative luminance of
-7:1 (WCAG AAA standard).")
+7:1 (WCAG AAA standard)."
+    :background-mode 'light
+    :kind 'color-scheme
+    :family 'modus)
 
   (defconst modus-operandi-palette
     '(
@@ -476,8 +480,5 @@ represents."
                       modus-operandi-palette-overrides)
 
   (provide-theme 'modus-operandi))
-
-;;;###theme-autoload
-(put 'modus-operandi 'theme-properties '(:background-mode light :kind color-scheme :family modus))
 
 ;;; modus-operandi-theme.el ends here

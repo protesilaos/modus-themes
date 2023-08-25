@@ -43,6 +43,7 @@
                (require-theme 'modus-themes t))
     (require 'modus-themes))
 
+;;;###theme-autoload
   (deftheme modus-operandi-deuteranopia
     "Deuteranopia-optimized theme with a white background.
 This variant is optimized for users with red-green color
@@ -50,7 +51,10 @@ deficiency (deuteranopia).  It conforms with the highest
 legibility standard for color contrast between background and
 foreground in any given piece of text, which corresponds to a
 minimum contrast in relative luminance of 7:1 (WCAG AAA
-standard).")
+standard)."
+    :background-mode 'light
+    :kind 'color-scheme
+    :family 'modus)
 
   (defconst modus-operandi-deuteranopia-palette
     '(
@@ -478,8 +482,5 @@ represents."
                       modus-operandi-deuteranopia-palette-overrides)
 
   (provide-theme 'modus-operandi-deuteranopia))
-
-;;;###theme-autoload
-(put 'modus-operandi-deuteranopia 'theme-properties '(:background-mode light :kind color-scheme :family modus))
 
 ;;; modus-operandi-deuteranopia-theme.el ends here

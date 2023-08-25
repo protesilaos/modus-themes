@@ -43,6 +43,7 @@
                (require-theme 'modus-themes t))
     (require 'modus-themes))
 
+;;;###theme-autoload
   (deftheme modus-operandi-tritanopia
     "Tritanopia-optimized theme with a white background.
 This variant is optimized for users with blue-yellow color
@@ -50,7 +51,10 @@ deficiency (tritanopia).  It conforms with the highest
 legibility standard for color contrast between background and
 foreground in any given piece of text, which corresponds to a
 minimum contrast in relative luminance of 7:1 (WCAG AAA
-standard).")
+standard)."
+    :background-mode 'light
+    :kind 'color-scheme
+    :family 'modus)
 
   (defconst modus-operandi-tritanopia-palette
     '(
@@ -478,8 +482,5 @@ represents."
                       modus-operandi-tritanopia-palette-overrides)
 
   (provide-theme 'modus-operandi-tritanopia))
-
-;;;###theme-autoload
-(put 'modus-operandi-tritanopia 'theme-properties '(:background-mode light :kind color-scheme :family modus))
 
 ;;; modus-operandi-tritanopia-theme.el ends here

@@ -42,12 +42,16 @@
                (require-theme 'modus-themes t))
     (require 'modus-themes))
 
+;;;###theme-autoload
   (deftheme modus-vivendi
     "Elegant, highly legible theme with a black background.
 Conforms with the highest legibility standard for color contrast
 between background and foreground in any given piece of text,
 which corresponds to a minimum contrast in relative luminance of
-7:1 (WCAG AAA standard).")
+7:1 (WCAG AAA standard)."
+    :background-mode 'dark
+    :kind 'color-scheme
+    :family 'modus)
 
   (defconst modus-vivendi-palette
     '(
@@ -476,8 +480,5 @@ represents."
                       modus-vivendi-palette-overrides)
 
   (provide-theme 'modus-vivendi))
-
-;;;###theme-autoload
-(put 'modus-vivendi 'theme-properties '(:background-mode dark :kind color-scheme :family modus))
 
 ;;; modus-vivendi-theme.el ends here
