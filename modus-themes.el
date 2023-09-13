@@ -1029,7 +1029,7 @@ Info node `(modus-themes) Option for palette overrides'.")
     (overline-heading-6 yellow-cooler)
     (overline-heading-7 red-cooler)
     (overline-heading-8 magenta))
-  "Preset for palette overrides with faint coloration.
+  "Preset for palette overrides with intense coloration.
 
 This changes many parts of the theme to make them look more
 colorful/intense.  Many background colors are accented and
