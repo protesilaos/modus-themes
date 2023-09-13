@@ -3854,6 +3854,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + avy
 + bbdb
 + binder
++ breadcrumb [Part of {{{development-version}}}]
 + bongo
 + boon
 + bookmark

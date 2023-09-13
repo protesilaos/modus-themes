@@ -1950,6 +1950,10 @@ FG and BG are the main colors."
     `(binder-sidebar-marked ((,c :inherit modus-themes-mark-sel)))
     `(binder-sidebar-missing ((,c :inherit modus-themes-mark-del)))
     `(binder-sidebar-tags ((,c :foreground ,variable)))
+;;;;; breadcrumb
+    `(breadcrumb-face ((,c :foreground ,fg-alt)))
+    `(breadcrumb-imenu-leaf-face ((,c :inherit bold :foreground ,modeline-info))) ; same as `which-func'
+    `(breadcrumb-project-leaf-face ((,c :inherit bold)))
 ;;;;; bongo
     `(bongo-album-title (( )))
     `(bongo-artist ((,c :foreground ,accent-0)))
@@ -4013,7 +4017,7 @@ FG and BG are the main colors."
     `(wgrep-file-face ((,c :foreground ,fg-alt)))
     `(wgrep-reject-face ((,c :inherit error)))
 ;;;;; which-function-mode
-    `(which-func ((,c :inherit bold :foreground ,modeline-info)))
+    `(which-func ((,c :inherit bold :foreground ,modeline-info))) ; same as `breadcrumb-imenu-leaf-face'
 ;;;;; which-key
     `(which-key-command-description-face ((,c :foreground ,fg-main)))
     `(which-key-group-description-face ((,c :foreground ,keyword)))
