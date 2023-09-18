@@ -5480,10 +5480,10 @@ Ideas and user feedback
      Garcia, Ivan Popovych, James Ferguson, Jeremy Friesen, Jerry Zhang,
      Johannes Grødem, John Haman, Jonas Collberg, Jorge Morais, Joshua
      O’Connor, Julio C.  Villasante, Kenta Usami, Kevin Fleming, Kévin
-     Le Gouguec, Kevin Kainan Li, Kostadin Ninev, Laith Bahodi, Len
-     Trigg, Lennart C.  Karssen, Luis Miguel Castañeda, Magne Hov,
-     Manuel Giraud, Manuel Uberti, Mark Bestley, Mark Burton, Mark
-     Simpson, Marko Kocic, Markus Beppler, Matt Armstrong, Matthias
+     Le Gouguec, Kevin Kainan Li, Kostadin Ninev, Laith Bahodi, Lasse
+     Lindner, Len Trigg, Lennart C.  Karssen, Luis Miguel Castañeda,
+     Magne Hov, Manuel Giraud, Manuel Uberti, Mark Bestley, Mark Burton,
+     Mark Simpson, Marko Kocic, Markus Beppler, Matt Armstrong, Matthias
      Fuchs, Mattias Engdegård, Mauro Aranda, Maxime Tréca, Michael
      Goldenberg, Morgan Smith, Morgan Willcock, Murilo Pereira, Nicky
      van Foreest, Nicolas De Jaeghere, Nicolas Semrau, Olaf Meeuwissen,
@@ -6262,11 +6262,11 @@ Node: Sources of the themes220933
 Node: Issues you can help with221827
 Node: Patches require copyright assignment to the FSF223218
 Node: Acknowledgements225438
-Node: GNU Free Documentation License229559
-Node: Indices254923
-Node: Function index255102
-Node: Variable index256285
-Node: Concept index258741
+Node: GNU Free Documentation License229574
+Node: Indices254938
+Node: Function index255117
+Node: Variable index256300
+Node: Concept index258756
 
 End Tag Table
 

@@ -1563,20 +1563,22 @@ Optional OL is the color of an overline."
          (style (or key (alist-get t modus-themes-headings)))
          (style-listp (listp style))
          (properties style)
-         (var (when (memq 'variable-pitch properties) 'variable-pitch))
+         (var (when (and style-listp (memq 'variable-pitch properties)) 'variable-pitch))
          (weight (when style-listp (modus-themes--weight style))))
-    (list :inherit
-          (cond
-           ;; `no-bold' is for backward compatibility because we cannot
-           ;; deprecate a variable's value.
-           ((or weight (memq 'no-bold properties))
-            var)
-           (var (append (list 'bold) (list var)))
-           ('bold))
+    (list :inherit (cond
+                    ((not style-listp) 'bold)
+                    ;; `no-bold' is for backward compatibility because we cannot
+                    ;; deprecate a variable's value.
+                    ((or weight (memq 'no-bold properties))
+                     var)
+                    (var (append (list 'bold) (list var)))
+                    (t 'bold))
           :background (or bg 'unspecified)
           :foreground fg
           :overline (or ol 'unspecified)
-          :height (modus-themes--property-lookup properties 'height #'floatp 'unspecified)
+          :height (if style-listp
+                      (modus-themes--property-lookup properties 'height #'floatp 'unspecified)
+                    'unspecified)
           :weight (or weight 'unspecified))))
 
 (defun modus-themes--org-block (fg bg)

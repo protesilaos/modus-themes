@@ -5376,25 +5376,25 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Ferguson, Jeremy Friesen, Jerry Zhang, Johannes Grødem, John Haman,
   Jonas Collberg, Jorge Morais, Joshua O'Connor, Julio C. Villasante,
   Kenta Usami, Kevin Fleming, Kévin Le Gouguec, Kevin Kainan Li,
-  Kostadin Ninev, Laith Bahodi, Len Trigg, Lennart C. Karssen, Luis
-  Miguel Castañeda, Magne Hov, Manuel Giraud, Manuel Uberti, Mark
-  Bestley, Mark Burton, Mark Simpson, Marko Kocic, Markus Beppler,
-  Matt Armstrong, Matthias Fuchs, Mattias Engdegård, Mauro Aranda,
-  Maxime Tréca, Michael Goldenberg, Morgan Smith, Morgan Willcock,
-  Murilo Pereira, Nicky van Foreest, Nicolas De Jaeghere, Nicolas
-  Semrau, Olaf Meeuwissen, Oliver Epper, Pablo Stafforini, Paul
-  Poloskov, Pengji Zhang, Pete Kazmier, Peter Wu, Philip Kaludercic,
-  Pierre Téchoueyres, Przemysław Kryger, Robert Hepple, Roman Rudakov,
-  Russell Sim, Ryan Phillips, Rytis Paškauskas, Rudolf Adamkovič, Sam
-  Kleinman, Samuel Culpepper, Saša Janiška, Shreyas Ragavan, Simon
-  Pugnet, Steve Downey, Tassilo Horn, Thanos Apollo, Thibaut Verron,
-  Thomas Heartman, Togan Muftuoglu, Tony Zorman, Trey Merkley, Tomasz
-  Hołubowicz, Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley,
-  Zoltan Kiraly.  As well as users: Ben, CsBigDataHub1, Emacs Contrib,
-  Eugene, Fourchaux, Fredrik, Moesasji, Nick, Summer Emacs, TheBlob42,
-  TitusMu, Trey, bepolymathe, bit9tream, bangedorrunt, derek-upham,
-  doolio, fleimgruber, gitrj95, iSeeU, jixiuf, okamsn, pRot0ta1p,
-  soaringbird, tumashu, wakamenod.
+  Kostadin Ninev, Laith Bahodi, Lasse Lindner, Len Trigg, Lennart
+  C. Karssen, Luis Miguel Castañeda, Magne Hov, Manuel Giraud, Manuel
+  Uberti, Mark Bestley, Mark Burton, Mark Simpson, Marko Kocic, Markus
+  Beppler, Matt Armstrong, Matthias Fuchs, Mattias Engdegård, Mauro
+  Aranda, Maxime Tréca, Michael Goldenberg, Morgan Smith, Morgan
+  Willcock, Murilo Pereira, Nicky van Foreest, Nicolas De Jaeghere,
+  Nicolas Semrau, Olaf Meeuwissen, Oliver Epper, Pablo Stafforini,
+  Paul Poloskov, Pengji Zhang, Pete Kazmier, Peter Wu, Philip
+  Kaludercic, Pierre Téchoueyres, Przemysław Kryger, Robert Hepple,
+  Roman Rudakov, Russell Sim, Ryan Phillips, Rytis Paškauskas, Rudolf
+  Adamkovič, Sam Kleinman, Samuel Culpepper, Saša Janiška, Shreyas
+  Ragavan, Simon Pugnet, Steve Downey, Tassilo Horn, Thanos Apollo,
+  Thibaut Verron, Thomas Heartman, Togan Muftuoglu, Tony Zorman, Trey
+  Merkley, Tomasz Hołubowicz, Toon Claes, Uri Sharf, Utkarsh Singh,
+  Vincent Foley, Zoltan Kiraly.  As well as users: Ben, CsBigDataHub1,
+  Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji, Nick, Summer
+  Emacs, TheBlob42, TitusMu, Trey, bepolymathe, bit9tream,
+  bangedorrunt, derek-upham, doolio, fleimgruber, gitrj95, iSeeU,
+  jixiuf, okamsn, pRot0ta1p, soaringbird, tumashu, wakamenod.
 
 + Packaging :: Basil L.{{{space()}}} Contovounesios, Eli Zaretskii,
   Glenn Morris, Mauro Aranda, Richard Stallman, Stefan Kangas (core
