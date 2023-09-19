@@ -15,6 +15,265 @@ For further details, please consult these additional resources:
 + Manual :: <https://protesilaos.com/emacs/modus-themes>
 + Screenshots :: <https://protesilaos.com/emacs/modus-themes-pictures>
 
+* 4.3.0
+:PROPERTIES:
+:CUSTOM_ID: h:4783bc29-3055-426d-9acb-51e4d0741871
+:END:
+
+** All themes except the tritanopia ones have a new hover colour
+:PROPERTIES:
+:CUSTOM_ID: h:b92b176e-3e9a-420d-bbbe-3c3e38b47027
+:END:
+
+The previous colour was not sufficiently distinct from what each theme
+defines for the =bg-completion= palette entry (preview a palette with
+=M-x modus-themes-preview-colors= or =M-x modus-themes-preview-colors-current=).
+This would make it hard to spot the difference while, for example,
+using ~vertico-mode~ in tandem with ~vertico-mouse-mode~.
+
+Same principle for the difference between the mouse hover and lazy
+isearch highlights (e.g. in Dired or Occur buffers).
+
+Changing the hue here follows the same principle that underpinned the
+redesign of the grey backgrounds for version 4 of the project:
+depending on hardware capabilities, colour reproduction may not be
+optimal, so we need to be more considerate with the choice of colour
+values, erring on the side of caution.
+
+The ~modus-operandi-tritanopia~ and ~modus-vivendi-tritanopia~ themes
+are not affected by this initiative, as they already used highly distinct hues.
+
+Thanks to Daniel Mendler for bringing this matter to my attention and
+for testing the proposed alternatives.  This was done via a private
+channel and the information is shared with permission.  Daniel is the
+developer of ~vertico~, among many other excellent packages:
+<https://github.com/minad>
+
+** Japanese holidays have the expected style
+:PROPERTIES:
+:CUSTOM_ID: h:2de9cef6-c6f1-4c2e-97ce-46d8a7306bae
+:END:
+
+Japanese calendars style Saturdays uniquely and the Modus themes now
+do the same for those who use the ~japanese-holidays~ package.
+Saturdays show up in a blue colour (which changes to cyan for the
+~modus-operandi-tritanopia~, ~modus-vivendi-tritanopia~ themes).
+
+Each theme's palette has a new semantic colour mapping called
+=date-holiday-other=, just in case we ever encounter another scenario
+like this one (users can override any entry in the palette---consult
+the manual for the technicalities).
+
+Thanks to Olaf Meeuwissen for bringing this package to my attention
+and showing me how traditional Japanese calendars style Saturdays.
+This was done in issue 311 on the GitLab mirror:
+<https://gitlab.com/protesilaos/modus-themes/-/issues/311>.
+
+** Each theme has semantic colour mappings for terminal emulators
+:PROPERTIES:
+:CUSTOM_ID: h:f3ae786a-9e01-4363-ae98-898f2ad34f7b
+:END:
+
+These are used by ~ansi-term~, ~vterm~, and the like.  The idea is to
+empower users to differentiate background and foreground values,
+should they ever encounter a need to do so (when in doubt, do
+nothing).
+
+By convention, terminal emulators use the same value for both
+background and foreground, although this is not optimal with high
+contrast themes because what works as a foreground does not
+necessarily look nice as a background.
+
+The default values of the new mappings retain the prior state, just to
+not break existing configurations.  Consider this a tacit user option
+for those who really need it.
+
+Thanks to Tony Zorman for reporting the problem that provided the
+impetus for this change:
+<https://lists.sr.ht/~protesilaos/modus-themes/%3C87fs4wforf.fsf%40hyperspace%3E>.
+
+** All theme definitions conform with the latest standard for metadata
+:PROPERTIES:
+:CUSTOM_ID: h:2af0114f-b96a-4e89-ad2f-850d53538efa
+:END:
+
+Themes are expected to declare their background type and affinity,
+such that the built-in command ~theme-choose-variant~ can do what it
+describes (switch between related themes).  I was already doing this,
+though I had to make some adjustments.  This is in response to Emacs
+bug#65468: <https://debbugs.gnu.org/cgi/bugreport.cgi?bug=65468>.
+Thanks to Mauro Aranda for bringing the matter to my attention.
+
+** Proper colours for the inline preview of the ~corfu~ top candidate
+:PROPERTIES:
+:CUSTOM_ID: h:89d40a68-7573-4994-9ecc-fea40c823472
+:END:
+
+The ~corfu-candidate-overlay~ package is used in tandem with the
+~corfu~ package to create an inline preview of the first matching
+candidate.  Thanks to Nicolas Semrau for bringing this matter to my
+attention in issue 89 on the GitHub mirror:
+<https://github.com/protesilaos/modus-themes/issues/89>.
+
+** Context indicators for the mode-line or header-line (breadcrumb.el)
+:PROPERTIES:
+:CUSTOM_ID: h:dc391e85-650f-444e-b909-849d659921fb
+:END:
+
+I added support for the new ~breadcrumb~ package by João Távora.  It
+displays information about where we are in the given file, such as
+under which Org heading or inside which function.  The indicator can
+be shown on the mode-line or the header-line.  Either way, it will now
+be legible and consistent with its surroundings.
+
+** The new family of nerd-icons is covered by the themes
+:PROPERTIES:
+:CUSTOM_ID: h:0409d429-5307-43d6-9bf4-fabc958c2540
+:END:
+
+This is a new set of packages: ~nerd-icons~, ~nerd-icons-completion,
+~nerd-icons-dired~, ~nerd-icons-ibuffer~.  A popular package that uses
+the Nerd icons is ~doom-modeline~, which the themes support as well.
+
+** All icons look as intended again
+:PROPERTIES:
+:CUSTOM_ID: h:a01075c6-b931-4b35-bdbd-2d1223101560
+:END:
+
+Some faces from the ~all-the-icons~ package were not configured
+because I accidentally changed their name from something like
+~all-the-icons-red-alt~ to ~all-the-icons-red-warmer~.  I did that
+while renaming the colours defined in each theme's palette, to make
+them more meaningful ("warmer red" can hint at something whereas "alt
+red" is more abstract).
+
+** Corrected the documentation about custom Org faces
+:PROPERTIES:
+:CUSTOM_ID: h:5c254346-370e-4510-bcc7-70a1cca2c5a0
+:END:
+
+The Modus themes manual shows how to configure arbitrary TODO keywords
+to inherit the style of an arbitrary face (get the list of faces
+present in your Emacs with =M-x list-faces-display=).  The previous
+value I used was faulty.  It now is as intended.  Thanks to
+soaringbird for reporting the issue on the mailing list:
+<https://lists.sr.ht/~protesilaos/modus-themes/%3CNXPVkVk--3-9%40tuta.io%3E>.
+
+** The colours used by =avy= are better for users with tritanopia
+:PROPERTIES:
+:CUSTOM_ID: h:3605693e-bd6d-40a0-a1d4-199684c89081
+:END:
+
+I changed the sequence of colours displayed by commands such as
+~avy-goto-char-timer~ such that each individual background does not
+blend with the ones adjacent to it, while respecting the overall needs
+of a tritanopia-friendly design.  I also tweaked the colour values to
+achieve the desired result.  The backgrounds remain distinct from
+their context but now also work harmoniously together.
+
+** The =bg-dim= palette entry is marginally brighter in all Modus operandi variants
+:PROPERTIES:
+:CUSTOM_ID: h:8a3cb4f1-e7f8-48f1-832c-27e64b126b2d
+:END:
+
+After extensive testing and side-by-side comparisons, I have concluded
+that the marginal increase in brightness improves the affected
+interfaces.
+
+The =bg-dim= background is used, among others, in the header-line, the
+popup of the ~company~ and ~corfu~ packages, as well as the Org source
+blocks (when the user option ~modus-themes-org-blocks~ is configured
+appropriately).
+
+** The "intense" palette override preset has new colours for tables and prose metadata
+:PROPERTIES:
+:CUSTOM_ID: h:3a990310-337c-457f-8f40-1af6d1b557f6
+:END:
+
+This concerns the ~modus-themes-preset-overrides-intense~ (refer to
+its documentation on how to use it).  The primary target of these
+changes is Org mode and the overall effect is subtle.  The previous
+colours did not combine nicely with all structural elements.  For
+example, Org clocktables would obscure timestamps by being the same
+colour as them, while the table formula would not stand out.  These
+styles did not fit into the concept of "intense" colours.
+
+** The "warmer" palette override preset has more legible strings
+:PROPERTIES:
+:CUSTOM_ID: h:64cbd701-1344-48cc-8bcf-fc9712438013
+:END:
+
+The ~modus-themes-preset-overrides-warmer~ uses a more prominent warm
+green value for strings in programming modes.  The effect is subtle,
+though it fits in better with the overall aesthetic of these palette
+overrides.
+
+** Org document keywords like =#+author= are optionally monospaced
+:PROPERTIES:
+:CUSTOM_ID: h:096b75ec-802c-43e4-81ed-6db92b45654c
+:END:
+
+When the user option ~modus-themes-mixed-fonts~ is non-nil, all Org
+document keywords will be rendered with the ~fixed-pitch~ face.  This
+ensures consistency between keywords such as =#+author= and "meta
+lines" like =#+texinfo=.  Thanks to user fluentpwn for the change: it
+is one line and thus the author does not need to assign copyright to
+the Free Software Foundation.
+
+** Git commit summary lines have a more precise style
+:PROPERTIES:
+:CUSTOM_ID: h:2aecd902-3a0b-4544-98f4-dbb42cbad672
+:END:
+
+This concerns the first line in a Git commit message, as seen while
+working with the ~magit~ package.  Same principle for the ~log-edit~
+buffer used by the built-in VC framework.  Before, I was hardcoding a
+blue colour value, whereas now I apply the ~success~ face.  The
+~success~ face is designed to contrast with the ~warning~ face that is
+used to show overlong summaries.  Furthermore, the added indirection
+makes it possible to particularise the colour value, which I do for
+the tritanopia themes that cannot use blue.
+
+** Miscellaneous
+:PROPERTIES:
+:CUSTOM_ID: h:7391fd7d-6e70-4419-a8d6-f34d9ae075b1
+:END:
+
+- Removed explicit support for the built-in ~css-mode~.  Its default
+  faces are decent.  They inherit from standard font-lock faces that
+  the themes already cover.
+
+- Recalibrated wordwise ("refined") diffs for deuteranopia.  The
+  ~modus-operandi-deuteranopia~ and ~modus-vivendi-deuteranopia~ have
+  a little bit more intense colour values applied to wordwise, else
+  "refined", diffs.  These concern removed lines.  The effect is
+  visible while using ~magit~ or the built-in ~diff-mode~.
+
+- Backported emacs.git commit =4cf33b6bd02b868ebbf112da7926d7c3c64517ce=.
+  It removed the space from the front matter of the =modus-themes.org=
+  file (i.e. the manual) because the Org export did not produce the
+  right results, per Emacs bug#64548.  Thanks to Stephen Berman for
+  reporting the issue and making the requisite change.
+
+- Added support for the `erts-mode`.  Thanks to Kevin Fleming for
+  informing me about this built-in mode.  This was done in issue 85 on
+  the GitHub mirror: <https://github.com/protesilaos/modus-themes/issues/85>.
+
+- Fixed a typo in the ~modus-themes-preset-overrides-intense~ doc
+  string.  Thanks to Nicolas Semrau for bringing this matter to my
+  attention.  It was done in issue 90 on the GitHub mirror:
+  <https://github.com/protesilaos/modus-themes/issues/90>.
+
+- Made all commands that prompt for a theme (~modus-themes-select~,
+  ~modus-themes-preview-colors~) apply the =theme= category to the
+  available candidates.  This allows the user to target said category
+  to affect the relevant functions.  For example, to set completion
+  styles with ~completion-category-overrides~ or to define a custom
+  annotation function with the ~marginalia~ package.
+
+- Added support for new ~appt-notification~ face (Emacs 30).  Change
+  upstream by me.
+
 * 4.2.0
 :PROPERTIES:
 :CUSTOM_ID: h:29370d83-23c4-415b-afbf-ad85d4296c86

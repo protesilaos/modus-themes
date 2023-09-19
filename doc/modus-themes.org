@@ -4,9 +4,9 @@
 #+language: en
 #+options: ':t toc:nil author:t email:t num:t
 #+startup: content
-#+macro: stable-version 4.2.0
-#+macro: release-date 2023-05-30
-#+macro: development-version 4.3.0-dev
+#+macro: stable-version 4.3.0
+#+macro: release-date 2023-09-19
+#+macro: development-version 4.4.0-dev
 #+macro: file @@texinfo:@file{@@$1@@texinfo:}@@
 #+macro: space @@texinfo:@: @@
 #+macro: kbd @@texinfo:@kbd{@@$1@@texinfo:}@@
@@ -3854,7 +3854,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + avy
 + bbdb
 + binder
-+ breadcrumb [Part of {{{development-version}}}]
++ breadcrumb
 + bongo
 + boon
 + bookmark
@@ -3872,7 +3872,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + completions
 + consult
 + corfu
-+ corfu-candidate-overlay [Part of {{{development-version}}}]
++ corfu-candidate-overlay
 + corfu-quick
 + counsel*
 + cperl-mode
@@ -3913,7 +3913,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + epa
 + erc
 + ert
-+ erts-mode [Part of {{{development-version}}}.]
++ erts-mode
 + eshell
 + eshell-fringe-status
 + evil* (evil-mode)
@@ -3985,10 +3985,10 @@ have lots of extensions, so the "full support" may not be 100% true…
 + mpdel
 + mu4e
 + multiple-cursors
-+ nerd-icons [Part of {{{development-version}}}.]
-+ nerd-icons-completion [Part of {{{development-version}}}.]
-+ nerd-icons-dired [Part of {{{development-version}}}.]
-+ nerd-icons-ibuffer [Part of {{{development-version}}}.]
++ nerd-icons
++ nerd-icons-completion
++ nerd-icons-dired
++ nerd-icons-ibuffer
 + neotree
 + notmuch
 + num3-mode
