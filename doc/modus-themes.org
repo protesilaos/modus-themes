@@ -608,9 +608,9 @@ Possible values:
 When the value is non-~nil~, the commands ~modus-themes-toggle~ and
 ~modus-themes-select~, as well as the ~modus-themes-load-theme~
 function, will disable all other themes while loading the specified
-Modus theme.  This is done to ensure that Emacs does not blend two or
-more themes: such blends lead to awkward results that undermine the
-work of the designer.
+Modus theme ([[*Option for which themes to toggle][Option for which themes to toggle]]).  This is done to
+ensure that Emacs does not blend two or more themes: such blends lead
+to awkward results that undermine the work of the designer.
 
 When the value is ~nil~, the aforementioned commands and function will
 only disable other themes within the Modus collection.
@@ -677,6 +677,32 @@ Advanced users may also want to configure the exact attributes of the
 ~italic~ face.
 
 [[#h:2793a224-2109-4f61-a106-721c57c01375][Configure bold and italic faces]].
+
+** Option for which themes to toggle
+:PROPERTIES:
+:CUSTOM_ID: h:4fbfed66-5a89-447a-a07d-a03f6819c5bd
+:END:
+#+vindex: modus-themes-to-toggle
+
+Brief: Choose to Modus themes to toggle between
+
+Symbol: ~modus-themes-to-toggle~ (=list= type)
+
+Default value: ='(modus-operandi modus-vivendi)=
+
+Possible values:
+
+- ~modus-operandi~
+- ~modus-vivendi~
+- ~modus-operandi-tinted~
+- ~modus-vivendi-tinted~
+- ~modus-operandi-deuteranopia~
+- ~modus-vivendi-deuteranopia~
+- ~modus-operandi-tritanopia~
+- ~modus-vivendi-tritanopia~
+
+Specify two themes to toggle between using the command
+~modus-themes-toggle~.
 
 ** Option for font mixing
 :properties:
@@ -3518,7 +3544,8 @@ The idea is to assign that function to a hook that gets called when
 when you only use one theme.  However it has the downside of setting the
 background color value only at render time.  In other words, the face
 remapping function does not get evaluated anew whenever the theme
-changes, such as upon invoking {{{kbd(M-x modus-themes-toggle)}}}.
+changes, such as upon invoking {{{kbd(M-x modus-themes-toggle)}}}
+([[#h:4fbfed66-5a89-447a-a07d-a03f6819c5bd][Option for which themes to toggle]]).
 
 To have our face remapping adapt gracefully while switching between the
 Modus themes, we need to also account for the current theme and control
