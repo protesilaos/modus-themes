@@ -255,7 +255,7 @@ the tritanopia themes that cannot use blue.
   right results, per Emacs bug#64548.  Thanks to Stephen Berman for
   reporting the issue and making the requisite change.
 
-- Added support for the `erts-mode`.  Thanks to Kevin Fleming for
+- Added support for the ~erts-mode~.  Thanks to Kevin Fleming for
   informing me about this built-in mode.  This was done in issue 85 on
   the GitHub mirror: <https://github.com/protesilaos/modus-themes/issues/85>.
 
