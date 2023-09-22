@@ -285,7 +285,7 @@ theme of their preference by adding either form to their init file:
 (load-theme 'modus-vivendi)             ; Dark theme
 #+end_src
 
-Remember that the Modus themes are six themes ([[#h:f0f3dbcb-602d-40cf-b918-8f929c441baf][Overview]]).  Adapt the
+Remember that there are multiple Modus themes ([[#h:f0f3dbcb-602d-40cf-b918-8f929c441baf][Overview]]).  Adapt the
 above snippet accordingly.
 
 Users of packaged variants of the themes must add a few more lines to
