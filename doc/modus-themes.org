@@ -265,9 +265,6 @@ wrong.
 :properties:
 :custom_id: h:3f3c3728-1b34-437d-9d0c-b110f5b161a9
 :end:
-#+findex: modus-themes-toggle
-#+findex: modus-themes-load-theme
-#+vindex: modus-themes-after-load-theme-hook
 #+cindex: Essential configuration
 
 NOTE that Emacs can load multiple themes, which typically produces
@@ -341,6 +338,38 @@ This is how a basic setup could look like ([[#h:b66b128d-54a4-4265-b59f-4d1ea2fe
 #+end_src
 
 [[#h:e979734c-a9e1-4373-9365-0f2cd36107b8][Sample configuration with and without use-package]].
+
+To disable other themes before loading a Modus theme, use something
+like this:
+
+#+begin_src emacs-lisp
+(mapc #'disable-theme custom-enabled-themes)
+(load-theme 'modus-operandi :no-confirm)
+#+end_src
+
+#+findex: modus-themes-load-theme
+Instead of using the basic ~load-theme~ function, users can rely on
+the ~modus-themes-load-theme~.  It accepts a single argument, which is
+a symbol representing the Modus theme of choice, such as:
+
+#+begin_src emacs-lisp
+(modus-themes-load-theme 'modus-operandi)
+#+end_src
+
+#+vindex: modus-themes-after-load-theme-hook
+#+vindex: modus-themes-post-load-hook
+The ~modus-themes-load-theme~ takes care to disable other themes, if
+the user opts in ([[#h:adb0c49a-f1f9-4690-868b-013a080eed68][Option for disabling other themes while loading Modus]]).
+After loading the theme of choice, this function calls the
+hook ~modus-themes-after-load-theme-hook~ (alias ~modus-themes-post-load-hook~).
+Users can add their own functions to this hook to make further
+customizations ([[#h:f4651d55-8c07-46aa-b52b-bed1e53463bb][Advanced customization]]).
+
+#+findex: modus-themes-toggle
+#+findex: modus-themes-select
+The commands ~modus-themes-toggle~ and ~modus-themes-select~ use
+~modus-themes-load-theme~ internally ([[#h:4fbfed66-5a89-447a-a07d-a03f6819c5bd][Option for which themes to toggle]]).
+The aforementioned hold true for them as well.
 
 ** The ~require-theme~ for built-in Emacs themes
 :PROPERTIES:
@@ -3108,12 +3137,12 @@ To reset the font family, one can use this:
 #+end_src
 
 To ensure that the effects persist after switching between the Modus
-themes (such as with {{{kbd(M-x modus-themes-toggle)}}}), the user needs to
-write their configurations to a function and pass it to the
-~modus-themes-after-load-theme-hook~.  This is necessary because themes
-set the styles of faces upon activation, overriding prior values where
-conflicts occur between the previous and the current states (otherwise
-changing themes would not be possible).
+themes (such as with {{{kbd(M-x modus-themes-toggle)}}}), the user
+needs to write their configurations to a function and pass it to the
+~modus-themes-after-load-theme-hook~ ([[#h:3f3c3728-1b34-437d-9d0c-b110f5b161a9][Enable and load]]).  This is
+necessary because themes set the styles of faces upon activation,
+overriding prior values where conflicts occur between the previous and
+the current states (otherwise changing themes would not be possible).
 
 [[#h:86f6906b-f090-46cc-9816-1fe8aeb38776][A theme-agnostic hook for theme loading]].
 
@@ -5403,13 +5432,13 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Gonçalo Marrafa, Guilherme Semente, Gustavo Barros, Hörmetjan
   Yiltiz, Ilja Kocken, Imran Khan, Iris Garcia, Ivan Popovych, James
   Ferguson, Jeremy Friesen, Jerry Zhang, Johannes Grødem, John Haman,
-  Jonas Collberg, Jorge Morais, Joshua O'Connor, Julio C. Villasante,
-  Kenta Usami, Kevin Fleming, Kévin Le Gouguec, Kevin Kainan Li,
-  Kostadin Ninev, Laith Bahodi, Lasse Lindner, Len Trigg, Lennart
-  C. Karssen, Luis Miguel Castañeda, Magne Hov, Manuel Giraud, Manuel
-  Uberti, Mark Bestley, Mark Burton, Mark Simpson, Marko Kocic, Markus
-  Beppler, Matt Armstrong, Matthias Fuchs, Mattias Engdegård, Mauro
-  Aranda, Maxime Tréca, Michael Goldenberg, Morgan Smith, Morgan
+  John Wick, Jonas Collberg, Jorge Morais, Joshua O'Connor, Julio
+  C. Villasante, Kenta Usami, Kevin Fleming, Kévin Le Gouguec, Kevin
+  Kainan Li, Kostadin Ninev, Laith Bahodi, Lasse Lindner, Len Trigg,
+  Lennart C. Karssen, Luis Miguel Castañeda, Magne Hov, Manuel Giraud,
+  Manuel Uberti, Mark Bestley, Mark Burton, Mark Simpson, Marko Kocic,
+  Markus Beppler, Matt Armstrong, Matthias Fuchs, Mattias Engdegård,
+  Mauro Aranda, Maxime Tréca, Michael Goldenberg, Morgan Smith, Morgan
   Willcock, Murilo Pereira, Nicky van Foreest, Nicolas De Jaeghere,
   Nicolas Semrau, Olaf Meeuwissen, Oliver Epper, Pablo Stafforini,
   Paul Poloskov, Pengji Zhang, Pete Kazmier, Peter Wu, Philip
