@@ -1760,7 +1760,7 @@ FG and BG are the main colors."
     `(tool-bar ((,c :background ,bg-dim :foreground ,fg-main)))
     `(vertical-border ((,c :foreground ,border)))
 ;;;;; basic and/or ungrouped styles
-    `(appt-notification ((,c :inherit error)))
+    `(appt-notification ((,c :inherit bold :foreground ,modeline-err)))
     `(blink-matching-paren-highlight-offscreen ((,c :background ,bg-paren-match)))
     `(bold ((,c :weight bold)))
     `(bold-italic ((,c :inherit (bold italic))))
