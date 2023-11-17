@@ -37,9 +37,7 @@
 
 
 
-(eval-when-compile
-  (require 'cl-lib)
-  (require 'subr-x))
+(eval-when-compile (require 'subr-x))
 
 (defgroup modus-themes ()
   "User options for the Modus themes.
@@ -1162,14 +1160,22 @@ Info node `(modus-themes) Option for palette overrides'.")
 ;;;; Helper functions for theme setup
 
 ;; This is the WCAG formula: https://www.w3.org/TR/WCAG20-TECHS/G18.html
+(defun modus-themes--wcag-contribution (channel weight)
+  "Return the CHANNEL contribution to overall luminance given WEIGHT."
+  (* weight
+     (if (<= channel 0.03928)
+         (/ channel 12.92)
+       (expt (/ (+ channel 0.055) 1.055) 2.4))))
+
 (defun modus-themes-wcag-formula (hex)
   "Get WCAG value of color value HEX.
 The value is defined in hexadecimal RGB notation, such #123456."
-  (cl-loop for k in '(0.2126 0.7152 0.0722)
-           for x in (color-name-to-rgb hex)
-           sum (* k (if (<= x 0.03928)
-                        (/ x 12.92)
-                      (expt (/ (+ x 0.055) 1.055) 2.4)))))
+  (let ((channels (color-name-to-rgb hex))
+        (weights '(0.2126 0.7152 0.0722))
+        contribution)
+    (while channels
+      (push (modus-themes--wcag-contribution (pop channels) (pop weights)) contribution))
+    (apply #'+ contribution)))
 
 ;;;###autoload
 (defun modus-themes-contrast (c1 c2)
@@ -1182,29 +1188,27 @@ C1 and C2 are color values written in hexadecimal RGB."
 (make-obsolete 'modus-themes-color nil "4.0.0")
 (make-obsolete 'modus-themes-color-alts nil "4.0.0")
 
-(declare-function cl-remove-if-not "cl-seq" (cl-pred cl-list &rest cl-keys))
+(defun modus-themes--modus-p (theme)
+  "Return non-nil if THEME name has a modus- prefix."
+  (string-prefix-p "modus-" (symbol-name theme)))
 
 (defun modus-themes--list-enabled-themes ()
   "Return list of `custom-enabled-themes' with modus- prefix."
-  (cl-remove-if-not
-   (lambda (theme)
-     (string-prefix-p "modus-" (symbol-name theme)))
-   custom-enabled-themes))
+  (seq-filter #'modus-themes--modus-p custom-enabled-themes))
+
+(defun modus-themes--load-no-enable (theme)
+  "Load but do not enable THEME if it belongs to `custom-known-themes'."
+  (unless (memq theme custom-known-themes)
+    (load-theme theme :no-confirm :no-enable)))
 
 (defun modus-themes--enable-themes ()
   "Enable the Modus themes."
-  (mapc (lambda (theme)
-          (unless (memq theme custom-known-themes)
-            (load-theme theme :no-confirm :no-enable)))
-        modus-themes-items))
+  (mapc #'modus-themes--load-no-enable modus-themes-items))
 
 (defun modus-themes--list-known-themes ()
   "Return list of `custom-known-themes' with modus- prefix."
   (modus-themes--enable-themes)
-  (cl-remove-if-not
-   (lambda (theme)
-     (string-prefix-p "modus-" (symbol-name theme)))
-   custom-known-themes))
+  (seq-filter #'modus-themes--modus-p custom-known-themes))
 
 (defun modus-themes--current-theme ()
   "Return first enabled Modus theme."
@@ -1486,8 +1490,7 @@ Check PROPERTIES for an alist value that corresponds to
 ALIST-KEY.  If no alist is present, search the PROPERTIES
 list given LIST-PRED, using DEFAULT as a fallback."
   (if-let* ((val (or (alist-get alist-key properties)
-                     (cl-loop for x in properties
-                              if (funcall list-pred x) return x)
+                     (mapcar (lambda (x) (when (funcall list-pred x) x)) properties)
                      default))
             ((listp val)))
       (car val)
