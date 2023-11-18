@@ -1490,7 +1490,7 @@ Check PROPERTIES for an alist value that corresponds to
 ALIST-KEY.  If no alist is present, search the PROPERTIES
 list given LIST-PRED, using DEFAULT as a fallback."
   (if-let* ((val (or (alist-get alist-key properties)
-                     (mapcar (lambda (x) (when (funcall list-pred x) x)) properties)
+                     (seq-filter (lambda (x) (funcall list-pred x)) properties)
                      default))
             ((listp val)))
       (car val)
