@@ -348,6 +348,7 @@ which corresponds to a minimum contrast in relative luminance of
       (prose-metadata fg-dim)
       (prose-metadata-value fg-alt)
       (prose-table fg-alt)
+      (prose-table-formula magenta-warmer)
       (prose-tag magenta-faint)
       (prose-todo red)
       (prose-verbatim magenta-warmer)

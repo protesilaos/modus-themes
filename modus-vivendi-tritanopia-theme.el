@@ -350,6 +350,7 @@ standard)."
       (prose-metadata fg-dim)
       (prose-metadata-value fg-alt)
       (prose-table fg-alt)
+      (prose-table-formula red-cooler)
       (prose-tag fg-alt)
       (prose-todo red)
       (prose-verbatim magenta-warmer)
