@@ -64,11 +64,6 @@ deficiency (deuteranopia or tritanopia, respectively)."
   :prefix "modus-themes-"
   :tag "Modus Themes Faces")
 
-(make-obsolete-variable 'modus-themes-operandi-colors nil "4.0.0")
-(make-obsolete-variable 'modus-themes-vivendi-colors nil "4.0.0")
-(make-obsolete-variable 'modus-themes-version nil "4.0.0")
-(make-obsolete 'modus-themes-report-bug nil "4.0.0")
-
 
 
 ;;;; Custom faces
@@ -145,16 +140,6 @@ deficiency (deuteranopia or tritanopia, respectively)."
    :version "30.1"
    :group 'modus-themes-faces))
 
-(define-obsolete-variable-alias
-  'modus-themes-search-success
-  'modus-themes-search-current
-  "4.0.0")
-
-(define-obsolete-variable-alias
-  'modus-themes-search-success-lazy
-  'modus-themes-search-lazy
-  "4.0.0")
-
 (dolist (scope '(code macro verbatim))
   (custom-declare-face
    (intern (format "modus-themes-prose-%s" scope))
@@ -162,21 +147,6 @@ deficiency (deuteranopia or tritanopia, respectively)."
    :package-version '(modus-themes . "4.0.0")
    :version "30.1"
    :group 'modus-themes-faces))
-
-(define-obsolete-variable-alias
-  'modus-themes-markup-code
-  'modus-themes-prose-code
-  "4.0.0")
-
-(define-obsolete-variable-alias
-  'modus-themes-markup-macro
-  'modus-themes-prose-macro
-  "4.0.0")
-
-(define-obsolete-variable-alias
-  'modus-themes-markup-verbatim
-  'modus-themes-prose-verbatim
-  "4.0.0")
 
 (dotimes (n 9)
   (custom-declare-face
@@ -246,67 +216,6 @@ text should not be underlined as well) yet still blend in."
    :version "30.1"
    :group 'modus-themes-faces))
 
-(make-obsolete-variable 'modus-themes-reset-hard nil "4.0.0")
-(make-obsolete-variable 'modus-themes-subtle-neutral nil "4.0.0")
-(make-obsolete-variable 'modus-themes-intense-neutral nil "4.0.0")
-(make-obsolete-variable 'modus-themes-refine-red nil "4.0.0")
-(make-obsolete-variable 'modus-themes-refine-green nil "4.0.0")
-(make-obsolete-variable 'modus-themes-refine-yellow nil "4.0.0")
-(make-obsolete-variable 'modus-themes-refine-blue nil "4.0.0")
-(make-obsolete-variable 'modus-themes-refine-magenta nil "4.0.0")
-(make-obsolete-variable 'modus-themes-refine-cyan nil "4.0.0")
-(make-obsolete-variable 'modus-themes-active-red nil "4.0.0")
-(make-obsolete-variable 'modus-themes-active-green nil "4.0.0")
-(make-obsolete-variable 'modus-themes-active-yellow nil "4.0.0")
-(make-obsolete-variable 'modus-themes-active-blue nil "4.0.0")
-(make-obsolete-variable 'modus-themes-active-magenta nil "4.0.0")
-(make-obsolete-variable 'modus-themes-active-cyan nil "4.0.0")
-(make-obsolete-variable 'modus-themes-fringe-red nil "4.0.0")
-(make-obsolete-variable 'modus-themes-fringe-green nil "4.0.0")
-(make-obsolete-variable 'modus-themes-fringe-yellow nil "4.0.0")
-(make-obsolete-variable 'modus-themes-fringe-blue nil "4.0.0")
-(make-obsolete-variable 'modus-themes-fringe-magenta nil "4.0.0")
-(make-obsolete-variable 'modus-themes-fringe-cyan nil "4.0.0")
-(make-obsolete-variable 'modus-themes-grue nil "4.0.0")
-(make-obsolete-variable 'modus-themes-grue-nuanced nil "4.0.0")
-(make-obsolete-variable 'modus-themes-red-nuanced nil "4.0.0")
-(make-obsolete-variable 'modus-themes-green-nuanced nil "4.0.0")
-(make-obsolete-variable 'modus-themes-yellow-nuanced nil "4.0.0")
-(make-obsolete-variable 'modus-themes-blue-nuanced nil "4.0.0")
-(make-obsolete-variable 'modus-themes-magenta-nuanced nil "4.0.0")
-(make-obsolete-variable 'modus-themes-cyan-nuanced nil "4.0.0")
-(make-obsolete-variable 'modus-themes-special-calm nil "4.0.0")
-(make-obsolete-variable 'modus-themes-special-cold nil "4.0.0")
-(make-obsolete-variable 'modus-themes-special-mild nil "4.0.0")
-(make-obsolete-variable 'modus-themes-special-warm nil "4.0.0")
-(make-obsolete-variable 'modus-themes-diff-added nil "4.0.0")
-(make-obsolete-variable 'modus-themes-diff-changed nil "4.0.0")
-(make-obsolete-variable 'modus-themes-diff-removed nil "4.0.0")
-(make-obsolete-variable 'modus-themes-diff-refine-added nil "4.0.0")
-(make-obsolete-variable 'modus-themes-diff-refine-changed nil "4.0.0")
-(make-obsolete-variable 'modus-themes-diff-refine-removed nil "4.0.0")
-(make-obsolete-variable 'modus-themes-diff-focus-added nil "4.0.0")
-(make-obsolete-variable 'modus-themes-diff-focus-changed nil "4.0.0")
-(make-obsolete-variable 'modus-themes-diff-focus-removed nil "4.0.0")
-(make-obsolete-variable 'modus-themes-diff-heading nil "4.0.0")
-(make-obsolete-variable 'modus-themes-pseudo-header nil "4.0.0")
-(make-obsolete-variable 'modus-themes-mark-symbol nil "4.0.0")
-(make-obsolete-variable 'modus-themes-hl-line nil "4.0.0")
-(make-obsolete-variable 'modus-themes-search-success-modeline nil "4.0.0")
-(make-obsolete-variable 'modus-themes-grue-active nil "4.0.0")
-(make-obsolete-variable 'modus-themes-grue-background-active nil "4.0.0")
-(make-obsolete-variable 'modus-themes-grue-background-intense nil "4.0.0")
-(make-obsolete-variable 'modus-themes-grue-background-subtle nil "4.0.0")
-(make-obsolete-variable 'modus-themes-grue-background-refine nil "4.0.0")
-(make-obsolete-variable 'modus-themes-link-broken nil "4.0.0")
-(make-obsolete-variable 'modus-themes-link-symlink nil "4.0.0")
-(make-obsolete-variable 'modus-themes-tab-backdrop nil "4.0.0")
-(make-obsolete-variable 'modus-themes-tab-active nil "4.0.0")
-(make-obsolete-variable 'modus-themes-tab-inactive nil "4.0.0")
-(make-obsolete-variable 'modus-themes-completion-selected-popup nil "4.0.0")
-(make-obsolete-variable 'modus-themes-box-button nil "4.0.0")
-(make-obsolete-variable 'modus-themes-box-button-pressed nil "4.0.0")
-
 
 
 ;;;; Customization variables
@@ -328,8 +237,6 @@ consequences.  The user must manually reload the theme."
   :version "30.1"
   :type 'boolean
   :link '(info-link "(modus-themes) Custom reload theme"))
-
-(make-obsolete-variable 'modus-themes-inhibit-reload 'modus-themes-custom-auto-reload "4.0.0")
 
 (defun modus-themes--set-option (sym val)
   "Custom setter for theme related user options.
@@ -420,9 +327,6 @@ This is used by the command `modus-themes-toggle'."
   :initialize #'custom-initialize-default
   :group 'modus-themes)
 
-(make-obsolete-variable 'modus-themes-operandi-color-overrides nil "4.0.0")
-(make-obsolete-variable 'modus-themes-vivendi-color-overrides nil "4.0.0")
-
 (defvaralias 'modus-themes-slanted-constructs 'modus-themes-italic-constructs)
 
 (defcustom modus-themes-italic-constructs nil
@@ -474,8 +378,6 @@ Protesilaos))."
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Mixed fonts"))
-
-(make-obsolete-variable 'modus-themes-intense-mouseovers nil "4.0.0")
 
 (defconst modus-themes--weight-widget
   '(choice :tag "Font weight (must be supported by the typeface)"
@@ -609,10 +511,6 @@ and related user options."
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Heading styles"))
 
-(make-obsolete-variable 'modus-themes-org-agenda nil "4.0.0")
-(make-obsolete-variable 'modus-themes-fringes nil "4.0.0")
-(make-obsolete-variable 'modus-themes-lang-checkers nil "4.0.0")
-
 (defcustom modus-themes-org-blocks nil
   "Set the overall style of Org code blocks, quotes, and the like.
 
@@ -651,9 +549,6 @@ is non-nil.  While quote/verse blocks require setting
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Org mode blocks"))
-
-(make-obsolete-variable 'modus-themes-mode-line nil "4.0.0")
-(make-obsolete-variable 'modus-themes-diffs nil "4.0.0")
 
 (defcustom modus-themes-completions nil
   "Control the style of completion user interfaces.
@@ -775,17 +670,6 @@ In user configuration files the form may look like this:
   :set #'modus-themes--set-option
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Command prompts"))
-
-(make-obsolete-variable 'modus-themes-subtle-line-numbers nil "4.0.0")
-(make-obsolete-variable 'modus-themes-markup nil "4.0.0")
-(make-obsolete-variable 'modus-themes-paren-match nil "4.0.0")
-(make-obsolete-variable 'modus-themes-syntax nil "4.0.0")
-(make-obsolete-variable 'modus-themes-links nil "4.0.0")
-(make-obsolete-variable 'modus-themes-region nil "4.0.0")
-(make-obsolete-variable 'modus-themes-deuteranopia nil "4.0.0")
-(make-obsolete-variable 'modus-themes-mail-citations nil "4.0.0")
-(make-obsolete-variable 'modus-themes-tabs-accented nil "4.0.0")
-(make-obsolete-variable 'modus-themes-box-buttons nil "4.0.0")
 
 (defcustom modus-themes-common-palette-overrides nil
   "Set palette overrides for all the Modus themes.
@@ -1185,9 +1069,6 @@ C1 and C2 are color values written in hexadecimal RGB."
                (+ (modus-themes-wcag-formula c2) 0.05))))
     (max ct (/ ct))))
 
-(make-obsolete 'modus-themes-color nil "4.0.0")
-(make-obsolete 'modus-themes-color-alts nil "4.0.0")
-
 (defun modus-themes--modus-p (theme)
   "Return non-nil if THEME name has a modus- prefix."
   (string-prefix-p "modus-" (symbol-name theme)))
@@ -1314,10 +1195,6 @@ symbol, which is safe when used as a face attribute's value."
     'unspecified))
 
 ;;;; Commands
-
-(make-obsolete 'modus-themes-load-themes nil "4.0.0")
-(make-obsolete 'modus-themes-load-operandi nil "4.0.0; Check `modus-themes-load-theme'")
-(make-obsolete 'modus-themes-load-vivendi nil "4.0.0; Check `modus-themes-load-theme'")
 
 (defvar modus-themes--select-theme-history nil
   "Minibuffer history of `modus-themes--select-prompt'.")
