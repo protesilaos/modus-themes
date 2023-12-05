@@ -2051,6 +2051,20 @@ FG and BG are the main colors."
     `(deft-summary-face ((,c :inherit (shadow modus-themes-slant))))
     `(deft-time-face ((,c :foreground ,date-common)))
     `(deft-title-face ((,c :inherit bold)))
+;;;;; denote
+    `(denote-faces-date ((,c :foreground ,date-common)))
+    `(denote-faces-delimiter ((,c :inherit shadow)))
+    `(denote-faces-extension ((,c :inherit shadow)))
+    `(denote-faces-keywords ((,c :inherit modus-themes-bold :foreground ,keyword)))
+    `(denote-faces-link ((,c :inherit link)))
+    `(denote-faces-prompt-current-name ((,c :inherit modus-themes-slant :foreground ,fg-changed-intense)))
+    `(denote-faces-prompt-new-name ((,c :inherit modus-themes-slant :foreground ,fg-added-intense)))
+    `(denote-faces-prompt-old-name ((,c :inherit modus-themes-slant :foreground ,fg-removed-intense)))
+    `(denote-faces-signature ((,c :inherit modus-themes-bold :foreground ,string)))
+    `(denote-faces-subdirectory ((,c :inherit modus-themes-bold :foreground ,fg-alt)))
+    `(denote-faces-time ((,c :inherit denote-faces-date)))
+    `(denote-faces-time-delimiter ((,c :inherit shadow)))
+    `(denote-faces-title (( )))
 ;;;;; devdocs
     `(devdocs-code-block ((,c :inherit modus-themes-fixed-pitch :background ,bg-dim :extend t)))
 ;;;;; dictionary

@@ -3939,6 +3939,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + dashboard
 + deadgrep
 + deft
++ denote [ Part of {{{development-version}}}. ]
 + devdocs
 + dictionary
 + diff-hl
