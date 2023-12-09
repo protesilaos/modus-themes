@@ -241,6 +241,11 @@ standard)."
       (bg-prominent-note bg-cyan-intense)
       (fg-prominent-note fg-main)
 
+      (bg-active-argument bg-red-nuanced)
+      (fg-active-argument red-warmer)
+      (bg-active-value bg-cyan-nuanced)
+      (fg-active-value cyan)
+
 ;;;; Code mappings
 
       (builtin magenta)

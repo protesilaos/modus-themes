@@ -2234,7 +2234,7 @@ FG and BG are the main colors."
     `(el-search-occur-match ((,c :inherit match)))
 ;;;;; eldoc
     ;; NOTE: see https://github.com/purcell/package-lint/issues/187
-    (list 'eldoc-highlight-function-argument `((,c :inherit modus-themes-mark-alt)))
+    (list 'eldoc-highlight-function-argument `((,c :inherit bold :background ,bg-active-argument :foreground ,fg-active-argument)))
 ;;;;; eldoc-box
     `(eldoc-box-body ((,c :background ,bg-dim :foreground ,fg-main)))
     `(eldoc-box-border ((,c :background ,border)))
@@ -2427,7 +2427,7 @@ FG and BG are the main colors."
     `(font-lock-variable-name-face ((,c :foreground ,variable)))
     `(font-lock-warning-face ((,c :inherit modus-themes-bold :foreground ,warning)))
 ;;;;; geiser
-    `(geiser-font-lock-autodoc-current-arg ((,c :inherit modus-themes-mark-alt)))
+    `(geiser-font-lock-autodoc-current-arg ((,c :inherit bold :background ,bg-active-argument :foreground ,fg-active-argument)))
     `(geiser-font-lock-autodoc-identifier ((,c :foreground ,docstring)))
     `(geiser-font-lock-doc-button ((,c :inherit button)))
     `(geiser-font-lock-doc-link ((,c :inherit button)))
@@ -3184,7 +3184,7 @@ FG and BG are the main colors."
     `(org-agenda-calendar-daterange ((,c :foreground ,date-range)))
     `(org-agenda-calendar-event ((,c :foreground ,date-event)))
     `(org-agenda-calendar-sexp ((,c :inherit (modus-themes-slant org-agenda-calendar-event))))
-    `(org-agenda-clocking ((,c :inherit modus-themes-mark-alt)))
+    `(org-agenda-clocking ((,c :inherit bold :background ,bg-active-argument :foreground ,fg-active-argument)))
     `(org-agenda-column-dateline ((,c :background ,bg-inactive)))
     `(org-agenda-current-time ((,c :foreground ,date-now)))
     `(org-agenda-date ((,c ,@(modus-themes--heading 'agenda-date date-weekday))))
@@ -3697,7 +3697,7 @@ FG and BG are the main colors."
     `(transient-amaranth ((,c :inherit bold :foreground ,yellow-warmer)))
     ;; Placate the compiler for what is a spurious warning.  We also
     ;; have to do this with `eldoc-highlight-function-argument'.
-    (list 'transient-argument `((,c :inherit (bold modus-themes-mark-alt))))
+    (list 'transient-argument `((,c :inherit bold :background ,bg-active-argument :foreground ,fg-active-argument)))
     `(transient-blue ((,c :inherit bold :foreground ,blue)))
     `(transient-disabled-suffix ((,c :inherit modus-themes-mark-del)))
     `(transient-enabled-suffix ((,c :inherit modus-themes-subtle-cyan)))
@@ -3724,7 +3724,7 @@ FG and BG are the main colors."
     `(transient-teal ((,c :inherit bold :foreground ,cyan-cooler)))
     `(transient-unreachable ((,c :inherit shadow)))
     `(transient-unreachable-key ((,c :inherit shadow)))
-    `(transient-value ((,c :inherit (bold modus-themes-mark-sel))))
+    `(transient-value ((,c :inherit bold :background ,bg-active-value :foreground ,fg-active-value)))
 ;;;;; trashed
     `(trashed-deleted ((,c :inherit modus-themes-mark-del)))
     `(trashed-directory ((,c :foreground ,accent-0)))
