@@ -128,12 +128,12 @@ standard)."
       (bg-magenta-subtle  "#ffddff")
       (bg-cyan-subtle     "#bfefff")
 
-      (bg-red-nuanced     "#ffeced")
-      (bg-green-nuanced   "#e5f7e7")
-      (bg-yellow-nuanced  "#faf1d5")
-      (bg-blue-nuanced    "#f0f0ff")
-      (bg-magenta-nuanced "#f8eaf4")
-      (bg-cyan-nuanced    "#e6f3fa")
+      (bg-red-nuanced     "#ffe8e8")
+      (bg-green-nuanced   "#e0f6e0")
+      (bg-yellow-nuanced  "#f8f0d0")
+      (bg-blue-nuanced    "#ecedff")
+      (bg-magenta-nuanced "#f8e6f5")
+      (bg-cyan-nuanced    "#e0f2fa")
 
 ;;; Uncommon accent backgrounds
 
