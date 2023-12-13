@@ -3174,7 +3174,7 @@ FG and BG are the main colors."
     `(nxml-ref ((,c :inherit (shadow modus-themes-bold))))
     `(rng-error ((,c :inherit error)))
 ;;;;; olivetti
-    `(olivetti-fringe ((,c :background ,bg-main)))
+    `(olivetti-fringe ((,c :background ,fringe)))
 ;;;;; orderless
     `(orderless-match-face-0 ((,c :inherit modus-themes-completion-match-0)))
     `(orderless-match-face-1 ((,c :inherit modus-themes-completion-match-1)))
