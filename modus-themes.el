@@ -2770,7 +2770,7 @@ FG and BG are the main colors."
     `(kaocha-runner-warning-face ((,c :inherit warning)))
 ;;;;; keycast
     `(keycast-command ((,c :inherit bold)))
-    `(keycast-key ((,c :background ,keybind :foreground ,bg-main)))
+    `(keycast-key ((,c :inherit modus-themes-bold :background ,keybind :foreground ,bg-main)))
 ;;;;; ledger-mode
     `(ledger-font-auto-xact-face ((,c :inherit font-lock-builtin-face)))
     `(ledger-font-account-name-face ((,c :foreground ,name)))
