@@ -132,7 +132,7 @@ deficiency (deuteranopia or tritanopia, respectively)."
    :version "30.1"
    :group 'modus-themes-faces))
 
-(dolist (scope '(current lazy))
+(dolist (scope '(current lazy replace))
   (custom-declare-face
    (intern (format "modus-themes-search-%s" scope))
    nil (format "Search of type %s." scope)
@@ -1609,6 +1609,7 @@ FG and BG are the main colors."
 ;;;;; search
     `(modus-themes-search-current ((,c :background ,bg-yellow-intense :foreground ,fg-main)))
     `(modus-themes-search-lazy ((,c :background ,bg-cyan-intense :foreground ,fg-main)))
+    `(modus-themes-search-replace ((,c :background ,bg-search-replace :foreground ,fg-main)))
 ;;;;; completion frameworks
     `(modus-themes-completion-match-0 ((,c ,@(modus-themes--completion-match fg-completion-match-0 bg-completion-match-0))))
     `(modus-themes-completion-match-1 ((,c ,@(modus-themes--completion-match fg-completion-match-1 bg-completion-match-1))))
@@ -1789,7 +1790,7 @@ FG and BG are the main colors."
     `(anzu-match-3 ((,c :inherit modus-themes-subtle-yellow)))
     `(anzu-mode-line ((,c :inherit bold)))
     `(anzu-mode-line-no-match ((,c :inherit error)))
-    `(anzu-replace-highlight ((,c :inherit modus-themes-prominent-error :underline t)))
+    `(anzu-replace-highlight ((,c :inherit modus-themes-search-replace)))
     `(anzu-replace-to ((,c :inherit modus-themes-search-current)))
 ;;;;; auctex and Tex
     `(font-latex-bold-face ((,c :inherit bold)))
@@ -2357,7 +2358,7 @@ FG and BG are the main colors."
     `(evil-ex-info ((,c :inherit font-lock-type-face)))
     `(evil-ex-lazy-highlight ((,c :inherit modus-themes-search-lazy)))
     `(evil-ex-search ((,c :inherit modus-themes-search-current)))
-    `(evil-ex-substitute-matches ((,c :inherit modus-themes-prominent-error :underline t)))
+    `(evil-ex-substitute-matches ((,c :inherit modus-themes-search-replace)))
     `(evil-ex-substitute-replacement ((,c :inherit modus-themes-search-current)))
 ;;;;; eww
     `(eww-invalid-certificate ((,c :foreground ,err)))
@@ -2705,7 +2706,7 @@ FG and BG are the main colors."
     `(isearch-group-2 ((,c :inherit modus-themes-intense-magenta)))
     `(lazy-highlight ((,c :inherit modus-themes-search-lazy)))
     `(match ((,c :background ,bg-magenta-subtle :foreground ,fg-main)))
-    `(query-replace ((,c :inherit modus-themes-prominent-error)))
+    `(query-replace ((,c :inherit modus-themes-search-replace)))
 ;;;;; ivy
     `(ivy-action ((,c :inherit modus-themes-key-binding)))
     `(ivy-confirm-face ((,c :inherit success)))
