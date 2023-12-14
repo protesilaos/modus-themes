@@ -369,6 +369,17 @@ which corresponds to a minimum contrast in relative luminance of
       (rainbow-7 blue-warmer)
       (rainbow-8 magenta-warmer)
 
+;;;; Search mappings
+
+      (bg-search-current bg-yellow-intense)
+      (bg-search-lazy bg-cyan-intense)
+      (bg-search-replace bg-red-intense)
+
+      (bg-search-rx-group-0 bg-blue-intense)
+      (bg-search-rx-group-1 bg-green-intense)
+      (bg-search-rx-group-2 bg-red-subtle)
+      (bg-search-rx-group-3 bg-magenta-subtle)
+
 ;;;; Space mappings
 
       (bg-space unspecified)

@@ -372,6 +372,17 @@ standard)."
       (rainbow-7 magenta-faint)
       (rainbow-8 red-faint)
 
+;;;; Search mappings
+
+      (bg-search-current bg-red-intense)
+      (bg-search-lazy bg-cyan-intense)
+      (bg-search-replace bg-magenta-intense)
+
+      (bg-search-rx-group-0 bg-blue-intense)
+      (bg-search-rx-group-1 bg-magenta-intense)
+      (bg-search-rx-group-2 bg-cyan-subtle)
+      (bg-search-rx-group-3 bg-red-subtle)
+
 ;;;; Space mappings
 
       (bg-space unspecified)
