@@ -1607,8 +1607,8 @@ FG and BG are the main colors."
     `(modus-themes-prose-macro ((,c :inherit modus-themes-fixed-pitch :foreground ,prose-macro)))
     `(modus-themes-prose-verbatim ((,c :inherit modus-themes-fixed-pitch :foreground ,prose-verbatim)))
 ;;;;; search
-    `(modus-themes-search-current ((,c :background ,bg-yellow-intense :foreground ,fg-main)))
-    `(modus-themes-search-lazy ((,c :background ,bg-cyan-intense :foreground ,fg-main)))
+    `(modus-themes-search-current ((,c :background ,bg-search-current :foreground ,fg-main)))
+    `(modus-themes-search-lazy ((,c :background ,bg-search-lazy :foreground ,fg-main)))
     `(modus-themes-search-replace ((,c :background ,bg-search-replace :foreground ,fg-main)))
 ;;;;; completion frameworks
     `(modus-themes-completion-match-0 ((,c ,@(modus-themes--completion-match fg-completion-match-0 bg-completion-match-0))))
