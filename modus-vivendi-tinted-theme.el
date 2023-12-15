@@ -6,6 +6,7 @@
 ;; Maintainer: Modus-Themes Development <~protesilaos/modus-themes@lists.sr.ht>
 ;; URL: https://git.sr.ht/~protesilaos/modus-themes
 ;; Mailing-List: https://lists.sr.ht/~protesilaos/modus-themes
+;; Keywords: faces, theme, accessibility
 
 ;; This file is part of GNU Emacs.
 
@@ -132,6 +133,12 @@ which corresponds to a minimum contrast in relative luminance of
       (bg-magenta-nuanced "#2f0c3f")
       (bg-cyan-nuanced    "#042837")
 
+;;; Uncommon accent backgrounds
+
+      (bg-ochre    "#442c2f")
+      (bg-lavender "#38325c")
+      (bg-sage     "#0f3d30")
+
 ;;; Graphs
 
       (bg-graph-red-0     "#b52c2c")
@@ -199,12 +206,6 @@ which corresponds to a minimum contrast in relative luminance of
       (fg-removed-intense "#ff9095")
 
       (bg-diff-context    "#1a1f30")
-
-;;; Uncommon accent backgrounds
-
-      (bg-ochre    "#442c2f")
-      (bg-lavender "#38325c")
-      (bg-sage     "#0f3d30")
 
 ;;; Paren match
 
@@ -342,7 +343,6 @@ which corresponds to a minimum contrast in relative luminance of
 
       (fg-prompt cyan-cooler)
       (bg-prompt unspecified)
-      (bg-space-err bg-red-intense)
 
 ;;;; Prose mappings
 
@@ -385,6 +385,7 @@ which corresponds to a minimum contrast in relative luminance of
 
       (bg-space unspecified)
       (fg-space border)
+      (bg-space-err bg-red-intense)
 
 ;;;; Terminal mappings
 

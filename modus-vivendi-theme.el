@@ -6,6 +6,7 @@
 ;; Maintainer: Modus-Themes Development <~protesilaos/modus-themes@lists.sr.ht>
 ;; URL: https://git.sr.ht/~protesilaos/modus-themes
 ;; Mailing-List: https://lists.sr.ht/~protesilaos/modus-themes
+;; Keywords: faces, theme, accessibility
 
 ;; This file is part of GNU Emacs.
 
@@ -467,7 +468,6 @@ as a symbol and the latter as a string.
 Semantic color mappings have the form (MAPPING-NAME COLOR-NAME)
 with both as symbols.  The latter is a named color that already
 exists in the palette and is associated with a HEX-VALUE.")
-
 
   (defcustom modus-vivendi-palette-overrides nil
     "Overrides for `modus-vivendi-palette'.
