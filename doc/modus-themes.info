@@ -4122,6 +4122,7 @@ have lots of extensions, so the "full support" may not be 100% true…
    • marginalia
    • markdown-mode
    • markup-faces (‘adoc-mode’)
+   • mct [ Part of 4.4.0-dev.  ]
    • messages
    • minimap
    • mode-line
@@ -6287,47 +6288,47 @@ Node: Custom hl-todo colors162468
 Node: Add support for solaire-mode164006
 Node: Face coverage166903
 Node: Supported packages167355
-Node: Indirectly covered packages172948
-Node: Notes on individual packages174317
-Node: Note on calendarel weekday and weekend colors175417
-Node: Note on git-gutter in Doom Emacs176565
-Node: Note on php-mode multiline comments178906
-Node: Note on underlines in compilation buffers179659
-Node: Note on inline Latex in Org buffers180496
-Node: Note on dimmerel181106
-Node: Note on display-fill-column-indicator-mode182591
-Node: Note on highlight-parenthesesel183988
-Node: Note on mmm-modeel background colors189962
-Node: Note for prism192260
-Node: Note on company-mode overlay pop-up195418
-Ref: Note on company-mode overlay pop-up-Footnote-1196146
-Ref: Note on company-mode overlay pop-up-Footnote-2196213
-Node: Note on ERC escaped color sequences196268
-Ref: Note on ERC escaped color sequences-Footnote-1197696
-Node: Note on powerline or spaceline197806
-Node: Note on SHR colors198220
-Node: Note on SHR fonts198640
-Node: Note on Ement colors and fonts199285
-Node: Note on pdf-tools link hints200789
-Node: Note on the Notmuch logo203245
-Node: Note on goto-address-mode faces203777
-Node: Frequently Asked Questions204895
-Node: Is the contrast ratio about adjacent colors?205524
-Node: What does it mean to avoid exaggerations?207031
-Node: Why are colors mostly variants of blue magenta cyan?208879
-Node: What is the best setup for legibility?213185
-Node: Are these color schemes?215824
-Node: Port the Modus themes to other platforms?219476
-Node: Contributing222308
-Node: Sources of the themes222705
-Node: Issues you can help with223599
-Node: Patches require copyright assignment to the FSF224989
-Node: Acknowledgements227209
-Node: GNU Free Documentation License231366
-Node: Indices256529
-Node: Function index256708
-Node: Variable index257964
-Node: Concept index260642
+Node: Indirectly covered packages172983
+Node: Notes on individual packages174352
+Node: Note on calendarel weekday and weekend colors175452
+Node: Note on git-gutter in Doom Emacs176600
+Node: Note on php-mode multiline comments178941
+Node: Note on underlines in compilation buffers179694
+Node: Note on inline Latex in Org buffers180531
+Node: Note on dimmerel181141
+Node: Note on display-fill-column-indicator-mode182626
+Node: Note on highlight-parenthesesel184023
+Node: Note on mmm-modeel background colors189997
+Node: Note for prism192295
+Node: Note on company-mode overlay pop-up195453
+Ref: Note on company-mode overlay pop-up-Footnote-1196181
+Ref: Note on company-mode overlay pop-up-Footnote-2196248
+Node: Note on ERC escaped color sequences196303
+Ref: Note on ERC escaped color sequences-Footnote-1197731
+Node: Note on powerline or spaceline197841
+Node: Note on SHR colors198255
+Node: Note on SHR fonts198675
+Node: Note on Ement colors and fonts199320
+Node: Note on pdf-tools link hints200824
+Node: Note on the Notmuch logo203280
+Node: Note on goto-address-mode faces203812
+Node: Frequently Asked Questions204930
+Node: Is the contrast ratio about adjacent colors?205559
+Node: What does it mean to avoid exaggerations?207066
+Node: Why are colors mostly variants of blue magenta cyan?208914
+Node: What is the best setup for legibility?213220
+Node: Are these color schemes?215859
+Node: Port the Modus themes to other platforms?219511
+Node: Contributing222343
+Node: Sources of the themes222740
+Node: Issues you can help with223634
+Node: Patches require copyright assignment to the FSF225024
+Node: Acknowledgements227244
+Node: GNU Free Documentation License231401
+Node: Indices256564
+Node: Function index256743
+Node: Variable index257999
+Node: Concept index260677
 
 End Tag Table
 
