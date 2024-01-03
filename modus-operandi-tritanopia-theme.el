@@ -1,11 +1,10 @@
 ;;; modus-operandi-tritanopia-theme.el --- Tritanopia-optimized theme with a white background -*- lexical-binding:t -*-
 
-;; Copyright (C) 2019-2023  Free Software Foundation, Inc.
+;; Copyright (C) 2019-2024  Free Software Foundation, Inc.
 
 ;; Author: Protesilaos Stavrou <info@protesilaos.com>
-;; Maintainer: Modus-Themes Development <~protesilaos/modus-themes@lists.sr.ht>
-;; URL: https://git.sr.ht/~protesilaos/modus-themes
-;; Mailing-List: https://lists.sr.ht/~protesilaos/modus-themes
+;; Maintainer: Protesilaos Stavrou <info@protesilaos.com>
+;; URL: https://github.com/protesilaos/modus-themes
 ;; Keywords: faces, theme, accessibility
 
 ;; This file is part of GNU Emacs.
@@ -135,22 +134,30 @@ standard)."
       (bg-magenta-nuanced "#f8e6f5")
       (bg-cyan-nuanced    "#e0f2fa")
 
-;;; Uncommon accent backgrounds
+;;; Uncommon accent background and foreground pairs
 
-      (bg-ochre    "#f0e0cc")
-      (bg-lavender "#dfdbfa")
+      (bg-clay     "#f1c8b5")
+      (fg-clay     "#63192a")
+
+      (bg-ochre    "#f0e3c0")
+      (fg-ochre    "#573a30")
+
+      (bg-lavender "#dfcdfa")
+      (fg-lavender "#443379")
+
       (bg-sage     "#c0e7d4")
+      (fg-sage     "#124b41")
 
 ;;; Graphs
 
       (bg-graph-red-0     "#ef7969")
       (bg-graph-red-1     "#ffaab4")
-      (bg-graph-green-0   "#70c3b0")
-      (bg-graph-green-1   "#a3dfe5")
+      (bg-graph-green-0   "#68c0a0")
+      (bg-graph-green-1   "#a5dfd0")
       (bg-graph-yellow-0  "#d99f9f")
       (bg-graph-yellow-1  "#ffb58f")
       (bg-graph-blue-0    "#80a0df")
-      (bg-graph-blue-1    "#9fcaff")
+      (bg-graph-blue-1    "#a8cfff")
       (bg-graph-magenta-0 "#efafcf")
       (bg-graph-magenta-1 "#ffdaef")
       (bg-graph-cyan-0    "#7fd3ed")
@@ -212,6 +219,7 @@ standard)."
 ;;; Paren match
 
       (bg-paren-match        "#5fcfff")
+      (fg-paren-match        fg-main)
       (bg-paren-expression   "#efd3f5")
       (underline-paren-match unspecified)
 
@@ -248,19 +256,24 @@ standard)."
 
 ;;;; Code mappings
 
+      (bracket fg-main)
       (builtin magenta)
       (comment red-faint)
       (constant green-cooler)
-      (docstring fg-alt)
+      (delimiter fg-main)
       (docmarkup magenta-faint)
+      (docstring fg-alt)
       (fnname cyan-warmer)
       (keyword red-cooler)
+      (number fg-main)
+      (operator fg-main)
       (preprocessor red-warmer)
+      (punctuation fg-main)
+      (rx-backslash magenta)
+      (rx-construct red)
       (string cyan)
       (type blue-warmer)
       (variable cyan-cooler)
-      (rx-construct red)
-      (rx-backslash magenta)
 
 ;;;; Accent mappings
 
@@ -291,14 +304,16 @@ standard)."
 
       (date-common cyan-cooler)
       (date-deadline red)
+      (date-deadline-subtle red-faint)
       (date-event fg-alt)
       (date-holiday red)
       (date-holiday-other cyan)
       (date-now fg-main)
       (date-range fg-alt)
       (date-scheduled magenta)
+      (date-scheduled-subtle magenta-faint)
       (date-weekday cyan)
-      (date-weekend red-faint)
+      (date-weekend magenta-warmer)
 
 ;;;; Line number mappings
 
@@ -348,17 +363,29 @@ standard)."
 
 ;;;; Prose mappings
 
-      (prose-block fg-dim)
-      (prose-code cyan)
+      (bg-prose-block-delimiter bg-dim)
+      (fg-prose-block-delimiter fg-dim)
+      (bg-prose-block-contents bg-dim)
+
+      (bg-prose-code unspecified)
+      (fg-prose-code cyan)
+
+      (bg-prose-macro unspecified)
+      (fg-prose-macro red-warmer)
+
+      (bg-prose-verbatim unspecified)
+      (fg-prose-verbatim magenta-warmer)
+
       (prose-done cyan)
-      (prose-macro red-warmer)
+      (prose-todo red)
+
       (prose-metadata fg-dim)
       (prose-metadata-value fg-alt)
+
       (prose-table fg-alt)
       (prose-table-formula red-cooler)
-      (prose-tag fg-alt)
-      (prose-todo red)
-      (prose-verbatim magenta-warmer)
+
+      (prose-tag magenta-faint)
 
 ;;;; Rainbow mappings
 
@@ -391,10 +418,10 @@ standard)."
 
 ;;;; Terminal mappings
 
-      (bg-term-black           "black")
-      (fg-term-black           "black")
-      (bg-term-black-bright    "gray35")
-      (fg-term-black-bright    "gray35")
+      (bg-term-black           "#000000")
+      (fg-term-black           "#000000")
+      (bg-term-black-bright    "#595959")
+      (fg-term-black-bright    "#595959")
 
       (bg-term-red             red)
       (fg-term-red             red)
@@ -426,10 +453,10 @@ standard)."
       (bg-term-cyan-bright     cyan-cooler)
       (fg-term-cyan-bright     cyan-cooler)
 
-      (bg-term-white           "gray65")
-      (fg-term-white           "gray65")
-      (bg-term-white-bright    "white")
-      (fg-term-white-bright    "white")
+      (bg-term-white           "#a6a6a6")
+      (fg-term-white           "#a6a6a6")
+      (bg-term-white-bright    "#ffffff")
+      (fg-term-white-bright    "#ffffff")
 
 ;;;; Heading mappings
 
@@ -470,6 +497,19 @@ as a symbol and the latter as a string.
 Semantic color mappings have the form (MAPPING-NAME COLOR-NAME)
 with both as symbols.  The latter is a named color that already
 exists in the palette and is associated with a HEX-VALUE.")
+
+  (defcustom modus-operandi-tritanopia-palette-user nil
+    "Like the `modus-operandi-tritanopia-palette' for user-defined entries.
+This is meant to extend the palette with custom named colors and/or
+semantic palette mappings.  Those may then be used in combination with
+palette overrides (also see `modus-themes-common-palette-overrides' and
+`modus-operandi-tritanopia-palette-overrides')."
+    :group 'modus-themes
+    :package-version '(modus-themes . "4.5.0")
+    :type '(repeat (list symbol (choice symbol string)))
+    :set #'modus-themes--set-option
+    :initialize #'custom-initialize-default
+    :link '(info-link "(modus-themes) Option to extend the palette for use with overrides"))
 
   (defcustom modus-operandi-tritanopia-palette-overrides nil
     "Overrides for `modus-operandi-tritanopia-palette'.

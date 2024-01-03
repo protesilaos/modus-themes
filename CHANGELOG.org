@@ -5,7 +5,7 @@
 
 This document contains the release notes that are included in each
 tagged commit on the project's main git repository:
-<https://git.sr.ht/~protesilaos/modus-themes>.
+<https://github.com/protesilaos/modus-themes>.
 
 The newest release is at the top.  Since the notes are meant to be in
 plain text format, I copy them verbatim.
@@ -14,6 +14,742 @@ For further details, please consult these additional resources:
 
 + Manual :: <https://protesilaos.com/emacs/modus-themes>
 + Screenshots :: <https://protesilaos.com/emacs/modus-themes-pictures>
+
+* 4.6.0 on 2024-10-27
+:PROPERTIES:
+:CUSTOM_ID: h:6d2d7b60-8233-489b-bb49-bf9cec63ed86
+:END:
+
+This is a small release that makes minor refinements to an already
+stable base.
+
+** Command to rotate between selected Modus themes
+:PROPERTIES:
+:CUSTOM_ID: h:8954572d-52ae-4b45-81fa-f9a122d3f643
+:END:
+
+The command ~modus-themes-rotate~ switches from one theme to the next
+in the list defined in the user option ~modus-themes-to-rotate~. The
+default value of the user option covers all the Modus themes, though
+users may prefer to set it to a small subset thereof.
+
+Rotation works in such a way that (i) if the theme-to-be-loaded is
+already the current one, the next in line is loaded instead, and (ii)
+the next candidate is always to the right of the currently loaded
+theme.
+
+The rotation is done from left to right. When at the end of the list,
+"right" points to the beginning.
+
+The command ~modus-themes-rotate~ complements the existing commands
+~modus-themes-toggle~ (which reads the user option ~modus-themes-to-toggle~
+to switch between two themes) and ~modus-themes-select~ to select one
+among all the Modus themes using minibuffer completion.
+
+** More accurate faces for Org agenda dates
+:PROPERTIES:
+:CUSTOM_ID: h:fe22ae0c-9577-4aab-9b33-b162b1def6e0
+:END:
+
+We now adopt a more semantically consistent approach to the use of
+font weights and colour intensity when styling all the permutations of
+scheduled date and deadline faces. Pressing tasks stand out more,
+while those that do not require immediate attention are rendered in a
+more subtle style.
+
+Thanks to Adam Porter (aka GitHub alphapapa) for suggesting this
+revision and discussing the technicalities with me. This was done in
+issue 102: <https://github.com/protesilaos/modus-themes/issues/102>.
+
+** A slightly revised ~red-cooler~ palette entry
+:PROPERTIES:
+:CUSTOM_ID: h:e8231f47-070b-4cac-82ec-db839b020291
+:END:
+
+The value of this named colour now has a lower contribution from the
+blue channel of light, meaning that it looks less pink and more rosy
+red. The change is small, though it contributes to a more harmonious
+distribution of colour in certain major modes that have preprocessor
+constructs (e.g. for the C language).
+
+~red-cooler~ is also used in some contexts in Org and Org agenda
+buffers.
+
+** Completion popups are monospaced if ~modus-themes-mixed-fonts~ is non-nil
+:PROPERTIES:
+:CUSTOM_ID: h:808265fb-6c33-4836-babf-75089bddbe33
+:END:
+
+The user option ~modus-themes-mixed-fonts~ ensures that
+spacing-sensitive constructs are always rendered in a monospaced font
+(technically, they inherit the ~fixed-pitch~ face). This is especially
+useful when enabling ~variable-pitch-mode~ in, say, an Org buffer that
+has tables and code blocks.
+
+The popup produced by the ~corfu~ and ~company~ packages will also be
+rendered in a monospaced font if the necessary conditions are met,
+ensuring proper alignment of all the elements.
+
+** Directory icon colours are in line with each theme's palette
+:PROPERTIES:
+:CUSTOM_ID: h:4aae495b-df39-4032-8b90-ff29f8dfe885
+:END:
+
+The directory icon presented by the ~all-the-icons~ and ~nerd-icons~
+packages is now rendered in the style of a semantic palette mapping
+from the active theme, instead of using a hardcoded faint cyan colour.
+This is to ensure that styles are consistent and that users with
+deuteranopia or tritanopia get the desired colours while using the
+relevant Modus themes.
+
+For those who define palette overrides to refashion the themes, the
+mapping is called ~accent-0~: it is used in places where one or more
+colours are needed for variation, such as what ~orderless~ does in the
+minibuffer or ~magit~ in its status buffer.
+
+** Refined support for ~embark~ and ~forge~ packages
+:PROPERTIES:
+:CUSTOM_ID: h:ce49c85e-e4a9-4584-9bfb-ce326b16710b
+:END:
+
+We now cover more of their faces, have updated the relevant symbols of
+those faces, and have made stylistic tweaks in the interest of
+theme-wide consistency (i.e. the kind of quality you only appreciate
+over time).
+
+** Support for the built-in ~hexl-mode~
+:PROPERTIES:
+:CUSTOM_ID: h:ec2dfe30-2e37-40b5-8216-31408d46345f
+:END:
+
+It was using some background colour values that were somewhat hard to
+read. Those are replaced with appropriate foreground colours.
+
+** Documentation on how to support some packages
+:PROPERTIES:
+:CUSTOM_ID: h:3003e37b-1003-4c37-891a-6715b7ba2fd6
+:END:
+
+These are:
+
+- ~combobulate~. Thanks to Damien Cassou in issue 108: <https://github.com/protesilaos/modus-themes/issues/108>.
+- ~engrave-faces~.
+- ~howm~. Thanks to Jabir Ali Ouassou for the discussion in issue 117: <https://github.com/protesilaos/modus-themes/issues/117>.
+- ~meow~. Thanks to ZharMeny in issue 116: <https://github.com/protesilaos/modus-themes/issues/116>.
+
+Those are not covered by the themes for a variety of reasons, but that
+may change in the future.
+
+** Updated a colour value about the ~solaire~ package
+:PROPERTIES:
+:CUSTOM_ID: h:40713198-37a4-4d62-a2c3-4081a02a6641
+:END:
+
+This is another package whose support we only document. The manual was
+referring to a colour that has long been removed from the themes.
+
+Thanks to Edgar Vincent for bringing this matter to my attention. This
+was done on the GitLab mirror, issue 316:
+<https://gitlab.com/protesilaos/modus-themes/-/issues/316>.
+
+** Removed some needless =:set= values from ~defcustom~ forms
+:PROPERTIES:
+:CUSTOM_ID: h:3c46d5c4-93e9-4b1b-be6b-3928bb732099
+:END:
+
+We did this after reviewing the state of the code following a
+discussion with shipmints and Adam Porter about the behaviour of the
+~setopt~ macro when setting user options from the Modus themes. There
+should be no visible change for users, though the edit is still useful
+for the maintainability of the code. This was done in issue 118:
+<https://github.com/protesilaos/modus-themes/issues/118>.
+
+** Switched to ~if-let*~ and its variants everywhere
+:PROPERTIES:
+:CUSTOM_ID: h:52529f64-1692-419d-91cd-0c37fb10c9a0
+:END:
+
+Emacs 31 deprecates the forms of these macros that lack the asterisk.
+We can comply right away since the functionality is the same.
+
+* 4.5.0 on 2024-08-21
+:PROPERTIES:
+:CUSTOM_ID: h:1a3e2de7-2244-4160-a29c-40a0ab35cd5f
+:END:
+
+The themes are in a stable state. They cover a wide range of packages
+and interfaces, while they are highly configurable. The present
+version provides further scope for customisation as well as some
+quality-of-life refinements.
+
+** Users can now extend the palette of each/all themes
+:PROPERTIES:
+:CUSTOM_ID: h:9f38b395-9ab0-4b81-a9cd-3e753e6c62b9
+:END:
+
+In addition to palette overrides, users can now define extensions for
+the palette of each theme or for all themes. The idea is to define new
+colours while keeping the existing ones intact. Then, those colours
+can be accessed in all the usual ways via (i) the
+~modus-themes-with-colors~ macro, (ii) the function
+~modus-themes-get-color-value~, and (iii) in the palette override user
+options.
+
+I wrote about this on my website: <https://protesilaos.com/codelog/2024-06-25-emacs-modus-themes-user-palette/>.
+
+And, as always, the manual is the up-to-date reference for everything
+you need.
+
+The relevant user options are the following:
+
+- ~modus-themes-common-palette-user~
+- ~modus-operandi-palette-user~
+- ~modus-operandi-tinted-palette-user~
+- ~modus-operandi-deuteranopia-palette-user~
+- ~modus-operandi-tritanopia-palette-user~
+- ~modus-vivendi-palette-user~
+- ~modus-vivendi-tinted-palette-user~
+- ~modus-vivendi-deuteranopia-palette-user~
+- ~modus-vivendi-tritanopia-palette-user~
+
+** More colours to chose from in customisations
+:PROPERTIES:
+:CUSTOM_ID: h:7b67da30-eb71-4752-8d09-91052faa9277
+:END:
+
+A big part of the themes' customisability is the palette overrides
+users can implement. The manual covers lots of examples. The short
+version is that the user can change how, say, the mode lines look,
+what an Org heading looks like, and so on.
+
+We now have a new pair of background and foreground colours, namely,
+~bg-clay~ and ~fg-clay~, as well as foreground values to complement
+their already existing background counterparts: ~fg-ochre~,
+~fg-lavender~, ~fg-sage~.
+
+** "Graph" colours look a bit better in context
+:PROPERTIES:
+:CUSTOM_ID: h:f7d7a69c-0125-479f-9b35-8b2ba750fa23
+:END:
+
+Each theme's palette contains a subset of colour values that are
+intended for use in graphs. One well-known package where those are
+applied is the ~org-habit~ consistency block.
+
+I tweak a few colours in this subset to make them look better
+side-by-side as well as in other combinations. This concerns all the
+light themes.
+
+** The indicator for minibuffer recursion has a different style
+:PROPERTIES:
+:CUSTOM_ID: h:c5079296-74f2-4fe5-8c40-34b11db5a931
+:END:
+
+This concerns the number shown next to the minibuffer prompt while in
+a recursive minibuffer (per ~minibuffer-depth-indicate-mode~ and
+related settings to enable minibuffer recursion). Before, the style
+was like a mouse highlight, which could be confusing in certain
+situations. Now it is an unambiguous coloured background that still
+stands out nicely.
+
+** The ~kmacro-menu~ faces are also supported
+:PROPERTIES:
+:CUSTOM_ID: h:b8294884-9c8c-45d7-b372-b2fb7fbdb100
+:END:
+
+These are the marks we see while using the interface provided by the
+built-in command ~kmacro-menu~ (alias ~list-keyboard-macros~).
+
+** The ~vtable~ will respect the user choice for "mixed fonts"
+:PROPERTIES:
+:CUSTOM_ID: h:5ea1131d-1529-45bf-a86f-4c3778177455
+:END:
+
+The ~vtable~ face will be rendered in a monospaced font (technically,
+it will inherit ~fixed-pitch~) if the user sets the user option
+~modus-themes-mixed-fonts~ to a non-nil value. Users may want to do
+this to eventually apply a proportionately spaced font for regular
+prose while keeping spacing-sensitive elements like blocks and tables
+in a monospaced view.
+
+[ The manual shows how to configure the individual font families via
+  their respective faces. ]
+
+Thanks to shipmints for bringing this matter to my attention in issue
+110: <https://github.com/protesilaos/modus-themes/issues/110>.
+
+** The ~jabber~ package is now supported
+:PROPERTIES:
+:CUSTOM_ID: h:725123b9-31ed-460b-9411-c2cd9f54502c
+:END:
+
+Thanks to Thanos Apollo for the contribution. The change is within
+the accepted line limit, meaning that Thanos does not need to assign
+copyright to the Free Software Foundation.
+
+** The ~doom-modeline~ no longer uses ~bold-italic~
+:PROPERTIES:
+:CUSTOM_ID: h:28e9a11b-54b0-4df6-9b96-b2db54a2e43e
+:END:
+
+This style was used to highlight some forms of emphasis, but it turns
+out that it can clip the outline of icon fonts (per the ~nerd-fonts~
+package) under some situations.
+
+** Covered the built-in ~window-tool-bar-mode~
+:PROPERTIES:
+:CUSTOM_ID: h:92b3a588-4d0d-4afd-bb79-31884836292f
+:END:
+
+Thanks to Jared Finder for the contribution. The change is small,
+meaning that Jared does not need to assign copyright to the Free
+Software Foundation.
+
+** Miscellaneous
+:PROPERTIES:
+:CUSTOM_ID: h:e3617c15-1909-48f2-9a7d-3243a45fc07b
+:END:
+
+- The ~elisp-shorthand-font-lock-face~ is now easier to spot in
+  context. This is a way for Emacs packages to define so-called
+  "shorthands" of short prefixes in symbols that are aliases for
+  longer ones. These shorthands will now use a style that is not found
+  anywhere else in Elisp code, making them stand out more.
+
+- Added partial support for the built-in ~viper~ package. NOTE though
+  that this package is applying colors to cursors in a way that themes
+  cannot override. The issue is especially problematic when switching
+  themes. If anyone is using Viper and interested to modernise it, let
+  me know about your work and then I will update the themes
+  accordingly. Thanks to ZharMeny for asking me to support Viper in
+  issue 115: <https://github.com/protesilaos/modus-themes/issues/115>.
+
+- Fixed the symbol of an inherited face in ~web-mode~. Thanks to Pavel
+  Novichkov for the change. It does not require copyright assignment.
+
+- Updated the manual to cover the aforementioned.
+
+* 4.4.0
+:PROPERTIES:
+:CUSTOM_ID: h:4025f2f4-8524-49d9-9ee5-627361ff9875
+:END:
+
+Before I cover the changes, a brief note about the canonical source of
+the ~modus-themes~ source code and corresponding documentation.
+
+The ~modus-themes~ are built into Emacs, as of version 28, but they
+are not developed in =emacs.git=: I maintain my own Git repository
+(<https://github.com/protesilaos/modus-themes>) and sync with
+=emacs.git= whenever I publish a new version, such as this one. This
+means that my code is often ahead of the one in the Emacs tree
+(including the =master= branch). Similarly, the official manual, which
+is hosted on my website (<https://protesilaos.com/emacs/modus-themes>),
+covers topics not found in the corresponding =gnu.org= web pages.
+
+In the opening section of the manual I include references to the
+canonical sources, but I still get comments about GNU web pages that I
+do not control. Please check those links before reporting issues that
+I can do nothing about.
+
+** No more SourceHut
+:PROPERTIES:
+:CUSTOM_ID: h:56191859-93e5-444a-9356-f393343619a5
+:END:
+
+Development continues on GitHub with GitLab as a mirror. I explained
+my reasons here: <https://protesilaos.com/codelog/2024-01-27-sourcehut-no-more/>.
+
+This is a change that affects all my Emacs packages.
+
+** Code blocks now have a background by default
+:PROPERTIES:
+:CUSTOM_ID: h:6b40d5f3-ae0a-4ec5-ab23-20ec64e37773
+:END:
+
+The user option ~modus-themes-org-blocks~ is obsolete. All code blocks
+now have a subtle grey background out-of-the-box. The block delimiter
+lines, such as the =#+begin_src= in Org mode, use the same background
+as the block's contents. This produces a style that (i) is easy to
+notice and (ii) employs minimal colouration. Furthermore, we no longer
+have any discrepancy between Org and similar modes like Markdown.
+
+Every theme has relevant semantic palette mappings to affect the
+underlying faces:
+
+- =bg-prose-block-delimiter=
+- =fg-prose-block-delimiter=
+- =bg-prose-block-contents=
+
+The old =prose-block= is now renamed to =fg-prose-block-delimiter=.
+Please update any such references in your configuration file.
+
+Users can customise those either for all themes via the user option
+~modus-themes-common-palette-overrides~  or on a per-theme basis with
+something like ~modus-operandi-palette-overrides~. The manual includes
+ready-to-use code samples that showcases the numerous permutations made
+possible by these new mappings: <https://protesilaos.com/emacs/modus-themes#h:f44cc6e3-b0f1-4a5e-8a90-9e48fa557b50>.
+
+The old option to affect the user option ~org-src-block-faces~ as to
+have a different background for each specified programming language is
+no longer available. The previous design was inflexible, as I was
+hardcoding values for a few languages. Whereas it is better to empower
+the user with the choice of =language->colour= association. The manual
+shows how to do this:
+<https://protesilaos.com/emacs/modus-themes#h:8c842804-43b7-4287-b4e9-8c07d04d1f89>.
+
+** More semantic mappings more inline code in prose-centric modes
+:PROPERTIES:
+:CUSTOM_ID: h:1d6ae039-cc19-479f-b16f-839481f3080a
+:END:
+
+For Org, Markdown, and related we have semantic palette mappings that
+target inline code constructs. For example, in Org we can have text
+inside of tilde signs to mark it up as code. In prior versions, the
+mappings were limited to just a foreground, but now they cover
+background values as well. By default, these background do not have a
+colour associated with them, meaning that the out-of-the-box aesthetic
+is the same as before. Users simply have more power at their disposal
+to tweak the theme to their liking.
+
+Here are the names of those mappings:
+
+- =bg-prose-code=
+- =fg-prose-code=
+- =bg-prose-macro=
+- =fg-prose-macro=
+- =bg-prose-verbatim=
+- =fg-prose-verbatim=
+
+The old =prose-code=, =prose-macro=, and =prose-verbatim= are named
+=fg-prose-code=, =fg-prose-macro=, =fg-prose-verbatim=. Please
+update any such references in your configuration file.
+
+The manual shows lots of examples on how to benefit from these
+optional backgrounds: <https://protesilaos.com/emacs/modus-themes#h:bb5b396f-5532-4d52-ab13-149ca24854f1>.
+
+** No colour-coding for =transient.el= buffers.
+:PROPERTIES:
+:CUSTOM_ID: h:0b134a92-9554-4578-a963-ef782f224b28
+:END:
+
+In a recent version of =transient.el=, there is a new user option that
+applies colour-coding to keys (e.g. we see those while using ~magit~):
+~transient-semantic-coloring~. This option is enabled by default,
+changing the previous style that was used as a reference for all my
+designs.
+
+The idea with such colour coding is to indicate when a key continues
+to display the transient, exits with a given action, and the like. For
+our purposes this interface cannot work:
+
+- We need some place to teach users what each colour means, as there
+  are no indicators of any sort to help them (whereas, say, in diff
+  buffers we have the plus and minus signs).
+
+- Not all hues are suitable for highlighting a single character. In
+  light themes, for example, green and yellow colours are awkward
+  choices for the requirements of this interface where the key must be
+  clearly visible. But when we introduce multiple colours, each with
+  their own meaning, we will not be able to avoid those hues.
+
+- The style of key bindings is not limited to =transient.el=. We find
+  them when we invoke =M-x=, do =M-x describe-bindings=, while using
+  the ~which-key~ package, and many more. If we are to change how
+  =transient.el= shows key bindings, then we have to retain the same
+  visual cues for other contexts. Otherwise, everything is inconsistent.
+
+- All themes must use the same colours to preserve the colour coding,
+  thus removing an important aspect of their presentation.
+
+- This whole paradigm does not work for themes that are optimised for
+  users with colour deficiency, due to the reduced number of suitable
+  hues. With deuteranopia, for example, we can only rely on yellow and
+  blue: since yellow is not optimal for single key highlights against
+  a light backdrop, blue is the only hue that works in such a context.
+
+The ~modus-themes~ will never support ~transient-semantic-coloring~.
+All relevant faces use the style of standard key bindings.
+
+Themes can enforce user option values, but I have decided to change
+the faces instead to better communicate my intent. If a user wants
+semantic colouring, they can change the faces to whatever they like.
+
+I understand this is a radical measure, though it is the best I can do
+given the circumstances. If =transient.el= where to have accompanying
+characters that better denote what each key does (e.g. the plus sign
+is for keys that continue the transient), then I am happy to apply
+appropriate colours to those and reconsider the aforementioned.
+
+** Semantic mappings for active arguments and values
+:PROPERTIES:
+:CUSTOM_ID: h:909053eb-0378-41f5-b32a-741fa53ba4a3
+:END:
+
+In various interfaces such as of ~eldoc-mode~ and =transient.el= there
+are highlights for the current argument or argument value. These now
+have corresponding semantic palette mappings and are thus styled
+uniformly (and can be overridden accordingly). The mappings are:
+
+- =bg-active-argument=
+- =fg-active-argument=
+- =bg-active-value=
+- =fg-active-value=
+
+** A semantic mapping for formulas in tables
+:PROPERTIES:
+:CUSTOM_ID: h:306889ed-64c8-414c-a744-14ea1e6b3e6d
+:END:
+
+The =prose-table-formula= applies to inline formula expressions in
+plain text tables. Org mode uses those, as does the minor mode ~orgtbl-mode~.
+The inline formula is meant to stand out from the rest of the table,
+without exaggerations.
+
+** Matching parentheses have semantic mappings for their foreground too
+:PROPERTIES:
+:CUSTOM_ID: h:4055d50e-0153-4576-bba5-fcdcdf039b10
+:END:
+
+By default, Emacs will highlight the matching (opening or closing)
+delimiter when the cursor is next to it. This is useful in Lisp
+programming modes, for example, as we can quickly get a sense of where
+an expression starts and ends.
+
+The themes now provide mappings for the foreground of those
+delimiters. This means that users can either change the combination of
+background and foreground or opt to only display a foreground value
+for a more minimal look.
+
+As always, the manual shows concrete examples:
+<https://protesilaos.com/emacs/modus-themes#h:259cf8f5-48ec-4b13-8a69-5d6387094468>.
+
+** Search highlights have their own semantic mappings
+:PROPERTIES:
+:CUSTOM_ID: h:df3879a4-e11d-47f0-9330-a2d51e999941
+:END:
+
+This makes it easier to differentiate their style on a per-theme
+basis, which I do for all the Modus themes. It also gives users the
+option to override the colours. The mappings:
+
+- =bg-search-current=
+- =bg-search-lazy=
+- =bg-search-replace=
+- =bg-search-rx-group-0=
+- =bg-search-rx-group-1=
+- =bg-search-rx-group-2=
+- =bg-search-rx-group-3=
+
+** Stylistic tweaks to ~modus-operandi-tinted~
+:PROPERTIES:
+:CUSTOM_ID: h:8885de5e-be29-45cc-a2e5-2dcb0866273d
+:END:
+
+The ~modus-operandi-theme~ uses a light ochre background, which gives
+a warmer feel than the pure white background of ~modus-operandi~. To
+better contribute to this warmth, I made some tweaks to common
+elements:
+
+1. The cursor has a red hue as before, but the value is a bit more
+   intense now. This makes it easier to spot in contexts where text is
+   already "warm", like close to an Org =TODO= keyword or in
+   programming mode comments.
+
+2. All key bindings have a red hue instead of blue. We can notice the
+   effect in Help mode buffers that mention where a command is bound,
+   while using ~which-key-mode~, in =transient.el= buffers, in
+   minibuffer completion annotations, and more.
+
+These are in addition to many nuances already built into ~modus-operandi-tinted~.
+
+I hope that existing users will appreciate these tweaks. We anyway
+have the option to override any entry in the palette, though I suggest
+you give these a chance before enacting any changes.
+
+** Stylistic tweaks to ~modus-vivendi-tinted~
+:PROPERTIES:
+:CUSTOM_ID: h:dc23c419-d87a-4973-9175-961af9e3051d
+:END:
+
+Same principle here as with the above set of changes. Namely:
+
+1. The cursor uses a more intense magenta background to be easier to
+   spot.
+
+2. Key bindings are purple instead of blue to better complement the
+   aesthetics of this theme.
+
+3. The background highlight applied to matching parentheses (per
+   ~show-paren-mode~) is grey-cyan instead of cyan.
+
+Again, we can override everything but please try those for a little
+while.
+
+** The ~olivetti-fringe~ is visible when needed
+:PROPERTIES:
+:CUSTOM_ID: h:3c2d3f21-7686-4376-a3ec-82240b283eec
+:END:
+
+This is subject to the user option ~olivetty-style~, which can be set
+to the value of =fancy= to produce a page-like effect.
+
+Thanks to Dhavan Vaidya and Gautier Ponsinet for bringing this matter
+to my attention on the now-discontinued mailing list:
+<https://lists.sr.ht/~protesilaos/modus-themes/%3Cm2a5qzpi3y.fsf%40muon.local.mail-host-address-is-not-set%3E>
+
+** A more subtle style for the ~consult-preview-insertion~ face
+:PROPERTIES:
+:CUSTOM_ID: h:8c6717d2-0488-4590-8083-52e081adf6f5
+:END:
+
+The default value of that face inherits from the ~region~ face. This
+is fine in some cases, though not when the user calls
+~consult-outline~ in a buffer with hidden text (e.g. Org folded
+headings). There the background is applied to the entire heading's
+surface area, which is too distracting while cycling through
+completion candidates and inspecting the preview.
+
+** Simpler ~imenu-list~ with four colours
+:PROPERTIES:
+:CUSTOM_ID: h:af7ec9f7-e7aa-4a05-a5a2-184d0d7143c6
+:END:
+
+The ~imenu-list~ defines two sets of faces which apply to same heading
+levels but differ on whether the heading has subheadings or not.
+Before, we would colourise those differently, which could be
+confusing. Now they look the same, which is fine because the interface
+has additional markup to show when subheadings are present.
+
+Thanks to ltmsyvag for pointing this out in issue 95:
+<https://github.com/protesilaos/modus-themes/issues/95>.
+
+** Implicit buttons in Gnus are no longer underlined
+:PROPERTIES:
+:CUSTOM_ID: h:6b0cc04f-1a9b-436c-b11f-5446ea55b010
+:END:
+
+Gnus buttonises text that it considers actionable. The exact
+functionality depends on the context, but it basically does stuff like
+add a quick way to write a new message to a given email address. These
+buttons can be mistaken for links, so I am removing their underline to
+avoid any possible confusion.
+
+** The ~message-separator~ face is less intense
+:PROPERTIES:
+:CUSTOM_ID: h:a049f538-2805-4379-8542-43dc6f990a2b
+:END:
+
+In message/email composition buffers, there is a line that
+distinguishes headers from the body of the message. By default, it
+reads =--text follows this line--= and will now have a subtle grey
+background. The idea is to not stress the distinction between headers
+and body, as this line's verbosity is already enough to call attention
+to it when we add a subtle background.
+
+** Recalibrated all "nuanced" background values
+:PROPERTIES:
+:CUSTOM_ID: h:ecb9c704-7615-4e42-8438-13e96c10588e
+:END:
+
+Each theme has a subset of slightly accented background named
+=bg-{red,green,blue,yellow,magenta,cyan}-nuanced=. These have slightly
+different values to be more consistent in terms of their intensity.
+
+** The ~debbugs~ package is now supported
+:PROPERTIES:
+:CUSTOM_ID: h:67161fd3-f615-4856-b5df-99f5c0f2e5ee
+:END:
+
+Thanks to Gautier Ponsinet for sending me the relevant patch to my
+personal email. I made further stylistic changes on top.
+
+** The ~ztree~ package is covered as well
+:PROPERTIES:
+:CUSTOM_ID: h:c82277b9-abb9-4d1e-9912-14caf66af8d2
+:END:
+
+It produces a diff between two directories and thus needs appropriate
+colours.
+
+** Added support for ~xterm-color~ and ~rustic-mode~
+:PROPERTIES:
+:CUSTOM_ID: h:c262fdbe-49a5-480b-b0d1-6592f6e29879
+:END:
+
+These are basically reusing styles we already support for other
+terminal emulators. Thanks to Tony Zorman for the contribution, which
+was done in pull request 99: <https://github.com/protesilaos/modus-themes/pull/99>.
+
+** Org checkboxes are monospaced when ~modus-themes-mixed-fonts~ is non-nil
+:PROPERTIES:
+:CUSTOM_ID: h:69dbe924-58b3-43e9-801c-35cf9ac8fffb
+:END:
+
+The user option ~modus-themes-mixed-fonts~ makes specing-sensitive
+elements use a monospaced font (specifically, the font family of the
+~fixed-pitch~ face). This lets the user set a more prose-friendly
+style without visually breaking snippets that rely on fixed width
+spacing. A prose-friendly style is done by making the default font a
+proportionately spaced one, or by enabling ~variable-pitch-mode~ in
+the current buffer.
+
+For this case, we now cover Org checkboxes as well to avoid
+misalignments in checklists.
+
+Thanks to Gautier Ponsinet for discussing this with me via email and
+sending the relevant patch.
+
+** More code samples in the manual
+:PROPERTIES:
+:CUSTOM_ID: h:2ccb1b44-a36e-4ea1-9f24-9d080cdec02d
+:END:
+
+The manual documents everything about the customisation options
+provided by the themes, as well as relevant do-it-yourself code
+samples. I now include more examples and better explain how to hook
+those either to the ~enable-theme-functions~ or the
+~modus-themes-after-load-theme-hook~. If something is not clear or not
+covered at all, please let me know and I will help you do what you
+want.
+
+** Miscellaneous
+:PROPERTIES:
+:CUSTOM_ID: h:2e5f0804-236d-49b5-9b2f-ecb4794b244b
+:END:
+
+- All =cl-= snippets are removed from the source code. We did not
+  really need them and I rewrote the code accordingly. This is not a
+  value judgement against Common Lisp patterns in Emacs Lisp (I do not
+  mind them): it is just a matter of removing a dependency for things
+  that can easily be done differently.
+
+- The ~keycast-key~ inherits the ~bold~ face if the user option
+  ~modus-themes-bold-constructs~ is set to a non-nil value.
+
+- The ~read-multiple-choice-face~ now has a cooler hue than the one it
+  had before. This way it is not mistaken for a warning.
+
+- The ~appt-notification~ face uses a foreground value that is better
+  suited for the modeline, where this indicator appears.
+
+- The ~header-line-highlight~ draws a box around it. This makes the
+  mouse hover effect easier to spot.
+
+- The ~shr-mark~ face is now covered as well. It uses an appropriate
+  background colour.
+
+- The ~mct-highlight-candidate~ face is covered and has an appropriate
+  style for the minibuffer completions.
+
+- The ~completions-highlight~ face (Emacs 29) is also supported to
+  ensure stylistic consistency between the minibuffer interfaces
+  covered by the themes.
+
+- Flagged and deleted messages in ~mu4e~ and ~notmuch~ use different
+  hues to not conflate the two.
+
+- Fixed the spelling of "colour" to "color" in the manual because core
+  Emacs uses the latter...
 
 * 4.3.0
 :PROPERTIES:
