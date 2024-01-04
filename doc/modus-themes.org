@@ -5434,8 +5434,8 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Gonçalo Marrafa, Guilherme Semente, Gustavo Barros, Hörmetjan
   Yiltiz, Ilja Kocken, Imran Khan, Iris Garcia, Ivan Popovych, James
   Ferguson, Jeremy Friesen, Jerry Zhang, Johannes Grødem, John Haman,
-  John Wick, Jonas Collberg, Jorge Morais, Joshua O'Connor, Julio
-  C. Villasante, Kenta Usami, Kevin Fleming, Kévin Le Gouguec, Kevin
+  John Wick, Jonas Collberg, Jorge Morais, Joshua O'Connor, Julio C.
+  Villasante, Kenta Usami, Kevin Fleming, Kévin Le Gouguec, Kevin
   Kainan Li, Kostadin Ninev, Laith Bahodi, Lasse Lindner, Len Trigg,
   Lennart C. Karssen, Luis Miguel Castañeda, Magne Hov, Manuel Giraud,
   Manuel Uberti, Mark Bestley, Mark Burton, Mark Simpson, Marko Kocic,
@@ -5450,11 +5450,12 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Ragavan, Simon Pugnet, Steve Downey, Tassilo Horn, Thanos Apollo,
   Thibaut Verron, Thomas Heartman, Togan Muftuoglu, Tony Zorman, Trey
   Merkley, Tomasz Hołubowicz, Toon Claes, Uri Sharf, Utkarsh Singh,
-  Vincent Foley, Zoltan Kiraly.  As well as users: Ben, CsBigDataHub1,
+  Vincent Foley, Zoltan Kiraly. As well as users: Ben, CsBigDataHub1,
   Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji, Nick, Summer
   Emacs, TheBlob42, TitusMu, Trey, bepolymathe, bit9tream,
   bangedorrunt, derek-upham, doolio, fleimgruber, gitrj95, iSeeU,
-  jixiuf, okamsn, pRot0ta1p, soaringbird, tumashu, wakamenod.
+  jixiuf, ltmsyvag, okamsn, pRot0ta1p, soaringbird, tumashu,
+  wakamenod.
 
 + Packaging :: Basil L.{{{space()}}} Contovounesios, Eli Zaretskii,
   Glenn Morris, Mauro Aranda, Richard Stallman, Stefan Kangas (core
