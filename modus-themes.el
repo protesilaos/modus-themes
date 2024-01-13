@@ -1211,7 +1211,9 @@ symbol, which is safe when used as a face attribute's value."
   "Return completion annotation for THEME."
   (when-let ((symbol (intern-soft theme))
              (doc-string (get symbol 'theme-documentation)))
-    (format " -- %s" (car (split-string doc-string "\\.")))))
+    (format " -- %s"
+            (propertize (car (split-string doc-string "\\."))
+                        'face 'completions-annotations))))
 
 (defun modus-themes--completion-table (category candidates)
   "Pass appropriate metadata CATEGORY to completion CANDIDATES."
