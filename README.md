@@ -25,9 +25,7 @@ the themes across the years.
 + Change log: <https://protesilaos.com/emacs/modus-themes-changelog>
 + Colour palette: <https://protesilaos.com/emacs/modus-themes-colors>
 + Sample pictures: <https://protesilaos.com/emacs/modus-themes-pictures>
-+ Git repo on SourceHut: <https://git.sr.ht/~protesilaos/modus-themes>
-  - Mirrors:
-    + GitHub: <https://github.com/protesilaos/modus-themes>
-    + GitLab: <https://gitlab.com/protesilaos/modus-themes>
-+ Mailing list: <https://lists.sr.ht/~protesilaos/modus-themes>
-+ Backronym: My Old Display Unexpectedly Sharpened ... themes
++ Git repositories:
+  + GitHub: <https://github.com/protesilaos/modus-themes>
+  + GitLab: <https://gitlab.com/protesilaos/modus-themes>
++ Backronym: My Old Display Unexpectedly Sharpened ... themes.
