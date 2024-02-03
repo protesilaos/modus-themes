@@ -1472,13 +1472,15 @@ Optional OL is the color of an overline."
 
 (defun modus-themes--org-block (fg bg)
   "Conditionally set the FG and BG of Org blocks."
-  (let ((gray (or (eq modus-themes-org-blocks 'gray-background)
-                  (eq modus-themes-org-blocks 'grayscale) ; for backward compatibility
-                  (eq modus-themes-org-blocks 'greyscale))))
-    (list :inherit 'modus-themes-fixed-pitch
-          :background (if gray bg 'unspecified)
-          :foreground (if gray 'unspecified fg)
-          :extend (if gray t 'unspecified))))
+  ;; NOTE 2024-02-03: We don't really need to specify the value of
+  ;; `modus-themes-org-blocks' here, since the only case where it
+  ;; really matters is if the user opts for the tinted backgrounds.
+  ;; This is done further done where we set the value of the user
+  ;; option `org-src-block-faces'.
+  (list :inherit 'modus-themes-fixed-pitch
+        :background (if modus-themes-org-blocks bg 'unspecified)
+        :foreground (if modus-themes-org-blocks 'unspecified fg)
+        :extend (if modus-themes-org-blocks t 'unspecified)))
 
 (defun modus-themes--completion-line (bg)
   "Styles for `modus-themes-completions' with BG as the background."
