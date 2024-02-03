@@ -35,7 +35,7 @@ Current development target is {{{development-version}}}.
 + Package name (GNU ELPA): ~modus-themes~
 + Official manual: <https://protesilaos.com/emacs/modus-themes>
 + Change log: <https://protesilaos.com/emacs/modus-themes-changelog>
-+ Colour palette: <https://protesilaos.com/emacs/modus-themes-colors>
++ Color palette: <https://protesilaos.com/emacs/modus-themes-colors>
 + Sample pictures: <https://protesilaos.com/emacs/modus-themes-pictures>
 + Git repositories:
   + GitHub: <https://github.com/protesilaos/modus-themes>
