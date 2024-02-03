@@ -5435,7 +5435,7 @@ The Modus themes are a collective effort.  Every bit of work matters.
   John Wick, Jonas Collberg, Jorge Morais, Joshua O'Connor, Julio C.
   Villasante, Kenta Usami, Kevin Fleming, Kévin Le Gouguec, Kevin
   Kainan Li, Kostadin Ninev, Laith Bahodi, Lasse Lindner, Len Trigg,
-  Lennart C. Karssen, Luis Miguel Castañeda, Magne Hov, Manuel Giraud,
+  Lennart C.{{{space()}}} Karssen, Luis Miguel Castañeda, Magne Hov, Manuel Giraud,
   Manuel Uberti, Mark Bestley, Mark Burton, Mark Simpson, Marko Kocic,
   Markus Beppler, Matt Armstrong, Matthias Fuchs, Mattias Engdegård,
   Mauro Aranda, Maxime Tréca, Michael Goldenberg, Morgan Smith, Morgan
