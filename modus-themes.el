@@ -1994,6 +1994,7 @@ FG and BG are the main colors."
     `(completions-annotations ((,c :inherit modus-themes-slant :foreground ,docstring)))
     `(completions-common-part ((,c :inherit modus-themes-completion-match-0)))
     `(completions-first-difference ((,c :inherit modus-themes-completion-match-1)))
+    `(completions-highlight ((,c :inherit modus-themes-completion-selected)))
 ;;;;; consult
     `(consult-async-split ((,c :inherit error)))
     `(consult-file ((,c :inherit modus-themes-bold :foreground ,info)))
