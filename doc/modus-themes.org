@@ -4146,6 +4146,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + xterm-color (and ansi-colors)
 + yaml-mode
 + yasnippet
++ ztree [ Part of {{{development-version}}}. ]
 
 Plus many other miscellaneous faces that are provided by Emacs.
 
