@@ -293,7 +293,7 @@ standard)."
       (date-event fg-alt)
       (date-holiday yellow-warmer)
       (date-holiday-other blue)
-      (date-now blue-faint)
+      (date-now fg-main)
       (date-range fg-alt)
       (date-scheduled yellow-cooler)
       (date-weekday cyan)
