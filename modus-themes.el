@@ -4174,7 +4174,26 @@ FG and BG are the main colors."
             ("yaml" modus-themes-nuanced-cyan)
             ("conf" modus-themes-nuanced-cyan)
             ("docker" modus-themes-nuanced-cyan)))
-      `(org-src-block-faces '())))
+      `(org-src-block-faces '()))
+;;;; xterm-color
+    `(xterm-color-names
+      [,fg-term-black
+       ,fg-term-red
+       ,fg-term-green
+       ,fg-term-yellow
+       ,fg-term-blue
+       ,fg-term-magenta
+       ,fg-term-cyan
+       ,fg-term-white])
+    `(xterm-color-names-bright
+      [,fg-term-black-bright
+       ,fg-term-red-bright
+       ,fg-term-green-bright
+       ,fg-term-yellow-bright
+       ,fg-term-blue-bright
+       ,fg-term-magenta-bright
+       ,fg-term-cyan-bright
+       ,fg-term-white-bright]))
   "Custom variables for `modus-themes-theme'.")
 
 ;;; Theme macros
