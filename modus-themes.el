@@ -4152,6 +4152,16 @@ FG and BG are the main colors."
         modus-themes-fg-yellow-intense
         modus-themes-fg-magenta-intense
         modus-themes-fg-cyan-intense))
+;;;; rustic-ansi-faces
+    `(rustic-ansi-faces
+      [,fg-term-black
+       ,fg-term-red
+       ,fg-term-green
+       ,fg-term-yellow
+       ,fg-term-blue
+       ,fg-term-magenta
+       ,fg-term-cyan
+       ,fg-term-white])
 ;;;; org-src-block-faces
     (if (or (eq modus-themes-org-blocks 'tinted-background)
             (eq modus-themes-org-blocks 'rainbow))
