@@ -3020,7 +3020,7 @@ FG and BG are the main colors."
     `(message-header-xheader ((,c :inherit message-header-other)))
     `(message-header-other ((,c :foreground ,mail-other)))
     `(message-mml ((,c :foreground ,mail-part)))
-    `(message-separator ((,c :background ,bg-active)))
+    `(message-separator ((,c :background ,bg-inactive :foreground ,fg-main)))
 ;;;;; minimap
     `(minimap-active-region-background ((,c :background ,bg-active)))
     `(minimap-current-line-face ((,c :background ,bg-cyan-intense :foreground ,fg-main)))
