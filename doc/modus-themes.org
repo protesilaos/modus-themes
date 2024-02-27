@@ -1222,6 +1222,48 @@ Named colors can be previewed, such as with the command
 For a video tutorial that users of all skill levels can approach,
 watch: https://protesilaos.com/codelog/2022-12-17-modus-themes-v4-demo/.
 
+* Preview theme colors
+:properties:
+:custom_id: h:f4d4b71b-2ca5-4c3d-b0b4-9bfd7aa7fb4d
+:end:
+#+cindex: Preview named colors or semantic color mappings
+
+#+findex: modus-themes-list-colors
+The command ~modus-themes-list-colors~ uses minibuffer completion to
+select an item from the Modus themes and then produces a buffer with
+previews of its color palette entries.  The buffer has a naming scheme
+that reflects the given choice, like =modus-operandi-list-colors= for
+the ~modus-operandi~ theme.
+
+#+findex: modus-themes-list-colors-current
+The command ~modus-themes-list-colors-current~ skips the minibuffer
+selection process and just produces a preview for the current Modus
+theme.
+
+When called with a prefix argument (=C-u= with the default key
+bindings), these commands will show a preview of the palette's
+semantic color mappings instead of the named colors.  In this context,
+"named colors" are entries that associate a symbol to a string color
+value, such as =(blue-warmer "#354fcf")=.  Whereas "semantic color
+mappings" associate a named color to a symbol, like =(string
+blue-warmer)=, thus making the theme render all string constructs in
+the =blue-warmer= color value ([[#h:34c7a691-19bb-4037-8d2f-67a07edab150][Option for palette overrides]]).
+
+#+findex: modus-themes-preview-colors
+#+findex: modus-themes-preview-colors-current
+Aliases for those commands are ~modus-themes-preview-colors~ and
+~modus-themes-preview-colors-current~.
+
+Each row shows a foreground and background coloration using the
+underlying value it references.  For example a line with =#a60000= (a
+shade of red) will show red text followed by a stripe with that same
+color as a backdrop.
+
+The name of the buffer describes the given Modus theme and what the
+contents are, such as =*modus-operandi-list-colors*= for named colors
+and ==*modus-operandi-list-mappings*= for the semantic color mappings.
+
+
 * Advanced customization
 :properties:
 :custom_id: h:f4651d55-8c07-46aa-b52b-bed1e53463bb
@@ -2626,47 +2668,6 @@ xterm*color13:    #b6a0ff
 xterm*color14:    #6ae4b9
 xterm*color15:    #ffffff
 #+end_src
-
-** DIY Preview theme colors
-:properties:
-:custom_id: h:f4d4b71b-2ca5-4c3d-b0b4-9bfd7aa7fb4d
-:end:
-#+cindex: Preview named colors or semantic color mappings
-
-#+findex: modus-themes-list-colors
-The command ~modus-themes-list-colors~ uses minibuffer completion to
-select an item from the Modus themes and then produces a buffer with
-previews of its color palette entries.  The buffer has a naming scheme
-that reflects the given choice, like =modus-operandi-list-colors= for
-the ~modus-operandi~ theme.
-
-#+findex: modus-themes-list-colors-current
-The command ~modus-themes-list-colors-current~ skips the minibuffer
-selection process and just produces a preview for the current Modus
-theme.
-
-When called with a prefix argument (=C-u= with the default key
-bindings), these commands will show a preview of the palette's
-semantic color mappings instead of the named colors.  In this context,
-"named colors" are entries that associate a symbol to a string color
-value, such as =(blue-warmer "#354fcf")=.  Whereas "semantic color
-mappings" associate a named color to a symbol, like =(string
-blue-warmer)=, thus making the theme render all string constructs in
-the =blue-warmer= color value ([[#h:34c7a691-19bb-4037-8d2f-67a07edab150][Option for palette overrides]]).
-
-#+findex: modus-themes-preview-colors
-#+findex: modus-themes-preview-colors-current
-Aliases for those commands are ~modus-themes-preview-colors~ and
-~modus-themes-preview-colors-current~.
-
-Each row shows a foreground and background coloration using the
-underlying value it references.  For example a line with =#a60000= (a
-shade of red) will show red text followed by a stripe with that same
-color as a backdrop.
-
-The name of the buffer describes the given Modus theme and what the
-contents are, such as =*modus-operandi-list-colors*= for named colors
-and ==*modus-operandi-list-mappings*= for the semantic color mappings.
 
 ** DIY Per-theme customization settings
 :properties:
