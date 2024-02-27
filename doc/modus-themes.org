@@ -2861,6 +2861,8 @@ mode line.
 (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
 #+end_src
 
+[[#h:d87673fe-2ce1-4c80-a4b8-be36ca9f2d24][Using a hook at the post-load-theme phase]].
+
 The above has the effect of removing the border around the mode lines.
 In older versions of the themes, we provided the option for a padded
 mode line which could also have borders around it.  Those were not
@@ -3127,6 +3129,8 @@ of the themes, which can make it easier to redefine faces in bulk).
 
 [[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Use theme colors in code with modus-themes-with-colors]].
 
+[[#h:d87673fe-2ce1-4c80-a4b8-be36ca9f2d24][Using a hook at the post-load-theme phase]].
+
 Reload the theme for changes to take effect.
 
 ** DIY Custom Org todo keyword and priority faces
@@ -3378,6 +3382,8 @@ Run this function at the post theme load phase, such as with the
           #'my-modus-themes-org-fontify-block-delimiter-lines)
 #+end_src
 
+[[#h:d87673fe-2ce1-4c80-a4b8-be36ca9f2d24][Using a hook at the post-load-theme phase]].
+
 Then {{{kbd(M-x org-mode-restart)}}} for changes to take effect, though manual
 intervention can be circumvented by tweaking the function thus:
 
@@ -3562,6 +3568,8 @@ at something like the following, which builds on the above example:
 (add-hook 'modus-themes-after-load-theme-hook #'my-pdf-tools-themes-toggle)
 #+end_src
 
+[[#h:d87673fe-2ce1-4c80-a4b8-be36ca9f2d24][Using a hook at the post-load-theme phase]].
+
 With those in place, PDFs have a distinct backdrop for their page, while
 buffers with major-mode as ~pdf-view-mode~ automatically switches to dark
 mode when ~modus-themes-toggle~ is called.
@@ -3663,6 +3671,8 @@ Add this to the `modus-themes-post-load-hook'."
 (add-hook 'modus-themes-post-load-hook #'my-modus-themes-invisible-dividers)
 #+end_src
 
+[[#h:d87673fe-2ce1-4c80-a4b8-be36ca9f2d24][Using a hook at the post-load-theme phase]].
+
 The above will work only for themes that belong to the Modus family.
 For users of Emacs version 29 or higher, there exists a theme-agnostic
 hook that takes a function with one argument---that of the theme---and
@@ -3707,6 +3717,8 @@ following approach is necessary:
 (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-hl-todo-faces)
 #+end_src
 
+[[#h:d87673fe-2ce1-4c80-a4b8-be36ca9f2d24][Using a hook at the post-load-theme phase]].
+
 Or include a ~let~ form, if needed:
 
 #+begin_src emacs-lisp
@@ -3720,6 +3732,8 @@ Or include a ~let~ form, if needed:
 
 (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-hl-todo-faces)
 #+end_src
+
+[[#h:d87673fe-2ce1-4c80-a4b8-be36ca9f2d24][Using a hook at the post-load-theme phase]].
 
 Normally, we do not touch user options, though this is an exception:
 otherwise the defaults are not always legible.
@@ -3782,6 +3796,8 @@ on what we cover at length elsewhere in this manual:
 (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
 #+end_src
 
+[[#h:d87673fe-2ce1-4c80-a4b8-be36ca9f2d24][Using a hook at the post-load-theme phase]].
+
 Reload the theme for changes to take effect.
 
 ** DIY Use a hook at the post-load-theme phase
@@ -3833,7 +3849,7 @@ without ~enable-theme-functions~).
 
 [ NOTE: The following is for versions of Emacs before 29. For Emacs 29
   or higher, users can rely on the built-in ~enable-theme-functions~
-  ([[#h:d87673fe-2ce1-4c80-a4b8-be36ca9f2d24][Using a hook at post-load-theme phase]]). ]
+  ([[#h:d87673fe-2ce1-4c80-a4b8-be36ca9f2d24][Using a hook at the post-load-theme phase]]). ]
 
 The themes are designed with the intent to be useful to Emacs users of
 varying skill levels, from beginners to experts.  This means that we try
@@ -4295,6 +4311,8 @@ length elsewhere in this manual:
 (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
 #+end_src
 
+[[#h:d87673fe-2ce1-4c80-a4b8-be36ca9f2d24][Using a hook at the post-load-theme phase]].
+
 As always, re-load the theme for changes to take effect.
 
 If the above does not work, try this instead:
@@ -4572,6 +4590,8 @@ implementation:
 
 (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-highlight-parentheses)
 #+end_src
+
+[[#h:d87673fe-2ce1-4c80-a4b8-be36ca9f2d24][Using a hook at the post-load-theme phase]].
 
 As always, re-load the theme for changes to take effect.
 
