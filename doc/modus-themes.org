@@ -902,28 +902,31 @@ Is the same as:
 :end:
 #+vindex: modus-themes-org-blocks
 
+[ The  ~modus-themes-org-blocks~ has a new default value as part of
+  {{{development-version}}}. ]
+
 Brief: Set the overall style of Org code blocks, quotes, and the like.
 
 Symbol: ~modus-themes-org-blocks~ (=choice= type)
 
 Possible values:
 
-1. ~nil~ (default)
-2. ~gray-background~
+1. ~nil~
+2. ~gray-background~ (default)
 3. ~tinted-background~
 
-Option ~nil~ (the default) means that the block has no background of
-its own: it uses the one that applies to the rest of the buffer.
-In this case, the delimiter lines have a gray color for their text,
-making them look exactly like all other Org properties.
+Option ~nil~ means that the block has no background of its own: it
+uses the one that applies to the rest of the buffer. In this case, the
+delimiter lines have a gray color for their text, making them look
+exactly like all other Org properties.
 
-Option ~gray-background~ applies a subtle gray background to the
-block's contents.  It also affects the begin and end lines of the
-block as they get another shade of gray as their background, which
-differentiates them from the contents of the block.  All background
-colors extend to the edge of the window, giving the area a
-rectangular, "blocky" presentation.  If the begin/end lines do not
-extend in this way, check the value of the Org user option
+Option ~gray-background~ (the default) applies a subtle gray
+background to the block's contents. It also affects the begin and end
+lines of the block as they get another shade of gray as their
+background, which differentiates them from the contents of the block.
+All background colors extend to the edge of the window, giving the
+area a rectangular, "blocky" presentation. If the begin/end lines do
+not extend in this way, check the value of the Org user option
 ~org-fontify-whole-block-delimiter-line~.
 
 Option ~tinted-background~ uses a colored background for the contents
