@@ -3215,7 +3215,7 @@ it if you plan to control face attributes.
 
 [[#h:02e25930-e71a-493d-828a-8907fc80f874][Check color combinations]].
 
-** Custom Org emphasis faces
+** DIY Custom Org emphasis faces
 :properties:
 :custom_id: h:26026302-47f4-4471-9004-9665470e7029
 :end:
@@ -3348,7 +3348,7 @@ styled by the themes, it probably is best not to edit them:
 That's it!  For changes to take effect in already visited Org files,
 invoke {{{kbd(M-x org-mode-restart)}}}.
 
-** Update Org block delimiter fontification
+** DIY Update Org block delimiter fontification
 :properties:
 :custom_id: h:f44cc6e3-b0f1-4a5e-8a90-9e48fa557b50
 :end:
@@ -3390,7 +3390,7 @@ Run this function at the post theme load phase, such as with the
     (font-lock-flush)))
 #+end_src
 
-** Measure color contrast
+** DIY Measure color contrast
 :properties:
 :custom_id: h:02e25930-e71a-493d-828a-8907fc80f874
 :end:
@@ -3463,7 +3463,7 @@ minutia and relevant commentary.
 Such knowledge may prove valuable while attempting to customize the
 theme's color palette.
 
-** Load theme depending on time of day
+** DIY Load theme depending on time of day
 :properties:
 :custom_id: h:1d1ef4b4-8600-4a09-993c-6de3af0ddd26
 :end:
@@ -3491,7 +3491,7 @@ the ~circadian~ package:
   (circadian-setup))
 #+end_src
 
-** Backdrop for pdf-tools
+** DIY Backdrop for pdf-tools
 :properties:
 :custom_id: h:ff69dfe1-29c0-447a-915c-b5ff7c5509cd
 :end:
@@ -3563,7 +3563,9 @@ With those in place, PDFs have a distinct backdrop for their page, while
 buffers with major-mode as ~pdf-view-mode~ automatically switches to dark
 mode when ~modus-themes-toggle~ is called.
 
-** Toggle themes without reloading them
+Reload the theme for changes to take effect.
+
+** DIY Toggle themes without reloading them
 :properties:
 :custom_id: h:b40aca50-a3b2-4c43-be58-2c26fcd14237
 :end:
