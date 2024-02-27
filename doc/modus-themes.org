@@ -476,8 +476,6 @@ will lead to failures in loading the files.  If either or both of those
 variables need to be changed, their values should be defined before the
 package declaration of the themes.
 
-[[#h:aabcada6-810d-4eee-b34a-d2a9c301824d][Make the themes look like what the maintainer uses]]
-
 ** Differences between loading and enabling
 :properties:
 :custom_id: h:e68560b3-7fb0-42bc-a151-e015948f8a35
