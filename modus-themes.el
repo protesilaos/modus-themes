@@ -3198,7 +3198,7 @@ FG and BG are the main colors."
     `(org-block ((,c :inherit modus-themes-fixed-pitch :background ,bg-prose-block-contents :extend t)))
     `(org-block-begin-line ((,c :inherit modus-themes-fixed-pitch :background ,bg-prose-block-delimiter :foreground ,fg-prose-block-delimiter :extend t)))
     `(org-block-end-line ((,c :inherit org-block-begin-line)))
-    `(org-checkbox ((,c :foreground ,warning)))
+    `(org-checkbox ((,c :inherit modus-themes-fixed-pitch :foreground ,warning)))
     `(org-checkbox-statistics-done ((,c :inherit org-done)))
     `(org-checkbox-statistics-todo ((,c :inherit org-todo)))
     `(org-clock-overlay ((,c :inherit secondary-selection)))
