@@ -2867,7 +2867,7 @@ startup after the theme loads.  The same function must also be
 assigned to the ~modus-themes-after-load-theme-hook~ for its effects
 to persist and be updated when switching between Modus themes (e.g. to
 update the exact value of =blue-warmer= when toggling between
-~modus-operandi~ to ~modus-vivendi~.
+~modus-operandi~ to ~modus-vivendi~).
 
 ** Do not extend the region background
 :PROPERTIES:
