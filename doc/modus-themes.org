@@ -2851,7 +2851,7 @@ mode line.
 [[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Use theme colors in code with modus-themes-with-colors]].
 
 #+begin_src emacs-lisp
-(defun my-modus-themes-custom-faces ()
+(defun my-modus-themes-custom-faces (&rest _)
   (modus-themes-with-colors
     (custom-set-faces
      ;; Add "padding" to the mode lines
@@ -2870,7 +2870,7 @@ real border, however, but an underline and an overline.  Adjusting the
 above:
 
 #+begin_src emacs-lisp
-(defun my-modus-themes-custom-faces ()
+(defun my-modus-themes-custom-faces (&rest _)
   (modus-themes-with-colors
     (custom-set-faces
      ;; Add "padding" to the mode lines
@@ -3111,14 +3111,14 @@ of the themes, which can make it easier to redefine faces in bulk).
 
 #+begin_src emacs-lisp
 ;; our generic function
-(defun my-modes-themes-bold-italic-faces ()
+(defun my-modes-themes-bold-italic-faces (&rest _)
   (set-face-attribute 'default nil :family "Source Code Pro" :height 110)
   (set-face-attribute 'bold nil :weight 'semibold))
 
 ;; or use this if you configure a lot of face and attributes and
 ;; especially if you plan to use `modus-themes-with-colors', as shown
 ;; elsewhere in the manual
-(defun my-modes-themes-bold-italic-faces ()
+(defun my-modes-themes-bold-italic-faces (&rest _)
   (custom-set-faces
    '(default ((t :family "Source Code Pro" :height 110)))
    '(bold ((t :weight semibold)))))
@@ -3370,7 +3370,7 @@ automatically update delimiter line fontification, such as with the
 following setup:
 
 #+begin_src emacs-lisp
-(defun my-modus-themes-org-fontify-block-delimiter-lines ()
+(defun my-modus-themes-org-fontify-block-delimiter-lines (&rest _)
   "Match `org-fontify-whole-block-delimiter-line' to theme style.
 Run this function at the post theme load phase, such as with the
 `modus-themes-after-load-theme-hook'."
@@ -3388,7 +3388,7 @@ Then {{{kbd(M-x org-mode-restart)}}} for changes to take effect, though manual
 intervention can be circumvented by tweaking the function thus:
 
 #+begin_src emacs-lisp
-(defun my-modus-themes-org-fontify-block-delimiter-lines ()
+(defun my-modus-themes-org-fontify-block-delimiter-lines (&rest _)
   "Match `org-fontify-whole-block-delimiter-line' to theme style.
 Run this function at the post theme load phase, such as with the
 `modus-themes-after-load-theme-hook'."
@@ -3521,7 +3521,7 @@ buffer-local value of the ~default~ face.
 To remap the buffer's backdrop, we start with a function like this one:
 
 #+begin_src emacs-lisp
-(defun my-pdf-tools-backdrop ()
+(defun my-pdf-tools-backdrop (&rest _)
   (modus-themes-with-colors
     (face-remap-add-relative
      'default
@@ -3544,20 +3544,20 @@ the activation of ~pdf-view-midnight-minor-mode~.  To which end we arrive
 at something like the following, which builds on the above example:
 
 #+begin_src emacs-lisp
-(defun my-pdf-tools-backdrop ()
+(defun my-pdf-tools-backdrop (&rest _)
   (modus-themes-with-colors
     (face-remap-add-relative
      'default
      `(:background ,bg-dim))))
 
-(defun my-pdf-tools-midnight-mode-toggle ()
+(defun my-pdf-tools-midnight-mode-toggle (&rest _)
   (when (derived-mode-p 'pdf-view-mode)
     (if (eq (car custom-enabled-themes) 'modus-vivendi)
         (pdf-view-midnight-minor-mode 1)
       (pdf-view-midnight-minor-mode -1))
     (my-pdf-tools-backdrop)))
 
-(defun my-pdf-tools-themes-toggle ()
+(defun my-pdf-tools-themes-toggle (&rest _)
   (mapc
    (lambda (buf)
      (with-current-buffer buf
@@ -3658,7 +3658,7 @@ The reason we do this with a function is so we can hook it to the
 faces will no longer be invisible).
 
 #+begin_src emacs-lisp
-(defun my-modus-themes-invisible-dividers ()
+(defun my-modus-themes-invisible-dividers (&rest _)
   "Make window dividers invisible.
 Add this to the `modus-themes-post-load-hook'."
   (let ((bg (face-background 'default)))
@@ -3680,7 +3680,7 @@ calls in the the "post enable" phase of theme loading.  Here is the
 above snippet, with the necessary tweaks:
 
 #+begin_src emacs-lisp
-(defun my-modus-themes-invisible-dividers (_theme)
+(defun my-modus-themes-invisible-dividers (&rest _)
   "Make window dividers for THEME invisible."
   (let ((bg (face-background 'default)))
     (custom-set-faces
@@ -3708,7 +3708,7 @@ may still prefer to apply their custom values, in which case the
 following approach is necessary:
 
 #+begin_src emacs-lisp
-(defun my-modus-themes-hl-todo-faces ()
+(defun my-modus-themes-hl-todo-faces (&rest _)
   (setq hl-todo-keyword-faces '(("TODO" . "#ff0000")
                                 ("HACK" . "#ffff00")
                                 ("XXX" . "#00ffff")
@@ -3722,7 +3722,7 @@ following approach is necessary:
 Or include a ~let~ form, if needed:
 
 #+begin_src emacs-lisp
-(defun my-modus-themes-hl-todo-faces ()
+(defun my-modus-themes-hl-todo-faces (&rest _)
   (let ((red "#ff0000")
         (blue "#0000ff"))
     (setq hl-todo-keyword-faces `(("TODO" . ,blue)
@@ -3785,7 +3785,7 @@ on what we cover at length elsewhere in this manual:
 [[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Use theme colors in code with modus-themes-with-colors]].
 
 #+begin_src emacs-lisp
-(defun my-modus-themes-custom-faces ()
+(defun my-modus-themes-custom-faces (&rest _)
   (modus-themes-with-colors
     (custom-set-faces
      `(solaire-default-face ((,c :inherit default :background ,bg-dim :foreground ,fg-dim)))
@@ -4295,7 +4295,7 @@ length elsewhere in this manual:
 [[#h:51ba3547-b8c8-40d6-ba5a-4586477fd4ae][Use theme colors in code with modus-themes-with-colors]].
 
 #+begin_src emacs-lisp
-(defun my-modus-themes-custom-faces ()
+(defun my-modus-themes-custom-faces (&rest _)
   (modus-themes-with-colors
     (custom-set-faces
      ;; Make foreground the same as background for a uniform bar on
@@ -4344,7 +4344,7 @@ multiline comments in PHP with the ~php-mode~ package use the
 This seems to make all comments use the appropriate face:
 
 #+begin_src emacs-lisp
-(defun my-multine-comments ()
+(defun my-multine-comments (&rest _)
   (setq-local c-doc-face-name 'font-lock-comment-face))
 
 (add-hook 'php-mode-hook #'my-multine-comments)
@@ -4556,7 +4556,7 @@ implementation:
 
 (setq my-highlight-parentheses-use-background nil) ; Set to nil to disable backgrounds
 
-(defun my-modus-themes-highlight-parentheses ()
+(defun my-modus-themes-highlight-parentheses (&rest _)
   (modus-themes-with-colors
     ;; Our preference for setting either background or foreground
     ;; styles, depending on `my-highlight-parentheses-use-background'.
