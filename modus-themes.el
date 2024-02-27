@@ -4111,6 +4111,16 @@ FG and BG are the main colors."
         modus-themes-fg-yellow-intense
         modus-themes-fg-magenta-intense
         modus-themes-fg-cyan-intense))
+;;;; rustic-ansi-faces
+    `(rustic-ansi-faces
+      [,fg-term-black
+       ,fg-term-red
+       ,fg-term-green
+       ,fg-term-yellow
+       ,fg-term-blue
+       ,fg-term-magenta
+       ,fg-term-cyan
+       ,fg-term-white])
 ;;;; org-src-block-faces
     (if (or (eq modus-themes-org-blocks 'tinted-background)
             (eq modus-themes-org-blocks 'rainbow))
@@ -4133,7 +4143,26 @@ FG and BG are the main colors."
             ("yaml" modus-themes-nuanced-cyan)
             ("conf" modus-themes-nuanced-cyan)
             ("docker" modus-themes-nuanced-cyan)))
-      `(org-src-block-faces '())))
+      `(org-src-block-faces '()))
+;;;; xterm-color
+    `(xterm-color-names
+      [,fg-term-black
+       ,fg-term-red
+       ,fg-term-green
+       ,fg-term-yellow
+       ,fg-term-blue
+       ,fg-term-magenta
+       ,fg-term-cyan
+       ,fg-term-white])
+    `(xterm-color-names-bright
+      [,fg-term-black-bright
+       ,fg-term-red-bright
+       ,fg-term-green-bright
+       ,fg-term-yellow-bright
+       ,fg-term-blue-bright
+       ,fg-term-magenta-bright
+       ,fg-term-cyan-bright
+       ,fg-term-white-bright]))
   "Custom variables for `modus-themes-theme'.")
 
 ;;; Theme macros
