@@ -3592,57 +3592,6 @@ manual."
 
 Recall that ~modus-themes-toggle~ uses ~load-theme~.
 
-** A theme-agnostic hook for theme loading
-:properties:
-:custom_id: h:86f6906b-f090-46cc-9816-1fe8aeb38776
-:end:
-
-The themes are designed with the intent to be useful to Emacs users of
-varying skill levels, from beginners to experts.  This means that we try
-to make things easier by not expecting anyone reading this document to
-be proficient in Emacs Lisp or programming in general.
-
-Such a case is with the use of ~modus-themes-after-load-theme-hook~,
-which runs after the ~modus-themes-load-theme~ function (used by the
-command ~modus-themes-toggle~).  We recommend using that hook for
-advanced customizations, because (1) we know for sure that it is
-available once the themes are loaded, and (2) anyone consulting this
-manual, especially the sections on enabling and loading the themes,
-will be in a good position to benefit from that hook.
-
-Advanced users who have a need to switch between the Modus themes and
-other items will find that such a hook does not meet their requirements:
-it only works with the Modus themes and only with the aforementioned
-functions.
-
-A theme-agnostic setup can be configured thus:
-
-#+begin_src emacs-lisp
-(defvar after-enable-theme-hook nil
-   "Normal hook run after enabling a theme.")
-
-(defun run-after-enable-theme-hook (&rest _args)
-   "Run `after-enable-theme-hook'."
-   (run-hooks 'after-enable-theme-hook))
-
-(advice-add 'enable-theme :after #'run-after-enable-theme-hook)
-#+end_src
-
-This creates the ~after-enable-theme-hook~ and makes it run after each
-call to ~enable-theme~, which means that it will work for all themes and
-also has the benefit that it does not depend on functions such as
-~modus-themes-toggle~ and the others mentioned above.  ~enable-theme~ is
-called internally by ~load-theme~, so the hook works everywhere.
-
-The downside of the theme-agnostic hook is that any functions added to
-it will likely not be able to benefit from macro calls that read the
-active theme, such as ~modus-themes-with-colors~.  Not all Emacs
-themes have the same capabilities.
-
-In this document, we cover ~modus-themes-after-load-theme-hook~ though
-the user can replace it with ~after-enable-theme-hook~ should they
-need to (provided they understand the implications).
-
 ** DIY Use more spacious margins or padding in Emacs frames
 :PROPERTIES:
 :CUSTOM_ID: h:43bcb5d0-e25f-470f-828c-662cee9e21f1
@@ -3828,7 +3777,104 @@ on what we cover at length elsewhere in this manual:
 (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-custom-faces)
 #+end_src
 
-As always, re-load the theme for changes to take effect.
+Reload the theme for changes to take effect.
+
+** DIY Use a hook at the post-load-theme phase
+:PROPERTIES:
+:CUSTOM_ID: h:d87673fe-2ce1-4c80-a4b8-be36ca9f2d24
+:END:
+
+Many of the Do-It-Yourself (DIY) snippets provided herein make use of
+a hook to apply the desired changes. In most examples, this hook is
+the ~modus-themes-after-load-theme-hook~ (alias ~modus-themes-post-load-hook~).
+This hook is provided by the Modus themes and is called at the end of
+one the following:
+
+- Command ~modus-themes-toggle~ :: [[#h:4fbfed66-5a89-447a-a07d-a03f6819c5bd][Option for which themes to toggle]].
+
+- Command ~modus-themes-select~ :: Select a Modus theme using minibuffer
+  completion and then load it.
+
+- Function ~modus-themes-load-theme~ :: Called only from Lisp, such as
+  in the user's init file, with the quoted symbol of a Modus theme as
+  an argument ([[#h:adb0c49a-f1f9-4690-868b-013a080eed68][Option for disabling other themes while loading Modus]]).
+  This function is used internally by ~modus-themes-toggle~ and
+  ~modus-themes-select~.
+
+Users who switch between themes that are not limited to the Modus
+collection cannot benefit from the aforementioned hook: it only works
+with the Modus themes. A theme-agnostic hook is needed in such a case.
+Before Emacs 29, this had to be set up manually ([[#h:86f6906b-f090-46cc-9816-1fe8aeb38776][DIY A theme-agnostic hook for theme loading]]).
+Starting with Emacs 29, the special hook ~enable-theme-functions~
+works with anything that uses the basic ~enable-theme~ function.
+
+To use the ~enable-theme-functions~ just add the given function to it
+the way it is done with every hook:
+
+#+begin_src emacs-lisp
+(add-hook 'enable-theme-functions 'MY-FUNCTION-HERE)
+#+end_src
+
+Functions added to ~enable-theme-functions~ accept a single =THEME=
+argument. The examples shown in this manual use the pattern =(&rest
+_)=, which is how a function accepts one or more arguments but
+declares it will not use them (in plain terms, the code works with or
+without ~enable-theme-functions~).
+
+*** DIY A theme-agnostic hook for theme loading
+:properties:
+:custom_id: h:86f6906b-f090-46cc-9816-1fe8aeb38776
+:end:
+
+[ NOTE: The following is for versions of Emacs before 29. For Emacs 29
+  or higher, users can rely on the built-in ~enable-theme-functions~
+  ([[#h:d87673fe-2ce1-4c80-a4b8-be36ca9f2d24][Using a hook at post-load-theme phase]]). ]
+
+The themes are designed with the intent to be useful to Emacs users of
+varying skill levels, from beginners to experts.  This means that we try
+to make things easier by not expecting anyone reading this document to
+be proficient in Emacs Lisp or programming in general.
+
+Such a case is with the use of ~modus-themes-after-load-theme-hook~,
+which runs after the ~modus-themes-load-theme~ function (used by the
+command ~modus-themes-toggle~).  We recommend using that hook for
+advanced customizations, because (1) we know for sure that it is
+available once the themes are loaded, and (2) anyone consulting this
+manual, especially the sections on enabling and loading the themes,
+will be in a good position to benefit from that hook.
+
+Advanced users who have a need to switch between the Modus themes and
+other items will find that such a hook does not meet their requirements:
+it only works with the Modus themes and only with the aforementioned
+functions.
+
+A theme-agnostic setup can be configured thus:
+
+#+begin_src emacs-lisp
+(defvar after-enable-theme-hook nil
+   "Normal hook run after enabling a theme.")
+
+(defun run-after-enable-theme-hook (&rest _args)
+   "Run `after-enable-theme-hook'."
+   (run-hooks 'after-enable-theme-hook))
+
+(advice-add 'enable-theme :after #'run-after-enable-theme-hook)
+#+end_src
+
+This creates the ~after-enable-theme-hook~ and makes it run after each
+call to ~enable-theme~, which means that it will work for all themes and
+also has the benefit that it does not depend on functions such as
+~modus-themes-toggle~ and the others mentioned above.  ~enable-theme~ is
+called internally by ~load-theme~, so the hook works everywhere.
+
+The downside of the theme-agnostic hook is that any functions added to
+it will likely not be able to benefit from macro calls that read the
+active theme, such as ~modus-themes-with-colors~.  Not all Emacs
+themes have the same capabilities.
+
+In this document, we cover ~modus-themes-after-load-theme-hook~ though
+the user can replace it with ~after-enable-theme-hook~ should they
+need to (provided they understand the implications).
 
 * Face coverage
 :properties:
