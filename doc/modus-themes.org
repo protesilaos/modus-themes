@@ -633,7 +633,7 @@ Possible values:
 When the value is non-~nil~, the commands ~modus-themes-toggle~ and
 ~modus-themes-select~, as well as the ~modus-themes-load-theme~
 function, will disable all other themes while loading the specified
-Modus theme ([[*Option for which themes to toggle][Option for which themes to toggle]]).  This is done to
+Modus theme ([[#h:4fbfed66-5a89-447a-a07d-a03f6819c5bd][Option for which themes to toggle]]).  This is done to
 ensure that Emacs does not blend two or more themes: such blends lead
 to awkward results that undermine the work of the designer.
 
@@ -1952,7 +1952,7 @@ theme palette.
 
 [[#h:26f53daa-0065-48dc-88ab-6a718d16cd95][Make comments yellow and strings green]].
 
-[[*Make code syntax use the old alt-syntax style][Make code syntax use the old alt-syntax style]].
+[[#h:c8767172-bf11-4c96-81dc-e736c464fc9c][Make code syntax use the old alt-syntax style]].
 
 #+begin_src emacs-lisp
 ;; These overrides are common to all Modus themes.  We also provide
