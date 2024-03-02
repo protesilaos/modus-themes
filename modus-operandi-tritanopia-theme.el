@@ -348,7 +348,7 @@ standard)."
 ;;;; Prose mappings
 
       (bg-prose-block-delimiter bg-dim)
-      (fg-prose-block-delimiter fg-alt)
+      (fg-prose-block-delimiter fg-dim)
       (bg-prose-block-contents bg-dim)
 
       (prose-code cyan)

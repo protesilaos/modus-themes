@@ -2173,8 +2173,8 @@ presentation depends on each major mode).
 
 The default style of Org blocks is a subtle gray background for the
 contents and for the delimiter lines (the =#+begin_= and =#+end_=
-parts). The text of the delimiter lines is a subtle foreground color
-that is somewhere between the main foreground and a subtle gray value.
+parts). The text of the delimiter lines is a subtle gray foreground
+color.
 
 #+begin_src emacs-lisp
 ;; These overrides are common to all Modus themes.  We also provide
