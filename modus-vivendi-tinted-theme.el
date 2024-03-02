@@ -219,7 +219,7 @@ which corresponds to a minimum contrast in relative luminance of
       (fringe bg-dim)
       (cursor magenta-warmer)
 
-      (keybind blue-cooler)
+      (keybind magenta-cooler)
       (name magenta)
       (identifier yellow-faint)
 
