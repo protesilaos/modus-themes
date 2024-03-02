@@ -136,7 +136,7 @@ Advanced customization
 * DIY Configure bold and italic faces::
 * DIY Custom Org todo keyword and priority faces::
 * DIY Custom Org emphasis faces::
-* DIY Update Org block delimiter fontification::
+* DIY Use colored Org source blocks per language::
 * DIY Measure color contrast::
 * DIY Load theme depending on time of day::
 * DIY Backdrop for pdf-tools::
@@ -162,6 +162,7 @@ DIY Stylistic variants using palette overrides
 * DIY Make box buttons more or less gray::
 * DIY Make TODO and DONE more or less intense::
 * DIY Make headings more or less colorful::
+* DIY Make Org block colors more or less colorful::
 * DIY Make Org agenda more or less colorful::
 * DIY Make inline code in prose use alternative styles::
 * DIY Make mail citations and headers more or less colorful::
@@ -1074,48 +1075,14 @@ File: modus-themes.info,  Node: Org mode blocks,  Next: Heading styles,  Prev: C
 4.9 Option for org-mode block styles
 ====================================
 
-[ The ‘modus-themes-org-blocks’ has a new default value as part of
-4.4.0-dev.  ]
+As part of version ‘4.4.0’, the ‘modus-themes-org-blocks’ is no more.
+Users can apply palette overrides to set a style that fits their
+preference (purple, blue, yellow, green, etc.).  It is more flexible and
+more powerful (*note DIY Make Org block colors more or less colorful::)
 
-   Brief: Set the overall style of Org code blocks, quotes, and the
-like.
-
-   Symbol: ‘modus-themes-org-blocks’ (‘choice’ type)
-
-   Possible values:
-
-  1. ‘nil’
-  2. ‘gray-background’ (default)
-  3. ‘tinted-background’
-
-   Option ‘nil’ means that the block has no background of its own: it
-uses the one that applies to the rest of the buffer.  In this case, the
-delimiter lines have a gray color for their text, making them look
-exactly like all other Org properties.
-
-   Option ‘gray-background’ (the default) applies a subtle gray
-background to the block’s contents.  It also affects the begin and end
-lines of the block as they get another shade of gray as their
-background, which differentiates them from the contents of the block.
-All background colors extend to the edge of the window, giving the area
-a rectangular, “blocky” presentation.  If the begin/end lines do not
-extend in this way, check the value of the Org user option
-‘org-fontify-whole-block-delimiter-line’.
-
-   Option ‘tinted-background’ uses a colored background for the contents
-of the block.  The exact color value will depend on the programming
-language and is controlled by the variable ‘org-src-block-faces’ (refer
-to the theme’s source code for the current association list).  For this
-to take effect, the Org buffer needs to be restarted with
-‘org-mode-restart’.
-
-   Code blocks use their major mode’s fontification (syntax
-highlighting) only when the variable ‘org-src-fontify-natively’ is
-non-‘nil’.  While quote/verse blocks require setting
-‘org-fontify-quote-and-verse-blocks’ to a non-‘nil’ value.
-
-   *note Update Org block delimiter fontification: DIY Update Org block
-delimiter fontification.
+   For the option to change the background of Org source blocks, we
+provide the relevant setup (*note DIY Use colored Org source blocks per
+language::).
 
 
 File: modus-themes.info,  Node: Heading styles,  Next: UI typeface,  Prev: Org mode blocks,  Up: Customization options
@@ -1563,7 +1530,7 @@ such, they are labeled as “do-it-yourself” or “DIY”.
 * DIY Configure bold and italic faces::
 * DIY Custom Org todo keyword and priority faces::
 * DIY Custom Org emphasis faces::
-* DIY Update Org block delimiter fontification::
+* DIY Use colored Org source blocks per language::
 * DIY Measure color contrast::
 * DIY Load theme depending on time of day::
 * DIY Backdrop for pdf-tools::
@@ -1666,6 +1633,7 @@ Palette override presets: DIY Palette override presets.).
 * DIY Make box buttons more or less gray::
 * DIY Make TODO and DONE more or less intense::
 * DIY Make headings more or less colorful::
+* DIY Make Org block colors more or less colorful::
 * DIY Make Org agenda more or less colorful::
 * DIY Make inline code in prose use alternative styles::
 * DIY Make mail citations and headers more or less colorful::
@@ -2333,7 +2301,7 @@ inline code in prose use alternative styles.
    Reload the theme for changes to take effect.
 
 
-File: modus-themes.info,  Node: DIY Make headings more or less colorful,  Next: DIY Make Org agenda more or less colorful,  Prev: DIY Make TODO and DONE more or less intense,  Up: DIY Stylistic variants using palette overrides
+File: modus-themes.info,  Node: DIY Make headings more or less colorful,  Next: DIY Make Org block colors more or less colorful,  Prev: DIY Make TODO and DONE more or less intense,  Up: DIY Stylistic variants using palette overrides
 
 7.2.14 DIY Make headings more or less colorful
 ----------------------------------------------
@@ -2392,9 +2360,79 @@ less intense.
    Reload the theme for changes to take effect.
 
 
-File: modus-themes.info,  Node: DIY Make Org agenda more or less colorful,  Next: DIY Make inline code in prose use alternative styles,  Prev: DIY Make headings more or less colorful,  Up: DIY Stylistic variants using palette overrides
+File: modus-themes.info,  Node: DIY Make Org block colors more or less colorful,  Next: DIY Make Org agenda more or less colorful,  Prev: DIY Make headings more or less colorful,  Up: DIY Stylistic variants using palette overrides
 
-7.2.15 DIY Make Org agenda more or less colorful
+7.2.15 DIY Make Org block colors more or less colorful
+------------------------------------------------------
+
+This is one of our practical examples to override the semantic colors of
+the Modus themes (*note Stylistic variants using palette overrides: DIY
+Stylistic variants using palette overrides.).  Here we show how to
+change the presentation of Org blocks (and other such blocks like
+Markdown fenced code sections, though the exact presentation depends on
+each major mode).
+
+   The default style of Org blocks is a subtle gray background for the
+contents and for the delimiter lines (the ‘#+begin_’ and ‘#+end_’
+parts).  The text of the delimiter lines is a subtle foreground color
+that is somewhere between the main foreground and a subtle gray value.
+
+     ;; These overrides are common to all Modus themes.  We also provide
+     ;; theme-specific options, such as `modus-operandi-palette-overrides'.
+     ;;
+     ;; In general, the theme-specific overrides are better for overriding
+     ;; color values, such as redefining what `blue-faint' looks like.  The
+     ;; common overrides are best used for changes to semantic color
+     ;; mappings, as we show below.
+
+
+     ;; Make code blocks (in Org, for example) use a more colorful style
+     ;; for their delimiter lines as well as their contents.  Give this a
+     ;; purple feel.
+     (setq modus-themes-common-palette-overrides
+           '((bg-prose-block-contents bg-magenta-nuanced)
+             (bg-prose-block-delimiter bg-lavender)
+             (fg-prose-block-delimiter fg-main)))
+
+     ;; As above, but with a more blue feel.
+     (setq modus-themes-common-palette-overrides
+           '((bg-prose-block-contents bg-blue-nuanced)
+             (bg-prose-block-delimiter bg-lavender)
+             (fg-prose-block-delimiter fg-main)))
+
+     ;; As above, but with a green feel.
+     (setq modus-themes-common-palette-overrides
+           '((bg-prose-block-contents bg-green-nuanced)
+             (bg-prose-block-delimiter bg-sage)
+             (fg-prose-block-delimiter fg-main)))
+
+     ;; As above, but with a yellow/gold feel.
+     (setq modus-themes-common-palette-overrides
+           '((bg-prose-block-contents bg-yellow-nuanced)
+             (bg-prose-block-delimiter bg-ochre)
+             (fg-prose-block-delimiter fg-main)))
+
+     ;; As above, but with a slightly more red feel.
+     (setq modus-themes-common-palette-overrides
+           '((bg-prose-block-contents bg-red-nuanced)
+             (bg-prose-block-delimiter bg-ochre)
+             (fg-prose-block-delimiter fg-main)))
+
+     ;; Make code blocks more minimal, so that (i) the delimiter lines have
+     ;; no background, (ii) the delimiter foreground is a subtle gray, and
+     ;; (iii) the block contents have no distinct background either.  This
+     ;; was the default in versions of the Modus themes before 4.4.0
+     (setq modus-themes-common-palette-overrides
+           '((bg-prose-block-contents unspecified)
+             (bg-prose-block-delimiter unspeficied)
+             (fg-prose-block-delimiter fg-dim)))
+
+   *note DIY Use colored Org source blocks per language::.
+
+
+File: modus-themes.info,  Node: DIY Make Org agenda more or less colorful,  Next: DIY Make inline code in prose use alternative styles,  Prev: DIY Make Org block colors more or less colorful,  Up: DIY Stylistic variants using palette overrides
+
+7.2.16 DIY Make Org agenda more or less colorful
 ------------------------------------------------
 
 This is one of our practical examples to override the semantic colors of
@@ -2435,7 +2473,7 @@ chapters with practical stylistic variants.
              (date-holiday magenta) ; default (for M-x calendar)
              (date-now fg-main) ; default
              (date-scheduled yellow-faint)
-             (date-weekday fg-dim)
+             (date-weekday fg-alt)
              (date-weekend fg-dim)))
 
    A third example that makes the agenda more blue:
@@ -2472,7 +2510,7 @@ chapters with practical stylistic variants.
 
 File: modus-themes.info,  Node: DIY Make inline code in prose use alternative styles,  Next: DIY Make mail citations and headers more or less colorful,  Prev: DIY Make Org agenda more or less colorful,  Up: DIY Stylistic variants using palette overrides
 
-7.2.16 DIY Make inline code in prose use alternative styles
+7.2.17 DIY Make inline code in prose use alternative styles
 -----------------------------------------------------------
 
 This is one of our practical examples to override the semantic colors of
@@ -2534,7 +2572,7 @@ more or less intense.
 
 File: modus-themes.info,  Node: DIY Make mail citations and headers more or less colorful,  Next: DIY Make the region preserve text colors plus other styles,  Prev: DIY Make inline code in prose use alternative styles,  Up: DIY Stylistic variants using palette overrides
 
-7.2.17 DIY Make mail citations and headers more or less colorful
+7.2.18 DIY Make mail citations and headers more or less colorful
 ----------------------------------------------------------------
 
 This is one of our practical examples to override the semantic colors of
@@ -2602,7 +2640,7 @@ Before we show the code, this is the anatomy of a message:
 
 File: modus-themes.info,  Node: DIY Make the region preserve text colors plus other styles,  Next: DIY Make mouse highlights more or less colorful,  Prev: DIY Make mail citations and headers more or less colorful,  Up: DIY Stylistic variants using palette overrides
 
-7.2.18 DIY Make the region preserve text colors, plus other styles
+7.2.19 DIY Make the region preserve text colors, plus other styles
 ------------------------------------------------------------------
 
 This is one of our practical examples to override the semantic colors of
@@ -2645,7 +2683,7 @@ region background.
 
 File: modus-themes.info,  Node: DIY Make mouse highlights more or less colorful,  Next: DIY Make language underlines less colorful,  Prev: DIY Make the region preserve text colors plus other styles,  Up: DIY Stylistic variants using palette overrides
 
-7.2.19 DIY Make mouse highlights more or less colorful
+7.2.20 DIY Make mouse highlights more or less colorful
 ------------------------------------------------------
 
 This is one of our practical examples to override the semantic colors of
@@ -2676,7 +2714,7 @@ hover effects and related highlights:
 
 File: modus-themes.info,  Node: DIY Make language underlines less colorful,  Next: DIY Make line numbers use alternative styles,  Prev: DIY Make mouse highlights more or less colorful,  Up: DIY Stylistic variants using palette overrides
 
-7.2.20 DIY Make language underlines less colorful
+7.2.21 DIY Make language underlines less colorful
 -------------------------------------------------
 
 This is one of our practical examples to override the semantic colors of
@@ -2711,7 +2749,7 @@ prose spell checkers.
 
 File: modus-themes.info,  Node: DIY Make line numbers use alternative styles,  Next: DIY Make diffs use only a foreground,  Prev: DIY Make language underlines less colorful,  Up: DIY Stylistic variants using palette overrides
 
-7.2.21 DIY Make line numbers use alternative styles
+7.2.22 DIY Make line numbers use alternative styles
 ---------------------------------------------------
 
 This is one of our practical examples to override the semantic colors of
@@ -2755,7 +2793,7 @@ how to affect the ‘display-line-numbers-mode’.
 
 File: modus-themes.info,  Node: DIY Make diffs use only a foreground,  Next: DIY Make deuteranopia diffs red and blue instead of yellow and blue,  Prev: DIY Make line numbers use alternative styles,  Up: DIY Stylistic variants using palette overrides
 
-7.2.22 DIY Make diffs use only a foreground
+7.2.23 DIY Make diffs use only a foreground
 -------------------------------------------
 
 This is one of our practical examples to override the semantic colors of
@@ -2820,7 +2858,7 @@ palettes directly instead of just using the “common” overrides.
 
 File: modus-themes.info,  Node: DIY Make deuteranopia diffs red and blue instead of yellow and blue,  Prev: DIY Make diffs use only a foreground,  Up: DIY Stylistic variants using palette overrides
 
-7.2.23 DIY Make deuteranopia diffs red and blue instead of yellow and blue
+7.2.24 DIY Make deuteranopia diffs red and blue instead of yellow and blue
 --------------------------------------------------------------------------
 
 This is one of our practical examples to override the semantic colors of
@@ -3403,7 +3441,7 @@ Do it if you plan to control face attributes.
    *note Check color combinations: DIY Measure color contrast.
 
 
-File: modus-themes.info,  Node: DIY Custom Org emphasis faces,  Next: DIY Update Org block delimiter fontification,  Prev: DIY Custom Org todo keyword and priority faces,  Up: Advanced customization
+File: modus-themes.info,  Node: DIY Custom Org emphasis faces,  Next: DIY Use colored Org source blocks per language,  Prev: DIY Custom Org todo keyword and priority faces,  Up: Advanced customization
 
 7.12 DIY Custom Org emphasis faces
 ==================================
@@ -3524,50 +3562,94 @@ already styled by the themes, it probably is best not to edit them:
 invoke ‘M-x org-mode-restart’.
 
 
-File: modus-themes.info,  Node: DIY Update Org block delimiter fontification,  Next: DIY Measure color contrast,  Prev: DIY Custom Org emphasis faces,  Up: Advanced customization
+File: modus-themes.info,  Node: DIY Use colored Org source blocks per language,  Next: DIY Measure color contrast,  Prev: DIY Custom Org emphasis faces,  Up: Advanced customization
 
-7.13 DIY Update Org block delimiter fontification
-=================================================
+7.13 DIY Use colored Org source blocks per language
+===================================================
 
-As noted in the section about ‘modus-themes-org-blocks’, Org contains a
-variable that determines whether the block’s begin and end lines are
-extended to the edge of the window (*note Option for org-mode block
-styles: Org mode blocks.).  The variable is
-‘org-fontify-whole-block-delimiter-line’.
+*note DIY Make Org block colors more or less colorful::.
 
-   Users who change the style of Org blocks from time to time may prefer
-to automatically update delimiter line fontification, such as with the
-following setup:
+   In versions of the Modus themes before ‘4.4.0’ there was an option to
+change the coloration of Org source blocks so that certain languages
+would have a distinctly colored background.  This was not flexible
+enough, because (i) we cannot cover all languages effectively and (ii)
+the user had no choice over the ‘language --> color’ mapping.
 
-     (defun my-modus-themes-org-fontify-block-delimiter-lines (&rest _)
-       "Match `org-fontify-whole-block-delimiter-line' to theme style.
-     Run this function at the post theme load phase, such as with the
-     `modus-themes-after-load-theme-hook'."
-       (if (eq modus-themes-org-blocks 'gray-background)
-           (setq org-fontify-whole-block-delimiter-line t)
-         (setq org-fontify-whole-block-delimiter-line nil)))
+   As such, the old user option is no more.  Users can use the following
+to achieve what they want:
 
-     (add-hook 'modus-themes-after-load-theme-hook
-               #'my-modus-themes-org-fontify-block-delimiter-lines)
+   [ All this is done by setting the Org user option
+‘org-src-block-faces’, so it is not related to the palette overrides
+mechanism provided by the Modus themes.  ]
 
-   *note Using a hook at the post-load-theme phase: DIY Use a hook at
-the post-load-theme phase.
+     (defun my-modus-themes-org-block-faces (&rest _)
+       (modus-themes-with-colors
+         ;; The `org-src-block-faces' does not get re-applied in existing
+         ;; Org buffers.  Do M-x org-mode-restart for changes to take
+         ;; effect.
+         (setq org-src-block-faces
+               `(("emacs-lisp" modus-themes-nuanced-magenta)
+                 ("elisp" modus-themes-nuanced-magenta)
+                 ("clojure" modus-themes-nuanced-magenta)
+                 ("clojurescript" modus-themes-nuanced-magenta)
+                 ("c" modus-themes-nuanced-blue)
+                 ("c++" modus-themes-nuanced-blue)
+                 ("sh" modus-themes-nuanced-yellow)
+                 ("shell" modus-themes-nuanced-yellow)
+                 ("python" modus-themes-nuanced-yellow)
+                 ("ipython" modus-themes-nuanced-yellow)
+                 ("r" modus-themes-nuanced-yellow)
+                 ("html" modus-themes-nuanced-green)
+                 ("xml" modus-themes-nuanced-green)
+                 ("css" modus-themes-nuanced-red)
+                 ("scss" modus-themes-nuanced-red)
+                 ("yaml" modus-themes-nuanced-cyan)
+                 ("conf" modus-themes-nuanced-cyan)
+                 ("docker" modus-themes-nuanced-cyan)))))
 
-   Then ‘M-x org-mode-restart’ for changes to take effect, though manual
-intervention can be circumvented by tweaking the function thus:
+     (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-org-block-faces)
 
-     (defun my-modus-themes-org-fontify-block-delimiter-lines (&rest _)
-       "Match `org-fontify-whole-block-delimiter-line' to theme style.
-     Run this function at the post theme load phase, such as with the
-     `modus-themes-after-load-theme-hook'."
-       (if (eq modus-themes-org-blocks 'gray-background)
-           (setq org-fontify-whole-block-delimiter-line t)
-         (setq org-fontify-whole-block-delimiter-line nil))
-       (when (derived-mode-p 'org-mode)
-         (font-lock-flush)))
+   *note DIY Use a hook at the post-load-theme phase::.
+
+   Note that the ‘org-src-block-faces’ accepts a named face, as shown
+above, as well as a list of face attributes.  The latter approach is not
+good enough because it hardcodes values in such a way that an
+‘org-mode-restart’ is necessary.  Whereas the indirection of the named
+face lets the theme change the values while Org buffers continue to show
+the right colors.
+
+   Still, if a user prefers to hardcode face attributes, here is the
+idea:
+
+     ;; This is for the sake of completeness.  I DO NOT RECOMMEND THIS
+     ;; method because it hardcodes values and thus requires
+     ;; `org-mode-restart' every time you change a theme.
+     (defun my-modus-themes-org-block-faces (&rest _)
+       (modus-themes-with-colors
+         (setq org-src-block-faces
+               `(("emacs-lisp" (:inherit org-block :background ,bg-magenta-nuanced))
+                 ("elisp" (:inherit org-block :background ,bg-magenta-nuanced))
+                 ("clojure" (:inherit org-block :background ,bg-magenta-nuanced))
+                 ("clojurescript" (:inherit org-block :background ,bg-magenta-nuanced))
+                 ("c" (:inherit org-block :background ,bg-blue-nuanced))
+                 ("c++" (:inherit org-block :background ,bg-blue-nuanced))
+                 ("sh" (:inherit org-block :background ,bg-yellow-nuanced))
+                 ("shell" (:inherit org-block :background ,bg-yellow-nuanced))
+                 ("python" (:inherit org-block :background ,bg-yellow-nuanced))
+                 ("ipython" (:inherit org-block :background ,bg-yellow-nuanced))
+                 ("r" (:inherit org-block :background ,bg-yellow-nuanced))
+                 ("html" (:inherit org-block :background ,bg-green-nuanced))
+                 ("xml" (:inherit org-block :background ,bg-green-nuanced))
+                 ("css" (:inherit org-block :background ,bg-red-nuanced))
+                 ("scss" (:inherit org-block :background ,bg-red-nuanced))
+                 ("yaml" (:inherit org-block :background ,bg-cyan-nuanced))
+                 ("conf" (:inherit org-block :background ,bg-cyan-nuanced))
+                 ("docker" (:inherit org-block :background ,bg-cyan-nuanced))))))
+
+     (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-org-block-faces)
 
 
-File: modus-themes.info,  Node: DIY Measure color contrast,  Next: DIY Load theme depending on time of day,  Prev: DIY Update Org block delimiter fontification,  Up: Advanced customization
+File: modus-themes.info,  Node: DIY Measure color contrast,  Next: DIY Load theme depending on time of day,  Prev: DIY Use colored Org source blocks per language,  Up: Advanced customization
 
 7.14 DIY Measure color contrast
 ===============================
@@ -6323,127 +6405,128 @@ B.3 Concept index
 
 Tag Table:
 Node: Top872
-Node: Overview8359
-Node: How do the themes look like11131
-Node: Learn about the latest changes11490
-Node: Installation11878
-Node: Install manually from source12808
-Node: Install from the archives13633
-Node: Install on GNU/Linux14232
-Node: Debian 11 Bullseye14725
-Node: GNU Guix15135
-Node: Dealing with byte compilation errors15418
-Node: Enable and load16576
-Node: The require-theme for built-in Emacs themes20520
-Node: Sample configuration with and without use-package21640
-Node: Differences between loading and enabling24488
-Node: Customization options26620
-Node: Custom reload theme30404
-Node: Disable other themes31324
-Node: Bold constructs32566
-Node: Italic constructs33438
-Node: Option for which themes to toggle34266
-Node: Mixed fonts35041
-Node: Command prompts36095
-Node: Completion UIs37938
-Node: Org mode blocks40789
-Node: Heading styles42826
-Node: UI typeface47256
-Node: Palette overrides48229
-Node: Preview theme colors52593
-Node: Use colors from the Modus themes palette54406
-Node: Get a single color from the palette with modus-themes-get-color-value55270
-Node: Use theme colors in code with modus-themes-with-colors57632
-Node: Advanced customization59888
-Node: DIY Palette override presets61545
-Node: DIY Stylistic variants using palette overrides64400
-Node: DIY Make the mode line borderless66402
-Node: DIY Make the active mode line colorful68191
-Node: DIY Make the tab bar more or less colorful70322
-Node: DIY Make the fringe invisible or another color72674
-Node: DIY Make links use subtle or no underlines74289
-Node: DIY Make prompts more or less colorful75407
-Node: DIY Make completion matches more or less colorful77144
-Node: DIY Make comments yellow and strings green81117
-Node: DIY Make code syntax use the old alt-syntax style83240
-Node: DIY Make use of alternative styles for code syntax86735
-Node: DIY Make matching parenthesis more or less intense90612
-Node: DIY Make box buttons more or less gray92169
-Node: DIY Make TODO and DONE more or less intense93596
-Node: DIY Make headings more or less colorful95511
-Node: DIY Make Org agenda more or less colorful98037
-Node: DIY Make inline code in prose use alternative styles101618
-Node: DIY Make mail citations and headers more or less colorful104323
-Node: DIY Make the region preserve text colors plus other styles107138
-Node: DIY Make mouse highlights more or less colorful109109
-Node: DIY Make language underlines less colorful110537
-Node: DIY Make line numbers use alternative styles112104
-Node: DIY Make diffs use only a foreground114162
-Node: DIY Make deuteranopia diffs red and blue instead of yellow and blue117053
-Node: DIY More accurate colors in terminal emulators119533
-Node: DIY Range of color with terminal emulators120845
-Node: DIY Per-theme customization settings123638
-Node: DIY Do not extend the region background125071
-Node: DIY Add padding to the mode line125875
-Node: DIY Remap face with local value128808
-Node: DIY Font configurations for Org and others131356
-Ref: DIY Font configurations for Org and others-Footnote-1134339
-Node: DIY Configure bold and italic faces134526
-Node: DIY Custom Org todo keyword and priority faces139148
-Node: DIY Custom Org emphasis faces142891
-Node: DIY Update Org block delimiter fontification147770
-Node: DIY Measure color contrast149819
-Node: DIY Load theme depending on time of day152537
-Node: DIY Backdrop for pdf-tools153567
-Node: DIY Toggle themes without reloading them156736
-Node: DIY Use more spacious margins or padding in Emacs frames158045
-Node: DIY Custom hl-todo colors162302
-Node: DIY Add support for solaire-mode164119
-Node: DIY Use a hook at the post-load-theme phase167245
-Node: DIY A theme-agnostic hook for theme loading169369
-Node: Face coverage172000
-Node: Supported packages172452
-Node: Indirectly covered packages178162
-Node: Notes on individual packages179531
-Node: Note on calendarel weekday and weekend colors180631
-Node: Note on git-gutter in Doom Emacs181779
-Node: Note on php-mode multiline comments184279
-Node: Note on underlines in compilation buffers185039
-Node: Note on inline Latex in Org buffers185911
-Node: Note on dimmerel186521
-Node: Note on display-fill-column-indicator-mode188006
-Node: Note on highlight-parenthesesel189459
-Node: Note on mmm-modeel background colors195542
-Node: Note for prism197896
-Node: Note on company-mode overlay pop-up201118
-Ref: Note on company-mode overlay pop-up-Footnote-1201848
-Ref: Note on company-mode overlay pop-up-Footnote-2201915
-Node: Note on ERC escaped color sequences201970
-Ref: Note on ERC escaped color sequences-Footnote-1203398
-Node: Note on powerline or spaceline203508
-Node: Note on SHR colors203922
-Node: Note on SHR fonts204346
-Node: Note on Ement colors and fonts205033
-Node: Note on pdf-tools link hints206543
-Node: Note on the Notmuch logo209003
-Node: Note on goto-address-mode faces209541
-Node: Frequently Asked Questions210659
-Node: Is the contrast ratio about adjacent colors?211292
-Node: What does it mean to avoid exaggerations?212801
-Node: Why are colors mostly variants of blue magenta cyan?214653
-Node: What is the best setup for legibility?218987
-Node: Are these color schemes?221634
-Node: Port the Modus themes to other platforms?225318
-Node: Contributing228164
-Node: Sources of the themes228563
-Node: Issues you can help with229459
-Node: Patches require copyright assignment to the FSF230852
-Node: Acknowledgements233074
-Node: GNU Free Documentation License237244
-Node: Indices262608
-Node: Function index262787
-Node: Variable index264085
-Node: Concept index266779
+Node: Overview8413
+Node: How do the themes look like11185
+Node: Learn about the latest changes11544
+Node: Installation11932
+Node: Install manually from source12862
+Node: Install from the archives13687
+Node: Install on GNU/Linux14286
+Node: Debian 11 Bullseye14779
+Node: GNU Guix15189
+Node: Dealing with byte compilation errors15472
+Node: Enable and load16630
+Node: The require-theme for built-in Emacs themes20574
+Node: Sample configuration with and without use-package21694
+Node: Differences between loading and enabling24542
+Node: Customization options26674
+Node: Custom reload theme30458
+Node: Disable other themes31378
+Node: Bold constructs32620
+Node: Italic constructs33492
+Node: Option for which themes to toggle34320
+Node: Mixed fonts35095
+Node: Command prompts36149
+Node: Completion UIs37992
+Node: Org mode blocks40843
+Node: Heading styles41486
+Node: UI typeface45916
+Node: Palette overrides46889
+Node: Preview theme colors51253
+Node: Use colors from the Modus themes palette53066
+Node: Get a single color from the palette with modus-themes-get-color-value53930
+Node: Use theme colors in code with modus-themes-with-colors56292
+Node: Advanced customization58548
+Node: DIY Palette override presets60207
+Node: DIY Stylistic variants using palette overrides63062
+Node: DIY Make the mode line borderless65116
+Node: DIY Make the active mode line colorful66905
+Node: DIY Make the tab bar more or less colorful69036
+Node: DIY Make the fringe invisible or another color71388
+Node: DIY Make links use subtle or no underlines73003
+Node: DIY Make prompts more or less colorful74121
+Node: DIY Make completion matches more or less colorful75858
+Node: DIY Make comments yellow and strings green79831
+Node: DIY Make code syntax use the old alt-syntax style81954
+Node: DIY Make use of alternative styles for code syntax85449
+Node: DIY Make matching parenthesis more or less intense89326
+Node: DIY Make box buttons more or less gray90883
+Node: DIY Make TODO and DONE more or less intense92310
+Node: DIY Make headings more or less colorful94225
+Node: DIY Make Org block colors more or less colorful96757
+Node: DIY Make Org agenda more or less colorful100114
+Node: DIY Make inline code in prose use alternative styles103703
+Node: DIY Make mail citations and headers more or less colorful106408
+Node: DIY Make the region preserve text colors plus other styles109223
+Node: DIY Make mouse highlights more or less colorful111194
+Node: DIY Make language underlines less colorful112622
+Node: DIY Make line numbers use alternative styles114189
+Node: DIY Make diffs use only a foreground116247
+Node: DIY Make deuteranopia diffs red and blue instead of yellow and blue119138
+Node: DIY More accurate colors in terminal emulators121618
+Node: DIY Range of color with terminal emulators122930
+Node: DIY Per-theme customization settings125723
+Node: DIY Do not extend the region background127156
+Node: DIY Add padding to the mode line127960
+Node: DIY Remap face with local value130893
+Node: DIY Font configurations for Org and others133441
+Ref: DIY Font configurations for Org and others-Footnote-1136424
+Node: DIY Configure bold and italic faces136611
+Node: DIY Custom Org todo keyword and priority faces141233
+Node: DIY Custom Org emphasis faces144976
+Node: DIY Use colored Org source blocks per language149857
+Node: DIY Measure color contrast154497
+Node: DIY Load theme depending on time of day157217
+Node: DIY Backdrop for pdf-tools158247
+Node: DIY Toggle themes without reloading them161416
+Node: DIY Use more spacious margins or padding in Emacs frames162725
+Node: DIY Custom hl-todo colors166982
+Node: DIY Add support for solaire-mode168799
+Node: DIY Use a hook at the post-load-theme phase171925
+Node: DIY A theme-agnostic hook for theme loading174049
+Node: Face coverage176680
+Node: Supported packages177132
+Node: Indirectly covered packages182842
+Node: Notes on individual packages184211
+Node: Note on calendarel weekday and weekend colors185311
+Node: Note on git-gutter in Doom Emacs186459
+Node: Note on php-mode multiline comments188959
+Node: Note on underlines in compilation buffers189719
+Node: Note on inline Latex in Org buffers190591
+Node: Note on dimmerel191201
+Node: Note on display-fill-column-indicator-mode192686
+Node: Note on highlight-parenthesesel194139
+Node: Note on mmm-modeel background colors200222
+Node: Note for prism202576
+Node: Note on company-mode overlay pop-up205798
+Ref: Note on company-mode overlay pop-up-Footnote-1206528
+Ref: Note on company-mode overlay pop-up-Footnote-2206595
+Node: Note on ERC escaped color sequences206650
+Ref: Note on ERC escaped color sequences-Footnote-1208078
+Node: Note on powerline or spaceline208188
+Node: Note on SHR colors208602
+Node: Note on SHR fonts209026
+Node: Note on Ement colors and fonts209713
+Node: Note on pdf-tools link hints211223
+Node: Note on the Notmuch logo213683
+Node: Note on goto-address-mode faces214221
+Node: Frequently Asked Questions215339
+Node: Is the contrast ratio about adjacent colors?215972
+Node: What does it mean to avoid exaggerations?217481
+Node: Why are colors mostly variants of blue magenta cyan?219333
+Node: What is the best setup for legibility?223667
+Node: Are these color schemes?226314
+Node: Port the Modus themes to other platforms?229998
+Node: Contributing232844
+Node: Sources of the themes233243
+Node: Issues you can help with234139
+Node: Patches require copyright assignment to the FSF235532
+Node: Acknowledgements237754
+Node: GNU Free Documentation License241924
+Node: Indices267288
+Node: Function index267467
+Node: Variable index268765
+Node: Concept index271459
 
 End Tag Table
 

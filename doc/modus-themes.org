@@ -902,46 +902,13 @@ Is the same as:
 :end:
 #+vindex: modus-themes-org-blocks
 
-[ The  ~modus-themes-org-blocks~ has a new default value as part of
-  {{{development-version}}}. ]
+As part of version =4.4.0=, the ~modus-themes-org-blocks~ is no more.
+Users can apply palette overrides to set a style that fits their
+preference (purple, blue, yellow, green, etc.). It is more flexible
+and more powerful ([[#h:f44cc6e3-b0f1-4a5e-8a90-9e48fa557b50][DIY Make Org block colors more or less colorful]])
 
-Brief: Set the overall style of Org code blocks, quotes, and the like.
-
-Symbol: ~modus-themes-org-blocks~ (=choice= type)
-
-Possible values:
-
-1. ~nil~
-2. ~gray-background~ (default)
-3. ~tinted-background~
-
-Option ~nil~ means that the block has no background of its own: it
-uses the one that applies to the rest of the buffer. In this case, the
-delimiter lines have a gray color for their text, making them look
-exactly like all other Org properties.
-
-Option ~gray-background~ (the default) applies a subtle gray
-background to the block's contents. It also affects the begin and end
-lines of the block as they get another shade of gray as their
-background, which differentiates them from the contents of the block.
-All background colors extend to the edge of the window, giving the
-area a rectangular, "blocky" presentation. If the begin/end lines do
-not extend in this way, check the value of the Org user option
-~org-fontify-whole-block-delimiter-line~.
-
-Option ~tinted-background~ uses a colored background for the contents
-of the block.  The exact color value will depend on the programming
-language and is controlled by the variable ~org-src-block-faces~
-(refer to the theme's source code for the current association list).
-For this to take effect, the Org buffer needs to be restarted with
-~org-mode-restart~.
-
-Code blocks use their major mode's fontification (syntax highlighting)
-only when the variable ~org-src-fontify-natively~ is non-~nil~.  While
-quote/verse blocks require setting
-~org-fontify-quote-and-verse-blocks~ to a non-~nil~ value.
-
-[[#h:f44cc6e3-b0f1-4a5e-8a90-9e48fa557b50][Update Org block delimiter fontification]].
+For the option to change the background of Org source blocks, we
+provide the relevant setup ([[#h:8c842804-43b7-4287-b4e9-8c07d04d1f89][DIY Use colored Org source blocks per language]]).
 
 ** Option for the headings' overall style
 :properties:
@@ -2193,6 +2160,76 @@ match styles at will.
 
 Reload the theme for changes to take effect.
 
+*** DIY Make Org block colors more or less colorful
+:properties:
+:custom_id: h:f44cc6e3-b0f1-4a5e-8a90-9e48fa557b50
+:end:
+
+This is one of our practical examples to override the semantic colors
+of the Modus themes ([[#h:df1199d8-eaba-47db-805d-6b568a577bf3][Stylistic variants using palette overrides]]). Here
+we show how to change the presentation of Org blocks (and other such
+blocks like Markdown fenced code sections, though the exact
+presentation depends on each major mode).
+
+The default style of Org blocks is a subtle gray background for the
+contents and for the delimiter lines (the =#+begin_= and =#+end_=
+parts). The text of the delimiter lines is a subtle foreground color
+that is somewhere between the main foreground and a subtle gray value.
+
+#+begin_src emacs-lisp
+;; These overrides are common to all Modus themes.  We also provide
+;; theme-specific options, such as `modus-operandi-palette-overrides'.
+;;
+;; In general, the theme-specific overrides are better for overriding
+;; color values, such as redefining what `blue-faint' looks like.  The
+;; common overrides are best used for changes to semantic color
+;; mappings, as we show below.
+
+
+;; Make code blocks (in Org, for example) use a more colorful style
+;; for their delimiter lines as well as their contents.  Give this a
+;; purple feel.
+(setq modus-themes-common-palette-overrides
+      '((bg-prose-block-contents bg-magenta-nuanced)
+        (bg-prose-block-delimiter bg-lavender)
+        (fg-prose-block-delimiter fg-main)))
+
+;; As above, but with a more blue feel.
+(setq modus-themes-common-palette-overrides
+      '((bg-prose-block-contents bg-blue-nuanced)
+        (bg-prose-block-delimiter bg-lavender)
+        (fg-prose-block-delimiter fg-main)))
+
+;; As above, but with a green feel.
+(setq modus-themes-common-palette-overrides
+      '((bg-prose-block-contents bg-green-nuanced)
+        (bg-prose-block-delimiter bg-sage)
+        (fg-prose-block-delimiter fg-main)))
+
+;; As above, but with a yellow/gold feel.
+(setq modus-themes-common-palette-overrides
+      '((bg-prose-block-contents bg-yellow-nuanced)
+        (bg-prose-block-delimiter bg-ochre)
+        (fg-prose-block-delimiter fg-main)))
+
+;; As above, but with a slightly more red feel.
+(setq modus-themes-common-palette-overrides
+      '((bg-prose-block-contents bg-red-nuanced)
+        (bg-prose-block-delimiter bg-ochre)
+        (fg-prose-block-delimiter fg-main)))
+
+;; Make code blocks more minimal, so that (i) the delimiter lines have
+;; no background, (ii) the delimiter foreground is a subtle gray, and
+;; (iii) the block contents have no distinct background either.  This
+;; was the default in versions of the Modus themes before 4.4.0
+(setq modus-themes-common-palette-overrides
+      '((bg-prose-block-contents unspecified)
+        (bg-prose-block-delimiter unspeficied)
+        (fg-prose-block-delimiter fg-dim)))
+#+end_src
+
+[[#h:8c842804-43b7-4287-b4e9-8c07d04d1f89][DIY Use colored Org source blocks per language]].
+
 *** DIY Make Org agenda more or less colorful
 :PROPERTIES:
 :CUSTOM_ID: h:a5af0452-a50f-481d-bf60-d8143f98105f
@@ -2239,7 +2276,7 @@ An example with faint coloration:
         (date-holiday magenta) ; default (for M-x calendar)
         (date-now fg-main) ; default
         (date-scheduled yellow-faint)
-        (date-weekday fg-dim)
+        (date-weekday fg-alt)
         (date-weekend fg-dim)))
 #+end_src
 
@@ -3358,48 +3395,94 @@ styled by the themes, it probably is best not to edit them:
 That's it!  For changes to take effect in already visited Org files,
 invoke {{{kbd(M-x org-mode-restart)}}}.
 
-** DIY Update Org block delimiter fontification
-:properties:
-:custom_id: h:f44cc6e3-b0f1-4a5e-8a90-9e48fa557b50
-:end:
+** DIY Use colored Org source blocks per language
+:PROPERTIES:
+:CUSTOM_ID: h:8c842804-43b7-4287-b4e9-8c07d04d1f89
+:END:
 
-As noted in the section about ~modus-themes-org-blocks~, Org contains a
-variable that determines whether the block's begin and end lines are
-extended to the edge of the window ([[#h:b7e328c0-3034-4db7-9cdf-d5ba12081ca2][Option for org-mode block styles]]).
-The variable is ~org-fontify-whole-block-delimiter-line~.
+[[#h:f44cc6e3-b0f1-4a5e-8a90-9e48fa557b50][DIY Make Org block colors more or less colorful]].
 
-Users who change the style of Org blocks from time to time may prefer to
-automatically update delimiter line fontification, such as with the
-following setup:
+In versions of the Modus themes before =4.4.0= there was an option to
+change the coloration of Org source blocks so that certain languages
+would have a distinctly colored background. This was not flexible
+enough, because (i) we cannot cover all languages effectively and (ii)
+the user had no choice over the =language --> color= mapping.
+
+As such, the old user option is no more. Users can use the following
+to achieve what they want:
+
+[ All this is done by setting the Org user option ~org-src-block-faces~, 
+  so it is not related to the palette overrides mechanism provided by
+  the Modus themes. ]
 
 #+begin_src emacs-lisp
-(defun my-modus-themes-org-fontify-block-delimiter-lines (&rest _)
-  "Match `org-fontify-whole-block-delimiter-line' to theme style.
-Run this function at the post theme load phase, such as with the
-`modus-themes-after-load-theme-hook'."
-  (if (eq modus-themes-org-blocks 'gray-background)
-      (setq org-fontify-whole-block-delimiter-line t)
-    (setq org-fontify-whole-block-delimiter-line nil)))
+(defun my-modus-themes-org-block-faces (&rest _)
+  (modus-themes-with-colors
+    ;; The `org-src-block-faces' does not get re-applied in existing
+    ;; Org buffers.  Do M-x org-mode-restart for changes to take
+    ;; effect.
+    (setq org-src-block-faces
+          `(("emacs-lisp" modus-themes-nuanced-magenta)
+            ("elisp" modus-themes-nuanced-magenta)
+            ("clojure" modus-themes-nuanced-magenta)
+            ("clojurescript" modus-themes-nuanced-magenta)
+            ("c" modus-themes-nuanced-blue)
+            ("c++" modus-themes-nuanced-blue)
+            ("sh" modus-themes-nuanced-yellow)
+            ("shell" modus-themes-nuanced-yellow)
+            ("python" modus-themes-nuanced-yellow)
+            ("ipython" modus-themes-nuanced-yellow)
+            ("r" modus-themes-nuanced-yellow)
+            ("html" modus-themes-nuanced-green)
+            ("xml" modus-themes-nuanced-green)
+            ("css" modus-themes-nuanced-red)
+            ("scss" modus-themes-nuanced-red)
+            ("yaml" modus-themes-nuanced-cyan)
+            ("conf" modus-themes-nuanced-cyan)
+            ("docker" modus-themes-nuanced-cyan)))))
 
-(add-hook 'modus-themes-after-load-theme-hook
-          #'my-modus-themes-org-fontify-block-delimiter-lines)
+(add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-org-block-faces)
 #+end_src
 
-[[#h:d87673fe-2ce1-4c80-a4b8-be36ca9f2d24][Using a hook at the post-load-theme phase]].
+[[#h:d87673fe-2ce1-4c80-a4b8-be36ca9f2d24][DIY Use a hook at the post-load-theme phase]].
 
-Then {{{kbd(M-x org-mode-restart)}}} for changes to take effect, though manual
-intervention can be circumvented by tweaking the function thus:
+Note that the ~org-src-block-faces~ accepts a named face, as shown
+above, as well as a list of face attributes. The latter approach is
+not good enough because it hardcodes values in such a way that an
+~org-mode-restart~ is necessary. Whereas the indirection of the named
+face lets the theme change the values while Org buffers continue to
+show the right colors.
+
+Still, if a user prefers to hardcode face attributes, here is the
+idea:
 
 #+begin_src emacs-lisp
-(defun my-modus-themes-org-fontify-block-delimiter-lines (&rest _)
-  "Match `org-fontify-whole-block-delimiter-line' to theme style.
-Run this function at the post theme load phase, such as with the
-`modus-themes-after-load-theme-hook'."
-  (if (eq modus-themes-org-blocks 'gray-background)
-      (setq org-fontify-whole-block-delimiter-line t)
-    (setq org-fontify-whole-block-delimiter-line nil))
-  (when (derived-mode-p 'org-mode)
-    (font-lock-flush)))
+;; This is for the sake of completeness.  I DO NOT RECOMMEND THIS
+;; method because it hardcodes values and thus requires
+;; `org-mode-restart' every time you change a theme.
+(defun my-modus-themes-org-block-faces (&rest _)
+  (modus-themes-with-colors
+    (setq org-src-block-faces
+          `(("emacs-lisp" (:inherit org-block :background ,bg-magenta-nuanced))
+            ("elisp" (:inherit org-block :background ,bg-magenta-nuanced))
+            ("clojure" (:inherit org-block :background ,bg-magenta-nuanced))
+            ("clojurescript" (:inherit org-block :background ,bg-magenta-nuanced))
+            ("c" (:inherit org-block :background ,bg-blue-nuanced))
+            ("c++" (:inherit org-block :background ,bg-blue-nuanced))
+            ("sh" (:inherit org-block :background ,bg-yellow-nuanced))
+            ("shell" (:inherit org-block :background ,bg-yellow-nuanced))
+            ("python" (:inherit org-block :background ,bg-yellow-nuanced))
+            ("ipython" (:inherit org-block :background ,bg-yellow-nuanced))
+            ("r" (:inherit org-block :background ,bg-yellow-nuanced))
+            ("html" (:inherit org-block :background ,bg-green-nuanced))
+            ("xml" (:inherit org-block :background ,bg-green-nuanced))
+            ("css" (:inherit org-block :background ,bg-red-nuanced))
+            ("scss" (:inherit org-block :background ,bg-red-nuanced))
+            ("yaml" (:inherit org-block :background ,bg-cyan-nuanced))
+            ("conf" (:inherit org-block :background ,bg-cyan-nuanced))
+            ("docker" (:inherit org-block :background ,bg-cyan-nuanced))))))
+
+(add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-org-block-faces)
 #+end_src
 
 ** DIY Measure color contrast

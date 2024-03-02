@@ -345,7 +345,10 @@ which corresponds to a minimum contrast in relative luminance of
 
 ;;;; Prose mappings
 
-      (prose-block fg-dim)
+      (bg-prose-block-delimiter bg-dim)
+      (fg-prose-block-delimiter fg-alt)
+      (bg-prose-block-contents bg-dim)
+
       (prose-code cyan-cooler)
       (prose-done green)
       (prose-macro magenta-cooler)
