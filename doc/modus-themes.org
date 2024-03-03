@@ -1503,11 +1503,23 @@ have a blue mode line for ~modus-operandi~ and a red one for
         (fg-mode-line-active fg-main)
         (border-mode-line-active blue-intense)))
 
-;; Subtle red background, red foreground, invisible border
+;; Sage (green/cyan) background, neutral foreground, slightly distinct green border
 (setq modus-themes-common-palette-overrides
-      '((bg-mode-line-active bg-red-subtle)
-        (fg-mode-line-active red-warmer)
-        (border-mode-line-active bg-red-subtle)))
+      '((bg-mode-line-active bg-sage)
+        (fg-mode-line-active fg-main)
+        (border-mode-line-active bg-green-intense)))
+
+;; As above, but with a purple style
+(setq modus-themes-common-palette-overrides
+      '((bg-mode-line-active bg-lavender)
+        (fg-mode-line-active fg-main)
+        (border-mode-line-active bg-magenta-intense)))
+
+;; As above, but with an earthly style
+(setq modus-themes-common-palette-overrides
+      '((bg-mode-line-active bg-ochre)
+        (fg-mode-line-active fg-main)
+        (border-mode-line-active bg-yellow-intense)))
 #+end_src
 
 Reload the theme for changes to take effect.
