@@ -1661,14 +1661,6 @@ line colorful.
 
    *note Add padding to mode line: DIY Add padding to the mode line.
 
-     ;; These overrides are common to all Modus themes.  We also provide
-     ;; theme-specific options, such as `modus-operandi-palette-overrides'.
-     ;;
-     ;; In general, the theme-specific overrides are better for overriding
-     ;; color values, such as redefining what `blue-faint' looks like.  The
-     ;; common overrides are best used for changes to semantic color
-     ;; mappings, as we show below.
-
      ;; Remove the border
      (setq modus-themes-common-palette-overrides
            '((border-mode-line-active unspecified)
@@ -1702,14 +1694,6 @@ borderless.
 
    *note Add padding to mode line: DIY Add padding to the mode line.
 
-     ;; These overrides are common to all Modus themes.  We also provide
-     ;; theme-specific options, such as `modus-operandi-palette-overrides'.
-     ;;
-     ;; In general, the theme-specific overrides are better for overriding
-     ;; color values, such as redefining what `blue-faint' looks like.  The
-     ;; common overrides are best used for changes to semantic color
-     ;; mappings, as we show below.
-
      ;; Blue background, neutral foreground, intense blue border
      (setq modus-themes-common-palette-overrides
            '((bg-mode-line-active bg-blue-intense)
@@ -1722,11 +1706,23 @@ borderless.
              (fg-mode-line-active fg-main)
              (border-mode-line-active blue-intense)))
 
-     ;; Subtle red background, red foreground, invisible border
+     ;; Sage (green/cyan) background, neutral foreground, slightly distinct green border
      (setq modus-themes-common-palette-overrides
-           '((bg-mode-line-active bg-red-subtle)
-             (fg-mode-line-active red-warmer)
-             (border-mode-line-active bg-red-subtle)))
+           '((bg-mode-line-active bg-sage)
+             (fg-mode-line-active fg-main)
+             (border-mode-line-active bg-green-intense)))
+
+     ;; As above, but with a purple style
+     (setq modus-themes-common-palette-overrides
+           '((bg-mode-line-active bg-lavender)
+             (fg-mode-line-active fg-main)
+             (border-mode-line-active bg-magenta-intense)))
+
+     ;; As above, but with an earthly style
+     (setq modus-themes-common-palette-overrides
+           '((bg-mode-line-active bg-ochre)
+             (fg-mode-line-active fg-main)
+             (border-mode-line-active bg-yellow-intense)))
 
    Reload the theme for changes to take effect.
 
@@ -1744,15 +1740,6 @@ affect the colors of the built-in ‘tab-bar-mode’ and ‘tab-line-mode’.
    For consistent theme-wide results, consider changing the mode line,
 fringes, and line numbers.  These are shown in other sections of this
 manual.
-
-     ;; These overrides are common to all Modus themes.  We also provide
-     ;; theme-specific options, such as `modus-operandi-palette-overrides'.
-     ;;
-     ;; In general, the theme-specific overrides are better for overriding
-     ;; color values, such as redefining what `blue-faint' looks like.  The
-     ;; common overrides are best used for changes to semantic color
-     ;; mappings, as we show below.
-
 
      ;; Make the `tab-bar-mode' mode subtle while keepings its original
      ;; gray aesthetic.
@@ -1795,14 +1782,6 @@ Stylistic variants using palette overrides.).  Here we show how to make
 the fringe invisible or how to assign to it a different color.  The
 “fringe” is a small area to the right and left side of the Emacs window
 which shows indicators such as for truncation or continuation lines.
-
-     ;; These overrides are common to all Modus themes.  We also provide
-     ;; theme-specific options, such as `modus-operandi-palette-overrides'.
-     ;;
-     ;; In general, the theme-specific overrides are better for overriding
-     ;; color values, such as redefining what `blue-faint' looks like.  The
-     ;; common overrides are best used for changes to semantic color
-     ;; mappings, as we show below.
 
      ;; Make the fringe invisible
      (setq modus-themes-common-palette-overrides
@@ -1857,14 +1836,6 @@ prompts.
 
    *note Option for command prompt styles: Command prompts.
 
-     ;; These overrides are common to all Modus themes.  We also provide
-     ;; theme-specific options, such as `modus-operandi-palette-overrides'.
-     ;;
-     ;; In general, the theme-specific overrides are better for overriding
-     ;; color values, such as redefining what `blue-faint' looks like.  The
-     ;; common overrides are best used for changes to semantic color
-     ;; mappings, as we show below.
-
      ;; Keep the background unspecified (like the default), but use a faint
      ;; foreground color.
      (setq modus-themes-common-palette-overrides
@@ -1895,14 +1866,6 @@ Here we demonstrate how to activate background coloration for completion
 matches.  We show three different degrees of intensity.
 
    *note Option for completion framework aesthetics: Completion UIs.
-
-     ;; These overrides are common to all Modus themes.  We also provide
-     ;; theme-specific options, such as `modus-operandi-palette-overrides'.
-     ;;
-     ;; In general, the theme-specific overrides are better for overriding
-     ;; color values, such as redefining what `blue-faint' looks like.  The
-     ;; common overrides are best used for changes to semantic color
-     ;; mappings, as we show below.
 
      ;; Add a nuanced background color to completion matches, while keeping
      ;; their foreground intact (foregrounds do not need to be specified in
@@ -1989,14 +1952,6 @@ syntax use the old alt-syntax style.
    *note Make use of alternative styles for code syntax: DIY Make use of
 alternative styles for code syntax.
 
-     ;; These overrides are common to all Modus themes.  We also provide
-     ;; theme-specific options, such as `modus-operandi-palette-overrides'.
-     ;;
-     ;; In general, the theme-specific overrides are better for overriding
-     ;; color values, such as redefining what `blue-faint' looks like.  The
-     ;; common overrides are best used for changes to semantic color
-     ;; mappings, as we show below.
-
      ;; Yellow comments and green strings like older versions of the Modus
      ;; themes
      (setq modus-themes-common-palette-overrides
@@ -2030,16 +1985,7 @@ a stylistic alternative for code syntax.  The upside of using overrides
 for this purpose is that we can tweak the style to our liking, but first
 let’s start with its recreation:
 
-     ;; These overrides are common to all Modus themes.  We also provide
-     ;; theme-specific options, such as `modus-operandi-palette-overrides'.
-     ;;
-     ;; In general, the theme-specific overrides are better for overriding
-     ;; color values, such as redefining what `blue-faint' looks like.  The
-     ;; common overrides are best used for changes to semantic color
-     ;; mappings, as we show below.
-
-
-     ;; The old "alt-syntax"
+     ;; The old "alt-syntax" (before version 4.0.0 of the Modus themes)
      (setq modus-themes-common-palette-overrides
            '((builtin magenta)
              (comment fg-dim)
@@ -2125,15 +2071,6 @@ yellow and strings green.
    *note Make code syntax use the old alt-syntax style: DIY Make code
 syntax use the old alt-syntax style.
 
-     ;; These overrides are common to all Modus themes.  We also provide
-     ;; theme-specific options, such as `modus-operandi-palette-overrides'.
-     ;;
-     ;; In general, the theme-specific overrides are better for overriding
-     ;; color values, such as redefining what `blue-faint' looks like.  The
-     ;; common overrides are best used for changes to semantic color
-     ;; mappings, as we show below.
-
-
      ;; Mimic `ef-night' theme (from my `ef-themes') for code syntax
      ;; highlighting, while still using the Modus colors (and other
      ;; mappings).
@@ -2211,14 +2148,6 @@ underlines for those highlights.
 
    [ The ‘fg-paren-match’ is part of 4.4.0-dev.  ]
 
-     ;; These overrides are common to all Modus themes.  We also provide
-     ;; theme-specific options, such as `modus-operandi-palette-overrides'.
-     ;;
-     ;; In general, the theme-specific overrides are better for overriding
-     ;; color values, such as redefining what `blue-faint' looks like.  The
-     ;; common overrides are best used for changes to semantic color
-     ;; mappings, as we show below.
-
      ;; Change the background to a shade of magenta
      (setq modus-themes-common-palette-overrides
            '((bg-paren-match bg-magenta-intense)))
@@ -2249,14 +2178,6 @@ buttons that appear in ‘M-x customize’ and related are distinct shades
 of gray.  The following set of overrides removes the gray from the
 active buttons and amplifies it for the inactive ones.
 
-     ;; These overrides are common to all Modus themes.  We also provide
-     ;; theme-specific options, such as `modus-operandi-palette-overrides'.
-     ;;
-     ;; In general, the theme-specific overrides are better for overriding
-     ;; color values, such as redefining what `blue-faint' looks like.  The
-     ;; common overrides are best used for changes to semantic color
-     ;; mappings, as we show below.
-
      (setq modus-themes-common-palette-overrides
            '((bg-button-active bg-main)
              (fg-button-active fg-main)
@@ -2282,14 +2203,6 @@ less colorful.
 
    *note Make inline code in prose use alternative styles: DIY Make
 inline code in prose use alternative styles.
-
-     ;; These overrides are common to all Modus themes.  We also provide
-     ;; theme-specific options, such as `modus-operandi-palette-overrides'.
-     ;;
-     ;; In general, the theme-specific overrides are better for overriding
-     ;; color values, such as redefining what `blue-faint' looks like.  The
-     ;; common overrides are best used for changes to semantic color
-     ;; mappings, as we show below.
 
      ;; Increase intensity
      (setq modus-themes-common-palette-overrides
@@ -2323,15 +2236,6 @@ of the themes: the user can mix and match styles at will.
 
    *note Make TODO and DONE more intense: DIY Make TODO and DONE more or
 less intense.
-
-     ;; These overrides are common to all Modus themes.  We also provide
-     ;; theme-specific options, such as `modus-operandi-palette-overrides'.
-     ;;
-     ;; In general, the theme-specific overrides are better for overriding
-     ;; color values, such as redefining what `blue-faint' looks like.  The
-     ;; common overrides are best used for changes to semantic color
-     ;; mappings, as we show below.
-
 
      ;; Apply more colorful foreground to some headings (headings 0-8).
      ;; Level 0 is for Org #+title and related.
@@ -2385,18 +2289,9 @@ contents and for the delimiter lines (the ‘#+begin_’ and ‘#+end_’
 parts).  The text of the delimiter lines is a subtle gray foreground
 color.
 
-     ;; These overrides are common to all Modus themes.  We also provide
-     ;; theme-specific options, such as `modus-operandi-palette-overrides'.
-     ;;
-     ;; In general, the theme-specific overrides are better for overriding
-     ;; color values, such as redefining what `blue-faint' looks like.  The
-     ;; common overrides are best used for changes to semantic color
-     ;; mappings, as we show below.
-
-
      ;; Make code blocks (in Org, for example) use a more colorful style
      ;; for their delimiter lines as well as their contents.  Give this a
-     ;; purple feel.
+     ;; purple feel.  Make the delimiter lines distinct from the contents.
      (setq modus-themes-common-palette-overrides
            '((bg-prose-block-contents bg-magenta-nuanced)
              (bg-prose-block-delimiter bg-lavender)
@@ -2426,6 +2321,37 @@ color.
              (bg-prose-block-delimiter bg-ochre)
              (fg-prose-block-delimiter fg-main)))
 
+   The previous examples differentiate the delimiter lines from the
+block’s contents.  Though we can mimic the default aesthetic of a
+uniform background, while changing the applicable colors.  Here are some
+nice combinations:
+
+     ;; Solid green style.
+     (setq modus-themes-common-palette-overrides
+           '((bg-prose-block-contents bg-green-nuanced)
+             (bg-prose-block-delimiter bg-green-nuanced)
+             (fg-prose-block-delimiter green-warmer)))
+
+     ;; Solid yellow style.
+     (setq modus-themes-common-palette-overrides
+           '((bg-prose-block-contents bg-yellow-nuanced)
+             (bg-prose-block-delimiter bg-yellow-nuanced)
+             (fg-prose-block-delimiter yellow-cooler)))
+
+     ;; Solid cyan style.
+     (setq modus-themes-common-palette-overrides
+           '((bg-prose-block-contents bg-cyan-nuanced)
+             (bg-prose-block-delimiter bg-cyan-nuanced)
+             (fg-prose-block-delimiter cyan-cooler)))
+
+   [ Combine the above with a suitable mode line style for maximum
+effect (*note DIY Make the active mode line colorful::).  ]
+
+   Finally, the following makes code blocks have no distinct background.
+The minimal styles are applied to the delimiter lines, which only use a
+subtle gray foreground.  This was the default for the Modus themes up
+until version 4.3.0.
+
      ;; Make code blocks more minimal, so that (i) the delimiter lines have
      ;; no background, (ii) the delimiter foreground is a subtle gray, and
      ;; (iii) the block contents have no distinct background either.  This
@@ -2451,14 +2377,6 @@ to the Org agenda (and related).  The second uses faint coloration.  The
 third makes the agenda use various shades of blue.  Mix and match at
 will, while also combining these styles with what we show in the other
 chapters with practical stylistic variants.
-
-     ;; These overrides are common to all Modus themes.  We also provide
-     ;; theme-specific options, such as `modus-operandi-palette-overrides'.
-     ;;
-     ;; In general, the theme-specific overrides are better for overriding
-     ;; color values, such as redefining what `blue-faint' looks like.  The
-     ;; common overrides are best used for changes to semantic color
-     ;; mappings, as we show below.
 
      ;; Make the Org agenda use alternative and varied colors.
      (setq modus-themes-common-palette-overrides
@@ -2532,15 +2450,6 @@ permutation.
    *note Make TODO and DONE more or less intense: DIY Make TODO and DONE
 more or less intense.
 
-     ;; These overrides are common to all Modus themes.  We also provide
-     ;; theme-specific options, such as `modus-operandi-palette-overrides'.
-     ;;
-     ;; In general, the theme-specific overrides are better for overriding
-     ;; color values, such as redefining what `blue-faint' looks like.  The
-     ;; common overrides are best used for changes to semantic color
-     ;; mappings, as we show below.
-
-
      ;; These are all the mappings at their default values for didactic
      ;; purposes
      (setq modus-themes-common-palette-overrides
@@ -2600,15 +2509,6 @@ Before we show the code, this is the anatomy of a message:
 
    We thus have the following:
 
-     ;; These overrides are common to all Modus themes.  We also provide
-     ;; theme-specific options, such as `modus-operandi-palette-overrides'.
-     ;;
-     ;; In general, the theme-specific overrides are better for overriding
-     ;; color values, such as redefining what `blue-faint' looks like.  The
-     ;; common overrides are best used for changes to semantic color
-     ;; mappings, as we show below.
-
-
      ;; Reduce the intensity of mail citations and headers
      (setq modus-themes-common-palette-overrides
            '((mail-cite-0 cyan-faint)
@@ -2661,15 +2561,6 @@ foreground value.
    *note Do not extend the region background: DIY Do not extend the
 region background.
 
-     ;; These overrides are common to all Modus themes.  We also provide
-     ;; theme-specific options, such as `modus-operandi-palette-overrides'.
-     ;;
-     ;; In general, the theme-specific overrides are better for overriding
-     ;; color values, such as redefining what `blue-faint' looks like.  The
-     ;; common overrides are best used for changes to semantic color
-     ;; mappings, as we show below.
-
-
      ;; A background with no specific foreground (use foreground of
      ;; underlying text)
      (setq modus-themes-common-palette-overrides
@@ -2700,15 +2591,6 @@ Stylistic variants using palette overrides.).  In the following code
 block we show how to affect the semantic color mapping that covers mouse
 hover effects and related highlights:
 
-     ;; These overrides are common to all Modus themes.  We also provide
-     ;; theme-specific options, such as `modus-operandi-palette-overrides'.
-     ;;
-     ;; In general, the theme-specific overrides are better for overriding
-     ;; color values, such as redefining what `blue-faint' looks like.  The
-     ;; common overrides are best used for changes to semantic color
-     ;; mappings, as we show below.
-
-
      ;; Make the background an intense yellow
      (setq modus-themes-common-palette-overrides
            '((bg-hover bg-yellow-intense)))
@@ -2730,15 +2612,6 @@ the Modus themes (*note Stylistic variants using palette overrides: DIY
 Stylistic variants using palette overrides.).  Here we show how to
 affect the color of the underlines that are used by code linters and
 prose spell checkers.
-
-     ;; These overrides are common to all Modus themes.  We also provide
-     ;; theme-specific options, such as `modus-operandi-palette-overrides'.
-     ;;
-     ;; In general, the theme-specific overrides are better for overriding
-     ;; color values, such as redefining what `blue-faint' looks like.  The
-     ;; common overrides are best used for changes to semantic color
-     ;; mappings, as we show below.
-
 
      ;; Make the underlines less intense
      (setq modus-themes-common-palette-overrides
@@ -2764,15 +2637,6 @@ This is one of our practical examples to override the semantic colors of
 the Modus themes (*note Stylistic variants using palette overrides: DIY
 Stylistic variants using palette overrides.).  In this section we show
 how to affect the ‘display-line-numbers-mode’.
-
-     ;; These overrides are common to all Modus themes.  We also provide
-     ;; theme-specific options, such as `modus-operandi-palette-overrides'.
-     ;;
-     ;; In general, the theme-specific overrides are better for overriding
-     ;; color values, such as redefining what `blue-faint' looks like.  The
-     ;; common overrides are best used for changes to semantic color
-     ;; mappings, as we show below.
-
 
      ;; Make line numbers less intense
      (setq modus-themes-common-palette-overrides
@@ -6448,93 +6312,93 @@ Node: Advanced customization58548
 Node: DIY Palette override presets60207
 Node: DIY Stylistic variants using palette overrides63062
 Node: DIY Make the mode line borderless65116
-Node: DIY Make the active mode line colorful66905
-Node: DIY Make the tab bar more or less colorful69036
-Node: DIY Make the fringe invisible or another color71388
-Node: DIY Make links use subtle or no underlines73003
-Node: DIY Make prompts more or less colorful74121
-Node: DIY Make completion matches more or less colorful75858
-Node: DIY Make comments yellow and strings green79831
-Node: DIY Make code syntax use the old alt-syntax style81954
-Node: DIY Make use of alternative styles for code syntax85449
-Node: DIY Make matching parenthesis more or less intense89326
-Node: DIY Make box buttons more or less gray91168
-Node: DIY Make TODO and DONE more or less intense92595
-Node: DIY Make headings more or less colorful94510
-Node: DIY Make Org block colors more or less colorful97042
-Node: DIY Make Org agenda more or less colorful100334
-Node: DIY Make inline code in prose use alternative styles103923
-Node: DIY Make mail citations and headers more or less colorful106628
-Node: DIY Make the region preserve text colors plus other styles109443
-Node: DIY Make mouse highlights more or less colorful111414
-Node: DIY Make language underlines less colorful112842
-Node: DIY Make line numbers use alternative styles114409
-Node: DIY Make diffs use only a foreground116467
-Node: DIY Make deuteranopia diffs red and blue instead of yellow and blue119358
-Node: DIY More accurate colors in terminal emulators121838
-Node: DIY Range of color with terminal emulators123150
-Node: DIY Per-theme customization settings125943
-Node: DIY Do not extend the region background127376
-Node: DIY Add padding to the mode line128180
-Node: DIY Remap face with local value131113
-Node: DIY Font configurations for Org and others133661
-Ref: DIY Font configurations for Org and others-Footnote-1136644
-Node: DIY Configure bold and italic faces136831
-Node: DIY Custom Org todo keyword and priority faces141453
-Node: DIY Custom Org emphasis faces145196
-Node: DIY Use colored Org source blocks per language150077
-Node: DIY Measure color contrast154717
-Node: DIY Load theme depending on time of day157437
-Node: DIY Backdrop for pdf-tools158467
-Node: DIY Toggle themes without reloading them161636
-Node: DIY Use more spacious margins or padding in Emacs frames162945
-Node: DIY Custom hl-todo colors167202
-Node: DIY Add support for solaire-mode169019
-Node: DIY Use a hook at the post-load-theme phase172145
-Node: DIY A theme-agnostic hook for theme loading174269
-Node: Face coverage176900
-Node: Supported packages177352
-Node: Indirectly covered packages183062
-Node: Notes on individual packages184431
-Node: Note on calendarel weekday and weekend colors185531
-Node: Note on git-gutter in Doom Emacs186679
-Node: Note on php-mode multiline comments189179
-Node: Note on underlines in compilation buffers189939
-Node: Note on inline Latex in Org buffers190811
-Node: Note on dimmerel191421
-Node: Note on display-fill-column-indicator-mode192906
-Node: Note on highlight-parenthesesel194359
-Node: Note on mmm-modeel background colors200442
-Node: Note for prism202796
-Node: Note on company-mode overlay pop-up206018
-Ref: Note on company-mode overlay pop-up-Footnote-1206748
-Ref: Note on company-mode overlay pop-up-Footnote-2206815
-Node: Note on ERC escaped color sequences206870
-Ref: Note on ERC escaped color sequences-Footnote-1208298
-Node: Note on powerline or spaceline208408
-Node: Note on SHR colors208822
-Node: Note on SHR fonts209246
-Node: Note on Ement colors and fonts209933
-Node: Note on pdf-tools link hints211443
-Node: Note on the Notmuch logo213903
-Node: Note on goto-address-mode faces214441
-Node: Frequently Asked Questions215559
-Node: Is the contrast ratio about adjacent colors?216192
-Node: What does it mean to avoid exaggerations?217701
-Node: Why are colors mostly variants of blue magenta cyan?219553
-Node: What is the best setup for legibility?223887
-Node: Are these color schemes?226534
-Node: Port the Modus themes to other platforms?230218
-Node: Contributing233064
-Node: Sources of the themes233463
-Node: Issues you can help with234359
-Node: Patches require copyright assignment to the FSF235752
-Node: Acknowledgements237974
-Node: GNU Free Documentation License242144
-Node: Indices267508
-Node: Function index267687
-Node: Variable index268985
-Node: Concept index271679
+Node: DIY Make the active mode line colorful66491
+Node: DIY Make the tab bar more or less colorful68709
+Node: DIY Make the fringe invisible or another color70646
+Node: DIY Make links use subtle or no underlines71847
+Node: DIY Make prompts more or less colorful72965
+Node: DIY Make completion matches more or less colorful74288
+Node: DIY Make comments yellow and strings green77847
+Node: DIY Make code syntax use the old alt-syntax style79556
+Node: DIY Make use of alternative styles for code syntax82679
+Node: DIY Make matching parenthesis more or less intense86141
+Node: DIY Make box buttons more or less gray87569
+Node: DIY Make TODO and DONE more or less intense88582
+Node: DIY Make headings more or less colorful90083
+Node: DIY Make Org block colors more or less colorful92200
+Node: DIY Make Org agenda more or less colorful96460
+Node: DIY Make inline code in prose use alternative styles99635
+Node: DIY Make mail citations and headers more or less colorful101925
+Node: DIY Make the region preserve text colors plus other styles104325
+Node: DIY Make mouse highlights more or less colorful105881
+Node: DIY Make language underlines less colorful106894
+Node: DIY Make line numbers use alternative styles108046
+Node: DIY Make diffs use only a foreground109689
+Node: DIY Make deuteranopia diffs red and blue instead of yellow and blue112580
+Node: DIY More accurate colors in terminal emulators115060
+Node: DIY Range of color with terminal emulators116372
+Node: DIY Per-theme customization settings119165
+Node: DIY Do not extend the region background120598
+Node: DIY Add padding to the mode line121402
+Node: DIY Remap face with local value124335
+Node: DIY Font configurations for Org and others126883
+Ref: DIY Font configurations for Org and others-Footnote-1129866
+Node: DIY Configure bold and italic faces130053
+Node: DIY Custom Org todo keyword and priority faces134675
+Node: DIY Custom Org emphasis faces138418
+Node: DIY Use colored Org source blocks per language143299
+Node: DIY Measure color contrast147939
+Node: DIY Load theme depending on time of day150659
+Node: DIY Backdrop for pdf-tools151689
+Node: DIY Toggle themes without reloading them154858
+Node: DIY Use more spacious margins or padding in Emacs frames156167
+Node: DIY Custom hl-todo colors160424
+Node: DIY Add support for solaire-mode162241
+Node: DIY Use a hook at the post-load-theme phase165367
+Node: DIY A theme-agnostic hook for theme loading167491
+Node: Face coverage170122
+Node: Supported packages170574
+Node: Indirectly covered packages176284
+Node: Notes on individual packages177653
+Node: Note on calendarel weekday and weekend colors178753
+Node: Note on git-gutter in Doom Emacs179901
+Node: Note on php-mode multiline comments182401
+Node: Note on underlines in compilation buffers183161
+Node: Note on inline Latex in Org buffers184033
+Node: Note on dimmerel184643
+Node: Note on display-fill-column-indicator-mode186128
+Node: Note on highlight-parenthesesel187581
+Node: Note on mmm-modeel background colors193664
+Node: Note for prism196018
+Node: Note on company-mode overlay pop-up199240
+Ref: Note on company-mode overlay pop-up-Footnote-1199970
+Ref: Note on company-mode overlay pop-up-Footnote-2200037
+Node: Note on ERC escaped color sequences200092
+Ref: Note on ERC escaped color sequences-Footnote-1201520
+Node: Note on powerline or spaceline201630
+Node: Note on SHR colors202044
+Node: Note on SHR fonts202468
+Node: Note on Ement colors and fonts203155
+Node: Note on pdf-tools link hints204665
+Node: Note on the Notmuch logo207125
+Node: Note on goto-address-mode faces207663
+Node: Frequently Asked Questions208781
+Node: Is the contrast ratio about adjacent colors?209414
+Node: What does it mean to avoid exaggerations?210923
+Node: Why are colors mostly variants of blue magenta cyan?212775
+Node: What is the best setup for legibility?217109
+Node: Are these color schemes?219756
+Node: Port the Modus themes to other platforms?223440
+Node: Contributing226286
+Node: Sources of the themes226685
+Node: Issues you can help with227581
+Node: Patches require copyright assignment to the FSF228974
+Node: Acknowledgements231196
+Node: GNU Free Documentation License235366
+Node: Indices260730
+Node: Function index260909
+Node: Variable index262207
+Node: Concept index264901
 
 End Tag Table
 
