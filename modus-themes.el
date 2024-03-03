@@ -3495,7 +3495,7 @@ FG and BG are the main colors."
     `(shortdoc-heading ((,c :inherit bold)))
     `(shortdoc-section (())) ; remove the default's variable-pitch style
 ;;;;; show-paren-mode
-    `(show-paren-match ((,c :background ,bg-paren-match :foreground ,fg-main :underline ,underline-paren-match)))
+    `(show-paren-match ((,c :background ,bg-paren-match :foreground ,fg-paren-match :underline ,underline-paren-match)))
     `(show-paren-match-expression ((,c :background ,bg-paren-expression)))
     `(show-paren-mismatch ((,c :inherit modus-themes-prominent-error)))
 ;;;;; shr

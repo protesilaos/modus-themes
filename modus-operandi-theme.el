@@ -209,6 +209,7 @@ which corresponds to a minimum contrast in relative luminance of
 ;;; Paren match
 
       (bg-paren-match        "#5fcfff")
+      (fg-paren-match        unspecified)
       (bg-paren-expression   "#efd3f5")
       (underline-paren-match unspecified)
 

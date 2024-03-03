@@ -2008,6 +2008,8 @@ this code block we show how to change the background of matching
 delimiters when ~show-paren-mode~ is enabled.  We also demonstrate how
 to enable underlines for those highlights.
 
+[ The =fg-paren-match= is part of {{{development-version}}}. ]
+
 #+begin_src emacs-lisp
 ;; These overrides are common to all Modus themes.  We also provide
 ;; theme-specific options, such as `modus-operandi-palette-overrides'.
@@ -2025,6 +2027,12 @@ to enable underlines for those highlights.
 (setq modus-themes-common-palette-overrides
       '((bg-paren-match bg-magenta-intense)
         (underline-paren-match fg-main)))
+
+;; Do not use any background color and instead apply an intense red
+;; foreground.
+(setq modus-themes-common-palette-overrides
+      '((bg-paren-match unspecified)
+        (fg-paren-match red-intense)))
 #+end_src
 
 Reload the theme for changes to take effect.
