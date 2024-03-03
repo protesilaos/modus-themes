@@ -1458,14 +1458,6 @@ set their color to that of the underlying background.
 [[#h:5a0c58cc-f97f-429c-be08-927b9fbb0a9c][Add padding to mode line]].
 
 #+begin_src emacs-lisp
-;; These overrides are common to all Modus themes.  We also provide
-;; theme-specific options, such as `modus-operandi-palette-overrides'.
-;;
-;; In general, the theme-specific overrides are better for overriding
-;; color values, such as redefining what `blue-faint' looks like.  The
-;; common overrides are best used for changes to semantic color
-;; mappings, as we show below.
-
 ;; Remove the border
 (setq modus-themes-common-palette-overrides
       '((border-mode-line-active unspecified)
@@ -1499,14 +1491,6 @@ have a blue mode line for ~modus-operandi~ and a red one for
 [[#h:5a0c58cc-f97f-429c-be08-927b9fbb0a9c][Add padding to mode line]].
 
 #+begin_src emacs-lisp
-;; These overrides are common to all Modus themes.  We also provide
-;; theme-specific options, such as `modus-operandi-palette-overrides'.
-;;
-;; In general, the theme-specific overrides are better for overriding
-;; color values, such as redefining what `blue-faint' looks like.  The
-;; common overrides are best used for changes to semantic color
-;; mappings, as we show below.
-
 ;; Blue background, neutral foreground, intense blue border
 (setq modus-themes-common-palette-overrides
       '((bg-mode-line-active bg-blue-intense)
@@ -1543,15 +1527,6 @@ fringes, and line numbers.  These are shown in other sections of this
 manual.
 
 #+begin_src emacs-lisp
-;; These overrides are common to all Modus themes.  We also provide
-;; theme-specific options, such as `modus-operandi-palette-overrides'.
-;;
-;; In general, the theme-specific overrides are better for overriding
-;; color values, such as redefining what `blue-faint' looks like.  The
-;; common overrides are best used for changes to semantic color
-;; mappings, as we show below.
-
-
 ;; Make the `tab-bar-mode' mode subtle while keepings its original
 ;; gray aesthetic.
 (setq modus-themes-common-palette-overrides
@@ -1595,14 +1570,6 @@ side of the Emacs window which shows indicators such as for truncation
 or continuation lines.
 
 #+begin_src emacs-lisp
-;; These overrides are common to all Modus themes.  We also provide
-;; theme-specific options, such as `modus-operandi-palette-overrides'.
-;;
-;; In general, the theme-specific overrides are better for overriding
-;; color values, such as redefining what `blue-faint' looks like.  The
-;; common overrides are best used for changes to semantic color
-;; mappings, as we show below.
-
 ;; Make the fringe invisible
 (setq modus-themes-common-palette-overrides
       '((fringe unspecified)))
@@ -1656,14 +1623,6 @@ block we show how to add or remove color from prompts.
 [[#h:db5a9a7c-2928-4a28-b0f0-6f2b9bd52ba1][Option for command prompt styles]].
 
 #+begin_src emacs-lisp
-;; These overrides are common to all Modus themes.  We also provide
-;; theme-specific options, such as `modus-operandi-palette-overrides'.
-;;
-;; In general, the theme-specific overrides are better for overriding
-;; color values, such as redefining what `blue-faint' looks like.  The
-;; common overrides are best used for changes to semantic color
-;; mappings, as we show below.
-
 ;; Keep the background unspecified (like the default), but use a faint
 ;; foreground color.
 (setq modus-themes-common-palette-overrides
@@ -1696,14 +1655,6 @@ three different degrees of intensity.
 [[#h:f1c20c02-7b34-4c35-9c65-99170efb2882][Option for completion framework aesthetics]].
 
 #+begin_src emacs-lisp
-;; These overrides are common to all Modus themes.  We also provide
-;; theme-specific options, such as `modus-operandi-palette-overrides'.
-;;
-;; In general, the theme-specific overrides are better for overriding
-;; color values, such as redefining what `blue-faint' looks like.  The
-;; common overrides are best used for changes to semantic color
-;; mappings, as we show below.
-
 ;; Add a nuanced background color to completion matches, while keeping
 ;; their foreground intact (foregrounds do not need to be specified in
 ;; this case, but we do it for didactic purposes).
@@ -1789,14 +1740,6 @@ reproduce the effect, but also how to tweak it to one's liking.
 [[#h:943063da-7b27-4ba4-9afe-f8fe77652fd1][Make use of alternative styles for code syntax]].
 
 #+begin_src emacs-lisp
-;; These overrides are common to all Modus themes.  We also provide
-;; theme-specific options, such as `modus-operandi-palette-overrides'.
-;;
-;; In general, the theme-specific overrides are better for overriding
-;; color values, such as redefining what `blue-faint' looks like.  The
-;; common overrides are best used for changes to semantic color
-;; mappings, as we show below.
-
 ;; Yellow comments and green strings like older versions of the Modus
 ;; themes
 (setq modus-themes-common-palette-overrides
@@ -1830,16 +1773,7 @@ upside of using overrides for this purpose is that we can tweak the
 style to our liking, but first let's start with its recreation:
 
 #+begin_src emacs-lisp
-;; These overrides are common to all Modus themes.  We also provide
-;; theme-specific options, such as `modus-operandi-palette-overrides'.
-;;
-;; In general, the theme-specific overrides are better for overriding
-;; color values, such as redefining what `blue-faint' looks like.  The
-;; common overrides are best used for changes to semantic color
-;; mappings, as we show below.
-
-
-;; The old "alt-syntax"
+;; The old "alt-syntax" (before version 4.0.0 of the Modus themes)
 (setq modus-themes-common-palette-overrides
       '((builtin magenta)
         (comment fg-dim)
@@ -1925,15 +1859,6 @@ theme palette.
 [[#h:c8767172-bf11-4c96-81dc-e736c464fc9c][Make code syntax use the old alt-syntax style]].
 
 #+begin_src emacs-lisp
-;; These overrides are common to all Modus themes.  We also provide
-;; theme-specific options, such as `modus-operandi-palette-overrides'.
-;;
-;; In general, the theme-specific overrides are better for overriding
-;; color values, such as redefining what `blue-faint' looks like.  The
-;; common overrides are best used for changes to semantic color
-;; mappings, as we show below.
-
-
 ;; Mimic `ef-night' theme (from my `ef-themes') for code syntax
 ;; highlighting, while still using the Modus colors (and other
 ;; mappings).
@@ -2011,14 +1936,6 @@ to enable underlines for those highlights.
 [ The =fg-paren-match= is part of {{{development-version}}}. ]
 
 #+begin_src emacs-lisp
-;; These overrides are common to all Modus themes.  We also provide
-;; theme-specific options, such as `modus-operandi-palette-overrides'.
-;;
-;; In general, the theme-specific overrides are better for overriding
-;; color values, such as redefining what `blue-faint' looks like.  The
-;; common overrides are best used for changes to semantic color
-;; mappings, as we show below.
-
 ;; Change the background to a shade of magenta
 (setq modus-themes-common-palette-overrides
       '((bg-paren-match bg-magenta-intense)))
@@ -2050,14 +1967,6 @@ removes the gray from the active buttons and amplifies it for the
 inactive ones.
 
 #+begin_src emacs-lisp
-;; These overrides are common to all Modus themes.  We also provide
-;; theme-specific options, such as `modus-operandi-palette-overrides'.
-;;
-;; In general, the theme-specific overrides are better for overriding
-;; color values, such as redefining what `blue-faint' looks like.  The
-;; common overrides are best used for changes to semantic color
-;; mappings, as we show below.
-
 (setq modus-themes-common-palette-overrides
       '((bg-button-active bg-main)
         (fg-button-active fg-main)
@@ -2083,14 +1992,6 @@ to subdue them.
 [[#h:bb5b396f-5532-4d52-ab13-149ca24854f1][Make inline code in prose use alternative styles]].
 
 #+begin_src emacs-lisp
-;; These overrides are common to all Modus themes.  We also provide
-;; theme-specific options, such as `modus-operandi-palette-overrides'.
-;;
-;; In general, the theme-specific overrides are better for overriding
-;; color values, such as redefining what `blue-faint' looks like.  The
-;; common overrides are best used for changes to semantic color
-;; mappings, as we show below.
-
 ;; Increase intensity
 (setq modus-themes-common-palette-overrides
       '((prose-done green-intense)
@@ -2124,15 +2025,6 @@ match styles at will.
 [[#h:b57bb50b-a863-4ea8-bb38-6de2275fa868][Make TODO and DONE more intense]].
 
 #+begin_src emacs-lisp
-;; These overrides are common to all Modus themes.  We also provide
-;; theme-specific options, such as `modus-operandi-palette-overrides'.
-;;
-;; In general, the theme-specific overrides are better for overriding
-;; color values, such as redefining what `blue-faint' looks like.  The
-;; common overrides are best used for changes to semantic color
-;; mappings, as we show below.
-
-
 ;; Apply more colorful foreground to some headings (headings 0-8).
 ;; Level 0 is for Org #+title and related.
 (setq modus-themes-common-palette-overrides
@@ -2185,15 +2077,6 @@ parts). The text of the delimiter lines is a subtle gray foreground
 color.
 
 #+begin_src emacs-lisp
-;; These overrides are common to all Modus themes.  We also provide
-;; theme-specific options, such as `modus-operandi-palette-overrides'.
-;;
-;; In general, the theme-specific overrides are better for overriding
-;; color values, such as redefining what `blue-faint' looks like.  The
-;; common overrides are best used for changes to semantic color
-;; mappings, as we show below.
-
-
 ;; Make code blocks (in Org, for example) use a more colorful style
 ;; for their delimiter lines as well as their contents.  Give this a
 ;; purple feel.
@@ -2253,14 +2136,6 @@ these styles with what we show in the other chapters with practical
 stylistic variants.
 
 #+begin_src emacs-lisp
-;; These overrides are common to all Modus themes.  We also provide
-;; theme-specific options, such as `modus-operandi-palette-overrides'.
-;;
-;; In general, the theme-specific overrides are better for overriding
-;; color values, such as redefining what `blue-faint' looks like.  The
-;; common overrides are best used for changes to semantic color
-;; mappings, as we show below.
-
 ;; Make the Org agenda use alternative and varied colors.
 (setq modus-themes-common-palette-overrides
       '((date-common cyan)   ; default value (for timestamps and more)
@@ -2338,15 +2213,6 @@ do not show every possible permutation.
 [[#h:b57bb50b-a863-4ea8-bb38-6de2275fa868][Make TODO and DONE more or less intense]].
 
 #+begin_src emacs-lisp
-;; These overrides are common to all Modus themes.  We also provide
-;; theme-specific options, such as `modus-operandi-palette-overrides'.
-;;
-;; In general, the theme-specific overrides are better for overriding
-;; color values, such as redefining what `blue-faint' looks like.  The
-;; common overrides are best used for changes to semantic color
-;; mappings, as we show below.
-
-
 ;; These are all the mappings at their default values for didactic
 ;; purposes
 (setq modus-themes-common-palette-overrides
@@ -2409,15 +2275,6 @@ This is some sample text
 We thus have the following:
 
 #+begin_src emacs-lisp
-;; These overrides are common to all Modus themes.  We also provide
-;; theme-specific options, such as `modus-operandi-palette-overrides'.
-;;
-;; In general, the theme-specific overrides are better for overriding
-;; color values, such as redefining what `blue-faint' looks like.  The
-;; common overrides are best used for changes to semantic color
-;; mappings, as we show below.
-
-
 ;; Reduce the intensity of mail citations and headers
 (setq modus-themes-common-palette-overrides
       '((mail-cite-0 cyan-faint)
@@ -2469,15 +2326,6 @@ with an appropriate foreground value.
 [[#h:a5140c9c-18b2-45db-8021-38d0b5074116][Do not extend the region background]].
 
 #+begin_src emacs-lisp
-;; These overrides are common to all Modus themes.  We also provide
-;; theme-specific options, such as `modus-operandi-palette-overrides'.
-;;
-;; In general, the theme-specific overrides are better for overriding
-;; color values, such as redefining what `blue-faint' looks like.  The
-;; common overrides are best used for changes to semantic color
-;; mappings, as we show below.
-
-
 ;; A background with no specific foreground (use foreground of
 ;; underlying text)
 (setq modus-themes-common-palette-overrides
@@ -2508,15 +2356,6 @@ the following code block we show how to affect the semantic color
 mapping that covers mouse hover effects and related highlights:
 
 #+begin_src emacs-lisp
-;; These overrides are common to all Modus themes.  We also provide
-;; theme-specific options, such as `modus-operandi-palette-overrides'.
-;;
-;; In general, the theme-specific overrides are better for overriding
-;; color values, such as redefining what `blue-faint' looks like.  The
-;; common overrides are best used for changes to semantic color
-;; mappings, as we show below.
-
-
 ;; Make the background an intense yellow
 (setq modus-themes-common-palette-overrides
       '((bg-hover bg-yellow-intense)))
@@ -2539,15 +2378,6 @@ Here we show how to affect the color of the underlines that are used
 by code linters and prose spell checkers.
 
 #+begin_src emacs-lisp
-;; These overrides are common to all Modus themes.  We also provide
-;; theme-specific options, such as `modus-operandi-palette-overrides'.
-;;
-;; In general, the theme-specific overrides are better for overriding
-;; color values, such as redefining what `blue-faint' looks like.  The
-;; common overrides are best used for changes to semantic color
-;; mappings, as we show below.
-
-
 ;; Make the underlines less intense
 (setq modus-themes-common-palette-overrides
       '((underline-err red-faint)
@@ -2573,15 +2403,6 @@ of the Modus themes ([[#h:df1199d8-eaba-47db-805d-6b568a577bf3][Stylistic varian
 this section we show how to affect the ~display-line-numbers-mode~.
 
 #+begin_src emacs-lisp
-;; These overrides are common to all Modus themes.  We also provide
-;; theme-specific options, such as `modus-operandi-palette-overrides'.
-;;
-;; In general, the theme-specific overrides are better for overriding
-;; color values, such as redefining what `blue-faint' looks like.  The
-;; common overrides are best used for changes to semantic color
-;; mappings, as we show below.
-
-
 ;; Make line numbers less intense
 (setq modus-themes-common-palette-overrides
       '((fg-line-number-inactive "gray50")
