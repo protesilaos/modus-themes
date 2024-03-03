@@ -2091,7 +2091,7 @@ color.
 #+begin_src emacs-lisp
 ;; Make code blocks (in Org, for example) use a more colorful style
 ;; for their delimiter lines as well as their contents.  Give this a
-;; purple feel.
+;; purple feel.  Make the delimiter lines distinct from the contents.
 (setq modus-themes-common-palette-overrides
       '((bg-prose-block-contents bg-magenta-nuanced)
         (bg-prose-block-delimiter bg-lavender)
@@ -2120,7 +2120,42 @@ color.
       '((bg-prose-block-contents bg-red-nuanced)
         (bg-prose-block-delimiter bg-ochre)
         (fg-prose-block-delimiter fg-main)))
+#+end_src
 
+The previous examples differentiate the delimiter lines from the
+block's contents. Though we can mimic the default aesthetic of a
+uniform background, while changing the applicable colors. Here are
+some nice combinations:
+
+#+begin_src emacs-lisp
+;; Solid green style.
+(setq modus-themes-common-palette-overrides
+      '((bg-prose-block-contents bg-green-nuanced)
+        (bg-prose-block-delimiter bg-green-nuanced)
+        (fg-prose-block-delimiter green-warmer)))
+
+;; Solid yellow style.
+(setq modus-themes-common-palette-overrides
+      '((bg-prose-block-contents bg-yellow-nuanced)
+        (bg-prose-block-delimiter bg-yellow-nuanced)
+        (fg-prose-block-delimiter yellow-cooler)))
+
+;; Solid cyan style.
+(setq modus-themes-common-palette-overrides
+      '((bg-prose-block-contents bg-cyan-nuanced)
+        (bg-prose-block-delimiter bg-cyan-nuanced)
+        (fg-prose-block-delimiter cyan-cooler)))
+#+end_src
+
+[ Combine the above with a suitable mode line style for maximum effect
+  ([[#h:e8d781be-eefc-4a81-ac4e-5ed156190df7][DIY Make the active mode line colorful]]). ]
+
+Finally, the following makes code blocks have no distinct background.
+The minimal styles are applied to the delimiter lines, which only use
+a subtle gray foreground. This was the default for the Modus themes up
+until version 4.3.0.
+
+#+begin_src emacs-lisp
 ;; Make code blocks more minimal, so that (i) the delimiter lines have
 ;; no background, (ii) the delimiter foreground is a subtle gray, and
 ;; (iii) the block contents have no distinct background either.  This
