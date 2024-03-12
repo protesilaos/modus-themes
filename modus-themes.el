@@ -3923,7 +3923,7 @@ FG and BG are the main colors."
     `(which-func ((,c :inherit bold :foreground ,modeline-info))) ; same as `breadcrumb-imenu-leaf-face'
 ;;;;; which-key
     `(which-key-command-description-face ((,c :foreground ,fg-main)))
-    `(which-key-group-description-face ((,c :foreground ,keyword)))
+    `(which-key-group-description-face ((,c :foreground ,type)))
     `(which-key-highlighted-command-face ((,c :foreground ,warning :underline t)))
     `(which-key-key-face ((,c :inherit modus-themes-key-binding)))
     `(which-key-local-map-description-face ((,c :foreground ,fg-main)))
