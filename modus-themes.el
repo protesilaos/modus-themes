@@ -2548,37 +2548,37 @@ FG and BG are the main colors."
     ;; entries in their palette for such an edge case.  Defining those
     ;; entries is not appropriate.
     `(hi-aquamarine ((((class color) (min-colors 88) (background light))
-                      :background "white" :foreground "#227f9f" :inverse-video t)
+                      :background "#ffffff" :foreground "#227f9f" :inverse-video t)
                      (((class color) (min-colors 88) (background dark))
-                      :background "black" :foreground "#66cbdc" :inverse-video t)))
+                      :background "#000000" :foreground "#66cbdc" :inverse-video t)))
     `(hi-black-b ((,c :inverse-video t)))
     `(hi-black-hb ((,c :background ,bg-main :foreground ,fg-dim :inverse-video t)))
     `(hi-blue ((((class color) (min-colors 88) (background light))
-                :background "white" :foreground "#3366dd" :inverse-video t)
+                :background "#ffffff" :foreground "#3366dd" :inverse-video t)
                (((class color) (min-colors 88) (background dark))
-                :background "black" :foreground "#aaccff" :inverse-video t)))
+                :background "#000000" :foreground "#aaccff" :inverse-video t)))
     `(hi-blue-b ((,c :inherit (bold hi-blue))))
     `(hi-green ((((class color) (min-colors 88) (background light))
-                 :background "white" :foreground "#008a00" :inverse-video t)
+                 :background "#ffffff" :foreground "#008a00" :inverse-video t)
                 (((class color) (min-colors 88) (background dark))
-                 :background "black" :foreground "#66dd66" :inverse-video t)))
+                 :background "#000000" :foreground "#66dd66" :inverse-video t)))
     `(hi-green-b ((,c :inherit (bold hi-green))))
     `(hi-pink ((((class color) (min-colors 88) (background light))
-                :background "white" :foreground "#bd30aa" :inverse-video t)
+                :background "#ffffff" :foreground "#bd30aa" :inverse-video t)
                (((class color) (min-colors 88) (background dark))
-                :background "black" :foreground "#ff88ee" :inverse-video t)))
+                :background "#000000" :foreground "#ff88ee" :inverse-video t)))
     `(hi-red-b ((((class color) (min-colors 88) (background light))
-                 :background "white" :foreground "#dd0000" :inverse-video t)
+                 :background "#ffffff" :foreground "#dd0000" :inverse-video t)
                 (((class color) (min-colors 88) (background dark))
-                 :background "black" :foreground "#f06666" :inverse-video t)))
+                 :background "#000000" :foreground "#f06666" :inverse-video t)))
     `(hi-salmon ((((class color) (min-colors 88) (background light))
-                  :background "white" :foreground "#bf555a" :inverse-video t)
+                  :background "#ffffff" :foreground "#bf555a" :inverse-video t)
                  (((class color) (min-colors 88) (background dark))
-                  :background "black" :foreground "#e08a50" :inverse-video t)))
+                  :background "#000000" :foreground "#e08a50" :inverse-video t)))
     `(hi-yellow ((((class color) (min-colors 88) (background light))
-                  :background "white" :foreground "#af6400" :inverse-video t)
+                  :background "#ffffff" :foreground "#af6400" :inverse-video t)
                  (((class color) (min-colors 88) (background dark))
-                  :background "black" :foreground "#faea00" :inverse-video t)))
+                  :background "#000000" :foreground "#faea00" :inverse-video t)))
     `(highlight-changes ((,c :foreground ,warning :underline nil)))
     `(highlight-changes-delete ((,c :foreground ,err :underline t)))
     `(hl-line ((,c :background ,bg-hl-line :extend t)))
@@ -3256,13 +3256,13 @@ FG and BG are the main colors."
     `(org-verse ((,c :inherit org-block)))
     `(org-warning ((,c :inherit warning)))
 ;;;;; org-habit
-    `(org-habit-alert-face ((,c :background ,bg-graph-yellow-0 :foreground "black"))) ; fg is special case
+    `(org-habit-alert-face ((,c :background ,bg-graph-yellow-0 :foreground "#000000"))) ; fg is special case
     `(org-habit-alert-future-face ((,c :background ,bg-graph-yellow-1)))
-    `(org-habit-clear-face ((,c :background ,bg-graph-blue-0 :foreground "black"))) ; fg is special case
+    `(org-habit-clear-face ((,c :background ,bg-graph-blue-0 :foreground "#000000"))) ; fg is special case
     `(org-habit-clear-future-face ((,c :background ,bg-graph-blue-1)))
     `(org-habit-overdue-face ((,c :background ,bg-graph-red-0)))
     `(org-habit-overdue-future-face ((,c :background ,bg-graph-red-1)))
-    `(org-habit-ready-face ((,c :background ,bg-graph-green-0 :foreground "black"))) ; fg is special case
+    `(org-habit-ready-face ((,c :background ,bg-graph-green-0 :foreground "#000000"))) ; fg is special case
     `(org-habit-ready-future-face ((,c :background ,bg-graph-green-1)))
 ;;;;; org-journal
     `(org-journal-calendar-entry-face ((,c :inherit modus-themes-slant :foreground ,date-common)))
@@ -3990,7 +3990,7 @@ FG and BG are the main colors."
   '(
 ;;;; ansi-colors
     `(ansi-color-faces-vector [default bold shadow italic underline success warning error])
-    `(ansi-color-names-vector ["gray35" ,red ,green ,yellow ,blue ,magenta ,cyan "gray65"])
+    `(ansi-color-names-vector ["#595959" ,red ,green ,yellow ,blue ,magenta ,cyan "#a6a6a6"])
 ;;;; chart
     `(chart-face-color-list
       '( ,bg-graph-red-0 ,bg-graph-green-0 ,bg-graph-yellow-0 ,bg-graph-blue-0 ,bg-graph-magenta-0 ,bg-graph-cyan-0
