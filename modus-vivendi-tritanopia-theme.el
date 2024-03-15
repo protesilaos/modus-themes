@@ -211,7 +211,7 @@ standard)."
 ;;; Paren match
 
       (bg-paren-match        "#2f7f9f")
-      (fg-paren-match        unspecified)
+      (fg-paren-match        fg-main)
       (bg-paren-expression   "#453040")
       (underline-paren-match unspecified)
 
