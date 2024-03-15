@@ -218,7 +218,7 @@ which corresponds to a minimum contrast in relative luminance of
 ;;;; General mappings
 
       (fringe bg-dim)
-      (cursor magenta-warmer)
+      (cursor magenta-intense)
 
       (keybind magenta-cooler)
       (name magenta)
