@@ -3208,6 +3208,11 @@ FG and BG are the main colors."
     `(org-column-title ((,c :inherit (bold default) :underline t :background ,bg-dim)))
     `(org-date ((,c :inherit modus-themes-fixed-pitch :foreground ,date-common)))
     `(org-date-selected ((,c :foreground ,date-common :inverse-video t)))
+    ;; NOTE 2024-03-17: Normally we do not want to add this padding
+    ;; with the :box, but I do it here because the keys are otherwise
+    ;; very hard to read.  The square brackets around them are not
+    ;; colored, which is what is causing the problem.
+    `(org-dispatcher-highlight ((,c :inherit modus-themes-bold :box (:line-width 2 :color ,bg-hover-secondary) :background ,bg-hover-secondary :foreground ,fg-main)))
     `(org-document-info ((,c :foreground ,prose-metadata-value)))
     `(org-document-info-keyword ((,c :inherit modus-themes-fixed-pitch :foreground ,prose-metadata)))
     `(org-document-title ((,c :inherit modus-themes-heading-0)))
