@@ -770,12 +770,13 @@ represents."
 
     (fg-prompt cyan-faint)
 
-    (prose-code olive)
+    (fg-prose-code olive)
+    (fg-prose-macro indigo)
+    (fg-prose-verbatim maroon)
+
     (prose-done green-faint)
-    (prose-macro indigo)
     (prose-tag rust)
     (prose-todo red-faint)
-    (prose-verbatim maroon)
 
     (rainbow-0 fg-main)
     (rainbow-1 magenta)
@@ -934,7 +935,7 @@ Info node `(modus-themes) Option for palette overrides'.")
     (mail-other blue)
 
     (prose-tag fg-dim)
-    (prose-verbatim blue-cooler))
+    (fg-prose-verbatim blue-cooler))
   "Preset of palette overrides with cooler colors.
 
 This changes parts of the palette to use more blue and
@@ -989,7 +990,7 @@ Info node `(modus-themes) Option for palette overrides'.")
     (mail-subject blue-warmer)
     (mail-other magenta-warmer)
 
-    (prose-macro red-cooler)
+    (fg-prose-macro red-cooler)
     (prose-tag fg-dim))
   "Preset of palette overrides with warmer colors.
 
@@ -1566,9 +1567,9 @@ FG and BG are the main colors."
     `(modus-themes-prominent-note ((,c :background ,bg-prominent-note :foreground ,fg-prominent-note)))
     `(modus-themes-prominent-warning ((,c :background ,bg-prominent-warning :foreground ,fg-prominent-warning)))
 ;;;;; markup
-    `(modus-themes-prose-code ((,c :inherit modus-themes-fixed-pitch :foreground ,prose-code)))
-    `(modus-themes-prose-macro ((,c :inherit modus-themes-fixed-pitch :foreground ,prose-macro)))
-    `(modus-themes-prose-verbatim ((,c :inherit modus-themes-fixed-pitch :foreground ,prose-verbatim)))
+    `(modus-themes-prose-code ((,c :inherit modus-themes-fixed-pitch :background ,bg-prose-code :foreground ,fg-prose-code)))
+    `(modus-themes-prose-macro ((,c :inherit modus-themes-fixed-pitch :background ,bg-prose-macro :foreground ,fg-prose-macro)))
+    `(modus-themes-prose-verbatim ((,c :inherit modus-themes-fixed-pitch :background ,bg-prose-verbatim :foreground ,fg-prose-verbatim)))
 ;;;;; search
     `(modus-themes-search-current ((,c :background ,bg-search-current :foreground ,fg-main)))
     `(modus-themes-search-lazy ((,c :background ,bg-search-lazy :foreground ,fg-main)))
@@ -2929,12 +2930,12 @@ FG and BG are the main colors."
 ;;;;; markup-faces (`adoc-mode')
     `(markup-attribute-face ((,c :inherit (modus-themes-slant markup-meta-face))))
     `(markup-bold-face ((,c :inherit bold)))
-    `(markup-code-face ((,c :foreground ,prose-code)))
+    `(markup-code-face ((,c :inherit modus-themes-prose-code)))
     `(markup-comment-face ((,c :inherit font-lock-comment-face)))
-    `(markup-complex-replacement-face ((,c :foreground ,prose-macro)))
+    `(markup-complex-replacement-face ((,c :inherit modus-themes-prose-macro)))
     `(markup-emphasis-face ((,c :inherit markup-italic-face)))
     `(markup-error-face ((,c :inherit error)))
-    `(markup-gen-face ((,c :foreground ,prose-verbatim)))
+    `(markup-gen-face ((,c :inherit modus-themes-prose-verbatim)))
     `(markup-internal-reference-face ((,c :inherit (shadow modus-themes-slant))))
     `(markup-italic-face ((,c :inherit italic)))
     `(markup-list-face ((,c :background ,bg-inactive)))
@@ -2956,7 +2957,7 @@ FG and BG are the main colors."
     `(markup-title-3-face ((,c :inherit modus-themes-heading-4)))
     `(markup-title-4-face ((,c :inherit modus-themes-heading-5)))
     `(markup-title-5-face ((,c :inherit modus-themes-heading-6)))
-    `(markup-verbatim-face ((,c :inherit modus-themes-fixed-pitch :foreground ,prose-verbatim)))
+    `(markup-verbatim-face ((,c :inherit modus-themes-prose-verbatim)))
 ;;;;; mct
     `(mct-highlight-candidate ((,c :inherit modus-themes-completion-selected)))
 ;;;;; messages

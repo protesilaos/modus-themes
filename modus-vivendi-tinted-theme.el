@@ -350,16 +350,25 @@ which corresponds to a minimum contrast in relative luminance of
       (fg-prose-block-delimiter fg-dim)
       (bg-prose-block-contents bg-dim)
 
-      (prose-code cyan-cooler)
+      (bg-prose-code unspecified)
+      (fg-prose-code green-cooler)
+
+      (bg-prose-macro unspecified)
+      (fg-prose-macro magenta-cooler)
+
+      (bg-prose-verbatim unspecified)
+      (fg-prose-verbatim magenta-warmer)
+
       (prose-done green)
-      (prose-macro magenta-cooler)
+      (prose-todo red)
+
       (prose-metadata fg-dim)
       (prose-metadata-value fg-alt)
+
       (prose-table fg-alt)
       (prose-table-formula magenta-warmer)
+
       (prose-tag magenta-faint)
-      (prose-todo red)
-      (prose-verbatim magenta-warmer)
 
 ;;;; Rainbow mappings
 

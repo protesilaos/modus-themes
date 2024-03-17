@@ -352,16 +352,25 @@ standard)."
       (fg-prose-block-delimiter fg-dim)
       (bg-prose-block-contents bg-dim)
 
-      (prose-code cyan-cooler)
+      (bg-prose-code unspecified)
+      (fg-prose-code cyan-cooler)
+
+      (bg-prose-macro unspecified)
+      (fg-prose-macro magenta-cooler)
+
+      (bg-prose-verbatim unspecified)
+      (fg-prose-verbatim magenta-warmer)
+
       (prose-done blue)
-      (prose-macro magenta-cooler)
+      (prose-todo yellow-warmer)
+
       (prose-metadata fg-dim)
       (prose-metadata-value fg-alt)
+
       (prose-table fg-alt)
-      (prose-table-formula yellow-cooler)
+      (prose-table-formula yellow-warmer)
+
       (prose-tag magenta-faint)
-      (prose-todo yellow-warmer)
-      (prose-verbatim magenta-warmer)
 
 ;;;; Rainbow mappings
 
