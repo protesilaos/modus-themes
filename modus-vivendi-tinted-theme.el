@@ -351,7 +351,7 @@ which corresponds to a minimum contrast in relative luminance of
       (bg-prose-block-contents bg-dim)
 
       (bg-prose-code unspecified)
-      (fg-prose-code green-cooler)
+      (fg-prose-code cyan-cooler)
 
       (bg-prose-macro unspecified)
       (fg-prose-macro magenta-cooler)
