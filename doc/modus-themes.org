@@ -2077,6 +2077,8 @@ Reload the theme for changes to take effect.
 :custom_id: h:f44cc6e3-b0f1-4a5e-8a90-9e48fa557b50
 :end:
 
+[ Expanded as part of {{{development-version}}}. ]
+
 This is one of our practical examples to override the semantic colors
 of the Modus themes ([[#h:df1199d8-eaba-47db-805d-6b568a577bf3][Stylistic variants using palette overrides]]). Here
 we show how to change the presentation of Org blocks (and other such
@@ -2251,6 +2253,8 @@ Reload the theme for changes to take effect.
 :PROPERTIES:
 :CUSTOM_ID: h:bb5b396f-5532-4d52-ab13-149ca24854f1
 :END:
+
+[ Expanded as part of {{{development-version}}}. ]
 
 This is one of our practical examples to override the semantic colors
 of the Modus themes ([[#h:df1199d8-eaba-47db-805d-6b568a577bf3][Stylistic variants using palette overrides]]).  In
