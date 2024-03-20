@@ -5,7 +5,7 @@
 
 This document contains the release notes that are included in each
 tagged commit on the project's main git repository:
-<https://git.sr.ht/~protesilaos/modus-themes>.
+<https://github.com/protesilaos/modus-themes>.
 
 The newest release is at the top.  Since the notes are meant to be in
 plain text format, I copy them verbatim.
