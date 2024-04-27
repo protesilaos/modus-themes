@@ -2175,7 +2175,7 @@ FG and BG are the main colors."
     `(doom-modeline-evil-visual-state ((,c :inherit warning)))
     `(doom-modeline-info ((,c :inherit success)))
     `(doom-modeline-input-method (( )))
-    `(doom-modeline-lsp-error ((,c :inherit bold-italic)))
+    `(doom-modeline-lsp-error ((,c :inherit bold)))
     `(doom-modeline-lsp-running (( )))
     `(doom-modeline-lsp-success ((,c :inherit success)))
     `(doom-modeline-lsp-warning ((,c :inherit warning)))
@@ -2186,7 +2186,7 @@ FG and BG are the main colors."
     `(doom-modeline-repl-success ((,c :inherit success)))
     `(doom-modeline-repl-warning ((,c :inherit warning)))
     `(doom-modeline-time (( )))
-    `(doom-modeline-urgent ((,c :inherit bold-italic :foreground ,modeline-err)))
+    `(doom-modeline-urgent ((,c :inherit bold :foreground ,modeline-err)))
     `(doom-modeline-warning ((,c :inherit warning)))
 ;;;;; ediff
     `(ediff-current-diff-A ((,c :background ,bg-removed :foreground ,fg-removed)))

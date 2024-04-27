@@ -5600,32 +5600,33 @@ Ideas and user feedback
      Petegem, Christian Tietze, Christopher Dimech, Christopher League,
      Damien Cassou, Daniel Mendler, Dario Gjorgjevski, David Edmondson,
      Davor Rotim, Divan Santana, Eliraz Kedmi, Emanuele Michele Alberto
-     Monterosso, Farasha Euker, Feng Shu, Gautier Ponsinet, Gerry
-     Agbobada, Gianluca Recchia, Gonçalo Marrafa, Guilherme Semente,
-     Gustavo Barros, Hörmetjan Yiltiz, Ilja Kocken, Imran Khan, Iris
-     Garcia, Ivan Popovych, James Ferguson, Jeremy Friesen, Jerry Zhang,
-     Johannes Grødem, John Haman, John Wick, Jonas Collberg, Jorge
-     Morais, Joshua O’Connor, Julio C.  Villasante, Kenta Usami, Kevin
-     Fleming, Kévin Le Gouguec, Kevin Kainan Li, Kostadin Ninev, Laith
-     Bahodi, Lasse Lindner, Len Trigg, Lennart C. Karssen, Luis Miguel
-     Castañeda, Magne Hov, Manuel Giraud, Manuel Uberti, Mark Bestley,
-     Mark Burton, Mark Simpson, Marko Kocic, Markus Beppler, Matt
-     Armstrong, Matthias Fuchs, Mattias Engdegård, Mauro Aranda, Maxime
-     Tréca, Michael Goldenberg, Morgan Smith, Morgan Willcock, Murilo
-     Pereira, Nicky van Foreest, Nicolas De Jaeghere, Nicolas Semrau,
-     Olaf Meeuwissen, Oliver Epper, Pablo Stafforini, Paul Poloskov,
-     Pengji Zhang, Pete Kazmier, Peter Wu, Philip Kaludercic, Pierre
-     Téchoueyres, Przemysław Kryger, Robert Hepple, Roman Rudakov,
-     Russell Sim, Ryan Phillips, Rytis Paškauskas, Rudolf Adamkovič, Sam
-     Kleinman, Samuel Culpepper, Saša Janiška, Shreyas Ragavan, Simon
-     Pugnet, Steve Downey, Tassilo Horn, Thanos Apollo, Thibaut Verron,
-     Thomas Heartman, Togan Muftuoglu, Tony Zorman, Trey Merkley, Tomasz
-     Hołubowicz, Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley,
-     Zoltan Kiraly.  As well as users: Ben, CsBigDataHub1, Emacs
-     Contrib, Eugene, Fourchaux, Fredrik, Moesasji, Nick, Summer Emacs,
-     TheBlob42, TitusMu, Trey, bepolymathe, bit9tream, bangedorrunt,
-     derek-upham, doolio, fleimgruber, gitrj95, iSeeU, jixiuf, ltmsyvag,
-     okamsn, pRot0ta1p, soaringbird, tumashu, wakamenod.
+     Monterosso, Farasha Euker, Feng Shu, Filipo Argiolas, Gautier
+     Ponsinet, Gerry Agbobada, Gianluca Recchia, Gonçalo Marrafa,
+     Guilherme Semente, Gustavo Barros, Hörmetjan Yiltiz, Ilja Kocken,
+     Imran Khan, Iris Garcia, Ivan Popovych, James Ferguson, Jeremy
+     Friesen, Jerry Zhang, Johannes Grødem, John Haman, John Wick, Jonas
+     Collberg, Jorge Morais, Joshua O’Connor, Julio C.  Villasante,
+     Kenta Usami, Kevin Fleming, Kévin Le Gouguec, Kevin Kainan Li,
+     Kostadin Ninev, Laith Bahodi, Lasse Lindner, Len Trigg, Lennart C.
+     Karssen, Luis Miguel Castañeda, Magne Hov, Manuel Giraud, Manuel
+     Uberti, Mark Bestley, Mark Burton, Mark Simpson, Marko Kocic,
+     Markus Beppler, Matt Armstrong, Matthias Fuchs, Mattias Engdegård,
+     Mauro Aranda, Maxime Tréca, Michael Goldenberg, Morgan Smith,
+     Morgan Willcock, Murilo Pereira, Nicky van Foreest, Nicolas De
+     Jaeghere, Nicolas Semrau, Olaf Meeuwissen, Oliver Epper, Pablo
+     Stafforini, Paul Poloskov, Pengji Zhang, Pete Kazmier, Peter Wu,
+     Philip Kaludercic, Pierre Téchoueyres, Przemysław Kryger, Robert
+     Hepple, Roman Rudakov, Russell Sim, Ryan Phillips, Rytis
+     Paškauskas, Rudolf Adamkovič, Sam Kleinman, Samuel Culpepper, Saša
+     Janiška, Shreyas Ragavan, Simon Pugnet, Steve Downey, Tassilo Horn,
+     Thanos Apollo, Thibaut Verron, Thomas Heartman, Togan Muftuoglu,
+     Tony Zorman, Trey Merkley, Tomasz Hołubowicz, Toon Claes, Uri
+     Sharf, Utkarsh Singh, Vincent Foley, Zoltan Kiraly.  As well as
+     users: Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux,
+     Fredrik, Moesasji, Nick, Summer Emacs, TheBlob42, TitusMu, Trey,
+     bepolymathe, bit9tream, bangedorrunt, derek-upham, doolio,
+     fleimgruber, gitrj95, iSeeU, jixiuf, ltmsyvag, okamsn, pRot0ta1p,
+     soaringbird, tumashu, wakamenod.
 
 Packaging
      Basil L. Contovounesios, Eli Zaretskii, Glenn Morris, Mauro Aranda,
@@ -6395,11 +6396,11 @@ Node: Sources of the themes226599
 Node: Issues you can help with227495
 Node: Patches require copyright assignment to the FSF228888
 Node: Acknowledgements231110
-Node: GNU Free Documentation License235280
-Node: Indices260644
-Node: Function index260823
-Node: Variable index262121
-Node: Concept index264815
+Node: GNU Free Documentation License235302
+Node: Indices260666
+Node: Function index260845
+Node: Variable index262143
+Node: Concept index264837
 
 End Tag Table
 
