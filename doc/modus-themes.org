@@ -5420,7 +5420,7 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Christopher Dimech, Christopher League, Damien Cassou, Daniel
   Mendler, Dario Gjorgjevski, David Edmondson, Davor Rotim, Divan
   Santana, Eliraz Kedmi, Emanuele Michele Alberto Monterosso, Farasha
-  Euker, Feng Shu, Filipo Argiolas, Gautier Ponsinet, Gerry Agbobada,
+  Euker, Feng Shu, Filippo Argiolas, Gautier Ponsinet, Gerry Agbobada,
   Gianluca Recchia, Gonçalo Marrafa, Guilherme Semente, Gustavo
   Barros, Hörmetjan Yiltiz, Ilja Kocken, Imran Khan, Iris Garcia, Ivan
   Popovych, James Ferguson, Jeremy Friesen, Jerry Zhang, Johannes
