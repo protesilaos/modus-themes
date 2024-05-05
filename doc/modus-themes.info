@@ -4160,6 +4160,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • isearch, occur, etc.
    • ivy*
    • ivy-posframe
+   • jabber [ Part of 4.5.0-dev ]
    • japanese-holidays
    • jira (org-jira)
    • jit-spell
@@ -5588,8 +5589,8 @@ Contributions to code or documentation
      Niall Dooley, Nicolas De Jaeghere, Paul David, Philip Kaludercic,
      Pierre Téchoueyres, Rudolf Adamkovič, Sergey Nichiporchik, Shreyas
      Ragavan, Stefan Kangas, Stephen Berman, Stephen Gildea, Steve
-     Downey, Tomasz Hołubowicz, Utkarsh Singh, Vincent Murphy, Xinglu
-     Chen, Yuanchen Xie, fluentpwn, okamsn.
+     Downey, Thanos Apollo, Tomasz Hołubowicz, Utkarsh Singh, Vincent
+     Murphy, Xinglu Chen, Yuanchen Xie, fluentpwn, okamsn.
 
 Ideas and user feedback
      Aaron Jensen, Adam Porter, Adam Spiers, Adrian Manea, Aleksei
@@ -6360,47 +6361,47 @@ Node: DIY Use a hook at the post-load-theme phase165377
 Node: DIY A theme-agnostic hook for theme loading167501
 Node: Face coverage170132
 Node: Supported packages170584
-Node: Indirectly covered packages176198
-Node: Notes on individual packages177567
-Node: Note on calendarel weekday and weekend colors178667
-Node: Note on git-gutter in Doom Emacs179815
-Node: Note on php-mode multiline comments182315
-Node: Note on underlines in compilation buffers183075
-Node: Note on inline Latex in Org buffers183947
-Node: Note on dimmerel184557
-Node: Note on display-fill-column-indicator-mode186042
-Node: Note on highlight-parenthesesel187495
-Node: Note on mmm-modeel background colors193578
-Node: Note for prism195932
-Node: Note on company-mode overlay pop-up199154
-Ref: Note on company-mode overlay pop-up-Footnote-1199884
-Ref: Note on company-mode overlay pop-up-Footnote-2199951
-Node: Note on ERC escaped color sequences200006
-Ref: Note on ERC escaped color sequences-Footnote-1201434
-Node: Note on powerline or spaceline201544
-Node: Note on SHR colors201958
-Node: Note on SHR fonts202382
-Node: Note on Ement colors and fonts203069
-Node: Note on pdf-tools link hints204579
-Node: Note on the Notmuch logo207039
-Node: Note on goto-address-mode faces207577
-Node: Frequently Asked Questions208695
-Node: Is the contrast ratio about adjacent colors?209328
-Node: What does it mean to avoid exaggerations?210837
-Node: Why are colors mostly variants of blue magenta cyan?212689
-Node: What is the best setup for legibility?217023
-Node: Are these color schemes?219670
-Node: Port the Modus themes to other platforms?223354
-Node: Contributing226200
-Node: Sources of the themes226599
-Node: Issues you can help with227495
-Node: Patches require copyright assignment to the FSF228888
-Node: Acknowledgements231110
-Node: GNU Free Documentation License235303
-Node: Indices260667
-Node: Function index260846
-Node: Variable index262144
-Node: Concept index264838
+Node: Indirectly covered packages176234
+Node: Notes on individual packages177603
+Node: Note on calendarel weekday and weekend colors178703
+Node: Note on git-gutter in Doom Emacs179851
+Node: Note on php-mode multiline comments182351
+Node: Note on underlines in compilation buffers183111
+Node: Note on inline Latex in Org buffers183983
+Node: Note on dimmerel184593
+Node: Note on display-fill-column-indicator-mode186078
+Node: Note on highlight-parenthesesel187531
+Node: Note on mmm-modeel background colors193614
+Node: Note for prism195968
+Node: Note on company-mode overlay pop-up199190
+Ref: Note on company-mode overlay pop-up-Footnote-1199920
+Ref: Note on company-mode overlay pop-up-Footnote-2199987
+Node: Note on ERC escaped color sequences200042
+Ref: Note on ERC escaped color sequences-Footnote-1201470
+Node: Note on powerline or spaceline201580
+Node: Note on SHR colors201994
+Node: Note on SHR fonts202418
+Node: Note on Ement colors and fonts203105
+Node: Note on pdf-tools link hints204615
+Node: Note on the Notmuch logo207075
+Node: Note on goto-address-mode faces207613
+Node: Frequently Asked Questions208731
+Node: Is the contrast ratio about adjacent colors?209364
+Node: What does it mean to avoid exaggerations?210873
+Node: Why are colors mostly variants of blue magenta cyan?212725
+Node: What is the best setup for legibility?217059
+Node: Are these color schemes?219706
+Node: Port the Modus themes to other platforms?223390
+Node: Contributing226236
+Node: Sources of the themes226635
+Node: Issues you can help with227531
+Node: Patches require copyright assignment to the FSF228924
+Node: Acknowledgements231146
+Node: GNU Free Documentation License235354
+Node: Indices260718
+Node: Function index260897
+Node: Variable index262195
+Node: Concept index264889
 
 End Tag Table
 
