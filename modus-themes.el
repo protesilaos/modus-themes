@@ -3970,6 +3970,10 @@ FG and BG are the main colors."
     `(window-divider ((,c :foreground ,border)))
     `(window-divider-first-pixel ((,c :foreground ,bg-inactive)))
     `(window-divider-last-pixel ((,c :foreground ,bg-inactive)))
+;;;;; window-tool-bar-mode
+    `(window-tool-bar-button ((,c :inherit modus-themes-button)))
+    `(window-tool-bar-button-hover ((,c :inherit (highlight modus-themes-button))))
+    `(window-tool-bar-button-disabled ((,c :inherit modus-themes-button :background ,bg-button-inactive :foreground ,fg-button-inactive)))
 ;;;;; widget
     `(widget-button ((,c :inherit bold :foreground ,fg-link)))
     `(widget-button-pressed ((,c :inherit widget-button :foreground ,fg-link-visited)))
