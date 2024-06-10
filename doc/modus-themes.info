@@ -5583,14 +5583,15 @@ Contributions to code or documentation
      Aleksei Gusev, Alex Griffin, Anders Johansson, Antonio Ruiz, Basil
      L. Contovounesios, Björn Lindström, Carlo Zancanaro, Christian
      Tietze, Daniel Mendler, David Edmondson, Eli Zaretskii, Fritz
-     Grabo, Gautier Ponsinet, Illia Ostapyshyn, Kévin Le Gouguec, Koen
-     van Greevenbroek, Kostadin Ninev, Madhavan Krishnan, Manuel Giraud,
-     Markus Beppler, Matthew Stevenson, Mauro Aranda, Nacho Barrientos,
-     Niall Dooley, Nicolas De Jaeghere, Paul David, Philip Kaludercic,
-     Pierre Téchoueyres, Rudolf Adamkovič, Sergey Nichiporchik, Shreyas
-     Ragavan, Stefan Kangas, Stephen Berman, Stephen Gildea, Steve
-     Downey, Thanos Apollo, Tomasz Hołubowicz, Utkarsh Singh, Vincent
-     Murphy, Xinglu Chen, Yuanchen Xie, fluentpwn, okamsn.
+     Grabo, Gautier Ponsinet, Illia Ostapyshyn, Jared Finder, Kévin Le
+     Gouguec, Koen van Greevenbroek, Kostadin Ninev, Madhavan Krishnan,
+     Manuel Giraud, Markus Beppler, Matthew Stevenson, Mauro Aranda,
+     Nacho Barrientos, Niall Dooley, Nicolas De Jaeghere, Paul David,
+     Philip Kaludercic, Pierre Téchoueyres, Rudolf Adamkovič, Sergey
+     Nichiporchik, Shreyas Ragavan, Stefan Kangas, Stephen Berman,
+     Stephen Gildea, Steve Downey, Thanos Apollo, Tomasz Hołubowicz,
+     Utkarsh Singh, Vincent Murphy, Xinglu Chen, Yuanchen Xie,
+     fluentpwn, okamsn.
 
 Ideas and user feedback
      Aaron Jensen, Adam Porter, Adam Spiers, Adrian Manea, Aleksei
@@ -6397,11 +6398,11 @@ Node: Sources of the themes226635
 Node: Issues you can help with227531
 Node: Patches require copyright assignment to the FSF228924
 Node: Acknowledgements231146
-Node: GNU Free Documentation License235354
-Node: Indices260718
-Node: Function index260897
-Node: Variable index262195
-Node: Concept index264889
+Node: GNU Free Documentation License235373
+Node: Indices260737
+Node: Function index260916
+Node: Variable index262214
+Node: Concept index264908
 
 End Tag Table
 

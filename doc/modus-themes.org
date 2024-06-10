@@ -4127,6 +4127,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + which-key
 + whitespace-mode
 + window-divider-mode
++ window-tool-bar [ Part of {{{development-version}}} ]
 + writegood-mode
 + woman
 + xah-elisp-mode
@@ -5403,14 +5404,14 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Griffin, Anders Johansson, Antonio Ruiz, Basil L.{{{space()}}}
   Contovounesios, Björn Lindström, Carlo Zancanaro, Christian Tietze,
   Daniel Mendler, David Edmondson, Eli Zaretskii, Fritz Grabo, Gautier
-  Ponsinet, Illia Ostapyshyn, Kévin Le Gouguec, Koen van Greevenbroek,
-  Kostadin Ninev, Madhavan Krishnan, Manuel Giraud, Markus Beppler,
-  Matthew Stevenson, Mauro Aranda, Nacho Barrientos, Niall Dooley,
-  Nicolas De Jaeghere, Paul David, Philip Kaludercic, Pierre
-  Téchoueyres, Rudolf Adamkovič, Sergey Nichiporchik, Shreyas Ragavan,
-  Stefan Kangas, Stephen Berman, Stephen Gildea, Steve Downey, Thanos
-  Apollo, Tomasz Hołubowicz, Utkarsh Singh, Vincent Murphy, Xinglu
-  Chen, Yuanchen Xie, fluentpwn, okamsn.
+  Ponsinet, Illia Ostapyshyn, Jared Finder, Kévin Le Gouguec, Koen van
+  Greevenbroek, Kostadin Ninev, Madhavan Krishnan, Manuel Giraud,
+  Markus Beppler, Matthew Stevenson, Mauro Aranda, Nacho Barrientos,
+  Niall Dooley, Nicolas De Jaeghere, Paul David, Philip Kaludercic,
+  Pierre Téchoueyres, Rudolf Adamkovič, Sergey Nichiporchik, Shreyas
+  Ragavan, Stefan Kangas, Stephen Berman, Stephen Gildea, Steve
+  Downey, Thanos Apollo, Tomasz Hołubowicz, Utkarsh Singh, Vincent
+  Murphy, Xinglu Chen, Yuanchen Xie, fluentpwn, okamsn.
 
 + Ideas and user feedback :: Aaron Jensen, Adam Porter, Adam Spiers,
   Adrian Manea, Aleksei Pirogov, Alex Griffin, Alex Koen, Alex
