@@ -1650,6 +1650,10 @@ FG and BG are the main colors."
     `(shadow ((,c :foreground ,fg-dim)))
     `(success ((,c :inherit bold :foreground ,info)))
     `(trailing-whitespace ((,c :background ,bg-space-err)))
+    ;; NOTE 2024-06-22: I use `list' here to suppress a bogus warning
+    ;; from the compiler: it says I should depend on Emacs 29 to use
+    ;; vtable.
+    (list 'vtable `((,c :inherit modus-themes-fixed-pitch)))
     `(warning ((,c :inherit bold :foreground ,warning)))
 ;;;;; buttons, links, widgets
     `(button ((,c :background ,bg-link :foreground ,fg-link :underline ,underline-link)))

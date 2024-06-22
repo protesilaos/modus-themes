@@ -4118,6 +4118,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + vimish-fold
 + visible-mark
 + visual-regexp
++ vtable [ Part of {{{development-version}}} ]
 + vterm
 + vundo
 + wcheck-mode
@@ -5447,7 +5448,7 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Eugene, Fourchaux, Fredrik, Moesasji, Nick, Summer Emacs, TheBlob42,
   TitusMu, Trey, bepolymathe, bit9tream, bangedorrunt, derek-upham,
   doolio, fleimgruber, gitrj95, iSeeU, jixiuf, ltmsyvag, okamsn,
-  pRot0ta1p, soaringbird, tumashu, wakamenod.
+  pRot0ta1p, shipmints, soaringbird, tumashu, wakamenod.
 
 + Packaging :: Basil L.{{{space()}}} Contovounesios, Eli Zaretskii,
   Glenn Morris, Mauro Aranda, Richard Stallman, Stefan Kangas (core
