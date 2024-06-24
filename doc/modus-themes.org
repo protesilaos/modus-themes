@@ -1190,6 +1190,74 @@ Named colors can be previewed, such as with the command
 For a video tutorial that users of all skill levels can approach,
 watch: https://protesilaos.com/codelog/2022-12-17-modus-themes-v4-demo/.
 
+** Option to extend the palette for use with overrides
+:PROPERTIES:
+:CUSTOM_ID: h:287fb971-a866-4d88-9993-56e902dd63c4
+:END:
+
+It is possible to extend the built-in palette of each theme. For
+example, the user may want to define their own =cherry= color with
+a value of =#a0134f= and then apply it as an override ([[#h:34c7a691-19bb-4037-8d2f-67a07edab150][Option for palette overrides]]).
+This can be done in the form of a common set of definitions or on a
+per-theme basis.
+
+#+vindex: modus-themes-common-palette-user
+The common values are stored in the user option ~modus-themes-common-palette-user~.
+As for per-theme variables, we have the following user options:
+
+#+vindex: modus-operandi-palette-user
+- ~modus-operandi-palette-user~
+
+#+vindex: modus-operandi-tinted-palette-user
+- ~modus-operandi-tinted-palette-user~
+
+#+vindex: modus-operandi-deuteranopia-palette-user
+- ~modus-operandi-deuteranopia-palette-user~
+
+#+vindex: modus-operandi-tritanopia-palette-user
+- ~modus-operandi-tritanopia-palette-user~
+
+#+vindex: modus-vivendi-palette-user
+- ~modus-vivendi-palette-user~
+
+#+vindex: modus-vivendi-tinted-palette-user
+- ~modus-vivendi-tinted-palette-user~
+
+#+vindex: modus-vivendi-deuteranopia-palette-user
+- ~modus-vivendi-deuteranopia-palette-user~
+
+#+vindex: modus-vivendi-tritanopia-palette-user
+- ~modus-vivendi-tritanopia-palette-user~
+
+Examples demonstrating how to use the aforementioned:
+
+#+begin_src emacs-lisp
+;;; Common customizations
+
+;; Define two new colors in the common "user" palette of all the Modus themes.
+(setq modus-themes-common-palette-user
+      '((cherry "#a0134f")
+        (plum "#6f459a")))
+
+;; Use them in the overrides.
+(setq modus-themes-common-palette-overrides
+      '((cursor cherry)
+        (string plum)))
+
+;;; Per-theme customizations
+
+;; Define two new colors in the "user" palette of `modus-operandi'.
+;; Other themes will not use these.
+(setq modus-operandi-palette-user
+      '((cherry "#a0134f")
+        (plum "#6f459a")))
+
+;; Use them in the overrides.
+(setq modus-operandi-palette-overrides
+      '((cursor cherry)
+        (string plum)))
+#+end_src
+
 * Preview theme colors
 :properties:
 :custom_id: h:f4d4b71b-2ca5-4c3d-b0b4-9bfd7aa7fb4d

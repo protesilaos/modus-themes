@@ -641,6 +641,20 @@ In user configuration files the form may look like this:
   :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Command prompts"))
 
+
+(defcustom modus-themes-common-palette-user nil
+  "Common user-defined colors to extend all the themes' palettes.
+This is meant to extend the palette of the active Modus theme with
+custom named colors and/or semantic palette mappings.  Those may then be
+used in combination with palette overrides (see
+`modus-themes-common-palette-overrides')."
+  :group 'modus-themes
+  :package-version '(modus-themes . "4.5.0")
+  :type '(repeat (list symbol (choice symbol string)))
+  :set #'modus-themes--set-option
+  :initialize #'custom-initialize-default
+  :link '(info-link "(modus-themes) Extend the palette for use with overrides"))
+
 (defcustom modus-themes-common-palette-overrides nil
   "Set palette overrides for all the Modus themes.
 
@@ -1068,22 +1082,22 @@ C1 and C2 are color values written in hexadecimal RGB."
   (car (or (modus-themes--list-enabled-themes)
            (modus-themes--list-known-themes))))
 
-(defun modus-themes--palette-symbol (theme &optional overrides)
-  "Return THEME palette as a symbol.
-With optional OVERRIDES, return THEME palette overrides as a
-symbol."
-  (when-let ((suffix (cond
-                      ((and theme overrides)
-                       "palette-overrides")
-                      (theme
-                       "palette"))))
-    (intern (format "%s-%s" theme suffix))))
+(defun modus-themes--palette-symbol (theme &optional suffix)
+  "Return THEME palette as a symbol of the form THEME-palette.
+With optional SUFFIX, return THEME-palette-SUFFIX as a symbol."
+  (when theme
+    (intern
+     (if suffix
+         (format "%s-palette-%s" theme suffix)
+       (format "%s-palette" theme)))))
 
 (defun modus-themes--palette-value (theme &optional overrides)
   "Return palette value of THEME with optional OVERRIDES."
-  (let ((base-value (symbol-value (modus-themes--palette-symbol theme))))
+  (let* ((core-palette (symbol-value (modus-themes--palette-symbol theme)))
+         (user-palette (symbol-value (modus-themes--palette-symbol theme "user")))
+         (base-value (append modus-themes-common-palette-user user-palette core-palette)))
     (if overrides
-        (append (symbol-value (modus-themes--palette-symbol theme :overrides))
+        (append (symbol-value (modus-themes--palette-symbol theme "overrides"))
                 modus-themes-common-palette-overrides
                 base-value)
       base-value)))
