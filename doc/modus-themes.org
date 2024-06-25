@@ -1256,6 +1256,18 @@ Examples demonstrating how to use the aforementioned:
 (setq modus-operandi-palette-overrides
       '((cursor cherry)
         (string plum)))
+
+
+;; Tweaks on a per-theme basis give the user maximum flexibility. For
+;; example, they can have the above for `modus-operandi' while they use
+;; these for `modus-vivendi':
+(setq modus-vivendi-palette-user
+      '((apricot "#dfb350")
+        (kiwi "#80d458")))
+
+(setq modus-vivendi-palette-overrides
+      '((cursor apricot)
+        (string kiwi)))
 #+end_src
 
 * Preview theme colors

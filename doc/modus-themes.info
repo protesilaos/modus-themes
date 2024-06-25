@@ -1406,6 +1406,18 @@ the following user options:
            '((cursor cherry)
              (string plum)))
 
+
+     ;; Tweaks on a per-theme basis give the user maximum flexibility. For
+     ;; example, they can have the above for `modus-operandi' while they use
+     ;; these for `modus-vivendi':
+     (setq modus-vivendi-palette-user
+           '((apricot "#dfb350")
+             (kiwi "#80d458")))
+
+     (setq modus-vivendi-palette-overrides
+           '((cursor apricot)
+             (string kiwi)))
+
 
 File: modus-themes.info,  Node: Preview theme colors,  Next: Use colors from the Modus themes palette,  Prev: Customization options,  Up: Top
 
@@ -6390,101 +6402,101 @@ Node: Heading styles41598
 Node: UI typeface46028
 Node: Palette overrides47001
 Node: Option to extend the palette for use with overrides51425
-Node: Preview theme colors53389
-Node: Use colors from the Modus themes palette55202
-Node: Get a single color from the palette with modus-themes-get-color-value56066
-Node: Use theme colors in code with modus-themes-with-colors58428
-Node: Advanced customization60684
-Node: DIY Palette override presets62343
-Node: DIY Stylistic variants using palette overrides65198
-Node: DIY Make the mode line borderless67252
-Node: DIY Make the active mode line colorful68627
-Node: DIY Make the tab bar more or less colorful70845
-Node: DIY Make the fringe invisible or another color72782
-Node: DIY Make links use subtle or no underlines73983
-Node: DIY Make prompts more or less colorful75101
-Node: DIY Make completion matches more or less colorful76424
-Node: DIY Make comments yellow and strings green79983
-Node: DIY Make code syntax use the old alt-syntax style81692
-Node: DIY Make use of alternative styles for code syntax84815
-Node: DIY Make matching parenthesis more or less intense88277
-Node: DIY Make box buttons more or less gray89649
-Node: DIY Make TODO and DONE more or less intense90662
-Node: DIY Make headings more or less colorful92163
-Node: DIY Make Org block colors more or less colorful94280
-Node: DIY Make Org agenda more or less colorful98654
-Node: DIY Make inline code in prose use alternative styles101829
-Node: DIY Make mail citations and headers more or less colorful104071
-Node: DIY Make the region preserve text colors plus other styles106471
-Node: DIY Make mouse highlights more or less colorful108027
-Node: DIY Make language underlines less colorful109040
-Node: DIY Make line numbers use alternative styles110192
-Node: DIY Make diffs use only a foreground111835
-Node: DIY Make deuteranopia diffs red and blue instead of yellow and blue114726
-Node: DIY More accurate colors in terminal emulators117206
-Node: DIY Range of color with terminal emulators118518
-Node: DIY Per-theme customization settings121311
-Node: DIY Do not extend the region background122744
-Node: DIY Add padding to the mode line123548
-Node: DIY Remap face with local value126481
-Node: DIY Font configurations for Org and others129029
-Ref: DIY Font configurations for Org and others-Footnote-1132012
-Node: DIY Configure bold and italic faces132199
-Node: DIY Custom Org todo keyword and priority faces136821
-Node: DIY Custom Org emphasis faces140564
-Node: DIY Use colored Org source blocks per language145445
-Node: DIY Measure color contrast150085
-Node: DIY Load theme depending on time of day152805
-Node: DIY Backdrop for pdf-tools153835
-Node: DIY Toggle themes without reloading them157004
-Node: DIY Use more spacious margins or padding in Emacs frames158313
-Node: DIY Custom hl-todo colors162570
-Node: DIY Add support for solaire-mode164387
-Node: DIY Use a hook at the post-load-theme phase167513
-Node: DIY A theme-agnostic hook for theme loading169637
-Node: Face coverage172268
-Node: Supported packages172720
-Node: Indirectly covered packages178451
-Node: Notes on individual packages179820
-Node: Note on calendarel weekday and weekend colors180920
-Node: Note on git-gutter in Doom Emacs182068
-Node: Note on php-mode multiline comments184568
-Node: Note on underlines in compilation buffers185328
-Node: Note on inline Latex in Org buffers186200
-Node: Note on dimmerel186810
-Node: Note on display-fill-column-indicator-mode188295
-Node: Note on highlight-parenthesesel189748
-Node: Note on mmm-modeel background colors195831
-Node: Note for prism198185
-Node: Note on company-mode overlay pop-up201407
-Ref: Note on company-mode overlay pop-up-Footnote-1202137
-Ref: Note on company-mode overlay pop-up-Footnote-2202204
-Node: Note on ERC escaped color sequences202259
-Ref: Note on ERC escaped color sequences-Footnote-1203687
-Node: Note on powerline or spaceline203797
-Node: Note on SHR colors204211
-Node: Note on SHR fonts204635
-Node: Note on Ement colors and fonts205322
-Node: Note on pdf-tools link hints206832
-Node: Note on the Notmuch logo209292
-Node: Note on goto-address-mode faces209830
-Node: Frequently Asked Questions210948
-Node: Is the contrast ratio about adjacent colors?211581
-Node: What does it mean to avoid exaggerations?213090
-Node: Why are colors mostly variants of blue magenta cyan?214942
-Node: What is the best setup for legibility?219276
-Node: Are these color schemes?221923
-Node: Port the Modus themes to other platforms?225607
-Node: Contributing228453
-Node: Sources of the themes228852
-Node: Issues you can help with229748
-Node: Patches require copyright assignment to the FSF231141
-Node: Acknowledgements233363
-Node: GNU Free Documentation License237601
-Node: Indices262965
-Node: Function index263144
-Node: Variable index264442
-Node: Concept index268645
+Node: Preview theme colors53784
+Node: Use colors from the Modus themes palette55597
+Node: Get a single color from the palette with modus-themes-get-color-value56461
+Node: Use theme colors in code with modus-themes-with-colors58823
+Node: Advanced customization61079
+Node: DIY Palette override presets62738
+Node: DIY Stylistic variants using palette overrides65593
+Node: DIY Make the mode line borderless67647
+Node: DIY Make the active mode line colorful69022
+Node: DIY Make the tab bar more or less colorful71240
+Node: DIY Make the fringe invisible or another color73177
+Node: DIY Make links use subtle or no underlines74378
+Node: DIY Make prompts more or less colorful75496
+Node: DIY Make completion matches more or less colorful76819
+Node: DIY Make comments yellow and strings green80378
+Node: DIY Make code syntax use the old alt-syntax style82087
+Node: DIY Make use of alternative styles for code syntax85210
+Node: DIY Make matching parenthesis more or less intense88672
+Node: DIY Make box buttons more or less gray90044
+Node: DIY Make TODO and DONE more or less intense91057
+Node: DIY Make headings more or less colorful92558
+Node: DIY Make Org block colors more or less colorful94675
+Node: DIY Make Org agenda more or less colorful99049
+Node: DIY Make inline code in prose use alternative styles102224
+Node: DIY Make mail citations and headers more or less colorful104466
+Node: DIY Make the region preserve text colors plus other styles106866
+Node: DIY Make mouse highlights more or less colorful108422
+Node: DIY Make language underlines less colorful109435
+Node: DIY Make line numbers use alternative styles110587
+Node: DIY Make diffs use only a foreground112230
+Node: DIY Make deuteranopia diffs red and blue instead of yellow and blue115121
+Node: DIY More accurate colors in terminal emulators117601
+Node: DIY Range of color with terminal emulators118913
+Node: DIY Per-theme customization settings121706
+Node: DIY Do not extend the region background123139
+Node: DIY Add padding to the mode line123943
+Node: DIY Remap face with local value126876
+Node: DIY Font configurations for Org and others129424
+Ref: DIY Font configurations for Org and others-Footnote-1132407
+Node: DIY Configure bold and italic faces132594
+Node: DIY Custom Org todo keyword and priority faces137216
+Node: DIY Custom Org emphasis faces140959
+Node: DIY Use colored Org source blocks per language145840
+Node: DIY Measure color contrast150480
+Node: DIY Load theme depending on time of day153200
+Node: DIY Backdrop for pdf-tools154230
+Node: DIY Toggle themes without reloading them157399
+Node: DIY Use more spacious margins or padding in Emacs frames158708
+Node: DIY Custom hl-todo colors162965
+Node: DIY Add support for solaire-mode164782
+Node: DIY Use a hook at the post-load-theme phase167908
+Node: DIY A theme-agnostic hook for theme loading170032
+Node: Face coverage172663
+Node: Supported packages173115
+Node: Indirectly covered packages178846
+Node: Notes on individual packages180215
+Node: Note on calendarel weekday and weekend colors181315
+Node: Note on git-gutter in Doom Emacs182463
+Node: Note on php-mode multiline comments184963
+Node: Note on underlines in compilation buffers185723
+Node: Note on inline Latex in Org buffers186595
+Node: Note on dimmerel187205
+Node: Note on display-fill-column-indicator-mode188690
+Node: Note on highlight-parenthesesel190143
+Node: Note on mmm-modeel background colors196226
+Node: Note for prism198580
+Node: Note on company-mode overlay pop-up201802
+Ref: Note on company-mode overlay pop-up-Footnote-1202532
+Ref: Note on company-mode overlay pop-up-Footnote-2202599
+Node: Note on ERC escaped color sequences202654
+Ref: Note on ERC escaped color sequences-Footnote-1204082
+Node: Note on powerline or spaceline204192
+Node: Note on SHR colors204606
+Node: Note on SHR fonts205030
+Node: Note on Ement colors and fonts205717
+Node: Note on pdf-tools link hints207227
+Node: Note on the Notmuch logo209687
+Node: Note on goto-address-mode faces210225
+Node: Frequently Asked Questions211343
+Node: Is the contrast ratio about adjacent colors?211976
+Node: What does it mean to avoid exaggerations?213485
+Node: Why are colors mostly variants of blue magenta cyan?215337
+Node: What is the best setup for legibility?219671
+Node: Are these color schemes?222318
+Node: Port the Modus themes to other platforms?226002
+Node: Contributing228848
+Node: Sources of the themes229247
+Node: Issues you can help with230143
+Node: Patches require copyright assignment to the FSF231536
+Node: Acknowledgements233758
+Node: GNU Free Documentation License237996
+Node: Indices263360
+Node: Function index263539
+Node: Variable index264837
+Node: Concept index269040
 
 End Tag Table
 
