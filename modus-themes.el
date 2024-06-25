@@ -1095,7 +1095,7 @@ With optional SUFFIX, return THEME-palette-SUFFIX as a symbol."
   "Return palette value of THEME with optional OVERRIDES."
   (let* ((core-palette (symbol-value (modus-themes--palette-symbol theme)))
          (user-palette (symbol-value (modus-themes--palette-symbol theme "user")))
-         (base-value (append modus-themes-common-palette-user user-palette core-palette)))
+         (base-value (append user-palette modus-themes-common-palette-user core-palette)))
     (if overrides
         (append (symbol-value (modus-themes--palette-symbol theme "overrides"))
                 modus-themes-common-palette-overrides
