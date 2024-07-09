@@ -254,19 +254,24 @@ which corresponds to a minimum contrast in relative luminance of
 
 ;;;; Code mappings
 
+      (bracket fg-main)
       (builtin magenta-warmer)
       (comment fg-dim)
       (constant blue-cooler)
-      (docstring cyan-faint)
+      (delimiter fg-main)
       (docmarkup magenta-faint)
+      (docstring cyan-faint)
       (fnname magenta)
       (keyword magenta-cooler)
+      (number fg-main)
+      (operator fg-main)
       (preprocessor red-cooler)
+      (punctuation fg-main)
+      (rx-backslash magenta)
+      (rx-construct green-cooler)
       (string blue-warmer)
       (type cyan-cooler)
       (variable cyan)
-      (rx-construct green-cooler)
-      (rx-backslash magenta)
 
 ;;;; Accent mappings
 

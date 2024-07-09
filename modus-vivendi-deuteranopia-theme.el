@@ -256,19 +256,24 @@ standard)."
 
 ;;;; Code mappings
 
+      (bracket fg-main)
       (builtin magenta-warmer)
       (comment yellow-cooler)
       (constant blue-cooler)
-      (docstring cyan-faint)
+      (delimiter fg-main)
       (docmarkup magenta-faint)
+      (docstring cyan-faint)
       (fnname magenta)
       (keyword magenta-cooler)
+      (number fg-main)
+      (operator fg-main)
       (preprocessor red-cooler)
+      (punctuation fg-main)
+      (rx-backslash blue-cooler)
+      (rx-construct yellow-cooler)
       (string blue-warmer)
       (type cyan-cooler)
       (variable cyan)
-      (rx-construct yellow-cooler)
-      (rx-backslash blue-cooler)
 
 ;;;; Accent mappings
 
