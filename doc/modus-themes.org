@@ -4092,6 +4092,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + julia
 + kaocha-runner
 + keycast
++ kmacro-menu [ Part of {{{development-version}}} ]
 + ledger-mode
 + leerzeichen
 + line numbers (~display-line-numbers-mode~ and global variant)

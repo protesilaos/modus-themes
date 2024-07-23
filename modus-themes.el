@@ -2802,6 +2802,10 @@ FG and BG are the main colors."
 ;;;;; keycast
     `(keycast-command ((,c :inherit bold)))
     `(keycast-key ((,c :inherit modus-themes-bold :background ,keybind :foreground ,bg-main)))
+;;;;; kmacro-menu
+    `(kmacro-menu-mark ((,c :inherit bold)))
+    `(kmacro-menu-marked ((,c :inherit modus-themes-mark-sel)))
+    `(kmacro-menu-flagged ((,c :inherit modus-themes-mark-del)))
 ;;;;; ledger-mode
     `(ledger-font-auto-xact-face ((,c :inherit font-lock-builtin-face)))
     `(ledger-font-account-name-face ((,c :foreground ,name)))
