@@ -3003,6 +3003,8 @@ FG and BG are the main colors."
     `(markup-title-4-face ((,c :inherit modus-themes-heading-5)))
     `(markup-title-5-face ((,c :inherit modus-themes-heading-6)))
     `(markup-verbatim-face ((,c :inherit modus-themes-prose-verbatim)))
+;;;;; mbdepth
+    `(minibuffer-depth-indicator ((,c :inherit modus-themes-mark-alt)))
 ;;;;; mct
     `(mct-highlight-candidate ((,c :inherit modus-themes-completion-selected)))
 ;;;;; messages
