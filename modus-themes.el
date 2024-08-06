@@ -3863,6 +3863,12 @@ FG and BG are the main colors."
     `(vimish-fold-fringe ((,c :foreground ,cyan)))
     `(vimish-fold-mouse-face ((,c :inherit modus-themes-intense-blue)))
     `(vimish-fold-overlay ((,c :background ,bg-inactive)))
+;;;;; viper
+    `(viper-search ((,c :inherit modus-themes-search-current)))
+    `(viper-replace-overlay ((,c :inherit modus-themes-search-replace)))
+    `(viper-minibuffer-emacs (( )))
+    `(viper-minibuffer-insert (( )))
+    `(viper-minibuffer-vi (( )))
 ;;;;; visible-mark
     `(visible-mark-active ((,c :background ,bg-blue-intense)))
     `(visible-mark-face1 ((,c :background ,bg-cyan-intense)))
