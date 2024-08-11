@@ -1635,7 +1635,7 @@ FG and BG are the main colors."
     `(comint-highlight-prompt ((,c :inherit modus-themes-prompt)))
     `(confusingly-reordered ((,c :inherit modus-themes-lang-error)))
     `(edmacro-label ((,c :inherit bold :foreground ,accent-0)))
-    `(elisp-shorthand-font-lock-face ((,c :inherit font-lock-variable-name-face)))
+    `(elisp-shorthand-font-lock-face ((,c :inherit (italic font-lock-preprocessor-face))))
     `(error ((,c :inherit bold :foreground ,err)))
     `(escape-glyph ((,c :foreground ,err)))
     `(file-name-shadow ((,c :inherit shadow)))
