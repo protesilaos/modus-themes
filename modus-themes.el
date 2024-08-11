@@ -4137,6 +4137,10 @@ FG and BG are the main colors."
        ,fg-term-magenta
        ,fg-term-cyan
        ,fg-term-white])
+;;;; viper
+    `(viper-replace-overlay-cursor-color ,err)
+    `(viper-insert-state-cursor-color ,info)
+    `(viper-emacs-state-cursor-color ,fg-main)
 ;;;; xterm-color
     `(xterm-color-names
       [,fg-term-black
