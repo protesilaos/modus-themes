@@ -1190,16 +1190,22 @@ Named colors can be previewed, such as with the command
 For a video tutorial that users of all skill levels can approach,
 watch: https://protesilaos.com/codelog/2022-12-17-modus-themes-v4-demo/.
 
-** Option to extend the palette for use with overrides
+** Option to extend the palette
 :PROPERTIES:
+:ALT_TITLE: Palette extension
+:DESCRIPTION: Define new colors and use them like the original ones
 :CUSTOM_ID: h:287fb971-a866-4d88-9993-56e902dd63c4
 :END:
 
-It is possible to extend the built-in palette of each theme. For
-example, the user may want to define their own =cherry= color with
-a value of =#a0134f= and then apply it as an override ([[#h:34c7a691-19bb-4037-8d2f-67a07edab150][Option for palette overrides]]).
-This can be done in the form of a common set of definitions or on a
-per-theme basis.
+It is possible to extend the palette of each theme. For example, the
+user may define their own =cherry= color with a value of =#a0134f= and
+then apply it as an override ([[#h:34c7a691-19bb-4037-8d2f-67a07edab150][Option for palette overrides]]). Those
+colors may also be used in custom code that leverages either the
+~modus-themes-with-colors~ macro or the function
+~modus-themes-get-color-value~.
+
+The palette extension can be done in the form of a common set of
+definitions that are shared among the themes or on a per-theme basis.
 
 #+vindex: modus-themes-common-palette-user
 The common values are stored in the user option ~modus-themes-common-palette-user~.
