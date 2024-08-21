@@ -15,6 +15,163 @@ For further details, please consult these additional resources:
 + Manual :: <https://protesilaos.com/emacs/modus-themes>
 + Screenshots :: <https://protesilaos.com/emacs/modus-themes-pictures>
 
+* 4.5.0 on 2024-08-21
+:PROPERTIES:
+:CUSTOM_ID: h:1a3e2de7-2244-4160-a29c-40a0ab35cd5f
+:END:
+
+The themes are in a stable state. They cover a wide range of packages
+and interfaces, while they are highly configurable. The present
+version provides further scope for customisation as well as some
+quality-of-life refinements.
+
+** Users can now extend the palette of each/all themes
+:PROPERTIES:
+:CUSTOM_ID: h:9f38b395-9ab0-4b81-a9cd-3e753e6c62b9
+:END:
+
+In addition to palette overrides, users can now define extensions for
+the palette of each theme or for all themes. The idea is to define new
+colours while keeping the existing ones intact. Then, those colours
+can be accessed in all the usual ways via (i) the
+~modus-themes-with-colors~ macro, (ii) the function
+~modus-themes-get-color-value~, and (iii) in the palette override user
+options.
+
+I wrote about this on my website: <https://protesilaos.com/codelog/2024-06-25-emacs-modus-themes-user-palette/>.
+
+And, as always, the manual is the up-to-date reference for everything
+you need.
+
+The relevant user options are the following:
+
+- ~modus-themes-common-palette-user~
+- ~modus-operandi-palette-user~
+- ~modus-operandi-tinted-palette-user~
+- ~modus-operandi-deuteranopia-palette-user~
+- ~modus-operandi-tritanopia-palette-user~
+- ~modus-vivendi-palette-user~
+- ~modus-vivendi-tinted-palette-user~
+- ~modus-vivendi-deuteranopia-palette-user~
+- ~modus-vivendi-tritanopia-palette-user~
+
+** More colours to chose from in customisations
+:PROPERTIES:
+:CUSTOM_ID: h:7b67da30-eb71-4752-8d09-91052faa9277
+:END:
+
+A big part of the themes' customisability is the palette overrides
+users can implement. The manual covers lots of examples. The short
+version is that the user can change how, say, the mode lines look,
+what an Org heading looks like, and so on.
+
+We now have a new pair of background and foreground colours, namely,
+~bg-clay~ and ~fg-clay~, as well as foreground values to complement
+their already existing background counterparts: ~fg-ochre~,
+~fg-lavender~, ~fg-sage~.
+
+** "Graph" colours look a bit better in context
+:PROPERTIES:
+:CUSTOM_ID: h:f7d7a69c-0125-479f-9b35-8b2ba750fa23
+:END:
+
+Each theme's palette contains a subset of colour values that are
+intended for use in graphs. One well-known package where those are
+applied is the ~org-habit~ consistency block.
+
+I tweak a few colours in this subset to make them look better
+side-by-side as well as in other combinations. This concerns all the
+light themes.
+
+** The indicator for minibuffer recursion has a different style
+:PROPERTIES:
+:CUSTOM_ID: h:c5079296-74f2-4fe5-8c40-34b11db5a931
+:END:
+
+This concerns the number shown next to the minibuffer prompt while in
+a recursive minibuffer (per ~minibuffer-depth-indicate-mode~ and
+related settings to enable minibuffer recursion). Before, the style
+was like a mouse highlight, which could be confusing in certain
+situations. Now it is an unambiguous coloured background that still
+stands out nicely.
+
+** The ~kmacro-menu~ faces are also supported
+:PROPERTIES:
+:CUSTOM_ID: h:b8294884-9c8c-45d7-b372-b2fb7fbdb100
+:END:
+
+These are the marks we see while using the interface provided by the
+built-in command ~kmacro-menu~ (alias ~list-keyboard-macros~).
+
+** The ~vtable~ will respect the user choice for "mixed fonts"
+:PROPERTIES:
+:CUSTOM_ID: h:5ea1131d-1529-45bf-a86f-4c3778177455
+:END:
+
+The ~vtable~ face will be rendered in a monospaced font (technically,
+it will inherit ~fixed-pitch~) if the user sets the user option
+~modus-themes-mixed-fonts~ to a non-nil value. Users may want to do
+this to eventually apply a proportionately spaced font for regular
+prose while keeping spacing-sensitive elements like blocks and tables
+in a monospaced view.
+
+[ The manual shows how to configure the individual font families via
+  their respective faces. ]
+
+Thanks to shipmints for bringing this matter to my attention in issue
+110: <https://github.com/protesilaos/modus-themes/issues/110>.
+
+** The ~jabber~ package is now supported
+:PROPERTIES:
+:CUSTOM_ID: h:725123b9-31ed-460b-9411-c2cd9f54502c
+:END:
+
+Thanks to Thanos Apollo for the contribution. The change is within
+the accepted line limit, meaning that Thanos does not need to assign
+copyright to the Free Software Foundation.
+
+** The ~doom-modeline~ no longer uses ~bold-italic~
+:PROPERTIES:
+:CUSTOM_ID: h:28e9a11b-54b0-4df6-9b96-b2db54a2e43e
+:END:
+
+This style was used to highlight some forms of emphasis, but it turns
+out that it can clip the outline of icon fonts (per the ~nerd-fonts~
+package) under some situations.
+
+** Covered the built-in ~window-tool-bar-mode~
+:PROPERTIES:
+:CUSTOM_ID: h:92b3a588-4d0d-4afd-bb79-31884836292f
+:END:
+
+Thanks to Jared Finder for the contribution. The change is small,
+meaning that Jared does not need to assign copyright to the Free
+Software Foundation.
+
+** Miscellaneous
+:PROPERTIES:
+:CUSTOM_ID: h:e3617c15-1909-48f2-9a7d-3243a45fc07b
+:END:
+
+- The ~elisp-shorthand-font-lock-face~ is now easier to spot in
+  context. This is a way for Emacs packages to define so-called
+  "shorthands" of short prefixes in symbols that are aliases for
+  longer ones. These shorthands will now use a style that is not found
+  anywhere else in Elisp code, making them stand out more.
+
+- Added partial support for the built-in ~viper~ package. NOTE though
+  that this package is applying colors to cursors in a way that themes
+  cannot override. The issue is especially problematic when switching
+  themes. If anyone is using Viper and interested to modernise it, let
+  me know about your work and then I will update the themes
+  accordingly. Thanks to ZharMeny for asking me to support Viper in
+  issue 115: <https://github.com/protesilaos/modus-themes/issues/115>.
+
+- Fixed the symbol of an inherited face in ~web-mode~. Thanks to Pavel
+  Novichkov for the change. It does not require copyright assignment.
+
+- Updated the manual to cover the aforementioned.
+
 * 4.4.0
 :PROPERTIES:
 :CUSTOM_ID: h:4025f2f4-8524-49d9-9ee5-627361ff9875
@@ -275,7 +432,7 @@ while.
 :PROPERTIES:
 :CUSTOM_ID: h:3c2d3f21-7686-4376-a3ec-82240b283eec
 :END:
-  
+
 This is subject to the user option ~olivetty-style~, which can be set
 to the value of =fancy= to produce a page-like effect.
 
@@ -287,7 +444,7 @@ to my attention on the now-discontinued mailing list:
 :PROPERTIES:
 :CUSTOM_ID: h:8c6717d2-0488-4590-8083-52e081adf6f5
 :END:
-  
+
 The default value of that face inherits from the ~region~ face. This
 is fine in some cases, though not when the user calls
 ~consult-outline~ in a buffer with hidden text (e.g. Org folded
@@ -305,7 +462,7 @@ levels but differ on whether the heading has subheadings or not.
 Before, we would colourise those differently, which could be
 confusing. Now they look the same, which is fine because the interface
 has additional markup to show when subheadings are present.
-  
+
 Thanks to ltmsyvag for pointing this out in issue 95:
 <https://github.com/protesilaos/modus-themes/issues/95>.
 

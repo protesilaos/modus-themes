@@ -4,9 +4,9 @@
 #+language: en
 #+options: ':t toc:nil author:t email:t num:t
 #+startup: content
-#+macro: stable-version 4.4.0
-#+macro: release-date 2024-03-17
-#+macro: development-version 4.5.0-dev
+#+macro: stable-version 4.5.0
+#+macro: release-date 2024-08-21
+#+macro: development-version 4.6.0-dev
 #+macro: file @@texinfo:@file{@@$1@@texinfo:}@@
 #+macro: space @@texinfo:@: @@
 #+macro: kbd @@texinfo:@kbd{@@$1@@texinfo:}@@
@@ -4088,7 +4088,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + isearch, occur, etc.
 + ivy*
 + ivy-posframe
-+ jabber [ Part of {{{development-version}}} ]
++ jabber
 + japanese-holidays
 + jira (org-jira)
 + jit-spell
@@ -4098,7 +4098,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + julia
 + kaocha-runner
 + keycast
-+ kmacro-menu [ Part of {{{development-version}}} ]
++ kmacro-menu
 + ledger-mode
 + leerzeichen
 + line numbers (~display-line-numbers-mode~ and global variant)
@@ -4108,7 +4108,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + marginalia
 + markdown-mode
 + markup-faces (~adoc-mode~)
-+ mb-depth [ Part of {{{development-version}}} ]
++ mb-depth
 + mct
 + messages
 + minimap
@@ -4204,10 +4204,10 @@ have lots of extensions, so the "full support" may not be 100% true…
 + vertico
 + vertico-quick
 + vimish-fold
-+ viper [ Part of {{{development-version}}} ]
++ viper
 + visible-mark
 + visual-regexp
-+ vtable [ Part of {{{development-version}}} ]
++ vtable
 + vterm
 + vundo
 + wcheck-mode
@@ -4217,7 +4217,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + which-key
 + whitespace-mode
 + window-divider-mode
-+ window-tool-bar [ Part of {{{development-version}}} ]
++ window-tool-bar
 + writegood-mode
 + woman
 + xah-elisp-mode

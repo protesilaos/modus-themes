@@ -43,11 +43,11 @@ customization options for the Modus themes, and provides every other
 piece of information pertinent to them.
 
    The documentation furnished herein corresponds to stable version
-4.4.0, released on 2024-03-17.  Any reference to a newer feature which
+4.5.0, released on 2024-08-21.  Any reference to a newer feature which
 does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
-   Current development target is 4.5.0-dev.
+   Current development target is 4.6.0-dev.
 
    • Package name (GNU ELPA): ‘modus-themes’
    • Official manual: <https://protesilaos.com/emacs/modus-themes>
@@ -4237,7 +4237,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • isearch, occur, etc.
    • ivy*
    • ivy-posframe
-   • jabber [ Part of 4.5.0-dev ]
+   • jabber
    • japanese-holidays
    • jira (org-jira)
    • jit-spell
@@ -4247,7 +4247,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • julia
    • kaocha-runner
    • keycast
-   • kmacro-menu [ Part of 4.5.0-dev ]
+   • kmacro-menu
    • ledger-mode
    • leerzeichen
    • line numbers (‘display-line-numbers-mode’ and global variant)
@@ -4257,7 +4257,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • marginalia
    • markdown-mode
    • markup-faces (‘adoc-mode’)
-   • mb-depth [ Part of 4.5.0-dev ]
+   • mb-depth
    • mct
    • messages
    • minimap
@@ -4353,10 +4353,10 @@ have lots of extensions, so the “full support” may not be 100% true…
    • vertico
    • vertico-quick
    • vimish-fold
-   • viper [ Part of 4.5.0-dev ]
+   • viper
    • visible-mark
    • visual-regexp
-   • vtable [ Part of 4.5.0-dev ]
+   • vtable
    • vterm
    • vundo
    • wcheck-mode
@@ -4366,7 +4366,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • which-key
    • whitespace-mode
    • window-divider-mode
-   • window-tool-bar [ Part of 4.5.0-dev ]
+   • window-tool-bar
    • writegood-mode
    • woman
    • xah-elisp-mode
@@ -6454,47 +6454,47 @@ Node: DIY Use a hook at the post-load-theme phase168053
 Node: DIY A theme-agnostic hook for theme loading170177
 Node: Face coverage172808
 Node: Supported packages173260
-Node: Indirectly covered packages179105
-Node: Notes on individual packages180474
-Node: Note on calendarel weekday and weekend colors181574
-Node: Note on git-gutter in Doom Emacs182722
-Node: Note on php-mode multiline comments185222
-Node: Note on underlines in compilation buffers185982
-Node: Note on inline Latex in Org buffers186854
-Node: Note on dimmerel187464
-Node: Note on display-fill-column-indicator-mode188949
-Node: Note on highlight-parenthesesel190402
-Node: Note on mmm-modeel background colors196485
-Node: Note for prism198839
-Node: Note on company-mode overlay pop-up202061
-Ref: Note on company-mode overlay pop-up-Footnote-1202791
-Ref: Note on company-mode overlay pop-up-Footnote-2202858
-Node: Note on ERC escaped color sequences202913
-Ref: Note on ERC escaped color sequences-Footnote-1204341
-Node: Note on powerline or spaceline204451
-Node: Note on SHR colors204865
-Node: Note on SHR fonts205289
-Node: Note on Ement colors and fonts205976
-Node: Note on pdf-tools link hints207486
-Node: Note on the Notmuch logo209946
-Node: Note on goto-address-mode faces210484
-Node: Frequently Asked Questions211602
-Node: Is the contrast ratio about adjacent colors?212235
-Node: What does it mean to avoid exaggerations?213744
-Node: Why are colors mostly variants of blue magenta cyan?215596
-Node: What is the best setup for legibility?219930
-Node: Are these color schemes?222577
-Node: Port the Modus themes to other platforms?226261
-Node: Contributing229107
-Node: Sources of the themes229506
-Node: Issues you can help with230402
-Node: Patches require copyright assignment to the FSF231795
-Node: Acknowledgements234017
-Node: GNU Free Documentation License238282
-Node: Indices263646
-Node: Function index263825
-Node: Variable index265123
-Node: Concept index268474
+Node: Indirectly covered packages178973
+Node: Notes on individual packages180342
+Node: Note on calendarel weekday and weekend colors181442
+Node: Note on git-gutter in Doom Emacs182590
+Node: Note on php-mode multiline comments185090
+Node: Note on underlines in compilation buffers185850
+Node: Note on inline Latex in Org buffers186722
+Node: Note on dimmerel187332
+Node: Note on display-fill-column-indicator-mode188817
+Node: Note on highlight-parenthesesel190270
+Node: Note on mmm-modeel background colors196353
+Node: Note for prism198707
+Node: Note on company-mode overlay pop-up201929
+Ref: Note on company-mode overlay pop-up-Footnote-1202659
+Ref: Note on company-mode overlay pop-up-Footnote-2202726
+Node: Note on ERC escaped color sequences202781
+Ref: Note on ERC escaped color sequences-Footnote-1204209
+Node: Note on powerline or spaceline204319
+Node: Note on SHR colors204733
+Node: Note on SHR fonts205157
+Node: Note on Ement colors and fonts205844
+Node: Note on pdf-tools link hints207354
+Node: Note on the Notmuch logo209814
+Node: Note on goto-address-mode faces210352
+Node: Frequently Asked Questions211470
+Node: Is the contrast ratio about adjacent colors?212103
+Node: What does it mean to avoid exaggerations?213612
+Node: Why are colors mostly variants of blue magenta cyan?215464
+Node: What is the best setup for legibility?219798
+Node: Are these color schemes?222445
+Node: Port the Modus themes to other platforms?226129
+Node: Contributing228975
+Node: Sources of the themes229374
+Node: Issues you can help with230270
+Node: Patches require copyright assignment to the FSF231663
+Node: Acknowledgements233885
+Node: GNU Free Documentation License238150
+Node: Indices263514
+Node: Function index263693
+Node: Variable index264991
+Node: Concept index268342
 
 End Tag Table
 
