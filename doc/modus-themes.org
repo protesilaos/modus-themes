@@ -4057,6 +4057,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + focus
 + fold-this
 + font-lock (generic syntax highlighting)
++ forge [ Part of {{{development-version}}}. ]
 + geiser
 + git-commit
 + git-gutter (and variants)
@@ -4264,7 +4265,6 @@ supported by the themes.
 + flyspell-correct
 + fortran-mode
 + freeze-it
-+ forge
 + git-walktree
 + goggles
 + highlight-defined
