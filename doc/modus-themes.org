@@ -3879,6 +3879,57 @@ styles to use. The following is but a basic attempt to get started.
 
 [[#h:d87673fe-2ce1-4c80-a4b8-be36ca9f2d24][Using a hook at the post-load-theme phase]].
 
+** DIY Add support for combobulate
+:PROPERTIES:
+:CUSTOM_ID: h:e94bdd17-1c2d-41b5-86c5-83462bd8f30c
+:END:
+
+The ~combobulate~ package provides the means to operate on text that
+is underpinned by the ~tree-sitter~ program. Because this is a
+specialized case that requires intimate knowledge of the
+technicalities, I am not adding support for this package directly at
+the theme level. Users can try this instead:
+
+#+begin_src emacs-lisp
+(defun my-modus-themes-custom-faces (&rest _)
+  (modus-themes-with-colors
+    (custom-set-faces
+     `(combobulate-active-indicator-face ((,c :foreground ,fg-main)))
+     `(combobulate-dimmed-indicator-face ((,c :inherit shadow)))
+     `(combobulate-error-indicator-face ((,c :inherit error)))
+     `(combobulate-query-highlight-fiery-flames-face ((,c :inherit modus-themes-intense-red)))
+     `(combobulate-query-highlight-gleaming-gold-face ((,c :inherit modus-themes-intense-yellow)))
+     `(combobulate-query-highlight-majestic-mercury-face ((,c :inherit modus-themes-intense-cyan)))
+     `(combobulate-query-highlight-mysterious-mauve-face ((,c :inherit modus-themes-intense-magenta)))
+     `(combobulate-query-highlight-radiant-rind-face ((,c :inherit modus-themes-subtle-red)))
+     `(combobulate-query-highlight-regal-ripples-face ((,c :inherit modus-themes-intense-blue)))
+     `(combobulate-query-highlight-serene-shade-face ((,c :inherit modus-themes-subtle-green)))
+     `(combobulate-query-highlight-silver-shadows-face ((,c :background ,bg-active :foreground ,fg-main)))
+     `(combobulate-query-highlight-vibrant-veggie-face ((,c :inherit modus-themes-intense-green)))
+     `(combobulate-query-query-anonymous-face ((,c :inherit modus-themes-bold :foreground ,fg-alt)))
+     `(combobulate-query-query-builtin-face ((,c :inherit font-lock-builtin-face)))
+     `(combobulate-query-query-constant-face ((,c :inherit font-lock-constant-face)))
+     `(combobulate-query-query-doc-markup-face ((,c :inherit font-lock-doc-markup-face)))
+     `(combobulate-query-query-keyword-face ((,c :inherit font-lock-keyword-face)))
+     `(combobulate-query-query-predicate-builtin-face ((,c :inherit bold)))
+     `(combobulate-query-query-string-face ((,c :inherit font-lock-string-face)))
+     `(combobulate-refactor-choice-face ((,c :inherit modus-themes-slant :foreground ,info)))
+     `(combobulate-refactor-cursor-face ((,c :foreground ,cursor)))
+     `(combobulate-refactor-field-face ((,c :background ,bg-inactive :foreground ,fg-main :extend nil)))
+     `(combobulate-refactor-highlight-face ((,c :inherit highlight)))
+     `(combobulate-refactor-inactive-choice-face ((,c :inherit modus-themes-slant :foreground ,fg-dim)))
+     `(combobulate-refactor-inactive-field-face ((,c :background ,bg-dim :foreground ,fg-dim :extend nil)))
+     `(combobulate-refactor-label-face ((,c :inherit modus-themes-search-replace)))
+     `(combobulate-tree-branch-face ((,c :inherit shadow)))
+     `(combobulate-tree-highlighted-node-face ((,c :inherit success)))
+     `(combobulate-tree-normal-node-face ((,c :foreground ,fg-main)))
+     `(combobulate-tree-pulse-node-face ((,c :background ,bg-blue-intense :extend t))))))
+
+(add-hook 'enable-theme-functions #'my-modus-themes-custom-faces)
+#+end_src
+
+[[#h:d87673fe-2ce1-4c80-a4b8-be36ca9f2d24][Using a hook at the post-load-theme phase]].
+
 ** DIY Use a hook at the post-load-theme phase
 :PROPERTIES:
 :CUSTOM_ID: h:d87673fe-2ce1-4c80-a4b8-be36ca9f2d24
