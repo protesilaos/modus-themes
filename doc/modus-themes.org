@@ -3930,6 +3930,45 @@ the theme level. Users can try this instead:
 
 [[#h:d87673fe-2ce1-4c80-a4b8-be36ca9f2d24][Using a hook at the post-load-theme phase]].
 
+** DIY Add support for howm
+:PROPERTIES:
+:CUSTOM_ID: h:7ea8fa66-1cd8-47b0-92b4-9998a3068f85
+:END:
+
+The ~howm~ package is a note-taking solution for Emacs. Users can add
+support for its faces with something like the following.
+
+#+begin_src emacs-lisp
+(defun my-modus-themes-custom-faces (&rest _)
+  (modus-themes-with-colors
+    (custom-set-faces
+     `(action-lock-face ((,c :inherit button)))
+     `(howm-mode-keyword-face (( )))
+     `(howm-mode-ref-face ((,c :inherit link)))
+     `(howm-mode-title-face ((,c :inherit modus-themes-heading-0)))
+     `(howm-mode-wiki-face ((,c :inherit link)))
+     `(howm-reminder-deadline-face ((,c :foreground ,date-deadline)))
+     `(howm-reminder-late-deadline-face ((,c :inherit bold :foreground ,date-deadline)))
+     `(howm-reminder-defer-face ((,c :foreground ,date-scheduled)))
+     `(howm-reminder-scheduled-face ((,c :foreground ,date-scheduled)))
+     `(howm-reminder-done-face ((,c :foreground ,prose-done)))
+     `(howm-reminder-todo-face ((,c :foreground ,prose-todo)))
+     `(howm-reminder-normal-face ((,c :foreground ,date-common)))
+     `(howm-reminder-today-face ((,c :inherit bold :foreground ,date-common)))
+     `(howm-reminder-tomorrow-face ((,c :inherit bold :foreground ,date-scheduled)))
+     `(howm-simulate-todo-mode-line-face ((,c :inherit bold)))
+     `(howm-view-empty-face (( )))
+     `(howm-view-hilit-face ((,c :inherit match)))
+     `(howm-view-name-face ((,c :inherit bold)))
+     `(iigrep-counts-face1 ((,c :foreground ,rainbow-1)))
+     `(iigrep-counts-face2 ((,c :foreground ,rainbow-2)))
+     `(iigrep-counts-face3 ((,c :foreground ,rainbow-3)))
+     `(iigrep-counts-face4 ((,c :foreground ,rainbow-4)))
+     `(iigrep-counts-face5 ((,c :foreground ,rainbow-5))))))
+
+(add-hook 'enable-theme-functions #'my-modus-themes-custom-faces)
+#+end_src
+
 ** DIY Use a hook at the post-load-theme phase
 :PROPERTIES:
 :CUSTOM_ID: h:d87673fe-2ce1-4c80-a4b8-be36ca9f2d24
@@ -5598,19 +5637,19 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Euker, Feng Shu, Filippo Argiolas, Gautier Ponsinet, Gerry Agbobada,
   Gianluca Recchia, Gonçalo Marrafa, Guilherme Semente, Gustavo
   Barros, Hörmetjan Yiltiz, Ilja Kocken, Imran Khan, Iris Garcia, Ivan
-  Popovych, James Ferguson, Jeremy Friesen, Jerry Zhang, Johannes
-  Grødem, John Haman, John Wick, Jonas Collberg, Jorge Morais, Joshua
-  O'Connor, Julio C. Villasante, Kenta Usami, Kevin Fleming, Kévin Le
-  Gouguec, Kevin Kainan Li, Kostadin Ninev, Laith Bahodi, Lasse
-  Lindner, Len Trigg, Lennart C.{{{space()}}} Karssen, Luis Miguel
-  Castañeda, Magne Hov, Manuel Giraud, Manuel Uberti, Mark Bestley,
-  Mark Burton, Mark Simpson, Marko Kocic, Markus Beppler, Matt
-  Armstrong, Matthias Fuchs, Mattias Engdegård, Mauro Aranda, Maxime
-  Tréca, Michael Goldenberg, Morgan Smith, Morgan Willcock, Murilo
-  Pereira, Nicky van Foreest, Nicolas De Jaeghere, Nicolas Semrau,
-  Olaf Meeuwissen, Oliver Epper, Pablo Stafforini, Paul Poloskov,
-  Pengji Zhang, Pete Kazmier, Peter Wu, Philip Kaludercic, Pierre
-  Téchoueyres, Przemysław Kryger, Robert Hepple, Roman Rudakov,
+  Popovych, Jabir Ali Ouassou, James Ferguson, Jeremy Friesen, Jerry
+  Zhang, Johannes Grødem, John Haman, John Wick, Jonas Collberg, Jorge
+  Morais, Joshua O'Connor, Julio C. Villasante, Kenta Usami, Kevin
+  Fleming, Kévin Le Gouguec, Kevin Kainan Li, Kostadin Ninev, Laith
+  Bahodi, Lasse Lindner, Len Trigg, Lennart C.{{{space()}}} Karssen,
+  Luis Miguel Castañeda, Magne Hov, Manuel Giraud, Manuel Uberti, Mark
+  Bestley, Mark Burton, Mark Simpson, Marko Kocic, Markus Beppler,
+  Matt Armstrong, Matthias Fuchs, Mattias Engdegård, Mauro Aranda,
+  Maxime Tréca, Michael Goldenberg, Morgan Smith, Morgan Willcock,
+  Murilo Pereira, Nicky van Foreest, Nicolas De Jaeghere, Nicolas
+  Semrau, Olaf Meeuwissen, Oliver Epper, Pablo Stafforini, Paul
+  Poloskov, Pengji Zhang, Pete Kazmier, Peter Wu, Philip Kaludercic,
+  Pierre Téchoueyres, Przemysław Kryger, Robert Hepple, Roman Rudakov,
   Russell Sim, Ryan Phillips, Rytis Paškauskas, Rudolf Adamkovič, Sam
   Kleinman, Samuel Culpepper, Saša Janiška, Shreyas Ragavan, Simon
   Pugnet, Steve Downey, Tassilo Horn, Thanos Apollo, Thibaut Verron,
