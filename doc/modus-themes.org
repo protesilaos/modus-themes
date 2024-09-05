@@ -3848,6 +3848,37 @@ on what we cover at length elsewhere in this manual:
 
 Reload the theme for changes to take effect.
 
+** DIY Add support for meow-mode
+:PROPERTIES:
+:CUSTOM_ID: h:caa5a5c4-18fb-4b9f-91f9-883f216fce41
+:END:
+
+The ~meow~ package provides a modal editing experience. It is meant to
+build on top of the key bindings the user is already familiar with. My
+problem as an outsider is that I cannot make sense of all the contexts
+where its faces are used in, so I cannot make a good choice of which
+styles to use. The following is but a basic attempt to get started.
+
+#+begin_src emacs-lisp
+;; This is not complete, because it is difficult for a non-user to
+;; make sense of where all the faces are used in.
+(defun my-modus-themes-custom-faces (&rest _)
+  (modus-themes-with-colors
+    (custom-set-faces
+     ;; FIXME: What is a "region cursor" and should it differ from the position highlights below?
+     `(meow-region-cursor-1 ((,c :inherit (bold modus-themes-reset-soft) :background ,bg-char-0)))
+     `(meow-region-cursor-2 ((,c :inherit (bold modus-themes-reset-soft) :background ,bg-char-1)))
+     `(meow-region-cursor-3 ((,c :inherit (bold modus-themes-reset-soft) :background ,bg-char-2)))
+
+     `(meow-position-highlight-number-1 ((,c :inherit (bold modus-themes-reset-soft) :background ,bg-char-0)))
+     `(meow-position-highlight-number-2 ((,c :inherit (bold modus-themes-reset-soft) :background ,bg-char-1)))
+     `(meow-position-highlight-number-3 ((,c :inherit (bold modus-themes-reset-soft) :background ,bg-char-2))))))
+
+(add-hook 'enable-theme-functions #'my-modus-themes-custom-faces)
+#+end_src
+
+[[#h:d87673fe-2ce1-4c80-a4b8-be36ca9f2d24][Using a hook at the post-load-theme phase]].
+
 ** DIY Use a hook at the post-load-theme phase
 :PROPERTIES:
 :CUSTOM_ID: h:d87673fe-2ce1-4c80-a4b8-be36ca9f2d24
