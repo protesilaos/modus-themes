@@ -3837,7 +3837,7 @@ on what we cover at length elsewhere in this manual:
   (modus-themes-with-colors
     (custom-set-faces
      `(solaire-default-face ((,c :inherit default :background ,bg-dim :foreground ,fg-dim)))
-     `(solaire-line-number-face ((,c :inherit solaire-default-face :foreground ,fg-unfocused)))
+     `(solaire-line-number-face ((,c :inherit solaire-default-face :foreground ,fg-dim)))
      `(solaire-hl-line-face ((,c :background ,bg-active)))
      `(solaire-org-hide-face ((,c :background ,bg-dim :foreground ,bg-dim))))))
 
