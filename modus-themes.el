@@ -1978,7 +1978,7 @@ FG and BG are the main colors."
     `(corfu-current ((,c :inherit modus-themes-completion-selected)))
     `(corfu-bar ((,c :background ,fg-dim)))
     `(corfu-border ((,c :background ,bg-active)))
-    `(corfu-default ((,c :background ,bg-dim)))
+    `(corfu-default ((,c :inherit modus-themes-fixed-pitch :background ,bg-dim)))
 ;;;;; corfu-candidate-overlay
     `(corfu-candidate-overlay-face ((t :inherit shadow)))
 ;;;;; corfu-quick
