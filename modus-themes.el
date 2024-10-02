@@ -1743,10 +1743,10 @@ FG and BG are the main colors."
 ;;;;; all-the-icons-dired
     `(all-the-icons-dired-dir-face ((,c :foreground ,accent-0)))
 ;;;;; all-the-icons-ibuffer
-    `(all-the-icons-ibuffer-file-face ((,c :foreground ,blue-faint)))
-    `(all-the-icons-ibuffer-mode-face ((,c :foreground ,cyan)))
-    `(all-the-icons-ibuffer-size-face ((,c :foreground ,cyan-cooler)))
     `(all-the-icons-ibuffer-dir-face ((,c :foreground ,accent-0)))
+    `(all-the-icons-ibuffer-file-face ((,c :foreground ,docstring)))
+    `(all-the-icons-ibuffer-mode-face ((,c :foreground ,type)))
+    `(all-the-icons-ibuffer-size-face ((,c :foreground ,variable)))
 ;;;;; annotate
     `(annotate-annotation ((,c :inherit modus-themes-subtle-blue)))
     `(annotate-annotation-secondary ((,c :inherit modus-themes-subtle-magenta)))
@@ -3157,10 +3157,10 @@ FG and BG are the main colors."
 ;;;;; nerd-icons-dired
     `(nerd-icons-dired-dir-face ((,c :foreground ,accent-0)))
 ;;;;; nerd-icons-ibuffer
-    `(nerd-icons-ibuffer-file-face ((,c :foreground ,blue-faint)))
-    `(nerd-icons-ibuffer-mode-face ((,c :foreground ,cyan)))
-    `(nerd-icons-ibuffer-size-face ((,c :foreground ,cyan-cooler)))
     `(nerd-icons-ibuffer-dir-face ((,c :foreground ,accent-0)))
+    `(nerd-icons-ibuffer-file-face ((,c :foreground ,docstring)))
+    `(nerd-icons-ibuffer-mode-face ((,c :foreground ,type)))
+    `(nerd-icons-ibuffer-size-face ((,c :foreground ,variable)))
 ;;;;; neotree
     `(neo-banner-face ((,c :foreground ,accent-0)))
     `(neo-button-face ((,c :inherit button)))
