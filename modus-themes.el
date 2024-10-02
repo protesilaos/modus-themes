@@ -1741,12 +1741,12 @@ FG and BG are the main colors."
     `(all-the-icons-silver ((,c :foreground "gray50")))
     `(all-the-icons-yellow ((,c :foreground ,yellow)))
 ;;;;; all-the-icons-dired
-    `(all-the-icons-dired-dir-face ((,c :foreground ,cyan-faint)))
+    `(all-the-icons-dired-dir-face ((,c :foreground ,accent-0)))
 ;;;;; all-the-icons-ibuffer
-    `(all-the-icons-ibuffer-dir-face ((,c :foreground ,cyan-faint)))
     `(all-the-icons-ibuffer-file-face ((,c :foreground ,blue-faint)))
     `(all-the-icons-ibuffer-mode-face ((,c :foreground ,cyan)))
     `(all-the-icons-ibuffer-size-face ((,c :foreground ,cyan-cooler)))
+    `(all-the-icons-ibuffer-dir-face ((,c :foreground ,accent-0)))
 ;;;;; annotate
     `(annotate-annotation ((,c :inherit modus-themes-subtle-blue)))
     `(annotate-annotation-secondary ((,c :inherit modus-themes-subtle-magenta)))
@@ -3153,14 +3153,14 @@ FG and BG are the main colors."
     `(nerd-icons-silver ((,c :foreground "gray50")))
     `(nerd-icons-yellow ((,c :foreground ,yellow)))
 ;;;;; nerd-icons-completion
-    `(nerd-icons-completion-dir-face ((,c :foreground ,cyan-faint)))
+    `(nerd-icons-completion-dir-face ((,c :foreground ,accent-0)))
 ;;;;; nerd-icons-dired
-    `(nerd-icons-dired-dir-face ((,c :foreground ,cyan-faint)))
+    `(nerd-icons-dired-dir-face ((,c :foreground ,accent-0)))
 ;;;;; nerd-icons-ibuffer
-    `(nerd-icons-ibuffer-dir-face ((,c :foreground ,cyan-faint)))
     `(nerd-icons-ibuffer-file-face ((,c :foreground ,blue-faint)))
     `(nerd-icons-ibuffer-mode-face ((,c :foreground ,cyan)))
     `(nerd-icons-ibuffer-size-face ((,c :foreground ,cyan-cooler)))
+    `(nerd-icons-ibuffer-dir-face ((,c :foreground ,accent-0)))
 ;;;;; neotree
     `(neo-banner-face ((,c :foreground ,accent-0)))
     `(neo-button-face ((,c :inherit button)))
