@@ -72,7 +72,7 @@ standard)."
 
       (red             "#ff5f59")
       (red-warmer      "#ff6b55")
-      (red-cooler      "#ff7f90")
+      (red-cooler      "#ff7f86")
       (red-faint       "#ff9580")
       (red-intense     "#ff5f5f")
       (green           "#44bc44")
