@@ -707,10 +707,12 @@ Advanced users may also want to configure the exact attributes of the
 :PROPERTIES:
 :CUSTOM_ID: h:4fbfed66-5a89-447a-a07d-a03f6819c5bd
 :END:
+
+#+findex: modus-themes-toggle
+Brief: Specify which two themes to toggle between when using the command
+~modus-themes-toggle~.
+
 #+vindex: modus-themes-to-toggle
-
-Brief: Choose to Modus themes to toggle between
-
 Symbol: ~modus-themes-to-toggle~ (=list= type)
 
 Default value: ='(modus-operandi modus-vivendi)=
@@ -718,16 +720,14 @@ Default value: ='(modus-operandi modus-vivendi)=
 Possible values:
 
 - ~modus-operandi~
-- ~modus-vivendi~
 - ~modus-operandi-tinted~
-- ~modus-vivendi-tinted~
 - ~modus-operandi-deuteranopia~
-- ~modus-vivendi-deuteranopia~
 - ~modus-operandi-tritanopia~
+- ~modus-vivendi~
+- ~modus-vivendi-tinted~
+- ~modus-vivendi-deuteranopia~
 - ~modus-vivendi-tritanopia~
 
-Specify two themes to toggle between using the command
-~modus-themes-toggle~.
 
 ** Option for font mixing
 :properties:
