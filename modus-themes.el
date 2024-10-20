@@ -1198,6 +1198,8 @@ symbol, which is safe when used as a face attribute's value."
 
 ;;;; Commands
 
+;;;;; Select a theme with completion
+
 (defvar modus-themes--select-theme-history nil
   "Minibuffer history of `modus-themes--select-prompt'.")
 
@@ -1238,6 +1240,8 @@ Disable other themes per `modus-themes-disable-other-themes'."
   (interactive (list (modus-themes--select-prompt)))
   (modus-themes-load-theme theme))
 
+;;;;; Toggle between two themes
+
 (defun modus-themes--toggle-theme-p ()
   "Return non-nil if `modus-themes-to-toggle' are valid."
   (mapc
@@ -1263,6 +1267,8 @@ Disable other themes per `modus-themes-disable-other-themes'."
             (two (cadr themes)))
       (modus-themes-load-theme (if (eq (car custom-enabled-themes) one) two one))
     (modus-themes-load-theme (modus-themes--select-prompt))))
+
+;;;;; Rotate through a list of themes
 
 (defun modus-themes--rotate (themes)
   "Rotate THEMES rightward such that the car is moved to the end."
@@ -1294,6 +1300,8 @@ the list becomes the last.  Do not modify THEMES in the process."
           (message "Rotating to `%s'" (propertize (symbol-name candidate) 'face 'success))
           (modus-themes-load-theme candidate))
       (user-error "`%s' is not part of the Modus collection" candidate))))
+
+;;;;; Preview a theme palette
 
 (defun modus-themes--list-colors-render (buffer theme &optional mappings &rest _)
   "Render colors in BUFFER from THEME for `modus-themes-list-colors'.
