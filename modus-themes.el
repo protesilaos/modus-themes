@@ -287,10 +287,14 @@ set this variable to a nil value."
   "Alias of `modus-themes-items'.")
 
 (defconst modus-themes-items
-  '( modus-operandi modus-vivendi
-     modus-operandi-tinted modus-vivendi-tinted
-     modus-operandi-deuteranopia modus-vivendi-deuteranopia
-     modus-operandi-tritanopia modus-vivendi-tritanopia)
+  '( modus-operandi
+     modus-operandi-tinted
+     modus-operandi-deuteranopia
+     modus-operandi-tritanopia
+     modus-vivendi
+     modus-vivendi-tinted
+     modus-vivendi-deuteranopia
+     modus-vivendi-tritanopia)
   "Symbols of the Modus themes.")
 
 (defcustom modus-themes-to-toggle '(modus-operandi modus-vivendi)
