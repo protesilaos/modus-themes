@@ -322,6 +322,18 @@ the same as using the command `modus-themes-select'."
   :initialize #'custom-initialize-default
   :group 'modus-themes)
 
+(defcustom modus-themes-to-rotate modus-themes-items
+  "List of Modus themes to rotate among, per `modus-themes-rotate'."
+  :type `(repeat (choice :tag "A theme among the `modus-themes-items'"
+                         ,@(mapcar (lambda (theme)
+                                     (list 'const theme))
+                                   modus-themes-items)))
+  :package-version '(modus-themes . "4.6.0")
+  :version "31.1"
+  :set #'modus-themes--set-option
+  :initialize #'custom-initialize-default
+  :group 'modus-themes)
+
 (defvaralias 'modus-themes-post-load-hook 'modus-themes-after-load-theme-hook)
 
 (defcustom modus-themes-after-load-theme-hook nil
@@ -1247,6 +1259,37 @@ Disable other themes per `modus-themes-disable-other-themes'."
             (two (cadr themes)))
       (modus-themes-load-theme (if (eq (car custom-enabled-themes) one) two one))
     (modus-themes-load-theme (modus-themes--select-prompt))))
+
+(defun modus-themes--rotate (themes)
+  "Rotate THEMES rightward such that the car is moved to the end."
+  (if (consp themes)
+      (let ((index (seq-position themes (modus-themes--current-theme))))
+        (append (nthcdr (1+ index) themes) (take (1+ index) themes)))
+    (error "The `%s' is not a list" themes)))
+
+(defun modus-themes--rotate-p (themes)
+  "Return a new theme among THEMES if it is possible to rotate to it."
+  (if-let ((new-theme (car (modus-themes--rotate themes))))
+      (if (eq new-theme (modus-themes--current-theme))
+          (car (modus-themes--rotate-p (modus-themes--rotate themes)))
+        new-theme)
+    (error "Cannot determine a theme among `%s'" themes)))
+
+;;;###autoload
+(defun modus-themes-rotate (themes)
+  "Rotate to the next theme among THEMES.
+When called interactively THEMES is the value of `modus-themes-to-rotate'.
+
+If the current theme is already the next in line, then move to the one
+after.  Perform the rotation rightwards, such that the first element in
+the list becomes the last.  Do not modify THEMES in the process."
+  (interactive (list modus-themes-to-rotate))
+  (let ((candidate (modus-themes--rotate-p themes)))
+    (if (modus-themes--modus-p candidate)
+        (progn
+          (message "Rotating to `%s'" (propertize (symbol-name candidate) 'face 'success))
+          (modus-themes-load-theme candidate))
+      (user-error "`%s' is not part of the Modus collection" candidate))))
 
 (defun modus-themes--list-colors-render (buffer theme &optional mappings &rest _)
   "Render colors in BUFFER from THEME for `modus-themes-list-colors'.
