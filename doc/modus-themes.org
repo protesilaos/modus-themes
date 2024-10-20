@@ -728,6 +728,33 @@ Possible values:
 - ~modus-vivendi-deuteranopia~
 - ~modus-vivendi-tritanopia~
 
+** Option for which themes to rotate
+:PROPERTIES:
+:CUSTOM_ID: h:a10c0202-3683-4fad-9897-433c25e255f6
+:END:
+
+[ The command ~modus-themes-rotate~ and the user option
+  ~modus-themes-to-rotate~ are part of {{{development-version}}}. ]
+
+#+findex: modus-themes-rotate
+Brief: Specify which themes to rotate among when using the command
+~modus-themes-rotate~.
+
+#+vindex: modus-themes-to-rotate
+Symbol: ~modus-themes-to-rotate~ (=list= type)
+
+Default value: =modus-themes-items= (which includes all the Modus themes)
+
+Possible values:
+
+- ~modus-operandi~
+- ~modus-operandi-tinted~
+- ~modus-operandi-deuteranopia~
+- ~modus-operandi-tritanopia~
+- ~modus-vivendi~
+- ~modus-vivendi-tinted~
+- ~modus-vivendi-deuteranopia~
+- ~modus-vivendi-tritanopia~
 
 ** Option for font mixing
 :properties:
