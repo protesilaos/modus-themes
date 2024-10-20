@@ -1273,8 +1273,9 @@ Disable other themes per `modus-themes-disable-other-themes'."
 (defun modus-themes--rotate (themes)
   "Rotate THEMES rightward such that the car is moved to the end."
   (if (consp themes)
-      (let ((index (seq-position themes (modus-themes--current-theme))))
-        (append (nthcdr (1+ index) themes) (take (1+ index) themes)))
+      (let* ((index (seq-position themes (modus-themes--current-theme)))
+             (offset (1+ index)))
+        (append (nthcdr offset themes) (take offset themes)))
     (error "The `%s' is not a list" themes)))
 
 (defun modus-themes--rotate-p (themes)
