@@ -1249,6 +1249,7 @@ practically the same as the `modus-themes-select' command).
 
 Run `modus-themes-after-load-theme-hook' after loading the theme.
 Disable other themes per `modus-themes-disable-other-themes'."
+  (declare (interactive-only t))
   (interactive)
   (if-let* ((themes (modus-themes--toggle-theme-p))
             (one (car themes))
