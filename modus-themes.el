@@ -1266,7 +1266,7 @@ Disable other themes per `modus-themes-disable-other-themes'."
 
 (defun modus-themes--rotate (themes)
   "Rotate THEMES rightward such that the car is moved to the end."
-  (if (consp themes)
+  (if (proper-list-p themes)
       (let* ((index (seq-position themes (modus-themes--current-theme)))
              (offset (1+ index)))
         (append (nthcdr offset themes) (take offset themes)))
@@ -1289,6 +1289,8 @@ If the current theme is already the next in line, then move to the one
 after.  Perform the rotation rightwards, such that the first element in
 the list becomes the last.  Do not modify THEMES in the process."
   (interactive (list modus-themes-to-rotate))
+  (unless (proper-list-p themes)
+    "This is not a list of themes: `%s'" themes)
   (let ((candidate (modus-themes--rotate-p themes)))
     (if (modus-themes--modus-p candidate)
         (progn
