@@ -320,10 +320,9 @@ the same as using the command `modus-themes-select'."
 
 (defcustom modus-themes-to-rotate modus-themes-items
   "List of Modus themes to rotate among, per `modus-themes-rotate'."
-  :type `(repeat (choice :tag "A theme among the `modus-themes-items'"
-                         ,@(mapcar (lambda (theme)
-                                     (list 'const theme))
-                                   modus-themes-items)))
+  :type `(repeat
+          (choice :tag "A theme among the `modus-themes-items'"
+                  ,@(mapcar (lambda (theme) (list 'const theme)) modus-themes-items)))
   :package-version '(modus-themes . "4.6.0")
   :version "31.1"
   :group 'modus-themes)
