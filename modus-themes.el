@@ -1116,7 +1116,7 @@ With optional SUFFIX, return THEME-palette-SUFFIX as a symbol."
   "Return palette value of active Modus theme, else produce `user-error'.
 With optional OVERRIDES return palette value plus whatever
 overrides."
-  (if-let ((theme (modus-themes--current-theme)))
+  (if-let* ((theme (modus-themes--current-theme)))
       (if overrides
           (modus-themes--palette-value theme :overrides)
         (modus-themes--palette-value theme))
@@ -1199,8 +1199,8 @@ symbol, which is safe when used as a face attribute's value."
 
 (defun modus-themes--annotate-theme (theme)
   "Return completion annotation for THEME."
-  (when-let ((symbol (intern-soft theme))
-             (doc-string (get symbol 'theme-documentation)))
+  (when-let* ((symbol (intern-soft theme))
+              (doc-string (get symbol 'theme-documentation)))
     (format " -- %s"
             (propertize (car (split-string doc-string "\\."))
                         'face 'completions-annotations))))
@@ -1274,7 +1274,7 @@ Disable other themes per `modus-themes-disable-other-themes'."
 
 (defun modus-themes--rotate-p (themes)
   "Return a new theme among THEMES if it is possible to rotate to it."
-  (if-let ((new-theme (car (modus-themes--rotate themes))))
+  (if-let* ((new-theme (car (modus-themes--rotate themes))))
       (if (eq new-theme (modus-themes--current-theme))
           (car (modus-themes--rotate-p (modus-themes--rotate themes)))
         new-theme)
