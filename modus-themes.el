@@ -3812,6 +3812,13 @@ FG and BG are the main colors."
     `(term-underline ((,c :underline t)))
 ;;;;; textsec
     `(textsec-suspicious (( )))
+;;;;; tldr
+    `(tldr-code-block (( )))
+    `(tldr-command-argument ((,c :inherit font-lock-string-face)))
+    `(tldr-command-itself ((,c :inherit font-lock-builtin-face)))
+    `(tldr-description ((,c :inherit font-lock-doc-face)))
+    `(tldr-introduction ((,c :inherit font-lock-comment-face)))
+    `(tldr-title ((,c :inherit bold)))
 ;;;;; transient
     `(transient-active-infix ((,c :inherit highlight)))
     `(transient-amaranth ((,c :inherit bold :foreground ,yellow-warmer)))
