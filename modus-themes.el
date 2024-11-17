@@ -6,7 +6,7 @@
 ;; Maintainer: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://github.com/protesilaos/modus-themes
 ;; Version: 4.6.0
-;; Package-Requires: ((emacs "27.1"))
+;; Package-Requires: ((emacs "28.1"))
 ;; Keywords: faces, theme, accessibility
 
 ;; This file is part of GNU Emacs.
@@ -1294,87 +1294,81 @@ the list becomes the last.  Do not modify THEMES in the process."
 
 ;;;;; Preview a theme palette
 
-(defun modus-themes--list-colors-render (buffer theme &optional mappings &rest _)
-  "Render colors in BUFFER from THEME for `modus-themes-list-colors'.
-Optional MAPPINGS changes the output to only list the semantic
-color mappings of the palette, instead of its named colors."
+(defun modus-themes--list-colors-get-mappings (palette)
+  "Get the semantic palette entries in PALETTE.
+PALETTE is the value of a variable like `modus-operandi-palette'."
+  (seq-remove
+   (lambda (cell)
+     (stringp (cadr cell)))
+   palette))
+
+(defun modus-themes--list-colors-tabulated (theme &optional mappings)
+  "Return a data structure of THEME palette or MAPPINGS for tabulated list."
   (let* ((current-palette (modus-themes--palette-value theme mappings))
          (palette (if mappings
-                      (seq-remove (lambda (cell)
-                                    (stringp (cadr cell)))
-                                  current-palette)
-                    current-palette))
-         (current-buffer buffer)
-         (current-theme theme))
-    (with-help-window buffer
-      (with-current-buffer standard-output
-        (erase-buffer)
-        (when (<= (display-color-cells) 256)
-          (insert (concat "Your display terminal may not render all color previews!\n"
-                          "It seems to only support <= 256 colors.\n\n"))
-          (put-text-property (point-min) (point) 'face 'warning))
-        ;; We need this to properly render the first line.
-        (insert " ")
-        (dolist (cell palette)
-          (let* ((name (car cell))
-                 (color (modus-themes-get-color-value name mappings theme))
-                 (pad (make-string 10 ?\s))
-                 (fg (if (eq color 'unspecified)
-                         (progn
-                           (readable-foreground-color (modus-themes-get-color-value 'bg-main nil theme))
-                           (setq pad (make-string 6 ?\s)))
-                       (readable-foreground-color color))))
-            (let ((old-point (point)))
-              (insert (format "%s %s" color pad))
-              (put-text-property old-point (point) 'face `( :foreground ,color)))
-            (let ((old-point (point)))
-              (insert (format " %s %s %s\n" color pad name))
-              (put-text-property old-point (point)
-                                 'face `( :background ,color
-                                          :foreground ,fg
-                                          :extend t)))
-            ;; We need this to properly render the last line.
-            (insert " ")))
-        (setq-local revert-buffer-function
-                    (lambda (_ignore-auto _noconfirm)
-                      (modus-themes--list-colors-render current-buffer current-theme mappings)))))))
+                      (modus-themes--list-colors-get-mappings current-palette)
+                    current-palette)))
+    (mapcar (lambda (cell)
+              (pcase-let* ((`(,name ,value) cell)
+                           (name-string (format "%s" name))
+                           (value-string (format "%s" value))
+                           (value-string-padded (string-pad value-string 30))
+                           (color (modus-themes-get-color-value name mappings theme))) ; resolve a semantic mapping
+                (list name
+                      (vector
+                       (if (symbolp value)
+                           "Yes"
+                         "")
+                       name-string
+                       (propertize value-string 'face `( :foreground ,color))
+                       (propertize value-string-padded 'face (list :background color
+                                                                   :foreground (if (string= color "unspecified")
+                                                                                   (readable-foreground-color (modus-themes-get-color-value 'bg-main nil theme))
+                                                                                 (readable-foreground-color color))))))))
+            palette)))
 
-(defvar modus-themes--list-colors-prompt-history '()
-  "Minibuffer history for `modus-themes--list-colors-prompt'.")
+(defvar modus-themes-current-preview nil)
+(defvar modus-themes-current-preview-show-mappings nil)
 
-(defun modus-themes--list-colors-prompt ()
-  "Prompt for Modus theme.
-Helper function for `modus-themes-list-colors'."
-  (let ((def (format "%s" (modus-themes--current-theme)))
-        (completion-extra-properties `(:annotation-function ,#'modus-themes--annotate-theme)))
-    (completing-read
-     (format "Use palette from theme [%s]: " def)
-     (modus-themes--completion-table-candidates)
-     nil t nil
-     'modus-themes--list-colors-prompt-history def)))
+(defun modus-themes--set-tabulated-entries ()
+  "Set the value of `tabulated-list-entries' with palette entries."
+  (setq-local tabulated-list-entries
+              (modus-themes--list-colors-tabulated modus-themes-current-preview modus-themes-current-preview-show-mappings)))
 
 (defun modus-themes-list-colors (theme &optional mappings)
-  "Preview named colors of the Modus THEME of choice.
-With optional prefix argument for MAPPINGS preview the semantic
-color mappings instead of the named colors."
-  (interactive (list (intern (modus-themes--list-colors-prompt)) current-prefix-arg))
-  (modus-themes--list-colors-render
-   (format (if mappings "*%s-list-mappings*" "*%s-list-colors*") theme)
-   theme
-   mappings))
+  "Preview the palette of the Modus THEME of choice.
+With optional prefix argument for MAPPINGS preview only the semantic
+color mappings instead of the complete palette."
+  (interactive (list (modus-themes--select-prompt) current-prefix-arg))
+  (let ((buffer (get-buffer-create (format (if mappings "*%s-list-mappings*" "*%s-list-all*") theme))))
+    (with-current-buffer buffer
+      (let ((modus-themes-current-preview theme)
+            (modus-themes-current-preview-show-mappings mappings))
+        (modus-themes-preview-mode)))
+    (pop-to-buffer buffer)))
 
 (defalias 'modus-themes-preview-colors 'modus-themes-list-colors
-  "Alias of `modus-themes-list-colors'.")
+  "Alias for `modus-themes-list-colors'.")
 
 (defun modus-themes-list-colors-current (&optional mappings)
-  "Call `modus-themes-list-colors' for the current Modus theme.
-Optional prefix argument MAPPINGS has the same meaning as for
-`modus-themes-list-colors'."
+  "Like `modus-themes-list-colors' with optional MAPPINGS for the current theme."
   (interactive "P")
   (modus-themes-list-colors (modus-themes--current-theme) mappings))
 
 (defalias 'modus-themes-preview-colors-current 'modus-themes-list-colors-current
-  "Alias of `modus-themes-list-colors-current'.")
+  "Alias for `modus-themes-list-colors-current'.")
+
+(define-derived-mode modus-themes-preview-mode tabulated-list-mode "Modus palette"
+  "Major mode to display a Modus themes palette."
+  :interactive nil
+  (setq-local tabulated-list-format
+              [("Mapping?" 10 t)
+               ("Symbol name" 30 t)
+               ("As foreground" 30 t)
+               ("As background" 0 t)])
+  (modus-themes--set-tabulated-entries)
+  (tabulated-list-init-header)
+  (tabulated-list-print))
 
 
 

@@ -1306,40 +1306,39 @@ Examples demonstrating how to use the aforementioned:
 :end:
 #+cindex: Preview named colors or semantic color mappings
 
+[ The preview is revised as part of {{{development-version}}} to use
+  the ~tabulated-list-mode~. This means that the user can now sort by
+  column. ]
+
 #+findex: modus-themes-list-colors
 The command ~modus-themes-list-colors~ uses minibuffer completion to
 select an item from the Modus themes and then produces a buffer with
-previews of its color palette entries.  The buffer has a naming scheme
-that reflects the given choice, like =modus-operandi-list-colors= for
-the ~modus-operandi~ theme.
+previews of all of its color palette entries.
 
 #+findex: modus-themes-list-colors-current
 The command ~modus-themes-list-colors-current~ skips the minibuffer
-selection process and just produces a preview for the current Modus
-theme.
+selection process to produce a preview for the current Modus theme.
 
 When called with a prefix argument (=C-u= with the default key
 bindings), these commands will show a preview of the palette's
-semantic color mappings instead of the named colors.  In this context,
-"named colors" are entries that associate a symbol to a string color
-value, such as =(blue-warmer "#354fcf")=.  Whereas "semantic color
-mappings" associate a named color to a symbol, like =(string
-blue-warmer)=, thus making the theme render all string constructs in
-the =blue-warmer= color value ([[#h:34c7a691-19bb-4037-8d2f-67a07edab150][Option for palette overrides]]).
+semantic color mappings instead of the full palette ([[#h:34c7a691-19bb-4037-8d2f-67a07edab150][Option for palette overrides]]).
 
 #+findex: modus-themes-preview-colors
 #+findex: modus-themes-preview-colors-current
-Aliases for those commands are ~modus-themes-preview-colors~ and
+Aliases for these commands are ~modus-themes-preview-colors~ and
 ~modus-themes-preview-colors-current~.
 
-Each row shows a foreground and background coloration using the
-underlying value it references.  For example a line with =#a60000= (a
-shade of red) will show red text followed by a stripe with that same
-color as a backdrop.
+Each row includes a foreground and background rendition of the given
+color value. For example a line with =#a60000= (a shade of red) will
+show a column with a red background combined with a suitable
+foreground followed by another column with a red foreground against
+the current theme's background. The intent is to illustrate which
+values are suitable as a background or foreground.
 
 The name of the buffer describes the given Modus theme and what the
-contents are, such as =*modus-operandi-list-colors*= for named colors
-and ==*modus-operandi-list-mappings*= for the semantic color mappings.
+contents are, such as =*modus-operandi-list-all*= for the entirety of
+the palette (named colors as well as semantic color mappings) and
+==*modus-operandi-list-mappings*= for the mappings only.
 
 * Use colors from the Modus themes palette
 :PROPERTIES:
