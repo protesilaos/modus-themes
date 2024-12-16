@@ -1209,15 +1209,15 @@ symbol, which is safe when used as a face attribute's value."
   "Render `modus-themes--list-known-themes' as completion with theme category."
   (modus-themes--completion-table 'theme (modus-themes--list-known-themes)))
 
-(defun modus-themes--select-prompt ()
-  "Minibuffer prompt to select a Modus theme."
+(defun modus-themes--select-prompt (&optional prompt)
+  "Minibuffer prompt to select a Modus theme.
+With optional PROMPT string, use it.  Else use a generic prompt."
   (let ((completion-extra-properties `(:annotation-function ,#'modus-themes--annotate-theme)))
     (intern
      (completing-read
-      "Select Modus theme: "
+      (or prompt "Select Modus theme: ")
       (modus-themes--completion-table-candidates)
-      nil t nil
-      'modus-themes--select-theme-history))))
+      nil t nil 'modus-themes--select-theme-history))))
 
 ;;;###autoload
 (defun modus-themes-select (theme)
