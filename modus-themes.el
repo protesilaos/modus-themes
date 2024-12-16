@@ -1339,7 +1339,7 @@ PALETTE is the value of a variable like `modus-operandi-palette'."
   "Preview the palette of the Modus THEME of choice.
 With optional prefix argument for MAPPINGS preview only the semantic
 color mappings instead of the complete palette."
-  (interactive (list (modus-themes--select-prompt) current-prefix-arg))
+  (interactive (list (modus-themes--select-prompt "Preview palette of THEME: ") current-prefix-arg))
   (let ((buffer (get-buffer-create (format (if mappings "*%s-list-mappings*" "*%s-list-all*") theme))))
     (with-current-buffer buffer
       (let ((modus-themes-current-preview theme)
