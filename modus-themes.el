@@ -327,7 +327,8 @@ the same as using the command `modus-themes-select'."
   :version "31.1"
   :group 'modus-themes)
 
-(defvaralias 'modus-themes-post-load-hook 'modus-themes-after-load-theme-hook)
+(defvaralias 'modus-themes-post-load-hook 'modus-themes-after-load-theme-hook
+  "Alias for `modus-themes-after-load-theme-hook'.")
 
 (defcustom modus-themes-after-load-theme-hook nil
   "Hook that runs after loading a Modus theme.
