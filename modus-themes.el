@@ -2702,8 +2702,8 @@ FG and BG are the main colors."
     `(ido-incomplete-regexp ((,c :inherit error)))
     `(ido-indicator ((,c :inherit bold)))
     `(ido-only-match ((,c :inherit ido-first-match)))
-    `(ido-subdir ((,c :foreground ,accent-0)))
-    `(ido-virtual ((,c :foreground ,accent-1)))
+    `(ido-subdir ((,c :foreground ,keyword)))
+    `(ido-virtual ((,c :foreground ,warning)))
 ;;;;; iedit
     `(iedit-occurrence ((,c :inherit modus-themes-search-lazy)))
     `(iedit-read-only-occurrence ((,c :inherit modus-themes-search-current)))
