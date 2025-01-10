@@ -3708,6 +3708,9 @@ FG and BG are the main colors."
     `(smerge-refined-changed (()))
     `(smerge-refined-removed ((,c :inherit diff-refine-removed)))
     `(smerge-upper ((,c :inherit diff-removed)))
+;;;;; spacious-padding
+    `(spacious-padding-subtle-mode-line-active ((,c :foreground ,fg-main)))
+    `(spacious-padding-subtle-mode-line-inactive ((,c :foreground ,border)))
 ;;;;; speedbar
     `(speedbar-button-face ((,c :inherit button)))
     `(speedbar-directory-face ((,c :inherit bold :foreground ,accent-0)))

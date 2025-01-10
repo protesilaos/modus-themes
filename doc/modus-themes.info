@@ -4577,6 +4577,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • sly
    • smart-mode-line
    • smerge
+   • spacious-padding [ Part of 4.7.0-dev.  ]
    • speedbar
    • spell-fu
    • stripes
@@ -6716,47 +6717,47 @@ Node: DIY Use a hook at the post-load-theme phase186462
 Node: DIY A theme-agnostic hook for theme loading188578
 Node: Face coverage191209
 Node: Supported packages191661
-Node: Indirectly covered packages197480
-Node: Notes on individual packages198836
-Node: Note on calendarel weekday and weekend colors199936
-Node: Note on git-gutter in Doom Emacs201084
-Node: Note on php-mode multiline comments203584
-Node: Note on underlines in compilation buffers204344
-Node: Note on inline Latex in Org buffers205216
-Node: Note on dimmerel205826
-Node: Note on display-fill-column-indicator-mode207311
-Node: Note on highlight-parenthesesel208764
-Node: Note on mmm-modeel background colors214845
-Node: Note for prism217199
-Node: Note on company-mode overlay pop-up220421
-Ref: Note on company-mode overlay pop-up-Footnote-1221151
-Ref: Note on company-mode overlay pop-up-Footnote-2221218
-Node: Note on ERC escaped color sequences221273
-Ref: Note on ERC escaped color sequences-Footnote-1222701
-Node: Note on powerline or spaceline222811
-Node: Note on SHR colors223225
-Node: Note on SHR fonts223649
-Node: Note on Ement colors and fonts224336
-Node: Note on pdf-tools link hints225846
-Node: Note on the Notmuch logo228306
-Node: Note on goto-address-mode faces228844
-Node: Frequently Asked Questions229962
-Node: Is the contrast ratio about adjacent colors?230595
-Node: What does it mean to avoid exaggerations?232104
-Node: Why are colors mostly variants of blue magenta cyan?233956
-Node: What is the best setup for legibility?238290
-Node: Are these color schemes?240938
-Node: Port the Modus themes to other platforms?244622
-Node: Contributing247468
-Node: Sources of the themes247867
-Node: Issues you can help with248763
-Node: Patches require copyright assignment to the FSF250156
-Node: Acknowledgements252378
-Node: GNU Free Documentation License256679
-Node: Indices282043
-Node: Function index282222
-Node: Variable index283818
-Node: Concept index287318
+Node: Indirectly covered packages197528
+Node: Notes on individual packages198884
+Node: Note on calendarel weekday and weekend colors199984
+Node: Note on git-gutter in Doom Emacs201132
+Node: Note on php-mode multiline comments203632
+Node: Note on underlines in compilation buffers204392
+Node: Note on inline Latex in Org buffers205264
+Node: Note on dimmerel205874
+Node: Note on display-fill-column-indicator-mode207359
+Node: Note on highlight-parenthesesel208812
+Node: Note on mmm-modeel background colors214893
+Node: Note for prism217247
+Node: Note on company-mode overlay pop-up220469
+Ref: Note on company-mode overlay pop-up-Footnote-1221199
+Ref: Note on company-mode overlay pop-up-Footnote-2221266
+Node: Note on ERC escaped color sequences221321
+Ref: Note on ERC escaped color sequences-Footnote-1222749
+Node: Note on powerline or spaceline222859
+Node: Note on SHR colors223273
+Node: Note on SHR fonts223697
+Node: Note on Ement colors and fonts224384
+Node: Note on pdf-tools link hints225894
+Node: Note on the Notmuch logo228354
+Node: Note on goto-address-mode faces228892
+Node: Frequently Asked Questions230010
+Node: Is the contrast ratio about adjacent colors?230643
+Node: What does it mean to avoid exaggerations?232152
+Node: Why are colors mostly variants of blue magenta cyan?234004
+Node: What is the best setup for legibility?238338
+Node: Are these color schemes?240986
+Node: Port the Modus themes to other platforms?244670
+Node: Contributing247516
+Node: Sources of the themes247915
+Node: Issues you can help with248811
+Node: Patches require copyright assignment to the FSF250204
+Node: Acknowledgements252426
+Node: GNU Free Documentation License256727
+Node: Indices282091
+Node: Function index282270
+Node: Variable index283866
+Node: Concept index287366
 
 End Tag Table
 
