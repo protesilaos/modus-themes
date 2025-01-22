@@ -3329,7 +3329,7 @@ FG and BG are the main colors."
     `(org-clock-overlay ((,c :inherit secondary-selection)))
     `(org-code ((,c :inherit modus-themes-prose-code)))
     `(org-column ((,c :inherit default :background ,bg-dim)))
-    `(org-column-title ((,c :inherit (bold default) :underline t :background ,bg-dim)))
+    `(org-column-title ((,c :inherit (modus-themes-fixed-pitch bold default) :underline t :background ,bg-dim)))
     `(org-date ((,c :inherit modus-themes-fixed-pitch :foreground ,date-common)))
     `(org-date-selected ((,c :foreground ,date-common :inverse-video t)))
     ;; NOTE 2024-03-17: Normally we do not want to add this padding

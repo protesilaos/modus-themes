@@ -5781,7 +5781,8 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Eugene, Fourchaux, Fredrik, Moesasji, Nick, Summer Emacs, TheBlob42,
   TitusMu, Trey, ZharMeny, bepolymathe, bit9tream, bangedorrunt,
   derek-upham, doolio, fleimgruber, gitrj95, iSeeU, jixiuf, ltmsyvag,
-  okamsn, pRot0ta1p, shipmints, soaringbird, tumashu, wakamenod.
+  okamsn, pedro-nonfree, pRot0ta1p, shipmints, soaringbird, tumashu,
+  wakamenod.
 
 + Packaging :: Basil L.{{{space()}}} Contovounesios, Eli Zaretskii,
   Glenn Morris, Mauro Aranda, Richard Stallman, Stefan Kangas (core
