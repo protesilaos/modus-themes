@@ -5962,7 +5962,8 @@ Ideas and user feedback
      Fredrik, Moesasji, Nick, Summer Emacs, TheBlob42, TitusMu, Trey,
      ZharMeny, bepolymathe, bit9tream, bangedorrunt, derek-upham,
      doolio, fleimgruber, gitrj95, iSeeU, jixiuf, ltmsyvag, okamsn,
-     pRot0ta1p, shipmints, soaringbird, tumashu, wakamenod.
+     pedro-nonfree, pRot0ta1p, shipmints, soaringbird, tumashu,
+     wakamenod.
 
 Packaging
      Basil L. Contovounesios, Eli Zaretskii, Glenn Morris, Mauro Aranda,
@@ -6753,11 +6754,11 @@ Node: Sources of the themes247915
 Node: Issues you can help with248811
 Node: Patches require copyright assignment to the FSF250204
 Node: Acknowledgements252426
-Node: GNU Free Documentation License256727
-Node: Indices282091
-Node: Function index282270
-Node: Variable index283866
-Node: Concept index287366
+Node: GNU Free Documentation License256747
+Node: Indices282111
+Node: Function index282290
+Node: Variable index283886
+Node: Concept index287386
 
 End Tag Table
 
