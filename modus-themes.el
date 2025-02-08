@@ -1154,7 +1154,7 @@ This function is used in the macros `modus-themes-theme',
           (eq value 'unspecified))
       value)
      ((and (symbolp value)
-           (memq value (mapcar #'car palette)))
+           value)
       (modus-themes--retrieve-palette-value value palette))
      (t
       'unspecified))))
