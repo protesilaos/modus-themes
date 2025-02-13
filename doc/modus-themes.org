@@ -4206,6 +4206,7 @@ project.  The idea is to offer an overview of the known status of all
 affected face groups.  The items with an appended asterisk =*= tend to
 have lots of extensions, so the "full support" may not be 100% true…
 
++ abbrev [ Part of {{{development-version}}}. ]
 + ace-window
 + agda2-mode
 + all-the-icons
