@@ -2950,7 +2950,7 @@ FG and BG are the main colors."
     `(magit-diff-base-highlight ((,c :background ,bg-changed :foreground ,fg-changed)))
     `(magit-diff-context ((,c :inherit shadow)))
     `(magit-diff-context-highlight ((,c :background ,bg-diff-context)))
-    `(magit-diff-file-heading (( )))
+    `(magit-diff-file-heading ((,c :inherit bold)))
     `(magit-diff-file-heading-highlight ((,c :inherit (bold magit-diff-file-heading) :background ,bg-inactive)))
     `(magit-diff-file-heading-selection ((,c :inherit bold :background ,bg-hover-secondary)))
     `(magit-diff-hunk-heading ((,c :background ,bg-inactive)))
