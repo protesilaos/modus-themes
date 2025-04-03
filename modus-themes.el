@@ -1730,6 +1730,7 @@ FG and BG are the main colors."
     `(adoc-emphasis-face ((t (:inherit bold))))
     `(adoc-gen-face ((,c :foreground ,blue)))
     `(adoc-meta-face ((,c :inherit modus-themes-fixed-pitch :foreground ,prose-metadata)))
+    `(adoc-meta-hide-face ((,c :inherit modus-themes-fixed-pitch :foreground ,prose-metadata)))
     `(adoc-replacement-face ((,c :inherit font-lock-escape-face)))
     `(adoc-secondary-text-face ((,c :inherit modus-themes-fixed-pitch :foreground ,prose-metadata-value)))
     `(adoc-table-face ((,c :inherit modus-themes-fixed-pitch :foreground ,prose-table)))
