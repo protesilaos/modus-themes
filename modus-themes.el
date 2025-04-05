@@ -309,11 +309,12 @@ If the value is nil or otherwise does not specify two valid Modus
 themes, the command `modus-themes-toggle' reverts to selecting a
 theme from the list of available Modus themes.  In effect, it is
 the same as using the command `modus-themes-select'."
-  :type `(choice
-          (const :tag "No toggle" nil)
-          (list :tag "Pick two themes to toggle between"
-                (choice :tag "Theme one of two" ,@(mapcar (lambda (theme) (list 'const theme)) modus-themes-items))
-                (choice :tag "Theme two of two" ,@(mapcar (lambda (theme) (list 'const theme)) modus-themes-items))))
+  :type (let ((themes (mapcar (lambda (theme) (list 'const theme)) modus-themes-items)))
+          `(choice
+            (const :tag "No toggle" nil)
+            (list :tag "Pick two themes to toggle between"
+                  (choice :tag "Theme one of two" ,@themes)
+                  (choice :tag "Theme two of two" ,@themes))))
   :package-version '(modus-themes . "4.0.0")
   :version "30.1"
   :group 'modus-themes)
