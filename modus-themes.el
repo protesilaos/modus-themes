@@ -2742,6 +2742,8 @@ FG and BG are the main colors."
     `(ibut-face ((,c :inherit button :background ,bg-link-symbolic :foreground ,fg-link-symbolic :underline ,underline-link-symbolic)))
 ;;;;; icomplete
     `(icomplete-first-match ((,c :inherit modus-themes-completion-match-0)))
+    `(icomplete-vertical-selected-prefix-indicator-face ((,c :inherit bold :foreground ,keybind)))
+    `(icomplete-vertical-unselected-prefix-indicator-face ((,c :inherit shadow)))
     `(icomplete-selected-match ((,c :inherit modus-themes-completion-selected)))
 ;;;;; ido-mode
     `(ido-first-match ((,c :inherit modus-themes-completion-match-0)))
