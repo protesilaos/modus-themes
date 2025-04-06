@@ -257,17 +257,17 @@ standard)."
 ;;;; Code mappings
 
       (bracket fg-main)
-      (builtin magenta-warmer)
+      (builtin yellow)
       (comment yellow-cooler)
-      (constant blue-cooler)
+      (constant blue-faint)
       (delimiter fg-main)
       (docmarkup magenta-faint)
       (docstring green-faint)
-      (fnname magenta)
-      (keyword magenta-cooler)
+      (fnname yellow-warmer)
+      (keyword blue-cooler)
       (number fg-main)
       (operator fg-main)
-      (preprocessor red-cooler)
+      (preprocessor magenta-cooler)
       (punctuation fg-main)
       (rx-backslash blue-cooler)
       (rx-construct yellow-cooler)
@@ -277,10 +277,10 @@ standard)."
 
 ;;;; Accent mappings
 
-      (accent-0 blue)
+      (accent-0 blue-warmer)
       (accent-1 yellow-warmer)
       (accent-2 cyan)
-      (accent-3 magenta-cooler)
+      (accent-3 yellow-cooler)
 
 ;;;; Button mappings
 
@@ -291,10 +291,10 @@ standard)."
 
 ;;;; Completion mappings
 
-      (fg-completion-match-0 blue)
+      (fg-completion-match-0 blue-warmer)
       (fg-completion-match-1 yellow-warmer)
       (fg-completion-match-2 cyan)
-      (fg-completion-match-3 magenta-cooler)
+      (fg-completion-match-3 yellow-cooler)
       (bg-completion-match-0 unspecified)
       (bg-completion-match-1 unspecified)
       (bg-completion-match-2 unspecified)
