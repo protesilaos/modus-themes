@@ -233,8 +233,8 @@ which corresponds to a minimum contrast in relative luminance of
       (identifier yellow-cooler)
 
       (err red)
-      (warning yellow-warmer)
-      (info cyan-cooler)
+      (warning yellow)
+      (info green)
 
       (underline-err red-intense)
       (underline-warning yellow-intense)
@@ -255,23 +255,23 @@ which corresponds to a minimum contrast in relative luminance of
 ;;;; Code mappings
 
       (bracket fg-main)
-      (builtin magenta-warmer)
+      (builtin magenta)
       (comment red-faint)
-      (constant blue-cooler)
+      (constant magenta-cooler)
       (delimiter fg-main)
       (docmarkup magenta-faint)
-      (docstring green-faint)
-      (fnname magenta)
-      (keyword magenta-cooler)
+      (docstring cyan-faint)
+      (fnname yellow-cooler)
+      (keyword blue-cooler)
       (number fg-main)
       (operator fg-main)
-      (preprocessor red-cooler)
+      (preprocessor yellow-warmer)
       (punctuation fg-main)
-      (rx-backslash magenta)
-      (rx-construct green-cooler)
-      (string blue-warmer)
-      (type cyan-cooler)
-      (variable cyan)
+      (rx-backslash magenta-warmer)
+      (rx-construct magenta-cooler)
+      (string cyan)
+      (type green-cooler)
+      (variable green-warmer)
 
 ;;;; Accent mappings
 
@@ -356,7 +356,7 @@ which corresponds to a minimum contrast in relative luminance of
 
 ;;;; Prompt mappings
 
-      (fg-prompt cyan-cooler)
+      (fg-prompt green-cooler)
       (bg-prompt unspecified)
 
 ;;;; Prose mappings
