@@ -277,7 +277,7 @@ standard)."
 
 ;;;; Accent mappings
 
-      (accent-0 blue-cooler)
+      (accent-0 blue-warmer)
       (accent-1 yellow)
       (accent-2 cyan-cooler)
       (accent-3 yellow-cooler)
