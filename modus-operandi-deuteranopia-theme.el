@@ -374,7 +374,7 @@ standard)."
       (fg-prose-macro magenta-cooler)
 
       (bg-prose-verbatim unspecified)
-      (fg-prose-verbatim magenta-warmer)
+      (fg-prose-verbatim yellow)
 
       (prose-done blue)
       (prose-todo yellow-warmer)
@@ -385,7 +385,7 @@ standard)."
       (prose-table fg-alt)
       (prose-table-formula yellow-warmer)
 
-      (prose-tag magenta-faint)
+      (prose-tag fg-alt)
 
 ;;;; Rainbow mappings
 
@@ -463,11 +463,11 @@ standard)."
       (fg-heading-0 cyan-cooler)
       (fg-heading-1 fg-main)
       (fg-heading-2 yellow-faint)
-      (fg-heading-3 fg-alt)
-      (fg-heading-4 magenta)
-      (fg-heading-5 green-faint)
-      (fg-heading-6 red-faint)
-      (fg-heading-7 cyan-warmer)
+      (fg-heading-3 blue-faint)
+      (fg-heading-4 green-faint)
+      (fg-heading-5 magenta-cooler)
+      (fg-heading-6 yellow-cooler)
+      (fg-heading-7 cyan)
       (fg-heading-8 fg-dim)
 
       (bg-heading-0 unspecified)
