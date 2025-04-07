@@ -172,10 +172,6 @@ standard)."
       (bg-region           "#bdbdbd")
       (fg-region           "#000000")
 
-      (bg-char-0 "#ff908f")
-      (bg-char-1 "#bfbfff")
-      (bg-char-2 "#5fcfdf")
-
       (bg-mode-line-active        "#afe0f2")
       (fg-mode-line-active        "#0f0f0f")
       (border-mode-line-active    "#2f4f44")
