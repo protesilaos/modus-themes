@@ -403,7 +403,7 @@ standard)."
 
       (bg-search-current bg-yellow-intense)
       (bg-search-lazy bg-blue-intense)
-      (bg-search-replace bg-magenta-intense)
+      (bg-search-replace bg-yellow-intense)
 
       (bg-search-rx-group-0 bg-cyan-intense)
       (bg-search-rx-group-1 bg-magenta-intense)
