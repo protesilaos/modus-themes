@@ -3984,13 +3984,13 @@ styles to use. The following is but a basic attempt to get started.
   (modus-themes-with-colors
     (custom-set-faces
      ;; FIXME: What is a "region cursor" and should it differ from the position highlights below?
-     `(meow-region-cursor-1 ((,c :inherit (bold modus-themes-reset-soft) :background ,bg-char-0)))
-     `(meow-region-cursor-2 ((,c :inherit (bold modus-themes-reset-soft) :background ,bg-char-1)))
-     `(meow-region-cursor-3 ((,c :inherit (bold modus-themes-reset-soft) :background ,bg-char-2)))
+     `(meow-region-cursor-1 ((,c :inherit (bold modus-themes-search-current modus-themes-reset-soft))))
+     `(meow-region-cursor-2 ((,c :inherit (bold modus-themes-search-current modus-themes-reset-soft))))
+     `(meow-region-cursor-3 ((,c :inherit (bold modus-themes-search-current modus-themes-reset-soft))))
 
-     `(meow-position-highlight-number-1 ((,c :inherit (bold modus-themes-reset-soft) :background ,bg-char-0)))
-     `(meow-position-highlight-number-2 ((,c :inherit (bold modus-themes-reset-soft) :background ,bg-char-1)))
-     `(meow-position-highlight-number-3 ((,c :inherit (bold modus-themes-reset-soft) :background ,bg-char-2))))))
+     `(meow-position-highlight-number-1 ((,c :inherit (bold modus-themes-search-current modus-themes-reset-soft))))
+     `(meow-position-highlight-number-2 ((,c :inherit (bold modus-themes-search-current modus-themes-reset-soft))))
+     `(meow-position-highlight-number-3 ((,c :inherit (bold modus-themes-search-current modus-themes-reset-soft)))))))
 
 (add-hook 'enable-theme-functions #'my-modus-themes-custom-faces)
 #+end_src

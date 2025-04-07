@@ -4128,13 +4128,13 @@ styles to use.  The following is but a basic attempt to get started.
        (modus-themes-with-colors
          (custom-set-faces
           ;; FIXME: What is a "region cursor" and should it differ from the position highlights below?
-          `(meow-region-cursor-1 ((,c :inherit (bold modus-themes-reset-soft) :background ,bg-char-0)))
-          `(meow-region-cursor-2 ((,c :inherit (bold modus-themes-reset-soft) :background ,bg-char-1)))
-          `(meow-region-cursor-3 ((,c :inherit (bold modus-themes-reset-soft) :background ,bg-char-2)))
+          `(meow-region-cursor-1 ((,c :inherit (bold modus-themes-search-current modus-themes-reset-soft))))
+          `(meow-region-cursor-2 ((,c :inherit (bold modus-themes-search-current modus-themes-reset-soft))))
+          `(meow-region-cursor-3 ((,c :inherit (bold modus-themes-search-current modus-themes-reset-soft))))
 
-          `(meow-position-highlight-number-1 ((,c :inherit (bold modus-themes-reset-soft) :background ,bg-char-0)))
-          `(meow-position-highlight-number-2 ((,c :inherit (bold modus-themes-reset-soft) :background ,bg-char-1)))
-          `(meow-position-highlight-number-3 ((,c :inherit (bold modus-themes-reset-soft) :background ,bg-char-2))))))
+          `(meow-position-highlight-number-1 ((,c :inherit (bold modus-themes-search-current modus-themes-reset-soft))))
+          `(meow-position-highlight-number-2 ((,c :inherit (bold modus-themes-search-current modus-themes-reset-soft))))
+          `(meow-position-highlight-number-3 ((,c :inherit (bold modus-themes-search-current modus-themes-reset-soft)))))))
 
      (add-hook 'enable-theme-functions #'my-modus-themes-custom-faces)
 
@@ -6674,52 +6674,52 @@ Node: DIY Use more spacious margins or padding in Emacs frames169770
 Node: DIY Custom hl-todo colors174027
 Node: DIY Add support for solaire-mode175844
 Node: DIY Add support for meow-mode178950
-Node: DIY Add support for combobulate180730
-Node: DIY Use a hook at the post-load-theme phase184353
-Node: DIY A theme-agnostic hook for theme loading186476
-Node: Face coverage189107
-Node: Supported packages189559
-Node: Indirectly covered packages195500
-Node: Notes on individual packages196856
-Node: Note on calendarel weekday and weekend colors197956
-Node: Note on git-gutter in Doom Emacs199104
-Node: Note on php-mode multiline comments201604
-Node: Note on underlines in compilation buffers202364
-Node: Note on inline Latex in Org buffers203236
-Node: Note on dimmerel203846
-Node: Note on display-fill-column-indicator-mode205331
-Node: Note on highlight-parenthesesel206784
-Node: Note on mmm-modeel background colors212865
-Node: Note for prism215219
-Node: Note on company-mode overlay pop-up218441
-Ref: Note on company-mode overlay pop-up-Footnote-1219171
-Ref: Note on company-mode overlay pop-up-Footnote-2219238
-Node: Note on ERC escaped color sequences219293
-Ref: Note on ERC escaped color sequences-Footnote-1220721
-Node: Note on powerline or spaceline220831
-Node: Note on SHR colors221245
-Node: Note on SHR fonts221669
-Node: Note on Ement colors and fonts222356
-Node: Note on pdf-tools link hints223866
-Node: Note on the Notmuch logo226326
-Node: Note on goto-address-mode faces226864
-Node: Frequently Asked Questions227982
-Node: Is the contrast ratio about adjacent colors?228615
-Node: What does it mean to avoid exaggerations?230124
-Node: Why are colors mostly variants of blue magenta cyan?231976
-Node: What is the best setup for legibility?236310
-Node: Are these color schemes?238958
-Node: Port the Modus themes to other platforms?242642
-Node: Contributing245488
-Node: Sources of the themes245887
-Node: Issues you can help with246783
-Node: Patches require copyright assignment to the FSF248176
-Node: Acknowledgements250398
-Node: GNU Free Documentation License254731
-Node: Indices280095
-Node: Function index280274
-Node: Variable index281870
-Node: Concept index285370
+Node: DIY Add support for combobulate180760
+Node: DIY Use a hook at the post-load-theme phase184383
+Node: DIY A theme-agnostic hook for theme loading186506
+Node: Face coverage189137
+Node: Supported packages189589
+Node: Indirectly covered packages195530
+Node: Notes on individual packages196886
+Node: Note on calendarel weekday and weekend colors197986
+Node: Note on git-gutter in Doom Emacs199134
+Node: Note on php-mode multiline comments201634
+Node: Note on underlines in compilation buffers202394
+Node: Note on inline Latex in Org buffers203266
+Node: Note on dimmerel203876
+Node: Note on display-fill-column-indicator-mode205361
+Node: Note on highlight-parenthesesel206814
+Node: Note on mmm-modeel background colors212895
+Node: Note for prism215249
+Node: Note on company-mode overlay pop-up218471
+Ref: Note on company-mode overlay pop-up-Footnote-1219201
+Ref: Note on company-mode overlay pop-up-Footnote-2219268
+Node: Note on ERC escaped color sequences219323
+Ref: Note on ERC escaped color sequences-Footnote-1220751
+Node: Note on powerline or spaceline220861
+Node: Note on SHR colors221275
+Node: Note on SHR fonts221699
+Node: Note on Ement colors and fonts222386
+Node: Note on pdf-tools link hints223896
+Node: Note on the Notmuch logo226356
+Node: Note on goto-address-mode faces226894
+Node: Frequently Asked Questions228012
+Node: Is the contrast ratio about adjacent colors?228645
+Node: What does it mean to avoid exaggerations?230154
+Node: Why are colors mostly variants of blue magenta cyan?232006
+Node: What is the best setup for legibility?236340
+Node: Are these color schemes?238988
+Node: Port the Modus themes to other platforms?242672
+Node: Contributing245518
+Node: Sources of the themes245917
+Node: Issues you can help with246813
+Node: Patches require copyright assignment to the FSF248206
+Node: Acknowledgements250428
+Node: GNU Free Documentation License254761
+Node: Indices280125
+Node: Function index280304
+Node: Variable index281900
+Node: Concept index285400
 
 End Tag Table
 
