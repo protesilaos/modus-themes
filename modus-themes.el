@@ -2542,10 +2542,10 @@ FG and BG are the main colors."
     `(geiser-font-lock-xref-link ((,c :inherit button)))
 ;;;;; git-commit
     `(git-commit-comment-action ((,c :inherit font-lock-comment-face)))
-    `(git-commit-comment-branch-local ((,c :inherit font-lock-comment-face :foreground ,accent-0)))
-    `(git-commit-comment-branch-remote ((,c :inherit font-lock-comment-face :foreground ,accent-1)))
+    `(git-commit-comment-branch-local ((,c :inherit (bold font-lock-comment-face) :foreground ,accent-0)))
+    `(git-commit-comment-branch-remote ((,c :inherit (bold font-lock-comment-face) :foreground ,accent-1)))
     `(git-commit-comment-heading ((,c :inherit (bold font-lock-comment-face))))
-    `(git-commit-comment-file ((,c :inherit font-lock-comment-face :foreground ,name)))
+    `(git-commit-comment-file ((,c :inherit font-lock-comment-face :foreground ,accent-2))) ; like `magit-filename'
     `(git-commit-keyword ((,c :foreground ,keyword)))
     `(git-commit-nonempty-second-line ((,c :inherit error)))
     `(git-commit-overlong-summary ((,c :inherit warning)))
