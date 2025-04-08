@@ -381,7 +381,7 @@ standard)."
       (prose-table fg-alt)
       (prose-table-formula red-cooler)
 
-      (prose-tag magenta-faint)
+      (prose-tag fg-alt)
 
 ;;;; Rainbow mappings
 
