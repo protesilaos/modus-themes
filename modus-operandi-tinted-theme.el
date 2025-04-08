@@ -251,7 +251,7 @@ which corresponds to a minimum contrast in relative luminance of
       (docmarkup magenta-faint)
       (docstring cyan-faint)
       (fnname yellow-cooler)
-      (keyword blue-cooler)
+      (keyword blue)
       (number fg-main)
       (operator fg-main)
       (preprocessor yellow-warmer)
