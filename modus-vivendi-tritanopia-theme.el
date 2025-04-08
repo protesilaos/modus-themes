@@ -63,7 +63,7 @@ standard)."
       (bg-dim           "#1e1e1e")
       (fg-main          "#ffffff")
       (fg-dim           "#989898")
-      (fg-alt           "#c6daff")
+      (fg-alt           "#a0d7f2")
       (bg-active        "#535353")
       (bg-inactive      "#303030")
       (border           "#646464")
