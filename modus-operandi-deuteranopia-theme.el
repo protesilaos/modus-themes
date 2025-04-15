@@ -309,7 +309,7 @@ standard)."
       (date-scheduled yellow-cooler)
       (date-scheduled-subtle yellow-faint)
       (date-weekday cyan)
-      (date-weekend magenta-cooler)
+      (date-weekend blue-cooler)
 
 ;;;; Line number mappings
 
