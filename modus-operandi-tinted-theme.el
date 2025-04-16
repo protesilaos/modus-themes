@@ -333,8 +333,8 @@ which corresponds to a minimum contrast in relative luminance of
 ;;;; Mail mappings
 
       (mail-cite-0 cyan-cooler)
-      (mail-cite-1 yellow-cooler)
-      (mail-cite-2 cyan)
+      (mail-cite-1 yellow)
+      (mail-cite-2 green-warmer)
       (mail-cite-3 red-cooler)
       (mail-part magenta-cooler)
       (mail-recipient blue-warmer)
