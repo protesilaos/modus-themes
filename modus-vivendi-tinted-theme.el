@@ -273,7 +273,7 @@ which corresponds to a minimum contrast in relative luminance of
 
       (accent-0 magenta-cooler)
       (accent-1 cyan)
-      (accent-2 red-cooler)
+      (accent-2 magenta-warmer)
       (accent-3 yellow-warmer)
 
 ;;;; Button mappings
