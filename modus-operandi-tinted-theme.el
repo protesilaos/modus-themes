@@ -259,8 +259,8 @@ which corresponds to a minimum contrast in relative luminance of
       (rx-backslash magenta-warmer)
       (rx-construct magenta-cooler)
       (string cyan)
-      (type green-cooler)
-      (variable green-warmer)
+      (type green-warmer)
+      (variable green-cooler)
 
 ;;;; Paren match
 
