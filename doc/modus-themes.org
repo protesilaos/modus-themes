@@ -4,9 +4,9 @@
 #+language: en
 #+options: ':t toc:nil author:t email:t num:t
 #+startup: content
-#+macro: stable-version 4.6.0
-#+macro: release-date 2024-10-27
-#+macro: development-version 4.7.0-dev
+#+macro: stable-version 4.7.0
+#+macro: release-date 2025-04-17
+#+macro: development-version 4.8.0-dev
 #+macro: file @@texinfo:@file{@@$1@@texinfo:}@@
 #+macro: space @@texinfo:@: @@
 #+macro: kbd @@texinfo:@kbd{@@$1@@texinfo:}@@
@@ -1305,10 +1305,6 @@ Examples demonstrating how to use the aforementioned:
 :custom_id: h:f4d4b71b-2ca5-4c3d-b0b4-9bfd7aa7fb4d
 :end:
 #+cindex: Preview named colors or semantic color mappings
-
-[ The preview is revised as part of {{{development-version}}} to use
-  the ~tabulated-list-mode~. This means that the user can now sort by
-  column. ]
 
 #+findex: modus-themes-list-colors
 The command ~modus-themes-list-colors~ uses minibuffer completion to
@@ -4167,7 +4163,7 @@ project.  The idea is to offer an overview of the known status of all
 affected face groups.  The items with an appended asterisk =*= tend to
 have lots of extensions, so the "full support" may not be 100% true…
 
-+ abbrev [ Part of {{{development-version}}}. ]
++ abbrev
 + ace-window
 + agda2-mode
 + all-the-icons
@@ -4275,7 +4271,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + hl-fill-column
 + hl-line-mode
 + hl-todo
-+ howm [ Part of {{{development-version}}}. ]
++ howm
 + hydra
 + ibuffer
 + icomplete
@@ -4382,7 +4378,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + sly
 + smart-mode-line
 + smerge
-+ spacious-padding [ Part of {{{development-version}}}. ]
++ spacious-padding
 + speedbar
 + spell-fu
 + stripes
@@ -4398,10 +4394,10 @@ have lots of extensions, so the "full support" may not be 100% true…
 + terraform-mode
 + term
 + textsec
-+ tldr [ Part of {{{development-version}}}. ]
++ tldr
 + transient (pop-up windows such as Magit's)
 + trashed
-+ treemacs [ Part of {{{development-version}}}. ]
++ treemacs
 + tree-sitter
 + tty-menu
 + tuareg
