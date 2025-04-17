@@ -219,7 +219,7 @@ which corresponds to a minimum contrast in relative luminance of
 
       (keybind red)
       (name magenta)
-      (identifier yellow-cooler)
+      (identifier yellow-faint)
 
       (err red)
       (warning yellow)
