@@ -1321,7 +1321,7 @@ semantic color mappings instead of the full palette ([[#h:34c7a691-19bb-4037-8d2
 
 #+findex: modus-themes-preview-colors
 #+findex: modus-themes-preview-colors-current
-Aliases for these commands are ~modus-themes-preview-colors~ and
+Aliases for those commands are ~modus-themes-preview-colors~ and
 ~modus-themes-preview-colors-current~.
 
 Each row includes a foreground and background rendition of the given
@@ -1356,7 +1356,7 @@ value in some other application.
 :END:
 
 #+findex: modus-themes-get-color-value
-The fuction ~modus-themes-get-color-value~ can be called from Lisp to
+The function ~modus-themes-get-color-value~ can be called from Lisp to
 return the value of a color from the active Modus theme palette. It
 takea a =COLOR= argument and an optional =OVERRIDES=. It also accepts
 a third =THEME= argument, to get the color from the given theme.
@@ -2936,7 +2936,7 @@ Reload the theme for changes to take effect.
 :CUSTOM_ID: h:a5140c9c-18b2-45db-8021-38d0b5074116
 :END:
 
-By the default, the background of the ~region~ face extends from the
+By default, the background of the ~region~ face extends from the
 end of the line to the edge of the window.  To limit it to the end of
 the line, we need to override the face's =:extend= attribute.  Adding
 this to the Emacs configuration file will suffice:
@@ -5075,7 +5075,7 @@ Consult the doc string of ~shr-use-colors~.
 :end:
 #+cindex: Fonts in EWW, Elfeed, Ement, and SHR
 
-By default, packages that build on top of the Simple HTML Remember
+By default, packages that build on top of the Simple HTML Renderer
 (~shr~) use proportionately spaced fonts.  This is controlled by the
 user option ~shr-use-fonts~, which is set to non-~nil~ by default.  To
 use the standard font instead, set that variable to ~nil~.
