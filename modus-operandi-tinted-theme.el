@@ -210,6 +210,13 @@ which corresponds to a minimum contrast in relative luminance of
 
       (bg-diff-context    "#efe9df")
 
+;;; Paren match
+
+      (bg-paren-match        "#7fdfcf")
+      (fg-paren-match        fg-main)
+      (bg-paren-expression   "#efd3f5")
+      (underline-paren-match unspecified)
+
 ;;; Mappings
 
 ;;;; General mappings
@@ -261,13 +268,6 @@ which corresponds to a minimum contrast in relative luminance of
       (string cyan)
       (type green-warmer)
       (variable green-cooler)
-
-;;;; Paren match
-
-      (bg-paren-match        bg-cyan-subtle)
-      (fg-paren-match        fg-main)
-      (underline-paren-match unspecified)
-      (bg-paren-expression   bg-yellow-nuanced)
 
 ;;;; Accent mappings
 

@@ -212,6 +212,13 @@ standard)."
 
       (bg-diff-context    "#1a1a1a")
 
+;;; Paren match
+
+      (bg-paren-match        "#2f7f9f")
+      (fg-paren-match        fg-main)
+      (bg-paren-expression   "#453040")
+      (underline-paren-match unspecified)
+
 ;;; Mappings
 
 ;;;; General mappings
@@ -263,13 +270,6 @@ standard)."
       (string cyan)
       (type blue-warmer)
       (variable cyan-cooler)
-
-;;;; Paren match
-
-      (bg-paren-match        bg-cyan-subtle)
-      (fg-paren-match        fg-main)
-      (underline-paren-match unspecified)
-      (bg-paren-expression   bg-red-nuanced)
 
 ;;;; Accent mappings
 
