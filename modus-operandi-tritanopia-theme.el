@@ -264,6 +264,7 @@ standard)."
       (number fg-main)
       (operator fg-main)
       (preprocessor red-warmer)
+      (property cyan-cooler)
       (punctuation fg-main)
       (rx-backslash magenta)
       (rx-construct red)

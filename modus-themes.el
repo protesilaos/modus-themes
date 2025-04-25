@@ -2504,6 +2504,7 @@ FG and BG are the main colors."
     `(font-lock-number-face ((,c :foreground ,number)))
     `(font-lock-operator-face ((,c :foreground ,operator)))
     `(font-lock-preprocessor-face ((,c :foreground ,preprocessor)))
+    `(font-lock-property-name-face ((,c :foreground ,property)))
     `(font-lock-punctuation-face ((,c :foreground ,punctuation)))
     `(font-lock-regexp-grouping-backslash ((,c :inherit modus-themes-bold :foreground ,rx-backslash)))
     `(font-lock-regexp-grouping-construct ((,c :inherit modus-themes-bold :foreground ,rx-construct)))

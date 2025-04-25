@@ -262,6 +262,7 @@ which corresponds to a minimum contrast in relative luminance of
       (number fg-main)
       (operator fg-main)
       (preprocessor red-cooler)
+      (property cyan)
       (punctuation fg-main)
       (rx-backslash magenta)
       (rx-construct green-cooler)

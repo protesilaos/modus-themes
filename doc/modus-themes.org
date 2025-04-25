@@ -5708,39 +5708,40 @@ The Modus themes are a collective effort.  Every bit of work matters.
 
 + Ideas and user feedback :: Aaron Jensen, Adam Porter, Adam Spiers,
   Adrian Manea, Aleksei Pirogov, Alex Griffin, Alex Koen, Alex
-  Peitsinis, Alexey Shmalko, Alok Singh, Anders Johansson, André
-  Alexandre Gomes, Andrew Tropin, Antonio Hernández Blas, Arif Rezai,
-  Augusto Stoffel, Basil L.{{{space()}}} Contovounesios, Bernd
-  Rellermeyer, Burgess Chang, Charlotte Van Petegem, Christian Tietze,
-  Christopher Dimech, Christopher League, Damien Cassou, Daniel
-  Mendler, Dario Gjorgjevski, David Edmondson, Davor Rotim, Divan
-  Santana, Eliraz Kedmi, Emanuele Michele Alberto Monterosso, Farasha
-  Euker, Feng Shu, Filippo Argiolas, Gautier Ponsinet, Gerry Agbobada,
-  Gianluca Recchia, Gonçalo Marrafa, Guilherme Semente, Gustavo
-  Barros, Hörmetjan Yiltiz, Ilja Kocken, Imran Khan, Iris Garcia, Ivan
-  Popovych, Jabir Ali Ouassou, James Ferguson, Jeremy Friesen, Jerry
-  Zhang, Johannes Grødem, John Haman, John Wick, Jonas Collberg, Jorge
-  Morais, Joshua O'Connor, Julio C. Villasante, Kenta Usami, Kevin
-  Fleming, Kévin Le Gouguec, Kevin Kainan Li, Kostadin Ninev, Laith
-  Bahodi, Lasse Lindner, Len Trigg, Lennart C.{{{space()}}} Karssen,
-  Luis Miguel Castañeda, Magne Hov, Manuel Giraud, Manuel Uberti, Mark
-  Bestley, Mark Burton, Mark Simpson, Marko Kocic, Markus Beppler,
-  Matt Armstrong, Matthias Fuchs, Mattias Engdegård, Mauro Aranda,
-  Maxime Tréca, Michael Goldenberg, Morgan Smith, Morgan Willcock,
-  Murilo Pereira, Nicky van Foreest, Nicolas De Jaeghere, Nicolas
-  Semrau, Olaf Meeuwissen, Oliver Epper, Pablo Stafforini, Paul
-  Poloskov, Pengji Zhang, Pete Kazmier, Peter Wu, Philip Kaludercic,
-  Pierre Téchoueyres, Przemysław Kryger, Robert Hepple, Roman Rudakov,
-  Russell Sim, Ryan Phillips, Rytis Paškauskas, Rudolf Adamkovič, Sam
-  Kleinman, Samuel Culpepper, Saša Janiška, Shreyas Ragavan, Simon
-  Pugnet, Steve Downey, Tassilo Horn, Thanos Apollo, Thibaut Verron,
-  Thomas Heartman, Togan Muftuoglu, Tony Zorman, Trey Merkley, Tomasz
-  Hołubowicz, Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley,
-  Zoltan Kiraly. As well as users: Ben, CsBigDataHub1, Emacs Contrib,
-  Eugene, Fourchaux, Fredrik, Moesasji, Nick, Summer Emacs, TheBlob42,
-  TitusMu, Trey, ZharMeny, bepolymathe, bit9tream, bangedorrunt,
-  derek-upham, doolio, fleimgruber, gitrj95, iSeeU, jixiuf, ltmsyvag,
-  okamsn, pedro-nonfree, pRot0ta1p, shipmints, soaringbird, tumashu,
+  Peitsinis, Alexandr Semenov, Alexey Shmalko, Alok Singh, Anders
+  Johansson, André Alexandre Gomes, Andrew Tropin, Antonio Hernández
+  Blas, Arif Rezai, Augusto Stoffel, Basil L.{{{space()}}}
+  Contovounesios, Bernd Rellermeyer, Burgess Chang, Charlotte Van
+  Petegem, Christian Tietze, Christopher Dimech, Christopher League,
+  Damien Cassou, Daniel Mendler, Dario Gjorgjevski, David Edmondson,
+  Davor Rotim, Divan Santana, Eliraz Kedmi, Emanuele Michele Alberto
+  Monterosso, Farasha Euker, Feng Shu, Filippo Argiolas, Gautier
+  Ponsinet, Gerry Agbobada, Gianluca Recchia, Gonçalo Marrafa,
+  Guilherme Semente, Gustavo Barros, Hörmetjan Yiltiz, Ilja Kocken,
+  Imran Khan, Iris Garcia, Ivan Popovych, Jabir Ali Ouassou, James
+  Ferguson, Jeremy Friesen, Jerry Zhang, Johannes Grødem, John Haman,
+  John Wick, Jonas Collberg, Jorge Morais, Joshua O'Connor, Julio C.
+  Villasante, Kenta Usami, Kevin Fleming, Kévin Le Gouguec, Kevin
+  Kainan Li, Kostadin Ninev, Laith Bahodi, Lasse Lindner, Len Trigg,
+  Lennart C.{{{space()}}} Karssen, Luis Miguel Castañeda, Magne Hov,
+  Manuel Giraud, Manuel Uberti, Mark Bestley, Mark Burton, Mark
+  Simpson, Marko Kocic, Markus Beppler, Matt Armstrong, Matthias
+  Fuchs, Mattias Engdegård, Mauro Aranda, Maxime Tréca, Michael
+  Goldenberg, Morgan Smith, Morgan Willcock, Murilo Pereira, Nicky van
+  Foreest, Nicolas De Jaeghere, Nicolas Semrau, Olaf Meeuwissen,
+  Oliver Epper, Pablo Stafforini, Paul Poloskov, Pengji Zhang, Pete
+  Kazmier, Peter Wu, Philip Kaludercic, Pierre Téchoueyres, Przemysław
+  Kryger, Robert Hepple, Roman Rudakov, Russell Sim, Ryan Phillips,
+  Rytis Paškauskas, Rudolf Adamkovič, Sam Kleinman, Samuel Culpepper,
+  Saša Janiška, Shreyas Ragavan, Simon Pugnet, Steve Downey, Tassilo
+  Horn, Thanos Apollo, Thibaut Verron, Thomas Heartman, Togan
+  Muftuoglu, Tony Zorman, Trey Merkley, Tomasz Hołubowicz, Toon Claes,
+  Uri Sharf, Utkarsh Singh, Vincent Foley, Zoltan Kiraly. As well as
+  users: Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux,
+  Fredrik, Moesasji, Nick, Summer Emacs, TheBlob42, TitusMu, Trey,
+  ZharMeny, bepolymathe, bit9tream, bangedorrunt, derek-upham, doolio,
+  fleimgruber, gitrj95, iSeeU, jixiuf, ltmsyvag, okamsn,
+  pedro-nonfree, pRot0ta1p, shipmints, soaringbird, tumashu,
   wakamenod.
 
 + Packaging :: Basil L.{{{space()}}} Contovounesios, Eli Zaretskii,
