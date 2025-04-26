@@ -3873,6 +3873,14 @@ FG and BG are the main colors."
     `(tldr-description ((,c :inherit font-lock-doc-face)))
     `(tldr-introduction ((,c :inherit font-lock-comment-face)))
     `(tldr-title ((,c :inherit bold)))
+;;;;; tmr
+    `(tmr-mode-line-active ((,c :inherit bold :foreground ,modeline-info)))
+    `(tmr-mode-line-soon ((,c :inherit bold :foreground ,modeline-warning)))
+    `(tmr-mode-line-urgent ((,c :inherit bold :foreground ,modeline-err)))
+    `(tmr-tabulated-description ((,c :foreground ,docstring)))
+    `(tmr-tabulated-end-time ((,c :foreground ,date-deadline)))
+    `(tmr-tabulated-remaining-time ((,c :foreground ,date-scheduled)))
+    `(tmr-tabulated-start-time ((,c :foreground ,date-common)))
 ;;;;; transient
     `(transient-active-infix ((,c :inherit highlight)))
     `(transient-amaranth ((,c :inherit bold :foreground ,yellow-warmer)))
