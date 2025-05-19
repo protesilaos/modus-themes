@@ -2927,7 +2927,8 @@ FG and BG are the main colors."
     `(keycast-command ((,c :inherit bold)))
     `(keycast-key ((,c :inherit modus-themes-bold :background ,keybind :foreground ,bg-main)))
 ;;;;; kmacro-menu
-    `(kmacro-menu-mark ((,c :inherit bold)))
+    ;; Use `list' here to avoid a spurious warning about `kmacro-menu-mark'.
+    (list 'kmacro-menu-mark `((,c :inherit bold)))
     `(kmacro-menu-marked ((,c :inherit modus-themes-mark-sel)))
     `(kmacro-menu-flagged ((,c :inherit modus-themes-mark-del)))
 ;;;;; ledger-mode
