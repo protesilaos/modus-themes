@@ -1262,34 +1262,31 @@ Disable other themes per `modus-themes-disable-other-themes'."
 
 ;;;;; Rotate through a list of themes
 
-(defun modus-themes--rotate (themes)
-  "Rotate THEMES rightward such that the car is moved to the end."
-  (if (proper-list-p themes)
-      (let* ((index (seq-position themes (modus-themes--current-theme)))
-             (offset (1+ index)))
-        (append (nthcdr offset themes) (take offset themes)))
-    (error "The `%s' is not a list" themes)))
-
-(defun modus-themes--rotate-p (themes)
-  "Return a new theme among THEMES if it is possible to rotate to it."
-  (if-let* ((new-theme (car (modus-themes--rotate themes))))
-      (if (eq new-theme (modus-themes--current-theme))
-          (car (modus-themes--rotate-p (modus-themes--rotate themes)))
-        new-theme)
+(defun modus-themes--next-in-rotation (themes &optional reverse)
+  "Return a new theme among THEMES if it is possible to rotate to it.
+The argument REVERSE controls the direction of rotation."
+  (if-let* ((index (seq-position themes (modus-themes--current-theme)))
+            (offset (mod (if reverse (1- index) (1+ index))
+                         (length themes)))
+            (new-theme (nth offset themes)))
+      new-theme
     (error "Cannot determine a theme among `%s'" themes)))
 
 ;;;###autoload
-(defun modus-themes-rotate (themes)
+(defun modus-themes-rotate (themes &optional reverse)
   "Rotate to the next theme among THEMES.
-When called interactively THEMES is the value of `modus-themes-to-rotate'.
+When called interactively THEMES is the value of `modus-themes-to-rotate'
+and REVERSE is the prefix argument.
 
 If the current theme is already the next in line, then move to the one
-after.  Perform the rotation rightwards, such that the first element in
-the list becomes the last.  Do not modify THEMES in the process."
-  (interactive (list modus-themes-to-rotate))
+after.  The rotation is performed rightwards if REVERSE is nil (the
+default), and leftwards if REVERSE is non-nil.  Perform the rotation
+such that the current element in the list becomes the last.  Do not
+modify THEMES in the process."
+  (interactive (list modus-themes-to-rotate current-prefix-arg))
   (unless (proper-list-p themes)
     "This is not a list of themes: `%s'" themes)
-  (let ((candidate (modus-themes--rotate-p themes)))
+  (let ((candidate (modus-themes--next-in-rotation themes reverse)))
     (if (modus-themes--modus-p candidate)
         (progn
           (message "Rotating to `%s'" (propertize (symbol-name candidate) 'face 'success))
