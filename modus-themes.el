@@ -334,7 +334,7 @@ the same as using the command `modus-themes-select'."
 (defcustom modus-themes-after-load-theme-hook nil
   "Hook that runs after loading a Modus theme.
 This is used by the commands `modus-themes-toggle',
-`modus-themes-rotate', as well as the functions
+`modus-themes-rotate', `modus-themes-select', as well as the function
 `modus-themes-load-theme'."
   :type 'hook
   :package-version '(modus-themes . "4.0.0")
