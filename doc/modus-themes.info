@@ -5904,15 +5904,16 @@ Contributions to code or documentation
      Aleksei Gusev, Alex Griffin, Anders Johansson, Antonio Ruiz, Basil
      L. Contovounesios, Björn Lindström, Carlo Zancanaro, Christian
      Tietze, Daniel Mendler, David Edmondson, Eli Zaretskii, Fritz
-     Grabo, Gautier Ponsinet, Illia Ostapyshyn, Jared Finder, Kévin Le
-     Gouguec, Koen van Greevenbroek, Kostadin Ninev, Leilei332, Madhavan
-     Krishnan, Manuel Giraud, Markus Beppler, Matthew Stevenson, Mauro
-     Aranda, Nacho Barrientos, Niall Dooley, Nicolas De Jaeghere, Paul
-     David, Pavel Novichkov, Philip Kaludercic, Pierre Téchoueyres,
-     Rahul M.  Juliato, Rudolf Adamkovič, Sergey Nichiporchik, Shreyas
-     Ragavan, Stefan Kangas, Stephen Berman, Stephen Gildea, Steve
-     Downey, Thanos Apollo, Tomasz Hołubowicz, Utkarsh Singh, Vincent
-     Murphy, Xinglu Chen, Yuanchen Xie, fluentpwn, okamsn.
+     Grabo, Gautier Ponsinet, Illia Ostapyshyn, Jacob S. Gordon, Jared
+     Finder, Kévin Le Gouguec, Koen van Greevenbroek, Kostadin Ninev,
+     Leilei332, Madhavan Krishnan, Manuel Giraud, Markus Beppler,
+     Matthew Stevenson, Mauro Aranda, Nacho Barrientos, Niall Dooley,
+     Nicolas De Jaeghere, Paul David, Pavel Novichkov, Philip
+     Kaludercic, Pierre Téchoueyres, Rahul M. Juliato, Rudolf Adamkovič,
+     Sergey Nichiporchik, Shreyas Ragavan, Stefan Kangas, Stephen
+     Berman, Stephen Gildea, Steve Downey, Thanos Apollo, Tomasz
+     Hołubowicz, Utkarsh Singh, Vincent Murphy, Xinglu Chen, Yuanchen
+     Xie, fluentpwn, okamsn.
 
 Ideas and user feedback
      Aaron Jensen, Adam Porter, Adam Spiers, Adrian Manea, Aleksei
@@ -6741,11 +6742,11 @@ Node: Sources of the themes246998
 Node: Issues you can help with247894
 Node: Patches require copyright assignment to the FSF249334
 Node: Acknowledgements251556
-Node: GNU Free Documentation License255913
-Node: Indices281277
-Node: Function index281456
-Node: Variable index283052
-Node: Concept index286552
+Node: GNU Free Documentation License255934
+Node: Indices281298
+Node: Function index281477
+Node: Variable index283073
+Node: Concept index286573
 
 End Tag Table
 
