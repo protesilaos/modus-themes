@@ -15,6 +15,94 @@ For further details, please consult these additional resources:
 + Manual :: <https://protesilaos.com/emacs/modus-themes>
 + Screenshots :: <https://protesilaos.com/emacs/modus-themes-pictures>
 
+* 4.8.0 on 2025-06-11
+:PROPERTIES:
+:CUSTOM_ID: h:a8d31a81-5283-494a-bfb0-982206bcb2bd
+:END:
+
+This is a small release that corrects a mistake I made in the previous
+version. It also introduces some minor refinements.
+
+** Matching parentheses are easy to spot
+:PROPERTIES:
+:CUSTOM_ID: h:66e472d7-444c-4cbe-b505-b05f586cc9f5
+:END:
+
+In version =4.7.0=, I made the mistake of merging some stylistic
+tweaks to ~show-paren-mode~ that I was experimenting with. The idea
+was to get a feel for how the subtle colouration of matching
+delimiters affects the usability of the themes. In short, it is not a
+good default for our purposes (though users have the option to
+override the applicable colours, as explained in the Modus themes
+manual).
+
+Thanks to Morgan Willcock for reporting the unwanted change in issue
+139: <https://github.com/protesilaos/modus-themes/issues/139>.
+
+** The =bg-paren-match= of ~modus-vivendi-tinted~ is a bit greener
+:PROPERTIES:
+:CUSTOM_ID: h:776e2c72-f3ed-4df1-809f-e9e64b68c029
+:END:
+
+We go from =#5f789f= to =#4f7f9f=. The latter fits better with the
+rest of the theme.
+
+** Refined the "mail" semantic mappings of the tinted themes
+:PROPERTIES:
+:CUSTOM_ID: h:1caccaff-5e19-4941-8ce0-1612f9017d27
+:END:
+
+This concerns =message.el= and anything building on top of it, like
+Gnus, Mu4e, and Notmuch. I made ~modus-operandi-tinted~ and
+~modus-vivendi-tinted~ use two colours that are more in line with the
+established patterns of their respective theme. The changes are small,
+but contribute to a more consistent experience.
+
+** A new =property= semantic mapping is available
+:PROPERTIES:
+:CUSTOM_ID: h:79c0c8b8-a239-4ddf-be91-3a70669f373f
+:END:
+
+By default, it uses the same colour as the =variable=. Users who want
+to have more refined colouration in supported modes (typically
+involving tree-sitter), can change the relevant "palette overrides"
+user option we provide, such as ~modus-themes-common-palette-overrides~
+or ~modus-operandi-palette-overrides~ and related.
+
+Thanks to Alexandr Semenov for requesting this in issue 141:
+<https://github.com/protesilaos/modus-themes/issues/141>.
+
+** My ~tmr~ package is now supported
+:PROPERTIES:
+:CUSTOM_ID: h:ed447d82-b709-4b69-8f46-15abfc7877f6
+:END:
+
+Its faces were already consistent with the Modus themes, though now I
+cover them at the theme level to subject them to palette overrides.
+
+** The "ancient" Gnus messages are styled properly
+:PROPERTIES:
+:CUSTOM_ID: h:2af608e7-409c-413a-b356-a441af704f11
+:END:
+
+Those are only ever seen if the user configures Gnus in a certain way
+and follows a specific workflow. They now get a subtle foreground
+value. This is in response to the issue 119 by sivaramn:
+<https://github.com/protesilaos/modus-themes/issues/119>.
+
+** The ~modus-themes-rotate~ command can now go backwards
+:PROPERTIES:
+:CUSTOM_ID: h:87ed7847-62d5-4fe4-b05c-8e2d1c390528
+:END:
+
+When called with a prefix argument (=C-u= by default), this command
+will rotate the ~modus-themes-to-rotate~ from right to left.
+Otherwise, it goes from left to right.
+
+Thanks to Jacob S. Gordon for the contribution. It was sent as a
+patch as part of issue 143:
+<https://github.com/protesilaos/modus-themes/issues/143>.
+
 * 4.7.0 on 2025-04-17
 :PROPERTIES:
 :CUSTOM_ID: h:1ee2b685-2032-45a2-8a23-70e07dafd036

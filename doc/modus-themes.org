@@ -4,9 +4,9 @@
 #+language: en
 #+options: ':t toc:nil author:t email:t num:t
 #+startup: content
-#+macro: stable-version 4.7.0
-#+macro: release-date 2025-04-17
-#+macro: development-version 4.8.0-dev
+#+macro: stable-version 4.8.0
+#+macro: release-date 2025-06-11
+#+macro: development-version 4.9.0-dev
 #+macro: file @@texinfo:@file{@@$1@@texinfo:}@@
 #+macro: space @@texinfo:@: @@
 #+macro: kbd @@texinfo:@kbd{@@$1@@texinfo:}@@
@@ -4395,7 +4395,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + term
 + textsec
 + tldr
-+ tmr [ Part of {{{development-version}}}. ]
++ tmr
 + transient (pop-up windows such as Magit's)
 + trashed
 + treemacs
