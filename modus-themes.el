@@ -2655,6 +2655,8 @@ FG and BG are the main colors."
 ;;;;; hexl-mode
     `(hexl-address-region ((,c :foreground ,constant)))
     `(hexl-ascii-region ((,c :foreground ,variable)))
+;;;;; hideshow
+    `(hs-ellipsis (( )))
 ;;;;; highlight region or ad-hoc regexp
     ;; HACK 2022-06-23: The :inverse-video prevents hl-line-mode from
     ;; overriding the background.  Such an override really defeats the
