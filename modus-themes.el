@@ -3486,6 +3486,8 @@ FG and BG are the main colors."
 ;;;;; package (M-x list-packages)
     `(package-description ((,c :foreground ,docstring)))
     `(package-help-section-name ((,c :inherit bold)))
+    `(package-mark-delete-line ((,c :inherit modus-themes-mark-del)))
+    `(package-mark-install-line ((,c :inherit modus-themes-mark-sel)))
     `(package-name ((,c :inherit link)))
     `(package-status-available ((,c :foreground ,date-common)))
     `(package-status-avail-obso ((,c :inherit error)))
