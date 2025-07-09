@@ -5876,15 +5876,15 @@ Author/maintainer
 Contributions to code or documentation
      Aleksei Gusev, Alex Griffin, Anders Johansson, Antonio Ruiz, Basil
      L. Contovounesios, Björn Lindström, Carlo Zancanaro, Christian
-     Tietze, Daniel Mendler, David Edmondson, Eli Zaretskii, Fritz
-     Grabo, Gautier Ponsinet, Illia Ostapyshyn, Jacob S. Gordon, Jared
-     Finder, Jimmy Yuen Ho Wong, Kévin Le Gouguec, Koen van
-     Greevenbroek, Kostadin Ninev, Leilei332, Madhavan Krishnan, Manuel
-     Giraud, Markus Beppler, Matthew Stevenson, Mauro Aranda, Nacho
-     Barrientos, Niall Dooley, Nicolas De Jaeghere, Paul David, Pavel
-     Novichkov, Philip Kaludercic, Pierre Téchoueyres, Rahul M. Juliato,
-     Rudolf Adamkovič, Sergey Nichiporchik, Shreyas Ragavan, Stefan
-     Kangas, Stephen Berman, Stephen Gildea, Steve Downey, Thanos
+     Tietze, Daniel Mendler, David Edmondson, Eli Zaretskii, Eric
+     Ottosson, Fritz Grabo, Gautier Ponsinet, Illia Ostapyshyn, Jacob S.
+     Gordon, Jared Finder, Jimmy Yuen Ho Wong, Kévin Le Gouguec, Koen
+     van Greevenbroek, Kostadin Ninev, Leilei332, Madhavan Krishnan,
+     Manuel Giraud, Markus Beppler, Matthew Stevenson, Mauro Aranda,
+     Nacho Barrientos, Niall Dooley, Nicolas De Jaeghere, Paul David,
+     Pavel Novichkov, Philip Kaludercic, Pierre Téchoueyres, Rahul M.
+     Juliato, Rudolf Adamkovič, Sergey Nichiporchik, Shreyas Ragavan,
+     Stefan Kangas, Stephen Berman, Stephen Gildea, Steve Downey, Thanos
      Apollo, Tomasz Hołubowicz, Utkarsh Singh, Vincent Murphy, Xinglu
      Chen, Yuanchen Xie, fluentpwn, okamsn.
 
@@ -6715,11 +6715,11 @@ Node: Sources of the themes245705
 Node: Issues you can help with246601
 Node: Patches require copyright assignment to the FSF247994
 Node: Acknowledgements250216
-Node: GNU Free Documentation License254614
-Node: Indices279978
-Node: Function index280157
-Node: Variable index281753
-Node: Concept index285253
+Node: GNU Free Documentation License254629
+Node: Indices279993
+Node: Function index280172
+Node: Variable index281768
+Node: Concept index285268
 
 End Tag Table
 
