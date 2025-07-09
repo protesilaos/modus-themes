@@ -2479,7 +2479,7 @@ FG and BG are the main colors."
     `(flymake-note-echo-at-eol ((,c :inherit flymake-end-of-line-diagnostics-face :foreground ,info)))
     `(flymake-warning ((,c :inherit modus-themes-lang-warning)))
     `(flymake-warning-echo ((,c :inherit warning)))
-    `(flymake-note-echo-at-eol ((,c :inherit flymake-end-of-line-diagnostics-face :foreground ,warning)))
+    `(flymake-warning-echo-at-eol ((,c :inherit flymake-end-of-line-diagnostics-face :foreground ,warning)))
 ;;;;; flyspell
     `(flyspell-duplicate ((,c :inherit modus-themes-lang-warning)))
     `(flyspell-incorrect ((,c :inherit modus-themes-lang-error)))
