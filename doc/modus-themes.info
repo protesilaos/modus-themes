@@ -326,9 +326,9 @@ File: modus-themes.info,  Node: Installation,  Next: Enable and load,  Prev: Ove
 **************
 
 The Modus themes are distributed with Emacs starting with version 28.1.
-On older versions of Emacs, they can be installed using Emacs’ package
-manager or manually from their code repository.  There also exist
-packages for distributions of GNU/Linux.
+On Emacs 27, they can be installed using Emacs’ package manager or
+manually from their code repository.  There also exist packages for
+distributions of GNU/Linux.
 
    Emacs 28 ships with ‘modus-themes’ version ‘1.6.0’.  Emacs 29
 includes version ‘3.0.0’.  Emacs 30 provides a newer, refactored version
@@ -5902,28 +5902,28 @@ Ideas and user feedback
      Recchia, Gonçalo Marrafa, Guilherme Semente, Gustavo Barros,
      Hörmetjan Yiltiz, Ilja Kocken, Imran Khan, Iris Garcia, Ivan
      Popovych, Jabir Ali Ouassou, James Ferguson, Jeremy Friesen, Jerry
-     Zhang, Johannes Grødem, John Haman, John Wick, Jonas Collberg,
-     Jorge Morais, Joshua O’Connor, Julio C.  Villasante, Kenta Usami,
-     Kevin Fleming, Kévin Le Gouguec, Kevin Kainan Li, Kostadin Ninev,
-     Laith Bahodi, Lasse Lindner, Len Trigg, Lennart C. Karssen, Luis
-     Miguel Castañeda, Magne Hov, Manuel Giraud, Manuel Uberti, Mark
-     Bestley, Mark Burton, Mark Simpson, Marko Kocic, Markus Beppler,
-     Matt Armstrong, Matthias Fuchs, Mattias Engdegård, Mauro Aranda,
-     Maxime Tréca, Michael Goldenberg, Morgan Smith, Morgan Willcock,
-     Murilo Pereira, Nicky van Foreest, Nicolas De Jaeghere, Nicolas
-     Semrau, Olaf Meeuwissen, Oliver Epper, Pablo Stafforini, Paul
-     Poloskov, Pengji Zhang, Pete Kazmier, Peter Wu, Philip Kaludercic,
-     Pierre Téchoueyres, Przemysław Kryger, Robert Hepple, Roman
-     Rudakov, Russell Sim, Ryan Phillips, Rytis Paškauskas, Rudolf
-     Adamkovič, Sam Kleinman, Samuel Culpepper, Saša Janiška, Shreyas
-     Ragavan, Simon Pugnet, Steve Downey, Tassilo Horn, Thanos Apollo,
-     Thibaut Verron, Thomas Heartman, Togan Muftuoglu, Tony Zorman, Trey
-     Merkley, Tomasz Hołubowicz, Toon Claes, Uri Sharf, Utkarsh Singh,
-     Vincent Foley, Zoltan Kiraly.  As well as users: Ben,
-     CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji,
-     Nick, Summer Emacs, TheBlob42, TitusMu, Trey, ZharMeny,
-     bepolymathe, bit9tream, bangedorrunt, derek-upham, doolio,
-     fleimgruber, gitrj95, iSeeU, jixiuf, ltmsyvag, okamsn,
+     Zhang, Johannes Grødem, John Haman, John Sullivan, John Wick, Jonas
+     Collberg, Jorge Morais, Joshua O’Connor, Julio C.  Villasante,
+     Kenta Usami, Kevin Fleming, Kévin Le Gouguec, Kevin Kainan Li,
+     Kostadin Ninev, Laith Bahodi, Lasse Lindner, Len Trigg, Lennart C.
+     Karssen, Luis Miguel Castañeda, Magne Hov, Manuel Giraud, Manuel
+     Uberti, Mark Bestley, Mark Burton, Mark Simpson, Marko Kocic,
+     Markus Beppler, Matt Armstrong, Matthias Fuchs, Mattias Engdegård,
+     Mauro Aranda, Maxime Tréca, Michael Goldenberg, Morgan Smith,
+     Morgan Willcock, Murilo Pereira, Nicky van Foreest, Nicolas De
+     Jaeghere, Nicolas Semrau, Olaf Meeuwissen, Oliver Epper, Pablo
+     Stafforini, Paul Poloskov, Pengji Zhang, Pete Kazmier, Peter Wu,
+     Philip Kaludercic, Pierre Téchoueyres, Przemysław Kryger, Robert
+     Hepple, Roman Rudakov, Russell Sim, Ryan Phillips, Rytis
+     Paškauskas, Rudolf Adamkovič, Sam Kleinman, Samuel Culpepper, Saša
+     Janiška, Shreyas Ragavan, Simon Pugnet, Steve Downey, Tassilo Horn,
+     Thanos Apollo, Thibaut Verron, Thomas Heartman, Togan Muftuoglu,
+     Tony Zorman, Trey Merkley, Tomasz Hołubowicz, Toon Claes, Uri
+     Sharf, Utkarsh Singh, Vincent Foley, Zoltan Kiraly.  As well as
+     users: Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux,
+     Fredrik, Moesasji, Nick, Summer Emacs, TheBlob42, TitusMu, Trey,
+     ZharMeny, bepolymathe, bit9tream, bangedorrunt, derek-upham,
+     doolio, fleimgruber, gitrj95, iSeeU, jixiuf, ltmsyvag, okamsn,
      pedro-nonfree, pRot0ta1p, shipmints, soaringbird, tumashu,
      wakamenod.
 
@@ -6597,124 +6597,124 @@ Node: Overview8646
 Node: How do the themes look like11418
 Node: Learn about the latest changes11777
 Node: Installation12165
-Node: Install manually from source13095
-Node: Install from the archives13920
-Node: Install on GNU/Linux14519
-Node: Debian 11 Bullseye15012
-Node: GNU Guix15422
-Node: Dealing with byte compilation errors15705
-Node: Enable and load16863
-Node: The require-theme for built-in Emacs themes20807
-Node: Sample configuration with and without use-package21927
-Node: Differences between loading and enabling24775
-Node: Customization options26906
-Node: Custom reload theme30815
-Node: Disable other themes31735
-Node: Bold constructs32977
-Node: Italic constructs33849
-Node: Option for which themes to toggle34677
-Node: Option for which themes to rotate35440
-Node: Mixed fonts36216
-Node: Command prompts37270
-Node: Completion UIs39113
-Node: Org mode blocks41964
-Node: Heading styles42609
-Node: UI typeface47039
-Node: Palette overrides48012
-Node: Palette extension52402
-Node: Preview theme colors54878
-Node: Use colors from the Modus themes palette56434
-Node: Get a single color from the palette with modus-themes-get-color-value57298
-Node: Use theme colors in code with modus-themes-with-colors59661
-Node: Advanced customization61917
-Node: DIY Palette override presets63684
-Node: DIY Add support for engrave-faces66526
-Node: DIY Stylistic variants using palette overrides76509
-Node: DIY Make the mode line borderless78568
-Node: DIY Make the active mode line colorful79943
-Node: DIY Make the tab bar more or less colorful82161
-Node: DIY Make the fringe invisible or another color84098
-Node: DIY Make links use subtle or no underlines85299
-Node: DIY Make prompts more or less colorful86417
-Node: DIY Make completion matches more or less colorful87740
-Node: DIY Make comments yellow and strings green91299
-Node: DIY Make code syntax use the old alt-syntax style93008
-Node: DIY Make use of alternative styles for code syntax96131
-Node: DIY Make matching parenthesis more or less intense99593
-Node: DIY Make box buttons more or less gray100965
-Node: DIY Make TODO and DONE more or less intense101978
-Node: DIY Make headings more or less colorful103479
-Node: DIY Make Org block colors more or less colorful105596
-Node: DIY Make Org agenda more or less colorful109970
-Node: DIY Make inline code in prose use alternative styles113145
-Node: DIY Make mail citations and headers more or less colorful115387
-Node: DIY Make the region preserve text colors plus other styles117787
-Node: DIY Make mouse highlights more or less colorful119343
-Node: DIY Make language underlines less colorful120356
-Node: DIY Make line numbers use alternative styles121508
-Node: DIY Make diffs use only a foreground123151
-Node: DIY Make deuteranopia diffs red and blue instead of yellow and blue126042
-Node: DIY More accurate colors in terminal emulators128522
-Node: DIY Range of color with terminal emulators129834
-Node: DIY Per-theme customization settings132627
-Node: DIY Do not extend the region background134060
-Node: DIY Add padding to the mode line134860
-Node: DIY Remap face with local value137794
-Node: DIY Font configurations for Org and others140341
-Ref: DIY Font configurations for Org and others-Footnote-1143326
-Node: DIY Configure bold and italic faces143513
-Node: DIY Custom Org todo keyword and priority faces148135
-Node: DIY Custom Org emphasis faces151878
-Node: DIY Use colored Org source blocks per language156759
-Node: DIY Measure color contrast161399
-Node: DIY Load theme depending on time of day164119
-Node: DIY Backdrop for pdf-tools165149
-Node: DIY Toggle themes without reloading them168318
-Node: DIY Use more spacious margins or padding in Emacs frames169627
-Node: DIY Custom hl-todo colors173884
-Node: DIY Add support for solaire-mode175701
-Node: DIY Add support for meow-mode178807
-Node: DIY Add support for combobulate180617
-Node: DIY Use a hook at the post-load-theme phase184240
-Node: DIY A theme-agnostic hook for theme loading186363
-Node: Face coverage188994
-Node: Supported packages189446
-Node: Indirectly covered packages195318
-Node: Notes on individual packages196674
-Node: Note on calendarel weekday and weekend colors197774
-Node: Note on git-gutter in Doom Emacs198922
-Node: Note on php-mode multiline comments201422
-Node: Note on underlines in compilation buffers202182
-Node: Note on inline Latex in Org buffers203054
-Node: Note on dimmerel203664
-Node: Note on display-fill-column-indicator-mode205149
-Node: Note on highlight-parenthesesel206602
-Node: Note on mmm-modeel background colors212683
-Node: Note for prism215037
-Node: Note on company-mode overlay pop-up218259
-Ref: Note on company-mode overlay pop-up-Footnote-1218989
-Ref: Note on company-mode overlay pop-up-Footnote-2219056
-Node: Note on ERC escaped color sequences219111
-Ref: Note on ERC escaped color sequences-Footnote-1220539
-Node: Note on powerline or spaceline220649
-Node: Note on SHR colors221063
-Node: Note on SHR fonts221487
-Node: Note on Ement colors and fonts222174
-Node: Note on pdf-tools link hints223684
-Node: Note on the Notmuch logo226144
-Node: Note on goto-address-mode faces226682
-Node: Frequently Asked Questions227800
-Node: Is the contrast ratio about adjacent colors?228433
-Node: What does it mean to avoid exaggerations?229942
-Node: Why are colors mostly variants of blue magenta cyan?231794
-Node: What is the best setup for legibility?236128
-Node: Are these color schemes?238776
-Node: Port the Modus themes to other platforms?242460
-Node: Contributing245306
-Node: Sources of the themes245705
-Node: Issues you can help with246601
-Node: Patches require copyright assignment to the FSF247994
-Node: Acknowledgements250216
+Node: Install manually from source13080
+Node: Install from the archives13905
+Node: Install on GNU/Linux14504
+Node: Debian 11 Bullseye14997
+Node: GNU Guix15407
+Node: Dealing with byte compilation errors15690
+Node: Enable and load16848
+Node: The require-theme for built-in Emacs themes20792
+Node: Sample configuration with and without use-package21912
+Node: Differences between loading and enabling24760
+Node: Customization options26891
+Node: Custom reload theme30800
+Node: Disable other themes31720
+Node: Bold constructs32962
+Node: Italic constructs33834
+Node: Option for which themes to toggle34662
+Node: Option for which themes to rotate35425
+Node: Mixed fonts36201
+Node: Command prompts37255
+Node: Completion UIs39098
+Node: Org mode blocks41949
+Node: Heading styles42594
+Node: UI typeface47024
+Node: Palette overrides47997
+Node: Palette extension52387
+Node: Preview theme colors54863
+Node: Use colors from the Modus themes palette56419
+Node: Get a single color from the palette with modus-themes-get-color-value57283
+Node: Use theme colors in code with modus-themes-with-colors59646
+Node: Advanced customization61902
+Node: DIY Palette override presets63669
+Node: DIY Add support for engrave-faces66511
+Node: DIY Stylistic variants using palette overrides76494
+Node: DIY Make the mode line borderless78553
+Node: DIY Make the active mode line colorful79928
+Node: DIY Make the tab bar more or less colorful82146
+Node: DIY Make the fringe invisible or another color84083
+Node: DIY Make links use subtle or no underlines85284
+Node: DIY Make prompts more or less colorful86402
+Node: DIY Make completion matches more or less colorful87725
+Node: DIY Make comments yellow and strings green91284
+Node: DIY Make code syntax use the old alt-syntax style92993
+Node: DIY Make use of alternative styles for code syntax96116
+Node: DIY Make matching parenthesis more or less intense99578
+Node: DIY Make box buttons more or less gray100950
+Node: DIY Make TODO and DONE more or less intense101963
+Node: DIY Make headings more or less colorful103464
+Node: DIY Make Org block colors more or less colorful105581
+Node: DIY Make Org agenda more or less colorful109955
+Node: DIY Make inline code in prose use alternative styles113130
+Node: DIY Make mail citations and headers more or less colorful115372
+Node: DIY Make the region preserve text colors plus other styles117772
+Node: DIY Make mouse highlights more or less colorful119328
+Node: DIY Make language underlines less colorful120341
+Node: DIY Make line numbers use alternative styles121493
+Node: DIY Make diffs use only a foreground123136
+Node: DIY Make deuteranopia diffs red and blue instead of yellow and blue126027
+Node: DIY More accurate colors in terminal emulators128507
+Node: DIY Range of color with terminal emulators129819
+Node: DIY Per-theme customization settings132612
+Node: DIY Do not extend the region background134045
+Node: DIY Add padding to the mode line134845
+Node: DIY Remap face with local value137779
+Node: DIY Font configurations for Org and others140326
+Ref: DIY Font configurations for Org and others-Footnote-1143311
+Node: DIY Configure bold and italic faces143498
+Node: DIY Custom Org todo keyword and priority faces148120
+Node: DIY Custom Org emphasis faces151863
+Node: DIY Use colored Org source blocks per language156744
+Node: DIY Measure color contrast161384
+Node: DIY Load theme depending on time of day164104
+Node: DIY Backdrop for pdf-tools165134
+Node: DIY Toggle themes without reloading them168303
+Node: DIY Use more spacious margins or padding in Emacs frames169612
+Node: DIY Custom hl-todo colors173869
+Node: DIY Add support for solaire-mode175686
+Node: DIY Add support for meow-mode178792
+Node: DIY Add support for combobulate180602
+Node: DIY Use a hook at the post-load-theme phase184225
+Node: DIY A theme-agnostic hook for theme loading186348
+Node: Face coverage188979
+Node: Supported packages189431
+Node: Indirectly covered packages195303
+Node: Notes on individual packages196659
+Node: Note on calendarel weekday and weekend colors197759
+Node: Note on git-gutter in Doom Emacs198907
+Node: Note on php-mode multiline comments201407
+Node: Note on underlines in compilation buffers202167
+Node: Note on inline Latex in Org buffers203039
+Node: Note on dimmerel203649
+Node: Note on display-fill-column-indicator-mode205134
+Node: Note on highlight-parenthesesel206587
+Node: Note on mmm-modeel background colors212668
+Node: Note for prism215022
+Node: Note on company-mode overlay pop-up218244
+Ref: Note on company-mode overlay pop-up-Footnote-1218974
+Ref: Note on company-mode overlay pop-up-Footnote-2219041
+Node: Note on ERC escaped color sequences219096
+Ref: Note on ERC escaped color sequences-Footnote-1220524
+Node: Note on powerline or spaceline220634
+Node: Note on SHR colors221048
+Node: Note on SHR fonts221472
+Node: Note on Ement colors and fonts222159
+Node: Note on pdf-tools link hints223669
+Node: Note on the Notmuch logo226129
+Node: Note on goto-address-mode faces226667
+Node: Frequently Asked Questions227785
+Node: Is the contrast ratio about adjacent colors?228418
+Node: What does it mean to avoid exaggerations?229927
+Node: Why are colors mostly variants of blue magenta cyan?231779
+Node: What is the best setup for legibility?236113
+Node: Are these color schemes?238761
+Node: Port the Modus themes to other platforms?242445
+Node: Contributing245291
+Node: Sources of the themes245690
+Node: Issues you can help with246586
+Node: Patches require copyright assignment to the FSF247979
+Node: Acknowledgements250201
 Node: GNU Free Documentation License254629
 Node: Indices279993
 Node: Function index280172

@@ -143,10 +143,10 @@ and covers everything that goes into every tagged release of the themes.
 :custom_id: h:1af85373-7f81-4c35-af25-afcef490c111
 :end:
 
-The Modus themes are distributed with Emacs starting with version 28.1.
-On older versions of Emacs, they can be installed using Emacs' package
-manager or manually from their code repository.  There also exist
-packages for distributions of GNU/Linux.
+The Modus themes are distributed with Emacs starting with version
+28.1. On Emacs 27, they can be installed using Emacs' package manager
+or manually from their code repository. There also exist packages for
+distributions of GNU/Linux.
 
 Emacs 28 ships with ~modus-themes~ version =1.6.0=.  Emacs 29 includes
 version =3.0.0=.  Emacs 30 provides a newer, refactored version that
@@ -5723,28 +5723,28 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Guilherme Semente, Gustavo Barros, Hörmetjan Yiltiz, Ilja Kocken,
   Imran Khan, Iris Garcia, Ivan Popovych, Jabir Ali Ouassou, James
   Ferguson, Jeremy Friesen, Jerry Zhang, Johannes Grødem, John Haman,
-  John Wick, Jonas Collberg, Jorge Morais, Joshua O'Connor, Julio C.
-  Villasante, Kenta Usami, Kevin Fleming, Kévin Le Gouguec, Kevin
-  Kainan Li, Kostadin Ninev, Laith Bahodi, Lasse Lindner, Len Trigg,
-  Lennart C.{{{space()}}} Karssen, Luis Miguel Castañeda, Magne Hov,
-  Manuel Giraud, Manuel Uberti, Mark Bestley, Mark Burton, Mark
-  Simpson, Marko Kocic, Markus Beppler, Matt Armstrong, Matthias
-  Fuchs, Mattias Engdegård, Mauro Aranda, Maxime Tréca, Michael
-  Goldenberg, Morgan Smith, Morgan Willcock, Murilo Pereira, Nicky van
-  Foreest, Nicolas De Jaeghere, Nicolas Semrau, Olaf Meeuwissen,
-  Oliver Epper, Pablo Stafforini, Paul Poloskov, Pengji Zhang, Pete
-  Kazmier, Peter Wu, Philip Kaludercic, Pierre Téchoueyres, Przemysław
-  Kryger, Robert Hepple, Roman Rudakov, Russell Sim, Ryan Phillips,
-  Rytis Paškauskas, Rudolf Adamkovič, Sam Kleinman, Samuel Culpepper,
-  Saša Janiška, Shreyas Ragavan, Simon Pugnet, Steve Downey, Tassilo
-  Horn, Thanos Apollo, Thibaut Verron, Thomas Heartman, Togan
-  Muftuoglu, Tony Zorman, Trey Merkley, Tomasz Hołubowicz, Toon Claes,
-  Uri Sharf, Utkarsh Singh, Vincent Foley, Zoltan Kiraly. As well as
-  users: Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux,
-  Fredrik, Moesasji, Nick, Summer Emacs, TheBlob42, TitusMu, Trey,
-  ZharMeny, bepolymathe, bit9tream, bangedorrunt, derek-upham, doolio,
-  fleimgruber, gitrj95, iSeeU, jixiuf, ltmsyvag, okamsn,
-  pedro-nonfree, pRot0ta1p, shipmints, soaringbird, tumashu,
+  John Sullivan, John Wick, Jonas Collberg, Jorge Morais, Joshua
+  O'Connor, Julio C. Villasante, Kenta Usami, Kevin Fleming, Kévin Le
+  Gouguec, Kevin Kainan Li, Kostadin Ninev, Laith Bahodi, Lasse
+  Lindner, Len Trigg, Lennart C.{{{space()}}} Karssen, Luis Miguel
+  Castañeda, Magne Hov, Manuel Giraud, Manuel Uberti, Mark Bestley,
+  Mark Burton, Mark Simpson, Marko Kocic, Markus Beppler, Matt
+  Armstrong, Matthias Fuchs, Mattias Engdegård, Mauro Aranda, Maxime
+  Tréca, Michael Goldenberg, Morgan Smith, Morgan Willcock, Murilo
+  Pereira, Nicky van Foreest, Nicolas De Jaeghere, Nicolas Semrau,
+  Olaf Meeuwissen, Oliver Epper, Pablo Stafforini, Paul Poloskov,
+  Pengji Zhang, Pete Kazmier, Peter Wu, Philip Kaludercic, Pierre
+  Téchoueyres, Przemysław Kryger, Robert Hepple, Roman Rudakov,
+  Russell Sim, Ryan Phillips, Rytis Paškauskas, Rudolf Adamkovič, Sam
+  Kleinman, Samuel Culpepper, Saša Janiška, Shreyas Ragavan, Simon
+  Pugnet, Steve Downey, Tassilo Horn, Thanos Apollo, Thibaut Verron,
+  Thomas Heartman, Togan Muftuoglu, Tony Zorman, Trey Merkley, Tomasz
+  Hołubowicz, Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley,
+  Zoltan Kiraly. As well as users: Ben, CsBigDataHub1, Emacs Contrib,
+  Eugene, Fourchaux, Fredrik, Moesasji, Nick, Summer Emacs, TheBlob42,
+  TitusMu, Trey, ZharMeny, bepolymathe, bit9tream, bangedorrunt,
+  derek-upham, doolio, fleimgruber, gitrj95, iSeeU, jixiuf, ltmsyvag,
+  okamsn, pedro-nonfree, pRot0ta1p, shipmints, soaringbird, tumashu,
   wakamenod.
 
 + Packaging :: Basil L.{{{space()}}} Contovounesios, Eli Zaretskii,
