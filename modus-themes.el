@@ -6,7 +6,7 @@
 ;; Maintainer: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://github.com/protesilaos/modus-themes
 ;; Version: 4.8.0
-;; Package-Requires: ((emacs "28.1"))
+;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
 ;; This file is part of GNU Emacs.
@@ -1313,7 +1313,7 @@ PALETTE is the value of a variable like `modus-operandi-palette'."
               (pcase-let* ((`(,name ,value) cell)
                            (name-string (format "%s" name))
                            (value-string (format "%s" value))
-                           (value-string-padded (string-pad value-string 30))
+                           (value-string-padded (format "%-30s" value-string))
                            (color (modus-themes-get-color-value name mappings theme))) ; resolve a semantic mapping
                 (list name
                       (vector
