@@ -1,4 +1,4 @@
-This is modus-themes.info, produced by makeinfo version 6.8 from
+This is modus-themes.info, produced by makeinfo version 7.1.1 from
 modus-themes.texi.
 
 Copyright (C) 2020-2025 Free Software Foundation, Inc.
@@ -77,7 +77,7 @@ as such.
 * GNU Free Documentation License::
 * Indices::
 
-— The Detailed Node Listing —
+-- The Detailed Node Listing --
 
 Overview
 
@@ -171,7 +171,7 @@ DIY Stylistic variants using palette overrides
 * DIY Make Org agenda more or less colorful::
 * DIY Make inline code in prose use alternative styles::
 * DIY Make mail citations and headers more or less colorful::
-* DIY Make the region preserve text colors, plus other styles: DIY Make the region preserve text colors plus other styles.
+* DIY Make the region preserve text colors, plus other styles::
 * DIY Make mouse highlights more or less colorful::
 * DIY Make language underlines less colorful::
 * DIY Make line numbers use alternative styles::
@@ -213,7 +213,7 @@ Frequently Asked Questions
 
 * Is the contrast ratio about adjacent colors?::
 * What does it mean to avoid exaggerations?::
-* Why are colors mostly variants of blue, magenta, cyan?: Why are colors mostly variants of blue magenta cyan?.
+* Why are colors mostly variants of blue, magenta, cyan?::
 * What is the best setup for legibility?::
 * Are these color schemes?::
 * Port the Modus themes to other platforms?::
@@ -247,11 +247,11 @@ distance in relative luminance of 7:1.
 subgroups.
 
 Main themes
-     ‘modus-operandi’ is the project’s main light theme, while
+     ‘modus-operandi’ is the project's main light theme, while
      ‘modus-vivendi’ is its dark counterpart.  These two themes are part
      of the project since its inception.  They are designed to cover a
      broad range of needs and are, in the opinion of the author, the
-     reference for what a highly legible “default” theme should look
+     reference for what a highly legible "default" theme should look
      like.
 
 Tinted themes
@@ -282,7 +282,7 @@ Tritanopia themes
    To ensure that users have a consistently accessible experience, the
 themes strive to achieve as close to full face coverage as possible,
 while still targeting a curated list of well-maintained packages (*note
-Face coverage::).
+Face coverage: Face coverage.).
 
    The overarching objective of this project is to always offer
 accessible color combinations.  There shall never be a compromise on
@@ -306,7 +306,8 @@ File: modus-themes.info,  Node: How do the themes look like,  Next: Learn about 
 
 Check the web page with the screen shots
 (https://protesilaos.com/emacs/modus-themes-pictures/).  Note that the
-themes are highly customizable (*note Customization options::).
+themes are highly customizable (*note Customization options:
+Customization options.).
 
 
 File: modus-themes.info,  Node: Learn about the latest changes,  Prev: How do the themes look like,  Up: Overview
@@ -326,7 +327,7 @@ File: modus-themes.info,  Node: Installation,  Next: Enable and load,  Prev: Ove
 **************
 
 The Modus themes are distributed with Emacs starting with version 28.1.
-On Emacs 27, they can be installed using Emacs’ package manager or
+On Emacs 27, they can be installed using Emacs' package manager or
 manually from their code repository.  There also exist packages for
 distributions of GNU/Linux.
 
@@ -334,7 +335,7 @@ distributions of GNU/Linux.
 includes version ‘3.0.0’.  Emacs 30 provides a newer, refactored version
 that thoroughly refashions how the themes are implemented and
 customized.  Such major versions are not backward-compatible due to the
-limited resources at the maintainer’s disposal to support multiple
+limited resources at the maintainer's disposal to support multiple
 versions of Emacs and of the themes across the years.
 
 * Menu:
@@ -359,12 +360,13 @@ stored in ‘~/.emacs.d’ and that you want to place the Modus themes in
 
      $ git clone https://gitlab.com/protesilaos/modus-themes.git ~/.emacs.d/modus-themes
 
-  1. Add that path to your known Elisp libraries’ list, by placing this
+  1. Add that path to your known Elisp libraries' list, by placing this
      snippet of Emacs Lisp in your init file (e.g.  ‘init.el’):
 
      (add-to-list 'load-path "~/.emacs.d/modus-themes")
 
-   The themes are now ready to be used: *note Enable and load::.
+   The themes are now ready to be used: *note Enable and load: Enable
+and load.
 
 
 File: modus-themes.info,  Node: Install from the archives,  Next: Install on GNU/Linux,  Prev: Install manually from source,  Up: Installation
@@ -380,7 +382,7 @@ with ‘M-x package-refresh-contents’.  Then all you need to do is type
 ‘M-x package-install’ and specify the ‘modus-themes’.
 
    Once installed, the themes are ready to be used: *note Enable and
-load::.
+load: Enable and load.
 
 
 File: modus-themes.info,  Node: Install on GNU/Linux,  Next: Dealing with byte compilation errors,  Prev: Install from the archives,  Up: Installation
@@ -391,7 +393,7 @@ File: modus-themes.info,  Node: Install on GNU/Linux,  Next: Dealing with byte c
 The themes are also available from the archives of some distributions of
 GNU/Linux.  These should correspond to a tagged release rather than
 building directly from the latest Git commit.  It all depends on the
-distro’s packaging policies.
+distro's packaging policies.
 
 * Menu:
 
@@ -408,9 +410,10 @@ The themes are part of Debian 11 Bullseye.  Get them with:
 
      sudo apt install elpa-modus-themes
 
-   They are now ready to be used: *note Enable and load::.
+   They are now ready to be used: *note Enable and load: Enable and
+load.
 
-   NOTE that Debian’s package is severely out-of-date as of this writing
+   NOTE that Debian's package is severely out-of-date as of this writing
 2022-07-24 09:57 +0300.
 
 
@@ -423,7 +426,8 @@ Users of Guix can get the themes with this command:
 
      guix package -i emacs-modus-themes
 
-   They are now ready to be used: *note Enable and load::.
+   They are now ready to be used: *note Enable and load: Enable and
+load.
 
 
 File: modus-themes.info,  Node: Dealing with byte compilation errors,  Prev: Install on GNU/Linux,  Up: Installation
@@ -452,7 +456,7 @@ the relevant upstream maintainer.  Whatever you do, please understand
 that a build failure does not mean we are necessarily doing something
 wrong.
 
-   *note Issues you can help with::.
+   *note Issues you can help with: Issues you can help with.
 
 
 File: modus-themes.info,  Node: Enable and load,  Next: Customization options,  Prev: Installation,  Up: Top
@@ -474,8 +478,8 @@ of their preference by adding either form to their init file:
      (load-theme 'modus-operandi)            ; Light theme
      (load-theme 'modus-vivendi)             ; Dark theme
 
-   Remember that there are multiple Modus themes (*note Overview::).
-Adapt the above snippet accordingly.
+   Remember that there are multiple Modus themes (*note Overview:
+Overview.).  Adapt the above snippet accordingly.
 
    Users of packaged variants of the themes must add a few more lines to
 ensure that everything works as intended.  First, one has to require the
@@ -525,7 +529,8 @@ themes.):
 
      (define-key global-map (kbd "<f5>") #'modus-themes-toggle)
 
-   *note Sample configuration with and without use-package::.
+   *note Sample configuration with and without use-package: Sample
+configuration with and without use-package.
 
    To disable other themes before loading a Modus theme, use something
 like this:
@@ -544,12 +549,13 @@ the user opts in (*note Option for disabling other themes while loading
 Modus: Disable other themes.).  After loading the theme of choice, this
 function calls the hook ‘modus-themes-after-load-theme-hook’ (alias
 ‘modus-themes-post-load-hook’).  Users can add their own functions to
-this hook to make further customizations (*note Advanced
-customization::).
+this hook to make further customizations (*note Advanced customization:
+Advanced customization.).
 
    The commands ‘modus-themes-toggle’ and ‘modus-themes-select’ use
 ‘modus-themes-load-theme’ internally (*note Option for which themes to
-toggle::).  The aforementioned hold true for them as well.
+toggle: Option for which themes to toggle.).  The aforementioned hold
+true for them as well.
 
 * Menu:
 
@@ -591,7 +597,7 @@ File: modus-themes.info,  Node: Sample configuration with and without use-packag
 =====================================================
 
 What follows is a variant of what we demonstrate in the previous section
-(*note Enable and load::).
+(*note Enable and load: Enable and load.).
 
    It is common for Emacs users to rely on ‘use-package’ for declaring
 package configurations in their setup.  We use this as an example:
@@ -650,10 +656,11 @@ package configurations in their setup.  We use this as an example:
 
      (define-key global-map (kbd "<f5>") #'modus-themes-toggle)
 
-   *note Differences between loading and enabling::.
+   *note Differences between loading and enabling: Differences between
+loading and enabling.
 
    Note: make sure not to customize the variable
-‘custom-theme-load-path’ or ‘custom-theme-directory’ after the themes’
+‘custom-theme-load-path’ or ‘custom-theme-directory’ after the themes'
 package declaration.  That will lead to failures in loading the files.
 If either or both of those variables need to be changed, their values
 should be defined before the package declaration of the themes.
@@ -665,7 +672,7 @@ File: modus-themes.info,  Node: Differences between loading and enabling,  Prev:
 ============================================
 
 The reason we recommend ‘load-theme’ instead of the other option of
-‘enable-theme’ is that the former does a kind of “reset” on the face
+‘enable-theme’ is that the former does a kind of "reset" on the face
 specs.  It quite literally loads (or reloads) the theme.  Whereas the
 ‘enable-theme’ function simply puts an already loaded theme to the top
 of the list of enabled items, reusing whatever state was last loaded.
@@ -681,7 +688,7 @@ so it might appear to the unsuspecting user that the themes are somehow
 broken whenever they try to assign a new value to a customization option
 or some face.
 
-   This “reset” that ‘load-theme’ brings about does, however, come at
+   This "reset" that ‘load-theme’ brings about does, however, come at
 the cost of being somewhat slower than ‘enable-theme’.  Users who have a
 stable setup and who seldom update their variables during a given Emacs
 session, are better off using something like this:
@@ -698,7 +705,8 @@ session, are better off using something like this:
    *note Toggle themes without reloading them: DIY Toggle themes without
 reloading them.
 
-   *note Sample configuration with and without use-package::.
+   *note Sample configuration with and without use-package: Sample
+configuration with and without use-package.
 
    With the above granted, other sections of the manual discuss how to
 configure custom faces, where ‘load-theme’ is expected, though
@@ -723,8 +731,8 @@ everything at length in the pages of this manual and also provide
 ready-to-use code samples.
 
    Remember that all customization options must be evaluated before
-loading a theme (*note Enable and load::).  If the theme is already
-active, it must be reloaded for changes to take effect.
+loading a theme (*note Enable and load: Enable and load.).  If the theme
+is already active, it must be reloaded for changes to take effect.
 
      ;; In all of the following, WEIGHT is a symbol such as `semibold',
      ;; `light', `bold', or anything mentioned in `modus-themes-weights'.
@@ -810,7 +818,7 @@ Custom UI or related functions such as ‘customize-set-variable’ and
 
    With a ‘nil’ value, changes to user options have no further
 consequences: the user must manually reload the theme (*note Enable and
-load::).
+load: Enable and load.).
 
 
 File: modus-themes.info,  Node: Disable other themes,  Next: Bold constructs,  Prev: Custom reload theme,  Up: Customization options
@@ -830,9 +838,10 @@ Brief: Disable all other themes when loading a Modus theme.
    When the value is non-‘nil’, the commands ‘modus-themes-toggle’ and
 ‘modus-themes-select’, as well as the ‘modus-themes-load-theme’
 function, will disable all other themes while loading the specified
-Modus theme (*note Option for which themes to toggle::).  This is done
-to ensure that Emacs does not blend two or more themes: such blends lead
-to awkward results that undermine the work of the designer.
+Modus theme (*note Option for which themes to toggle: Option for which
+themes to toggle.).  This is done to ensure that Emacs does not blend
+two or more themes: such blends lead to awkward results that undermine
+the work of the designer.
 
    When the value is ‘nil’, the aforementioned commands and function
 will only disable other themes within the Modus collection.
@@ -1010,7 +1019,7 @@ symbols:
    The default (a ‘nil’ value or an empty list) means to only use a
 subtle colored foreground color.
 
-   The ‘italic’ property adds a slant to the font’s forms (italic or
+   The ‘italic’ property adds a slant to the font's forms (italic or
 oblique forms, depending on the typeface).
 
    The symbol of a font weight attribute such as ‘light’, ‘semibold’, et
@@ -1054,7 +1063,7 @@ Here is a sample, followed by a description of the particularities:
              (selection . (semibold italic))))
 
    The ‘matches’ key refers to the highlighted characters that
-correspond to the user’s input.  When its properties are ‘nil’ or an
+correspond to the user's input.  When its properties are ‘nil’ or an
 empty list, matching characters in the user interface will have a bold
 weight and a colored foreground.  The list of properties may include any
 of the following symbols regardless of the order they may appear in:
@@ -1108,16 +1117,17 @@ File: modus-themes.info,  Node: Org mode blocks,  Next: Heading styles,  Prev: C
 As part of version ‘4.4.0’, the ‘modus-themes-org-blocks’ is no more.
 Users can apply palette overrides to set a style that fits their
 preference (purple, blue, yellow, green, etc.).  It is more flexible and
-more powerful (*note DIY Make Org block colors more or less colorful::)
+more powerful (*note DIY Make Org block colors more or less colorful:
+DIY Make Org block colors more or less colorful.)
 
    For the option to change the background of Org source blocks, we
 provide the relevant setup (*note DIY Use colored Org source blocks per
-language::).
+language: DIY Use colored Org source blocks per language.).
 
 
 File: modus-themes.info,  Node: Heading styles,  Next: UI typeface,  Prev: Org mode blocks,  Up: Customization options
 
-4.11 Option for the headings’ overall style
+4.11 Option for the headings' overall style
 ===========================================
 
 Brief: Heading styles with optional list of values per heading level.
@@ -1125,7 +1135,7 @@ Brief: Heading styles with optional list of values per heading level.
    Symbol: ‘modus-themes-headings’ (‘alist’ type, multiple properties)
 
    This is an alist that accepts a ‘(KEY . LIST-OF-VALUES)’ combination.
-The ‘KEY’ is either a number, representing the heading’s level (0
+The ‘KEY’ is either a number, representing the heading's level (0
 through 8) or ‘t’, which pertains to the fallback style.  The named keys
 ‘agenda-date’ and ‘agenda-structure’ apply to the Org agenda.
 
@@ -1309,7 +1319,7 @@ the color value that corresponds to the active theme (e.g.  make the
 cursor ‘blue-warmer’ in all themes, whatever the value of ‘blue-warmer’
 is in each theme).
 
-   The value of any overrides’ variable must mirror a theme’s palette.
+   The value of any overrides' variable must mirror a theme's palette.
 Palette variables are named after their theme as ‘THEME-NAME-palette’.
 For example, the ‘modus-operandi-palette’ is like this:
 
@@ -1356,8 +1366,9 @@ cyan hue to keywords:
              (comment red-faint)
              (keyword cyan-cooler)))
 
-   Changes take effect upon theme reload (*note Custom reload theme::).
-Overrides are removed by setting their variable to a ‘nil’ value.
+   Changes take effect upon theme reload (*note Custom reload theme:
+Custom reload theme.).  Overrides are removed by setting their variable
+to a ‘nil’ value.
 
    The common accented foregrounds in each palette follow a predictable
 naming scheme: ‘HUE{,-warmer,-cooler,-faint,-intense}’.  ‘HUE’ is one of
@@ -1369,7 +1380,8 @@ that are meant to be combined with such backgrounds, contain ‘fg’ in
 their name, such as ‘fg-removed’ which complements ‘bg-removed’.
 
    Named colors can be previewed, such as with the command
-‘modus-themes-list-colors’ (*note Preview theme colors::).
+‘modus-themes-list-colors’ (*note Preview theme colors: Preview theme
+colors.).
 
    For a video tutorial that users of all skill levels can approach,
 watch:
@@ -1464,7 +1476,7 @@ previews of all of its color palette entries.
 selection process to produce a preview for the current Modus theme.
 
    When called with a prefix argument (‘C-u’ with the default key
-bindings), these commands will show a preview of the palette’s semantic
+bindings), these commands will show a preview of the palette's semantic
 color mappings instead of the full palette (*note Option for palette
 overrides: Palette overrides.).
 
@@ -1475,7 +1487,7 @@ overrides: Palette overrides.).
 color value.  For example a line with ‘#a60000’ (a shade of red) will
 show a column with a red background combined with a suitable foreground
 followed by another column with a red foreground against the current
-theme’s background.  The intent is to illustrate which values are
+theme's background.  The intent is to illustrate which values are
 suitable as a background or foreground.
 
    The name of the buffer describes the given Modus theme and what the
@@ -1491,15 +1503,17 @@ File: modus-themes.info,  Node: Use colors from the Modus themes palette,  Next:
 
 The Modus themes provide the means to access the palette of (i) the
 active theme or (ii) any theme in the Modus collection.  These are
-useful for Do-It-Yourself customizations (*note Advanced
-customization::), though it can also be helpful in other cases, such as
-to reuse a color value in some other application.
+useful for Do-It-Yourself customizations (*note Advanced customization:
+Advanced customization.), though it can also be helpful in other cases,
+such as to reuse a color value in some other application.
 
 Function
      *note Get a single color from the palette with
-     modus-themes-get-color-value::
+     ‘modus-themes-get-color-value’: Get a single color from the palette
+     with modus-themes-get-color-value.
 Macro
-     *note Use theme colors in code with modus-themes-with-colors::.
+     *note Use theme colors in code with ‘modus-themes-with-colors’: Use
+     theme colors in code with modus-themes-with-colors.
 
 * Menu:
 
@@ -1518,7 +1532,7 @@ takea a ‘COLOR’ argument and an optional ‘OVERRIDES’.  It also accepts a
 third ‘THEME’ argument, to get the color from the given theme.
 
    ‘COLOR’ is a symbol that represents a named color entry in the
-palette (*note Preview theme colors::).
+palette (*note Preview theme colors: Preview theme colors.).
 
    If the value is the name of another color entry in the palette (so a
 mapping), this function recurs until it finds the underlying color
@@ -1533,7 +1547,7 @@ accounts for palette overrides.  Else it reads only the default palette
 Else it uses the current Modus theme.
 
    If ‘COLOR’ is not present in the palette, this function returns the
-‘unspecified’ symbol, which is safe when used as a face attribute’s
+‘unspecified’ symbol, which is safe when used as a face attribute's
 value.
 
    An example with ‘modus-operandi’ to show how this function behaves
@@ -1573,7 +1587,7 @@ each value with the function ‘modus-themes-get-color-value’ is
 inefficient (*note Get a single color from the palette: Get a single
 color from the palette with modus-themes-get-color-value.).  The Lisp
 macro ‘modus-themes-with-colors’ provides the requisite functionality.
-It supplies the current theme’s palette to the code called from inside
+It supplies the current theme's palette to the code called from inside
 of it.  For example:
 
      (modus-themes-with-colors
@@ -1583,8 +1597,8 @@ of it.  For example:
    The above return value is for ‘modus-operandi’ when that is the
 active theme.  Switching to another theme and evaluating this code anew
 will return the relevant results for that theme (remember that since
-version 4, the Modus themes consist of many items (*note Overview::)).
-The same with ‘modus-vivendi’ as the active theme:
+version 4, the Modus themes consist of many items (*note Overview:
+Overview.)).  The same with ‘modus-vivendi’ as the active theme:
 
      (modus-themes-with-colors
        (list blue-warmer magenta-cooler fg-added warning variable fg-heading-4))
@@ -1593,12 +1607,14 @@ The same with ‘modus-vivendi’ as the active theme:
    The ‘modus-themes-with-colors’ has access to the whole palette of the
 active theme, meaning that it can instantiate both (i) named colors like
 ‘blue-warmer’ and (ii) semantic color mappings like ‘warning’.  We
-provide commands to inspect those (*note Preview theme colors::).
+provide commands to inspect those (*note Preview theme colors: Preview
+theme colors.).
 
    Others sections in this manual show how to use the aforementioned
-macro (*note Advanced customization::).  In practice, the use of a hook
-will also be needed (*note DIY Use a hook at the post-load-theme
-phase::).
+macro (*note Advanced customization: Advanced customization.).  In
+practice, the use of a hook will also be needed (*note DIY Use a hook at
+the post-load-theme phase: DIY Use a hook at the post-load-theme
+phase.).
 
 
 File: modus-themes.info,  Node: Advanced customization,  Next: Face coverage,  Prev: Use colors from the Modus themes palette,  Up: Top
@@ -1615,7 +1631,7 @@ Customization options.).
    This section is of interest only to users who are prepared to
 maintain their own local tweaks and who are willing to deal with any
 possible incompatibilities between versioned releases of the themes.  As
-such, they are labeled as “do-it-yourself” or “DIY”.
+such, they are labeled as "do-it-yourself" or "DIY".
 
 * Menu:
 
@@ -1673,7 +1689,7 @@ colors are desaturated.  It makes the themes less attention-grabbing.
 colors accented instead of gray and increases coloration in a number of
 places.  Colors stand out more and are made easier to spot.
 
-   For some stylistic variation try the “cooler” and “warmer” presets:
+   For some stylistic variation try the "cooler" and "warmer" presets:
 
      ;; This:
      (setq modus-themes-common-palette-overrides modus-themes-preset-overrides-cooler)
@@ -1721,7 +1737,7 @@ changes to use the colors of the active Modus theme.
 defines to the corresponding entry in the palette of the active Modus
 theme.  We then use a hook to ensure that the value is updated after we
 switch to another theme in the collection (*note DIY Use a hook at the
-post-load-theme phase::).
+post-load-theme phase: DIY Use a hook at the post-load-theme phase.).
 
      (defun my-modus-themes-engraved-faces (&rest _)
        (modus-themes-with-colors
@@ -1836,7 +1852,7 @@ Palette override presets: DIY Palette override presets.).
 * DIY Make Org agenda more or less colorful::
 * DIY Make inline code in prose use alternative styles::
 * DIY Make mail citations and headers more or less colorful::
-* DIY Make the region preserve text colors, plus other styles: DIY Make the region preserve text colors plus other styles.
+* DIY Make the region preserve text colors, plus other styles::
 * DIY Make mouse highlights more or less colorful::
 * DIY Make language underlines less colorful::
 * DIY Make line numbers use alternative styles::
@@ -1979,7 +1995,7 @@ This is one of our practical examples to override the semantic colors of
 the Modus themes (*note Stylistic variants using palette overrides: DIY
 Stylistic variants using palette overrides.).  Here we show how to make
 the fringe invisible or how to assign to it a different color.  The
-“fringe” is a small area to the right and left side of the Emacs window
+"fringe" is a small area to the right and left side of the Emacs window
 which shows indicators such as for truncation or continuation lines.
 
      ;; Make the fringe invisible
@@ -2143,7 +2159,7 @@ Stylistic variants using palette overrides.).  In previous versions of
 the themes, we provided an option for yellow-ish comments and green-ish
 strings.  For some users, those were still not good enough, as the exact
 values were hardcoded.  Here we show how to reproduce the effect, but
-also how to tweak it to one’s liking.
+also how to tweak it to one's liking.
 
    *note Make code syntax use the old alt-syntax style: DIY Make code
 syntax use the old alt-syntax style.
@@ -2182,7 +2198,7 @@ Stylistic variants using palette overrides.).  In this section we show
 how to reproduce what previous versions of the Modus themes provided as
 a stylistic alternative for code syntax.  The upside of using overrides
 for this purpose is that we can tweak the style to our liking, but first
-let’s start with its recreation:
+let's start with its recreation:
 
      ;; The old "alt-syntax" (before version 4.0.0 of the Modus themes)
      (setq modus-themes-common-palette-overrides
@@ -2200,7 +2216,7 @@ let’s start with its recreation:
              (rx-construct magenta-warmer)
              (rx-backslash blue-cooler)))
 
-   The “alt-syntax” could optionally use green strings and yellow
+   The "alt-syntax" could optionally use green strings and yellow
 comments (*note Make comments yellow and strings green: DIY Make
 comments yellow and strings green.):
 
@@ -2220,7 +2236,7 @@ comments yellow and strings green.):
              (rx-construct magenta-warmer)
              (rx-backslash blue-cooler)))
 
-   The standard “alt-syntax” has red strings.  As such, it is
+   The standard "alt-syntax" has red strings.  As such, it is
 interesting to experiment with faintly red colored comments:
 
      ;; Like the old "alt-syntax" but with faint red comments
@@ -2522,7 +2538,7 @@ inline code in prose use alternative styles.
              (fg-prose-block-delimiter fg-main)))
 
    The previous examples differentiate the delimiter lines from the
-block’s contents.  Though we can mimic the default aesthetic of a
+block's contents.  Though we can mimic the default aesthetic of a
 uniform background, while changing the applicable colors.  Here are some
 nice combinations:
 
@@ -2545,7 +2561,8 @@ nice combinations:
              (fg-prose-block-delimiter cyan-cooler)))
 
    [ Combine the above with a suitable mode line style for maximum
-effect (*note DIY Make the active mode line colorful::).  ]
+effect (*note DIY Make the active mode line colorful: DIY Make the
+active mode line colorful.).  ]
 
    Finally, the following makes code blocks have no distinct background.
 The minimal styles are applied to the delimiter lines, which only use a
@@ -2561,7 +2578,8 @@ until version 4.3.0.
              (bg-prose-block-delimiter unspeficied)
              (fg-prose-block-delimiter fg-dim)))
 
-   *note DIY Use colored Org source blocks per language::.
+   *note DIY Use colored Org source blocks per language: DIY Use colored
+Org source blocks per language.
 
 
 File: modus-themes.info,  Node: DIY Make Org agenda more or less colorful,  Next: DIY Make inline code in prose use alternative styles,  Prev: DIY Make Org block colors more or less colorful,  Up: DIY Stylistic variants using palette overrides
@@ -2642,14 +2660,15 @@ File: modus-themes.info,  Node: DIY Make inline code in prose use alternative st
 This is one of our practical examples to override the semantic colors of
 the Modus themes (*note Stylistic variants using palette overrides: DIY
 Stylistic variants using palette overrides.).  In the following code
-block we show how to affect constructs such as Org’s verbatim, code, and
+block we show how to affect constructs such as Org's verbatim, code, and
 macro entries.  We also provide mappings for tables, property drawers,
 tags, and code block delimiters, though we do not show every possible
 permutation.
 
    • *note Make TODO and DONE more or less intense: DIY Make TODO and
      DONE more or less intense.
-   • *note DIY Make Org block colors more or less colorful::.
+   • *note DIY Make Org block colors more or less colorful: DIY Make Org
+     block colors more or less colorful.
 
      ;; A nuanced accented background, combined with a suitable foreground.
      (setq modus-themes-common-palette-overrides
@@ -2687,7 +2706,7 @@ permutation.
    Reload the theme for changes to take effect.
 
 
-File: modus-themes.info,  Node: DIY Make mail citations and headers more or less colorful,  Next: DIY Make the region preserve text colors plus other styles,  Prev: DIY Make inline code in prose use alternative styles,  Up: DIY Stylistic variants using palette overrides
+File: modus-themes.info,  Node: DIY Make mail citations and headers more or less colorful,  Next: DIY Make the region preserve text colors, plus other styles,  Prev: DIY Make inline code in prose use alternative styles,  Up: DIY Stylistic variants using palette overrides
 
 7.3.18 DIY Make mail citations and headers more or less colorful
 ----------------------------------------------------------------
@@ -2746,7 +2765,7 @@ Before we show the code, this is the anatomy of a message:
    Reload the theme for changes to take effect.
 
 
-File: modus-themes.info,  Node: DIY Make the region preserve text colors plus other styles,  Next: DIY Make mouse highlights more or less colorful,  Prev: DIY Make mail citations and headers more or less colorful,  Up: DIY Stylistic variants using palette overrides
+File: modus-themes.info,  Node: DIY Make the region preserve text colors, plus other styles,  Next: DIY Make mouse highlights more or less colorful,  Prev: DIY Make mail citations and headers more or less colorful,  Up: DIY Stylistic variants using palette overrides
 
 7.3.19 DIY Make the region preserve text colors, plus other styles
 ------------------------------------------------------------------
@@ -2780,7 +2799,7 @@ region background.
    Reload the theme for changes to take effect.
 
 
-File: modus-themes.info,  Node: DIY Make mouse highlights more or less colorful,  Next: DIY Make language underlines less colorful,  Prev: DIY Make the region preserve text colors plus other styles,  Up: DIY Stylistic variants using palette overrides
+File: modus-themes.info,  Node: DIY Make mouse highlights more or less colorful,  Next: DIY Make language underlines less colorful,  Prev: DIY Make the region preserve text colors, plus other styles,  Up: DIY Stylistic variants using palette overrides
 
 7.3.20 DIY Make mouse highlights more or less colorful
 ------------------------------------------------------
@@ -2876,7 +2895,7 @@ text without any added background.  What we basically do is to disable
 the applicable backgrounds and then intensify the foregrounds.  Since
 the deuteranopia-optimized themes do not use the red-green color coding,
 we make an extra set of adjustments for them by overriding their
-palettes directly instead of just using the “common” overrides.
+palettes directly instead of just using the "common" overrides.
 
      ;; Diffs with only foreground colors.  Word-wise ("refined") diffs
      ;; have a gray background to draw attention to themselves.
@@ -2944,7 +2963,7 @@ instead to yellow+blue which are discernible.  Users with deuteranomaly
 or, generally, those who like a different aesthetic, can use the
 following to make diffs use the red+yellow+blue color coding for
 removed, changed, and added lines respectively.  This is achieved by
-overriding the “changed” and “removed” entries to use the colors of
+overriding the "changed" and "removed" entries to use the colors of
 regular ‘modus-operandi’ and ‘modus-vivendi’.
 
      (setq modus-operandi-deuteranopia-palette-overrides
@@ -2990,8 +3009,8 @@ expand these findings.  ]
 
    The graphical version of Emacs can reproduce color values accurately.
 Whereas things get more tricky when Emacs is used in a terminal
-emulator, because the terminals’ own capabilities determine the number
-of colors that may be displayed: the Modus themes don’t look as good in
+emulator, because the terminals' own capabilities determine the number
+of colors that may be displayed: the Modus themes don't look as good in
 that case.
 
    There is, however, a way to instruct supported terminal emulators to
@@ -3021,18 +3040,18 @@ expand these findings.  ]
 capacity is framed or determined by the underlying terminal emulator
 (*note More accurate colors in terminal emulators: DIY More accurate
 colors in terminal emulators.).  Emacs cannot produce a color that lies
-outside the range of what the terminal’s color palette renders possible.
+outside the range of what the terminal's color palette renders possible.
 
-   This is immediately noticeable when the terminal’s first 16 codes do
+   This is immediately noticeable when the terminal's first 16 codes do
 not include a pure black value for the ‘termcol0’ entry and a pure white
 for ‘termcol15’.  Emacs cannot set the correct background (white for
 ‘modus-operandi’; black for ‘modus-vivendi’) or foreground (inverse of
 the background).  It thus falls back to the closest approximation, which
 seldom is appropriate for the purposes of the Modus themes.
 
-   In such a case, the user is expected to update their terminal’s color
-palette such as by adapting these resources (*note Preview theme
-colors::):
+   In such a case, the user is expected to update their terminal's color
+palette such as by adapting these resources (*note Preview theme colors:
+Preview theme colors.):
 
      ! Theme: modus-operandi
      ! Description: XTerm port of modus-operandi (Modus themes for GNU Emacs)
@@ -3122,15 +3141,15 @@ File: modus-themes.info,  Node: DIY Do not extend the region background,  Next: 
 
 By default, the background of the ‘region’ face extends from the end of
 the line to the edge of the window.  To limit it to the end of the line,
-we need to override the face’s ‘:extend’ attribute.  Adding this to the
+we need to override the face's ‘:extend’ attribute.  Adding this to the
 Emacs configuration file will suffice:
 
      ;; Do not extend `region' background past the end of the line.
      (custom-set-faces
       '(region ((t :extend nil))))
 
-   *note Make the region preserve text colors, plus other styles: DIY
-Make the region preserve text colors plus other styles.
+   *note Make the region preserve text colors, plus other styles: DIY
+Make the region preserve text colors, plus other styles.
 
 
 File: modus-themes.info,  Node: DIY Add padding to the mode line,  Next: DIY Remap face with local value,  Prev: DIY Do not extend the region background,  Up: Advanced customization
@@ -3141,10 +3160,10 @@ File: modus-themes.info,  Node: DIY Add padding to the mode line,  Next: DIY Rem
 [ Consider using the ‘spacious-padding’ package from GNU ELPA (by
 Protesilaos) for more than just the mode line.  ]
 
-   Emacs faces do not have a concept of “padding” for the space between
+   Emacs faces do not have a concept of "padding" for the space between
 the text and its box boundaries.  We can approximate the effect by
 adding a ‘:box’ attribute, making its border several pixels thick, and
-using the mode line’s background color for it.  This way the thick
+using the mode line's background color for it.  This way the thick
 border will not stand out and will appear as a continuation of the mode
 line.
 
@@ -3239,7 +3258,7 @@ code:
 
    When ‘my-rainbow-region’ is called interactively, it prompts for a
 color to use.  The list of candidates is drawn from the car of each
-association in ‘my-rainbow-region-colors’ (so “red”, “green”, etc.).
+association in ‘my-rainbow-region-colors’ (so "red", "green", etc.).
 
    To extend this principle, we may write wrapper functions that pass a
 color directly.  Those can be useful in tandem with hooks.  Consider
@@ -3319,7 +3338,7 @@ value that is relative to the default, represented as a floating point.
 If you use an integer, then that means an absolute height.  This is of
 paramount importance: it ensures that all fonts can scale gracefully
 when using something like the ‘text-scale-adjust’ command which only
-operates on the base font size (i.e.  the ‘default’ face’s absolute
+operates on the base font size (i.e.  the ‘default’ face's absolute
 height).
 
    *note Note for EWW and Elfeed fonts: Note on SHR fonts.
@@ -3389,10 +3408,11 @@ pick fonts that work well together):
    To ensure that the effects persist after switching between the Modus
 themes (such as with ‘M-x modus-themes-toggle’), the user needs to write
 their configurations to a function and pass it to the
-‘modus-themes-after-load-theme-hook’ (*note Enable and load::).  This is
-necessary because themes set the styles of faces upon activation,
-overriding prior values where conflicts occur between the previous and
-the current states (otherwise changing themes would not be possible).
+‘modus-themes-after-load-theme-hook’ (*note Enable and load: Enable and
+load.).  This is necessary because themes set the styles of faces upon
+activation, overriding prior values where conflicts occur between the
+previous and the current states (otherwise changing themes would not be
+possible).
 
    *note A theme-agnostic hook for theme loading: DIY A theme-agnostic
 hook for theme loading.
@@ -3442,7 +3462,7 @@ priority cookies to better match their workflow.  User options are
    As those are meant to be custom faces, it is futile to have the
 themes guess what each user wants to use, which keywords to target, and
 so on.  Instead, we can provide guidelines on how to customize things to
-one’s liking with the intent of retaining the overall aesthetic of the
+one's liking with the intent of retaining the overall aesthetic of the
 themes.
 
    Please bear in mind that the end result of those is not controlled by
@@ -3615,7 +3635,7 @@ text to, for example, a shade of red:
 command ‘modus-themes-list-colors’ to show a buffer that previews each
 entry in the palette.
 
-   *note Visualize the active Modus theme’s palette: Preview theme
+   *note Visualize the active Modus theme's palette: Preview theme
 colors.
 
    Once we have defined the faces we need, we must update the
@@ -3630,7 +3650,7 @@ already styled by the themes, it probably is best not to edit them:
              ("~" org-code verbatim)
              ("+" my-org-emphasis-strike-through)))
 
-   That’s it!  For changes to take effect in already visited Org files,
+   That's it!  For changes to take effect in already visited Org files,
 invoke ‘M-x org-mode-restart’.
 
 
@@ -3639,7 +3659,8 @@ File: modus-themes.info,  Node: DIY Use colored Org source blocks per language, 
 7.14 DIY Use colored Org source blocks per language
 ===================================================
 
-*note DIY Make Org block colors more or less colorful::.
+*note DIY Make Org block colors more or less colorful: DIY Make Org
+block colors more or less colorful.
 
    In versions of the Modus themes before ‘4.4.0’ there was an option to
 change the coloration of Org source blocks so that certain languages
@@ -3681,7 +3702,8 @@ mechanism provided by the Modus themes.  ]
 
      (add-hook 'modus-themes-after-load-theme-hook #'my-modus-themes-org-block-faces)
 
-   *note DIY Use a hook at the post-load-theme phase::.
+   *note DIY Use a hook at the post-load-theme phase: DIY Use a hook at
+the post-load-theme phase.
 
    Note that the ‘org-src-block-faces’ accepts a named face, as shown
 above, as well as a list of face attributes.  The latter approach is not
@@ -3738,7 +3760,7 @@ colors.
 accepts two color values and returns their contrast ratio.  Values range
 from 1 to 21 (lowest to highest).  The themes are designed to always be
 equal or higher than 7 for each combination of background and foreground
-that they use (this is the WCAG AAA standard—the most demanding of its
+that they use (this is the WCAG AAA standard--the most demanding of its
 kind).
 
    A couple of examples (rounded numbers):
@@ -3783,7 +3805,7 @@ in combination with some others.  Consult the source code for the
 minutia and relevant commentary.
 
    Such knowledge may prove valuable while attempting to customize the
-theme’s color palette.
+theme's color palette.
 
 
 File: modus-themes.info,  Node: DIY Load theme depending on time of day,  Next: DIY Backdrop for pdf-tools,  Prev: DIY Measure color contrast,  Up: Advanced customization
@@ -3795,7 +3817,7 @@ While we do provide ‘modus-themes-toggle’ to manually switch between the
 themes, users may also set up their system to perform such a task
 automatically at sunrise and sunset.
 
-   This can be accomplished by specifying the coordinates of one’s
+   This can be accomplished by specifying the coordinates of one's
 location using the built-in ‘solar.el’ and then configuring the
 ‘circadian’ package:
 
@@ -3819,9 +3841,9 @@ File: modus-themes.info,  Node: DIY Backdrop for pdf-tools,  Next: DIY Toggle th
 ===============================
 
 Most PDF files use a white background for their page, making it
-impossible to discern the file’s boundaries in the buffer while using
+impossible to discern the file's boundaries in the buffer while using
 the Modus Operandi theme.  To introduce a distinction between the
-buffer’s backdrop and the PDF page’s background, the former must be
+buffer's backdrop and the PDF page's background, the former must be
 rendered as some shade of gray.  Ideally, ‘pdf-tools’ would provide a
 face that the themes could support directly, though this does not seem
 to be the case for the time being.  We must thus employ the face
@@ -3830,7 +3852,7 @@ change the buffer-local value of the ‘default’ face.
 
    *note Remap face with local value: DIY Remap face with local value.
 
-   To remap the buffer’s backdrop, we start with a function like this
+   To remap the buffer's backdrop, we start with a function like this
 one:
 
      (defun my-pdf-tools-backdrop (&rest _)
@@ -3847,7 +3869,7 @@ enough when you only use one theme.  However it has the downside of
 setting the background color value only at render time.  In other words,
 the face remapping function does not get evaluated anew whenever the
 theme changes, such as upon invoking ‘M-x modus-themes-toggle’ (*note
-Option for which themes to toggle::).
+Option for which themes to toggle: Option for which themes to toggle.).
 
    To have our face remapping adapt gracefully while switching between
 the Modus themes, we need to also account for the current theme and
@@ -3910,7 +3932,8 @@ their own command which calls ‘enable-theme’ instead of ‘load-theme’:
                                  (disable-theme 'modus-vivendi)))
          (_ (error "No Modus theme is loaded; evaluate `modus-themes-load-themes' first"))))
 
-   *note Differences between loading and enabling::.
+   *note Differences between loading and enabling: Differences between
+loading and enabling.
 
    Recall that ‘modus-themes-toggle’ uses ‘load-theme’.
 
@@ -3939,11 +3962,11 @@ window.
      windows.
 
   2. Make the relevant faces invisible by changing the value of their
-     relevant attributes to that of the current theme’s main background.
+     relevant attributes to that of the current theme's main background.
 
    The parameters of Emacs frames are specified in the variables
-‘initial-frame-alist’ and ‘default-frame-alist’.  The “initial frame”
-refers to the first frame that appears on Emacs startup.  The “default”
+‘initial-frame-alist’ and ‘default-frame-alist’.  The "initial frame"
+refers to the first frame that appears on Emacs startup.  The "default"
 refers to the fallback values that apply to all other frames that Emacs
 creates (unless those are explicitly overridden by a bespoke
 ‘make-frame’ call).
@@ -3961,8 +3984,8 @@ variables:
 we specify there.  This economizes on typing.
 
    Then we define a function that makes the relevant faces invisible.
-The reason we do this with a function is so we can hook it to the “post
-load” phase of a theme, thus applying the new background value
+The reason we do this with a function is so we can hook it to the "post
+load" phase of a theme, thus applying the new background value
 (otherwise you keep the old background, which likely means that the
 faces will no longer be invisible).
 
@@ -3983,9 +4006,9 @@ the post-load-theme phase.
 
    The above will work only for themes that belong to the Modus family.
 For users of Emacs version 29 or higher, there exists a theme-agnostic
-hook that takes a function with one argument—that of the theme—and calls
-in the the “post enable” phase of theme loading.  Here is the above
-snippet, with the necessary tweaks:
+hook that takes a function with one argument--that of the theme--and
+calls in the the "post enable" phase of theme loading.  Here is the
+above snippet, with the necessary tweaks:
 
      (defun my-modus-themes-invisible-dividers (&rest _)
        "Make window dividers for THEME invisible."
@@ -4052,7 +4075,7 @@ File: modus-themes.info,  Node: DIY Add support for solaire-mode,  Next: DIY Add
 =====================================
 
 The ‘solaire-mode’ package dims the background of what it considers
-ancillary “UI” buffers, such as the minibuffer and Dired buffers.  The
+ancillary "UI" buffers, such as the minibuffer and Dired buffers.  The
 Modus themes used to support Solaire on the premise that the user was
 (i) opting in to it, (ii) understood why certain buffers were more gray,
 and (iii) knew what other adjustments had to be made to prevent broken
@@ -4075,18 +4098,18 @@ sort are unsustainable and penalize the entire userbase.  Besides, the
 themes are built into Emacs and we must keep their standard high.
 
    The fundamental constraint with Solaire is that Emacs does not have a
-real distinction between “content” and “UI” buffers.  For themes to work
+real distinction between "content" and "UI" buffers.  For themes to work
 with Solaire, they need to be designed around that package.  Such is an
 arrangement that compromises on our accessibility standards and/or
 hinders our efforts to provide the best possible experience while using
 the Modus themes.
 
-   As such, ‘solaire-mode’ is not—and will not be—supported by the Modus
-themes (or any other of my themes, for that matter).  Users who want it
-must style the faces manually.  Below is some sample code, based on what
-we cover at length elsewhere in this manual:
+   As such, ‘solaire-mode’ is not--and will not be--supported by the
+Modus themes (or any other of my themes, for that matter).  Users who
+want it must style the faces manually.  Below is some sample code, based
+on what we cover at length elsewhere in this manual:
 
-   *note Advanced customization::.
+   *note Advanced customization: Advanced customization.
 
    *note Use theme colors in code with modus-themes-with-colors: Use
 theme colors in code with modus-themes-with-colors.
@@ -4201,13 +4224,14 @@ hook to apply the desired changes.  In most examples, this hook is the
 themes and is called at the end of one the following:
 
 Command ‘modus-themes-toggle’
-     *note Option for which themes to toggle::.
+     *note Option for which themes to toggle: Option for which themes to
+     toggle.
 
 Command ‘modus-themes-select’
      Select a Modus theme using minibuffer completion and then load it.
 
 Function ‘modus-themes-load-theme’
-     Called only from Lisp, such as in the user’s init file, with the
+     Called only from Lisp, such as in the user's init file, with the
      quoted symbol of a Modus theme as an argument (*note Option for
      disabling other themes while loading Modus: Disable other themes.).
      This function is used internally by ‘modus-themes-toggle’ and
@@ -4217,9 +4241,10 @@ Function ‘modus-themes-load-theme’
 collection cannot benefit from the aforementioned hook: it only works
 with the Modus themes.  A theme-agnostic hook is needed in such a case.
 Before Emacs 29, this had to be set up manually (*note DIY A
-theme-agnostic hook for theme loading::).  Starting with Emacs 29, the
-special hook ‘enable-theme-functions’ works with anything that uses the
-basic ‘enable-theme’ function.
+theme-agnostic hook for theme loading: DIY A theme-agnostic hook for
+theme loading.).  Starting with Emacs 29, the special hook
+‘enable-theme-functions’ works with anything that uses the basic
+‘enable-theme’ function.
 
    To use the ‘enable-theme-functions’ just add the given function to it
 the way it is done with every hook:
@@ -4316,7 +4341,7 @@ File: modus-themes.info,  Node: Supported packages,  Next: Indirectly covered pa
 This list will always be updated to reflect the current state of the
 project.  The idea is to offer an overview of the known status of all
 affected face groups.  The items with an appended asterisk ‘*’ tend to
-have lots of extensions, so the “full support” may not be 100% true…
+have lots of extensions, so the "full support" may not be 100% true…
 
    • abbrev
    • ace-window
@@ -4554,7 +4579,7 @@ have lots of extensions, so the “full support” may not be 100% true…
    • textsec
    • tldr
    • tmr
-   • transient (pop-up windows such as Magit’s)
+   • transient (pop-up windows such as Magit's)
    • trashed
    • treemacs
    • tree-sitter
@@ -4727,7 +4752,7 @@ relevant faces to yield the desired color combinations.
 local setup.  Below is some sample code, based on what we cover at
 length elsewhere in this manual:
 
-   *note Advanced customization::.
+   *note Advanced customization: Advanced customization.
 
    *note Use theme colors in code with modus-themes-with-colors: Use
 theme colors in code with modus-themes-with-colors.
@@ -4866,7 +4891,7 @@ File: modus-themes.info,  Node: Note on display-fill-column-indicator-mode,  Nex
 
 The ‘display-fill-column-indicator-mode’ uses a typographic character to
 draw its line.  This has the downside of creating a dashed line.  The
-dashes are further apart depending on how tall the font’s glyph height
+dashes are further apart depending on how tall the font's glyph height
 is and what integer the ‘line-spacing’ is set to.
 
    At the theme level we eliminate this effect by making the character
@@ -4903,10 +4928,10 @@ their own by configuring certain variables.
 
    To make the Modus themes work as expected with this, we need to use
 some of the techniques that are discussed at length in the various
-“Do-It-Yourself” (DIY) sections, which provide insight into the more
+"Do-It-Yourself" (DIY) sections, which provide insight into the more
 advanced customization options of the themes.
 
-   *note Advanced customization::.
+   *note Advanced customization: Advanced customization.
 
    In the following example, we are assuming that the user wants to (i)
 reuse color variables provided by the themes, (ii) be able to retain
@@ -5029,7 +5054,7 @@ is that they must not interfere with existing fontification.  Those
 background colors need to be distinct from each other, such as an
 unambiguous red juxtaposed with a clear blue.
 
-   While this design may be internally consistent with the raison d’être
+   While this design may be internally consistent with the raison d'être
 of that library, it inevitably produces inaccessible color combinations.
 
    There are two competing goals at play:
@@ -5073,7 +5098,7 @@ File: modus-themes.info,  Node: Note for prism,  Next: Note on company-mode over
 9.10 Note on prism.el
 =====================
 
-This package by Adam Porter, aka “alphapapa” or “github-alphapapa”,
+This package by Adam Porter, aka "alphapapa" or "github-alphapapa",
 implements an alternative to the typical coloration of code.  Instead of
 highlighting the syntactic constructs, it applies color to different
 levels of depth in the code structure.
@@ -5131,7 +5156,7 @@ modus-themes-with-colors.
                        cyan)))
 
    And this is with 4 colors, which produces results that are the
-closest to the themes’ default aesthetic:
+closest to the themes' default aesthetic:
 
      (setq prism-num-faces 4)
 
@@ -5168,7 +5193,7 @@ is drawn using an overlay.  This creates alignment issues every time it
 is placed above a piece of text that has a different height than the
 default.
 
-   The solution recommended by the project’s maintainer is to use an
+   The solution recommended by the project's maintainer is to use an
 alternative front-end for drawing the pop-up which draws child frames
 instead of overlays.(1)(2)
 
@@ -5234,8 +5259,8 @@ File: modus-themes.info,  Node: Note on SHR colors,  Next: Note on SHR fonts,  P
 9.14 Note on SHR colors
 =======================
 
-Emacs’ HTML rendering library (‘shr.el’) may need explicit configuration
-to respect the theme’s colors instead of whatever specifications the
+Emacs' HTML rendering library (‘shr.el’) may need explicit configuration
+to respect the theme's colors instead of whatever specifications the
 webpage provides.
 
    Consult the doc string of ‘shr-use-colors’.
@@ -5268,7 +5293,7 @@ File: modus-themes.info,  Node: Note on Ement colors and fonts,  Next: Note on p
 9.16 Note on Ement colors and fonts
 ===================================
 
-The ‘ement.el’ library by Adam Porter (also known as “alphapapa”)
+The ‘ement.el’ library by Adam Porter (also known as "alphapapa")
 defaults to a method of colorizing usernames in a rainbow style.  This
 is controlled by the user option ‘ement-room-prism’ and can be disabled
 with:
@@ -5282,9 +5307,9 @@ which is slightly below our nominal target.  Try this instead:
      (setq ement-room-prism-minimum-contrast 7)
 
    With regard to fonts, Ement depends on ‘shr’ (*note Note on SHR
-fonts::).
+fonts: Note on SHR fonts.).
 
-   Since we are here, here is an excerpt from Ement’s source code:
+   Since we are here, here is an excerpt from Ement's source code:
 
      (defcustom ement-room-prism-minimum-contrast 6
        "Attempt to enforce this minimum contrast ratio for user faces.
@@ -5305,12 +5330,12 @@ File: modus-themes.info,  Node: Note on pdf-tools link hints,  Next: Note on the
 =================================
 
 Hints are drawn by ImageMagick (https://imagemagick.org/), not Emacs,
-i.e., ImageMagick doesn’t know about the hint face unless you tell
+i.e., ImageMagick doesn't know about the hint face unless you tell
 ImageMagick about it.  By default, only the foreground and background
 color attributes are passed.  The below snippet adds to those the
 various font attributes.  As it queries various faces, specifically
 ‘pdf-links-read-link’ and the faces it inherits, it needs to be added to
-your initialization file after you’ve customized any faces.
+your initialization file after you've customized any faces.
 
      (use-package pdf-links
        :config
@@ -5353,8 +5378,8 @@ File: modus-themes.info,  Node: Note on the Notmuch logo,  Next: Note on goto-ad
 9.18 Note on the Notmuch logo
 =============================
 
-By default, the “hello” buffer of Notmuch includes a header with the
-programs’ logo and a couple of buttons.  The logo has the effect of
+By default, the "hello" buffer of Notmuch includes a header with the
+programs' logo and a couple of buttons.  The logo has the effect of
 enlarging the height of the line, which negatively impacts the shape of
 those buttons.  Disabling the logo fixes the problem:
 
@@ -5392,13 +5417,13 @@ File: modus-themes.info,  Node: Frequently Asked Questions,  Next: Contributing,
 *****************************
 
 In this section we provide answers related to some aspects of the Modus
-themes’ design and application.
+themes' design and application.
 
 * Menu:
 
 * Is the contrast ratio about adjacent colors?::
 * What does it mean to avoid exaggerations?::
-* Why are colors mostly variants of blue, magenta, cyan?: Why are colors mostly variants of blue magenta cyan?.
+* Why are colors mostly variants of blue, magenta, cyan?::
 * What is the best setup for legibility?::
 * Are these color schemes?::
 * Port the Modus themes to other platforms?::
@@ -5432,7 +5457,7 @@ be colored differently.  They would still be legible though, which is
 the primary objective of the Modus themes.
 
 
-File: modus-themes.info,  Node: What does it mean to avoid exaggerations?,  Next: Why are colors mostly variants of blue magenta cyan?,  Prev: Is the contrast ratio about adjacent colors?,  Up: Frequently Asked Questions
+File: modus-themes.info,  Node: What does it mean to avoid exaggerations?,  Next: Why are colors mostly variants of blue, magenta, cyan?,  Prev: Is the contrast ratio about adjacent colors?,  Up: Frequently Asked Questions
 
 10.2 What does it mean to avoid exaggerations?
 ==============================================
@@ -5442,7 +5467,7 @@ looks do not overdo it with the application of color.
 
    *note Customization Options: Customization options.
 
-   This is the non-quantifiable aspect of the themes’ design: the
+   This is the non-quantifiable aspect of the themes' design: the
 artistic part, if you will.  There are a lot of cases where color can be
 used inconsiderately, without accounting for layout, typographic, or
 other properties of the presentation.  For example, two headings with
@@ -5465,7 +5490,7 @@ magenta can suffice to tell things apart and avoid excess coloration: a
 harmonious rhythm.
 
 
-File: modus-themes.info,  Node: Why are colors mostly variants of blue magenta cyan?,  Next: What is the best setup for legibility?,  Prev: What does it mean to avoid exaggerations?,  Up: Frequently Asked Questions
+File: modus-themes.info,  Node: Why are colors mostly variants of blue, magenta, cyan?,  Next: What is the best setup for legibility?,  Prev: What does it mean to avoid exaggerations?,  Up: Frequently Asked Questions
 
 10.3 Why are colors mostly variants of blue, magenta, cyan?
 ===========================================================
@@ -5475,7 +5500,8 @@ others for the accessibility purposes of the themes, the stylistic
 consistency between ‘modus-operandi’ and ‘modus-vivendi’, and the
 avoidance of exaggerations in design.
 
-   *note What does it mean to avoid exaggerations?::
+   *note What does it mean to avoid exaggerations?: What does it mean to
+avoid exaggerations?.
 
    What we describe as color is a function of three distinct channels of
 light: red, green, blue.  In hexadecimal RGB notation, a color value is
@@ -5518,7 +5544,8 @@ adjacent colors, it is not possible to make red, green, and yellow the
 main colors, because blue cannot be used to control their luminance and,
 thus the relevant space will shrink considerably.
 
-   *note Is the contrast ratio about adjacent colors?::
+   *note Is the contrast ratio about adjacent colors?: Is the contrast
+ratio about adjacent colors?.
 
    This phenomenon is best illustrated by the following table that
 measures the relative luminance of shades of red, yellow, magenta
@@ -5553,7 +5580,7 @@ completely different than ‘modus-operandi’, to the effect that the two
 could not be properly considered part of the same project.
 
 
-File: modus-themes.info,  Node: What is the best setup for legibility?,  Next: Are these color schemes?,  Prev: Why are colors mostly variants of blue magenta cyan?,  Up: Frequently Asked Questions
+File: modus-themes.info,  Node: What is the best setup for legibility?,  Next: Are these color schemes?,  Prev: Why are colors mostly variants of blue, magenta, cyan?,  Up: Frequently Asked Questions
 
 10.4 What is the best setup for legibility?
 ===========================================
@@ -5571,16 +5598,16 @@ direct sunlight or has plenty of light.  Whereas ‘modus-vivendi’ works
 better when there is not a lot of sunshine or the room has a source of
 light that is preferably a faint and/or warm one.  It is possible to use
 ‘modus-operandi’ at night and ‘modus-vivendi’ during the day, though
-that will depend on several variables, such as one’s overall perception
+that will depend on several variables, such as one's overall perception
 of color, the paint on the walls and how that contributes to the
-impression of lightness in the room, the sense of space within the eye’s
+impression of lightness in the room, the sense of space within the eye's
 peripheral vision, hardware specifications, and environmental factors.
 
    In general, an additional source of light other than that of the
 monitor can help reduce eye strain: the eyes are more relaxed when they
 do not have to focus on one point to gather light.
 
-   The monitor’s display settings must be accounted for.  Gamma values,
+   The monitor's display settings must be accounted for.  Gamma values,
 in particular, need to be calibrated to neither amplify nor distort the
 perception of black.  Same principle for sharpness, brightness, and
 contrast as determined by the hardware, which all have an effect on how
@@ -5620,19 +5647,19 @@ uniformity.
    In practical terms, a color scheme is what one uses when, for
 example, they replace the first sixteen escape sequences of a terminal
 emulator with color values of their preference.  The terminal offers the
-option to choose, say, the exact value of what counts as “red”, but does
+option to choose, say, the exact value of what counts as "red", but does
 not provide the means to control where that is mapped to and whether it
 should also have other qualities such as a bold weight for the
 underlying text or an added background color.  In contradistinction,
-Emacs uses constructs known as “faces” which allow the user/developer to
+Emacs uses constructs known as "faces" which allow the user/developer to
 specify where a given color will be used and whether it should be
 accompanied by other typographic or stylistic attributes.
 
    By configuring the multitude of faces on offer we thus control both
 which colors are applied and how they appear in their context.  When a
-package wants to render each instance of “foo” with the “bar” face, it
+package wants to render each instance of "foo" with the "bar" face, it
 is not requesting a specific color, which makes things considerably more
-flexible as we can treat “bar” in its own right without necessarily
+flexible as we can treat "bar" in its own right without necessarily
 having to use some color value that we hardcoded somewhere.
 
    Which brings us to the distinction between consistency and uniformity
@@ -5646,7 +5673,7 @@ to view its contents and (ii) underlining everything would make the
 interface virtually unusable.
 
    Again, one must exercise judgement in order to avoid discrimination,
-where “discrimination” refers to:
+where "discrimination" refers to:
 
    • The treatment of substantially different magnitudes as if they were
      of the same class.
@@ -5657,11 +5684,11 @@ where “discrimination” refers to:
 alike.)
 
    If, in other words, one is to enforce uniformity without accounting
-for the particular requirements of each case—the contextual demands for
-usability beyond matters of color—they are making a not-so-obvious error
-of treating different cases as if they were the same.
+for the particular requirements of each case--the contextual demands for
+usability beyond matters of color--they are making a not-so-obvious
+error of treating different cases as if they were the same.
 
-   The Modus themes prioritize “thematic consistency” over abstract
+   The Modus themes prioritize "thematic consistency" over abstract
 harmony or regularity among their applicable colors.  In concrete terms,
 we do not claim that, say, our yellows are the best complements for our
 blues because we generally avoid using complementary colors
@@ -5689,8 +5716,8 @@ daily basis.
 template, doing so would run contrary to how this project is maintained
 where details matter greatly.
 
-   Each program has its own requirements so it won’t always be
-possible—or indeed desirable—to have 1:1 correspondence between what
+   Each program has its own requirements so it won't always be
+possible--or indeed desirable--to have 1:1 correspondence between what
 applies to Emacs and what should be done elsewhere.  No port should ever
 strive to be a copy of the Emacs implementation, as no other program is
 an Emacs equivalent, but instead try to follow the spirit of the design.
@@ -5698,7 +5725,7 @@ For example, some of the customization options accept a list as their
 value, or an alist, which may not be possible to reproduce on other
 platforms.
 
-   *note Customization options::.
+   *note Customization options: Customization options.
 
    In other words, if something must be done differently on a certain
 editor then that is acceptable so long as (i) the accessibility
@@ -5710,14 +5737,14 @@ scientific foundations of the themes: high legibility and taking care of
 the needs of users with red-green/blue-yellow color deficiency
 (deuteranopia and tritanopia) by avoiding red+green color coding
 paradigms and/or by providing yellow+blue variants for deuteranopia and
-red+cyan for tritanopia (*note Overview::).
+red+cyan for tritanopia (*note Overview: Overview.).
 
-   The latter criterion is the “je ne sais quoi” of the artistic aspect
+   The latter criterion is the "je ne sais quoi" of the artistic aspect
 of the themes, which is partially fleshed out in this manual.
 
-   *note Frequently Asked Questions::.
+   *note Frequently Asked Questions: Frequently Asked Questions.
 
-   With regard to the artistic aspect (where “art” qua skill may amount
+   With regard to the artistic aspect (where "art" qua skill may amount
 to an imprecise science), there is no hard-and-fast rule in effect as it
 requires one to exercize discretion and make decisions based on
 context-dependent information or constraints.  As is true with most
@@ -5786,9 +5813,10 @@ modus-themes public mailing list
    • Suggest refinements to the color palette.
    • Help expand this document or any other piece of documentation.
    • Send patches for code refinements (if you need, ask me for help
-     with Git—we all start out as beginners).
+     with Git--we all start out as beginners).
 
-   *note Patches require copyright assignment to the FSF::.
+   *note Patches require copyright assignment to the FSF: Patches
+require copyright assignment to the FSF.
 
    It is preferable that your feedback includes some screenshots, GIFs,
 or short videos, as well as further instructions to reproduce a given
@@ -5903,7 +5931,7 @@ Ideas and user feedback
      Hörmetjan Yiltiz, Ilja Kocken, Imran Khan, Iris Garcia, Ivan
      Popovych, Jabir Ali Ouassou, James Ferguson, Jeremy Friesen, Jerry
      Zhang, Johannes Grødem, John Haman, John Sullivan, John Wick, Jonas
-     Collberg, Jorge Morais, Joshua O’Connor, Julio C.  Villasante,
+     Collberg, Jorge Morais, Joshua O'Connor, Julio C.  Villasante,
      Kenta Usami, Kevin Fleming, Kévin Le Gouguec, Kevin Kainan Li,
      Kostadin Ninev, Laith Bahodi, Lasse Lindner, Len Trigg, Lennart C.
      Karssen, Luis Miguel Castañeda, Magne Hov, Manuel Giraud, Manuel
@@ -5922,7 +5950,7 @@ Ideas and user feedback
      Sharf, Utkarsh Singh, Vincent Foley, Zoltan Kiraly.  As well as
      users: Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux,
      Fredrik, Moesasji, Nick, Summer Emacs, TheBlob42, TitusMu, Trey,
-     ZharMeny, bepolymathe, bit9tream, bangedorrunt, derek-upham,
+     bepolymathe, bit9tream, bangedorrunt, case-lambda, derek-upham,
      doolio, fleimgruber, gitrj95, iSeeU, jixiuf, ltmsyvag, okamsn,
      pedro-nonfree, pRot0ta1p, shipmints, soaringbird, tumashu,
      wakamenod.
@@ -5939,7 +5967,7 @@ Inspiration for certain features
    Special thanks (from A-Z) to Daniel Mendler, Gustavo Barros, Manuel
 Uberti, Nicolas De Jaeghere, and Omar Antolín Camarena for their long
 time contributions and insightful commentary on key aspects of the
-themes’ design and/or aspects of their functionality.
+themes' design and/or aspects of their functionality.
 
    All errors are my own.
 
@@ -5967,7 +5995,7 @@ Appendix A GNU Free Documentation License
      author and publisher a way to get credit for their work, while not
      being considered responsible for modifications made by others.
 
-     This License is a kind of “copyleft”, which means that derivative
+     This License is a kind of "copyleft", which means that derivative
      works of the document must themselves be free in the same sense.
      It complements the GNU General Public License, which is a copyleft
      license designed for free software.
@@ -5988,18 +6016,18 @@ Appendix A GNU Free Documentation License
      be distributed under the terms of this License.  Such a notice
      grants a world-wide, royalty-free license, unlimited in duration,
      to use that work under the conditions stated herein.  The
-     “Document”, below, refers to any such manual or work.  Any member
-     of the public is a licensee, and is addressed as “you”.  You accept
+     "Document", below, refers to any such manual or work.  Any member
+     of the public is a licensee, and is addressed as "you".  You accept
      the license if you copy, modify or distribute the work in a way
      requiring permission under copyright law.
 
-     A “Modified Version” of the Document means any work containing the
+     A "Modified Version" of the Document means any work containing the
      Document or a portion of it, either copied verbatim, or with
      modifications and/or translated into another language.
 
-     A “Secondary Section” is a named appendix or a front-matter section
+     A "Secondary Section" is a named appendix or a front-matter section
      of the Document that deals exclusively with the relationship of the
-     publishers or authors of the Document to the Document’s overall
+     publishers or authors of the Document to the Document's overall
      subject (or to related matters) and contains nothing that could
      fall directly within that overall subject.  (Thus, if the Document
      is in part a textbook of mathematics, a Secondary Section may not
@@ -6008,7 +6036,7 @@ Appendix A GNU Free Documentation License
      of legal, commercial, philosophical, ethical or political position
      regarding them.
 
-     The “Invariant Sections” are certain Secondary Sections whose
+     The "Invariant Sections" are certain Secondary Sections whose
      titles are designated, as being those of Invariant Sections, in the
      notice that says that the Document is released under this License.
      If a section does not fit the above definition of Secondary then it
@@ -6016,13 +6044,13 @@ Appendix A GNU Free Documentation License
      contain zero Invariant Sections.  If the Document does not identify
      any Invariant Sections then there are none.
 
-     The “Cover Texts” are certain short passages of text that are
+     The "Cover Texts" are certain short passages of text that are
      listed, as Front-Cover Texts or Back-Cover Texts, in the notice
      that says that the Document is released under this License.  A
      Front-Cover Text may be at most 5 words, and a Back-Cover Text may
      be at most 25 words.
 
-     A “Transparent” copy of the Document means a machine-readable copy,
+     A "Transparent" copy of the Document means a machine-readable copy,
      represented in a format whose specification is available to the
      general public, that is suitable for revising the document
      straightforwardly with generic text editors or (for images composed
@@ -6034,7 +6062,7 @@ Appendix A GNU Free Documentation License
      been arranged to thwart or discourage subsequent modification by
      readers is not Transparent.  An image format is not Transparent if
      used for any substantial amount of text.  A copy that is not
-     “Transparent” is called “Opaque”.
+     "Transparent" is called "Opaque".
 
      Examples of suitable formats for Transparent copies include plain
      ASCII without markup, Texinfo input format, LaTeX input format,
@@ -6047,23 +6075,23 @@ Appendix A GNU Free Documentation License
      the machine-generated HTML, PostScript or PDF produced by some word
      processors for output purposes only.
 
-     The “Title Page” means, for a printed book, the title page itself,
+     The "Title Page" means, for a printed book, the title page itself,
      plus such following pages as are needed to hold, legibly, the
      material this License requires to appear in the title page.  For
-     works in formats which do not have any title page as such, “Title
-     Page” means the text near the most prominent appearance of the
-     work’s title, preceding the beginning of the body of the text.
+     works in formats which do not have any title page as such, "Title
+     Page" means the text near the most prominent appearance of the
+     work's title, preceding the beginning of the body of the text.
 
-     The “publisher” means any person or entity that distributes copies
+     The "publisher" means any person or entity that distributes copies
      of the Document to the public.
 
-     A section “Entitled XYZ” means a named subunit of the Document
+     A section "Entitled XYZ" means a named subunit of the Document
      whose title either is precisely XYZ or contains XYZ in parentheses
      following text that translates XYZ in another language.  (Here XYZ
      stands for a specific section name mentioned below, such as
-     “Acknowledgements”, “Dedications”, “Endorsements”, or “History”.)
-     To “Preserve the Title” of such a section when you modify the
-     Document means that it remains a section “Entitled XYZ” according
+     "Acknowledgements", "Dedications", "Endorsements", or "History".)
+     To "Preserve the Title" of such a section when you modify the
+     Document means that it remains a section "Entitled XYZ" according
      to this definition.
 
      The Document may include Warranty Disclaimers next to the notice
@@ -6093,7 +6121,7 @@ Appendix A GNU Free Documentation License
 
      If you publish printed copies (or copies in media that commonly
      have printed covers) of the Document, numbering more than 100, and
-     the Document’s license notice requires Cover Texts, you must
+     the Document's license notice requires Cover Texts, you must
      enclose the copies in covers that carry, clearly and legibly, all
      these Cover Texts: Front-Cover Texts on the front cover, and
      Back-Cover Texts on the back cover.  Both covers must also clearly
@@ -6165,15 +6193,15 @@ Appendix A GNU Free Documentation License
           the Addendum below.
 
        G. Preserve in that license notice the full lists of Invariant
-          Sections and required Cover Texts given in the Document’s
+          Sections and required Cover Texts given in the Document's
           license notice.
 
        H. Include an unaltered copy of this License.
 
-       I. Preserve the section Entitled “History”, Preserve its Title,
+       I. Preserve the section Entitled "History", Preserve its Title,
           and add to it an item stating at least the title, year, new
           authors, and publisher of the Modified Version as given on the
-          Title Page.  If there is no section Entitled “History” in the
+          Title Page.  If there is no section Entitled "History" in the
           Document, create one stating the title, year, authors, and
           publisher of the Document as given on its Title Page, then add
           an item describing the Modified Version as stated in the
@@ -6183,12 +6211,12 @@ Appendix A GNU Free Documentation License
           for public access to a Transparent copy of the Document, and
           likewise the network locations given in the Document for
           previous versions it was based on.  These may be placed in the
-          “History” section.  You may omit a network location for a work
+          "History" section.  You may omit a network location for a work
           that was published at least four years before the Document
           itself, or if the original publisher of the version it refers
           to gives permission.
 
-       K. For any section Entitled “Acknowledgements” or “Dedications”,
+       K. For any section Entitled "Acknowledgements" or "Dedications",
           Preserve the Title of the section, and preserve in the section
           all the substance and tone of each of the contributor
           acknowledgements and/or dedications given therein.
@@ -6197,11 +6225,11 @@ Appendix A GNU Free Documentation License
           in their text and in their titles.  Section numbers or the
           equivalent are not considered part of the section titles.
 
-       M. Delete any section Entitled “Endorsements”.  Such a section
+       M. Delete any section Entitled "Endorsements".  Such a section
           may not be included in the Modified Version.
 
        N. Do not retitle any existing section to be Entitled
-          “Endorsements” or to conflict in title with any Invariant
+          "Endorsements" or to conflict in title with any Invariant
           Section.
 
        O. Preserve any Warranty Disclaimers.
@@ -6210,15 +6238,15 @@ Appendix A GNU Free Documentation License
      appendices that qualify as Secondary Sections and contain no
      material copied from the Document, you may at your option designate
      some or all of these sections as invariant.  To do this, add their
-     titles to the list of Invariant Sections in the Modified Version’s
+     titles to the list of Invariant Sections in the Modified Version's
      license notice.  These titles must be distinct from any other
      section titles.
 
-     You may add a section Entitled “Endorsements”, provided it contains
+     You may add a section Entitled "Endorsements", provided it contains
      nothing but endorsements of your Modified Version by various
-     parties—for example, statements of peer review or that the text has
-     been approved by an organization as the authoritative definition of
-     a standard.
+     parties--for example, statements of peer review or that the text
+     has been approved by an organization as the authoritative
+     definition of a standard.
 
      You may add a passage of up to five words as a Front-Cover Text,
      and a passage of up to 25 words as a Back-Cover Text, to the end of
@@ -6256,10 +6284,10 @@ Appendix A GNU Free Documentation License
      combined work.
 
      In the combination, you must combine any sections Entitled
-     “History” in the various original documents, forming one section
-     Entitled “History”; likewise combine any sections Entitled
-     “Acknowledgements”, and any sections Entitled “Dedications”.  You
-     must delete all sections Entitled “Endorsements.”
+     "History" in the various original documents, forming one section
+     Entitled "History"; likewise combine any sections Entitled
+     "Acknowledgements", and any sections Entitled "Dedications".  You
+     must delete all sections Entitled "Endorsements."
 
   6. COLLECTIONS OF DOCUMENTS
 
@@ -6280,16 +6308,16 @@ Appendix A GNU Free Documentation License
 
      A compilation of the Document or its derivatives with other
      separate and independent documents or works, in or on a volume of a
-     storage or distribution medium, is called an “aggregate” if the
+     storage or distribution medium, is called an "aggregate" if the
      copyright resulting from the compilation is not used to limit the
-     legal rights of the compilation’s users beyond what the individual
+     legal rights of the compilation's users beyond what the individual
      works permit.  When the Document is included in an aggregate, this
      License does not apply to the other works in the aggregate which
      are not themselves derivative works of the Document.
 
      If the Cover Text requirement of section 3 is applicable to these
      copies of the Document, then if the Document is less than one half
-     of the entire aggregate, the Document’s Cover Texts may be placed
+     of the entire aggregate, the Document's Cover Texts may be placed
      on covers that bracket the Document within the aggregate, or the
      electronic equivalent of covers if the Document is in electronic
      form.  Otherwise they must appear on printed covers that bracket
@@ -6311,8 +6339,8 @@ Appendix A GNU Free Documentation License
      this License or a notice or disclaimer, the original version will
      prevail.
 
-     If a section in the Document is Entitled “Acknowledgements”,
-     “Dedications”, or “History”, the requirement (section 4) to
+     If a section in the Document is Entitled "Acknowledgements",
+     "Dedications", or "History", the requirement (section 4) to
      Preserve its Title (section 1) will typically require changing the
      actual title.
 
@@ -6353,7 +6381,7 @@ Appendix A GNU Free Documentation License
 
      Each version of the License is given a distinguishing version
      number.  If the Document specifies that a particular numbered
-     version of this License “or any later version” applies to it, you
+     version of this License "or any later version" applies to it, you
      have the option of following the terms and conditions either of
      that specified version or of any later version that has been
      published (not as a draft) by the Free Software Foundation.  If the
@@ -6361,29 +6389,29 @@ Appendix A GNU Free Documentation License
      choose any version ever published (not as a draft) by the Free
      Software Foundation.  If the Document specifies that a proxy can
      decide which future versions of this License can be used, that
-     proxy’s public statement of acceptance of a version permanently
+     proxy's public statement of acceptance of a version permanently
      authorizes you to choose that version for the Document.
 
   11. RELICENSING
 
-     “Massive Multiauthor Collaboration Site” (or “MMC Site”) means any
+     "Massive Multiauthor Collaboration Site" (or "MMC Site") means any
      World Wide Web server that publishes copyrightable works and also
      provides prominent facilities for anybody to edit those works.  A
      public wiki that anybody can edit is an example of such a server.
-     A “Massive Multiauthor Collaboration” (or “MMC”) contained in the
+     A "Massive Multiauthor Collaboration" (or "MMC") contained in the
      site means any set of copyrightable works thus published on the MMC
      site.
 
-     “CC-BY-SA” means the Creative Commons Attribution-Share Alike 3.0
+     "CC-BY-SA" means the Creative Commons Attribution-Share Alike 3.0
      license published by Creative Commons Corporation, a not-for-profit
      corporation with a principal place of business in San Francisco,
      California, as well as future copyleft versions of that license
      published by that same organization.
 
-     “Incorporate” means to publish or republish a Document, in whole or
+     "Incorporate" means to publish or republish a Document, in whole or
      in part, as part of another Document.
 
-     An MMC is “eligible for relicensing” if it is licensed under this
+     An MMC is "eligible for relicensing" if it is licensed under this
      License, and if all works that were first published under this
      License somewhere other than this MMC, and subsequently
      incorporated in whole or in part into the MMC, (1) had no cover
@@ -6410,7 +6438,7 @@ notices just after the title page:
        Free Documentation License''.
 
    If you have Invariant Sections, Front-Cover Texts and Back-Cover
-Texts, replace the “with...Texts.” line with this:
+Texts, replace the "with...Texts." line with this:
 
          with the Invariant Sections being LIST THEIR TITLES, with
          the Front-Cover Texts being LIST, and with the Back-Cover Texts
@@ -6452,13 +6480,13 @@ B.1 Function index
                                                                (line  6)
 * modus-themes-list-colors:              Preview theme colors. (line  6)
 * modus-themes-list-colors-current:      Preview theme colors. (line 10)
-* modus-themes-load-theme:               Enable and load.      (line 79)
+* modus-themes-load-theme:               Enable and load.      (line 80)
 * modus-themes-preview-colors:           Preview theme colors. (line 18)
 * modus-themes-preview-colors-current:   Preview theme colors. (line 18)
 * modus-themes-rotate:                   Option for which themes to rotate.
                                                                (line  6)
-* modus-themes-select:                   Enable and load.      (line 93)
-* modus-themes-toggle:                   Enable and load.      (line 93)
+* modus-themes-select:                   Enable and load.      (line 94)
+* modus-themes-toggle:                   Enable and load.      (line 94)
 * modus-themes-toggle <1>:               Option for which themes to toggle.
                                                                (line  6)
 * modus-themes-wcag-formula:             DIY Measure color contrast.
@@ -6485,7 +6513,7 @@ B.2 Variable index
 * modus-operandi-tritanopia-palette-overrides: Palette overrides.
                                                                (line 34)
 * modus-operandi-tritanopia-palette-user: Palette extension.   (line 26)
-* modus-themes-after-load-theme-hook:    Enable and load.      (line 85)
+* modus-themes-after-load-theme-hook:    Enable and load.      (line 86)
 * modus-themes-bold-constructs:          Bold constructs.      (line  6)
 * modus-themes-common-palette-overrides: Palette overrides.    (line 22)
 * modus-themes-common-palette-user:      Palette extension.    (line 16)
@@ -6496,7 +6524,7 @@ B.2 Variable index
 * modus-themes-italic-constructs:        Italic constructs.    (line  6)
 * modus-themes-mixed-fonts:              Mixed fonts.          (line  6)
 * modus-themes-org-blocks:               Org mode blocks.      (line  6)
-* modus-themes-post-load-hook:           Enable and load.      (line 85)
+* modus-themes-post-load-hook:           Enable and load.      (line 86)
 * modus-themes-preset-overrides-cooler:  DIY Palette override presets.
                                                                (line 29)
 * modus-themes-preset-overrides-faint:   DIY Palette override presets.
@@ -6557,7 +6585,7 @@ B.3 Concept index
                                                                 (line 6)
 * Implicitly supported packages:         Indirectly covered packages.
                                                                 (line 6)
-* Innate color qualities of the palette: Why are colors mostly variants of blue magenta cyan?.
+* Innate color qualities of the palette: Why are colors mostly variants of blue, magenta, cyan?.
                                                                 (line 6)
 * load-theme VS enable-theme:            Differences between loading and enabling.
                                                                 (line 6)
@@ -6592,134 +6620,134 @@ B.3 Concept index
 
 
 Tag Table:
-Node: Top872
-Node: Overview8646
-Node: How do the themes look like11418
-Node: Learn about the latest changes11777
-Node: Installation12165
-Node: Install manually from source13080
-Node: Install from the archives13905
-Node: Install on GNU/Linux14504
-Node: Debian 11 Bullseye14997
-Node: GNU Guix15407
-Node: Dealing with byte compilation errors15690
-Node: Enable and load16848
-Node: The require-theme for built-in Emacs themes20792
-Node: Sample configuration with and without use-package21912
-Node: Differences between loading and enabling24760
-Node: Customization options26891
-Node: Custom reload theme30800
-Node: Disable other themes31720
-Node: Bold constructs32962
-Node: Italic constructs33834
-Node: Option for which themes to toggle34662
-Node: Option for which themes to rotate35425
-Node: Mixed fonts36201
-Node: Command prompts37255
-Node: Completion UIs39098
-Node: Org mode blocks41949
-Node: Heading styles42594
-Node: UI typeface47024
-Node: Palette overrides47997
-Node: Palette extension52387
-Node: Preview theme colors54863
-Node: Use colors from the Modus themes palette56419
-Node: Get a single color from the palette with modus-themes-get-color-value57283
-Node: Use theme colors in code with modus-themes-with-colors59646
-Node: Advanced customization61902
-Node: DIY Palette override presets63669
-Node: DIY Add support for engrave-faces66511
-Node: DIY Stylistic variants using palette overrides76494
-Node: DIY Make the mode line borderless78553
-Node: DIY Make the active mode line colorful79928
-Node: DIY Make the tab bar more or less colorful82146
-Node: DIY Make the fringe invisible or another color84083
-Node: DIY Make links use subtle or no underlines85284
-Node: DIY Make prompts more or less colorful86402
-Node: DIY Make completion matches more or less colorful87725
-Node: DIY Make comments yellow and strings green91284
-Node: DIY Make code syntax use the old alt-syntax style92993
-Node: DIY Make use of alternative styles for code syntax96116
-Node: DIY Make matching parenthesis more or less intense99578
-Node: DIY Make box buttons more or less gray100950
-Node: DIY Make TODO and DONE more or less intense101963
-Node: DIY Make headings more or less colorful103464
-Node: DIY Make Org block colors more or less colorful105581
-Node: DIY Make Org agenda more or less colorful109955
-Node: DIY Make inline code in prose use alternative styles113130
-Node: DIY Make mail citations and headers more or less colorful115372
-Node: DIY Make the region preserve text colors plus other styles117772
-Node: DIY Make mouse highlights more or less colorful119328
-Node: DIY Make language underlines less colorful120341
-Node: DIY Make line numbers use alternative styles121493
-Node: DIY Make diffs use only a foreground123136
-Node: DIY Make deuteranopia diffs red and blue instead of yellow and blue126027
-Node: DIY More accurate colors in terminal emulators128507
-Node: DIY Range of color with terminal emulators129819
-Node: DIY Per-theme customization settings132612
-Node: DIY Do not extend the region background134045
-Node: DIY Add padding to the mode line134845
-Node: DIY Remap face with local value137779
-Node: DIY Font configurations for Org and others140326
-Ref: DIY Font configurations for Org and others-Footnote-1143311
-Node: DIY Configure bold and italic faces143498
-Node: DIY Custom Org todo keyword and priority faces148120
-Node: DIY Custom Org emphasis faces151863
-Node: DIY Use colored Org source blocks per language156744
-Node: DIY Measure color contrast161384
-Node: DIY Load theme depending on time of day164104
-Node: DIY Backdrop for pdf-tools165134
-Node: DIY Toggle themes without reloading them168303
-Node: DIY Use more spacious margins or padding in Emacs frames169612
-Node: DIY Custom hl-todo colors173869
-Node: DIY Add support for solaire-mode175686
-Node: DIY Add support for meow-mode178792
-Node: DIY Add support for combobulate180602
-Node: DIY Use a hook at the post-load-theme phase184225
-Node: DIY A theme-agnostic hook for theme loading186348
-Node: Face coverage188979
-Node: Supported packages189431
-Node: Indirectly covered packages195303
-Node: Notes on individual packages196659
-Node: Note on calendarel weekday and weekend colors197759
-Node: Note on git-gutter in Doom Emacs198907
-Node: Note on php-mode multiline comments201407
-Node: Note on underlines in compilation buffers202167
-Node: Note on inline Latex in Org buffers203039
-Node: Note on dimmerel203649
-Node: Note on display-fill-column-indicator-mode205134
-Node: Note on highlight-parenthesesel206587
-Node: Note on mmm-modeel background colors212668
-Node: Note for prism215022
-Node: Note on company-mode overlay pop-up218244
-Ref: Note on company-mode overlay pop-up-Footnote-1218974
-Ref: Note on company-mode overlay pop-up-Footnote-2219041
-Node: Note on ERC escaped color sequences219096
-Ref: Note on ERC escaped color sequences-Footnote-1220524
-Node: Note on powerline or spaceline220634
-Node: Note on SHR colors221048
-Node: Note on SHR fonts221472
-Node: Note on Ement colors and fonts222159
-Node: Note on pdf-tools link hints223669
-Node: Note on the Notmuch logo226129
-Node: Note on goto-address-mode faces226667
-Node: Frequently Asked Questions227785
-Node: Is the contrast ratio about adjacent colors?228418
-Node: What does it mean to avoid exaggerations?229927
-Node: Why are colors mostly variants of blue magenta cyan?231779
-Node: What is the best setup for legibility?236113
-Node: Are these color schemes?238761
-Node: Port the Modus themes to other platforms?242445
-Node: Contributing245291
-Node: Sources of the themes245690
-Node: Issues you can help with246586
-Node: Patches require copyright assignment to the FSF247979
-Node: Acknowledgements250201
-Node: GNU Free Documentation License254629
-Node: Indices279993
-Node: Function index280172
-Node: Variable index281768
-Node: Concept index285268
+Node: Top874
+Node: Overview8534
+Node: How do the themes look like11314
+Node: Learn about the latest changes11695
+Node: Installation12083
+Node: Install manually from source12994
+Node: Install from the archives13832
+Node: Install on GNU/Linux14446
+Node: Debian 11 Bullseye14937
+Node: GNU Guix15360
+Node: Dealing with byte compilation errors15658
+Node: Enable and load16840
+Node: The require-theme for built-in Emacs themes20900
+Node: Sample configuration with and without use-package22020
+Node: Differences between loading and enabling24922
+Node: Customization options27094
+Node: Custom reload theme31019
+Node: Disable other themes31955
+Node: Bold constructs33231
+Node: Italic constructs34103
+Node: Option for which themes to toggle34931
+Node: Option for which themes to rotate35694
+Node: Mixed fonts36470
+Node: Command prompts37524
+Node: Completion UIs39365
+Node: Org mode blocks42214
+Node: Heading styles42954
+Node: UI typeface47380
+Node: Palette overrides48353
+Node: Palette extension52781
+Node: Preview theme colors55257
+Node: Use colors from the Modus themes palette56809
+Node: Get a single color from the palette with modus-themes-get-color-value57842
+Node: Use theme colors in code with modus-themes-with-colors60224
+Node: Advanced customization62576
+Node: DIY Palette override presets64335
+Node: DIY Add support for engrave-faces67169
+Node: DIY Stylistic variants using palette overrides77196
+Node: DIY Make the mode line borderless79196
+Node: DIY Make the active mode line colorful80571
+Node: DIY Make the tab bar more or less colorful82789
+Node: DIY Make the fringe invisible or another color84726
+Node: DIY Make links use subtle or no underlines85923
+Node: DIY Make prompts more or less colorful87041
+Node: DIY Make completion matches more or less colorful88364
+Node: DIY Make comments yellow and strings green91923
+Node: DIY Make code syntax use the old alt-syntax style93630
+Node: DIY Make use of alternative styles for code syntax96743
+Node: DIY Make matching parenthesis more or less intense100205
+Node: DIY Make box buttons more or less gray101577
+Node: DIY Make TODO and DONE more or less intense102590
+Node: DIY Make headings more or less colorful104091
+Node: DIY Make Org block colors more or less colorful106208
+Node: DIY Make Org agenda more or less colorful110665
+Node: DIY Make inline code in prose use alternative styles113840
+Node: DIY Make mail citations and headers more or less colorful116132
+Node: DIY Make the region preserve text colors, plus other styles118535
+Node: DIY Make mouse highlights more or less colorful120094
+Node: DIY Make language underlines less colorful121110
+Node: DIY Make line numbers use alternative styles122262
+Node: DIY Make diffs use only a foreground123905
+Node: DIY Make deuteranopia diffs red and blue instead of yellow and blue126792
+Node: DIY More accurate colors in terminal emulators129264
+Node: DIY Range of color with terminal emulators130572
+Node: DIY Per-theme customization settings133380
+Node: DIY Do not extend the region background134813
+Node: DIY Add padding to the mode line135614
+Node: DIY Remap face with local value138542
+Node: DIY Font configurations for Org and others141081
+Ref: DIY Font configurations for Org and others-Footnote-1144064
+Node: DIY Configure bold and italic faces144251
+Node: DIY Custom Org todo keyword and priority faces148889
+Node: DIY Custom Org emphasis faces152630
+Node: DIY Use colored Org source blocks per language157507
+Node: DIY Measure color contrast162237
+Node: DIY Load theme depending on time of day164954
+Node: DIY Backdrop for pdf-tools165982
+Node: DIY Toggle themes without reloading them169177
+Node: DIY Use more spacious margins or padding in Emacs frames170526
+Node: DIY Custom hl-todo colors174763
+Node: DIY Add support for solaire-mode176580
+Node: DIY Add support for meow-mode179694
+Node: DIY Add support for combobulate181504
+Node: DIY Use a hook at the post-load-theme phase185127
+Node: DIY A theme-agnostic hook for theme loading187330
+Node: Face coverage189961
+Node: Supported packages190413
+Node: Indirectly covered packages196279
+Node: Notes on individual packages197635
+Node: Note on calendarel weekday and weekend colors198735
+Node: Note on git-gutter in Doom Emacs199883
+Node: Note on php-mode multiline comments202405
+Node: Note on underlines in compilation buffers203165
+Node: Note on inline Latex in Org buffers204037
+Node: Note on dimmerel204647
+Node: Note on display-fill-column-indicator-mode206132
+Node: Note on highlight-parenthesesel207583
+Node: Note on mmm-modeel background colors213682
+Node: Note for prism216034
+Node: Note on company-mode overlay pop-up219246
+Ref: Note on company-mode overlay pop-up-Footnote-1219974
+Ref: Note on company-mode overlay pop-up-Footnote-2220041
+Node: Note on ERC escaped color sequences220096
+Ref: Note on ERC escaped color sequences-Footnote-1221524
+Node: Note on powerline or spaceline221634
+Node: Note on SHR colors222048
+Node: Note on SHR fonts222468
+Node: Note on Ement colors and fonts223155
+Node: Note on pdf-tools link hints224677
+Node: Note on the Notmuch logo227133
+Node: Note on goto-address-mode faces227665
+Node: Frequently Asked Questions228783
+Node: Is the contrast ratio about adjacent colors?229361
+Node: What does it mean to avoid exaggerations?230870
+Node: Why are colors mostly variants of blue, magenta, cyan?232724
+Node: What is the best setup for legibility?237149
+Node: Are these color schemes?239795
+Node: Port the Modus themes to other platforms?243449
+Node: Contributing246339
+Node: Sources of the themes246738
+Node: Issues you can help with247634
+Node: Patches require copyright assignment to the FSF249073
+Node: Acknowledgements251295
+Node: GNU Free Documentation License255722
+Node: Indices280885
+Node: Function index281064
+Node: Variable index282660
+Node: Concept index286160
 
 End Tag Table
 
