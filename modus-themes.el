@@ -3329,7 +3329,10 @@ FG and BG are the main colors."
     `(notmuch-crypto-signature-good-key ((,c :inherit success)))
     `(notmuch-crypto-signature-unknown ((,c :inherit warning)))
     `(notmuch-jump-key ((,c :inherit modus-themes-key-binding)))
-    `(notmuch-message-summary-face ((,c :inherit bold :background ,bg-inactive)))
+    `(notmuch-message-summary-face
+      ((default :inherit bold :background ,bg-inactive)
+       (((supports :overline t))
+        :overline ,border)))
     `(notmuch-search-count ((,c :foreground ,fg-dim)))
     `(notmuch-search-date ((,c :foreground ,date-common)))
     `(notmuch-search-flagged-face ((,c :foreground ,keyword)))
