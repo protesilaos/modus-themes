@@ -3059,6 +3059,7 @@ FG and BG are the main colors."
     `(magit-section-heading ((,c :inherit bold)))
     `(magit-section-heading-selection ((,c :inherit bold :background ,bg-hover-secondary)))
     `(magit-section-highlight ((,c :background ,bg-dim)))
+    `(magit-section-secondary-heading ((,c :inherit bold)))
     `(magit-sequence-done ((,c :inherit success)))
     `(magit-sequence-drop ((,c :inherit error)))
     `(magit-sequence-exec ((,c :inherit bold :foreground ,magenta)))
