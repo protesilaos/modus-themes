@@ -3190,18 +3190,28 @@ FG and BG are the main colors."
     `(minimap-active-region-background ((,c :background ,bg-active)))
     `(minimap-current-line-face ((,c :background ,bg-cyan-intense :foreground ,fg-main)))
 ;;;;; mode-line
-    `(mode-line ((,c :inherit modus-themes-ui-variable-pitch
-                     :box ,border-mode-line-active
-                     :background ,bg-mode-line-active
-                     :foreground ,fg-mode-line-active)))
+    `(mode-line
+      ((default :inherit modus-themes-ui-variable-pitch
+                :background ,bg-mode-line-active
+                :foreground ,fg-mode-line-active)
+       (((supports :box t))
+        :box ,border-mode-line-active)
+       (t :underline ,border-mode-line-active)))
     `(mode-line-active ((,c :inherit mode-line)))
     `(mode-line-buffer-id ((,c :inherit bold)))
     `(mode-line-emphasis ((,c :inherit bold :foreground ,modeline-info)))
-    `(mode-line-highlight ((,c :background ,bg-hover :foreground ,fg-main :box ,fg-main)))
-    `(mode-line-inactive ((,c :inherit modus-themes-ui-variable-pitch
-                              :box ,border-mode-line-inactive
-                              :background ,bg-mode-line-inactive
-                              :foreground ,fg-mode-line-inactive)))
+    `(mode-line-highlight
+      ((default :background ,bg-hover :foreground ,fg-main)
+       (((supports :box t))
+        :box ,fg-main)
+       (t :underline ,fg-main)))
+    `(mode-line-inactive
+      ((default :inherit modus-themes-ui-variable-pitch
+                :background ,bg-mode-line-inactive
+                :foreground ,fg-mode-line-inactive)
+       (((supports :box t))
+        :box ,border-mode-line-inactive)
+       (t :underline ,border-mode-line-inactive)))
 ;;;;; mood-line
     `(mood-line-modified ((,c :inherit italic)))
     `(mood-line-status-error ((,c :inherit error)))
