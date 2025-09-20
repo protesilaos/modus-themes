@@ -1653,10 +1653,11 @@ FG and BG are the main colors."
     `(modus-themes-slant ((,c ,@(modus-themes--slant))))
     `(modus-themes-ui-variable-pitch ((,c ,@(modus-themes--variable-pitch-ui))))
 ;;;;; other custom faces
-    `(modus-themes-button ((,c :inherit variable-pitch
-                               :box (:line-width 1 :color ,border :style released-button)
-                               :background ,bg-button-active
-                               :foreground ,fg-button-active)))
+    `(modus-themes-button
+      ((default :inherit variable-pitch :background ,bg-button-active :foreground ,fg-button-active)
+       (((supports :box t))
+        :box (:line-width 1 :color ,border :style released-button))
+       (t :underline ,border)))
     `(modus-themes-key-binding ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind)))
     `(modus-themes-prompt ((,c ,@(modus-themes--prompt fg-prompt bg-prompt))))
     `(modus-themes-reset-soft ((,c :background ,bg-main :foreground ,fg-main
