@@ -2083,8 +2083,16 @@ FG and BG are the main colors."
     `(ctrlf-highlight-passive ((,c :inherit modus-themes-search-lazy)))
 ;;;;; custom (M-x customize)
     `(custom-button ((,c :inherit modus-themes-button)))
-    `(custom-button-mouse ((,c :inherit (highlight custom-button))))
-    `(custom-button-pressed ((,c :inherit (secondary-selection custom-button))))
+    `(custom-button-mouse
+      ((default :inherit variable-pitch :background ,bg-hover :foreground ,fg-main)
+       (((supports :box t))
+        :box (:line-width 1 :color ,border :style released-button))
+       (t :underline ,border)))
+    `(custom-button-pressed
+      ((default :inherit variable-pitch :background ,bg-main :foreground ,fg-main)
+       (((supports :box t))
+        :box (:line-width 1 :color ,border :style pressed-button))
+       (t :underline ,border)))
     `(custom-changed ((,c :background ,bg-changed)))
     `(custom-comment ((,c :inherit shadow)))
     `(custom-comment-tag ((,c :inherit (bold shadow))))
