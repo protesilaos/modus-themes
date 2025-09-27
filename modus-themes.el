@@ -1086,8 +1086,7 @@ C1 and C2 are color values written in hexadecimal RGB."
 
 (defun modus-themes--current-theme ()
   "Return first enabled Modus theme."
-  (car (or (modus-themes--list-enabled-themes)
-           (modus-themes--list-known-themes))))
+  (car (modus-themes--list-enabled-themes)))
 
 (defun modus-themes--palette-symbol (theme &optional suffix)
   "Return THEME palette as a symbol of the form THEME-palette.
