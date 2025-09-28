@@ -34,7 +34,6 @@
 
 
 
-;;;###theme-autoload
 (eval-and-compile
   (unless (and (fboundp 'require-theme)
                load-file-name
@@ -42,6 +41,17 @@
                       (expand-file-name "themes/" data-directory))
                (require-theme 'modus-themes t))
     (require 'modus-themes))
+
+;;;###theme-autoload
+  (deftheme modus-operandi
+    "Elegant, highly legible theme with a white background.
+Conforms with the highest legibility standard for color contrast
+between background and foreground in any given piece of text,
+which corresponds to a minimum contrast in relative luminance of
+7:1 (WCAG AAA standard)."
+    :background-mode 'light
+    :kind 'color-scheme
+    :family 'modus)
 
   (defconst modus-operandi-palette
     '(
@@ -519,17 +529,10 @@ represents."
     :initialize #'custom-initialize-default
     :link '(info-link "(modus-themes) Palette overrides"))
 
-  (modus-themes-theme
-    modus-operandi
-    modus-themes
-    "Elegant, highly legible theme with a white background.
-Conforms with the highest legibility standard for color contrast
-between background and foreground in any given piece of text,
-which corresponds to a minimum contrast in relative luminance of
-7:1 (WCAG AAA standard)."
-    light
-    modus-operandi-palette
-    modus-operandi-palette-user
-    modus-operandi-palette-overrides))
+  (modus-themes-theme modus-operandi
+                      modus-operandi-palette
+                      modus-operandi-palette-overrides)
+
+  (provide-theme 'modus-operandi))
 
 ;;; modus-operandi-theme.el ends here

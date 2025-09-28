@@ -34,7 +34,6 @@
 
 
 
-;;;###theme-autoload
 (eval-and-compile
   (unless (and (fboundp 'require-theme)
                load-file-name
@@ -42,6 +41,19 @@
                       (expand-file-name "themes/" data-directory))
                (require-theme 'modus-themes t))
     (require 'modus-themes))
+
+;;;###theme-autoload
+  (deftheme modus-vivendi-deuteranopia
+    "Deuteranopia-optimized theme with a black background.
+This variant is optimized for users with red-green color
+deficiency (deuteranopia).  It conforms with the highest
+legibility standard for color contrast between background and
+foreground in any given piece of text, which corresponds to a
+minimum contrast in relative luminance of 7:1 (WCAG AAA
+standard)."
+    :background-mode 'dark
+    :kind 'color-scheme
+    :family 'modus)
 
   (defconst modus-vivendi-deuteranopia-palette
     '(
@@ -519,19 +531,10 @@ represents."
     :initialize #'custom-initialize-default
     :link '(info-link "(modus-themes) Palette overrides"))
 
-  (modus-themes-theme
-    modus-vivendi-deuteranopia
-    modus-themes
-    "Deuteranopia-optimized theme with a black background.
-This variant is optimized for users with red-green color
-deficiency (deuteranopia).  It conforms with the highest
-legibility standard for color contrast between background and
-foreground in any given piece of text, which corresponds to a
-minimum contrast in relative luminance of 7:1 (WCAG AAA
-standard)."
-    dark
-    modus-vivendi-deuteranopia-palette
-    modus-vivendi-deuteranopia-palette-user
-    modus-vivendi-deuteranopia-palette-overrides))
+  (modus-themes-theme modus-vivendi-deuteranopia
+                      modus-vivendi-deuteranopia-palette
+                      modus-vivendi-deuteranopia-palette-overrides)
+
+  (provide-theme 'modus-vivendi-deuteranopia))
 
 ;;; modus-vivendi-deuteranopia-theme.el ends here
