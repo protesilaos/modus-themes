@@ -1009,21 +1009,17 @@ must define theme properties to include those that the macro specifies.")
   "Return first enabled Modus theme."
   (car (modus-themes--list-enabled-themes)))
 
-(defun modus-themes-get-theme-palette (&optional theme overrides-only)
+(defun modus-themes-get-theme-palette (&optional theme)
   "Return palette value of active `modus-themes-registered-items' THEME.
-If THEME is nil, use the return value of `modus-themes-get-current-theme'.
-
-If OVERRIDES-ONLY is non-nil, return just the overrides."
+If THEME is nil, use the return value of `modus-themes-get-current-theme'."
   (let ((theme (or theme (modus-themes-get-current-theme))))
     (unless (memq theme modus-themes-registered-items)
       (error "The theme `%s' is not among `modus-themes-registered-items'" theme))
     (if-let* ((properties (get theme 'theme-properties))
-              (core-palette (symbol-value (plist-get properties :modus-core-palette))))
-        (let ((user-palette (symbol-value (plist-get properties :modus-user-palette)))
-              (overrides-palette (symbol-value (plist-get properties :modus-overrides-palette))))
-          (if overrides-only
-              overrides-palette
-            (append overrides-palette user-palette core-palette)))
+              (core-palette (plist-get properties :modus-core-palette)))
+        (let ((user-palette (plist-get properties :modus-user-palette))
+              (overrides-palette (plist-get properties :modus-overrides-palette)))
+          (append overrides-palette user-palette core-palette))
       (error "The theme must have at least a `:modus-core-palette' property"))))
 
 (defun modus-themes--disable-themes ()
