@@ -1086,7 +1086,9 @@ the palette of that item.  Else use the current Modus theme.
 
 If COLOR is not present in the palette, return the `unspecified'
 symbol, which is safe when used as a face attribute's value."
-  (if-let* ((palette (modus-themes-get-theme-palette theme overrides))
+  (if-let* ((palette (if theme
+                         (modus-themes--palette-value theme overrides)
+                       (modus-themes-get-theme-palette overrides)))
             (value (modus-themes--retrieve-palette-value color palette)))
       value
     'unspecified))
@@ -1219,7 +1221,7 @@ PALETTE is the value of a variable like `modus-operandi-palette'."
 
 (defun modus-themes--list-colors-tabulated (theme &optional mappings)
   "Return a data structure of THEME palette or MAPPINGS for tabulated list."
-  (let* ((current-palette (modus-themes-get-theme-palette theme mappings))
+  (let* ((current-palette (modus-themes--palette-value theme mappings))
          (palette (if mappings
                       (modus-themes--list-colors-get-mappings current-palette)
                     current-palette)))
