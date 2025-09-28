@@ -639,24 +639,6 @@ represents."
   :package-version '(modus-themes . "4.0.0")
   :version "30.1"
   :type '(repeat (list symbol (choice symbol string)))
-  ;; ;; NOTE 2023-01-07: The following is a functioning version of the
-  ;; ;; intended :type.  However, I think the Custom UI is really
-  ;; ;; awkward for this specific case.  Maybe the generic type I have
-  ;; ;; above is better, as it encourages the user to write out the
-  ;; ;; code and read the manual.  Counter-arguments are welcome.
-  ;;
-  ;; :type `(repeat (list (radio :tag "Palette key to override"
-  ;;                             ,@(mapcar (lambda (x)
-  ;;                                         (list 'const x))
-  ;;                                       (mapcar #'car (modus-themes--current-theme-palette))))
-  ;;                      (choice :tag "Value to assign" :value unspecified
-  ;;                              (const :tag "`unspecified' (remove the original color)" unspecified)
-  ;;                              (string :tag "String with color name (e.g. \"gray50\") or hex RGB (e.g. \"#123456\")"
-  ;;                                      :match-inline (color-supported-p val))
-  ;;                              (radio :tag "Palette key to map to"
-  ;;                                     ,@(mapcar (lambda (x)
-  ;;                                                 (list 'const x))
-  ;;                                               (mapcar #'car (modus-themes--current-theme-palette)))))))
   :link '(info-link "(modus-themes) Palette overrides"))
 
 
