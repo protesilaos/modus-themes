@@ -227,38 +227,7 @@ text should not be underlined as well) yet still blend in."
 
 ;;;; Customization variables
 
-(defcustom modus-themes-custom-auto-reload t
-  "Automatically reload theme after setting options with Customize.
-
-All theme user options take effect when a theme is loaded.  Any
-subsequent changes require the theme to be reloaded.
-
-When this variable has a non-nil value, any change made via the
-Custom UI or related functions such as `customize-set-variable'
-and `setopt' (Emacs 29), will trigger a reload automatically.
-
-With a nil value, changes to user options have no further
-consequences.  The user must manually reload the theme."
-  :group 'modus-themes
-  :package-version '(modus-themes . "4.0.0")
-  :version "30.1"
-  :type 'boolean
-  :link '(info-link "(modus-themes) Custom reload theme"))
-
-(defun modus-themes--set-option (sym val)
-  "Custom setter for theme related user options.
-Will set SYM to VAL, and reload the current theme, unless
-`modus-themes-custom-auto-reload' is nil."
-  (set-default sym val)
-  (when (and modus-themes-custom-auto-reload
-             ;; Check if a theme is being loaded, in which case we
-             ;; don't want to reload a theme if the setter is
-             ;; invoked. `custom--inhibit-theme-enable' is set to nil
-             ;; by `enable-theme'.
-             (bound-and-true-p custom--inhibit-theme-enable))
-    (when-let* ((modus-themes-custom-auto-reload t)
-                (theme (modus-themes--current-theme)))
-      (modus-themes-load-theme theme))))
+(make-obsolete 'modus-themes-custom-auto-reload nil "4.9.0")
 
 (defcustom modus-themes-disable-other-themes t
   "Disable all other themes when loading a Modus theme.
@@ -349,8 +318,6 @@ This is used by the commands `modus-themes-toggle',
   :package-version '(modus-themes . "1.5.0")
   :version "28.1"
   :type 'boolean
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Italic constructs"))
 
 (defcustom modus-themes-bold-constructs nil
@@ -359,8 +326,6 @@ This is used by the commands `modus-themes-toggle',
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
   :type 'boolean
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Bold constructs"))
 
 (defcustom modus-themes-variable-pitch-ui nil
@@ -370,8 +335,6 @@ This includes the mode line, header line, tab bar, and tab line."
   :package-version '(modus-themes . "1.1.0")
   :version "28.1"
   :type 'boolean
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) UI typeface"))
 
 (defcustom modus-themes-mixed-fonts nil
@@ -389,8 +352,6 @@ Protesilaos))."
   :package-version '(modus-themes . "1.7.0")
   :version "29.1"
   :type 'boolean
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Mixed fonts"))
 
 (defconst modus-themes--weight-widget
@@ -521,8 +482,6 @@ and related user options."
                             '(0 1 2 3 4 5 6 7 8 t agenda-date agenda-structure))
           :key-type symbol
           :value-type ,modus-themes--headings-widget)
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Heading styles"))
 
 (make-obsolete-variable 'modus-themes-org-blocks nil "4.4.0: Use palette overrides")
@@ -608,8 +567,6 @@ Is the same as:
                      ,modus-themes--weight-widget
                      (const :tag "Italic font (oblique or slanted forms)" italic)
                      (const :tag "Underline" underline))))
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Completion UIs"))
 
 (defcustom modus-themes-prompts nil
@@ -644,8 +601,6 @@ In user configuration files the form may look like this:
   :type `(set :tag "Properties" :greedy t
               (const :tag "Italic font slant" italic)
               ,modus-themes--weight-widget)
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Command prompts"))
 
 
@@ -658,8 +613,6 @@ used in combination with palette overrides (see
   :group 'modus-themes
   :package-version '(modus-themes . "4.5.0")
   :type '(repeat (list symbol (choice symbol string)))
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Extend the palette for use with overrides"))
 
 (defcustom modus-themes-common-palette-overrides nil
@@ -704,8 +657,6 @@ represents."
   ;;                                     ,@(mapcar (lambda (x)
   ;;                                                 (list 'const x))
   ;;                                               (mapcar #'car (modus-themes--current-theme-palette)))))))
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Palette overrides"))
 
 
