@@ -1019,7 +1019,7 @@ If THEME is nil, use the return value of `modus-themes-get-current-theme'."
               (core-palette (plist-get properties :modus-core-palette)))
         (let ((user-palette (plist-get properties :modus-user-palette))
               (overrides-palette (plist-get properties :modus-overrides-palette)))
-          (append core-palette user-palette overrides-palette))
+          (append overrides-palette user-palette core-palette))
       (error "The theme must have at least a `:modus-core-palette' property"))))
 
 (defun modus-themes--disable-themes ()
@@ -4361,7 +4361,7 @@ Make the defined theme symbol have the following `theme-properties':
         (theme-exists-p (custom-theme-p name)))
     `(progn
        (let* ((c '((class color) (min-colors 256)))
-              (,sym (append ,core-palette ,user-palette nil))
+              (,sym (append ,user-palette ,core-palette nil))
               ,@(mapcar (lambda (color)
                           (list color
                                 `(modus-themes--retrieve-palette-value ',color ,sym)))
