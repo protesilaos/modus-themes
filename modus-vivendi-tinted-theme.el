@@ -34,6 +34,7 @@
 
 
 
+;;;###theme-autoload
 (eval-and-compile
   (unless (and (fboundp 'require-theme)
                load-file-name
@@ -41,17 +42,6 @@
                       (expand-file-name "themes/" data-directory))
                (require-theme 'modus-themes t))
     (require 'modus-themes))
-
-;;;###theme-autoload
-  (deftheme modus-vivendi-tinted
-    "Elegant, highly legible theme with a night sky background.
-Conforms with the highest legibility standard for color contrast
-between background and foreground in any given piece of text,
-which corresponds to a minimum contrast in relative luminance of
-7:1 (WCAG AAA standard)."
-    :background-mode 'dark
-    :kind 'color-scheme
-    :family 'modus)
 
   (defconst modus-vivendi-tinted-palette
     '(
@@ -529,10 +519,17 @@ represents."
     :initialize #'custom-initialize-default
     :link '(info-link "(modus-themes) Palette overrides"))
 
-  (modus-themes-theme modus-vivendi-tinted
-                      modus-vivendi-tinted-palette
-                      modus-vivendi-tinted-palette-overrides)
-
-  (provide-theme 'modus-vivendi-tinted))
+  (modus-themes-theme
+    modus-vivendi-tinted
+    modus-themes
+    "Elegant, highly legible theme with a night sky background.
+Conforms with the highest legibility standard for color contrast
+between background and foreground in any given piece of text,
+which corresponds to a minimum contrast in relative luminance of
+7:1 (WCAG AAA standard)."
+    dark
+    modus-vivendi-tinted-palette
+    modus-vivendi-tinted-palette-user
+    modus-vivendi-tinted-palette-overrides))
 
 ;;; modus-vivendi-tinted-theme.el ends here

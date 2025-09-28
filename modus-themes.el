@@ -995,68 +995,40 @@ C1 and C2 are color values written in hexadecimal RGB."
                (+ (modus-themes-wcag-formula c2) 0.05))))
     (max ct (/ ct))))
 
-(defun modus-themes--modus-p (theme)
-  "Return non-nil if THEME name has a modus- prefix."
-  (string-prefix-p "modus-" (symbol-name theme)))
+(defvar modus-themes-registered-items nil
+  "List of defined themes.
+This list is instantiated by the `modus-themes-theme' macro.  Themes
+that build on top of Modus but for some reason cannot use that macro
+must define theme properties to include those that the macro specifies.")
 
 (defun modus-themes--list-enabled-themes ()
   "Return list of `custom-enabled-themes' with modus- prefix."
-  (seq-filter #'modus-themes--modus-p custom-enabled-themes))
+  (seq-intersection modus-themes-registered-items custom-enabled-themes))
 
-(defun modus-themes--load-no-enable (theme)
-  "Load but do not enable THEME if it belongs to `custom-known-themes'."
-  (unless (memq theme custom-known-themes)
-    (load-theme theme :no-confirm :no-enable)))
-
-(defun modus-themes--enable-themes ()
-  "Enable the Modus themes."
-  (mapc #'modus-themes--load-no-enable modus-themes-items))
-
-(defun modus-themes--list-known-themes ()
-  "Return list of `custom-known-themes' with modus- prefix."
-  (modus-themes--enable-themes)
-  (seq-filter #'modus-themes--modus-p custom-known-themes))
-
-(defun modus-themes--current-theme ()
+(defun modus-themes-get-current-theme ()
   "Return first enabled Modus theme."
   (car (modus-themes--list-enabled-themes)))
 
-(defun modus-themes--palette-symbol (theme &optional suffix)
-  "Return THEME palette as a symbol of the form THEME-palette.
-With optional SUFFIX, return THEME-palette-SUFFIX as a symbol."
-  (when theme
-    (intern
-     (if suffix
-         (format "%s-palette-%s" theme suffix)
-       (format "%s-palette" theme)))))
-
-(defun modus-themes--palette-value (theme &optional overrides)
-  "Return palette value of THEME with optional OVERRIDES."
-  (let* ((core-palette (symbol-value (modus-themes--palette-symbol theme)))
-         (user-palette (symbol-value (modus-themes--palette-symbol theme "user")))
-         (base-value (append user-palette modus-themes-common-palette-user core-palette)))
-    (if overrides
-        (append (symbol-value (modus-themes--palette-symbol theme "overrides"))
-                modus-themes-common-palette-overrides
-                base-value)
-      base-value)))
-
-(defun modus-themes--current-theme-palette (&optional overrides)
-  "Return palette value of active Modus theme, else produce `user-error'.
-With optional OVERRIDES return palette value plus whatever
-overrides."
-  (if-let* ((theme (modus-themes--current-theme)))
-      (if overrides
-          (modus-themes--palette-value theme :overrides)
-        (modus-themes--palette-value theme))
-    (user-error "No enabled Modus theme could be found")))
+(defun modus-themes-get-theme-palette (&optional theme)
+  "Return palette value of active `modus-themes-registered-items' THEME.
+If THEME is nil, use the return value of `modus-themes-get-current-theme'."
+  (let ((theme (or theme (modus-themes-get-current-theme))))
+    (unless (memq theme modus-themes-registered-items)
+      (error "The theme `%s' is not among `modus-themes-registered-items'" theme))
+    (if-let* ((properties (get theme 'theme-properties))
+              (core-palette (plist-get properties :modus-core-palette)))
+        (let ((user-palette (plist-get properties :modus-user-palette))
+              (overrides-palette (plist-get properties :modus-overrides-palette)))
+          (append core-palette user-palette overrides-palette))
+      (error "The theme must have at least a `:modus-core-palette' property"))))
 
 (defun modus-themes--disable-themes ()
   "Disable themes per `modus-themes-disable-other-themes'."
-  (mapc #'disable-theme
-        (if modus-themes-disable-other-themes
-            custom-enabled-themes
-          (modus-themes--list-known-themes))))
+  (mapc
+   #'disable-theme
+   (if modus-themes-disable-other-themes
+       custom-enabled-themes
+     modus-themes-registered-items)))
 
 (defun modus-themes-load-theme (theme)
   "Load THEME while disabling other themes.
@@ -1085,11 +1057,9 @@ This function is used in the macros `modus-themes-theme',
 `modus-themes-with-colors'."
   (let ((value (car (alist-get color palette))))
     (cond
-     ((or (stringp value)
-          (eq value 'unspecified))
+     ((stringp value)
       value)
-     ((and (symbolp value)
-           value)
+     ((and (symbolp value) value)
       (modus-themes--retrieve-palette-value value palette))
      (t
       'unspecified))))
@@ -1114,7 +1084,7 @@ If COLOR is not present in the palette, return the `unspecified'
 symbol, which is safe when used as a face attribute's value."
   (if-let* ((palette (if theme
                          (modus-themes--palette-value theme overrides)
-                       (modus-themes--current-theme-palette overrides)))
+                       (modus-themes-get-theme-palette overrides)))
             (value (modus-themes--retrieve-palette-value color palette)))
       value
     'unspecified))
@@ -1143,13 +1113,8 @@ symbol, which is safe when used as a face attribute's value."
         (complete-with-action action candidates string pred)))))
 
 (defun modus-themes--completion-table-candidates ()
-  "Render `modus-themes--list-known-themes' as completion with theme category."
-  (modus-themes--completion-table 'theme (modus-themes--list-known-themes)))
-
-(define-obsolete-function-alias
-  'modus-themes--select-prompt
-  'modus-themes-select-prompt
-  "4.9.0")
+  "Render `modus-themes-registered-items' as completion table with theme category."
+  (modus-themes--completion-table 'theme modus-themes-registered-items))
 
 (defun modus-themes-select-prompt (&optional prompt themes history)
   "Minibuffer prompt to select a Modus theme.
@@ -1310,7 +1275,7 @@ color mappings instead of the complete palette."
 (defun modus-themes-list-colors-current (&optional mappings)
   "Like `modus-themes-list-colors' with optional MAPPINGS for the current theme."
   (interactive "P")
-  (modus-themes-list-colors (modus-themes--current-theme) mappings))
+  (modus-themes-list-colors (modus-themes-get-current-theme) mappings))
 
 (defalias 'modus-themes-preview-colors-current 'modus-themes-list-colors-current
   "Alias for `modus-themes-list-colors-current'.")
@@ -4369,27 +4334,54 @@ FG and BG are the main colors."
 ;;;; Instantiate a Modus theme
 
 ;;;###autoload
-(defmacro modus-themes-theme (name palette &optional overrides)
-  "Bind NAME's color PALETTE around face specs and variables.
-Face specifications are passed to `custom-theme-set-faces'.
-While variables are handled by `custom-theme-set-variables'.
-Those are stored in `modus-themes-faces' and
-`modus-themes-custom-variables' respectively.
+(defmacro modus-themes-theme (name family description background-mode core-palette user-palette overrides-palette)
+  "Define Modus theme with symbol NAME.
+FAMILY is a symbol of the collection to which the theme belongs.
+DESCRIPTION is a string describing the theme.  BACKGROUND-MODE is a
+symbol of either `dark' or `light', in reference to the theme's background.
 
-Optional OVERRIDES are appended to PALETTE, overriding
-corresponding entries."
+CORE-PALETTE is the symbol of an alist in which each element is of the
+form (SYMBOL COLOR).  USER-PALETTE is for themes that build on top of
+the CORE-PALETTE and, as such, can be nil.  OVERRIDES-PALETTE is the
+symbol of a palette like the aforementioned intended for user
+customization and, as such, can be nil.
+
+The values of CORE-PALETTE and USER-PALETTE are used to instantiate the
+theme.  OVERRIDES-PALETTE is only registed as a theme property.
+
+Make the defined theme symbol have the following `theme-properties':
+
+- :kind
+- :background-mode
+- :family
+- :modus-core-palette
+- :modus-user-palette
+- :modus-overrides-palette"
   (declare (indent 0))
   (let ((sym (gensym))
-        (colors (mapcar #'car (symbol-value palette))))
-    `(let* ((c '((class color) (min-colors 256)))
-            (,sym (modus-themes--palette-value ',name ',overrides))
-            ,@(mapcar (lambda (color)
-                        (list color
-                              `(modus-themes--retrieve-palette-value ',color ,sym)))
-                      colors))
-       (ignore c ,@colors)            ; Silence unused variable warnings
-       (custom-theme-set-faces ',name ,@modus-themes-faces)
-       (custom-theme-set-variables ',name ,@modus-themes-custom-variables))))
+        (colors (mapcar #'car (symbol-value core-palette)))
+        (theme-exists-p (custom-theme-p name)))
+    `(progn
+       (let* ((c '((class color) (min-colors 256)))
+              (,sym (append ,core-palette ,user-palette nil))
+              ,@(mapcar (lambda (color)
+                          (list color
+                                `(modus-themes--retrieve-palette-value ',color ,sym)))
+                        colors))
+         ,@(unless theme-exists-p
+             (list `(custom-declare-theme
+                     ',name ',family
+                     ,description
+                     (list :kind 'color-scheme :background-mode ',background-mode :family ',family
+                           :modus-core-palette ',core-palette :modus-user-palette ',user-palette
+                           :modus-overrides-palette ',overrides-palette))))
+         ,@(when user-palette
+             (list `(add-to-list 'modus-themes-registered-items ',name)))
+         (ignore c ,@colors) ; Silence unused variable warnings
+         (custom-theme-set-faces ',name ,@modus-themes-faces)
+         (custom-theme-set-variables ',name ,@modus-themes-custom-variables)
+         ,@(unless theme-exists-p
+             (list `(provide-theme ',name)))))))
 
 ;;;; Use theme colors
 
@@ -4402,9 +4394,9 @@ corresponding entries."
          ;; instantiate the actual theme's palette.  We have to do this
          ;; otherwise the macro does not work properly when called from
          ;; inside a function.
-         (colors (mapcar #'car (modus-themes--current-theme-palette))))
+         (colors (mapcar #'car (modus-themes-get-theme-palette))))
     `(let* ((c '((class color) (min-colors 256)))
-            (,sym (modus-themes--current-theme-palette :overrides))
+            (,sym (modus-themes-get-theme-palette :overrides))
             ,@(mapcar (lambda (color)
                         (list color
                               `(modus-themes--retrieve-palette-value ',color ,sym)))
