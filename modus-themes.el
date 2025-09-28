@@ -6,7 +6,7 @@
 ;; Maintainer: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://github.com/protesilaos/modus-themes
 ;; Version: 4.8.1
-;; Package-Requires: ((emacs "28.1"))
+;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: faces, theme, accessibility
 
 ;; This file is part of GNU Emacs.
@@ -1203,48 +1203,31 @@ symbol, which is safe when used as a face attribute's value."
 
 (defun modus-themes--completion-table (category candidates)
   "Pass appropriate metadata CATEGORY to completion CANDIDATES."
-  (let ((completion-extra-properties `(:annotation-function ,#'modus-themes--annotate-theme)))
-    (lambda (string pred action)
-      (if (eq action 'metadata)
-          `(metadata (category . ,category))
-        (complete-with-action action candidates string pred)))))
+  (lambda (string pred action)
+    (if (eq action 'metadata)
+        `(metadata (category . ,category))
+      (complete-with-action action candidates string pred))))
 
 (defun modus-themes--completion-table-candidates ()
   "Render `modus-themes--list-known-themes' as completion with theme category."
   (modus-themes--completion-table 'theme (modus-themes--list-known-themes)))
 
-(define-obsolete-function-alias
-  'modus-themes--select-prompt
-  'modus-themes-select-prompt
-  "4.9.0")
-
-(defun modus-themes-select-prompt (&optional prompt themes history)
+(defun modus-themes--select-prompt (&optional prompt)
   "Minibuffer prompt to select a Modus theme.
-With optional PROMPT string, use it as the first argument of
-`format-prompt'.  Else use a generic prompt.
-
-With optional THEMES use them instead of `modus-themes-items'.  THEMES
-is either a list or completion table.
-
-With optional HISTORY as a symbol, use it instead of a Modus specific
-history."
-  (let ((def (if history
-                 (car (symbol-value history))
-               (car modus-themes--select-theme-history))))
+With optional PROMPT string, use it.  Else use a generic prompt."
+  (let ((completion-extra-properties `(:annotation-function ,#'modus-themes--annotate-theme)))
     (intern
      (completing-read
-      (format-prompt (or prompt "Select Modus theme") def)
-      (or themes (modus-themes--completion-table-candidates))
-      nil t nil
-      (or history 'modus-themes--select-theme-history)
-      def))))
+      (or prompt "Select Modus theme: ")
+      (modus-themes--completion-table-candidates)
+      nil t nil 'modus-themes--select-theme-history))))
 
 ;;;###autoload
 (defun modus-themes-select (theme)
   "Load a Modus THEME using minibuffer completion.
 Run `modus-themes-after-load-theme-hook' after loading the theme.
 Disable other themes per `modus-themes-disable-other-themes'."
-  (interactive (list (modus-themes-select-prompt)))
+  (interactive (list (modus-themes--select-prompt)))
   (modus-themes-load-theme theme))
 
 ;;;;; Toggle between two themes
@@ -1274,7 +1257,7 @@ Disable other themes per `modus-themes-disable-other-themes'."
             (one (car themes))
             (two (cadr themes)))
       (modus-themes-load-theme (if (eq (car custom-enabled-themes) one) two one))
-    (modus-themes-load-theme (modus-themes-select-prompt))))
+    (modus-themes-load-theme (modus-themes--select-prompt))))
 
 ;;;;; Rotate through a list of themes
 
@@ -1362,7 +1345,7 @@ color mappings instead of the complete palette."
                      "Preview palette mappings of THEME: "
                    "Preview palette of THEME: ")))
      (list
-      (modus-themes-select-prompt prompt)
+      (modus-themes--select-prompt prompt)
       current-prefix-arg)))
   (let ((buffer (get-buffer-create (format (if mappings "*%s-list-mappings*" "*%s-list-all*") theme))))
     (with-current-buffer buffer
