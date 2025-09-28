@@ -1147,17 +1147,15 @@ Disable other themes per `modus-themes-disable-other-themes'."
 
 ;;;;; Toggle between two themes
 
-(defun modus-themes-known-p (themes)
-  "Return THEMES if they are known.
-Known themes are members of the `modus-themes-items' or the
-`modus-themes-registered-items'."
+(defun modus-themes--toggle-theme-p ()
+  "Return non-nil if `modus-themes-to-toggle' are valid."
   (condition-case nil
-      (dolist (theme themes)
-        (or (memq theme modus-themes-registered-items)
-            (memq theme modus-themes-items)
-            (error "`%s' is not part of `modus-themes-items' or `modus-themes-registered-items'" theme)))
+      (dolist (theme modus-themes-to-toggle)
+        (or (memq theme modus-themes-items)
+            (memq theme (modus-themes--list-known-themes))
+            (error "`%s' is not part of `modus-themes-items'" theme)))
     (error nil)
-    (:success themes)))
+    (:success modus-themes-to-toggle)))
 
 ;;;###autoload
 (defun modus-themes-toggle ()
@@ -1170,7 +1168,7 @@ Run `modus-themes-after-load-theme-hook' after loading the theme.
 Disable other themes per `modus-themes-disable-other-themes'."
   (declare (interactive-only t))
   (interactive)
-  (if-let* ((themes (modus-themes-known-p modus-themes-to-toggle))
+  (if-let* ((themes (modus-themes--toggle-theme-p))
             (one (car themes))
             (two (cadr themes)))
       (modus-themes-load-theme (if (eq (car custom-enabled-themes) one) two one))
