@@ -492,8 +492,6 @@ palette overrides (also see `modus-themes-common-palette-overrides' and
     :group 'modus-themes
     :package-version '(modus-themes . "4.5.0")
     :type '(repeat (list symbol (choice symbol string)))
-    :set #'modus-themes--set-option
-    :initialize #'custom-initialize-default
     :link '(info-link "(modus-themes) Option to extend the palette for use with overrides"))
 
   (defcustom modus-vivendi-palette-overrides nil
@@ -515,8 +513,6 @@ represents."
     :package-version '(modus-themes . "4.0.0")
     :version "30.1"
     :type '(repeat (list symbol (choice symbol string)))
-    :set #'modus-themes--set-option
-    :initialize #'custom-initialize-default
     :link '(info-link "(modus-themes) Palette overrides"))
 
   (modus-themes-theme
