@@ -5740,12 +5740,12 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Pugnet, Steve Downey, Tassilo Horn, Thanos Apollo, Thibaut Verron,
   Thomas Heartman, Togan Muftuoglu, Tony Zorman, Trey Merkley, Tomasz
   Hołubowicz, Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley,
-  Zhengyi Fu, Zoltan Kiraly. As well as users: Ben, CsBigDataHub1,
-  Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji, Nick, Summer
-  Emacs, TheBlob42, TitusMu, Trey, bepolymathe, bit9tream,
-  bangedorrunt, case-lambda, derek-upham, doolio, fleimgruber,
-  gitrj95, iSeeU, jixiuf, ltmsyvag, okamsn, pedro-nonfree, pRot0ta1p,
-  shipmints, soaringbird, tumashu, wakamenod.
+  Zoltan Kiraly. As well as users: Ben, CsBigDataHub1, Emacs Contrib,
+  Eugene, Fourchaux, Fredrik, Moesasji, Nick, Summer Emacs, TheBlob42,
+  TitusMu, Trey, bepolymathe, bit9tream, bangedorrunt, case-lambda,
+  derek-upham, doolio, fleimgruber, gitrj95, iSeeU, jixiuf, ltmsyvag,
+  okamsn, pedro-nonfree, pRot0ta1p, shipmints, soaringbird, tumashu,
+  wakamenod.
 
 + Packaging :: Basil L.{{{space()}}} Contovounesios, Eli Zaretskii,
   Glenn Morris, Mauro Aranda, Richard Stallman, Stefan Kangas (core
