@@ -4697,9 +4697,8 @@ With optional SHOW-ERROR, throw an error instead of returning nil."
   "Return first enabled Modus theme."
   (car (modus-themes--list-enabled-themes)))
 
-(defun modus-themes--get-theme-palette-subr (theme include-overrides)
-  "Do the work of `modus-themes-get-theme-palette' without `modus-themes-known-p'.
-THEME and INCLUDE-OVERRIDES have the meaning of that function's documentation."
+(defun modus-themes--get-theme-palette-subr (theme)
+  "Get THEME `modus-themes-get-theme-palette' without `modus-themes-known-p'."
   (if-let* ((properties (get theme 'theme-properties))
             (core-palette (symbol-value (plist-get properties :modus-core-palette))))
       (let* ((user-palette (symbol-value (plist-get properties :modus-user-palette)))
@@ -4709,20 +4708,15 @@ THEME and INCLUDE-OVERRIDES have the meaning of that function's documentation."
                              overrides-palette
                              (when (eq family 'modus-themes)
                                modus-themes-common-palette-overrides))))
-        (if include-overrides
-            (append all-overrides user-palette core-palette)
-          (append user-palette core-palette)))
+        (append all-overrides user-palette core-palette))
     (error "The theme must have at least a `:modus-core-palette' property")))
 
-(defun modus-themes-get-theme-palette (&optional theme include-overrides)
+(defun modus-themes-get-theme-palette (&optional theme)
   "Return palette value of active `modus-themes-get-themes' THEME.
-If THEME is nil, use the return value of `modus-themes-get-current-theme'.
-
-If INCLUDE-OVERRIDES is non-nil, return the overrides and the original
-palette, else just the original palette."
+If THEME is nil, use the return value of `modus-themes-get-current-theme'."
   (let ((theme (or theme (modus-themes-get-current-theme))))
     (when (modus-themes-known-p theme :err-if-needed)
-      (modus-themes--get-theme-palette-subr theme include-overrides))))
+      (modus-themes--get-theme-palette-subr theme))))
 
 (defun modus-themes--disable-themes ()
   "Disable themes per `modus-themes-disable-other-themes'."
@@ -4786,7 +4780,8 @@ the palette of that item.  Else use the current Modus theme.
 
 If COLOR is not present in the palette, return the `unspecified'
 symbol, which is safe when used as a face attribute's value."
-  (if-let* ((palette (modus-themes-get-theme-palette theme overrides))
+  (if-let* ((palette ;; FIXME for the ovrrides (modus-themes-get-theme-palette theme overrides)
+             (modus-themes-get-theme-palette theme))
             (value (modus-themes--retrieve-palette-value color palette)))
       value
     'unspecified))
@@ -4979,7 +4974,8 @@ PALETTE is the value of a variable like `modus-operandi-palette'."
 
 (defun modus-themes--list-colors-tabulated (theme &optional mappings)
   "Return a data structure of THEME palette or MAPPINGS for tabulated list."
-  (let* ((current-palette (modus-themes-get-theme-palette theme :include-overrides))
+  (let* ((current-palette ;; FIXME for the overrides (modus-themes-get-theme-palette theme :include-overrides)
+          (modus-themes-get-theme-palette theme :include-overrides))
          (palette (if mappings
                       (modus-themes--list-colors-get-mappings current-palette)
                     current-palette)))
