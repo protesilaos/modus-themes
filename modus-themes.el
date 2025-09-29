@@ -4912,16 +4912,16 @@ modify THEMES in the process."
   "Return non-nil if THEME has `light' :background-mode property."
   (modus-themes--has-background-mode-p theme 'light))
 
-(defun modus-themes-filter-by-background-mode (light-or-dark)
-  "Return list of `modus-themes-get-all-known-themes' by LIGHT-OR-DARK.
+(defun modus-themes-filter-by-background-mode (themes light-or-dark)
+  "Return list of THEMES by LIGHT-OR-DARK.
 LIGHT-OR-DARK is the symbol `dark' or `light'.  It corresponds to the
-theme property of :background-mode."
-  (when-let* ((themes (modus-themes-get-all-known-themes))
-              (fn (pcase light-or-dark
-                    ('dark #'modus-themes--dark-p)
-                    ('light #'modus-themes--light-p)
-                    (_ (error "LIGHT-OR-DARK must be either `dark' or `light', not `%s'" light-or-dark)))))
-    (seq-filter fn themes)))
+theme property of :background-mode.  Any other value means to use all
+THEMES."
+  (if-let* ((fn (pcase light-or-dark
+                  ('dark #'modus-themes--dark-p)
+                  ('light #'modus-themes--light-p))))
+      (seq-filter fn themes)
+    themes))
 
 (defun modus-themes-background-mode-prompt ()
   "Select `dark' or `light' and return it as a symbol."
@@ -4937,9 +4937,9 @@ theme property of :background-mode."
   "Return theme for `modus-themes-load-random' given BACKGROUND-MODE.
 THEME-FAMILY limits the themes to those of the same family.  If nil,
 then all Modus themes and their derivatives are considered."
-  (let* ((themes (if (null background-mode)
-                     (modus-themes-get-all-known-themes theme-family)
-                   (modus-themes-filter-by-background-mode background-mode)))
+  (let* ((themes (modus-themes-filter-by-background-mode
+                  (modus-themes-get-all-known-themes theme-family)
+                  background-mode))
          (current (modus-themes-get-current-theme))
          (themes-minus-current (delete current (copy-sequence themes))))
     (or (nth (random (length themes-minus-current)) themes-minus-current)
