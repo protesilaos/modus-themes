@@ -4665,18 +4665,22 @@ derivatives."
          themes)
       themes)))
 
+(cl-defgeneric modus-themes-get-themes ()
+  "Return list of Modus themes."
+  (modus-themes-get-all-known-themes 'modus-themes))
+
 (defun modus-themes-known-p (themes &optional show-error)
-  "Return THEMES if they are among `modus-themes-get-all-known-themes' else nil.
+  "Return THEMES if they are among `modus-themes-get-themes' else nil.
 THEMES is either a list of symbols, like `modus-themes-items' or a
 symbol.
 
 With optional SHOW-ERROR, throw an error instead of returning nil."
   (condition-case data
       (let ((themes (if (listp themes) themes (list themes)))
-            (known-themes (modus-themes-get-all-known-themes)))
+            (known-themes (modus-themes-get-themes)))
         (dolist (theme themes)
           (or (memq theme known-themes)
-              (error "`%s' is not part of whant `modus-themes-get-all-known-themes' returns" theme))))
+              (error "`%s' is not part of whant `modus-themes-get-themes' returns" theme))))
     (:success
      themes)
     (error
@@ -4685,7 +4689,7 @@ With optional SHOW-ERROR, throw an error instead of returning nil."
 
 (defun modus-themes--list-enabled-themes ()
   "Return list of known `custom-enabled-themes'."
-  (seq-intersection (modus-themes-get-all-known-themes) custom-enabled-themes))
+  (seq-intersection (modus-themes-get-themes) custom-enabled-themes))
 
 (defun modus-themes--load-no-enable (theme)
   "Load but do not enable THEME if it belongs to `custom-known-themes'."
@@ -4724,7 +4728,7 @@ THEME and OVERRIDES-ONLY have the meaning of that function's documentation."
     (error "The theme must have at least a `:modus-core-palette' property")))
 
 (defun modus-themes-get-theme-palette (&optional theme overrides-only)
-  "Return palette value of active `modus-themes-get-all-known-themes' THEME.
+  "Return palette value of active `modus-themes-get-themes' THEME.
 If THEME is nil, use the return value of `modus-themes-get-current-theme'.
 
 If OVERRIDES-ONLY is non-nil, return just the overrides."
@@ -4738,7 +4742,7 @@ If OVERRIDES-ONLY is non-nil, return just the overrides."
    #'disable-theme
    (if modus-themes-disable-other-themes
        custom-enabled-themes
-     (modus-themes-get-all-known-themes))))
+     (modus-themes-get-themes))))
 
 (defun modus-themes-load-theme (theme &optional hook)
   "Load THEME while disabling other themes.
@@ -4824,18 +4828,19 @@ symbol, which is safe when used as a face attribute's value."
       (complete-with-action action candidates string pred))))
 
 (defun modus-themes--completion-table-candidates ()
-  "Render `modus-themes-items' as a completion table."
-  (modus-themes--completion-table 'theme modus-themes-items))
+  "Render `modus-themes-get-themes' as a completion table."
+  (modus-themes--completion-table 'theme (modus-themes-get-themes)))
 
-(defun modus-themes--select-prompt (&optional prompt)
+(defun modus-themes-select-prompt (&optional prompt)
   "Minibuffer prompt to select a Modus theme.
-With optional PROMPT string, use it.  Else use a generic prompt."
-  (let ((completion-extra-properties `(:annotation-function ,#'modus-themes--annotate-theme)))
-    (intern
-     (completing-read
-      (or prompt "Select Modus theme: ")
-      (modus-themes--completion-table-candidates)
-      nil t nil 'modus-themes--select-theme-history))))
+With optional PROMPT string, use it as the first argument of
+`format-prompt'.  Else use a generic prompt."
+  (intern
+   (completing-read
+    (format-prompt (or prompt "Select theme") nil)
+    (modus-themes--completion-table-candidates)
+    nil t nil
+    'modus-themes--select-theme-history)))
 
 ;;;###autoload
 (defun modus-themes-select (theme)
@@ -4862,7 +4867,7 @@ Disable other themes per `modus-themes-disable-other-themes'."
             (one (car themes))
             (two (cadr themes)))
       (modus-themes-load-theme (if (eq (car custom-enabled-themes) one) two one))
-    (modus-themes-load-theme (modus-themes--select-prompt))))
+    (modus-themes-load-theme (modus-themes-select-prompt "No valid theme to toggle; select other"))))
 
 ;;;;; Rotate through a list of themes
 
@@ -4931,12 +4936,10 @@ THEMES."
        (?l "light" "Load a random light theme"))
      "Limit to the dark or light subset of the themes."))))
 
-(defun modus-themes-load-random-subr (background-mode theme-family)
-  "Return theme for `modus-themes-load-random' given BACKGROUND-MODE.
-THEME-FAMILY limits the themes to those of the same family.  If nil,
-then all Modus themes and their derivatives are considered."
+(defun modus-themes-load-random-subr (background-mode)
+  "Return theme for `modus-themes-load-random' given BACKGROUND-MODE."
   (let* ((themes (modus-themes-filter-by-background-mode
-                  (modus-themes-get-all-known-themes theme-family)
+                  (modus-themes-get-themes)
                   background-mode))
          (current (modus-themes-get-current-theme))
          (themes-minus-current (delete current (copy-sequence themes))))
@@ -4956,7 +4959,7 @@ Run `modus-themes-after-load-theme-hook' after loading a theme."
    (list
     (when current-prefix-arg
       (modus-themes-background-mode-prompt))))
-  (if-let* ((theme (modus-themes-load-random-subr background-mode 'modus-themes)))
+  (if-let* ((theme (modus-themes-load-random-subr background-mode)))
       (progn
         (message "Loading `%s'" theme)
         (modus-themes-load-theme theme))
@@ -8158,6 +8161,22 @@ corresponding entries."
                       colors))
        (ignore c ,@colors)            ; Silence unused variable warnings
        ,@body)))
+
+;;;; Accept all Modus themes and their derivatives
+
+;;;###autoload
+(define-minor-mode modus-themes-only-modus-derivatives-mode
+  "When enabled, all Modus themes commands cover derivatives as well.
+Otherwise, they only consider the `modus-themes-items'.
+
+Derivative theme projects can disable this minor mode and/or implement
+the equivalent plus a method for `modus-themes-get-themes'."
+  :global t
+  :init-value t)
+
+(cl-defmethod modus-themes-get-themes :before (&context (modus-themes-only-modus-derivatives-mode (eql t)))
+  "Return Modus themes and all their derivatives."
+  (modus-themes-get-all-known-themes nil))
 
 ;;;; Add themes from package to path
 
