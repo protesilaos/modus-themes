@@ -4583,7 +4583,7 @@ This list is instantiated by the `modus-themes-theme' macro.  Themes
 that build on top of Modus but for some reason cannot use that macro
 must define theme properties to include those that the macro specifies.
 
-Also see `modus-themes-get-all-known-themes'.")
+Also see `modus-themes-get-themes'.")
 
 (defvar modus-themes--activated-themes nil
   "List of themes that `modus-themes--activate' operated on.")
@@ -4737,8 +4737,8 @@ value.
 With optional WITH-OVERRIDES as a non-nil value, include palette
 overrides.  Else use the default palette.
 
-With optional THEME among `modus-themes-get-all-known-themes', use the
-palette of that item.  Else use the current theme.
+With optional THEME among `modus-themes-get-themes', use the palette of
+that item.  Else use the current theme.
 
 If COLOR is not present in the palette, return the `unspecified'
 symbol, which is safe when used as a face attribute's value."
@@ -8165,7 +8165,7 @@ accordingly."
   :init-value nil)
 
 (cl-defmethod modus-themes-get-themes (&context (modus-themes-include-derivatives-mode (eql t)))
-  (modus-themes-get-all-known-themes nil))
+  (modus-themes-get-all-known-themes 'modus-themes))
 
 ;;;; Add themes from package to path
 
