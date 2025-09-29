@@ -4923,18 +4923,6 @@ theme property of :background-mode."
                     (_ (error "LIGHT-OR-DARK must be either `dark' or `light', not `%s'" light-or-dark)))))
     (seq-filter fn themes)))
 
-(defun modus-themes--minus-current (&optional background-mode)
-  "Return list of themes minus the current one.
-Optional BACKGROUND-MODE limits the list of themes to either the dark or light
-subset.  BACKGROUND-MODE is either `light' or `dark'.."
-  (let* ((themes (if (null background-mode)
-                     (modus-themes-get-all-known-themes)
-                   (modus-themes-filter-by-background-mode background-mode)))
-         (copy (copy-sequence themes)))
-    (if-let* ((current-theme (modus-themes-get-current-theme)))
-        (delete current-theme copy)
-      themes)))
-
 (defun modus-themes-background-mode-prompt ()
   "Select `dark' or `light' and return it as a symbol."
   (intern
@@ -4945,12 +4933,24 @@ subset.  BACKGROUND-MODE is either `light' or `dark'.."
        (?l "light" "Load a random light theme"))
      "Limit to the dark or light subset of the themes."))))
 
+(defun modus-themes-load-random-subr (background-mode theme-family)
+  "Return theme for `modus-themes-load-random' given BACKGROUND-MODE.
+THEME-FAMILY limits the themes to those of the same family.  If nil,
+then all Modus themes and their derivatives are considered."
+  (let* ((themes (if (null background-mode)
+                     (modus-themes-get-all-known-themes theme-family)
+                   (modus-themes-filter-by-background-mode background-mode)))
+         (current (modus-themes-get-current-theme))
+         (themes-minus-current (delete current (copy-sequence themes))))
+    (or (nth (random (length themes-minus-current)) themes-minus-current)
+        (car themes-minus-current))))
+
 ;;;###autoload
-(defun modus-themes-load-random (&optional variant)
+(defun modus-themes-load-random (&optional background-mode)
   "Load a Modus theme at random, excluding the current one.
 
-With optional VARIANT as a prefix argument, prompt to limit the set of
-themes to either dark or light variants.  When called from Lisp, VARIANT
+With optional BACKGROUND-MODE as a prefix argument, prompt to limit the set of
+themes to either dark or light variants.  When called from Lisp, BACKGROUND-MODE
 is either the `dark' or `light' symbol.
 
 Run `modus-themes-after-load-theme-hook' after loading a theme."
@@ -4958,10 +4958,11 @@ Run `modus-themes-after-load-theme-hook' after loading a theme."
    (list
     (when current-prefix-arg
       (modus-themes-background-mode-prompt))))
-  (let* ((themes (modus-themes--minus-current variant))
-         (match (or (nth (random (length themes)) themes) (car themes))))
-    (modus-themes-load-theme match)
-    (message "Match `%s'" (propertize (symbol-name match) 'face 'bold))))
+  (if-let* ((theme (modus-themes-load-random-subr background-mode 'modus-themes)))
+      (progn
+        (message "Loading `%s'" theme)
+        (modus-themes-load-theme theme))
+    (error "Could not find a theme to load at random")))
 
 ;;;###autoload
 (defun modus-themes-load-random-dark ()
