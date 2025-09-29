@@ -4684,7 +4684,7 @@ With optional SHOW-ERROR, throw an error instead of returning nil."
        (signal (car data) (list (apply #'format-message (cdr data))))))))
 
 (defun modus-themes--list-enabled-themes ()
-  "Return list of `custom-enabled-themes' with modus- prefix."
+  "Return list of known `custom-enabled-themes'."
   (seq-intersection (modus-themes-get-all-known-themes) custom-enabled-themes))
 
 (defun modus-themes--load-no-enable (theme)
