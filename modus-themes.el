@@ -4739,19 +4739,19 @@ If OVERRIDES-ONLY is non-nil, return just the overrides."
        custom-enabled-themes
      (modus-themes-get-all-known-themes))))
 
-(defun modus-themes-load-theme (theme)
+(defun modus-themes-load-theme (theme &optional hook)
   "Load THEME while disabling other themes.
 
 Which themes are disabled is determined by the user option
 `modus-themes-disable-other-themes'.
 
 Run the `modus-themes-after-load-theme-hook' as the final step
-after loading the THEME.
+after loading the THEME.  If HOOK, then call that instead.
 
 Return THEME."
   (modus-themes--disable-themes)
   (load-theme theme :no-confirm)
-  (run-hooks 'modus-themes-after-load-theme-hook)
+  (run-hooks (or hook 'modus-themes-after-load-theme-hook))
   theme)
 
 (defun modus-themes--retrieve-palette-value (color palette)
