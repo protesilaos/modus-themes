@@ -4594,10 +4594,9 @@ With non-nil FORCEFULLY, load the theme regardless."
   ;; NOTE 2025-09-29: We need to do this instead of pushing to the
   ;; `custom-known-themes' because loading the theme has the desired
   ;; side effect of adding the relevant `theme-properties' to it.
-  (unless (memq theme modus-themes--activated-themes)
-    (when (or forcefully (not (custom-theme-p theme)))
-      (load-theme theme t t)
-      (push theme modus-themes--activated-themes))))
+  (when (or forcefully (not (custom-theme-p theme)))
+    (load-theme theme t t))
+  (add-to-list 'modus-themes--activated-themes theme))
 
 (defun modus-themes--belongs-to-family-p (theme family)
   "Return non-nil if THEME has FAMILY property."
