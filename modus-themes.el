@@ -8187,7 +8187,7 @@ corresponding entries."
 ;;;; Accept all Modus themes and their derivatives
 
 ;;;###autoload
-(define-minor-mode modus-themes-only-modus-derivatives-mode
+(define-minor-mode modus-themes-include-derivatives-mode
   "When enabled, all Modus themes commands cover derivatives as well.
 Otherwise, they only consider the `modus-themes-items'.
 
@@ -8196,7 +8196,7 @@ the equivalent plus a method for `modus-themes-get-themes'."
   :global t
   :init-value t)
 
-(cl-defmethod modus-themes-get-themes (&context (modus-themes-only-modus-derivatives-mode (eql t)))
+(cl-defmethod modus-themes-get-themes (&context (modus-themes-include-derivatives-mode (eql t)))
   (modus-themes-get-all-known-themes nil))
 
 ;;;; Add themes from package to path
