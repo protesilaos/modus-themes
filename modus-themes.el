@@ -247,21 +247,6 @@ consequences.  The user must manually reload the theme."
   :type 'boolean
   :link '(info-link "(modus-themes) Custom reload theme"))
 
-(defun modus-themes--set-option (sym val)
-  "Custom setter for theme related user options.
-Will set SYM to VAL, and reload the current theme, unless
-`modus-themes-custom-auto-reload' is nil."
-  (set-default sym val)
-  (when (and modus-themes-custom-auto-reload
-             ;; Check if a theme is being loaded, in which case we
-             ;; don't want to reload a theme if the setter is
-             ;; invoked. `custom--inhibit-theme-enable' is set to nil
-             ;; by `enable-theme'.
-             (bound-and-true-p custom--inhibit-theme-enable))
-    (when-let* ((modus-themes-custom-auto-reload t)
-                (theme (modus-themes-get-current-theme)))
-      (modus-themes-load-theme theme))))
-
 (defcustom modus-themes-disable-other-themes t
   "Disable all other themes when loading a Modus theme.
 
@@ -351,8 +336,6 @@ This is used by the commands `modus-themes-toggle',
   :package-version '(modus-themes . "1.5.0")
   :version "28.1"
   :type 'boolean
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Italic constructs"))
 
 (defcustom modus-themes-bold-constructs nil
@@ -361,8 +344,6 @@ This is used by the commands `modus-themes-toggle',
   :package-version '(modus-themes . "1.0.0")
   :version "28.1"
   :type 'boolean
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Bold constructs"))
 
 (defcustom modus-themes-variable-pitch-ui nil
@@ -372,8 +353,6 @@ This includes the mode line, header line, tab bar, and tab line."
   :package-version '(modus-themes . "1.1.0")
   :version "28.1"
   :type 'boolean
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) UI typeface"))
 
 (defcustom modus-themes-mixed-fonts nil
@@ -391,8 +370,6 @@ Protesilaos))."
   :package-version '(modus-themes . "1.7.0")
   :version "29.1"
   :type 'boolean
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Mixed fonts"))
 
 (defconst modus-themes--weight-widget
@@ -523,8 +500,6 @@ and related user options."
                             '(0 1 2 3 4 5 6 7 8 t agenda-date agenda-structure))
           :key-type symbol
           :value-type ,modus-themes--headings-widget)
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Heading styles"))
 
 (make-obsolete-variable 'modus-themes-org-blocks nil "4.4.0: Use palette overrides")
@@ -610,8 +585,6 @@ Is the same as:
                      ,modus-themes--weight-widget
                      (const :tag "Italic font (oblique or slanted forms)" italic)
                      (const :tag "Underline" underline))))
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Completion UIs"))
 
 (defcustom modus-themes-prompts nil
@@ -646,8 +619,6 @@ In user configuration files the form may look like this:
   :type `(set :tag "Properties" :greedy t
               (const :tag "Italic font slant" italic)
               ,modus-themes--weight-widget)
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Command prompts"))
 
 
@@ -660,8 +631,6 @@ used in combination with palette overrides (see
   :group 'modus-themes
   :package-version '(modus-themes . "4.5.0")
   :type '(repeat (list symbol (choice symbol string)))
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Extend the palette for use with overrides"))
 
 (defcustom modus-themes-common-palette-overrides nil
@@ -688,26 +657,6 @@ represents."
   :package-version '(modus-themes . "4.0.0")
   :version "30.1"
   :type '(repeat (list symbol (choice symbol string)))
-  ;; ;; NOTE 2023-01-07: The following is a functioning version of the
-  ;; ;; intended :type.  However, I think the Custom UI is really
-  ;; ;; awkward for this specific case.  Maybe the generic type I have
-  ;; ;; above is better, as it encourages the user to write out the
-  ;; ;; code and read the manual.  Counter-arguments are welcome.
-  ;;
-  ;; :type `(repeat (list (radio :tag "Palette key to override"
-  ;;                             ,@(mapcar (lambda (x)
-  ;;                                         (list 'const x))
-  ;;                                       (mapcar #'car (modus-themes--current-theme-palette))))
-  ;;                      (choice :tag "Value to assign" :value unspecified
-  ;;                              (const :tag "`unspecified' (remove the original color)" unspecified)
-  ;;                              (string :tag "String with color name (e.g. \"gray50\") or hex RGB (e.g. \"#123456\")"
-  ;;                                      :match-inline (color-supported-p val))
-  ;;                              (radio :tag "Palette key to map to"
-  ;;                                     ,@(mapcar (lambda (x)
-  ;;                                                 (list 'const x))
-  ;;                                               (mapcar #'car (modus-themes--current-theme-palette)))))))
-  :set #'modus-themes--set-option
-  :initialize #'custom-initialize-default
   :link '(info-link "(modus-themes) Palette overrides"))
 
 
