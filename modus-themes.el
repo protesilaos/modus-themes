@@ -4443,16 +4443,29 @@ Optional OVERRIDES are appended to PALETTE, overriding
 corresponding entries."
   (declare (indent 0))
   (let ((sym (gensym))
-        (colors (mapcar #'car (symbol-value palette))))
-    `(let* ((c '((class color) (min-colors 256)))
-            (,sym (modus-themes--palette-value ',name ',overrides))
-            ,@(mapcar (lambda (color)
-                        (list color
-                              `(modus-themes--retrieve-palette-value ',color ,sym)))
-                      colors))
-       (ignore c ,@colors)            ; Silence unused variable warnings
-       (custom-theme-set-faces ',name ,@modus-themes-faces)
-       (custom-theme-set-variables ',name ,@modus-themes-custom-variables))))
+        (colors (mapcar #'car (symbol-value core-palette)))
+        (theme-exists-p (custom-theme-p name)))
+    `(progn
+       ,@(unless theme-exists-p
+           (list `(custom-declare-theme
+                   ',name ',family
+                   ,description
+                   (list :kind 'color-scheme :background-mode ',background-mode :family ',family
+                         :modus-core-palette ',core-palette :modus-user-palette ',user-palette
+                         :modus-overrides-palette ',overrides-palette))))
+       ,@(when user-palette
+           (list `(add-to-list 'modus-themes-registered-items ',name)))
+       (let* ((c '((class color) (min-colors 256)))
+              (,sym (append ,user-palette ,core-palette nil))
+              ,@(mapcar (lambda (color)
+                          (list color
+                                `(modus-themes--retrieve-palette-value ',color ,sym)))
+                        colors))
+         (ignore c ,@colors) ; Silence unused variable warnings
+         (custom-theme-set-faces ',name ,@modus-themes-faces)
+         (custom-theme-set-variables ',name ,@modus-themes-custom-variables)
+         ,@(unless theme-exists-p
+             (list `(provide-theme ',name)))))))
 
 ;;;; Use theme colors
 
