@@ -36,7 +36,9 @@
 
 
 
-(eval-when-compile (require 'subr-x))
+(eval-when-compile
+  (require 'subr-x)
+  (require 'cl-lib))
 
 (defgroup modus-themes ()
   "User options for the Modus themes.
