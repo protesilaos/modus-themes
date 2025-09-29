@@ -1318,6 +1318,87 @@ modify THEMES in the process."
           (modus-themes-load-theme candidate))
       (user-error "`%s' is not part of the Modus collection" candidate))))
 
+;;;;; Load a random theme
+
+(defun modus-themes--has-background-mode-p (theme mode)
+  "Return non-nil if THEME has MODE :background-mode property."
+  (when-let* ((properties (get theme 'theme-properties))
+              (background (plist-get properties :background-mode)))
+    (eq background mode)))
+
+(defun modus-themes--dark-p (theme)
+  "Return non-nil if THEME has `dark' :background-mode property."
+  (modus-themes--has-background-mode-p theme 'dark))
+
+(defun modus-themes--light-p (theme)
+  "Return non-nil if THEME has `light' :background-mode property."
+  (modus-themes--has-background-mode-p theme 'light))
+
+(defun modus-themes-filter-by-background-mode (light-or-dark)
+  "Return list of `modus-themes-get-all-known-themes' by LIGHT-OR-DARK.
+LIGHT-OR-DARK is the symbol `dark' or `light'.  It corresponds to the
+theme property of :background-mode."
+  (when-let* ((themes (modus-themes-get-all-known-themes))
+              (fn (pcase light-or-dark
+                    ('dark #'modus-themes--dark-p)
+                    ('light #'modus-themes--light-p)
+                    (_ (error "LIGHT-OR-DARK must be either `dark' or `light', not `%s'" light-or-dark)))))
+    (seq-filter fn themes)))
+
+(defun modus-themes--minus-current (&optional background-mode)
+  "Return list of themes minus the current one.
+Optional BACKGROUND-MODE limits the list of themes to either the dark or light
+subset.  BACKGROUND-MODE is either `light' or `dark'.."
+  (let* ((themes (if (null background-mode)
+                     (modus-themes-get-all-known-themes)
+                   (modus-themes-filter-by-background-mode background-mode)))
+         (copy (copy-sequence themes)))
+    (if-let* ((current-theme (modus-themes-get-current-theme)))
+        (delete current-theme copy)
+      themes)))
+
+(defun modus-themes-background-mode-prompt ()
+  "Select `dark' or `light' and return it as a symbol."
+  (intern
+   (cadr
+    (read-multiple-choice
+     "Variant"
+     '((?d "dark" "Load a random dark theme")
+       (?l "light" "Load a random light theme"))
+     "Limit to the dark or light subset of the themes."))))
+
+;;;###autoload
+(defun modus-themes-load-random (&optional variant)
+  "Load a Modus theme at random, excluding the current one.
+
+With optional VARIANT as a prefix argument, prompt to limit the set of
+themes to either dark or light variants.  When called from Lisp, VARIANT
+is either the `dark' or `light' symbol.
+
+Run `modus-themes-after-load-theme-hook' after loading a theme."
+  (interactive
+   (list
+    (when current-prefix-arg
+      (modus-themes-background-mode-prompt))))
+  (let* ((themes (modus-themes--minus-current variant))
+         (match (or (nth (random (length themes)) themes) (car themes))))
+    (modus-themes-load-theme match)
+    (message "Match `%s'" (propertize (symbol-name match) 'face 'bold))))
+
+;;;###autoload
+(defun modus-themes-load-random-dark ()
+  "Load a random dark theme."
+  (declare (interactive-only t))
+  (interactive)
+  (modus-themes-load-random 'dark))
+
+;;;###autoload
+(defun modus-themes-load-random-light ()
+  "Load a random light theme."
+  (declare (interactive-only t))
+  (interactive)
+  (modus-themes-load-random 'light))
+
 ;;;;; Preview a theme palette
 
 (defun modus-themes--list-colors-get-mappings (palette)
