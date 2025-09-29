@@ -5039,6 +5039,7 @@ color mappings instead of the complete palette."
      (list
       (modus-themes--select-prompt prompt)
       current-prefix-arg)))
+  (load-theme theme t t)
   (let ((buffer (get-buffer-create (format (if mappings "*%s-list-mappings*" "*%s-list-all*") theme))))
     (with-current-buffer buffer
       (let ((modus-themes-current-preview theme)
