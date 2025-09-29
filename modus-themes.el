@@ -5008,10 +5008,10 @@ PALETTE is the value of a variable like `modus-operandi-palette'."
                            (color (modus-themes-get-color-value name mappings theme))) ; resolve a semantic mapping
                 (list name
                       (vector
-                       (if (and (symbolp value)
-                                (not (eq value 'unspecified)))
-                           "Yes"
-                         "")
+                       (cond
+                        ((eq value 'unspecified) "---")
+                        ((symbolp value) "Yes")
+                        (t ""))
                        name-string
                        (propertize value-string 'face `( :foreground ,color))
                        (propertize value-string-padded 'face (list :background color
