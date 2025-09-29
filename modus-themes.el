@@ -4875,13 +4875,15 @@ Disable other themes per `modus-themes-disable-other-themes'."
   "Return a new theme for `modus-themes-rotate'.
 The theme is the next among THEMES if it is possible to rotate to it.
 When REVERSE is non-nil, move to the left, else to the right."
-  (let ((valid-themes (modus-themes-known-p themes)))
-    (if-let* ((index (or (seq-position valid-themes (modus-themes-get-current-theme)) 0))
-              (offset (mod (if reverse (1- index) (1+ index))
-                           (length valid-themes)))
-              (new-theme (nth offset valid-themes)))
-        new-theme
-      (error "Cannot determine a theme among `%s'" themes))))
+  (if-let* ((valid-themes (modus-themes-known-p themes)))
+      (if-let* ((index (or (seq-position valid-themes (modus-themes-get-current-theme)) 0))
+                (offset (mod
+                         (if reverse (1- index) (1+ index))
+                         (length valid-themes)))
+                (new-theme (nth offset valid-themes)))
+          new-theme
+        (error "Cannot determine a theme among `%s'" themes))
+    (error "The themes `%S' do not satisfy `modus-themes-known-p'" themes)))
 
 ;;;###autoload
 (defun modus-themes-rotate (themes &optional reverse)
