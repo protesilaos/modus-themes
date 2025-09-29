@@ -5031,8 +5031,8 @@ With optional prefix argument for MAPPINGS preview only the semantic
 color mappings instead of the complete palette."
   (interactive
    (let ((prompt (if current-prefix-arg
-                     "Preview palette mappings of THEME: "
-                   "Preview palette of THEME: ")))
+                     "Preview palette mappings of THEME"
+                   "Preview palette of THEME")))
      (list
       (modus-themes--select-prompt prompt)
       current-prefix-arg)))
