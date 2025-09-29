@@ -8116,7 +8116,7 @@ OVERRIDES-PALETTE have the same meaning as in `modus-themes-theme'.
 
 To simply register the theme, use `modus-themes-register'."
   (custom-declare-theme
-   name family
+   name (intern (format "%s-theme" name))
    description
    (list :kind 'color-scheme :background-mode background-mode :family family
          :modus-core-palette core-palette :modus-user-palette user-palette
@@ -8146,7 +8146,8 @@ corresponding entries."
        ,@(unless theme-exists-p
            (list
             `(modus-themes-declare
-              ',name ',family ,description ',background-mode
+              ',name ',family ',(intern (format "%s-theme" name))
+              ,description ',background-mode
               ',core-palette ',user-palette ',overrides-palette)))
        ,@(unless (eq family 'modus-themes)
            (list
