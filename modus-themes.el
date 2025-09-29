@@ -674,7 +674,7 @@ represents."
 
 (defconst modus-themes-operandi-palette
     '(
-;;; Basic values
+;; Basic values
 
       (bg-main          "#ffffff")
       (bg-dim           "#f2f2f2")
@@ -685,7 +685,7 @@ represents."
       (bg-inactive      "#e0e0e0")
       (border           "#9f9f9f")
 
-;;; Common accent foregrounds
+;; Common accent foregrounds
 
       (red             "#a60000")
       (red-warmer      "#972500")
@@ -718,7 +718,7 @@ represents."
       (cyan-faint      "#005077")
       (cyan-intense    "#008899")
 
-;;; Uncommon accent foregrounds
+;; Uncommon accent foregrounds
 
       (rust       "#8a290f")
       (gold       "#80601f")
@@ -728,7 +728,7 @@ represents."
       (maroon     "#731c52")
       (pink       "#7b435c")
 
-;;; Common accent backgrounds
+;; Common accent backgrounds
 
       (bg-red-intense     "#ff8f88")
       (bg-green-intense   "#8adf80")
@@ -751,7 +751,7 @@ represents."
       (bg-magenta-nuanced "#f8e6f5")
       (bg-cyan-nuanced    "#e0f2fa")
 
-;;; Uncommon accent background and foreground pairs
+;; Uncommon accent background and foreground pairs
 
       (bg-clay     "#f1c8b5")
       (fg-clay     "#63192a")
@@ -765,7 +765,7 @@ represents."
       (bg-sage     "#c0e7d4")
       (fg-sage     "#124b41")
 
-;;; Graphs
+;; Graphs
 
       (bg-graph-red-0     "#ef7969")
       (bg-graph-red-1     "#ffaab4")
@@ -780,7 +780,7 @@ represents."
       (bg-graph-cyan-0    "#70d3f0")
       (bg-graph-cyan-1    "#afefff")
 
-;;; Special purpose
+;; Special purpose
 
       (bg-completion       "#c0deff")
       (bg-hover            "#b2e4dc")
@@ -804,7 +804,7 @@ represents."
       (bg-tab-current  "#ffffff")
       (bg-tab-other    "#c2c2c2")
 
-;;; Diffs
+;; Diffs
 
       (bg-added           "#c1f2d1")
       (bg-added-faint     "#d8f8e1")
@@ -829,16 +829,14 @@ represents."
 
       (bg-diff-context    "#f3f3f3")
 
-;;; Paren match
+;; Paren match
 
       (bg-paren-match        "#5fcfff")
       (fg-paren-match        fg-main)
       (bg-paren-expression   "#efd3f5")
       (underline-paren-match unspecified)
 
-;;; Mappings
-
-;;;; General mappings
+;; General mappings
 
       (fringe bg-dim)
       (cursor fg-main)
@@ -867,7 +865,7 @@ represents."
       (bg-active-value bg-cyan-nuanced)
       (fg-active-value cyan-warmer)
 
-;;;; Code mappings
+;; Code mappings
 
       (bracket fg-main)
       (builtin magenta-warmer)
@@ -889,21 +887,21 @@ represents."
       (type cyan-cooler)
       (variable cyan)
 
-;;;; Accent mappings
+;; Accent mappings
 
       (accent-0 blue)
       (accent-1 magenta-warmer)
       (accent-2 cyan)
       (accent-3 red)
 
-;;;; Button mappings
+;; Button mappings
 
       (fg-button-active fg-main)
       (fg-button-inactive fg-dim)
       (bg-button-active bg-active)
       (bg-button-inactive bg-dim)
 
-;;;; Completion mappings
+;; Completion mappings
 
       (fg-completion-match-0 blue)
       (fg-completion-match-1 magenta-warmer)
@@ -914,7 +912,7 @@ represents."
       (bg-completion-match-2 unspecified)
       (bg-completion-match-3 unspecified)
 
-;;;; Date mappings
+;; Date mappings
 
       (date-common cyan)
       (date-deadline red-cooler)
@@ -929,14 +927,14 @@ represents."
       (date-weekday cyan)
       (date-weekend magenta)
 
-;;;; Line number mappings
+;; Line number mappings
 
       (fg-line-number-inactive fg-dim)
       (fg-line-number-active fg-main)
       (bg-line-number-inactive bg-dim)
       (bg-line-number-active bg-active)
 
-;;;; Link mappings
+;; Link mappings
 
       (fg-link blue-warmer)
       (bg-link unspecified)
@@ -950,7 +948,7 @@ represents."
       (bg-link-visited unspecified)
       (underline-link-visited magenta)
 
-;;;; Mail mappings
+;; Mail mappings
 
       (mail-cite-0 blue-faint)
       (mail-cite-1 yellow-warmer)
@@ -961,7 +959,7 @@ represents."
       (mail-subject magenta-warmer)
       (mail-other magenta-faint)
 
-;;;; Mark mappings
+;; Mark mappings
 
       (bg-mark-delete bg-red-subtle)
       (fg-mark-delete red)
@@ -970,12 +968,12 @@ represents."
       (bg-mark-other bg-yellow-subtle)
       (fg-mark-other yellow)
 
-;;;; Prompt mappings
+;; Prompt mappings
 
       (fg-prompt cyan-cooler)
       (bg-prompt unspecified)
 
-;;;; Prose mappings
+;; Prose mappings
 
       (bg-prose-block-delimiter bg-dim)
       (fg-prose-block-delimiter fg-dim)
@@ -1001,7 +999,7 @@ represents."
 
       (prose-tag magenta-faint)
 
-;;;; Rainbow mappings
+;; Rainbow mappings
 
       (rainbow-0 fg-main)
       (rainbow-1 magenta-intense)
@@ -1013,7 +1011,7 @@ represents."
       (rainbow-7 blue-warmer)
       (rainbow-8 magenta-warmer)
 
-;;;; Search mappings
+;; Search mappings
 
       (bg-search-current bg-yellow-intense)
       (bg-search-lazy bg-cyan-intense)
@@ -1024,13 +1022,13 @@ represents."
       (bg-search-rx-group-2 bg-red-subtle)
       (bg-search-rx-group-3 bg-magenta-subtle)
 
-;;;; Space mappings
+;; Space mappings
 
       (bg-space unspecified)
       (fg-space border)
       (bg-space-err bg-red-intense)
 
-;;;; Terminal mappings
+;; Terminal mappings
 
       (bg-term-black           "#000000")
       (fg-term-black           "#000000")
@@ -1072,7 +1070,7 @@ represents."
       (bg-term-white-bright    "#ffffff")
       (fg-term-white-bright    "#ffffff")
 
-;;;; Heading mappings
+;; Heading mappings
 
       (fg-heading-0 cyan-cooler)
       (fg-heading-1 fg-main)
@@ -1114,7 +1112,7 @@ exists in the palette and is associated with a HEX-VALUE.")
 
 (defconst modus-themes-operandi-tinted-palette
   '(
-;;; Basic values
+;; Basic values
 
     (bg-main          "#fbf7f0")
     (bg-dim           "#efe9dd")
@@ -1125,7 +1123,7 @@ exists in the palette and is associated with a HEX-VALUE.")
     (bg-inactive      "#dfd5cf")
     (border           "#9f9690")
 
-;;; Common accent foregrounds
+;; Common accent foregrounds
 
     (red             "#a60000")
     (red-warmer      "#972500")
@@ -1158,7 +1156,7 @@ exists in the palette and is associated with a HEX-VALUE.")
     (cyan-faint      "#304463")
     (cyan-intense    "#008899")
 
-;;; Uncommon accent foregrounds
+;; Uncommon accent foregrounds
 
     (rust       "#8a290f")
     (gold       "#80601f")
@@ -1168,7 +1166,7 @@ exists in the palette and is associated with a HEX-VALUE.")
     (maroon     "#731c52")
     (pink       "#7b435c")
 
-;;; Common accent backgrounds
+;; Common accent backgrounds
 
     (bg-red-intense     "#ff8f88")
     (bg-green-intense   "#8adf80")
@@ -1191,7 +1189,7 @@ exists in the palette and is associated with a HEX-VALUE.")
     (bg-magenta-nuanced "#f8e6f5")
     (bg-cyan-nuanced    "#e0f2fa")
 
-;;; Uncommon accent background and foreground pairs
+;; Uncommon accent background and foreground pairs
 
     (bg-clay     "#f1c8b5")
     (fg-clay     "#63192a")
@@ -1205,7 +1203,7 @@ exists in the palette and is associated with a HEX-VALUE.")
     (bg-sage     "#c0e7d4")
     (fg-sage     "#124b41")
 
-;;; Graphs
+;; Graphs
 
     (bg-graph-red-0     "#ef7969")
     (bg-graph-red-1     "#ffaab4")
@@ -1220,7 +1218,7 @@ exists in the palette and is associated with a HEX-VALUE.")
     (bg-graph-cyan-0    "#70d3f0")
     (bg-graph-cyan-1    "#afefff")
 
-;;; Special purpose
+;; Special purpose
 
     (bg-completion       "#f0c1cf")
     (bg-hover            "#b2e4dc")
@@ -1244,7 +1242,7 @@ exists in the palette and is associated with a HEX-VALUE.")
     (bg-tab-current  "#fbf7f0")
     (bg-tab-other    "#c8b8b2")
 
-;;; Diffs
+;; Diffs
 
     (bg-added           "#c3ebc1")
     (bg-added-faint     "#dcf8d1")
@@ -1269,16 +1267,14 @@ exists in the palette and is associated with a HEX-VALUE.")
 
     (bg-diff-context    "#efe9df")
 
-;;; Paren match
+;; Paren match
 
     (bg-paren-match        "#7fdfcf")
     (fg-paren-match        fg-main)
     (bg-paren-expression   "#efd3f5")
     (underline-paren-match unspecified)
 
-;;; Mappings
-
-;;;; General mappings
+;; General mappings
 
     (fringe bg-dim)
     (cursor red-intense)
@@ -1307,7 +1303,7 @@ exists in the palette and is associated with a HEX-VALUE.")
     (bg-active-value bg-cyan-nuanced)
     (fg-active-value cyan-warmer)
 
-;;;; Code mappings
+;; Code mappings
 
     (bracket fg-main)
     (builtin magenta)
@@ -1329,21 +1325,21 @@ exists in the palette and is associated with a HEX-VALUE.")
     (type green-warmer)
     (variable green-cooler)
 
-;;;; Accent mappings
+;; Accent mappings
 
     (accent-0 red-cooler)
     (accent-1 cyan)
     (accent-2 magenta-cooler)
     (accent-3 yellow-warmer)
 
-;;;; Button mappings
+;; Button mappings
 
     (fg-button-active fg-main)
     (fg-button-inactive fg-dim)
     (bg-button-active bg-active)
     (bg-button-inactive bg-dim)
 
-;;;; Completion mappings
+;; Completion mappings
 
     (fg-completion-match-0 blue)
     (fg-completion-match-1 magenta-warmer)
@@ -1354,7 +1350,7 @@ exists in the palette and is associated with a HEX-VALUE.")
     (bg-completion-match-2 unspecified)
     (bg-completion-match-3 unspecified)
 
-;;;; Date mappings
+;; Date mappings
 
     (date-common cyan)
     (date-deadline red-cooler)
@@ -1369,14 +1365,14 @@ exists in the palette and is associated with a HEX-VALUE.")
     (date-weekday cyan)
     (date-weekend magenta)
 
-;;;; Line number mappings
+;; Line number mappings
 
     (fg-line-number-inactive fg-dim)
     (fg-line-number-active fg-main)
     (bg-line-number-inactive bg-dim)
     (bg-line-number-active bg-active)
 
-;;;; Link mappings
+;; Link mappings
 
     (fg-link blue-warmer)
     (bg-link unspecified)
@@ -1390,7 +1386,7 @@ exists in the palette and is associated with a HEX-VALUE.")
     (bg-link-visited unspecified)
     (underline-link-visited magenta)
 
-;;;; Mail mappings
+;; Mail mappings
 
     (mail-cite-0 cyan)
     (mail-cite-1 yellow)
@@ -1401,7 +1397,7 @@ exists in the palette and is associated with a HEX-VALUE.")
     (mail-subject magenta-warmer)
     (mail-other magenta)
 
-;;;; Mark mappings
+;; Mark mappings
 
     (bg-mark-delete bg-red-subtle)
     (fg-mark-delete red)
@@ -1410,12 +1406,12 @@ exists in the palette and is associated with a HEX-VALUE.")
     (bg-mark-other bg-yellow-subtle)
     (fg-mark-other yellow)
 
-;;;; Prompt mappings
+;; Prompt mappings
 
     (fg-prompt green-cooler)
     (bg-prompt unspecified)
 
-;;;; Prose mappings
+;; Prose mappings
 
     (bg-prose-block-delimiter bg-dim)
     (fg-prose-block-delimiter fg-dim)
@@ -1441,7 +1437,7 @@ exists in the palette and is associated with a HEX-VALUE.")
 
     (prose-tag magenta-faint)
 
-;;;; Rainbow mappings
+;; Rainbow mappings
 
     (rainbow-0 fg-main)
     (rainbow-1 magenta-intense)
@@ -1453,7 +1449,7 @@ exists in the palette and is associated with a HEX-VALUE.")
     (rainbow-7 blue-warmer)
     (rainbow-8 magenta-warmer)
 
-;;;; Search mappings
+;; Search mappings
 
     (bg-search-current bg-yellow-intense)
     (bg-search-lazy bg-cyan-intense)
@@ -1464,13 +1460,13 @@ exists in the palette and is associated with a HEX-VALUE.")
     (bg-search-rx-group-2 bg-red-subtle)
     (bg-search-rx-group-3 bg-magenta-subtle)
 
-;;;; Space mappings
+;; Space mappings
 
     (bg-space unspecified)
     (fg-space border)
     (bg-space-err bg-red-intense)
 
-;;;; Terminal mappings
+;; Terminal mappings
 
     (bg-term-black           "#000000")
     (fg-term-black           "#000000")
@@ -1512,7 +1508,7 @@ exists in the palette and is associated with a HEX-VALUE.")
     (bg-term-white-bright    "#ffffff")
     (fg-term-white-bright    "#ffffff")
 
-;;;; Heading mappings
+;; Heading mappings
 
     (fg-heading-0 green-cooler)
     (fg-heading-1 fg-main)
@@ -1554,7 +1550,7 @@ exists in the palette and is associated with a HEX-VALUE.")
 
 (defconst modus-themes-operandi-deuteranopia-palette
     '(
-;;; Basic values
+;; Basic values
 
       (bg-main          "#ffffff")
       (bg-dim           "#f2f2f2")
@@ -1565,7 +1561,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-inactive      "#e0e0e0")
       (border           "#9f9f9f")
 
-;;; Common accent foregrounds
+;; Common accent foregrounds
 
       (red             "#a60000")
       (red-warmer      "#972500")
@@ -1598,7 +1594,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (cyan-faint      "#005077")
       (cyan-intense    "#008899")
 
-;;; Uncommon accent foregrounds
+;; Uncommon accent foregrounds
 
       (rust       "#8a290f")
       (gold       "#80601f")
@@ -1608,7 +1604,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (maroon     "#731c52")
       (pink       "#7b435c")
 
-;;; Common accent backgrounds
+;; Common accent backgrounds
 
       (bg-red-intense     "#ff8f88")
       (bg-green-intense   "#8adf80")
@@ -1631,7 +1627,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-magenta-nuanced "#f8e6f5")
       (bg-cyan-nuanced    "#e0f2fa")
 
-;;; Uncommon accent background and foreground pairs
+;; Uncommon accent background and foreground pairs
 
       (bg-clay     "#f1c8b5")
       (fg-clay     "#63192a")
@@ -1645,7 +1641,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-sage     "#c0e7d4")
       (fg-sage     "#124b41")
 
-;;; Graphs
+;; Graphs
 
       (bg-graph-red-0     "#d0b029")
       (bg-graph-red-1     "#e0cab4")
@@ -1660,7 +1656,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-graph-cyan-0    "#6faad9")
       (bg-graph-cyan-1    "#bfe0ff")
 
-;;; Special purpose
+;; Special purpose
 
       (bg-completion       "#c0deff")
       (bg-hover            "#b2e4dc")
@@ -1684,7 +1680,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-tab-current  "#ffffff")
       (bg-tab-other    "#c2c2c2")
 
-;;; Diffs
+;; Diffs
 
       (bg-added           "#d5d7ff")
       (bg-added-faint     "#e6e6ff")
@@ -1709,16 +1705,14 @@ exists in the palette and is associated with a HEX-VALUE.")
 
       (bg-diff-context    "#f3f3f3")
 
-;;; Paren match
+;; Paren match
 
       (bg-paren-match        "#5fcfff")
       (fg-paren-match        fg-main)
       (bg-paren-expression   "#efd3f5")
       (underline-paren-match unspecified)
 
-;;; Mappings
-
-;;;; General mappings
+;; General mappings
 
       (fringe bg-dim)
       (cursor blue-intense)
@@ -1747,7 +1741,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-active-value bg-blue-nuanced)
       (fg-active-value blue-warmer)
 
-;;;; Code mappings
+;; Code mappings
 
       (bracket fg-main)
       (builtin yellow)
@@ -1769,21 +1763,21 @@ exists in the palette and is associated with a HEX-VALUE.")
       (type cyan-cooler)
       (variable cyan)
 
-;;;; Accent mappings
+;; Accent mappings
 
       (accent-0 blue-warmer)
       (accent-1 yellow-warmer)
       (accent-2 cyan)
       (accent-3 yellow-cooler)
 
-;;;; Button mappings
+;; Button mappings
 
       (fg-button-active fg-main)
       (fg-button-inactive fg-dim)
       (bg-button-active bg-active)
       (bg-button-inactive bg-dim)
 
-;;;; Completion mappings
+;; Completion mappings
 
       (fg-completion-match-0 blue-warmer)
       (fg-completion-match-1 yellow-warmer)
@@ -1794,7 +1788,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-completion-match-2 unspecified)
       (bg-completion-match-3 unspecified)
 
-;;;; Date mappings
+;; Date mappings
 
       (date-common cyan)
       (date-deadline yellow-warmer)
@@ -1809,14 +1803,14 @@ exists in the palette and is associated with a HEX-VALUE.")
       (date-weekday cyan)
       (date-weekend blue-cooler)
 
-;;;; Line number mappings
+;; Line number mappings
 
       (fg-line-number-inactive fg-dim)
       (fg-line-number-active fg-main)
       (bg-line-number-inactive bg-dim)
       (bg-line-number-active bg-active)
 
-;;;; Link mappings
+;; Link mappings
 
       (fg-link blue-warmer)
       (bg-link unspecified)
@@ -1830,7 +1824,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-link-visited unspecified)
       (underline-link-visited yellow-faint)
 
-;;;; Mail mappings
+;; Mail mappings
 
       (mail-cite-0 blue-warmer)
       (mail-cite-1 yellow)
@@ -1841,7 +1835,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (mail-subject yellow-cooler)
       (mail-other cyan-faint)
 
-;;;; Mark mappings
+;; Mark mappings
 
       (bg-mark-delete bg-yellow-subtle)
       (fg-mark-delete yellow)
@@ -1850,12 +1844,12 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-mark-other bg-magenta-subtle)
       (fg-mark-other magenta)
 
-;;;; Prompt mappings
+;; Prompt mappings
 
       (fg-prompt blue)
       (bg-prompt unspecified)
 
-;;;; Prose mappings
+;; Prose mappings
 
       (bg-prose-block-delimiter bg-dim)
       (fg-prose-block-delimiter fg-dim)
@@ -1881,7 +1875,7 @@ exists in the palette and is associated with a HEX-VALUE.")
 
       (prose-tag fg-alt)
 
-;;;; Rainbow mappings
+;; Rainbow mappings
 
       (rainbow-0 blue)
       (rainbow-1 yellow)
@@ -1893,7 +1887,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (rainbow-7 yellow-faint)
       (rainbow-8 cyan)
 
-;;;; Search mappings
+;; Search mappings
 
       (bg-search-current bg-yellow-intense)
       (bg-search-lazy bg-blue-intense)
@@ -1904,13 +1898,13 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-search-rx-group-2 bg-blue-subtle)
       (bg-search-rx-group-3 bg-yellow-subtle)
 
-;;;; Space mappings
+;; Space mappings
 
       (bg-space unspecified)
       (fg-space border)
       (bg-space-err bg-yellow-intense)
 
-;;;; Terminal mappings
+;; Terminal mappings
 
       (bg-term-black           "#000000")
       (fg-term-black           "#000000")
@@ -1952,7 +1946,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-term-white-bright    "#ffffff")
       (fg-term-white-bright    "#ffffff")
 
-;;;; Heading mappings
+;; Heading mappings
 
       (fg-heading-0 cyan-cooler)
       (fg-heading-1 fg-main)
@@ -1994,7 +1988,7 @@ exists in the palette and is associated with a HEX-VALUE.")
 
 (defconst modus-themes-operandi-tritanopia-palette
     '(
-;;; Basic values
+;; Basic values
 
       (bg-main          "#ffffff")
       (bg-dim           "#f2f2f2")
@@ -2005,7 +1999,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-inactive      "#e0e0e0")
       (border           "#9f9f9f")
 
-;;; Common accent foregrounds
+;; Common accent foregrounds
 
       (red             "#a60000")
       (red-warmer      "#b21100")
@@ -2038,7 +2032,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (cyan-faint      "#004f5f")
       (cyan-intense    "#008899")
 
-;;; Uncommon accent foregrounds
+;; Uncommon accent foregrounds
 
       (rust       "#8a290f")
       (gold       "#80601f")
@@ -2048,7 +2042,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (maroon     "#731c52")
       (pink       "#7b435c")
 
-;;; Common accent backgrounds
+;; Common accent backgrounds
 
       (bg-red-intense     "#ff8f88")
       (bg-green-intense   "#8adf80")
@@ -2071,7 +2065,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-magenta-nuanced "#f8e6f5")
       (bg-cyan-nuanced    "#e0f2fa")
 
-;;; Uncommon accent background and foreground pairs
+;; Uncommon accent background and foreground pairs
 
       (bg-clay     "#f1c8b5")
       (fg-clay     "#63192a")
@@ -2085,7 +2079,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-sage     "#c0e7d4")
       (fg-sage     "#124b41")
 
-;;; Graphs
+;; Graphs
 
       (bg-graph-red-0     "#ef7969")
       (bg-graph-red-1     "#ffaab4")
@@ -2100,7 +2094,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-graph-cyan-0    "#7fd3ed")
       (bg-graph-cyan-1    "#afefff")
 
-;;; Special purpose
+;; Special purpose
 
       (bg-completion       "#afdfef")
       (bg-hover            "#ffafbc")
@@ -2124,7 +2118,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-tab-current  "#ffffff")
       (bg-tab-other    "#c2c2c2")
 
-;;; Diffs
+;; Diffs
 
       (bg-added           "#b5e7ff")
       (bg-added-faint     "#c6f6ff")
@@ -2149,16 +2143,14 @@ exists in the palette and is associated with a HEX-VALUE.")
 
       (bg-diff-context    "#f3f3f3")
 
-;;; Paren match
+;; Paren match
 
       (bg-paren-match        "#5fcfff")
       (fg-paren-match        fg-main)
       (bg-paren-expression   "#efd3f5")
       (underline-paren-match unspecified)
 
-;;; Mappings
-
-;;;; General mappings
+;; General mappings
 
       (fringe bg-dim)
       (cursor red-intense)
@@ -2187,7 +2179,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-active-value bg-cyan-nuanced)
       (fg-active-value cyan)
 
-;;;; Code mappings
+;; Code mappings
 
       (bracket fg-main)
       (builtin magenta)
@@ -2209,21 +2201,21 @@ exists in the palette and is associated with a HEX-VALUE.")
       (type blue-warmer)
       (variable cyan-cooler)
 
-;;;; Accent mappings
+;; Accent mappings
 
       (accent-0 cyan)
       (accent-1 red-warmer)
       (accent-2 cyan-cooler)
       (accent-3 magenta)
 
-;;;; Button mappings
+;; Button mappings
 
       (fg-button-active fg-main)
       (fg-button-inactive fg-dim)
       (bg-button-active bg-active)
       (bg-button-inactive bg-dim)
 
-;;;; Completion mappings
+;; Completion mappings
 
       (fg-completion-match-0 cyan)
       (fg-completion-match-1 red-warmer)
@@ -2234,7 +2226,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-completion-match-2 unspecified)
       (bg-completion-match-3 unspecified)
 
-;;;; Date mappings
+;; Date mappings
 
       (date-common cyan-cooler)
       (date-deadline red)
@@ -2249,14 +2241,14 @@ exists in the palette and is associated with a HEX-VALUE.")
       (date-weekday cyan)
       (date-weekend magenta-warmer)
 
-;;;; Line number mappings
+;; Line number mappings
 
       (fg-line-number-inactive fg-dim)
       (fg-line-number-active fg-main)
       (bg-line-number-inactive bg-dim)
       (bg-line-number-active bg-active)
 
-;;;; Link mappings
+;; Link mappings
 
       (fg-link cyan)
       (bg-link unspecified)
@@ -2270,7 +2262,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-link-visited unspecified)
       (underline-link-visited magenta)
 
-;;;; Mail mappings
+;; Mail mappings
 
       (mail-cite-0 cyan-faint)
       (mail-cite-1 red-faint)
@@ -2281,7 +2273,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (mail-subject red-cooler)
       (mail-other cyan)
 
-;;;; Mark mappings
+;; Mark mappings
 
       (bg-mark-delete bg-red-subtle)
       (fg-mark-delete red)
@@ -2290,12 +2282,12 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-mark-other bg-magenta-subtle)
       (fg-mark-other magenta)
 
-;;;; Prompt mappings
+;; Prompt mappings
 
       (fg-prompt cyan-cooler)
       (bg-prompt unspecified)
 
-;;;; Prose mappings
+;; Prose mappings
 
       (bg-prose-block-delimiter bg-dim)
       (fg-prose-block-delimiter fg-dim)
@@ -2321,7 +2313,7 @@ exists in the palette and is associated with a HEX-VALUE.")
 
       (prose-tag fg-alt)
 
-;;;; Rainbow mappings
+;; Rainbow mappings
 
       (rainbow-0 cyan)
       (rainbow-1 red)
@@ -2333,7 +2325,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (rainbow-7 magenta-faint)
       (rainbow-8 red-faint)
 
-;;;; Search mappings
+;; Search mappings
 
       (bg-search-current bg-red-intense)
       (bg-search-lazy bg-cyan-intense)
@@ -2344,13 +2336,13 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-search-rx-group-2 bg-cyan-subtle)
       (bg-search-rx-group-3 bg-red-subtle)
 
-;;;; Space mappings
+;; Space mappings
 
       (bg-space unspecified)
       (fg-space border)
       (bg-space-err bg-red-intense)
 
-;;;; Terminal mappings
+;; Terminal mappings
 
       (bg-term-black           "#000000")
       (fg-term-black           "#000000")
@@ -2392,7 +2384,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-term-white-bright    "#ffffff")
       (fg-term-white-bright    "#ffffff")
 
-;;;; Heading mappings
+;; Heading mappings
 
       (fg-heading-0 cyan-cooler)
       (fg-heading-1 fg-main)
@@ -2434,7 +2426,7 @@ exists in the palette and is associated with a HEX-VALUE.")
 
 (defconst modus-themes-vivendi-palette
     '(
-;;; Basic values
+;; Basic values
 
       (bg-main          "#000000")
       (bg-dim           "#1e1e1e")
@@ -2445,7 +2437,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-inactive      "#303030")
       (border           "#646464")
 
-;;; Common accent foregrounds
+;; Common accent foregrounds
 
       (red             "#ff5f59")
       (red-warmer      "#ff6b55")
@@ -2478,7 +2470,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (cyan-faint      "#9ac8e0")
       (cyan-intense    "#00eff0")
 
-;;; Uncommon accent foregrounds
+;; Uncommon accent foregrounds
 
       (rust       "#db7b5f")
       (gold       "#c0965b")
@@ -2488,7 +2480,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (maroon     "#cf7fa7")
       (pink       "#d09dc0")
 
-;;; Common accent backgrounds
+;; Common accent backgrounds
 
       (bg-red-intense     "#9d1f1f")
       (bg-green-intense   "#2f822f")
@@ -2511,7 +2503,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-magenta-nuanced "#2f0c3f")
       (bg-cyan-nuanced    "#042837")
 
-;;; Uncommon accent background and foreground pairs
+;; Uncommon accent background and foreground pairs
 
       (bg-clay     "#49191a")
       (fg-clay     "#f1b090")
@@ -2525,7 +2517,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-sage     "#143e32")
       (fg-sage     "#c3e7d4")
 
-;;; Graphs
+;; Graphs
 
       (bg-graph-red-0     "#b52c2c")
       (bg-graph-red-1     "#702020")
@@ -2540,7 +2532,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-graph-cyan-0    "#47dfea")
       (bg-graph-cyan-1    "#00808f")
 
-;;; Special purpose
+;; Special purpose
 
       (bg-completion       "#2f447f")
       (bg-hover            "#45605e")
@@ -2564,7 +2556,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-tab-current  "#000000")
       (bg-tab-other    "#545454")
 
-;;; Diffs
+;; Diffs
 
       (bg-added           "#00381f")
       (bg-added-faint     "#002910")
@@ -2589,16 +2581,14 @@ exists in the palette and is associated with a HEX-VALUE.")
 
       (bg-diff-context    "#1a1a1a")
 
-;;; Paren match
+;; Paren match
 
       (bg-paren-match        "#2f7f9f")
       (fg-paren-match        fg-main)
       (bg-paren-expression   "#453040")
       (underline-paren-match unspecified)
 
-;;; Mappings
-
-;;;; General mappings
+;; General mappings
 
       (fringe bg-dim)
       (cursor fg-main)
@@ -2627,7 +2617,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-active-value bg-cyan-nuanced)
       (fg-active-value cyan-cooler)
 
-;;;; Code mappings
+;; Code mappings
 
       (bracket fg-main)
       (builtin magenta-warmer)
@@ -2649,21 +2639,21 @@ exists in the palette and is associated with a HEX-VALUE.")
       (type cyan-cooler)
       (variable cyan)
 
-;;;; Accent mappings
+;; Accent mappings
 
       (accent-0 blue-cooler)
       (accent-1 magenta-warmer)
       (accent-2 cyan-cooler)
       (accent-3 yellow)
 
-;;;; Button mappings
+;; Button mappings
 
       (fg-button-active fg-main)
       (fg-button-inactive fg-dim)
       (bg-button-active bg-active)
       (bg-button-inactive bg-dim)
 
-;;;; Completion mappings
+;; Completion mappings
 
       (fg-completion-match-0 blue-cooler)
       (fg-completion-match-1 magenta-warmer)
@@ -2674,7 +2664,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-completion-match-2 unspecified)
       (bg-completion-match-3 unspecified)
 
-;;;; Date mappings
+;; Date mappings
 
       (date-common cyan)
       (date-deadline red-cooler)
@@ -2689,14 +2679,14 @@ exists in the palette and is associated with a HEX-VALUE.")
       (date-weekday cyan)
       (date-weekend magenta)
 
-;;;; Line number mappings
+;; Line number mappings
 
       (fg-line-number-inactive fg-dim)
       (fg-line-number-active fg-main)
       (bg-line-number-inactive bg-dim)
       (bg-line-number-active bg-active)
 
-;;;; Link mappings
+;; Link mappings
 
       (fg-link blue-warmer)
       (bg-link unspecified)
@@ -2710,7 +2700,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-link-visited unspecified)
       (underline-link-visited magenta)
 
-;;;; Mail mappings
+;; Mail mappings
 
       (mail-cite-0 blue-warmer)
       (mail-cite-1 yellow-cooler)
@@ -2721,7 +2711,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (mail-subject magenta-warmer)
       (mail-other magenta-faint)
 
-;;;; Mark mappings
+;; Mark mappings
 
       (bg-mark-delete bg-red-subtle)
       (fg-mark-delete red-cooler)
@@ -2730,12 +2720,12 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-mark-other bg-yellow-subtle)
       (fg-mark-other yellow)
 
-;;;; Prompt mappings
+;; Prompt mappings
 
       (fg-prompt cyan-cooler)
       (bg-prompt unspecified)
 
-;;;; Prose mappings
+;; Prose mappings
 
       (bg-prose-block-delimiter bg-dim)
       (fg-prose-block-delimiter fg-dim)
@@ -2761,7 +2751,7 @@ exists in the palette and is associated with a HEX-VALUE.")
 
       (prose-tag magenta-faint)
 
-;;;; Rainbow mappings
+;; Rainbow mappings
 
       (rainbow-0 fg-main)
       (rainbow-1 magenta-intense)
@@ -2773,7 +2763,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (rainbow-7 blue-warmer)
       (rainbow-8 magenta-warmer)
 
-;;;; Search mappings
+;; Search mappings
 
       (bg-search-current bg-yellow-intense)
       (bg-search-lazy bg-cyan-intense)
@@ -2784,13 +2774,13 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-search-rx-group-2 bg-red-subtle)
       (bg-search-rx-group-3 bg-magenta-subtle)
 
-;;;; Space mappings
+;; Space mappings
 
       (bg-space unspecified)
       (fg-space border)
       (bg-space-err bg-red-intense)
 
-;;;; Terminal mappings
+;; Terminal mappings
 
       (bg-term-black           "#000000")
       (fg-term-black           "#000000")
@@ -2832,7 +2822,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-term-white-bright    "#ffffff")
       (fg-term-white-bright    "#ffffff")
 
-;;;; Heading mappings
+;; Heading mappings
 
       (fg-heading-0 cyan-cooler)
       (fg-heading-1 fg-main)
@@ -2874,7 +2864,7 @@ exists in the palette and is associated with a HEX-VALUE.")
 
 (defconst modus-themes-vivendi-tinted-palette
     '(
-;;; Basic values
+;; Basic values
 
       (bg-main          "#0d0e1c")
       (bg-dim           "#1d2235")
@@ -2885,7 +2875,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-inactive      "#2b3045")
       (border           "#61647a")
 
-;;; Common accent foregrounds
+;; Common accent foregrounds
 
       (red             "#ff5f59")
       (red-warmer      "#ff6b55")
@@ -2918,7 +2908,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (cyan-faint      "#9ac8e0")
       (cyan-intense    "#00eff0")
 
-;;; Uncommon accent foregrounds
+;; Uncommon accent foregrounds
 
       (rust       "#db7b5f")
       (gold       "#c0965b")
@@ -2928,7 +2918,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (maroon     "#cf7fa7")
       (pink       "#d09dc0")
 
-;;; Common accent backgrounds
+;; Common accent backgrounds
 
       (bg-red-intense     "#9d1f1f")
       (bg-green-intense   "#2f822f")
@@ -2951,7 +2941,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-magenta-nuanced "#2f0c3f")
       (bg-cyan-nuanced    "#042837")
 
-;;; Uncommon accent background and foreground pairs
+;; Uncommon accent background and foreground pairs
 
       (bg-clay     "#49191a")
       (fg-clay     "#f1b090")
@@ -2965,7 +2955,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-sage     "#143e32")
       (fg-sage     "#c3e7d4")
 
-;;; Graphs
+;; Graphs
 
       (bg-graph-red-0     "#b52c2c")
       (bg-graph-red-1     "#702020")
@@ -2980,7 +2970,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-graph-cyan-0    "#47dfea")
       (bg-graph-cyan-1    "#00808f")
 
-;;; Special purpose
+;; Special purpose
 
       (bg-completion       "#483d8a")
       (bg-hover            "#45605e")
@@ -3004,7 +2994,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-tab-current  "#0d0e1c")
       (bg-tab-other    "#4a4f6a")
 
-;;; Diffs
+;; Diffs
 
       (bg-added           "#003a2f")
       (bg-added-faint     "#002922")
@@ -3029,16 +3019,14 @@ exists in the palette and is associated with a HEX-VALUE.")
 
       (bg-diff-context    "#1a1f30")
 
-;;; Paren match
+;; Paren match
 
       (bg-paren-match        "#4f7f9f")
       (fg-paren-match        fg-main)
       (bg-paren-expression   "#453040")
       (underline-paren-match unspecified)
 
-;;; Mappings
-
-;;;; General mappings
+;; General mappings
 
       (fringe bg-dim)
       (cursor magenta-intense)
@@ -3067,7 +3055,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-active-value bg-cyan-nuanced)
       (fg-active-value cyan-cooler)
 
-;;;; Code mappings
+;; Code mappings
 
       (bracket fg-main)
       (builtin magenta)
@@ -3089,21 +3077,21 @@ exists in the palette and is associated with a HEX-VALUE.")
       (type green-cooler)
       (variable cyan-warmer)
 
-;;;; Accent mappings
+;; Accent mappings
 
       (accent-0 magenta-cooler)
       (accent-1 cyan)
       (accent-2 magenta-warmer)
       (accent-3 yellow-warmer)
 
-;;;; Button mappings
+;; Button mappings
 
       (fg-button-active fg-main)
       (fg-button-inactive fg-dim)
       (bg-button-active bg-active)
       (bg-button-inactive bg-dim)
 
-;;;; Completion mappings
+;; Completion mappings
 
       (fg-completion-match-0 blue-cooler)
       (fg-completion-match-1 magenta-warmer)
@@ -3114,7 +3102,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-completion-match-2 unspecified)
       (bg-completion-match-3 unspecified)
 
-;;;; Date mappings
+;; Date mappings
 
       (date-common cyan)
       (date-deadline red-cooler)
@@ -3129,14 +3117,14 @@ exists in the palette and is associated with a HEX-VALUE.")
       (date-weekday cyan)
       (date-weekend magenta)
 
-;;;; Line number mappings
+;; Line number mappings
 
       (fg-line-number-inactive fg-dim)
       (fg-line-number-active fg-main)
       (bg-line-number-inactive bg-dim)
       (bg-line-number-active bg-active)
 
-;;;; Link mappings
+;; Link mappings
 
       (fg-link blue-warmer)
       (bg-link unspecified)
@@ -3150,7 +3138,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-link-visited unspecified)
       (underline-link-visited magenta)
 
-;;;; Mail mappings
+;; Mail mappings
 
       (mail-cite-0 blue-faint)
       (mail-cite-1 yellow-cooler)
@@ -3161,7 +3149,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (mail-subject magenta-warmer)
       (mail-other magenta)
 
-;;;; Mark mappings
+;; Mark mappings
 
       (bg-mark-delete bg-red-subtle)
       (fg-mark-delete red-cooler)
@@ -3170,12 +3158,12 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-mark-other bg-yellow-subtle)
       (fg-mark-other yellow)
 
-;;;; Prompt mappings
+;; Prompt mappings
 
       (fg-prompt cyan-warmer)
       (bg-prompt unspecified)
 
-;;;; Prose mappings
+;; Prose mappings
 
       (bg-prose-block-delimiter bg-dim)
       (fg-prose-block-delimiter fg-dim)
@@ -3201,7 +3189,7 @@ exists in the palette and is associated with a HEX-VALUE.")
 
       (prose-tag magenta-faint)
 
-;;;; Rainbow mappings
+;; Rainbow mappings
 
       (rainbow-0 fg-main)
       (rainbow-1 magenta-intense)
@@ -3213,7 +3201,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (rainbow-7 blue-warmer)
       (rainbow-8 magenta-warmer)
 
-;;;; Search mappings
+;; Search mappings
 
       (bg-search-current bg-yellow-intense)
       (bg-search-lazy bg-cyan-intense)
@@ -3224,13 +3212,13 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-search-rx-group-2 bg-red-subtle)
       (bg-search-rx-group-3 bg-magenta-subtle)
 
-;;;; Space mappings
+;; Space mappings
 
       (bg-space unspecified)
       (fg-space border)
       (bg-space-err bg-red-intense)
 
-;;;; Terminal mappings
+;; Terminal mappings
 
       (bg-term-black           "#000000")
       (fg-term-black           "#000000")
@@ -3272,7 +3260,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-term-white-bright    "#ffffff")
       (fg-term-white-bright    "#ffffff")
 
-;;;; Heading mappings
+;; Heading mappings
 
       (fg-heading-0 cyan-cooler)
       (fg-heading-1 fg-main)
@@ -3314,7 +3302,7 @@ exists in the palette and is associated with a HEX-VALUE.")
 
 (defconst modus-themes-vivendi-deuteranopia-palette
     '(
-;;; Basic values
+;; Basic values
 
       (bg-main          "#000000")
       (bg-dim           "#1e1e1e")
@@ -3325,7 +3313,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-inactive      "#303030")
       (border           "#646464")
 
-;;; Common accent foregrounds
+;; Common accent foregrounds
 
       (red             "#ff5f59")
       (red-warmer      "#ff6b55")
@@ -3358,7 +3346,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (cyan-faint      "#9ac8e0")
       (cyan-intense    "#00eff0")
 
-;;; Uncommon accent foregrounds
+;; Uncommon accent foregrounds
 
       (rust       "#db7b5f")
       (gold       "#c0965b")
@@ -3368,7 +3356,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (maroon     "#cf7fa7")
       (pink       "#d09dc0")
 
-;;; Common accent backgrounds
+;; Common accent backgrounds
 
       (bg-red-intense     "#9d1f1f")
       (bg-green-intense   "#2f822f")
@@ -3391,7 +3379,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-magenta-nuanced "#2f0c3f")
       (bg-cyan-nuanced    "#042837")
 
-;;; Uncommon accent background and foreground pairs
+;; Uncommon accent background and foreground pairs
 
       (bg-clay     "#49191a")
       (fg-clay     "#f1b090")
@@ -3405,7 +3393,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-sage     "#143e32")
       (fg-sage     "#c3e7d4")
 
-;;; Graphs
+;; Graphs
 
       (bg-graph-red-0     "#bf6000")
       (bg-graph-red-1     "#733500")
@@ -3420,7 +3408,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-graph-cyan-0    "#376f9a")
       (bg-graph-cyan-1    "#00404f")
 
-;;; Special purpose
+;; Special purpose
 
       (bg-completion       "#2f447f")
       (bg-hover            "#45605e")
@@ -3444,7 +3432,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-tab-current  "#000000")
       (bg-tab-other    "#545454")
 
-;;; Diffs
+;; Diffs
 
       (bg-added           "#003066")
       (bg-added-faint     "#001a4f")
@@ -3469,16 +3457,14 @@ exists in the palette and is associated with a HEX-VALUE.")
 
       (bg-diff-context    "#1a1a1a")
 
-;;; Paren match
+;; Paren match
 
       (bg-paren-match        "#2f7f9f")
       (fg-paren-match        fg-main)
       (bg-paren-expression   "#453040")
       (underline-paren-match unspecified)
 
-;;; Mappings
-
-;;;; General mappings
+;; General mappings
 
       (fringe bg-dim)
       (cursor yellow-intense)
@@ -3507,7 +3493,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-active-value bg-blue-nuanced)
       (fg-active-value blue-warmer)
 
-;;;; Code mappings
+;; Code mappings
 
       (bracket fg-main)
       (builtin yellow)
@@ -3529,21 +3515,21 @@ exists in the palette and is associated with a HEX-VALUE.")
       (type cyan-cooler)
       (variable cyan)
 
-;;;; Accent mappings
+;; Accent mappings
 
       (accent-0 blue-warmer)
       (accent-1 yellow)
       (accent-2 cyan-cooler)
       (accent-3 yellow-cooler)
 
-;;;; Button mappings
+;; Button mappings
 
       (fg-button-active fg-main)
       (fg-button-inactive fg-dim)
       (bg-button-active bg-active)
       (bg-button-inactive bg-dim)
 
-;;;; Completion mappings
+;; Completion mappings
 
       (fg-completion-match-0 blue-cooler)
       (fg-completion-match-1 yellow)
@@ -3554,7 +3540,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-completion-match-2 unspecified)
       (bg-completion-match-3 unspecified)
 
-;;;; Date mappings
+;; Date mappings
 
       (date-common cyan)
       (date-deadline yellow-warmer)
@@ -3569,14 +3555,14 @@ exists in the palette and is associated with a HEX-VALUE.")
       (date-weekday cyan)
       (date-weekend magenta-cooler)
 
-;;;; Line number mappings
+;; Line number mappings
 
       (fg-line-number-inactive fg-dim)
       (fg-line-number-active fg-main)
       (bg-line-number-inactive bg-dim)
       (bg-line-number-active bg-active)
 
-;;;; Link mappings
+;; Link mappings
 
       (fg-link blue-warmer)
       (bg-link unspecified)
@@ -3590,7 +3576,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-link-visited unspecified)
       (underline-link-visited yellow-faint)
 
-;;;; Mail mappings
+;; Mail mappings
 
       (mail-cite-0 blue-warmer)
       (mail-cite-1 yellow-cooler)
@@ -3601,7 +3587,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (mail-subject yellow-warmer)
       (mail-other cyan-faint)
 
-;;;; Mark mappings
+;; Mark mappings
 
       (bg-mark-delete bg-yellow-subtle)
       (fg-mark-delete yellow)
@@ -3610,12 +3596,12 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-mark-other bg-magenta-subtle)
       (fg-mark-other magenta-warmer)
 
-;;;; Prompt mappings
+;; Prompt mappings
 
       (fg-prompt blue)
       (bg-prompt unspecified)
 
-;;;; Prose mappings
+;; Prose mappings
 
       (bg-prose-block-delimiter bg-dim)
       (fg-prose-block-delimiter fg-dim)
@@ -3641,7 +3627,7 @@ exists in the palette and is associated with a HEX-VALUE.")
 
       (prose-tag fg-alt)
 
-;;;; Rainbow mappings
+;; Rainbow mappings
 
       (rainbow-0 yellow-warmer)
       (rainbow-1 blue)
@@ -3653,7 +3639,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (rainbow-7 blue-faint)
       (rainbow-8 magenta-faint)
 
-;;;; Search mappings
+;; Search mappings
 
       (bg-search-current bg-yellow-intense)
       (bg-search-lazy bg-blue-intense)
@@ -3664,13 +3650,13 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-search-rx-group-2 bg-blue-subtle)
       (bg-search-rx-group-3 bg-yellow-subtle)
 
-;;;; Space mappings
+;; Space mappings
 
       (bg-space unspecified)
       (fg-space border)
       (bg-space-err bg-yellow-intense)
 
-;;;; Terminal mappings
+;; Terminal mappings
 
       (bg-term-black           "#000000")
       (fg-term-black           "#000000")
@@ -3712,7 +3698,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-term-white-bright    "#ffffff")
       (fg-term-white-bright    "#ffffff")
 
-;;;; Heading mappings
+;; Heading mappings
 
       (fg-heading-0 cyan-cooler)
       (fg-heading-1 fg-main)
@@ -3754,7 +3740,7 @@ exists in the palette and is associated with a HEX-VALUE.")
 
 (defconst modus-themes-vivendi-tritanopia-palette
     '(
-;;; Basic values
+;; Basic values
 
       (bg-main          "#000000")
       (bg-dim           "#1e1e1e")
@@ -3765,7 +3751,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-inactive      "#303030")
       (border           "#646464")
 
-;;; Common accent foregrounds
+;; Common accent foregrounds
 
       (red             "#ff5f59")
       (red-warmer      "#ff6740")
@@ -3798,7 +3784,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (cyan-faint      "#7fdbdf")
       (cyan-intense    "#00eff0")
 
-;;; Uncommon accent foregrounds
+;; Uncommon accent foregrounds
 
       (rust       "#db7b5f")
       (gold       "#c0965b")
@@ -3808,7 +3794,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (maroon     "#cf7fa7")
       (pink       "#d09dc0")
 
-;;; Common accent backgrounds
+;; Common accent backgrounds
 
       (bg-red-intense     "#9d1f1f")
       (bg-green-intense   "#2f822f")
@@ -3831,7 +3817,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-magenta-nuanced "#2f0c3f")
       (bg-cyan-nuanced    "#042837")
 
-;;; Uncommon accent background and foreground pairs
+;; Uncommon accent background and foreground pairs
 
       (bg-clay     "#49191a")
       (fg-clay     "#f1b090")
@@ -3845,7 +3831,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-sage     "#143e32")
       (fg-sage     "#c3e7d4")
 
-;;; Graphs
+;; Graphs
 
       (bg-graph-red-0     "#b52c2c")
       (bg-graph-red-1     "#702020")
@@ -3860,7 +3846,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-graph-cyan-0    "#57dfea")
       (bg-graph-cyan-1    "#00808f")
 
-;;; Special purpose
+;; Special purpose
 
       (bg-completion       "#004253")
       (bg-hover            "#8e3e3b")
@@ -3884,7 +3870,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-tab-current  "#000000")
       (bg-tab-other    "#545454")
 
-;;; Diffs
+;; Diffs
 
       (bg-added           "#004254")
       (bg-added-faint     "#003042")
@@ -3909,16 +3895,14 @@ exists in the palette and is associated with a HEX-VALUE.")
 
       (bg-diff-context    "#1a1a1a")
 
-;;; Paren match
+;; Paren match
 
       (bg-paren-match        "#2f7f9f")
       (fg-paren-match        fg-main)
       (bg-paren-expression   "#453040")
       (underline-paren-match unspecified)
 
-;;; Mappings
-
-;;;; General mappings
+;; General mappings
 
       (fringe bg-dim)
       (cursor red-intense)
@@ -3947,7 +3931,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-active-value bg-cyan-nuanced)
       (fg-active-value cyan)
 
-;;;; Code mappings
+;; Code mappings
 
       (bracket fg-main)
       (builtin magenta)
@@ -3969,21 +3953,21 @@ exists in the palette and is associated with a HEX-VALUE.")
       (type blue-warmer)
       (variable cyan-cooler)
 
-;;;; Accent mappings
+;; Accent mappings
 
       (accent-0 cyan)
       (accent-1 red-warmer)
       (accent-2 cyan-cooler)
       (accent-3 magenta)
 
-;;;; Button mappings
+;; Button mappings
 
       (fg-button-active fg-main)
       (fg-button-inactive fg-dim)
       (bg-button-active bg-active)
       (bg-button-inactive bg-dim)
 
-;;;; Completion mappings
+;; Completion mappings
 
       (fg-completion-match-0 cyan)
       (fg-completion-match-1 red-warmer)
@@ -3994,7 +3978,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-completion-match-2 unspecified)
       (bg-completion-match-3 unspecified)
 
-;;;; Date mappings
+;; Date mappings
 
       (date-common cyan-cooler)
       (date-deadline red)
@@ -4009,14 +3993,14 @@ exists in the palette and is associated with a HEX-VALUE.")
       (date-weekday cyan)
       (date-weekend magenta-warmer)
 
-;;;; Line number mappings
+;; Line number mappings
 
       (fg-line-number-inactive fg-dim)
       (fg-line-number-active fg-main)
       (bg-line-number-inactive bg-dim)
       (bg-line-number-active bg-active)
 
-;;;; Link mappings
+;; Link mappings
 
       (fg-link cyan)
       (bg-link unspecified)
@@ -4030,7 +4014,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-link-visited unspecified)
       (underline-link-visited magenta)
 
-;;;; Mail mappings
+;; Mail mappings
 
       (mail-cite-0 cyan-faint)
       (mail-cite-1 red-faint)
@@ -4041,7 +4025,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (mail-subject red-cooler)
       (mail-other cyan)
 
-;;;; Mark mappings
+;; Mark mappings
 
       (bg-mark-delete bg-red-subtle)
       (fg-mark-delete red)
@@ -4050,12 +4034,12 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-mark-other bg-magenta-subtle)
       (fg-mark-other magenta-warmer)
 
-;;;; Prompt mappings
+;; Prompt mappings
 
       (fg-prompt cyan-cooler)
       (bg-prompt unspecified)
 
-;;;; Prose mappings
+;; Prose mappings
 
       (bg-prose-block-delimiter bg-dim)
       (fg-prose-block-delimiter fg-dim)
@@ -4081,7 +4065,7 @@ exists in the palette and is associated with a HEX-VALUE.")
 
       (prose-tag fg-alt)
 
-;;;; Rainbow mappings
+;; Rainbow mappings
 
       (rainbow-0 cyan)
       (rainbow-1 red)
@@ -4093,7 +4077,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (rainbow-7 magenta-faint)
       (rainbow-8 red-faint)
 
-;;;; Search mappings
+;; Search mappings
 
       (bg-search-current bg-red-intense)
       (bg-search-lazy bg-cyan-intense)
@@ -4104,13 +4088,13 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-search-rx-group-2 bg-cyan-subtle)
       (bg-search-rx-group-3 bg-red-subtle)
 
-;;;; Space mappings
+;; Space mappings
 
       (bg-space unspecified)
       (fg-space border)
       (bg-space-err bg-red-intense)
 
-;;;; Terminal mappings
+;; Terminal mappings
 
       (bg-term-black           "#000000")
       (fg-term-black           "#000000")
@@ -4152,7 +4136,7 @@ exists in the palette and is associated with a HEX-VALUE.")
       (bg-term-white-bright    "#ffffff")
       (fg-term-white-bright    "#ffffff")
 
-;;;; Heading mappings
+;; Heading mappings
 
       (fg-heading-0 cyan-cooler)
       (fg-heading-1 fg-main)
