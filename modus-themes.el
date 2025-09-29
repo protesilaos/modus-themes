@@ -8133,7 +8133,7 @@ are symbols of variables which define palettes commensurate with
            (list
             `(modus-themes-register ',name)))
        (let* ((c '((class color) (min-colors 256)))
-              (,sym (modus-themes--get-theme-palette-subr ',name nil))
+              (,sym (modus-themes--get-theme-palette-subr ',name))
               ,@(mapcar (lambda (color)
                           (list color
                                 `(modus-themes--retrieve-palette-value ',color ,sym)))
