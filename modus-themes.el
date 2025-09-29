@@ -8214,10 +8214,11 @@ corresponding entries."
   "When enabled, all Modus themes commands cover derivatives as well.
 Otherwise, they only consider the `modus-themes-items'.
 
-Derivative theme projects can disable this minor mode and/or implement
-the equivalent plus a method for `modus-themes-get-themes'."
+Derivative theme projects can implement the equivalent of this minor
+mode plus a method for `modus-themes-get-themes' to filter themes
+accordingly."
   :global t
-  :init-value t)
+  :init-value nil)
 
 (cl-defmethod modus-themes-get-themes (&context (modus-themes-include-derivatives-mode (eql t)))
   (modus-themes-get-all-known-themes nil))
