@@ -4865,15 +4865,17 @@ Disable other themes per `modus-themes-disable-other-themes'."
 
 ;;;;; Rotate through a list of themes
 
-(defun modus-themes--next-in-rotation (themes &optional reverse)
-  "Return a new theme among THEMES if it is possible to rotate to it.
-The argument REVERSE controls the direction of rotation."
-  (if-let* ((index (seq-position themes (modus-themes--current-theme)))
-            (offset (mod (if reverse (1- index) (1+ index))
-                         (length themes)))
-            (new-theme (nth offset themes)))
-      new-theme
-    (error "Cannot determine a theme among `%s'" themes)))
+(defun modus-themes-rotate-subr (themes &optional reverse)
+  "Return a new theme for `modus-themes-rotate'.
+The theme is the next among THEMES if it is possible to rotate to it.
+When REVERSE is non-nil, move to the left, else to the right."
+  (let ((valid-themes (modus-themes-known-p themes)))
+    (if-let* ((index (seq-position valid-themes (modus-themes-get-current-theme)))
+              (offset (mod (if reverse (1- index) (1+ index))
+                           (length valid-themes)))
+              (new-theme (nth offset valid-themes)))
+        new-theme
+      (error "Cannot determine a theme among `%s'" themes))))
 
 ;;;###autoload
 (defun modus-themes-rotate (themes &optional reverse)
@@ -4887,14 +4889,9 @@ default), and leftwards if REVERSE is non-nil.  Perform the rotation
 such that the current element in the list becomes the last.  Do not
 modify THEMES in the process."
   (interactive (list modus-themes-to-rotate current-prefix-arg))
-  (unless (proper-list-p themes)
-    "This is not a list of themes: `%s'" themes)
-  (let ((candidate (modus-themes--next-in-rotation themes reverse)))
-    (if (modus-themes--modus-p candidate)
-        (progn
-          (message "Rotating to `%s'" (propertize (symbol-name candidate) 'face 'success))
-          (modus-themes-load-theme candidate))
-      (user-error "`%s' is not part of the Modus collection" candidate))))
+  (let ((theme (modus-themes-rotate-subr themes reverse)))
+    (message "Rotating to `%s'" theme)
+    (modus-themes-load-theme theme)))
 
 ;;;;; Load a random theme
 
