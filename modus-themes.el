@@ -4585,13 +4585,19 @@ must define theme properties to include those that the macro specifies.
 
 Also see `modus-themes-get-all-known-themes'.")
 
-(defun modus-themes--activate (theme)
-  "Load THEME if it is not already, but do not activate it."
+(defvar modus-themes--activated-themes nil
+  "List of themes that `modus-themes--activate' operated on.")
+
+(defun modus-themes--activate (theme &optional forcefully)
+  "Load THEME if it is not defined but do not activate it.
+With non-nil FORCEFULLY, load the theme regardless."
   ;; NOTE 2025-09-29: We need to do this instead of pushing to the
   ;; `custom-known-themes' because loading the theme has the desired
   ;; side effect of adding the relevant `theme-properties' to it.
-  (unless (custom-theme-p theme)
-    (load-theme theme t t)))
+  (unless (memq theme modus-themes--activated-themes)
+    (when (or forcefully (not (custom-theme-p theme)))
+      (load-theme theme t t)
+      (push theme modus-themes--activated-themes))))
 
 (defun modus-themes--belongs-to-family-p (theme family)
   "Return non-nil if THEME has FAMILY property."
@@ -4646,26 +4652,32 @@ With optional SHOW-ERROR, throw an error instead of returning nil."
   "Return first enabled Modus theme."
   (car (modus-themes--list-enabled-themes)))
 
-(defun modus-themes--get-theme-palette-subr (theme)
-  "Get THEME `modus-themes-get-theme-palette' without `modus-themes-known-p'."
+(defun modus-themes--get-theme-palette-subr (theme with-overrides with-user-palette)
+  "Get THEME palette without `modus-themes-known-p'.
+WITH-OVERRIDES and WITH-USER-PALETTE are described in
+`modus-themes-get-theme-palette'."
   (if-let* ((properties (get theme 'theme-properties))
             (core-palette (symbol-value (plist-get properties :modus-core-palette))))
-      (let* ((user-palette (symbol-value (plist-get properties :modus-user-palette)))
-             (overrides-palette (symbol-value (plist-get properties :modus-overrides-palette)))
+      (let* ((user-palette (when with-user-palette (symbol-value (plist-get properties :modus-user-palette))))
+             (overrides-palette (when with-overrides (symbol-value (plist-get properties :modus-overrides-palette))))
              (family (plist-get properties :family))
-             (all-overrides (append
-                             overrides-palette
-                             (when (eq family 'modus-themes)
-                               modus-themes-common-palette-overrides))))
+             (all-overrides (when with-overrides
+                              (append
+                               overrides-palette
+                               (when (eq family 'modus-themes)
+                                 modus-themes-common-palette-overrides)))))
         (append all-overrides user-palette core-palette))
     (error "The theme must have at least a `:modus-core-palette' property")))
 
-(defun modus-themes-get-theme-palette (&optional theme)
+(defun modus-themes-get-theme-palette (&optional theme with-overrides with-user-palette)
   "Return palette value of active `modus-themes-get-themes' THEME.
-If THEME is nil, use the return value of `modus-themes-get-current-theme'."
+If THEME is nil, use the return value of `modus-themes-get-current-theme'.
+With WITH-OVERRIDES, include all overrides in the combined palette.
+With WITH-USER-PALETTE do the same for the user-defined palette
+extension."
   (let ((theme (or theme (modus-themes-get-current-theme))))
     (when (modus-themes-known-p theme :err-if-needed)
-      (modus-themes--get-theme-palette-subr theme))))
+      (modus-themes--get-theme-palette-subr theme with-overrides with-user-palette))))
 
 (defun modus-themes--disable-themes ()
   "Disable themes per `modus-themes-disable-other-themes'."
@@ -4711,7 +4723,8 @@ This function is used in the macros `modus-themes-theme',
      (t
       'unspecified))))
 
-(defun modus-themes-get-color-value (color &optional overrides theme)
+;; NOTE 2025-09-29: We keep THEME at that position for backward-compatibility.
+(defun modus-themes-get-color-value (color &optional with-overrides theme)
   "Return color value of named COLOR for current Modus theme.
 
 COLOR is a symbol that represents a named color entry in the
@@ -4721,16 +4734,17 @@ If the value is the name of another color entry in the
 palette (so a mapping), recur until you find the underlying color
 value.
 
-With optional OVERRIDES as a non-nil value, account for palette
+With optional WITH-OVERRIDES as a non-nil value, include palette
 overrides.  Else use the default palette.
 
-With optional THEME as a symbol among `modus-themes-items', use
-the palette of that item.  Else use the current Modus theme.
+With optional THEME among `modus-themes-get-all-known-themes', use the
+palette of that item.  Else use the current theme.
 
 If COLOR is not present in the palette, return the `unspecified'
 symbol, which is safe when used as a face attribute's value."
-  (if-let* ((palette ;; FIXME for the ovrrides (modus-themes-get-theme-palette theme overrides)
-             (modus-themes-get-theme-palette theme))
+  (when theme
+    (modus-themes--activate theme :make-sure-theme-is-reified))
+  (if-let* ((palette (modus-themes-get-theme-palette theme with-overrides :with-user-palette))
             (value (modus-themes--retrieve-palette-value color palette)))
       value
     'unspecified))
@@ -4923,8 +4937,7 @@ PALETTE is the value of a variable like `modus-operandi-palette'."
 
 (defun modus-themes--list-colors-tabulated (theme &optional mappings)
   "Return a data structure of THEME palette or MAPPINGS for tabulated list."
-  (let* ((current-palette ;; FIXME for the overrides (modus-themes-get-theme-palette theme :include-overrides)
-          (modus-themes-get-theme-palette theme :include-overrides))
+  (let* ((current-palette (modus-themes-get-theme-palette theme :with-overrides :with-user-palette))
          (palette (if mappings
                       (modus-themes--list-colors-get-mappings current-palette)
                     current-palette)))
@@ -4967,7 +4980,7 @@ color mappings instead of the complete palette."
      (list
       (modus-themes-select-prompt prompt)
       current-prefix-arg)))
-  (load-theme theme t t)
+  (modus-themes--activate theme :make-sure-theme-is-reified)
   (let ((buffer (get-buffer-create (format (if mappings "*%s-list-mappings*" "*%s-list-all*") theme))))
     (with-current-buffer buffer
       (let ((modus-themes-current-preview theme)
@@ -8082,7 +8095,7 @@ are symbols of variables which define palettes commensurate with
            (list
             `(modus-themes-register ',name)))
        (let* ((c '((class color) (min-colors 256)))
-              (,sym (modus-themes--get-theme-palette-subr ',name))
+              (,sym (modus-themes--get-theme-palette-subr ',name :with-overrides :with-user-palette))
               ,@(mapcar (lambda (color)
                           (list color
                                 `(modus-themes--retrieve-palette-value ',color ,sym)))
@@ -8099,14 +8112,15 @@ are symbols of variables which define palettes commensurate with
   "Evaluate BODY with colors from current palette bound."
   (declare (indent 0))
   (let* ((sym (gensym))
+         (palette (modus-themes-get-theme-palette nil :with-overrides :with-user-palette))
          ;; NOTE 2022-08-23: We just give it a sample palette at this
          ;; stage.  It only needs to collect each car.  Then we
          ;; instantiate the actual theme's palette.  We have to do this
          ;; otherwise the macro does not work properly when called from
          ;; inside a function.
-         (colors (mapcar #'car (modus-themes-get-theme-palette))))
+         (colors (mapcar #'car palette)))
     `(let* ((c '((class color) (min-colors 256)))
-            (,sym (modus-themes--current-theme-palette :overrides))
+            (,sym (modus-themes-get-theme-palette nil :with-overrides :with-user-palette))
             ,@(mapcar (lambda (color)
                         (list color
                               `(modus-themes--retrieve-palette-value ',color ,sym)))
