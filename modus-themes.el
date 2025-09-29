@@ -1062,13 +1062,48 @@ C1 and C2 are color values written in hexadecimal RGB."
                (+ (modus-themes-wcag-formula c2) 0.05))))
     (max ct (/ ct))))
 
-(defun modus-themes--modus-p (theme)
-  "Return non-nil if THEME name has a modus- prefix."
-  (string-prefix-p "modus-" (symbol-name theme)))
+(defvar modus-themes-registered-items nil
+  "List of defined themes.
+This list is instantiated by the `modus-themes-theme' macro.  Themes
+that build on top of Modus but for some reason cannot use that macro
+must define theme properties to include those that the macro specifies.
+
+Also see `modus-themes-get-all-known-themes'.")
+
+(defun modus-themes-get-all-known-themes (&optional no-derivatives)
+  "Return all known Modus themes or derivatives, enabling them if needed.
+With optional NO-DERIVATIVES, operate only on the `modus-themes-items'."
+  (let ((themes (if no-derivatives
+                    modus-themes-items
+                  (delete-dups (append modus-themes-items modus-themes-registered-items)))))
+    (if (seq-every-p #'custom-theme-p themes)
+        themes
+      (dolist (theme themes)
+        (unless (custom-theme-p theme)
+          (load-theme theme t t)))
+      themes)))
+
+(defun modus-themes-known-p (themes &optional show-error)
+  "Return THEMES if they are among `modus-themes-get-all-known-themes' else nil.
+THEMES is either a list of symbols, like `modus-themes-items' or a
+symbol.
+
+With optional SHOW-ERROR, throw an error instead of returning nil."
+  (condition-case data
+      (let ((themes (if (listp themes) themes (list themes)))
+            (known-themes (modus-themes-get-all-known-themes)))
+        (dolist (theme themes)
+          (or (memq theme known-themes)
+              (error "`%s' is not part of whant `modus-themes-get-all-known-themes' returns" theme))))
+    (:success
+     themes)
+    (error
+     (when show-error
+       (signal (car data) (list (apply #'format-message (cdr data))))))))
 
 (defun modus-themes--list-enabled-themes ()
   "Return list of `custom-enabled-themes' with modus- prefix."
-  (seq-filter #'modus-themes--modus-p custom-enabled-themes))
+  (seq-intersection (modus-themes-get-all-known-themes) custom-enabled-themes))
 
 (defun modus-themes--load-no-enable (theme)
   "Load but do not enable THEME if it belongs to `custom-known-themes'."
@@ -1089,42 +1124,29 @@ C1 and C2 are color values written in hexadecimal RGB."
   (car (or (modus-themes--list-enabled-themes)
            (modus-themes--list-known-themes))))
 
-(defun modus-themes--palette-symbol (theme &optional suffix)
-  "Return THEME palette as a symbol of the form THEME-palette.
-With optional SUFFIX, return THEME-palette-SUFFIX as a symbol."
-  (when theme
-    (intern
-     (if suffix
-         (format "%s-palette-%s" theme suffix)
-       (format "%s-palette" theme)))))
+(defun modus-themes-get-theme-palette (&optional theme overrides-only)
+  "Return palette value of active `modus-themes-get-all-known-themes' THEME.
+If THEME is nil, use the return value of `modus-themes-get-current-theme'.
 
-(defun modus-themes--palette-value (theme &optional overrides)
-  "Return palette value of THEME with optional OVERRIDES."
-  (let* ((core-palette (symbol-value (modus-themes--palette-symbol theme)))
-         (user-palette (symbol-value (modus-themes--palette-symbol theme "user")))
-         (base-value (append user-palette modus-themes-common-palette-user core-palette)))
-    (if overrides
-        (append (symbol-value (modus-themes--palette-symbol theme "overrides"))
-                modus-themes-common-palette-overrides
-                base-value)
-      base-value)))
-
-(defun modus-themes--current-theme-palette (&optional overrides)
-  "Return palette value of active Modus theme, else produce `user-error'.
-With optional OVERRIDES return palette value plus whatever
-overrides."
-  (if-let* ((theme (modus-themes--current-theme)))
-      (if overrides
-          (modus-themes--palette-value theme :overrides)
-        (modus-themes--palette-value theme))
-    (user-error "No enabled Modus theme could be found")))
+If OVERRIDES-ONLY is non-nil, return just the overrides."
+  (let ((theme (or theme (modus-themes-get-current-theme))))
+    (when (modus-themes-known-p theme :err-if-needed)
+      (if-let* ((properties (get theme 'theme-properties))
+                (core-palette (symbol-value (plist-get properties :modus-core-palette))))
+          (let ((user-palette (symbol-value (plist-get properties :modus-user-palette)))
+                (overrides-palette (symbol-value (plist-get properties :modus-overrides-palette))))
+            (if overrides-only
+                overrides-palette
+              (append overrides-palette user-palette core-palette)))
+        (error "The theme must have at least a `:modus-core-palette' property")))))
 
 (defun modus-themes--disable-themes ()
   "Disable themes per `modus-themes-disable-other-themes'."
-  (mapc #'disable-theme
-        (if modus-themes-disable-other-themes
-            custom-enabled-themes
-          (modus-themes--list-known-themes))))
+  (mapc
+   #'disable-theme
+   (if modus-themes-disable-other-themes
+       custom-enabled-themes
+     (modus-themes-get-all-known-themes))))
 
 (defun modus-themes-load-theme (theme)
   "Load THEME while disabling other themes.
@@ -1210,8 +1232,8 @@ symbol, which is safe when used as a face attribute's value."
       (complete-with-action action candidates string pred))))
 
 (defun modus-themes--completion-table-candidates ()
-  "Render `modus-themes--list-known-themes' as completion with theme category."
-  (modus-themes--completion-table 'theme (modus-themes--list-known-themes)))
+  "Render `modus-themes-items' as a completion table."
+  (modus-themes--completion-table 'theme modus-themes-items))
 
 (defun modus-themes--select-prompt (&optional prompt)
   "Minibuffer prompt to select a Modus theme.
@@ -1232,16 +1254,6 @@ Disable other themes per `modus-themes-disable-other-themes'."
   (modus-themes-load-theme theme))
 
 ;;;;; Toggle between two themes
-
-(defun modus-themes--toggle-theme-p ()
-  "Return non-nil if `modus-themes-to-toggle' are valid."
-  (condition-case nil
-      (dolist (theme modus-themes-to-toggle)
-        (or (memq theme modus-themes-items)
-            (memq theme (modus-themes--list-known-themes))
-            (error "`%s' is not part of `modus-themes-items'" theme)))
-    (error nil)
-    (:success modus-themes-to-toggle)))
 
 ;;;###autoload
 (defun modus-themes-toggle ()
