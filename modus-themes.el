@@ -8176,8 +8176,7 @@ the equivalent plus a method for `modus-themes-get-themes'."
   :global t
   :init-value t)
 
-(cl-defmethod modus-themes-get-themes :before (&context (modus-themes-only-modus-derivatives-mode (eql t)))
-  "Return Modus themes and all their derivatives."
+(cl-defmethod modus-themes-get-themes (&context (modus-themes-only-modus-derivatives-mode (eql t)))
   (modus-themes-get-all-known-themes nil))
 
 ;;;; Add themes from package to path
