@@ -1070,18 +1070,21 @@ must define theme properties to include those that the macro specifies.
 
 Also see `modus-themes-get-all-known-themes'.")
 
+(defun modus-themes--activate (theme)
+  "Load THEME if it is not already, but do not activate it."
+  ;; NOTE 2025-09-29: We need to do this instead of pushing to the
+  ;; `custom-known-themes' because loading the theme has the desired
+  ;; side effect of adding the relevant `theme-properties' to it.
+  (unless (custom-theme-p theme)
+    (load-theme theme t t)))
+
 (defun modus-themes-get-all-known-themes (&optional no-derivatives)
   "Return all known Modus themes or derivatives, enabling them if needed.
 With optional NO-DERIVATIVES, operate only on the `modus-themes-items'."
   (let ((themes (if no-derivatives
                     modus-themes-items
                   (delete-dups (append modus-themes-items modus-themes-registered-items)))))
-    (if (seq-every-p #'custom-theme-p themes)
-        themes
-      (dolist (theme themes)
-        (unless (custom-theme-p theme)
-          (load-theme theme t t)))
-      themes)))
+    (mapc #'modus-themes--activate themes)))
 
 (defun modus-themes-known-p (themes &optional show-error)
   "Return THEMES if they are among `modus-themes-get-all-known-themes' else nil.
