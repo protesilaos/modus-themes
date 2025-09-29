@@ -8148,7 +8148,7 @@ corresponding entries."
             `(modus-themes-declare
               ',name ',family ,description ',background-mode
               ',core-palette ',user-palette ',overrides-palette)))
-       ,@(when user-palette
+       ,@(unless (eq family 'modus-themes)
            (list
             `(modus-themes-register ',name)))
        (let* ((c '((class color) (min-colors 256)))
