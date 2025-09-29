@@ -663,45 +663,14 @@ represents."
 
 ;;;; Theme palettes
 
-(define-obsolete-variable-alias
-  'modus-operandi-palette
-  'modus-themes-operandi-palette
-  "4.9.0")
-
-(define-obsolete-variable-alias
-  'modus-operandi-tinted-palette
-  'modus-themes-operandi-tinted-palette
-  "4.9.0")
-
-(define-obsolete-variable-alias
-  'modus-operandi-deuteranopia-palette
-  'modus-themes-operandi-deuteranopia-palette
-  "4.9.0")
-
-(define-obsolete-variable-alias
-  'modus-operandi-tritanopia-palette
-  'modus-themes-operandi-tritanopia-palette
-  "4.9.0")
-
-(define-obsolete-variable-alias
-  'modus-vivendi-palette
-  'modus-themes-vivendi-palette
-  "4.9.0")
-
-(define-obsolete-variable-alias
-  'modus-vivendi-tinted-palette
-  'modus-themes-vivendi-tinted-palette
-  "4.9.0")
-
-(define-obsolete-variable-alias
-  'modus-vivendi-deuteranopia-palette
-  'modus-themes-vivendi-deuteranopia-palette
-  "4.9.0")
-
-(define-obsolete-variable-alias
-  'modus-vivendi-tritanopia-palette
-  'modus-themes-vivendi-tritanopia-palette
-  "4.9.0")
+(define-obsolete-variable-alias 'modus-operandi-palette 'modus-themes-operandi-palette "4.9.0")
+(define-obsolete-variable-alias 'modus-operandi-tinted-palette 'modus-themes-operandi-tinted-palette "4.9.0")
+(define-obsolete-variable-alias 'modus-operandi-deuteranopia-palette 'modus-themes-operandi-deuteranopia-palette "4.9.0")
+(define-obsolete-variable-alias 'modus-operandi-tritanopia-palette 'modus-themes-operandi-tritanopia-palette "4.9.0")
+(define-obsolete-variable-alias 'modus-vivendi-palette 'modus-themes-vivendi-palette "4.9.0")
+(define-obsolete-variable-alias 'modus-vivendi-tinted-palette 'modus-themes-vivendi-tinted-palette "4.9.0")
+(define-obsolete-variable-alias 'modus-vivendi-deuteranopia-palette 'modus-themes-vivendi-deuteranopia-palette "4.9.0")
+(define-obsolete-variable-alias 'modus-vivendi-tritanopia-palette 'modus-themes-vivendi-tritanopia-palette "4.9.0")
 
 (defconst modus-themes-operandi-palette
     '(
