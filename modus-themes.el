@@ -8184,6 +8184,29 @@ corresponding entries."
        (ignore c ,@colors)            ; Silence unused variable warnings
        ,@body)))
 
+;;;; Declare all the Modus themes
+
+(defconst modus-themes-with-properties
+  '((modus-operandi-deuteranopia modus-themes "Deuteranopia-optimized theme with a white background." light modus-themes-operandi-deuteranopia-palette modus-operandi-deuteranopia-palette-user modus-operandi-deuteranopia-palette-overrides)
+    (modus-operandi modus-themes "Elegant, highly legible theme with a white background." light modus-themes-operandi-palette modus-operandi-palette-user modus-operandi-palette-overrides)
+    (modus-operandi-tinted modus-themes "Elegant, highly legible theme with a light ochre background." light modus-themes-operandi-tinted-palette modus-operandi-tinted-palette-user modus-operandi-tinted-palette-overrides)
+    (modus-operandi-tritanopia modus-themes "Tritanopia-optimized theme with a white background." light modus-themes-operandi-tritanopia-palette modus-operandi-tritanopia-palette-user modus-operandi-tritanopia-palette-overrides)
+    (modus-vivendi-deuteranopia modus-themes "Deuteranopia-optimized theme with a black background." dark modus-themes-vivendi-deuteranopia-palette modus-vivendi-deuteranopia-palette-user modus-vivendi-deuteranopia-palette-overrides)
+    (modus-vivendi modus-themes "Elegant, highly legible theme with a black background." dark modus-themes-vivendi-palette modus-vivendi-palette-user modus-vivendi-palette-overrides)
+    (modus-vivendi-tinted modus-themes "Elegant, highly legible theme with a night sky background." dark modus-themes-vivendi-tinted-palette modus-vivendi-tinted-palette-user modus-vivendi-tinted-palette-overrides)
+    (modus-vivendi-tritanopia modus-themes "Tritanopia-optimized theme with a black background." dark modus-themes-vivendi-tritanopia-palette modus-vivendi-tritanopia-palette-user modus-vivendi-tritanopia-palette-overrides)))
+
+(defvar modus-themes--declared-p nil)
+
+(defun modus-themes-declare-themes ()
+  "Declare the Modus themes."
+  (unless modus-themes--declared-p
+    (dolist (theme modus-themes-with-properties)
+      (apply #'modus-themes-declare theme))
+    (setq modus-themes--declared-p t)))
+
+(modus-themes-declare-themes)
+
 ;;;; Accept all Modus themes and their derivatives
 
 ;;;###autoload
