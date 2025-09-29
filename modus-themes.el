@@ -1083,7 +1083,7 @@ Also see `modus-themes-get-all-known-themes'.")
 With optional NO-DERIVATIVES, operate only on the `modus-themes-items'."
   (let ((themes (if no-derivatives
                     modus-themes-items
-                  (delete-dups (append modus-themes-items modus-themes-registered-items)))))
+                  (seq-union modus-themes-items modus-themes-registered-items))))
     (mapc #'modus-themes--activate themes)))
 
 (defun modus-themes-known-p (themes &optional show-error)
