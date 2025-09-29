@@ -1124,6 +1124,23 @@ With optional SHOW-ERROR, throw an error instead of returning nil."
   (car (or (modus-themes--list-enabled-themes)
            (modus-themes--list-known-themes))))
 
+(defun modus-themes--get-theme-palette-subr (theme overrides-only)
+  "Do the work of `modus-themes-get-theme-palette' without `modus-themes-known-p'.
+THEME and OVERRIDES-ONLY have the meaning of that function's documentation."
+  (if-let* ((properties (get theme 'theme-properties))
+            (core-palette (symbol-value (plist-get properties :modus-core-palette))))
+      (let* ((user-palette (symbol-value (plist-get properties :modus-user-palette)))
+             (overrides-palette (symbol-value (plist-get properties :modus-overrides-palette)))
+             (family (plist-get properties :family))
+             (all-overrides (append
+                             overrides-palette
+                             (when (eq family 'modus-themes)
+                               modus-themes-common-palette-overrides))))
+        (if overrides-only
+            all-overrides
+          (append overrides-palette all-overrides user-palette core-palette)))
+    (error "The theme must have at least a `:modus-core-palette' property")))
+
 (defun modus-themes-get-theme-palette (&optional theme overrides-only)
   "Return palette value of active `modus-themes-get-all-known-themes' THEME.
 If THEME is nil, use the return value of `modus-themes-get-current-theme'.
@@ -1131,14 +1148,7 @@ If THEME is nil, use the return value of `modus-themes-get-current-theme'.
 If OVERRIDES-ONLY is non-nil, return just the overrides."
   (let ((theme (or theme (modus-themes-get-current-theme))))
     (when (modus-themes-known-p theme :err-if-needed)
-      (if-let* ((properties (get theme 'theme-properties))
-                (core-palette (symbol-value (plist-get properties :modus-core-palette))))
-          (let ((user-palette (symbol-value (plist-get properties :modus-user-palette)))
-                (overrides-palette (symbol-value (plist-get properties :modus-overrides-palette))))
-            (if overrides-only
-                overrides-palette
-              (append overrides-palette user-palette core-palette)))
-        (error "The theme must have at least a `:modus-core-palette' property")))))
+      (modus-themes--get-theme-palette-subr theme overrides-only))))
 
 (defun modus-themes--disable-themes ()
   "Disable themes per `modus-themes-disable-other-themes'."
@@ -4456,7 +4466,7 @@ corresponding entries."
        ,@(when user-palette
            (list `(add-to-list 'modus-themes-registered-items ',name)))
        (let* ((c '((class color) (min-colors 256)))
-              (,sym (append ,user-palette ,core-palette nil))
+              (,sym (modus-themes--get-theme-palette-subr ',name nil))
               ,@(mapcar (lambda (color)
                           (list color
                                 `(modus-themes--retrieve-palette-value ',color ,sym)))
