@@ -8109,6 +8109,25 @@ FG and BG are the main colors."
 
 ;;;; Instantiate a Modus theme
 
+(defun modus-themes-declare (name family description background-mode core-palette user-palette overrides-palette)
+  "Declare NAME theme that belongs to FAMILY.
+All of DESCRIPTION, BACKGROUND-MODE, CORE-PALETTE, USER-PALETTE,
+OVERRIDES-PALETTE have the same meaning as in `modus-themes-theme'.
+
+To simply register the theme, use `modus-themes-register'."
+  (custom-declare-theme
+   name family
+   description
+   (list :kind 'color-scheme :background-mode background-mode :family family
+         :modus-core-palette core-palette :modus-user-palette user-palette
+         :modus-overrides-palette overrides-palette)))
+
+(defun modus-themes-register (name)
+  "Add NAME theme to `modus-themes-registered-items'.
+To actually declare a theme, instantiating with together with its
+properties, use `modus-themes-declare'."
+  (add-to-list 'modus-themes-registered-items name))
+
 ;;;###autoload
 (defmacro modus-themes-theme (name palette &optional overrides)
   "Bind NAME's color PALETTE around face specs and variables.
@@ -8125,14 +8144,13 @@ corresponding entries."
         (theme-exists-p (custom-theme-p name)))
     `(progn
        ,@(unless theme-exists-p
-           (list `(custom-declare-theme
-                   ',name ',family
-                   ,description
-                   (list :kind 'color-scheme :background-mode ',background-mode :family ',family
-                         :modus-core-palette ',core-palette :modus-user-palette ',user-palette
-                         :modus-overrides-palette ',overrides-palette))))
+           (list
+            `(modus-themes-declare
+              ',name ',family ,description ',background-mode
+              ',core-palette ',user-palette ',overrides-palette)))
        ,@(when user-palette
-           (list `(add-to-list 'modus-themes-registered-items ',name)))
+           (list
+            `(modus-themes-register ',name)))
        (let* ((c '((class color) (min-colors 256)))
               (,sym (modus-themes--get-theme-palette-subr ',name nil))
               ,@(mapcar (lambda (color)
