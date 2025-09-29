@@ -4651,18 +4651,19 @@ Also see `modus-themes-get-all-known-themes'.")
 (defun modus-themes-get-all-known-themes (&optional theme-family)
   "Return all known Modus themes or derivatives, enabling them if needed.
 With optional THEME-FAMILY, operate only on the themes whose :family
-property is that.  Else consider only the `modus-themes-items''."
-  (let* ((modus-p (or (null theme-family) (eq theme-family 'modus-themes)))
-         (themes (if modus-p
-                     modus-themes-items
-                   (seq-union modus-themes-items modus-themes-registered-items))))
+property is that.  Else consider the Modus themes as well as all their
+derivatives."
+  (let ((themes (pcase theme-family
+                  ('modus-themes modus-themes-items)
+                  ((pred (not null)) modus-themes-registered-items)
+                  (_ (seq-union modus-themes-items modus-themes-registered-items)))))
     (mapc #'modus-themes--activate themes)
-    (if modus-p
-        themes
-      (seq-filter
-       (lambda (theme)
-         (modus-themes--belongs-to-family-p theme theme-family))
-       themes))))
+    (if theme-family
+        (seq-filter
+         (lambda (theme)
+           (modus-themes--belongs-to-family-p theme theme-family))
+         themes)
+      themes)))
 
 (defun modus-themes-known-p (themes &optional show-error)
   "Return THEMES if they are among `modus-themes-get-all-known-themes' else nil.
