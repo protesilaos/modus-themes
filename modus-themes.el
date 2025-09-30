@@ -7391,7 +7391,7 @@ accordingly."
   :init-value nil)
 
 (cl-defmethod modus-themes-get-themes (&context (modus-themes-include-derivatives-mode (eql t)))
-  (modus-themes-get-all-known-themes 'modus-themes))
+  (modus-themes-get-all-known-themes nil))
 
 ;;;; Add themes from package to path
 
