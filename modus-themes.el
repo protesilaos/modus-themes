@@ -4052,8 +4052,8 @@ When REVERSE is non-nil, move to the left, else to the right."
                          (length valid-themes)))
                 (new-theme (nth offset valid-themes)))
           new-theme
-        (error "Cannot determine a theme among `%s'" themes))
-    (error "The themes `%S' do not satisfy `modus-themes-known-p'" themes)))
+        (modus-themes-select-prompt "Cannot determine next rotation; select other"))
+    (modus-themes-select-prompt "No valid theme to rotate; select other")))
 
 ;;;###autoload
 (defun modus-themes-rotate (themes &optional reverse)
