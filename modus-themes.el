@@ -3849,7 +3849,7 @@ derivatives."
       themes)))
 
 (cl-defgeneric modus-themes-get-themes ()
-  "Return list of Modus themes."
+  "Return a list of all themes with `modus-themes' :family property."
   (modus-themes-get-all-known-themes 'modus-themes))
 
 (defun modus-themes-known-p (themes &optional show-error)
