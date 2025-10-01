@@ -630,10 +630,16 @@ Possible values:
 1. ~nil~
 2. ~t~ (default)
 
-When the value is non-~nil~, the commands ~modus-themes-toggle~ and
+#+findex: modus-themes-toggle
+#+findex: modus-themes-rotate
+#+findex: modus-themes-load-random
+#+findex: modus-themes-select
+#+findex: modus-themes-load-theme
+When the value is non-~nil~, the commands ~modus-themes-toggle~,
+~modus-themes-rotate~, ~modus-themes-load-random~, and
 ~modus-themes-select~, as well as the ~modus-themes-load-theme~
 function, will disable all other themes while loading the specified
-Modus theme ([[#h:4fbfed66-5a89-447a-a07d-a03f6819c5bd][Option for which themes to toggle]]).  This is done to
+Modus theme ([[#h:4fbfed66-5a89-447a-a07d-a03f6819c5bd][Option for which themes to toggle]]). This is done to
 ensure that Emacs does not blend two or more themes: such blends lead
 to awkward results that undermine the work of the designer.
 
