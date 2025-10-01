@@ -3871,8 +3871,12 @@ BACKGROUND-MODE is either `dark' or `light'."
           (modus-themes--background-p theme2 (if (eq background-mode 'dark) 'light 'dark))))))
 
 (cl-defgeneric modus-themes-get-themes ()
-  "Return a list of all themes with `modus-themes' :family property."
-  (modus-themes-get-all-known-themes 'modus-themes))
+  "Return a list of all themes with `modus-themes' :family property.
+Use `modus-themes-sort' to sort by light and then dark background."
+  (if-let* ((themes (modus-themes-get-all-known-themes 'modus-themes))
+            (sorted-themes (modus-themes-sort themes 'light)))
+      sorted-themes
+    modus-themes-items))
 
 (defun modus-themes-known-p (themes &optional show-error)
   "Return THEMES if they are among `modus-themes-get-themes' else nil.
