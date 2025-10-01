@@ -3859,6 +3859,17 @@ derivatives."
               (background (plist-get properties :background-mode)))
     (eq background background-mode)))
 
+(defun modus-themes-sort (themes background-mode)
+  "Reorder THEMES so that those with BACKGROUND-MODE come first.
+BACKGROUND-MODE is either `dark' or `light'."
+  (unless (memq background-mode '(dark light))
+    (error "The BACKGROUND-MODE can be either `dark' or `light'"))
+  (sort
+   themes
+   (lambda (theme1 theme2)
+     (and (modus-themes--background-p theme1 background-mode)
+          (modus-themes--background-p theme2 (if (eq background-mode 'dark) 'light 'dark))))))
+
 (cl-defgeneric modus-themes-get-themes ()
   "Return a list of all themes with `modus-themes' :family property."
   (modus-themes-get-all-known-themes 'modus-themes))
