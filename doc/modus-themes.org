@@ -749,7 +749,8 @@ Possible values:
 #+vindex: modus-themes-items
 - Any of the themes listed in the value of the variable ~modus-themes-items~.
 #+findex: modus-themes-get-themes
-- Any of the themes returned by the function ~modus-themes-get-themes~.
+- Any of the themes returned by the function ~modus-themes-get-themes~
+  ([[#h:86eb375b-9be4-43ce-879a-0686a524a63b][Build on top of the Modus themes]]).
 
 When the value is a list of themes, ~modus-themes-rotate~ will go
 through them from left to right. With an optional prefix argument
@@ -4144,6 +4145,137 @@ themes have the same capabilities.
 In this document, we cover ~modus-themes-after-load-theme-hook~ though
 the user can replace it with ~after-enable-theme-hook~ should they
 need to (provided they understand the implications).
+
+* Build on top of the Modus themes
+:PROPERTIES:
+:CUSTOM_ID: h:86eb375b-9be4-43ce-879a-0686a524a63b
+:END:
+
+This section concerns package developers or advanced users.
+
+The Modus themes can be used as the basis for another theme. The
+~ef-themes~ package (also by Protesilaos), is one such case.
+Developers may do so to benefit from the extensive customization of
+the Modus themes and the fact that they are part of core Emacs.
+
+#+findex: modus-themes-theme
+#+vindex: modus-themes-registered-items
+A new theme can be instantiated with the macro ~modus-themes-theme~.
+It takes care to (i) declare the theme, (ii) add to it relevant
+~theme-properties~, (iii) register it in the ~modus-themes-registered-items~,
+(iv) make it work with all the faces and customizations documented
+in this manual, and (v) ~provide-theme~ the theme.
+
+Concretely, ~modus-themes-theme~ expects the following arguments:
+
+- =NAME= :: The name of the new theme, like ~modus-operandi~.
+- =FAMILY= :: The collection this theme is a member of, like ~modus-themes~.
+- =DESCRIPTION= :: A string describing the theme.
+- =BACKGROUND-MODE= :: The symbol =dark= or =light=, in reference to
+  the theme's background color.
+- =CORE-PALETTE= :: A palette with named colors and semantic mappings,
+  like ~modus-operandi-palette~. A palette that does not have at least
+  all the entries of a default Modus palette will eventually not work
+  properly because some face definition will expect a given color.
+  Though the macro does not impose any check in this regard.
+- =USER-PALETTE= :: A user-defined extension to the =CORE-PALETTE=,
+  commensurate with it, though with arbitrary entries. This can be
+  nil, a fully fledged palette, or a short list of entries.
+- =OVERRIDES-PALETTE= :: A palette that contains overrides for the
+  above two palettes. It is functionally equivalent to the
+  =USER-PALETTE=, except it is meant to be customized by the end user.
+  Its value can also be nil.
+
+This is an example of a theme that builds on top of ~modus-operandi~:
+
+#+begin_src emacs-lisp
+(modus-themes-theme
+  ef-summer
+  ef-themes
+  "Legible light warm pink theme with magenta, purple, gold, cyan colors."
+  light
+  modus-operandi-palette
+  ef-summer-palette
+  ef-summer-palette-overrides)
+#+end_src
+
+Here we notice how ~ef-summer~ has ~modus-operandi-palette~ as its
+=CORE-PALETTE=. This means that if the ~ef-summer-palette~ lacks some
+entry, the theme will still work and it will inherit the style of
+~modus-operandi~ for that specific element.
+
+The ~modus-themes-theme~ macro does not try to be smart about the
+arguments it is given. It will thus not make any attempt to test if
+the variables are bound, nor will it declare any customization
+options. In the above example, the ~ef-summer-palette-overrides~ is a
+user option that is declared in that theme's file.
+
+#+findex: modus-themes-get-all-known-themes
+Once the theme is instantiated, it will be listed in the return value
+of the function ~modus-themes-get-all-known-themes~. This function
+accepts an optional argument to filter themes by their given family.
+
+#+findex: modus-themes-get-themes
+The generic function ~modus-themes-get-themes~ is how developers/users
+can affect what counts as a "Modus" theme. By default,
+~modus-themes-get-themes~ essentially calls the following, to only
+return the themes whose family is =modus-themes=:
+
+#+begin_src emacs-lisp
+(modus-themes-get-all-known-themes 'modus-themes)
+#+end_src
+
+A new method can be declared with ~cl-defmethod~ to do something else
+instead. When exactly should that method come into effect is up to the
+developer/user. In the ~ef-themes~, this is done via a minor mode,
+that users must opt in to. Here is the complete example:
+
+#+begin_src emacs-lisp
+(define-minor-mode ef-themes-take-over-modus-themes-mode
+  "When enabled, all Modus themes commands consider only Ef themes."
+  :global t
+  :init-value nil)
+
+(cl-defmethod modus-themes-get-themes (&context (ef-themes-take-over-modus-themes-mode (eql t)))
+  (if-let* ((themes (modus-themes-get-all-known-themes 'ef-themes))
+            (sorted-themes (modus-themes-sort themes 'light)))
+      sorted-themes
+    ef-themes-items))
+#+end_src
+
+The ~define-minor-mode~ does not need to do anything else here. Its
+corresponding function simply takes care to toggle the variable of the
+same name (i.e. ~ef-themes-take-over-modus-themes-mode~) between ~nil~
+and non-~nil~. The method will take effect when the minor mode is
+enabled. In this scenario, "Modus" themes are only those whose family
+is =ef-themes=. All the Modus commands that switch between themes will
+thus only work with those Ef themes.
+
+#+findex: modus-themes-include-derivatives-mode
+For our part, we define the ~modus-themes-include-derivatives-mode~.
+It is how users can opt in to the all-inclusive conception of "Modus".
+In this scenario, every theme that is declared with the aforementioned
+~modus-themes-theme~ will count as "Modus" and be available to all the
+relevant commands for switching themes, previewing their palette, and
+so on.
+
+#+begin_src emacs-lisp
+(define-minor-mode modus-themes-include-derivatives-mode
+  "When enabled, all Modus themes commands cover derivatives as well.
+Otherwise, they only consider the `modus-themes-items'.
+
+Derivative theme projects can implement the equivalent of this minor
+mode plus a method for `modus-themes-get-themes' to filter themes
+accordingly."
+  :global t
+  :init-value nil)
+
+(cl-defmethod modus-themes-get-themes (&context (modus-themes-include-derivatives-mode (eql t)))
+  (if-let* ((themes (modus-themes-get-all-known-themes nil))
+            (sorted-themes (modus-themes-sort themes 'light)))
+      sorted-themes
+    modus-themes-items))
+#+end_src
 
 * Face coverage
 :properties:
