@@ -3853,6 +3853,12 @@ derivatives."
          themes)
       themes)))
 
+(defun modus-themes--background-p (theme background-mode)
+  "Return non-nil if THEME has BACKGROUND-MODE :background-mode property."
+  (when-let* ((properties (get theme 'theme-properties))
+              (background (plist-get properties :background-mode)))
+    (eq background background-mode)))
+
 (cl-defgeneric modus-themes-get-themes ()
   "Return a list of all themes with `modus-themes' :family property."
   (modus-themes-get-all-known-themes 'modus-themes))
@@ -4081,29 +4087,19 @@ modify THEMES in the process."
 
 ;;;;; Load a random theme
 
-(defun modus-themes--has-background-mode-p (theme mode)
-  "Return non-nil if THEME has MODE :background-mode property."
-  (when-let* ((properties (get theme 'theme-properties))
-              (background (plist-get properties :background-mode)))
-    (eq background mode)))
-
-(defun modus-themes--dark-p (theme)
-  "Return non-nil if THEME has `dark' :background-mode property."
-  (modus-themes--has-background-mode-p theme 'dark))
-
-(defun modus-themes--light-p (theme)
-  "Return non-nil if THEME has `light' :background-mode property."
-  (modus-themes--has-background-mode-p theme 'light))
-
-(defun modus-themes-filter-by-background-mode (themes light-or-dark)
-  "Return list of THEMES by LIGHT-OR-DARK.
-LIGHT-OR-DARK is the symbol `dark' or `light'.  It corresponds to the
+(defun modus-themes-filter-by-background-mode (themes background-mode)
+  "Return list of THEMES by BACKGROUND-MODE property.
+BACKGROUND-MODE is the symbol `dark' or `light'.  It corresponds to the
 theme property of :background-mode.  Any other value means to use all
 THEMES."
-  (if-let* ((fn (pcase light-or-dark
-                  ('dark #'modus-themes--dark-p)
-                  ('light #'modus-themes--light-p))))
-      (seq-filter fn themes)
+  (if background-mode
+      (progn
+        (unless (memq background-mode '(dark light))
+          (error "The BACKGROUND-MODE can be either `dark' or `light'"))
+        (seq-filter
+         (lambda (theme)
+           (modus-themes--background-p theme background-mode))
+         themes))
     themes))
 
 (defun modus-themes-background-mode-prompt ()
