@@ -804,8 +804,6 @@ represents."
     (overline-heading-7 unspecified)
     (overline-heading-8 unspecified)))
 
-
-
 (defconst modus-themes-operandi-palette
   (append
    '(
@@ -7322,10 +7320,10 @@ are symbols of variables which define palettes commensurate with
             `(modus-themes-register ',name)))
        (let* ((c '((class color) (min-colors 256)))
               (,sym (modus-themes--get-theme-palette-subr ',name :with-overrides :with-user-palette))
-              ,@(mapcar (lambda (color)
-                          (list color
-                                `(modus-themes--retrieve-palette-value ',color ,sym)))
-                        colors))
+              ,@(mapcar
+                 (lambda (color)
+                   (list color `(modus-themes--retrieve-palette-value ',color ,sym)))
+                 colors))
          (ignore c ,@colors) ; Silence unused variable warnings
          (custom-theme-set-faces ',name ,@modus-themes-faces)
          (custom-theme-set-variables
@@ -7354,7 +7352,7 @@ are symbols of variables which define palettes commensurate with
                         (list color
                               `(modus-themes--retrieve-palette-value ',color ,sym)))
                       colors))
-       (ignore c ,@colors)            ; Silence unused variable warnings
+       (ignore c ,@colors) ; Silence unused variable warnings
        ,@body)))
 
 ;;;; Declare all the Modus themes
