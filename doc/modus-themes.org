@@ -365,7 +365,11 @@ customizations ([[#h:f4651d55-8c07-46aa-b52b-bed1e53463bb][Advanced customizatio
 
 #+findex: modus-themes-toggle
 #+findex: modus-themes-select
-The commands ~modus-themes-toggle~ and ~modus-themes-select~ use
+#+findex: modus-themes-rotate
+#+findex: modus-themes-load-random
+#+findex: modus-themes-select
+The commands ~modus-themes-toggle~, ~modus-themes-rotate~,
+~modus-themes-load-random~, and ~modus-themes-select~ use
 ~modus-themes-load-theme~ internally ([[#h:4fbfed66-5a89-447a-a07d-a03f6819c5bd][Option for which themes to toggle]]).
 The aforementioned hold true for them as well.
 
@@ -386,10 +390,6 @@ function must be used in this case as a replacement.  For example:
 (setq modus-themes-bold-constructs t
       modus-themes-italic-constructs t)
 
-;; Maybe define some palette overrides, such as by using our presets
-(setq modus-themes-common-palette-overrides
-      modus-themes-preset-overrides-intense)
-
 ;; Load the theme of choice (built-in themes are always "safe" so they
 ;; do not need the `no-require' argument of `load-theme').
 (load-theme 'modus-operandi)
@@ -397,7 +397,7 @@ function must be used in this case as a replacement.  For example:
 (define-key global-map (kbd "<f5>") #'modus-themes-toggle)
 #+end_src
 
-** Sample configuration with and without use-package
+** Sample configuration
 :properties:
 :custom_id: h:e979734c-a9e1-4373-9365-0f2cd36107b8
 :end:
@@ -413,19 +413,15 @@ package configurations in their setup.  We use this as an example:
 #+begin_src emacs-lisp
 ;;; For the built-in themes which cannot use `require'.
 (use-package emacs
-  :config
+  :init
   (require-theme 'modus-themes) ; `require-theme' is ONLY for the built-in Modus themes
-
+  :config
   ;; Add all your customizations prior to loading the themes
   (setq modus-themes-italic-constructs t
         modus-themes-bold-constructs nil)
 
-  ;; Maybe define some palette overrides, such as by using our presets
-  (setq modus-themes-common-palette-overrides
-        modus-themes-preset-overrides-intense)
-
   ;; Load the theme of your choice.
-  (load-theme 'modus-operandi)
+  (modus-themes-load-theme 'modus-operandi)
 
   (define-key global-map (kbd "<f5>") #'modus-themes-toggle))
 
@@ -439,12 +435,8 @@ package configurations in their setup.  We use this as an example:
   (setq modus-themes-italic-constructs t
         modus-themes-bold-constructs nil)
 
-  ;; Maybe define some palette overrides, such as by using our presets
-  (setq modus-themes-common-palette-overrides
-        modus-themes-preset-overrides-intense)
-
   ;; Load the theme of your choice.
-  (load-theme 'modus-operandi)
+  (modus-themes-load-theme 'modus-operandi)
 
   (define-key global-map (kbd "<f5>") #'modus-themes-toggle))
 #+end_src
@@ -458,12 +450,8 @@ The same without ~use-package~:
 (setq modus-themes-italic-constructs t
       modus-themes-bold-constructs nil)
 
-;; Maybe define some palette overrides, such as by using our presets
-(setq modus-themes-common-palette-overrides
-      modus-themes-preset-overrides-intense)
-
 ;; Load the theme of your choice:
-(load-theme 'modus-operandi :no-confirm)
+(modus-themes-load-theme 'modus-operandi :no-confirm)
 
 (define-key global-map (kbd "<f5>") #'modus-themes-toggle)
 #+end_src
@@ -516,7 +504,7 @@ session, are better off using something like this:
 
 [[#h:b40aca50-a3b2-4c43-be58-2c26fcd14237][Toggle themes without reloading them]].
 
-[[#h:e979734c-a9e1-4373-9365-0f2cd36107b8][Sample configuration with and without use-package]].
+[[#h:e979734c-a9e1-4373-9365-0f2cd36107b8][Sample configuration]].
 
 With the above granted, other sections of the manual discuss how to
 configure custom faces, where ~load-theme~ is expected, though

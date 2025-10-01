@@ -100,7 +100,7 @@ Install on GNU/Linux
 Enable and load
 
 * The require-theme for built-in Emacs themes::
-* Sample configuration with and without use-package::
+* Sample configuration::
 * Differences between loading and enabling::
 
 Customization options
@@ -526,7 +526,8 @@ themes.):
 
      (define-key global-map (kbd "<f5>") #'modus-themes-toggle)
 
-   *note Sample configuration with and without use-package::.
+   *note Sample configuration with and without use-package: Sample
+configuration.
 
    To disable other themes before loading a Modus theme, use something
 like this:
@@ -548,18 +549,19 @@ function calls the hook ‘modus-themes-after-load-theme-hook’ (alias
 this hook to make further customizations (*note Advanced
 customization::).
 
-   The commands ‘modus-themes-toggle’ and ‘modus-themes-select’ use
+   The commands ‘modus-themes-toggle’, ‘modus-themes-rotate’,
+‘modus-themes-load-random’, and ‘modus-themes-select’ use
 ‘modus-themes-load-theme’ internally (*note Option for which themes to
 toggle::).  The aforementioned hold true for them as well.
 
 * Menu:
 
 * The require-theme for built-in Emacs themes::
-* Sample configuration with and without use-package::
+* Sample configuration::
 * Differences between loading and enabling::
 
 
-File: modus-themes.info,  Node: The require-theme for built-in Emacs themes,  Next: Sample configuration with and without use-package,  Up: Enable and load
+File: modus-themes.info,  Node: The require-theme for built-in Emacs themes,  Next: Sample configuration,  Up: Enable and load
 
 3.1 The ‘require-theme’ for built-in Emacs themes
 =================================================
@@ -575,10 +577,6 @@ function must be used in this case as a replacement.  For example:
      (setq modus-themes-bold-constructs t
            modus-themes-italic-constructs t)
 
-     ;; Maybe define some palette overrides, such as by using our presets
-     (setq modus-themes-common-palette-overrides
-           modus-themes-preset-overrides-intense)
-
      ;; Load the theme of choice (built-in themes are always "safe" so they
      ;; do not need the `no-require' argument of `load-theme').
      (load-theme 'modus-operandi)
@@ -586,10 +584,10 @@ function must be used in this case as a replacement.  For example:
      (define-key global-map (kbd "<f5>") #'modus-themes-toggle)
 
 
-File: modus-themes.info,  Node: Sample configuration with and without use-package,  Next: Differences between loading and enabling,  Prev: The require-theme for built-in Emacs themes,  Up: Enable and load
+File: modus-themes.info,  Node: Sample configuration,  Next: Differences between loading and enabling,  Prev: The require-theme for built-in Emacs themes,  Up: Enable and load
 
-3.2 Sample configuration with and without use-package
-=====================================================
+3.2 Sample configuration
+========================
 
 What follows is a variant of what we demonstrate in the previous section
 (*note Enable and load::).
@@ -599,19 +597,15 @@ package configurations in their setup.  We use this as an example:
 
      ;;; For the built-in themes which cannot use `require'.
      (use-package emacs
-       :config
+       :init
        (require-theme 'modus-themes) ; `require-theme' is ONLY for the built-in Modus themes
-
+       :config
        ;; Add all your customizations prior to loading the themes
        (setq modus-themes-italic-constructs t
              modus-themes-bold-constructs nil)
 
-       ;; Maybe define some palette overrides, such as by using our presets
-       (setq modus-themes-common-palette-overrides
-             modus-themes-preset-overrides-intense)
-
        ;; Load the theme of your choice.
-       (load-theme 'modus-operandi)
+       (modus-themes-load-theme 'modus-operandi)
 
        (define-key global-map (kbd "<f5>") #'modus-themes-toggle))
 
@@ -625,12 +619,8 @@ package configurations in their setup.  We use this as an example:
        (setq modus-themes-italic-constructs t
              modus-themes-bold-constructs nil)
 
-       ;; Maybe define some palette overrides, such as by using our presets
-       (setq modus-themes-common-palette-overrides
-             modus-themes-preset-overrides-intense)
-
        ;; Load the theme of your choice.
-       (load-theme 'modus-operandi)
+       (modus-themes-load-theme 'modus-operandi)
 
        (define-key global-map (kbd "<f5>") #'modus-themes-toggle))
 
@@ -642,12 +632,8 @@ package configurations in their setup.  We use this as an example:
      (setq modus-themes-italic-constructs t
            modus-themes-bold-constructs nil)
 
-     ;; Maybe define some palette overrides, such as by using our presets
-     (setq modus-themes-common-palette-overrides
-           modus-themes-preset-overrides-intense)
-
      ;; Load the theme of your choice:
-     (load-theme 'modus-operandi :no-confirm)
+     (modus-themes-load-theme 'modus-operandi :no-confirm)
 
      (define-key global-map (kbd "<f5>") #'modus-themes-toggle)
 
@@ -660,7 +646,7 @@ If either or both of those variables need to be changed, their values
 should be defined before the package declaration of the themes.
 
 
-File: modus-themes.info,  Node: Differences between loading and enabling,  Prev: Sample configuration with and without use-package,  Up: Enable and load
+File: modus-themes.info,  Node: Differences between loading and enabling,  Prev: Sample configuration,  Up: Enable and load
 
 3.3 Differences between loading and enabling
 ============================================
@@ -699,7 +685,7 @@ session, are better off using something like this:
    *note Toggle themes without reloading them: DIY Toggle themes without
 reloading them.
 
-   *note Sample configuration with and without use-package::.
+   *note Sample configuration::.
 
    With the above granted, other sections of the manual discuss how to
 configure custom faces, where ‘load-theme’ is expected, though
@@ -6597,25 +6583,28 @@ B.1 Function index
                                                               (line   6)
 * modus-themes-list-colors-current:      Preview theme colors.
                                                               (line  10)
-* modus-themes-load-random:              Disable other themes.
+* modus-themes-load-random:              Enable and load.     (line  94)
+* modus-themes-load-random <1>:          Disable other themes.
                                                               (line  15)
-* modus-themes-load-theme:               Enable and load.     (line  79)
+* modus-themes-load-theme:               Enable and load.     (line  80)
 * modus-themes-load-theme <1>:           Disable other themes.
                                                               (line  15)
 * modus-themes-preview-colors:           Preview theme colors.
                                                               (line  18)
 * modus-themes-preview-colors-current:   Preview theme colors.
                                                               (line  18)
-* modus-themes-rotate:                   Disable other themes.
+* modus-themes-rotate:                   Enable and load.     (line  94)
+* modus-themes-rotate <1>:               Disable other themes.
                                                               (line  15)
-* modus-themes-rotate <1>:               Option for which themes to rotate.
+* modus-themes-rotate <2>:               Option for which themes to rotate.
                                                               (line   8)
-* modus-themes-select:                   Enable and load.     (line  93)
-* modus-themes-select <1>:               Disable other themes.
+* modus-themes-select:                   Enable and load.     (line  94)
+* modus-themes-select <1>:               Enable and load.     (line  94)
+* modus-themes-select <2>:               Disable other themes.
                                                               (line  15)
 * modus-themes-theme:                    Build on top of the Modus themes.
                                                               (line  16)
-* modus-themes-toggle:                   Enable and load.     (line  93)
+* modus-themes-toggle:                   Enable and load.     (line  94)
 * modus-themes-toggle <1>:               Disable other themes.
                                                               (line  15)
 * modus-themes-toggle <2>:               Option for which themes to toggle.
@@ -6644,7 +6633,7 @@ B.2 Variable index
 * modus-operandi-tritanopia-palette-overrides: Palette overrides.
                                                                (line 34)
 * modus-operandi-tritanopia-palette-user: Palette extension.   (line 26)
-* modus-themes-after-load-theme-hook:    Enable and load.      (line 85)
+* modus-themes-after-load-theme-hook:    Enable and load.      (line 86)
 * modus-themes-bold-constructs:          Bold constructs.      (line  6)
 * modus-themes-common-palette-overrides: Palette overrides.    (line 22)
 * modus-themes-common-palette-user:      Palette extension.    (line 16)
@@ -6657,7 +6646,7 @@ B.2 Variable index
                                                                (line 17)
 * modus-themes-mixed-fonts:              Mixed fonts.          (line  6)
 * modus-themes-org-blocks:               Org mode blocks.      (line  6)
-* modus-themes-post-load-hook:           Enable and load.      (line 85)
+* modus-themes-post-load-hook:           Enable and load.      (line 86)
 * modus-themes-preset-overrides-cooler:  DIY Palette override presets.
                                                                (line 29)
 * modus-themes-preset-overrides-faint:   DIY Palette override presets.
@@ -6738,8 +6727,7 @@ B.3 Concept index
                                                                 (line 6)
 * Remapping pdf-tools backdrop:          DIY Backdrop for pdf-tools.
                                                                 (line 6)
-* sample configuration:                  Sample configuration with and without use-package.
-                                                                (line 6)
+* sample configuration:                  Sample configuration.  (line 6)
 * Screenshots:                           How do the themes look like.
                                                                 (line 6)
 * Sources of the themes:                 Sources of the themes. (line 6)
@@ -6749,141 +6737,140 @@ B.3 Concept index
                                                                 (line 6)
 * Use colors from the palette anywhere:  Use theme colors in code with modus-themes-with-colors.
                                                                 (line 6)
-* use-package configuration:             Sample configuration with and without use-package.
-                                                                (line 6)
+* use-package configuration:             Sample configuration.  (line 6)
 
 
 
 Tag Table:
 Node: Top874
-Node: Overview8683
-Node: How do the themes look like11449
-Node: Learn about the latest changes11808
-Node: Installation12196
-Node: Install manually from source13107
-Node: Install from the archives13930
-Node: Install on GNU/Linux14529
-Node: Debian 11 Bullseye15020
-Node: GNU Guix15428
-Node: Dealing with byte compilation errors15711
-Node: Enable and load16869
-Node: The require-theme for built-in Emacs themes20813
-Node: Sample configuration with and without use-package21933
-Node: Differences between loading and enabling24779
-Node: Customization options26902
-Node: Custom reload theme30811
-Node: Disable other themes31731
-Node: Bold constructs33033
-Node: Italic constructs33905
-Node: Option for which themes to toggle34733
-Node: Option for which themes to rotate35496
-Node: Mixed fonts36560
-Node: Command prompts37614
-Node: Completion UIs39455
-Node: Org mode blocks42304
-Node: Heading styles42949
-Node: UI typeface47375
-Node: Palette overrides48348
-Node: Palette extension52734
-Node: Preview theme colors55210
-Node: Use colors from the Modus themes palette56761
-Node: Get a single color from the palette with modus-themes-get-color-value57625
-Node: Use theme colors in code with modus-themes-with-colors59986
-Node: Advanced customization62240
-Node: DIY Palette override presets64018
-Node: DIY Add support for engrave-faces66852
-Node: DIY Stylistic variants using palette overrides76835
-Node: DIY Make the mode line borderless78894
-Node: DIY Make the active mode line colorful80269
-Node: DIY Make the tab bar more or less colorful82487
-Node: DIY Make the fringe invisible or another color84424
-Node: DIY Make links use subtle or no underlines85621
-Node: DIY Make prompts more or less colorful86739
-Node: DIY Make completion matches more or less colorful88062
-Node: DIY Make comments yellow and strings green91621
-Node: DIY Make code syntax use the old alt-syntax style93328
-Node: DIY Make use of alternative styles for code syntax96441
-Node: DIY Make matching parenthesis more or less intense99903
-Node: DIY Make box buttons more or less gray101275
-Node: DIY Make TODO and DONE more or less intense102288
-Node: DIY Make headings more or less colorful103789
-Node: DIY Make Org block colors more or less colorful105906
-Node: DIY Make Org agenda more or less colorful110278
-Node: DIY Make inline code in prose use alternative styles113453
-Node: DIY Make mail citations and headers more or less colorful115693
-Node: DIY Make the region preserve text colors plus other styles118093
-Node: DIY Make mouse highlights more or less colorful119649
-Node: DIY Make language underlines less colorful120662
-Node: DIY Make line numbers use alternative styles121814
-Node: DIY Make diffs use only a foreground123457
-Node: DIY Make deuteranopia diffs red and blue instead of yellow and blue126344
-Node: DIY More accurate colors in terminal emulators128816
-Node: DIY Range of color with terminal emulators130124
-Node: DIY Per-theme customization settings132911
-Node: DIY Do not extend the region background134344
-Node: DIY Add padding to the mode line135142
-Node: DIY Remap face with local value138070
-Node: DIY Font configurations for Org and others140609
-Ref: DIY Font configurations for Org and others-Footnote-1143592
-Node: DIY Configure bold and italic faces143779
-Node: DIY Custom Org todo keyword and priority faces148401
-Node: DIY Custom Org emphasis faces152142
-Node: DIY Use colored Org source blocks per language157019
-Node: DIY Measure color contrast161659
-Node: DIY Load theme depending on time of day164376
-Node: DIY Backdrop for pdf-tools165404
-Node: DIY Toggle themes without reloading them168565
-Node: DIY Use more spacious margins or padding in Emacs frames169874
-Node: DIY Custom hl-todo colors174111
-Node: DIY Add support for solaire-mode175928
-Node: DIY Add support for meow-mode179020
-Node: DIY Add support for combobulate180830
-Node: DIY Use a hook at the post-load-theme phase184453
-Node: DIY A theme-agnostic hook for theme loading186574
-Node: Build on top of the Modus themes189205
-Node: Face coverage195142
-Node: Supported packages195604
-Node: Indirectly covered packages201470
-Node: Notes on individual packages202826
-Node: Note on calendarel weekday and weekend colors203928
-Node: Note on git-gutter in Doom Emacs205078
-Node: Note on php-mode multiline comments207580
-Node: Note on underlines in compilation buffers208342
-Node: Note on inline Latex in Org buffers209216
-Node: Note on dimmerel209828
-Node: Note on display-fill-column-indicator-mode211315
-Node: Note on highlight-parenthesesel212768
-Node: Note on mmm-modeel background colors218847
-Node: Note for prism221201
-Node: Note on company-mode overlay pop-up224415
-Ref: Note on company-mode overlay pop-up-Footnote-1225145
-Ref: Note on company-mode overlay pop-up-Footnote-2225212
-Node: Note on ERC escaped color sequences225267
-Ref: Note on ERC escaped color sequences-Footnote-1226697
-Node: Note on powerline or spaceline226807
-Node: Note on SHR colors227223
-Node: Note on SHR fonts227645
-Node: Note on Ement colors and fonts228334
-Node: Note on pdf-tools link hints229840
-Node: Note on the Notmuch logo232298
-Node: Note on goto-address-mode faces232832
-Node: Frequently Asked Questions233952
-Node: Is the contrast ratio about adjacent colors?234583
-Node: What does it mean to avoid exaggerations?236092
-Node: Why are colors mostly variants of blue magenta cyan?237942
-Node: What is the best setup for legibility?242276
-Node: Are these color schemes?244918
-Node: Port the Modus themes to other platforms?248572
-Node: Contributing251406
-Node: Sources of the themes251805
-Node: Issues you can help with252701
-Node: Patches require copyright assignment to the FSF254093
-Node: Acknowledgements256315
-Node: GNU Free Documentation License260742
-Node: Indices285905
-Node: Function index286084
-Node: Variable index289353
-Node: Concept index293150
+Node: Overview8654
+Node: How do the themes look like11420
+Node: Learn about the latest changes11779
+Node: Installation12167
+Node: Install manually from source13078
+Node: Install from the archives13901
+Node: Install on GNU/Linux14500
+Node: Debian 11 Bullseye14991
+Node: GNU Guix15399
+Node: Dealing with byte compilation errors15682
+Node: Enable and load16840
+Node: The require-theme for built-in Emacs themes20835
+Node: Sample configuration21752
+Node: Differences between loading and enabling24028
+Node: Customization options26093
+Node: Custom reload theme30002
+Node: Disable other themes30922
+Node: Bold constructs32224
+Node: Italic constructs33096
+Node: Option for which themes to toggle33924
+Node: Option for which themes to rotate34687
+Node: Mixed fonts35751
+Node: Command prompts36805
+Node: Completion UIs38646
+Node: Org mode blocks41495
+Node: Heading styles42140
+Node: UI typeface46566
+Node: Palette overrides47539
+Node: Palette extension51925
+Node: Preview theme colors54401
+Node: Use colors from the Modus themes palette55952
+Node: Get a single color from the palette with modus-themes-get-color-value56816
+Node: Use theme colors in code with modus-themes-with-colors59177
+Node: Advanced customization61431
+Node: DIY Palette override presets63209
+Node: DIY Add support for engrave-faces66043
+Node: DIY Stylistic variants using palette overrides76026
+Node: DIY Make the mode line borderless78085
+Node: DIY Make the active mode line colorful79460
+Node: DIY Make the tab bar more or less colorful81678
+Node: DIY Make the fringe invisible or another color83615
+Node: DIY Make links use subtle or no underlines84812
+Node: DIY Make prompts more or less colorful85930
+Node: DIY Make completion matches more or less colorful87253
+Node: DIY Make comments yellow and strings green90812
+Node: DIY Make code syntax use the old alt-syntax style92519
+Node: DIY Make use of alternative styles for code syntax95632
+Node: DIY Make matching parenthesis more or less intense99094
+Node: DIY Make box buttons more or less gray100466
+Node: DIY Make TODO and DONE more or less intense101479
+Node: DIY Make headings more or less colorful102980
+Node: DIY Make Org block colors more or less colorful105097
+Node: DIY Make Org agenda more or less colorful109469
+Node: DIY Make inline code in prose use alternative styles112644
+Node: DIY Make mail citations and headers more or less colorful114884
+Node: DIY Make the region preserve text colors plus other styles117284
+Node: DIY Make mouse highlights more or less colorful118840
+Node: DIY Make language underlines less colorful119853
+Node: DIY Make line numbers use alternative styles121005
+Node: DIY Make diffs use only a foreground122648
+Node: DIY Make deuteranopia diffs red and blue instead of yellow and blue125535
+Node: DIY More accurate colors in terminal emulators128007
+Node: DIY Range of color with terminal emulators129315
+Node: DIY Per-theme customization settings132102
+Node: DIY Do not extend the region background133535
+Node: DIY Add padding to the mode line134333
+Node: DIY Remap face with local value137261
+Node: DIY Font configurations for Org and others139800
+Ref: DIY Font configurations for Org and others-Footnote-1142783
+Node: DIY Configure bold and italic faces142970
+Node: DIY Custom Org todo keyword and priority faces147592
+Node: DIY Custom Org emphasis faces151333
+Node: DIY Use colored Org source blocks per language156210
+Node: DIY Measure color contrast160850
+Node: DIY Load theme depending on time of day163567
+Node: DIY Backdrop for pdf-tools164595
+Node: DIY Toggle themes without reloading them167756
+Node: DIY Use more spacious margins or padding in Emacs frames169065
+Node: DIY Custom hl-todo colors173302
+Node: DIY Add support for solaire-mode175119
+Node: DIY Add support for meow-mode178211
+Node: DIY Add support for combobulate180021
+Node: DIY Use a hook at the post-load-theme phase183644
+Node: DIY A theme-agnostic hook for theme loading185765
+Node: Build on top of the Modus themes188396
+Node: Face coverage194333
+Node: Supported packages194795
+Node: Indirectly covered packages200661
+Node: Notes on individual packages202017
+Node: Note on calendarel weekday and weekend colors203119
+Node: Note on git-gutter in Doom Emacs204269
+Node: Note on php-mode multiline comments206771
+Node: Note on underlines in compilation buffers207533
+Node: Note on inline Latex in Org buffers208407
+Node: Note on dimmerel209019
+Node: Note on display-fill-column-indicator-mode210506
+Node: Note on highlight-parenthesesel211959
+Node: Note on mmm-modeel background colors218038
+Node: Note for prism220392
+Node: Note on company-mode overlay pop-up223606
+Ref: Note on company-mode overlay pop-up-Footnote-1224336
+Ref: Note on company-mode overlay pop-up-Footnote-2224403
+Node: Note on ERC escaped color sequences224458
+Ref: Note on ERC escaped color sequences-Footnote-1225888
+Node: Note on powerline or spaceline225998
+Node: Note on SHR colors226414
+Node: Note on SHR fonts226836
+Node: Note on Ement colors and fonts227525
+Node: Note on pdf-tools link hints229031
+Node: Note on the Notmuch logo231489
+Node: Note on goto-address-mode faces232023
+Node: Frequently Asked Questions233143
+Node: Is the contrast ratio about adjacent colors?233774
+Node: What does it mean to avoid exaggerations?235283
+Node: Why are colors mostly variants of blue magenta cyan?237133
+Node: What is the best setup for legibility?241467
+Node: Are these color schemes?244109
+Node: Port the Modus themes to other platforms?247763
+Node: Contributing250597
+Node: Sources of the themes250996
+Node: Issues you can help with251892
+Node: Patches require copyright assignment to the FSF253284
+Node: Acknowledgements255506
+Node: GNU Free Documentation License259933
+Node: Indices285096
+Node: Function index285275
+Node: Variable index288763
+Node: Concept index292560
 
 End Tag Table
 
