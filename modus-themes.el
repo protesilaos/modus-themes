@@ -306,12 +306,19 @@ the same as using the command `modus-themes-select'."
   :version "30.1"
   :group 'modus-themes)
 
-(defcustom modus-themes-to-rotate modus-themes-items
-  "List of Modus themes to rotate among, per `modus-themes-rotate'."
+(defcustom modus-themes-to-rotate nil
+  "List of Modus themes to rotate, per `modus-themes-rotate'.
+If the value is nil, then rotation applies to all themes returned by
+`modus-themes-get-themes'."
   :type `(repeat
           (choice :tag "A theme among the `modus-themes-items'"
-                  ,@(mapcar (lambda (theme) (list 'const theme)) modus-themes-items)))
-  :package-version '(modus-themes . "4.6.0")
+                  ,@(mapcar
+                     (lambda (theme)
+                       (list 'const theme))
+                     (if (fboundp 'modus-themes-get-themes)
+                         (modus-themes-get-themes)
+                       modus-themes-items))))
+  :package-version '(modus-themes . "4.9.0")
   :version "31.1"
   :group 'modus-themes)
 
@@ -4064,7 +4071,10 @@ after.  The rotation is performed rightwards if REVERSE is nil (the
 default), and leftwards if REVERSE is non-nil.  Perform the rotation
 such that the current element in the list becomes the last.  Do not
 modify THEMES in the process."
-  (interactive (list modus-themes-to-rotate current-prefix-arg))
+  (interactive
+   (list
+    (or modus-themes-to-rotate (modus-themes-get-themes))
+    current-prefix-arg))
   (let ((theme (modus-themes-rotate-subr themes reverse)))
     (message "Rotating to `%s'" theme)
     (modus-themes-load-theme theme)))
