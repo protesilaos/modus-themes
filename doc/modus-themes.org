@@ -733,25 +733,29 @@ Possible values:
 :CUSTOM_ID: h:a10c0202-3683-4fad-9897-433c25e255f6
 :END:
 
+[ Default value and behaviour changed as part of {{{development-version}}}. ]
+
 #+findex: modus-themes-rotate
-Brief: Specify which themes to rotate among when using the command
+Brief: Specify which themes to rotate through when using the command
 ~modus-themes-rotate~.
 
 #+vindex: modus-themes-to-rotate
 Symbol: ~modus-themes-to-rotate~ (=list= type)
 
-Default value: =modus-themes-items= (which includes all the Modus themes)
+Default value: nil
 
 Possible values:
 
-- ~modus-operandi~
-- ~modus-operandi-tinted~
-- ~modus-operandi-deuteranopia~
-- ~modus-operandi-tritanopia~
-- ~modus-vivendi~
-- ~modus-vivendi-tinted~
-- ~modus-vivendi-deuteranopia~
-- ~modus-vivendi-tritanopia~
+#+vindex: modus-themes-items
+- Any of the themes listed in the value of the variable ~modus-themes-items~.
+#+findex: modus-themes-get-themes
+- Any of the themes returned by the function ~modus-themes-get-themes~.
+
+When the value is a list of themes, ~modus-themes-rotate~ will go
+through them from left to right. With an optional prefix argument
+({{{kbd(C-u)}}} by default), it will move in reverse. If the value is
+~nil~, the command will perform the same action for all the themes
+returned by the function ~modus-themes-get-themes~.
 
 ** Option for font mixing
 :properties:
