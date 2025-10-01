@@ -1315,7 +1315,7 @@ previews of all of its color palette entries.
 The command ~modus-themes-list-colors-current~ skips the minibuffer
 selection process to produce a preview for the current Modus theme.
 
-When called with a prefix argument (=C-u= with the default key
+When called with a prefix argument {{{kbd(C-u)}}} with the default key
 bindings), these commands will show a preview of the palette's
 semantic color mappings instead of the full palette ([[#h:34c7a691-19bb-4037-8d2f-67a07edab150][Option for palette overrides]]).
 
