@@ -7328,7 +7328,10 @@ are symbols of variables which define palettes commensurate with
                         colors))
          (ignore c ,@colors) ; Silence unused variable warnings
          (custom-theme-set-faces ',name ,@modus-themes-faces)
-         (custom-theme-set-variables ',name ,@modus-themes-custom-variables)
+         (custom-theme-set-variables
+          ',name
+          ,@(append modus-themes-custom-variables
+                    (list `'(frame-background-mode ',background-mode))))
          ,@(unless theme-exists-p
              (list `(provide-theme ',name)))))))
 
