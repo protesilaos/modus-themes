@@ -3840,7 +3840,9 @@ With non-nil FORCEFULLY, load the theme regardless."
   "Return all known Modus themes or derivatives, enabling them if needed.
 With optional THEME-FAMILY, operate only on the themes whose :family
 property is that.  Else consider the Modus themes as well as all their
-derivatives."
+derivatives.
+
+Also see `modus-themes-sort'."
   (let ((themes (pcase theme-family
                   ('modus-themes modus-themes-items)
                   ((pred (not null)) modus-themes-registered-items)
