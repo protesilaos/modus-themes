@@ -47,7 +47,7 @@ piece of information pertinent to them.
 does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
-   Current development target is 4.9.0-dev.
+   Current development target is 5.0.0-dev.
 
    • Package name (GNU ELPA): ‘modus-themes’
    • Official manual: <https://protesilaos.com/emacs/modus-themes>
@@ -929,7 +929,7 @@ File: modus-themes.info,  Node: Option for which themes to rotate,  Next: Mixed 
 4.6 Option for which themes to rotate
 =====================================
 
-[ Default value and behaviour changed as part of 4.9.0-dev.  ]
+[ Default value and behaviour changed as part of 5.0.0-dev.  ]
 
    Brief: Specify which themes to rotate through when using the command
 ‘modus-themes-rotate’.
@@ -4303,7 +4303,10 @@ File: modus-themes.info,  Node: Build on top of the Modus themes,  Next: Face co
 8 Build on top of the Modus themes
 **********************************
 
-This section concerns package developers or advanced users.
+[ Building on top of the Modus themes is made possible as part of
+5.0.0-dev.  ]
+
+   This section concerns package developers or advanced users.
 
    The Modus themes can be used as the basis for another theme.  The
 ‘ef-themes’ package (also by Protesilaos), is one such case.  Developers
@@ -4552,7 +4555,7 @@ have lots of extensions, so the "full support" may not be 100% true…
    • golden-ratio-scroll-screen
    • helpful
    • hexl-mode
-   • hideshow [ Part of 4.9.0-dev.  ]
+   • hideshow [ Part of 5.0.0-dev.  ]
    • highlight-numbers
    • highlight-parentheses (*note Note on highlight-parentheses.el: Note
      on highlight-parenthesesel.)
@@ -6580,15 +6583,15 @@ B.1 Function index
 * modus-themes-contrast:                 DIY Measure color contrast.
                                                               (line   6)
 * modus-themes-get-all-known-themes:     Build on top of the Modus themes.
-                                                              (line  68)
+                                                              (line  71)
 * modus-themes-get-color-value:          Get a single color from the palette with modus-themes-get-color-value.
                                                               (line   6)
 * modus-themes-get-themes:               Option for which themes to rotate.
                                                               (line  19)
 * modus-themes-get-themes <1>:           Build on top of the Modus themes.
-                                                              (line  72)
+                                                              (line  75)
 * modus-themes-include-derivatives-mode: Build on top of the Modus themes.
-                                                              (line 103)
+                                                              (line 106)
 * modus-themes-list-colors:              Preview theme colors.
                                                               (line   6)
 * modus-themes-list-colors-current:      Preview theme colors.
@@ -6602,7 +6605,7 @@ B.1 Function index
                                                               (line   8)
 * modus-themes-select:                   Enable and load.     (line  93)
 * modus-themes-theme:                    Build on top of the Modus themes.
-                                                              (line  13)
+                                                              (line  16)
 * modus-themes-toggle:                   Enable and load.     (line  93)
 * modus-themes-toggle <1>:               Option for which themes to toggle.
                                                               (line   6)
@@ -6654,7 +6657,7 @@ B.2 Variable index
                                                                (line 29)
 * modus-themes-prompts:                  Command prompts.      (line  6)
 * modus-themes-registered-items:         Build on top of the Modus themes.
-                                                               (line 13)
+                                                               (line 16)
 * modus-themes-to-rotate:                Option for which themes to rotate.
                                                                (line 11)
 * modus-themes-to-toggle:                Option for which themes to toggle.
@@ -6827,49 +6830,49 @@ Node: DIY Add support for combobulate180770
 Node: DIY Use a hook at the post-load-theme phase184393
 Node: DIY A theme-agnostic hook for theme loading186514
 Node: Build on top of the Modus themes189145
-Node: Face coverage194998
-Node: Supported packages195460
-Node: Indirectly covered packages201326
-Node: Notes on individual packages202682
-Node: Note on calendarel weekday and weekend colors203784
-Node: Note on git-gutter in Doom Emacs204934
-Node: Note on php-mode multiline comments207436
-Node: Note on underlines in compilation buffers208198
-Node: Note on inline Latex in Org buffers209072
-Node: Note on dimmerel209684
-Node: Note on display-fill-column-indicator-mode211171
-Node: Note on highlight-parenthesesel212624
-Node: Note on mmm-modeel background colors218703
-Node: Note for prism221057
-Node: Note on company-mode overlay pop-up224271
-Ref: Note on company-mode overlay pop-up-Footnote-1225001
-Ref: Note on company-mode overlay pop-up-Footnote-2225068
-Node: Note on ERC escaped color sequences225123
-Ref: Note on ERC escaped color sequences-Footnote-1226553
-Node: Note on powerline or spaceline226663
-Node: Note on SHR colors227079
-Node: Note on SHR fonts227501
-Node: Note on Ement colors and fonts228190
-Node: Note on pdf-tools link hints229696
-Node: Note on the Notmuch logo232154
-Node: Note on goto-address-mode faces232688
-Node: Frequently Asked Questions233808
-Node: Is the contrast ratio about adjacent colors?234439
-Node: What does it mean to avoid exaggerations?235948
-Node: Why are colors mostly variants of blue magenta cyan?237798
-Node: What is the best setup for legibility?242132
-Node: Are these color schemes?244774
-Node: Port the Modus themes to other platforms?248428
-Node: Contributing251262
-Node: Sources of the themes251661
-Node: Issues you can help with252557
-Node: Patches require copyright assignment to the FSF253949
-Node: Acknowledgements256171
-Node: GNU Free Documentation License260598
-Node: Indices285761
-Node: Function index285940
-Node: Variable index288529
-Node: Concept index292326
+Node: Face coverage195082
+Node: Supported packages195544
+Node: Indirectly covered packages201410
+Node: Notes on individual packages202766
+Node: Note on calendarel weekday and weekend colors203868
+Node: Note on git-gutter in Doom Emacs205018
+Node: Note on php-mode multiline comments207520
+Node: Note on underlines in compilation buffers208282
+Node: Note on inline Latex in Org buffers209156
+Node: Note on dimmerel209768
+Node: Note on display-fill-column-indicator-mode211255
+Node: Note on highlight-parenthesesel212708
+Node: Note on mmm-modeel background colors218787
+Node: Note for prism221141
+Node: Note on company-mode overlay pop-up224355
+Ref: Note on company-mode overlay pop-up-Footnote-1225085
+Ref: Note on company-mode overlay pop-up-Footnote-2225152
+Node: Note on ERC escaped color sequences225207
+Ref: Note on ERC escaped color sequences-Footnote-1226637
+Node: Note on powerline or spaceline226747
+Node: Note on SHR colors227163
+Node: Note on SHR fonts227585
+Node: Note on Ement colors and fonts228274
+Node: Note on pdf-tools link hints229780
+Node: Note on the Notmuch logo232238
+Node: Note on goto-address-mode faces232772
+Node: Frequently Asked Questions233892
+Node: Is the contrast ratio about adjacent colors?234523
+Node: What does it mean to avoid exaggerations?236032
+Node: Why are colors mostly variants of blue magenta cyan?237882
+Node: What is the best setup for legibility?242216
+Node: Are these color schemes?244858
+Node: Port the Modus themes to other platforms?248512
+Node: Contributing251346
+Node: Sources of the themes251745
+Node: Issues you can help with252641
+Node: Patches require copyright assignment to the FSF254033
+Node: Acknowledgements256255
+Node: GNU Free Documentation License260682
+Node: Indices285845
+Node: Function index286024
+Node: Variable index288613
+Node: Concept index292410
 
 End Tag Table
 

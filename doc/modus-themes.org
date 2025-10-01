@@ -6,7 +6,7 @@
 #+startup: content
 #+macro: stable-version 4.8.0
 #+macro: release-date 2025-06-11
-#+macro: development-version 4.9.0-dev
+#+macro: development-version 5.0.0-dev
 #+macro: file @@texinfo:@file{@@$1@@texinfo:}@@
 #+macro: space @@texinfo:@: @@
 #+macro: kbd @@texinfo:@kbd{@@$1@@texinfo:}@@
@@ -4150,6 +4150,8 @@ need to (provided they understand the implications).
 :PROPERTIES:
 :CUSTOM_ID: h:86eb375b-9be4-43ce-879a-0686a524a63b
 :END:
+
+[ Building on top of the Modus themes is made possible as part of {{{development-version}}}. ]
 
 This section concerns package developers or advanced users.
 
