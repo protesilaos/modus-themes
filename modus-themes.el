@@ -4033,12 +4033,13 @@ symbol, which is safe when used as a face attribute's value."
   "Minibuffer prompt to select a Modus theme.
 With optional PROMPT string, use it as the first argument of
 `format-prompt'.  Else use a generic prompt."
-  (intern
-   (completing-read
-    (format-prompt (or prompt "Select theme") nil)
-    (modus-themes--completion-table-candidates)
-    nil t nil
-    'modus-themes--select-theme-history)))
+  (let ((completion-extra-properties `(:annotation-function ,#'modus-themes--annotate-theme)))
+    (intern
+     (completing-read
+      (format-prompt (or prompt "Select theme") nil)
+      (modus-themes--completion-table-candidates)
+      nil t nil
+      'modus-themes--select-theme-history))))
 
 ;;;###autoload
 (defun modus-themes-select (theme)
