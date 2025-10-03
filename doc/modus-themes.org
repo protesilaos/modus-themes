@@ -4150,9 +4150,10 @@ need to (provided they understand the implications).
 This section concerns package developers or advanced users.
 
 The Modus themes can be used as the basis for another theme. The
-~ef-themes~ package (also by Protesilaos), is one such case.
-Developers may do so to benefit from the extensive customization of
-the Modus themes and the fact that they are part of core Emacs.
+~ef-themes~ and ~standard-themes~ packages (also by Protesilaos), are
+two such case. Developers may do so to benefit from the extensive
+customization of the Modus themes and the fact that they are part of
+core Emacs.
 
 #+findex: modus-themes-theme
 #+vindex: modus-themes-registered-items
@@ -4162,7 +4163,7 @@ It takes care to (i) declare the theme, (ii) add to it relevant
 (iv) make it work with all the faces and customizations documented
 in this manual, and (v) ~provide-theme~ the theme.
 
-Concretely, ~modus-themes-theme~ expects the following arguments:
+Concretely, ~modus-themes-theme~ expects the following mandatory arguments:
 
 - =NAME= :: The name of the new theme, like ~modus-operandi~.
 - =FAMILY= :: The collection this theme is a member of, like ~modus-themes~.
@@ -4181,8 +4182,19 @@ Concretely, ~modus-themes-theme~ expects the following arguments:
   above two palettes. It is functionally equivalent to the
   =USER-PALETTE=, except it is meant to be customized by the end user.
   Its value can also be nil.
+#+vindex: modus-themes-faces
+- Optional =CUSTOM-FACES= :: A list of face definitions like those in
+  ~modus-themes-faces~, to extend or modify what core Modus defines.
+  If provided, they override whatever definition is present in
+  ~modus-themes-faces~ in case of a conflict. Derivative themes can
+  thus deviate from the style of core Modus, wherever necessary.
+#+vindex: modus-themes-custom-variables
+- Optional =CUSTOM-VARIABLES= :: A list of custom variables like those
+  defined in ~modus-themes-custom-variables~. They also override the
+  core Modus definitions in case of a conflict.
 
-This is an example of a theme that builds on top of ~modus-operandi~:
+This is an example of a theme that builds on top of ~modus-operandi~,
+passing all the mandatory arguments, but not the optional ones:
 
 #+begin_src emacs-lisp
 (modus-themes-theme
@@ -4205,6 +4217,39 @@ arguments it is given. It will thus not make any attempt to test if
 the variables are bound, nor will it declare any customization
 options. In the above example, the ~ef-summer-palette-overrides~ is a
 user option that is declared in that theme's file.
+
+In addition to defining their own colors, themes can provide an
+entirely custom list of face definitions and customization options.
+This mirrors the style of ~modus-themes-faces~ and
+~modus-themes-custom-variables~, as already noted. For example, the
+~standard-themes~ have a pseudo-3D style for their active mode line.
+They are declared in this way:
+
+#+begin_src emacs-lisp
+(modus-themes-theme
+  standard-dark
+  standard-themes
+  "Like the unthemed dark Emacs, but more consistent."
+  dark
+  modus-vivendi-palette
+  standard-dark-palette
+  standard-dard-palette-overrides
+  standard-themes-custom-faces) ; NOTE the additional optional argument
+#+end_src
+
+The ~standard-themes-custom-faces~ in this example specifies a list of
+face definitions like this:
+
+#+begin_src emacs-lisp
+;; Simplified example for illustration purposes
+(defconst standard-themes-custom-faces
+  '(
+    `(mode-line ((,c :box (:style released-button :color ,border-mode-line-active))))))
+#+end_src
+
+Custom faces passed in this way can still define their semantic
+palette mappings, as illustrated herein where ~border-mode-line-active~
+corresponds to some named color in the palette of the active theme.
 
 #+findex: modus-themes-get-all-known-themes
 Once the theme is instantiated, it will be listed in the return value
