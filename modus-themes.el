@@ -7320,14 +7320,22 @@ properties, use `modus-themes-declare'."
   (add-to-list 'modus-themes-registered-items name))
 
 ;;;###autoload
-(defmacro modus-themes-theme (name family description background-mode core-palette user-palette overrides-palette)
+(defmacro modus-themes-theme (name family description background-mode core-palette user-palette overrides-palette &optional custom-faces custom-variables)
   "Define a Modus theme or derivative thereof.
 NAME is the name of the new theme.  FAMILY is the collection of themes
 it belongs to.  DESCRIPTION is its documentation string.
 BACKGROUND-MODE is either `dark' or `light', in reference to the theme's
 background color.  The CORE-PALETTE, USER-PALETTE, and OVERRIDES-PALETTE
 are symbols of variables which define palettes commensurate with
-`modus-themes-operandi-palette'."
+`modus-themes-operandi-palette'.
+
+The optional CUSTOM-FACES and CUSTOM-VARIABLES are joined together with
+the `modus-themes-faces' and `modus-themes-custom-variables',
+respectively.  A derivative theme defining those is thus overriding what
+the Modus themess have by default.
+
+Consult the manual for details on how to build a theme on top of the
+`modus-themes': Info node `(modus-themes) Build on top of the Modus themes'."
   (declare (indent 0))
   (let ((sym (gensym))
         (colors (mapcar #'car (symbol-value core-palette)))
@@ -7349,11 +7357,17 @@ are symbols of variables which define palettes commensurate with
                    (list color `(modus-themes--retrieve-palette-value ',color ,sym)))
                  colors))
          (ignore c ,@colors) ; Silence unused variable warnings
-         (custom-theme-set-faces ',name ,@modus-themes-faces)
+         (custom-theme-set-faces
+          ',name
+          ,@(append
+             (symbol-value custom-faces)
+             modus-themes-faces))
          (custom-theme-set-variables
           ',name
-          ,@(append modus-themes-custom-variables
-                    (list `'(frame-background-mode ',background-mode))))
+          ,@(append
+             modus-themes-custom-variables
+             (symbol-value custom-variables)
+             (list `'(frame-background-mode ',background-mode))))
          ,@(unless theme-exists-p
              (list `(provide-theme ',name)))))))
 
