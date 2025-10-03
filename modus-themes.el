@@ -7432,6 +7432,7 @@ accordingly."
   :init-value nil)
 
 (cl-defmethod modus-themes-get-themes (&context (modus-themes-include-derivatives-mode (eql t)))
+  "Return list of Modus themes per `modus-themes-include-derivatives-mode'."
   (if-let* ((themes (modus-themes-get-all-known-themes nil))
             (sorted-themes (modus-themes-sort themes 'light)))
       sorted-themes
