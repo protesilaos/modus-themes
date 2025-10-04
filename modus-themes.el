@@ -133,11 +133,11 @@ deficiency (deuteranopia or tritanopia, respectively)."
    :version "30.1"
    :group 'modus-themes-faces))
 
-(dolist (scope '(current lazy replace))
+(dolist (scope '(current lazy replace static))
   (custom-declare-face
    (intern (format "modus-themes-search-%s" scope))
    nil (format "Search of type %s." scope)
-   :package-version '(modus-themes . "4.0.0")
+   :package-version '(modus-themes . "5.0.0")
    :version "30.1"
    :group 'modus-themes-faces))
 
@@ -1110,6 +1110,7 @@ represents."
 
      (bg-search-current bg-yellow-intense)
      (bg-search-lazy bg-cyan-intense)
+     (bg-search-static bg-magenta-subtle)
      (bg-search-replace bg-red-intense)
 
      (bg-search-rx-group-0 bg-blue-intense)
@@ -1435,6 +1436,7 @@ exists in the palette and is associated with a HEX-VALUE.")
 
      (bg-search-current bg-yellow-intense)
      (bg-search-lazy bg-cyan-intense)
+     (bg-search-static bg-magenta-subtle)
      (bg-search-replace bg-red-intense)
 
      (bg-search-rx-group-0 bg-blue-intense)
@@ -1761,6 +1763,7 @@ exists in the palette and is associated with a HEX-VALUE.")
 
      (bg-search-current bg-yellow-intense)
      (bg-search-lazy bg-blue-intense)
+     (bg-search-static bg-cyan-subtle)
      (bg-search-replace bg-yellow-intense)
 
      (bg-search-rx-group-0 bg-cyan-intense)
@@ -2092,6 +2095,7 @@ exists in the palette and is associated with a HEX-VALUE.")
 
      (bg-search-current bg-red-intense)
      (bg-search-lazy bg-cyan-intense)
+     (bg-search-static bg-magenta-subtle)
      (bg-search-replace bg-magenta-intense)
 
      (bg-search-rx-group-0 bg-blue-intense)
@@ -2423,6 +2427,7 @@ exists in the palette and is associated with a HEX-VALUE.")
 
      (bg-search-current bg-yellow-intense)
      (bg-search-lazy bg-cyan-intense)
+     (bg-search-static bg-magenta-subtle)
      (bg-search-replace bg-red-intense)
 
      (bg-search-rx-group-0 bg-blue-intense)
@@ -2754,6 +2759,7 @@ exists in the palette and is associated with a HEX-VALUE.")
 
      (bg-search-current bg-yellow-intense)
      (bg-search-lazy bg-cyan-intense)
+     (bg-search-static bg-magenta-subtle)
      (bg-search-replace bg-red-intense)
 
      (bg-search-rx-group-0 bg-blue-intense)
@@ -3085,6 +3091,7 @@ exists in the palette and is associated with a HEX-VALUE.")
 
      (bg-search-current bg-yellow-intense)
      (bg-search-lazy bg-blue-intense)
+     (bg-search-static bg-cyan-subtle)
      (bg-search-replace bg-yellow-intense)
 
      (bg-search-rx-group-0 bg-cyan-intense)
@@ -3420,6 +3427,7 @@ exists in the palette and is associated with a HEX-VALUE.")
 
      (bg-search-current bg-red-intense)
      (bg-search-lazy bg-cyan-intense)
+     (bg-search-static bg-magenta-subtle)
      (bg-search-replace bg-magenta-intense)
 
      (bg-search-rx-group-0 bg-blue-intense)
@@ -4509,6 +4517,7 @@ FG and BG are the main colors."
     `(modus-themes-search-current ((,c :background ,bg-search-current :foreground ,fg-main)))
     `(modus-themes-search-lazy ((,c :background ,bg-search-lazy :foreground ,fg-main)))
     `(modus-themes-search-replace ((,c :background ,bg-search-replace :foreground ,fg-main)))
+    `(modus-themes-search-static ((,c :background ,bg-search-static :foreground ,fg-main)))
 ;;;;; search regexp groups
     `(modus-themes-search-rx-group-0 ((,c :background ,bg-search-rx-group-0 :foreground ,fg-main)))
     `(modus-themes-search-rx-group-1 ((,c :background ,bg-search-rx-group-1 :foreground ,fg-main)))
@@ -5729,7 +5738,7 @@ FG and BG are the main colors."
     `(isearch-group-1 ((,c :inherit modus-themes-search-rx-group-0)))
     `(isearch-group-2 ((,c :inherit modus-themes-search-rx-group-1)))
     `(lazy-highlight ((,c :inherit modus-themes-search-lazy)))
-    `(match ((,c :background ,bg-magenta-subtle :foreground ,fg-main)))
+    `(match ((,c :inherit modus-themes-search-static)))
     `(query-replace ((,c :inherit modus-themes-search-replace)))
 ;;;;; ivy
     `(ivy-action ((,c :inherit modus-themes-key-binding)))
