@@ -7345,7 +7345,7 @@ Consult the manual for details on how to build a theme on top of the
        ,@(unless theme-exists-p
            (list
             `(modus-themes-declare
-              ',name ',family ',(intern (format "%s-theme" name))
+              ',name ',family
               ,description ',background-mode
               ',core-palette ',user-palette ',overrides-palette)))
        ,@(unless (eq family 'modus-themes)
