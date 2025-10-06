@@ -7437,6 +7437,25 @@ accordingly."
       sorted-themes
     modus-themes-items))
 
+;;;; Let derivative themes create commands to load only their themes
+
+(defvar modus-themes-define-derivative-command-known-suffixes
+  '( toggle rotate select load-random load-random-dark
+     load-random-light list-colors list-colors-current)
+  "Command suffixes accepted by `modus-themes-define-derivative-command'.")
+
+(defmacro modus-themes-define-derivative-command (family suffix)
+  "Define convenience command with SUFFIX to load only FAMILY themes.
+The command's symbol is FAMILY-SUFFIX, like `modus-themes-rotate'."
+  (unless (memq suffix modus-themes-define-derivative-command-known-suffixes)
+    (error "Cannot define command with unknown suffix `%s'" suffix))
+  `(defun ,(intern (format "%s-%s" family suffix)) ()
+     (interactive)
+     (cl-letf (((symbol-function 'modus-themes-get-themes)
+                (lambda ()
+                  (modus-themes-get-all-known-themes ',family))))
+       (call-interactively ',(intern (format "modus-themes-%s" suffix))))))
+
 ;;;; Add themes from package to path
 
 ;;;###autoload
