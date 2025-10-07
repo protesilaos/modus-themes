@@ -229,23 +229,9 @@ text should not be underlined as well) yet still blend in."
 
 ;;;; Customization variables
 
-(defcustom modus-themes-custom-auto-reload t
-  "Automatically reload theme after setting options with Customize.
-
-All theme user options take effect when a theme is loaded.  Any
-subsequent changes require the theme to be reloaded.
-
-When this variable has a non-nil value, any change made via the
-Custom UI or related functions such as `customize-set-variable'
-and `setopt' (Emacs 29), will trigger a reload automatically.
-
-With a nil value, changes to user options have no further
-consequences.  The user must manually reload the theme."
-  :group 'modus-themes
-  :package-version '(modus-themes . "4.0.0")
-  :version "30.1"
-  :type 'boolean
-  :link '(info-link "(modus-themes) Custom reload theme"))
+(make-obsolete-variable
+ 'modus-themes-custom-auto-reload nil
+ "5.0.0; just reload the theme manually")
 
 (defcustom modus-themes-disable-other-themes t
   "Disable all other themes when loading a Modus theme.
