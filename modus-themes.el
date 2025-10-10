@@ -7135,7 +7135,7 @@ FG and BG are the main colors."
     `(widget-button ((,c :inherit bold :foreground ,fg-link)))
     `(widget-button-pressed ((,c :inherit widget-button :foreground ,fg-link-visited)))
     `(widget-documentation ((,c :inherit font-lock-doc-face)))
-    `(widget-field ((,c :background ,bg-inactive :foreground ,fg-main :extend nil)))
+    `(widget-field ((,c :background ,bg-button-inactive :foreground ,fg-button-active :extend nil :underline (:position t))))
     `(widget-inactive ((,c :background ,bg-button-inactive :foreground ,fg-button-inactive)))
     `(widget-single-line-field ((,c :inherit widget-field)))
 ;;;;; writegood-mode
