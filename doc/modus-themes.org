@@ -4222,10 +4222,16 @@ Custom faces passed in this way can still define their semantic
 palette mappings, as illustrated herein where ~border-mode-line-active~
 corresponds to some named color in the palette of the active theme.
 
+** Determine what counts as a Modus theme
+:PROPERTIES:
+:CUSTOM_ID: h:412e3017-81fe-4a95-97a6-225de1867757
+:END:
+
 #+findex: modus-themes-get-all-known-themes
 Once the theme is instantiated, it will be listed in the return value
 of the function ~modus-themes-get-all-known-themes~. This function
-accepts an optional argument to filter themes by their given family.
+accepts an optional argument to filter themes by their given family,
+as specified at the time of the theme's reification ([[#h:86eb375b-9be4-43ce-879a-0686a524a63b][Build on top of the Modus themes]]).
 
 #+findex: modus-themes-get-themes
 The generic function ~modus-themes-get-themes~ is how developers/users
@@ -4288,6 +4294,55 @@ accordingly."
       sorted-themes
     modus-themes-items))
 #+end_src
+
+** Create convenience commands to load a derivative theme
+:PROPERTIES:
+:CUSTOM_ID: h:6bfbb4d6-2f23-4d06-827a-8b9a91507a02
+:END:
+
+#+findex: modus-themes-define-derivative-command
+In the previous section, we explored the mechanics of the
+~modus-themes-get-themes~ ([[#h:412e3017-81fe-4a95-97a6-225de1867757][Determine what counts as a Modus theme]]).
+Independent of that method, developers can use the macro
+~modus-themes-define-derivative-command~ to define small wrappers for
+Modus commands that load a theme only for a specific family of Modus
+derivatives ([[#h:86eb375b-9be4-43ce-879a-0686a524a63b][Build on top of the Modus themes]]).
+
+The ~modus-themes-define-derivative-command~ takes two mandatory
+arguments:
+
+- =FAMILY= :: the family of the Modus themes derivatives, such as ~ef-themes~.
+
+#+vindex: ~modus-themes-define-derivative-command-known-suffixes~
+- =SUFFIX= :: the suffix of the command-to-be-defined. It is one among
+  the symbols listed in ~modus-themes-define-derivative-command-known-suffixes~.
+
+The suffix is appended to =FAMILY= to derive the symbol of the
+command. For example, if =SUFFIX= is =rotate= and =FAMILY= is
+~ef-themes~, then the symbol is ~ef-themes-rotate~.
+
+Here is how it actually looks in the source code of the Ef themes:
+
+#+begin_src emacs-lisp
+;;;###autoload (autoload 'ef-themes-rotate "ef-themes")
+(modus-themes-define-derivative-command ef-themes rotate)
+#+end_src
+
+This is what the macroexpanded form looks like:
+
+#+begin_src emacs-lisp
+(defun ef-themes-rotate ()
+  "Like `modus-themes-rotate' but only consider members of the `ef-themes'"
+  (interactive)
+  (cl-letf (((symbol-function 'modus-themes-get-themes)
+             (lambda () (modus-themes-get-all-known-themes 'ef-themes))))
+    (call-interactively 'modus-themes-rotate)))
+#+end_src
+
+Sometimes, it makes no sense to re-use an existing Modus command (e.g.
+because the developer wants to introduce a user option to affect what
+the command is doing), though this approach with the ~cl-letf~ can
+still prove useful.
 
 * Face coverage
 :properties:
