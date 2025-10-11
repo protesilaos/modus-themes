@@ -7432,15 +7432,19 @@ accordingly."
 
 (defmacro modus-themes-define-derivative-command (family suffix)
   "Define convenience command with SUFFIX to load only FAMILY themes.
-The command's symbol is FAMILY-SUFFIX, like `modus-themes-rotate'."
+SUFFIX is a symbol among those listed in the variable
+`modus-themes-define-derivative-command-known-suffixes'.  The newly
+defined command's symbol is FAMILY-SUFFIX, like `modus-themes-rotate'."
   (unless (memq suffix modus-themes-define-derivative-command-known-suffixes)
     (error "Cannot define command with unknown suffix `%s'" suffix))
-  `(defun ,(intern (format "%s-%s" family suffix)) ()
-     (interactive)
-     (cl-letf (((symbol-function 'modus-themes-get-themes)
-                (lambda ()
-                  (modus-themes-get-all-known-themes ',family))))
-       (call-interactively ',(intern (format "modus-themes-%s" suffix))))))
+  (let ((modus-command (intern (format "modus-themes-%s" suffix))))
+    `(defun ,(intern (format "%s-%s" family suffix)) ()
+       ,(format "Like `%s' but only consider members of the `%s'" modus-command family)
+       (interactive)
+       (cl-letf (((symbol-function 'modus-themes-get-themes)
+                  (lambda ()
+                    (modus-themes-get-all-known-themes ',family))))
+         (call-interactively ',modus-command)))))
 
 ;;;; Add themes from package to path
 
