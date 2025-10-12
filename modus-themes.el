@@ -665,7 +665,7 @@ represents."
 (define-obsolete-variable-alias 'modus-vivendi-deuteranopia-palette 'modus-themes-vivendi-deuteranopia-palette "5.0.0")
 (define-obsolete-variable-alias 'modus-vivendi-tritanopia-palette 'modus-themes-vivendi-tritanopia-palette "5.0.0")
 
-(defconst modus-themes-common-palette-mappings
+(defvar modus-themes-common-palette-mappings
   '((fringe bg-dim)
 
     ;; Button mappings
