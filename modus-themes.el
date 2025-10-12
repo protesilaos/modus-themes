@@ -1991,13 +1991,6 @@ exists in the palette and is associated with a HEX-VALUE.")
      (accent-2 cyan-cooler)
      (accent-3 magenta)
 
-     ;; Button mappings
-
-     (fg-button-active fg-main)
-     (fg-button-inactive fg-dim)
-     (bg-button-active bg-active)
-     (bg-button-inactive bg-dim)
-
      ;; Completion mappings
 
      (fg-completion-match-0 cyan)
@@ -2322,13 +2315,6 @@ exists in the palette and is associated with a HEX-VALUE.")
      (accent-1 magenta-warmer)
      (accent-2 cyan-cooler)
      (accent-3 yellow)
-
-     ;; Button mappings
-
-     (fg-button-active fg-main)
-     (fg-button-inactive fg-dim)
-     (bg-button-active bg-active)
-     (bg-button-inactive bg-dim)
 
      ;; Completion mappings
 
@@ -2655,13 +2641,6 @@ exists in the palette and is associated with a HEX-VALUE.")
      (accent-2 magenta-warmer)
      (accent-3 yellow-warmer)
 
-     ;; Button mappings
-
-     (fg-button-active fg-main)
-     (fg-button-inactive fg-dim)
-     (bg-button-active bg-active)
-     (bg-button-inactive bg-dim)
-
      ;; Completion mappings
 
      (fg-completion-match-0 blue-cooler)
@@ -2986,13 +2965,6 @@ exists in the palette and is associated with a HEX-VALUE.")
      (accent-1 yellow)
      (accent-2 cyan-cooler)
      (accent-3 yellow-cooler)
-
-     ;; Button mappings
-
-     (fg-button-active fg-main)
-     (fg-button-inactive fg-dim)
-     (bg-button-active bg-active)
-     (bg-button-inactive bg-dim)
 
      ;; Completion mappings
 
@@ -3320,13 +3292,6 @@ exists in the palette and is associated with a HEX-VALUE.")
      (accent-1 red-warmer)
      (accent-2 cyan-cooler)
      (accent-3 magenta)
-
-     ;; Button mappings
-
-     (fg-button-active fg-main)
-     (fg-button-inactive fg-dim)
-     (bg-button-active bg-active)
-     (bg-button-inactive bg-dim)
 
      ;; Completion mappings
 
