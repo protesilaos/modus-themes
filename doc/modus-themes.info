@@ -6075,16 +6075,17 @@ Contributions to code or documentation
      Aleksei Gusev, Alex Griffin, Anders Johansson, Antonio Ruiz, Basil
      L. Contovounesios, Björn Lindström, Carlo Zancanaro, Christian
      Tietze, Daniel Mendler, David Edmondson, Eli Zaretskii, Eric
-     Ottosson, Fritz Grabo, Gautier Ponsinet, Illia Ostapyshyn, Jacob S.
-     Gordon, Jared Finder, Jimmy Yuen Ho Wong, Kévin Le Gouguec, Koen
-     van Greevenbroek, Kostadin Ninev, Leilei332, Madhavan Krishnan,
-     Manuel Giraud, Markus Beppler, Matthew Stevenson, Mauro Aranda,
-     Nacho Barrientos, Niall Dooley, Nicolas De Jaeghere, Paul David,
-     Pavel Novichkov, Philip Kaludercic, Pierre Téchoueyres, Rahul M.
-     Juliato, Rudolf Adamkovič, Sergey Nichiporchik, Shreyas Ragavan,
-     Stefan x Kangas, Stephen Berman, Stephen Gildea, Steve Downey,
-     Suleyman Boyar, Thanos Apollo, Tomasz Hołubowicz, Utkarsh Singh,
-     Vincent Murphy, Xinglu Chen, Yuanchen Xie, fluentpwn, okamsn.
+     Ottosson, Frédéric Giquel, Fritz Grabo, Gautier Ponsinet, Illia
+     Ostapyshyn, Jacob S. Gordon, Jared Finder, Jimmy Yuen Ho Wong,
+     Kévin Le Gouguec, Koen van Greevenbroek, Kostadin Ninev, Leilei332,
+     Madhavan Krishnan, Manuel Giraud, Markus Beppler, Matthew
+     Stevenson, Mauro Aranda, Nacho Barrientos, Niall Dooley, Nicolas De
+     Jaeghere, Paul David, Pavel Novichkov, Philip Kaludercic, Pierre
+     Téchoueyres, Rahul M. Juliato, Rudolf Adamkovič, Sergey
+     Nichiporchik, Shreyas Ragavan, Stefan x Kangas, Stephen Berman,
+     Stephen Gildea, Steve Downey, Suleyman Boyar, Thanos Apollo, Tomasz
+     Hołubowicz, Utkarsh Singh, Vincent Murphy, Xinglu Chen, Yuanchen
+     Xie, fluentpwn, okamsn.
 
 Ideas and user feedback
      Aaron Jensen, Adam Porter, Adam Spiers, Adrian Manea, Aleksei
@@ -6942,11 +6943,11 @@ Node: Sources of the themes254309
 Node: Issues you can help with255205
 Node: Patches require copyright assignment to the FSF256597
 Node: Acknowledgements258819
-Node: GNU Free Documentation License263264
-Node: Indices288427
-Node: Function index288606
-Node: Variable index291716
-Node: Concept index295924
+Node: GNU Free Documentation License263288
+Node: Indices288451
+Node: Function index288630
+Node: Variable index291740
+Node: Concept index295948
 
 End Tag Table
 
