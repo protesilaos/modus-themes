@@ -5959,7 +5959,7 @@ FG and BG are the main colors."
 ;;;;; markdown-mode
     `(markdown-blockquote-face ((,c :inherit font-lock-doc-face)))
     `(markdown-bold-face ((,c :inherit bold)))
-    `(markdown-code-face ((,c :inherit modus-themes-fixed-pitch :background ,bg-dim :extend t)))
+    `(markdown-code-face ((,c :inherit modus-themes-fixed-pitch :background ,bg-prose-block-contents :extend t)))
     `(markdown-gfm-checkbox-face ((,c :foreground ,warning)))
     `(markdown-header-face (( )))
     `(markdown-header-face-1 ((,c :inherit modus-themes-heading-1)))
