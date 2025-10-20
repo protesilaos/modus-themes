@@ -34,26 +34,26 @@
 
 
 
-  (unless (and (fboundp 'require-theme)
-               load-file-name
-               (equal (file-name-directory load-file-name)
-                      (expand-file-name "themes/" data-directory))
-               (require-theme 'modus-themes t))
-    (require 'modus-themes))
-  
-  (defcustom modus-vivendi-tinted-palette-user nil
-    "Like the `modus-vivendi-tinted-palette' for user-defined entries.
+(unless (and (fboundp 'require-theme)
+             load-file-name
+             (equal (file-name-directory load-file-name)
+                    (expand-file-name "themes/" data-directory))
+             (require-theme 'modus-themes t))
+  (require 'modus-themes))
+
+(defcustom modus-vivendi-tinted-palette-user nil
+  "Like the `modus-vivendi-tinted-palette' for user-defined entries.
 This is meant to extend the palette with custom named colors and/or
 semantic palette mappings.  Those may then be used in combination with
 palette overrides (also see `modus-themes-common-palette-overrides' and
 `modus-vivendi-tinted-palette-overrides')."
-    :group 'modus-themes
-    :package-version '(modus-themes . "4.5.0")
-    :type '(repeat (list symbol (choice symbol string)))
-    :link '(info-link "(modus-themes) Option to extend the palette for use with overrides"))
+  :group 'modus-themes
+  :package-version '(modus-themes . "4.5.0")
+  :type '(repeat (list symbol (choice symbol string)))
+  :link '(info-link "(modus-themes) Option to extend the palette for use with overrides"))
 
-  (defcustom modus-vivendi-tinted-palette-overrides nil
-    "Overrides for `modus-vivendi-tinted-palette'.
+(defcustom modus-vivendi-tinted-palette-overrides nil
+  "Overrides for `modus-vivendi-tinted-palette'.
 
 Mirror the elements of the aforementioned palette, overriding
 their value.
@@ -67,23 +67,23 @@ mappings, such as to make the cursor red.  Wherea theme-specific
 overrides can also be used to change the value of a named color,
 such as what hexadecimal RGB value the red-warmer symbol
 represents."
-    :group 'modus-themes
-    :package-version '(modus-themes . "4.0.0")
-    :version "30.1"
-    :type '(repeat (list symbol (choice symbol string)))
-    :link '(info-link "(modus-themes) Palette overrides"))
+  :group 'modus-themes
+  :package-version '(modus-themes . "4.0.0")
+  :version "30.1"
+  :type '(repeat (list symbol (choice symbol string)))
+  :link '(info-link "(modus-themes) Palette overrides"))
 
-  (modus-themes-theme
-    'modus-vivendi-tinted
-    'modus-themes
-    "Elegant, highly legible theme with a night sky background.
+(modus-themes-theme
+ 'modus-vivendi-tinted
+ 'modus-themes
+ "Elegant, highly legible theme with a night sky background.
 Conforms with the highest legibility standard for color contrast
 between background and foreground in any given piece of text,
 which corresponds to a minimum contrast in relative luminance of
 7:1 (WCAG AAA standard)."
-    'dark
-    'modus-themes-vivendi-tinted-palette
-    'modus-vivendi-tinted-palette-user
-    'modus-vivendi-tinted-palette-overrides)
+ 'dark
+ 'modus-themes-vivendi-tinted-palette
+ 'modus-vivendi-tinted-palette-user
+ 'modus-vivendi-tinted-palette-overrides)
 
 ;;; modus-vivendi-tinted-theme.el ends here

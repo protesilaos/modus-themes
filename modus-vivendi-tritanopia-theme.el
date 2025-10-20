@@ -34,26 +34,26 @@
 
 
 
-  (unless (and (fboundp 'require-theme)
-               load-file-name
-               (equal (file-name-directory load-file-name)
-                      (expand-file-name "themes/" data-directory))
-               (require-theme 'modus-themes t))
-    (require 'modus-themes))
-  
-  (defcustom modus-vivendi-tritanopia-palette-user nil
-    "Like the `modus-vivendi-tritanopia-palette' for user-defined entries.
+(unless (and (fboundp 'require-theme)
+             load-file-name
+             (equal (file-name-directory load-file-name)
+                    (expand-file-name "themes/" data-directory))
+             (require-theme 'modus-themes t))
+  (require 'modus-themes))
+
+(defcustom modus-vivendi-tritanopia-palette-user nil
+  "Like the `modus-vivendi-tritanopia-palette' for user-defined entries.
 This is meant to extend the palette with custom named colors and/or
 semantic palette mappings.  Those may then be used in combination with
 palette overrides (also see `modus-themes-common-palette-overrides' and
 `modus-vivendi-tritanopia-palette-overrides')."
-    :group 'modus-themes
-    :package-version '(modus-themes . "4.5.0")
-    :type '(repeat (list symbol (choice symbol string)))
-    :link '(info-link "(modus-themes) Option to extend the palette for use with overrides"))
+  :group 'modus-themes
+  :package-version '(modus-themes . "4.5.0")
+  :type '(repeat (list symbol (choice symbol string)))
+  :link '(info-link "(modus-themes) Option to extend the palette for use with overrides"))
 
-  (defcustom modus-vivendi-tritanopia-palette-overrides nil
-    "Overrides for `modus-vivendi-tritanopia-palette'.
+(defcustom modus-vivendi-tritanopia-palette-overrides nil
+  "Overrides for `modus-vivendi-tritanopia-palette'.
 
 Mirror the elements of the aforementioned palette, overriding
 their value.
@@ -67,25 +67,25 @@ mappings, such as to make the cursor red.  Wherea theme-specific
 overrides can also be used to change the value of a named color,
 such as what hexadecimal RGB value the red-warmer symbol
 represents."
-    :group 'modus-themes
-    :package-version '(modus-themes . "4.0.0")
-    :version "30.1"
-    :type '(repeat (list symbol (choice symbol string)))
-    :link '(info-link "(modus-themes) Palette overrides"))
+  :group 'modus-themes
+  :package-version '(modus-themes . "4.0.0")
+  :version "30.1"
+  :type '(repeat (list symbol (choice symbol string)))
+  :link '(info-link "(modus-themes) Palette overrides"))
 
-  (modus-themes-theme
-    'modus-vivendi-tritanopia
-    'modus-themes
-    "Tritanopia-optimized theme with a black background.
+(modus-themes-theme
+ 'modus-vivendi-tritanopia
+ 'modus-themes
+ "Tritanopia-optimized theme with a black background.
 This variant is optimized for users with blue-yellow color
 deficiency (tritanopia).  It conforms with the highest
 legibility standard for color contrast between background and
 foreground in any given piece of text, which corresponds to a
 minimum contrast in relative luminance of 7:1 (WCAG AAA
 standard)."
-    'dark
-    'modus-themes-vivendi-tritanopia-palette
-    'modus-vivendi-tritanopia-palette-user
-    'modus-vivendi-tritanopia-palette-overrides)
+ 'dark
+ 'modus-themes-vivendi-tritanopia-palette
+ 'modus-vivendi-tritanopia-palette-user
+ 'modus-vivendi-tritanopia-palette-overrides)
 
 ;;; modus-vivendi-tritanopia-theme.el ends here
