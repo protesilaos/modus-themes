@@ -34,7 +34,6 @@
 
 
 
-(eval-and-compile
   (unless (and (fboundp 'require-theme)
                load-file-name
                (equal (file-name-directory load-file-name)
@@ -75,8 +74,8 @@ represents."
     :link '(info-link "(modus-themes) Palette overrides"))
 
   (modus-themes-theme
-    modus-vivendi-tritanopia
-    modus-themes
+    'modus-vivendi-tritanopia
+    'modus-themes
     "Tritanopia-optimized theme with a black background.
 This variant is optimized for users with blue-yellow color
 deficiency (tritanopia).  It conforms with the highest
@@ -84,9 +83,9 @@ legibility standard for color contrast between background and
 foreground in any given piece of text, which corresponds to a
 minimum contrast in relative luminance of 7:1 (WCAG AAA
 standard)."
-    dark
-    modus-themes-vivendi-tritanopia-palette
-    modus-vivendi-tritanopia-palette-user
-    modus-vivendi-tritanopia-palette-overrides))
+    'dark
+    'modus-themes-vivendi-tritanopia-palette
+    'modus-vivendi-tritanopia-palette-user
+    'modus-vivendi-tritanopia-palette-overrides)
 
 ;;; modus-vivendi-tritanopia-theme.el ends here

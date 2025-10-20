@@ -34,7 +34,6 @@
 
 
 
-(eval-and-compile
   (unless (and (fboundp 'require-theme)
                load-file-name
                (equal (file-name-directory load-file-name)
@@ -75,8 +74,8 @@ represents."
     :link '(info-link "(modus-themes) Palette overrides"))
 
   (modus-themes-theme
-    modus-vivendi-deuteranopia
-    modus-themes
+    'modus-vivendi-deuteranopia
+    'modus-themes
     "Deuteranopia-optimized theme with a black background.
 This variant is optimized for users with red-green color
 deficiency (deuteranopia).  It conforms with the highest
@@ -84,9 +83,9 @@ legibility standard for color contrast between background and
 foreground in any given piece of text, which corresponds to a
 minimum contrast in relative luminance of 7:1 (WCAG AAA
 standard)."
-    dark
-    modus-themes-vivendi-deuteranopia-palette
-    modus-vivendi-deuteranopia-palette-user
-    modus-vivendi-deuteranopia-palette-overrides))
+    'dark
+    'modus-themes-vivendi-deuteranopia-palette
+    'modus-vivendi-deuteranopia-palette-user
+    'modus-vivendi-deuteranopia-palette-overrides)
 
 ;;; modus-vivendi-deuteranopia-theme.el ends here

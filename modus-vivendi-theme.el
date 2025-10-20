@@ -34,7 +34,6 @@
 
 
 
-(eval-and-compile
   (unless (and (fboundp 'require-theme)
                load-file-name
                (equal (file-name-directory load-file-name)
@@ -75,16 +74,16 @@ represents."
     :link '(info-link "(modus-themes) Palette overrides"))
 
   (modus-themes-theme
-    modus-vivendi
-    modus-themes
+    'modus-vivendi
+    'modus-themes
     "Elegant, highly legible theme with a black background.
 Conforms with the highest legibility standard for color contrast
 between background and foreground in any given piece of text,
 which corresponds to a minimum contrast in relative luminance of
 7:1 (WCAG AAA standard)."
-    dark
-    modus-themes-vivendi-palette
-    modus-vivendi-palette-user
-    modus-vivendi-palette-overrides))
+    'dark
+    'modus-themes-vivendi-palette
+    'modus-vivendi-palette-user
+    'modus-vivendi-palette-overrides)
 
 ;;; modus-vivendi-theme.el ends here

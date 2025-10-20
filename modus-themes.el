@@ -7270,7 +7270,7 @@ properties, use `modus-themes-declare'."
   (add-to-list 'modus-themes-registered-items name))
 
 ;;;###autoload
-(defmacro modus-themes-theme (name family description background-mode core-palette user-palette overrides-palette &optional custom-faces custom-variables)
+(defun modus-themes-theme (name family description background-mode core-palette user-palette overrides-palette &optional custom-faces custom-variables)
   "Define a Modus theme or derivative thereof.
 NAME is the name of the new theme.  FAMILY is the collection of themes
 it belongs to.  DESCRIPTION is its documentation string.
@@ -7286,40 +7286,37 @@ the Modus themess have by default.
 
 Consult the manual for details on how to build a theme on top of the
 `modus-themes': Info node `(modus-themes) Build on top of the Modus themes'."
-  (declare (indent 0))
-  (let ((sym (gensym))
-        (colors (mapcar #'car (symbol-value core-palette)))
-        (theme-exists-p (custom-theme-p name)))
-    `(progn
-       ,@(unless theme-exists-p
-           (list
-            `(modus-themes-declare
-              ',name ',family
-              ,description ',background-mode
-              ',core-palette ',user-palette ',overrides-palette)))
-       ,@(unless (eq family 'modus-themes)
-           (list
-            `(modus-themes-register ',name)))
-       (let* ((c '((class color) (min-colors 256)))
-              (,sym (modus-themes--get-theme-palette-subr ',name :with-overrides :with-user-palette))
-              ,@(mapcar
-                 (lambda (color)
-                   (list color `(modus-themes--retrieve-palette-value ',color ,sym)))
-                 colors))
-         (ignore c ,@colors) ; Silence unused variable warnings
-         (custom-theme-set-faces
-          ',name
-          ,@(append
-             (symbol-value custom-faces)
-             modus-themes-faces))
-         (custom-theme-set-variables
-          ',name
-          ,@(append
-             modus-themes-custom-variables
-             (symbol-value custom-variables)
-             (list `'(frame-background-mode ',background-mode))))
-         ,@(unless theme-exists-p
-             (list `(provide-theme ',name)))))))
+  (let ((theme-exists-p (custom-theme-p name))
+        (faces (append
+                (symbol-value custom-faces)
+                modus-themes-faces))
+        (variables (append
+                    modus-themes-custom-variables
+                    (symbol-value custom-variables)
+                    (list `'(frame-background-mode ',background-mode)))))
+    (unless theme-exists-p
+      (modus-themes-declare
+       name family
+       description background-mode
+       core-palette user-palette overrides-palette))
+    (let ((palette (modus-themes--get-theme-palette-subr name :with-overrides :with-user-palette)))
+      (eval
+       `(let* ((c '((class color) (min-colors 256)))
+               ,@(mapcar
+                  (pcase-lambda (`(,name ,value))
+                    (pcase value
+                      ('unspecified (list name ''unspecified))
+                      ((pred symbolp) (list name `(modus-themes--retrieve-palette-value ',name ',palette)))
+                      ((pred stringp) (list name value))))
+                  palette))
+          (custom-theme-set-faces
+           ',name
+           ,@faces)
+          (custom-theme-set-variables
+           ',name
+           ,@variables))))
+    (unless theme-exists-p
+      (provide-theme name))))
 
 ;;;; Use theme colors
 
