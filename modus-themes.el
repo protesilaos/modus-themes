@@ -3863,12 +3863,8 @@ WITH-OVERRIDES and WITH-USER-PALETTE are described in
             (core-palette (symbol-value (plist-get properties :modus-core-palette))))
       (let* ((user-palette (when with-user-palette (symbol-value (plist-get properties :modus-user-palette))))
              (overrides-palette (when with-overrides (symbol-value (plist-get properties :modus-overrides-palette))))
-             (family (plist-get properties :family))
              (all-overrides (when with-overrides
-                              (append
-                               overrides-palette
-                               (when (eq family 'modus-themes)
-                                 modus-themes-common-palette-overrides)))))
+                              (append overrides-palette modus-themes-common-palette-overrides))))
         (append all-overrides user-palette core-palette))
     (error "The theme must have at least a `:modus-core-palette' property")))
 
