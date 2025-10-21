@@ -7298,12 +7298,11 @@ Consult the manual for details on how to build a theme on top of the
     (let ((palette (modus-themes--get-theme-palette-subr name :with-overrides :with-user-palette)))
       (eval
        `(let* ((c '((class color) (min-colors 256)))
+               (palette (modus-themes--get-theme-palette-subr ',name :with-overrides :with-user-palette))
                ,@(mapcar
-                  (pcase-lambda (`(,name ,value))
-                    (pcase value
-                      ('unspecified (list name ''unspecified))
-                      ((pred symbolp) (list name `(modus-themes--retrieve-palette-value ',name ',palette)))
-                      ((pred stringp) (list name value))))
+                  (lambda (entry)
+                    (let ((name (car entry)))
+                      (list name `(modus-themes--retrieve-palette-value ',name palette))))
                   palette))
           (custom-theme-set-faces
            ',name
