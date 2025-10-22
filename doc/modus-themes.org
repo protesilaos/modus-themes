@@ -4128,7 +4128,7 @@ core Emacs.
 
 #+findex: modus-themes-theme
 #+vindex: modus-themes-registered-items
-A new theme can be instantiated with the macro ~modus-themes-theme~.
+A new theme can be instantiated with the function ~modus-themes-theme~.
 It takes care to (i) declare the theme, (ii) add to it relevant
 ~theme-properties~, (iii) register it in the ~modus-themes-registered-items~,
 (iv) make it work with all the faces and customizations documented
@@ -4136,46 +4136,53 @@ in this manual, and (v) ~provide-theme~ the theme.
 
 Concretely, ~modus-themes-theme~ expects the following mandatory arguments:
 
-- =NAME= :: The name of the new theme, like ~modus-operandi~.
-- =FAMILY= :: The collection this theme is a member of, like ~modus-themes~.
+- =NAME= :: The name of the new theme as a symbol, like ~modus-operandi~.
+- =FAMILY= :: The collection this theme is a member of as a symbol,
+  like ~modus-themes~.
 - =DESCRIPTION= :: A string describing the theme.
 - =BACKGROUND-MODE= :: The symbol =dark= or =light=, in reference to
   the theme's background color.
-- =CORE-PALETTE= :: A palette with named colors and semantic mappings,
-  like ~modus-operandi-palette~. A palette that does not have at least
-  all the entries of a default Modus palette will eventually not work
-  properly because some face definition will expect a given color.
-  Though the macro does not impose any check in this regard.
-- =USER-PALETTE= :: A user-defined extension to the =CORE-PALETTE=,
-  commensurate with it, though with arbitrary entries. This can be
-  nil, a fully fledged palette, or a short list of entries.
-- =OVERRIDES-PALETTE= :: A palette that contains overrides for the
-  above two palettes. It is functionally equivalent to the
-  =USER-PALETTE=, except it is meant to be customized by the end user.
-  Its value can also be nil.
+- =CORE-PALETTE= :: The symbol of a variable containing a palette with
+  named colors and semantic mappings, like ~modus-operandi-palette~. A
+  palette that does not have at least all the entries of a default
+  Modus palette will eventually not work properly because some face
+  definition will expect a given color. Though the macro does not
+  impose any check in this regard.
+- =USER-PALETTE= :: The symbol of a user-defined extension to the
+  =CORE-PALETTE=, commensurate with it, though with arbitrary entries.
+  This can be nil, a fully fledged palette, or a short list of
+  entries. Any colors defined therein are treated the same as the
+  =CORE-PALETTE= and can, in practice, be used to apply distinct
+  styles to the =CUSTOM-FACES= and =CUSTOM-VARIABLES= (more below).
+- =OVERRIDES-PALETTE= :: The symbol of a palette that contains
+  overrides for the above two palettes. It is functionally equivalent
+  to the =USER-PALETTE=, except it is meant to be customized by the
+  end user. Its value can also be nil.
 #+vindex: modus-themes-faces
-- Optional =CUSTOM-FACES= :: A list of face definitions like those in
-  ~modus-themes-faces~, to extend or modify what core Modus defines.
-  If provided, they override whatever definition is present in
-  ~modus-themes-faces~ in case of a conflict. Derivative themes can
-  thus deviate from the style of core Modus, wherever necessary.
+- Optional =CUSTOM-FACES= :: The symbol of a variable with list of
+  face definitions like those in ~modus-themes-faces~, to extend or
+  modify what core Modus defines. If provided, they override whatever
+  definition is present in ~modus-themes-faces~ in case of a conflict.
+  Derivative themes can thus deviate from the style of core Modus,
+  wherever necessary.
 #+vindex: modus-themes-custom-variables
-- Optional =CUSTOM-VARIABLES= :: A list of custom variables like those
-  defined in ~modus-themes-custom-variables~. They also override the
-  core Modus definitions in case of a conflict.
+- Optional =CUSTOM-VARIABLES= :: The symbol of a variable with a list
+  of custom variables (typically user options) like those defined in
+  ~modus-themes-custom-variables~. They also override the core Modus
+  definitions in case of a conflict.
 
 This is an example of a theme that builds on top of ~modus-operandi~,
 passing all the mandatory arguments, but not the optional ones:
 
 #+begin_src emacs-lisp
 (modus-themes-theme
-  ef-summer
-  ef-themes
+  'ef-summer
+  'ef-themes
   "Legible light warm pink theme with magenta, purple, gold, cyan colors."
-  light
-  modus-operandi-palette
-  ef-summer-palette
-  ef-summer-palette-overrides)
+  'light
+  'modus-operandi-palette
+  'ef-summer-palette
+  'ef-summer-palette-overrides)
 #+end_src
 
 Here we notice how ~ef-summer~ has ~modus-operandi-palette~ as its
@@ -4198,14 +4205,14 @@ They are declared in this way:
 
 #+begin_src emacs-lisp
 (modus-themes-theme
-  standard-dark
-  standard-themes
+  'standard-dark
+  'standard-themes
   "Like the unthemed dark Emacs, but more consistent."
-  dark
-  modus-vivendi-palette
-  standard-dark-palette
-  standard-dard-palette-overrides
-  standard-themes-custom-faces) ; NOTE the additional optional argument
+  'dark
+  'modus-vivendi-palette
+  'standard-dark-palette
+  'standard-dard-palette-overrides
+  'standard-themes-custom-faces) ; NOTE the additional optional argument
 #+end_src
 
 The ~standard-themes-custom-faces~ in this example specifies a list of
