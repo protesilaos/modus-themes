@@ -4140,7 +4140,7 @@ PALETTE is the value of a variable like `modus-operandi-palette'."
                     (name-string (format "%s" name))
                     (value-string (format "%s" value))
                     (value-string-padded (format "%-30s" value-string))
-                    (color (modus-themes-get-color-value name mappings theme))) ; resolve a semantic mapping
+                    (color (modus-themes-get-color-value name :with-overrides theme))) ; resolve a semantic mapping
          (list
           entry
           (vector
