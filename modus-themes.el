@@ -3769,15 +3769,15 @@ Also see `modus-themes-get-themes'.")
 (defvar modus-themes--activated-themes nil
   "List of themes that `modus-themes--activate' operated on.")
 
-(defun modus-themes--activate (theme &optional forcefully)
-  "Load THEME if it is not defined but do not activate it.
-With non-nil FORCEFULLY, load the theme regardless."
+(defun modus-themes--activate (theme)
+  "Load THEME if it is not defined but do not activate it."
   ;; NOTE 2025-09-29: We need to do this instead of pushing to the
   ;; `custom-known-themes' because loading the theme has the desired
   ;; side effect of adding the relevant `theme-properties' to it.
-  (when (or forcefully (not (custom-theme-p theme)))
-    (load-theme theme t t))
-  (add-to-list 'modus-themes--activated-themes theme))
+  (unless (and (memq theme modus-themes--activated-themes)
+              (custom-theme-p theme))
+    (load-theme theme t t)
+    (add-to-list 'modus-themes--activated-themes theme)))
 
 (defun modus-themes--belongs-to-family-p (theme family)
   "Return non-nil if THEME has FAMILY property."
@@ -3942,7 +3942,7 @@ that item.  Else use the current theme.
 If COLOR is not present in the palette, return the `unspecified'
 symbol, which is safe when used as a face attribute's value."
   (when theme
-    (modus-themes--activate theme :make-sure-theme-is-reified))
+    (modus-themes--activate theme))
   (if-let* ((palette (modus-themes-get-theme-palette theme with-overrides :with-user-palette))
             (value (modus-themes--retrieve-palette-value color palette)))
       value
@@ -4173,7 +4173,7 @@ color mappings instead of the complete palette."
      (list
       (modus-themes-select-prompt prompt)
       current-prefix-arg)))
-  (modus-themes--activate theme :make-sure-theme-is-reified)
+  (modus-themes--activate theme)
   (let ((buffer (get-buffer-create (format (if mappings "*%s-list-mappings*" "*%s-list-all*") theme))))
     (with-current-buffer buffer
       (let ((modus-themes-current-preview theme)
