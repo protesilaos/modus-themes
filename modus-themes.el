@@ -4194,9 +4194,82 @@ color mappings instead of the complete palette."
 (defalias 'modus-themes-preview-colors-current 'modus-themes-list-colors-current
   "Alias for `modus-themes-list-colors-current'.")
 
+(defvar-local modus-themes-preview-mode--marked-entries nil
+  "List of entries marked in the `modus-themes-list-colors' buffer.")
+
+(defun modus-themes-preview-mode-mark ()
+  "Mark a palette entry in the `modus-themes-list-colors' buffer."
+  (declare (interactive-only t))
+  (interactive nil modus-themes-preview-mode)
+  (unless (derived-mode-p 'modus-themes-preview-mode)
+    (user-error "Only use this command inside the `modus-themes-preview-mode'"))
+  (when-let* ((id-at-point (tabulated-list-get-id)))
+    (add-to-list 'modus-themes-preview-mode--marked-entries id-at-point)
+    (tabulated-list-put-tag "*" t)))
+
+(defun modus-themes-preview-mode-mark-all ()
+  "Mark all palette entries in the `modus-themes-list-colors' buffer."
+  (declare (interactive-only t))
+  (interactive nil modus-themes-preview-mode)
+  (unless (derived-mode-p 'modus-themes-preview-mode)
+    (user-error "Only use this command inside the `modus-themes-preview-mode'"))
+  (save-excursion
+    (goto-char (point-min))
+    (while (re-search-forward (format "^\s\\{%d,\\}" tabulated-list-padding) nil t)
+      (call-interactively 'modus-themes-preview-mode-mark))))
+
+(defun modus-themes-preview-mode-unmark ()
+  "Unmark a palette entry in the `modus-themes-list-colors' buffer."
+  (declare (interactive-only t))
+  (interactive nil modus-themes-preview-mode)
+  (unless (derived-mode-p 'modus-themes-preview-mode)
+    (user-error "Only use this command inside the `modus-themes-preview-mode'"))
+  (when-let* ((id-at-point (tabulated-list-get-id)))
+    (setq-local modus-themes-preview-mode--marked-entries (delq id-at-point modus-themes-preview-mode--marked-entries))
+    (tabulated-list-put-tag " " t)))
+
+(defun modus-themes-preview-mode-unmark-all ()
+  "Unmark all palette entries in the `modus-themes-list-colors' buffer."
+  (declare (interactive-only t))
+  (interactive nil modus-themes-preview-mode)
+  (unless (derived-mode-p 'modus-themes-preview-mode)
+    (user-error "Only use this command inside the `modus-themes-preview-mode'"))
+  (setq-local modus-themes-preview-mode--marked-entries nil)
+  (tabulated-list-clear-all-tags))
+
+(defun modus-themes-preview-mode-copy-color ()
+  "Copy marked entries or entry at point in the `modus-themes-list-colors' buffer."
+  (declare (interactive-only t))
+  (interactive nil modus-themes-preview-mode)
+  (unless (derived-mode-p 'modus-themes-preview-mode)
+    (user-error "Only use this command inside the `modus-themes-preview-mode'"))
+  (cond
+   (modus-themes-preview-mode--marked-entries
+    (let ((entries (nreverse modus-themes-preview-mode--marked-entries)))
+      (kill-new (format "%S" entries))
+      (message "Copied all marked entries: `%S'" entries)))
+   ((when-let* ((color (tabulated-list-get-id))
+                (string (format "%S" color)))
+      (kill-new string)
+      (message "Copied palette entry: `%s'" (propertize string 'face 'success))))
+   (t
+    (user-error "Nothing to copy"))))
+
+(defvar modus-themes-preview-mode-map
+  (let ((map (make-sparse-keymap)))
+    (define-key map (kbd "m") #'modus-themes-preview-mode-mark)
+    (define-key map (kbd "M") #'modus-themes-preview-mode-mark-all)
+    (define-key map (kbd "u") #'modus-themes-preview-mode-unmark)
+    (define-key map (kbd "U") #'modus-themes-preview-mode-unmark-all)
+    (define-key map (kbd "w") #'modus-themes-preview-mode-copy-color)
+    map)
+  "Key map for `modus-themes-preview-mode'.")
+
 (define-derived-mode modus-themes-preview-mode tabulated-list-mode "Modus palette"
   "Major mode to display a Modus themes palette."
   :interactive nil
+  (setq-local modus-themes-preview-mode--marked-entries nil)
+  (setq-local tabulated-list-padding 2)
   (setq-local tabulated-list-format
               [("Mapping?" 10 t)
                ("Symbol name" 30 t)
