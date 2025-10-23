@@ -4134,25 +4134,27 @@ PALETTE is the value of a variable like `modus-operandi-palette'."
          (palette (if mappings
                       (modus-themes--list-colors-get-mappings current-palette)
                     current-palette)))
-    (mapcar (lambda (cell)
-              (pcase-let* ((`(,name ,value) cell)
-                           (name-string (format "%s" name))
-                           (value-string (format "%s" value))
-                           (value-string-padded (format "%-30s" value-string))
-                           (color (modus-themes-get-color-value name mappings theme))) ; resolve a semantic mapping
-                (list name
-                      (vector
-                       (cond
-                        ((eq value 'unspecified) "---")
-                        ((symbolp value) "Yes")
-                        (t ""))
-                       name-string
-                       (propertize value-string 'face `( :foreground ,color))
-                       (propertize value-string-padded 'face (list :background color
-                                                                   :foreground (if (string= color "unspecified")
-                                                                                   (readable-foreground-color (modus-themes-get-color-value 'bg-main nil theme))
-                                                                                 (readable-foreground-color color))))))))
-            palette)))
+    (mapcar
+     (lambda (entry)
+       (pcase-let* ((`(,name ,value) entry)
+                    (name-string (format "%s" name))
+                    (value-string (format "%s" value))
+                    (value-string-padded (format "%-30s" value-string))
+                    (color (modus-themes-get-color-value name mappings theme))) ; resolve a semantic mapping
+         (list
+          entry
+          (vector
+           (pcase value
+             ('unspecified "---")
+             ((pred symbolp) "Yes")
+             (_ ""))
+           name-string
+           (propertize value-string 'face `( :foreground ,color))
+           (propertize value-string-padded 'face `( :background ,color
+                                                    :foreground ,(if (string= color "unspecified")
+                                                                     (readable-foreground-color (modus-themes-get-color-value 'bg-main nil theme))
+                                                                   (readable-foreground-color color))))))))
+     palette)))
 
 (defvar modus-themes-current-preview nil)
 (defvar modus-themes-current-preview-show-mappings nil)
