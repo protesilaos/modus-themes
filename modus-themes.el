@@ -231,7 +231,7 @@ text should not be underlined as well) yet still blend in."
 
 (make-obsolete-variable
  'modus-themes-custom-auto-reload nil
- "5.0.0; just reload the theme manually")
+ "Since version 5.0.0: reload the theme manually for changes to take effect")
 
 (defcustom modus-themes-disable-other-themes t
   "Disable all other themes when loading a Modus theme.
