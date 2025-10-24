@@ -5623,14 +5623,6 @@ FG and BG are the main colors."
     `(imenu-list-entry-subalist-face-1 ((,c :inherit bold :foreground ,fg-heading-2 :underline t)))
     `(imenu-list-entry-subalist-face-2 ((,c :inherit bold :foreground ,fg-heading-3 :underline t)))
     `(imenu-list-entry-subalist-face-3 ((,c :inherit bold :foreground ,fg-heading-4 :underline t)))
-;;;;; indium
-    `(indium-breakpoint-face ((,c :foreground ,err)))
-    `(indium-frame-url-face ((,c :inherit (shadow button))))
-    `(indium-keyword-face ((,c :inherit font-lock-keyword-face)))
-    `(indium-litable-face ((,c :inherit modus-themes-slant)))
-    `(indium-repl-error-face ((,c :inherit error)))
-    `(indium-repl-prompt-face ((,c :inherit modus-themes-prompt)))
-    `(indium-repl-stdout-face (( )))
 ;;;;; info
     `(Info-quoted ((,c :inherit modus-themes-prose-verbatim))) ; the capitalization is canonical
     `(info-header-node ((,c :inherit (shadow bold))))
