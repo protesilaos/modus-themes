@@ -69,21 +69,41 @@ deficiency (deuteranopia or tritanopia, respectively)."
 
 ;;;; Custom faces
 
+;; NOTE 2025-10-25: I could not find the `make-obsolete' equivalent for faces.
+(define-obsolete-face-alias 'modus-themes-fg-red nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-fg-green nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-fg-blue nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-fg-yellow nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-fg-magenta nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-fg-cyan nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-fg-red-warmer nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-fg-green-warmer nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-fg-blue-warmer nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-fg-yellow-warmer nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-fg-magenta-warmer nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-fg-cyan-warmer nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-fg-red-cooler nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-fg-green-cooler nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-fg-blue-cooler nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-fg-yellow-cooler nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-fg-magenta-cooler nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-fg-cyan-cooler nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-fg-red-faint nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-fg-green-faint nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-fg-blue-faint nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-fg-yellow-faint nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-fg-magenta-faint nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-fg-cyan-faint nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-fg-red-intense nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-fg-green-intense nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-fg-blue-intense nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-fg-yellow-intense nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-fg-magenta-intense nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-fg-cyan-intense nil "5.0.0")
+
 ;; These faces are used internally to ensure consistency between various
 ;; groups and to streamline the evaluation of relevant customization
 ;; options.
-
-(dolist (color '( red green blue yellow magenta cyan
-                  red-warmer green-warmer blue-warmer yellow-warmer magenta-warmer cyan-warmer
-                  red-cooler green-cooler blue-cooler yellow-cooler magenta-cooler cyan-cooler
-                  red-faint green-faint blue-faint yellow-faint magenta-faint cyan-faint
-                  red-intense green-intense blue-intense yellow-intense magenta-intense cyan-intense))
-  (custom-declare-face
-   (intern (format "modus-themes-fg-%s" color))
-   nil (format "Face with %s foreground." color)
-   :package-version '(modus-themes . "4.0.0")
-   :version "30.1"
-   :group 'modus-themes-faces))
 
 (dolist (color '(red green yellow blue magenta cyan))
   (custom-declare-face
@@ -4454,37 +4474,6 @@ FG and BG are the main colors."
   '(
 ;;;; custom faces
     ;; these bespoke faces are inherited by other constructs below
-;;;;; just the foregrounds
-    `(modus-themes-fg-red ((,c :foreground ,red)))
-    `(modus-themes-fg-red-warmer ((,c :foreground ,red-warmer)))
-    `(modus-themes-fg-red-cooler ((,c :foreground ,red-cooler)))
-    `(modus-themes-fg-red-faint ((,c :foreground ,red-faint)))
-    `(modus-themes-fg-red-intense ((,c :foreground ,red-intense)))
-    `(modus-themes-fg-green ((,c :foreground ,green)))
-    `(modus-themes-fg-green-warmer ((,c :foreground ,green-warmer)))
-    `(modus-themes-fg-green-cooler ((,c :foreground ,green-cooler)))
-    `(modus-themes-fg-green-faint ((,c :foreground ,green-faint)))
-    `(modus-themes-fg-green-intense ((,c :foreground ,green-intense)))
-    `(modus-themes-fg-yellow ((,c :foreground ,yellow)))
-    `(modus-themes-fg-yellow-warmer ((,c :foreground ,yellow-warmer)))
-    `(modus-themes-fg-yellow-cooler ((,c :foreground ,yellow-cooler)))
-    `(modus-themes-fg-yellow-faint ((,c :foreground ,yellow-faint)))
-    `(modus-themes-fg-yellow-intense ((,c :foreground ,yellow-intense)))
-    `(modus-themes-fg-blue ((,c :foreground ,blue)))
-    `(modus-themes-fg-blue-warmer ((,c :foreground ,blue-warmer)))
-    `(modus-themes-fg-blue-cooler ((,c :foreground ,blue-cooler)))
-    `(modus-themes-fg-blue-faint ((,c :foreground ,blue-faint)))
-    `(modus-themes-fg-blue-intense ((,c :foreground ,blue-intense)))
-    `(modus-themes-fg-magenta ((,c :foreground ,magenta)))
-    `(modus-themes-fg-magenta-warmer ((,c :foreground ,magenta-warmer)))
-    `(modus-themes-fg-magenta-cooler ((,c :foreground ,magenta-cooler)))
-    `(modus-themes-fg-magenta-faint ((,c :foreground ,magenta-faint)))
-    `(modus-themes-fg-magenta-intense ((,c :foreground ,magenta-intense)))
-    `(modus-themes-fg-cyan ((,c :foreground ,cyan)))
-    `(modus-themes-fg-cyan-warmer ((,c :foreground ,cyan-warmer)))
-    `(modus-themes-fg-cyan-cooler ((,c :foreground ,cyan-cooler)))
-    `(modus-themes-fg-cyan-faint ((,c :foreground ,cyan-faint)))
-    `(modus-themes-fg-cyan-intense ((,c :foreground ,cyan-intense)))
 ;;;;; nuanced colored backgrounds
     `(modus-themes-nuanced-red ((,c :background ,bg-red-nuanced :extend t)))
     `(modus-themes-nuanced-green ((,c :background ,bg-green-nuanced :extend t)))
@@ -7158,38 +7147,6 @@ FG and BG are the main colors."
         ("DEPRECATED" . ,info)))
 ;;;; pdf-tools
     `(pdf-view-midnight-colors '(,fg-main . ,bg-dim))
-;;;; rcirc-color
-    `(rcirc-colors
-      '(modus-themes-fg-red
-        modus-themes-fg-green
-        modus-themes-fg-blue
-        modus-themes-fg-yellow
-        modus-themes-fg-magenta
-        modus-themes-fg-cyan
-        modus-themes-fg-red-warmer
-        modus-themes-fg-green-warmer
-        modus-themes-fg-blue-warmer
-        modus-themes-fg-yellow-warmer
-        modus-themes-fg-magenta-warmer
-        modus-themes-fg-cyan-warmer
-        modus-themes-fg-red-cooler
-        modus-themes-fg-green-cooler
-        modus-themes-fg-blue-cooler
-        modus-themes-fg-yellow-cooler
-        modus-themes-fg-magenta-cooler
-        modus-themes-fg-cyan-cooler
-        modus-themes-fg-red-faint
-        modus-themes-fg-green-faint
-        modus-themes-fg-blue-faint
-        modus-themes-fg-yellow-faint
-        modus-themes-fg-magenta-faint
-        modus-themes-fg-cyan-faint
-        modus-themes-fg-red-intense
-        modus-themes-fg-green-intense
-        modus-themes-fg-blue-intense
-        modus-themes-fg-yellow-intense
-        modus-themes-fg-magenta-intense
-        modus-themes-fg-cyan-intense))
 ;;;; rustic-ansi-faces
     `(rustic-ansi-faces
       [,fg-term-black
