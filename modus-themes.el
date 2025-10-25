@@ -4885,7 +4885,7 @@ FG and BG are the main colors."
     `(company-tooltip-search-selection ((,c :background ,bg-hover-secondary :foreground ,fg-main :underline t)))
     `(company-tooltip-selection ((,c :inherit modus-themes-completion-selected)))
 ;;;;; compilation
-    `(compilation-column-number ((,c :foreground ,fg-dim)
+    `(compilation-column-number ((,c :foreground ,fg-dim)))
     `(compilation-error ((,c :inherit modus-themes-bold :foreground ,err)))
     `(compilation-info ((,c :inherit modus-themes-bold :foreground ,info)))
     `(compilation-line-number ((,c :foreground ,fg-dim)))
