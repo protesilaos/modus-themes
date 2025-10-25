@@ -5409,7 +5409,7 @@ FG and BG are the main colors."
     `(git-commit-comment-action ((,c :inherit modus-themes-slant :foreground ,comment)))
     `(git-commit-comment-branch-local ((,c :inherit modus-themes-slant :foreground ,accent-0)))
     `(git-commit-comment-branch-remote ((,c :inherit modus-themes-slant :foreground ,accent-1)))
-    `(git-commit-comment-heading ((,c :inherit (modus-themes-bold modus-themes-slant))))
+    `(git-commit-comment-heading ((,c :inherit (modus-themes-bold modus-themes-slant) :foreground ,comment)))
     `(git-commit-comment-file ((,c :inherit modus-themes-slant :foreground ,accent-2))) ; like `magit-filename'
     `(git-commit-keyword ((,c :foreground ,keyword)))
     `(git-commit-nonempty-second-line ((,c :foreground ,err)))
@@ -5427,7 +5427,7 @@ FG and BG are the main colors."
     `(git-gutter-fr:modified ((,c :background ,bg-changed-fringe)))
 ;;;;; git-rebase
     `(git-rebase-comment-hash ((,c :inherit (modus-themes-bold modus-themes-slant) :foreground ,identifier)))
-    `(git-rebase-comment-heading  ((,c :inherit (modus-themes-bold modus-themes-slant))))
+    `(git-rebase-comment-heading  ((,c :inherit (modus-themes-bold modus-themes-slant) :foreground ,comment)))
     `(git-rebase-description ((,c :foreground ,fg-main)))
     `(git-rebase-hash ((,c :foreground ,identifier)))
 ;;;;; git-timemachine
