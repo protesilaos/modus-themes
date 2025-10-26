@@ -100,18 +100,28 @@ deficiency (deuteranopia or tritanopia, respectively)."
 (define-obsolete-face-alias 'modus-themes-fg-yellow-intense nil "5.0.0")
 (define-obsolete-face-alias 'modus-themes-fg-magenta-intense nil "5.0.0")
 (define-obsolete-face-alias 'modus-themes-fg-cyan-intense nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-nuanced-red nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-nuanced-green nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-nuanced-yellow nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-nuanced-blue nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-nuanced-magenta nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-nuanced-cyan nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-subtle-red nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-subtle-green nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-subtle-yellow nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-subtle-blue nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-subtle-magenta nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-subtle-cyan nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-intense-red nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-intense-green nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-intense-yellow nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-intense-blue nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-intense-magenta nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-intense-cyan nil "5.0.0")
 
 ;; These faces are used internally to ensure consistency between various
 ;; groups and to streamline the evaluation of relevant customization
 ;; options.
-
-(dolist (color '(red green yellow blue magenta cyan))
-  (custom-declare-face
-   (intern (format "modus-themes-nuanced-%s" color))
-   nil (format "Nuanced %s background." color)
-   :package-version '(modus-themes . "4.1.0")
-   :version "30.1"
-   :group 'modus-themes-faces))
 
 (dolist (color '(red green yellow blue magenta cyan))
   (custom-declare-face
@@ -4474,27 +4484,6 @@ FG and BG are the main colors."
   '(
 ;;;; custom faces
     ;; these bespoke faces are inherited by other constructs below
-;;;;; nuanced colored backgrounds
-    `(modus-themes-nuanced-red ((,c :background ,bg-red-nuanced :extend t)))
-    `(modus-themes-nuanced-green ((,c :background ,bg-green-nuanced :extend t)))
-    `(modus-themes-nuanced-yellow ((,c :background ,bg-yellow-nuanced :extend t)))
-    `(modus-themes-nuanced-blue ((,c :background ,bg-blue-nuanced :extend t)))
-    `(modus-themes-nuanced-magenta ((,c :background ,bg-magenta-nuanced :extend t)))
-    `(modus-themes-nuanced-cyan ((,c :background ,bg-cyan-nuanced :extend t)))
-;;;;; subtle colored backgrounds
-    `(modus-themes-subtle-red ((,c :background ,bg-red-subtle :foreground ,fg-main)))
-    `(modus-themes-subtle-green ((,c :background ,bg-green-subtle :foreground ,fg-main)))
-    `(modus-themes-subtle-yellow ((,c :background ,bg-yellow-subtle :foreground ,fg-main)))
-    `(modus-themes-subtle-blue ((,c :background ,bg-blue-subtle :foreground ,fg-main)))
-    `(modus-themes-subtle-magenta ((,c :background ,bg-magenta-subtle :foreground ,fg-main)))
-    `(modus-themes-subtle-cyan ((,c :background ,bg-cyan-subtle :foreground ,fg-main)))
-;;;;; intense colored backgrounds
-    `(modus-themes-intense-red ((,c :background ,bg-red-intense :foreground ,fg-main)))
-    `(modus-themes-intense-green ((,c :background ,bg-green-intense :foreground ,fg-main)))
-    `(modus-themes-intense-yellow ((,c :background ,bg-yellow-intense :foreground ,fg-main)))
-    `(modus-themes-intense-blue ((,c :background ,bg-blue-intense :foreground ,fg-main)))
-    `(modus-themes-intense-magenta ((,c :background ,bg-magenta-intense :foreground ,fg-main)))
-    `(modus-themes-intense-cyan ((,c :background ,bg-cyan-intense :foreground ,fg-main)))
 ;;;;; mark indicators
     ;; color combinations intended for Dired, Ibuffer, or equivalent
     `(modus-themes-mark-alt ((,c :inherit bold :background ,bg-mark-other :foreground ,fg-mark-other)))
@@ -4680,8 +4669,8 @@ FG and BG are the main colors."
     `(all-the-icons-ibuffer-mode-face ((,c :foreground ,type)))
     `(all-the-icons-ibuffer-size-face ((,c :foreground ,variable)))
 ;;;;; annotate
-    `(annotate-annotation ((,c :inherit modus-themes-subtle-blue)))
-    `(annotate-annotation-secondary ((,c :inherit modus-themes-subtle-magenta)))
+    `(annotate-annotation ((,c :background ,bg-blue-subtle :foreground ,fg-main)))
+    `(annotate-annotation-secondary ((,c :background ,bg-magenta-subtle :foreground ,fg-main)))
     `(annotate-highlight ((,c :background ,bg-blue-subtle :underline ,blue-intense)))
     `(annotate-highlight-secondary ((,c :background ,bg-magenta-subtle :underline ,magenta-intense)))
 ;;;;; ansi-color
@@ -4771,10 +4760,10 @@ FG and BG are the main colors."
     `(bongo-track-title ((,c :foreground ,accent-1)))
     `(bongo-unfilled-seek-bar ((,c :background ,bg-dim)))
 ;;;;; boon
-    `(boon-modeline-cmd ((,c :inherit modus-themes-intense-blue)))
-    `(boon-modeline-ins ((,c :inherit modus-themes-intense-red)))
-    `(boon-modeline-off ((,c :inherit modus-themes-intense-yellow)))
-    `(boon-modeline-spc ((,c :inherit modus-themes-intense-green)))
+    `(boon-modeline-cmd ((,c :background ,bg-blue-intense :foreground ,fg-main)))
+    `(boon-modeline-ins ((,c :background ,bg-red-intense :foreground ,fg-main)))
+    `(boon-modeline-off ((,c :background ,bg-yellow-intense :foreground ,fg-main)))
+    `(boon-modeline-spc ((,c :background ,bg-green-intense :foreground ,fg-main)))
 ;;;;; bookmark
     `(bookmark-face ((,c :foreground ,info)))
     `(bookmark-menu-bookmark ((,c :foreground ,name)))
@@ -5423,8 +5412,8 @@ FG and BG are the main colors."
     `(git-gutter:added ((,c :background ,bg-added-fringe)))
     `(git-gutter:deleted ((,c :background ,bg-removed-fringe)))
     `(git-gutter:modified ((,c :background ,bg-changed-fringe)))
-    `(git-gutter:separator ((,c :inherit modus-themes-intense-cyan)))
-    `(git-gutter:unchanged ((,c :inherit modus-themes-intense-magenta)))
+    `(git-gutter:separator (( )))
+    `(git-gutter:unchanged (( )))
 ;;;;; git-gutter-fr
     `(git-gutter-fr:added ((,c :background ,bg-added-fringe)))
     `(git-gutter-fr:deleted ((,c :background ,bg-removed-fringe)))
@@ -6442,7 +6431,7 @@ FG and BG are the main colors."
     `(popup-scroll-bar-background-face ((,c :background ,bg-active)))
     `(popup-scroll-bar-foreground-face (( )))
     `(popup-summary-face ((,c :background ,bg-active :foreground ,fg-dim)))
-    `(popup-tip-face ((,c :inherit modus-themes-intense-yellow)))
+    `(popup-tip-face ((,c :background ,bg-yellow-intense :foreground ,fg-main)))
 ;;;;; powerline
     `(powerline-active0 ((,c :background ,fg-dim :foreground ,bg-main)))
     `(powerline-active1
@@ -6711,14 +6700,14 @@ FG and BG are the main colors."
     `(swiper-match-face-4 ((,c :inherit modus-themes-completion-match-2)))
 ;;;;; symbol-overlay
     `(symbol-overlay-default-face ((,c :background ,bg-inactive)))
-    `(symbol-overlay-face-1 ((,c :inherit modus-themes-intense-blue)))
-    `(symbol-overlay-face-2 ((,c :inherit modus-themes-intense-magenta)))
-    `(symbol-overlay-face-3 ((,c :inherit modus-themes-intense-yellow)))
-    `(symbol-overlay-face-4 ((,c :inherit modus-themes-intense-magenta)))
-    `(symbol-overlay-face-5 ((,c :inherit modus-themes-intense-red)))
-    `(symbol-overlay-face-6 ((,c :inherit modus-themes-intense-red)))
-    `(symbol-overlay-face-7 ((,c :inherit modus-themes-intense-cyan)))
-    `(symbol-overlay-face-8 ((,c :inherit modus-themes-intense-cyan)))
+    `(symbol-overlay-face-1 ((,c :background ,bg-blue-intense :foreground ,fg-main)))
+    `(symbol-overlay-face-2 ((,c :background ,bg-magenta-intense :foreground ,fg-main)))
+    `(symbol-overlay-face-3 ((,c :background ,bg-yellow-intense :foreground ,fg-main)))
+    `(symbol-overlay-face-4 ((,c :background ,bg-magenta-intense :foreground ,fg-main)))
+    `(symbol-overlay-face-5 ((,c :background ,bg-red-intense :foreground ,fg-main)))
+    `(symbol-overlay-face-6 ((,c :background ,bg-red-intense :foreground ,fg-main)))
+    `(symbol-overlay-face-7 ((,c :background ,bg-cyan-intense :foreground ,fg-main)))
+    `(symbol-overlay-face-8 ((,c :background ,bg-cyan-intense :foreground ,fg-main)))
 ;;;;; syslog-mode
     `(syslog-debug ((,c :inherit modus-themes-slant)))
     `(syslog-error ((,c :foreground ,err)))
@@ -6812,7 +6801,7 @@ FG and BG are the main colors."
     (list 'transient-argument `((,c :inherit modus-themes-bold :background ,bg-active-argument :foreground ,fg-active-argument)))
     `(transient-blue ((,c :inherit bold :foreground ,blue)))
     `(transient-disabled-suffix ((,c :inherit modus-themes-mark-del)))
-    `(transient-enabled-suffix ((,c :inherit modus-themes-subtle-cyan)))
+    `(transient-enabled-suffix ((,c :inherit modus-themes-mark-sel)))
     `(transient-heading ((,c :inherit bold :foreground ,fg-main)))
     `(transient-inactive-argument ((,c :foreground ,fg-dim)))
     `(transient-inactive-value ((,c :foreground ,fg-dim)))
@@ -6881,13 +6870,13 @@ FG and BG are the main colors."
 ;;;;; tty-menu
     `(tty-menu-disabled-face ((,c :background ,bg-inactive :foreground ,fg-dim)))
     `(tty-menu-enabled-face ((,c :inherit bold :background ,bg-inactive :foreground ,fg-main)))
-    `(tty-menu-selected-face ((,c :inherit modus-themes-intense-blue)))
+    `(tty-menu-selected-face ((,c :background ,bg-blue-intense :foreground ,fg-main)))
 ;;;;; tuareg
-    `(caml-types-def-face ((,c :inherit modus-themes-subtle-red)))
-    `(caml-types-expr-face ((,c :inherit modus-themes-subtle-green)))
-    `(caml-types-occ-face ((,c :inherit modus-themes-subtle-green)))
-    `(caml-types-scope-face ((,c :inherit modus-themes-subtle-blue)))
-    `(caml-types-typed-face ((,c :inherit modus-themes-subtle-magenta)))
+    `(caml-types-def-face ((,c :background ,bg-red-subtle :foreground ,fg-main)))
+    `(caml-types-expr-face ((,c :background ,bg-green-subtle :foreground ,fg-main)))
+    `(caml-types-occ-face ((,c :background ,bg-green-subtle :foreground ,fg-main)))
+    `(caml-types-scope-face ((,c :background ,bg-blue-subtle :foreground ,fg-main)))
+    `(caml-types-typed-face ((,c :background ,bg-magenta-subtle :foreground ,fg-main)))
     `(tuareg-font-double-semicolon-face ((,c :foreground ,preprocessor)))
     `(tuareg-font-lock-attribute-face ((,c :foreground ,fnname)))
     `(tuareg-font-lock-constructor-face ((,c :foreground ,fg-main)))
