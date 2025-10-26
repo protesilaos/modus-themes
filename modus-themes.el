@@ -4558,6 +4558,10 @@ FG and BG are the main colors."
 ;;;; standard faces
 ;;;;; absolute essentials
     `(default ((,c :background ,bg-main :foreground ,fg-main)))
+    `(bold ((,c :weight bold)))
+    `(bold-italic ((,c :inherit (bold italic))))
+    `(underline ((,c :underline ,fg-dim)))
+    `(italic ((,c :slant italic)))
     `(cursor ((,c :background ,cursor)))
     `(fringe ((,c :background ,fringe :foreground ,fg-main)))
     `(menu ((,c :background ,bg-dim :foreground ,fg-main)))
