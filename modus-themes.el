@@ -142,17 +142,13 @@ deficiency (deuteranopia or tritanopia, respectively)."
 (define-obsolete-face-alias 'modus-themes-prose-macro nil "5.0.0")
 (define-obsolete-face-alias 'modus-themes-prose-verbatim nil "5.0.0")
 
+(define-obsolete-face-alias 'modus-themes-prominent-error nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-prominent-warning nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-prominent-note nil "5.0.0")
+
 ;; These faces are used internally to ensure consistency between various
 ;; groups and to streamline the evaluation of relevant customization
 ;; options.
-
-(dolist (scope '(note warning error))
-  (custom-declare-face
-   (intern (format "modus-themes-prominent-%s" scope))
-   nil (format "Prominent notification of type %s." scope)
-   :package-version '(modus-themes . "4.2.0")
-   :version "30.1"
-   :group 'modus-themes-faces))
 
 (dotimes (n 9)
   (custom-declare-face
@@ -4469,10 +4465,6 @@ FG and BG are the main colors."
     `(modus-themes-heading-6 ((,c ,@(modus-themes--heading 6 fg-heading-6 bg-heading-6 overline-heading-6))))
     `(modus-themes-heading-7 ((,c ,@(modus-themes--heading 7 fg-heading-7 bg-heading-7 overline-heading-7))))
     `(modus-themes-heading-8 ((,c ,@(modus-themes--heading 8 fg-heading-8 bg-heading-8 overline-heading-8))))
-;;;;; prominent semantic notes
-    `(modus-themes-prominent-error ((,c :background ,bg-prominent-err :foreground ,fg-prominent-err)))
-    `(modus-themes-prominent-note ((,c :background ,bg-prominent-note :foreground ,fg-prominent-note)))
-    `(modus-themes-prominent-warning ((,c :background ,bg-prominent-warning :foreground ,fg-prominent-warning)))
 ;;;;; completion frameworks
     `(modus-themes-completion-match-0 ((,c ,@(modus-themes--completion-match fg-completion-match-0 bg-completion-match-0))))
     `(modus-themes-completion-match-1 ((,c ,@(modus-themes--completion-match fg-completion-match-1 bg-completion-match-1))))
@@ -4538,8 +4530,8 @@ FG and BG are the main colors."
     `(minibuffer-nonselected ((,c :inverse-video t)))
     `(mm-command-output ((,c :foreground ,mail-part)))
     `(mm-uu-extract ((,c :foreground ,mail-part)))
-    `(next-error ((,c :inherit modus-themes-prominent-error :extend t)))
-    `(pgtk-im-0 ((,c :inherit modus-themes-prominent-note)))
+    `(next-error ((,c :background ,bg-prominent-err :foreground ,fg-prominent-err)))
+    `(pgtk-im-0 ((,c :background ,bg-prominent-note :foreground ,fg-prominent-note)))
     `(read-multiple-choice-face ((,c :inherit bold :background ,bg-mark-select :foreground ,fg-mark-select)))
     `(rectangle-preview ((,c :background ,bg-active :foreground ,fg-main)))
     `(region ((,c :background ,bg-region :foreground ,fg-region)))
@@ -4809,7 +4801,7 @@ FG and BG are the main colors."
 ;;;;; clojure-mode
     `(clojure-keyword-face ((,c :inherit modus-themes-bold :foreground ,keyword)))
 ;;;;; column-enforce-mode
-    `(column-enforce-face ((,c :inherit modus-themes-prominent-error)))
+    `(column-enforce-face ((,c :background ,bg-prominent-err :foreground ,fg-prominent-err)))
 ;;;;; company-mode
     `(company-echo-common ((,c :inherit modus-themes-completion-match-0)))
     `(company-preview ((,c :background ,bg-dim :foreground ,fg-dim)))
@@ -5011,7 +5003,7 @@ FG and BG are the main colors."
 ;;;;; dired-git-info
     `(dgi-commit-message-face ((,c :foreground ,docstring)))
 ;;;;; dired-narrow
-    `(dired-narrow-blink ((,c :inherit modus-themes-prominent-warning)))
+    `(dired-narrow-blink ((,c :background ,bg-prominent-warning :foreground ,fg-prominent-warning)))
 ;;;;; dired-subtree
     ;; remove backgrounds from dired-subtree faces, else they break
     ;; dired-{flagged,marked} and any other face that sets a background
@@ -5217,8 +5209,8 @@ FG and BG are the main colors."
     `(erc-timestamp-face ((,c :foreground ,date-common)))
     `(erc-underline-face ((,c :inherit underline)))
 ;;;;; ert
-    `(ert-test-result-expected ((,c :inherit modus-themes-prominent-note)))
-    `(ert-test-result-unexpected ((,c :inherit modus-themes-prominent-error)))
+    `(ert-test-result-expected ((,c :background ,bg-prominent-note :foreground ,fg-prominent-note)))
+    `(ert-test-result-unexpected ((,c :background ,bg-prominent-err :foreground ,fg-prominent-err)))
 ;;;;; erts-mode
     `(erts-mode-end-test ((,c :foreground ,err)))
     `(erts-mode-specification-name ((,c :inherit modus-themes-bold)))
@@ -5260,16 +5252,16 @@ FG and BG are the main colors."
     `(eyebrowse-mode-line-active ((,c :inherit italic :foreground ,modeline-info)))
 ;;;;; flycheck
     `(flycheck-error ((,c :underline (:style wave :color ,underline-err))))
-    `(flycheck-fringe-error ((,c :inherit modus-themes-prominent-error)))
-    `(flycheck-fringe-info ((,c :inherit modus-themes-prominent-note)))
-    `(flycheck-fringe-warning ((,c :inherit modus-themes-prominent-warning)))
+    `(flycheck-fringe-error ((,c :background ,bg-prominent-err :foreground ,fg-prominent-err)))
+    `(flycheck-fringe-info ((,c :background ,bg-prominent-note :foreground ,fg-prominent-note)))
+    `(flycheck-fringe-warning ((,c :background ,bg-prominent-warning :foreground ,fg-prominent-warning)))
     `(flycheck-info ((,c :underline (:style wave :color ,underline-note))))
     `(flycheck-warning ((,c :underline (:style wave :color ,underline-warning))))
 ;;;;; flycheck-color-mode-line
-    `(flycheck-color-mode-line-error-face ((,c :inherit modus-themes-prominent-error)))
-    `(flycheck-color-mode-line-info-face ((,c :inherit modus-themes-prominent-note)))
+    `(flycheck-color-mode-line-error-face ((,c :background ,bg-prominent-err :foreground ,fg-prominent-err)))
+    `(flycheck-color-mode-line-info-face ((,c :background ,bg-prominent-note :foreground ,fg-prominent-note)))
     `(flycheck-color-mode-line-running-face ((,c :inherit modus-themes-slant)))
-    `(flycheck-color-mode-line-info-face ((,c :inherit modus-themes-prominent-warning)))
+    `(flycheck-color-mode-line-info-face ((,c :background ,bg-prominent-warning :foreground ,fg-prominent-warning)))
 ;;;;; flycheck-indicator
     `(flycheck-indicator-disabled ((,c :inherit modus-themes-slant :foreground ,fg-dim)))
     `(flycheck-indicator-error ((,c :foreground ,err)))
@@ -5610,7 +5602,7 @@ FG and BG are the main colors."
     `(ioccur-title-face ((,c :inherit modus-themes-bold :foreground ,name)))
 ;;;;; isearch, occur, and the like
     `(isearch ((,c :background ,bg-search-current :foreground ,fg-main)))
-    `(isearch-fail ((,c :inherit modus-themes-prominent-error)))
+    `(isearch-fail ((,c :background ,bg-prominent-err :foreground ,fg-prominent-err)))
     `(isearch-group-1 ((,c :background ,bg-search-rx-group-0 :foreground ,fg-main)))
     `(isearch-group-2 ((,c :background ,bg-search-rx-group-1 :foreground ,fg-main)))
     `(lazy-highlight ((,c :background ,bg-search-lazy :foreground ,fg-main)))
@@ -6439,7 +6431,7 @@ FG and BG are the main colors."
     `(quick-peek-border-face ((,c :background ,border :height 1)))
     `(quick-peek-padding-face ((,c :background ,bg-inactive :height 0.15)))
 ;;;;; rainbow-delimiters
-    `(rainbow-delimiters-base-error-face ((,c :inherit modus-themes-prominent-error)))
+    `(rainbow-delimiters-base-error-face ((,c :background ,bg-prominent-err :foreground ,fg-prominent-err)))
     `(rainbow-delimiters-base-face ((,c :foreground ,fg-main)))
     `(rainbow-delimiters-depth-1-face ((,c :foreground ,rainbow-0)))
     `(rainbow-delimiters-depth-2-face ((,c :foreground ,rainbow-1)))
@@ -6450,8 +6442,8 @@ FG and BG are the main colors."
     `(rainbow-delimiters-depth-7-face ((,c :foreground ,rainbow-6)))
     `(rainbow-delimiters-depth-8-face ((,c :foreground ,rainbow-7)))
     `(rainbow-delimiters-depth-9-face ((,c :foreground ,rainbow-8)))
-    `(rainbow-delimiters-mismatched-face ((,c :inherit  modus-themes-prominent-warning)))
-    `(rainbow-delimiters-unmatched-face ((,c :inherit modus-themes-prominent-error)))
+    `(rainbow-delimiters-mismatched-face ((,c :background ,bg-prominent-warning :foreground ,fg-prominent-warning)))
+    `(rainbow-delimiters-unmatched-face ((,c :background ,bg-prominent-err :foreground ,fg-prominent-err)))
 ;;;;; rcirc
     `(rcirc-bright-nick ((,c :inherit modus-themes-bold :foreground ,accent-2)))
     `(rcirc-dim-nick ((,c :foreground ,fg-dim)))
@@ -6535,7 +6527,7 @@ FG and BG are the main colors."
 ;;;;; show-paren-mode
     `(show-paren-match ((,c :background ,bg-paren-match :foreground ,fg-paren-match :underline ,underline-paren-match)))
     `(show-paren-match-expression ((,c :background ,bg-paren-expression)))
-    `(show-paren-mismatch ((,c :inherit modus-themes-prominent-error)))
+    `(show-paren-mismatch ((,c :background ,bg-prominent-err :foreground ,fg-prominent-err)))
 ;;;;; shr
     `(shr-abbreviation ((,c :underline (:style wave :color ,underline-note))))
     `(shr-code ((,c :inherit modus-themes-fixed-pitch :background ,bg-prose-verbatim :foreground ,fg-prose-verbatim)))
@@ -6598,7 +6590,7 @@ FG and BG are the main colors."
     `(sml/name-filling ((,c :foreground ,warning)))
     `(sml/not-modified (( )))
     `(sml/numbers-separator (( )))
-    `(sml/outside-modified ((,c :inherit modus-themes-prominent-error)))
+    `(sml/outside-modified ((,c :background ,bg-prominent-err :foreground ,fg-prominent-err)))
     `(sml/position-percentage (( )))
     `(sml/prefix ((,c :foreground ,fg-alt)))
     `(sml/process ((,c :foreground ,fg-alt)))
@@ -6831,7 +6823,7 @@ FG and BG are the main colors."
     `(tuareg-font-double-semicolon-face ((,c :foreground ,preprocessor)))
     `(tuareg-font-lock-attribute-face ((,c :foreground ,fnname)))
     `(tuareg-font-lock-constructor-face ((,c :foreground ,fg-main)))
-    `(tuareg-font-lock-error-face ((,c :inherit modus-themes-prominent-error)))
+    `(tuareg-font-lock-error-face ((,c :background ,bg-prominent-err :foreground ,fg-prominent-err)))
     ;; `(tuareg-font-lock-extension-node-face ((,c :background ,bg-inactive :foreground ,magenta)))
     `(tuareg-font-lock-governing-face ((,c :inherit modus-themes-bold :foreground ,fg-main)))
     `(tuareg-font-lock-infix-extension-node-face ((,c :foreground ,fnname)))
@@ -7087,10 +7079,6 @@ FG and BG are the main colors."
          ,bg-graph-red-1 ,bg-graph-green-1 ,bg-graph-yellow-1 ,bg-graph-blue-1 ,bg-graph-magenta-1 ,bg-graph-cyan-1))
 ;;;; exwm
     `(exwm-floating-border-color ,border)
-;;;; flymake fringe indicators
-    `(flymake-error-bitmap '(flymake-double-exclamation-mark modus-themes-prominent-error))
-    `(flymake-warning-bitmap '(exclamation-mark modus-themes-prominent-warning))
-    `(flymake-note-bitmap '(exclamation-mark modus-themes-prominent-note))
 ;;;; highlight-changes
     `(highlight-changes-colors nil)
     `(highlight-changes-face-list '(success warning error bold bold-italic))
