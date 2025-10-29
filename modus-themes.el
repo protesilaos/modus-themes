@@ -130,6 +130,10 @@ deficiency (deuteranopia or tritanopia, respectively)."
 (define-obsolete-face-alias 'modus-themes-search-rx-group-2 nil "5.0.0")
 (define-obsolete-face-alias 'modus-themes-search-rx-group-3 nil "5.0.0")
 
+(define-obsolete-face-alias 'modus-themes-lang-error nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-lang-warning nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-lang-note nil "5.0.0")
+
 ;; These faces are used internally to ensure consistency between various
 ;; groups and to streamline the evaluation of relevant customization
 ;; options.
@@ -154,14 +158,6 @@ deficiency (deuteranopia or tritanopia, respectively)."
   (custom-declare-face
    (intern (format "modus-themes-mark-%s" scope))
    nil (format "Mark of type %s." scope)
-   :package-version '(modus-themes . "4.0.0")
-   :version "30.1"
-   :group 'modus-themes-faces))
-
-(dolist (scope '(note warning error))
-  (custom-declare-face
-   (intern (format "modus-themes-lang-%s" scope))
-   nil (format "Linter or spell check of type %s." scope)
    :package-version '(modus-themes . "4.0.0")
    :version "30.1"
    :group 'modus-themes-faces))
@@ -4502,10 +4498,6 @@ FG and BG are the main colors."
     `(modus-themes-heading-6 ((,c ,@(modus-themes--heading 6 fg-heading-6 bg-heading-6 overline-heading-6))))
     `(modus-themes-heading-7 ((,c ,@(modus-themes--heading 7 fg-heading-7 bg-heading-7 overline-heading-7))))
     `(modus-themes-heading-8 ((,c ,@(modus-themes--heading 8 fg-heading-8 bg-heading-8 overline-heading-8))))
-;;;;; language checkers
-    `(modus-themes-lang-error ((,c :underline (:style wave :color ,underline-err))))
-    `(modus-themes-lang-note ((,c :underline (:style wave :color ,underline-note))))
-    `(modus-themes-lang-warning ((,c :underline (:style wave :color ,underline-warning))))
 ;;;;; prominent semantic notes
     `(modus-themes-prominent-error ((,c :background ,bg-prominent-err :foreground ,fg-prominent-err)))
     `(modus-themes-prominent-note ((,c :background ,bg-prominent-note :foreground ,fg-prominent-note)))
@@ -4557,7 +4549,7 @@ FG and BG are the main colors."
     `(child-frame-border ((,c :background ,border)))
     `(comint-highlight-input ((,c :inherit modus-themes-bold)))
     `(comint-highlight-prompt ((,c :inherit modus-themes-prompt)))
-    `(confusingly-reordered ((,c :inherit modus-themes-lang-error)))
+    `(confusingly-reordered ((,c :underline (:style wave :color ,underline-err))))
     `(edmacro-label ((,c :inherit modus-themes-bold :foreground ,accent-0)))
     `(elisp-shorthand-font-lock-face ((,c :inherit modus-themes-slant :foreground ,preprocessor)))
     `(error ((,c :inherit modus-themes-bold :foreground ,err)))
@@ -4828,14 +4820,14 @@ FG and BG are the main colors."
     `(cider-deprecated-face ((,c :foreground ,warning)))
     `(cider-enlightened-face ((,c :box ,warning)))
     `(cider-enlightened-local-face ((,c :foreground ,warning)))
-    `(cider-error-highlight-face ((,c :inherit modus-themes-lang-error)))
+    `(cider-error-highlight-face ((,c :underline (:style wave :color ,underline-err))))
     `(cider-fringe-good-face ((,c :foreground ,info)))
     `(cider-instrumented-face ((,c :box ,err)))
     `(cider-reader-conditional-face ((,c :inherit modus-themes-bold :foreground ,type)))
     `(cider-repl-prompt-face ((,c :inherit modus-themes-prompt)))
     `(cider-repl-stderr-face ((,c :foreground ,err)))
     `(cider-repl-stdout-face (( )))
-    `(cider-warning-highlight-face ((,c :inherit modus-themes-lang-warning)))
+    `(cider-warning-highlight-face ((,c :underline (:style wave :color ,underline-warning))))
 ;;;;; circe (and lui)
     `(circe-fool-face ((,c :foreground ,fg-dim)))
     `(circe-highlight-nick-face ((,c :foreground ,err)))
@@ -5159,7 +5151,7 @@ FG and BG are the main colors."
     `(ein:notification-tab-normal ((,c :inherit underline)))
 ;;;;; eglot
     `(eglot-mode-line ((,c :inherit modus-themes-bold :foreground ,modeline-info)))
-    `(eglot-diagnostic-tag-unnecessary-face ((,c :inherit modus-themes-lang-note)))
+    `(eglot-diagnostic-tag-unnecessary-face ((,c :underline (:style wave :color ,underline-note))))
 ;;;;; el-search
     `(el-search-highlight-in-prompt-face ((,c :inherit modus-themes-slant)))
     `(el-search-match ((,c :background ,bg-search-current :foreground ,fg-main)))
@@ -5300,12 +5292,12 @@ FG and BG are the main colors."
 ;;;;; eyebrowse
     `(eyebrowse-mode-line-active ((,c :inherit italic :foreground ,modeline-info)))
 ;;;;; flycheck
-    `(flycheck-error ((,c :inherit modus-themes-lang-error)))
+    `(flycheck-error ((,c :underline (:style wave :color ,underline-err))))
     `(flycheck-fringe-error ((,c :inherit modus-themes-prominent-error)))
     `(flycheck-fringe-info ((,c :inherit modus-themes-prominent-note)))
     `(flycheck-fringe-warning ((,c :inherit modus-themes-prominent-warning)))
-    `(flycheck-info ((,c :inherit modus-themes-lang-note)))
-    `(flycheck-warning ((,c :inherit modus-themes-lang-warning)))
+    `(flycheck-info ((,c :underline (:style wave :color ,underline-note))))
+    `(flycheck-warning ((,c :underline (:style wave :color ,underline-warning))))
 ;;;;; flycheck-color-mode-line
     `(flycheck-color-mode-line-error-face ((,c :inherit modus-themes-prominent-error)))
     `(flycheck-color-mode-line-info-face ((,c :inherit modus-themes-prominent-note)))
@@ -5320,18 +5312,18 @@ FG and BG are the main colors."
     `(flycheck-indicator-warning ((,c :foreground ,warning)))
 ;;;;; flymake
     `(flymake-end-of-line-diagnostics-face ((,c :inherit modus-themes-slant :height 0.85 :box ,border)))
-    `(flymake-error ((,c :inherit modus-themes-lang-error)))
+    `(flymake-error ((,c :underline (:style wave :color ,underline-err))))
     `(flymake-error-echo ((,c :foreground ,err)))
     `(flymake-error-echo-at-eol ((,c :inherit modus-themes-slant :foreground ,err :height 0.85 :box ,border)))
-    `(flymake-note ((,c :inherit modus-themes-lang-note)))
+    `(flymake-note ((,c :underline (:style wave :color ,underline-note))))
     `(flymake-note-echo ((,c :foreground ,info)))
     `(flymake-note-echo-at-eol ((,c :inherit modus-themes-slant :foreground ,info :height 0.85 :box ,border)))
-    `(flymake-warning ((,c :inherit modus-themes-lang-warning)))
+    `(flymake-warning ((,c :underline (:style wave :color ,underline-warning))))
     `(flymake-warning-echo ((,c :foreground ,warning)))
     `(flymake-warning-echo-at-eol ((,c :inherit modus-themes-slant :foreground ,warning :height 0.85 :box ,border)))
 ;;;;; flyspell
-    `(flyspell-duplicate ((,c :inherit modus-themes-lang-warning)))
-    `(flyspell-incorrect ((,c :inherit modus-themes-lang-error)))
+    `(flyspell-duplicate ((,c :underline (:style wave :color ,underline-warning))))
+    `(flyspell-incorrect ((,c :underline (:style wave :color ,underline-err))))
 ;;;;; flx
     `(flx-highlight-face ((,c :inherit modus-themes-completion-match-0)))
 ;;;;; focus
@@ -5703,9 +5695,9 @@ FG and BG are the main colors."
     `(jiralib-link-issue-face ((,c :inherit underline)))
     `(jiralib-link-project-face ((,c :inherit underline)))
 ;;;;; jit-spell
-    `(jit-spell-misspelling ((,c :inherit modus-themes-lang-error)))
+    `(jit-spell-misspelling ((,c :underline (:style wave :color ,underline-err))))
 ;;;;; jinx
-    `(jinx-misspelled ((,c :inherit modus-themes-lang-warning)))
+    `(jinx-misspelled ((,c :underline (:style wave :color ,underline-warning))))
 ;;;;; journalctl-mode
     `(journalctl-error-face ((,c :foreground ,err)))
     `(journalctl-finished-face ((,c :foreground ,info)))
@@ -5715,7 +5707,7 @@ FG and BG are the main colors."
     `(journalctl-timestamp-face ((,c :foreground ,date-common)))
     `(journalctl-warning-face ((,c :foreground ,warning)))
 ;;;;; js2-mode
-    `(js2-error ((,c :inherit modus-themes-lang-error)))
+    `(js2-error ((,c :underline (:style wave :color ,underline-err))))
     `(js2-external-variable ((,c :foreground ,variable)))
     `(js2-function-call ((,c :foreground ,fnname)))
     `(js2-function-param ((,c :foreground ,constant)))
@@ -5729,7 +5721,7 @@ FG and BG are the main colors."
     `(js2-object-property-access ((,c :foreground ,fg-main)))
     `(js2-private-function-call ((,c :foreground ,preprocessor)))
     `(js2-private-member ((,c :inherit modus-themes-bold :foreground ,warning)))
-    `(js2-warning ((,c :inherit modus-themes-lang-warning)))
+    `(js2-warning ((,c :underline (:style wave :color ,underline-warning))))
 ;;;;; julia
     `(julia-macro-face ((,c :inherit modus-themes-bold :foreground ,builtin)))
     `(julia-quoted-symbol-face ((,c :foreground ,constant)))
@@ -5771,17 +5763,17 @@ FG and BG are the main colors."
     `(lsp-face-rename ((,c :background ,bg-search-replace :foreground ,fg-main)))
     `(lsp-headerline-breadcrumb-separator-face ((,c :foreground ,fg-dim)))
     `(lsp-headerline-breadcrumb-path-face ((,c :foreground ,string)))
-    `(lsp-headerline-breadcrumb-path-error-face ((,c :inherit modus-themes-lang-error)))
-    `(lsp-headerline-breadcrumb-path-warning-face ((,c :inherit modus-themes-lang-warning)))
-    `(lsp-headerline-breadcrumb-path-info-face ((,c :inherit modus-themes-lang-note)))
-    `(lsp-headerline-breadcrumb-path-hint-face ((,c :inherit modus-themes-lang-note)))
+    `(lsp-headerline-breadcrumb-path-error-face ((,c :underline (:style wave :color ,underline-err))))
+    `(lsp-headerline-breadcrumb-path-warning-face ((,c :underline (:style wave :color ,underline-warning))))
+    `(lsp-headerline-breadcrumb-path-info-face ((,c :underline (:style wave :color ,underline-note))))
+    `(lsp-headerline-breadcrumb-path-hint-face ((,c :underline (:style wave :color ,underline-note))))
     `(lsp-headerline-breadcrumb-project-prefix-face ((,c :inherit modus-themes-bold :foreground ,name)))
     `(lsp-headerline-breadcrumb-unknown-project-prefix-face ((,c :inherit modus-themes-bold :foreground ,fg-dim)))
     `(lsp-headerline-breadcrumb-symbols-face ((,c :inherit modus-themes-bold :foreground ,docstring)))
-    `(lsp-headerline-breadcrumb-symbols-error-face ((,c :inherit modus-themes-lang-error)))
-    `(lsp-headerline-breadcrumb-symbols-warning-face ((,c :inherit modus-themes-lang-warning)))
-    `(lsp-headerline-breadcrumb-symbols-info-face ((,c :inherit modus-themes-lang-note)))
-    `(lsp-headerline-breadcrumb-symbols-hint-face ((,c :inherit modus-themes-lang-note)))
+    `(lsp-headerline-breadcrumb-symbols-error-face ((,c :underline (:style wave :color ,underline-err))))
+    `(lsp-headerline-breadcrumb-symbols-warning-face ((,c :underline (:style wave :color ,underline-warning))))
+    `(lsp-headerline-breadcrumb-symbols-info-face ((,c :underline (:style wave :color ,underline-note))))
+    `(lsp-headerline-breadcrumb-symbols-hint-face ((,c :underline (:style wave :color ,underline-note))))
     `(lsp-installation-buffer-face ((,c :foreground ,info)))
     `(lsp-installation-finished-buffer-face ((,c :foreground ,info)))
     `(lsp-lens-mouse-face ((,c :background ,bg-link :foreground ,fg-link :underline ,underline-link :height 0.9)))
@@ -6578,7 +6570,7 @@ FG and BG are the main colors."
     `(show-paren-match-expression ((,c :background ,bg-paren-expression)))
     `(show-paren-mismatch ((,c :inherit modus-themes-prominent-error)))
 ;;;;; shr
-    `(shr-abbreviation ((,c :inherit modus-themes-lang-note)))
+    `(shr-abbreviation ((,c :underline (:style wave :color ,underline-note))))
     `(shr-code ((,c :inherit modus-themes-prose-verbatim)))
     `(shr-h1 ((,c :inherit modus-themes-heading-1)))
     `(shr-h2 ((,c :inherit modus-themes-heading-2)))
@@ -6596,34 +6588,34 @@ FG and BG are the main colors."
     `(sieve-tagged-arguments ((,c :inherit modus-themes-bold :foreground ,type)))
     `(sieve-test-commands ((,c :foreground ,fnname)))
 ;;;;; skewer-mode
-    `(skewer-error-face ((,c :inherit modus-themes-lang-error)))
+    `(skewer-error-face ((,c :underline (:style wave :color ,underline-err))))
 ;;;;; slime (sldb)
     `(sldb-condition-face ((,c :foreground ,preprocessor)))
     `(sldb-restart-number-face ((,c :inherit modus-themes-bold)))
     `(sldb-restart-type-face ((,c :inherit modus-themes-bold :foreground ,type)))
     `(sldb-restartable-frame-line-face ((,c :foreground ,info)))
     `(sldb-section-face ((,c :inherit modus-themes-bold)))
-    `(slime-error-face ((,c :inherit modus-themes-lang-error)))
+    `(slime-error-face ((,c :underline (:style wave :color ,underline-err))))
     `(slime-note-face ((,c :inherit underline)))
     `(slime-repl-input-face ((,c :inherit modus-themes-bold)))
     `(slime-repl-inputed-output-face ((,c :foreground ,string)))
     `(slime-repl-output-mouseover-face ((,c :background ,bg-hover :foreground ,fg-main)))
     `(slime-repl-prompt-face ((,c :inherit modus-themes-prompt)))
-    `(slime-style-warning-face ((,c :inherit modus-themes-lang-note)))
-    `(slime-warning-face ((,c :inherit modus-themes-lang-warning)))
+    `(slime-style-warning-face ((,c :underline (:style wave :color ,underline-note))))
+    `(slime-warning-face ((,c :underline (:style wave :color ,underline-warning))))
 ;;;;; sly
     `(sly-action-face ((,c :inherit modus-themes-bold :foreground ,type)))
     `(sly-db-condition-face ((,c :foreground ,preprocessor)))
     `(sly-db-restartable-frame-line-face ((,c :foreground ,info)))
-    `(sly-error-face ((,c :inherit modus-themes-lang-error)))
+    `(sly-error-face ((,c :underline (:style wave :color ,underline-err))))
     `(sly-mode-line ((,c :inherit italic :foreground ,modeline-info)))
     `(sly-mrepl-output-face ((,c :foreground ,string)))
     `(sly-mrepl-output-face ((,c :foreground ,string)))
     `(sly-mrepl-prompt-face ((,c :inherit modus-themes-prompt)))
-    `(sly-note-face ((,c :inherit modus-themes-lang-note)))
+    `(sly-note-face ((,c :underline (:style wave :color ,underline-note))))
     `(sly-stickers-placed-face ((,c :background ,bg-inactive)))
-    `(sly-style-warning-face ((,c :inherit modus-themes-lang-note)))
-    `(sly-warning-face ((,c :inherit modus-themes-lang-warning)))
+    `(sly-style-warning-face ((,c :underline (:style wave :color ,underline-note))))
+    `(sly-warning-face ((,c :underline (:style wave :color ,underline-warning))))
 ;;;;; smart-mode-line
     `(sml/charging ((,c :foreground ,info)))
     `(sml/discharging ((,c :foreground ,err)))
@@ -6672,7 +6664,7 @@ FG and BG are the main colors."
     `(speedbar-separator-face ((,c :background ,bg-active :foreground ,fg-main)))
     `(speedbar-tag-face ((,c :foreground ,accent-1)))
 ;;;;; spell-fu
-    `(spell-fu-incorrect-face ((,c :inherit modus-themes-lang-error)))
+    `(spell-fu-incorrect-face ((,c :underline (:style wave :color ,underline-err))))
 ;;;;; stripes
     `(stripes ((,c :background ,bg-inactive)))
 ;;;;; suggest
@@ -7085,9 +7077,9 @@ FG and BG are the main colors."
     `(widget-inactive ((,c :background ,bg-button-inactive :foreground ,fg-button-inactive)))
     `(widget-single-line-field ((,c :background ,bg-button-inactive :foreground ,fg-button-active :extend nil :underline (:position t))))
 ;;;;; writegood-mode
-    `(writegood-duplicates-face ((,c :inherit modus-themes-lang-error)))
-    `(writegood-passive-voice-face ((,c :inherit modus-themes-lang-warning)))
-    `(writegood-weasels-face ((,c :inherit modus-themes-lang-warning)))
+    `(writegood-duplicates-face ((,c :underline (:style wave :color ,underline-err))))
+    `(writegood-passive-voice-face ((,c :underline (:style wave :color ,underline-warning))))
+    `(writegood-weasels-face ((,c :underline (:style wave :color ,underline-warning))))
 ;;;;; woman
     `(woman-addition ((,c :foreground ,accent-2)))
     `(woman-bold ((,c :inherit bold :foreground ,accent-0)))
