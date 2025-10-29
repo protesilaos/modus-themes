@@ -146,6 +146,8 @@ deficiency (deuteranopia or tritanopia, respectively)."
 (define-obsolete-face-alias 'modus-themes-prominent-warning nil "5.0.0")
 (define-obsolete-face-alias 'modus-themes-prominent-note nil "5.0.0")
 
+(define-obsolete-face-alias 'modus-themes-key-binding nil "5.0.0")
+
 ;; These faces are used internally to ensure consistency between various
 ;; groups and to streamline the evaluation of relevant customization
 ;; options.
@@ -168,12 +170,6 @@ This behaves in accordance with `modus-themes-bold-constructs'."
 (defface modus-themes-slant nil
   "Generic face for applying a conditional slant (italics).
 This behaves in accordance with `modus-themes-italic-constructs'."
-  :package-version '(modus-themes . "4.0.0")
-  :version "30.1"
-  :group 'modus-themes-faces)
-
-(defface modus-themes-key-binding nil
-  "Face for key bindings."
   :package-version '(modus-themes . "4.0.0")
   :version "30.1"
   :group 'modus-themes-faces)
@@ -4482,7 +4478,6 @@ FG and BG are the main colors."
        (((supports :box t))
         :box (:line-width 1 :color ,border :style released-button))
        (t :underline ,border)))
-    `(modus-themes-key-binding ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind)))
     `(modus-themes-prompt ((,c ,@(modus-themes--prompt fg-prompt bg-prompt))))
     `(modus-themes-reset-soft ((,c :background ,bg-main :foreground ,fg-main
                                    :weight normal :slant normal :strike-through nil
@@ -4518,7 +4513,7 @@ FG and BG are the main colors."
     `(header-line-inactive ((,c :inherit modus-themes-ui-variable-pitch :background ,bg-dim :foreground ,fg-dim)))
     `(header-line-highlight ((,c :background ,bg-hover :foreground ,fg-main :box ,fg-main)))
     `(help-argument-name ((,c :inherit modus-themes-slant :foreground ,variable)))
-    `(help-key-binding ((,c :inherit modus-themes-key-binding)))
+    `(help-key-binding ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind)))
     `(highlight ((,c :background ,bg-hover :foreground ,fg-main)))
     `(homoglyph ((,c :foreground ,warning)))
     `(ibuffer-locked-buffer ((,c :foreground ,warning)))
@@ -4677,9 +4672,9 @@ FG and BG are the main colors."
     `(avy-lead-face-2 ((,c :inherit (bold modus-themes-reset-soft) :background ,bg-search-current :foreground ,fg-main)))
 ;;;;; aw (ace-window)
     `(aw-background-face ((,c :foreground "gray50")))
-    `(aw-key-face ((,c :inherit modus-themes-key-binding)))
+    `(aw-key-face ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind)))
     `(aw-leading-char-face ((,c :inherit (bold modus-themes-reset-soft) :height 1.5 :foreground ,err))) ; same as `switch-window-label'
-    `(aw-minibuffer-leading-char-face ((,c :inherit modus-themes-key-binding)))
+    `(aw-minibuffer-leading-char-face ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind)))
     `(aw-mode-line-face ((,c :inherit modus-themes-bold)))
 ;;;;; binder
     `(binder-sidebar-highlight ((,c :inherit modus-themes-hl-line)))
@@ -4840,7 +4835,7 @@ FG and BG are the main colors."
     `(consult-highlight-mark ((,c :background ,bg-search-static :foreground ,fg-main)))
     `(consult-highlight-match ((,c :background ,bg-search-static :foreground ,fg-main)))
     `(consult-imenu-prefix ((,c :foreground ,fg-dim)))
-    `(consult-key ((,c :inherit modus-themes-key-binding)))
+    `(consult-key ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind)))
     `(consult-line-number ((,c :foreground ,fg-dim)))
     `(consult-line-number-prefix ((,c :foreground ,fg-dim)))
     `(consult-preview-insertion ((,c :background ,bg-dim)))
@@ -4857,7 +4852,7 @@ FG and BG are the main colors."
 ;;;;; counsel
     `(counsel-active-mode ((,c :foreground ,keyword)))
     `(counsel-application-name ((,c :foreground ,name)))
-    `(counsel-key-binding ((,c :inherit modus-themes-key-binding)))
+    `(counsel-key-binding ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind)))
     `(counsel-outline-default ((,c :foreground ,fg-main)))
     `(counsel-variable-documentation ((,c :inherit modus-themes-slant :foreground ,docstring)))
 ;;;;; cperl-mode
@@ -5148,7 +5143,7 @@ FG and BG are the main colors."
     `(elpher-gemini-heading3 ((,c :inherit modus-themes-heading-3)))
 ;;;;; embark
     `(embark-collect-group-title ((,c :inherit modus-themes-bold :foreground ,name)))
-    `(embark-keybinding ((,c :inherit modus-themes-key-binding)))
+    `(embark-keybinding ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind)))
     `(embark-keybinding-repeat ((,c :inherit modus-themes-bold)))
     `(embark-selected ((,c :inherit bold :background ,bg-mark-select :foreground ,fg-mark-select)))
 ;;;;; ement (ement.el)
@@ -5609,7 +5604,7 @@ FG and BG are the main colors."
     `(match ((,c :background ,bg-search-static :foreground ,fg-main)))
     `(query-replace ((,c :background ,bg-search-replace :foreground ,fg-main)))
 ;;;;; ivy
-    `(ivy-action ((,c :inherit modus-themes-key-binding)))
+    `(ivy-action ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind)))
     `(ivy-confirm-face ((,c :foreground ,info)))
     `(ivy-current-match ((,c :inherit modus-themes-completion-selected)))
     `(ivy-match-required-face ((,c :foreground ,err)))
@@ -5794,7 +5789,7 @@ FG and BG are the main colors."
     `(magit-hash ((,c :foreground ,identifier)))
     `(magit-head ((,c :foreground ,accent-0)))
     `(magit-header-line ((,c :inherit modus-themes-bold)))
-    `(magit-header-line-key ((,c :inherit modus-themes-key-binding)))
+    `(magit-header-line-key ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind)))
     `(magit-header-line-log-select ((,c :inherit modus-themes-bold)))
     `(magit-keyword ((,c :foreground ,keyword)))
     `(magit-keyword-squash ((,c :inherit modus-themes-bold :foreground ,warning)))
@@ -5861,7 +5856,7 @@ FG and BG are the main colors."
     `(marginalia-file-priv-read ((,c :foreground ,fg-main)))
     `(marginalia-file-priv-write ((,c :foreground ,accent-0)))
     `(marginalia-function ((,c :foreground ,fnname)))
-    `(marginalia-key ((,c :inherit modus-themes-key-binding)))
+    `(marginalia-key ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind)))
     `(marginalia-lighter ((,c :foreground ,fg-dim)))
     `(marginalia-liqst ((,c :foreground ,fg-dim)))
     `(marginalia-mode ((,c :foreground ,constant)))
@@ -6015,7 +6010,7 @@ FG and BG are the main colors."
     `(mu4e-header-marks-face ((,c :inherit modus-themes-bold :foreground ,mail-subject)))
     `(mu4e-header-title-face ((,c :foreground ,fg-alt)))
     `(mu4e-header-value-face ((,c :foreground ,mail-other)))
-    `(mu4e-highlight-face ((,c :inherit modus-themes-key-binding)))
+    `(mu4e-highlight-face ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind)))
     `(mu4e-link-face ((,c :background ,bg-link :foreground ,fg-link :underline ,underline-link)))
     `(mu4e-modeline-face (( )))
     `(mu4e-moved-face ((,c :inherit modus-themes-slant :foreground ,warning)))
@@ -6107,7 +6102,7 @@ FG and BG are the main colors."
     `(notmuch-crypto-signature-good ((,c :foreground ,info)))
     `(notmuch-crypto-signature-good-key ((,c :foreground ,info)))
     `(notmuch-crypto-signature-unknown ((,c :foreground ,warning)))
-    `(notmuch-jump-key ((,c :inherit modus-themes-key-binding)))
+    `(notmuch-jump-key ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind)))
     `(notmuch-message-summary-face
       ((default :inherit modus-themes-bold :background ,bg-inactive)
        (((supports :overline t))
@@ -6755,13 +6750,13 @@ FG and BG are the main colors."
     ;; could set that user option to nil, but I think it is less
     ;; intrusive to enforce uniformity among the relevant faces.
     ;; Those who want semantic coloring can modify these faces.
-    `(transient-key ((,c :inherit modus-themes-key-binding)))
-    `(transient-key-exit ((,c :inherit modus-themes-key-binding)))
-    `(transient-key-noop ((,c :inherit modus-themes-key-binding :strike-through t)))
-    `(transient-key-recurse ((,c :inherit modus-themes-key-binding)))
-    `(transient-key-return ((,c :inherit modus-themes-key-binding)))
-    `(transient-key-stack ((,c :inherit modus-themes-key-binding)))
-    `(transient-key-stay ((,c :inherit modus-themes-key-binding)))
+    `(transient-key ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind)))
+    `(transient-key-exit ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind)))
+    `(transient-key-noop ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind :strike-through t)))
+    `(transient-key-recurse ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind)))
+    `(transient-key-return ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind)))
+    `(transient-key-stack ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind)))
+    `(transient-key-stay ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind)))
     `(transient-mismatched-key ((,c :inherit underline)))
     `(transient-nonstandard-key ((,c :inherit underline)))
     `(transient-pink ((,c :inherit bold :foreground ,magenta)))
@@ -7003,7 +6998,7 @@ FG and BG are the main colors."
     `(which-key-command-description-face ((,c :foreground ,fg-main)))
     `(which-key-group-description-face ((,c :foreground ,type)))
     `(which-key-highlighted-command-face ((,c :foreground ,warning :underline t)))
-    `(which-key-key-face ((,c :inherit modus-themes-key-binding)))
+    `(which-key-key-face ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind)))
     `(which-key-local-map-description-face ((,c :foreground ,fg-main)))
     `(which-key-note-face ((,c :foreground ,fg-dim)))
     `(which-key-separator-face ((,c :foreground ,fg-dim)))
