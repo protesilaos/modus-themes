@@ -134,6 +134,10 @@ deficiency (deuteranopia or tritanopia, respectively)."
 (define-obsolete-face-alias 'modus-themes-lang-warning nil "5.0.0")
 (define-obsolete-face-alias 'modus-themes-lang-note nil "5.0.0")
 
+(define-obsolete-face-alias 'modus-themes-mark-alt nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-mark-del nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-mark-sel nil "5.0.0")
+
 ;; These faces are used internally to ensure consistency between various
 ;; groups and to streamline the evaluation of relevant customization
 ;; options.
@@ -4482,11 +4486,6 @@ FG and BG are the main colors."
   '(
 ;;;; custom faces
     ;; these bespoke faces are inherited by other constructs below
-;;;;; mark indicators
-    ;; color combinations intended for Dired, Ibuffer, or equivalent
-    `(modus-themes-mark-alt ((,c :inherit bold :background ,bg-mark-other :foreground ,fg-mark-other)))
-    `(modus-themes-mark-del ((,c :inherit bold :background ,bg-mark-delete :foreground ,fg-mark-delete)))
-    `(modus-themes-mark-sel ((,c :inherit bold :background ,bg-mark-select :foreground ,fg-mark-select)))
 ;;;;; heading levels
     ;; styles for regular headings used in Org, Markdown, Info, etc.
     `(modus-themes-heading-0 ((,c ,@(modus-themes--heading 0 fg-heading-0 bg-heading-0 overline-heading-0))))
@@ -4573,7 +4572,7 @@ FG and BG are the main colors."
     `(mm-uu-extract ((,c :foreground ,mail-part)))
     `(next-error ((,c :inherit modus-themes-prominent-error :extend t)))
     `(pgtk-im-0 ((,c :inherit modus-themes-prominent-note)))
-    `(read-multiple-choice-face ((,c :inherit modus-themes-mark-sel)))
+    `(read-multiple-choice-face ((,c :inherit bold :background ,bg-mark-select :foreground ,fg-mark-select)))
     `(rectangle-preview ((,c :background ,bg-active :foreground ,fg-main)))
     `(region ((,c :background ,bg-region :foreground ,fg-region)))
     `(secondary-selection ((,c :background ,bg-hover-secondary :foreground ,fg-main)))
@@ -4724,8 +4723,8 @@ FG and BG are the main colors."
     `(aw-mode-line-face ((,c :inherit modus-themes-bold)))
 ;;;;; binder
     `(binder-sidebar-highlight ((,c :inherit modus-themes-hl-line)))
-    `(binder-sidebar-marked ((,c :inherit modus-themes-mark-sel)))
-    `(binder-sidebar-missing ((,c :inherit modus-themes-mark-del)))
+    `(binder-sidebar-marked ((,c :inherit bold :background ,bg-mark-select :foreground ,fg-mark-select)))
+    `(binder-sidebar-missing ((,c :inherit bold :background ,bg-mark-delete :foreground ,fg-mark-delete)))
     `(binder-sidebar-tags ((,c :foreground ,variable)))
 ;;;;; breadcrumb
     `(breadcrumb-face ((,c :foreground ,fg-alt)))
@@ -4737,7 +4736,7 @@ FG and BG are the main colors."
     `(bongo-currently-playing-track ((,c :inherit modus-themes-bold)))
     `(bongo-elapsed-track-part ((,c :background ,bg-inactive :underline t)))
     `(bongo-filled-seek-bar ((,c :background ,bg-hover)))
-    `(bongo-marked-track ((,c :inherit modus-themes-mark-alt)))
+    `(bongo-marked-track ((,c :inherit bold :background ,bg-mark-other :foreground ,fg-mark-other)))
     `(bongo-marked-track-line ((,c :background ,bg-dim)))
     `(bongo-played-track ((,c :foreground ,fg-dim :strike-through t)))
     `(bongo-track-length ((,c :foreground ,fg-dim)))
@@ -4785,7 +4784,7 @@ FG and BG are the main colors."
     `(calibredb-search-header-sort-face ((,c :inherit modus-themes-bold :foreground ,accent-1)))
     `(calibredb-search-header-total-face ((,c :inherit modus-themes-bold :foreground ,accent-0)))
     `(calibredb-search-header-filter-face ((,c :inherit modus-themes-bold)))
-    `(calibredb-mark-face ((,c :inherit modus-themes-mark-sel)))
+    `(calibredb-mark-face ((,c :inherit bold :background ,bg-mark-select :foreground ,fg-mark-select)))
     `(calibredb-size-face (( )))
     `(calibredb-tag-face ((,c :foreground ,fg-alt)))
 ;;;;; centaur-tabs
@@ -4958,8 +4957,8 @@ FG and BG are the main colors."
     `(debbugs-gnu-done ((,c :foreground ,info)))
     `(debbugs-gnu-forwarded ((,c :inherit modus-themes-slant)))
     `(debbugs-gnu-handled (( )))
-    `(debbugs-gnu-marked ((,c :inherit modus-themes-mark-sel)))
-    `(debbugs-gnu-marked-stale ((,c :inherit modus-themes-mark-alt)))
+    `(debbugs-gnu-marked ((,c :inherit bold :background ,bg-mark-select :foreground ,fg-mark-select)))
+    `(debbugs-gnu-marked-stale ((,c :inherit bold :background ,bg-mark-other :foreground ,fg-mark-other)))
     `(debbugs-gnu-new ((,c :inherit modus-themes-bold :foreground ,err)))
     `(debbugs-gnu-pending ((,c :inherit bold-italic :foreground ,warning)))
     `(debbugs-gnu-stale-1 ((,c :foreground ,err)))
@@ -4967,7 +4966,7 @@ FG and BG are the main colors."
     `(debbugs-gnu-stale-3 ((,c :foreground ,info)))
     `(debbugs-gnu-stale-4 ((,c :foreground ,fg-alt)))
     `(debbugs-gnu-stale-5 ((,c :foreground ,fg-dim)))
-    `(debbugs-gnu-tagged ((,c :inherit modus-themes-mark-alt)))
+    `(debbugs-gnu-tagged ((,c :inherit bold :background ,bg-mark-other :foreground ,fg-mark-other)))
     `(debbugs-gnu-title ((,c :inherit modus-themes-heading-1)))
 ;;;;; deft
     `(deft-filter-string-face ((,c :foreground ,info)))
@@ -5026,11 +5025,11 @@ FG and BG are the main colors."
 ;;;;; dired
     `(dired-broken-symlink ((,c :foreground ,err :underline t)))
     `(dired-directory ((,c :foreground ,accent-0)))
-    `(dired-flagged ((,c :inherit modus-themes-mark-del)))
+    `(dired-flagged ((,c :inherit bold :background ,bg-mark-delete :foreground ,fg-mark-delete)))
     `(dired-header ((,c :inherit modus-themes-bold)))
     `(dired-ignored ((,c :foreground ,fg-dim)))
     `(dired-mark ((,c :inherit modus-themes-bold)))
-    `(dired-marked ((,c :inherit modus-themes-mark-sel)))
+    `(dired-marked ((,c :inherit bold :background ,bg-mark-select :foreground ,fg-mark-select)))
     `(dired-perm-write ((,c :foreground ,fg-dim)))
     `(dired-symlink ((,c :background ,bg-link-symbolic :foreground ,fg-link-symbolic :underline ,underline-link-symbolic)))
     `(dired-warning ((,c :foreground ,warning)))
@@ -5061,8 +5060,8 @@ FG and BG are the main colors."
     `(diredfl-compressed-file-name ((,c :foreground ,warning)))
     `(diredfl-compressed-file-suffix ((,c :foreground ,err)))
     `(diredfl-date-time ((,c :foreground ,date-common)))
-    `(diredfl-deletion ((,c :inherit modus-themes-mark-del)))
-    `(diredfl-deletion-file-name ((,c :inherit modus-themes-mark-del)))
+    `(diredfl-deletion ((,c :inherit bold :background ,bg-mark-delete :foreground ,fg-mark-delete)))
+    `(diredfl-deletion-file-name ((,c :inherit bold :background ,bg-mark-delete :foreground ,fg-mark-delete)))
     `(diredfl-dir-heading ((,c :inherit modus-themes-bold)))
     `(diredfl-dir-name ((,c :foreground ,accent-0)))
     `(diredfl-dir-priv ((,c :foreground ,accent-0)))
@@ -5070,8 +5069,8 @@ FG and BG are the main colors."
     `(diredfl-executable-tag ((,c :foreground ,accent-1)))
     `(diredfl-file-name ((,c :foreground ,fg-main)))
     `(diredfl-file-suffix ((,c :foreground ,variable)))
-    `(diredfl-flag-mark ((,c :inherit modus-themes-mark-sel)))
-    `(diredfl-flag-mark-line ((,c :inherit modus-themes-mark-sel)))
+    `(diredfl-flag-mark ((,c :inherit bold :background ,bg-mark-select :foreground ,fg-mark-select)))
+    `(diredfl-flag-mark-line ((,c :inherit bold :background ,bg-mark-select :foreground ,fg-mark-select)))
     `(diredfl-ignored-file-name ((,c :foreground ,fg-dim)))
     `(diredfl-link-priv ((,c :foreground ,fg-link)))
     `(diredfl-no-priv ((,c :foreground ,fg-dim)))
@@ -5191,7 +5190,7 @@ FG and BG are the main colors."
     `(embark-collect-group-title ((,c :inherit modus-themes-bold :foreground ,name)))
     `(embark-keybinding ((,c :inherit modus-themes-key-binding)))
     `(embark-keybinding-repeat ((,c :inherit modus-themes-bold)))
-    `(embark-selected ((,c :inherit modus-themes-mark-sel)))
+    `(embark-selected ((,c :inherit bold :background ,bg-mark-select :foreground ,fg-mark-select)))
 ;;;;; ement (ement.el)
     `(ement-room-fully-read-marker ((,c :foreground ,info)))
     `(ement-room-membership ((,c :foreground ,fg-dim)))
@@ -5575,10 +5574,10 @@ FG and BG are the main colors."
     `(iflipb-current-buffer-face ((,c :inherit modus-themes-bold :foreground ,name)))
     `(iflipb-other-buffer-face ((,c :foreground ,fg-dim)))
 ;;;;; image-dired
-    `(image-dired-thumb-flagged ((,c :inherit modus-themes-mark-del :box (:line-width -3))))
+    `(image-dired-thumb-flagged ((,c :background ,bg-mark-delete :foreground ,fg-mark-delete :box (:line-width -3))))
     `(image-dired-thumb-header-file-name ((,c :inherit modus-themes-bold)))
     `(image-dired-thumb-header-file-size ((,c :foreground ,constant)))
-    `(image-dired-thumb-mark ((,c :inherit modus-themes-mark-sel :box (:line-width -3))))
+    `(image-dired-thumb-mark ((,c :background ,bg-mark-select :foreground ,fg-mark-select :box (:line-width -3))))
 ;;;;; imenu-list
     `(imenu-list-entry-face-0 ((,c :foreground ,fg-heading-1)))
     `(imenu-list-entry-face-1 ((,c :foreground ,fg-heading-2)))
@@ -5735,8 +5734,8 @@ FG and BG are the main colors."
 ;;;;; kmacro-menu
     ;; Use `list' here to avoid a spurious warning about `kmacro-menu-mark'.
     (list 'kmacro-menu-mark `((,c :inherit modus-themes-bold)))
-    `(kmacro-menu-marked ((,c :inherit modus-themes-mark-sel)))
-    `(kmacro-menu-flagged ((,c :inherit modus-themes-mark-del)))
+    `(kmacro-menu-marked ((,c :inherit bold :background ,bg-mark-select :foreground ,fg-mark-select)))
+    `(kmacro-menu-flagged ((,c :inherit bold :background ,bg-mark-delete :foreground ,fg-mark-delete)))
 ;;;;; ledger-mode
     `(ledger-font-auto-xact-face ((,c :inherit modus-themes-bold :foreground ,builtin)))
     `(ledger-font-account-name-face ((,c :foreground ,name)))
@@ -5973,7 +5972,7 @@ FG and BG are the main colors."
     `(markup-title-5-face ((,c :inherit modus-themes-heading-6)))
     `(markup-verbatim-face ((,c :inherit modus-themes-prose-verbatim)))
 ;;;;; mbdepth
-    `(minibuffer-depth-indicator ((,c :inherit modus-themes-mark-alt)))
+    `(minibuffer-depth-indicator ((,c :inherit bold :background ,bg-mark-other :foreground ,fg-mark-other)))
 ;;;;; mct
     `(mct-highlight-candidate ((,c :inherit modus-themes-completion-selected)))
 ;;;;; messages
@@ -6351,8 +6350,8 @@ FG and BG are the main colors."
 ;;;;; package (M-x list-packages)
     `(package-description ((,c :foreground ,docstring)))
     `(package-help-section-name ((,c :inherit modus-themes-bold)))
-    `(package-mark-delete-line ((,c :inherit modus-themes-mark-del)))
-    `(package-mark-install-line ((,c :inherit modus-themes-mark-sel)))
+    `(package-mark-delete-line ((,c :inherit bold :background ,bg-mark-delete :foreground ,fg-mark-delete)))
+    `(package-mark-install-line ((,c :inherit bold :background ,bg-mark-select :foreground ,fg-mark-select)))
     `(package-name ((,c :background ,bg-link :foreground ,fg-link :underline ,underline-link)))
     `(package-status-available ((,c :foreground ,date-common)))
     `(package-status-avail-obso ((,c :foreground ,err)))
@@ -6455,7 +6454,7 @@ FG and BG are the main colors."
     `(prescient-secondary-highlight ((,c :inherit modus-themes-completion-match-1)))
 ;;;;; proced
     `(proced-mark ((,c :inherit modus-themes-bold)))
-    `(proced-marked ((,c :inherit modus-themes-mark-alt)))
+    `(proced-marked ((,c :inherit bold :background ,bg-mark-other :foreground ,fg-mark-other)))
     `(proced-sort-header ((,c :inherit modus-themes-bold :underline t)))
 ;;;;; prodigy
     `(prodigy-green-face ((,c :foreground ,info)))
@@ -6579,7 +6578,7 @@ FG and BG are the main colors."
     `(shr-h5 ((,c :inherit modus-themes-heading-5)))
     `(shr-h6 ((,c :inherit modus-themes-heading-6)))
     `(shr-mark ((,c :background ,bg-search-static :foreground ,fg-main)))
-    `(shr-selected-link ((,c :inherit modus-themes-mark-sel)))
+    `(shr-selected-link ((,c :inherit bold :background ,bg-mark-select :foreground ,fg-mark-select)))
 ;;;;; side-notes
     `(side-notes ((,c :background ,bg-dim :foreground ,fg-dim)))
 ;;;;; sieve-mode
@@ -6660,7 +6659,7 @@ FG and BG are the main colors."
     `(speedbar-directory-face ((,c :inherit modus-themes-bold :foreground ,accent-0)))
     `(speedbar-file-face ((,c :foreground ,fg-main)))
     `(speedbar-highlight-face ((,c :background ,bg-hover :foreground ,fg-main)))
-    `(speedbar-selected-face ((,c :inherit modus-themes-mark-sel)))
+    `(speedbar-selected-face ((,c :inherit bold :background ,bg-mark-select :foreground ,fg-mark-select)))
     `(speedbar-separator-face ((,c :background ,bg-active :foreground ,fg-main)))
     `(speedbar-tag-face ((,c :foreground ,accent-1)))
 ;;;;; spell-fu
@@ -6784,8 +6783,8 @@ FG and BG are the main colors."
     ;; have to do this with `eldoc-highlight-function-argument'.
     (list 'transient-argument `((,c :inherit modus-themes-bold :background ,bg-active-argument :foreground ,fg-active-argument)))
     `(transient-blue ((,c :inherit bold :foreground ,blue)))
-    `(transient-disabled-suffix ((,c :inherit modus-themes-mark-del)))
-    `(transient-enabled-suffix ((,c :inherit modus-themes-mark-sel)))
+    `(transient-disabled-suffix ((,c :inherit bold :background ,bg-mark-delete :foreground ,fg-mark-delete)))
+    `(transient-enabled-suffix ((,c :inherit bold :background ,bg-mark-select :foreground ,fg-mark-select)))
     `(transient-heading ((,c :inherit bold :foreground ,fg-main)))
     `(transient-inactive-argument ((,c :foreground ,fg-dim)))
     `(transient-inactive-value ((,c :foreground ,fg-dim)))
@@ -6813,11 +6812,11 @@ FG and BG are the main colors."
     `(transient-unreachable-key ((,c :foreground ,fg-dim)))
     `(transient-value ((,c :inherit modus-themes-bold :background ,bg-active-value :foreground ,fg-active-value)))
 ;;;;; trashed
-    `(trashed-deleted ((,c :inherit modus-themes-mark-del)))
+    `(trashed-deleted ((,c :inherit bold :background ,bg-mark-delete :foreground ,fg-mark-delete)))
     `(trashed-directory ((,c :foreground ,accent-0)))
     `(trashed-mark ((,c :inherit modus-themes-bold)))
-    `(trashed-marked ((,c :inherit modus-themes-mark-alt)))
-    `(trashed-restored ((,c :inherit modus-themes-mark-sel)))
+    `(trashed-marked ((,c :inherit bold :background ,bg-mark-other :foreground ,fg-mark-other)))
+    `(trashed-restored ((,c :inherit bold :background ,bg-mark-select :foreground ,fg-mark-select)))
 ;;;;; treemacs
     `(treemacs-async-loading-face ((,c :foreground ,fg-main)))
     `(treemacs-directory-face ((,c :foreground ,accent-0)))
@@ -6836,7 +6835,7 @@ FG and BG are the main colors."
     `(treemacs-help-column-face ((,c :inherit modus-themes-bold :foreground ,keyword)))
     `(treemacs-help-title-face ((,c :foreground ,fg-main)))
     `(treemacs-hl-line-face ((,c :background ,bg-hl-line :extend t)))
-    `(treemacs-marked-file-face ((,c :inherit modus-themes-mark-alt)))
+    `(treemacs-marked-file-face ((,c :inherit bold :background ,bg-mark-other :foreground ,fg-mark-other)))
     `(treemacs-nerd-icons-face ((,c :foreground ,accent-0)))
     `(treemacs-on-failure-pulse-face ((,c :foreground ,fg-main)))
     `(treemacs-on-success-pulse-face ((,c :foreground ,fg-main)))
@@ -7128,9 +7127,7 @@ FG and BG are the main colors."
     `(highlight-changes-colors nil)
     `(highlight-changes-face-list '(success warning error bold bold-italic))
 ;;;; ibuffer
-    `(ibuffer-deletion-face 'modus-themes-mark-del)
     `(ibuffer-filter-group-name-face 'bold)
-    `(ibuffer-marked-face 'modus-themes-mark-sel)
     `(ibuffer-title-face 'default)
 ;;;; hl-todo
     `(hl-todo-keyword-faces
