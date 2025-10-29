@@ -120,6 +120,11 @@ deficiency (deuteranopia or tritanopia, respectively)."
 (define-obsolete-face-alias 'modus-themes-intense-magenta nil "5.0.0")
 (define-obsolete-face-alias 'modus-themes-intense-cyan nil "5.0.0")
 
+(define-obsolete-face-alias 'modus-themes-search-current nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-search-lazy nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-search-replace nil "5.0.0")
+(define-obsolete-face-alias 'modus-themes-search-static nil "5.0.0")
+
 ;; These faces are used internally to ensure consistency between various
 ;; groups and to streamline the evaluation of relevant customization
 ;; options.
@@ -161,14 +166,6 @@ deficiency (deuteranopia or tritanopia, respectively)."
    (intern (format "modus-themes-prominent-%s" scope))
    nil (format "Prominent notification of type %s." scope)
    :package-version '(modus-themes . "4.2.0")
-   :version "30.1"
-   :group 'modus-themes-faces))
-
-(dolist (scope '(current lazy replace static))
-  (custom-declare-face
-   (intern (format "modus-themes-search-%s" scope))
-   nil (format "Search of type %s." scope)
-   :package-version '(modus-themes . "5.0.0")
    :version "30.1"
    :group 'modus-themes-faces))
 
@@ -4520,11 +4517,6 @@ FG and BG are the main colors."
     `(modus-themes-prose-code ((,c :inherit modus-themes-fixed-pitch :background ,bg-prose-code :foreground ,fg-prose-code)))
     `(modus-themes-prose-macro ((,c :inherit modus-themes-fixed-pitch :background ,bg-prose-macro :foreground ,fg-prose-macro)))
     `(modus-themes-prose-verbatim ((,c :inherit modus-themes-fixed-pitch :background ,bg-prose-verbatim :foreground ,fg-prose-verbatim)))
-;;;;; search
-    `(modus-themes-search-current ((,c :background ,bg-search-current :foreground ,fg-main)))
-    `(modus-themes-search-lazy ((,c :background ,bg-search-lazy :foreground ,fg-main)))
-    `(modus-themes-search-replace ((,c :background ,bg-search-replace :foreground ,fg-main)))
-    `(modus-themes-search-static ((,c :background ,bg-search-static :foreground ,fg-main)))
 ;;;;; search regexp groups
     `(modus-themes-search-rx-group-0 ((,c :background ,bg-search-rx-group-0 :foreground ,fg-main)))
     `(modus-themes-search-rx-group-1 ((,c :background ,bg-search-rx-group-1 :foreground ,fg-main)))
@@ -4706,8 +4698,8 @@ FG and BG are the main colors."
     `(anzu-match-3 ((,c :inherit modus-themes-search-rx-group-2)))
     `(anzu-mode-line ((,c modus-themes-bold bold)))
     `(anzu-mode-line-no-match ((,c :inherit modus-themes-bold :foreground ,modeline-err)))
-    `(anzu-replace-highlight ((,c :inherit modus-themes-search-replace)))
-    `(anzu-replace-to ((,c :inherit modus-themes-search-current)))
+    `(anzu-replace-highlight ((,c :background ,bg-search-replace :foreground ,fg-main)))
+    `(anzu-replace-to ((,c :background ,bg-search-current :foreground ,fg-main)))
 ;;;;; auctex and Tex
     `(font-latex-bold-face ((,c :inherit bold)))
     `(font-latex-doctex-documentation-face ((,c :inherit modus-themes-slant :foreground ,docstring)))
@@ -4735,11 +4727,11 @@ FG and BG are the main colors."
     `(auto-dim-other-buffers-hide-face ((,c :foreground ,bg-inactive :background ,bg-inactive)))
 ;;;;; avy
     `(avy-background-face ((,c :background ,bg-dim :foreground ,fg-dim :extend t)))
-    `(avy-goto-char-timer-face ((,c :inherit (bold modus-themes-search-lazy modus-themes-reset-soft))))
-    `(avy-lead-face ((,c :inherit (bold modus-themes-search-current modus-themes-reset-soft))))
-    `(avy-lead-face-0 ((,c :inherit (bold modus-themes-search-current modus-themes-reset-soft))))
-    `(avy-lead-face-1 ((,c :inherit (bold modus-themes-search-current modus-themes-reset-soft))))
-    `(avy-lead-face-2 ((,c :inherit (bold modus-themes-search-current modus-themes-reset-soft))))
+    `(avy-goto-char-timer-face ((,c :inherit (bold modus-themes-reset-soft) :background ,bg-search-lazy :foreground ,fg-main)))
+    `(avy-lead-face ((,c :inherit (bold modus-themes-reset-soft) :background ,bg-search-current :foreground ,fg-main)))
+    `(avy-lead-face-0 ((,c :inherit (bold modus-themes-reset-soft) :background ,bg-search-current :foreground ,fg-main)))
+    `(avy-lead-face-1 ((,c :inherit (bold modus-themes-reset-soft) :background ,bg-search-current :foreground ,fg-main)))
+    `(avy-lead-face-2 ((,c :inherit (bold modus-themes-reset-soft) :background ,bg-search-current :foreground ,fg-main)))
 ;;;;; aw (ace-window)
     `(aw-background-face ((,c :foreground "gray50")))
     `(aw-key-face ((,c :inherit modus-themes-key-binding)))
@@ -4902,8 +4894,8 @@ FG and BG are the main colors."
 ;;;;; consult
     `(consult-async-split ((,c :foreground ,err)))
     `(consult-file ((,c :inherit modus-themes-bold :foreground ,info)))
-    `(consult-highlight-mark ((,c :inherit modus-themes-search-static)))
-    `(consult-highlight-match ((,c :inherit modus-themes-search-static)))
+    `(consult-highlight-mark ((,c :background ,bg-search-static :foreground ,fg-main)))
+    `(consult-highlight-match ((,c :background ,bg-search-static :foreground ,fg-main)))
     `(consult-imenu-prefix ((,c :foreground ,fg-dim)))
     `(consult-key ((,c :inherit modus-themes-key-binding)))
     `(consult-line-number ((,c :foreground ,fg-dim)))
@@ -4917,8 +4909,8 @@ FG and BG are the main colors."
 ;;;;; corfu-candidate-overlay
     `(corfu-candidate-overlay-face ((,c :foreground ,fg-dim)))
 ;;;;; corfu-quick
-    `(corfu-quick1 ((,c :inherit (bold modus-themes-search-current))))
-    `(corfu-quick2 ((,c :inherit (bold modus-themes-search-current))))
+    `(corfu-quick1 ((,c :inherit bold :background ,bg-search-current :foreground ,fg-main)))
+    `(corfu-quick2 ((,c :inherit bold :background ,bg-search-current :foreground ,fg-main)))
 ;;;;; counsel
     `(counsel-active-mode ((,c :foreground ,keyword)))
     `(counsel-application-name ((,c :foreground ,name)))
@@ -4939,9 +4931,9 @@ FG and BG are the main colors."
 ;;;;; csv-mode
     `(csv-separator-face (( )))
 ;;;;; ctrlf
-    `(ctrlf-highlight-active ((,c :inherit modus-themes-search-current)))
+    `(ctrlf-highlight-active ((,c :background ,bg-search-current :foreground ,fg-main)))
     `(ctrlf-highlight-line ((,c :background ,bg-hl-line :extend t)))
-    `(ctrlf-highlight-passive ((,c :inherit modus-themes-search-lazy)))
+    `(ctrlf-highlight-passive ((,c :background ,bg-search-lazy :foreground ,fg-main)))
 ;;;;; custom (M-x customize)
     `(custom-button ((,c :inherit modus-themes-button)))
     `(custom-button-mouse
@@ -4973,7 +4965,7 @@ FG and BG are the main colors."
     `(dashboard-items-face (( ))) ; use the underlying style of all-the-icons
 ;;;;; deadgrep
     `(deadgrep-filename-face ((,c :inherit modus-themes-bold :foreground ,name)))
-    `(deadgrep-match-face ((,c :inherit modus-themes-search-static)))
+    `(deadgrep-match-face ((,c :background ,bg-search-static :foreground ,fg-main)))
     `(deadgrep-meta-face ((,c :foreground ,fg-dim)))
     `(deadgrep-regexp-metachar-face ((,c :inherit modus-themes-bold :foreground ,rx-construct)))
     `(deadgrep-search-term-face ((,c :foreground ,info)))
@@ -5178,9 +5170,9 @@ FG and BG are the main colors."
     `(eglot-diagnostic-tag-unnecessary-face ((,c :inherit modus-themes-lang-note)))
 ;;;;; el-search
     `(el-search-highlight-in-prompt-face ((,c :inherit modus-themes-slant)))
-    `(el-search-match ((,c :inherit modus-themes-search-current)))
-    `(el-search-other-match ((,c :inherit modus-themes-search-lazy)))
-    `(el-search-occur-match ((,c :inherit modus-themes-search-static)))
+    `(el-search-match ((,c :background ,bg-search-current :foreground ,fg-main)))
+    `(el-search-other-match ((,c :background ,bg-search-lazy :foreground ,fg-main)))
+    `(el-search-occur-match ((,c :background ,bg-search-static :foreground ,fg-main)))
 ;;;;; eldoc
     ;; NOTE: see https://github.com/purcell/package-lint/issues/187
     (list 'eldoc-highlight-function-argument `((,c :inherit modus-themes-bold :background ,bg-active-argument :foreground ,fg-active-argument)))
@@ -5222,7 +5214,7 @@ FG and BG are the main colors."
     `(ement-room-mention ((,c :background ,bg-hover :foreground ,fg-main)))
     `(ement-room-name ((,c :inherit modus-themes-bold)))
     `(ement-room-reactions ((,c :foreground ,fg-dim)))
-    `(ement-room-read-receipt-marker ((,c :inherit modus-themes-search-static)))
+    `(ement-room-read-receipt-marker ((,c :background ,bg-search-static :foreground ,fg-main)))
     `(ement-room-self ((,c :inherit modus-themes-bold :foreground ,accent-1)))
     `(ement-room-self-message ((,c :foreground ,fg-alt)))
     `(ement-room-timestamp ((,c :foreground ,fg-dim)))
@@ -5253,7 +5245,7 @@ FG and BG are the main colors."
     `(erc-bold-face ((,c :inherit bold)))
     `(erc-button ((,c :background ,bg-link :foreground ,fg-link :underline ,underline-link)))
     `(erc-command-indicator-face ((,c :inherit modus-themes-bold :foreground ,accent-3)))
-    `(erc-current-nick-face ((,c :inherit modus-themes-search-static)))
+    `(erc-current-nick-face ((,c :background ,bg-search-static :foreground ,fg-main)))
     `(erc-dangerous-host-face ((,c :foreground ,err)))
     `(erc-direct-msg-face ((,c :foreground ,fg-dim)))
     `(erc-error-face ((,c :foreground ,err)))
@@ -5300,10 +5292,10 @@ FG and BG are the main colors."
 ;;;;; evil-mode
     `(evil-ex-commands ((,c :inherit modus-themes-bold :foreground ,keyword)))
     `(evil-ex-info ((,c :inherit modus-themes-bold :foreground ,type)))
-    `(evil-ex-lazy-highlight ((,c :inherit modus-themes-search-lazy)))
-    `(evil-ex-search ((,c :inherit modus-themes-search-current)))
-    `(evil-ex-substitute-matches ((,c :inherit modus-themes-search-replace)))
-    `(evil-ex-substitute-replacement ((,c :inherit modus-themes-search-current)))
+    `(evil-ex-lazy-highlight ((,c :background ,bg-search-lazy :foreground ,fg-main)))
+    `(evil-ex-search ((,c :background ,bg-search-current :foreground ,fg-main)))
+    `(evil-ex-substitute-matches ((,c :background ,bg-search-replace :foreground ,fg-main)))
+    `(evil-ex-substitute-replacement ((,c :background ,bg-search-current :foreground ,fg-main)))
 ;;;;; eww
     `(eww-invalid-certificate ((,c :foreground ,err)))
     `(eww-valid-certificate ((,c :foreground ,info)))
@@ -5540,7 +5532,7 @@ FG and BG are the main colors."
 ;;;;; highlight-numbers
     `(highlight-numbers-number ((,c :foreground ,constant)))
 ;;;;; highlight-thing
-    `(highlight-thing ((,c :inherit modus-themes-search-static)))
+    `(highlight-thing ((,c :background ,bg-search-static :foreground ,fg-main)))
 ;;;;; hl-fill-column
     `(hl-fill-column-face ((,c :background ,bg-active)))
 ;;;;; hl-todo
@@ -5562,7 +5554,7 @@ FG and BG are the main colors."
     `(howm-reminder-tomorrow-face ((,c :inherit modus-themes-bold :foreground ,date-scheduled)))
     `(howm-simulate-todo-mode-line-face ((,c :inherit modus-themes-bold)))
     `(howm-view-empty-face (( )))
-    `(howm-view-hilit-face ((,c :inherit modus-themes-search-static)))
+    `(howm-view-hilit-face ((,c :background ,bg-search-static :foreground ,fg-main)))
     `(howm-view-name-face ((,c :inherit modus-themes-bold)))
     `(iigrep-counts-face1 ((,c :foreground ,rainbow-1)))
     `(iigrep-counts-face2 ((,c :foreground ,rainbow-2)))
@@ -5593,8 +5585,8 @@ FG and BG are the main colors."
     `(ido-subdir ((,c :foreground ,keyword)))
     `(ido-virtual ((,c :foreground ,warning)))
 ;;;;; iedit
-    `(iedit-occurrence ((,c :inherit modus-themes-search-lazy)))
-    `(iedit-read-only-occurrence ((,c :inherit modus-themes-search-current)))
+    `(iedit-occurrence ((,c :background ,bg-search-lazy :foreground ,fg-main)))
+    `(iedit-read-only-occurrence ((,c :background ,bg-search-current :foreground ,fg-main)))
 ;;;;; iflipb
     `(iflipb-current-buffer-face ((,c :inherit modus-themes-bold :foreground ,name)))
     `(iflipb-other-buffer-face ((,c :foreground ,fg-dim)))
@@ -5616,7 +5608,7 @@ FG and BG are the main colors."
     `(Info-quoted ((,c :inherit modus-themes-prose-verbatim))) ; the capitalization is canonical
     `(info-header-node ((,c :inherit modus-themes-bold :foreground ,fg-dim)))
     `(info-header-xref ((,c :foreground ,fg-link)))
-    `(info-index-match ((,c :inherit modus-themes-search-static)))
+    `(info-index-match ((,c :background ,bg-search-static :foreground ,fg-main)))
     `(info-menu-header ((,c :inherit modus-themes-heading-5)))
     `(info-menu-star ((,c :foreground ,err)))
     `(info-node ((,c :inherit modus-themes-bold)))
@@ -5659,20 +5651,20 @@ FG and BG are the main colors."
 ;;;;; ioccur
     `(ioccur-cursor ((,c :foreground ,fg-main)))
     `(ioccur-invalid-regexp ((,c :foreground ,err)))
-    `(ioccur-match-face ((,c :inherit modus-themes-search-static)))
+    `(ioccur-match-face ((,c :background ,bg-search-static :foreground ,fg-main)))
     `(ioccur-match-overlay-face ((,c :background ,bg-inactive :extend t)))
     `(ioccur-num-line-face ((,c :foreground ,fg-dim)))
     `(ioccur-overlay-face ((,c :background ,bg-hl-line :extend t)))
-    `(ioccur-regexp-face ((,c :inherit modus-themes-search-current)))
+    `(ioccur-regexp-face ((,c :background ,bg-search-current :foreground ,fg-main)))
     `(ioccur-title-face ((,c :inherit modus-themes-bold :foreground ,name)))
 ;;;;; isearch, occur, and the like
-    `(isearch ((,c :inherit modus-themes-search-current)))
+    `(isearch ((,c :background ,bg-search-current :foreground ,fg-main)))
     `(isearch-fail ((,c :inherit modus-themes-prominent-error)))
     `(isearch-group-1 ((,c :inherit modus-themes-search-rx-group-0)))
     `(isearch-group-2 ((,c :inherit modus-themes-search-rx-group-1)))
-    `(lazy-highlight ((,c :inherit modus-themes-search-lazy)))
-    `(match ((,c :inherit modus-themes-search-static)))
-    `(query-replace ((,c :inherit modus-themes-search-replace)))
+    `(lazy-highlight ((,c :background ,bg-search-lazy :foreground ,fg-main)))
+    `(match ((,c :background ,bg-search-static :foreground ,fg-main)))
+    `(query-replace ((,c :background ,bg-search-replace :foreground ,fg-main)))
 ;;;;; ivy
     `(ivy-action ((,c :inherit modus-themes-key-binding)))
     `(ivy-confirm-face ((,c :foreground ,info)))
@@ -5784,7 +5776,7 @@ FG and BG are the main colors."
     `(line-number-minor-tick ((,c :inherit ,(if modus-themes-mixed-fonts '(fixed-pitch default) 'default) :background ,bg-line-number-inactive :foreground ,accent-1)))
 ;;;;; lsp
     `(lsp-details-face ((,c :height 0.9 :foreground ,fg-dim)))
-    `(lsp-face-rename ((,c :inherit modus-themes-search-replace)))
+    `(lsp-face-rename ((,c :background ,bg-search-replace :foreground ,fg-main)))
     `(lsp-headerline-breadcrumb-separator-face ((,c :foreground ,fg-dim)))
     `(lsp-headerline-breadcrumb-path-face ((,c :foreground ,string)))
     `(lsp-headerline-breadcrumb-path-error-face ((,c :inherit modus-themes-lang-error)))
@@ -6433,7 +6425,7 @@ FG and BG are the main colors."
     `(proced-user (( )))
 ;;;;; popup
     `(popup-face ((,c :background ,bg-inactive :foreground ,fg-main)))
-    `(popup-isearch-match ((,c :inherit modus-themes-search-current)))
+    `(popup-isearch-match ((,c :background ,bg-search-current :foreground ,fg-main)))
     `(popup-menu-mouse-face ((,c :background ,bg-hover :foreground ,fg-main)))
     `(popup-menu-selection-face ((,c :inherit modus-themes-completion-selected)))
     `(popup-scroll-bar-background-face ((,c :background ,bg-active)))
@@ -6541,7 +6533,7 @@ FG and BG are the main colors."
     `(rg-filename-face ((,c :inherit modus-themes-bold :foreground ,name)))
     `(rg-line-number-face ((,c :foreground ,fg-dim)))
     `(rg-literal-face ((,c :foreground ,constant)))
-    `(rg-match-face ((,c :inherit modus-themes-search-static)))
+    `(rg-match-face ((,c :background ,bg-search-static :foreground ,fg-main)))
     `(rg-regexp-face ((,c :foreground ,name)))
     `(rg-toggle-off-face ((,c :inherit modus-themes-bold :foreground ,fg-dim)))
     `(rg-toggle-on-face ((,c :foreground ,info)))
@@ -6550,7 +6542,7 @@ FG and BG are the main colors."
     `(ripgrep-context-face ((,c :foreground ,fg-dim)))
     `(ripgrep-error-face ((,c :foreground ,err)))
     `(ripgrep-hit-face ((,c :foreground ,info)))
-    `(ripgrep-match-face ((,c :inherit modus-themes-search-static)))
+    `(ripgrep-match-face ((,c :background ,bg-search-static :foreground ,fg-main)))
 ;;;;; rmail
     `(rmail-header-name ((,c :inherit bold)))
     `(rmail-highlight ((,c :inherit bold :foreground ,mail-other)))
@@ -6602,7 +6594,7 @@ FG and BG are the main colors."
     `(shr-h4 ((,c :inherit modus-themes-heading-4)))
     `(shr-h5 ((,c :inherit modus-themes-heading-5)))
     `(shr-h6 ((,c :inherit modus-themes-heading-6)))
-    `(shr-mark ((,c :inherit modus-themes-search-static)))
+    `(shr-mark ((,c :background ,bg-search-static :foreground ,fg-main)))
     `(shr-selected-link ((,c :inherit modus-themes-mark-sel)))
 ;;;;; side-notes
     `(side-notes ((,c :background ,bg-dim :foreground ,fg-dim)))
@@ -6936,20 +6928,20 @@ FG and BG are the main colors."
 ;;;;; vertico
     `(vertico-current ((,c :inherit modus-themes-completion-selected)))
 ;;;;; vertico-quick
-    `(vertico-quick1 ((,c :inherit (bold modus-themes-search-current))))
-    `(vertico-quick2 ((,c :inherit (bold modus-themes-search-current))))
+    `(vertico-quick1 ((,c :inherit bold :background ,bg-search-current :foreground ,fg-main)))
+    `(vertico-quick2 ((,c :inherit bold :background ,bg-search-current :foreground ,fg-main)))
 ;;;;; vimish-fold
     `(vimish-fold-fringe ((,c :foreground ,info)))
     `(vimish-fold-mouse-face ((,c :background ,bg-hover :foreground ,fg-main)))
     `(vimish-fold-overlay ((,c :background ,bg-inactive)))
 ;;;;; viper
-    `(viper-search ((,c :inherit modus-themes-search-current)))
-    `(viper-replace-overlay ((,c :inherit modus-themes-search-replace)))
+    `(viper-search ((,c :background ,bg-search-current :foreground ,fg-main)))
+    `(viper-replace-overlay ((,c :background ,bg-search-replace :foreground ,fg-main)))
     `(viper-minibuffer-emacs (( )))
     `(viper-minibuffer-insert (( )))
     `(viper-minibuffer-vi (( )))
 ;;;;; visible-mark
-    `(visible-mark-active ((,c :inherit modus-themes-search-static)))
+    `(visible-mark-active ((,c :background ,bg-search-static :foreground ,fg-main)))
     `(visible-mark-face1 ((,c :inherit modus-themes-search-rx-group-0)))
     `(visible-mark-face2 ((,c :inherit modus-themes-search-rx-group-1)))
     `(visible-mark-forward-face1 ((,c :inherit modus-themes-search-rx-group-2)))
@@ -6958,8 +6950,8 @@ FG and BG are the main colors."
     `(vr/group-0 ((,c :inherit modus-themes-search-rx-group-0)))
     `(vr/group-1 ((,c :inherit modus-themes-search-rx-group-1)))
     `(vr/group-2 ((,c :inherit modus-themes-search-rx-group-2)))
-    `(vr/match-0 ((,c :inherit modus-themes-search-current)))
-    `(vr/match-1 ((,c :inherit modus-themes-search-lazy)))
+    `(vr/match-0 ((,c :background ,bg-search-current :foreground ,fg-main)))
+    `(vr/match-1 ((,c :background ,bg-search-lazy :foreground ,fg-main)))
     `(vr/match-separator-face ((,c :inherit bold :background ,bg-active)))
 ;;;;; vterm
     `(vterm-color-black ((,c :background ,bg-term-black :foreground ,fg-term-black)))
