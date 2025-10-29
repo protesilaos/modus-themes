@@ -828,6 +828,13 @@ represents."
     (overline-heading-7 unspecified)
     (overline-heading-8 unspecified)))
 
+;; FIXME 2025-10-29: Can we not autoload these palettes? I would
+;; rather have them in their respective files. I tried to declare them
+;; with `defcustom'/`defvar' and do `custom-autoload' plus `provide'
+;; the feature of the file. No matter how I do it and where I call
+;; `custom-autoload' from, it does not have the desired effect: the
+;; palette is always void if the feature is not explicitly `require'd.
+
 (defconst modus-themes-operandi-palette
   (append
    '(
