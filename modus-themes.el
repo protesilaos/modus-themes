@@ -5314,7 +5314,7 @@ FG and BG are the main colors."
     `(forge-topic-slug-open ((,c :foreground ,fg-dim)))
     `(forge-topic-slug-saved ((,c :foreground ,info)))
     `(forge-topic-slug-unplanned ((,c :foreground ,fg-dim :strike-through t)))
-    `(forge-topic-unread ((,c :inherit modus-themes-bold)))
+    `(forge-topic-unread ((,c :inherit bold)))
 ;;;;; geiser
     `(geiser-font-lock-autodoc-current-arg ((,c :inherit modus-themes-bold :background ,bg-active-argument :foreground ,fg-active-argument)))
     `(geiser-font-lock-autodoc-identifier ((,c :foreground ,docstring)))
@@ -5416,7 +5416,7 @@ FG and BG are the main colors."
     `(gnus-summary-high-read ((,c :inherit modus-themes-bold :foreground ,fg-dim)))
     `(gnus-summary-high-ticked ((,c :inherit modus-themes-bold :foreground ,err)))
     `(gnus-summary-high-undownloaded ((,c :inherit modus-themes-bold :foreground ,warning)))
-    `(gnus-summary-high-unread ((,c :inherit modus-themes-bold)))
+    `(gnus-summary-high-unread ((,c :inherit bold)))
     `(gnus-summary-low-ancient ((,c :inherit modus-themes-slant)))
     `(gnus-summary-low-read ((,c :inherit modus-themes-slant :foreground ,fg-dim)))
     `(gnus-summary-low-ticked ((,c :inherit modus-themes-slant :foreground ,err)))
