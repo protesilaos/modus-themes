@@ -146,22 +146,6 @@ deficiency (deuteranopia or tritanopia, respectively)."
 ;; groups and to streamline the evaluation of relevant customization
 ;; options.
 
-(dolist (color '(red green yellow blue magenta cyan))
-  (custom-declare-face
-   (intern (format "modus-themes-subtle-%s" color))
-   nil (format "Subtle %s background." color)
-   :package-version '(modus-themes . "4.0.0")
-   :version "30.1"
-   :group 'modus-themes-faces))
-
-(dolist (color '(red green yellow blue magenta cyan))
-  (custom-declare-face
-   (intern (format "modus-themes-intense-%s" color))
-   nil (format "Intense %s background." color)
-   :package-version '(modus-themes . "4.0.0")
-   :version "30.1"
-   :group 'modus-themes-faces))
-
 (dolist (scope '(alt del sel))
   (custom-declare-face
    (intern (format "modus-themes-mark-%s" scope))
