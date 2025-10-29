@@ -5121,7 +5121,7 @@ FG and BG are the main colors."
     `(elfeed-search-tag-face ((,c :foreground ,accent-0)))
     `(elfeed-search-title-face ((,c :foreground ,fg-dim)))
     `(elfeed-search-unread-count-face (( )))
-    `(elfeed-search-unread-title-face ((,c :inherit modus-themes-bold :foreground ,fg-main)))
+    `(elfeed-search-unread-title-face ((,c :inherit bold :foreground ,fg-main)))
 ;;;;; elfeed-score
     `(elfeed-score-date-face ((,c :foreground ,date-common)))
     `(elfeed-score-debug-level-face ((,c :inherit modus-themes-bold)))
