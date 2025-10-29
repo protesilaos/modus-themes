@@ -2516,7 +2516,7 @@ exists in the palette and is associated with a HEX-VALUE.")
      (fg-lavender "#dfc0f0")
 
      (bg-sage     "#143e32")
-     (fg-sage     "#c3e7d4")
+     (fg-sage     "#83d7ac")
 
      ;; Graphs
 
