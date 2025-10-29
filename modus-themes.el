@@ -198,12 +198,12 @@ text should not be underlined as well) yet still blend in."
   "Generic face for command prompts."
   :group 'modus-themes-faces)
 
-(defface modus-themes-completion-selected nil
-  "Face for current selection in completion UIs."
-  :group 'modus-themes-faces)
-
 (defface modus-themes-button nil
   "Face for graphical buttons."
+  :group 'modus-themes-faces)
+
+(defface modus-themes-completion-selected nil
+  "Face for current selection in completion UIs."
   :group 'modus-themes-faces)
 
 (dotimes (n 4)
