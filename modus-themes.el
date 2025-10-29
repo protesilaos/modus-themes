@@ -983,6 +983,7 @@ represents."
      (constant blue-cooler)
      (docstring green-faint)
      (fnname magenta)
+     (fnname-call pink)
      (keyword magenta-cooler)
      (preprocessor red-cooler)
      (property cyan)
@@ -991,6 +992,7 @@ represents."
      (string blue-warmer)
      (type cyan-cooler)
      (variable cyan)
+     (variable-use slate)
 
      ;; Accent mappings
 
@@ -1309,6 +1311,7 @@ exists in the palette and is associated with a HEX-VALUE.")
      (constant magenta-cooler)
      (docstring cyan-faint)
      (fnname yellow-cooler)
+     (fnname-call pink)
      (keyword blue)
      (preprocessor yellow-warmer)
      (property green-cooler)
@@ -1317,6 +1320,7 @@ exists in the palette and is associated with a HEX-VALUE.")
      (string cyan)
      (type green-warmer)
      (variable green-cooler)
+     (variable-use green-faint)
 
      ;; Accent mappings
 
@@ -1636,6 +1640,7 @@ exists in the palette and is associated with a HEX-VALUE.")
      (constant blue-faint)
      (docstring green-faint)
      (fnname yellow-warmer)
+     (fnname-call yellow-faint)
      (keyword blue-cooler)
      (preprocessor magenta-cooler)
      (property cyan)
@@ -1644,6 +1649,7 @@ exists in the palette and is associated with a HEX-VALUE.")
      (string blue-warmer)
      (type cyan-cooler)
      (variable cyan)
+     (variable-use indigo)
 
      ;; Accent mappings
 
@@ -1961,6 +1967,7 @@ exists in the palette and is associated with a HEX-VALUE.")
      (constant green-cooler)
      (docstring fg-alt)
      (fnname cyan-warmer)
+     (fnname-call cyan-faint)
      (keyword red-cooler)
      (preprocessor red-warmer)
      (property cyan-cooler)
@@ -1969,6 +1976,7 @@ exists in the palette and is associated with a HEX-VALUE.")
      (string cyan)
      (type blue-warmer)
      (variable cyan-cooler)
+     (variable-use olive)
 
      ;; Accent mappings
 
@@ -2286,6 +2294,7 @@ exists in the palette and is associated with a HEX-VALUE.")
      (constant blue-cooler)
      (docstring cyan-faint)
      (fnname magenta)
+     (fnname-call pink)
      (keyword magenta-cooler)
      (preprocessor red-cooler)
      (property cyan)
@@ -2294,6 +2303,7 @@ exists in the palette and is associated with a HEX-VALUE.")
      (string blue-warmer)
      (type cyan-cooler)
      (variable cyan)
+     (variable-use slate)
 
      ;; Accent mappings
 
@@ -2611,6 +2621,7 @@ exists in the palette and is associated with a HEX-VALUE.")
      (constant magenta-cooler)
      (docstring cyan-faint)
      (fnname magenta-warmer)
+     (fnname-call pink)
      (keyword blue-warmer)
      (preprocessor red-cooler)
      (property cyan-warmer)
@@ -2619,6 +2630,7 @@ exists in the palette and is associated with a HEX-VALUE.")
      (string blue)
      (type green-cooler)
      (variable cyan-warmer)
+     (variable-use green-faint)
 
      ;; Accent mappings
 
@@ -2936,6 +2948,7 @@ exists in the palette and is associated with a HEX-VALUE.")
      (constant blue-faint)
      (docstring cyan-faint)
      (fnname yellow-warmer)
+     (fnname-call gold)
      (keyword blue-cooler)
      (preprocessor magenta-cooler)
      (property cyan)
@@ -2944,6 +2957,7 @@ exists in the palette and is associated with a HEX-VALUE.")
      (string blue-warmer)
      (type cyan-cooler)
      (variable cyan)
+     (variable-use slate)
 
      ;; Accent mappings
 
@@ -3263,6 +3277,7 @@ exists in the palette and is associated with a HEX-VALUE.")
      (constant green-faint)
      (docstring fg-alt)
      (fnname cyan-warmer)
+     (fnname-call indigo)
      (keyword red-cooler)
      (preprocessor red-warmer)
      (property cyan-cooler)
@@ -3271,6 +3286,7 @@ exists in the palette and is associated with a HEX-VALUE.")
      (string cyan)
      (type blue-warmer)
      (variable cyan-cooler)
+     (variable-use slate)
 
      ;; Accent mappings
 
@@ -5284,6 +5300,7 @@ FG and BG are the main colors."
     `(font-lock-delimiter-face ((,c :foreground ,delimiter)))
     `(font-lock-doc-face ((,c :inherit modus-themes-slant :foreground ,docstring)))
     `(font-lock-doc-markup-face ((,c :inherit modus-themes-slant :foreground ,docmarkup)))
+    `(font-lock-function-call-face ((,c :foreground ,fnname-call)))
     `(font-lock-function-name-face ((,c :foreground ,fnname)))
     `(font-lock-keyword-face ((,c :inherit modus-themes-bold :foreground ,keyword)))
     `(font-lock-negation-char-face ((,c :foreground ,err)))
@@ -5297,6 +5314,7 @@ FG and BG are the main colors."
     `(font-lock-string-face ((,c :foreground ,string)))
     `(font-lock-type-face ((,c :inherit modus-themes-bold :foreground ,type)))
     `(font-lock-variable-name-face ((,c :foreground ,variable)))
+    `(font-lock-variable-use-face ((,c :foreground ,variable-use)))
     `(font-lock-warning-face ((,c :inherit modus-themes-bold :foreground ,warning)))
 ;;;;; forge
     `(forge-dimmed ((,c :foreground ,fg-dim)))
