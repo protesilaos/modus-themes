@@ -478,8 +478,6 @@ and related user options."
           :value-type ,modus-themes--headings-widget)
   :link '(info-link "(modus-themes) Heading styles"))
 
-(make-obsolete-variable 'modus-themes-org-blocks nil "4.4.0: Use palette overrides")
-
 (defcustom modus-themes-completions nil
   "Control the style of completion user interfaces.
 
