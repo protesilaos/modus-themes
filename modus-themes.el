@@ -2183,7 +2183,7 @@ exists in the palette and is associated with a HEX-VALUE.")
      (fg-clay     "#f1b090")
 
      (bg-ochre    "#462f20")
-     (fg-ochre    "#e0d09c")
+     (fg-ochre    "#e0d38c")
 
      (bg-lavender "#38325c")
      (fg-lavender "#dfc0f0")
