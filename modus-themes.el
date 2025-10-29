@@ -146,14 +146,6 @@ deficiency (deuteranopia or tritanopia, respectively)."
 ;; groups and to streamline the evaluation of relevant customization
 ;; options.
 
-(dolist (scope '(alt del sel))
-  (custom-declare-face
-   (intern (format "modus-themes-mark-%s" scope))
-   nil (format "Mark of type %s." scope)
-   :package-version '(modus-themes . "4.0.0")
-   :version "30.1"
-   :group 'modus-themes-faces))
-
 (dolist (scope '(note warning error))
   (custom-declare-face
    (intern (format "modus-themes-prominent-%s" scope))
