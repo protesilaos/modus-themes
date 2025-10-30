@@ -6290,7 +6290,7 @@ FG and BG are the main colors."
     `(org-level-7 ((,c :inherit modus-themes-heading-7)))
     `(org-level-8 ((,c :inherit modus-themes-heading-8)))
     `(org-link ((,c :background ,bg-link :foreground ,fg-link :underline ,underline-link)))
-    `(org-list-dt ((,c :inherit modus-themes-bold)))
+    `(org-list-dt ((,c :inherit modus-themes-bold :foreground ,fg-alt)))
     `(org-macro ((,c :inherit modus-themes-fixed-pitch :background ,bg-prose-macro :foreground ,fg-prose-macro)))
     `(org-meta-line ((,c :inherit modus-themes-fixed-pitch :foreground ,prose-metadata)))
     `(org-mode-line-clock (( )))
