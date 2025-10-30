@@ -5111,6 +5111,7 @@ FG and BG are the main colors."
     `(ein:markdowncell-input-area-face (( )))
     `(ein:notification-tab-normal ((,c :inherit underline)))
 ;;;;; eglot
+    `(eglot-highlight-symbol-face ((,c :underline ,border)))
     `(eglot-mode-line ((,c :inherit modus-themes-bold :foreground ,modeline-info)))
     `(eglot-diagnostic-tag-unnecessary-face ((,c :underline (:style wave :color ,underline-note))))
 ;;;;; el-search
