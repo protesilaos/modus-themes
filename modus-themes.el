@@ -2630,7 +2630,7 @@ exists in the palette and is associated with a HEX-VALUE.")
      (string blue)
      (type green-cooler)
      (variable cyan-warmer)
-     (variable-use green-faint)
+     (variable-use olive)
 
      ;; Accent mappings
 
