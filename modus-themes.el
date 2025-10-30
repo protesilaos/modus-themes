@@ -835,8 +835,8 @@ represents."
      ;; Uncommon accent foregrounds
 
      (rust       "#8a290f")
-     (gold       "#80601f")
-     (olive      "#56692d")
+     (gold       "#6c501c")
+     (olive      "#4c6000")
      (slate      "#2f3f83")
      (indigo     "#4a3a8a")
      (maroon     "#731c52")
@@ -1164,8 +1164,8 @@ exists in the palette and is associated with a HEX-VALUE.")
      ;; Uncommon accent foregrounds
 
      (rust       "#8a290f")
-     (gold       "#80601f")
-     (olive      "#56692d")
+     (gold       "#6c501c")
+     (olive      "#425d00")
      (slate      "#2f3f83")
      (indigo     "#4a3a8a")
      (maroon     "#731c52")
@@ -1491,8 +1491,8 @@ exists in the palette and is associated with a HEX-VALUE.")
      ;; Uncommon accent foregrounds
 
      (rust       "#8a290f")
-     (gold       "#80601f")
-     (olive      "#56692d")
+     (gold       "#70550f")
+     (olive      "#4c6000")
      (slate      "#2f3f83")
      (indigo     "#4a3a8a")
      (maroon     "#731c52")
@@ -1820,8 +1820,8 @@ exists in the palette and is associated with a HEX-VALUE.")
      ;; Uncommon accent foregrounds
 
      (rust       "#8a290f")
-     (gold       "#80601f")
-     (olive      "#56692d")
+     (gold       "#70550f")
+     (olive      "#4c6000")
      (slate      "#2f3f83")
      (indigo     "#4a3a8a")
      (maroon     "#731c52")
