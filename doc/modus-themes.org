@@ -4439,6 +4439,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + eldoc-box
 + elfeed
 + elfeed-score
++ elisp (Emacs Lisp semantic highlighting)
 + elpher
 + embark
 + ement
@@ -5926,8 +5927,8 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Petegem, Christian Tietze, Christopher Dimech, Christopher League,
   Damien Cassou, Daniel Mendler, Dario Gjorgjevski, David Edmondson,
   Davor Rotim, Divan Santana, Eliraz Kedmi, Emanuele Michele Alberto
-  Monterosso, Farasha Euker, Feng Shu, Filippo Argiolas, Gautier
-  Ponsinet, Gerry Agbobada, Gianluca Recchia, Gonçalo Marrafa,
+  Monterosso, Eshel Yaron, Farasha Euker, Feng Shu, Filippo Argiolas,
+  Gautier Ponsinet, Gerry Agbobada, Gianluca Recchia, Gonçalo Marrafa,
   Guilherme Semente, Gustavo Barros, Hörmetjan Yiltiz, Ilja Kocken,
   Imran Khan, Iris Garcia, Ivan Popovych, Jabir Ali Ouassou, James
   Ferguson, Jeremy Friesen, Jerry Zhang, Johannes Grødem, John Haman,
