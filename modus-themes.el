@@ -5984,7 +5984,7 @@ FG and BG are the main colors."
     `(markup-title-5-face ((,c :inherit modus-themes-heading-6)))
     `(markup-verbatim-face ((,c :inherit modus-themes-fixed-pitch :background ,bg-prose-verbatim :foreground ,fg-prose-verbatim)))
 ;;;;; mbdepth
-    `(minibuffer-depth-indicator ((,c :inherit bold :background ,bg-mark-other :foreground ,fg-mark-other)))
+    `(minibuffer-depth-indicator ((,c :inverse-video t)))
 ;;;;; mct
     `(mct-highlight-candidate ((,c :inherit modus-themes-completion-selected)))
 ;;;;; messages
