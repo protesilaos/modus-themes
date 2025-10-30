@@ -6262,7 +6262,11 @@ FG and BG are the main colors."
     ;; with the :box, but I do it here because the keys are otherwise
     ;; very hard to read.  The square brackets around them are not
     ;; colored, which is what is causing the problem.
-    `(org-dispatcher-highlight ((,c :inherit modus-themes-bold :box (:line-width 2 :color ,bg-hover-secondary) :background ,bg-hover-secondary :foreground ,fg-main)))
+    `(org-dispatcher-highlight
+      ((default :background ,bg-mark-select :foreground ,fg-main)
+       (((supports :box t))
+        :box (:line-width 2 :color ,bg-mark-select))
+       (t :underline ,border)))
     `(org-document-info ((,c :foreground ,prose-metadata-value)))
     `(org-document-info-keyword ((,c :inherit modus-themes-fixed-pitch :foreground ,prose-metadata)))
     `(org-document-title ((,c :inherit modus-themes-heading-0)))
