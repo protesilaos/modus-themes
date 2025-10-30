@@ -1976,7 +1976,7 @@ exists in the palette and is associated with a HEX-VALUE.")
      (string cyan)
      (type blue-warmer)
      (variable cyan-cooler)
-     (variable-use olive)
+     (variable-use slate)
 
      ;; Accent mappings
 
