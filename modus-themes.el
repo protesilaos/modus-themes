@@ -5163,7 +5163,7 @@ FG and BG are the main colors."
     `(elisp-defun ((,c :foreground ,fnname)))
     `(elisp-defvar ((,c :foreground ,variable)))
     `(elisp-face (( )))
-    `(elisp-feature (( )))
+    `(elisp-feature ((,c :foreground ,constant)))
     `(elisp-free-variable (( )))
     `(elisp-function ((,c :foreground ,fnname-call)))
     `(elisp-function-property-declaration ((,c :foreground ,builtin)))
