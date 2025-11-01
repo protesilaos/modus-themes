@@ -1279,7 +1279,7 @@ Examples demonstrating how to use the aforementioned:
 #+findex: modus-themes-list-colors
 The command ~modus-themes-list-colors~ uses minibuffer completion to
 select an item from the Modus themes and then produces a buffer with
-previews of all of its color palette entries.
+previews of all of its color palette entries ([[#h:4952cd81-8a9a-4a4e-9867-3e63b9ef2f7e][Commands for the preview palette buffer]]).
 
 #+findex: modus-themes-list-colors-current
 The command ~modus-themes-list-colors-current~ skips the minibuffer
@@ -1305,6 +1305,53 @@ The name of the buffer describes the given Modus theme and what the
 contents are, such as =*modus-operandi-list-all*= for the entirety of
 the palette (named colors as well as semantic color mappings) and
 ==*modus-operandi-list-mappings*= for the mappings only.
+
+** Commands for the preview palette buffer
+:PROPERTIES:
+:CUSTOM_ID: h:4952cd81-8a9a-4a4e-9867-3e63b9ef2f7e
+:END:
+
+[ This is part of {{{development-version}}}. ]
+
+#+findex: modus-themes-preview-mode
+#+vindex: modus-themes-preview-mode-map
+The palette preview buffer uses the major mode ~modus-themes-preview-mode~,
+which provides the ~modus-themes-preview-mode-map~ ([[#h:f4d4b71b-2ca5-4c3d-b0b4-9bfd7aa7fb4d][Preview theme colors]]).
+The following key bindings are available by default:
+
+| Default key binding | Name of the command                    |
+|---------------------+----------------------------------------|
+| =w=                 | ~modus-themes-preview-mode-copy-color~ |
+| =W=                 | ~modus-themes-preview-mode-copy-entry~ |
+| =m=                 | ~modus-themes-preview-mode-mark~       |
+| =M=                 | ~modus-themes-preview-mode-mark-all~   |
+| =u=                 | ~modus-themes-preview-mode-unmark~     |
+| =U=                 | ~modus-themes-preview-mode-unmark-all~ |
+
+#+findex: modus-themes-preview-mode-copy-color
+The command ~modus-themes-preview-mode-copy-color~ copies the resolved
+color value of the entry at point or of all the marked entries. This
+means that it always returns a string with the value of the color, not
+a symbolic representation of it. For example, if =cursor= is mapped to
+=red-warmer=, this command will return ="#972500"= while previewing
+the palette of the ~modus-operandi~ theme.
+
+#+findex: modus-themes-preview-mode-copy-entry
+The command ~modus-themes-preview-mode-copy-entry~ copies the palette
+entry as such. This is how the entry is in the underlying palette
+definition. For example, it will return =(magenta-cooler "#531ab6")=
+or =(keybind blue-warmer)=. Copying those is useful as a starting
+point for writing palette overrides ([[#h:34c7a691-19bb-4037-8d2f-67a07edab150][Option for palette overrides]]).
+
+#+findex: modus-themes-preview-mode-mark
+#+findex: modus-themes-preview-mode-mark-all
+#+findex: modus-themes-preview-mode-unmark
+#+findex: modus-themes-preview-mode-unmark-all
+The commands ~modus-themes-preview-mode-mark~, ~modus-themes-preview-mode-mark-all~,
+~modus-themes-preview-mode-unmark~, and ~modus-themes-preview-mode-unmark-all~,
+will add or remove a marker from the current or affected lines. These
+marks influence the result of the aforementioned commands for copying
+colors and palette entries.
 
 * Use colors from the Modus themes palette
 :PROPERTIES:
