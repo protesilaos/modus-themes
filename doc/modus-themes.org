@@ -4,9 +4,9 @@
 #+language: en
 #+options: ':t toc:nil author:t email:t num:t
 #+startup: content
-#+macro: stable-version 4.8.0
-#+macro: release-date 2025-06-11
-#+macro: development-version 5.0.0-dev
+#+macro: stable-version 5.0.0
+#+macro: release-date 2025-11-01
+#+macro: development-version 5.1.0-dev
 #+macro: file @@texinfo:@file{@@$1@@texinfo:}@@
 #+macro: space @@texinfo:@: @@
 #+macro: kbd @@texinfo:@kbd{@@$1@@texinfo:}@@
@@ -698,8 +698,6 @@ Possible values:
 :CUSTOM_ID: h:a10c0202-3683-4fad-9897-433c25e255f6
 :END:
 
-[ Default value and behaviour changed as part of {{{development-version}}}. ]
-
 #+findex: modus-themes-rotate
 Brief: Specify which themes to rotate through when using the command
 ~modus-themes-rotate~.
@@ -1310,8 +1308,6 @@ the palette (named colors as well as semantic color mappings) and
 :PROPERTIES:
 :CUSTOM_ID: h:4952cd81-8a9a-4a4e-9867-3e63b9ef2f7e
 :END:
-
-[ This is part of {{{development-version}}}. ]
 
 #+findex: modus-themes-preview-mode
 #+vindex: modus-themes-preview-mode-map
@@ -4163,8 +4159,6 @@ need to (provided they understand the implications).
 :CUSTOM_ID: h:86eb375b-9be4-43ce-879a-0686a524a63b
 :END:
 
-[ Building on top of the Modus themes is made possible as part of {{{development-version}}}. ]
-
 This section concerns package developers or advanced users.
 
 The Modus themes can be used as the basis for another theme. The
@@ -4521,7 +4515,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + golden-ratio-scroll-screen
 + helpful
 + hexl-mode
-+ hideshow [ Part of {{{development-version}}}. ]
++ hideshow
 + highlight-numbers
 + highlight-parentheses ([[#h:24bab397-dcb2-421d-aa6e-ec5bd622b913][Note on highlight-parentheses.el]])
 + highlight-thing
