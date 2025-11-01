@@ -68,8 +68,7 @@ The manual has a section about building on top of Modus. My
    ("M-<f5>" . modus-themes-load-random))
   :config
   ;; Your customizations here:
-  (setq modus-themes-custom-auto-reload nil
-        modus-themes-to-toggle '(modus-operandi modus-vivendi)
+  (setq modus-themes-to-toggle '(modus-operandi modus-vivendi)
         modus-themes-to-rotate modus-themes-items
         modus-themes-mixed-fonts t
         modus-themes-variable-pitch-ui t
