@@ -5711,7 +5711,7 @@ FG and BG are the main colors."
     `(jabber-roster-user-dnd ((,c :foreground ,warning)))
     `(jabber-roster-user-chatty ((,c :foreground ,warning)))
     `(jabber-roster-user-error ((,c :foreground ,err)))
-    `(jabber-roster-user-offline ((,c :foreground ,fg-dim :strike-through t)))
+    `(jabber-roster-user-offline ((,c :foreground ,fg-dim)))
     `(jabber-roster-user-online ((,c :inherit modus-themes-bold :foreground ,info)))
     `(jabber-chat-prompt-foreign ((,c :inherit modus-themes-bold :foreground ,err)))
     `(jabber-chat-prompt-system ((,c :foreground ,warning)))
