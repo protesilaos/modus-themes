@@ -3780,9 +3780,10 @@ Also see `modus-themes-get-themes'.")
   ;; side effect of adding the relevant `theme-properties' to it.
   (unless (and (memq theme modus-themes--activated-themes)
                (custom-theme-p theme))
-    (let ((enable-theme-functions nil)
-          (modus-themes-after-load-theme-hook nil))
-      (load-theme theme t t))
+    (let ((file (locate-file (concat (symbol-name theme) "-theme.el")
+                             (custom-theme--load-path)
+                             '("" "c"))))
+      (load file nil t))
     (add-to-list 'modus-themes--activated-themes theme)))
 
 (defun modus-themes--belongs-to-family-p (theme family)
