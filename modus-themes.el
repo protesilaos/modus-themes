@@ -5970,7 +5970,7 @@ FG and BG are the main colors."
     `(markdown-header-face-6 ((,c :inherit modus-themes-heading-6)))
     `(markdown-highlighting-face ((,c :background ,bg-hover-secondary :foreground ,fg-main)))
     `(markdown-inline-code-face ((,c :inherit modus-themes-fixed-pitch :background ,bg-prose-code :foreground ,fg-prose-code)))
-    `(markdown-italic-face ((,c :inherit modus-themes-slant)))
+    `(markdown-italic-face ((,c :inherit italic)))
     `(markdown-language-keyword-face ((,c :inherit modus-themes-fixed-pitch :background ,bg-prose-block-delimiter :foreground ,fg-prose-block-delimiter)))
     `(markdown-line-break-face ((,c :foreground ,err :underline t)))
     `(markdown-link-face ((,c :background ,bg-link :foreground ,fg-link :underline ,underline-link)))
