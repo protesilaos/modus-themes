@@ -3845,8 +3845,10 @@ With optional SHOW-ERROR, throw an error instead of returning nil."
       themes)))
 
 (defun modus-themes-get-current-theme ()
-  "Return first enabled Modus theme."
-  (car (modus-themes--list-enabled-themes)))
+  "Return current enabled Modus theme."
+  (let ((current (car custom-enabled-themes)))
+    (when (memq current (modus-themes-get-themes))
+      current)))
 
 (defun modus-themes--get-theme-palette-subr (theme with-overrides with-user-palette)
   "Get THEME palette without `modus-themes-known-p'.
