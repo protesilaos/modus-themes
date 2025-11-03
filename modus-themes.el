@@ -7299,12 +7299,12 @@ Consult the manual for details on how to build a theme on top of the
          ;; otherwise the macro does not work properly when called from
          ;; inside a function.
          (colors (mapcar #'car palette)))
-    `(let* ((c '((class color) (min-colors 256)))
-            (,sym (modus-themes-get-theme-palette nil :with-overrides :with-user-palette))
-            ,@(mapcar (lambda (color)
-                        (list color
-                              `(modus-themes--retrieve-palette-value ',color ,sym)))
-                      colors))
+    `(when-let* ((c '((class color) (min-colors 256)))
+                 (,sym (modus-themes-get-theme-palette nil :with-overrides :with-user-palette))
+                 ,@(mapcar (lambda (color)
+                             (list color
+                                   `(modus-themes--retrieve-palette-value ',color ,sym)))
+                           colors))
        (ignore c ,@colors) ; Silence unused variable warnings
        ,@body)))
 
