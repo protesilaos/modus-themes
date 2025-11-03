@@ -3779,11 +3779,8 @@ Also see `modus-themes-get-themes'.")
   ;; `custom-known-themes' because loading the theme has the desired
   ;; side effect of adding the relevant `theme-properties' to it.
   (unless (and (memq theme modus-themes--activated-themes)
-               (custom-theme-p theme))
-    (let ((file (locate-file (concat (symbol-name theme) "-theme.el")
-                             (custom-theme--load-path)
-                             '("" "c"))))
-      (load file nil t))
+              (custom-theme-p theme))
+    (load-theme theme t t)
     (add-to-list 'modus-themes--activated-themes theme)))
 
 (defun modus-themes--belongs-to-family-p (theme family)
