@@ -3833,27 +3833,16 @@ Use `modus-themes-sort' to sort by light and then dark background."
       sorted-themes
     modus-themes-items))
 
-(defun modus-themes-known-p (themes &optional show-error)
+(defun modus-themes-known-p (themes)
   "Return THEMES if they are among `modus-themes-get-themes' else nil.
 THEMES is either a list of symbols, like `modus-themes-items' or a
 symbol.
 
 With optional SHOW-ERROR, throw an error instead of returning nil."
-  (condition-case data
-      (let ((themes (if (listp themes) themes (list themes)))
-            (known-themes (modus-themes-get-themes)))
-        (dolist (theme themes)
-          (or (memq theme known-themes)
-              (error "`%s' is not part of whant `modus-themes-get-themes' returns" theme))))
-    (:success
-     themes)
-    (error
-     (when show-error
-       (signal (car data) (list (apply #'format-message (cdr data))))))))
-
-(defun modus-themes--list-enabled-themes ()
-  "Return list of known `custom-enabled-themes'."
-  (seq-intersection (modus-themes-get-themes) custom-enabled-themes))
+  (let ((themes (if (listp themes) themes (list themes)))
+        (known-themes (modus-themes-get-themes)))
+    (when (seq-every-p (lambda (theme) (memq theme known-themes)) themes)
+      themes)))
 
 (defun modus-themes-get-current-theme ()
   "Return first enabled Modus theme."
@@ -3879,7 +3868,7 @@ With WITH-OVERRIDES, include all overrides in the combined palette.
 With WITH-USER-PALETTE do the same for the user-defined palette
 extension."
   (let ((theme (or theme (modus-themes-get-current-theme))))
-    (when (modus-themes-known-p theme :err-if-needed)
+    (when (modus-themes-known-p theme)
       (modus-themes--get-theme-palette-subr theme with-overrides with-user-palette))))
 
 (defun modus-themes--disable-themes ()
