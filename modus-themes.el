@@ -7298,16 +7298,6 @@ Consult the manual for details on how to build a theme on top of the
 
 ;;;; Use theme colors
 
-(defun modus-themes--with-colors-resolve-palette (theme)
-  "Return THEME `let' bindings for `modus-themes-with-colors'."
-  (let* ((palette (modus-themes--get-theme-palette-subr theme :with-overrides :with-user-palette)))
-    (mapcar
-     (lambda (entry)
-       (if (eq (cadr entry) 'unspecified)
-           (list (car entry) ''unspecified)
-         entry))
-     palette)))
-
 (defun modus-themes--with-colors-resolve-palette-sort (colors)
   "Sort all COLORS in the theme's palette.
 Put all named colors before semantic color mappings.  A named color is a
@@ -7320,10 +7310,11 @@ whose value is another symbol, which ultimately resolves to a string or
       (if (stringp (cadr color))
           (push color named)
         (push color semantic)))
-    (seq-uniq
-     (nconc (nreverse named) (nreverse semantic))
-     (lambda (elt1 elt2)
-       (eq (car elt1) (car elt2))))))
+    (let ((sorted (seq-uniq
+                   (nconc (nreverse named) (nreverse semantic))
+                   (lambda (elt1 elt2)
+                     (eq (car elt1) (car elt2))))))
+      (append '((unspecified 'unspecified)) sorted))))
 
 (defun modus-themes-with-colors-subr (expressions)
   "Do the work of `modus-themes-with-colors' for EXPRESSIONS."
@@ -7331,7 +7322,7 @@ whose value is another symbol, which ultimately resolves to a string or
       (when-let* ((theme (modus-themes-get-current-theme)))
         (eval
          `(let* (,@(modus-themes--with-colors-resolve-palette-sort
-                    (modus-themes--with-colors-resolve-palette theme)))
+                    (modus-themes--get-theme-palette-subr theme :with-overrides :with-user-palette)))
             ,@expressions)
          :lexical))
     (error (message "Error in `modus-themes-with-colors': %s" data))))
