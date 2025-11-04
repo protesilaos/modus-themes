@@ -3862,7 +3862,10 @@ whose value is another symbol, which ultimately resolves to a string or
 (defun modus-themes--get-theme-palette-subr (theme with-overrides with-user-palette)
   "Get THEME palette without `modus-themes-known-p'.
 WITH-OVERRIDES and WITH-USER-PALETTE are described in
-`modus-themes-get-theme-palette'."
+`modus-themes-get-theme-palette'.
+
+If THEME does not have at least a `:modus-core-palette' among its
+`theme-properties', return nil."
   (when-let* ((properties (get theme 'theme-properties))
               (core-palette (symbol-value (plist-get properties :modus-core-palette))))
     (let* ((user-palette (when with-user-palette (symbol-value (plist-get properties :modus-user-palette))))
@@ -3875,7 +3878,9 @@ WITH-OVERRIDES and WITH-USER-PALETTE are described in
 If THEME is nil, use the return value of `modus-themes-get-current-theme'.
 With WITH-OVERRIDES, include all overrides in the combined palette.
 With WITH-USER-PALETTE do the same for the user-defined palette
-extension."
+extension.
+
+If THEME is unknown, return nil."
   (modus-themes--get-theme-palette-subr
    (or theme (modus-themes-get-current-theme))
    with-overrides
