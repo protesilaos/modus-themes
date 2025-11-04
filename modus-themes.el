@@ -7306,97 +7306,54 @@ Consult the manual for details on how to build a theme on top of the
 
 ;;;; Use theme colors
 
-;; CRITICAL FIXME 2025-11-03: When we define a function that calls
-;; `modus-themes-with-colors' and restart Emacs that function never
-;; returns the expected result: the current palette is not `let' bound
-;; when the BODY is evaluated. If after loading with the error we go
-;; and evaluate the same function, then loading the theme works as
-;; expected.  Same if we first load the theme, then define the
-;; function, and then load the theme again.
+;; CRITICAL FIXME 2025-11-03: The `modus-themes-with-colors' is not
+;; working with the `enable-theme-functions' and `load-theme'
+;; combination: it leads to excessive lisp nesting.  Whereas
+;; `modus-themes-after-load-theme-hook' and `modus-themes-load-theme'
+;; do the right thing.
 ;;
-;; Here is the FAULTY result:
+;; BAD:
 ;;
-;;     (defun test (theme)
-;;       (condition-case data
-;;           (progn
-;;             (message "Theme: %s MODUS: %s" theme (modus-themes-get-current-theme))
-;;          (modus-themes-with-colors
-;;               (message "Cursor: %s" (or cursor (error "We failed")))))
-;;         (error (message "Something wrong with theme %s: %s" theme data))))
+;; (defun test (_theme)
+;;   (modus-themes-with-colors
+;;     (message "Modus cursor color: %s" cursor)))
 ;;
-;;     (add-hook 'enable-theme-functions #'test)
+;; (add-hook 'enable-theme-functions #'test)
 ;;
-;;     (load-theme 'modus-vivendi-tinted t)
+;; (load-theme 'modus-vivendi t)
 ;;
-;; And here is the CORRECT result, even though loading the theme twice is bogus:
+;; GOOD:
 ;;
-;;     (load-theme 'modus-vivendi-tinted t)
+;; (defun test (&optional theme)
+;;   (modus-themes-with-colors
+;;     (message "Modus cursor color: %s" cursor)))
 ;;
-;;     (defun test (theme)
-;;       (condition-case data
-;;           (progn
-;;             (message "Theme: %s MODUS: %s" theme (modus-themes-get-current-theme))
-;;          (modus-themes-with-colors
-;;               (message "Cursor: %s" (or cursor (error "We failed")))))
-;;         (error (message "Something wrong with theme %s: %s" theme data))))
+;; (add-hook 'modus-themes-after-load-theme-hook #'test)
 ;;
-;;     (add-hook 'enable-theme-functions #'test)
-;;
-;;     (load-theme 'modus-vivendi-tinted t)
-;;
-;; What I believe is happening:
-;;
-;; - The `modus-thems-theme' is a function. It is evaluated at runtime.
-;; - The `modus-thems-theme' is what reifies a theme. Before htat there is no theme.
-;; - This means that `modus-themes-get-theme-palette' cannot work at macroexpand time.
-;;
-;; Maybe we can solve it this way, without breaking existing code:
-;;
-;; - Have a function that does the actual work of binding the palette and evaluating BODY.
-;; - Make the macro simply set up the function to evaluate BODY.
-;;
-;; HOWEVER, doing the following leads to excessive lisp nesting errors
-;; at startup when the `modus-themes-with-colors' is inside of a
-;; function.  If we evaluate the function after the themes are loaded,
-;; then everything works as expected;
-;;
-;;     (defun modus-themes-with-colors-subr (expressions)
-;;       "Do the work of `modus-themes-with-colors' for EXPRESSIONS."
-;;       (when-let* ((theme (modus-themes-get-current-theme))
-;;                   (palette (modus-themes--get-theme-palette-subr theme :with-overrides :with-user-palette)))
-;;         (eval
-;;          `(let* ((c '((class color) (min-colors 256)))
-;;                  (palette ',palette)
-;;                  ,@(mapcar
-;;                     (lambda (entry)
-;;                       (let ((name (car entry)))
-;;                         (list name `(modus-themes--retrieve-palette-value ',name palette))))
-;;                     palette))
-;;             ,@expressions))))
-;;
-;;     (defmacro modus-themes-with-colors (&rest body)
-;;       "Evaluate BODY with colors from current palette bound."
-;;       (declare (indent 0))
-;;       `(modus-themes-with-colors-subr ',body))
+;; (modus-themes-load-theme 'modus-vivendi)
+(defun modus-themes--with-colors-resolve-palette (theme)
+  "Return THEME `let' bindings for `modus-themes-with-colors'."
+  (let* ((palette (modus-themes--get-theme-palette-subr theme :with-overrides :with-user-palette)))
+    (mapcar
+     (lambda (entry)
+       (if (eq (cadr entry) 'unspecified)
+           (list (car entry) ''unspecified)
+         entry))
+     palette)))
+
+(defun modus-themes-with-colors-subr (expressions)
+  "Do the work of `modus-themes-with-colors' for EXPRESSIONS."
+  (condition-case data
+      (when-let* ((theme (modus-themes-get-current-theme)))
+        (eval
+         `(let* (,@(modus-themes--with-colors-resolve-palette theme))
+            ,@expressions)))
+    (error (message "Error in `modus-themes-with-colors': %s" data))))
+
 (defmacro modus-themes-with-colors (&rest body)
   "Evaluate BODY with colors from current palette bound."
   (declare (indent 0))
-  (let* ((sym (gensym))
-         (palette (modus-themes-get-theme-palette nil :with-overrides :with-user-palette))
-         ;; NOTE 2022-08-23: We just give it a sample palette at this
-         ;; stage.  It only needs to collect each car.  Then we
-         ;; instantiate the actual theme's palette.  We have to do this
-         ;; otherwise the macro does not work properly when called from
-         ;; inside a function.
-         (colors (mapcar #'car palette)))
-    `(when-let* ((c '((class color) (min-colors 256)))
-                 (,sym (modus-themes-get-theme-palette nil :with-overrides :with-user-palette))
-                 ,@(mapcar (lambda (color)
-                             (list color
-                                   `(modus-themes--retrieve-palette-value ',color ,sym)))
-                           colors))
-       (ignore c ,@colors) ; Silence unused variable warnings
-       ,@body)))
+  `(modus-themes-with-colors-subr ',body))
 
 ;;;; Declare all the Modus themes
 
