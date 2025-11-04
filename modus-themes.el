@@ -7300,7 +7300,8 @@ Consult the manual for details on how to build a theme on top of the
            ,@faces)
           (custom-theme-set-variables
            ',name
-           ,@variables))))
+           ,@variables))
+       :lexical))
     (unless theme-exists-p
       (provide-theme name))))
 
@@ -7347,7 +7348,8 @@ Consult the manual for details on how to build a theme on top of the
       (when-let* ((theme (modus-themes-get-current-theme)))
         (eval
          `(let* (,@(modus-themes--with-colors-resolve-palette theme))
-            ,@expressions)))
+            ,@expressions)
+         :lexical))
     (error (message "Error in `modus-themes-with-colors': %s" data))))
 
 (defmacro modus-themes-with-colors (&rest body)
