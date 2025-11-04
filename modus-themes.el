@@ -7288,6 +7288,54 @@ Consult the manual for details on how to build a theme on top of the
 
 ;;;; Use theme colors
 
+;; CRITICAL FIXME 2025-11-03: When we define a function that calls
+;; `modus-themes-with-colors' and restart Emacs that function never
+;; returns the expected result: the current palette is not `let' bound
+;; when the BODY is evaluated. If after loading with the error we go
+;; and evaluate the same function, then loading the theme works as
+;; expected.  Same if we first load the theme, then define the
+;; function, and then load the theme again.
+;;
+;; Here is the FAULTY result:
+;;
+;;     (defun test (theme)
+;;       (condition-case data
+;;           (progn
+;;             (message "Theme: %s MODUS: %s" theme (modus-themes-get-current-theme))
+;;          (modus-themes-with-colors
+;;               (message "Cursor: %s" (or cursor (error "We failed")))))
+;;         (error (message "Something wrong with theme %s: %s" theme data))))
+;;
+;;     (add-hook 'enable-theme-functions #'test)
+;;
+;;     (load-theme 'modus-vivendi-tinted t)
+;;
+;; And here is the CORRECT result, even though loading the theme twice is bogus:
+;;
+;;     (load-theme 'modus-vivendi-tinted t)
+;;
+;;     (defun test (theme)
+;;       (condition-case data
+;;           (progn
+;;             (message "Theme: %s MODUS: %s" theme (modus-themes-get-current-theme))
+;;          (modus-themes-with-colors
+;;               (message "Cursor: %s" (or cursor (error "We failed")))))
+;;         (error (message "Something wrong with theme %s: %s" theme data))))
+;;
+;;     (add-hook 'enable-theme-functions #'test)
+;;
+;;     (load-theme 'modus-vivendi-tinted t)
+;;
+;; What I believe is happening:
+;;
+;; - The `modus-thems-theme' is a function. It is evaluated at runtime.
+;; - The `modus-thems-theme' is what reifies a theme. Before htat there is no theme.
+;; - This means that `modus-themes-get-theme-palette' cannot work at macroexpand time.
+;;
+;; Maybe we can solve it this way, without breaking existing code:
+;;
+;; - Have a function that does the actual work of binding the palette and evaluating BODY.
+;; - Make the macro simply set up the function to evaluate BODY.
 (defmacro modus-themes-with-colors (&rest body)
   "Evaluate BODY with colors from current palette bound."
   (declare (indent 0))
