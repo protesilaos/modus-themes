@@ -3839,15 +3839,20 @@ THEMES is either a list of symbols, like `modus-themes-items' or a
 symbol.
 
 With optional SHOW-ERROR, throw an error instead of returning nil."
-  (let ((themes (if (listp themes) themes (list themes)))
-        (known-themes (modus-themes-get-themes)))
-    (when (seq-every-p (lambda (theme) (memq theme known-themes)) themes)
-      themes)))
+  (let ((known-themes (modus-themes-get-all-known-themes)))
+    (cond
+     ((symbolp themes)
+      (memq themes known-themes))
+     ((listp themes)
+      (when (seq-every-p (lambda (theme) (memq theme known-themes)) themes)
+        themes))
+     (t
+      (error "Themes `%S' is not a symbol or a list of symbols" themes)))))
 
 (defun modus-themes-get-current-theme ()
   "Return current enabled Modus theme."
   (let ((current (car custom-enabled-themes)))
-    (when (memq current (modus-themes-get-themes))
+    (when (memq current (modus-themes-get-all-known-themes))
       current)))
 
 (defun modus-themes--get-theme-sort (colors)
