@@ -3855,15 +3855,6 @@ With optional SHOW-ERROR, throw an error instead of returning nil."
     (when (memq current (modus-themes-get-all-known-themes))
       current)))
 
-(defun modus-themes--get-theme-sort (colors)
-  "Sort all COLORS in the theme's palette.
-Put all named colors before semantic color mappings.  A named color is a
-symbol whose value is a string.  A semantic color mapping is a symbol
-whose value is another symbol, which ultimately resolves to a string or
-`unspecified'."
-  (nconc (seq-filter (lambda (color) (stringp (cadr color))) colors)
-         (seq-remove (lambda (color) (stringp (cadr color))) colors)))
-
 (defun modus-themes--get-theme-palette-subr (theme with-overrides with-user-palette)
   "Get THEME palette without `modus-themes-known-p'.
 WITH-OVERRIDES and WITH-USER-PALETTE are described in
@@ -3876,7 +3867,7 @@ If THEME does not have at least a `:modus-core-palette' among its
     (let* ((user-palette (when with-user-palette (symbol-value (plist-get properties :modus-user-palette))))
            (overrides-palette (when with-overrides (symbol-value (plist-get properties :modus-overrides-palette))))
            (all-overrides (when with-overrides (append overrides-palette modus-themes-common-palette-overrides))))
-      (modus-themes--get-theme-sort (append all-overrides user-palette core-palette)))))
+      (append all-overrides user-palette core-palette))))
 
 (defun modus-themes-get-theme-palette (&optional theme with-overrides with-user-palette)
   "Return palette value of active `modus-themes-get-themes' THEME.
@@ -7342,12 +7333,30 @@ Consult the manual for details on how to build a theme on top of the
          entry))
      palette)))
 
+(defun modus-themes--with-colors-resolve-palette-sort (colors)
+  "Sort all COLORS in the theme's palette.
+Put all named colors before semantic color mappings.  A named color is a
+symbol whose value is a string.  A semantic color mapping is a symbol
+whose value is another symbol, which ultimately resolves to a string or
+`unspecified'."
+  (let ((named nil)
+        (semantic nil))
+    (dolist (color colors)
+      (if (stringp (cadr color))
+          (push color named)
+        (push color semantic)))
+    (seq-uniq
+     (nconc (nreverse named) (nreverse semantic))
+     (lambda (elt1 elt2)
+       (eq (car elt1) (car elt2))))))
+
 (defun modus-themes-with-colors-subr (expressions)
   "Do the work of `modus-themes-with-colors' for EXPRESSIONS."
   (condition-case data
       (when-let* ((theme (modus-themes-get-current-theme)))
         (eval
-         `(let* (,@(modus-themes--with-colors-resolve-palette theme))
+         `(let* (,@(modus-themes--with-colors-resolve-palette-sort
+                    (modus-themes--with-colors-resolve-palette theme)))
             ,@expressions)
          :lexical))
     (error (message "Error in `modus-themes-with-colors': %s" data))))
