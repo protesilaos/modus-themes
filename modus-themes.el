@@ -7298,31 +7298,6 @@ Consult the manual for details on how to build a theme on top of the
 
 ;;;; Use theme colors
 
-;; CRITICAL FIXME 2025-11-03: The `modus-themes-with-colors' is not
-;; working with the `enable-theme-functions' and `load-theme'
-;; combination: it leads to excessive lisp nesting.  Whereas
-;; `modus-themes-after-load-theme-hook' and `modus-themes-load-theme'
-;; do the right thing.
-;;
-;; BAD:
-;;
-;; (defun test (_theme)
-;;   (modus-themes-with-colors
-;;     (message "Modus cursor color: %s" cursor)))
-;;
-;; (add-hook 'enable-theme-functions #'test)
-;;
-;; (load-theme 'modus-vivendi t)
-;;
-;; GOOD:
-;;
-;; (defun test (&optional theme)
-;;   (modus-themes-with-colors
-;;     (message "Modus cursor color: %s" cursor)))
-;;
-;; (add-hook 'modus-themes-after-load-theme-hook #'test)
-;;
-;; (modus-themes-load-theme 'modus-vivendi)
 (defun modus-themes--with-colors-resolve-palette (theme)
   "Return THEME `let' bindings for `modus-themes-with-colors'."
   (let* ((palette (modus-themes--get-theme-palette-subr theme :with-overrides :with-user-palette)))
