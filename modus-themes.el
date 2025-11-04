@@ -3877,9 +3877,10 @@ If THEME is nil, use the return value of `modus-themes-get-current-theme'.
 With WITH-OVERRIDES, include all overrides in the combined palette.
 With WITH-USER-PALETTE do the same for the user-defined palette
 extension."
-  (let ((theme (or theme (modus-themes-get-current-theme))))
-    (when (modus-themes-known-p theme)
-      (modus-themes--get-theme-palette-subr theme with-overrides with-user-palette))))
+  (modus-themes--get-theme-palette-subr
+   (or theme (modus-themes-get-current-theme))
+   with-overrides
+   with-user-palette))
 
 (defun modus-themes--disable-themes ()
   "Disable themes per `modus-themes-disable-other-themes'."
