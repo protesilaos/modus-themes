@@ -7336,6 +7336,30 @@ Consult the manual for details on how to build a theme on top of the
 ;;
 ;; - Have a function that does the actual work of binding the palette and evaluating BODY.
 ;; - Make the macro simply set up the function to evaluate BODY.
+;;
+;; HOWEVER, doing the following leads to excessive lisp nesting errors
+;; at startup when the `modus-themes-with-colors' is inside of a
+;; function.  If we evaluate the function after the themes are loaded,
+;; then everything works as expected;
+;;
+;;     (defun modus-themes-with-colors-subr (expressions)
+;;       "Do the work of `modus-themes-with-colors' for EXPRESSIONS."
+;;       (when-let* ((theme (modus-themes-get-current-theme))
+;;                   (palette (modus-themes--get-theme-palette-subr theme :with-overrides :with-user-palette)))
+;;         (eval
+;;          `(let* ((c '((class color) (min-colors 256)))
+;;                  (palette ',palette)
+;;                  ,@(mapcar
+;;                     (lambda (entry)
+;;                       (let ((name (car entry)))
+;;                         (list name `(modus-themes--retrieve-palette-value ',name palette))))
+;;                     palette))
+;;             ,@expressions))))
+;;
+;;     (defmacro modus-themes-with-colors (&rest body)
+;;       "Evaluate BODY with colors from current palette bound."
+;;       (declare (indent 0))
+;;       `(modus-themes-with-colors-subr ',body))
 (defmacro modus-themes-with-colors (&rest body)
   "Evaluate BODY with colors from current palette bound."
   (declare (indent 0))
