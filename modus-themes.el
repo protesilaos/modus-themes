@@ -3863,13 +3863,12 @@ whose value is another symbol, which ultimately resolves to a string or
   "Get THEME palette without `modus-themes-known-p'.
 WITH-OVERRIDES and WITH-USER-PALETTE are described in
 `modus-themes-get-theme-palette'."
-  (if-let* ((properties (get theme 'theme-properties))
-            (core-palette (symbol-value (plist-get properties :modus-core-palette))))
-      (let* ((user-palette (when with-user-palette (symbol-value (plist-get properties :modus-user-palette))))
-             (overrides-palette (when with-overrides (symbol-value (plist-get properties :modus-overrides-palette))))
-             (all-overrides (when with-overrides (append overrides-palette modus-themes-common-palette-overrides))))
-        (modus-themes--get-theme-sort (append all-overrides user-palette core-palette)))
-    (error "The theme must have at least a `:modus-core-palette' property")))
+  (when-let* ((properties (get theme 'theme-properties))
+              (core-palette (symbol-value (plist-get properties :modus-core-palette))))
+    (let* ((user-palette (when with-user-palette (symbol-value (plist-get properties :modus-user-palette))))
+           (overrides-palette (when with-overrides (symbol-value (plist-get properties :modus-overrides-palette))))
+           (all-overrides (when with-overrides (append overrides-palette modus-themes-common-palette-overrides))))
+      (modus-themes--get-theme-sort (append all-overrides user-palette core-palette)))))
 
 (defun modus-themes-get-theme-palette (&optional theme with-overrides with-user-palette)
   "Return palette value of active `modus-themes-get-themes' THEME.
