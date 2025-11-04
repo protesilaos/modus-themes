@@ -3850,6 +3850,15 @@ With optional SHOW-ERROR, throw an error instead of returning nil."
     (when (memq current (modus-themes-get-themes))
       current)))
 
+(defun modus-themes--get-theme-sort (colors)
+  "Sort all COLORS in the theme's palette.
+Put all named colors before semantic color mappings.  A named color is a
+symbol whose value is a string.  A semantic color mapping is a symbol
+whose value is another symbol, which ultimately resolves to a string or
+`unspecified'."
+  (nconc (seq-filter (lambda (color) (stringp (cadr color))) colors)
+         (seq-remove (lambda (color) (stringp (cadr color))) colors)))
+
 (defun modus-themes--get-theme-palette-subr (theme with-overrides with-user-palette)
   "Get THEME palette without `modus-themes-known-p'.
 WITH-OVERRIDES and WITH-USER-PALETTE are described in
@@ -3858,9 +3867,8 @@ WITH-OVERRIDES and WITH-USER-PALETTE are described in
             (core-palette (symbol-value (plist-get properties :modus-core-palette))))
       (let* ((user-palette (when with-user-palette (symbol-value (plist-get properties :modus-user-palette))))
              (overrides-palette (when with-overrides (symbol-value (plist-get properties :modus-overrides-palette))))
-             (all-overrides (when with-overrides
-                              (append overrides-palette modus-themes-common-palette-overrides))))
-        (append all-overrides user-palette core-palette))
+             (all-overrides (when with-overrides (append overrides-palette modus-themes-common-palette-overrides))))
+        (modus-themes--get-theme-sort (append all-overrides user-palette core-palette)))
     (error "The theme must have at least a `:modus-core-palette' property")))
 
 (defun modus-themes-get-theme-palette (&optional theme with-overrides with-user-palette)
