@@ -7316,21 +7316,21 @@ whose value is another symbol, which ultimately resolves to a string or
                      (eq (car elt1) (car elt2))))))
       (append '((unspecified 'unspecified)) sorted))))
 
-(defun modus-themes-with-colors-subr (expressions)
-  "Do the work of `modus-themes-with-colors' for EXPRESSIONS."
+(defun modus-themes-with-colors-subr (body-function)
+  "Do the work of `modus-themes-with-colors' for BODY-FUNCTION."
   (condition-case data
       (when-let* ((theme (modus-themes-get-current-theme)))
         (eval
          `(let* (,@(modus-themes--with-colors-resolve-palette-sort
                     (modus-themes--get-theme-palette-subr theme :with-overrides :with-user-palette)))
-            ,@expressions)
+            (funcall ,body-function))
          :lexical))
     (error (message "Error in `modus-themes-with-colors': %s" data))))
 
 (defmacro modus-themes-with-colors (&rest body)
   "Evaluate BODY with colors from current palette bound."
   (declare (indent 0))
-  `(modus-themes-with-colors-subr ',body))
+  `(modus-themes-with-colors-subr (lambda () ,@body)))
 
 ;;;; Declare all the Modus themes
 
