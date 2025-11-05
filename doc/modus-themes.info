@@ -4321,12 +4321,15 @@ two such case.  Developers may do so to benefit from the extensive
 customization of the Modus themes and the fact that they are part of
 core Emacs.
 
-   A new theme can be instantiated with the function
-‘modus-themes-theme’.  It takes care to (i) declare the theme, (ii) add
-to it relevant ‘theme-properties’, (iii) register it in the
-‘modus-themes-registered-items’, (iv) make it work with all the faces
-and customizations documented in this manual, and (v) ‘provide-theme’
-the theme.
+   A new theme exists in a file whose directory is in the
+‘custom-theme-load-path’.  The theme file is named ‘NAME-theme.el’.  For
+example, the ‘modus-operandi’ theme is in the file
+‘modus-operandi-theme.el’.  A theme object can be instantiated with the
+function ‘modus-themes-theme’.  This function takes care to (i) declare
+the theme, (ii) add to it relevant ‘theme-properties’, (iii) register it
+in the ‘modus-themes-registered-items’, (iv) make it work with all the
+faces and customizations documented in this manual, and (v)
+‘provide-theme’ the theme.
 
    Concretely, ‘modus-themes-theme’ expects the following mandatory
 arguments:
@@ -6141,40 +6144,40 @@ Ideas and user feedback
      Aaron Jensen, Adam Porter, Adam Spiers, Adrian Manea, Aleksei
      Pirogov, Alex Griffin, Alex Koen, Alex Peitsinis, Alexandr Semenov,
      Alexey Shmalko, Alok Singh, Anders Johansson, André Alexandre
-     Gomes, Andrew Tropin, Antonio Hernández Blas, Arif Rezai, Augusto
-     Stoffel, Basil L. Contovounesios, Bernd Rellermeyer, Burgess Chang,
-     Charlotte Van Petegem, Christian Tietze, Christopher Dimech,
-     Christopher League, Damien Cassou, Daniel Mendler, Dario
-     Gjorgjevski, David Edmondson, Davor Rotim, Divan Santana, Eliraz
-     Kedmi, Emanuele Michele Alberto Monterosso, Eshel Yaron, Farasha
-     Euker, Feng Shu, Filippo Argiolas, Gautier Ponsinet, Gerry
-     Agbobada, Gianluca Recchia, Gonçalo Marrafa, Guilherme Semente,
-     Gustavo Barros, Hörmetjan Yiltiz, Ilja Kocken, Imran Khan, Iris
-     Garcia, Ivan Popovych, Jabir Ali Ouassou, James Ferguson, Jeremy
-     Friesen, Jerry Zhang, Johannes Grødem, John Haman, John Sullivan,
-     John Wick, Jonas Collberg, Jorge Morais, Joshua O'Connor, Julio C.
-     Villasante, Kenta Usami, Kevin Fleming, Kévin Le Gouguec, Kevin
-     Kainan Li, Kostadin Ninev, Laith Bahodi, Lasse Lindner, Len Trigg,
-     Lennart C. Karssen, Luis Miguel Castañeda, Magne Hov, Manuel
-     Giraud, Manuel Uberti, Mark Bestley, Mark Burton, Mark Simpson,
-     Marko Kocic, Markus Beppler, Matt Armstrong, Matthias Fuchs,
-     Mattias Engdegård, Mauro Aranda, Maxime Tréca, Michael Goldenberg,
-     Morgan Smith, Morgan Willcock, Murilo Pereira, Nicky van Foreest,
-     Nicolas De Jaeghere, Nicolas Semrau, Olaf Meeuwissen, Oliver Epper,
-     Pablo Stafforini, Paul Poloskov, Pengji Zhang, Pete Kazmier, Peter
-     Wu, Philip Kaludercic, Pierre Téchoueyres, Przemysław Kryger,
-     Robert Hepple, Roman Rudakov, Russell Sim, Ryan Phillips, Rytis
-     Paškauskas, Rudolf Adamkovič, Sam Kleinman, Samuel Culpepper, Saša
-     Janiška, Shreyas Ragavan, Simon Pugnet, Steve Downey, Tassilo Horn,
-     Thanos Apollo, Thibaut Verron, Thomas Heartman, Togan Muftuoglu,
-     Tony Zorman, Trey Merkley, Tomasz Hołubowicz, Toon Claes, Uri
-     Sharf, Utkarsh Singh, Vincent Foley, Zoltan Kiraly.  As well as
-     users: Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux,
-     Fredrik, Moesasji, Nick, Summer Emacs, TheBlob42, TitusMu, Trey,
-     bepolymathe, bit9tream, bangedorrunt, case-lambda, chainedghost,
-     derek-upham, doolio, fleimgruber, gitrj95, iSeeU, jixiuf, ltmsyvag,
-     okamsn, pedro-nonfree, pRot0ta1p, shimeike, shipmints, soaringbird,
-     tumashu, wakamenod.
+     Gomes, Andrew Tropin, Antonio Hernández Blas, Arif Rezai, Ashton
+     Wiersdorf, Augusto Stoffel, Basil L. Contovounesios, Bernd
+     Rellermeyer, Burgess Chang, Charlotte Van Petegem, Christian
+     Tietze, Christopher Dimech, Christopher League, Damien Cassou,
+     Daniel Mendler, Dario Gjorgjevski, David Edmondson, Davor Rotim,
+     Divan Santana, Eliraz Kedmi, Emanuele Michele Alberto Monterosso,
+     Eshel Yaron, Farasha Euker, Feng Shu, Filippo Argiolas, Gautier
+     Ponsinet, Gerry Agbobada, Gianluca Recchia, Gonçalo Marrafa,
+     Guilherme Semente, Gustavo Barros, Hörmetjan Yiltiz, Ilja Kocken,
+     Imran Khan, Iris Garcia, Ivan Popovych, Jabir Ali Ouassou, James
+     Ferguson, Jeremy Friesen, Jerry Zhang, Johannes Grødem, John Haman,
+     John Sullivan, John Wick, Jonas Collberg, Jorge Morais, Joshua
+     O'Connor, Julio C.  Villasante, Kenta Usami, Kevin Fleming, Kévin
+     Le Gouguec, Kevin Kainan Li, Kostadin Ninev, Laith Bahodi, Lasse
+     Lindner, Len Trigg, Lennart C. Karssen, Luis Miguel Castañeda,
+     Magne Hov, Manuel Giraud, Manuel Uberti, Mark Bestley, Mark Burton,
+     Mark Simpson, Marko Kocic, Markus Beppler, Matt Armstrong, Matthias
+     Fuchs, Mattias Engdegård, Mauro Aranda, Maxime Tréca, Michael
+     Goldenberg, Morgan Smith, Morgan Willcock, Murilo Pereira, Nicky
+     van Foreest, Nicolas De Jaeghere, Nicolas Semrau, Olaf Meeuwissen,
+     Oliver Epper, Pablo Stafforini, Paul Poloskov, Pengji Zhang, Pete
+     Kazmier, Peter Wu, Philip Kaludercic, Pierre Téchoueyres,
+     Przemysław Kryger, Robert Hepple, Roman Rudakov, Russell Sim, Ryan
+     Phillips, Rytis Paškauskas, Rudolf Adamkovič, Sam Kleinman, Samuel
+     Culpepper, Saša Janiška, Shreyas Ragavan, Simon Pugnet, Steve
+     Downey, Tassilo Horn, Thanos Apollo, Thibaut Verron, Thomas
+     Heartman, Togan Muftuoglu, Tony Zorman, Trey Merkley, Tomasz
+     Hołubowicz, Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley,
+     Zoltan Kiraly.  As well as users: Ben, CsBigDataHub1, Emacs
+     Contrib, Eugene, Fourchaux, Fredrik, Moesasji, Nick, Summer Emacs,
+     TheBlob42, TitusMu, Trey, bepolymathe, bit9tream, bangedorrunt,
+     case-lambda, chainedghost, derek-upham, doolio, fleimgruber,
+     gitrj95, iSeeU, jixiuf, ltmsyvag, okamsn, pedro-nonfree, pRot0ta1p,
+     shimeike, shipmints, soaringbird, tumashu, wakamenod.
 
 Packaging
      Basil L. Contovounesios, Eli Zaretskii, Glenn Morris, Mauro Aranda,
@@ -6776,10 +6779,10 @@ B.2 Variable index
 * modus-themes-common-palette-user:      Palette extension.    (line 16)
 * modus-themes-completions:              Completion UIs.       (line  6)
 * modus-themes-custom-variables:         Build on top of the Modus themes.
-                                                               (line 59)
+                                                               (line 62)
 * modus-themes-disable-other-themes:     Disable other themes. (line  6)
 * modus-themes-faces:                    Build on top of the Modus themes.
-                                                               (line 53)
+                                                               (line 56)
 * modus-themes-headings:                 Heading styles.       (line  6)
 * modus-themes-italic-constructs:        Italic constructs.    (line  6)
 * modus-themes-items:                    Option for which themes to rotate.
@@ -6970,51 +6973,51 @@ Node: DIY Add support for combobulate181126
 Node: DIY Use a hook at the post-load-theme phase184749
 Node: DIY A theme-agnostic hook for theme loading186870
 Node: Build on top of the Modus themes189501
-Node: Determine what counts as a Modus theme194921
-Node: Create convenience commands to load a derivative theme198113
-Node: Face coverage200165
-Node: Supported packages200627
-Node: Indirectly covered packages206443
-Node: Notes on individual packages207799
-Node: Note on calendarel weekday and weekend colors208901
-Node: Note on git-gutter in Doom Emacs210051
-Node: Note on php-mode multiline comments212553
-Node: Note on underlines in compilation buffers213315
-Node: Note on inline Latex in Org buffers214189
-Node: Note on dimmerel214801
-Node: Note on display-fill-column-indicator-mode216288
-Node: Note on highlight-parenthesesel217741
-Node: Note on mmm-modeel background colors223820
-Node: Note for prism226174
-Node: Note on company-mode overlay pop-up229388
-Ref: Note on company-mode overlay pop-up-Footnote-1230118
-Ref: Note on company-mode overlay pop-up-Footnote-2230185
-Node: Note on ERC escaped color sequences230240
-Ref: Note on ERC escaped color sequences-Footnote-1231670
-Node: Note on powerline or spaceline231780
-Node: Note on SHR colors232196
-Node: Note on SHR fonts232618
-Node: Note on Ement colors and fonts233307
-Node: Note on pdf-tools link hints234813
-Node: Note on the Notmuch logo237271
-Node: Note on goto-address-mode faces237805
-Node: Frequently Asked Questions238925
-Node: Is the contrast ratio about adjacent colors?239556
-Node: What does it mean to avoid exaggerations?241065
-Node: Why are colors mostly variants of blue magenta cyan?242915
-Node: What is the best setup for legibility?247249
-Node: Are these color schemes?249891
-Node: Port the Modus themes to other platforms?253545
-Node: Contributing256379
-Node: Sources of the themes256778
-Node: Issues you can help with257674
-Node: Patches require copyright assignment to the FSF259066
-Node: Acknowledgements261288
-Node: GNU Free Documentation License265808
-Node: Indices290971
-Node: Function index291150
-Node: Variable index295345
-Node: Concept index299708
+Node: Determine what counts as a Modus theme195158
+Node: Create convenience commands to load a derivative theme198350
+Node: Face coverage200402
+Node: Supported packages200864
+Node: Indirectly covered packages206680
+Node: Notes on individual packages208036
+Node: Note on calendarel weekday and weekend colors209138
+Node: Note on git-gutter in Doom Emacs210288
+Node: Note on php-mode multiline comments212790
+Node: Note on underlines in compilation buffers213552
+Node: Note on inline Latex in Org buffers214426
+Node: Note on dimmerel215038
+Node: Note on display-fill-column-indicator-mode216525
+Node: Note on highlight-parenthesesel217978
+Node: Note on mmm-modeel background colors224057
+Node: Note for prism226411
+Node: Note on company-mode overlay pop-up229625
+Ref: Note on company-mode overlay pop-up-Footnote-1230355
+Ref: Note on company-mode overlay pop-up-Footnote-2230422
+Node: Note on ERC escaped color sequences230477
+Ref: Note on ERC escaped color sequences-Footnote-1231907
+Node: Note on powerline or spaceline232017
+Node: Note on SHR colors232433
+Node: Note on SHR fonts232855
+Node: Note on Ement colors and fonts233544
+Node: Note on pdf-tools link hints235050
+Node: Note on the Notmuch logo237508
+Node: Note on goto-address-mode faces238042
+Node: Frequently Asked Questions239162
+Node: Is the contrast ratio about adjacent colors?239793
+Node: What does it mean to avoid exaggerations?241302
+Node: Why are colors mostly variants of blue magenta cyan?243152
+Node: What is the best setup for legibility?247486
+Node: Are these color schemes?250128
+Node: Port the Modus themes to other platforms?253782
+Node: Contributing256616
+Node: Sources of the themes257015
+Node: Issues you can help with257911
+Node: Patches require copyright assignment to the FSF259303
+Node: Acknowledgements261525
+Node: GNU Free Documentation License266064
+Node: Indices291227
+Node: Function index291406
+Node: Variable index295601
+Node: Concept index299964
 
 End Tag Table
 
