@@ -3856,7 +3856,7 @@ With optional SHOW-ERROR, throw an error instead of returning nil."
   "Return current enabled Modus theme.
 With optional NO-ENABLE, do not try to enable any themes."
   (let ((current (car custom-enabled-themes)))
-    (when (memq current (modus-themes-get-all-known-themes no-enable))
+    (when (memq current (modus-themes-get-all-known-themes nil no-enable))
       current)))
 
 (defun modus-themes--get-theme-palette-subr (theme with-overrides with-user-palette)
