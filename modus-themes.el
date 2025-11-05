@@ -7314,27 +7314,28 @@ whose value is another symbol, which ultimately resolves to a string or
       (if (stringp (cadr color))
           (push color named)
         (push color semantic)))
-    (let ((sorted (seq-uniq
-                   (nconc (nreverse named) (nreverse semantic))
-                   (lambda (elt1 elt2)
-                     (eq (car elt1) (car elt2))))))
-      (append '((unspecified 'unspecified)) sorted))))
+    (seq-uniq
+     (nconc (nreverse named) (nreverse semantic))
+     (lambda (elt1 elt2)
+       (eq (car elt1) (car elt2))))))
 
-(defun modus-themes-with-colors-subr (body-function)
-  "Do the work of `modus-themes-with-colors' for BODY-FUNCTION."
+(defun modus-themes-with-colors-subr (expressions)
+  "Do the work of `modus-themes-with-colors' for EXPRESSIONS."
   (condition-case data
-      (when-let* ((theme (modus-themes-get-current-theme :no-enable)))
+      (when-let* ((theme (modus-themes-get-current-theme)))
         (eval
-         `(let* (,@(modus-themes--with-colors-resolve-palette-sort
+         `(let* ((c '((class color) (min-colors 256)))
+                 (unspecified 'unspecified)
+                 ,@(modus-themes--with-colors-resolve-palette-sort
                     (modus-themes--get-theme-palette-subr theme :with-overrides :with-user-palette)))
-            (funcall ,body-function))
+            ,@expressions)
          :lexical))
     (error (message "Error in `modus-themes-with-colors': %s" data))))
 
 (defmacro modus-themes-with-colors (&rest body)
   "Evaluate BODY with colors from current palette bound."
   (declare (indent 0))
-  `(modus-themes-with-colors-subr (lambda () ,@body)))
+  `(modus-themes-with-colors-subr ',body))
 
 ;;;; Declare all the Modus themes
 
