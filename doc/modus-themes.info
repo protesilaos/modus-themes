@@ -43,11 +43,11 @@ customization options for the Modus themes, and provides every other
 piece of information pertinent to them.
 
    The documentation furnished herein corresponds to stable version
-5.0.0, released on 2025-11-01.  Any reference to a newer feature which
+5.1.0, released on 2025-11-07.  Any reference to a newer feature which
 does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
-   Current development target is 5.1.0-dev.
+   Current development target is 5.2.0-dev.
 
    • Package name (GNU ELPA): ‘modus-themes’
    • Official manual: <https://protesilaos.com/emacs/modus-themes>
@@ -6168,9 +6168,9 @@ Ideas and user feedback
      Kazmier, Peter Wu, Philip Kaludercic, Pierre Téchoueyres,
      Przemysław Kryger, Robert Hepple, Roman Rudakov, Russell Sim, Ryan
      Phillips, Rytis Paškauskas, Rudolf Adamkovič, Sam Kleinman, Samuel
-     Culpepper, Saša Janiška, Shreyas Ragavan, Simon Pugnet, Steve
-     Downey, Tassilo Horn, Thanos Apollo, Thibaut Verron, Thomas
-     Heartman, Togan Muftuoglu, Tony Zorman, Trey Merkley, Tomasz
+     Culpepper, Saša Janiška, Shreyas Ragavan, Simon Pugnet, Stéphane
+     Marks, Steve Downey, Tassilo Horn, Thanos Apollo, Thibaut Verron,
+     Thomas Heartman, Togan Muftuoglu, Tony Zorman, Trey Merkley, Tomasz
      Hołubowicz, Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley,
      Zoltan Kiraly.  As well as users: Ben, CsBigDataHub1, Emacs
      Contrib, Eugene, Fourchaux, Fredrik, Moesasji, Nick, Summer Emacs,
@@ -7013,11 +7013,11 @@ Node: Sources of the themes257015
 Node: Issues you can help with257911
 Node: Patches require copyright assignment to the FSF259303
 Node: Acknowledgements261525
-Node: GNU Free Documentation License266064
-Node: Indices291227
-Node: Function index291406
-Node: Variable index295601
-Node: Concept index299964
+Node: GNU Free Documentation License266081
+Node: Indices291244
+Node: Function index291423
+Node: Variable index295618
+Node: Concept index299981
 
 End Tag Table
 

@@ -4,9 +4,9 @@
 #+language: en
 #+options: ':t toc:nil author:t email:t num:t
 #+startup: content
-#+macro: stable-version 5.0.0
-#+macro: release-date 2025-11-01
-#+macro: development-version 5.1.0-dev
+#+macro: stable-version 5.1.0
+#+macro: release-date 2025-11-07
+#+macro: development-version 5.2.0-dev
 #+macro: file @@texinfo:@file{@@$1@@texinfo:}@@
 #+macro: space @@texinfo:@: @@
 #+macro: kbd @@texinfo:@kbd{@@$1@@texinfo:}@@
@@ -5989,16 +5989,16 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Philip Kaludercic, Pierre Téchoueyres, Przemysław Kryger, Robert
   Hepple, Roman Rudakov, Russell Sim, Ryan Phillips, Rytis Paškauskas,
   Rudolf Adamkovič, Sam Kleinman, Samuel Culpepper, Saša Janiška,
-  Shreyas Ragavan, Simon Pugnet, Steve Downey, Tassilo Horn, Thanos
-  Apollo, Thibaut Verron, Thomas Heartman, Togan Muftuoglu, Tony
-  Zorman, Trey Merkley, Tomasz Hołubowicz, Toon Claes, Uri Sharf,
-  Utkarsh Singh, Vincent Foley, Zoltan Kiraly. As well as users: Ben,
-  CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji,
-  Nick, Summer Emacs, TheBlob42, TitusMu, Trey, bepolymathe,
-  bit9tream, bangedorrunt, case-lambda, chainedghost, derek-upham,
-  doolio, fleimgruber, gitrj95, iSeeU, jixiuf, ltmsyvag, okamsn,
-  pedro-nonfree, pRot0ta1p, shimeike, shipmints, soaringbird, tumashu,
-  wakamenod.
+  Shreyas Ragavan, Simon Pugnet, Stéphane Marks, Steve Downey, Tassilo
+  Horn, Thanos Apollo, Thibaut Verron, Thomas Heartman, Togan
+  Muftuoglu, Tony Zorman, Trey Merkley, Tomasz Hołubowicz, Toon Claes,
+  Uri Sharf, Utkarsh Singh, Vincent Foley, Zoltan Kiraly. As well as
+  users: Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux,
+  Fredrik, Moesasji, Nick, Summer Emacs, TheBlob42, TitusMu, Trey,
+  bepolymathe, bit9tream, bangedorrunt, case-lambda, chainedghost,
+  derek-upham, doolio, fleimgruber, gitrj95, iSeeU, jixiuf, ltmsyvag,
+  okamsn, pedro-nonfree, pRot0ta1p, shimeike, shipmints, soaringbird,
+  tumashu, wakamenod.
 
 + Packaging :: Basil L.{{{space()}}} Contovounesios, Eli Zaretskii,
   Glenn Morris, Mauro Aranda, Richard Stallman, Stefan Kangas (core
