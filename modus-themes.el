@@ -5453,7 +5453,7 @@ FG and BG are the main colors."
     `(git-timemachine-minibuffer-author-face ((,c :foreground ,name)))
     `(git-timemachine-minibuffer-detail-face ((,c :foreground ,fg-main)))
 ;;;;; gnus
-    `(gnus-button ((,c :background ,bg-link :foreground ,fg-link :underline ,underline-link)))
+    `(gnus-button ((,c :underline ,border)))
     `(gnus-cite-1 ((,c :foreground ,mail-cite-0)))
     `(gnus-cite-2 ((,c :foreground ,mail-cite-1)))
     `(gnus-cite-3 ((,c :foreground ,mail-cite-2)))
