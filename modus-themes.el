@@ -3859,32 +3859,40 @@ With optional NO-ENABLE, do not try to enable any themes."
     (when (memq current (modus-themes-get-all-known-themes nil no-enable))
       current)))
 
-(defun modus-themes--get-theme-palette-subr (theme with-overrides with-user-palette)
+(defun modus-themes--get-theme-palette-subr (theme with-overrides with-user-palette &optional reverse)
   "Get THEME palette without `modus-themes-known-p'.
 WITH-OVERRIDES and WITH-USER-PALETTE are described in
 `modus-themes-get-theme-palette'.
 
 If THEME does not have at least a `:modus-core-palette' among its
-`theme-properties', return nil."
+`theme-properties', return nil.
+
+With optional REVERSE, return the combined palette in the form of (CORE
+USER OVERRIDES).  Else return (OVERRIDES USER CORE)."
   (when-let* ((properties (get theme 'theme-properties))
               (core-palette (symbol-value (plist-get properties :modus-core-palette))))
     (let* ((user-palette (when with-user-palette (symbol-value (plist-get properties :modus-user-palette))))
            (overrides-palette (when with-overrides (symbol-value (plist-get properties :modus-overrides-palette))))
            (all-overrides (when with-overrides (append overrides-palette modus-themes-common-palette-overrides))))
-      (append all-overrides user-palette core-palette))))
+      (if reverse
+          (append core-palette user-palette all-overrides)
+        (append all-overrides user-palette core-palette)))))
 
-(defun modus-themes-get-theme-palette (&optional theme with-overrides with-user-palette)
+(defun modus-themes-get-theme-palette (&optional theme with-overrides with-user-palette reverse)
   "Return palette value of active `modus-themes-get-themes' THEME.
-If THEME is nil, use the return value of `modus-themes-get-current-theme'.
-With WITH-OVERRIDES, include all overrides in the combined palette.
-With WITH-USER-PALETTE do the same for the user-defined palette
-extension.
+If THEME is nil, use the return value of
+`modus-themes-get-current-theme'.  With WITH-OVERRIDES, include all
+overrides in the combined palette.  With WITH-USER-PALETTE do the same
+for the user-defined palette extension.  With optional REVERSE, return
+the combined palette in the form of (append CORE USER OVERRIDES).  Else
+return (append OVERRIDES USER CORE).
 
 If THEME is unknown, return nil."
   (modus-themes--get-theme-palette-subr
    (or theme (modus-themes-get-current-theme))
    with-overrides
-   with-user-palette))
+   with-user-palette
+   reverse))
 
 (defun modus-themes--disable-themes ()
   "Disable themes per `modus-themes-disable-other-themes'."
@@ -7327,7 +7335,7 @@ whose value is another symbol, which ultimately resolves to a string or
          `(let* ((c '((class color) (min-colors 256)))
                  (unspecified 'unspecified)
                  ,@(modus-themes--with-colors-resolve-palette-sort
-                    (modus-themes--get-theme-palette-subr theme :with-overrides :with-user-palette)))
+                    (modus-themes--get-theme-palette-subr theme :with-overrides :with-user-palette :reverse)))
             ,@expressions)
          :lexical))
     (error (message "Error in `modus-themes-with-colors': %s" data))))
