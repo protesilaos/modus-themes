@@ -4163,13 +4163,19 @@ This section concerns package developers or advanced users.
 
 The Modus themes can be used as the basis for another theme. The
 ~ef-themes~ and ~standard-themes~ packages (also by Protesilaos), are
-two such case. Developers may do so to benefit from the extensive
-customization of the Modus themes and the fact that they are part of
-core Emacs.
+two such case. Developers may build on top of Modus to benefit from
+the extensive customization of the Modus themes and the fact that they
+are part of core Emacs. Note that because the ~ef-themes~ and
+~standard-themes~ existed before they were redone on top of Modus,
+they have to provide lots of compatibility aliases. Whereas a new
+theme can be as simple as a single file that only calls
+~modus-themes-theme~. This manual covers everything in detail with
+examples that can be copy-pasted directly, both for private use or to
+create a new package ([[#h:bd47fea9-416d-481e-a504-82850b8c2a58][Complete example of a Modus derivative theme]]).
 
 #+findex: modus-themes-theme
 #+vindex: modus-themes-registered-items
-A new theme exists in a file whose directory is in the ~custom-theme-load-path~.
+A theme exists in a file whose directory is in the ~custom-theme-load-path~.
 The theme file is named =NAME-theme.el=. For example, the ~modus-operandi~
 theme is in the file =modus-operandi-theme.el=. A theme object can be
 instantiated with the function ~modus-themes-theme~. This function takes care to
@@ -4272,10 +4278,271 @@ Custom faces passed in this way can still define their semantic
 palette mappings, as illustrated herein where ~border-mode-line-active~
 corresponds to some named color in the palette of the active theme.
 
+** Complete example of a Modus derivative theme
+:PROPERTIES:
+:CUSTOM_ID: h:bd47fea9-416d-481e-a504-82850b8c2a58
+:END:
+
+[ For more context: [[#h:86eb375b-9be4-43ce-879a-0686a524a63b][Build on top of the Modus themes]]. ]
+
+In this section, we show how to define a new Modus derivative theme.
+In its simplest form, a theme is a file called =NAME-theme.el= in a
+directory that is part of the ~custom-theme-load-path~. We show how to
+do this for a package and for a private configuration:
+
+- [[#h:f2757848-ea41-4cd7-a04d-7e650555a59b][Complete example of a package that is derived from Modus]]
+- [[#h:48e391a6-831b-48ec-b92d-4e7e6871b043][Complete example of a private theme derived from Modus]]
+
+*** Complete example of a package that is derived from Modus
+:PROPERTIES:
+:CUSTOM_ID: h:f2757848-ea41-4cd7-a04d-7e650555a59b
+:END:
+
+For package developers, the following snippet needs to be included in
+each theme file ([[#h:48e391a6-831b-48ec-b92d-4e7e6871b043][Complete example of a private theme derived from Modus]]):
+
+#+begin_src emacs-lisp
+;;;; Add themes from this package to the `custom-theme-load-path'
+
+;;;###autoload
+(when load-file-name
+  (let ((dir (file-name-directory load-file-name)))
+      (add-to-list 'custom-theme-load-path dir)))
+#+end_src
+
+If the package provides many themes, then the above snippet can be
+included in a shared file that is then loaded via ~require~ in the
+individual theme files.
+
+For example, the family of themes that includes =prot-light-theme.el=
+and =prot-dark-theme.el= has a shared library which is
+=prot-themes.el= and therein we find at least the following:
+
+#+begin_src emacs-lisp
+;; Package headers here for prot-themes.el...
+
+;; Any other shared definitions...
+
+;;;; Add themes from this package to the `custom-theme-load-path'
+
+;;;###autoload
+(when load-file-name
+  (let ((dir (file-name-directory load-file-name)))
+      (add-to-list 'custom-theme-load-path dir)))
+
+(provide 'prot-themes)
+;;; prot-themes.el ends here
+#+end_src
+
+Then each individual theme can look like this ([[#h:ca3031b5-5f7a-46d4-bc83-e84e8bed038c][Complete example of a custom theme with its own palette]]):
+
+#+begin_src emacs-lisp
+(require 'prot-themes)
+
+(modus-themes-theme
+ 'prot-light
+ 'prot-themes
+ "My demo `prot-light' theme."
+ 'light
+ 'modus-operandi-palette
+ nil
+ nil)
+#+end_src
+
+The contents of such a package will be of this form:
+
+- =prot-themes.el= :: Common file with all the shared definitions.
+- =prot-light-theme.el= :: The light theme.
+- =prot-dark-theme.el= :: The dark theme.
+
+The shared file can be skipped if the only piece of common code is
+the aforementioned snippet about the ~custom-theme-load-path~. Simply
+add that snippet to the bottom of each theme file, like this:
+
+#+begin_src emacs-lisp
+(modus-themes-theme
+ 'prot-light
+ 'prot-themes
+ "My demo `prot-light' theme."
+ 'light
+ 'modus-operandi-palette
+ nil
+ nil)
+
+;;;###autoload
+(when load-file-name
+  (let ((dir (file-name-directory load-file-name)))
+      (add-to-list 'custom-theme-load-path dir)))
+#+end_src
+
+The package is then a collection of =NAME-theme.el= files and nothing more.
+
+In principle, a package derived from Modus does not need to define any
+commands or user options. What is shown in this section is enough.
+Packages such as the ~ef-themes~ and ~standard-themes~ are exceptions
+because they existed for years before they were based on Modus and
+must remain backward compatible.
+
+*** Complete example of a private theme derived from Modus
+:PROPERTIES:
+:CUSTOM_ID: h:48e391a6-831b-48ec-b92d-4e7e6871b043
+:END:
+
+If your derivative theme is not going to be distributed as a package
+([[#h:f2757848-ea41-4cd7-a04d-7e650555a59b][Complete example of a package that is derived from Modus]]), then
+create a directory where all custom themes are stored and add it to
+the ~custom-theme-load-path~. For example, the =my-custom-themes=
+directory can be included thus somewhere in the Emacs initialization
+file:
+
+#+begin_src emacs-lisp
+(add-to-list 'custom-theme-load-path (locate-user-emacs-file "my-custom-themes/"))
+#+end_src
+
+The function ~locate-user-emacs-file~ takes care to return a path
+relative to where the user's init file is. If, say, we have
+=~/.emacs.d/init.el= then we get =~/.emacs.d/my-custom-themes/=.
+
+Create the directory in that path. Then for each derivative Modus
+theme, write a new file of the form =NAME-theme.el=. If, for instance,
+your theme is named =prot-light= the file is called =prot-light-theme.el=.
+
+At minimum, the contents of a theme file are these ([[#h:ca3031b5-5f7a-46d4-bc83-e84e8bed038c][Complete example of a custom theme with its own palette]]):
+
+#+begin_src emacs-lisp
+(modus-themes-theme
+ 'prot-light
+ 'prot-themes
+ "My demo `prot-light' theme."
+ 'light
+ 'modus-operandi-palette
+ nil
+ nil)
+#+end_src
+
+*** Complete example of a custom theme with its own palette
+:PROPERTIES:
+:CUSTOM_ID: h:ca3031b5-5f7a-46d4-bc83-e84e8bed038c
+:END:
+
+It is a good idea for a derivative theme to use as its core palette
+one of those defined in the ~modus-themes~, such as ~modus-operandi-palette~.
+This guarantees that all core palette definitions are inherited by the
+derivative theme.
+
+The derivative may then add its own colors to the user palette, which
+will override the core palette in such of a conflict ([[#h:f4d4b71b-2ca5-4c3d-b0b4-9bfd7aa7fb4d][Preview theme colors]]).
+
+The core and user palettes are among the arguments passed to the
+~modus-themes-theme~ functions, as explained elsewhere in this manual
+([[#h:86eb375b-9be4-43ce-879a-0686a524a63b][Build on top of the Modus themes]]).
+
+In the following example, we are defining the ~prot-light~ theme in
+the =prot-light-theme.el= file. This theme declares itself as
+belonging to the =prot-themes= family. It is based on the
+~modus-operandi-palette~ but then defines its own palette, the
+~prot-light-palette~ with entries that take precedence over whatever
+equivalent is in the ~modus-operandi-palette~.
+
+#+begin_src emacs-lisp
+(defvar prot-light-palette
+  '((cursor "#ff0000")
+    (bg-main "#f0e0d0")
+    (fg-main "#202020"))
+  "Like `modus-operandi-palette'.")
+
+(modus-themes-theme
+ 'prot-light
+ 'prot-themes
+ "My demo `prot-light' theme."
+ 'light
+ 'modus-operandi-palette
+ 'prot-light-palette
+ nil)
+#+end_src
+
+The above is a complete theme which is like ~modus-operandi~ except
+for those three color definitions specified in the ~prot-light-palette~.
+There is no limit to how comprehensive the user palette is.
+
+Depending on the requirements, this theme can make itself further
+customizable by the end user via theme-specific palette overrides. In
+this case, we have the addition of a user option, which we could call
+anything though it makes sense to name it consistently like ~prot-light-palette-overrides~.
+
+#+begin_src emacs-lisp
+(defvar prot-light-palette
+  '((cursor "#ff0000")
+    (bg-main "#f0e0d0")
+    (fg-main "#202020"))
+  "Like `modus-operandi-palette'.")
+
+(defcustom prot-light-palette-overrides nil
+  "Overrides for the `prot-light' theme."
+  :type '(repeat (list symbol (choice symbol string)))
+  :link '(info-link "(modus-themes) Palette overrides"))
+
+(modus-themes-theme
+ 'prot-light
+ 'prot-themes
+ "My demo `prot-light' theme."
+ 'light
+ 'modus-operandi-palette
+ 'prot-light-palette
+ 'prot-light-palette-overrides)
+#+end_src
+
+In the above example, we have our ~prot-light~ theme which is like
+~modus-operandi~ except three colors and which can now be customized
+further by the user via the ~prot-light-palette-overrides~ ([[#h:34c7a691-19bb-4037-8d2f-67a07edab150][Option for palette overrides]]).
+
+Finally, a derivative theme can specify its own settings for custom
+faces and variables. This is generally not needed, but is provided as
+an option for maximum flexibility. In the following example, the
+~prot-light~ theme has its own face definitions in addition to all the
+aforementioned:
+
+#+begin_src emacs-lisp
+(defvar prot-light-palette
+  '((cursor "#ff0000")
+    (bg-main "#f0e0d0")
+    (fg-main "#202020"))
+  "Like `modus-operandi-palette'.")
+
+(defcustom prot-light-palette-overrides nil
+  "Overrides for the `prot-light' theme."
+  :type '(repeat (list symbol (choice symbol string)))
+  :link '(info-link "(modus-themes) Palette overrides"))
+
+(defvar prot-light-custom-faces
+  '(
+    `(region ((,c :background ,bg-ochre :foreground ,unspecified :extend nil)))
+    `(font-lock-keyword-face ((,c :inherit italic :foreground ,keyword))))
+  "Custom faces that deviate from---or complement---those in the Modus themes.")
+
+(modus-themes-theme
+ 'prot-light
+ 'prot-themes
+ "My demo `prot-light' theme."
+ 'light
+ 'modus-operandi-palette
+ 'prot-light-palette
+ 'prot-light-palette-overrides
+ 'prot-light-custom-faces)
+#+end_src
+
+The custom faces can name a color from the given theme's palette. In
+this example, =bg-ochre= comes from the ~modus-operandi-palette~
+though it would work the same way if, say, ~prot-light-palette~
+defined ~bg-soil~ and then referenced it in ~prot-light-custom-faces~.
+
 ** Determine what counts as a Modus theme
 :PROPERTIES:
 :CUSTOM_ID: h:412e3017-81fe-4a95-97a6-225de1867757
 :END:
+
+[ NOTE: Users of many Modus derivatives do not need to do anything of
+  what is described herein. Just enable the ~modus-themes-include-derivatives-mode~. ]
 
 #+findex: modus-themes-get-all-known-themes
 Once the theme is instantiated, it will be listed in the return value
@@ -4349,6 +4616,9 @@ accordingly."
 :PROPERTIES:
 :CUSTOM_ID: h:6bfbb4d6-2f23-4d06-827a-8b9a91507a02
 :END:
+
+[ NOTE: Users of many Modus derivatives do not need to do anything of
+  what is described herein. Just enable the ~modus-themes-include-derivatives-mode~. ]
 
 #+findex: modus-themes-define-derivative-command
 In the previous section, we explored the mechanics of the
