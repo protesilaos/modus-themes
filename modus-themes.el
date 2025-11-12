@@ -6354,15 +6354,19 @@ FG and BG are the main colors."
     `(org-verse ((,c :inherit modus-themes-fixed-pitch :background ,bg-prose-block-contents :extend t)))
     `(org-warning ((,c :foreground ,warning)))
 ;;;;; org-habit
-    ;; NOTE 2025-10-24: All foregrounds here are a special case.
-    `(org-habit-alert-face ((,c :background ,bg-graph-yellow-0 :foreground ,(readable-foreground-color bg-graph-yellow-0))))
-    `(org-habit-alert-future-face ((,c :background ,bg-graph-yellow-1 :foreground ,(readable-foreground-color bg-graph-yellow-1))))
-    `(org-habit-clear-face ((,c :background ,bg-graph-blue-0 :foreground ,(readable-foreground-color bg-graph-blue-0))))
-    `(org-habit-clear-future-face ((,c :background ,bg-graph-blue-1 :foreground ,(readable-foreground-color bg-graph-blue-1))))
-    `(org-habit-overdue-face ((,c :background ,bg-graph-red-0 :foreground ,(readable-foreground-color bg-graph-red-0))))
-    `(org-habit-overdue-future-face ((,c :background ,bg-graph-red-1 :foreground ,(readable-foreground-color bg-graph-red-1))))
-    `(org-habit-ready-face ((,c :background ,bg-graph-green-0 :foreground ,(readable-foreground-color bg-graph-green-0))))
-    `(org-habit-ready-future-face ((,c :background ,bg-graph-green-1 :foreground ,(readable-foreground-color bg-graph-green-1))))
+    ;; NOTE 2025-11-12: We used to have `readable-foreground-color'
+    ;; for the foreground values of these faces, but that function
+    ;; breaks the theme if it is loaded in the early-init.el.  Maybe
+    ;; we can find a better solution.  I do not want to introduce new
+    ;; palette entries or a new function just for these faces though.
+    `(org-habit-alert-face ((,c :background ,bg-graph-yellow-0)))
+    `(org-habit-alert-future-face ((,c :background ,bg-graph-yellow-1)))
+    `(org-habit-clear-face ((,c :background ,bg-graph-blue-0)))
+    `(org-habit-clear-future-face ((,c :background ,bg-graph-blue-1)))
+    `(org-habit-overdue-face ((,c :background ,bg-graph-red-0)))
+    `(org-habit-overdue-future-face ((,c :background ,bg-graph-red-1)))
+    `(org-habit-ready-face ((,c :background ,bg-graph-green-0)))
+    `(org-habit-ready-future-face ((,c :background ,bg-graph-green-1)))
 ;;;;; org-journal
     `(org-journal-calendar-entry-face ((,c :inherit modus-themes-slant :foreground ,date-common)))
     `(org-journal-calendar-scheduled-face ((,c :inherit modus-themes-slant :foreground ,date-scheduled-subtle)))
