@@ -6186,7 +6186,7 @@ FG and BG are the main colors."
     `(neo-vc-missing-face ((,c :foreground ,err)))
     `(neo-vc-needs-merge-face ((,c :inherit modus-themes-slant)))
     `(neo-vc-needs-update-face ((,c :inherit underline)))
-    `(neo-vc-removed-face ((,c :strike-through t)))
+    `(neo-vc-removed-face ((,c :underline (:style wave :color ,underline-err) :foreground ,err)))
     `(neo-vc-unlocked-changes-face ((,c :foreground ,info)))
     `(neo-vc-up-to-date-face (( )))
     `(neo-vc-user-face ((,c :foreground ,warning)))
