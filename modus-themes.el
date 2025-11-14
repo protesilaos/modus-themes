@@ -6963,7 +6963,7 @@ FG and BG are the main colors."
     `(vc-git-log-edit-summary-target-warning ((,c :foreground ,warning)))
     `(vc-locally-added-state ((,c :inherit modus-themes-slant)))
     `(vc-locked-state ((,c :foreground ,info)))
-    `(vc-missing-state ((,c :foreground ,err)))
+    `(vc-missing-state ((,c :underline (:style wave :color ,underline-warning) :foreground ,warning)))
     `(vc-needs-update-state ((,c :foreground ,err)))
     `(vc-removed-state ((,c :foreground ,err)))
     `(vc-state-base (( )))
