@@ -6965,7 +6965,7 @@ FG and BG are the main colors."
     `(vc-locked-state ((,c :foreground ,info)))
     `(vc-missing-state ((,c :underline (:style wave :color ,underline-warning) :foreground ,warning)))
     `(vc-needs-update-state ((,c :foreground ,err)))
-    `(vc-removed-state ((,c :foreground ,err)))
+    `(vc-removed-state ((,c :underline (:style wave :color ,underline-err) :foreground ,err)))
     `(vc-state-base (( )))
     `(vc-up-to-date-state (( )))
 ;;;;; vertico
