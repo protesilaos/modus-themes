@@ -6956,7 +6956,7 @@ FG and BG are the main colors."
     `(vc-dir-status-edited ((,c :inherit modus-themes-slant)))
     `(vc-dir-status-ignored ((,c :foreground ,fg-dim)))
     `(vc-dir-status-up-to-date ((,c :foreground ,info)))
-    `(vc-dir-status-warning ((,c :foreground ,err)))
+    `(vc-dir-status-warning ((,c :foreground ,warning)))
     `(vc-conflict-state ((,c :foreground ,err)))
     `(vc-edited-state ((,c :inherit modus-themes-slant)))
     `(vc-git-log-edit-summary-max-warning ((,c :foreground ,err)))
