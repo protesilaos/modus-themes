@@ -6846,6 +6846,8 @@ FG and BG are the main colors."
     `(transient-heading ((,c :inherit bold :foreground ,fg-main)))
     `(transient-inactive-argument ((,c :foreground ,fg-dim)))
     `(transient-inactive-value ((,c :foreground ,fg-dim)))
+    `(transient-inapt-argument ((,c :inherit bold :foreground ,fg-dim)))
+    `(transient-inapt-suffix ((,c :inherit italic :foreground ,fg-dim)))
     ;; NOTE 2023-12-09 10:30:09 +0200: The new user option
     ;; `transient-semantic-coloring' is enabled by default.  This is
     ;; not good for us, because we are making it harder for users who
@@ -6855,7 +6857,7 @@ FG and BG are the main colors."
     ;; Those who want semantic coloring can modify these faces.
     `(transient-key ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind)))
     `(transient-key-exit ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind)))
-    `(transient-key-noop ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind :strike-through t)))
+    `(transient-key-noop ((,c :inherit modus-themes-fixed-pitch :foreground ,fg-dim)))
     `(transient-key-recurse ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind)))
     `(transient-key-return ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind)))
     `(transient-key-stack ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind)))
@@ -6867,7 +6869,7 @@ FG and BG are the main colors."
     `(transient-red ((,c :inherit bold :foreground ,red-faint)))
     `(transient-teal ((,c :inherit bold :foreground ,cyan-cooler)))
     `(transient-unreachable ((,c :foreground ,fg-dim)))
-    `(transient-unreachable-key ((,c :foreground ,fg-dim)))
+    `(transient-unreachable-key ((,c :inherit modus-themes-fixed-pitch :foreground ,fg-dim)))
     `(transient-value ((,c :inherit modus-themes-bold :background ,bg-active-value :foreground ,fg-active-value)))
 ;;;;; trashed
     `(trashed-deleted ((,c :inherit bold :background ,bg-mark-delete :foreground ,fg-mark-delete)))
