@@ -3859,7 +3859,7 @@ With optional NO-ENABLE, do not try to enable any themes."
     (when (memq current (modus-themes-get-all-known-themes nil no-enable))
       current)))
 
-(defun modus-themes--get-theme-palette-subr (theme with-overrides with-user-palette &optional reverse)
+(defun modus-themes--get-theme-palette-subr (theme with-overrides with-user-palette)
   "Get THEME palette without `modus-themes-known-p'.
 WITH-OVERRIDES and WITH-USER-PALETTE are described in
 `modus-themes-get-theme-palette'.
@@ -3867,32 +3867,23 @@ WITH-OVERRIDES and WITH-USER-PALETTE are described in
 If THEME does not have at least a `:modus-core-palette' among its
 `theme-properties', return nil.
 
-With optional REVERSE, return the combined palette in the form of (CORE
-USER OVERRIDES).  Else return (OVERRIDES USER CORE)."
+Else return (append OVERRIDES USER CORE)."
   (when-let* ((properties (get theme 'theme-properties))
               (core-palette (symbol-value (plist-get properties :modus-core-palette))))
     (let* ((user-palette (when with-user-palette (symbol-value (plist-get properties :modus-user-palette))))
            (overrides-palette (when with-overrides (symbol-value (plist-get properties :modus-overrides-palette))))
            (all-overrides (when with-overrides (append overrides-palette modus-themes-common-palette-overrides))))
-      (if reverse
-          (append core-palette user-palette all-overrides)
-        (append all-overrides user-palette core-palette)))))
+      (append all-overrides user-palette core-palette))))
 
-(defun modus-themes-get-theme-palette (&optional theme with-overrides with-user-palette reverse)
+(defun modus-themes-get-theme-palette (&optional theme with-overrides with-user-palette)
   "Return palette value of active `modus-themes-get-themes' THEME.
 If THEME is nil, use the return value of
 `modus-themes-get-current-theme'.  With WITH-OVERRIDES, include all
 overrides in the combined palette.  With WITH-USER-PALETTE do the same
-for the user-defined palette extension.  With optional REVERSE, return
-the combined palette in the form of (append CORE USER OVERRIDES).  Else
-return (append OVERRIDES USER CORE).
+for the user-defined palette extension.
 
-If THEME is unknown, return nil."
-  (modus-themes--get-theme-palette-subr
-   (or theme (modus-themes-get-current-theme))
-   with-overrides
-   with-user-palette
-   reverse))
+If THEME is unknown, return nil.  Else return (append OVERRIDES USER CORE)."
+  (modus-themes--get-theme-palette-subr (or theme (modus-themes-get-current-theme)) with-overrides with-user-palette))
 
 (defun modus-themes--disable-themes ()
   "Disable themes per `modus-themes-disable-other-themes'."
@@ -7316,6 +7307,16 @@ Consult the manual for details on how to build a theme on top of the
 
 ;;;; Use theme colors
 
+(defun modus-themes--with-colors-get-palette (theme)
+  "Get THEME palette for `modus-themes-with-colors'.
+Return (list CORE USER OVERRIDES) palettes."
+  (when-let* ((properties (get theme 'theme-properties))
+              (core-palette (symbol-value (plist-get properties :modus-core-palette))))
+    (let* ((user-palette (symbol-value (plist-get properties :modus-user-palette)))
+           (overrides-palette (symbol-value (plist-get properties :modus-overrides-palette)))
+           (all-overrides (append overrides-palette modus-themes-common-palette-overrides)))
+      (list core-palette user-palette all-overrides))))
+
 (defun modus-themes--with-colors-resolve-palette-sort (colors)
   "Sort all COLORS in the theme's palette.
 Put all named colors before semantic color mappings.  A named color is a
@@ -7324,14 +7325,18 @@ whose value is another symbol, which ultimately resolves to a string or
 `unspecified'."
   (let ((named nil)
         (semantic nil))
-    (dolist (color colors)
-      (if (stringp (cadr color))
-          (push color named)
-        (push color semantic)))
-    (seq-uniq
-     (nconc (nreverse named) (nreverse semantic))
-     (lambda (elt1 elt2)
-       (eq (car elt1) (car elt2))))))
+    (dolist (group colors)
+      (dolist (color group)
+        (if (stringp (cadr color))
+            (push color named)
+          (push color semantic))))
+    (let* ((unique-fn (lambda (sequence)
+                        (seq-uniq sequence
+                                  (lambda (elt1 elt2)
+                                    (eq (car elt1) (car elt2))))))
+           (named-unique (funcall unique-fn named))
+           (semantic-unique (funcall unique-fn semantic)))
+      (nreverse (nconc semantic-unique named-unique)))))
 
 (defun modus-themes-with-colors-subr (expressions)
   "Do the work of `modus-themes-with-colors' for EXPRESSIONS."
@@ -7341,7 +7346,7 @@ whose value is another symbol, which ultimately resolves to a string or
          `(let* ((c '((class color) (min-colors 256)))
                  (unspecified 'unspecified)
                  ,@(modus-themes--with-colors-resolve-palette-sort
-                    (modus-themes--get-theme-palette-subr theme :with-overrides :with-user-palette :reverse)))
+                    (modus-themes--with-colors-get-palette theme)))
             ,@expressions)
          :lexical))
     (error (message "Error in `modus-themes-with-colors': %s" data))))
