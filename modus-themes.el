@@ -5560,7 +5560,7 @@ FG and BG are the main colors."
 ;;;;; hl-fill-column
     `(hl-fill-column-face ((,c :background ,bg-active)))
 ;;;;; hl-todo
-    `(hl-todo ((,c :inherit modus-themes-slant :foreground ,prose-todo)))
+    `(hl-todo ((,c :inherit (modus-themes-bold modus-themes-slant) :foreground ,prose-todo)))
 ;;;;; howm
     `(action-lock-face ((,c :background ,bg-link :foreground ,fg-link :underline ,underline-link)))
     `(howm-mode-keyword-face (( )))
