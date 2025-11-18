@@ -4859,6 +4859,10 @@ FG and BG are the main colors."
     `(compilation-mode-line-fail ((,c :inherit modus-themes-bold :foreground ,modeline-err)))
     `(compilation-mode-line-run ((,c :inherit modus-themes-bold :foreground ,modeline-warning)))
     `(compilation-warning ((,c :inherit modus-themes-bold :foreground ,warning)))
+;;;;; completion-preview
+    `(completion-preview ((,c :foreground ,fg-dim)))
+    `(completion-preview-common ((,c :inherit completion-preview :underline t)))
+    `(completion-preview-exact ((,c :inherit completion-preview :foreground ,accent-0 :underline ,accent-0)))
 ;;;;; completions
     `(completions-annotations ((,c :inherit modus-themes-slant :foreground ,docstring)))
     `(completions-common-part ((,c :inherit modus-themes-completion-match-0)))
