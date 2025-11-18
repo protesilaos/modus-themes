@@ -4862,7 +4862,12 @@ FG and BG are the main colors."
 ;;;;; completion-preview
     `(completion-preview ((,c :foreground ,fg-dim)))
     `(completion-preview-common ((,c :inherit completion-preview :underline t)))
-    `(completion-preview-exact ((,c :inherit completion-preview :foreground ,accent-0 :underline ,accent-0)))
+    ;; NOTE 2025-11-18: We have to inherit `completion-preview'
+    ;; otherwise the `hl-line-mode' line loses its background where
+    ;; the `completion-preview-mode' overlay is.  This is not
+    ;; intuitive, given that we do not set a background for
+    ;; `completion-preview'.
+    `(completion-preview-exact ((,c :inherit (modus-themes-completion-match-0 completion-preview))))
 ;;;;; completions
     `(completions-annotations ((,c :inherit modus-themes-slant :foreground ,docstring)))
     `(completions-common-part ((,c :inherit modus-themes-completion-match-0)))
