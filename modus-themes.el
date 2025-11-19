@@ -6846,20 +6846,15 @@ FG and BG are the main colors."
     `(transient-inactive-value ((,c :foreground ,fg-dim)))
     `(transient-inapt-argument ((,c :inherit bold :foreground ,fg-dim)))
     `(transient-inapt-suffix ((,c :inherit italic :foreground ,fg-dim)))
-    ;; NOTE 2023-12-09 10:30:09 +0200: The new user option
-    ;; `transient-semantic-coloring' is enabled by default.  This is
-    ;; not good for us, because we are making it harder for users who
-    ;; need accessible colors to use the transient interfaces.  I
-    ;; could set that user option to nil, but I think it is less
-    ;; intrusive to enforce uniformity among the relevant faces.
-    ;; Those who want semantic coloring can modify these faces.
     `(transient-key ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind)))
-    `(transient-key-exit ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind)))
+    ;; NOTE 2025-11-19: With regard to `transient-semantic-coloring',
+    ;; also see `modus-themes-faces-deuteranopia' and `modus-themes-faces-tritanopia'.
+    `(transient-key-exit ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,red-warmer)))
     `(transient-key-noop ((,c :inherit modus-themes-fixed-pitch :foreground ,fg-dim)))
-    `(transient-key-recurse ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind)))
-    `(transient-key-return ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind)))
-    `(transient-key-stack ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind)))
-    `(transient-key-stay ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind)))
+    `(transient-key-recurse ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,fg-main)))
+    `(transient-key-return ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,yellow)))
+    `(transient-key-stack ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,blue-cooler)))
+    `(transient-key-stay ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,green-cooler)))
     `(transient-mismatched-key ((,c :inherit underline)))
     `(transient-nonstandard-key ((,c :inherit underline)))
     `(transient-unreachable ((,c :foreground ,fg-dim)))
