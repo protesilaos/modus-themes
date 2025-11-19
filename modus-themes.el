@@ -7162,6 +7162,26 @@ FG and BG are the main colors."
     `(ztreep-node-face ((,c :foreground ,accent-0))))
   "Face specs for use with `modus-themes-theme'.")
 
+(defconst modus-themes-faces-deuteranopia
+  '(
+    `(transient-key-exit ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,yellow-warmer)))
+    `(transient-key-noop ((,c :inherit modus-themes-fixed-pitch :foreground ,fg-dim)))
+    `(transient-key-recurse ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,fg-main)))
+    `(transient-key-return ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,yellow-cooler)))
+    `(transient-key-stack ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,blue-cooler)))
+    `(transient-key-stay ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,cyan-faint))))
+  "Faces that must be used by themes that are optimized for deuteranopia.")
+
+(defconst modus-themes-faces-tritanopia
+  '(
+    `(transient-key-exit ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,red-warmer)))
+    `(transient-key-noop ((,c :inherit modus-themes-fixed-pitch :foreground ,fg-dim)))
+    `(transient-key-recurse ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,fg-main)))
+    `(transient-key-return ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,magenta)))
+    `(transient-key-stack ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,cyan)))
+    `(transient-key-stay ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,cyan-faint))))
+  "Faces that must be used by themes that are optimized for tritanopia.")
+
 (defconst modus-themes-custom-variables
   '(
 ;;;; ansi-colors
