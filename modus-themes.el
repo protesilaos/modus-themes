@@ -6836,11 +6836,9 @@ FG and BG are the main colors."
     `(tmr-tabulated-start-time ((,c :foreground ,date-common)))
 ;;;;; transient
     `(transient-active-infix ((,c :background ,bg-hover :foreground ,fg-main)))
-    `(transient-amaranth ((,c :inherit bold :foreground ,yellow-warmer)))
     ;; Placate the compiler for what is a spurious warning.  We also
     ;; have to do this with `eldoc-highlight-function-argument'.
     (list 'transient-argument `((,c :inherit modus-themes-bold :background ,bg-active-argument :foreground ,fg-active-argument)))
-    `(transient-blue ((,c :inherit bold :foreground ,blue)))
     `(transient-disabled-suffix ((,c :inherit bold :background ,bg-mark-delete :foreground ,fg-mark-delete)))
     `(transient-enabled-suffix ((,c :inherit bold :background ,bg-mark-select :foreground ,fg-mark-select)))
     `(transient-heading ((,c :inherit bold :foreground ,fg-main)))
@@ -6864,10 +6862,6 @@ FG and BG are the main colors."
     `(transient-key-stay ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind)))
     `(transient-mismatched-key ((,c :inherit underline)))
     `(transient-nonstandard-key ((,c :inherit underline)))
-    `(transient-pink ((,c :inherit bold :foreground ,magenta)))
-    `(transient-purple ((,c :inherit bold :foreground ,magenta-cooler)))
-    `(transient-red ((,c :inherit bold :foreground ,red-faint)))
-    `(transient-teal ((,c :inherit bold :foreground ,cyan-cooler)))
     `(transient-unreachable ((,c :foreground ,fg-dim)))
     `(transient-unreachable-key ((,c :inherit modus-themes-fixed-pitch :foreground ,fg-dim)))
     `(transient-value ((,c :inherit modus-themes-bold :background ,bg-active-value :foreground ,fg-active-value)))
