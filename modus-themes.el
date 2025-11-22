@@ -7454,8 +7454,9 @@ accordingly."
 ;;;; Let derivative themes create commands to load only their themes
 
 (defvar modus-themes-define-derivative-command-known-suffixes
-  '( toggle rotate select load-random load-random-dark
-     load-random-light list-colors list-colors-current)
+  '( toggle rotate select select-dark select-light
+     load-random load-random-dark load-random-light
+     list-colors list-colors-current)
   "Command suffixes accepted by `modus-themes-define-derivative-command'.")
 
 (defmacro modus-themes-define-derivative-command (family suffix)
