@@ -4743,9 +4743,9 @@ FG and BG are the main colors."
 ;;;;; calendar and diary
     `(calendar-month-header ((,c :inherit modus-themes-bold)))
     `(calendar-today
-      ((default :foreground ,date-common :inverse-video t)
+      ((default :foreground ,date-now :inverse-video t)
        (((supports :box t))
-        :box (:line-width (-1 . -1) :color ,fg-main))))
+        :box (:line-width (-1 . -1) :color ,date-now))))
     `(calendar-weekday-header ((,c :foreground ,date-weekday)))
     `(calendar-weekend-header ((,c :foreground ,date-weekend)))
     `(diary ((,c :foreground ,date-common)))
