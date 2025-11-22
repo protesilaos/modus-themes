@@ -3977,28 +3977,54 @@ symbol, which is safe when used as a face attribute's value."
         `(metadata (category . ,category))
       (complete-with-action action candidates string pred))))
 
-(defun modus-themes--completion-table-candidates ()
-  "Render `modus-themes-get-themes' as a completion table."
-  (modus-themes--completion-table 'theme (modus-themes-get-themes)))
+(defun modus-themes--completion-table-candidates (themes)
+  "Render THEMES as a completion table."
+  (modus-themes--completion-table 'theme themes))
 
-(defun modus-themes-select-prompt (&optional prompt)
+(defun modus-themes-select-prompt (&optional prompt background-mode)
   "Minibuffer prompt to select a Modus theme.
 With optional PROMPT string, use it as the first argument of
-`format-prompt'.  Else use a generic prompt."
+`format-prompt'.  Else use a generic prompt.
+
+With optional BACKGROUND-MODE as either `dark' or `light' limit the
+themes accordingly."
   (let ((completion-extra-properties `(:annotation-function ,#'modus-themes--annotate-theme)))
     (intern
      (completing-read
       (format-prompt (or prompt "Select theme") nil)
-      (modus-themes--completion-table-candidates)
+      (if background-mode
+          (modus-themes-filter-by-background-mode
+           (modus-themes-get-themes)
+           background-mode)
+        (modus-themes-get-themes))
       nil t nil
       'modus-themes--select-theme-history))))
 
 ;;;###autoload
 (defun modus-themes-select (theme)
   "Load a Modus THEME using minibuffer completion.
+With optional prefix argument, prompt to limit the set of themes to
+either dark or light variants.
+
 Run `modus-themes-after-load-theme-hook' after loading the theme.
 Disable other themes per `modus-themes-disable-other-themes'."
-  (interactive (list (modus-themes-select-prompt)))
+  (interactive
+   (list
+    (if current-prefix-arg
+        (modus-themes-select-prompt nil (modus-themes-background-mode-prompt))
+      (modus-themes-select-prompt))))
+  (modus-themes-load-theme theme))
+
+;;;###autoload
+(defun modus-themes-select-dark (theme)
+  "Like `modus-themes-select' for a dark THEME."
+  (interactive (list (modus-themes-select-prompt nil 'dark)))
+  (modus-themes-load-theme theme))
+
+;;;###autoload
+(defun modus-themes-select-light (theme)
+  "Like `modus-themes-select' for a light THEME."
+  (interactive (list (modus-themes-select-prompt nil 'light)))
   (modus-themes-load-theme theme))
 
 ;;;;; Toggle between two themes
@@ -4096,9 +4122,9 @@ THEMES."
 (defun modus-themes-load-random (&optional background-mode)
   "Load a Modus theme at random, excluding the current one.
 
-With optional BACKGROUND-MODE as a prefix argument, prompt to limit the set of
-themes to either dark or light variants.  When called from Lisp, BACKGROUND-MODE
-is either the `dark' or `light' symbol.
+With optional BACKGROUND-MODE as a prefix argument, prompt to limit the
+set of themes to either dark or light variants.  When called from Lisp,
+BACKGROUND-MODE is either the `dark' or `light' symbol.
 
 Run `modus-themes-after-load-theme-hook' after loading a theme."
   (interactive
@@ -5362,12 +5388,15 @@ FG and BG are the main colors."
     `(flymake-error ((,c :underline (:style wave :color ,underline-err))))
     `(flymake-error-echo ((,c :foreground ,err)))
     `(flymake-error-echo-at-eol ((,c :inherit modus-themes-slant :foreground ,err :height 0.85 :box ,border)))
+    `(flymake-error-fringe ((,c :background ,bg-prominent-err :foreground ,fg-prominent-err)))
     `(flymake-note ((,c :underline (:style wave :color ,underline-note))))
     `(flymake-note-echo ((,c :foreground ,info)))
     `(flymake-note-echo-at-eol ((,c :inherit modus-themes-slant :foreground ,info :height 0.85 :box ,border)))
+    `(flymake-note-fringe ((,c :background ,bg-prominent-note :foreground ,fg-prominent-note)))
     `(flymake-warning ((,c :underline (:style wave :color ,underline-warning))))
     `(flymake-warning-echo ((,c :foreground ,warning)))
     `(flymake-warning-echo-at-eol ((,c :inherit modus-themes-slant :foreground ,warning :height 0.85 :box ,border)))
+    `(flymake-warning-fringe ((,c :background ,bg-prominent-warning :foreground ,fg-prominent-warning)))
 ;;;;; flyspell
     `(flyspell-duplicate ((,c :underline (:style wave :color ,underline-warning))))
     `(flyspell-incorrect ((,c :underline (:style wave :color ,underline-err))))
@@ -5605,6 +5634,11 @@ FG and BG are the main colors."
     `(hbut-face ((,c :inherit modus-themes-button)))
     `(hbut-flash ((,c :background ,bg-search-replace)))
     `(ibut-face ((,c :background ,bg-link-symbolic :foreground ,fg-link-symbolic :underline ,underline-link-symbolic)))
+;;;;; ibuffer
+    `(ibuffer-deletion ((,c :inherit bold :background ,bg-mark-delete :foreground ,fg-mark-delete)))
+    `(ibuffer-filter-group-name ((,c :inherit bold)))
+    `(ibuffer-marked ((,c :inherit bold :background ,bg-mark-select :foreground ,fg-mark-select)))
+    `(ibuffer-title ((,c :inherit bold)))
 ;;;;; icomplete
     `(icomplete-first-match ((,c :inherit modus-themes-completion-match-0)))
     `(icomplete-vertical-selected-prefix-indicator-face ((,c :inherit modus-themes-bold :foreground ,keybind)))

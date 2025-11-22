@@ -367,11 +367,24 @@ customizations ([[#h:f4651d55-8c07-46aa-b52b-bed1e53463bb][Advanced customizatio
 #+findex: modus-themes-select
 #+findex: modus-themes-rotate
 #+findex: modus-themes-load-random
-#+findex: modus-themes-select
 The commands ~modus-themes-toggle~, ~modus-themes-rotate~,
 ~modus-themes-load-random~, and ~modus-themes-select~ use
 ~modus-themes-load-theme~ internally ([[#h:4fbfed66-5a89-447a-a07d-a03f6819c5bd][Option for which themes to toggle]]).
 The aforementioned hold true for them as well.
+
+Convenience commands for loading only dark or light themes are:
+
+#+findex: modus-themes-select-dark
+- ~modus-themes-select-dark~ [ Part of {{{development-version}}}. ]
+
+#+findex: modus-themes-select-light
+- ~modus-themes-select-light~ [ Part of {{{development-version}}}. ]
+
+#+findex: modus-themes-load-random-dark
+- ~modus-themes-load-random-dark~
+
+#+findex: modus-themes-load-random-light
+- ~modus-themes-load-random-light~
 
 ** The ~require-theme~ for built-in Emacs themes
 :PROPERTIES:
@@ -597,10 +610,12 @@ Possible values:
 When the value is non-~nil~, the commands ~modus-themes-toggle~,
 ~modus-themes-rotate~, ~modus-themes-load-random~, and
 ~modus-themes-select~, as well as the ~modus-themes-load-theme~
-function, will disable all other themes while loading the specified
-Modus theme ([[#h:4fbfed66-5a89-447a-a07d-a03f6819c5bd][Option for which themes to toggle]]). This is done to
-ensure that Emacs does not blend two or more themes: such blends lead
-to awkward results that undermine the work of the designer.
+function (and any related convenience wrappers like
+~modus-themes-load-random-dark~), will disable all other themes while
+loading the specified Modus theme ([[#h:4fbfed66-5a89-447a-a07d-a03f6819c5bd][Option for which themes to toggle]]).
+This is done to ensure that Emacs does not blend two or more themes:
+such blends lead to awkward results that undermine the work of the
+designer.
 
 When the value is ~nil~, the aforementioned commands and function will
 only disable other themes within the Modus collection.
