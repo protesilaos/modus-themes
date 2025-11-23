@@ -4504,6 +4504,19 @@ FG and BG are the main colors."
      :weight
      (if (and weight (null bold)) weight 'unspecified))))
 
+
+;; NOTE 2025-11-23: In theory we need the `modus-themes--box'
+;; equivalent for this:
+;;
+;;     :underline (:style wave :color unspecified)
+;;
+;; I checked all the relevant faces and feel that users will not be
+;; benefitting form such a style anyway.  What would be the point of a
+;; spell checker that cannot highlight its errors, for example?
+;; Granted, we could have another kind of highlight, but I am here
+;; focusing on the use of this:
+;;
+;;     :underline unspecified
 (defun modus-themes--box (color width style)
   "Return :box COLOR, WIDTH, STYLE if appropriate.
 If COLOR is unspecified, then return :box unspecified."
