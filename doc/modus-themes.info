@@ -6449,9 +6449,9 @@ Ideas and user feedback
      Argiolas, Gaston Cabotin, Gautier Ponsinet, Gerry Agbobada,
      Gianluca Recchia, Gonçalo Marrafa, Guilherme Semente, Gustavo
      Barros, Hörmetjan Yiltiz, Ilja Kocken, Imran Khan, Iris Garcia,
-     Ivan Popovych, Jabir Ali Ouassou, James Ferguson, Jeremy Friesen,
-     Jerry Zhang, Johannes Grødem, John Haman, John Sullivan, John Wick,
-     Jonas Collberg, Jorge Morais, Joshua O'Connor, Julio C.
+     Ivan Popovych, Jabir Ali Ouassou, James Ferguson, JD Smith, Jeremy
+     Friesen, Jerry Zhang, Johannes Grødem, John Haman, John Sullivan,
+     John Wick, Jonas Collberg, Jorge Morais, Joshua O'Connor, Julio C.
      Villasante, Kenta Usami, Kevin Fleming, Kévin Le Gouguec, Kevin
      Kainan Li, Kostadin Ninev, Laith Bahodi, Lasse Lindner, Len Trigg,
      Lennart C. Karssen, Luis Miguel Castañeda, Magne Hov, Manuel
@@ -7325,11 +7325,11 @@ Node: Sources of the themes268590
 Node: Issues you can help with269486
 Node: Patches require copyright assignment to the FSF270878
 Node: Acknowledgements273100
-Node: GNU Free Documentation License277710
-Node: Indices302873
-Node: Function index303052
-Node: Variable index308033
-Node: Concept index312396
+Node: GNU Free Documentation License277720
+Node: Indices302883
+Node: Function index303062
+Node: Variable index308043
+Node: Concept index312406
 
 End Tag Table
 

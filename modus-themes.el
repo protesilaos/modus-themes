@@ -4504,6 +4504,21 @@ FG and BG are the main colors."
      :weight
      (if (and weight (null bold)) weight 'unspecified))))
 
+(defun modus-themes--box (color width style)
+  "Return :box COLOR, WIDTH, STYLE if appropriate.
+If COLOR is unspecified, then return :box unspecified."
+  (cond
+   ((eq color 'unspecified)
+    '(:box unspecified))
+   ((and width style)
+    `(:box (:line-width ,width :color ,color :style ,style)))
+   (width
+    `(:box (:line-width ,width :color ,color)))
+   (style
+    `(:box (:color ,color :style ,style)))
+   (t
+    `(:box ,color))))
+
 
 
 ;;;; Face specifications
@@ -4538,7 +4553,7 @@ FG and BG are the main colors."
     `(modus-themes-button
       ((default :inherit variable-pitch :background ,bg-button-active :foreground ,fg-button-active)
        (((supports :box t))
-        :box (:line-width 1 :color ,border :style released-button))
+        ,@(modus-themes--box border 1 'released-button))
        (t :underline ,border)))
     `(modus-themes-prompt ((,c ,@(modus-themes--prompt fg-prompt bg-prompt))))
     `(modus-themes-reset-soft ((,c :background ,bg-main :foreground ,fg-main
@@ -4771,7 +4786,7 @@ FG and BG are the main colors."
     `(calendar-today
       ((default :foreground ,date-now :inverse-video t)
        (((supports :box t))
-        :box (:line-width (-1 . -1) :color ,date-now))))
+        ,@(modus-themes--box date-now '(-1 . -1) nil))))
     `(calendar-weekday-header ((,c :foreground ,date-weekday)))
     `(calendar-weekend-header ((,c :foreground ,date-weekend)))
     `(diary ((,c :foreground ,date-common)))
@@ -4806,15 +4821,15 @@ FG and BG are the main colors."
 ;;;;; centaur-tabs
     `(centaur-tabs-active-bar-face ((,c :background ,blue))) ; special case like `doom-modeline-bar'
     `(centaur-tabs-close-mouse-face ((,c :inherit modus-themes-bold :foreground ,warning :underline t)))
-    `(centaur-tabs-close-selected ((,c :inherit modus-themes-bold :box (:line-width -2 :color ,bg-tab-current) :background ,bg-tab-current)))
-    `(centaur-tabs-close-unselected ((,c :box (:line-width -2 :color ,bg-tab-other) :background ,bg-tab-other)))
-    `(centaur-tabs-modified-marker-selected ((,c :inherit modus-themes-bold :box (:line-width -2 :color ,bg-tab-current) :background ,bg-tab-current)))
-    `(centaur-tabs-modified-marker-unselected ((,c :box (:line-width -2 :color ,bg-tab-other) :background ,bg-tab-other)))
+    `(centaur-tabs-close-selected ((,c :inherit modus-themes-bold :background ,bg-tab-current ,@(modus-themes--box bg-tab-current -2 nil))))
+    `(centaur-tabs-close-unselected ((,c :inherit modus-themes-bold :background ,bg-tab-other ,@(modus-themes--box bg-tab-other -2 nil))))
+    `(centaur-tabs-modified-marker-selected ((,c :inherit modus-themes-bold :background ,bg-tab-current ,@(modus-themes--box bg-tab-current -2 nil))))
+    `(centaur-tabs-modified-marker-unselected ((,c :background ,bg-tab-other ,@(modus-themes--box bg-tab-other -2 nil))))
     `(centaur-tabs-default ((,c :background ,bg-main)))
-    `(centaur-tabs-selected ((,c :inherit modus-themes-bold :box (:line-width -2 :color ,bg-tab-current) :background ,bg-tab-current)))
-    `(centaur-tabs-selected-modified ((,c :inherit italic :box (:line-width -2 :color ,bg-tab-current) :background ,bg-tab-current)))
-    `(centaur-tabs-unselected ((,c :box (:line-width -2 :color ,bg-tab-other) :background ,bg-tab-other)))
-    `(centaur-tabs-unselected-modified ((,c :inherit italic :box (:line-width -2 :color ,bg-tab-other) :background ,bg-tab-other)))
+    `(centaur-tabs-selected ((,c :inherit modus-themes-bold :background ,bg-tab-current ,@(modus-themes--box bg-tab-current -2 nil))))
+    `(centaur-tabs-selected-modified ((,c :inherit modus-themes-slant :background ,bg-tab-current ,@(modus-themes--box bg-tab-current -2 nil))))
+    `(centaur-tabs-unselected ((,c :background ,bg-tab-other ,@(modus-themes--box bg-tab-other -2 nil))))
+    `(centaur-tabs-unselected-modified ((,c :inherit modus-themes-slant :background ,bg-tab-other ,@(modus-themes--box bg-tab-other -2 nil))))
 ;;;;; change-log and log-view (`vc-print-log' and `vc-print-root-log')
     `(change-log-acknowledgment ((,c :foreground ,identifier)))
     `(change-log-conditionals ((,c :foreground ,err)))
@@ -4947,12 +4962,12 @@ FG and BG are the main colors."
     `(custom-button-mouse
       ((default :inherit variable-pitch :background ,bg-hover :foreground ,fg-main)
        (((supports :box t))
-        :box (:line-width 1 :color ,border :style released-button))
+        ,@(modus-themes--box border 1 'released-button))
        (t :underline ,border)))
     `(custom-button-pressed
       ((default :inherit variable-pitch :background ,bg-main :foreground ,fg-main)
        (((supports :box t))
-        :box (:line-width 1 :color ,border :style pressed-button))
+        ,@(modus-themes--box border 1 'pressed-button))
        (t :underline ,border)))
     `(custom-changed ((,c :background ,bg-changed)))
     `(custom-comment ((,c :foreground ,comment)))
@@ -5871,11 +5886,11 @@ FG and BG are the main colors."
     `(lsp-ui-peek-list ((,c :background ,bg-dim)))
     `(lsp-ui-peek-filename ((,c :inherit modus-themes-bold :foreground ,name)))
     `(lsp-ui-peek-line-number ((,c :foreground ,fg-dim)))
-    `(lsp-ui-peek-highlight ((,c :background ,bg-dim :box (:line-width -1 :color ,border))))
+    `(lsp-ui-peek-highlight ((,c :background ,bg-dim ,@(modus-themes--box border -1 nil))))
     `(lsp-ui-peek-header ((,c :inherit modus-themes-bold)))
     `(lsp-ui-peek-selection ((,c :background ,bg-region :foreground ,fg-region)))
-    `(lsp-ui-sideline-symbol ((,c :foreground ,fg-dim :box (:line-width -1 :color ,border))))
-    `(lsp-ui-sideline-current-symbol ((,c :inherit modus-themes-bold :foreground ,fg-main :box (:line-width -1 :color ,border))))
+    `(lsp-ui-sideline-symbol ((,c :foreground ,fg-dim ,@(modus-themes--box border -1 nil))))
+    `(lsp-ui-sideline-current-symbol ((,c :inherit modus-themes-bold :foreground ,fg-main ,@(modus-themes--box border -1 nil))))
     `(lsp-ui-sideline-code-action ((,c :foreground ,modeline-warning)))
     `(lsp-ui-sideline-symbol-info ((,c :inherit modus-themes-slant)))
 ;;;;; magit
@@ -6082,28 +6097,28 @@ FG and BG are the main colors."
                 :background ,bg-mode-line-active
                 :foreground ,fg-mode-line-active)
        (((supports :box t))
-        :box ,border-mode-line-active)
+        ,@(modus-themes--box border-mode-line-active nil nil))
        (t :underline ,border-mode-line-active)))
     `(mode-line-active
       ((default :inherit modus-themes-ui-variable-pitch
                 :background ,bg-mode-line-active
                 :foreground ,fg-mode-line-active)
        (((supports :box t))
-        :box ,border-mode-line-active)
+        ,@(modus-themes--box border-mode-line-active nil nil))
        (t :underline ,border-mode-line-active)))
     `(mode-line-buffer-id ((,c :inherit bold)))
     `(mode-line-emphasis ((,c :inherit italic :foreground ,modeline-info)))
     `(mode-line-highlight
       ((default :background ,bg-hover :foreground ,fg-main)
        (((supports :box t))
-        :box ,fg-main)
+        ,@(modus-themes--box fg-main nil nil))
        (t :underline ,fg-main)))
     `(mode-line-inactive
       ((default :inherit modus-themes-ui-variable-pitch
                 :background ,bg-mode-line-inactive
                 :foreground ,fg-mode-line-inactive)
        (((supports :box t))
-        :box ,border-mode-line-inactive)
+        ,@(modus-themes--box border-mode-line-inactive nil nil))
        (t :underline ,border-mode-line-inactive)))
 ;;;;; mood-line
     `(mood-line-modified ((,c :inherit modus-themes-slant)))
@@ -6329,7 +6344,7 @@ FG and BG are the main colors."
     `(org-date-selected
       ((default :foreground ,date-common :inverse-video t)
        (((supports :box t))
-        :box (:line-width (-1 . -1) :color ,fg-main))))
+        ,@(modus-themes--box fg-main '(-1 . -1) nil))))
     ;; NOTE 2024-03-17: Normally we do not want to add this padding
     ;; with the :box, but I do it here because the keys are otherwise
     ;; very hard to read.  The square brackets around them are not
@@ -6337,7 +6352,7 @@ FG and BG are the main colors."
     `(org-dispatcher-highlight
       ((default :background ,bg-mark-select :foreground ,fg-main)
        (((supports :box t))
-        :box (:line-width 2 :color ,bg-mark-select))
+        ,@(modus-themes--box bg-mark-select 2 nil))
        (t :underline ,border)))
     `(org-document-info ((,c :foreground ,prose-metadata-value)))
     `(org-document-info-keyword ((,c :inherit modus-themes-fixed-pitch :foreground ,prose-metadata)))
@@ -6795,20 +6810,20 @@ FG and BG are the main colors."
     `(syslog-warn ((,c :foreground ,warning)))
 ;;;;; tab-bar-mode
     `(tab-bar ((,c :inherit modus-themes-ui-variable-pitch :background ,bg-tab-bar)))
-    `(tab-bar-tab-group-current ((,c :inherit modus-themes-bold :background ,bg-tab-current :box (:line-width -2 :color ,bg-tab-current) :foreground ,fg-alt)))
-    `(tab-bar-tab-group-inactive ((,c :background ,bg-tab-bar :box (:line-width -2 :color ,bg-tab-bar) :foreground ,fg-alt)))
-    `(tab-bar-tab ((,c :inherit modus-themes-bold :box (:line-width -2 :color ,bg-tab-current) :background ,bg-tab-current)))
+    `(tab-bar-tab-group-current ((,c :inherit modus-themes-bold :background ,bg-tab-current :foreground ,fg-alt ,@(modus-themes--box bg-tab-current -2 nil))))
+    `(tab-bar-tab-group-inactive ((,c :background ,bg-tab-bar :foreground ,fg-alt ,@(modus-themes--box bg-tab-bar -2 nil))))
+    `(tab-bar-tab ((,c :inherit modus-themes-bold :background ,bg-tab-current ,@(modus-themes--box bg-tab-current -2 nil))))
     `(tab-bar-tab-highlight ((,c :background ,bg-hover :foreground ,fg-main :box t)))
-    `(tab-bar-tab-inactive ((,c :box (:line-width -2 :color ,bg-tab-other) :background ,bg-tab-other)))
-    `(tab-bar-tab-ungrouped ((,c :box (:line-width -2 :color ,bg-tab-other) :background ,bg-tab-other)))
+    `(tab-bar-tab-inactive ((,c :background ,bg-tab-other ,@(modus-themes--box bg-tab-other -2 nil))))
+    `(tab-bar-tab-ungrouped ((,c :background ,bg-tab-other ,@(modus-themes--box bg-tab-other -2 nil))))
 ;;;;; tab-line-mode
     `(tab-line ((,c :inherit modus-themes-ui-variable-pitch :background ,bg-tab-bar :height 0.95)))
     `(tab-line-close-highlight ((,c :foreground ,err)))
     `(tab-line-highlight ((,c :background ,bg-hover :foreground ,fg-main)))
     `(tab-line-tab (( )))
-    `(tab-line-tab-current ((,c :inherit modus-themes-bold :box (:line-width -2 :color ,bg-tab-current) :background ,bg-tab-current)))
-    `(tab-line-tab-inactive ((,c :box (:line-width -2 :color ,bg-tab-other) :background ,bg-tab-other)))
-    `(tab-line-tab-inactive-alternate ((,c :box (:line-width -2 :color ,bg-tab-other) :background ,bg-tab-other :foreground ,fg-alt)))
+    `(tab-line-tab-current ((,c :inherit modus-themes-bold :background ,bg-tab-current ,@(modus-themes--box bg-tab-current -2 nil))))
+    `(tab-line-tab-inactive ((,c :background ,bg-tab-other ,@(modus-themes--box bg-tab-other -2 nil))))
+    `(tab-line-tab-inactive-alternate ((,c :background ,bg-tab-other :foreground ,fg-alt ,@(modus-themes--box bg-tab-other -2 nil))))
     `(tab-line-tab-modified ((,c :foreground ,warning)))
 ;;;;; table (built-in table.el)
     `(table-cell ((,c :background ,bg-dim)))

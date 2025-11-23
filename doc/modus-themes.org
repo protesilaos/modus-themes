@@ -6261,20 +6261,20 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Gautier Ponsinet, Gerry Agbobada, Gianluca Recchia, Gonçalo Marrafa,
   Guilherme Semente, Gustavo Barros, Hörmetjan Yiltiz, Ilja Kocken,
   Imran Khan, Iris Garcia, Ivan Popovych, Jabir Ali Ouassou, James
-  Ferguson, Jeremy Friesen, Jerry Zhang, Johannes Grødem, John Haman,
-  John Sullivan, John Wick, Jonas Collberg, Jorge Morais, Joshua
-  O'Connor, Julio C. Villasante, Kenta Usami, Kevin Fleming, Kévin Le
-  Gouguec, Kevin Kainan Li, Kostadin Ninev, Laith Bahodi, Lasse
-  Lindner, Len Trigg, Lennart C.{{{space()}}} Karssen, Luis Miguel
-  Castañeda, Magne Hov, Manuel Giraud, Manuel Uberti, Mark Bestley,
-  Mark Burton, Mark Simpson, Marko Kocic, Markus Beppler, Matt
-  Armstrong, Matthias Fuchs, Mattias Engdegård, Mauro Aranda, Maxime
-  Tréca, Michael Goldenberg, Morgan Smith, Morgan Willcock, Murilo
-  Pereira, Nicky van Foreest, Nicolas De Jaeghere, Nicolas Semrau,
-  Olaf Meeuwissen, Oliver Epper, Pablo Stafforini, Paul Poloskov,
-  Pengji Zhang, Pete Kazmier, Peter Wu, Philip Kaludercic, Pierre
-  Téchoueyres, Przemysław Kryger, Robert Hepple, Roman Rudakov, Roshan
-  Shariff, Russell Sim, Ryan Phillips, Rytis Paškauskas, Rudolf
+  Ferguson, JD Smith, Jeremy Friesen, Jerry Zhang, Johannes Grødem,
+  John Haman, John Sullivan, John Wick, Jonas Collberg, Jorge Morais,
+  Joshua O'Connor, Julio C. Villasante, Kenta Usami, Kevin Fleming,
+  Kévin Le Gouguec, Kevin Kainan Li, Kostadin Ninev, Laith Bahodi,
+  Lasse Lindner, Len Trigg, Lennart C.{{{space()}}} Karssen, Luis
+  Miguel Castañeda, Magne Hov, Manuel Giraud, Manuel Uberti, Mark
+  Bestley, Mark Burton, Mark Simpson, Marko Kocic, Markus Beppler,
+  Matt Armstrong, Matthias Fuchs, Mattias Engdegård, Mauro Aranda,
+  Maxime Tréca, Michael Goldenberg, Morgan Smith, Morgan Willcock,
+  Murilo Pereira, Nicky van Foreest, Nicolas De Jaeghere, Nicolas
+  Semrau, Olaf Meeuwissen, Oliver Epper, Pablo Stafforini, Paul
+  Poloskov, Pengji Zhang, Pete Kazmier, Peter Wu, Philip Kaludercic,
+  Pierre Téchoueyres, Przemysław Kryger, Robert Hepple, Roman Rudakov,
+  Roshan Shariff, Russell Sim, Ryan Phillips, Rytis Paškauskas, Rudolf
   Adamkovič, Sam Kleinman, Samuel Culpepper, Saša Janiška, Shreyas
   Ragavan, Simon Pugnet, Stéphane Marks, Steve Downey, Tassilo Horn,
   Thanos Apollo, Thibaut Verron, Thomas Heartman, Togan Muftuoglu,
