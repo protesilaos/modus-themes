@@ -7568,11 +7568,8 @@ PREFERENCE has the same meaning as the fallback preference passed to
      color
      alpha)))
 
-(defun modus-themes-generate-palette (base-colors cool-or-warm-preference &optional core-palette)
-  "Generate a palette given the BASE-COLORS and COOL-OR-WARM-PREFERENCE.
-COOL-OR-WARM-PREFERENCE is a symbol of either `cool' or `warm'.  Any
-other value is erroneous.
-
+(defun modus-themes-generate-palette (base-colors &optional cool-or-warm-preference core-palette)
+  "Generate a palette given the BASE-COLORS
 BASE-COLORS is consists of lists in the form (NAME VALUE).  NAME is one
 of `modus-themes-generate-palette-names', while VALUE is a string
 representing a color either by name like in `list-colors-display' or
@@ -7580,6 +7577,12 @@ hexadecimal RGB of the form #123456.
 
 The generated palette can be used as-is by derivative theme (pe
 `modus-themes-theme') or as a starting point for further refinements.
+
+With optional COOL-OR-WARM-PREFERENCE as a symbol of either `cool' or
+`warm' make relevant color choices for derivative values.  If
+COOL-OR-WARM-PREFERENCE is nil, derive the implied preference from the
+value of the `bg-main' color in BASE-COLORS.  If the value of `bg-main'
+satisfies `color-gray-p', then fall back to `cool'.
 
 With optional CORE-PALETTE use it to fill in any of the remaining
 entries.  This can be a symbol like `modus-themes-operandi-palette'.  Do
@@ -7605,9 +7608,12 @@ COOL-OR-WARM-PREFERENCE."
                               (eq (car name) 'fg-main)))
                         base-colors))
            (derivatives nil)
-           (prefers-cool-p (if (memq cool-or-warm-preference '(cool warm))
-                               (eq cool-or-warm-preference 'cool)
-                             (error "The COOL-OR-WARM-PREFERENCE must be either `cool' or `warm', not `%S'" cool-or-warm-preference))))
+           (prefers-cool-p (cond
+                            ((and cool-or-warm-preference (memq cool-or-warm-preference '(cool warm)))
+                             (eq cool-or-warm-preference 'cool))
+                            ((modus-themes-color-is-warm-or-cool-p bg-main 'cool))
+                            (t
+                             (error "The COOL-OR-WARM-PREFERENCE must be either `cool' or `warm', not `%S'" cool-or-warm-preference)))))
       ;; Base entries
       (push (list 'bg-dim (modus-themes-generate-gradient bg-main 5)) derivatives)
       (push (list 'bg-active (modus-themes-generate-gradient bg-main 10)) derivatives)
