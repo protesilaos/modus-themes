@@ -7597,6 +7597,16 @@ COOL-OR-WARM-PREFERENCE.
 
 With optional MAPPINGS use them instead of trying to derive new ones."
   (require 'color)
+  (when (seq-some
+           (lambda (entry)
+             (not (stringp (cdr entry))))
+           base-colors)
+    (error "Base colors can only be references to string color values, not symbols"))
+  (when (seq-some
+           (lambda (entry)
+             (stringp (cdr entry)))
+           mappings)
+    (error "Mappings can only be references to named colors, not color values"))
   (let ((bg-main (alist-get 'bg-main base-colors))
         (fg-main (alist-get 'fg-main base-colors)))
     (unless (and bg-main fg-main)
