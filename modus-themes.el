@@ -7568,34 +7568,42 @@ PREFERENCE has the same meaning as the fallback preference passed to
 (defun modus-themes-generate-palette (base-colors &optional cool-or-warm-preference core-palette mappings)
   "Generate a palette given the BASE-COLORS.
 BASE-COLORS consists of lists in the form (NAME VALUE).  NAME is at
-least a symbol of `bg-main' or `fg-main', plus any other arbitrary
-symbol, while VALUE is a string representing a color either by name like
-in `list-colors-display' or hexadecimal RGB of the form #123456.  See
-the value of a core Modus palette, like `modus-themes-operandi-palette'
-for all current NAME symbols.
+least a symbol of `bg-main' or `fg-main', while VALUE is a string
+representing a color either by name like in `list-colors-display' or
+hexadecimal RGB of the form #123456.  See the value of a core Modus
+palette, like `modus-themes-operandi-palette' for all current NAME
+symbols.
 
 BASE-COLORS is used to derive a palette.  Any entry whose name is
-already present in BASE-COLORS is not derived but taken as-is.
-
-The generated palette can be used as-is by derivative theme (pe
-`modus-themes-theme') or as a starting point for further refinements.
+already present in BASE-COLORS is not derived but taken as-is.  The rest
+are generated automatically.  The generated palette can be used as-is by
+a derivative theme (per `modus-themes-theme') or as a starting point for
+further refinements.
 
 With optional COOL-OR-WARM-PREFERENCE as a symbol of either `cool' or
 `warm' make relevant color choices for derivative values.  If
 COOL-OR-WARM-PREFERENCE is nil, derive the implied preference from the
 value of the `bg-main' color in BASE-COLORS.  If the value of `bg-main'
-satisfies `color-gray-p', then fall back to `cool'.
+satisfies `color-gray-p', then fall back to `cool'.  For our purposes,
+`cool' means that the color is closer to pure blue than pure red, while
+`warm' is the opposite.
 
 With optional CORE-PALETTE use it to fill in any of the remaining
 entries.  This can be a symbol like `modus-themes-operandi-palette'.  Do
 not try to enforce a core palette among those defined in modus-themes.el
-and let the user assume responsibility for any incompatibilities.
+and let the user assume responsibility for any incompatibilities.  If
+CORE-PALETTE is nil, then infer a suitable palette based on whether the
+`bg-main' value in BASE-COLORS is light or dark and then the
+COOL-OR-WARM-PREFERENCE.  This inferred palette will be
+`modus-themes-operandi-palette' for a light `bg-main' and
+`modus-themes-vivendi-palette' for a dark `bg-main'.  The `cool' or
+`warm' shall yield the tinted variants of those palettes, namely,
+`modus-themes-operandi-tinted-palette' and
+`modus-themes-vivendi-tinted-palette'.
 
-If CORE-PALETTE is nil, then infer a suitable palette based on whether
-the `bg-main' value in BASE-COLORS is light or dark and then the
-COOL-OR-WARM-PREFERENCE.
-
-With optional MAPPINGS use them instead of trying to derive new ones."
+With optional MAPPINGS use them instead of trying to derive new ones.
+If MAPPINGS is nil, generate some essential color mappings and let the
+rest come from CORE-PALETTE."
   (require 'color)
   (when (seq-some
          (lambda (entry)
