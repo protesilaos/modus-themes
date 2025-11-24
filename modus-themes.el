@@ -7507,10 +7507,6 @@ defined command's symbol is FAMILY-SUFFIX, like `modus-themes-rotate'."
 
 ;;;; Generate a palette given the base colors
 
-(defconst modus-themes-generate-palette-names
-  '(bg-main fg-main)
-  "The base named palette entries for `modus-themes-generate-palette'.")
-
 (declare-function color-lighten-name "color" (name percent))
 (declare-function color-darken-name "color" (name percent))
 
@@ -7571,10 +7567,12 @@ PREFERENCE has the same meaning as the fallback preference passed to
 ;;;###autoload
 (defun modus-themes-generate-palette (base-colors &optional cool-or-warm-preference core-palette mappings)
   "Generate a palette given the BASE-COLORS.
-BASE-COLORS is consists of lists in the form (NAME VALUE).  NAME is at
-least one of `modus-themes-generate-palette-names', while VALUE is a
-string representing a color either by name like in `list-colors-display'
-or hexadecimal RGB of the form #123456.
+BASE-COLORS consists of lists in the form (NAME VALUE).  NAME is at
+least a symbol of `bg-main' or `fg-main', plus any other arbitrary
+symbol, while VALUE is a string representing a color either by name like
+in `list-colors-display' or hexadecimal RGB of the form #123456.  See
+the value of a core Modus palette, like `modus-themes-operandi-palette'
+for all current NAME symbols.
 
 BASE-COLORS is used to derived a palette.  Any entry whose name is
 already present in BASE-COLORS is not derived but taken as-is.
@@ -7599,15 +7597,13 @@ COOL-OR-WARM-PREFERENCE.
 
 With optional MAPPINGS use them instead of trying to derive new ones."
   (require 'color)
-  (let ((names (mapcar #'car base-colors)))
-    (unless (seq-every-p
-             (lambda (name)
-               (memq name modus-themes-generate-palette-names))
-             names)
-      (error "All names must be members of `modus-themes-generate-palette-names'"))
-    (let* ((bg-main (car (alist-get 'bg-main base-colors)))
+  (let ((bg-main (alist-get 'bg-main base-colors))
+        (fg-main (alist-get 'fg-main base-colors)))
+    (unless (and bg-main fg-main)
+      (error "The palette must define at least a bg-main and fg-main entry with their values"))
+    (let* ((bg-main (car bg-main))
            (bg-main-dark-p (color-dark-p (color-name-to-rgb bg-main)))
-           (fg-main (car (alist-get 'fg-main base-colors)))
+           (fg-main (car fg-main))
            (six-colors (seq-remove
                         (lambda (name)
                           (or (eq (car name) 'bg-main)
