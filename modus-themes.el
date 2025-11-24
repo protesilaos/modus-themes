@@ -7570,7 +7570,7 @@ PREFERENCE has the same meaning as the fallback preference passed to
 
 ;;;###autoload
 (defun modus-themes-generate-palette (base-colors &optional cool-or-warm-preference core-palette)
-  "Generate a palette given the BASE-COLORS
+  "Generate a palette given the BASE-COLORS.
 BASE-COLORS is consists of lists in the form (NAME VALUE).  NAME is one
 of `modus-themes-generate-palette-names', while VALUE is a string
 representing a color either by name like in `list-colors-display' or
