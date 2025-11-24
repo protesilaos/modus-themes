@@ -7505,6 +7505,221 @@ defined command's symbol is FAMILY-SUFFIX, like `modus-themes-rotate'."
                     (modus-themes-get-all-known-themes ',family))))
          (call-interactively ',modus-command)))))
 
+;;;; Generate a palette given the base colors
+
+(defconst modus-themes-generate-palette-names
+  '(bg-main fg-main red green yellow blue magenta cyan)
+  "The base named palette entries for `modus-themes-generate-palette'.")
+
+(declare-function color-lighten-name "color" (name percent))
+(declare-function color-darken-name "color" (name percent))
+
+(defun modus-themes-generate-color-blend (color blended-with alpha)
+  "Return hexademical RGB of COLOR with BLENDED-WITH given ALPHA.
+BLENDED-WITH is commensurate with COLOR.  ALPHA is between 0.0 and 1.0,
+inclusive."
+  (apply
+   #'color-rgb-to-hex
+   (color-blend
+    (color-name-to-rgb color)
+    (color-name-to-rgb blended-with)
+    alpha)))
+
+(defun modus-themes-generate-color-warmer (color alpha)
+  "Return warmer COLOR by ALPHA, per `modus-themes-generate-color-blend'."
+  (modus-themes-generate-color-blend color "#ff0000" alpha))
+
+(defun modus-themes-generate-color-cooler (color alpha)
+  "Return cooler COLOR by ALPHA, per `modus-themes-generate-color-blend'."
+  (modus-themes-generate-color-blend color "#0000ff" alpha))
+
+;; NOTE 2025-11-24: I originally wrote this for my Doric themes.
+(defun modus-themes-generate-gradient (color percent)
+  "Adjust value of COLOR by PERCENT."
+  (pcase-let* ((`(,r ,g ,b) (color-name-to-rgb color))
+               (fn (if (color-dark-p (list r g b))
+                       #'color-lighten-name
+                     #'color-darken-name)))
+    (funcall fn color percent)))
+
+(defun modus-themes-color-is-warm-or-cool-p (color fallback-preference)
+  "Return `warm' or `cool' for COLOR depending on its value.
+A warm color is closer to red than to blue.  If COLOR is neutral, then
+return FALLBACK-PREFERENCE"
+  (cond
+   ((color-gray-p color)
+    (if (memq fallback-preference '(warm cool))
+        fallback-preference
+      (error "FALLBACK-PREFERENCE must be either `warm' or `cool', not `%S'" fallback-preference)))
+   ((> (color-distance color "#ff0000") (color-distance color "#0000ff"))
+    'warm)
+   (t
+    'cool)))
+
+(defun modus-themes-generate-color-warmer-or-cooler (color alpha preference)
+  "Return COLOR variant by ALPHA and PREFERENCE.
+PREFERENCE has the same meaning as the fallback preference passed to
+`modus-themes-color-is-warm-or-cool-p'."
+  (let ((kind (modus-themes-color-is-warm-or-cool-p color preference)))
+    (funcall
+     (if (eq kind 'warm)
+         #'modus-themes-generate-color-warmer
+       'modus-themes-generate-color-cooler)
+     color
+     alpha)))
+
+(defun modus-themes-generate-palette (base-colors cool-or-warm-preference &optional core-palette)
+  "Generate a palette given the BASE-COLORS and COOL-OR-WARM-PREFERENCE.
+COOL-OR-WARM-PREFERENCE is a symbol of either `cool' or `warm'.  Any
+other value is erroneous.
+
+BASE-COLORS is consists of lists in the form (NAME VALUE).  NAME is one
+of `modus-themes-generate-palette-names', while VALUE is a string
+representing a color either by name like in `list-colors-display' or
+hexadecimal RGB of the form #123456.
+
+The generated palette can be used as-is by derivative theme (pe
+`modus-themes-theme') or as a starting point for further refinements.
+
+With optional CORE-PALETTE use it to fill in any of the remaining
+entries.  This can be a symbol like `modus-themes-operandi-palette'.  Do
+not try to enforce a core palette among those defined in modus-themes.el
+and let the user assume responsibility for any incompatibilities.
+
+If CORE-PALETTE is nil, then infer a suitable palette based on whether
+the `bg-main' value in BASE-COLORS is light or dark and then the
+COOL-OR-WARM-PREFERENCE."
+  (require 'color)
+  (let ((names (mapcar #'car base-colors)))
+    (unless (seq-every-p
+             (lambda (name)
+               (memq name modus-themes-generate-palette-names))
+             names)
+      (error "All names must be members of `modus-themes-generate-palette-names'"))
+    (let* ((bg-main (car (alist-get 'bg-main base-colors)))
+           (bg-main-dark-p (color-dark-p (color-name-to-rgb bg-main)))
+           (fg-main (car (alist-get 'fg-main base-colors)))
+           (six-colors (seq-remove
+                        (lambda (name)
+                          (or (eq (car name) 'bg-main)
+                              (eq (car name) 'fg-main)))
+                        base-colors))
+           (derivatives nil)
+           (prefers-cool-p (if (memq cool-or-warm-preference '(cool warm))
+                               (eq cool-or-warm-preference 'cool)
+                             (error "The COOL-OR-WARM-PREFERENCE must be either `cool' or `warm', not `%S'" cool-or-warm-preference))))
+      ;; Base entries
+      (push (list 'bg-dim (modus-themes-generate-gradient bg-main 5)) derivatives)
+      (push (list 'bg-active (modus-themes-generate-gradient bg-main 10)) derivatives)
+      (push (list 'bg-inactive (modus-themes-generate-gradient bg-main 8)) derivatives)
+      (push (list 'border (modus-themes-generate-gradient bg-main 20)) derivatives)
+      (push (list 'fg-dim (modus-themes-generate-gradient fg-main 20)) derivatives)
+      (push
+       (list
+        'fg-alt
+        (modus-themes-generate-color-warmer-or-cooler
+         (modus-themes-generate-gradient fg-main 10)
+         0.8
+         cool-or-warm-preference))
+       derivatives)
+      ;; Base colors
+      (pcase-dolist (`(,name ,value) six-colors)
+        (push (list
+               (intern (format "%s-warmer" name))
+               (modus-themes-generate-gradient
+                (modus-themes-generate-color-warmer value 0.9)
+                (if bg-main-dark-p 20 -20)))
+              derivatives)
+        (push (list
+               (intern (format "%s-cooler" name))
+               (modus-themes-generate-gradient
+                (modus-themes-generate-color-cooler value 0.9)
+                (if bg-main-dark-p 20 -20)))
+              derivatives)
+        (push (list (intern (format "%s-faint" name)) (modus-themes-generate-gradient value (if bg-main-dark-p 10 -10))) derivatives)
+        (push (list (intern (format "%s-intense" name)) (modus-themes-generate-gradient value (if bg-main-dark-p -5 5))) derivatives)
+        (push (list (intern (format "bg-%s-intense" name)) (modus-themes-generate-gradient value (if bg-main-dark-p -30 30))) derivatives)
+        (push (list (intern (format "bg-%s-subtle" name)) (modus-themes-generate-gradient value (if bg-main-dark-p -50 50))) derivatives)
+        (push (list (intern (format "bg-%s-nuanced" name)) (modus-themes-generate-gradient value (if bg-main-dark-p -70 70))) derivatives))
+      ;; Mappings
+      (push (list 'bg-completion (if prefers-cool-p 'bg-cyan-subtle 'bg-yellow-subtle)) derivatives)
+      (push (list 'bg-hover (if prefers-cool-p 'bg-green-intense 'bg-magenta-intense)) derivatives)
+      (push (list 'bg-hover-secondary (if prefers-cool-p 'bg-green-subtle 'bg-magenta-subtle)) derivatives)
+      (push (list 'bg-hl-line (if prefers-cool-p 'bg-cyan-nuanced 'bg-yellow-nuanced)) derivatives)
+      (push (list 'bg-paren-match (if prefers-cool-p 'bg-green-intense 'bg-yellow-subtle)) derivatives)
+      (push (list 'bg-paren-expression (if prefers-cool-p 'bg-green-nuanced 'bg-yellow-nuanced)) derivatives)
+      (push (list 'bg-region 'bg-active) derivatives)
+      (push (list 'fg-region 'fg-main) derivatives)
+
+      (push (list 'bg-mode-line-active 'bg-active) derivatives)
+      (push (list 'fg-mode-line-active 'fg-main) derivatives)
+      (push (list 'border-mode-line-active 'border) derivatives)
+      (push (list 'bg-mode-line-inactive 'bg-inactive) derivatives)
+      (push (list 'fg-mode-line-inactive 'fg-dim) derivatives)
+      (push (list 'border-mode-line-inactive 'border) derivatives)
+
+      (push (list 'modeline-err 'red-faint) derivatives)
+      (push (list 'modeline-warning 'yellow-faint) derivatives)
+      (push (list 'modeline-info 'blue-faint) derivatives)
+
+      (push (list 'bg-tab-bar 'bg-dim) derivatives)
+      (push (list 'bg-tab-current 'bg-main) derivatives)
+      (push (list 'bg-tab-other 'bg-inactive) derivatives)
+
+      (push (list 'bg-added 'bg-green-subtle) derivatives)
+      (push (list 'bg-added-faint 'bg-green-nuanced) derivatives)
+      (push (list 'bg-added-refine 'bg-green-intense) derivatives)
+      (push (list 'fg-added 'green-faint) derivatives)
+      (push (list 'fg-added-intense 'green-intense) derivatives)
+
+      (push (list 'bg-changed 'bg-yellow-subtle) derivatives)
+      (push (list 'bg-changed-faint 'bg-yellow-nuanced) derivatives)
+      (push (list 'bg-changed-refine 'bg-yellow-intense) derivatives)
+      (push (list 'fg-changed 'yellow-faint) derivatives)
+      (push (list 'fg-changed-intense 'yellow-intense) derivatives)
+
+      (push (list 'bg-removed 'bg-red-subtle) derivatives)
+      (push (list 'bg-removed-faint 'bg-red-nuanced) derivatives)
+      (push (list 'bg-removed-refine 'bg-red-intense) derivatives)
+      (push (list 'fg-removed 'red-faint) derivatives)
+      (push (list 'fg-removed-intense 'red-intense) derivatives)
+
+      (push (list 'fg-heading-0 'fg-alt) derivatives)
+      (push (list 'fg-heading-1 'fg-main) derivatives)
+      (push (list 'fg-heading-2 (if prefers-cool-p 'cyan 'yellow)) derivatives)
+      (push (list 'fg-heading-3 (if prefers-cool-p 'green 'magenta)) derivatives)
+      (push (list 'fg-heading-4 (if prefers-cool-p 'blue 'red)) derivatives)
+      (push (list 'fg-heading-5 (if prefers-cool-p 'yellow 'cyan)) derivatives)
+      (push (list 'fg-heading-6 (if prefers-cool-p 'magenta 'green)) derivatives)
+      (push (list 'fg-heading-7 (if prefers-cool-p 'red 'blue)) derivatives)
+      (push (list 'fg-heading-8 'fg-dim) derivatives)
+
+      (push (list 'bg-term-black (if bg-main-dark-p 'bg-main 'fg-main)) derivatives)
+      (push (list 'bg-term-black-bright (if bg-main-dark-p 'bg-active 'fg-dim)) derivatives)
+      (push (list 'fg-term-black (if bg-main-dark-p 'bg-main 'fg-main)) derivatives)
+      (push (list 'fg-term-black-bright (if bg-main-dark-p 'bg-active 'fg-dim)) derivatives)
+
+      (push (list 'bg-term-white (if bg-main-dark-p 'fg-dim 'bg-active)) derivatives)
+      (push (list 'bg-term-white-bright (if bg-main-dark-p 'fg-main 'bg-main)) derivatives)
+      (push (list 'fg-term-white (if bg-main-dark-p 'fg-dim 'bg-active)) derivatives)
+      (push (list 'fg-term-white-bright (if bg-main-dark-p 'fg-main 'bg-main)) derivatives)
+
+      (let* ((initial-new-palette (append base-colors (nreverse derivatives)))
+             ;; We have to add one of the core palettes to make sure
+             ;; there are no missing entries.  We will then remove
+             ;; duplicates.
+             (combined-new-palette (or core-palette
+                                       (if bg-main-dark-p
+                                           (append initial-new-palette (if prefers-cool-p modus-themes-vivendi-palette modus-themes-vivendi-tinted-palette))
+                                         (append initial-new-palette (if prefers-cool-p modus-themes-operandi-palette modus-themes-operandi-tinted-palette))))))
+        ;; In case of duplicates, we prefer what is in the
+        ;; `initial-new-palette'.  This is why we appended it before
+        ;; the core Modus palette.
+        (seq-uniq
+         combined-new-palette
+         (lambda (element1 element2)
+           (eq (car element1) (car element2))))))))
+
 ;;;; Add themes from package to path
 
 ;;;###autoload
