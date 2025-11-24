@@ -7719,22 +7719,20 @@ With optional MAPPINGS use them instead of trying to derive new ones."
                        (if bg-main-dark-p
                            (if prefers-cool-p modus-themes-vivendi-palette modus-themes-vivendi-tinted-palette)
                          (if prefers-cool-p modus-themes-operandi-palette modus-themes-operandi-tinted-palette))))
-             (core-named-colors (seq-filter
-                                 (lambda (entry)
-                                   (stringp (cadr entry)))
-                                 core))
-             (core-mappings (seq-filter
-                             (lambda (entry)
-                               (not (stringp (cadr entry))))
-                             core))
-             (combined-new-palette (append initial-new-palette core-named-colors color-mappings core-mappings)))
-        ;; In case of duplicates, we prefer what is in the
-        ;; `initial-new-palette'.  This is why we appended it before
-        ;; the core Modus palette.
-        (seq-uniq
-         combined-new-palette
-         (lambda (element1 element2)
-           (eq (car element1) (car element2))))))))
+             (combined-new-palette (append new-colors new-mappings core))
+             (no-duplicates (seq-uniq
+                             combined-new-palette
+                             (lambda (element1 element2)
+                               (eq (car element1) (car element2)))))
+             (named-values (seq-filter
+                            (lambda (entry)
+                              (stringp (cadr entry)))
+                            no-duplicates))
+             (mapping-values (seq-filter
+                              (lambda (entry)
+                                (symbolp (cadr entry)))
+                              no-duplicates)))
+        (append named-values mapping-values)))))
 
 ;;;; Add themes from package to path
 
