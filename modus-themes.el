@@ -7598,14 +7598,14 @@ COOL-OR-WARM-PREFERENCE.
 With optional MAPPINGS use them instead of trying to derive new ones."
   (require 'color)
   (when (seq-some
-           (lambda (entry)
-             (not (stringp (cadr entry))))
-           base-colors)
+         (lambda (entry)
+           (not (stringp (cadr entry))))
+         base-colors)
     (error "Base colors can only be references to string color values, not symbols"))
   (when (seq-some
-           (lambda (entry)
-             (stringp (cadr entry)))
-           mappings)
+         (lambda (entry)
+           (stringp (cadr entry)))
+         mappings)
     (error "Mappings can only be references to named colors, not color values"))
   (let ((bg-main (alist-get 'bg-main base-colors))
         (fg-main (alist-get 'fg-main base-colors)))
@@ -7628,8 +7628,8 @@ With optional MAPPINGS use them instead of trying to derive new ones."
                             (t
                              (error "The COOL-OR-WARM-PREFERENCE must be either `cool' or `warm', not `%S'" cool-or-warm-preference))))
            (push-derived-value-fn (lambda (name value)
-                              (unless (assq name base-colors)
-                                (push (list name value) derivatives)))))
+                                    (unless (assq name base-colors)
+                                      (push (list name value) derivatives)))))
       ;; Base entries
       (funcall push-derived-value-fn 'bg-dim (modus-themes-generate-gradient bg-main 5))
       (funcall push-derived-value-fn 'bg-active (modus-themes-generate-gradient bg-main 10))
