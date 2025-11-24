@@ -7568,6 +7568,7 @@ PREFERENCE has the same meaning as the fallback preference passed to
      color
      alpha)))
 
+;;;###autoload
 (defun modus-themes-generate-palette (base-colors &optional cool-or-warm-preference core-palette)
   "Generate a palette given the BASE-COLORS
 BASE-COLORS is consists of lists in the form (NAME VALUE).  NAME is one
