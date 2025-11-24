@@ -7365,7 +7365,9 @@ Consult the manual for details on how to build a theme on top of the
       (modus-themes-declare
        name family
        description background-mode
-       core-palette user-palette overrides-palette))
+       core-palette user-palette overrides-palette)
+      (unless (eq family 'modus-themes)
+        (modus-themes-register name)))
     (let ((palette (modus-themes--get-theme-palette-subr name :with-overrides :with-user-palette)))
       (eval
        `(let* ((c '((class color) (min-colors 256)))
