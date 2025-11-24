@@ -7626,40 +7626,27 @@ With optional MAPPINGS use them instead of trying to derive new ones."
                              (eq cool-or-warm-preference 'cool))
                             ((modus-themes-color-is-warm-or-cool-p bg-main 'cool))
                             (t
-                             (error "The COOL-OR-WARM-PREFERENCE must be either `cool' or `warm', not `%S'" cool-or-warm-preference)))))
+                             (error "The COOL-OR-WARM-PREFERENCE must be either `cool' or `warm', not `%S'" cool-or-warm-preference))))
+           (push-derived-value-fn (lambda (name value)
+                              (unless (assq name base-colors)
+                                (push (list name value) derivatives)))))
       ;; Base entries
-      (push (list 'bg-dim (modus-themes-generate-gradient bg-main 5)) derivatives)
-      (push (list 'bg-active (modus-themes-generate-gradient bg-main 10)) derivatives)
-      (push (list 'bg-inactive (modus-themes-generate-gradient bg-main 8)) derivatives)
-      (push (list 'border (modus-themes-generate-gradient bg-main 20)) derivatives)
-      (push (list 'fg-dim (modus-themes-generate-gradient fg-main 20)) derivatives)
-      (push
-       (list
-        'fg-alt
-        (modus-themes-generate-color-warmer-or-cooler
-         (modus-themes-generate-gradient fg-main 10)
-         0.8
-         cool-or-warm-preference))
-       derivatives)
-      ;; Base colors
+      (funcall push-derived-value-fn 'bg-dim (modus-themes-generate-gradient bg-main 5))
+      (funcall push-derived-value-fn 'bg-active (modus-themes-generate-gradient bg-main 10))
+      (funcall push-derived-value-fn 'bg-inactive (modus-themes-generate-gradient bg-main 8))
+      (funcall push-derived-value-fn 'border (modus-themes-generate-gradient bg-main 20))
+      (funcall push-derived-value-fn 'fg-dim (modus-themes-generate-gradient fg-main 20))
+      (funcall push-derived-value-fn 'fg-alt (modus-themes-generate-color-warmer-or-cooler (modus-themes-generate-gradient fg-main 10) 0.8 prefers-cool-p))
+      ;; Primary and secondary colors
       (pcase-dolist (`(,name ,value) six-colors)
-        (push (list
-               (intern (format "%s-warmer" name))
-               (modus-themes-generate-gradient
-                (modus-themes-generate-color-warmer value 0.9)
-                (if bg-main-dark-p 20 -20)))
-              derivatives)
-        (push (list
-               (intern (format "%s-cooler" name))
-               (modus-themes-generate-gradient
-                (modus-themes-generate-color-cooler value 0.9)
-                (if bg-main-dark-p 20 -20)))
-              derivatives)
-        (push (list (intern (format "%s-faint" name)) (modus-themes-generate-gradient value (if bg-main-dark-p 10 -10))) derivatives)
-        (push (list (intern (format "%s-intense" name)) (modus-themes-generate-gradient value (if bg-main-dark-p -5 5))) derivatives)
-        (push (list (intern (format "bg-%s-intense" name)) (modus-themes-generate-gradient value (if bg-main-dark-p -30 30))) derivatives)
-        (push (list (intern (format "bg-%s-subtle" name)) (modus-themes-generate-gradient value (if bg-main-dark-p -50 50))) derivatives)
-        (push (list (intern (format "bg-%s-nuanced" name)) (modus-themes-generate-gradient value (if bg-main-dark-p -70 70))) derivatives))
+        (funcall push-derived-value-fn (intern (format "%s-warmer" name)) (modus-themes-generate-gradient (modus-themes-generate-color-warmer value 0.9) (if bg-main-dark-p 20 -20)))
+        (funcall push-derived-value-fn (intern (format "%s-cooler" name)) (modus-themes-generate-gradient (modus-themes-generate-color-cooler value 0.9) (if bg-main-dark-p 20 -20)))
+        (funcall push-derived-value-fn (intern (format "%s-faint" name)) (modus-themes-generate-gradient value (if bg-main-dark-p 10 -10)))
+        (funcall push-derived-value-fn (intern (format "%s-intense" name)) (modus-themes-generate-gradient value (if bg-main-dark-p -5 5)))
+        (funcall push-derived-value-fn (intern (format "bg-%s-intense" name)) (modus-themes-generate-gradient value (if bg-main-dark-p -30 30)))
+        (funcall push-derived-value-fn (intern (format "bg-%s-subtle" name)) (modus-themes-generate-gradient value (if bg-main-dark-p -50 50)))
+        (funcall push-derived-value-fn (intern (format "bg-%s-nuanced" name)) (modus-themes-generate-gradient value (if bg-main-dark-p -70 70))))
+      ;; TODO 2025-11-24: For the color mappings we want the equivalent of push-derived-fn.
       (unless color-mappings
         ;; Mappings
         (push (list 'bg-completion (if prefers-cool-p 'bg-cyan-subtle 'bg-yellow-subtle)) color-mappings)
