@@ -197,6 +197,7 @@ Complete example of a Modus derivative theme
 * Complete example of a package that is derived from Modus::
 * Complete example of a private theme derived from Modus::
 * Complete example of a custom theme with its own palette::
+* Complete example that also uses modus-themes-generate-palette::
 
 Face coverage
 
@@ -4479,6 +4480,7 @@ do this for a package and for a private configuration:
 * Complete example of a package that is derived from Modus::
 * Complete example of a private theme derived from Modus::
 * Complete example of a custom theme with its own palette::
+* Complete example that also uses modus-themes-generate-palette::
 
 
 File: modus-themes.info,  Node: Complete example of a package that is derived from Modus,  Next: Complete example of a private theme derived from Modus,  Up: Complete example of a Modus derivative theme
@@ -4605,7 +4607,7 @@ example of a custom theme with its own palette::):
       nil)
 
 
-File: modus-themes.info,  Node: Complete example of a custom theme with its own palette,  Prev: Complete example of a private theme derived from Modus,  Up: Complete example of a Modus derivative theme
+File: modus-themes.info,  Node: Complete example of a custom theme with its own palette,  Next: Complete example that also uses modus-themes-generate-palette,  Prev: Complete example of a private theme derived from Modus,  Up: Complete example of a Modus derivative theme
 
 8.1.3 Complete example of a custom theme with its own palette
 -------------------------------------------------------------
@@ -4717,6 +4719,341 @@ aforementioned:
 this example, ‘bg-ochre’ comes from the ‘modus-operandi-palette’ though
 it would work the same way if, say, ‘prot-light-palette’ defined
 ‘bg-soil’ and then referenced it in ‘prot-light-custom-faces’.
+
+
+File: modus-themes.info,  Node: Complete example that also uses modus-themes-generate-palette,  Prev: Complete example of a custom theme with its own palette,  Up: Complete example of a Modus derivative theme
+
+8.1.4 Complete example that also uses ‘modus-themes-generate-palette’
+---------------------------------------------------------------------
+
+The guide herein is of use to those who plan to create their own
+derivative themes (*note Complete example of a private theme derived
+from Modus::).
+
+   The ‘modus-themes-generate-palette’ defines a fully flegded Modus
+palette that can be passed to ‘modus-themes-theme’ without necessarily
+depending on any of the core Modus palettes.  I will walk you through
+the steps of working with something like the following code block.
+
+   [ We use color values from Solarized as an example for the rest of
+this entry, naming them according to our conventions.  ]
+
+     (defvar modus-solarized-dark-palette
+       (modus-themes-generate-palette
+        '((bg-main "#073642")
+          (fg-main "#EEE8D5")
+          (red "#DC322F")
+          (red-warmer "#CB4B16")
+          (green "#859900")
+          (yellow "#B58900")
+          (blue "#268BD2")
+          (magenta "#D33682")
+          (magenta-cooler "#6C71C4")
+          (cyan "#2AA198"))))
+
+     (modus-themes-theme
+      'modus-solarized-dark
+      'modus-solarized-themes
+      "Sample of a basic Solarized port."
+      'dark
+      'modus-solarized-dark-palette
+      nil
+      nil)
+
+   The Modus themes define hundreds of entries in their palette.  Some
+are named colors while others are semantic mappings (*note Option for
+palette overrides: Palette overrides.).
+
+   This gives users maximum control via overrides, though comes at the
+considerable cost of making it harder to derive a custom palette from a
+small set of colors.  Color schemes, which are not themes in the sense
+of ensuring consistency across all elements and interfaces, will
+typically provide 8 or 16 colors.  This is the case with terminal
+emulators.  For example, the widely known Solarized theme, originally
+designed by Ethan Schoonover, defines 16 colors for terminal emulators.
+Nothing else.  Thus a hypothetical Modus+Solarized cannot work without
+knowing how to complement the base with all the extra color definitions.
+
+   This is where the function ‘modus-themes-generate-palette’ comes in.
+In broad terms, it is meant to be used as a starting point.  The user
+may then decide which results need further tweaking.  But at least they
+will have something to create a fully fledged Modus palette right away.
+
+   The minimum ‘modus-themes-generate-palette’ needs is a list of
+‘BASE-COLORS’.  Each element is of the form ‘(NAME VALUE)’ where ‘NAME’
+is a symbol and ‘VALUE’ is a string with a hexadecimal RGB color value
+or a string with a name of a color among those listed in the output of
+the command ‘list-colors-display’.
+
+   The ‘BASE-COLORS’ can be as short as follows:
+
+     ;; All missing palette entries will be derived automatically.  This
+     ;; will return a COMPLETE Modus themes palette.
+     (modus-themes-generate-palette
+      '((bg-main "#073642")
+        (fg-main "#EEE8D5")))
+
+   The only two mandatory entries in ‘BASE-COLORS’ are ‘bg-main’ and
+‘fg-main’ as shown above.  In this scenario, the derived palette will
+get the job done, but will be very close to what Modus defines.  The
+more we add to the ‘BASE-COLORS’, the more well defined the character of
+the new palette will be.  For example:
+
+     (modus-themes-generate-palette
+      ;; The two base colors of Solarized, plus all its accents.
+      '((bg-main "#073642")
+        (fg-main "#EEE8D5")
+        (red "#DC322F")
+        (red-warmer "#CB4B16")
+        (green "#859900")
+        (yellow "#B58900")
+        (blue "#268BD2")
+        (magenta "#D33682")
+        (magenta-cooler "#6C71C4")
+        (cyan "#2AA198")))
+
+   This is already going to be a tolerable port of Solarized.  Though we
+can go further and greatly improve the results.
+
+   The ‘modus-themes-generate-palette’ will internally calculate colors
+based on what it receives.  Anything missing will be taken from a core
+Modus palette, depending on the value of ‘bg-main’: if it is light, then
+the ‘modus-themes-operandi-palette’ is used, otherwise it is
+‘modus-themes-vivendi-palette’.  What also plays a role in the interal
+calculations is whether ‘bg-main’ is a ‘cool’ or ‘warm’ color, meaning
+whether it is closer to blue or red, respectively.  If it is ‘cool’,
+then the aforementioned palettes are used.  Else the
+‘modus-themes-operandi-tinted-palette’ and
+‘modus-themes-vivendi-tinted-palette’ are picked.  Internally, ‘cool’ or
+‘warm’ also influences the kind of color values and semantic mappings
+that will go into the new palette.
+
+   The ‘modus-themes-generate-palette’ accepts an optional parameter
+called ‘COOL-OR-WARM-PREFERENCE’.  This is a preference for the symbol
+‘cool’ or ‘warm’: it make the decision explicit.
+
+   For example, Solarized can swap the values of ‘bg-main’ and ‘fg-main’
+to switch between its light and dark implementations (I understand this
+is a smart trick for terminal emulators, but is otherwise not good
+enough for thematic consistency as some accent values look out-of-place
+and the contrasts vary considerably).  The light color Solarized uses is
+inherently ‘warm’ (yellowish color means it is closer to red than blue)
+while the dark color is ‘cool’, due to it being closer to pure blue.
+Users may wish to experiment with a deviation from what would have been
+the default output, such that the dark blue when used as a background
+actually combines with warmer foreground hues, while the light cream
+background goes together with cooler foreground values.  Thus:
+
+     (modus-themes-generate-palette
+      '((bg-main "#073642") ; normally this is a `cool' theme
+        (fg-main "#EEE8D5")
+        (red "#DC322F")
+        (red-warmer "#CB4B16")
+        (green "#859900")
+        (yellow "#B58900")
+        (blue "#268BD2")
+        (magenta "#D33682")
+        (magenta-cooler "#6C71C4")
+        (cyan "#2AA198"))
+      'warm) ; but we want to use it with `warm' foregrounds
+
+     ;; And here is the inverse of the above, now with the light version of
+     ;; Solarized.
+     (modus-themes-generate-palette
+      '((bg-main "#EEE8D5") ; normally this is a `warm' theme
+        (fg-main "#073642")
+        (red "#DC322F")
+        (red-warmer "#CB4B16")
+        (green "#859900")
+        (yellow "#B58900")
+        (blue "#268BD2")
+        (magenta "#D33682")
+        (magenta-cooler "#6C71C4")
+        (cyan "#2AA198"))
+      'cool) ; but we want to use it with `cool' foregrounds
+
+   This is now getting better, but we can go further.  At this point
+users should be able to do the common work of taking a color scheme that
+was originally designed for terminal emulators and quickly turning it
+into a fully fledged Modus palette.  All they need is to follow the
+naming convention for ‘bg-main’, ‘fg-main’, and then
+‘{red,green,yellow,blue,magenta,cyan}{,-warmer,-cooler}’.  Preview a
+palette to get the complete list (*note Preview theme colors::).  And,
+again, remember that not all colors need to be defined in ‘BASE-COLORS’
+(e.g.  we could leave out ‘magenta-cooler’ if we do not care about it).
+
+   The next optional parameter of ‘modus-themes-generate-palette’ is the
+‘CORE-PALETTE’ it should use.  This is to make explicit the decision
+that is otherwise handled internally on whether to fill in any missing
+palette entries from Modus Operandi or Modus Vivendi (or their tinted
+variants), as explained above.
+
+   The ‘CORE-PALETTE’ is the symbol of a variable whose value is a
+palette, like ‘modus-themes-operandi-palette’.  Normally, users do not
+need to ever set ‘CORE-PALETTE’.  The only two scenaria where this is
+likely helpful is (i) the theme is optimized for red-green or
+blue-yellow color deficiency, in which case one of the Modus palettes
+for deuteranopia and tritanopia is needed, or (ii) the user wants to use
+a palette from a Modus derivative theme, such as my ‘ef-themes’ and
+‘standard-themes’.  In the latter scenario, users need to take care to
+either copy the palette they want to use or, anyhow, ‘load’ the relevant
+files.
+
+   In the interest of clarity, here is how the ‘CORE-PALETTE’ is passed,
+but, again, users probably should leave this to ‘nil’:
+
+     (modus-themes-generate-palette
+      ;; The two base colors of Solarized, plus all its accents.
+      '((bg-main "#073642")
+        (fg-main "#EEE8D5")
+        (red "#DC322F")
+        (red-warmer "#CB4B16")
+        (green "#859900")
+        (yellow "#B58900")
+        (blue "#268BD2")
+        (magenta "#D33682")
+        (magenta-cooler "#6C71C4")
+        (cyan "#2AA198"))
+      nil ; COOL-OR-WARM-PREFERENCE is derived internally based on `bg-main'
+      'modus-themes-vivendi-tritanopia-palette) ; we specifically want this as our CORE-PALETTE
+
+   With core Modus palettes, the ‘CORE-PALETTE’ should not make much of
+a difference.  Though a completely custom Modus derivative, like one of
+the ‘ef-themes’, will be defining colors values that differ
+substantially from those of core Modus, as well as completely different
+semantic mappings.
+
+   Finally, ‘modus-themes-generate-palette’ has an optional ‘MAPPINGS’
+parameter.  This is a list of semantic mappings where each entry is of
+the form ‘(NAME OTHER-NAME)’ (*note Option for palette overrides:
+Palette overrides.).  The ‘NAME’ has the same meaning as for the
+‘BASE-COLORS’ we have been examining all along, while ‘OTHER-NAME’ is
+the symbol of another ‘NAME’ that exists in the palette, hence the
+mapping.  This manual contains lots of examples along those lines (*note
+DIY Stylistic variants using palette overrides::).  For our purposes, we
+will modify some of the obvious elements of the theme, namely, the
+cursor, mode lines, current line highlight, and active region.
+
+     (modus-themes-generate-palette
+      ;; The two base colors of Solarized, plus all its accents.
+      '((bg-main "#073642")
+        (fg-main "#EEE8D5")
+        (red "#DC322F")
+        (red-warmer "#CB4B16")
+        (green "#859900")
+        (yellow "#B58900")
+        (blue "#268BD2")
+        (magenta "#D33682")
+        (magenta-cooler "#6C71C4")
+        (cyan "#2AA198"))
+      nil ; COOL-OR-WARM-PREFERENCE is derived internally based on `bg-main'
+      nil ; as I explained at length, we normally do not want to specify CORE-PALETTE
+      '((cursor magenta-warmer) ; all the colors here are derived from the BASE-COLORS above
+        (bg-hl-line bg-cyan-nuanced)
+        (bg-region bg-green-intense)
+        (fg-region fg-dim)
+        (bg-mode-line-active bg-blue-subtle)
+        (fg-mode-line-active blue-cooler)
+        (border-mode-line-active fg-dim)))
+
+   The ‘MAPPINGS’ can be as long as the user needs.  Whatever is defined
+here will take precedence of what the ‘CORE-PALETTE’ (or its internally
+derived equivalent) provides.  At most, users can have a completely
+custom palette.  Though I expect that this will not be done at the
+outset, but only after a long process of experimentation (if you already
+knew how to do this, ‘modus-themes-generate-palette’ would not be of
+real value).  The point is to start with something that works and then
+refine it one small step at a time.
+
+   We are now ready to try our Solarized themes, using the example of
+doing this in our private configuration (*note Complete example of a
+package that is derived from Modus::).
+
+   • Create two files, one is called ‘modus-solarized-dark-theme.el’ (or
+     however you want to identify it, but always keep ‘-theme.el’ at the
+     end) and the other is ‘modus-solarized-light-theme’.
+
+   • Add their directory to the ‘custom-theme-load-path’, like
+     ‘(add-to-list 'custom-theme-load-path
+     "~/.emacs.d/custom-themes/")’.
+
+   • Use the minimal code from the following two blocks to create your
+     new themes.
+
+   • Optionally activate ‘modus-themes-include-derivatives-mode’ to have
+     all Modus commands recognize your themes.
+
+   • Load your themes with ‘load-theme’.
+
+   • Enjoy!
+
+     ;; Modus+Solarized dark
+     (defvar modus-solarized-dark-palette
+       (modus-themes-generate-palette
+        ;; The two base colors of Solarized, plus all its accents.
+        '((bg-main "#073642")
+          (fg-main "#EEE8D5")
+          (red "#DC322F")
+          (red-warmer "#CB4B16")
+          (green "#859900")
+          (yellow "#B58900")
+          (blue "#268BD2")
+          (magenta "#D33682")
+          (magenta-cooler "#6C71C4")
+          (cyan "#2AA198"))
+        nil ; COOL-OR-WARM-PREFERENCE is derived internally based on `bg-main'
+        nil ; as I explained at length, we normally do not want to specify CORE-PALETTE
+        '((cursor magenta-warmer) ; all the colors here are derived from the BASE-COLORS above
+          (bg-hl-line bg-cyan-nuanced)
+          (bg-region bg-green-intense)
+          (fg-region fg-dim)
+          (bg-mode-line-active bg-blue-subtle)
+          (fg-mode-line-active blue-cooler)
+          (border-mode-line-active fg-dim))))
+
+     (modus-themes-theme
+      'modus-solarized-dark
+      'modus-solarized-themes
+      "Sample of a basic Solarized dark port."
+      'dark
+      'modus-solarized-dark-palette
+      nil
+      nil)
+
+   And the light variant:
+
+     ;; Modus+Solarized light
+     (defvar modus-solarized-light-palette
+       (modus-themes-generate-palette
+        ;; The two base colors of Solarized, plus all its accents.
+        '((bg-main "#EEE8D5")
+          (fg-main "#073642")
+          (red "#DC322F")
+          (red-warmer "#CB4B16")
+          (green "#859900")
+          (yellow "#B58900")
+          (blue "#268BD2")
+          (magenta "#D33682")
+          (magenta-cooler "#6C71C4")
+          (cyan "#2AA198"))
+        nil ; COOL-OR-WARM-PREFERENCE is derived internally based on `bg-main'
+        nil ; as I explained at length, we normally do not want to specify CORE-PALETTE
+        '((cursor yellow-warmer) ; all the colors here are derived from the BASE-COLORS above
+          (bg-hl-line bg-red-nuanced)
+          (bg-region bg-blue-intense)
+          (fg-region fg-dim)
+          (bg-mode-line-active bg-cyan-subtle)
+          (fg-mode-line-active cyan-cooler)
+          (border-mode-line-active fg-dim))))
+
+     (modus-themes-theme
+      'modus-solarized-light
+      'modus-solarized-themes
+      "Sample of a basic Solarized light port."
+      'light
+      'modus-solarized-light-palette
+      nil
+      nil)
 
 
 File: modus-themes.info,  Node: Determine what counts as a Modus theme,  Next: Create convenience commands to load a derivative theme,  Prev: Complete example of a Modus derivative theme,  Up: Build on top of the Modus themes
@@ -6998,6 +7335,8 @@ B.1 Function index
                                                               (line   6)
 * modus-themes-define-derivative-command: Create convenience commands to load a derivative theme.
                                                               (line  10)
+* modus-themes-generate-palette:         Complete example that also uses modus-themes-generate-palette.
+                                                              (line  54)
 * modus-themes-get-all-known-themes:     Determine what counts as a Modus theme.
                                                               (line  10)
 * modus-themes-get-color-value:          Get a single color from the palette with modus-themes-get-color-value.
@@ -7096,6 +7435,8 @@ B.2 Variable index
 * modus-themes-items:                    Option for which themes to rotate.
                                                                (line 15)
 * modus-themes-mixed-fonts:              Mixed fonts.          (line  6)
+* modus-themes-operandi-palette:         Complete example that also uses modus-themes-generate-palette.
+                                                               (line 95)
 * modus-themes-org-blocks:               Org mode blocks.      (line  6)
 * modus-themes-post-load-hook:           Enable and load.      (line 86)
 * modus-themes-preset-overrides-cooler:  DIY Palette override presets.
@@ -7116,6 +7457,8 @@ B.2 Variable index
 * modus-themes-to-toggle:                Option for which themes to toggle.
                                                                (line  9)
 * modus-themes-variable-pitch-ui:        UI typeface.          (line  6)
+* modus-themes-vivendi-palette:          Complete example that also uses modus-themes-generate-palette.
+                                                               (line 95)
 * modus-vivendi-deuteranopia-palette-overrides: Palette overrides.
                                                                (line 38)
 * modus-vivendi-deuteranopia-palette-user: Palette extension.  (line 32)
@@ -7151,6 +7494,8 @@ B.3 Concept index
 * Contributing:                          Issues you can help with.
                                                                 (line 6)
 * Contributors:                          Acknowledgements.      (line 6)
+* Easily define a fully fledged Modus palette: Complete example that also uses modus-themes-generate-palette.
+                                                                (line 6)
 * Essential configuration:               Enable and load.       (line 6)
 * Explicitly supported packages:         Supported packages.    (line 6)
 * Font configurations:                   DIY Font configurations for Org and others.
@@ -7196,140 +7541,141 @@ B.3 Concept index
 
 Tag Table:
 Node: Top874
-Node: Overview9039
-Node: How do the themes look like11805
-Node: Learn about the latest changes12164
-Node: Installation12552
-Node: Install manually from source13463
-Node: Install from the archives14286
-Node: Install on GNU/Linux14885
-Node: Debian 11 Bullseye15376
-Node: GNU Guix15784
-Node: Dealing with byte compilation errors16067
-Node: Enable and load17225
-Node: The require-theme for built-in Emacs themes21504
-Node: Sample configuration22421
-Node: Differences between loading and enabling24697
-Node: Customization options26762
-Node: Disable other themes30531
-Node: Bold constructs31885
-Node: Italic constructs32757
-Node: Option for which themes to toggle33585
-Node: Option for which themes to rotate34348
-Node: Mixed fonts35345
-Node: Command prompts36399
-Node: Completion UIs38240
-Node: Org mode blocks41089
-Node: Heading styles41732
-Node: UI typeface46158
-Node: Palette overrides47131
-Node: Palette extension51488
-Node: Preview theme colors53964
-Node: Commands for the preview palette buffer55619
-Node: Use colors from the Modus themes palette57697
-Node: Get a single color from the palette with modus-themes-get-color-value58561
-Node: Use theme colors in code with modus-themes-with-colors60922
-Node: Advanced customization63176
-Node: DIY Palette override presets64954
-Node: DIY Add support for engrave-faces67788
-Node: DIY Stylistic variants using palette overrides77771
-Node: DIY Make the mode line borderless79830
-Node: DIY Make the active mode line colorful81205
-Node: DIY Make the tab bar more or less colorful83423
-Node: DIY Make the fringe invisible or another color85360
-Node: DIY Make links use subtle or no underlines86557
-Node: DIY Make prompts more or less colorful87675
-Node: DIY Make completion matches more or less colorful88998
-Node: DIY Make comments yellow and strings green92557
-Node: DIY Make code syntax use the old alt-syntax style94264
-Node: DIY Make use of alternative styles for code syntax97377
-Node: DIY Make matching parenthesis more or less intense100839
-Node: DIY Make box buttons more or less gray102211
-Node: DIY Make TODO and DONE more or less intense103224
-Node: DIY Make headings more or less colorful104725
-Node: DIY Make Org block colors more or less colorful106842
-Node: DIY Make Org agenda more or less colorful111214
-Node: DIY Make inline code in prose use alternative styles114389
-Node: DIY Make mail citations and headers more or less colorful116629
-Node: DIY Make the region preserve text colors plus other styles119029
-Node: DIY Make mouse highlights more or less colorful120585
-Node: DIY Make language underlines less colorful121598
-Node: DIY Make line numbers use alternative styles122750
-Node: DIY Make diffs use only a foreground124393
-Node: DIY Make deuteranopia diffs red and blue instead of yellow and blue127280
-Node: DIY More accurate colors in terminal emulators129752
-Node: DIY Range of color with terminal emulators131060
-Node: DIY Per-theme customization settings133847
-Node: DIY Do not extend the region background135280
-Node: DIY Add padding to the mode line136078
-Node: DIY Remap face with local value139006
-Node: DIY Font configurations for Org and others141545
-Ref: DIY Font configurations for Org and others-Footnote-1144528
-Node: DIY Configure bold and italic faces144715
-Node: DIY Custom Org todo keyword and priority faces149337
-Node: DIY Custom Org emphasis faces153078
-Node: DIY Use colored Org source blocks per language157955
-Node: DIY Measure color contrast162595
-Node: DIY Load theme depending on time of day165312
-Node: DIY Backdrop for pdf-tools166340
-Node: DIY Toggle themes without reloading them169501
-Node: DIY Use more spacious margins or padding in Emacs frames170810
-Node: DIY Custom hl-todo colors175047
-Node: DIY Add support for solaire-mode176864
-Node: DIY Add support for meow-mode179956
-Node: DIY Add support for combobulate181766
-Node: DIY Use a hook at the post-load-theme phase185389
-Node: DIY A theme-agnostic hook for theme loading187510
-Node: Build on top of the Modus themes190141
-Node: Complete example of a Modus derivative theme196314
-Node: Complete example of a package that is derived from Modus197254
-Node: Complete example of a private theme derived from Modus200193
-Node: Complete example of a custom theme with its own palette201759
-Node: Determine what counts as a Modus theme206300
-Node: Create convenience commands to load a derivative theme209710
-Node: Face coverage211927
-Node: Supported packages212389
-Node: Indirectly covered packages218255
-Node: Notes on individual packages219611
-Node: Note on calendarel weekday and weekend colors220713
-Node: Note on git-gutter in Doom Emacs221863
-Node: Note on php-mode multiline comments224365
-Node: Note on underlines in compilation buffers225127
-Node: Note on inline Latex in Org buffers226001
-Node: Note on dimmerel226613
-Node: Note on display-fill-column-indicator-mode228100
-Node: Note on highlight-parenthesesel229553
-Node: Note on mmm-modeel background colors235632
-Node: Note for prism237986
-Node: Note on company-mode overlay pop-up241200
-Ref: Note on company-mode overlay pop-up-Footnote-1241930
-Ref: Note on company-mode overlay pop-up-Footnote-2241997
-Node: Note on ERC escaped color sequences242052
-Ref: Note on ERC escaped color sequences-Footnote-1243482
-Node: Note on powerline or spaceline243592
-Node: Note on SHR colors244008
-Node: Note on SHR fonts244430
-Node: Note on Ement colors and fonts245119
-Node: Note on pdf-tools link hints246625
-Node: Note on the Notmuch logo249083
-Node: Note on goto-address-mode faces249617
-Node: Frequently Asked Questions250737
-Node: Is the contrast ratio about adjacent colors?251368
-Node: What does it mean to avoid exaggerations?252877
-Node: Why are colors mostly variants of blue magenta cyan?254727
-Node: What is the best setup for legibility?259061
-Node: Are these color schemes?261703
-Node: Port the Modus themes to other platforms?265357
-Node: Contributing268191
-Node: Sources of the themes268590
-Node: Issues you can help with269486
-Node: Patches require copyright assignment to the FSF270878
-Node: Acknowledgements273100
-Node: GNU Free Documentation License277720
-Node: Indices302883
-Node: Function index303062
-Node: Variable index308043
-Node: Concept index312406
+Node: Overview9105
+Node: How do the themes look like11871
+Node: Learn about the latest changes12230
+Node: Installation12618
+Node: Install manually from source13529
+Node: Install from the archives14352
+Node: Install on GNU/Linux14951
+Node: Debian 11 Bullseye15442
+Node: GNU Guix15850
+Node: Dealing with byte compilation errors16133
+Node: Enable and load17291
+Node: The require-theme for built-in Emacs themes21570
+Node: Sample configuration22487
+Node: Differences between loading and enabling24763
+Node: Customization options26828
+Node: Disable other themes30597
+Node: Bold constructs31951
+Node: Italic constructs32823
+Node: Option for which themes to toggle33651
+Node: Option for which themes to rotate34414
+Node: Mixed fonts35411
+Node: Command prompts36465
+Node: Completion UIs38306
+Node: Org mode blocks41155
+Node: Heading styles41798
+Node: UI typeface46224
+Node: Palette overrides47197
+Node: Palette extension51554
+Node: Preview theme colors54030
+Node: Commands for the preview palette buffer55685
+Node: Use colors from the Modus themes palette57763
+Node: Get a single color from the palette with modus-themes-get-color-value58627
+Node: Use theme colors in code with modus-themes-with-colors60988
+Node: Advanced customization63242
+Node: DIY Palette override presets65020
+Node: DIY Add support for engrave-faces67854
+Node: DIY Stylistic variants using palette overrides77837
+Node: DIY Make the mode line borderless79896
+Node: DIY Make the active mode line colorful81271
+Node: DIY Make the tab bar more or less colorful83489
+Node: DIY Make the fringe invisible or another color85426
+Node: DIY Make links use subtle or no underlines86623
+Node: DIY Make prompts more or less colorful87741
+Node: DIY Make completion matches more or less colorful89064
+Node: DIY Make comments yellow and strings green92623
+Node: DIY Make code syntax use the old alt-syntax style94330
+Node: DIY Make use of alternative styles for code syntax97443
+Node: DIY Make matching parenthesis more or less intense100905
+Node: DIY Make box buttons more or less gray102277
+Node: DIY Make TODO and DONE more or less intense103290
+Node: DIY Make headings more or less colorful104791
+Node: DIY Make Org block colors more or less colorful106908
+Node: DIY Make Org agenda more or less colorful111280
+Node: DIY Make inline code in prose use alternative styles114455
+Node: DIY Make mail citations and headers more or less colorful116695
+Node: DIY Make the region preserve text colors plus other styles119095
+Node: DIY Make mouse highlights more or less colorful120651
+Node: DIY Make language underlines less colorful121664
+Node: DIY Make line numbers use alternative styles122816
+Node: DIY Make diffs use only a foreground124459
+Node: DIY Make deuteranopia diffs red and blue instead of yellow and blue127346
+Node: DIY More accurate colors in terminal emulators129818
+Node: DIY Range of color with terminal emulators131126
+Node: DIY Per-theme customization settings133913
+Node: DIY Do not extend the region background135346
+Node: DIY Add padding to the mode line136144
+Node: DIY Remap face with local value139072
+Node: DIY Font configurations for Org and others141611
+Ref: DIY Font configurations for Org and others-Footnote-1144594
+Node: DIY Configure bold and italic faces144781
+Node: DIY Custom Org todo keyword and priority faces149403
+Node: DIY Custom Org emphasis faces153144
+Node: DIY Use colored Org source blocks per language158021
+Node: DIY Measure color contrast162661
+Node: DIY Load theme depending on time of day165378
+Node: DIY Backdrop for pdf-tools166406
+Node: DIY Toggle themes without reloading them169567
+Node: DIY Use more spacious margins or padding in Emacs frames170876
+Node: DIY Custom hl-todo colors175113
+Node: DIY Add support for solaire-mode176930
+Node: DIY Add support for meow-mode180022
+Node: DIY Add support for combobulate181832
+Node: DIY Use a hook at the post-load-theme phase185455
+Node: DIY A theme-agnostic hook for theme loading187576
+Node: Build on top of the Modus themes190207
+Node: Complete example of a Modus derivative theme196380
+Node: Complete example of a package that is derived from Modus197386
+Node: Complete example of a private theme derived from Modus200325
+Node: Complete example of a custom theme with its own palette201891
+Node: Complete example that also uses modus-themes-generate-palette206502
+Node: Determine what counts as a Modus theme221240
+Node: Create convenience commands to load a derivative theme224650
+Node: Face coverage226867
+Node: Supported packages227329
+Node: Indirectly covered packages233195
+Node: Notes on individual packages234551
+Node: Note on calendarel weekday and weekend colors235653
+Node: Note on git-gutter in Doom Emacs236803
+Node: Note on php-mode multiline comments239305
+Node: Note on underlines in compilation buffers240067
+Node: Note on inline Latex in Org buffers240941
+Node: Note on dimmerel241553
+Node: Note on display-fill-column-indicator-mode243040
+Node: Note on highlight-parenthesesel244493
+Node: Note on mmm-modeel background colors250572
+Node: Note for prism252926
+Node: Note on company-mode overlay pop-up256140
+Ref: Note on company-mode overlay pop-up-Footnote-1256870
+Ref: Note on company-mode overlay pop-up-Footnote-2256937
+Node: Note on ERC escaped color sequences256992
+Ref: Note on ERC escaped color sequences-Footnote-1258422
+Node: Note on powerline or spaceline258532
+Node: Note on SHR colors258948
+Node: Note on SHR fonts259370
+Node: Note on Ement colors and fonts260059
+Node: Note on pdf-tools link hints261565
+Node: Note on the Notmuch logo264023
+Node: Note on goto-address-mode faces264557
+Node: Frequently Asked Questions265677
+Node: Is the contrast ratio about adjacent colors?266308
+Node: What does it mean to avoid exaggerations?267817
+Node: Why are colors mostly variants of blue magenta cyan?269667
+Node: What is the best setup for legibility?274001
+Node: Are these color schemes?276643
+Node: Port the Modus themes to other platforms?280297
+Node: Contributing283131
+Node: Sources of the themes283530
+Node: Issues you can help with284426
+Node: Patches require copyright assignment to the FSF285818
+Node: Acknowledgements288040
+Node: GNU Free Documentation License292660
+Node: Indices317823
+Node: Function index318002
+Node: Variable index323160
+Node: Concept index327877
 
 End Tag Table
 

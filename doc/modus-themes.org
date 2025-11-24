@@ -4551,6 +4551,359 @@ this example, =bg-ochre= comes from the ~modus-operandi-palette~
 though it would work the same way if, say, ~prot-light-palette~
 defined ~bg-soil~ and then referenced it in ~prot-light-custom-faces~.
 
+*** Complete example that also uses ~modus-themes-generate-palette~
+:PROPERTIES:
+:CUSTOM_ID: h:3a7ede17-f0d4-4322-8e69-1804ed69012b
+:END:
+#+cindex: Easily define a fully fledged Modus palette
+
+The guide herein is of use to those who plan to create their own
+derivative themes ([[#h:48e391a6-831b-48ec-b92d-4e7e6871b043][Complete example of a private theme derived from Modus]]).
+
+The ~modus-themes-generate-palette~ defines a fully flegded Modus
+palette that can be passed to ~modus-themes-theme~ without necessarily
+depending on any of the core Modus palettes. I will walk you through
+the steps of working with something like the following code block.
+
+[ We use color values from Solarized as an example for the rest of
+  this entry, naming them according to our conventions. ]
+
+#+begin_src emacs-lisp
+(defvar modus-solarized-dark-palette
+  (modus-themes-generate-palette
+   '((bg-main "#073642")
+     (fg-main "#EEE8D5")
+     (red "#DC322F")
+     (red-warmer "#CB4B16")
+     (green "#859900")
+     (yellow "#B58900")
+     (blue "#268BD2")
+     (magenta "#D33682")
+     (magenta-cooler "#6C71C4")
+     (cyan "#2AA198"))))
+
+(modus-themes-theme
+ 'modus-solarized-dark
+ 'modus-solarized-themes
+ "Sample of a basic Solarized port."
+ 'dark
+ 'modus-solarized-dark-palette
+ nil
+ nil)
+#+end_src
+
+The Modus themes define hundreds of entries in their palette. Some are
+named colors while others are semantic mappings ([[#h:34c7a691-19bb-4037-8d2f-67a07edab150][Option for palette overrides]]).
+
+This gives users maximum control via overrides, though comes at the
+considerable cost of making it harder to derive a custom palette from
+a small set of colors. Color schemes, which are not themes in the
+sense of ensuring consistency across all elements and interfaces, will
+typically provide 8 or 16 colors. This is the case with terminal
+emulators. For example, the widely known Solarized theme, originally
+designed by Ethan Schoonover, defines 16 colors for terminal
+emulators. Nothing else. Thus a hypothetical Modus+Solarized cannot
+work without knowing how to complement the base with all the extra
+color definitions.
+
+#+findex: modus-themes-generate-palette
+This is where the function ~modus-themes-generate-palette~ comes in.
+In broad terms, it is meant to be used as a starting point. The user
+may then decide which results need further tweaking. But at least they
+will have something to create a fully fledged Modus palette right
+away.
+
+The minimum ~modus-themes-generate-palette~ needs is a list of
+=BASE-COLORS=. Each element is of the form =(NAME VALUE)= where =NAME=
+is a symbol and =VALUE= is a string with a hexadecimal RGB color value
+or a string with a name of a color among those listed in the output of
+the command ~list-colors-display~.
+
+The =BASE-COLORS= can be as short as follows:
+
+#+begin_src emacs-lisp
+;; All missing palette entries will be derived automatically.  This
+;; will return a COMPLETE Modus themes palette.
+(modus-themes-generate-palette
+ '((bg-main "#073642")
+   (fg-main "#EEE8D5")))
+#+end_src
+
+The only two mandatory entries in =BASE-COLORS= are =bg-main= and
+=fg-main= as shown above. In this scenario, the derived palette will
+get the job done, but will be very close to what Modus defines. The
+more we add to the =BASE-COLORS=, the more well defined the character
+of the new palette will be. For example:
+
+#+begin_src emacs-lisp
+(modus-themes-generate-palette
+ ;; The two base colors of Solarized, plus all its accents.
+ '((bg-main "#073642")
+   (fg-main "#EEE8D5")
+   (red "#DC322F")
+   (red-warmer "#CB4B16")
+   (green "#859900")
+   (yellow "#B58900")
+   (blue "#268BD2")
+   (magenta "#D33682")
+   (magenta-cooler "#6C71C4")
+   (cyan "#2AA198")))
+#+end_src
+
+This is already going to be a tolerable port of Solarized. Though we
+can go further and greatly improve the results.
+
+#+vindex: modus-themes-operandi-palette
+#+vindex: modus-themes-vivendi-palette
+The ~modus-themes-generate-palette~ will internally calculate colors
+based on what it receives. Anything missing will be taken from a core
+Modus palette, depending on the value of =bg-main=: if it is light,
+then the ~modus-themes-operandi-palette~ is used, otherwise it is
+~modus-themes-vivendi-palette~. What also plays a role in the interal
+calculations is whether =bg-main= is a =cool= or =warm= color, meaning
+whether it is closer to blue or red, respectively. If it is =cool=,
+then the aforementioned palettes are used. Else the
+~modus-themes-operandi-tinted-palette~ and
+~modus-themes-vivendi-tinted-palette~ are picked. Internally, =cool=
+or =warm= also influences the kind of color values and semantic
+mappings that will go into the new palette.
+
+The ~modus-themes-generate-palette~ accepts an optional parameter
+called =COOL-OR-WARM-PREFERENCE=. This is a preference for the symbol
+=cool= or =warm=: it make the decision explicit.
+
+For example, Solarized can swap the values of =bg-main= and =fg-main=
+to switch between its light and dark implementations (I understand
+this is a smart trick for terminal emulators, but is otherwise not
+good enough for thematic consistency as some accent values look
+out-of-place and the contrasts vary considerably). The light color
+Solarized uses is inherently =warm= (yellowish color means it is
+closer to red than blue) while the dark color is =cool=, due to it
+being closer to pure blue. Users may wish to experiment with a
+deviation from what would have been the default output, such that the
+dark blue when used as a background actually combines with warmer
+foreground hues, while the light cream background goes together with
+cooler foreground values. Thus:
+
+#+begin_src emacs-lisp
+(modus-themes-generate-palette
+ '((bg-main "#073642") ; normally this is a `cool' theme
+   (fg-main "#EEE8D5")
+   (red "#DC322F")
+   (red-warmer "#CB4B16")
+   (green "#859900")
+   (yellow "#B58900")
+   (blue "#268BD2")
+   (magenta "#D33682")
+   (magenta-cooler "#6C71C4")
+   (cyan "#2AA198"))
+ 'warm) ; but we want to use it with `warm' foregrounds
+
+;; And here is the inverse of the above, now with the light version of
+;; Solarized.
+(modus-themes-generate-palette
+ '((bg-main "#EEE8D5") ; normally this is a `warm' theme
+   (fg-main "#073642")
+   (red "#DC322F")
+   (red-warmer "#CB4B16")
+   (green "#859900")
+   (yellow "#B58900")
+   (blue "#268BD2")
+   (magenta "#D33682")
+   (magenta-cooler "#6C71C4")
+   (cyan "#2AA198"))
+ 'cool) ; but we want to use it with `cool' foregrounds
+#+end_src
+
+This is now getting better, but we can go further. At this point users
+should be able to do the common work of taking a color scheme that was
+originally designed for terminal emulators and quickly turning it into
+a fully fledged Modus palette. All they need is to follow the naming
+convention for =bg-main=, =fg-main=, and then
+={red,green,yellow,blue,magenta,cyan}{,-warmer,-cooler}=. Preview a
+palette to get the complete list ([[#h:f4d4b71b-2ca5-4c3d-b0b4-9bfd7aa7fb4d][Preview theme colors]]). And, again,
+remember that not all colors need to be defined in =BASE-COLORS= (e.g.
+we could leave out ~magenta-cooler~ if we do not care about it).
+
+The next optional parameter of ~modus-themes-generate-palette~ is the
+=CORE-PALETTE= it should use. This is to make explicit the decision
+that is otherwise handled internally on whether to fill in any missing
+palette entries from Modus Operandi or Modus Vivendi (or their tinted
+variants), as explained above.
+
+The =CORE-PALETTE= is the symbol of a variable whose value is a
+palette, like ~modus-themes-operandi-palette~. Normally, users do not
+need to ever set =CORE-PALETTE=. The only two scenaria where this is
+likely helpful is (i) the theme is optimized for red-green or
+blue-yellow color deficiency, in which case one of the Modus palettes
+for deuteranopia and tritanopia is needed, or (ii) the user wants to
+use a palette from a Modus derivative theme, such as my ~ef-themes~
+and ~standard-themes~. In the latter scenario, users need to take care
+to either copy the palette they want to use or, anyhow, ~load~ the
+relevant files.
+
+In the interest of clarity, here is how the =CORE-PALETTE= is passed,
+but, again, users probably should leave this to ~nil~:
+
+#+begin_src emacs-lisp
+(modus-themes-generate-palette
+ ;; The two base colors of Solarized, plus all its accents.
+ '((bg-main "#073642")
+   (fg-main "#EEE8D5")
+   (red "#DC322F")
+   (red-warmer "#CB4B16")
+   (green "#859900")
+   (yellow "#B58900")
+   (blue "#268BD2")
+   (magenta "#D33682")
+   (magenta-cooler "#6C71C4")
+   (cyan "#2AA198"))
+ nil ; COOL-OR-WARM-PREFERENCE is derived internally based on `bg-main'
+ 'modus-themes-vivendi-tritanopia-palette) ; we specifically want this as our CORE-PALETTE
+#+end_src
+
+With core Modus palettes, the =CORE-PALETTE= should not make much of a
+difference. Though a completely custom Modus derivative, like one of
+the ~ef-themes~, will be defining colors values that differ
+substantially from those of core Modus, as well as completely
+different semantic mappings.
+
+Finally, ~modus-themes-generate-palette~ has an optional =MAPPINGS=
+parameter. This is a list of semantic mappings where each entry is of
+the form =(NAME OTHER-NAME)= ([[#h:34c7a691-19bb-4037-8d2f-67a07edab150][Option for palette overrides]]). The
+=NAME= has the same meaning as for the =BASE-COLORS= we have been
+examining all along, while =OTHER-NAME= is the symbol of another
+=NAME= that exists in the palette, hence the mapping. This manual
+contains lots of examples along those lines ([[#h:df1199d8-eaba-47db-805d-6b568a577bf3][DIY Stylistic variants using palette overrides]]).
+For our purposes, we will modify some of the obvious elements of the
+theme, namely, the cursor, mode lines, current line highlight, and
+active region.
+
+#+begin_src emacs-lisp
+(modus-themes-generate-palette
+ ;; The two base colors of Solarized, plus all its accents.
+ '((bg-main "#073642")
+   (fg-main "#EEE8D5")
+   (red "#DC322F")
+   (red-warmer "#CB4B16")
+   (green "#859900")
+   (yellow "#B58900")
+   (blue "#268BD2")
+   (magenta "#D33682")
+   (magenta-cooler "#6C71C4")
+   (cyan "#2AA198"))
+ nil ; COOL-OR-WARM-PREFERENCE is derived internally based on `bg-main'
+ nil ; as I explained at length, we normally do not want to specify CORE-PALETTE
+ '((cursor magenta-warmer) ; all the colors here are derived from the BASE-COLORS above
+   (bg-hl-line bg-cyan-nuanced)
+   (bg-region bg-green-intense)
+   (fg-region fg-dim)
+   (bg-mode-line-active bg-blue-subtle)
+   (fg-mode-line-active blue-cooler)
+   (border-mode-line-active fg-dim)))
+#+end_src
+
+The =MAPPINGS= can be as long as the user needs. Whatever is defined
+here will take precedence of what the =CORE-PALETTE= (or its
+internally derived equivalent) provides. At most, users can have a
+completely custom palette. Though I expect that this will not be done
+at the outset, but only after a long process of experimentation (if
+you already knew how to do this, ~modus-themes-generate-palette~ would
+not be of real value). The point is to start with something that works
+and then refine it one small step at a time.
+
+We are now ready to try our Solarized themes, using the example of
+doing this in our private configuration ([[#h:f2757848-ea41-4cd7-a04d-7e650555a59b][Complete example of a package that is derived from Modus]]).
+
+- Create two files, one is called =modus-solarized-dark-theme.el= (or
+  however you want to identify it, but always keep =-theme.el= at the
+  end) and the other is =modus-solarized-light-theme=.
+
+- Add their directory to the ~custom-theme-load-path~, like
+  ~(add-to-list 'custom-theme-load-path "~/.emacs.d/custom-themes/")~.
+
+- Use the minimal code from the following two blocks to create your
+  new themes.
+
+- Optionally activate ~modus-themes-include-derivatives-mode~ to have
+  all Modus commands recognize your themes.
+
+- Load your themes with ~load-theme~.
+
+- Enjoy!
+
+#+begin_src emacs-lisp
+;; Modus+Solarized dark
+(defvar modus-solarized-dark-palette
+  (modus-themes-generate-palette
+   ;; The two base colors of Solarized, plus all its accents.
+   '((bg-main "#073642")
+     (fg-main "#EEE8D5")
+     (red "#DC322F")
+     (red-warmer "#CB4B16")
+     (green "#859900")
+     (yellow "#B58900")
+     (blue "#268BD2")
+     (magenta "#D33682")
+     (magenta-cooler "#6C71C4")
+     (cyan "#2AA198"))
+   nil ; COOL-OR-WARM-PREFERENCE is derived internally based on `bg-main'
+   nil ; as I explained at length, we normally do not want to specify CORE-PALETTE
+   '((cursor magenta-warmer) ; all the colors here are derived from the BASE-COLORS above
+     (bg-hl-line bg-cyan-nuanced)
+     (bg-region bg-green-intense)
+     (fg-region fg-dim)
+     (bg-mode-line-active bg-blue-subtle)
+     (fg-mode-line-active blue-cooler)
+     (border-mode-line-active fg-dim))))
+
+(modus-themes-theme
+ 'modus-solarized-dark
+ 'modus-solarized-themes
+ "Sample of a basic Solarized dark port."
+ 'dark
+ 'modus-solarized-dark-palette
+ nil
+ nil)
+#+end_src
+
+And the light variant:
+
+#+begin_src emacs-lisp
+;; Modus+Solarized light
+(defvar modus-solarized-light-palette
+  (modus-themes-generate-palette
+   ;; The two base colors of Solarized, plus all its accents.
+   '((bg-main "#EEE8D5")
+     (fg-main "#073642")
+     (red "#DC322F")
+     (red-warmer "#CB4B16")
+     (green "#859900")
+     (yellow "#B58900")
+     (blue "#268BD2")
+     (magenta "#D33682")
+     (magenta-cooler "#6C71C4")
+     (cyan "#2AA198"))
+   nil ; COOL-OR-WARM-PREFERENCE is derived internally based on `bg-main'
+   nil ; as I explained at length, we normally do not want to specify CORE-PALETTE
+   '((cursor yellow-warmer) ; all the colors here are derived from the BASE-COLORS above
+     (bg-hl-line bg-red-nuanced)
+     (bg-region bg-blue-intense)
+     (fg-region fg-dim)
+     (bg-mode-line-active bg-cyan-subtle)
+     (fg-mode-line-active cyan-cooler)
+     (border-mode-line-active fg-dim))))
+
+(modus-themes-theme
+ 'modus-solarized-light
+ 'modus-solarized-themes
+ "Sample of a basic Solarized light port."
+ 'light
+ 'modus-solarized-light-palette
+ nil
+ nil)
+#+end_src
+
 ** Determine what counts as a Modus theme
 :PROPERTIES:
 :CUSTOM_ID: h:412e3017-81fe-4a95-97a6-225de1867757
