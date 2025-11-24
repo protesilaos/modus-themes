@@ -7574,7 +7574,7 @@ in `list-colors-display' or hexadecimal RGB of the form #123456.  See
 the value of a core Modus palette, like `modus-themes-operandi-palette'
 for all current NAME symbols.
 
-BASE-COLORS is used to derived a palette.  Any entry whose name is
+BASE-COLORS is used to derive a palette.  Any entry whose name is
 already present in BASE-COLORS is not derived but taken as-is.
 
 The generated palette can be used as-is by derivative theme (pe
