@@ -7508,7 +7508,7 @@ defined command's symbol is FAMILY-SUFFIX, like `modus-themes-rotate'."
 ;;;; Generate a palette given the base colors
 
 (defconst modus-themes-generate-palette-names
-  '(bg-main fg-main red green yellow blue magenta cyan)
+  '(bg-main fg-main)
   "The base named palette entries for `modus-themes-generate-palette'.")
 
 (declare-function color-lighten-name "color" (name percent))
@@ -7569,12 +7569,15 @@ PREFERENCE has the same meaning as the fallback preference passed to
      alpha)))
 
 ;;;###autoload
-(defun modus-themes-generate-palette (base-colors &optional cool-or-warm-preference core-palette)
+(defun modus-themes-generate-palette (base-colors &optional cool-or-warm-preference core-palette mappings)
   "Generate a palette given the BASE-COLORS.
-BASE-COLORS is consists of lists in the form (NAME VALUE).  NAME is one
-of `modus-themes-generate-palette-names', while VALUE is a string
-representing a color either by name like in `list-colors-display' or
-hexadecimal RGB of the form #123456.
+BASE-COLORS is consists of lists in the form (NAME VALUE).  NAME is at
+least one of `modus-themes-generate-palette-names', while VALUE is a
+string representing a color either by name like in `list-colors-display'
+or hexadecimal RGB of the form #123456.
+
+BASE-COLORS is used to derived a palette.  Any entry whose name is
+already present in BASE-COLORS is not derived but taken as-is.
 
 The generated palette can be used as-is by derivative theme (pe
 `modus-themes-theme') or as a starting point for further refinements.
@@ -7592,7 +7595,9 @@ and let the user assume responsibility for any incompatibilities.
 
 If CORE-PALETTE is nil, then infer a suitable palette based on whether
 the `bg-main' value in BASE-COLORS is light or dark and then the
-COOL-OR-WARM-PREFERENCE."
+COOL-OR-WARM-PREFERENCE.
+
+With optional MAPPINGS use them instead of trying to derive new ones."
   (require 'color)
   (let ((names (mapcar #'car base-colors)))
     (unless (seq-every-p
@@ -7609,6 +7614,7 @@ COOL-OR-WARM-PREFERENCE."
                               (eq (car name) 'fg-main)))
                         base-colors))
            (derivatives nil)
+           (color-mappings mappings)
            (prefers-cool-p (cond
                             ((and cool-or-warm-preference (memq cool-or-warm-preference '(cool warm)))
                              (eq cool-or-warm-preference 'cool))
@@ -7648,77 +7654,87 @@ COOL-OR-WARM-PREFERENCE."
         (push (list (intern (format "bg-%s-intense" name)) (modus-themes-generate-gradient value (if bg-main-dark-p -30 30))) derivatives)
         (push (list (intern (format "bg-%s-subtle" name)) (modus-themes-generate-gradient value (if bg-main-dark-p -50 50))) derivatives)
         (push (list (intern (format "bg-%s-nuanced" name)) (modus-themes-generate-gradient value (if bg-main-dark-p -70 70))) derivatives))
-      ;; Mappings
-      (push (list 'bg-completion (if prefers-cool-p 'bg-cyan-subtle 'bg-yellow-subtle)) derivatives)
-      (push (list 'bg-hover (if prefers-cool-p 'bg-green-intense 'bg-magenta-intense)) derivatives)
-      (push (list 'bg-hover-secondary (if prefers-cool-p 'bg-green-subtle 'bg-magenta-subtle)) derivatives)
-      (push (list 'bg-hl-line (if prefers-cool-p 'bg-cyan-nuanced 'bg-yellow-nuanced)) derivatives)
-      (push (list 'bg-paren-match (if prefers-cool-p 'bg-green-intense 'bg-yellow-subtle)) derivatives)
-      (push (list 'bg-paren-expression (if prefers-cool-p 'bg-green-nuanced 'bg-yellow-nuanced)) derivatives)
-      (push (list 'bg-region 'bg-active) derivatives)
-      (push (list 'fg-region 'fg-main) derivatives)
+      (unless color-mappings
+        ;; Mappings
+        (push (list 'bg-completion (if prefers-cool-p 'bg-cyan-subtle 'bg-yellow-subtle)) color-mappings)
+        (push (list 'bg-hover (if prefers-cool-p 'bg-green-intense 'bg-magenta-intense)) color-mappings)
+        (push (list 'bg-hover-secondary (if prefers-cool-p 'bg-green-subtle 'bg-magenta-subtle)) color-mappings)
+        (push (list 'bg-hl-line (if prefers-cool-p 'bg-cyan-nuanced 'bg-yellow-nuanced)) color-mappings)
+        (push (list 'bg-paren-match (if prefers-cool-p 'bg-green-intense 'bg-yellow-subtle)) color-mappings)
+        (push (list 'bg-paren-expression (if prefers-cool-p 'bg-green-nuanced 'bg-yellow-nuanced)) color-mappings)
+        (push (list 'bg-region 'bg-active) color-mappings)
+        (push (list 'fg-region 'fg-main) color-mappings)
 
-      (push (list 'bg-mode-line-active 'bg-active) derivatives)
-      (push (list 'fg-mode-line-active 'fg-main) derivatives)
-      (push (list 'border-mode-line-active 'border) derivatives)
-      (push (list 'bg-mode-line-inactive 'bg-inactive) derivatives)
-      (push (list 'fg-mode-line-inactive 'fg-dim) derivatives)
-      (push (list 'border-mode-line-inactive 'border) derivatives)
+        (push (list 'bg-mode-line-active 'bg-active) color-mappings)
+        (push (list 'fg-mode-line-active 'fg-main) color-mappings)
+        (push (list 'border-mode-line-active 'border) color-mappings)
+        (push (list 'bg-mode-line-inactive 'bg-inactive) color-mappings)
+        (push (list 'fg-mode-line-inactive 'fg-dim) color-mappings)
+        (push (list 'border-mode-line-inactive 'border) color-mappings)
 
-      (push (list 'modeline-err 'red-faint) derivatives)
-      (push (list 'modeline-warning 'yellow-faint) derivatives)
-      (push (list 'modeline-info 'blue-faint) derivatives)
+        (push (list 'modeline-err 'red-faint) color-mappings)
+        (push (list 'modeline-warning 'yellow-faint) color-mappings)
+        (push (list 'modeline-info 'blue-faint) color-mappings)
 
-      (push (list 'bg-tab-bar 'bg-dim) derivatives)
-      (push (list 'bg-tab-current 'bg-main) derivatives)
-      (push (list 'bg-tab-other 'bg-inactive) derivatives)
+        (push (list 'bg-tab-bar 'bg-dim) color-mappings)
+        (push (list 'bg-tab-current 'bg-main) color-mappings)
+        (push (list 'bg-tab-other 'bg-inactive) color-mappings)
 
-      (push (list 'bg-added 'bg-green-subtle) derivatives)
-      (push (list 'bg-added-faint 'bg-green-nuanced) derivatives)
-      (push (list 'bg-added-refine 'bg-green-intense) derivatives)
-      (push (list 'fg-added 'green-faint) derivatives)
-      (push (list 'fg-added-intense 'green-intense) derivatives)
+        (push (list 'bg-added 'bg-green-subtle) color-mappings)
+        (push (list 'bg-added-faint 'bg-green-nuanced) color-mappings)
+        (push (list 'bg-added-refine 'bg-green-intense) color-mappings)
+        (push (list 'fg-added 'green-faint) color-mappings)
+        (push (list 'fg-added-intense 'green-intense) color-mappings)
 
-      (push (list 'bg-changed 'bg-yellow-subtle) derivatives)
-      (push (list 'bg-changed-faint 'bg-yellow-nuanced) derivatives)
-      (push (list 'bg-changed-refine 'bg-yellow-intense) derivatives)
-      (push (list 'fg-changed 'yellow-faint) derivatives)
-      (push (list 'fg-changed-intense 'yellow-intense) derivatives)
+        (push (list 'bg-changed 'bg-yellow-subtle) color-mappings)
+        (push (list 'bg-changed-faint 'bg-yellow-nuanced) color-mappings)
+        (push (list 'bg-changed-refine 'bg-yellow-intense) color-mappings)
+        (push (list 'fg-changed 'yellow-faint) color-mappings)
+        (push (list 'fg-changed-intense 'yellow-intense) color-mappings)
 
-      (push (list 'bg-removed 'bg-red-subtle) derivatives)
-      (push (list 'bg-removed-faint 'bg-red-nuanced) derivatives)
-      (push (list 'bg-removed-refine 'bg-red-intense) derivatives)
-      (push (list 'fg-removed 'red-faint) derivatives)
-      (push (list 'fg-removed-intense 'red-intense) derivatives)
+        (push (list 'bg-removed 'bg-red-subtle) color-mappings)
+        (push (list 'bg-removed-faint 'bg-red-nuanced) color-mappings)
+        (push (list 'bg-removed-refine 'bg-red-intense) color-mappings)
+        (push (list 'fg-removed 'red-faint) color-mappings)
+        (push (list 'fg-removed-intense 'red-intense) color-mappings)
 
-      (push (list 'fg-heading-0 'fg-alt) derivatives)
-      (push (list 'fg-heading-1 'fg-main) derivatives)
-      (push (list 'fg-heading-2 (if prefers-cool-p 'cyan 'yellow)) derivatives)
-      (push (list 'fg-heading-3 (if prefers-cool-p 'green 'magenta)) derivatives)
-      (push (list 'fg-heading-4 (if prefers-cool-p 'blue 'red)) derivatives)
-      (push (list 'fg-heading-5 (if prefers-cool-p 'yellow 'cyan)) derivatives)
-      (push (list 'fg-heading-6 (if prefers-cool-p 'magenta 'green)) derivatives)
-      (push (list 'fg-heading-7 (if prefers-cool-p 'red 'blue)) derivatives)
-      (push (list 'fg-heading-8 'fg-dim) derivatives)
+        (push (list 'fg-heading-0 'fg-alt) color-mappings)
+        (push (list 'fg-heading-1 'fg-main) color-mappings)
+        (push (list 'fg-heading-2 (if prefers-cool-p 'cyan 'yellow)) color-mappings)
+        (push (list 'fg-heading-3 (if prefers-cool-p 'green 'magenta)) color-mappings)
+        (push (list 'fg-heading-4 (if prefers-cool-p 'blue 'red)) color-mappings)
+        (push (list 'fg-heading-5 (if prefers-cool-p 'yellow 'cyan)) color-mappings)
+        (push (list 'fg-heading-6 (if prefers-cool-p 'magenta 'green)) color-mappings)
+        (push (list 'fg-heading-7 (if prefers-cool-p 'red 'blue)) color-mappings)
+        (push (list 'fg-heading-8 'fg-dim) color-mappings)
 
-      (push (list 'bg-term-black (if bg-main-dark-p 'bg-main 'fg-main)) derivatives)
-      (push (list 'bg-term-black-bright (if bg-main-dark-p 'bg-active 'fg-dim)) derivatives)
-      (push (list 'fg-term-black (if bg-main-dark-p 'bg-main 'fg-main)) derivatives)
-      (push (list 'fg-term-black-bright (if bg-main-dark-p 'bg-active 'fg-dim)) derivatives)
+        (push (list 'bg-term-black (if bg-main-dark-p 'bg-main 'fg-main)) color-mappings)
+        (push (list 'bg-term-black-bright (if bg-main-dark-p 'bg-active 'fg-dim)) color-mappings)
+        (push (list 'fg-term-black (if bg-main-dark-p 'bg-main 'fg-main)) color-mappings)
+        (push (list 'fg-term-black-bright (if bg-main-dark-p 'bg-active 'fg-dim)) color-mappings)
 
-      (push (list 'bg-term-white (if bg-main-dark-p 'fg-dim 'bg-active)) derivatives)
-      (push (list 'bg-term-white-bright (if bg-main-dark-p 'fg-main 'bg-main)) derivatives)
-      (push (list 'fg-term-white (if bg-main-dark-p 'fg-dim 'bg-active)) derivatives)
-      (push (list 'fg-term-white-bright (if bg-main-dark-p 'fg-main 'bg-main)) derivatives)
+        (push (list 'bg-term-white (if bg-main-dark-p 'fg-dim 'bg-active)) color-mappings)
+        (push (list 'bg-term-white-bright (if bg-main-dark-p 'fg-main 'bg-main)) color-mappings)
+        (push (list 'fg-term-white (if bg-main-dark-p 'fg-dim 'bg-active)) color-mappings)
+        (push (list 'fg-term-white-bright (if bg-main-dark-p 'fg-main 'bg-main)) color-mappings))
 
-      (let* ((initial-new-palette (append base-colors (nreverse derivatives)))
+      (let* ((initial-new-palette (append base-colors derivatives))
              ;; We have to add one of the core palettes to make sure
              ;; there are no missing entries.  We will then remove
              ;; duplicates.
-             (combined-new-palette (or core-palette
-                                       (if bg-main-dark-p
-                                           (append initial-new-palette (if prefers-cool-p modus-themes-vivendi-palette modus-themes-vivendi-tinted-palette))
-                                         (append initial-new-palette (if prefers-cool-p modus-themes-operandi-palette modus-themes-operandi-tinted-palette))))))
+             (core (or core-palette
+                       (if bg-main-dark-p
+                           (if prefers-cool-p modus-themes-vivendi-palette modus-themes-vivendi-tinted-palette)
+                         (if prefers-cool-p modus-themes-operandi-palette modus-themes-operandi-tinted-palette))))
+             (core-named-colors (seq-filter
+                                 (lambda (entry)
+                                   (stringp (cdr entry)))
+                                 core))
+             (core-mappings (seq-filter
+                             (lambda (entry)
+                               (not (stringp (cdr entry))))
+                             core))
+             (combined-new-palette (append initial-new-palette core-named-colors color-mappings core-mappings)))
         ;; In case of duplicates, we prefer what is in the
         ;; `initial-new-palette'.  This is why we appended it before
         ;; the core Modus palette.
