@@ -7599,12 +7599,12 @@ With optional MAPPINGS use them instead of trying to derive new ones."
   (require 'color)
   (when (seq-some
            (lambda (entry)
-             (not (stringp (cdr entry))))
+             (not (stringp (cadr entry))))
            base-colors)
     (error "Base colors can only be references to string color values, not symbols"))
   (when (seq-some
            (lambda (entry)
-             (stringp (cdr entry)))
+             (stringp (cadr entry)))
            mappings)
     (error "Mappings can only be references to named colors, not color values"))
   (let ((bg-main (alist-get 'bg-main base-colors))
@@ -7734,11 +7734,11 @@ With optional MAPPINGS use them instead of trying to derive new ones."
                          (if prefers-cool-p modus-themes-operandi-palette modus-themes-operandi-tinted-palette))))
              (core-named-colors (seq-filter
                                  (lambda (entry)
-                                   (stringp (cdr entry)))
+                                   (stringp (cadr entry)))
                                  core))
              (core-mappings (seq-filter
                              (lambda (entry)
-                               (not (stringp (cdr entry))))
+                               (not (stringp (cadr entry))))
                              core))
              (combined-new-palette (append initial-new-palette core-named-colors color-mappings core-mappings)))
         ;; In case of duplicates, we prefer what is in the
