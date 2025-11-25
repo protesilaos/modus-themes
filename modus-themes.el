@@ -7678,6 +7678,15 @@ rest come from CORE-PALETTE."
       (funcall push-mapping-fn 'modeline-warning 'yellow-faint)
       (funcall push-mapping-fn 'modeline-info 'blue-faint)
 
+      ;; TODO 2025-11-25: We need mappings for the corresponding foregrounds.
+      (funcall push-mapping-fn 'bg-search-current 'bg-yellow-subtle)
+      (funcall push-mapping-fn 'bg-search-lazy 'bg-magenta-subtle)
+      (funcall push-mapping-fn 'bg-search-replace 'bg-red-subtle)
+      (funcall push-mapping-fn 'bg-search-rx-group-0 'bg-blue-subtle)
+      (funcall push-mapping-fn 'bg-search-rx-group-1 'bg-green-subtle)
+      (funcall push-mapping-fn 'bg-search-rx-group-2 'bg-red-subtle)
+      (funcall push-mapping-fn 'bg-search-rx-group-3 'bg-magenta-subtle)
+
       (funcall push-mapping-fn 'bg-prominent-err 'unspecified)
       (funcall push-mapping-fn 'bg-prominent-warning 'unspecified)
       (funcall push-mapping-fn 'bg-prominent-note 'unspecified)
