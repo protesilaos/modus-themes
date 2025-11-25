@@ -7569,7 +7569,7 @@ return FALLBACK-PREFERENCE"
     (if (memq fallback-preference '(warm cool))
         fallback-preference
       (error "FALLBACK-PREFERENCE must be either `warm' or `cool', not `%S'" fallback-preference)))
-   ((> (color-distance color "#ff0000") (color-distance color "#0000ff"))
+   ((modus-themes-color-warm-p color)
     'warm)
    (t
     'cool)))
@@ -7650,11 +7650,8 @@ rest come from CORE-PALETTE."
                               (eq (car name) 'fg-main)))
                         base-colors))
            (prefers-cool-p (cond
-                            ((and cool-or-warm-preference (memq cool-or-warm-preference '(cool warm)))
-                             (eq cool-or-warm-preference 'cool))
-                            ((modus-themes-color-is-warm-or-cool-p bg-main 'cool))
-                            (t
-                             (error "The COOL-OR-WARM-PREFERENCE must be either `cool' or `warm', not `%S'" cool-or-warm-preference))))
+                            (cool-or-warm-preference (eq cool-or-warm-preference 'cool))
+                            (t (eq (modus-themes-color-is-warm-or-cool-p bg-main 'cool) 'cool))))
            (derived-colors nil)
            (derived-mappings nil)
            (push-derived-value-fn (lambda (name value)
