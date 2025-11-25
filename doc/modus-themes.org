@@ -4574,12 +4574,10 @@ the steps of working with something like the following code block.
    '((bg-main "#073642")
      (fg-main "#EEE8D5")
      (red "#DC322F")
-     (red-warmer "#CB4B16")
      (green "#859900")
      (yellow "#B58900")
      (blue "#268BD2")
      (magenta "#D33682")
-     (magenta-cooler "#6C71C4")
      (cyan "#2AA198"))))
 
 (modus-themes-theme
@@ -4637,21 +4635,22 @@ of the new palette will be. For example:
 
 #+begin_src emacs-lisp
 (modus-themes-generate-palette
- ;; The two base colors of Solarized, plus all its accents.
+ ;; The two base colors of Solarized, plus most of its accents.
  '((bg-main "#073642")
    (fg-main "#EEE8D5")
    (red "#DC322F")
-   (red-warmer "#CB4B16")
    (green "#859900")
    (yellow "#B58900")
    (blue "#268BD2")
    (magenta "#D33682")
-   (magenta-cooler "#6C71C4")
    (cyan "#2AA198")))
 #+end_src
 
-This is already going to be a tolerable port of Solarized. Though we
-can go further and greatly improve the results.
+This is already going to be a tolerable port of Solarized. If the
+=BASE-COLORS= provides =bg-main=, =fg-main=, and the six hues of
+=red=, =green=, =yellow=, =blue=, =magenta=, =cyan=, we will get a new
+palette that has no trace of the color values implemented by core
+Modus. Though we can go further and greatly improve the results.
 
 #+vindex: modus-themes-operandi-palette
 #+vindex: modus-themes-vivendi-palette
@@ -4659,18 +4658,19 @@ The ~modus-themes-generate-palette~ will internally calculate colors
 based on what it receives. Anything missing will be taken from a core
 Modus palette, depending on the value of =bg-main=: if it is light,
 then the ~modus-themes-operandi-palette~ is used, otherwise it is
-~modus-themes-vivendi-palette~. What also plays a role in the interal
-calculations is whether =bg-main= is a =cool= or =warm= color, meaning
-whether it is closer to blue or red, respectively. If it is =cool=,
-then the aforementioned palettes are used. Else the
-~modus-themes-operandi-tinted-palette~ and
-~modus-themes-vivendi-tinted-palette~ are picked. Internally, =cool=
-or =warm= also influences the kind of color values and semantic
-mappings that will go into the new palette.
+~modus-themes-vivendi-palette~. If all six of the aforementioned hues
+are present, the ~modus-themes-generate-palette~ will not calculate
+any more color values. It will use those to derive the relevant
+permutations (e.g. blue backgrounds from the =blue= we give it).
 
-The ~modus-themes-generate-palette~ accepts an optional parameter
-called =COOL-OR-WARM-PREFERENCE=. This is a preference for the symbol
-=cool= or =warm=: it make the decision explicit.
+What also plays a role in the interal calculations is whether
+=bg-main= is a =cool= or =warm= color, meaning whether it is closer to
+blue or red, respectively. Internally, =cool= and =warm= influence the
+kind of color values and semantic mappings that will go into the new
+palette. To this end, the ~modus-themes-generate-palette~ accepts an
+optional parameter called =COOL-OR-WARM-PREFERENCE=. This is a
+preference for the symbol =cool= or =warm=: it make the decision
+explicit.
 
 For example, Solarized can swap the values of =bg-main= and =fg-main=
 to switch between its light and dark implementations (I understand
@@ -4690,12 +4690,10 @@ cooler foreground values. Thus:
  '((bg-main "#073642") ; normally this is a `cool' theme
    (fg-main "#EEE8D5")
    (red "#DC322F")
-   (red-warmer "#CB4B16")
    (green "#859900")
    (yellow "#B58900")
    (blue "#268BD2")
    (magenta "#D33682")
-   (magenta-cooler "#6C71C4")
    (cyan "#2AA198"))
  'warm) ; but we want to use it with `warm' foregrounds
 
@@ -4705,12 +4703,10 @@ cooler foreground values. Thus:
  '((bg-main "#EEE8D5") ; normally this is a `warm' theme
    (fg-main "#073642")
    (red "#DC322F")
-   (red-warmer "#CB4B16")
    (green "#859900")
    (yellow "#B58900")
    (blue "#268BD2")
    (magenta "#D33682")
-   (magenta-cooler "#6C71C4")
    (cyan "#2AA198"))
  'cool) ; but we want to use it with `cool' foregrounds
 #+end_src
@@ -4729,7 +4725,7 @@ The next optional parameter of ~modus-themes-generate-palette~ is the
 =CORE-PALETTE= it should use. This is to make explicit the decision
 that is otherwise handled internally on whether to fill in any missing
 palette entries from Modus Operandi or Modus Vivendi (or their tinted
-variants), as explained above.
+variants if =warm= is the preference).
 
 The =CORE-PALETTE= is the symbol of a variable whose value is a
 palette, like ~modus-themes-operandi-palette~. Normally, users do not
@@ -4751,12 +4747,10 @@ but, again, users probably should leave this to ~nil~:
  '((bg-main "#073642")
    (fg-main "#EEE8D5")
    (red "#DC322F")
-   (red-warmer "#CB4B16")
    (green "#859900")
    (yellow "#B58900")
    (blue "#268BD2")
    (magenta "#D33682")
-   (magenta-cooler "#6C71C4")
    (cyan "#2AA198"))
  nil ; COOL-OR-WARM-PREFERENCE is derived internally based on `bg-main'
  'modus-themes-vivendi-tritanopia-palette) ; we specifically want this as our CORE-PALETTE
@@ -4776,31 +4770,37 @@ examining all along, while =OTHER-NAME= is the symbol of another
 =NAME= that exists in the palette, hence the mapping. This manual
 contains lots of examples along those lines ([[#h:df1199d8-eaba-47db-805d-6b568a577bf3][DIY Stylistic variants using palette overrides]]).
 For our purposes, we will modify some of the obvious elements of the
-theme, namely, the cursor, mode lines, current line highlight, and
-active region.
+theme, namely, the cursor, mode lines, current line highlight,
+matching parentheses, and active region.
 
 #+begin_src emacs-lisp
 (modus-themes-generate-palette
- ;; The two base colors of Solarized, plus all its accents.
- '((bg-main "#073642")
-   (fg-main "#EEE8D5")
-   (red "#DC322F")
-   (red-warmer "#CB4B16")
-   (green "#859900")
-   (yellow "#B58900")
-   (blue "#268BD2")
-   (magenta "#D33682")
-   (magenta-cooler "#6C71C4")
-   (cyan "#2AA198"))
- nil ; COOL-OR-WARM-PREFERENCE is derived internally based on `bg-main'
- nil ; as I explained at length, we normally do not want to specify CORE-PALETTE
- '((cursor magenta-warmer) ; all the colors here are derived from the BASE-COLORS above
-   (bg-hl-line bg-cyan-nuanced)
-   (bg-region bg-green-intense)
-   (fg-region fg-dim)
-   (bg-mode-line-active bg-blue-subtle)
-   (fg-mode-line-active blue-cooler)
-   (border-mode-line-active fg-dim)))
+   '((bg-main "#073642")
+     (fg-main "#EEE8D5")
+     (red "#DC322F")
+     (green "#859900")
+     (yellow "#B58900")
+     (blue "#268BD2")
+     (magenta "#D33682")
+     (cyan "#2AA198"))
+   nil
+   nil
+   ;; And here are our MAPPINGS where we can specify what values apply
+   ;; to which semantic color.  The `modus-themes-list-colors' shows
+   ;; them all.
+   ;;
+   ;; Note that in our BASE-COLORS above we never wrote what, say,
+   ;; `magenta-warmer' is: it is derived programmatically from the
+   ;; `magenta' we have there.  Absent that, it would be taken from
+   ;; the CORE-PALETTE.
+   '((cursor magenta-warmer)
+     (bg-hl-line bg-blue-nuanced)
+     (bg-paren-match bg-magenta-subtle)
+     (bg-region bg-blue-intense)
+     (fg-region fg-dim)
+     (bg-mode-line-active bg-blue-nuanced)
+     (fg-mode-line-active blue-warmer)
+     (border-mode-line-active blue-cooler)))
 #+end_src
 
 The =MAPPINGS= can be as long as the user needs. Whatever is defined
@@ -4836,26 +4836,43 @@ doing this in our private configuration ([[#h:f2757848-ea41-4cd7-a04d-7e650555a5
 ;; Modus+Solarized dark
 (defvar modus-solarized-dark-palette
   (modus-themes-generate-palette
-   ;; The two base colors of Solarized, plus all its accents.
+   ;; We provide the two base colors of Solarized, plus most of its
+   ;; accents.  These form the BASE-COLORS we pass as an argument.
+   ;; All other color values come from those.  The BASE-COLORS here
+   ;; are enough to generate a new palatte that has no traces of, say,
+   ;; the `modus-vivendi' color values.
    '((bg-main "#073642")
      (fg-main "#EEE8D5")
      (red "#DC322F")
-     (red-warmer "#CB4B16")
      (green "#859900")
      (yellow "#B58900")
      (blue "#268BD2")
      (magenta "#D33682")
-     (magenta-cooler "#6C71C4")
      (cyan "#2AA198"))
-   nil ; COOL-OR-WARM-PREFERENCE is derived internally based on `bg-main'
-   nil ; as I explained at length, we normally do not want to specify CORE-PALETTE
-   '((cursor magenta-warmer) ; all the colors here are derived from the BASE-COLORS above
-     (bg-hl-line bg-cyan-nuanced)
-     (bg-region bg-green-intense)
+   ;; The COOL-OR-WARM-PREFERENCE is derived internally based on
+   ;; `bg-main'.  We can pass it here if we feel strongly about it.
+   nil
+   ;; If we need to specify the CORE-PALETTE from where to inherit any
+   ;; missing colors and/or semantic mappings, we can give it here.
+   ;; Though nil is the appropriate starting point, as the code will
+   ;; handle things internally.
+   nil
+   ;; And here are our MAPPINGS where we can specify what values apply
+   ;; to which semantic color.  The `modus-themes-list-colors' shows
+   ;; them all.
+   ;;
+   ;; Note that in our BASE-COLORS above we never wrote what, say,
+   ;; `magenta-warmer' is: it is derived programmatically from the
+   ;; `magenta' we have there.  Absent that, it would be taken from
+   ;; the CORE-PALETTE.
+   '((cursor magenta-warmer)
+     (bg-hl-line bg-blue-nuanced)
+     (bg-paren-match bg-magenta-subtle)
+     (bg-region bg-blue-intense)
      (fg-region fg-dim)
-     (bg-mode-line-active bg-blue-subtle)
-     (fg-mode-line-active blue-cooler)
-     (border-mode-line-active fg-dim))))
+     (bg-mode-line-active bg-blue-nuanced)
+     (fg-mode-line-active blue-warmer)
+     (border-mode-line-active blue-cooler))))
 
 (modus-themes-theme
  'modus-solarized-dark
@@ -4873,26 +4890,43 @@ And the light variant:
 ;; Modus+Solarized light
 (defvar modus-solarized-light-palette
   (modus-themes-generate-palette
-   ;; The two base colors of Solarized, plus all its accents.
+   ;; We provide the two base colors of Solarized, plus most of its
+   ;; accents.  These form the BASE-COLORS we pass as an argument.
+   ;; All other color values come from those.  The BASE-COLORS here
+   ;; are enough to generate a new palatte that has no traces of, say,
+   ;; the `modus-operandi' color values.
    '((bg-main "#EEE8D5")
      (fg-main "#073642")
      (red "#DC322F")
-     (red-warmer "#CB4B16")
      (green "#859900")
      (yellow "#B58900")
      (blue "#268BD2")
      (magenta "#D33682")
-     (magenta-cooler "#6C71C4")
      (cyan "#2AA198"))
-   nil ; COOL-OR-WARM-PREFERENCE is derived internally based on `bg-main'
-   nil ; as I explained at length, we normally do not want to specify CORE-PALETTE
-   '((cursor yellow-warmer) ; all the colors here are derived from the BASE-COLORS above
+   ;; The COOL-OR-WARM-PREFERENCE is derived internally based on
+   ;; `bg-main'.  We can pass it here if we feel strongly about it.
+   nil
+   ;; If we need to specify the CORE-PALETTE from where to inherit any
+   ;; missing colors and/or semantic mappings, we can give it here.
+   ;; Though nil is the appropriate starting point, as the code will
+   ;; handle things internally.
+   nil
+   ;; And here are our MAPPINGS where we can specify what values apply
+   ;; to which semantic color.  The `modus-themes-list-colors' shows
+   ;; them all.
+   ;;
+   ;; Note that in our BASE-COLORS above we never wrote what, say,
+   ;; `magenta-warmer' is: it is derived programmatically from the
+   ;; `magenta' we have there.  Absent that, it would be taken from
+   ;; the CORE-PALETTE.
+   '((cursor yellow-warmer)
      (bg-hl-line bg-red-nuanced)
+     (bg-paren-match bg-green-subtle)
      (bg-region bg-blue-intense)
      (fg-region fg-dim)
-     (bg-mode-line-active bg-cyan-subtle)
-     (fg-mode-line-active cyan-cooler)
-     (border-mode-line-active fg-dim))))
+     (bg-mode-line-active bg-yellow-subtle)
+     (fg-mode-line-active yellow-cooler)
+     (border-mode-line-active yellow-warmer))))
 
 (modus-themes-theme
  'modus-solarized-light
