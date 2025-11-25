@@ -7555,7 +7555,7 @@ inclusive."
 ;;
 ;;     (> (color-distance color "#ff0000") (color-distance color "#0000ff"))
 ;;
-;; But my understanding of "warm" versus "cold" is simple, so better
+;; But my understanding of "warm" versus "cool" is simple, so better
 ;; do it my way.
 (defun modus-themes-color-warm-p (color)
   "Return non-nil if COLOR is warm.
