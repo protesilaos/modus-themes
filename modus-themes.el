@@ -3896,13 +3896,10 @@ for the user-defined palette extension.
 If THEME is unknown, return nil.  Else return (append OVERRIDES USER CORE)."
   (modus-themes--get-theme-palette-subr (or theme (modus-themes-get-current-theme)) with-overrides with-user-palette))
 
-(defun modus-themes--disable-themes ()
-  "Disable themes per `modus-themes-disable-other-themes'."
-  (mapc
-   #'disable-theme
-   (if modus-themes-disable-other-themes
-       custom-enabled-themes
-     (modus-themes-get-themes))))
+(defun modus-themes--disable-themes (themes)
+  "Disable THEMES per `modus-themes-disable-other-themes'."
+  (when modus-themes-disable-other-themes
+    (mapc #'disable-theme themes)))
 
 (defun modus-themes-load-theme (theme &optional hook)
   "Load THEME while disabling other themes.
@@ -3914,8 +3911,8 @@ Run the `modus-themes-after-load-theme-hook' as the final step
 after loading the THEME.  If HOOK, then call that instead.
 
 Return THEME."
-  (modus-themes--disable-themes)
   (load-theme theme :no-confirm)
+  (modus-themes--disable-themes (remq theme custom-enabled-themes))
   (run-hooks (or hook 'modus-themes-after-load-theme-hook))
   theme)
 
