@@ -7559,10 +7559,10 @@ inclusive."
 ;; do it my way.
 (defun modus-themes-color-warm-p (color)
   "Return non-nil if COLOR is warm.
-A warm color has more contribution from the red and green channels of
-light than from the green and blue."
-  (pcase-let ((`(,r ,g ,b) (color-name-to-rgb color)))
-    (> (+ r g) (+ g b))))
+A warm color has more contribution from the red channel of light than
+the blue one."
+  (pcase-let ((`(,r ,_ ,b) (color-name-to-rgb color)))
+    (> r b)))
 
 (defun modus-themes-color-is-warm-or-cool-p (color fallback-preference)
   "Return `warm' or `cool' for COLOR depending on its value.
