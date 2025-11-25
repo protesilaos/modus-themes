@@ -7546,6 +7546,20 @@ inclusive."
                      #'color-darken-name)))
     (funcall fn color percent)))
 
+;; NOTE 2025-11-25: I used to rely on `color-distance', thinking that
+;; it would do the right thing here:
+;;
+;;     (> (color-distance color "#ff0000") (color-distance color "#0000ff"))
+;;
+;; But my understanding of "warm" versus "cold" is simple, so better
+;; do it my way.
+(defun modus-themes-color-warm-p (color)
+  "Return non-nil if COLOR is warm.
+A warm color has more contribution from the red and green channels of
+light than from the green and blue."
+  (pcase-let ((`(,r ,g ,b) (color-name-to-rgb color)))
+    (> (+ r g) (+ g b))))
+
 (defun modus-themes-color-is-warm-or-cool-p (color fallback-preference)
   "Return `warm' or `cool' for COLOR depending on its value.
 A warm color is closer to red than to blue.  If COLOR is neutral, then
