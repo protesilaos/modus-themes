@@ -7540,6 +7540,18 @@ For instance:
       (push (+ (* (nth i a) alpha) (* (nth i b) (- 1 alpha))) blend))
     (nreverse blend)))
 
+(defun modus-themes--color-six-digits (color)
+  "Reduce representation of hexadecimal RGB COLOR to six digits."
+  (let ((color-no-hash (substring color 1)))
+    (if (= (length color-no-hash) 6)
+        color
+      (let* ((triplets (seq-split color-no-hash 4))
+             (triplets-shortened (mapcar
+                                  (lambda (string)
+                                    (substring string 0 2))
+                                  triplets)))
+        (concat "#" (string-join triplets-shortened))))))
+
 (defun modus-themes-generate-color-blend (color blended-with alpha)
   "Return hexademical RGB of COLOR with BLENDED-WITH given ALPHA.
 BLENDED-WITH is commensurate with COLOR.  ALPHA is between 0.0 and 1.0,
