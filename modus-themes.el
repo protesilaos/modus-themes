@@ -3786,18 +3786,27 @@ Also see `modus-themes-get-themes'.")
 
 ;;;###autoload
 (defun modus-themes-activate (theme)
-  "Load THEME if it is not defined but do not activate it."
-  ;; NOTE 2025-09-29: We need to do this instead of pushing to the
-  ;; `custom-known-themes' because loading the theme has the desired
-  ;; side effect of adding the relevant `theme-properties' to it.
-  (let ((not-registered-p (not (memq theme modus-themes--activated-themes))))
-    (cond
-     ((or (and (memq theme custom-enabled-themes) not-registered-p)
-          (and (custom-theme-p theme) not-registered-p))
-      (add-to-list 'modus-themes--activated-themes theme))
-     ((not (memq theme modus-themes--activated-themes))
-      (load-theme theme t t)
-      (add-to-list 'modus-themes--activated-themes theme)))))
+  "Load THEME if neeeded, so that it can be used by other commands."
+  ;; If it is already in the `modus-themes--activated-themes', then we
+  ;; have already processed it.
+  (unless (memq theme modus-themes--activated-themes)
+    (let ((properties (get theme 'theme-properties)))
+      ;; If it has no properties, then we need to load it so that
+      ;; those are reified.
+      (if (null properties)
+          (progn
+            (add-to-list 'modus-themes--activated-themes theme)
+            (load-theme theme t t))
+        (let ((core-palette (plist-get properties :modus-core-palette))
+               (user-palette (plist-get properties :modus-user-palette)))
+          ;; If its core palette is or nil, then we need to load it.
+          ;; Same if its user palette is void, but it is okay if that
+          ;; one is nil.
+          (when (or (not (boundp core-palette))
+                    (null core-palette)
+                    (not (boundp user-palette)))
+            (add-to-list 'modus-themes--activated-themes theme)
+            (load-theme theme t t)))))))
 
 (defun modus-themes--belongs-to-family-p (theme family)
   "Return non-nil if THEME has FAMILY property."
