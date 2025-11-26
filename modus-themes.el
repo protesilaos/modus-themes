@@ -3814,21 +3814,17 @@ Also see `modus-themes-get-themes'.")
               (theme-family (plist-get properties :family)))
     (eq theme-family family)))
 
-(defun modus-themes-get-all-known-themes (&optional theme-family no-enable)
+(defun modus-themes-get-all-known-themes (&optional theme-family)
   "Return all known Modus themes or derivatives, enabling them if needed.
 With optional THEME-FAMILY, operate only on the themes whose :family
 property is that.  Else consider the Modus themes as well as all their
 derivatives.
-
-With optional NO-ENABLE, do not try to enable the themes.
 
 Also see `modus-themes-sort'."
   (let ((themes (pcase theme-family
                   ('modus-themes modus-themes-items)
                   ((pred (not null)) modus-themes-registered-items)
                   (_ (seq-union modus-themes-items modus-themes-registered-items)))))
-    (unless no-enable
-      (mapc #'modus-themes-activate themes))
     (if theme-family
         (seq-filter
          (lambda (theme)
@@ -3877,11 +3873,10 @@ With optional SHOW-ERROR, throw an error instead of returning nil."
      (t
       (error "Themes `%S' is not a symbol or a list of symbols" themes)))))
 
-(defun modus-themes-get-current-theme (&optional no-enable)
-  "Return current enabled Modus theme.
-With optional NO-ENABLE, do not try to enable any themes."
+(defun modus-themes-get-current-theme ()
+  "Return current enabled Modus theme."
   (let ((current (car custom-enabled-themes)))
-    (when (memq current (modus-themes-get-all-known-themes nil no-enable))
+    (when (memq current (modus-themes-get-all-known-themes))
       current)))
 
 (defun modus-themes--get-theme-palette-subr (theme with-overrides with-user-palette)
