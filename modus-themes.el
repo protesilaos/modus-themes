@@ -6376,7 +6376,7 @@ If COLOR is unspecified, then return :box unspecified."
     ;; very hard to read.  The square brackets around them are not
     ;; colored, which is what is causing the problem.
     `(org-dispatcher-highlight
-      ((default :background ,bg-mark-select :foreground ,fg-main)
+      ((default :inherit bold :background ,bg-mark-select :foreground ,fg-mark-select)
        (((supports :box t))
         ,@(modus-themes--box bg-mark-select 2 nil))
        (t :underline ,border)))
