@@ -4398,6 +4398,8 @@ Packages such as the ~ef-themes~ and ~standard-themes~ are exceptions
 because they existed for years before they were based on Modus and
 must remain backward compatible.
 
+[[#h:6eb0dba7-89cb-4b21-bc5d-97f6b5eb3caa][Arrange to activate your derivative themes]].
+
 *** Complete example of a private theme derived from Modus
 :PROPERTIES:
 :CUSTOM_ID: h:48e391a6-831b-48ec-b92d-4e7e6871b043
@@ -4434,6 +4436,8 @@ At minimum, the contents of a theme file are these ([[#h:ca3031b5-5f7a-46d4-bc83
  nil
  nil)
 #+end_src
+
+[[#h:6eb0dba7-89cb-4b21-bc5d-97f6b5eb3caa][Arrange to activate your derivative themes]].
 
 *** Complete example of a custom theme with its own palette
 :PROPERTIES:
@@ -4550,6 +4554,8 @@ The custom faces can name a color from the given theme's palette. In
 this example, =bg-ochre= comes from the ~modus-operandi-palette~
 though it would work the same way if, say, ~prot-light-palette~
 defined ~bg-soil~ and then referenced it in ~prot-light-custom-faces~.
+
+[[#h:6eb0dba7-89cb-4b21-bc5d-97f6b5eb3caa][Arrange to activate your derivative themes]].
 
 *** Complete example that also uses ~modus-themes-generate-palette~
 :PROPERTIES:
@@ -4938,6 +4944,8 @@ And the light variant:
  nil)
 #+end_src
 
+[[#h:6eb0dba7-89cb-4b21-bc5d-97f6b5eb3caa][Arrange to activate your derivative themes]].
+
 ** Determine what counts as a Modus theme
 :PROPERTIES:
 :CUSTOM_ID: h:412e3017-81fe-4a95-97a6-225de1867757
@@ -5065,6 +5073,58 @@ Sometimes, it makes no sense to re-use an existing Modus command (e.g.
 because the developer wants to introduce a user option to affect what
 the command is doing), though this approach with the ~cl-letf~ can
 still prove useful.
+
+** Arrange to activate your derivative themes
+:PROPERTIES:
+:CUSTOM_ID: h:6eb0dba7-89cb-4b21-bc5d-97f6b5eb3caa
+:END:
+
+The ~modus-themes-theme~ function is responsible for instantiating a
+theme and registering it for use by the various Modus commands that
+act on a theme ([[#h:86eb375b-9be4-43ce-879a-0686a524a63b][Build on top of the Modus themes]]). Due to how Emacs
+themes are designed to be bound to files, ~modus-themes-theme~ can
+only work if the given theme file is already loaded. Otherwise our
+function is never called and the theme is never created.
+
+To this end, users need to call the function ~modus-themes-activate~
+with each theme they want as an argument. Remember that themes are
+files with a =-theme.el= suffix inside one of the directories listed
+in the value of the variable ~custom-theme-load-path~. In its simplest
+form, the activation looks as follows, assuming the theme's file
+=modus-solarized-dark-theme.el= exists:
+
+#+begin_src emacs-lisp
+(modus-themes-activate 'modus-solarized-dark)
+#+end_src
+
+To load multiple themes at once we can define a function like the
+following:
+
+#+begin_src emacs-lisp
+(defun my-modus-derivatives-activate-themes (directory)
+  "Activate all themes in DIRECTORY.
+This makes all Modus derivatives available to commands such as
+`modus-themes-select' if `modus-themes-include-derivatives-mode' is
+enabled."
+  (let* ((files (directory-files directory :full-path "-theme\\.el"))
+         (names (mapcar
+                 (lambda (file)
+                   (intern (replace-regexp-in-string "-theme\\.el" "" file)))
+                 files)))
+    (mapc #'modus-themes-activate names)))
+#+end_src
+
+Then call it thus:
+
+#+begin_src emacs-lisp
+(my-modus-derivatives-activate-themes "/path/to/my/custom/theme/directory/")
+#+end_src
+
+Again, remember that the directory is in the ~custom-theme-load-path~:
+
+#+begin_src emacs-lisp
+(add-to-list 'custom-theme-load-path "/path/to/my/custom/theme/directory/")
+#+end_src
 
 * Face coverage
 :properties:
