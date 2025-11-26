@@ -7440,7 +7440,7 @@ whose value is another symbol, which ultimately resolves to a string or
 (defun modus-themes-with-colors-subr (expressions)
   "Do the work of `modus-themes-with-colors' for EXPRESSIONS."
   (condition-case data
-      (when-let* ((theme (modus-themes-get-current-theme :no-enable)))
+      (when-let* ((theme (modus-themes-get-current-theme)))
         (eval
          `(let* ((c '((class color) (min-colors 256)))
                  (unspecified 'unspecified)
