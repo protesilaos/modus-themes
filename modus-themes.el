@@ -7522,6 +7522,24 @@ defined command's symbol is FAMILY-SUFFIX, like `modus-themes-rotate'."
 (declare-function color-lighten-name "color" (name percent))
 (declare-function color-darken-name "color" (name percent))
 
+;; NOTE 2025-11-25: This is a copy of `color-blend' from Emacs 31.  We
+;; should remove this in the future.
+(defun modus-themes-blend (a b &optional alpha)
+  "Blend the two colors A and B in linear space with ALPHA.
+A and B should be lists (RED GREEN BLUE), where each element is
+between 0.0 and 1.0, inclusive.  ALPHA controls the influence A
+has on the result and should be between 0.0 and 1.0, inclusive.
+
+For instance:
+
+   (modus-themes-blend \\='(1 0.5 1) \\='(0 0 0) 0.75)
+      => (0.75 0.375 0.75)"
+  (setq alpha (or alpha 0.5))
+  (let (blend)
+    (dotimes (i 3)
+      (push (+ (* (nth i a) alpha) (* (nth i b) (- 1 alpha))) blend))
+    (nreverse blend)))
+
 (defun modus-themes-generate-color-blend (color blended-with alpha)
   "Return hexademical RGB of COLOR with BLENDED-WITH given ALPHA.
 BLENDED-WITH is commensurate with COLOR.  ALPHA is between 0.0 and 1.0,
