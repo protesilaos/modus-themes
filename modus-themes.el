@@ -7556,12 +7556,9 @@ For instance:
   "Return hexademical RGB of COLOR with BLENDED-WITH given ALPHA.
 BLENDED-WITH is commensurate with COLOR.  ALPHA is between 0.0 and 1.0,
 inclusive."
-  (apply
-   #'color-rgb-to-hex
-   (color-blend
-    (color-name-to-rgb color)
-    (color-name-to-rgb blended-with)
-    alpha)))
+  (let* ((blend-rgb (modus-themes-blend (color-name-to-rgb color) (color-name-to-rgb blended-with) alpha))
+         (blend-hex (apply #'color-rgb-to-hex blend-rgb)))
+    (modus-themes--color-six-digits blend-hex)))
 
 (defun modus-themes-generate-color-warmer (color alpha)
   "Return warmer COLOR by ALPHA, per `modus-themes-generate-color-blend'."
@@ -7571,14 +7568,16 @@ inclusive."
   "Return cooler COLOR by ALPHA, per `modus-themes-generate-color-blend'."
   (modus-themes-generate-color-blend color "#0000ff" alpha))
 
-;; NOTE 2025-11-24: I originally wrote this for my Doric themes.
+;; NOTE 2025-11-24: I originally wrote a variation of this for my Doric themes.
 (defun modus-themes-generate-gradient (color percent)
   "Adjust value of COLOR by PERCENT."
   (pcase-let* ((`(,r ,g ,b) (color-name-to-rgb color))
-               (fn (if (color-dark-p (list r g b))
-                       #'color-lighten-name
-                     #'color-darken-name)))
-    (funcall fn color percent)))
+               (gradient (funcall (if (color-dark-p (list r g b))
+                                      #'color-lighten-name
+                                    #'color-darken-name)
+                                  color
+                                  percent)))
+    (modus-themes--color-six-digits gradient)))
 
 ;; NOTE 2025-11-25: I used to rely on `color-distance', thinking that
 ;; it would do the right thing here:
