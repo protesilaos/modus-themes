@@ -3784,6 +3784,7 @@ Also see `modus-themes-get-themes'.")
 (defvar modus-themes--activated-themes nil
   "List of themes that `modus-themes-activate' operated on.")
 
+;;;###autoload
 (defun modus-themes-activate (theme)
   "Load THEME if it is not defined but do not activate it."
   ;; NOTE 2025-09-29: We need to do this instead of pushing to the
