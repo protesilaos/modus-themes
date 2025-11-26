@@ -7678,10 +7678,9 @@ rest come from CORE-PALETTE."
     (let* ((bg-main (car bg-main))
            (bg-main-dark-p (color-dark-p (color-name-to-rgb bg-main)))
            (fg-main (car fg-main))
-           (six-colors (seq-remove
-                        (lambda (name)
-                          (or (eq (car name) 'bg-main)
-                              (eq (car name) 'fg-main)))
+           (six-colors (seq-filter
+                        (lambda (color)
+                          (memq (car color) '(red green yellow blue magenta cyan)))
                         base-colors))
            (prefers-cool-p (cond
                             (cool-or-warm-preference (eq cool-or-warm-preference 'cool))
