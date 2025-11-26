@@ -7594,25 +7594,18 @@ the blue one."
   (pcase-let ((`(,r ,_ ,b) (color-name-to-rgb color)))
     (> r b)))
 
-(defun modus-themes-color-is-warm-or-cool-p (color fallback-preference)
-  "Return `warm' or `cool' for COLOR depending on its value.
-A warm color is closer to red than to blue.  If COLOR is neutral, then
-return FALLBACK-PREFERENCE"
-  (cond
-   ((color-gray-p color)
-    (if (memq fallback-preference '(warm cool))
-        fallback-preference
-      (error "FALLBACK-PREFERENCE must be either `warm' or `cool', not `%S'" fallback-preference)))
-   ((modus-themes-color-warm-p color)
-    'warm)
-   (t
-    'cool)))
+(defun modus-themes-color-is-warm-or-cool-p (color)
+  "Return `warm' or `cool' for COLOR depending on its value."
+  (if (modus-themes-color-warm-p color)
+      'warm
+    'cool))
 
-(defun modus-themes-generate-color-warmer-or-cooler (color alpha preference)
+(defun modus-themes-generate-color-warmer-or-cooler (color alpha &optional preference)
   "Return COLOR variant by ALPHA and PREFERENCE.
-PREFERENCE has the same meaning as the fallback preference passed to
+PREFERENCE is either `cool' or `warm'.  An unknown PREFERENCE means
+`cool'.  Without PREFERENCE, rely on the return value of
 `modus-themes-color-is-warm-or-cool-p'."
-  (let ((kind (modus-themes-color-is-warm-or-cool-p color preference)))
+  (let ((kind (or preference (modus-themes-color-is-warm-or-cool-p color))))
     (funcall
      (if (eq kind 'warm)
          #'modus-themes-generate-color-warmer
@@ -7684,7 +7677,7 @@ rest come from CORE-PALETTE."
                         base-colors))
            (prefers-cool-p (cond
                             (cool-or-warm-preference (eq cool-or-warm-preference 'cool))
-                            (t (eq (modus-themes-color-is-warm-or-cool-p bg-main 'cool) 'cool))))
+                            (t (eq (modus-themes-color-is-warm-or-cool-p bg-main) 'cool))))
            (derived-colors nil)
            (derived-mappings nil)
            (push-derived-value-fn (lambda (name value)
