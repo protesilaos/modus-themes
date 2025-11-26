@@ -7757,9 +7757,9 @@ rest come from CORE-PALETTE."
       (funcall push-mapping-fn 'fg-prominent-note 'green-intense)
 
       (funcall push-mapping-fn 'bg-active-argument (if prefers-cool-p 'bg-cyan-subtle 'bg-yellow-subtle))
-      (funcall push-mapping-fn 'fg-active-argument 'fg-main)
+      (funcall push-mapping-fn 'fg-active-argument (if prefers-cool-p 'cyan-cooler 'yellow-warmer))
       (funcall push-mapping-fn 'bg-active-value (if prefers-cool-p 'bg-magenta-subtle 'bg-blue-subtle))
-      (funcall push-mapping-fn 'fg-active-value 'fg-main)
+      (funcall push-mapping-fn 'fg-active-value (if prefers-cool-p 'magenta-cooler 'blue-warmer))
 
       (funcall push-mapping-fn 'bg-tab-bar 'bg-dim)
       (funcall push-mapping-fn 'bg-tab-current 'bg-main)
