@@ -3874,10 +3874,18 @@ With optional SHOW-ERROR, throw an error instead of returning nil."
       (error "Themes `%S' is not a symbol or a list of symbols" themes)))))
 
 (defun modus-themes-get-current-theme ()
-  "Return current enabled Modus theme."
-  (let ((current (car custom-enabled-themes)))
-    (when (memq current (modus-themes-get-all-known-themes))
-      current)))
+  "Return currently enabled Modus theme.
+More specifically, return the first of the currently enabled Modus
+themes among the `custom-enabled-themes'.
+
+Assume that a Modus theme has a `theme-properties' entry of
+`:modus-core-palette'."
+  (seq-find
+   (lambda (theme)
+     (when-let* ((properties (get theme 'theme-properties))
+                 (core (plist-get properties :modus-core-palette)))
+       theme))
+   custom-enabled-themes))
 
 (defun modus-themes--get-theme-palette-subr (theme with-overrides with-user-palette)
   "Get THEME palette without `modus-themes-known-p'.
