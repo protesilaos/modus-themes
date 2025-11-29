@@ -7708,9 +7708,9 @@ rest come from CORE-PALETTE."
         (funcall push-derived-value-fn (intern (format "%s-cooler" name)) (modus-themes-generate-gradient (modus-themes-generate-color-cooler value 0.9) (if bg-main-dark-p 20 -20)))
         (funcall push-derived-value-fn (intern (format "%s-faint" name)) (modus-themes-generate-gradient value (if bg-main-dark-p 10 -10)))
         (funcall push-derived-value-fn (intern (format "%s-intense" name)) (modus-themes-generate-gradient value (if bg-main-dark-p -5 5)))
-        (funcall push-derived-value-fn (intern (format "bg-%s-intense" name)) (modus-themes-generate-gradient value (if bg-main-dark-p -30 30)))
-        (funcall push-derived-value-fn (intern (format "bg-%s-subtle" name)) (modus-themes-generate-gradient value (if bg-main-dark-p -50 50)))
-        (funcall push-derived-value-fn (intern (format "bg-%s-nuanced" name)) (modus-themes-generate-gradient value (if bg-main-dark-p -70 70))))
+        (funcall push-derived-value-fn (intern (format "bg-%s-intense" name)) (modus-themes-generate-gradient value (if bg-main-dark-p -50 50)))
+        (funcall push-derived-value-fn (intern (format "bg-%s-subtle" name)) (modus-themes-generate-gradient value (if bg-main-dark-p -70 70)))
+        (funcall push-derived-value-fn (intern (format "bg-%s-nuanced" name)) (modus-themes-generate-gradient value (if bg-main-dark-p -90 90))))
       ;; Mappings
       (funcall push-mapping-fn 'bg-completion (if prefers-cool-p 'bg-cyan-subtle 'bg-yellow-subtle))
       (funcall push-mapping-fn 'bg-hover (if prefers-cool-p 'bg-green-intense 'bg-magenta-intense))
