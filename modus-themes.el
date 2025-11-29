@@ -37,6 +37,7 @@
 
 
 
+(require 'color)
 (eval-when-compile
   (require 'subr-x)
   (require 'cl-lib))
@@ -7532,9 +7533,6 @@ defined command's symbol is FAMILY-SUFFIX, like `modus-themes-rotate'."
 
 ;;;; Generate a palette given the base colors
 
-(declare-function color-lighten-name "color" (name percent))
-(declare-function color-darken-name "color" (name percent))
-
 ;; NOTE 2025-11-25: This is a copy of `color-blend' from Emacs 31.  We
 ;; should remove this in the future.
 (defun modus-themes-blend (a b &optional alpha)
@@ -7665,7 +7663,6 @@ COOL-OR-WARM-PREFERENCE.  This inferred palette will be
 With optional MAPPINGS use them instead of trying to derive new ones.
 If MAPPINGS is nil, generate some essential color mappings and let the
 rest come from CORE-PALETTE."
-  (require 'color)
   (when (seq-some
          (lambda (entry)
            (not (stringp (cadr entry))))
