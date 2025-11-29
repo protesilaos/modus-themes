@@ -7712,8 +7712,6 @@ rest come from CORE-PALETTE."
         (funcall push-derived-value-fn (intern (format "bg-%s-subtle" name)) (modus-themes-generate-gradient value (if bg-main-dark-p -50 50)))
         (funcall push-derived-value-fn (intern (format "bg-%s-nuanced" name)) (modus-themes-generate-gradient value (if bg-main-dark-p -70 70))))
       ;; Mappings
-      (funcall push-mapping-fn 'identifier (if prefers-cool-p 'green-faint 'magenta-faint))
-
       (funcall push-mapping-fn 'bg-completion (if prefers-cool-p 'bg-cyan-subtle 'bg-yellow-subtle))
       (funcall push-mapping-fn 'bg-hover (if prefers-cool-p 'bg-green-intense 'bg-magenta-intense))
       (funcall push-mapping-fn 'bg-hover-secondary (if prefers-cool-p 'bg-green-subtle 'bg-magenta-subtle))
