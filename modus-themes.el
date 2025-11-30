@@ -7524,7 +7524,7 @@ defined command's symbol is FAMILY-SUFFIX, like `modus-themes-rotate'."
     (error "Cannot define command with unknown suffix `%s'" suffix))
   (let ((modus-command (intern (format "modus-themes-%s" suffix))))
     `(defun ,(intern (format "%s-%s" family suffix)) ()
-       ,(format "Like `%s' but only consider members of the `%s'" modus-command family)
+       ,(format "Like `%s' but only for the `%s'" modus-command family)
        (interactive)
        (cl-letf (((symbol-function 'modus-themes-get-themes)
                   (lambda ()
