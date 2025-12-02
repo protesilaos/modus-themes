@@ -4083,8 +4083,9 @@ Disable other themes per `modus-themes-disable-other-themes'."
   (interactive)
   (if-let* ((themes (modus-themes-known-p modus-themes-to-toggle))
             (one (car themes))
-            (two (cadr themes)))
-      (modus-themes-load-theme (if (eq (car custom-enabled-themes) one) two one))
+            (two (cadr themes))
+            (current (modus-themes-get-current-theme)))
+      (modus-themes-load-theme (if (eq current one) two one))
     (modus-themes-load-theme (modus-themes-select-prompt "No valid theme to toggle; select other"))))
 
 ;;;;; Rotate through a list of themes
