@@ -3996,6 +3996,16 @@ symbol, which is safe when used as a face attribute's value."
             (propertize (car (split-string doc-string "\\."))
                         'face 'completions-annotations))))
 
+(defun modus-themes--group-themes (theme transform)
+  "Group THEME by its background.
+If TRANSFORM is non-nil, return THEME as-is."
+  (if transform
+      theme
+    (when-let* ((symbol (intern-soft theme))
+                (properties (get symbol 'theme-properties))
+                (background (plist-get properties :background-mode)))
+      (capitalize (format "%s" background)))))
+
 (defun modus-themes--completion-table (category candidates)
   "Pass appropriate metadata CATEGORY to completion CANDIDATES."
   (lambda (string pred action)
@@ -4014,7 +4024,10 @@ With optional PROMPT string, use it as the first argument of
 
 With optional BACKGROUND-MODE as either `dark' or `light' limit the
 themes accordingly."
-  (let ((completion-extra-properties `(:annotation-function ,#'modus-themes--annotate-theme)))
+  (let ((completion-extra-properties
+         (list :annotation-function #'modus-themes--annotate-theme
+               :category 'modus-theme
+               :group-function #'modus-themes--group-themes)))
     (intern
      (completing-read
       (format-prompt (or prompt "Select theme") nil)
