@@ -3916,8 +3916,15 @@ If THEME is unknown, return nil.  Else return (append OVERRIDES USER CORE)."
 
 (defun modus-themes--disable-themes (themes)
   "Disable THEMES per `modus-themes-disable-other-themes'."
-  (when modus-themes-disable-other-themes
-    (mapc #'disable-theme themes)))
+  (mapc #'disable-theme
+        (if modus-themes-disable-other-themes
+            themes
+          (seq-filter
+           (lambda (theme)
+             (when-let* ((properties (get theme 'theme-properties))
+                         (core (plist-get properties :modus-core-palette)))
+               theme))
+           themes))))
 
 (defun modus-themes-load-theme (theme &optional hook)
   "Load THEME while disabling other themes.
