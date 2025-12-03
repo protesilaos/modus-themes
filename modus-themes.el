@@ -3874,6 +3874,11 @@ With optional SHOW-ERROR, throw an error instead of returning nil."
      (t
       (error "Themes `%S' is not a symbol or a list of symbols" themes)))))
 
+(defun modus-themes--modus-theme-p (theme)
+  (when-let* ((properties (get theme 'theme-properties))
+                 (core (plist-get properties :modus-core-palette)))
+    theme))
+
 (defun modus-themes-get-current-theme ()
   "Return currently enabled Modus theme.
 More specifically, return the first of the currently enabled Modus
@@ -3881,12 +3886,7 @@ themes among the `custom-enabled-themes'.
 
 Assume that a Modus theme has a `theme-properties' entry of
 `:modus-core-palette'."
-  (seq-find
-   (lambda (theme)
-     (when-let* ((properties (get theme 'theme-properties))
-                 (core (plist-get properties :modus-core-palette)))
-       theme))
-   custom-enabled-themes))
+  (seq-find #'modus-themes--modus-theme-p custom-enabled-themes))
 
 (defun modus-themes--get-theme-palette-subr (theme with-overrides with-user-palette)
   "Get THEME palette without `modus-themes-known-p'.
@@ -3916,8 +3916,10 @@ If THEME is unknown, return nil.  Else return (append OVERRIDES USER CORE)."
 
 (defun modus-themes--disable-themes (themes)
   "Disable THEMES per `modus-themes-disable-other-themes'."
-  (when modus-themes-disable-other-themes
-    (mapc #'disable-theme themes)))
+  (mapc #'disable-theme
+        (if modus-themes-disable-other-themes
+            themes
+          (seq-filter #'modus-themes--modus-theme-p themes))))
 
 (defun modus-themes-load-theme (theme &optional hook)
   "Load THEME while disabling other themes.
@@ -4081,8 +4083,9 @@ Disable other themes per `modus-themes-disable-other-themes'."
   (interactive)
   (if-let* ((themes (modus-themes-known-p modus-themes-to-toggle))
             (one (car themes))
-            (two (cadr themes)))
-      (modus-themes-load-theme (if (eq (car custom-enabled-themes) one) two one))
+            (two (cadr themes))
+            (current (modus-themes-get-current-theme)))
+      (modus-themes-load-theme (if (eq current one) two one))
     (modus-themes-load-theme (modus-themes-select-prompt "No valid theme to toggle; select other"))))
 
 ;;;;; Rotate through a list of themes
