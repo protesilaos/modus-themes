@@ -1117,7 +1117,7 @@ represents."
      (fg-heading-7 cyan-warmer)
      (fg-heading-8 fg-dim))
    modus-themes-common-palette-mappings)
-    "The entire palette of the `modus-operandi' theme.
+  "The entire palette of the `modus-operandi' theme.
 
 Named colors have the form (COLOR-NAME HEX-VALUE) with the former
 as a symbol and the latter as a string.
@@ -1773,7 +1773,7 @@ exists in the palette and is associated with a HEX-VALUE.")
      (fg-heading-7 cyan)
      (fg-heading-8 fg-dim))
    modus-themes-common-palette-mappings)
-    "The entire palette of the `modus-operandi-deuteranopia' theme.
+  "The entire palette of the `modus-operandi-deuteranopia' theme.
 
 Named colors have the form (COLOR-NAME HEX-VALUE) with the former
 as a symbol and the latter as a string.
@@ -2100,7 +2100,7 @@ exists in the palette and is associated with a HEX-VALUE.")
      (fg-heading-7 cyan-warmer)
      (fg-heading-8 fg-dim))
    modus-themes-common-palette-mappings)
-    "The entire palette of the `modus-operandi-tritanopia' theme.
+  "The entire palette of the `modus-operandi-tritanopia' theme.
 
 Named colors have the form (COLOR-NAME HEX-VALUE) with the former
 as a symbol and the latter as a string.
@@ -2427,7 +2427,7 @@ exists in the palette and is associated with a HEX-VALUE.")
      (fg-heading-7 cyan-faint)
      (fg-heading-8 fg-dim))
    modus-themes-common-palette-mappings)
-    "The entire palette of the `modus-vivendi' theme.
+  "The entire palette of the `modus-vivendi' theme.
 
 Named colors have the form (COLOR-NAME HEX-VALUE) with the former
 as a symbol and the latter as a string.
@@ -2754,7 +2754,7 @@ exists in the palette and is associated with a HEX-VALUE.")
      (fg-heading-7 cyan-faint)
      (fg-heading-8 fg-dim))
    modus-themes-common-palette-mappings)
-    "The entire palette of the `modus-vivendi-tinted' theme.
+  "The entire palette of the `modus-vivendi-tinted' theme.
 
 Named colors have the form (COLOR-NAME HEX-VALUE) with the former
 as a symbol and the latter as a string.
@@ -3412,7 +3412,7 @@ exists in the palette and is associated with a HEX-VALUE.")
      (fg-heading-7 cyan-faint)
      (fg-heading-8 fg-dim))
    modus-themes-common-palette-mappings)
-    "The entire palette of the `modus-vivendi-tritanopia' theme.
+  "The entire palette of the `modus-vivendi-tritanopia' theme.
 
 Named colors have the form (COLOR-NAME HEX-VALUE) with the former
 as a symbol and the latter as a string.
@@ -3799,7 +3799,7 @@ Also see `modus-themes-get-themes'.")
             (add-to-list 'modus-themes--activated-themes theme)
             (load-theme theme t t))
         (let ((core-palette (plist-get properties :modus-core-palette))
-               (user-palette (plist-get properties :modus-user-palette)))
+              (user-palette (plist-get properties :modus-user-palette)))
           ;; If its core palette is or nil, then we need to load it.
           ;; Same if its user palette is void, but it is okay if that
           ;; one is nil.
