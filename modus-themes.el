@@ -3875,8 +3875,9 @@ With optional SHOW-ERROR, throw an error instead of returning nil."
       (error "Themes `%S' is not a symbol or a list of symbols" themes)))))
 
 (defun modus-themes--modus-theme-p (theme)
+  "Return non-nil if THEME has a :modus-core-palette property."
   (when-let* ((properties (get theme 'theme-properties))
-                 (core (plist-get properties :modus-core-palette)))
+              (core (plist-get properties :modus-core-palette)))
     theme))
 
 (defun modus-themes-get-current-theme ()
