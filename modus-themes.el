@@ -4777,7 +4777,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(font-latex-math-face ((,c :foreground ,constant)))
     `(font-latex-script-char-face ((,c :inherit modus-themes-bold :foreground ,builtin)))
     `(font-latex-sectioning-5-face ((,c :inherit modus-themes-bold :foreground ,fg-alt)))
-    `(font-latex-sedate-face ((,c :inherit mouds-themes-bold :foreground ,keyword)))
+    `(font-latex-sedate-face ((,c :inherit modus-themes-bold :foreground ,keyword)))
     `(font-latex-slide-title-face ((,c :inherit modus-themes-heading-1)))
     `(font-latex-string-face ((,c :foreground ,string)))
     `(font-latex-subscript-face ((,c :height 0.9)))
