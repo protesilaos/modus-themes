@@ -624,7 +624,7 @@ Individual theme overrides take precedence over these common
 overrides.
 
 The idea of common overrides is to change semantic color
-mappings, such as to make the cursor red.  Wherea theme-specific
+mappings, such as to make the cursor red.  Whereas theme-specific
 overrides can also be used to change the value of a named color,
 such as what hexadecimal RGB value the red-warmer symbol
 represents."
@@ -7390,7 +7390,7 @@ are symbols of variables which define palettes commensurate with
 The optional CUSTOM-FACES and CUSTOM-VARIABLES are joined together with
 the `modus-themes-faces' and `modus-themes-custom-variables',
 respectively.  A derivative theme defining those is thus overriding what
-the Modus themess have by default.
+the Modus themes have by default.
 
 Consult the manual for details on how to build a theme on top of the
 `modus-themes': Info node `(modus-themes) Build on top of the Modus themes'."
@@ -7579,7 +7579,7 @@ For instance:
         (concat "#" (string-join triplets-shortened))))))
 
 (defun modus-themes-generate-color-blend (color blended-with alpha)
-  "Return hexademical RGB of COLOR with BLENDED-WITH given ALPHA.
+  "Return hexadecimal RGB of COLOR with BLENDED-WITH given ALPHA.
 BLENDED-WITH is commensurate with COLOR.  ALPHA is between 0.0 and 1.0,
 inclusive."
   (let* ((blend-rgb (modus-themes-blend (color-name-to-rgb color) (color-name-to-rgb blended-with) alpha))
