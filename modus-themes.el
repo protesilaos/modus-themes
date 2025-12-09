@@ -3796,17 +3796,17 @@ Also see `modus-themes-get-themes'.")
       ;; those are reified.
       (if (null properties)
           (progn
-            (add-to-list 'modus-themes--activated-themes theme)
+            (push theme modus-themes--activated-themes)
             (load-theme theme t t))
         (let ((core-palette (plist-get properties :modus-core-palette))
               (user-palette (plist-get properties :modus-user-palette)))
-          ;; If its core palette is or nil, then we need to load it.
+          ;; If its core palette is void or nil, then we need to load it.
           ;; Same if its user palette is void, but it is okay if that
           ;; one is nil.
-          (when (or (not (boundp core-palette))
-                    (null core-palette)
-                    (not (boundp user-palette)))
-            (add-to-list 'modus-themes--activated-themes theme)
+          (unless (and (boundp core-palette)
+                       core-palette
+                       (boundp user-palette))
+            (push theme modus-themes--activated-themes)
             (load-theme theme t t)))))))
 
 (defun modus-themes--belongs-to-family-p (theme family)
@@ -3824,7 +3824,7 @@ derivatives.
 Also see `modus-themes-sort'."
   (let ((themes (pcase theme-family
                   ('modus-themes modus-themes-items)
-                  ((pred (not null)) modus-themes-registered-items)
+                  ((pred identity) modus-themes-registered-items)
                   (_ (seq-union modus-themes-items modus-themes-registered-items)))))
     (if theme-family
         (seq-filter
