@@ -3992,33 +3992,46 @@ symbol, which is safe when used as a face attribute's value."
   "Minibuffer history of `modus-themes-select-prompt'.")
 
 (defun modus-themes--annotate-theme (theme)
-  "Return completion annotation for THEME."
+  "Return descriptioon of THEME ."
   (when-let* ((symbol (intern-soft theme))
-              (doc-string (get symbol 'theme-documentation)))
-    (format " -- %s"
-            (propertize (car (split-string doc-string "\\."))
+              (properties (get symbol 'theme-properties))
+              (doc-string (or (get symbol 'theme-documentation)
+                              (plist-get properties :modus-documentation))))
+    (format " %s"
+            (propertize (concat "-- " (car (split-string doc-string "\\.")))
                         'face 'completions-annotations))))
 
 (defun modus-themes--group-themes (theme transform)
-  "Group THEME by its background.
+  "Group THEME by its background for minibuffer completion.
 If TRANSFORM is non-nil, return THEME as-is."
-  (if transform
-      theme
-    (when-let* ((symbol (intern-soft theme))
-                (properties (get symbol 'theme-properties))
-                (background (plist-get properties :background-mode)))
-      (capitalize (format "%s" background)))))
+  (let ((symbol (intern-soft theme)))
+    (cond
+     (transform
+      theme)
+     ((eq symbol (modus-themes-get-current-theme))
+      "Current")
+     ((when-let* ((properties (get symbol 'theme-properties))
+                  (background (plist-get properties :background-mode)))
+        (capitalize (format "%s" background)))))))
 
-(defun modus-themes--completion-table (category candidates)
-  "Pass appropriate metadata CATEGORY to completion CANDIDATES."
+(defun modus-themes--display-sort (themes)
+  "Put the current theme before other THEMES for minibuffer completion."
+  (let* ((current (modus-themes-get-current-theme))
+         (current-theme-p (lambda (theme) (eq (intern-soft theme) current))))
+    (nconc
+     (seq-filter current-theme-p themes)
+     (seq-remove current-theme-p themes))))
+
+(defun modus-themes--completion-table (themes)
+  "Pass appropriate metadata to THEMES for minibuffer completion."
   (lambda (string pred action)
     (if (eq action 'metadata)
-        `(metadata (category . ,category))
-      (complete-with-action action candidates string pred))))
-
-(defun modus-themes--completion-table-candidates (themes)
-  "Render THEMES as a completion table."
-  (modus-themes--completion-table 'theme themes))
+        (list 'metadata
+              (cons 'category 'theme)
+              (cons 'annotation-function #'modus-themes--annotate-theme)
+              (cons 'group-function #'modus-themes--group-themes)
+              (cons 'display-sort-function #'modus-themes--display-sort))
+      (complete-with-action action themes string pred))))
 
 (defun modus-themes-select-prompt (&optional prompt background-mode)
   "Minibuffer prompt to select a Modus theme.
@@ -4027,20 +4040,17 @@ With optional PROMPT string, use it as the first argument of
 
 With optional BACKGROUND-MODE as either `dark' or `light' limit the
 themes accordingly."
-  (let ((completion-extra-properties
-         (list :annotation-function #'modus-themes--annotate-theme
-               :category 'modus-theme
-               :group-function #'modus-themes--group-themes)))
-    (intern
-     (completing-read
-      (format-prompt (or prompt "Select theme") nil)
-      (if background-mode
-          (modus-themes-filter-by-background-mode
-           (modus-themes-get-themes)
-           background-mode)
-        (modus-themes-get-themes))
-      nil t nil
-      'modus-themes--select-theme-history))))
+  (intern
+   (completing-read
+    (format-prompt (or prompt "Select theme") nil)
+    (modus-themes--completion-table
+     (if background-mode
+         (modus-themes-filter-by-background-mode
+          (modus-themes-get-themes)
+          background-mode)
+       (modus-themes-get-themes)))
+    nil t nil
+    'modus-themes--select-theme-history)))
 
 ;;;###autoload
 (defun modus-themes-select (theme)
@@ -7369,7 +7379,7 @@ To simply register the theme, use `modus-themes-register'."
    description
    (list :kind 'color-scheme :background-mode background-mode :family family
          :modus-core-palette core-palette :modus-user-palette user-palette
-         :modus-overrides-palette overrides-palette)))
+         :modus-overrides-palette overrides-palette :modus-documentation description)))
 
 (defun modus-themes-register (name)
   "Add NAME theme to `modus-themes-registered-items'.
