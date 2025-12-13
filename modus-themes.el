@@ -6044,7 +6044,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(marginalia-char ((,c :foreground ,accent-2)))
     `(marginalia-date ((,c :foreground ,date-common)))
     `(marginalia-documentation ((,c :inherit modus-themes-slant :foreground ,docstring)))
-    `(marginalia-file-name (( )))
+    `(marginalia-file-name ((,c :foreground ,fg-dim)))
     `(marginalia-file-owner ((,c :foreground ,fg-dim)))
     `(marginalia-file-priv-dir ((,c :foreground ,accent-0)))
     `(marginalia-file-priv-exec ((,c :foreground ,accent-1)))
