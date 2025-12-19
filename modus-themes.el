@@ -7471,23 +7471,23 @@ whose value is another symbol, which ultimately resolves to a string or
            (semantic-unique (funcall unique-fn semantic)))
       (nreverse (nconc semantic-unique named-unique)))))
 
-(defun modus-themes-with-colors-subr (expressions)
-  "Do the work of `modus-themes-with-colors' for EXPRESSIONS."
+(defun modus-themes-with-colors-subr (body)
+  "Do the work of `modus-themes-with-colors' for BODY."
   (condition-case data
-      (when-let* ((theme (modus-themes-get-current-theme)))
+      (when-let* ((modus-themes-with-colors--current (modus-themes-get-current-theme))
+                  (palette (modus-themes--with-colors-get-palette modus-themes-with-colors--current))
+                  (sorted (modus-themes--with-colors-resolve-palette-sort palette)))
         (eval
          `(let* ((c '((class color) (min-colors 256)))
                  (unspecified 'unspecified)
-                 ,@(modus-themes--with-colors-resolve-palette-sort
-                    (modus-themes--with-colors-get-palette theme)))
-            ,@expressions)
-         :lexical))
+                 ,@sorted)
+            (funcall ',body))))
     (error (message "Error in `modus-themes-with-colors': %s" data))))
 
 (defmacro modus-themes-with-colors (&rest body)
   "Evaluate BODY with colors from current palette bound."
   (declare (indent 0))
-  `(modus-themes-with-colors-subr ',body))
+  `(modus-themes-with-colors-subr (lambda () ,@body)))
 
 ;;;; Declare all the Modus themes
 
