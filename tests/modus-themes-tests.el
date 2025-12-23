@@ -2,7 +2,8 @@
 
 ;; Copyright (C) 2025  Free Software Foundation, Inc.
 
-;; Author: Rudolf Adamkovič <rudolf@adamkovic.org>
+;; Author: Rudolf Adamkovič <rudolf@adamkovic.org>,
+;;         Protesilaos Stavrou <info@protesilaos.com>
 ;; Maintainer: Protesilaos Stavrou <info@protesilaos.com>
 ;; URL: https://github.com/protesilaos/modus-themes
 
@@ -30,11 +31,10 @@
 (require 'ert)
 (require 'modus-themes)
 
-;; Third-party packages, loaded if possible.
-(require 'font-latex nil t)
-
 (ert-deftest modus-themes-test-inheritance ()
   "Ensure all faces inherit from valid faces."
+  ;; Third-party packages, loaded if possible to better test face inheritance.
+  (require 'font-latex nil t)
   (modus-themes-select 'modus-operandi)
   (should-not (seq-filter
                (lambda (face)
