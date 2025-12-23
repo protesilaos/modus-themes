@@ -7608,6 +7608,7 @@ inclusive."
 (defun modus-themes-generate-gradient (color percent)
   "Adjust value of COLOR by PERCENT."
   (pcase-let* ((`(,r ,g ,b) (color-name-to-rgb color))
+               (color-luminance-dark-limit 0.5)
                (gradient (funcall (if (color-dark-p (list r g b))
                                       #'color-lighten-name
                                     #'color-darken-name)
