@@ -7251,6 +7251,8 @@ If COLOR is unspecified, then return :box unspecified."
     `(xah-elisp-cap-variable ((,c :foreground ,preprocessor)))
     `(xah-elisp-command-face ((,c :inherit modus-themes-bold :foreground ,type)))
     `(xah-elisp-dollar-symbol ((,c :foreground ,variable)))
+;;;;; xref
+    `(xref-file-header ((,c :foreground ,name)))
 ;;;;; yaml-mode
     `(yaml-tab-face ((,c :background ,bg-space-err)))
 ;;;;; yasnippet
