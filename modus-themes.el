@@ -3992,7 +3992,7 @@ symbol, which is safe when used as a face attribute's value."
   "Minibuffer history of `modus-themes-select-prompt'.")
 
 (defun modus-themes--annotate-theme (theme)
-  "Return descriptioon of THEME ."
+  "Return description of THEME ."
   (when-let* ((symbol (intern-soft theme))
               (properties (get symbol 'theme-properties))
               (doc-string (or (get symbol 'theme-documentation)
