@@ -4,9 +4,9 @@
 #+language: en
 #+options: ':t toc:nil author:t email:t num:t
 #+startup: content
-#+macro: stable-version 5.1.0
-#+macro: release-date 2025-11-07
-#+macro: development-version 5.2.0-dev
+#+macro: stable-version 5.2.0
+#+macro: release-date 2025-12-31
+#+macro: development-version 5.3.0-dev
 #+macro: file @@texinfo:@file{@@$1@@texinfo:}@@
 #+macro: space @@texinfo:@: @@
 #+macro: kbd @@texinfo:@kbd{@@$1@@texinfo:}@@
@@ -375,10 +375,10 @@ The aforementioned hold true for them as well.
 Convenience commands for loading only dark or light themes are:
 
 #+findex: modus-themes-select-dark
-- ~modus-themes-select-dark~ [ Part of {{{development-version}}}. ]
+- ~modus-themes-select-dark~
 
 #+findex: modus-themes-select-light
-- ~modus-themes-select-light~ [ Part of {{{development-version}}}. ]
+- ~modus-themes-select-light~
 
 #+findex: modus-themes-load-random-dark
 - ~modus-themes-load-random-dark~
@@ -5176,7 +5176,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + column-enforce-mode
 + company-mode*
 + compilation-mode
-+ completion-preview [ Part of {{{development-version}}}. ]
++ completion-preview
 + completions
 + consult
 + corfu
