@@ -5912,6 +5912,19 @@ If COLOR is unspecified, then return :box unspecified."
     `(ledger-font-xact-highlight-face ((,c :background ,bg-hl-line :extend t)))
 ;;;;; leerzeichen
     `(leerzeichen ((,c :background ,bg-inactive)))
+;;;;; lin
+    `(lin-blue ((,c :background ,bg-blue-subtle)))
+    `(lin-cyan ((,c :background ,bg-cyan-subtle)))
+    `(lin-green ((,c :background ,bg-green-subtle)))
+    `(lin-magenta ((,c :background ,bg-magenta-subtle)))
+    `(lin-red ((,c :background ,bg-red-subtle)))
+    `(lin-yellow ((,c :background ,bg-yellow-subtle)))
+    `(lin-blue-override-fg ((,c :background ,bg-blue-subtle :foreground ,fg-main)))
+    `(lin-cyan-override-fg ((,c :background ,bg-cyan-subtle :foreground ,fg-main)))
+    `(lin-green-override-fg ((,c :background ,bg-green-subtle :foreground ,fg-main)))
+    `(lin-magenta-override-fg ((,c :background ,bg-magenta-subtle :foreground ,fg-main)))
+    `(lin-red-override-fg ((,c :background ,bg-red-subtle :foreground ,fg-main)))
+    `(lin-yellow-override-fg ((,c :background ,bg-yellow-subtle :foreground ,fg-main)))
 ;;;;; line numbers (display-line-numbers-mode and global variant)
     ;; Here we cannot inherit `modus-themes-fixed-pitch'.  We need to
     ;; fall back to `default' otherwise line numbers do not scale when
