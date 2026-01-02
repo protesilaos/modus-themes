@@ -6644,6 +6644,13 @@ If COLOR is unspecified, then return :box unspecified."
     `(prodigy-green-face ((,c :foreground ,info)))
     `(prodigy-red-face ((,c :foreground ,err)))
     `(prodigy-yellow-face ((,c :foreground ,warning)))
+;;;;; pulsar
+    `(pulsar-blue ((,c :background ,bg-blue-subtle)))
+    `(pulsar-cyan ((,c :background ,bg-cyan-subtle)))
+    `(pulsar-green ((,c :background ,bg-green-subtle)))
+    `(pulsar-magenta ((,c :background ,bg-magenta-subtle)))
+    `(pulsar-red ((,c :background ,bg-red-subtle)))
+    `(pulsar-yellow ((,c :background ,bg-yellow-subtle)))
 ;;;;; pulse
     `(pulse-highlight-start-face ((,c :background ,bg-blue-intense :extend t)))
 ;;;;; pyim
