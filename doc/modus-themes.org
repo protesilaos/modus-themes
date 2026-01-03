@@ -1564,6 +1564,45 @@ the general idea (extra space for didactic purposes):
         ,@modus-themes-preset-overrides-intense))
 #+end_src
 
+** DIY Add support for ~vc-annotate~
+:PROPERTIES:
+:CUSTOM_ID: h:4016a69a-d0df-4683-9859-3386d506ad72
+:END:
+
+The built-in ~vc-annotate~ command relies on a user option to read
+color values. Users thus need to write their own configuration like
+this ([[#h:d87673fe-2ce1-4c80-a4b8-be36ca9f2d24][DIY Use a hook at the post-load-theme phase]]):
+
+#+begin_src emacs-lisp
+(defun my-modus-vc-annotate (&rest _)
+  (modus-themes-with-colors
+    (setq vc-annotate-background-mode nil)
+    (setq vc-annotate-very-old-color fg-dim)
+    (setq vc-annotate-color-map
+          `(( 20. . ,red)
+            ( 40. . ,red-cooler)
+            ( 60. . ,red-warmer)
+            ( 80. . ,yellow-warmer)
+            (100. . ,yellow)
+            (120. . ,yellow-cooler)
+            (140. . ,green-warmer)
+            (160. . ,green)
+            (180. . ,green-cooler)
+            (200. . ,cyan-cooler)
+            (220. . ,cyan-warmer)
+            (240. . ,cyan)
+            (260. . ,blue-warmer)
+            (280. . ,blue)
+            (300. . ,blue-cooler)
+            (320. . ,blue-intense)
+            (340. . ,magenta-cooler)
+            (360. . ,fg-dim)))))
+
+(with-eval-after-load 'vc-annotate
+  (my-modus-vc-annotate)
+  (add-hook 'enable-theme-functions #'my-modus-vc-annotate))
+#+end_src
+
 ** DIY Add support for ~engrave-faces~
 :PROPERTIES:
 :CUSTOM_ID: h:6c3f87a8-3573-43de-89e0-53f567c0ede1
@@ -4081,9 +4120,11 @@ Many of the Do-It-Yourself (DIY) snippets provided herein make use of
 a hook to apply the desired changes. In most examples, this hook is
 the ~modus-themes-after-load-theme-hook~ (alias ~modus-themes-post-load-hook~).
 This hook is provided by the Modus themes and is called at the end of
-one the following:
+one the following (or their derivatives):
 
 - Command ~modus-themes-toggle~ :: [[#h:4fbfed66-5a89-447a-a07d-a03f6819c5bd][Option for which themes to toggle]].
+
+- Command ~modus-themes-rotate~ :: [[#h:a10c0202-3683-4fad-9897-433c25e255f6][Option for which themes to rotate]].
 
 - Command ~modus-themes-select~ :: Select a Modus theme using minibuffer
   completion and then load it.
