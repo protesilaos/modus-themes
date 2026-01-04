@@ -3945,8 +3945,7 @@ doing so if the value of COLOR is not a key in the PALETTE.
 Return `unspecified' if the value of COLOR cannot be determined.
 This symbol is accepted by faces and is thus harmless.
 
-This function is used in the macros `modus-themes-theme',
-`modus-themes-with-colors'."
+This function is used in the macro `modus-themes-theme'"
   (let ((value (car (alist-get color palette))))
     (cond
      ((or (stringp value)
@@ -7492,23 +7491,18 @@ whose value is another symbol, which ultimately resolves to a string or
            (semantic-unique (funcall unique-fn semantic)))
       (nreverse (nconc semantic-unique named-unique)))))
 
-(defun modus-themes-with-colors-subr (body)
-  "Do the work of `modus-themes-with-colors' for BODY."
-  (condition-case data
-      (when-let* ((modus-themes-with-colors--current (modus-themes-get-current-theme))
-                  (palette (modus-themes--with-colors-get-palette modus-themes-with-colors--current))
-                  (sorted (modus-themes--with-colors-resolve-palette-sort palette)))
-        (eval
-         `(let* ((c '((class color) (min-colors 256)))
-                 (unspecified 'unspecified)
-                 ,@sorted)
-            (funcall ',body))))
-    (error (message "Error in `modus-themes-with-colors': %s" data))))
-
 (defmacro modus-themes-with-colors (&rest body)
   "Evaluate BODY with colors from current palette bound."
   (declare (indent 0))
-  `(modus-themes-with-colors-subr (lambda () ,@body)))
+  `(condition-case data
+       (when-let* ((theme (modus-themes-get-current-theme))
+                   (palette (modus-themes--with-colors-get-palette theme)))
+         (let ((bindings
+                (append
+                 '((c '((class color) (min-colors 256))) (unspecified 'unspecified))
+                 (cl-remove-duplicates (apply #'append palette) :key #'car))))
+           (eval (nconc `(cl-symbol-macrolet ,bindings) ',body))))
+     (error (message "Error in my/modus-with-color %s" data))))
 
 ;;;; Declare all the Modus themes
 

@@ -15,6 +15,15 @@ For further details, please consult these additional resources:
 + Manual :: <https://protesilaos.com/emacs/modus-themes>
 + Screenshots :: <https://protesilaos.com/emacs/modus-themes-pictures>
 
+
+* DEVELOPMENT
+
+** ~modus-themes-with-colors~ improved again
+
+The recently introduced ~let~-based method exhibits a subtle bug: since
+it sorts real colors prior to "mapped" colors, an override from the
+latter to the former would be lost.
+
 * 5.2.0 on 2025-12-31
 
 This version fixes some bugs, adds a new feature for those who want to
