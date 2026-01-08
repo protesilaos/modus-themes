@@ -7252,9 +7252,9 @@ If COLOR is unspecified, then return :box unspecified."
     `(widget-button ((,c :inherit modus-themes-bold :foreground ,fg-link)))
     `(widget-button-pressed ((,c :inherit modus-themes-bold :foreground ,fg-link-visited)))
     `(widget-documentation ((,c :inherit modus-themes-slant :foreground ,docstring)))
-    `(widget-field ((,c :background ,bg-button-inactive :foreground ,fg-button-active :extend nil :underline (:position t))))
+    `(widget-field ((,c :background ,bg-button-inactive :foreground ,fg-button-active :extend nil :underline (:position t :color ,border))))
     `(widget-inactive ((,c :background ,bg-button-inactive :foreground ,fg-button-inactive)))
-    `(widget-single-line-field ((,c :background ,bg-button-inactive :foreground ,fg-button-active :extend nil :underline (:position t))))
+    `(widget-single-line-field ((,c :background ,bg-button-inactive :foreground ,fg-button-active :extend nil :underline (:position t :color ,border))))
 ;;;;; writegood-mode
     `(writegood-duplicates-face ((,c :underline (:style wave :color ,underline-err))))
     `(writegood-passive-voice-face ((,c :underline (:style wave :color ,underline-warning))))
