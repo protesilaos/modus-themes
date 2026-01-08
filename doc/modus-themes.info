@@ -6898,11 +6898,11 @@ Contributions to code or documentation
      L. Contovounesios, Björn Lindström, Carlo Zancanaro, Christian
      Tietze, Daniel Mendler, David Edmondson, Eli Zaretskii, Eric
      Ottosson, Frédéric Giquel, Fritz Grabo, Gautier Ponsinet, Illia
-     Ostapyshyn, Jacob S. Gordon, Jared Finder, Jimmy Yuen Ho Wong,
-     Kevin Fleming, Kévin Le Gouguec, Koen van Greevenbroek, Kostadin
-     Ninev, Leilei332, Madhavan Krishnan, Manuel Giraud, Markus Beppler,
-     Matthew Stevenson, Mauro Aranda, Nacho Barrientos, Niall Dooley,
-     Nicolas De Jaeghere, Paul David, Pavel Novichkov, Philip
+     Ostapyshyn, Jacob S. Gordon, Jared Finder, JD Smith, Jimmy Yuen Ho
+     Wong, Kevin Fleming, Kévin Le Gouguec, Koen van Greevenbroek,
+     Kostadin Ninev, Leilei332, Madhavan Krishnan, Manuel Giraud, Markus
+     Beppler, Matthew Stevenson, Mauro Aranda, Nacho Barrientos, Niall
+     Dooley, Nicolas De Jaeghere, Paul David, Pavel Novichkov, Philip
      Kaludercic, Pierre Téchoueyres, Rahul M. Juliato, Rudolf Adamkovič,
      Sergey Nichiporchik, Shreyas Ragavan, Stefan x Kangas, Stephen
      Berman, Stephen Gildea, Steve Downey, Suleyman Boyar, Thanos
@@ -7810,11 +7810,11 @@ Node: Sources of the themes289594
 Node: Issues you can help with290490
 Node: Patches require copyright assignment to the FSF291882
 Node: Acknowledgements294104
-Node: GNU Free Documentation License298733
-Node: Indices323896
-Node: Function index324075
-Node: Variable index329233
-Node: Concept index333950
+Node: GNU Free Documentation License298743
+Node: Indices323906
+Node: Function index324085
+Node: Variable index329243
+Node: Concept index333960
 
 End Tag Table
 
