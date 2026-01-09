@@ -7622,13 +7622,7 @@ inclusive."
 ;; NOTE 2025-11-24: I originally wrote a variation of this for my Doric themes.
 (defun modus-themes-generate-gradient (color percent)
   "Adjust value of COLOR by PERCENT."
-  (pcase-let* ((`(,r ,g ,b) (color-name-to-rgb color))
-               (color-luminance-dark-limit 0.5)
-               (gradient (funcall (if (color-dark-p (list r g b))
-                                      #'color-lighten-name
-                                    #'color-darken-name)
-                                  color
-                                  percent)))
+  (let ((gradient (color-lighten-name color percent)))
     (modus-themes--color-six-digits gradient)))
 
 ;; NOTE 2025-11-25: I used to rely on `color-distance', thinking that
@@ -7737,12 +7731,12 @@ rest come from CORE-PALETTE."
                               (unless (assq name mappings)
                                 (push (list name value) derived-mappings)))))
       ;; Base entries
-      (funcall push-derived-value-fn 'bg-dim (modus-themes-generate-gradient bg-main 5))
-      (funcall push-derived-value-fn 'bg-active (modus-themes-generate-gradient bg-main 10))
-      (funcall push-derived-value-fn 'bg-inactive (modus-themes-generate-gradient bg-main 8))
-      (funcall push-derived-value-fn 'border (modus-themes-generate-gradient bg-main 20))
-      (funcall push-derived-value-fn 'fg-dim (modus-themes-generate-gradient fg-main 20))
-      (funcall push-derived-value-fn 'fg-alt (modus-themes-generate-color-warmer-or-cooler (modus-themes-generate-gradient fg-main 10) 0.8 prefers-cool-p))
+      (funcall push-derived-value-fn 'bg-dim (modus-themes-generate-gradient bg-main (if bg-main-dark-p 5 -5)))
+      (funcall push-derived-value-fn 'bg-active (modus-themes-generate-gradient bg-main (if bg-main-dark-p 10 -10)))
+      (funcall push-derived-value-fn 'bg-inactive (modus-themes-generate-gradient bg-main (if bg-main-dark-p 8 -8)))
+      (funcall push-derived-value-fn 'border (modus-themes-generate-gradient bg-main (if bg-main-dark-p 20 -20)))
+      (funcall push-derived-value-fn 'fg-dim (modus-themes-generate-gradient fg-main (if bg-main-dark-p -20 20)))
+      (funcall push-derived-value-fn 'fg-alt (modus-themes-generate-color-warmer-or-cooler (modus-themes-generate-gradient fg-main (if bg-main-dark-p -10 10)) 0.8 prefers-cool-p))
       ;; Primary and secondary colors
       (pcase-dolist (`(,name ,value) six-colors)
         (funcall push-derived-value-fn (intern (format "%s-warmer" name)) (modus-themes-generate-gradient (modus-themes-generate-color-warmer value 0.9) (if bg-main-dark-p 20 -20)))
