@@ -6733,9 +6733,10 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Dooley, Nicolas De Jaeghere, Paul David, Pavel Novichkov, Philip
   Kaludercic, Pierre Téchoueyres, Rahul M.{{{space()}}} Juliato,
   Rudolf Adamkovič, Sergey Nichiporchik, Shreyas Ragavan, Stefan x
-  Kangas, Stephen Berman, Stephen Gildea, Steve Downey, Suleyman
-  Boyar, Thanos Apollo, Tomasz Hołubowicz, Utkarsh Singh, Vincent
-  Murphy, Xinglu Chen, Yuanchen Xie, fluentpwn, okamsn, ukiran03.
+  Kangas, Stephen Berman, Stephen Gildea, Steve Downey, Steven Allen,
+  Suleyman Boyar, Thanos Apollo, Tomasz Hołubowicz, Utkarsh Singh,
+  Vincent Murphy, Xinglu Chen, Yuanchen Xie, fluentpwn, okamsn,
+  ukiran03.
 
 + Ideas and user feedback :: Aaron Jensen, Adam Porter, Adam Spiers,
   Adrian Manea, Aleksei Pirogov, Alex Griffin, Alex Koen, Alex
