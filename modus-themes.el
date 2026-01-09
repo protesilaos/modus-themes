@@ -7619,7 +7619,6 @@ inclusive."
   "Return cooler COLOR by ALPHA, per `modus-themes-generate-color-blend'."
   (modus-themes-generate-color-blend color "#0000ff" alpha))
 
-;; NOTE 2025-11-24: I originally wrote a variation of this for my Doric themes.
 (defun modus-themes-generate-gradient (color percent)
   "Adjust value of COLOR by PERCENT."
   (let ((gradient (color-lighten-name color percent)))
