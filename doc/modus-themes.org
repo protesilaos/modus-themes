@@ -6724,19 +6724,19 @@ The Modus themes are a collective effort.  Every bit of work matters.
 + Contributions to code or documentation :: Aleksei Gusev, Alex
   Griffin, Anders Johansson, Antonio Ruiz, Basil L.{{{space()}}}
   Contovounesios, Björn Lindström, Carlo Zancanaro, Christian Tietze,
-  Daniel Mendler, David Edmondson, Eli Zaretskii, Eric Ottosson,
-  Frédéric Giquel, Fritz Grabo, Gautier Ponsinet, Illia Ostapyshyn,
-  Jacob S.{{{space()}}} Gordon, Jared Finder, JD Smith, Jimmy Yuen Ho
-  Wong, Kevin Fleming, Kévin Le Gouguec, Koen van Greevenbroek,
-  Kostadin Ninev, Leilei332, Madhavan Krishnan, Manuel Giraud, Markus
-  Beppler, Matthew Stevenson, Mauro Aranda, Nacho Barrientos, Niall
-  Dooley, Nicolas De Jaeghere, Paul David, Pavel Novichkov, Philip
-  Kaludercic, Pierre Téchoueyres, Rahul M.{{{space()}}} Juliato,
-  Rudolf Adamkovič, Sergey Nichiporchik, Shreyas Ragavan, Stefan x
-  Kangas, Stephen Berman, Stephen Gildea, Steve Downey, Steven Allen,
-  Suleyman Boyar, Thanos Apollo, Tomasz Hołubowicz, Utkarsh Singh,
-  Vincent Murphy, Xinglu Chen, Yuanchen Xie, fluentpwn, okamsn,
-  ukiran03.
+  Daniel Colascione, Daniel Mendler, David Edmondson, Eli Zaretskii,
+  Eric Ottosson, Frédéric Giquel, Fritz Grabo, Gautier Ponsinet, Illia
+  Ostapyshyn, Jacob S.{{{space()}}} Gordon, Jared Finder, JD Smith,
+  Jimmy Yuen Ho Wong, Kevin Fleming, Kévin Le Gouguec, Koen van
+  Greevenbroek, Kostadin Ninev, Leilei332, Madhavan Krishnan, Manuel
+  Giraud, Markus Beppler, Matthew Stevenson, Mauro Aranda, Nacho
+  Barrientos, Niall Dooley, Nicolas De Jaeghere, Paul David, Pavel
+  Novichkov, Philip Kaludercic, Pierre Téchoueyres, Rahul
+  M.{{{space()}}} Juliato, Rudolf Adamkovič, Sergey Nichiporchik,
+  Shreyas Ragavan, Stefan x Kangas, Stephen Berman, Stephen Gildea,
+  Steve Downey, Steven Allen, Suleyman Boyar, Thanos Apollo, Tomasz
+  Hołubowicz, Utkarsh Singh, Vincent Murphy, Xinglu Chen, Yuanchen
+  Xie, fluentpwn, okamsn, ukiran03.
 
 + Ideas and user feedback :: Aaron Jensen, Adam Porter, Adam Spiers,
   Adrian Manea, Aleksei Pirogov, Alex Griffin, Alex Koen, Alex

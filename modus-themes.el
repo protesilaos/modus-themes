@@ -7424,7 +7424,7 @@ the Modus themes have by default.
 
 Consult the manual for details on how to build a theme on top of the
 `modus-themes': Info node `(modus-themes) Build on top of the Modus themes'."
-  (let ((theme-exists-p (custom-theme-p name))
+  (let ((theme-exists-p (get name 'theme-feature))
         (faces (append
                 (symbol-value custom-faces)
                 modus-themes-faces))
