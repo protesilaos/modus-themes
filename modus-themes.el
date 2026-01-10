@@ -4905,7 +4905,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(change-log-name ((,c :foreground ,name)))
     `(log-edit-header ((,c :inherit modus-themes-bold)))
     `(log-edit-headers-separator ((,c :height 1 :background ,border :extend t)))
-    `(log-edit-summary ((,c :inherit modus-themes-bold :foreground ,fg-alt)))
+    `(log-edit-summary ((,c :inherit modus-themes-bold :foreground ,info)))
     `(log-edit-unknown-header ((,c :foreground ,fg-dim)))
     `(log-view-commit-body (( )))
     `(log-view-file ((,c :inherit modus-themes-bold)))
@@ -5547,7 +5547,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(git-commit-keyword ((,c :foreground ,keyword)))
     `(git-commit-nonempty-second-line ((,c :foreground ,err)))
     `(git-commit-overlong-summary ((,c :foreground ,warning)))
-    `(git-commit-summary ((,c :inherit modus-themes-bold :foreground ,fg-alt)))
+    `(git-commit-summary ((,c :inherit modus-themes-bold :foreground ,info)))
 ;;;;; git-gutter
     `(git-gutter:added ((,c :background ,bg-added-fringe)))
     `(git-gutter:deleted ((,c :background ,bg-removed-fringe)))
