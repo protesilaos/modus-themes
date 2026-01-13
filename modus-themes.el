@@ -7502,7 +7502,7 @@ whose value is another symbol, which ultimately resolves to a string or
                  '((c '((class color) (min-colors 256))) (unspecified 'unspecified))
                  (cl-remove-duplicates (apply #'append palette) :key #'car))))
            (eval (nconc `(cl-symbol-macrolet ,bindings) ',body))))
-     (error (message "Error in my/modus-with-color %s" data))))
+     (error (message "Error in modus-themes-with-colors: %s" data))))
 
 ;;;; Declare all the Modus themes
 
