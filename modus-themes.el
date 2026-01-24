@@ -4975,7 +4975,7 @@ If COLOR is unspecified, then return :box unspecified."
 ;;;;; completions
     `(completions-annotations ((,c :inherit modus-themes-slant :foreground ,docstring)))
     `(completions-common-part ((,c :inherit modus-themes-completion-match-0)))
-    `(completions-group-title ((,c :inherit bold :background ,bg-dim :foreground ,name :box ,border :height 0.9)))
+    `(completions-group-title ((,c :inherit modus-themes-slant :foreground ,name :height 0.9)))
     `(completions-group-separator ((,c :strike-through t :foreground ,border)))
     `(completions-first-difference ((,c :inherit modus-themes-completion-match-1)))
     `(completions-highlight ((,c :inherit modus-themes-completion-selected)))
@@ -7092,7 +7092,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(vc-up-to-date-state (( )))
 ;;;;; vertico
     `(vertico-current ((,c :inherit modus-themes-completion-selected)))
-    `(vertico-group-title ((,c :inherit bold :background ,bg-dim :foreground ,name :box ,border :height 0.9)))
+    `(vertico-group-title ((,c :inherit modus-themes-slant :foreground ,name :height 0.9)))
     `(vertico-group-separator ((,c :strike-through t :foreground ,border)))
 ;;;;; vertico-quick
     `(vertico-quick1 ((,c :inherit bold :background ,bg-search-current :foreground ,fg-search-current)))
