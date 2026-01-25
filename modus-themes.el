@@ -4633,7 +4633,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(italic ((,c :slant italic)))
     `(cursor ((,c :background ,cursor)))
     `(fringe ((,c :background ,fringe :foreground ,fg-main)))
-    `(scroll-bar ((,c :background ,fringe :foreground ,border)))
+    `(scroll-bar ((,c :background ,bg-main :foreground ,border)))
     `(tool-bar ((,c :background ,bg-dim :foreground ,fg-main)))
     `(vertical-border ((,c :foreground ,border)))
 ;;;;; basic and/or ungrouped styles
