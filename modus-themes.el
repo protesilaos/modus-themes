@@ -7595,11 +7595,11 @@ For instance:
       (push (+ (* (nth i a) alpha) (* (nth i b) (- 1 alpha))) blend))
     (nreverse blend)))
 
-(defun modus-themes--color-six-digits (color)
-  "Reduce representation of hexadecimal RGB COLOR to six digits."
-  (let ((color-no-hash (substring color 1)))
+(defun modus-themes--color-six-digits (hex-color)
+  "Reduce representation of hexadecimal RGB HEX-COLOR to six digits."
+  (let ((color-no-hash (substring hex-color 1)))
     (if (= (length color-no-hash) 6)
-        color
+        hex-color
       (let* ((triplets (seq-split color-no-hash 4))
              (triplets-shortened (mapcar
                                   (lambda (string)
@@ -7607,11 +7607,14 @@ For instance:
                                   triplets)))
         (concat "#" (string-join triplets-shortened))))))
 
-(defun modus-themes-generate-color-blend (color blended-with alpha)
-  "Return hexadecimal RGB of COLOR with BLENDED-WITH given ALPHA.
-BLENDED-WITH is commensurate with COLOR.  ALPHA is between 0.0 and 1.0,
+(defun modus-themes-generate-color-blend (hex-color blended-with-hex alpha)
+  "Return hexadecimal RGB of HEX-COLOR with BLENDED-WITH-HEX given ALPHA.
+BLENDED-WITH-HEX is commensurate with COLOR.  ALPHA is between 0.0 and 1.0,
 inclusive."
-  (let* ((blend-rgb (modus-themes-blend (color-name-to-rgb color) (color-name-to-rgb blended-with) alpha))
+  (let* ((blend-rgb (modus-themes-blend
+                     (color-name-to-rgb hex-color)
+                     (color-name-to-rgb blended-with-hex)
+                     alpha))
          (blend-hex (apply #'color-rgb-to-hex blend-rgb)))
     (modus-themes--color-six-digits blend-hex)))
 
