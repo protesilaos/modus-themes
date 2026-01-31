@@ -39,16 +39,21 @@
   "Ensure all faces inherit from valid faces."
   ;; Third-party packages, loaded if possible to better test face inheritance.
   (require 'font-latex nil t)
-  (modus-themes-select 'modus-operandi)
-  (should-not (seq-filter
-               (lambda (face)
-                 ;; The face either has no parent ...
-                 (if-let* ((parent (face-attribute face :inherit)))
-                     (and (symbolp parent)
-                          (not (eq parent 'unspecified))
-                          ;; ... or its parent is a valid face.
-                          (not (facep parent)))))
-               (face-list))))
+  (let ((current-theme (modus-themes-get-current-theme)))
+    (unwind-protect
+        (progn
+          (modus-themes-load-theme 'modus-operandi)
+          (should-not (seq-filter
+                       (lambda (face)
+                         ;; The face either has no parent ...
+                         (if-let* ((parent (face-attribute face :inherit)))
+                             (and (symbolp parent)
+                                  (not (eq parent 'unspecified))
+                                  ;; ... or its parent is a valid face.
+                                  (not (facep parent)))))
+                       (face-list))))
+      (modus-themes-load-theme current-theme))))
+
 
 (provide 'modus-themes-test)
 ;;; modus-themes-test.el ends here
