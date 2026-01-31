@@ -4249,8 +4249,8 @@ PALETTE is the value of a variable like `modus-operandi-palette'."
            (propertize value-string 'face `( :foreground ,color))
            (propertize value-string-padded 'face `( :background ,color
                                                     :foreground ,(if (string= color "unspecified")
-                                                                     (readable-foreground-color (modus-themes-get-color-value 'bg-main nil theme))
-                                                                   (readable-foreground-color color))))))))
+                                                                     (modus-themes-get-readable-foreground (modus-themes-get-color-value 'bg-main nil theme))
+                                                                   (modus-themes-get-readable-foreground color))))))))
      palette)))
 
 (defvar modus-themes-current-preview nil)
