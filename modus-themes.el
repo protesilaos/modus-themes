@@ -3756,22 +3756,22 @@ Info node `(modus-themes) Option for palette overrides'.")
          (/ channel 12.92)
        (expt (/ (+ channel 0.055) 1.055) 2.4))))
 
-(defun modus-themes-wcag-formula (hex)
-  "Get WCAG value of color value HEX.
+(defun modus-themes-wcag-formula (hex-color)
+  "Get WCAG value of color value HEX-COLOR.
 The value is defined in hexadecimal RGB notation, such #123456."
-  (let ((channels (color-name-to-rgb hex))
+  (let ((channels (color-name-to-rgb hex-color))
         (weights '(0.2126 0.7152 0.0722))
-        contribution)
+        (contribution nil))
     (while channels
       (push (modus-themes--wcag-contribution (pop channels) (pop weights)) contribution))
     (apply #'+ contribution)))
 
 ;;;###autoload
-(defun modus-themes-contrast (c1 c2)
-  "Measure WCAG contrast ratio between C1 and C2.
-C1 and C2 are color values written in hexadecimal RGB."
-  (let ((ct (/ (+ (modus-themes-wcag-formula c1) 0.05)
-               (+ (modus-themes-wcag-formula c2) 0.05))))
+(defun modus-themes-contrast (hex-color-1 hex-color-2)
+  "Measure WCAG contrast ratio between HEX-COLOR-1 and HEX-COLOR-2.
+HEX-COLOR-1 and HEX-COLOR-2 are color values written in hexadecimal RGB."
+  (let ((ct (/ (+ (modus-themes-wcag-formula hex-color-1) 0.05)
+               (+ (modus-themes-wcag-formula hex-color-2) 0.05))))
     (max ct (/ ct))))
 
 (defvar modus-themes-registered-items nil
