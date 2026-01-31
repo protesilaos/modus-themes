@@ -4210,6 +4210,13 @@ Run `modus-themes-after-load-theme-hook' after loading a theme."
 Test that HEX-COLOR has more contrast against white than black."
   (> (modus-themes-contrast hex-color "#ffffff")
      (modus-themes-contrast hex-color "#000000")))
+
+(defun modus-themes-get-readable-foreground (hex-color)
+  "Get readable foreground for background hexadecimal RGB HEX-COLOR."
+  (if (modus-themes-color-dark-p hex-color)
+      "#ffffff"
+    "#000000"))
+
 (defun modus-themes--list-colors-get-mappings (palette)
   "Get the semantic palette entries in PALETTE.
 PALETTE is the value of a variable like `modus-operandi-palette'."
