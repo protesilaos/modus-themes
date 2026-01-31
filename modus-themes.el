@@ -4205,6 +4205,11 @@ Run `modus-themes-after-load-theme-hook' after loading a theme."
 
 ;;;;; Preview a theme palette
 
+(defun modus-themes-color-dark-p (hex-color)
+  "Return non-nil if hexadecimal RGB HEX-COLOR is dark.
+Test that HEX-COLOR has more contrast against white than black."
+  (> (modus-themes-contrast hex-color "#ffffff")
+     (modus-themes-contrast hex-color "#000000")))
 (defun modus-themes--list-colors-get-mappings (palette)
   "Get the semantic palette entries in PALETTE.
 PALETTE is the value of a variable like `modus-operandi-palette'."
@@ -7719,7 +7724,7 @@ rest come from CORE-PALETTE."
     (unless (and bg-main fg-main)
       (error "The palette must define at least a bg-main and fg-main entry with their values"))
     (let* ((bg-main (car bg-main))
-           (bg-main-dark-p (color-dark-p (color-name-to-rgb bg-main)))
+           (bg-main-dark-p (modus-themes-color-dark-p bg-main))
            (fg-main (car fg-main))
            (six-colors (seq-filter
                         (lambda (color)
