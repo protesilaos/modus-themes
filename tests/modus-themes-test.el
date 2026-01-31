@@ -54,6 +54,121 @@
                        (face-list))))
       (modus-themes-load-theme current-theme))))
 
+(ert-deftest mtt-color-dark-p ()
+  "Test `modus-themes-color-dark-p'."
+  (let ((modus-operandi-sample-foregrounds
+         '("#a60000"
+           "#972500"
+           "#a0132f"
+           "#7f0000"
+           "#006800"
+           "#316500"
+           "#00663f"
+           "#2a5045"
+           "#6f5500"
+           "#884900"
+           "#7a4f2f"
+           "#624416"
+           "#0031a9"
+           "#3548cf"
+           "#0000b0"
+           "#003497"
+           "#721045"
+           "#8f0075"
+           "#531ab6"
+           "#7c318f"
+           "#005e8b"
+           "#3f578f"
+           "#005f5f"
+           "#005077"))
+         (modus-vivendi-sample-foregrounds
+          '("#ff5f59"
+            "#ff6b55"
+            "#ff7f86"
+            "#ff9580"
+            "#44bc44"
+            "#70b900"
+            "#00c06f"
+            "#88ca9f"
+            "#d0bc00"
+            "#fec43f"
+            "#dfaf7a"
+            "#d2b580"
+            "#2fafff"
+            "#79a8ff"
+            "#00bcff"
+            "#82b0ec"
+            "#feacd0"
+            "#f78fe7"
+            "#b6a0ff"
+            "#caa6df"
+            "#00d3d0"
+            "#4ae2f0"
+            "#6ae4b9"
+            "#9ac8e0")))
+    (should (seq-every-p #'modus-themes-color-dark-p modus-operandi-sample-foregrounds))
+    (should-not (seq-every-p #'modus-themes-color-dark-p modus-vivendi-sample-foregrounds))))
+
+(ert-deftest mtt-get-readable-foreground ()
+  "Test `modus-themes-get-readable-foreground'."
+  (let ((modus-operandi-sample-foregrounds
+         '("#a60000"
+           "#972500"
+           "#a0132f"
+           "#7f0000"
+           "#006800"
+           "#316500"
+           "#00663f"
+           "#2a5045"
+           "#6f5500"
+           "#884900"
+           "#7a4f2f"
+           "#624416"
+           "#0031a9"
+           "#3548cf"
+           "#0000b0"
+           "#003497"
+           "#721045"
+           "#8f0075"
+           "#531ab6"
+           "#7c318f"
+           "#005e8b"
+           "#3f578f"
+           "#005f5f"
+           "#005077"))
+        (modus-vivendi-sample-foregrounds
+         '("#ff5f59"
+           "#ff6b55"
+           "#ff7f86"
+           "#ff9580"
+           "#44bc44"
+           "#70b900"
+           "#00c06f"
+           "#88ca9f"
+           "#d0bc00"
+           "#fec43f"
+           "#dfaf7a"
+           "#d2b580"
+           "#2fafff"
+           "#79a8ff"
+           "#00bcff"
+           "#82b0ec"
+           "#feacd0"
+           "#f78fe7"
+           "#b6a0ff"
+           "#caa6df"
+           "#00d3d0"
+           "#4ae2f0"
+           "#6ae4b9"
+           "#9ac8e0")))
+    (should (seq-every-p
+             (lambda (value)
+               (string= value "#ffffff"))
+             (mapcar #'modus-themes-get-readable-foreground modus-operandi-sample-foregrounds)))
+    (should (seq-every-p
+             (lambda (value)
+               (string= value "#000000"))
+             (mapcar #'modus-themes-get-readable-foreground modus-vivendi-sample-foregrounds)))))
 
 (provide 'modus-themes-test)
 ;;; modus-themes-test.el ends here
