@@ -3748,6 +3748,16 @@ Info node `(modus-themes) Option for palette overrides'.")
 
 ;;;; Helper functions for theme setup
 
+(defun modus-themes--hex-to-rgb (hex-color)
+  "Convert HEX-COLOR to a list of normalized RGB values.
+Use `color-values-from-color-spec' (a C built-in since Emacs 28.1)
+instead of `color-name-to-rgb' to avoid dependence on a display
+connection.  This matters when loading a theme during early init on
+GUI Emacs, where `color-values' returns nil before the display is
+ready (per issue #198)."
+  (mapcar (lambda (x) (/ x 65535.0))
+          (color-values-from-color-spec hex-color)))
+
 ;; This is the WCAG formula: https://www.w3.org/TR/WCAG20-TECHS/G18.html
 (defun modus-themes--wcag-contribution (channel weight)
   "Return the CHANNEL contribution to overall luminance given WEIGHT."
@@ -3759,7 +3769,7 @@ Info node `(modus-themes) Option for palette overrides'.")
 (defun modus-themes-wcag-formula (hex-color)
   "Get WCAG value of color value HEX-COLOR.
 The value is defined in hexadecimal RGB notation, such #123456."
-  (let ((channels (color-name-to-rgb hex-color))
+  (let ((channels (modus-themes--hex-to-rgb hex-color))
         (weights '(0.2126 0.7152 0.0722))
         (contribution nil))
     (while channels
@@ -7619,8 +7629,8 @@ For instance:
 BLENDED-WITH-HEX is commensurate with COLOR.  ALPHA is between 0.0 and 1.0,
 inclusive."
   (let* ((blend-rgb (modus-themes-blend
-                     (color-name-to-rgb hex-color)
-                     (color-name-to-rgb blended-with-hex)
+                     (modus-themes--hex-to-rgb hex-color)
+                     (modus-themes--hex-to-rgb blended-with-hex)
                      alpha))
          (blend-hex (apply #'color-rgb-to-hex blend-rgb)))
     (modus-themes--color-six-digits blend-hex)))
@@ -7649,7 +7659,7 @@ inclusive."
   "Return non-nil if COLOR is warm.
 A warm color has more contribution from the red channel of light than
 the blue one."
-  (pcase-let ((`(,r ,_ ,b) (color-name-to-rgb color)))
+  (pcase-let ((`(,r ,_ ,b) (modus-themes--hex-to-rgb color)))
     (> r b)))
 
 (defun modus-themes-color-is-warm-or-cool-p (color)
