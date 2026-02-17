@@ -6902,13 +6902,13 @@ Contributions to code or documentation
      Smith, Jimmy Yuen Ho Wong, Kevin Fleming, Kévin Le Gouguec, Koen
      van Greevenbroek, Kostadin Ninev, Leilei332, Madhavan Krishnan,
      Manuel Giraud, Markus Beppler, Matthew Stevenson, Mauro Aranda,
-     Nacho Barrientos, Niall Dooley, Nicolas De Jaeghere, Paul David,
-     Pavel Novichkov, Philip Kaludercic, Pierre Téchoueyres, Rahul M.
-     Juliato, Rudolf Adamkovič, Sergey Nichiporchik, Shreyas Ragavan,
-     Stefan x Kangas, Stephen Berman, Stephen Gildea, Steve Downey,
-     Steven Allen, Suleyman Boyar, Thanos Apollo, Tomasz Hołubowicz,
-     Utkarsh Singh, Vincent Murphy, Xinglu Chen, Yuanchen Xie,
-     fluentpwn, okamsn, ukiran03.
+     Mike Olson, Nacho Barrientos, Niall Dooley, Nicolas De Jaeghere,
+     Paul David, Pavel Novichkov, Philip Kaludercic, Pierre Téchoueyres,
+     Rahul M. Juliato, Rudolf Adamkovič, Sergey Nichiporchik, Shreyas
+     Ragavan, Stefan x Kangas, Stephen Berman, Stephen Gildea, Steve
+     Downey, Steven Allen, Suleyman Boyar, Thanos Apollo, Tomasz
+     Hołubowicz, Utkarsh Singh, Vincent Murphy, Xinglu Chen, Yuanchen
+     Xie, fluentpwn, okamsn, ukiran03.
 
 Ideas and user feedback
      Aaron Jensen, Adam Porter, Adam Spiers, Adrian Manea, Aleksei
@@ -7811,11 +7811,11 @@ Node: Sources of the themes289594
 Node: Issues you can help with290490
 Node: Patches require copyright assignment to the FSF291882
 Node: Acknowledgements294104
-Node: GNU Free Documentation License298791
-Node: Indices323954
-Node: Function index324133
-Node: Variable index329291
-Node: Concept index334008
+Node: GNU Free Documentation License298803
+Node: Indices323966
+Node: Function index324145
+Node: Variable index329303
+Node: Concept index334020
 
 End Tag Table
 
