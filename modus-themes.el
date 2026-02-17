@@ -6057,7 +6057,6 @@ If COLOR is unspecified, then return :box unspecified."
     `(magit-refname-pullreq ((,c :foreground ,fg-dim)))
     `(magit-refname-stash ((,c :foreground ,fg-dim)))
     `(magit-refname-wip ((,c :foreground ,fg-dim)))
-    `(magit-section ((,c :background ,bg-dim :foreground ,fg-main)))
     `(magit-section-heading ((,c :inherit modus-themes-bold :foreground ,fg-alt)))
     `(magit-section-heading-selection ((,c :inherit modus-themes-bold :background ,bg-hover-secondary)))
     `(magit-section-highlight ((,c :background ,bg-dim)))
