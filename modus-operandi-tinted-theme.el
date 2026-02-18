@@ -42,13 +42,6 @@
              (require-theme 'modus-themes t))
   (require 'modus-themes))
 
-;;;###theme-autoload
-(deftheme modus-operandi-tinted
-  "Elegant, highly legible theme with a light ochre background."
-  :background-mode 'light
-  :kind 'color-scheme
-  :family 'modus)
-
 (defcustom modus-operandi-tinted-palette-user nil
   "Like the `modus-operandi-tinted-palette' for user-defined entries.
 This is meant to extend the palette with custom named colors and/or

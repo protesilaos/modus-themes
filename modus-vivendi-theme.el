@@ -42,13 +42,6 @@
              (require-theme 'modus-themes t))
   (require 'modus-themes))
 
-;;;###theme-autoload
-(deftheme modus-vivendi
-  "Elegant, highly legible theme with a black background."
-  :background-mode 'dark
-  :kind 'color-scheme
-  :family 'modus)
-
 (defcustom modus-vivendi-palette-user nil
   "Like the `modus-vivendi--palette' for user-defined entries.
 This is meant to extend the palette with custom named colors and/or
