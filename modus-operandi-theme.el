@@ -42,6 +42,13 @@
              (require-theme 'modus-themes t))
   (require 'modus-themes))
 
+;;;###theme-autoload
+(deftheme modus-operandi
+  "Elegant, highly legible theme with a white background."
+  :background-mode 'light
+  :kind 'color-scheme
+  :family 'modus)
+
 (defcustom modus-operandi-palette-user nil
   "Like the `modus-operandi-palette' for user-defined entries.
 This is meant to extend the palette with custom named colors and/or

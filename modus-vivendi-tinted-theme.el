@@ -42,6 +42,13 @@
              (require-theme 'modus-themes t))
   (require 'modus-themes))
 
+;;;###theme-autoload
+(deftheme modus-vivendi-tinted
+  "Elegant, highly legible theme with a night sky background."
+  :background-mode 'dark
+  :kind 'color-scheme
+  :family 'modus)
+
 (defcustom modus-vivendi-tinted-palette-user nil
   "Like the `modus-vivendi-tinted-palette' for user-defined entries.
 This is meant to extend the palette with custom named colors and/or
