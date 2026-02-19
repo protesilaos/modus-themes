@@ -74,6 +74,7 @@ represents."
   :type '(repeat (list symbol (choice symbol string)))
   :link '(info-link "(modus-themes) Palette overrides"))
 
+;;;###theme-autoload
 (modus-themes-theme
  'modus-operandi-deuteranopia
  'modus-themes
