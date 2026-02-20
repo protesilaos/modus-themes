@@ -5310,6 +5310,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + info
 + info+ (info-plus)
 + info-colors
++ institution-calendar [Part of {{{development-version}}}.]
 + ioccur
 + isearch, occur, etc.
 + ivy*

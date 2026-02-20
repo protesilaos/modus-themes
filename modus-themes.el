@@ -5817,6 +5817,9 @@ If COLOR is unspecified, then return :box unspecified."
     `(info-colors-ref-item-type ((,c :inherit modus-themes-bold :foreground ,type)))
     `(info-colors-ref-item-user-option ((,c :foreground ,variable)))
     `(info-colors-ref-item-variable ((,c :foreground ,variable)))
+;;;;; institution-calendar
+    `(institution-calendar-term-indicator-regular-week ((,c :background ,bg-dim :foreground ,fg-alt)))
+    `(institution-calendar-term-indicator-extra-week ((,c :foreground ,fg-dim)))
 ;;;;; ioccur
     `(ioccur-cursor ((,c :foreground ,fg-main)))
     `(ioccur-invalid-regexp ((,c :foreground ,err)))
