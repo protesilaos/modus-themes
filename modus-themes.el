@@ -3927,10 +3927,18 @@ If THEME is unknown, return nil.  Else return (append OVERRIDES USER CORE)."
 
 (defun modus-themes--disable-themes (themes)
   "Disable THEMES per `modus-themes-disable-other-themes'."
-  (mapc #'disable-theme
-        (if modus-themes-disable-other-themes
-            themes
-          (seq-filter #'modus-themes--modus-theme-p themes))))
+  (mapc
+   #'disable-theme
+   (if modus-themes-disable-other-themes
+       themes
+     (seq-filter #'modus-themes--modus-theme-p themes))))
+
+(defun modus-themes--get-color-schemes ()
+  "Return `custom-enabled-themes' of :kind `color-scheme'."
+  (seq-filter
+   (lambda (theme)
+     (eq (plist-get (get theme 'theme-properties) :kind) 'color-scheme))
+   custom-enabled-themes))
 
 (defun modus-themes-load-theme (theme &optional hook)
   "Load THEME while disabling other themes.
@@ -3943,7 +3951,7 @@ after loading the THEME.  If HOOK, then call that instead.
 
 Return THEME."
   (load-theme theme :no-confirm)
-  (modus-themes--disable-themes (remq theme custom-enabled-themes))
+  (modus-themes--disable-themes (remq theme (modus-themes--get-color-schemes)))
   (run-hooks (or hook 'modus-themes-after-load-theme-hook))
   theme)
 
