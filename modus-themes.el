@@ -3952,6 +3952,12 @@ after loading the THEME.  If HOOK, then call that instead.
 Return THEME."
   (load-theme theme :no-confirm)
   (modus-themes--disable-themes (remq theme (modus-themes--get-color-schemes)))
+  ;; `disable-theme' calls `face-spec-recalc' for every face the
+  ;; disabled theme touched, and this intermittently fails to apply the
+  ;; new theme's spec for the `default' face (Emacs 30, NS port).
+  ;; Recalculating it here on each frame acts as a safety net.
+  (dolist (frame (frame-list))
+    (face-spec-recalc 'default frame))
   (run-hooks (or hook 'modus-themes-after-load-theme-hook))
   theme)
 
