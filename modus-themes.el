@@ -3784,6 +3784,14 @@ HEX-COLOR-1 and HEX-COLOR-2 are color values written in hexadecimal RGB."
                (+ (modus-themes-wcag-formula hex-color-2) 0.05))))
     (max ct (/ ct))))
 
+(defun modus-themes-adjust-value (hex-rgb percentage)
+  "Adjust value of HEX-RGB colour by PERCENTAGE."
+  (pcase-let* ((`(,r ,g ,b) (color-name-to-rgb hex-rgb))
+               (fn (if (color-dark-p (list r g b))
+                       #'color-lighten-name
+                     #'color-darken-name)))
+    (funcall fn hex-rgb percentage)))
+
 (defvar modus-themes-registered-items nil
   "List of defined themes.
 This list is instantiated by the `modus-themes-theme' macro.  Themes
