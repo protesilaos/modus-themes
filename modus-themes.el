@@ -7658,13 +7658,6 @@ inclusive."
   (let ((gradient (color-lighten-name color percent)))
     (modus-themes--color-six-digits gradient)))
 
-;; NOTE 2025-11-25: I used to rely on `color-distance', thinking that
-;; it would do the right thing here:
-;;
-;;     (> (color-distance color "#ff0000") (color-distance color "#0000ff"))
-;;
-;; But my understanding of "warm" versus "cool" is simple, so better
-;; do it my way.
 (defun modus-themes-color-warm-p (color)
   "Return non-nil if COLOR is warm.
 A warm color has more contribution from the red channel of light than
