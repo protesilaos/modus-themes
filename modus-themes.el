@@ -3784,13 +3784,26 @@ HEX-COLOR-1 and HEX-COLOR-2 are color values written in hexadecimal RGB."
                (+ (modus-themes-wcag-formula hex-color-2) 0.05))))
     (max ct (/ ct))))
 
+(defun modus-themes--color-six-digits (hex-color)
+  "Reduce representation of hexadecimal RGB HEX-COLOR to six digits."
+  (let ((color-no-hash (substring hex-color 1)))
+    (if (= (length color-no-hash) 6)
+        hex-color
+      (let* ((triplets (seq-split color-no-hash 4))
+             (triplets-shortened (mapcar
+                                  (lambda (string)
+                                    (substring string 0 2))
+                                  triplets)))
+        (concat "#" (string-join triplets-shortened))))))
+
 (defun modus-themes-adjust-value (hex-rgb percentage)
   "Adjust value of HEX-RGB colour by PERCENTAGE."
   (pcase-let* ((`(,r ,g ,b) (color-name-to-rgb hex-rgb))
                (fn (if (color-dark-p (list r g b))
                        #'color-lighten-name
-                     #'color-darken-name)))
-    (funcall fn hex-rgb percentage)))
+                     #'color-darken-name))
+               (value (funcall fn hex-rgb percentage)))
+    (modus-themes--color-six-digits value)))
 
 (defvar modus-themes-registered-items nil
   "List of defined themes.
@@ -7629,18 +7642,6 @@ For instance:
     (dotimes (i 3)
       (push (+ (* (nth i a) alpha) (* (nth i b) (- 1 alpha))) blend))
     (nreverse blend)))
-
-(defun modus-themes--color-six-digits (hex-color)
-  "Reduce representation of hexadecimal RGB HEX-COLOR to six digits."
-  (let ((color-no-hash (substring hex-color 1)))
-    (if (= (length color-no-hash) 6)
-        hex-color
-      (let* ((triplets (seq-split color-no-hash 4))
-             (triplets-shortened (mapcar
-                                  (lambda (string)
-                                    (substring string 0 2))
-                                  triplets)))
-        (concat "#" (string-join triplets-shortened))))))
 
 (defun modus-themes-generate-color-blend (hex-color blended-with-hex alpha)
   "Return hexadecimal RGB of HEX-COLOR with BLENDED-WITH-HEX given ALPHA.
