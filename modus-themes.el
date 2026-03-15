@@ -4990,7 +4990,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(column-enforce-face ((,c :background ,bg-prominent-err :foreground ,fg-prominent-err)))
 ;;;;; company-mode
     `(company-echo-common ((,c :inherit modus-themes-completion-match-0)))
-    `(company-preview ((,c :background ,bg-dim :foreground ,fg-dim)))
+    `(company-preview ((,c :foreground ,fg-dim)))
     `(company-preview-common ((,c :inherit modus-themes-completion-match-0)))
     `(company-preview-search ((,c :background ,bg-yellow-intense)))
     `(company-scrollbar-bg ((,c :background ,bg-active)))
