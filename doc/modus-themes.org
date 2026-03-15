@@ -6773,11 +6773,11 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Tony Zorman, Trey Merkley, Tomasz Hołubowicz, Toon Claes, Uri Sharf,
   Utkarsh Singh, Vincent Foley, Zoltan Kiraly. As well as users: Ben,
   CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji,
-  Nick, Summer Emacs, TheBlob42, TitusMu, Trey, bepolymathe,
-  bit9tream, bangedorrunt, case-lambda, chainedghost, derek-upham,
-  doolio, fleimgruber, gitrj95, iSeeU, jixiuf, ltmsyvag, okamsn,
-  pedro-nonfree, pRot0ta1p, realazy, shimeike, shipmints, soaringbird,
-  tumashu, wakamenod.
+  Nick, Summer Emacs, TheBlob42, TitusMu, Trey, aikrahguzar,
+  bepolymathe, bit9tream, bangedorrunt, case-lambda, chainedghost,
+  derek-upham, doolio, fleimgruber, gitrj95, iSeeU, jixiuf, ltmsyvag,
+  okamsn, pedro-nonfree, pRot0ta1p, realazy, shimeike, shipmints,
+  soaringbird, tumashu, wakamenod.
 
 + Packaging :: Basil L.{{{space()}}} Contovounesios, Eli Zaretskii,
   Glenn Morris, Mauro Aranda, Richard Stallman, Stefan Kangas (core

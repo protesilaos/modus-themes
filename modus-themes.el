@@ -909,6 +909,7 @@ represents."
      ;; Special purpose
 
      (bg-completion       "#c0deff")
+     (bg-popup            "#f3f3f3")
      (bg-hover            "#b2e4dc")
      (bg-hover-secondary  "#f5d0a0")
      (bg-hl-line          "#dae5ec")
@@ -1238,6 +1239,7 @@ exists in the palette and is associated with a HEX-VALUE.")
      ;; Special purpose
 
      (bg-completion       "#f0c1cf")
+     (bg-popup            "#f6eddd")
      (bg-hover            "#b2e4dc")
      (bg-hover-secondary  "#dfe09f")
      (bg-hl-line          "#f1d5d0")
@@ -1565,6 +1567,7 @@ exists in the palette and is associated with a HEX-VALUE.")
      ;; Special purpose
 
      (bg-completion       "#c0deff")
+     (bg-popup            "#f3f3f3")
      (bg-hover            "#b2e4dc")
      (bg-hover-secondary  "#e5d7a0")
      (bg-hl-line          "#dae5ec")
@@ -1894,6 +1897,7 @@ exists in the palette and is associated with a HEX-VALUE.")
      ;; Special purpose
 
      (bg-completion       "#afdfef")
+     (bg-popup            "#f3f3f3")
      (bg-hover            "#ffafbc")
      (bg-hover-secondary  "#abdfdd")
      (bg-hl-line          "#dfeaec")
@@ -2221,6 +2225,7 @@ exists in the palette and is associated with a HEX-VALUE.")
      ;; Special purpose
 
      (bg-completion       "#2f447f")
+     (bg-popup            "#0c0c0c")
      (bg-hover            "#45605e")
      (bg-hover-secondary  "#654a39")
      (bg-hl-line          "#2f3849")
@@ -2548,6 +2553,7 @@ exists in the palette and is associated with a HEX-VALUE.")
      ;; Special purpose
 
      (bg-completion       "#483d8a")
+     (bg-popup            "#14162c")
      (bg-hover            "#45605e")
      (bg-hover-secondary  "#64404f")
      (bg-hl-line          "#303a6f")
@@ -2875,6 +2881,7 @@ exists in the palette and is associated with a HEX-VALUE.")
      ;; Special purpose
 
      (bg-completion       "#2f447f")
+     (bg-popup            "#0c0c0c")
      (bg-hover            "#45605e")
      (bg-hover-secondary  "#604c30")
      (bg-hl-line          "#2f3849")
@@ -3202,6 +3209,7 @@ exists in the palette and is associated with a HEX-VALUE.")
      ;; Special purpose
 
      (bg-completion       "#004253")
+     (bg-popup            "#0c0c0c")
      (bg-hover            "#8e3e3b")
      (bg-hover-secondary  "#204853")
      (bg-hl-line          "#2f3849")
@@ -4996,7 +5004,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(company-scrollbar-bg ((,c :background ,bg-active)))
     `(company-scrollbar-fg ((,c :background ,fg-main)))
     `(company-template-field ((,c :background ,bg-active)))
-    `(company-tooltip ((,c :inherit modus-themes-fixed-pitch :background ,bg-dim)))
+    `(company-tooltip ((,c :inherit modus-themes-fixed-pitch :background ,bg-popup)))
     `(company-tooltip-annotation ((,c :inherit modus-themes-slant :foreground ,docstring)))
     `(company-tooltip-common ((,c :inherit modus-themes-completion-match-0)))
     `(company-tooltip-deprecated ((,c :inherit modus-themes-fixed-pitch :background ,bg-dim :strike-through t)))
@@ -5044,7 +5052,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(corfu-current ((,c :inherit modus-themes-completion-selected)))
     `(corfu-bar ((,c :background ,fg-dim)))
     `(corfu-border ((,c :background ,bg-active)))
-    `(corfu-default ((,c :inherit modus-themes-fixed-pitch :background ,bg-dim)))
+    `(corfu-default ((,c :inherit modus-themes-fixed-pitch :background ,bg-popup)))
 ;;;;; corfu-candidate-overlay
     `(corfu-candidate-overlay-face ((,c :foreground ,fg-dim)))
 ;;;;; corfu-quick
@@ -6640,7 +6648,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(proced-uninterruptible-sleep-status-code ((,c :foreground ,err)))
     `(proced-user (( )))
 ;;;;; popup
-    `(popup-face ((,c :background ,bg-inactive :foreground ,fg-main)))
+    `(popup-face ((,c :background ,bg-popup :foreground ,fg-main)))
     `(popup-isearch-match ((,c :background ,bg-search-current :foreground ,fg-search-current)))
     `(popup-menu-mouse-face ((,c :background ,bg-hover :foreground ,fg-main)))
     `(popup-menu-selection-face ((,c :inherit modus-themes-completion-selected)))
