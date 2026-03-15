@@ -1070,7 +1070,6 @@ represents."
 
      ;; Prose mappings
 
-
      (fg-prose-code cyan-cooler)
      (fg-prose-macro magenta-cooler)
      (fg-prose-verbatim magenta-warmer)
