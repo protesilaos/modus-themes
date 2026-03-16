@@ -4867,8 +4867,8 @@ If COLOR is unspecified, then return :box unspecified."
     `(binder-sidebar-tags ((,c :foreground ,variable)))
 ;;;;; breadcrumb
     `(breadcrumb-face ((,c :foreground ,fg-alt)))
-    `(breadcrumb-imenu-leaf-face ((,c :inherit modus-themes-bold :foreground ,modeline-info))) ; same as `which-func'
-    `(breadcrumb-project-leaf-face ((,c :inherit modus-themes-bold)))
+    `(breadcrumb-imenu-leaf-face ((,c :inherit (modus-themes-bold breadcrumb-face) :foreground ,modeline-info))) ; same as `which-func'
+    `(breadcrumb-project-leaf-face ((,c :inherit (modus-themes-bold breadcrumb-face))))
 ;;;;; bongo
     `(bongo-album-title (( )))
     `(bongo-artist ((,c :foreground ,accent-0)))
