@@ -7109,6 +7109,12 @@ If COLOR is unspecified, then return :box unspecified."
     `(typescript-jsdoc-tag ((,c :inherit modus-themes-slant :foreground ,builtin)))
     `(typescript-jsdoc-type ((,c :inherit modus-themes-slant :foreground ,type)))
     `(typescript-jsdoc-value ((,c :inherit modus-themes-slant :foreground ,string)))
+;;;;; typst-ts-mode
+    `(typst-ts-error-face ((,c :foreground ,err)))
+    `(typst-ts-markup-label-face ((,c :inherit ,(if modus-themes-mixed-fonts '(fixed-pitch default) 'default) :foreground ,builtin)))
+    `(typst-ts-markup-linebreak-face ((,c :foreground ,warning)))
+    `(typst-ts-markup-reference-face ((,c :background ,bg-link-symbolic :foreground ,fg-link-symbolic :underline ,underline-link-symbolic)))
+    `(typst-ts-script-char-face ((,c :inherit bold :foreground ,keybind)))
 ;;;;; undo-tree
     `(undo-tree-visualizer-active-branch-face ((,c :inherit modus-themes-bold :foreground ,fg-main)))
     `(undo-tree-visualizer-current-face ((,c :foreground ,err)))
