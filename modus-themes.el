@@ -4682,7 +4682,7 @@ If COLOR is unspecified, then return :box unspecified."
 ;;;;; basic and/or ungrouped styles
     `(abbrev-table-name ((,c :inherit modus-themes-heading-1)))
     `(appt-notification ((,c :inherit modus-themes-bold :foreground ,modeline-err)))
-    `(blink-matching-paren-offscreen ((,c :background ,bg-paren-match)))
+    `(blink-matching-paren-offscreen ((,c :background ,bg-paren-match :foreground ,fg-paren-match :underline ,underline-paren-match)))
     `(buffer-menu-buffer ((,c :foreground ,name)))
     `(child-frame-border ((,c :background ,border)))
     `(comint-highlight-input ((,c :inherit modus-themes-bold)))

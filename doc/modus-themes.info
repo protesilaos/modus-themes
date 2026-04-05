@@ -6945,14 +6945,14 @@ Ideas and user feedback
      Janiška, Shreyas Ragavan, Simon Pugnet, Stéphane Marks, Steve
      Downey, Tassilo Horn, Thanos Apollo, Thibaut Verron, Thomas
      Heartman, Togan Muftuoglu, Tony Zorman, Trey Merkley, Tomasz
-     Hołubowicz, Toon Claes, Uri Sharf, Utkarsh Singh, Vincent Foley,
-     Zoltan Kiraly.  As well as users: Ben, CsBigDataHub1, Emacs
-     Contrib, Eugene, Fourchaux, Fredrik, Moesasji, Nick, Summer Emacs,
-     TheBlob42, TitusMu, Trey, aikrahguzar, baconabo, bangedorrunt,
-     bepolymathe, bit9tream, case-lambda, chainedghost, derek-upham,
-     doolio, fleimgruber, gitrj95, iSeeU, jixiuf, ltmsyvag, okamsn,
-     pedro-nonfree, pRot0ta1p, realazy, shimeike, shipmints,
-     soaringbird, tumashu, wakamenod.
+     Hołubowicz, Toon Claes, Troy Brown, Uri Sharf, Utkarsh Singh,
+     Vincent Foley, Zoltan Kiraly.  As well as users: Ben,
+     CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji,
+     Nick, Summer Emacs, TheBlob42, TitusMu, Trey, aikrahguzar,
+     baconabo, bangedorrunt, bepolymathe, bit9tream, case-lambda,
+     chainedghost, derek-upham, doolio, fleimgruber, gitrj95, iSeeU,
+     jixiuf, ltmsyvag, okamsn, pedro-nonfree, pRot0ta1p, realazy,
+     shimeike, shipmints, soaringbird, tumashu, wakamenod.
 
 Packaging
      Basil L. Contovounesios, Eli Zaretskii, Glenn Morris, Mauro Aranda,
@@ -7815,11 +7815,11 @@ Node: Sources of the themes289678
 Node: Issues you can help with290574
 Node: Patches require copyright assignment to the FSF291966
 Node: Acknowledgements294188
-Node: GNU Free Documentation License298955
-Node: Indices324118
-Node: Function index324297
-Node: Variable index329455
-Node: Concept index334172
+Node: GNU Free Documentation License298967
+Node: Indices324130
+Node: Function index324309
+Node: Variable index329467
+Node: Concept index334184
 
 End Tag Table
 
