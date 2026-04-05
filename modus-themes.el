@@ -4827,7 +4827,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(font-latex-doctex-preprocessor-face ((,c :foreground ,preprocessor)))
     `(font-latex-italic-face ((,c :inherit italic)))
     `(font-latex-math-face ((,c :foreground ,constant)))
-    `(font-latex-script-char-face ((,c :inherit modus-themes-bold :foreground ,builtin)))
+    `(font-latex-script-char-face ((,c :inherit modus-themes-bold :foreground ,keybind)))
     `(font-latex-sectioning-5-face ((,c :inherit modus-themes-bold :foreground ,fg-alt)))
     `(font-latex-sedate-face ((,c :inherit modus-themes-bold :foreground ,keyword)))
     `(font-latex-slide-title-face ((,c :inherit modus-themes-heading-1)))
