@@ -90,4 +90,6 @@ standard)."
  'modus-vivendi-deuteranopia-palette-overrides
  'modus-themes-faces-deuteranopia)
 
+(provide 'modus-vivendi-deuteranopia-theme)
+
 ;;; modus-vivendi-deuteranopia-theme.el ends here

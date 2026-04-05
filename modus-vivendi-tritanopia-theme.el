@@ -90,4 +90,6 @@ standard)."
  'modus-vivendi-tritanopia-palette-overrides
  'modus-themes-faces-tritanopia)
 
+(provide 'modus-vivendi-tritanopia-theme)
+
 ;;; modus-vivendi-tritanopia-theme.el ends here

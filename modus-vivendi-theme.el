@@ -87,4 +87,6 @@ which corresponds to a minimum contrast in relative luminance of
  'modus-vivendi-palette-user
  'modus-vivendi-palette-overrides)
 
+(provide 'modus-vivendi-theme)
+
 ;;; modus-vivendi-theme.el ends here

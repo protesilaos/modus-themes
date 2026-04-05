@@ -90,4 +90,6 @@ standard)."
  'modus-operandi-deuteranopia-palette-overrides
  'modus-themes-faces-deuteranopia)
 
+(provide 'modus-operandi-deuteranopia-theme)
+
 ;;; modus-operandi-deuteranopia-theme.el ends here

@@ -87,4 +87,6 @@ which corresponds to a minimum contrast in relative luminance of
  'modus-operandi-tinted-palette-user
  'modus-operandi-tinted-palette-overrides)
 
+(provide 'modus-operandi-tinted-theme)
+
 ;;; modus-operandi-tinted-theme.el ends here
