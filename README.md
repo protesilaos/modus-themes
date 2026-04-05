@@ -97,3 +97,5 @@ here.
 - `hugo-modus` by Yejun Su is a theme for the Hugo static site
   generator: <https://github.com/goofansu/hugo-modus>. It uses colours
   from the Modus themes.
+- `zed-modus-themes` by Vitaly Slobodin is a port for the Zed editor:
+  <https://github.com/vitallium/zed-modus-themes>.
