@@ -3775,12 +3775,11 @@ The value is defined in hexadecimal RGB notation, such #123456."
 (defun modus-themes-contrast (hex-color-1 hex-color-2)
   "Measure WCAG contrast ratio between HEX-COLOR-1 and HEX-COLOR-2.
 HEX-COLOR-1 and HEX-COLOR-2 are color values written in hexadecimal RGB."
-  (let ((ct (/ (+ (modus-themes-wcag-formula hex-color-1) 0.05)
-               (+ (modus-themes-wcag-formula hex-color-2) 0.05))))
-    (max ct (/ ct))))
-
-(defun modus-themes--color-six-digits (hex-color)
-  "Reduce representation of hexadecimal RGB HEX-COLOR to six digits."
+  (if-let* ((hex1-weight (modus-themes-wcag-formula hex-color-1))
+            (hex2-weight (modus-themes-wcag-formula hex-color-2)))
+      (let ((contrast (/ (+ hex1-weight 0.05) (+ hex2-weight 0.05))))
+        (max contrast (/ contrast)))
+    (error "Both `%s' and `%s' must be valid hexadecimal RGB colors" hex-color-1 hex-color-2)))
   (let ((color-no-hash (substring hex-color 1)))
     (if (= (length color-no-hash) 6)
         hex-color

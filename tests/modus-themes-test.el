@@ -69,6 +69,22 @@ Also see `modus-themes-test--modus-themes--hex-to-rgb'."
   (should (= (modus-themes-wcag-formula "#ffffff") 1.0))
   (should (= (modus-themes-wcag-formula "#000000") 0.0))
   (should-not (modus-themes-wcag-formula "#00000")))
+
+(ert-deftest mtt-modus-themes-contrast ()
+  "Test that `modus-themes-contrast' works as intended.
+Also see `modus-themes-test--modus-themes--hex-to-rgb'."
+  (should (= (modus-themes-contrast "#ffffff" "#000000") 21.0))
+  (should (= (modus-themes-contrast "#000000" "#ffffff") 21.0))
+  (let ((float-2-fn (lambda (hex1 hex2)
+                      (string-to-number (format "%.2f" (modus-themes-contrast hex1 hex2))))))
+    (should (= (funcall float-2-fn "#ff0000" "#ffffff")  4.0))
+    (should (= (funcall float-2-fn "#00ff00" "#ffffff") 1.37))
+    (should (= (funcall float-2-fn "#0000ff" "#ffffff") 8.59))
+    (should (= (funcall float-2-fn "#ffff00" "#ffffff") 1.07))
+    (should (= (funcall float-2-fn "#00ffff" "#ffffff") 1.25))
+    (should (= (funcall float-2-fn "#ff00ff" "#ffffff") 3.14)))
+  (should-error (modus-themes-contrast "#ffffff" "#00000"))
+  (should-error (modus-themes-contrast "#fffff" "#00000")))
 (ert-deftest mtt-inheritance ()
   "Ensure all faces inherit from valid faces."
   ;; Third-party packages, loaded if possible to better test face inheritance.
