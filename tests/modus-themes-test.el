@@ -85,6 +85,15 @@ Also see `modus-themes-test--modus-themes--hex-to-rgb'."
     (should (= (funcall float-2-fn "#ff00ff" "#ffffff") 3.14)))
   (should-error (modus-themes-contrast "#ffffff" "#00000"))
   (should-error (modus-themes-contrast "#fffff" "#00000")))
+(ert-deftest mtt-modus-themes-adjust-value ()
+  "Test that `modus-themes-adjust-value' does the right thing.
+Also see `modus-themes-test--modus-themes--hex-to-rgb'."
+  (should (string= (modus-themes-adjust-value "#ff0000" 10) "#ff1919"))
+  (should (string= (modus-themes-adjust-value "#505050" 100) "#ffffff"))
+  (should (string= (modus-themes-adjust-value "#505050" -100) "#000000"))
+  (should (string= (modus-themes-adjust-value "#505050" 0) "#505050"))
+  (should-error (modus-themes-adjust-value "#ff00" 10)))
+
 (ert-deftest mtt-inheritance ()
   "Ensure all faces inherit from valid faces."
   ;; Third-party packages, loaded if possible to better test face inheritance.

@@ -3797,12 +3797,14 @@ If HEX-COLOR is three or six digits, then return it as is."
 
 (defun modus-themes-adjust-value (hex-rgb percentage)
   "Adjust value of HEX-RGB colour by PERCENTAGE."
-  (pcase-let* ((`(,r ,g ,b) (color-name-to-rgb hex-rgb))
-               (fn (if (color-dark-p (list r g b))
-                       #'color-lighten-name
-                     #'color-darken-name))
-               (value (funcall fn hex-rgb percentage)))
-    (modus-themes--color-six-digits value)))
+  (if-let* ((rgb (modus-themes--hex-to-rgb hex-rgb)))
+      (pcase-let* ((`(,r ,g ,b) rgb)
+                   (fn (if (color-dark-p (list r g b))
+                           #'color-lighten-name
+                         #'color-darken-name))
+                   (value (funcall fn hex-rgb percentage)))
+        (modus-themes--color-eight-to-six-digits value))
+    (error "The `%s' has to be a valid hexadecimal RGB color" hex-rgb)))
 
 (defvar modus-themes-registered-items nil
   "List of defined themes.
