@@ -107,6 +107,12 @@ Also see `modus-themes-test--modus-themes--hex-to-rgb'."
       (should-not (modus-themes-activate 'modus-operandi-tritanopia))
     (should (custom-theme-p 'modus-operandi-tritanopia))))
 
+(ert-deftest mtt-modus-themes--belongs-to-family-p ()
+  "Test that `modus-themes--belongs-to-family-p' does the right thing."
+  (should (modus-themes--belongs-to-family-p 'modus-operandi 'modus-themes))
+  (should-not (modus-themes--belongs-to-family-p 'my-fancy-theme 'modus-themes))
+  (should-not (modus-themes--belongs-to-family-p 'modus-operandi 'my-fancy-themes)))
+
 (ert-deftest mtt-inheritance ()
   "Ensure all faces inherit from valid faces."
   ;; Third-party packages, loaded if possible to better test face inheritance.
