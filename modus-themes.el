@@ -3747,7 +3747,7 @@ Use `color-values-from-color-spec' (a C built-in since Emacs 28.1)
 instead of `color-name-to-rgb' to avoid dependence on a display
 connection.  This matters when loading a theme during early init on
 GUI Emacs, where `color-values' returns nil before the display is
-ready (per <https://github.com/protesilaos/modus-themes/issues/198>."
+ready (per <https://github.com/protesilaos/modus-themes/issues/198>)."
   (mapcar
    (lambda (x)
      (/ x 65535.0))
