@@ -101,6 +101,12 @@ Also see `modus-themes-test--modus-themes--hex-to-rgb'."
   (should (string= (modus-themes-adjust-value "#505050" 0) "#505050"))
   (should-error (modus-themes-adjust-value "#ff00" 10)))
 
+(ert-deftest mtt-modus-themes-activate ()
+  "Test that `modus-themes-activate' activates the given theme."
+  (if (custom-theme-p 'modus-operandi-tritanopia)
+      (should-not (modus-themes-activate 'modus-operandi-tritanopia))
+    (should (custom-theme-p 'modus-operandi-tritanopia))))
+
 (ert-deftest mtt-inheritance ()
   "Ensure all faces inherit from valid faces."
   ;; Third-party packages, loaded if possible to better test face inheritance.
