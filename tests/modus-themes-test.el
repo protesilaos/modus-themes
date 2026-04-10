@@ -1,6 +1,6 @@
 ;;; modus-themes-test.el --- Unit tests for the Modus themes -*- lexical-binding: t -*-
 
-;; Copyright (C) 2025-206  Free Software Foundation, Inc.
+;; Copyright (C) 2025-2026  Free Software Foundation, Inc.
 
 ;; Author: Rudolf Adamkovič <rudolf@adamkovic.org>,
 ;;         Protesilaos Stavrou <info@protesilaos.com>
