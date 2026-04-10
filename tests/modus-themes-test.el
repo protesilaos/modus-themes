@@ -118,6 +118,13 @@ Also see `modus-themes-test--modus-themes--hex-to-rgb'."
   (should (equal (modus-themes-get-all-known-themes) modus-themes-items))
   (should-not (modus-themes-get-all-known-themes 'my-fancy-themes)))
 
+(ert-deftest mtt-modus-themes--background-p ()
+  "Test that `modus-themes--background-p' does the right thing."
+  (should (modus-themes--background-p 'modus-operandi 'light))
+  (should-not (modus-themes--background-p 'modus-operandi 'dark))
+  (should-not (modus-themes--background-p 'modus-operandi t))
+  (should-not (modus-themes--background-p 'modus-operandi :light)))
+
 (ert-deftest mtt-inheritance ()
   "Ensure all faces inherit from valid faces."
   ;; Third-party packages, loaded if possible to better test face inheritance.
