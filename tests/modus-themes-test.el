@@ -113,6 +113,11 @@ Also see `modus-themes-test--modus-themes--hex-to-rgb'."
   (should-not (modus-themes--belongs-to-family-p 'my-fancy-theme 'modus-themes))
   (should-not (modus-themes--belongs-to-family-p 'modus-operandi 'my-fancy-themes)))
 
+(ert-deftest mtt-modus-themes-get-all-known-themes ()
+  "Test that `modus-themes-get-all-known-themes' does the right thing."
+  (should (equal (modus-themes-get-all-known-themes) modus-themes-items))
+  (should-not (modus-themes-get-all-known-themes 'my-fancy-themes)))
+
 (ert-deftest mtt-inheritance ()
   "Ensure all faces inherit from valid faces."
   ;; Third-party packages, loaded if possible to better test face inheritance.
