@@ -3785,8 +3785,7 @@ HEX-COLOR-1 and HEX-COLOR-2 are color values written in hexadecimal RGB."
   "Reduce representation of hexadecimal RGB HEX-COLOR from eight to six digits.
 If HEX-COLOR is three or six digits, then return it as is."
   (let ((color-no-hash (substring hex-color 1)))
-    (if (or (= (length color-no-hash) 3)
-            (= (length color-no-hash) 6))
+    (if (memq (length color-no-hash) '(3 6))
         hex-color
       (let* ((triplets (seq-split color-no-hash 4))
              (triplets-shortened (mapcar
