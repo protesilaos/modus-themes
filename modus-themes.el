@@ -3780,8 +3780,13 @@ HEX-COLOR-1 and HEX-COLOR-2 are color values written in hexadecimal RGB."
       (let ((contrast (/ (+ hex1-weight 0.05) (+ hex2-weight 0.05))))
         (max contrast (/ contrast)))
     (error "Both `%s' and `%s' must be valid hexadecimal RGB colors" hex-color-1 hex-color-2)))
+
+(defun modus-themes--color-eight-to-six-digits (hex-color)
+  "Reduce representation of hexadecimal RGB HEX-COLOR from eight to six digits.
+If HEX-COLOR is three or six digits, then return it as is."
   (let ((color-no-hash (substring hex-color 1)))
-    (if (= (length color-no-hash) 6)
+    (if (or (= (length color-no-hash) 3)
+            (= (length color-no-hash) 6))
         hex-color
       (let* ((triplets (seq-split color-no-hash 4))
              (triplets-shortened (mapcar
