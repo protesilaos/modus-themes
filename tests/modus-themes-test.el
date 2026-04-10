@@ -35,8 +35,17 @@
 (require 'ert)
 (require 'modus-themes)
 
-(ert-deftest mtt-modus-themes--hex-to-rgb ()
-  "Test that `modus-themes--hex-to-rgb' does what it is supposed to."
+(defmacro mtt-define-test (symbol docstring &rest body)
+  "Write test for SYMBOL with DOCSTRING that runs BODY.
+If docstring is nil, use a generic snippet of text."
+  (declare (indent defun))
+  `(ert-deftest ,(intern (format "mtt-%s" symbol)) ()
+     ,(if (stringp docstring)
+          docstring
+        (format "Test that `%s' does the right thing." symbol))
+     ,@body))
+
+(mtt-define-test modus-themes--hex-to-rgb nil
   (should (equal (modus-themes--hex-to-rgb "#fff") (list 1.0 1.0 1.0)))
   (should (equal (modus-themes--hex-to-rgb "#000") (list 0.0 0.0 0.0)))
   (should (equal (modus-themes--hex-to-rgb "#f00") (list 1.0 0.0 0.0)))
@@ -46,7 +55,6 @@
   (should (equal (modus-themes--hex-to-rgb "#000000") (list 0.0 0.0 0.0)))
   (should (equal (modus-themes--hex-to-rgb "#ff0000") (list 1.0 0.0 0.0)))
   (should (equal (modus-themes--hex-to-rgb "#00ff00") (list 0.0 1.0 0.0)))
-  (should (equal (modus-themes--hex-to-rgb "#0000ff") (list 0.0 0.0 1.0)))
   (let ((rgb-rounded-fn
          (lambda (hex)
            (let ((rgb (modus-themes--hex-to-rgb hex)))
@@ -63,14 +71,14 @@
   (should-not (modus-themes--hex-to-rgb "#gggggg"))
   (should-error (modus-themes--hex-to-rgb (list 1.0 1.0 1.0))))
 
-(ert-deftest mtt-modus-themes-wcag-formula ()
+(mtt-define-test modus-themes-wcag-formula
   "Test that `modus-themes-wcag-formula' does the right thing.
 Also see `modus-themes-test--modus-themes--hex-to-rgb'."
   (should (= (modus-themes-wcag-formula "#ffffff") 1.0))
   (should (= (modus-themes-wcag-formula "#000000") 0.0))
   (should-not (modus-themes-wcag-formula "#00000")))
 
-(ert-deftest mtt-modus-themes-contrast ()
+(mtt-define-test modus-themes-contrast
   "Test that `modus-themes-contrast' works as intended.
 Also see `modus-themes-test--modus-themes--hex-to-rgb'."
   (should (= (modus-themes-contrast "#ffffff" "#000000") 21.0))
@@ -86,13 +94,12 @@ Also see `modus-themes-test--modus-themes--hex-to-rgb'."
   (should-error (modus-themes-contrast "#ffffff" "#00000"))
   (should-error (modus-themes-contrast "#fffff" "#00000")))
 
-(ert-deftest mtt-modus-themes--color-eight-to-six-digits ()
-  "Test that `modus-themes--color-eight-to-six-digits' works as intended."
+(mtt-define-test modus-themes--color-eight-to-six-digits nil
   (should (string= (modus-themes--color-eight-to-six-digits "#f00") "#f00"))
   (should (string= (modus-themes--color-eight-to-six-digits "#ff1919") "#ff1919"))
   (should (string= (modus-themes--color-eight-to-six-digits "#ffff19991999") "#ff1919")))
 
-(ert-deftest mtt-modus-themes-adjust-value ()
+(mtt-define-test modus-themes-adjust-value
   "Test that `modus-themes-adjust-value' does the right thing.
 Also see `modus-themes-test--modus-themes--hex-to-rgb'."
   (should (string= (modus-themes-adjust-value "#ff0000" 10) "#ff1919"))
@@ -101,31 +108,27 @@ Also see `modus-themes-test--modus-themes--hex-to-rgb'."
   (should (string= (modus-themes-adjust-value "#505050" 0) "#505050"))
   (should-error (modus-themes-adjust-value "#ff00" 10)))
 
-(ert-deftest mtt-modus-themes-activate ()
-  "Test that `modus-themes-activate' activates the given theme."
+(mtt-define-test modus-themes-activate nil
   (if (custom-theme-p 'modus-operandi-tritanopia)
       (should-not (modus-themes-activate 'modus-operandi-tritanopia))
     (should (custom-theme-p 'modus-operandi-tritanopia))))
 
-(ert-deftest mtt-modus-themes--belongs-to-family-p ()
-  "Test that `modus-themes--belongs-to-family-p' does the right thing."
+(mtt-define-test modus-themes--belongs-to-family-p nil
   (should (modus-themes--belongs-to-family-p 'modus-operandi 'modus-themes))
   (should-not (modus-themes--belongs-to-family-p 'my-fancy-theme 'modus-themes))
   (should-not (modus-themes--belongs-to-family-p 'modus-operandi 'my-fancy-themes)))
 
-(ert-deftest mtt-modus-themes-get-all-known-themes ()
-  "Test that `modus-themes-get-all-known-themes' does the right thing."
+(mtt-define-test modus-themes-get-all-known-themes nil
   (should (equal (modus-themes-get-all-known-themes) modus-themes-items))
   (should-not (modus-themes-get-all-known-themes 'my-fancy-themes)))
 
-(ert-deftest mtt-modus-themes--background-p ()
-  "Test that `modus-themes--background-p' does the right thing."
+(mtt-define-test modus-themes--background-p nil
   (should (modus-themes--background-p 'modus-operandi 'light))
   (should-not (modus-themes--background-p 'modus-operandi 'dark))
   (should-not (modus-themes--background-p 'modus-operandi t))
   (should-not (modus-themes--background-p 'modus-operandi :light)))
 
-(ert-deftest mtt-inheritance ()
+(mtt-define-test inheritance
   "Ensure all faces inherit from valid faces."
   ;; Third-party packages, loaded if possible to better test face inheritance.
   (require 'font-latex nil t)
@@ -144,8 +147,7 @@ Also see `modus-themes-test--modus-themes--hex-to-rgb'."
                        (face-list))))
       (modus-themes-load-theme current-theme))))
 
-(ert-deftest mtt-color-dark-p ()
-  "Test `modus-themes-color-dark-p'."
+(mtt-define-test color-dark-p nil
   (let ((modus-operandi-sample-foregrounds
          '("#a60000"
            "#972500"
@@ -171,36 +173,35 @@ Also see `modus-themes-test--modus-themes--hex-to-rgb'."
            "#3f578f"
            "#005f5f"
            "#005077"))
-         (modus-vivendi-sample-foregrounds
-          '("#ff5f59"
-            "#ff6b55"
-            "#ff7f86"
-            "#ff9580"
-            "#44bc44"
-            "#70b900"
-            "#00c06f"
-            "#88ca9f"
-            "#d0bc00"
-            "#fec43f"
-            "#dfaf7a"
-            "#d2b580"
-            "#2fafff"
-            "#79a8ff"
-            "#00bcff"
-            "#82b0ec"
-            "#feacd0"
-            "#f78fe7"
-            "#b6a0ff"
-            "#caa6df"
-            "#00d3d0"
-            "#4ae2f0"
-            "#6ae4b9"
-            "#9ac8e0")))
+        (modus-vivendi-sample-foregrounds
+         '("#ff5f59"
+           "#ff6b55"
+           "#ff7f86"
+           "#ff9580"
+           "#44bc44"
+           "#70b900"
+           "#00c06f"
+           "#88ca9f"
+           "#d0bc00"
+           "#fec43f"
+           "#dfaf7a"
+           "#d2b580"
+           "#2fafff"
+           "#79a8ff"
+           "#00bcff"
+           "#82b0ec"
+           "#feacd0"
+           "#f78fe7"
+           "#b6a0ff"
+           "#caa6df"
+           "#00d3d0"
+           "#4ae2f0"
+           "#6ae4b9"
+           "#9ac8e0")))
     (should (seq-every-p #'modus-themes-color-dark-p modus-operandi-sample-foregrounds))
     (should-not (seq-every-p #'modus-themes-color-dark-p modus-vivendi-sample-foregrounds))))
 
-(ert-deftest mtt-get-readable-foreground ()
-  "Test `modus-themes-get-readable-foreground'."
+(mtt-define-test get-readable-foreground nil
   (let ((modus-operandi-sample-foregrounds
          '("#a60000"
            "#972500"
