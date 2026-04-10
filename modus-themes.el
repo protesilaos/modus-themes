@@ -6308,7 +6308,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(mu4e-view-body-face (( )))
     `(mu4e-warning-face ((,c :foreground ,warning)))
 ;;;;; multiple-cursors
-    `(mc/cursor-bar-face ((,c :height 1 :foreground ,fg-main :background ,bg-main)))
+    `(mc/cursor-bar-face ((,c :height 1 :background ,cursor)))
     `(mc/cursor-face ((,c :inverse-video t)))
     `(mc/region-face ((,c :background ,bg-region :foreground ,fg-region)))
 ;;;;; nerd-icons
