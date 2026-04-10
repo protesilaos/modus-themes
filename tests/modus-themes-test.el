@@ -63,6 +63,12 @@
   (should-not (modus-themes--hex-to-rgb "#gggggg"))
   (should-error (modus-themes--hex-to-rgb (list 1.0 1.0 1.0))))
 
+(ert-deftest mtt-modus-themes-wcag-formula ()
+  "Test that `modus-themes-wcag-formula' does the right thing.
+Also see `modus-themes-test--modus-themes--hex-to-rgb'."
+  (should (= (modus-themes-wcag-formula "#ffffff") 1.0))
+  (should (= (modus-themes-wcag-formula "#000000") 0.0))
+  (should-not (modus-themes-wcag-formula "#00000")))
 (ert-deftest mtt-inheritance ()
   "Ensure all faces inherit from valid faces."
   ;; Third-party packages, loaded if possible to better test face inheritance.

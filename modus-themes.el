@@ -3764,12 +3764,12 @@ ready (per <https://github.com/protesilaos/modus-themes/issues/198>)."
 (defun modus-themes-wcag-formula (hex-color)
   "Get WCAG value of color value HEX-COLOR.
 The value is defined in hexadecimal RGB notation, such #123456."
-  (let ((channels (modus-themes--hex-to-rgb hex-color))
-        (weights '(0.2126 0.7152 0.0722))
-        (contribution nil))
-    (while channels
-      (push (modus-themes--wcag-contribution (pop channels) (pop weights)) contribution))
-    (apply #'+ contribution)))
+  (when-let* ((channels (modus-themes--hex-to-rgb hex-color)))
+    (let ((weights '(0.2126 0.7152 0.0722))
+          (contribution nil))
+      (while channels
+        (push (modus-themes--wcag-contribution (pop channels) (pop weights)) contribution))
+      (apply #'+ contribution))))
 
 ;;;###autoload
 (defun modus-themes-contrast (hex-color-1 hex-color-2)
