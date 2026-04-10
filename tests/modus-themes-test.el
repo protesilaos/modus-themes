@@ -50,7 +50,7 @@ If DOCSTRING is nil, use a generic snippet of text.
        ,docstring
        ,@body)))
 
-(mtt-define-test modus-themes--hex-to-rgb nil
+(mtt-define-test modus-themes--hex-to-rgb
   (should (equal (modus-themes--hex-to-rgb "#fff") (list 1.0 1.0 1.0)))
   (should (equal (modus-themes--hex-to-rgb "#000") (list 0.0 0.0 0.0)))
   (should (equal (modus-themes--hex-to-rgb "#f00") (list 1.0 0.0 0.0)))
@@ -99,7 +99,7 @@ Also see `modus-themes-test--modus-themes--hex-to-rgb'."
   (should-error (modus-themes-contrast "#ffffff" "#00000"))
   (should-error (modus-themes-contrast "#fffff" "#00000")))
 
-(mtt-define-test modus-themes--color-eight-to-six-digits nil
+(mtt-define-test modus-themes--color-eight-to-six-digits
   (should (string= (modus-themes--color-eight-to-six-digits "#f00") "#f00"))
   (should (string= (modus-themes--color-eight-to-six-digits "#ff1919") "#ff1919"))
   (should (string= (modus-themes--color-eight-to-six-digits "#ffff19991999") "#ff1919")))
@@ -113,27 +113,27 @@ Also see `modus-themes-test--modus-themes--hex-to-rgb'."
   (should (string= (modus-themes-adjust-value "#505050" 0) "#505050"))
   (should-error (modus-themes-adjust-value "#ff00" 10)))
 
-(mtt-define-test modus-themes-activate nil
+(mtt-define-test modus-themes-activate
   (if (custom-theme-p 'modus-operandi-tritanopia)
       (should-not (modus-themes-activate 'modus-operandi-tritanopia))
     (should (custom-theme-p 'modus-operandi-tritanopia))))
 
-(mtt-define-test modus-themes--belongs-to-family-p nil
+(mtt-define-test modus-themes--belongs-to-family-p
   (should (modus-themes--belongs-to-family-p 'modus-operandi 'modus-themes))
   (should-not (modus-themes--belongs-to-family-p 'my-fancy-theme 'modus-themes))
   (should-not (modus-themes--belongs-to-family-p 'modus-operandi 'my-fancy-themes)))
 
-(mtt-define-test modus-themes-get-all-known-themes nil
+(mtt-define-test modus-themes-get-all-known-themes
   (should (equal (modus-themes-get-all-known-themes) modus-themes-items))
   (should-not (modus-themes-get-all-known-themes 'my-fancy-themes)))
 
-(mtt-define-test modus-themes--background-p nil
+(mtt-define-test modus-themes--background-p
   (should (modus-themes--background-p 'modus-operandi 'light))
   (should-not (modus-themes--background-p 'modus-operandi 'dark))
   (should-not (modus-themes--background-p 'modus-operandi t))
   (should-not (modus-themes--background-p 'modus-operandi :light)))
 
-(mtt-define-test modus-themes-sort nil
+(mtt-define-test modus-themes-sort
   (let ((first-has-prefix-fn (lambda (themes prefix)
                                (when-let* ((first (car themes))
                                            (name (symbol-name first)))
@@ -160,7 +160,7 @@ Also see `modus-themes-test--modus-themes--hex-to-rgb'."
                        (face-list))))
       (modus-themes-load-theme current-theme))))
 
-(mtt-define-test color-dark-p nil
+(mtt-define-test color-dark-p
   (let ((modus-operandi-sample-foregrounds
          '("#a60000"
            "#972500"
@@ -214,7 +214,7 @@ Also see `modus-themes-test--modus-themes--hex-to-rgb'."
     (should (seq-every-p #'modus-themes-color-dark-p modus-operandi-sample-foregrounds))
     (should-not (seq-every-p #'modus-themes-color-dark-p modus-vivendi-sample-foregrounds))))
 
-(mtt-define-test get-readable-foreground nil
+(mtt-define-test get-readable-foreground
   (let ((modus-operandi-sample-foregrounds
          '("#a60000"
            "#972500"
