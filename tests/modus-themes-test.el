@@ -128,6 +128,22 @@ Also see `modus-themes-test--modus-themes--hex-to-rgb'."
   (should-not (modus-themes--background-p 'modus-operandi t))
   (should-not (modus-themes--background-p 'modus-operandi :light)))
 
+(mtt-define-test modus-themes-sort nil
+  (let ((first-has-prefix-fn (lambda (themes prefix)
+                               (when-let* ((first (car themes))
+                                           (name (symbol-name first)))
+                                 (string-match-p prefix name)))))
+    (should
+     (funcall
+      first-has-prefix-fn
+      (modus-themes-sort (reverse modus-themes-items) 'light)
+      "modus-operandi"))
+    (should
+     (funcall
+      first-has-prefix-fn
+      (modus-themes-sort modus-themes-items 'dark)
+      "modus-vivendi"))))
+
 (mtt-define-test inheritance
   "Ensure all faces inherit from valid faces."
   ;; Third-party packages, loaded if possible to better test face inheritance.
