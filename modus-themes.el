@@ -3748,8 +3748,10 @@ instead of `color-name-to-rgb' to avoid dependence on a display
 connection.  This matters when loading a theme during early init on
 GUI Emacs, where `color-values' returns nil before the display is
 ready (per issue #198)."
-  (mapcar (lambda (x) (/ x 65535.0))
-          (color-values-from-color-spec hex-color)))
+  (mapcar
+   (lambda (x)
+     (/ x 65535.0))
+   (color-values-from-color-spec hex-color)))
 
 ;; This is the WCAG formula: https://www.w3.org/TR/WCAG20-TECHS/G18.html
 (defun modus-themes--wcag-contribution (channel weight)
