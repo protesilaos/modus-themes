@@ -35,15 +35,20 @@
 (require 'ert)
 (require 'modus-themes)
 
-(defmacro mtt-define-test (symbol docstring &rest body)
+(defmacro mtt-define-test (symbol &rest args)
   "Write test for SYMBOL with DOCSTRING that runs BODY.
-If docstring is nil, use a generic snippet of text."
-  (declare (indent defun))
-  `(ert-deftest ,(intern (format "mtt-%s" symbol)) ()
-     ,(if (stringp docstring)
-          docstring
-        (format "Test that `%s' does the right thing." symbol))
-     ,@body))
+If DOCSTRING is nil, use a generic snippet of text.
+
+\(fn NAME [DOCSTRING] BODY...)"
+  (declare (doc-string 2) (indent defun))
+  (let* ((has-docstring (stringp (car args)))
+         (docstring (if has-docstring
+                        (car args)
+                      (format "Test that `%s' does the right thing." symbol)))
+         (body (if has-docstring (cdr args) args)))
+    `(ert-deftest ,(intern (format "mtt-%s" symbol)) ()
+       ,docstring
+       ,@body)))
 
 (mtt-define-test modus-themes--hex-to-rgb nil
   (should (equal (modus-themes--hex-to-rgb "#fff") (list 1.0 1.0 1.0)))
