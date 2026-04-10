@@ -7664,7 +7664,7 @@ inclusive."
                      (modus-themes--hex-to-rgb blended-with-hex)
                      alpha))
          (blend-hex (apply #'color-rgb-to-hex blend-rgb)))
-    (modus-themes--color-six-digits blend-hex)))
+    (modus-themes--color-eight-to-six-digits blend-hex)))
 
 (defun modus-themes-generate-color-warmer (color alpha)
   "Return warmer COLOR by ALPHA, per `modus-themes-generate-color-blend'."
@@ -7677,7 +7677,7 @@ inclusive."
 (defun modus-themes-generate-gradient (color percent)
   "Adjust value of COLOR by PERCENT."
   (let ((gradient (color-lighten-name color percent)))
-    (modus-themes--color-six-digits gradient)))
+    (modus-themes--color-eight-to-six-digits gradient)))
 
 (defun modus-themes-color-warm-p (color)
   "Return non-nil if COLOR is warm.

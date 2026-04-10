@@ -85,6 +85,13 @@ Also see `modus-themes-test--modus-themes--hex-to-rgb'."
     (should (= (funcall float-2-fn "#ff00ff" "#ffffff") 3.14)))
   (should-error (modus-themes-contrast "#ffffff" "#00000"))
   (should-error (modus-themes-contrast "#fffff" "#00000")))
+
+(ert-deftest mtt-modus-themes--color-eight-to-six-digits ()
+  "Test that `modus-themes--color-eight-to-six-digits' works as intended."
+  (should (string= (modus-themes--color-eight-to-six-digits "#f00") "#f00"))
+  (should (string= (modus-themes--color-eight-to-six-digits "#ff1919") "#ff1919"))
+  (should (string= (modus-themes--color-eight-to-six-digits "#ffff19991999") "#ff1919")))
+
 (ert-deftest mtt-modus-themes-adjust-value ()
   "Test that `modus-themes-adjust-value' does the right thing.
 Also see `modus-themes-test--modus-themes--hex-to-rgb'."
