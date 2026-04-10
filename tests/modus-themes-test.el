@@ -35,6 +35,34 @@
 (require 'ert)
 (require 'modus-themes)
 
+(ert-deftest mtt-modus-themes--hex-to-rgb ()
+  "Test that `modus-themes--hex-to-rgb' does what it is supposed to."
+  (should (equal (modus-themes--hex-to-rgb "#fff") (list 1.0 1.0 1.0)))
+  (should (equal (modus-themes--hex-to-rgb "#000") (list 0.0 0.0 0.0)))
+  (should (equal (modus-themes--hex-to-rgb "#f00") (list 1.0 0.0 0.0)))
+  (should (equal (modus-themes--hex-to-rgb "#0f0") (list 0.0 1.0 0.0)))
+  (should (equal (modus-themes--hex-to-rgb "#00f") (list 0.0 0.0 1.0)))
+  (should (equal (modus-themes--hex-to-rgb "#ffffff") (list 1.0 1.0 1.0)))
+  (should (equal (modus-themes--hex-to-rgb "#000000") (list 0.0 0.0 0.0)))
+  (should (equal (modus-themes--hex-to-rgb "#ff0000") (list 1.0 0.0 0.0)))
+  (should (equal (modus-themes--hex-to-rgb "#00ff00") (list 0.0 1.0 0.0)))
+  (should (equal (modus-themes--hex-to-rgb "#0000ff") (list 0.0 0.0 1.0)))
+  (let ((rgb-rounded-fn
+         (lambda (hex)
+           (let ((rgb (modus-themes--hex-to-rgb hex)))
+             (mapcar (lambda (float) (string-to-number (format "%.2f" float))) rgb)))))
+    (should (equal (funcall rgb-rounded-fn "#800000") (list 0.5 0.0 0.0)))
+    (should (equal (funcall rgb-rounded-fn "#008000") (list 0.0 0.5 0.0)))
+    (should (equal (funcall rgb-rounded-fn "#000080") (list 0.0 0.0 0.5))))
+  (should-not (modus-themes--hex-to-rgb ""))
+  (should-not (modus-themes--hex-to-rgb "#"))
+  (should-not (modus-themes--hex-to-rgb "#1"))
+  (should-not (modus-themes--hex-to-rgb "#12"))
+  (should-not (modus-themes--hex-to-rgb "#1234"))
+  (should-not (modus-themes--hex-to-rgb "#12345"))
+  (should-not (modus-themes--hex-to-rgb "#gggggg"))
+  (should-error (modus-themes--hex-to-rgb (list 1.0 1.0 1.0))))
+
 (ert-deftest mtt-inheritance ()
   "Ensure all faces inherit from valid faces."
   ;; Third-party packages, loaded if possible to better test face inheritance.
