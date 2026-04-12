@@ -60,6 +60,7 @@ Else provide a generic snippet of text."
   (should (equal (modus-themes--hex-to-rgb "#000000") (list 0.0 0.0 0.0)))
   (should (equal (modus-themes--hex-to-rgb "#ff0000") (list 1.0 0.0 0.0)))
   (should (equal (modus-themes--hex-to-rgb "#00ff00") (list 0.0 1.0 0.0)))
+  ;; NOTE 2026-04-12: I do not need it to be precise here, hence the `format'.
   (let ((rgb-rounded-fn
          (lambda (hex)
            (let ((rgb (modus-themes--hex-to-rgb hex)))
@@ -88,8 +89,8 @@ Also see `modus-themes-test--modus-themes--hex-to-rgb'."
 Also see `modus-themes-test--modus-themes--hex-to-rgb'."
   (should (= (modus-themes-contrast "#ffffff" "#000000") 21.0))
   (should (= (modus-themes-contrast "#000000" "#ffffff") 21.0))
-  (let ((float-2-fn (lambda (hex1 hex2)
-                      (string-to-number (format "%.2f" (modus-themes-contrast hex1 hex2))))))
+  ;; NOTE 2026-04-12: I do not need it to be precise here, hence the `format'.
+  (let ((float-2-fn (lambda (hex1 hex2) (string-to-number (format "%.2f" (modus-themes-contrast hex1 hex2))))))
     (should (= (funcall float-2-fn "#ff0000" "#ffffff")  4.0))
     (should (= (funcall float-2-fn "#00ff00" "#ffffff") 1.37))
     (should (= (funcall float-2-fn "#0000ff" "#ffffff") 8.59))
