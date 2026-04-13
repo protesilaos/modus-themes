@@ -3976,7 +3976,12 @@ Return THEME."
   (run-hooks (or hook 'modus-themes-after-load-theme-hook))
   theme)
 
-(defun modus-themes--retrieve-palette-value (color palette)
+(define-obsolete-function-alias
+  'modus-themes--retrieve-palette-value
+  'modus-themes-retrieve-palette-value
+  "5.3.0")
+
+(defun modus-themes-retrieve-palette-value (color palette)
   "Return COLOR from PALETTE.
 Use recursion until COLOR is retrieved as a string.  Refrain from
 doing so if the value of COLOR is not a key in the PALETTE.
@@ -3992,7 +3997,7 @@ This function is used in the macro `modus-themes-theme'"
       value)
      ((and (symbolp value)
            value)
-      (modus-themes--retrieve-palette-value value palette))
+      (modus-themes-retrieve-palette-value value palette))
      (t
       'unspecified))))
 
@@ -4018,7 +4023,7 @@ symbol, which is safe when used as a face attribute's value."
   (when theme
     (modus-themes-activate theme))
   (if-let* ((palette (modus-themes-get-theme-palette theme with-overrides :with-user-palette))
-            (value (modus-themes--retrieve-palette-value color palette)))
+            (value (modus-themes-retrieve-palette-value color palette)))
       value
     'unspecified))
 
@@ -7509,7 +7514,7 @@ Consult the manual for details on how to build a theme on top of the
                ,@(mapcar
                   (lambda (entry)
                     (let ((name (car entry)))
-                      (list name `(modus-themes--retrieve-palette-value ',name palette))))
+                      (list name `(modus-themes-retrieve-palette-value ',name palette))))
                   palette))
           (custom-theme-set-faces
            ',name
