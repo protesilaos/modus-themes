@@ -570,7 +570,7 @@ reloaded for changes to take effect.
       modus-themes-org-blocks 'gray-background ; {nil,'gray-background,'tinted-background}
 
       ;; The `modus-themes-headings' is an alist: read the manual's
-      ;; node about it or its doc string.  Basically, it supports
+      ;; node about it or its docstring.  Basically, it supports
       ;; per-level configurations for the optional use of
       ;; `variable-pitch' typography, a height value as a multiple of
       ;; the base font size (e.g. 1.5), and a `WEIGHT'.
@@ -3174,7 +3174,7 @@ faces respectively.  It may also be convenient to set your main typeface
 by configuring the ~default~ face the same way.
 
 Put something like this in your initialization file (also consider
-reading the doc string of ~set-face-attribute~):
+reading the docstring of ~set-face-attribute~):
 
 #+begin_src emacs-lisp
 ;; Main typeface
@@ -5671,7 +5671,7 @@ render the affected text with the ~italic~ face:
 
 Org can work with inline latex and related syntax.  To actually fontify
 those constructs, set the variable ~org-highlight-latex-and-related~ to
-the desired list of values (per its doc string).  For example:
+the desired list of values (per its docstring).  For example:
 
 #+begin_src emacs-lisp
 (setq org-highlight-latex-and-related '(latex script))
@@ -5792,7 +5792,7 @@ To reuse colors from the themes, we must wrap our code in the
 the variables ~highlight-parentheses-background-colors~ and/or
 ~highlight-parentheses-colors~.
 
-So we can have something like this (the doc string of
+So we can have something like this (the docstring of
 ~modus-themes-with-colors~ explains where the names of the colors can be
 found):
 
@@ -6098,7 +6098,7 @@ Emacs' HTML rendering library ({{{file(shr.el)}}}) may need explicit
 configuration to respect the theme's colors instead of whatever
 specifications the webpage provides.
 
-Consult the doc string of ~shr-use-colors~.
+Consult the docstring of ~shr-use-colors~.
 
 ** Note on SHR fonts
 :properties:
