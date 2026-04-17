@@ -429,7 +429,8 @@ package configurations in their setup.  We use this as an example:
   :init
   (require-theme 'modus-themes) ; `require-theme' is ONLY for the built-in Modus themes
   :config
-  ;; Add all your customizations prior to loading the themes
+  ;; Your customizations here.  All customizations must evaluated
+  ;; BEFORE loading the theme.
   (setq modus-themes-italic-constructs t
         modus-themes-bold-constructs nil)
 
@@ -444,7 +445,8 @@ package configurations in their setup.  We use this as an example:
 (use-package modus-themes
   :ensure t
   :config
-  ;; Add all your customizations prior to loading the themes
+  ;; Your customizations here.  All customizations must evaluated
+  ;; BEFORE loading the theme.
   (setq modus-themes-italic-constructs t
         modus-themes-bold-constructs nil)
 
@@ -459,7 +461,8 @@ The same without ~use-package~:
 #+begin_src emacs-lisp
 (require 'modus-themes) ; OR for the built-in themes: (require-theme 'modus-themes)
 
-;; Add all your customizations prior to loading the themes
+;; Your customizations here.  All customizations must evaluated
+;; BEFORE loading the theme.
 (setq modus-themes-italic-constructs t
       modus-themes-bold-constructs nil)
 

@@ -67,7 +67,8 @@ The manual has a section about building on top of Modus. My
    ("C-<f5>" . modus-themes-select)
    ("M-<f5>" . modus-themes-load-random))
   :config
-  ;; Your customizations here:
+  ;; Your customizations here.  All customizations must evaluated
+  ;; BEFORE loading the theme.
   (setq modus-themes-to-toggle '(modus-operandi modus-vivendi)
         modus-themes-to-rotate modus-themes-items
         modus-themes-mixed-fonts t
