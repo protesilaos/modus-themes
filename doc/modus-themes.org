@@ -585,7 +585,7 @@ reloaded for changes to take effect.
 ;; document extensively in this manual.
 #+end_src
 
-** Option for disabling other themes while loading Modus
+** Option to disable other themes when loading a Modus theme
 :properties:
 :alt_title: Disable other themes
 :description: Determine whether loading a Modus themes disables all others
