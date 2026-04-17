@@ -6960,6 +6960,8 @@ If COLOR is unspecified, then return :box unspecified."
     `(tab-bar-tab-ungrouped ((,c :background ,bg-tab-other ,@(modus-themes--box bg-tab-other -2 nil))))
 ;;;;; tab-line-mode
     `(tab-line ((,c :inherit modus-themes-ui-variable-pitch :background ,bg-tab-bar :height 0.95)))
+    `(tab-line-active ((,c :inherit modus-themes-ui-variable-pitch :background ,bg-tab-bar)))
+    `(tab-line-inactive ((,c :inherit modus-themes-ui-variable-pitch :background ,bg-dim)))
     `(tab-line-close-highlight ((,c :foreground ,err)))
     `(tab-line-highlight ((,c :background ,bg-hover :foreground ,fg-main)))
     `(tab-line-tab (( )))
