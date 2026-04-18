@@ -7092,6 +7092,8 @@ If COLOR is unspecified, then return :box unspecified."
     `(treemacs-window-background-face ((,c :background ,bg-main)))
     `(treemacs-nerd-icons-root-face ((,c :foreground ,accent-0)))
     `(treemacs-nerd-icons-file-face ((,c :foreground ,accent-0)))
+;;;;; trust-manager
+    `(trust-manager-untrusted-indicator ((,c :inherit modus-themes-bold :foreground ,modeline-err)))
 ;;;;; tty-menu
     `(tty-menu-disabled-face ((,c :background ,bg-inactive :foreground ,fg-dim)))
     `(tty-menu-enabled-face ((,c :inherit bold :background ,bg-inactive :foreground ,fg-main)))
