@@ -5351,6 +5351,12 @@ If COLOR is unspecified, then return :box unspecified."
     `(elfeed-search-title-face ((,c :foreground ,fg-dim)))
     `(elfeed-search-unread-count-face (( )))
     `(elfeed-search-unread-title-face ((,c :inherit bold :foreground ,fg-main)))
+    `(elfeed-show-entry-header-face ((,c :inherit modus-themes-bold)))
+    `(elfeed-show-entry-title-face ((,c :inherit modus-themes-bold :foreground ,mail-subject)))
+    `(elfeed-show-entry-author-face ((,c :foreground ,mail-recipient)))
+    `(elfeed-show-entry-date-face ((,c :foreground ,date-common)))
+    `(elfeed-show-entry-feed-face ((,c :foreground ,accent-1)))
+    `(elfeed-show-entry-tags-face ((,c :foreground ,accent-0)))
 ;;;;; elfeed-score
     `(elfeed-score-date-face ((,c :foreground ,date-common)))
     `(elfeed-score-debug-level-face ((,c :inherit modus-themes-bold)))
