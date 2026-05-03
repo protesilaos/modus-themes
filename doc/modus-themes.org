@@ -490,29 +490,18 @@ load and subsequently blend color themes.
 :DESCRIPTION: Toggle bold constructs in code
 :CUSTOM_ID: h:b25714f6-0fbe-41f6-89b5-6912d304091e
 :END:
+
 #+vindex: modus-themes-bold-constructs
+The user option ~modus-themes-bold-constructs~ controls whether
+several elements across different interfaces use a decorative bold
+weight. By default, when the value of this user option is set to
+~nil~, Modus themes use bold only where necessary.
 
-Brief: Use bold for code syntax highlighting and related.
-
-Symbol: ~modus-themes-bold-constructs~ (=boolean= type)
-
-Possible values:
-
-1. ~nil~ (default)
-2. ~t~
-
-The default is to use a bold typographic weight only when it is
-required.
-
-With a non-~nil~ value (~t~) display several syntactic constructs in
-bold weight.  This concerns keywords and other important aspects of
-code syntax.  It also affects certain mode line indicators and command
-prompts.
-
-Advanced users may also want to configure the exact attributes of the
-~bold~ face.
-
-[[#h:2793a224-2109-4f61-a106-721c57c01375][Configure bold and italic faces]].
+Modus is designed to apply the ~bold~ face in such cases. This means
+that users can modify that face directly, such as to make its weight
+heavier or use a different font family ([[#h:2793a224-2109-4f61-a106-721c57c01375][Configure bold and italic faces]]).
+Once that is done, everything that Modus renders in a bold weight will
+exhibit those exact styles.
 
 ** Option for more italic constructs
 :PROPERTIES:
