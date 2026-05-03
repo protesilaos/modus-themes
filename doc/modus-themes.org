@@ -169,7 +169,7 @@ themes in {{{file(~/.emacs.d/modus-themes)}}}. If you are using Emacs
    snippet of Emacs Lisp in your init file (e.g. {{{file(init.el)}}}):
 
 #+begin_src emacs-lisp
-(add-to-list 'load-path "~/.emacs.d/modus-themes")
+(add-to-list 'load-path "~/.emacs.d/modus-themes/")
 #+end_src
 
 The themes are now ready to be used: [[#h:3f3c3728-1b34-437d-9d0c-b110f5b161a9][Enable and load]].
@@ -238,8 +238,8 @@ does not mean I am necessarily doing something wrong.
 #+cindex: use-package configuration
 #+cindex: sample configuration
 
-It is common for Emacs users to rely on ~use-package~ for declaring
-package configurations in their setup ([[#h:b66b128d-54a4-4265-b59f-4d1ea2feb073][The ~require-theme~ for built-in Emacs themes]]):
+It is common for Emacs users to rely on ~use-package~ to declare
+package configurations ([[#h:b66b128d-54a4-4265-b59f-4d1ea2feb073][The ~require-theme~ for built-in Emacs themes]]):
 
 #+begin_src emacs-lisp
 (use-package modus-themes
@@ -365,8 +365,8 @@ The commands ~modus-themes-toggle~, ~modus-themes-rotate~,
   accordingly.
 
 - ~modus-themes-load-random~ :: Loads a Modus theme at random. When
-  called with a prefix argument, it behaves like the aforementioned
-  ~modus-themes-select~.
+  called with a prefix argument, it prompts for the light or dark
+  subset to load a theme from.
 
 Convenience commands for loading only dark or light themes are:
 
@@ -388,12 +388,17 @@ Convenience commands for loading only dark or light themes are:
 :END:
 #+cindex: load-theme VS enable-theme
 
+#+findex: load-theme
+#+findex: enable-theme
 #+vindex: custom-enabled-themes
-Emacs differentiates between loading and enabling a theme. The former
-refers to the process of loading and evaluating the theme. While the
-latter is about moving the given theme to the front of the
-~custom-enabled-themes~. Concretely, loading a theme always aaccounts
-for the user options and updates the presentation accordingly
+Emacs differentiates between loading, per ~load-theme~, and enabling a
+theme per ~enable-theme~. The former refers to the process of loading
+and evaluating the theme. While the latter is about moving the given
+theme to the front of the ~custom-enabled-themes~, without evaluating
+it anew.
+
+Concretely, loading a theme always accounts for changes to user
+options and thus updates the relevant styles accordingly
 ([[#h:bf1c82f2-46c7-4eb2-ad00-dd11fdd8b53f][Customization Options]]). Whereas enabling a theme will not perform any
 further computations.
 
@@ -407,12 +412,15 @@ further computations.
 :END:
 
 The Modus themes are highly configurable, though they should work well
-without any further tweaks.  I provide a variety of user options.
-The following code block provides an overview.  In addition to those
-variables, the themes support a comprehensive system of overrides: it
-can be used to make thoroughgoing changes to the looks of the themes
-([[#h:34c7a691-19bb-4037-8d2f-67a07edab150][Option for palette overrides]]).  I document everything at length in
-the pages of this manual and also provide ready-to-use code samples.
+without any tweaks. I provide a variety of user options, making these
+perhaps the most customizable themes available. The following code
+block provides an overview.
+
+The Modus themes support palette overrides. Those can be used to make
+thoroughgoing changes to the looks of the themes, to the point where a
+given theme looks completely different from how I have designed it
+([[#h:34c7a691-19bb-4037-8d2f-67a07edab150][Option for palette overrides]]). I document everything at length in the
+pages of this manual and also provide ready-to-use code samples.
 
 Remember that all customization options must be evaluated before loading
 a theme ([[#h:3f3c3728-1b34-437d-9d0c-b110f5b161a9][Enable and load]]).  If the theme is already active, it must be
@@ -443,8 +451,6 @@ reloaded for changes to take effect.
       '((matches . (extrabold))
         (selection . (semibold italic text-also)))
 
-      modus-themes-org-blocks 'gray-background ; {nil,'gray-background,'tinted-background}
-
       ;; The `modus-themes-headings' is an alist: read the manual's
       ;; node about it or its docstring.  Basically, it supports
       ;; per-level configurations for the optional use of
@@ -457,8 +463,8 @@ reloaded for changes to take effect.
         (agenda-structure . (variable-pitch light 1.8))
         (t . (1.1))))
 
-;; Remember that more (MUCH MORE) can be done with overrides, which I
-;; document extensively in this manual.
+;; Remember that more (MUCH MORE) can be done with palette overrides,
+;; which I document extensively in this manual.
 #+end_src
 
 ** Option to disable other color themes when loading a Modus theme
