@@ -542,29 +542,14 @@ include all themes returned by the function ~modus-themes-get-themes~
 :CUSTOM_ID: h:a10c0202-3683-4fad-9897-433c25e255f6
 :END:
 
-#+findex: modus-themes-rotate
-Brief: Specify which themes to rotate through when using the command
-~modus-themes-rotate~.
-
 #+vindex: modus-themes-to-rotate
-Symbol: ~modus-themes-to-rotate~ (=list= type)
-
-Default value: nil
-
-Possible values:
-
-#+vindex: modus-themes-items
-- Any of the themes listed in the value of the variable ~modus-themes-items~.
-#+findex: modus-themes-get-themes
-- Any of the themes returned by the function ~modus-themes-get-themes~
-  ([[#h:86eb375b-9be4-43ce-879a-0686a524a63b][Build on top of the Modus themes]]).
-
-#+findex: modus-themes-get-themes
-When the value is a list of themes, ~modus-themes-rotate~ will go
-through them from left to right. With an optional prefix argument
-({{{kbd(C-u)}}} by default), it will move in reverse. If the value is
-~nil~, the command will perform the same action for all the themes
-returned by the function ~modus-themes-get-themes~.
+#+findex: modus-themes-rotate
+The user option ~modus-themes-to-rotate~ controls which themes will
+the command ~modus-themes-rotate~ cycle between in rotation from left
+to right. When ~modus-themes-rotate~ is called with an optional prefix
+argument ({{{kbd(C-u)}}} by default), it will move from right to left.
+Possible values include all themes returned by the function
+~modus-themes-get-themes~ ([[#h:86eb375b-9be4-43ce-879a-0686a524a63b][Build on top of the Modus themes]]).
 
 ** Option for font mixing
 :PROPERTIES:
