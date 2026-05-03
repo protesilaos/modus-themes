@@ -473,39 +473,16 @@ reloaded for changes to take effect.
 :DESCRIPTION: Determine whether loading a Modus themes disables all others
 :CUSTOM_ID: h:adb0c49a-f1f9-4690-868b-013a080eed68
 :END:
+
 #+vindex: modus-themes-disable-other-themes
+The user option ~modus-themes-disable-other-themes~ makes Modus
+commands that load a theme automatically disable all other color
+themes ([[#h:3f3c3728-1b34-437d-9d0c-b110f5b161a9][Enable and load]]). This is to ensure that Emacs does not blend
+two or more color themes, which it will otherwise do. Blending
+different color themes seldom leads to good results.
 
-Brief: Disable all other color themes when loading a Modus theme.
-
-Symbol: ~modus-themes-disable-other-themes~ (=boolean= type)
-
-Possible values:
-
-1. ~nil~
-2. ~t~ (default)
-
-#+findex: modus-themes-toggle
-#+findex: modus-themes-rotate
-#+findex: modus-themes-load-random
-#+findex: modus-themes-select
-#+findex: modus-themes-load-theme
-When the value is non-~nil~, the commands ~modus-themes-toggle~,
-~modus-themes-rotate~, ~modus-themes-load-random~, and
-~modus-themes-select~, as well as the ~modus-themes-load-theme~
-function (and any related convenience wrappers like
-~modus-themes-load-random-dark~), will disable all other themes while
-loading the specified Modus theme ([[#h:4fbfed66-5a89-447a-a07d-a03f6819c5bd][Option for which themes to toggle]]).
-This is done to ensure that Emacs does not blend two or more themes:
-such blends lead to awkward results that undermine the work of the
-designer.
-
-When the value is ~nil~, the aforementioned commands and function will
-only disable other themes within the Modus collection.
-
-This option is provided because Emacs themes are not necessarily
-limited to colors/faces: they can consist of an arbitrary set of
-customizations.  Users who use such customization bundles must set
-this variable to a ~nil~ value.
+This user option is enabled by default. Set it to ~nil~ if you want to
+load and subsequently blend color themes.
 
 ** Option for more bold constructs
 :PROPERTIES:
