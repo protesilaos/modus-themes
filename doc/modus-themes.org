@@ -529,18 +529,13 @@ exhibit those exact styles.
 :CUSTOM_ID: h:4fbfed66-5a89-447a-a07d-a03f6819c5bd
 :END:
 
-#+findex: modus-themes-toggle
-Brief: Specify which two themes to toggle between when using the command
-~modus-themes-toggle~.
-
 #+vindex: modus-themes-to-toggle
-Symbol: ~modus-themes-to-toggle~ (=list= type)
-
-Default value: ='(modus-operandi modus-vivendi)=
-
+#+findex: modus-themes-toggle
 #+findex: modus-themes-get-themes
-Possible values include all themes returned by the function
-~modus-themes-get-themes~.
+The user option ~modus-themes-to-toggle~ controls which themes will
+the command ~modus-themes-toggle~ switch between. Possible values
+include all themes returned by the function ~modus-themes-get-themes~
+([[#h:86eb375b-9be4-43ce-879a-0686a524a63b][Build on top of the Modus themes]]).
 
 ** Option for which themes to rotate
 :PROPERTIES:
