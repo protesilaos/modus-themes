@@ -101,6 +101,10 @@ This is not an exhaustive list. You are welcome to add your package here.
 - `faff-theme` (since version 4) by James Ferguson <https://github.com/WJCFerguson/emacs-faff-theme>
 - `modus-catpuccin` by Magnus Therning <https://gitlab.com/magus/modus-catppuccin>
 
+## Other Emacs packages based on Modus
+
+- `modus-themes-exporter` by Protesilaos <https://github.com/protesilaos/modus-themes-exporter>
+
 ## Projects inspired by the Modus themes
 
 This is not an exhaustive list. You are welcome to add your project here.
