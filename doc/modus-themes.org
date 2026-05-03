@@ -557,29 +557,24 @@ Possible values include all themes returned by the function
 :DESCRIPTION: Toggle mixing of font families
 :CUSTOM_ID: h:115e6c23-ee35-4a16-8cef-e2fcbb08e28b
 :END:
+
 #+vindex: modus-themes-mixed-fonts
+The user option ~modus-themes-mixed-fonts~ sets up Modus to render
+spacing-sensitive elements, such as Org tables and code blocks, in a
+monospaced font. It does so when it is set to a non-~nil~ value.
 
-Brief: Toggle the use of monospaced fonts for spacing-sensitive
-constructs (affects font families).
+Then, it is possible for users to rely on the built-in {{{kbd(M-x
+variable-pitch-mode)}}}. ~variable-pitch-mode~ sets the current buffer
+to a proportionately spaced font, but it will not affect the elements
+that Modus renders in an explicitly monospaced way.
 
-Symbol: ~modus-themes-mixed-fonts~ (=boolean= type)
+If ~modus-themes-mixed-fonts~ is set to ~nil~ (the default), buffers
+that have ~variable-pitch-mode~ enabled may appear broken wherever
+spacing-sensitive elements are present.
 
-Possible values:
-
-1. ~nil~ (default)
-2. ~t~
-
-When set to non-~nil~ (~t~), configure some spacing-sensitive faces like Org
-tables and code blocks to always inherit from the ~fixed-pitch~ face.
-This is to ensure that certain constructs like code blocks and tables
-remain monospaced even when users opt for a mode that remaps typeface
-families, such as the built-in {{{kbd(M-x variable-pitch-mode)}}}.  Otherwise
-the layout can appear broken, due to how spacing is done.
-
-For a consistent experience, user may need to specify the font family of
-the ~fixed-pitch~ face.
-
-[[#h:defcf4fc-8fa8-4c29-b12e-7119582cc929][Font configurations for Org and others]].
+For a consistent typographic experience, user may need to specify the
+font family of the ~default~, ~fixed-pitch~, and ~variable-pitch~
+faces ([[#h:defcf4fc-8fa8-4c29-b12e-7119582cc929][Font configurations for Org and others]]).
 
 ** Option for command prompt styles
 :PROPERTIES:
