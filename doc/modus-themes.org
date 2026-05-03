@@ -509,27 +509,20 @@ exhibit those exact styles.
 :DESCRIPTION: Toggle italic font constructs in code
 :CUSTOM_ID: h:977c900d-0d6d-4dbb-82d9-c2aae69543d6
 :END:
+
 #+vindex: modus-themes-italic-constructs
+The user option ~modus-themes-italic-constructs~ controls whether
+several elements across different interfaces use a decorative italic
+style, which typically is expressed as slanted text. By default, when
+the value of this user option is set to ~nil~, Modus themes use italic
+only where necessary.
 
-Brief: Use italics for code syntax highlighting and related.
-
-Symbol: ~modus-themes-italic-constructs~ (=boolean= type)
-
-Possible values:
-
-1. ~nil~ (default)
-2. ~t~
-
-The default is to not use slanted text forms (italics) unless it is
-absolutely necessary.
-
-With a non-~nil~ value (~t~) choose to render more faces in italics.  This
-typically affects documentation strings and code comments.
-
-Advanced users may also want to configure the exact attributes of the
-~italic~ face.
-
-[[#h:2793a224-2109-4f61-a106-721c57c01375][Configure bold and italic faces]].
+Modus is designed to apply the ~italic~ face in such cases. This means
+that users can modify that face directly, such as to change its slant,
+if that is supported by the underlying font family, or simply a
+different font family than the main font ([[#h:2793a224-2109-4f61-a106-721c57c01375][Configure italic and italic faces]]).
+Once that is done, everything that Modus renders in italics will
+exhibit those exact styles.
 
 ** Option for which themes to toggle
 :PROPERTIES:
