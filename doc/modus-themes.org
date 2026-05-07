@@ -148,7 +148,7 @@ The Modus themes are distributed with Emacs starting with version
 
 Emacs 28 ships with ~modus-themes~ version =1.6.0=. Emacs 29 includes
 version =3.0.0=. Emacs 30 provides version =4.4.0=, while Emacs 31 has
-version =5.2.0= (soon to be updated to {{{development-version}}}).
+version =5.2.0=.
 
 ** Install manually from source
 :PROPERTIES:
