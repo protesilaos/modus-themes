@@ -188,10 +188,7 @@ properties from their context (e.g. an overlay over an underlined
 text should not be underlined as well) yet still blend in."
   :group 'modus-themes-faces)
 
-(make-obsolete-variable
- 'modus-themes-prompt
- "Prompts are now bold if `modus-themes-bold-constructs' is non-nil"
- "5.3.0")
+(define-obsolete-face-alias 'modus-themes-prompt nil "5.3.0")
 
 (defface modus-themes-button nil
   "Face for graphical buttons."
