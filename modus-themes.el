@@ -188,9 +188,10 @@ properties from their context (e.g. an overlay over an underlined
 text should not be underlined as well) yet still blend in."
   :group 'modus-themes-faces)
 
-(defface modus-themes-prompt nil
-  "Generic face for command prompts."
-  :group 'modus-themes-faces)
+(make-obsolete-variable
+ 'modus-themes-prompt
+ "Prompts are now bold if `modus-themes-bold-constructs' is non-nil"
+ "5.3.0")
 
 (defface modus-themes-button nil
   "Face for graphical buttons."
@@ -562,40 +563,10 @@ Is the same as:
                      (const :tag "Underline" underline))))
   :link '(info-link "(modus-themes) Completion UIs"))
 
-(defcustom modus-themes-prompts nil
-  "Use subtle or intense styles for minibuffer and REPL prompts.
-
-The value is a list of properties, each designated by a symbol.
-The default (a nil value or an empty list) means to only use a
-subtle colored foreground color.
-
-The `italic' property adds a slant to the font's forms (italic or
-oblique forms, depending on the typeface).
-
-The symbol of a font weight attribute such as `light', `semibold',
-et cetera, adds the given weight to links.  Valid symbols are
-defined in the variable `modus-themes-weights'.  The absence of a
-weight means that the one of the underlying text will be used.
-
-Combinations of any of those properties are expressed as a list,
-like in these examples:
-
-    (bold italic)
-    (italic semibold)
-
-The order in which the properties are set is not significant.
-
-In user configuration files the form may look like this:
-
-    (setq modus-themes-prompts (quote (extrabold italic)))"
-  :group 'modus-themes
-  :package-version '(modus-themes . "4.0.0")
-  :version "30.1"
-  :type `(set :tag "Properties" :greedy t
-              (const :tag "Italic font slant" italic)
-              ,modus-themes--weight-widget)
-  :link '(info-link "(modus-themes) Command prompts"))
-
+(make-obsolete-variable
+ 'modus-themes-prompts
+ "Prompts are now bold if `modus-themes-bold-constructs' is non-nil"
+ "5.3.0")
 
 (defcustom modus-themes-common-palette-user nil
   "Common user-defined colors to extend all the themes' palettes.
@@ -4512,32 +4483,6 @@ list given LIST-PRED, using DEFAULT as a fallback."
   (when modus-themes-variable-pitch-ui
     (list :inherit 'variable-pitch)))
 
-(defun modus-themes--prompt (fg bg)
-  "Conditional use of colors for text prompt faces.
-FG is the prompt's standard foreground.  BG is a background
-color that is combined with FG-FOR-BG."
-  (let* ((properties (modus-themes--list-or-warn 'modus-themes-prompts))
-         (weight (modus-themes--weight properties)))
-    (list :inherit
-          (cond
-           ((and (memq 'bold properties)
-                 (memq 'italic properties))
-            'bold-italic)
-           ((memq 'italic properties)
-            'italic)
-           ((memq 'bold properties)
-            'bold)
-           ('unspecified))
-          :background bg
-          :foreground fg
-          :weight
-          ;; If we have `bold' specifically, we inherit the face of
-          ;; the same name.  This allows the user to customise that
-          ;; face, such as to change its font family.
-          (if (and weight (not (eq weight 'bold)))
-              weight
-            'unspecified))))
-
 (defconst modus-themes-weights
   '( thin ultralight extralight light semilight regular medium
      semibold bold heavy extrabold ultrabold)
@@ -4689,7 +4634,6 @@ If COLOR is unspecified, then return :box unspecified."
        (((supports :box t))
         ,@(modus-themes--box border 1 'released-button))
        (t :underline ,border)))
-    `(modus-themes-prompt ((,c ,@(modus-themes--prompt fg-prompt bg-prompt))))
     `(modus-themes-reset-soft ((,c :background ,bg-main :foreground ,fg-main
                                    :weight normal :slant normal :strike-through nil
                                    :box nil :underline nil :overline nil :extend nil)))
@@ -4713,7 +4657,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(buffer-menu-buffer ((,c :foreground ,name)))
     `(child-frame-border ((,c :background ,border)))
     `(comint-highlight-input ((,c :inherit modus-themes-bold)))
-    `(comint-highlight-prompt ((,c :inherit modus-themes-prompt)))
+    `(comint-highlight-prompt ((,c :inherit bold :background ,bg-prompt :foreground ,fg-prompt)))
     `(confusingly-reordered ((,c :underline (:style wave :color ,underline-err))))
     `(edmacro-label ((,c :inherit modus-themes-bold :foreground ,accent-0)))
     `(error ((,c :inherit modus-themes-bold :foreground ,err)))
@@ -4731,7 +4675,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(nobreak-hyphen ((,c :foreground ,err)))
     `(nobreak-space ((,c :foreground ,err :underline t)))
     `(menu ((,c :inverse-video unspecified :background ,bg-active :foreground ,fg-main)))
-    `(minibuffer-prompt ((,c :inherit modus-themes-prompt)))
+    `(minibuffer-prompt ((,c :inherit bold :background ,bg-prompt :foreground ,fg-prompt)))
     `(minibuffer-nonselected ((,c :inverse-video t)))
     `(mm-command-output ((,c :foreground ,mail-part)))
     `(mm-uu-extract ((,c :foreground ,mail-part)))
@@ -4988,14 +4932,14 @@ If COLOR is unspecified, then return :box unspecified."
     `(cider-fringe-good-face ((,c :foreground ,info)))
     `(cider-instrumented-face ((,c :box ,err)))
     `(cider-reader-conditional-face ((,c :inherit modus-themes-bold :foreground ,type)))
-    `(cider-repl-prompt-face ((,c :inherit modus-themes-prompt)))
+    `(cider-repl-prompt-face ((,c :inherit bold :background ,bg-prompt :foreground ,fg-prompt)))
     `(cider-repl-stderr-face ((,c :foreground ,err)))
     `(cider-repl-stdout-face (( )))
     `(cider-warning-highlight-face ((,c :underline (:style wave :color ,underline-warning))))
 ;;;;; circe (and lui)
     `(circe-fool-face ((,c :foreground ,fg-dim)))
     `(circe-highlight-nick-face ((,c :foreground ,err)))
-    `(circe-prompt-face ((,c :inherit modus-themes-prompt)))
+    `(circe-prompt-face ((,c :inherit bold :background ,bg-prompt :foreground ,fg-prompt)))
     `(circe-server-face ((,c :foreground ,fg-dim)))
     `(lui-button-face ((,c :background ,bg-link :foreground ,fg-link :underline ,underline-link)))
     `(lui-highlight-face ((,c :foreground ,err)))
@@ -5475,7 +5419,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(erc-nick-prefix-face ((,c :inherit erc-nick-default-face)))
     `(erc-notice-face ((,c :inherit modus-themes-slant :foreground ,comment)))
     `(erc-pal-face ((,c :inherit modus-themes-bold :foreground ,accent-1)))
-    `(erc-prompt-face ((,c :inherit modus-themes-prompt)))
+    `(erc-prompt-face ((,c :inherit bold :background ,bg-prompt :foreground ,fg-prompt)))
     `(erc-timestamp-face ((,c :foreground ,date-common)))
     `(erc-underline-face ((,c :inherit underline)))
 ;;;;; ert
@@ -5498,7 +5442,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(eshell-ls-special ((,c :foreground ,accent-3)))
     `(eshell-ls-symlink ((,c :background ,bg-link :foreground ,fg-link :underline ,underline-link)))
     `(eshell-ls-unreadable ((,c :foreground ,fg-dim)))
-    `(eshell-prompt ((,c :inherit modus-themes-prompt)))
+    `(eshell-prompt ((,c :inherit bold :background ,bg-prompt :foreground ,fg-prompt)))
 ;;;;; eshell-fringe-status
     `(eshell-fringe-status-failure ((,c :foreground ,err)))
     `(eshell-fringe-status-success ((,c :foreground ,info)))
@@ -5613,7 +5557,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(geiser-font-lock-image-button ((,c :foreground ,info :underline t)))
     `(geiser-font-lock-repl-input ((,c :inherit modus-themes-bold)))
     `(geiser-font-lock-repl-output ((,c :inherit modus-themes-bold :foreground ,keyword)))
-    `(geiser-font-lock-repl-prompt ((,c :inherit modus-themes-prompt)))
+    `(geiser-font-lock-repl-prompt ((,c :inherit bold :background ,bg-prompt :foreground ,fg-prompt)))
     `(geiser-font-lock-xref-header ((,c :inherit modus-themes-bold)))
     `(geiser-font-lock-xref-link ((,c :background ,bg-link :foreground ,fg-link :underline ,underline-link)))
 ;;;;; git-commit
@@ -6792,7 +6736,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(rcirc-nick-in-message ((,c :inherit modus-themes-bold :foreground ,accent-1)))
     `(rcirc-nick-in-message-full-line ((,c :inherit modus-themes-bold :foreground ,accent-1)))
     `(rcirc-other-nick ((,c :inherit modus-themes-bold :foreground ,accent-0)))
-    `(rcirc-prompt ((,c :inherit modus-themes-prompt)))
+    `(rcirc-prompt ((,c :inherit bold :background ,bg-prompt :foreground ,fg-prompt)))
     `(rcirc-server ((,c :inherit modus-themes-slant :foreground ,comment)))
     `(rcirc-timestamp ((,c :foreground ,date-common)))
     `(rcirc-track-keyword ((,c :inherit modus-themes-bold :foreground ,modeline-warning)))
@@ -6899,7 +6843,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(slime-repl-input-face ((,c :inherit modus-themes-bold)))
     `(slime-repl-inputed-output-face ((,c :foreground ,string)))
     `(slime-repl-output-mouseover-face ((,c :background ,bg-hover :foreground ,fg-main)))
-    `(slime-repl-prompt-face ((,c :inherit modus-themes-prompt)))
+    `(slime-repl-prompt-face ((,c :inherit bold :background ,bg-prompt :foreground ,fg-prompt)))
     `(slime-style-warning-face ((,c :underline (:style wave :color ,underline-note))))
     `(slime-warning-face ((,c :underline (:style wave :color ,underline-warning))))
 ;;;;; sly
@@ -6909,7 +6853,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(sly-error-face ((,c :underline (:style wave :color ,underline-err))))
     `(sly-mode-line ((,c :inherit italic :foreground ,modeline-info)))
     `(sly-mrepl-output-face ((,c :foreground ,string)))
-    `(sly-mrepl-prompt-face ((,c :inherit modus-themes-prompt)))
+    `(sly-mrepl-prompt-face ((,c :inherit bold :background ,bg-prompt :foreground ,fg-prompt)))
     `(sly-note-face ((,c :underline (:style wave :color ,underline-note))))
     `(sly-stickers-placed-face ((,c :background ,bg-inactive)))
     `(sly-style-warning-face ((,c :underline (:style wave :color ,underline-note))))
@@ -7025,7 +6969,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(telega-button ((,c :box t :foreground ,fg-link)))
     `(telega-button-active ((,c :box ,fg-link :background ,fg-link :foreground ,bg-main)))
     `(telega-button-highlight ((,c :background ,bg-hover :foreground ,fg-main)))
-    `(telega-chat-prompt ((,c :inherit modus-themes-prompt)))
+    `(telega-chat-prompt ((,c :inherit bold :background ,bg-prompt :foreground ,fg-prompt)))
     `(telega-entity-type-code ((,c :inherit modus-themes-fixed-pitch :background ,bg-prose-verbatim :foreground ,fg-prose-verbatim)))
     `(telega-entity-type-mention ((,c :foreground ,type)))
     `(telega-entity-type-pre ((,c :inherit modus-themes-fixed-pitch :background ,bg-prose-code :foreground ,fg-prose-code)))
