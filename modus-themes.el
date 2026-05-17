@@ -5067,7 +5067,11 @@ If COLOR is unspecified, then return :box unspecified."
     `(disk-usage-symlink ((,c :background ,bg-link-symbolic :foreground ,fg-link-symbolic :underline ,underline-link-symbolic)))
     `(disk-usage-symlink-directory ((,c :background ,bg-link-symbolic :foreground ,fg-link-symbolic :underline ,underline-link-symbolic)))
 ;;;;; display-fill-column-indicator-mode
-    `(fill-column-indicator ((,c :height 1 :background ,bg-active :foreground ,bg-active)))
+    `(fill-column-indicator
+      ((((type tty))
+        :height 1.0 :background nil :foreground ,bg-active)
+       (,c
+        :height 1 :background ,bg-active :foreground ,bg-active)))
 ;;;;; doom-modeline
     `(doom-modeline-bar ((,c :background ,blue))) ; special case like `centaur-tabs-active-bar-face'
     `(doom-modeline-bar-inactive ((,c :background ,border)))
