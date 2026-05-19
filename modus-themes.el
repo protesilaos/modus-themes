@@ -5069,7 +5069,7 @@ If COLOR is unspecified, then return :box unspecified."
 ;;;;; display-fill-column-indicator-mode
     `(fill-column-indicator
       ((((type tty))
-        :height 1.0 :background nil :foreground ,bg-active)
+        :height 1.0 :background unspecified :foreground ,bg-active)
        (,c
         :height 1 :background ,bg-active :foreground ,bg-active)))
 ;;;;; doom-modeline
