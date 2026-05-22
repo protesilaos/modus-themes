@@ -4541,7 +4541,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(mm-uu-extract ((,c :foreground ,mail-part)))
     `(next-error ((,c :background ,bg-prominent-err :foreground ,fg-prominent-err)))
     `(pgtk-im-0 ((,c :background ,bg-prominent-note :foreground ,fg-prominent-note)))
-    `(read-multiple-choice-face ((,c :inherit bold :background ,bg-mark-select :foreground ,fg-mark-select)))
+    `(read-multiple-choice-face ((,c :inverse-video t)))
     `(rectangle-preview ((,c :background ,bg-active :foreground ,fg-main)))
     `(region ((,c :background ,bg-region :foreground ,fg-region)))
     `(secondary-selection ((,c :background ,bg-hover-secondary :foreground ,fg-main)))
