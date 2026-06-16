@@ -100,6 +100,7 @@ This is not an exhaustive list. You are welcome to add your package here.
 - `modus-flexoki` by Derek Passen <https://github.com/dpassen/modus-flexoki>
 - `faff-theme` (since version 4) by James Ferguson <https://github.com/WJCFerguson/emacs-faff-theme>
 - `modus-catpuccin` by Magnus Therning <https://gitlab.com/magus/modus-catppuccin>
+- `pixel-themes` by Lucas <https://github.com/lucasobx/pixel-themes>
 
 ## Other Emacs packages based on Modus
 
