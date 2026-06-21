@@ -4,9 +4,9 @@
 #+language: en
 #+options: ':t toc:nil author:t email:t num:t
 #+startup: content
-#+macro: stable-version 5.2.0
-#+macro: release-date 2025-12-31
-#+macro: development-version 5.3.0-dev
+#+macro: stable-version 5.3.0
+#+macro: release-date 2026-06-21
+#+macro: development-version 5.4.0-dev
 #+macro: file @@texinfo:@file{@@$1@@texinfo:}@@
 #+macro: space @@texinfo:@: @@
 #+macro: kbd @@texinfo:@kbd{@@$1@@texinfo:}@@
@@ -4965,7 +4965,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + info
 + info+ (info-plus)
 + info-colors
-+ institution-calendar [Part of {{{development-version}}}.]
++ institution-calendar
 + ioccur
 + isearch, occur, etc.
 + ivy*
@@ -4983,14 +4983,14 @@ have lots of extensions, so the "full support" may not be 100% true…
 + kmacro-menu
 + ledger-mode
 + leerzeichen
-+ lin [ Part of {{{development-version}}}. ]
++ lin
 + line numbers (~display-line-numbers-mode~ and global variant)
 + magit
 + make-mode
 + man
 + marginalia
 + markdown-mode
-+ markdown-ts-mode [ Part of {{{development-version}}}. ]
++ markdown-ts-mode
 + markup-faces (~adoc-mode~)
 + mb-depth
 + mct
@@ -5037,7 +5037,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + prescient
 + proced
 + prodigy
-+ pulsar [ Part of {{{development-version}}}. ]
++ pulsar
 + pulse
 + pyim
 + quick-peek
@@ -5085,11 +5085,11 @@ have lots of extensions, so the "full support" may not be 100% true…
 + trashed
 + treemacs
 + tree-sitter
-+ trust-manager [ Part of {{{development-version}}} ]
++ trust-manager
 + tty-menu
 + tuareg
 + typescript
-+ typst [ Part of {{{development-version}}} ]
++ typst
 + undo-tree
 + vc ({{{file(vc-dir.el)}}}, {{{file(vc-hooks.el)}}})
 + vertico

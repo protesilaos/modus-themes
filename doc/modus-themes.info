@@ -43,11 +43,11 @@ options for the Modus themes, and provides every other piece of
 information pertinent to them.
 
    The documentation furnished herein corresponds to stable version
-5.2.0, released on 2025-12-31.  Any reference to a newer feature which
+5.3.0, released on 2026-06-21.  Any reference to a newer feature which
 does not yet form part of the latest tagged commit, is explicitly marked
 as such.
 
-   Current development target is 5.3.0-dev.
+   Current development target is 5.4.0-dev.
 
    • Package name (GNU ELPA): ‘modus-themes’
    • Official manual: <https://protesilaos.com/emacs/modus-themes>
@@ -5163,7 +5163,7 @@ have lots of extensions, so the "full support" may not be 100% true…
    • info
    • info+ (info-plus)
    • info-colors
-   • institution-calendar [Part of 5.3.0-dev.]
+   • institution-calendar
    • ioccur
    • isearch, occur, etc.
    • ivy*
@@ -5181,14 +5181,14 @@ have lots of extensions, so the "full support" may not be 100% true…
    • kmacro-menu
    • ledger-mode
    • leerzeichen
-   • lin [ Part of 5.3.0-dev.  ]
+   • lin
    • line numbers (‘display-line-numbers-mode’ and global variant)
    • magit
    • make-mode
    • man
    • marginalia
    • markdown-mode
-   • markdown-ts-mode [ Part of 5.3.0-dev.  ]
+   • markdown-ts-mode
    • markup-faces (‘adoc-mode’)
    • mb-depth
    • mct
@@ -5235,7 +5235,7 @@ have lots of extensions, so the "full support" may not be 100% true…
    • prescient
    • proced
    • prodigy
-   • pulsar [ Part of 5.3.0-dev.  ]
+   • pulsar
    • pulse
    • pyim
    • quick-peek
@@ -5283,11 +5283,11 @@ have lots of extensions, so the "full support" may not be 100% true…
    • trashed
    • treemacs
    • tree-sitter
-   • trust-manager [ Part of 5.3.0-dev ]
+   • trust-manager
    • tty-menu
    • tuareg
    • typescript
-   • typst [ Part of 5.3.0-dev ]
+   • typst
    • undo-tree
    • vc (‘vc-dir.el’, ‘vc-hooks.el’)
    • vertico
@@ -7471,47 +7471,47 @@ Node: Create convenience commands to load a derivative theme219556
 Node: Arrange to activate your derivative themes221895
 Node: Face coverage223982
 Node: Supported packages224446
-Node: Indirectly covered packages230538
-Node: Notes on individual packages231896
-Node: Note on calendarel weekday and weekend colors232998
-Node: Note on git-gutter in Doom Emacs234148
-Node: Note on php-mode multiline comments236670
-Node: Note on underlines in compilation buffers237432
-Node: Note on inline Latex in Org buffers238306
-Node: Note on dimmerel238917
-Node: Note on display-fill-column-indicator-mode240402
-Node: Note on highlight-parenthesesel241853
-Node: Note on mmm-modeel background colors247932
-Node: Note for prism250283
-Node: Note on company-mode overlay pop-up253494
-Ref: Note on company-mode overlay pop-up-Footnote-1254224
-Ref: Note on company-mode overlay pop-up-Footnote-2254291
-Node: Note on ERC escaped color sequences254346
-Ref: Note on ERC escaped color sequences-Footnote-1255774
-Node: Note on powerline or spaceline255884
-Node: Note on SHR colors256300
-Node: Note on SHR fonts256721
-Node: Note on Ement colors and fonts257410
-Node: Note on pdf-tools link hints258930
-Node: Note on the Notmuch logo261388
-Node: Note on goto-address-mode faces261922
-Node: Frequently Asked Questions263042
-Node: Is the contrast ratio about adjacent colors?263672
-Node: What does it mean to avoid exaggerations?265177
-Node: Why are colors mostly variants of blue magenta cyan?267027
-Node: What is the best setup for legibility?271439
-Node: Are these color schemes?274080
-Node: Port the Modus themes to other platforms?277723
-Node: Contributing280613
-Node: Sources of the themes281012
-Node: Issues you can help with281753
-Node: Patches require copyright assignment to the FSF283191
-Node: Acknowledgements285405
-Node: GNU Free Documentation License290258
-Node: Indices315421
-Node: Function index315600
-Node: Variable index320209
-Node: Concept index324786
+Node: Indirectly covered packages230401
+Node: Notes on individual packages231759
+Node: Note on calendarel weekday and weekend colors232861
+Node: Note on git-gutter in Doom Emacs234011
+Node: Note on php-mode multiline comments236533
+Node: Note on underlines in compilation buffers237295
+Node: Note on inline Latex in Org buffers238169
+Node: Note on dimmerel238780
+Node: Note on display-fill-column-indicator-mode240265
+Node: Note on highlight-parenthesesel241716
+Node: Note on mmm-modeel background colors247795
+Node: Note for prism250146
+Node: Note on company-mode overlay pop-up253357
+Ref: Note on company-mode overlay pop-up-Footnote-1254087
+Ref: Note on company-mode overlay pop-up-Footnote-2254154
+Node: Note on ERC escaped color sequences254209
+Ref: Note on ERC escaped color sequences-Footnote-1255637
+Node: Note on powerline or spaceline255747
+Node: Note on SHR colors256163
+Node: Note on SHR fonts256584
+Node: Note on Ement colors and fonts257273
+Node: Note on pdf-tools link hints258793
+Node: Note on the Notmuch logo261251
+Node: Note on goto-address-mode faces261785
+Node: Frequently Asked Questions262905
+Node: Is the contrast ratio about adjacent colors?263535
+Node: What does it mean to avoid exaggerations?265040
+Node: Why are colors mostly variants of blue magenta cyan?266890
+Node: What is the best setup for legibility?271302
+Node: Are these color schemes?273943
+Node: Port the Modus themes to other platforms?277586
+Node: Contributing280476
+Node: Sources of the themes280875
+Node: Issues you can help with281616
+Node: Patches require copyright assignment to the FSF283054
+Node: Acknowledgements285268
+Node: GNU Free Documentation License290121
+Node: Indices315284
+Node: Function index315463
+Node: Variable index320072
+Node: Concept index324649
 
 End Tag Table
 

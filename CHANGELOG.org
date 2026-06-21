@@ -15,22 +15,249 @@ For further details, please consult these additional resources:
 + Manual :: <https://protesilaos.com/emacs/modus-themes>
 + Screenshots :: <https://protesilaos.com/emacs/modus-themes-pictures>
 
+* 5.3.0 on 2026-06-21
+:PROPERTIES:
+:CUSTOM_ID: h:b4fa17a7-77a3-4e54-9af8-6a413b6b4e7c
+:END:
 
-* DEVELOPMENT
+The Modus themes are in a stable state. To my mind, they provide the
+best "default theme" experience across the 40+ original themes I have
+carefully designed.
 
-** ~modus-themes-with-colors~ improved again
+Modus is also a platform for making themes for Emacs. There are plenty
+of derivatives already. I am linking to them through the project's
+README.md and am always happy to mention more packages---just let me
+know.
 
-The recently introduced ~let~-based method exhibits a subtle bug: since
-it sorts real colors prior to "mapped" colors, an override from the
-latter to the former would be lost.
+This version does not include many user-facing changes. Most of my
+work focused on making internal refinements.
+
+** Load the themes through the =early-init.el=
+:PROPERTIES:
+:CUSTOM_ID: h:4d80aeaa-e93f-4cca-a2b2-792700081ead
+:END:
+
+The Modus themes can now be loaded through the =early-init.el= file.
+The idea is to avoid the flash of light that occurs under certain
+conditions during startup.
+
+This feature is the result of several changes to helper functions,
+especially those contributing to the ~modus-themes-generate-palette~
+function that Modus derivatives may be relying on.
+
+Thanks to Steven Allen for an intermediate refinement in pull request
+194 and to Mike Olson for another relevant tweak in pull request 199:
+
+- <https://github.com/protesilaos/modus-themes/pull/194>
+- <https://github.com/protesilaos/modus-themes/pull/199>
+
+Steven's contribution no longer exists in the code base due to other
+changes I made, but was still useful at the time.
+
+Both changes are small, meaning that their authors do not need to
+assign copyright to the Free Software Foundation.
+
+Also thanks to Jacod "Jake" Gordon for reminding me to apply one of
+the new functions to the ~org-habit~ faces. This was done in issue
+197: <https://github.com/protesilaos/modus-themes/issues/197>.
+
+** The underline for widget fields has the correct colour
+:PROPERTIES:
+:CUSTOM_ID: h:c936a591-25ff-440d-88e8-e710da2c3f59
+:END:
+
+Relevant faces use the palette entry for =border= (invoke the command
+~modus-themes-preview-colors~ or ~modus-themes-preview-colors-current~
+to view the entries in a theme's palette).
+
+A popular package that makes use of =widget.el= widgets is ~notmuch~.
+
+Thanks to ukiran03 for the contribution, which was done in pull
+request 193: <https://github.com/protesilaos/modus-themes/pull/193>.
+The change is small, meaning that ukiran03 does not need to assign
+copyright to the Free Software Foundation.
+
+** A palette can now have a =bg-popup= entry
+:PROPERTIES:
+:CUSTOM_ID: h:bb9166ae-2424-4edf-8004-91e99ff8555a
+:END:
+
+This gives users and derivative themes the option to pick a suitable
+value for popup interfaces, such as those of the ~company~ and ~corfu~
+packages.
+
+Thanks to aikrahguzar for making this suggestion in issue 70 of my
+~ef-themes~ repository (the ~ef-themes~ are built on top of the
+~modus-themes~ since Modus version =5.0.0=, Ef version =2.0.0=):
+<https://github.com/protesilaos/ef-themes/issues/70>.
+
+** Support for faces or packages
+:PROPERTIES:
+:CUSTOM_ID: h:cb1de864-f749-46e6-a8c4-1b5c47a59aff
+:END:
+
+- ~lin~ by Protesilaos.
+- ~pulsar~ by Protesilaos.
+- ~institution-calendar~ by Protesilaos.
+- ~markdown-ts-mode~ by Rahul Martim Juliato and Stéphane Marks.
+- ~trust-manager~ by Eshel Yaron.
+- ~typst-ts-mode~ by Ziqi Yang. Thanks to Pranshu Sharma for
+  suggesting its inclusion in issue 208:
+  <https://github.com/protesilaos/modus-themes/issues/208>.
+- new ~elfeed~ faces since the maintenance of the project was assumed
+  by Daniel Mendler, Karthik Chikmagalur, and Ihor Radchenko. To this
+  end, thanks to Steven Allen for pull request 217 that added the
+  =elfeed-show-*= faces: <https://github.com/protesilaos/modus-themes/pull/217>
+
+** Internal refinements to the ~modus-themes-with-colors~ macro
+:PROPERTIES:
+:CUSTOM_ID: h:36d438e6-2779-4e34-b9ae-bb26503643ed
+:END:
+
+It now correctly handles the order of default palette colours and
+user-defined palette overrides. Thanks to JD Smith for the
+contribution in pull request 191: <https://github.com/protesilaos/modus-themes/pull/191>.
+
+The change is small, meaning that JD does not need to assign copyright
+to the Free Software Foundation.
+
+** The ~multiple-cursors~ are fine even when a bar is used
+:PROPERTIES:
+:CUSTOM_ID: h:d707af16-66c9-4520-bd96-129e7b0511dd
+:END:
+
+When the ~cursor-type~ is configured to be a =bar=, the fake cursors
+produced by the ~multiple-cursors~ package will still look right.
+Thanks to Elias Gabriel Perez for the change to the
+~mc/cursor-bar-face~ in pull request 213: <https://github.com/protesilaos/modus-themes/pull/213>.
+
+** The ~blink-matching-paren-offscreen~ is the same as ~show-paren-match~
+:PROPERTIES:
+:CUSTOM_ID: h:025061cd-ebdf-47bd-a596-9e8e9d6afa7d
+:END:
+
+This is for thematic consistency. Thanks to Troy Brown for suggesting
+this change in issue 209: <https://github.com/protesilaos/modus-themes/issues/209>.
+
+** Get ~vc-annotate~ look right
+:PROPERTIES:
+:CUSTOM_ID: h:73e5911d-fe08-43b4-b3d9-e5a79af447b0
+:END:
+
+The built-in ~vc-annotate~ command relies on a user option to read
+color values. We cannot handle this nicely at the theme level. Users
+need to write their own configuration like this:
+
+#+begin_src emacs-lisp
+(defun my-modus-vc-annotate (&rest _)
+  (modus-themes-with-colors
+    (setq vc-annotate-background-mode nil)
+    (setq vc-annotate-very-old-color fg-dim)
+    (setq vc-annotate-color-map
+          `(( 20. . ,red)
+            ( 40. . ,red-cooler)
+            ( 60. . ,red-warmer)
+            ( 80. . ,yellow-warmer)
+            (100. . ,yellow)
+            (120. . ,yellow-cooler)
+            (140. . ,green-warmer)
+            (160. . ,green)
+            (180. . ,green-cooler)
+            (200. . ,cyan-cooler)
+            (220. . ,cyan-warmer)
+            (240. . ,cyan)
+            (260. . ,blue-warmer)
+            (280. . ,blue)
+            (300. . ,blue-cooler)
+            (320. . ,blue-intense)
+            (340. . ,magenta-cooler)
+            (360. . ,fg-dim)))))
+
+(with-eval-after-load 'vc-annotate
+  (my-modus-vc-annotate)
+  (add-hook 'enable-theme-functions #'my-modus-vc-annotate))
+#+end_src
+
+[ The above code is relevant as of this writing. Though remember that
+  I do not keep older publications up-to-date. The only source of
+  truth is the manual of the Modus themes. ]
+
+** Two old user options are no longer needed
+:PROPERTIES:
+:CUSTOM_ID: h:39eb95f4-76b1-46b8-8f2e-245591c2ec03
+:END:
+
+The user options ~modus-themes-completions~ and ~modus-themes-prompts~
+are obsolete. They used to be relevant before the introduction of
+palette overrides.
+
+** Rewrote large parts of the manual
+:PROPERTIES:
+:CUSTOM_ID: h:73703b3a-ef75-4cc0-97ca-344f8d6812ba
+:END:
+
+I did it for clarity, but also to remove notes that were specific to
+older versions of Emacs.
+
+** Many new ERT tests for the project
+:PROPERTIES:
+:CUSTOM_ID: h:98134bb3-9eea-4fc2-9f21-bc619508de8a
+:END:
+
+I have written many tests. They do not cover every single function,
+though the plan is to do that eventually. These tests are important to
+ensure that Modus is a solid platform for making derivative themes.
+
+Much of this was done live: <https://protesilaos.com/codelog/2026-04-10-emacs-spontaneous-live-modus-themes/>.
+
+Thanks to Benjamin Kästner for a couple of tweaks to a relevant macro
+in the tests' file. This was done in pull request 212, with further
+changes by me: <https://github.com/protesilaos/modus-themes/pull/212>.
+
+** Links to projects related to Modus
+:PROPERTIES:
+:CUSTOM_ID: h:50301743-a109-4d96-83dd-3b8c7c6b90ed
+:END:
+
+In the README.md I now mention projects that are related to the Modus
+themes, such as derivative Emacs themes, but also ports for other
+editors.
+
+There is also a link to my ~modus-themes-exporter~ package, which I
+developed during a live stream:
+
+- <https://github.com/protesilaos/modus-themes-exporter>
+- <https://protesilaos.com/codelog/2026-04-13-emacs-live-develop-modus-themes-exporter-package/>
+
+** Git commits
+:PROPERTIES:
+:CUSTOM_ID: h:e869b1e6-5bc1-4d79-83cd-bb3f648c3ebf
+:END:
+
+#+begin_src
+git shortlog 5.2.0..5.3.0 --summary --numbered
+    123	Protesilaos
+     2	Benjamin Kästner
+     2	Steven Allen
+     1	Elias Gabriel Perez
+     1	JD Smith
+     1	Mike Olson
+     1	ukiran03
+#+end_src
 
 * 5.2.0 on 2025-12-31
+:PROPERTIES:
+:CUSTOM_ID: h:2c723b97-df07-4a3e-915f-b00f6647f74b
+:END:
 
 This version fixes some bugs, adds a new feature for those who want to
 derive a theme from Modus, and makes other small quality-of-life
 refinements.
 
 ** The ~modus-themes-with-colors~ should work at all times
+:PROPERTIES:
+:CUSTOM_ID: h:fcf14029-fd5f-4404-8ff7-370fb742c00d
+:END:
 
 In the transition to version =5.0.0=, I inadvertently introduced
 regressions to the behaviour of the ~modus-themes-with-colors~ macro.
@@ -48,6 +275,9 @@ Alexandr Semenov and realazy for reporting the problems and testing my
 revisions.
 
 ** The ~modus-themes-generate-palette~ function to quickly get a palette
+:PROPERTIES:
+:CUSTOM_ID: h:6786fe0c-3853-4586-89d6-4f60b3828b1c
+:END:
 
 Users or package developers who want to create a theme on top of Modus
 can now get a kickstart by defining their palette with the help of the
@@ -64,6 +294,9 @@ complete example of a Solarized theme that is built on top of Modus.
 If you have any questions, you are welcome to contact me.
 
 ** Convenience commands to select only dark or light themes
+:PROPERTIES:
+:CUSTOM_ID: h:deaebb75-129a-4ca2-8fd3-d29ae723474a
+:END:
 
 The commands ~modus-themes-select-dark~ and ~modus-themes-select-light~
 use minibuffer completion to load a theme. The completion candidates
@@ -77,6 +310,9 @@ Remember that we also have the commands ~modus-themes-load-random~,
 Otherwise use the command ~modus-themes-rotate~.
 
 ** Improved prompt for theme selection
+:PROPERTIES:
+:CUSTOM_ID: h:fcfe5599-9d12-46cf-8896-e45625aa7304
+:END:
 
 The minibuffer prompt used by the various Modus commands to select a
 theme now has a grouping function in place: it shows the current theme
@@ -87,6 +323,9 @@ is enabled and relevant packages/themes are available (e.g. my
 ~ef-themes~ and ~standard-themes~).
 
 ** Semantic colours for =transient.el= (e.g. in Magit)
+:PROPERTIES:
+:CUSTOM_ID: h:9bee92ab-e082-4f66-b01c-892860c60a0c
+:END:
 
 The =transient.el= concept of "semantic colours" is now supported.
 This is used by default in Magit to denote the different types of
@@ -101,6 +340,9 @@ refinements I made. Those themes cannot rely on the full colour
 spectrum to communicate such nuances.
 
 ** All ~hl-todo-mode~ faces use a bold weight if appropriate
+:PROPERTIES:
+:CUSTOM_ID: h:309dd08f-dc01-47f6-8e88-0558181e1bb8
+:END:
 
 When the user option ~modus-themes-bold-constructs~ is set to a
 non-~nil~ value, then all keywords that ~hl-todo-mode~ highlights will
@@ -110,11 +352,17 @@ mistake. Thanks to Dominik Schrempf for reporting the bug in issue
 177: <https://github.com/protesilaos/modus-themes/issues/177>.
 
 ** Theme-sensitive colours for Gnus mail groups
+:PROPERTIES:
+:CUSTOM_ID: h:ea438d6c-2e3e-4427-86af-3d9590e260d3
+:END:
 
 The Gnus mail groups no longer have hardcoded colour values. They will
 look different depending on the current Modus theme.
 
 ** Faces that set a =:box= attribute handle unspecified colours
+:PROPERTIES:
+:CUSTOM_ID: h:98c4f263-81ad-4bb2-85fc-af30b32584a2
+:END:
 
 I updated all faces that use a =:box= attribute to account for the
 scenario of a user writing palette overrides that unset the relevant
@@ -124,6 +372,9 @@ issue 9 of my ~standard-themes~ repository (they are derived from the
 <https://github.com/protesilaos/standard-themes/issues/9>.
 
 ** The ~calendar-today~ and ~org-date-selected~ faces are disambiguated
+:PROPERTIES:
+:CUSTOM_ID: h:c5c7ff66-0ed8-424c-8579-b84b776ad461
+:END:
 
 These two faces are no longer using the same styles. This is because
 they can appear in the same buffer. Thanks to Rudolf Adamkovič for
@@ -132,6 +383,9 @@ discussing this with me in the context of the same change for my
 <https://github.com/protesilaos/doric-themes/issues/20>.
 
 ** The Modus "current theme" respects multiple enabled themes
+:PROPERTIES:
+:CUSTOM_ID: h:4c2abd1b-407a-4273-96d8-aba3bb42e0dc
+:END:
 
 The Modus concept of "current theme" respects the user's choice for
 multiple themes loaded at once. It will return the first Modus theme
@@ -153,6 +407,9 @@ This was done in pull request 184:
 Pierre has assigned copyright to the Free Software Foundation.
 
 ** Fixed symbol of inherited AUCTeX face
+:PROPERTIES:
+:CUSTOM_ID: h:4caebf48-2544-4367-ad35-61957f5f043b
+:END:
 
 There was a typo which caused an error. Thanks to Rudolf Adamkovič for
 the patch and also for providing a relevant unit test. This was done
@@ -161,6 +418,9 @@ in pull request 188: <https://github.com/protesilaos/modus-themes/pull/188>.
 Rudolf has assigned copyright to the Free Software Foundation.
 
 ** Miscellaneous
+:PROPERTIES:
+:CUSTOM_ID: h:738675ea-6f7b-47e5-907e-468b67ecd430
+:END:
 
 - Thanks to Basil L. Contovounesios for simplifying a couple of
   expressions. This was done in pull request 190:
