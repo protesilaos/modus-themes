@@ -101,6 +101,7 @@ This is not an exhaustive list. You are welcome to add your package here.
 - `faff-theme` (since version 4) by James Ferguson <https://github.com/WJCFerguson/emacs-faff-theme>
 - `modus-catpuccin` by Magnus Therning <https://gitlab.com/magus/modus-catppuccin>
 - `pixel-themes` by Lucas <https://github.com/lucasobx/pixel-themes>
+- `modus-nordic` (`modus-nordic-night` and `modus-nordic-midnight`) by Ashton Wiersdorf <https://codeberg.org/ashton314/modus-nordic-night>
 
 ## Other Emacs packages based on Modus
 
