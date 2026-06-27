@@ -319,6 +319,51 @@ fail this test until it is added in all palettes."
     (should (seq-empty-p (seq-difference all-names vivendi-deuteranopia-names)))
     (should (seq-empty-p (seq-difference all-names vivendi-tritanopia-names)))))
 
+(mtt-define-test modus-themes-generate-palette
+  "Ensure `modus-themes-generate-palette' provides enough mapping coverage
+such that the generated palette does not inherit explicit color values
+from a parent core palette."
+  (let* ((generated-palette (modus-themes-generate-palette
+                             '((fg-main "#ffffff")
+                               (bg-main "#000000")
+                               (red "#ff0000")
+                               (green "#00ff00")
+                               (yellow "#ffff00")
+                               (blue "#0000ff")
+                               (magenta "#ff00ff")
+                               (cyan "#00ffff"))))
+         ;; These are colors we expect to have an explicit hex value,
+         ;; either because they were provided explicitly in the call to
+         ;; `modus-themes-generate-palette' above, or because we expect
+         ;; `modus-themes-generate-palette' to generate the color.
+         (explicit-colors '( fg-main bg-main
+                             fg-alt fg-dim bg-inactive bg-active bg-dim border
+                             ;; cyan
+                             cyan bg-cyan-nuanced bg-cyan-subtle bg-cyan-intense
+                             cyan-intense cyan-faint cyan-cooler cyan-warmer
+                             ;; magenta
+                             magenta bg-magenta-nuanced bg-magenta-subtle bg-magenta-intense
+                             magenta-intense magenta-faint magenta-cooler magenta-warmer
+                             ;; blue
+                             blue bg-blue-nuanced bg-blue-subtle bg-blue-intense
+                             blue-intense blue-faint blue-cooler blue-warmer
+                             ;; yellow
+                             yellow bg-yellow-nuanced bg-yellow-subtle bg-yellow-intense
+                             yellow-intense yellow-faint yellow-cooler yellow-warmer
+                             ;; green
+                             green bg-green-nuanced bg-green-subtle bg-green-intense
+                             green-intense green-faint green-cooler green-warmer
+                             ;; red
+                             red bg-red-nuanced bg-red-subtle bg-red-intense
+                             red-intense red-faint red-cooler red-warmer)))
+    ;; Ensure all other colors in the palette map to a color name and not an
+    ;; explicit hex value. If this check fails, the offending color should
+    ;; be mapped to an appropriate color name in `modus-themes-generate-palette'.
+    (should (seq-empty-p (seq-remove (lambda (elem)
+                                       (or (member (car elem) explicit-colors)
+                                           (symbolp (cadr elem))))
+                                     generated-palette)))))
+
 (provide 'modus-themes-test)
 ;;; modus-themes-test.el ends here
 
