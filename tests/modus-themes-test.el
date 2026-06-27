@@ -288,6 +288,37 @@ Also see `modus-themes-test--modus-themes--hex-to-rgb'."
                (string= value "#000000"))
              (mapcar #'modus-themes-get-readable-foreground modus-vivendi-sample-foregrounds)))))
 
+(mtt-define-test complete-palette-mappings
+  "Ensure all built-in palettes contain entries for all palette mappings.
+This computes a complete list of mapping names from the built-in palettes
+and then cross-checks the palettes against the list. This should help ensure
+consistency and completeness where adding a new mapping in one palette will
+fail this test until it is added in all palettes."
+  (let* ((operandi-names (seq-uniq (mapcar #'car modus-themes-operandi-palette)))
+         (operandi-tinted-names (seq-uniq (mapcar #'car modus-themes-operandi-tinted-palette)))
+         (operandi-deuteranopia-names (seq-uniq (mapcar #'car modus-themes-operandi-deuteranopia-palette)))
+         (operandi-tritanopia-names (seq-uniq (mapcar #'car modus-themes-operandi-tritanopia-palette)))
+         (vivendi-names (seq-uniq (mapcar #'car modus-themes-vivendi-palette)))
+         (vivendi-tinted-names (seq-uniq (mapcar #'car modus-themes-vivendi-tinted-palette)))
+         (vivendi-deuteranopia-names (seq-uniq (mapcar #'car modus-themes-vivendi-deuteranopia-palette)))
+         (vivendi-tritanopia-names (seq-uniq (mapcar #'car modus-themes-vivendi-tritanopia-palette)))
+         (all-names (seq-uniq (append operandi-names
+                                      operandi-tinted-names
+                                      operandi-deuteranopia-names
+                                      operandi-tritanopia-names
+                                      vivendi-names
+                                      vivendi-tinted-names
+                                      vivendi-deuteranopia-names
+                                      vivendi-tritanopia-names))))
+    (should (seq-empty-p (seq-difference all-names operandi-names)))
+    (should (seq-empty-p (seq-difference all-names operandi-tinted-names)))
+    (should (seq-empty-p (seq-difference all-names operandi-deuteranopia-names)))
+    (should (seq-empty-p (seq-difference all-names operandi-tritanopia-names)))
+    (should (seq-empty-p (seq-difference all-names vivendi-names)))
+    (should (seq-empty-p (seq-difference all-names vivendi-tinted-names)))
+    (should (seq-empty-p (seq-difference all-names vivendi-deuteranopia-names)))
+    (should (seq-empty-p (seq-difference all-names vivendi-tritanopia-names)))))
+
 (provide 'modus-themes-test)
 ;;; modus-themes-test.el ends here
 
