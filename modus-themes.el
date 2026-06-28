@@ -7000,6 +7000,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(vc-dir-file ((,c :foreground ,name)))
     `(vc-dir-header ((,c :inherit modus-themes-bold)))
     `(vc-dir-header-value ((,c :foreground ,string)))
+    `(vc-dir-key-binding-hint-label ((,c :inherit modus-themes-bold)))
     `(vc-dir-mark-indicator (( )))
     `(vc-dir-status-edited ((,c :inherit modus-themes-slant)))
     `(vc-dir-status-ignored ((,c :foreground ,fg-dim)))
