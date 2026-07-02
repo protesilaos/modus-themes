@@ -288,6 +288,82 @@ Also see `modus-themes-test--modus-themes--hex-to-rgb'."
                (string= value "#000000"))
              (mapcar #'modus-themes-get-readable-foreground modus-vivendi-sample-foregrounds)))))
 
+(mtt-define-test complete-palette-mappings
+  "Ensure all built-in palettes contain entries for all palette mappings.
+This computes a complete list of mapping names from the built-in palettes
+and then cross-checks the palettes against the list. This should help ensure
+consistency and completeness where adding a new mapping in one palette will
+fail this test until it is added in all palettes."
+  (let* ((operandi-names (seq-uniq (mapcar #'car modus-themes-operandi-palette)))
+         (operandi-tinted-names (seq-uniq (mapcar #'car modus-themes-operandi-tinted-palette)))
+         (operandi-deuteranopia-names (seq-uniq (mapcar #'car modus-themes-operandi-deuteranopia-palette)))
+         (operandi-tritanopia-names (seq-uniq (mapcar #'car modus-themes-operandi-tritanopia-palette)))
+         (vivendi-names (seq-uniq (mapcar #'car modus-themes-vivendi-palette)))
+         (vivendi-tinted-names (seq-uniq (mapcar #'car modus-themes-vivendi-tinted-palette)))
+         (vivendi-deuteranopia-names (seq-uniq (mapcar #'car modus-themes-vivendi-deuteranopia-palette)))
+         (vivendi-tritanopia-names (seq-uniq (mapcar #'car modus-themes-vivendi-tritanopia-palette)))
+         (all-names (seq-uniq (append operandi-names
+                                      operandi-tinted-names
+                                      operandi-deuteranopia-names
+                                      operandi-tritanopia-names
+                                      vivendi-names
+                                      vivendi-tinted-names
+                                      vivendi-deuteranopia-names
+                                      vivendi-tritanopia-names))))
+    (should (seq-empty-p (seq-difference all-names operandi-names)))
+    (should (seq-empty-p (seq-difference all-names operandi-tinted-names)))
+    (should (seq-empty-p (seq-difference all-names operandi-deuteranopia-names)))
+    (should (seq-empty-p (seq-difference all-names operandi-tritanopia-names)))
+    (should (seq-empty-p (seq-difference all-names vivendi-names)))
+    (should (seq-empty-p (seq-difference all-names vivendi-tinted-names)))
+    (should (seq-empty-p (seq-difference all-names vivendi-deuteranopia-names)))
+    (should (seq-empty-p (seq-difference all-names vivendi-tritanopia-names)))))
+
+(mtt-define-test modus-themes-generate-palette
+  "Ensure `modus-themes-generate-palette' provides enough mapping coverage
+such that the generated palette does not inherit explicit color values
+from a parent core palette."
+  (let* ((generated-palette (modus-themes-generate-palette
+                             '((fg-main "#ffffff")
+                               (bg-main "#000000")
+                               (red "#ff0000")
+                               (green "#00ff00")
+                               (yellow "#ffff00")
+                               (blue "#0000ff")
+                               (magenta "#ff00ff")
+                               (cyan "#00ffff"))))
+         ;; These are colors we expect to have an explicit hex value,
+         ;; either because they were provided explicitly in the call to
+         ;; `modus-themes-generate-palette' above, or because we expect
+         ;; `modus-themes-generate-palette' to generate the color.
+         (explicit-colors '( fg-main bg-main
+                             fg-alt fg-dim bg-inactive bg-active bg-dim border
+                             ;; cyan
+                             cyan bg-cyan-nuanced bg-cyan-subtle bg-cyan-intense
+                             cyan-intense cyan-faint cyan-cooler cyan-warmer
+                             ;; magenta
+                             magenta bg-magenta-nuanced bg-magenta-subtle bg-magenta-intense
+                             magenta-intense magenta-faint magenta-cooler magenta-warmer
+                             ;; blue
+                             blue bg-blue-nuanced bg-blue-subtle bg-blue-intense
+                             blue-intense blue-faint blue-cooler blue-warmer
+                             ;; yellow
+                             yellow bg-yellow-nuanced bg-yellow-subtle bg-yellow-intense
+                             yellow-intense yellow-faint yellow-cooler yellow-warmer
+                             ;; green
+                             green bg-green-nuanced bg-green-subtle bg-green-intense
+                             green-intense green-faint green-cooler green-warmer
+                             ;; red
+                             red bg-red-nuanced bg-red-subtle bg-red-intense
+                             red-intense red-faint red-cooler red-warmer)))
+    ;; Ensure all other colors in the palette map to a color name and not an
+    ;; explicit hex value. If this check fails, the offending color should
+    ;; be mapped to an appropriate color name in `modus-themes-generate-palette'.
+    (should (seq-empty-p (seq-remove (lambda (elem)
+                                       (or (member (car elem) explicit-colors)
+                                           (symbolp (cadr elem))))
+                                     generated-palette)))))
+
 (provide 'modus-themes-test)
 ;;; modus-themes-test.el ends here
 
