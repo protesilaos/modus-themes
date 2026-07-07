@@ -6281,8 +6281,7 @@ in which you can contribute to their ongoing development.
 :END:
 #+cindex: Contributing
 
-A few tasks you can help with by sending an email to the general
-[[https://lists.sr.ht/~protesilaos/modus-themes][modus-themes public mailing list]].
+A few tasks you can help with.
 
 + Suggest refinements to packages that are covered.
 + Report packages not covered thus far.
@@ -6429,14 +6428,14 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Pugnet, Stéphane Marks, Steve Downey, Tassilo Horn, Thanos Apollo,
   Thibaut Verron, Thomas Heartman, Togan Muftuoglu, Tony Zorman, Trey
   Merkley, Tomasz Hołubowicz, Toon Claes, Troy Brown, Uri Sharf,
-  Utkarsh Singh, Vincent Foley, Zoltan Kiraly. As well as users: Ben,
-  CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji,
-  Nick, Summer Emacs, TheBlob42, TitusMu, Trey, aikrahguzar,
-  amano-kenji, baconabo, bangedorrunt, bepolymathe, bit9tream,
-  case-lambda, chainedghost, derek-upham, doolio, fleimgruber,
-  gitrj95, iSeeU, jixiuf, ltmsyvag, okamsn, pedro-nonfree, pRot0ta1p,
-  realazy, shimeike, shipmints, soaringbird, tumashu, vpxyz,
-  wakamenod.
+  Utkarsh Singh, Vincent Foley, Yuta Yamamoto, Zoltan Kiraly. As well
+  as users: Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux,
+  Fredrik, Moesasji, Nick, Summer Emacs, TheBlob42, TitusMu, Trey,
+  aikrahguzar, amano-kenji, baconabo, bangedorrunt, bepolymathe,
+  bit9tream, case-lambda, chainedghost, derek-upham, doolio,
+  fleimgruber, gitrj95, iSeeU, jixiuf, ltmsyvag, okamsn,
+  pedro-nonfree, pRot0ta1p, realazy, shimeike, shipmints, soaringbird,
+  tumashu, vpxyz, wakamenod.
 
 + Packaging :: Basil L.{{{space()}}} Contovounesios, Eli Zaretskii,
   Glenn Morris, Mauro Aranda, Richard Stallman, Stefan Kangas (core
