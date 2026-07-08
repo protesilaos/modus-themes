@@ -4675,8 +4675,8 @@ If COLOR is unspecified, then return :box unspecified."
     `(TeX-error-description-tex-said ((,c :foreground ,info)))
     `(TeX-error-description-warning ((,c :foreground ,warning)))
 ;;;;; auto-dim-other-buffers
-    `(auto-dim-other-buffers-face ((,c :background ,bg-inactive)))
-    `(auto-dim-other-buffers-hide-face ((,c :foreground ,bg-inactive :background ,bg-inactive)))
+    `(auto-dim-other-buffers ((,c :background ,bg-inactive)))
+    `(auto-dim-other-buffers-hide ((,c :foreground ,bg-inactive :background ,bg-inactive)))
 ;;;;; avy
     `(avy-background-face ((,c :background ,bg-dim :foreground ,fg-dim :extend t)))
     `(avy-goto-char-timer-face ((,c :inherit (bold modus-themes-reset-soft) :background ,bg-search-lazy :foreground ,fg-search-lazy)))
