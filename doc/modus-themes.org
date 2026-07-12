@@ -6382,13 +6382,13 @@ The Modus themes are a collective effort.  Every bit of work matters.
   Contovounesios, Benjamin Kästner, Björn Lindström, Carlo Zancanaro,
   Christian Tietze, Daniel Colascione, Daniel Mendler, David
   Edmondson, Eli Zaretskii, Elias Gabriel Perez, Eric Ottosson,
-  Frédéric Giquel, Fritz Grabo, Gautier Ponsinet, Illia Ostapyshyn,
-  Jacob S.{{{space()}}} Gordon, Jared Finder, JD Smith, Jimmy Yuen Ho
-  Wong, Kevin Fleming, Kévin Le Gouguec, Koen van Greevenbroek,
-  Kostadin Ninev, Leilei332, Madhavan Krishnan, Manuel Giraud, Markus
-  Beppler, Matthew Stevenson, Mauro Aranda, Mike Olson, Nacho
-  Barrientos, Niall Dooley, Nicolas De Jaeghere, Paul David, Pavel
-  Novichkov, Philip Kaludercic, Pierre Téchoueyres, Rahul
+  Frédéric Giquel, Fritz Grabo, Gautier Ponsinet, Heitor Augusto,
+  Illia Ostapyshyn, Jacob S.{{{space()}}} Gordon, Jared Finder, JD
+  Smith, Jimmy Yuen Ho Wong, Kevin Fleming, Kévin Le Gouguec, Koen van
+  Greevenbroek, Kostadin Ninev, Leilei332, Madhavan Krishnan, Manuel
+  Giraud, Markus Beppler, Matthew Stevenson, Mauro Aranda, Mike Olson,
+  Nacho Barrientos, Niall Dooley, Nicolas De Jaeghere, Paul David,
+  Pavel Novichkov, Philip Kaludercic, Pierre Téchoueyres, Rahul
   M.{{{space()}}} Juliato, Rudolf Adamkovič, Sergey Nichiporchik,
   Shawn LeMaster, Shreyas Ragavan, Stefan x Kangas, Stephen Berman,
   Stephen Gildea, Steve Downey, Steven Allen, Suleyman Boyar, Thanos

@@ -6603,18 +6603,18 @@ Contributions to code or documentation
      L. Contovounesios, Benjamin Kästner, Björn Lindström, Carlo
      Zancanaro, Christian Tietze, Daniel Colascione, Daniel Mendler,
      David Edmondson, Eli Zaretskii, Elias Gabriel Perez, Eric Ottosson,
-     Frédéric Giquel, Fritz Grabo, Gautier Ponsinet, Illia Ostapyshyn,
-     Jacob S. Gordon, Jared Finder, JD Smith, Jimmy Yuen Ho Wong, Kevin
-     Fleming, Kévin Le Gouguec, Koen van Greevenbroek, Kostadin Ninev,
-     Leilei332, Madhavan Krishnan, Manuel Giraud, Markus Beppler,
-     Matthew Stevenson, Mauro Aranda, Mike Olson, Nacho Barrientos,
-     Niall Dooley, Nicolas De Jaeghere, Paul David, Pavel Novichkov,
-     Philip Kaludercic, Pierre Téchoueyres, Rahul M. Juliato, Rudolf
-     Adamkovič, Sergey Nichiporchik, Shawn LeMaster, Shreyas Ragavan,
-     Stefan x Kangas, Stephen Berman, Stephen Gildea, Steve Downey,
-     Steven Allen, Suleyman Boyar, Thanos Apollo, Tomasz Hołubowicz,
-     Utkarsh Singh, Vincent Murphy, Xinglu Chen, Yuanchen Xie, Yuta
-     Yamamoto, fluentpwn, okamsn, ukiran03.
+     Frédéric Giquel, Fritz Grabo, Gautier Ponsinet, Heitor Augusto,
+     Illia Ostapyshyn, Jacob S. Gordon, Jared Finder, JD Smith, Jimmy
+     Yuen Ho Wong, Kevin Fleming, Kévin Le Gouguec, Koen van
+     Greevenbroek, Kostadin Ninev, Leilei332, Madhavan Krishnan, Manuel
+     Giraud, Markus Beppler, Matthew Stevenson, Mauro Aranda, Mike
+     Olson, Nacho Barrientos, Niall Dooley, Nicolas De Jaeghere, Paul
+     David, Pavel Novichkov, Philip Kaludercic, Pierre Téchoueyres,
+     Rahul M. Juliato, Rudolf Adamkovič, Sergey Nichiporchik, Shawn
+     LeMaster, Shreyas Ragavan, Stefan x Kangas, Stephen Berman, Stephen
+     Gildea, Steve Downey, Steven Allen, Suleyman Boyar, Thanos Apollo,
+     Tomasz Hołubowicz, Utkarsh Singh, Vincent Murphy, Xinglu Chen,
+     Yuanchen Xie, Yuta Yamamoto, fluentpwn, okamsn, ukiran03.
 
 Ideas and user feedback
      Aaron Jensen, Adam Porter, Adam Spiers, Adrian Manea, Aleksei
@@ -7505,11 +7505,11 @@ Node: Sources of the themes280875
 Node: Issues you can help with281616
 Node: Patches require copyright assignment to the FSF282938
 Node: Acknowledgements285152
-Node: GNU Free Documentation License290051
-Node: Indices315214
-Node: Function index315393
-Node: Variable index320002
-Node: Concept index324579
+Node: GNU Free Documentation License290067
+Node: Indices315230
+Node: Function index315409
+Node: Variable index320018
+Node: Concept index324595
 
 End Tag Table
 
