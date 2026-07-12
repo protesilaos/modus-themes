@@ -3835,16 +3835,16 @@ Else return (append OVERRIDES USER CORE)."
     (when (boundp core-palette-name)
       (let* ((core-palette (symbol-value core-palette-name))
              (user-palette-name (plist-get properties :modus-user-palette))
-             (user-palette (when (and with-user-palette 
-                                      user-palette-name 
+             (user-palette (when (and with-user-palette
+                                      user-palette-name
                                       (boundp user-palette-name))
                              (symbol-value user-palette-name)))
              (overrides-palette-name (plist-get properties :modus-overrides-palette))
-             (overrides-palette (when (and with-overrides 
-                                           overrides-palette-name 
+             (overrides-palette (when (and with-overrides
+                                           overrides-palette-name
                                            (boundp overrides-palette-name))
                                   (symbol-value overrides-palette-name)))
-             (all-overrides (when with-overrides 
+             (all-overrides (when with-overrides
                               (append overrides-palette modus-themes-common-palette-overrides))))
         (append all-overrides user-palette core-palette)))))
 
