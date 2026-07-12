@@ -3828,11 +3828,25 @@ If THEME does not have at least a `:modus-core-palette' among its
 
 Else return (append OVERRIDES USER CORE)."
   (when-let* ((properties (get theme 'theme-properties))
-              (core-palette (symbol-value (plist-get properties :modus-core-palette))))
-    (let* ((user-palette (when with-user-palette (symbol-value (plist-get properties :modus-user-palette))))
-           (overrides-palette (when with-overrides (symbol-value (plist-get properties :modus-overrides-palette))))
-           (all-overrides (when with-overrides (append overrides-palette modus-themes-common-palette-overrides))))
-      (append all-overrides user-palette core-palette))))
+              (core-palette-name (plist-get properties :modus-core-palette)))
+    ;; If the palette variable hasn't been loaded into memory yet, load the theme silently
+    (unless (boundp core-palette-name)
+      (load-theme theme t t))
+    (when (boundp core-palette-name)
+      (let* ((core-palette (symbol-value core-palette-name))
+             (user-palette-name (plist-get properties :modus-user-palette))
+             (user-palette (when (and with-user-palette 
+                                      user-palette-name 
+                                      (boundp user-palette-name))
+                             (symbol-value user-palette-name)))
+             (overrides-palette-name (plist-get properties :modus-overrides-palette))
+             (overrides-palette (when (and with-overrides 
+                                           overrides-palette-name 
+                                           (boundp overrides-palette-name))
+                                  (symbol-value overrides-palette-name)))
+             (all-overrides (when with-overrides 
+                              (append overrides-palette modus-themes-common-palette-overrides))))
+        (append all-overrides user-palette core-palette)))))
 
 (defun modus-themes-get-theme-palette (&optional theme with-overrides with-user-palette)
   "Return palette value of active `modus-themes-get-themes' THEME.
