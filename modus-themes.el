@@ -192,13 +192,33 @@ text should not be underlined as well) yet still blend in."
   "Face for graphical buttons."
   :group 'modus-themes-faces)
 
-(define-obsolete-face-alias 'modus-themes-completion-selected nil "5.3.0")
-(define-obsolete-face-alias 'modus-themes-completion-match-0 nil "5.3.0")
-(define-obsolete-face-alias 'modus-themes-completion-match-1 nil "5.3.0")
-(define-obsolete-face-alias 'modus-themes-completion-match-2 nil "5.3.0")
-(define-obsolete-face-alias 'modus-themes-completion-match-3 nil "5.3.0")
 (defface modus-themes-prompt nil
   "Prompts like in the minibuffer and the shell."
+  :package-version '(modus-themes . "5.4.0")
+  :group 'modus-themes-faces)
+
+(defface modus-themes-completion-selected nil
+  "Face for completion selected candidate."
+  :package-version '(modus-themes . "5.4.0")
+  :group 'modus-themes-faces)
+
+(defface modus-themes-completion-match-0 nil
+  "Face for completion matches (index 0)."
+  :package-version '(modus-themes . "5.4.0")
+  :group 'modus-themes-faces)
+
+(defface modus-themes-completion-match-1 nil
+  "Face for completion matches (index 1)."
+  :package-version '(modus-themes . "5.4.0")
+  :group 'modus-themes-faces)
+
+(defface modus-themes-completion-match-2 nil
+  "Face for completion matches (index 2)."
+  :package-version '(modus-themes . "5.4.0")
+  :group 'modus-themes-faces)
+
+(defface modus-themes-completion-match-3 nil
+  "Face for completion matches (index 3)."
   :package-version '(modus-themes . "5.4.0")
   :group 'modus-themes-faces)
 
@@ -4514,6 +4534,11 @@ If COLOR is unspecified, then return :box unspecified."
     `(modus-themes-reset-soft ((,c :background ,bg-main :foreground ,fg-main
                                    :weight normal :slant normal :strike-through nil
                                    :box nil :underline nil :overline nil :extend nil)))
+    `(modus-themes-completion-match-0 ((,c :inherit modus-themes-bold :background ,bg-completion-match-0 :foreground ,fg-completion-match-0)))
+    `(modus-themes-completion-match-1 ((,c :inherit modus-themes-bold :background ,bg-completion-match-1 :foreground ,fg-completion-match-1)))
+    `(modus-themes-completion-match-2 ((,c :inherit modus-themes-bold :background ,bg-completion-match-2 :foreground ,fg-completion-match-2)))
+    `(modus-themes-completion-match-3 ((,c :inherit modus-themes-bold :background ,bg-completion-match-3 :foreground ,fg-completion-match-3)))
+    `(modus-themes-completion-selected ((,c :background ,bg-completion)))
     `(modus-themes-prompt ((,c :inherit modus-themes-bold :background ,bg-prompt :foreground ,fg-prompt)))
 ;;;; standard faces
 ;;;;; absolute essentials
@@ -4830,23 +4855,23 @@ If COLOR is unspecified, then return :box unspecified."
 ;;;;; column-enforce-mode
     `(column-enforce-face ((,c :background ,bg-prominent-err :foreground ,fg-prominent-err)))
 ;;;;; company-mode
-    `(company-echo-common ((,c :inherit modus-themes-bold :background ,bg-completion-match-0 :foreground ,fg-completion-match-0)))
+    `(company-echo-common ((,c :inherit modus-themes-completion-match-0)))
     `(company-preview ((,c :foreground ,fg-dim)))
-    `(company-preview-common ((,c :inherit modus-themes-bold :background ,bg-completion-match-0 :foreground ,fg-completion-match-0)))
+    `(company-preview-common ((,c :inherit modus-themes-completion-match-0)))
     `(company-preview-search ((,c :background ,bg-yellow-intense)))
     `(company-scrollbar-bg ((,c :background ,bg-active)))
     `(company-scrollbar-fg ((,c :background ,fg-main)))
     `(company-template-field ((,c :background ,bg-active)))
     `(company-tooltip ((,c :inherit modus-themes-fixed-pitch :background ,bg-popup)))
     `(company-tooltip-annotation ((,c :inherit modus-themes-slant :foreground ,docstring)))
-    `(company-tooltip-common ((,c :inherit modus-themes-bold :background ,bg-completion-match-0 :foreground ,fg-completion-match-0)))
+    `(company-tooltip-common ((,c :inherit modus-themes-completion-match-0)))
     `(company-tooltip-deprecated ((,c :inherit modus-themes-fixed-pitch :background ,bg-dim :strike-through t)))
     `(company-tooltip-mouse ((,c :background ,bg-hover :foreground ,fg-main)))
     `(company-tooltip-scrollbar-thumb ((,c :background ,fg-alt)))
     `(company-tooltip-scrollbar-track ((,c :background ,bg-inactive)))
     `(company-tooltip-search ((,c :background ,bg-hover-secondary :foreground ,fg-main)))
     `(company-tooltip-search-selection ((,c :background ,bg-hover-secondary :foreground ,fg-main :underline t)))
-    `(company-tooltip-selection ((,c :background ,bg-completion)))
+    `(company-tooltip-selection ((,c :inherit modus-themes-completion-selected)))
 ;;;;; compilation
     `(compilation-column-number ((,c :foreground ,fg-dim)))
     `(compilation-error ((,c :inherit modus-themes-bold :foreground ,err)))
@@ -4863,14 +4888,14 @@ If COLOR is unspecified, then return :box unspecified."
     ;; `completion-preview', then we should remember to customize
     ;; `completion-preview-adapt-background-color' accordingly.
     `(completion-preview-common ((,c :inherit completion-preview :underline t)))
-    `(completion-preview-exact ((,c :inherit (modus-themes-bold completion-preview) :background ,bg-completion-match-0 :foreground ,fg-completion-match-0)))
+    `(completion-preview-exact ((,c :inherit (modus-themes-completion-match-0 completion-preview))))
 ;;;;; completions
     `(completions-annotations ((,c :inherit modus-themes-slant :foreground ,docstring)))
-    `(completions-common-part ((,c :inherit modus-themes-bold :background ,bg-completion-match-0 :foreground ,fg-completion-match-0)))
+    `(completions-common-part ((,c :inherit modus-themes-completion-match-0)))
     `(completions-group-title ((,c :inherit modus-themes-slant :foreground ,name :height 0.9)))
     `(completions-group-separator ((,c :strike-through t :foreground ,border)))
-    `(completions-first-difference ((,c :inherit modus-themes-bold :background ,bg-completion-match-1 :foreground ,fg-completion-match-1)))
-    `(completions-highlight ((,c :background ,bg-completion)))
+    `(completions-first-difference ((,c :inherit modus-themes-completion-match-1)))
+    `(completions-highlight ((,c :inherit modus-themes-completion-selected)))
 ;;;;; consult
     `(consult-async-split ((,c :foreground ,err)))
     `(consult-file ((,c :inherit modus-themes-bold :foreground ,info)))
@@ -4882,7 +4907,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(consult-line-number-prefix ((,c :foreground ,fg-dim)))
     `(consult-preview-insertion ((,c :background ,bg-dim)))
 ;;;;; corfu
-    `(corfu-current ((,c :background ,bg-completion)))
+    `(corfu-current ((,c :inherit modus-themes-completion-selected)))
     `(corfu-bar ((,c :background ,fg-dim)))
     `(corfu-border ((,c :background ,bg-active)))
     `(corfu-default ((,c :inherit modus-themes-fixed-pitch :background ,bg-popup)))
@@ -5383,7 +5408,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(flyspell-duplicate ((,c :underline (:style wave :color ,underline-warning))))
     `(flyspell-incorrect ((,c :underline (:style wave :color ,underline-err))))
 ;;;;; flx
-    `(flx-highlight-face ((,c :inherit modus-themes-bold :background ,bg-completion-match-0 :foreground ,fg-completion-match-0)))
+    `(flx-highlight-face ((,c :inherit modus-themes-completion-match-0)))
 ;;;;; focus
     `(focus-unfocused ((,c :foreground "gray50")))
 ;;;;; fold-this
@@ -5622,15 +5647,15 @@ If COLOR is unspecified, then return :box unspecified."
     `(ibuffer-marked ((,c :inherit bold :background ,bg-mark-select :foreground ,fg-mark-select)))
     `(ibuffer-title ((,c :inherit bold)))
 ;;;;; icomplete
-    `(icomplete-first-match ((,c :inherit modus-themes-bold :background ,bg-completion-match-0 :foreground ,fg-completion-match-0)))
+    `(icomplete-first-match ((,c :inherit modus-themes-completion-match-0)))
     `(icomplete-vertical-selected-prefix-indicator-face ((,c :inherit modus-themes-bold :foreground ,keybind)))
     `(icomplete-vertical-unselected-prefix-indicator-face ((,c :foreground ,fg-dim)))
-    `(icomplete-selected-match ((,c :background ,bg-completion)))
+    `(icomplete-selected-match ((,c :inherit modus-themes-completion-selected)))
 ;;;;; ido-mode
-    `(ido-first-match ((,c :inherit modus-themes-bold :background ,bg-completion-match-0 :foreground ,fg-completion-match-0)))
+    `(ido-first-match ((,c :inherit modus-themes-completion-match-0)))
     `(ido-incomplete-regexp ((,c :foreground ,err)))
     `(ido-indicator ((,c :inherit modus-themes-bold)))
-    `(ido-only-match ((,c :inherit modus-themes-bold :background ,bg-completion-match-0 :foreground ,fg-completion-match-0)))
+    `(ido-only-match ((,c :inherit modus-themes-completion-match-0)))
     `(ido-subdir ((,c :foreground ,keyword)))
     `(ido-virtual ((,c :foreground ,warning)))
 ;;;;; iedit
@@ -5720,12 +5745,12 @@ If COLOR is unspecified, then return :box unspecified."
 ;;;;; ivy
     `(ivy-action ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind)))
     `(ivy-confirm-face ((,c :foreground ,info)))
-    `(ivy-current-match ((,c :background ,bg-completion)))
+    `(ivy-current-match ((,c :inherit modus-themes-completion-selected)))
     `(ivy-match-required-face ((,c :foreground ,err)))
     `(ivy-minibuffer-match-face-1 (( )))
-    `(ivy-minibuffer-match-face-2 ((,c :inherit modus-themes-bold :background ,bg-completion-match-0 :foreground ,fg-completion-match-0)))
-    `(ivy-minibuffer-match-face-3 ((,c :inherit modus-themes-bold :background ,bg-completion-match-1 :foreground ,fg-completion-match-1)))
-    `(ivy-minibuffer-match-face-4 ((,c :inherit modus-themes-bold :background ,bg-completion-match-2 :foreground ,fg-completion-match-2)))
+    `(ivy-minibuffer-match-face-2 ((,c :inherit modus-themes-completion-match-0)))
+    `(ivy-minibuffer-match-face-3 ((,c :inherit modus-themes-completion-match-1)))
+    `(ivy-minibuffer-match-face-4 ((,c :inherit modus-themes-completion-match-2)))
     `(ivy-remote ((,c :inherit modus-themes-slant)))
     `(ivy-separator ((,c :foreground ,fg-dim)))
     `(ivy-subdir ((,c :foreground ,keyword)))
@@ -6090,7 +6115,7 @@ If COLOR is unspecified, then return :box unspecified."
 ;;;;; mbdepth
     `(minibuffer-depth-indicator ((,c :inverse-video t)))
 ;;;;; mct
-    `(mct-highlight-candidate ((,c :background ,bg-completion)))
+    `(mct-highlight-candidate ((,c :inherit modus-themes-completion-selected)))
 ;;;;; messages
     `(message-cited-text-1 ((,c :foreground ,mail-cite-0)))
     `(message-cited-text-2 ((,c :foreground ,mail-cite-1)))
@@ -6320,10 +6345,10 @@ If COLOR is unspecified, then return :box unspecified."
 ;;;;; olivetti
     `(olivetti-fringe ((,c :background ,fringe)))
 ;;;;; orderless
-    `(orderless-match-face-0 ((,c :inherit modus-themes-bold :background ,bg-completion-match-0 :foreground ,fg-completion-match-0)))
-    `(orderless-match-face-1 ((,c :inherit modus-themes-bold :background ,bg-completion-match-1 :foreground ,fg-completion-match-1)))
-    `(orderless-match-face-2 ((,c :inherit modus-themes-bold :background ,bg-completion-match-2 :foreground ,fg-completion-match-2)))
-    `(orderless-match-face-3 ((,c :inherit modus-themes-bold :background ,bg-completion-match-3 :foreground ,fg-completion-match-3)))
+    `(orderless-match-face-0 ((,c :inherit modus-themes-completion-match-0)))
+    `(orderless-match-face-1 ((,c :inherit modus-themes-completion-match-1)))
+    `(orderless-match-face-2 ((,c :inherit modus-themes-completion-match-2)))
+    `(orderless-match-face-3 ((,c :inherit modus-themes-completion-match-3)))
 ;;;;; org
     `(org-agenda-calendar-daterange ((,c :foreground ,date-range)))
     `(org-agenda-calendar-event ((,c :foreground ,date-event)))
@@ -6529,7 +6554,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(popup-face ((,c :background ,bg-popup :foreground ,fg-main)))
     `(popup-isearch-match ((,c :background ,bg-search-current :foreground ,fg-search-current)))
     `(popup-menu-mouse-face ((,c :background ,bg-hover :foreground ,fg-main)))
-    `(popup-menu-selection-face ((,c :background ,bg-completion)))
+    `(popup-menu-selection-face ((,c :inherit modus-themes-completion-selected)))
     `(popup-scroll-bar-background-face ((,c :background ,bg-active)))
     `(popup-scroll-bar-foreground-face (( )))
     `(popup-summary-face ((,c :background ,bg-active :foreground ,fg-dim)))
@@ -6569,8 +6594,8 @@ If COLOR is unspecified, then return :box unspecified."
     `(powerline-evil-replace-face ((,c :background ,bg-main :foreground ,err)))
     `(powerline-evil-visual-face ((,c :inherit modus-themes-bold :background ,bg-main)))
 ;;;;; prescient
-    `(prescient-primary-highlight ((,c :inherit modus-themes-bold :background ,bg-completion-match-0 :foreground ,fg-completion-match-0)))
-    `(prescient-secondary-highlight ((,c :inherit modus-themes-bold :background ,bg-completion-match-1 :foreground ,fg-completion-match-1)))
+    `(prescient-primary-highlight ((,c :inherit modus-themes-completion-match-0)))
+    `(prescient-secondary-highlight ((,c :inherit modus-themes-completion-match-1)))
 ;;;;; proced
     `(proced-mark ((,c :inherit modus-themes-bold)))
     `(proced-marked ((,c :inherit bold :background ,bg-mark-other :foreground ,fg-mark-other)))
@@ -6798,14 +6823,14 @@ If COLOR is unspecified, then return :box unspecified."
     `(switch-window-label ((,c :inherit (bold modus-themes-reset-soft) :height 1.5 :foreground ,err))) ; same as `aw-leading-char-face'
 ;;;;; swiper
     `(swiper-background-match-face-1 (( )))
-    `(swiper-background-match-face-2 ((,c :inherit modus-themes-bold :background ,bg-completion-match-0 :foreground ,fg-completion-match-0)))
-    `(swiper-background-match-face-3 ((,c :inherit modus-themes-bold :background ,bg-completion-match-1 :foreground ,fg-completion-match-1)))
-    `(swiper-background-match-face-4 ((,c :inherit modus-themes-bold :background ,bg-completion-match-2 :foreground ,fg-completion-match-2)))
+    `(swiper-background-match-face-2 ((,c :inherit modus-themes-completion-match-0)))
+    `(swiper-background-match-face-3 ((,c :inherit modus-themes-completion-match-1)))
+    `(swiper-background-match-face-4 ((,c :inherit modus-themes-completion-match-2)))
     `(swiper-line-face ((,c :background ,bg-hl-line :extend t)))
     `(swiper-match-face-1 (( )))
-    `(swiper-match-face-2 ((,c :inherit modus-themes-bold :background ,bg-completion-match-0 :foreground ,fg-completion-match-0)))
-    `(swiper-match-face-3 ((,c :inherit modus-themes-bold :background ,bg-completion-match-1 :foreground ,fg-completion-match-1)))
-    `(swiper-match-face-4 ((,c :inherit modus-themes-bold :background ,bg-completion-match-2 :foreground ,fg-completion-match-2)))
+    `(swiper-match-face-2 ((,c :inherit modus-themes-completion-match-0)))
+    `(swiper-match-face-3 ((,c :inherit modus-themes-completion-match-1)))
+    `(swiper-match-face-4 ((,c :inherit modus-themes-completion-match-2)))
 ;;;;; symbol-overlay
     `(symbol-overlay-default-face ((,c :background ,bg-inactive)))
     `(symbol-overlay-face-1 ((,c :background ,bg-blue-intense :foreground ,fg-main)))
@@ -7036,7 +7061,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(vc-state-base (( )))
     `(vc-up-to-date-state (( )))
 ;;;;; vertico
-    `(vertico-current ((,c :background ,bg-completion)))
+    `(vertico-current ((,c :inherit modus-themes-completion-selected)))
     `(vertico-group-title ((,c :inherit modus-themes-slant :foreground ,name :height 0.9)))
     `(vertico-group-separator ((,c :strike-through t :foreground ,border)))
 ;;;;; vertico-quick
