@@ -71,6 +71,10 @@ deficiency (deuteranopia or tritanopia, respectively)."
 
 ;;;; Custom faces
 
+;; TODO 2026-07-14: Review which other Modus faces can be
+;; introduced. I am only interested in the semantic ones, not those
+;; with named colours.
+
 ;; NOTE 2025-10-25: I could not find the `make-obsolete' equivalent for faces.
 (define-obsolete-face-alias 'modus-themes-fg-blue nil "5.0.0")
 (define-obsolete-face-alias 'modus-themes-fg-blue-cooler nil "5.0.0")
