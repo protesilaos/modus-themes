@@ -188,8 +188,6 @@ properties from their context (e.g. an overlay over an underlined
 text should not be underlined as well) yet still blend in."
   :group 'modus-themes-faces)
 
-(define-obsolete-face-alias 'modus-themes-prompt nil "5.3.0")
-
 (defface modus-themes-button nil
   "Face for graphical buttons."
   :group 'modus-themes-faces)
@@ -199,6 +197,11 @@ text should not be underlined as well) yet still blend in."
 (define-obsolete-face-alias 'modus-themes-completion-match-1 nil "5.3.0")
 (define-obsolete-face-alias 'modus-themes-completion-match-2 nil "5.3.0")
 (define-obsolete-face-alias 'modus-themes-completion-match-3 nil "5.3.0")
+(defface modus-themes-prompt nil
+  "Prompts like in the minibuffer and the shell."
+  :package-version '(modus-themes . "5.4.0")
+  :group 'modus-themes-faces)
+
 
 
 
@@ -4511,6 +4514,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(modus-themes-reset-soft ((,c :background ,bg-main :foreground ,fg-main
                                    :weight normal :slant normal :strike-through nil
                                    :box nil :underline nil :overline nil :extend nil)))
+    `(modus-themes-prompt ((,c :inherit modus-themes-bold :background ,bg-prompt :foreground ,fg-prompt)))
 ;;;; standard faces
 ;;;;; absolute essentials
     `(default ((,c :background ,bg-main :foreground ,fg-main)))
@@ -4531,7 +4535,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(buffer-menu-buffer ((,c :foreground ,name)))
     `(child-frame-border ((,c :background ,border)))
     `(comint-highlight-input ((,c :inherit modus-themes-bold)))
-    `(comint-highlight-prompt ((,c :inherit bold :background ,bg-prompt :foreground ,fg-prompt)))
+    `(comint-highlight-prompt ((,c :inherit modus-themes-prompt)))
     `(confusingly-reordered ((,c :underline (:style wave :color ,underline-err))))
     `(edmacro-label ((,c :inherit modus-themes-bold :foreground ,accent-0)))
     `(error ((,c :inherit modus-themes-bold :foreground ,err)))
@@ -4549,7 +4553,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(nobreak-hyphen ((,c :foreground ,err)))
     `(nobreak-space ((,c :foreground ,err :underline t)))
     `(menu ((,c :inverse-video unspecified :background ,bg-active :foreground ,fg-main)))
-    `(minibuffer-prompt ((,c :inherit bold :background ,bg-prompt :foreground ,fg-prompt)))
+    `(minibuffer-prompt ((,c :inherit modus-themes-prompt)))
     `(minibuffer-nonselected ((,c :inverse-video t)))
     `(mm-command-output ((,c :foreground ,mail-part)))
     `(mm-uu-extract ((,c :foreground ,mail-part)))
@@ -4806,14 +4810,14 @@ If COLOR is unspecified, then return :box unspecified."
     `(cider-fringe-good-face ((,c :foreground ,info)))
     `(cider-instrumented-face ((,c :box ,err)))
     `(cider-reader-conditional-face ((,c :inherit modus-themes-bold :foreground ,type)))
-    `(cider-repl-prompt-face ((,c :inherit bold :background ,bg-prompt :foreground ,fg-prompt)))
+    `(cider-repl-prompt-face ((,c :inherit modus-themes-prompt)))
     `(cider-repl-stderr-face ((,c :foreground ,err)))
     `(cider-repl-stdout-face (( )))
     `(cider-warning-highlight-face ((,c :underline (:style wave :color ,underline-warning))))
 ;;;;; circe (and lui)
     `(circe-fool-face ((,c :foreground ,fg-dim)))
     `(circe-highlight-nick-face ((,c :foreground ,err)))
-    `(circe-prompt-face ((,c :inherit bold :background ,bg-prompt :foreground ,fg-prompt)))
+    `(circe-prompt-face ((,c :inherit modus-themes-prompt)))
     `(circe-server-face ((,c :foreground ,fg-dim)))
     `(lui-button-face ((,c :background ,bg-link :foreground ,fg-link :underline ,underline-link)))
     `(lui-highlight-face ((,c :foreground ,err)))
@@ -5297,7 +5301,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(erc-nick-prefix-face ((,c :inherit erc-nick-default-face)))
     `(erc-notice-face ((,c :inherit modus-themes-slant :foreground ,comment)))
     `(erc-pal-face ((,c :inherit modus-themes-bold :foreground ,accent-1)))
-    `(erc-prompt-face ((,c :inherit bold :background ,bg-prompt :foreground ,fg-prompt)))
+    `(erc-prompt-face ((,c :inherit modus-themes-prompt)))
     `(erc-timestamp-face ((,c :foreground ,date-common)))
     `(erc-underline-face ((,c :inherit underline)))
 ;;;;; ert
@@ -5320,7 +5324,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(eshell-ls-special ((,c :foreground ,accent-3)))
     `(eshell-ls-symlink ((,c :background ,bg-link :foreground ,fg-link :underline ,underline-link)))
     `(eshell-ls-unreadable ((,c :foreground ,fg-dim)))
-    `(eshell-prompt ((,c :inherit bold :background ,bg-prompt :foreground ,fg-prompt)))
+    `(eshell-prompt ((,c :inherit modus-themes-prompt)))
 ;;;;; eshell-fringe-status
     `(eshell-fringe-status-failure ((,c :foreground ,err)))
     `(eshell-fringe-status-success ((,c :foreground ,info)))
@@ -5435,7 +5439,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(geiser-font-lock-image-button ((,c :foreground ,info :underline t)))
     `(geiser-font-lock-repl-input ((,c :inherit modus-themes-bold)))
     `(geiser-font-lock-repl-output ((,c :inherit modus-themes-bold :foreground ,keyword)))
-    `(geiser-font-lock-repl-prompt ((,c :inherit bold :background ,bg-prompt :foreground ,fg-prompt)))
+    `(geiser-font-lock-repl-prompt ((,c :inherit modus-themes-prompt)))
     `(geiser-font-lock-xref-header ((,c :inherit modus-themes-bold)))
     `(geiser-font-lock-xref-link ((,c :background ,bg-link :foreground ,fg-link :underline ,underline-link)))
 ;;;;; git-commit
@@ -6614,7 +6618,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(rcirc-nick-in-message ((,c :inherit modus-themes-bold :foreground ,accent-1)))
     `(rcirc-nick-in-message-full-line ((,c :inherit modus-themes-bold :foreground ,accent-1)))
     `(rcirc-other-nick ((,c :inherit modus-themes-bold :foreground ,accent-0)))
-    `(rcirc-prompt ((,c :inherit bold :background ,bg-prompt :foreground ,fg-prompt)))
+    `(rcirc-prompt ((,c :inherit modus-themes-prompt)))
     `(rcirc-server ((,c :inherit modus-themes-slant :foreground ,comment)))
     `(rcirc-timestamp ((,c :foreground ,date-common)))
     `(rcirc-track-keyword ((,c :inherit modus-themes-bold :foreground ,modeline-warning)))
@@ -6721,7 +6725,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(slime-repl-input-face ((,c :inherit modus-themes-bold)))
     `(slime-repl-inputed-output-face ((,c :foreground ,string)))
     `(slime-repl-output-mouseover-face ((,c :background ,bg-hover :foreground ,fg-main)))
-    `(slime-repl-prompt-face ((,c :inherit bold :background ,bg-prompt :foreground ,fg-prompt)))
+    `(slime-repl-prompt-face ((,c :inherit modus-themes-prompt)))
     `(slime-style-warning-face ((,c :underline (:style wave :color ,underline-note))))
     `(slime-warning-face ((,c :underline (:style wave :color ,underline-warning))))
 ;;;;; sly
@@ -6731,7 +6735,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(sly-error-face ((,c :underline (:style wave :color ,underline-err))))
     `(sly-mode-line ((,c :inherit italic :foreground ,modeline-info)))
     `(sly-mrepl-output-face ((,c :foreground ,string)))
-    `(sly-mrepl-prompt-face ((,c :inherit bold :background ,bg-prompt :foreground ,fg-prompt)))
+    `(sly-mrepl-prompt-face ((,c :inherit modus-themes-prompt)))
     `(sly-note-face ((,c :underline (:style wave :color ,underline-note))))
     `(sly-stickers-placed-face ((,c :background ,bg-inactive)))
     `(sly-style-warning-face ((,c :underline (:style wave :color ,underline-note))))
@@ -6847,7 +6851,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(telega-button ((,c :box t :foreground ,fg-link)))
     `(telega-button-active ((,c :box ,fg-link :background ,fg-link :foreground ,bg-main)))
     `(telega-button-highlight ((,c :background ,bg-hover :foreground ,fg-main)))
-    `(telega-chat-prompt ((,c :inherit bold :background ,bg-prompt :foreground ,fg-prompt)))
+    `(telega-chat-prompt ((,c :inherit modus-themes-prompt)))
     `(telega-entity-type-code ((,c :inherit modus-themes-fixed-pitch :background ,bg-prose-verbatim :foreground ,fg-prose-verbatim)))
     `(telega-entity-type-mention ((,c :foreground ,type)))
     `(telega-entity-type-pre ((,c :inherit modus-themes-fixed-pitch :background ,bg-prose-code :foreground ,fg-prose-code)))
