@@ -5071,6 +5071,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + switch-window
 + swiper
 + symbol-overlay
++ synaxis [Part of {{{development-version}}}]
 + syslog-mode
 + tab-bar-mode
 + tab-line-mode

@@ -6841,6 +6841,15 @@ If COLOR is unspecified, then return :box unspecified."
     `(symbol-overlay-face-6 ((,c :background ,bg-green-intense :foreground ,fg-main)))
     `(symbol-overlay-face-7 ((,c :background ,bg-red-subtle :foreground ,fg-main)))
     `(symbol-overlay-face-8 ((,c :background ,bg-cyan-subtle :foreground ,fg-main)))
+;;;;; synaxis
+    `(synaxis-search-date-face ((,c :foreground ,date-common)))
+    `(synaxis-search-feed-face ((,c :foreground ,name))) ; TODO 2026-07-14: maybe make this the same as `elfeed-search-feed-face'
+    `(synaxis-search-marked-face ((,c :inherit bold :background ,bg-mark-select :foreground ,fg-mark-select)))
+    `(synaxis-search-read-face (( )))
+    `(synaxis-search-tag-face ((,c :foreground ,identifier))) ; TODO 2026-07-14: maybe make this the same as `elfeed-search-tag-face'
+    `(synaxis-search-unread-face ((,c :inherit bold :foreground ,fg-main))) ; same as `elfeed-search-unread-title-face'
+    `(synaxis-show-meta-face ((,c :inherit modus-themes-heading-2)))
+    `(synaxis-show-title-face ((,c :inherit modus-themes-heading-1)))
 ;;;;; syslog-mode
     `(syslog-debug ((,c :inherit modus-themes-slant)))
     `(syslog-error ((,c :foreground ,err)))
