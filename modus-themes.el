@@ -194,65 +194,26 @@ text should not be underlined as well) yet still blend in."
   :package-version '(modus-themes . "5.4.0")
   :group 'modus-themes-faces)
 
-(defface modus-themes-completion-match-0 nil
-  "Face for completion matches (index 0)."
-  :package-version '(modus-themes . "5.4.0")
-  :group 'modus-themes-faces)
+(dotimes (n 4)
+  (custom-declare-face
+   (intern (format "modus-themes-completion-match-%d" n))
+   nil (format "Face for completion matches %d." n)
+   :package-version '(modus-themes . "5.4.0")
+   :group 'modus-themes-faces))
 
-(defface modus-themes-completion-match-1 nil
-  "Face for completion matches (index 1)."
-  :package-version '(modus-themes . "5.4.0")
-  :group 'modus-themes-faces)
+(dolist (suffix '(current lazy replace static))
+  (custom-declare-face
+   (intern (format "modus-themes-search-%s" suffix))
+   nil (format "Face for %s search matches." suffix)
+   :package-version '(modus-themes . "5.4.0")
+   :group 'modus-themes-faces))
 
-(defface modus-themes-completion-match-2 nil
-  "Face for completion matches (index 2)."
-  :package-version '(modus-themes . "5.4.0")
-  :group 'modus-themes-faces)
-
-(defface modus-themes-completion-match-3 nil
-  "Face for completion matches (index 3)."
-  :package-version '(modus-themes . "5.4.0")
-  :group 'modus-themes-faces)
-
-(defface modus-themes-search-current nil
-  "Face for current search match."
-  :package-version '(modus-themes . "5.4.0")
-  :group 'modus-themes-faces)
-
-(defface modus-themes-search-lazy nil
-  "Face for lazy (other) search matches."
-  :package-version '(modus-themes . "5.4.0")
-  :group 'modus-themes-faces)
-
-(defface modus-themes-search-replace nil
-  "Face for search+replace match."
-  :package-version '(modus-themes . "5.4.0")
-  :group 'modus-themes-faces)
-
-(defface modus-themes-search-static nil
-  "Face for static search matches."
-  :package-version '(modus-themes . "5.4.0")
-  :group 'modus-themes-faces)
-
-(defface modus-themes-search-rx-group-0 nil
-  "Face for regexp group 0 in search-related contexts."
-  :package-version '(modus-themes . "5.4.0")
-  :group 'modus-themes-faces)
-
-(defface modus-themes-search-rx-group-1 nil
-  "Face for regexp group 1 in search-related contexts."
-  :package-version '(modus-themes . "5.4.0")
-  :group 'modus-themes-faces)
-
-(defface modus-themes-search-rx-group-2 nil
-  "Face for regexp group 2 in search-related contexts."
-  :package-version '(modus-themes . "5.4.0")
-  :group 'modus-themes-faces)
-
-(defface modus-themes-search-rx-group-3 nil
-  "Face for regexp group 3 in search-related contexts."
-  :package-version '(modus-themes . "5.4.0")
-  :group 'modus-themes-faces)
+(dotimes (n 4)
+  (custom-declare-face
+   (intern (format "modus-themes-search-rx-group-%d" n))
+   nil (format "Face for regexp group %d." n)
+   :package-version '(modus-themes . "5.4.0")
+   :group 'modus-themes-faces))
 
 
 
