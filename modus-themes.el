@@ -112,9 +112,6 @@ deficiency (deuteranopia or tritanopia, respectively)."
 (define-obsolete-face-alias 'modus-themes-lang-error nil "5.0.0")
 (define-obsolete-face-alias 'modus-themes-lang-note nil "5.0.0")
 (define-obsolete-face-alias 'modus-themes-lang-warning nil "5.0.0")
-(define-obsolete-face-alias 'modus-themes-mark-alt nil "5.0.0")
-(define-obsolete-face-alias 'modus-themes-mark-del nil "5.0.0")
-(define-obsolete-face-alias 'modus-themes-mark-sel nil "5.0.0")
 (define-obsolete-face-alias 'modus-themes-nuanced-blue nil "5.0.0")
 (define-obsolete-face-alias 'modus-themes-nuanced-cyan nil "5.0.0")
 (define-obsolete-face-alias 'modus-themes-nuanced-green nil "5.0.0")
@@ -212,6 +209,17 @@ text should not be underlined as well) yet still blend in."
   (custom-declare-face
    (intern (format "modus-themes-search-rx-group-%d" n))
    nil (format "Face for regexp group %d." n)
+   :package-version '(modus-themes . "5.4.0")
+   :group 'modus-themes-faces))
+
+(define-obsolete-face-alias 'modus-themes-mark-alt 'modus-themes-mark-other "5.4.0")
+(define-obsolete-face-alias 'modus-themes-mark-del 'modus-themes-mark-delete "5.4.0")
+(define-obsolete-face-alias 'modus-themes-mark-sel 'modus-themes-mark-select "5.4.0")
+
+(dolist (suffix '(other delete select))
+  (custom-declare-face
+   (intern (format "modus-themes-mark-%s" suffix))
+   nil (format "Face for %s marks." suffix)
    :package-version '(modus-themes . "5.4.0")
    :group 'modus-themes-faces))
 
@@ -4540,6 +4548,9 @@ If COLOR is unspecified, then return :box unspecified."
     `(modus-themes-search-rx-group-1 ((,c :background ,bg-search-rx-group-1 :foreground ,fg-search-rx-group-1)))
     `(modus-themes-search-rx-group-2 ((,c :background ,bg-search-rx-group-2 :foreground ,fg-search-rx-group-2)))
     `(modus-themes-search-rx-group-3 ((,c :background ,bg-search-rx-group-3 :foreground ,fg-search-rx-group-3)))
+    `(modus-themes-mark-other ((,c :inherit bold :background ,bg-mark-other :foreground ,fg-mark-other)))
+    `(modus-themes-mark-delete ((,c :inherit bold :background ,bg-mark-delete :foreground ,fg-mark-delete)))
+    `(modus-themes-mark-select ((,c :inherit bold :background ,bg-mark-select :foreground ,fg-mark-select)))
 ;;;; standard faces
 ;;;;; absolute essentials
     `(default ((,c :background ,bg-main :foreground ,fg-main)))
@@ -4735,8 +4746,8 @@ If COLOR is unspecified, then return :box unspecified."
     `(aw-mode-line-face ((,c :inherit modus-themes-bold)))
 ;;;;; binder
     `(binder-sidebar-highlight ((,c :inherit modus-themes-hl-line)))
-    `(binder-sidebar-marked ((,c :inherit bold :background ,bg-mark-select :foreground ,fg-mark-select)))
-    `(binder-sidebar-missing ((,c :inherit bold :background ,bg-mark-delete :foreground ,fg-mark-delete)))
+    `(binder-sidebar-marked ((,c :inherit modus-themes-mark-select)))
+    `(binder-sidebar-missing ((,c :inherit modus-themes-mark-delete)))
     `(binder-sidebar-tags ((,c :foreground ,variable)))
 ;;;;; breadcrumb
     `(breadcrumb-face ((,c :foreground ,fg-alt)))
@@ -4748,7 +4759,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(bongo-currently-playing-track ((,c :inherit modus-themes-bold)))
     `(bongo-elapsed-track-part ((,c :background ,bg-inactive :underline t)))
     `(bongo-filled-seek-bar ((,c :background ,bg-hover)))
-    `(bongo-marked-track ((,c :inherit bold :background ,bg-mark-other :foreground ,fg-mark-other)))
+    `(bongo-marked-track ((,c :inherit modus-themes-mark-other)))
     `(bongo-marked-track-line ((,c :background ,bg-dim)))
     `(bongo-played-track ((,c :foreground ,fg-dim :strike-through t)))
     `(bongo-track-length ((,c :foreground ,fg-dim)))
@@ -4796,7 +4807,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(calibredb-search-header-sort-face ((,c :inherit modus-themes-bold :foreground ,accent-1)))
     `(calibredb-search-header-total-face ((,c :inherit modus-themes-bold :foreground ,accent-0)))
     `(calibredb-search-header-filter-face ((,c :inherit modus-themes-bold)))
-    `(calibredb-mark-face ((,c :inherit bold :background ,bg-mark-select :foreground ,fg-mark-select)))
+    `(calibredb-mark-face ((,c :inherit modus-themes-mark-select)))
     `(calibredb-size-face (( )))
     `(calibredb-tag-face ((,c :foreground ,fg-alt)))
 ;;;;; centaur-tabs
@@ -4979,8 +4990,8 @@ If COLOR is unspecified, then return :box unspecified."
     `(debbugs-gnu-done ((,c :foreground ,info)))
     `(debbugs-gnu-forwarded ((,c :inherit modus-themes-slant)))
     `(debbugs-gnu-handled (( )))
-    `(debbugs-gnu-marked ((,c :inherit bold :background ,bg-mark-select :foreground ,fg-mark-select)))
-    `(debbugs-gnu-marked-stale ((,c :inherit bold :background ,bg-mark-other :foreground ,fg-mark-other)))
+    `(debbugs-gnu-marked ((,c :inherit modus-themes-mark-select)))
+    `(debbugs-gnu-marked-stale ((,c :inherit modus-themes-mark-other)))
     `(debbugs-gnu-new ((,c :inherit modus-themes-bold :foreground ,err)))
     `(debbugs-gnu-pending ((,c :inherit bold-italic :foreground ,warning)))
     `(debbugs-gnu-stale-1 ((,c :foreground ,err)))
@@ -4988,7 +4999,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(debbugs-gnu-stale-3 ((,c :foreground ,info)))
     `(debbugs-gnu-stale-4 ((,c :foreground ,fg-alt)))
     `(debbugs-gnu-stale-5 ((,c :foreground ,fg-dim)))
-    `(debbugs-gnu-tagged ((,c :inherit bold :background ,bg-mark-other :foreground ,fg-mark-other)))
+    `(debbugs-gnu-tagged ((,c :inherit modus-themes-mark-other)))
     `(debbugs-gnu-title ((,c :inherit modus-themes-heading-1)))
 ;;;;; deft
     `(deft-filter-string-face ((,c :foreground ,info)))
@@ -5047,11 +5058,11 @@ If COLOR is unspecified, then return :box unspecified."
 ;;;;; dired
     `(dired-broken-symlink ((,c :foreground ,err :underline t)))
     `(dired-directory ((,c :foreground ,accent-0)))
-    `(dired-flagged ((,c :inherit bold :background ,bg-mark-delete :foreground ,fg-mark-delete)))
+    `(dired-flagged ((,c :inherit modus-themes-mark-delete)))
     `(dired-header ((,c :inherit modus-themes-bold)))
     `(dired-ignored ((,c :foreground ,fg-dim)))
     `(dired-mark ((,c :inherit modus-themes-bold)))
-    `(dired-marked ((,c :inherit bold :background ,bg-mark-select :foreground ,fg-mark-select)))
+    `(dired-marked ((,c :inherit modus-themes-mark-select)))
     `(dired-perm-write ((,c :foreground ,fg-dim)))
     `(dired-symlink ((,c :background ,bg-link-symbolic :foreground ,fg-link-symbolic :underline ,underline-link-symbolic)))
     `(dired-warning ((,c :foreground ,warning)))
@@ -5082,8 +5093,8 @@ If COLOR is unspecified, then return :box unspecified."
     `(diredfl-compressed-file-name ((,c :foreground ,warning)))
     `(diredfl-compressed-file-suffix ((,c :foreground ,err)))
     `(diredfl-date-time ((,c :foreground ,date-common)))
-    `(diredfl-deletion ((,c :inherit bold :background ,bg-mark-delete :foreground ,fg-mark-delete)))
-    `(diredfl-deletion-file-name ((,c :inherit bold :background ,bg-mark-delete :foreground ,fg-mark-delete)))
+    `(diredfl-deletion ((,c :inherit modus-themes-mark-delete)))
+    `(diredfl-deletion-file-name ((,c :inherit modus-themes-mark-delete)))
     `(diredfl-dir-heading ((,c :inherit modus-themes-bold)))
     `(diredfl-dir-name ((,c :foreground ,accent-0)))
     `(diredfl-dir-priv ((,c :foreground ,accent-0)))
@@ -5091,8 +5102,8 @@ If COLOR is unspecified, then return :box unspecified."
     `(diredfl-executable-tag ((,c :foreground ,accent-1)))
     `(diredfl-file-name ((,c :foreground ,fg-main)))
     `(diredfl-file-suffix ((,c :foreground ,variable)))
-    `(diredfl-flag-mark ((,c :inherit bold :background ,bg-mark-select :foreground ,fg-mark-select)))
-    `(diredfl-flag-mark-line ((,c :inherit bold :background ,bg-mark-select :foreground ,fg-mark-select)))
+    `(diredfl-flag-mark ((,c :inherit modus-themes-mark-select)))
+    `(diredfl-flag-mark-line ((,c :inherit modus-themes-mark-select)))
     `(diredfl-ignored-file-name ((,c :foreground ,fg-dim)))
     `(diredfl-link-priv ((,c :foreground ,fg-link)))
     `(diredfl-no-priv ((,c :foreground ,fg-dim)))
@@ -5271,7 +5282,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(embark-collect-group-title ((,c :inherit modus-themes-bold :foreground ,name)))
     `(embark-keybinding ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind)))
     `(embark-keybinding-repeat ((,c :inherit modus-themes-bold)))
-    `(embark-selected ((,c :inherit bold :background ,bg-mark-select :foreground ,fg-mark-select)))
+    `(embark-selected ((,c :inherit modus-themes-mark-select)))
 ;;;;; ement (ement.el)
     `(ement-room-fully-read-marker ((,c :foreground ,info)))
     `(ement-room-membership ((,c :foreground ,fg-dim)))
@@ -5642,9 +5653,9 @@ If COLOR is unspecified, then return :box unspecified."
     `(hbut-flash ((,c :inherit modus-themes-search-replace)))
     `(ibut-face ((,c :background ,bg-link-symbolic :foreground ,fg-link-symbolic :underline ,underline-link-symbolic)))
 ;;;;; ibuffer
-    `(ibuffer-deletion ((,c :inherit bold :background ,bg-mark-delete :foreground ,fg-mark-delete)))
+    `(ibuffer-deletion ((,c :inherit modus-themes-mark-delete)))
     `(ibuffer-filter-group-name ((,c :inherit bold)))
-    `(ibuffer-marked ((,c :inherit bold :background ,bg-mark-select :foreground ,fg-mark-select)))
+    `(ibuffer-marked ((,c :inherit modus-themes-mark-select)))
     `(ibuffer-title ((,c :inherit bold)))
 ;;;;; icomplete
     `(icomplete-first-match ((,c :inherit modus-themes-completion-match-0)))
@@ -5665,10 +5676,10 @@ If COLOR is unspecified, then return :box unspecified."
     `(iflipb-current-buffer-face ((,c :inherit modus-themes-bold :foreground ,name)))
     `(iflipb-other-buffer-face ((,c :foreground ,fg-dim)))
 ;;;;; image-dired
-    `(image-dired-thumb-flagged ((,c :background ,bg-mark-delete :foreground ,fg-mark-delete :box (:line-width -3))))
+    `(image-dired-thumb-flagged ((,c :inherit modus-themes-mark-delete :box (:line-width -3))))
     `(image-dired-thumb-header-file-name ((,c :inherit modus-themes-bold)))
     `(image-dired-thumb-header-file-size ((,c :foreground ,constant)))
-    `(image-dired-thumb-mark ((,c :background ,bg-mark-select :foreground ,fg-mark-select :box (:line-width -3))))
+    `(image-dired-thumb-mark ((,c :inherit modus-themes-mark-select :box (:line-width -3))))
 ;;;;; imenu-list
     `(imenu-list-entry-face-0 ((,c :foreground ,fg-heading-1)))
     `(imenu-list-entry-face-1 ((,c :foreground ,fg-heading-2)))
@@ -5828,8 +5839,8 @@ If COLOR is unspecified, then return :box unspecified."
 ;;;;; kmacro-menu
     ;; Use `list' here to avoid a spurious warning about `kmacro-menu-mark'.
     (list 'kmacro-menu-mark `((,c :inherit modus-themes-bold)))
-    `(kmacro-menu-marked ((,c :inherit bold :background ,bg-mark-select :foreground ,fg-mark-select)))
-    `(kmacro-menu-flagged ((,c :inherit bold :background ,bg-mark-delete :foreground ,fg-mark-delete)))
+    `(kmacro-menu-marked ((,c :inherit modus-themes-mark-select)))
+    `(kmacro-menu-flagged ((,c :inherit modus-themes-mark-delete)))
 ;;;;; ledger-mode
     `(ledger-font-auto-xact-face ((,c :inherit modus-themes-bold :foreground ,builtin)))
     `(ledger-font-account-name-face ((,c :foreground ,name)))
@@ -6494,8 +6505,8 @@ If COLOR is unspecified, then return :box unspecified."
 ;;;;; package (M-x list-packages)
     `(package-description ((,c :foreground ,docstring)))
     `(package-help-section-name ((,c :inherit modus-themes-bold)))
-    `(package-mark-delete-line ((,c :inherit bold :background ,bg-mark-delete :foreground ,fg-mark-delete)))
-    `(package-mark-install-line ((,c :inherit bold :background ,bg-mark-select :foreground ,fg-mark-select)))
+    `(package-mark-delete-line ((,c :inherit modus-themes-mark-delete)))
+    `(package-mark-install-line ((,c :inherit modus-themes-mark-select)))
     `(package-name ((,c :background ,bg-link :foreground ,fg-link :underline ,underline-link)))
     `(package-status-available ((,c :foreground ,date-common)))
     `(package-status-avail-obso ((,c :foreground ,err)))
@@ -6598,7 +6609,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(prescient-secondary-highlight ((,c :inherit modus-themes-completion-match-1)))
 ;;;;; proced
     `(proced-mark ((,c :inherit modus-themes-bold)))
-    `(proced-marked ((,c :inherit bold :background ,bg-mark-other :foreground ,fg-mark-other)))
+    `(proced-marked ((,c :inherit modus-themes-mark-other)))
     `(proced-sort-header ((,c :inherit modus-themes-bold :underline t)))
 ;;;;; prodigy
     `(prodigy-green-face ((,c :foreground ,info)))
@@ -6729,7 +6740,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(shr-h5 ((,c :inherit modus-themes-heading-5)))
     `(shr-h6 ((,c :inherit modus-themes-heading-6)))
     `(shr-mark ((,c :inherit modus-themes-search-static)))
-    `(shr-selected-link ((,c :inherit bold :background ,bg-mark-select :foreground ,fg-mark-select)))
+    `(shr-selected-link ((,c :inherit modus-themes-mark-select)))
 ;;;;; side-notes
     `(side-notes ((,c :background ,bg-dim :foreground ,fg-dim)))
 ;;;;; sieve-mode
@@ -6809,7 +6820,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(speedbar-directory-face ((,c :inherit modus-themes-bold :foreground ,accent-0)))
     `(speedbar-file-face ((,c :foreground ,fg-main)))
     `(speedbar-highlight-face ((,c :background ,bg-hover :foreground ,fg-main)))
-    `(speedbar-selected-face ((,c :inherit bold :background ,bg-mark-select :foreground ,fg-mark-select)))
+    `(speedbar-selected-face ((,c :inherit modus-themes-mark-select)))
     `(speedbar-separator-face ((,c :background ,bg-active :foreground ,fg-main)))
     `(speedbar-tag-face ((,c :foreground ,accent-1)))
 ;;;;; spell-fu
@@ -6844,7 +6855,7 @@ If COLOR is unspecified, then return :box unspecified."
 ;;;;; synaxis
     `(synaxis-search-date-face ((,c :foreground ,date-common)))
     `(synaxis-search-feed-face ((,c :foreground ,name))) ; TODO 2026-07-14: maybe make this the same as `elfeed-search-feed-face'
-    `(synaxis-search-marked-face ((,c :inherit bold :background ,bg-mark-select :foreground ,fg-mark-select)))
+    `(synaxis-search-marked-face ((,c :inherit modus-themes-mark-select)))
     `(synaxis-search-read-face (( )))
     `(synaxis-search-tag-face ((,c :foreground ,identifier))) ; TODO 2026-07-14: maybe make this the same as `elfeed-search-tag-face'
     `(synaxis-search-unread-face ((,c :inherit bold :foreground ,fg-main))) ; same as `elfeed-search-unread-title-face'
@@ -6942,8 +6953,8 @@ If COLOR is unspecified, then return :box unspecified."
     ;; Placate the compiler for what is a spurious warning.  We also
     ;; have to do this with `eldoc-highlight-function-argument'.
     (list 'transient-argument `((,c :inherit modus-themes-bold :background ,bg-active-argument :foreground ,fg-active-argument)))
-    `(transient-disabled-suffix ((,c :inherit bold :background ,bg-mark-delete :foreground ,fg-mark-delete)))
-    `(transient-enabled-suffix ((,c :inherit bold :background ,bg-mark-select :foreground ,fg-mark-select)))
+    `(transient-disabled-suffix ((,c :inherit modus-themes-mark-delete)))
+    `(transient-enabled-suffix ((,c :inherit modus-themes-mark-select)))
     `(transient-heading ((,c :inherit bold :foreground ,fg-main)))
     `(transient-inactive-argument ((,c :foreground ,fg-dim)))
     `(transient-inactive-value ((,c :foreground ,fg-dim)))
@@ -6964,11 +6975,11 @@ If COLOR is unspecified, then return :box unspecified."
     `(transient-unreachable-key ((,c :inherit modus-themes-fixed-pitch :foreground ,fg-dim)))
     `(transient-value ((,c :inherit modus-themes-bold :background ,bg-active-value :foreground ,fg-active-value)))
 ;;;;; trashed
-    `(trashed-deleted ((,c :inherit bold :background ,bg-mark-delete :foreground ,fg-mark-delete)))
+    `(trashed-deleted ((,c :inherit modus-themes-mark-delete)))
     `(trashed-directory ((,c :foreground ,accent-0)))
     `(trashed-mark ((,c :inherit modus-themes-bold)))
-    `(trashed-marked ((,c :inherit bold :background ,bg-mark-other :foreground ,fg-mark-other)))
-    `(trashed-restored ((,c :inherit bold :background ,bg-mark-select :foreground ,fg-mark-select)))
+    `(trashed-marked ((,c :inherit modus-themes-mark-other)))
+    `(trashed-restored ((,c :inherit modus-themes-mark-select)))
 ;;;;; treemacs
     `(treemacs-async-loading-face ((,c :foreground ,fg-main)))
     `(treemacs-directory-face ((,c :foreground ,accent-0)))
@@ -6987,7 +6998,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(treemacs-help-column-face ((,c :inherit modus-themes-bold :foreground ,keyword)))
     `(treemacs-help-title-face ((,c :foreground ,fg-main)))
     `(treemacs-hl-line-face ((,c :background ,bg-hl-line :extend t)))
-    `(treemacs-marked-file-face ((,c :inherit bold :background ,bg-mark-other :foreground ,fg-mark-other)))
+    `(treemacs-marked-file-face ((,c :inherit modus-themes-mark-other)))
     `(treemacs-nerd-icons-face ((,c :foreground ,accent-0)))
     `(treemacs-on-failure-pulse-face ((,c :foreground ,fg-main)))
     `(treemacs-on-success-pulse-face ((,c :foreground ,fg-main)))
