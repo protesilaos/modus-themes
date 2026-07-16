@@ -103,6 +103,7 @@ This is not an exhaustive list. You are welcome to add your package here.
 - `pixel-themes` by Lucas <https://github.com/lucasobx/pixel-themes>
 - `modus-nordic` (`modus-nordic-night` and `modus-nordic-midnight`) by Ashton Wiersdorf <https://codeberg.org/ashton314/modus-nordic-night>
 - `folio-theme` by kn66 (nobu43) <https://github.com/kn66/folio-theme.el>
+- `modus-alabaster` by Derek Passen <https://github.com/dpassen/modus-alabaster>
 
 ## Other Emacs packages based on Modus
 
