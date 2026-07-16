@@ -92,7 +92,9 @@ The manual has a section about building on top of Modus. My
 
 ## Emacs themes based on Modus
 
-This is not an exhaustive list. You are welcome to add your package here.
+This is not an exhaustive list. You are welcome to add your package
+here. Newer projects are at the bottom and are added as I am made
+aware of them.
 
 - `ef-themes` by Protesilaos <https://github.com/protesilaos/ef-themes>
 - `standard-themes` by Protesilaos <https://github.com/protesilaos/standard-themes>
