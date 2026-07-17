@@ -4874,8 +4874,6 @@ If COLOR is unspecified, then return :box unspecified."
     `(company-preview ((,c :foreground ,fg-dim)))
     `(company-preview-common ((,c :inherit modus-themes-completion-match-0)))
     `(company-preview-search ((,c :background ,bg-yellow-intense)))
-    `(company-scrollbar-bg ((,c :background ,bg-active)))
-    `(company-scrollbar-fg ((,c :background ,fg-main)))
     `(company-template-field ((,c :background ,bg-active)))
     `(company-tooltip ((,c :inherit modus-themes-fixed-pitch :background ,bg-popup)))
     `(company-tooltip-annotation ((,c :inherit modus-themes-slant :foreground ,docstring)))
