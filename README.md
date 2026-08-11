@@ -122,3 +122,5 @@ This is not an exhaustive list. You are welcome to add your project here.
   <https://github.com/miikanissi/modus-themes.nvim>.
 - `zed-modus-themes` by Vitaly Slobodin is a port for the Zed editor:
   <https://github.com/vitallium/zed-modus-themes>.
+- `word-smith` by Sadsnake1 is a distraction-free writing for Obsidian
+  that includes ports of the Modus themes: <https://github.com/Sadsnake1/word-smith>
