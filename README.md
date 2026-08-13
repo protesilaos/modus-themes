@@ -106,6 +106,7 @@ aware of them.
 - `modus-nordic` (`modus-nordic-night` and `modus-nordic-midnight`) by Ashton Wiersdorf <https://codeberg.org/ashton314/modus-nordic-night>
 - `folio-theme` by kn66 (nobu43) <https://github.com/kn66/folio-theme.el>
 - `modus-alabaster` by Derek Passen <https://github.com/dpassen/modus-alabaster>
+- `modus-vague` by Ashish Panigrahi <https://github.com/paniash/modus-vague.git>
 
 ## Other Emacs packages based on Modus
 
