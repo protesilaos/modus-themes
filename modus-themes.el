@@ -5768,6 +5768,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(lazy-highlight ((,c :inherit modus-themes-search-lazy)))
     `(match ((,c :inherit modus-themes-search-static)))
     `(query-replace ((,c :inherit modus-themes-search-replace)))
+    `(query-replace-preview ((,c :inherit (bold modus-themes-search-replace))))
 ;;;;; ivy
     `(ivy-action ((,c :inherit (bold modus-themes-fixed-pitch) :foreground ,keybind)))
     `(ivy-confirm-face ((,c :foreground ,info)))
