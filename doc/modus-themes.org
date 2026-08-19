@@ -3961,7 +3961,7 @@ entirely custom list of face definitions and customization options.
 This mirrors the style of ~modus-themes-faces~ and
 ~modus-themes-custom-variables~, as already noted. For example, the
 ~standard-themes~ have a pseudo-3D style for their active mode line.
-They are declared in this way:
+They are declared this way:
 
 #+begin_src emacs-lisp
 (modus-themes-theme
@@ -3985,9 +3985,9 @@ face definitions like this:
     `(mode-line ((,c :box (:style released-button :color ,border-mode-line-active))))))
 #+end_src
 
-Custom faces passed in this way can still define their semantic
-palette mappings, as illustrated herein where ~border-mode-line-active~
-corresponds to some named color in the palette of the active theme.
+Custom faces can still rely on semantic palette mappings, as
+illustrated herein where ~border-mode-line-active~ corresponds to some
+named color in the palette of the active theme.
 
 ** Complete example of a Modus derivative theme
 :PROPERTIES:
