@@ -107,6 +107,7 @@ aware of them.
 - `folio-theme` by kn66 (nobu43) <https://github.com/kn66/folio-theme.el>
 - `modus-alabaster` by Derek Passen <https://github.com/dpassen/modus-alabaster>
 - `modus-vague` by Ashish Panigrahi <https://github.com/paniash/modus-vague.git>
+- `peppers-theme` by Joar von Arndt <https://codeberg.org/joar/peppers-theme>
 
 ## Other Emacs packages based on Modus
 
