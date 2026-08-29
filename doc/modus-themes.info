@@ -6636,20 +6636,20 @@ Ideas and user feedback
      John Wick, Jonas Collberg, Jorge Morais, Joshua O'Connor, Julio C.
      Villasante, Kenta Usami, Kevin Fleming, Kévin Le Gouguec, Kevin
      Kainan Li, Kostadin Ninev, Laith Bahodi, Lasse Lindner, Len Trigg,
-     Lennart C. Karssen, Luis Miguel Castañeda, Magne Hov, Manuel
-     Giraud, Manuel Uberti, Mark Bestley, Mark Burton, Mark Simpson,
-     Marko Kocic, Markus Beppler, Matt Armstrong, Matthias Fuchs,
-     Mattias Engdegård, Mauro Aranda, Maxime Tréca, Michael Goldenberg,
-     Mike Crowe, Morgan Smith, Morgan Willcock, Morten Kjeldgaard,
-     Murilo Pereira, Nicky van Foreest, Nicolas De Jaeghere, Nicolas
-     Semrau, Olaf Meeuwissen, Oliver Epper, Pablo Stafforini, Paul
-     Poloskov, Pengji Zhang, Pete Kazmier, Peter Wu, Philip Kaludercic,
-     Pierre Téchoueyres, Pranshu Sharma, Przemysław Kryger, Robert
-     Hepple, Roman Rudakov, Roshan Shariff, Russell Sim, Ryan Phillips,
-     Rytis Paškauskas, Rudolf Adamkovič, Sam Kleinman, Samuel Culpepper,
-     Saša Janiška, Shreyas Ragavan, Simon Pugnet, Stéphane Marks, Steve
-     Downey, Tassilo Horn, Thanos Apollo, Thibaut Verron, Thomas
-     Heartman, Togan Muftuoglu, Tony Zorman, Trey Merkley, Tomasz
+     Lennart C. Karssen, Lucas Jimenez, Luis Miguel Castañeda, Magne
+     Hov, Manuel Giraud, Manuel Uberti, Mark Bestley, Mark Burton, Mark
+     Simpson, Marko Kocic, Markus Beppler, Matt Armstrong, Matthias
+     Fuchs, Mattias Engdegård, Mauro Aranda, Maxime Tréca, Michael
+     Goldenberg, Mike Crowe, Morgan Smith, Morgan Willcock, Morten
+     Kjeldgaard, Murilo Pereira, Nicky van Foreest, Nicolas De Jaeghere,
+     Nicolas Semrau, Olaf Meeuwissen, Oliver Epper, Pablo Stafforini,
+     Paul Poloskov, Pengji Zhang, Pete Kazmier, Peter Wu, Philip
+     Kaludercic, Pierre Téchoueyres, Pranshu Sharma, Przemysław Kryger,
+     Robert Hepple, Roman Rudakov, Roshan Shariff, Russell Sim, Ryan
+     Phillips, Rytis Paškauskas, Rudolf Adamkovič, Sam Kleinman, Samuel
+     Culpepper, Saša Janiška, Shreyas Ragavan, Simon Pugnet, Stéphane
+     Marks, Steve Downey, Tassilo Horn, Thanos Apollo, Thibaut Verron,
+     Thomas Heartman, Togan Muftuoglu, Tony Zorman, Trey Merkley, Tomasz
      Hołubowicz, Toon Claes, Troy Brown, Uri Sharf, Utkarsh Singh,
      Vincent Foley, Yuta Yamamoto, Zoltan Kiraly.  As well as users:
      Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik,
@@ -7506,11 +7506,11 @@ Node: Sources of the themes280883
 Node: Issues you can help with281624
 Node: Patches require copyright assignment to the FSF282946
 Node: Acknowledgements285160
-Node: GNU Free Documentation License290075
-Node: Indices315238
-Node: Function index315417
-Node: Variable index320026
-Node: Concept index324603
+Node: GNU Free Documentation License290090
+Node: Indices315253
+Node: Function index315432
+Node: Variable index320041
+Node: Concept index324618
 
 End Tag Table
 

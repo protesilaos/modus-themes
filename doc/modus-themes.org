@@ -6414,27 +6414,27 @@ The Modus themes are a collective effort.  Every bit of work matters.
   John Haman, John Sullivan, John Wick, Jonas Collberg, Jorge Morais,
   Joshua O'Connor, Julio C. Villasante, Kenta Usami, Kevin Fleming,
   Kévin Le Gouguec, Kevin Kainan Li, Kostadin Ninev, Laith Bahodi,
-  Lasse Lindner, Len Trigg, Lennart C.{{{space()}}} Karssen, Luis
-  Miguel Castañeda, Magne Hov, Manuel Giraud, Manuel Uberti, Mark
-  Bestley, Mark Burton, Mark Simpson, Marko Kocic, Markus Beppler,
-  Matt Armstrong, Matthias Fuchs, Mattias Engdegård, Mauro Aranda,
-  Maxime Tréca, Michael Goldenberg, Mike Crowe, Morgan Smith, Morgan
-  Willcock, Morten Kjeldgaard, Murilo Pereira, Nicky van Foreest,
-  Nicolas De Jaeghere, Nicolas Semrau, Olaf Meeuwissen, Oliver Epper,
-  Pablo Stafforini, Paul Poloskov, Pengji Zhang, Pete Kazmier, Peter
-  Wu, Philip Kaludercic, Pierre Téchoueyres, Pranshu Sharma,
-  Przemysław Kryger, Robert Hepple, Roman Rudakov, Roshan Shariff,
-  Russell Sim, Ryan Phillips, Rytis Paškauskas, Rudolf Adamkovič, Sam
-  Kleinman, Samuel Culpepper, Saša Janiška, Shreyas Ragavan, Simon
-  Pugnet, Stéphane Marks, Steve Downey, Tassilo Horn, Thanos Apollo,
-  Thibaut Verron, Thomas Heartman, Togan Muftuoglu, Tony Zorman, Trey
-  Merkley, Tomasz Hołubowicz, Toon Claes, Troy Brown, Uri Sharf,
-  Utkarsh Singh, Vincent Foley, Yuta Yamamoto, Zoltan Kiraly. As well
-  as users: Ben, CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux,
-  Fredrik, Moesasji, Nick, Summer Emacs, TheBlob42, TitusMu, Trey,
-  aikrahguzar, amano-kenji, baconabo, bangedorrunt, bepolymathe,
-  bit9tream, case-lambda, chainedghost, derek-upham, doolio,
-  fleimgruber, gitrj95, iSeeU, jixiuf, ltmsyvag, okamsn,
+  Lasse Lindner, Len Trigg, Lennart C.{{{space()}}} Karssen, Lucas
+  Jimenez, Luis Miguel Castañeda, Magne Hov, Manuel Giraud, Manuel
+  Uberti, Mark Bestley, Mark Burton, Mark Simpson, Marko Kocic, Markus
+  Beppler, Matt Armstrong, Matthias Fuchs, Mattias Engdegård, Mauro
+  Aranda, Maxime Tréca, Michael Goldenberg, Mike Crowe, Morgan Smith,
+  Morgan Willcock, Morten Kjeldgaard, Murilo Pereira, Nicky van
+  Foreest, Nicolas De Jaeghere, Nicolas Semrau, Olaf Meeuwissen,
+  Oliver Epper, Pablo Stafforini, Paul Poloskov, Pengji Zhang, Pete
+  Kazmier, Peter Wu, Philip Kaludercic, Pierre Téchoueyres, Pranshu
+  Sharma, Przemysław Kryger, Robert Hepple, Roman Rudakov, Roshan
+  Shariff, Russell Sim, Ryan Phillips, Rytis Paškauskas, Rudolf
+  Adamkovič, Sam Kleinman, Samuel Culpepper, Saša Janiška, Shreyas
+  Ragavan, Simon Pugnet, Stéphane Marks, Steve Downey, Tassilo Horn,
+  Thanos Apollo, Thibaut Verron, Thomas Heartman, Togan Muftuoglu,
+  Tony Zorman, Trey Merkley, Tomasz Hołubowicz, Toon Claes, Troy
+  Brown, Uri Sharf, Utkarsh Singh, Vincent Foley, Yuta Yamamoto,
+  Zoltan Kiraly. As well as users: Ben, CsBigDataHub1, Emacs Contrib,
+  Eugene, Fourchaux, Fredrik, Moesasji, Nick, Summer Emacs, TheBlob42,
+  TitusMu, Trey, aikrahguzar, amano-kenji, baconabo, bangedorrunt,
+  bepolymathe, bit9tream, case-lambda, chainedghost, derek-upham,
+  doolio, fleimgruber, gitrj95, iSeeU, jixiuf, ltmsyvag, okamsn,
   pedro-nonfree, pRot0ta1p, realazy, shimeike, shipmints, soaringbird,
   tumashu, vpxyz, wakamenod.
 

@@ -3866,6 +3866,7 @@ Else return (append OVERRIDES USER CORE)."
                                       user-palette-name
                                       (boundp user-palette-name))
                              (symbol-value user-palette-name)))
+             (all-user-defined (append user-palette modus-themes-common-palette-user))
              (overrides-palette-name (plist-get properties :modus-overrides-palette))
              (overrides-palette (when (and with-overrides
                                            overrides-palette-name
@@ -3873,7 +3874,7 @@ Else return (append OVERRIDES USER CORE)."
                                   (symbol-value overrides-palette-name)))
              (all-overrides (when with-overrides
                               (append overrides-palette modus-themes-common-palette-overrides))))
-        (append all-overrides user-palette core-palette)))))
+        (append all-overrides all-user-defined core-palette)))))
 
 (defun modus-themes-get-theme-palette (&optional theme with-overrides with-user-palette)
   "Return palette value of active `modus-themes-get-themes' THEME.
