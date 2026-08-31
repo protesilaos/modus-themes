@@ -179,20 +179,26 @@ This behaves in accordance with `modus-themes-italic-constructs'."
 This is intended to be inherited by faces that should not retain
 properties from their context (e.g. an overlay over an underlined
 text should not be underlined as well) yet still blend in."
+  :package-version '(modus-themes . "5.4.0")
+  :version "32.1"
   :group 'modus-themes-faces)
 
 (defface modus-themes-button nil
   "Face for graphical buttons."
+  :package-version '(modus-themes . "5.4.0")
+  :version "32.1"
   :group 'modus-themes-faces)
 
 (defface modus-themes-prompt nil
   "Prompts like in the minibuffer and the shell."
   :package-version '(modus-themes . "5.4.0")
+  :version "32.1"
   :group 'modus-themes-faces)
 
 (defface modus-themes-completion-selected nil
   "Face for completion selected candidate."
   :package-version '(modus-themes . "5.4.0")
+  :version "32.1"
   :group 'modus-themes-faces)
 
 (dotimes (n 4)
@@ -200,6 +206,7 @@ text should not be underlined as well) yet still blend in."
    (intern (format "modus-themes-completion-match-%d" n))
    nil (format "Face for completion matches %d." n)
    :package-version '(modus-themes . "5.4.0")
+   :version "32.1"
    :group 'modus-themes-faces))
 
 (dolist (suffix '(current lazy replace static))
@@ -207,6 +214,7 @@ text should not be underlined as well) yet still blend in."
    (intern (format "modus-themes-search-%s" suffix))
    nil (format "Face for %s search matches." suffix)
    :package-version '(modus-themes . "5.4.0")
+   :version "32.1"
    :group 'modus-themes-faces))
 
 (dotimes (n 4)
@@ -214,6 +222,7 @@ text should not be underlined as well) yet still blend in."
    (intern (format "modus-themes-search-rx-group-%d" n))
    nil (format "Face for regexp group %d." n)
    :package-version '(modus-themes . "5.4.0")
+   :version "32.1"
    :group 'modus-themes-faces))
 
 (define-obsolete-face-alias 'modus-themes-mark-alt 'modus-themes-mark-other "5.4.0")
@@ -225,6 +234,7 @@ text should not be underlined as well) yet still blend in."
    (intern (format "modus-themes-mark-%s" suffix))
    nil (format "Face for %s marks." suffix)
    :package-version '(modus-themes . "5.4.0")
+   :version "32.1"
    :group 'modus-themes-faces))
 
 
