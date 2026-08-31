@@ -4902,7 +4902,7 @@ If COLOR is unspecified, then return :box unspecified."
     ;; `completion-preview', then we should remember to customize
     ;; `completion-preview-adapt-background-color' accordingly.
     `(completion-preview-common ((,c :inherit completion-preview :underline t)))
-    `(completion-preview-exact ((,c :inherit (modus-themes-completion-match-0 completion-preview))))
+    `(completion-preview-exact ((,c :inherit (modus-themes-completion-match-0 completion-preview) :underline t)))
 ;;;;; completions
     `(completions-annotations ((,c :inherit modus-themes-slant :foreground ,docstring)))
     `(completions-common-part ((,c :inherit modus-themes-completion-match-0)))
