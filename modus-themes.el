@@ -4852,7 +4852,12 @@ If COLOR is unspecified, then return :box unspecified."
     `(change-log-list ((,c :inherit modus-themes-bold)))
     `(change-log-name ((,c :foreground ,name)))
     `(log-edit-header ((,c :inherit modus-themes-bold)))
-    `(log-edit-headers-separator ((,c :height 1 :background ,border :extend t)))
+    `(log-edit-headers-separator
+      ((default :extend t)
+       (((type tty))
+        :foreground ,border :strike-through t)
+       (t
+        :height 1 :background ,border :foreground ,border)))
     `(log-edit-summary ((,c :inherit modus-themes-bold :foreground ,info)))
     `(log-edit-unknown-header ((,c :foreground ,fg-dim)))
     `(log-view-commit-body (( )))
