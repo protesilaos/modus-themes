@@ -4614,7 +4614,12 @@ If COLOR is unspecified, then return :box unspecified."
     `(rectangle-preview ((,c :background ,bg-active :foreground ,fg-main)))
     `(region ((,c :background ,bg-region :foreground ,fg-region)))
     `(secondary-selection ((,c :background ,bg-hover-secondary :foreground ,fg-main)))
-    `(separator-line ((,c :underline ,bg-active)))
+    `(separator-line
+      ((default :extend t)
+       (((type tty))
+        :foreground ,border :strike-through t)
+       (t
+        :height 1 :background ,border :foreground ,border)))
     `(shadow ((,c :foreground ,fg-dim)))
     `(success ((,c :inherit modus-themes-bold :foreground ,info)))
     `(trailing-whitespace ((,c :background ,bg-space-err)))

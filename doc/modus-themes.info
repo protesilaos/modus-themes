@@ -6626,19 +6626,19 @@ Ideas and user feedback
      Rellermeyer, Burgess Chang, Charlotte Van Petegem, Christian
      Tietze, Christopher Dimech, Christopher League, Damien Cassou,
      Daniel Mendler, Dario Gjorgjevski, David Edmondson, Davor Rotim,
-     Divan Santana, Dominik Schrempf, Eliraz Kedmi, Emanuele Michele
-     Alberto Monterosso, Eshel Yaron, Farasha Euker, Feng Shu, Filippo
-     Argiolas, Gaston Cabotin, Gautier Ponsinet, Gerry Agbobada,
-     Gianluca Recchia, Gonçalo Marrafa, Guilherme Semente, Gustavo
-     Barros, Hörmetjan Yiltiz, Ilja Kocken, Imran Khan, Iris Garcia,
-     Ivan Popovych, Jabir Ali Ouassou, James Ferguson, JD Smith, Jeremy
-     Friesen, Jerry Zhang, Johannes Grødem, John Haman, John Sullivan,
-     John Wick, Jonas Collberg, Jorge Morais, Joshua O'Connor, Julio C.
-     Villasante, Kenta Usami, Kevin Fleming, Kévin Le Gouguec, Kevin
-     Kainan Li, Kostadin Ninev, Laith Bahodi, Lasse Lindner, Len Trigg,
-     Lennart C. Karssen, Lucas Jimenez, Luis Miguel Castañeda, Magne
-     Hov, Manuel Giraud, Manuel Uberti, Mark Bestley, Mark Burton, Mark
-     Simpson, Marko Kocic, Markus Beppler, Matt Armstrong, Matthias
+     Divan Santana, Dmitry Gutov, Dominik Schrempf, Eliraz Kedmi,
+     Emanuele Michele Alberto Monterosso, Eshel Yaron, Farasha Euker,
+     Feng Shu, Filippo Argiolas, Gaston Cabotin, Gautier Ponsinet, Gerry
+     Agbobada, Gianluca Recchia, Gonçalo Marrafa, Guilherme Semente,
+     Gustavo Barros, Hörmetjan Yiltiz, Ilja Kocken, Imran Khan, Iris
+     Garcia, Ivan Popovych, Jabir Ali Ouassou, James Ferguson, JD Smith,
+     Jeremy Friesen, Jerry Zhang, Johannes Grødem, John Haman, John
+     Sullivan, John Wick, Jonas Collberg, Jorge Morais, Joshua O'Connor,
+     Julio C.  Villasante, Kenta Usami, Kevin Fleming, Kévin Le Gouguec,
+     Kevin Kainan Li, Kostadin Ninev, Laith Bahodi, Lasse Lindner, Len
+     Trigg, Lennart C. Karssen, Lucas Jimenez, Luis Miguel Castañeda,
+     Magne Hov, Manuel Giraud, Manuel Uberti, Mark Bestley, Mark Burton,
+     Mark Simpson, Marko Kocic, Markus Beppler, Matt Armstrong, Matthias
      Fuchs, Mattias Engdegård, Mauro Aranda, Maxime Tréca, Michael
      Goldenberg, Mike Crowe, Morgan Smith, Morgan Willcock, Morten
      Kjeldgaard, Murilo Pereira, Nicky van Foreest, Nicolas De Jaeghere,
@@ -7506,11 +7506,11 @@ Node: Sources of the themes280883
 Node: Issues you can help with281624
 Node: Patches require copyright assignment to the FSF282946
 Node: Acknowledgements285160
-Node: GNU Free Documentation License290090
-Node: Indices315253
-Node: Function index315432
-Node: Variable index320041
-Node: Concept index324618
+Node: GNU Free Documentation License290105
+Node: Indices315268
+Node: Function index315447
+Node: Variable index320056
+Node: Concept index324633
 
 End Tag Table
 
