@@ -172,7 +172,8 @@ Also see `modus-themes-test--modus-themes--hex-to-rgb'."
                                   ;; ... or its parent is a valid face.
                                   (not (facep parent)))))
                        (face-list))))
-      (modus-themes-load-theme current-theme))))
+      (when current-theme
+        (modus-themes-load-theme current-theme)))))
 
 (mtt-define-test color-dark-p
   (let ((modus-operandi-sample-foregrounds
