@@ -4862,6 +4862,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(log-edit-unknown-header ((,c :foreground ,fg-dim)))
     `(log-view-commit-body (( )))
     `(log-view-file ((,c :inherit modus-themes-bold)))
+    `(log-view-marked ((,c :inherit modus-themes-mark-select)))
     `(log-view-message ((,c :foreground ,identifier)))
 ;;;;; cider
     `(cider-deprecated-face ((,c :foreground ,warning)))
