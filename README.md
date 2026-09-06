@@ -126,3 +126,4 @@ This is not an exhaustive list. You are welcome to add your project here.
   <https://github.com/vitallium/zed-modus-themes>.
 - `word-smith` by Sadsnake1 is a distraction-free writing for Obsidian
   that includes ports of the Modus themes: <https://github.com/Sadsnake1/word-smith>
+- `omarchy-modus-themes` by Dhavan Vaidya: <https://github.com/codingquark/omarchy-modus-themes>
