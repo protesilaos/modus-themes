@@ -90,7 +90,15 @@ The manual has a section about building on top of Modus. My
   (modus-themes-load-theme 'modus-operandi))
 ```
 
-## Emacs themes based on Modus
+## Links to other projects
+
+In this section I collect links to other themes built on top of Modus,
+have Modus as a dependency, or are porting Modus to some other
+platform. You are welcome to append your project to the relevant list.
+
+In linking to these projects, I am not endorsing anybody's views.
+
+### Emacs themes based on Modus
 
 This is not an exhaustive list. You are welcome to add your package
 here. Newer projects are at the bottom and are added as I am made
@@ -109,11 +117,11 @@ aware of them.
 - `modus-vague` by Ashish Panigrahi <https://github.com/paniash/modus-vague.git>
 - `peppers-theme` by Joar von Arndt <https://codeberg.org/joar/peppers-theme>
 
-## Other Emacs packages based on Modus
+### Other Emacs packages based on Modus
 
 - `modus-themes-exporter` by Protesilaos <https://github.com/protesilaos/modus-themes-exporter>
 
-## Projects inspired by the Modus themes
+### Projects inspired by the Modus themes
 
 This is not an exhaustive list. You are welcome to add your project here.
 
