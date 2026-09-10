@@ -412,8 +412,18 @@ This is a helper variable intended for internal use.")
 This is an alist that accepts a (KEY . LIST-OF-VALUES)
 combination.  The KEY is either a number, representing the
 heading's level (0-8) or t, which pertains to the fallback style.
+
 The named keys `agenda-date' and `agenda-structure' apply to the
 Org agenda.
+
+The named key `section-minibuffer' refers to the section headings in the
+minibuffer when completion candidates are sorted into groups, such as
+what various commands of the Consult package do as well as what the
+command `modus-themes-select' does.
+
+The named key `section-other' refers to any other heading that is
+conceptually not like the aforementioned.  This includes sections for
+diffs and files in the various Magit buffers.
 
 Level 0 is used for what counts as a document title or
 equivalent, such as the #+title construct we find in Org files.
@@ -472,6 +482,8 @@ In user configuration files the form may look like this:
                   (2 . (1.3))
                   (agenda-date . (1.3))
                   (agenda-structure . (variable-pitch light 1.8))
+                  (section-minibuffer . (variable-pitch light 0.9))
+                  (section-other . (regular 1.3))
                   (t . (1.1)))))
 
 When defining the styles per heading level, it is possible to
@@ -498,12 +510,16 @@ well as Info node `(modus-themes) Make headings more or less
 colorful'.  Else check `modus-themes-common-palette-overrides'
 and related user options."
   :group 'modus-themes
-  :package-version '(modus-themes . "4.0.0")
-  :version "30.1"
+  :package-version '(modus-themes . "5.4.0")
+  :version "32.1"
   :type `(alist
-          :options ,(mapcar (lambda (el)
-                              (list el modus-themes--headings-widget))
-                            '(0 1 2 3 4 5 6 7 8 t agenda-date agenda-structure))
+          :options ,(mapcar
+                     (lambda (element)
+                       (list element modus-themes--headings-widget))
+                     '( 0 1 2 3 4 5 6 7 8
+                        section-minibuffer section-other
+                        agenda-date agenda-structure
+                        t))
           :key-type symbol
           :value-type ,modus-themes--headings-widget)
   :link '(info-link "(modus-themes) Heading styles"))
@@ -4460,12 +4476,14 @@ list given LIST-PRED, using DEFAULT as a fallback."
       (when (memq elt modus-themes-weights)
         (throw 'found elt)))))
 
-(defun modus-themes--heading (level fg &optional bg ol)
+(defun modus-themes--heading (level fg &optional bg ol fallback-height)
   "Conditional styles for `modus-themes-headings'.
 
 LEVEL is the heading's position in their order.  FG is the
 default text color.  Optional BG is an appropriate background.
-Optional OL is the color of an overline."
+Optional OL is the color of an overline.
+
+Optional FALLBACK-HEIGHT is used if LEVEL does not define one."
   (let* ((key (alist-get level modus-themes-headings))
          (style (or key (alist-get t modus-themes-headings)))
          (style-listp (listp style))
@@ -4484,7 +4502,7 @@ Optional OL is the color of an overline."
           :foreground fg
           :overline (or ol 'unspecified)
           :height (if style-listp
-                      (modus-themes--property-lookup properties 'height #'floatp 'unspecified)
+                      (modus-themes--property-lookup properties 'height #'floatp (or fallback-height 'unspecified))
                     'unspecified)
           :weight (or weight 'unspecified))))
 
@@ -4927,7 +4945,7 @@ If COLOR is unspecified, then return :box unspecified."
 ;;;;; completions
     `(completions-annotations ((,c :inherit modus-themes-slant :foreground ,docstring)))
     `(completions-common-part ((,c :inherit modus-themes-completion-match-0)))
-    `(completions-group-title ((,c :inherit modus-themes-slant :foreground ,name :height 0.9)))
+    `(completions-group-title ((,c ,@(modus-themes--heading 'section-minibuffer fg-dim nil nil 0.9))))
     `(completions-group-separator ((,c :strike-through t :foreground ,border)))
     `(completions-first-difference ((,c :inherit modus-themes-completion-match-1)))
     `(completions-highlight ((,c :inherit modus-themes-completion-selected)))
@@ -5981,12 +5999,12 @@ If COLOR is unspecified, then return :box unspecified."
     `(magit-diff-base-indicator ((,c :background ,bg-changed-refine :foreground ,fg-changed)))
     `(magit-diff-context ((,c :foreground ,fg-dim)))
     `(magit-diff-context-highlight ((,c :background ,bg-diff-context)))
-    `(magit-diff-file-heading ((,c :inherit modus-themes-bold :foreground ,accent-0)))
-    `(magit-diff-file-heading-highlight ((,c :inherit modus-themes-bold :background ,bg-inactive :foreground ,accent-0)))
-    `(magit-diff-file-heading-selection ((,c :inherit modus-themes-bold :background ,bg-hover-secondary)))
-    `(magit-diff-hunk-heading ((,c :background ,bg-inactive)))
-    `(magit-diff-hunk-heading-highlight ((,c :inherit modus-themes-bold :background ,bg-active)))
-    `(magit-diff-hunk-heading-selection ((,c :inherit modus-themes-bold :background ,bg-hover-secondary)))
+    `(magit-diff-file-heading ((,c ,@(modus-themes--heading 'section-other accent-0))))
+    `(magit-diff-file-heading-highlight ((,c :background ,bg-inactive)))
+    `(magit-diff-file-heading-selection ((,c :background ,bg-hover-secondary)))
+    `(magit-diff-hunk-heading ((,c ,@(modus-themes--heading 'section-other fg-main bg-inactive))))
+    `(magit-diff-hunk-heading-highlight ((,c :background ,bg-active)))
+    `(magit-diff-hunk-heading-selection ((,c :background ,bg-hover-secondary)))
     `(magit-diff-hunk-region ((,c :inherit modus-themes-bold)))
     `(magit-diff-lines-boundary ((,c :background ,fg-main)))
     `(magit-diff-lines-heading ((,c :background ,fg-dim :foreground ,bg-main)))
@@ -6024,7 +6042,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(magit-refname-pullreq ((,c :foreground ,fg-dim)))
     `(magit-refname-stash ((,c :foreground ,fg-dim)))
     `(magit-refname-wip ((,c :foreground ,fg-dim)))
-    `(magit-section-heading ((,c :inherit modus-themes-bold :foreground ,fg-alt)))
+    `(magit-section-heading ((,c ,@(modus-themes--heading 'section-other fg-alt))))
     `(magit-section-heading-selection ((,c :inherit modus-themes-bold :background ,bg-hover-secondary)))
     `(magit-section-highlight ((,c :background ,bg-dim)))
     `(magit-section-secondary-heading ((,c :inherit modus-themes-bold)))
@@ -7124,7 +7142,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(vc-up-to-date-state (( )))
 ;;;;; vertico
     `(vertico-current ((,c :inherit modus-themes-completion-selected)))
-    `(vertico-group-title ((,c :inherit modus-themes-slant :foreground ,name :height 0.9)))
+    `(vertico-group-title ((,c ,@(modus-themes--heading 'section-minibuffer fg-dim nil nil 0.9))))
     `(vertico-group-separator ((,c :strike-through t :foreground ,border)))
 ;;;;; vertico-quick
     `(vertico-quick1 ((,c :inherit bold :background ,bg-search-current :foreground ,fg-search-current)))

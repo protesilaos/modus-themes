@@ -590,8 +590,21 @@ Symbol: ~modus-themes-headings~ (=alist= type, multiple properties)
 
 This is an alist that accepts a =(KEY . LIST-OF-VALUES)= combination.
 The =KEY= is either a number, representing the heading's level (0
-through 8) or ~t~, which pertains to the fallback style.  The named
-keys =agenda-date= and =agenda-structure= apply to the Org agenda.
+through 8) or ~t~, which pertains to the fallback style.
+
+The named keys =agenda-date= and =agenda-structure= apply to the Org
+agenda.
+
+The named key =section-minibuffer= refers to the section headings in
+the minibuffer when completion candidates are sorted into groups, such
+as what various commands of the Consult package do as well as what the
+command ~modus-themes-select~ does. [ The =section-minibuffer= is part
+of {{{development-version}}}. ]
+
+The named key =section-other= refers to any other heading that is
+conceptually not like the aforementioned. This includes sections for
+diffs and files in the various Magit buffers. [ The =section-other= is
+part of {{{development-version}}}. ]
 
 Level 0 is a special heading: it is used for what counts as a document
 title or equivalent, such as the =#+title= construct I find in Org
