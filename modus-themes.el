@@ -7042,6 +7042,11 @@ If COLOR is unspecified, then return :box unspecified."
     (list 'transient-argument `((,c :inherit modus-themes-bold :background ,bg-active-argument :foreground ,fg-active-argument)))
     `(transient-disabled-suffix ((,c :inherit modus-themes-mark-delete)))
     `(transient-enabled-suffix ((,c :inherit modus-themes-mark-select)))
+    ;; NOTE 2026-09-11: I experimented with this:
+    ;;
+    ;;     `(transient-heading ,@(modus-themes--heading 'section-other fg-main))
+    ;;
+    ;; It is not viable because it can lead to misalignments.
     `(transient-heading ((,c :inherit bold :foreground ,fg-main)))
     `(transient-inactive-argument ((,c :foreground ,fg-dim)))
     `(transient-inactive-value ((,c :foreground ,fg-dim)))
