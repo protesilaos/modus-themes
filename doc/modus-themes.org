@@ -535,6 +535,13 @@ argument ({{{kbd(C-u)}}} by default), it will move from right to left.
 Possible values include all themes returned by the function
 ~modus-themes-get-themes~ ([[#h:86eb375b-9be4-43ce-879a-0686a524a63b][Build on top of the Modus themes]]).
 
+#+findex: modus-themes-rotate-dark
+#+findex: modus-themes-rotate-light
+Same principle for the commands ~modus-themes-rotate-dark~ and
+~modus-themes-rotate-light~ which will also skip any theme that is not
+part of the background mode they are targetting. [ These two commands
+are introduced as part of {{{development-version}}}. ]
+
 ** Option for font mixing
 :PROPERTIES:
 :ALT_TITLE: Mixed fonts

@@ -4141,6 +4141,26 @@ modify THEMES in the process."
     (message "Rotating to `%s'" theme)
     (modus-themes-load-theme theme)))
 
+;;;###autoload
+(defun modus-themes-rotate-dark (&optional reverse)
+  "Like `modus-themes-rotate' with optional REVERSE argument for dark themes only."
+  (declare (interactive-only t))
+  (interactive "P")
+  (if-let* ((themes (or modus-themes-to-rotate (modus-themes-get-themes)))
+            (dark-themes (modus-themes-filter-by-background-mode themes 'dark)))
+      (modus-themes-rotate dark-themes reverse)
+    (error "No dark themes found")))
+
+;;;###autoload
+(defun modus-themes-rotate-light (&optional reverse)
+  "Like `modus-themes-rotate' with optional REVERSE argument for light themes only."
+  (declare (interactive-only t))
+  (interactive "P")
+  (if-let* ((themes (or modus-themes-to-rotate (modus-themes-get-themes)))
+            (light-themes (modus-themes-filter-by-background-mode themes 'light)))
+      (modus-themes-rotate light-themes reverse)
+    (error "No light themes found")))
+
 ;;;;; Load a random theme
 
 (defun modus-themes-filter-by-background-mode (themes background-mode)
@@ -7603,9 +7623,10 @@ accordingly."
 ;;;; Let derivative themes create commands to load only their themes
 
 (defvar modus-themes-define-derivative-command-known-suffixes
-  '( toggle rotate select select-dark select-light
-     load-random load-random-dark load-random-light
-     list-colors list-colors-current)
+  '( toggle list-colors list-colors-current
+     rotate rotate-light rotate-dark
+     select select-dark select-light
+     load-random load-random-dark load-random-light)
   "Command suffixes accepted by `modus-themes-define-derivative-command'.")
 
 (defmacro modus-themes-define-derivative-command (family suffix)
