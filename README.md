@@ -135,3 +135,4 @@ This is not an exhaustive list. You are welcome to add your project here.
 - `word-smith` by Sadsnake1 is a distraction-free writing for Obsidian
   that includes ports of the Modus themes: <https://github.com/Sadsnake1/word-smith>
 - `omarchy-modus-themes` by Dhavan Vaidya: <https://github.com/codingquark/omarchy-modus-themes>
+- `modus-themes-vim` by ishan9299: <https://github.com/ishan9299/modus-theme-vim>.
