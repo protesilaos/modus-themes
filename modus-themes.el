@@ -4219,14 +4219,14 @@ Run `modus-themes-after-load-theme-hook' after loading a theme."
 
 ;;;###autoload
 (defun modus-themes-load-random-dark ()
-  "Load a random dark theme."
+  "Like `modus-themes-load-random' but only for dark themes."
   (declare (interactive-only t))
   (interactive)
   (modus-themes-load-random 'dark))
 
 ;;;###autoload
 (defun modus-themes-load-random-light ()
-  "Load a random light theme."
+  "Like `modus-themes-load-random' but only for light themes."
   (declare (interactive-only t))
   (interactive)
   (modus-themes-load-random 'light))
