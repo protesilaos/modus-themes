@@ -4023,7 +4023,7 @@ If TRANSFORM is non-nil, return THEME as-is."
         (capitalize (format "%s" background)))))))
 
 (defun modus-themes--display-sort (themes)
-  "Put the current theme before other THEMES for minibuffer completion."
+  "Sort THEMES by putting the current one before the rest."
   (let* ((current (modus-themes-get-current-theme))
          (current-theme-p (lambda (theme) (eq (intern-soft theme) current))))
     (nconc
