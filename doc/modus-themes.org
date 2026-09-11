@@ -609,9 +609,10 @@ command ~modus-themes-select~ does. [ The =section-minibuffer= is part
 of {{{development-version}}}. ]
 
 The named key =section-other= refers to any other heading that is
-conceptually not like the aforementioned. This includes sections for
-diffs and files in the various Magit buffers. [ The =section-other= is
-part of {{{development-version}}}. ]
+conceptually not like the aforementioned. This includes sections the
+path to the current Dired directory or any subdirectory that is
+inserted in that buffer, as well as diffs and files in the various
+Magit buffers. [ The =section-other= is part of {{{development-version}}}. ]
 
 The named key =commit-summary= refers to the first line of a commit
 message in version control systems, as used by VC and Magit. [ The

@@ -422,8 +422,10 @@ what various commands of the Consult package do as well as what the
 command `modus-themes-select' does.
 
 The named key `section-other' refers to any other heading that is
-conceptually not like the aforementioned.  This includes sections for
-diffs and files in the various Magit buffers.
+conceptually not like the aforementioned.  This includes sections the
+path to the current Dired directory or any subdirectory that is inserted
+in that buffer, as well as diffs and files in the various Magit
+buffers.
 
 The named key `commit-summary' refers to the first line of a commit
 message in version control systems, as used by VC and Magit.
@@ -5128,7 +5130,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(dired-broken-symlink ((,c :foreground ,err :underline t)))
     `(dired-directory ((,c :foreground ,accent-0)))
     `(dired-flagged ((,c :inherit modus-themes-mark-delete)))
-    `(dired-header ((,c :inherit modus-themes-bold)))
+    `(dired-header ((,c ,@(modus-themes--heading 'section-other fg-main))))
     `(dired-ignored ((,c :foreground ,fg-dim)))
     `(dired-mark ((,c :inherit modus-themes-bold)))
     `(dired-marked ((,c :inherit modus-themes-mark-select)))
@@ -5164,7 +5166,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(diredfl-date-time ((,c :foreground ,date-common)))
     `(diredfl-deletion ((,c :inherit modus-themes-mark-delete)))
     `(diredfl-deletion-file-name ((,c :inherit modus-themes-mark-delete)))
-    `(diredfl-dir-heading ((,c :inherit modus-themes-bold)))
+    `(diredfl-dir-heading ((,c ,@(modus-themes--heading 'section-other fg-main))))
     `(diredfl-dir-name ((,c :foreground ,accent-0)))
     `(diredfl-dir-priv ((,c :foreground ,accent-0)))
     `(diredfl-exec-priv ((,c :foreground ,accent-1)))
