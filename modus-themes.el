@@ -425,6 +425,9 @@ The named key `section-other' refers to any other heading that is
 conceptually not like the aforementioned.  This includes sections for
 diffs and files in the various Magit buffers.
 
+The named key `commit-summary' refers to the first line of a commit
+message in version control systems, as used by VC and Magit.
+
 Level 0 is used for what counts as a document title or
 equivalent, such as the #+title construct we find in Org files.
 Levels 1-8 are regular headings.
@@ -439,6 +442,9 @@ available properties:
                   (2 . (1.3))
                   (agenda-date . (1.3))
                   (agenda-structure . (variable-pitch light 1.8))
+                  (section-minibuffer . (variable-pitch light 0.9))
+                  (section-other . (regular 1.3))
+                  (commit-summary . (bold 1.1))
                   (t . (1.1)))))
 
 By default (a nil value for this variable), all headings have a
@@ -484,6 +490,7 @@ In user configuration files the form may look like this:
                   (agenda-structure . (variable-pitch light 1.8))
                   (section-minibuffer . (variable-pitch light 0.9))
                   (section-other . (regular 1.3))
+                  (commit-summary . (bold 1.1))
                   (t . (1.1)))))
 
 When defining the styles per heading level, it is possible to
@@ -519,6 +526,7 @@ and related user options."
                      '( 0 1 2 3 4 5 6 7 8
                         section-minibuffer section-other
                         agenda-date agenda-structure
+                        commit-summary
                         t))
           :key-type symbol
           :value-type ,modus-themes--headings-widget)
@@ -4895,7 +4903,7 @@ If COLOR is unspecified, then return :box unspecified."
         :foreground ,border :strike-through t)
        (t
         :height 1 :background ,border :foreground ,border)))
-    `(log-edit-summary ((,c :inherit modus-themes-bold :foreground ,info)))
+    `(log-edit-summary ((,c ,@(modus-themes--heading 'commit-summary info))))
     `(log-edit-unknown-header ((,c :foreground ,fg-dim)))
     `(log-view-commit-body (( )))
     `(log-view-file ((,c :inherit modus-themes-bold)))
@@ -5560,8 +5568,8 @@ If COLOR is unspecified, then return :box unspecified."
     `(git-commit-comment-file ((,c :inherit modus-themes-slant :foreground ,accent-2))) ; like `magit-filename'
     `(git-commit-keyword ((,c :foreground ,keyword)))
     `(git-commit-nonempty-second-line ((,c :foreground ,err)))
-    `(git-commit-overlong-summary ((,c :foreground ,warning)))
-    `(git-commit-summary ((,c :inherit modus-themes-bold :foreground ,info)))
+    `(git-commit-overlong-summary ((,c :inherit git-commit-summary :foreground ,warning)))
+    `(git-commit-summary ((,c ,@(modus-themes--heading 'commit-summary info))))
 ;;;;; git-gutter
     `(git-gutter:added ((,c :background ,bg-added-fringe)))
     `(git-gutter:deleted ((,c :background ,bg-removed-fringe)))

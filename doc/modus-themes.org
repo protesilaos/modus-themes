@@ -613,6 +613,10 @@ conceptually not like the aforementioned. This includes sections for
 diffs and files in the various Magit buffers. [ The =section-other= is
 part of {{{development-version}}}. ]
 
+The named key =commit-summary= refers to the first line of a commit
+message in version control systems, as used by VC and Magit. [ The
+=commit-summary= is part of {{{development-version}}}. ]
+
 Level 0 is a special heading: it is used for what counts as a document
 title or equivalent, such as the =#+title= construct I find in Org
 files.  Levels 1-8 are regular headings.
@@ -627,6 +631,9 @@ combinations, followed by a presentation of all available properties:
         (2 . (1.3))
         (agenda-date . (1.3))
         (agenda-structure . (variable-pitch light 1.8))
+        (section-minibuffer . (variable-pitch light 0.9))
+        (section-other . (regular 1.3))
+        (commit-summary . (bold 1.1))
         (t . (1.1))))
 #+end_src
 
@@ -697,14 +704,9 @@ original aesthetic for that level.  For example:
 
 #+begin_src emacs-lisp
 (setq modus-themes-headings
-      '((1 . t)           ; keep the default style
+      '((1 . t) ; keep the default style for this level
         (2 . (semibold 1.2))
-        (t . (rainbow)))) ; style for all other headings
-
-(setq modus-themes-headings
-      '((1 . (variable-pitch 1.5))
-        (2 . (semibold))
-        (t . t))) ; default style for all other levels
+        (t . t))) ; default style for all other headings
 #+end_src
 
 Note that the text color of headings, of their background, and
