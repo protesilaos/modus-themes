@@ -4001,14 +4001,13 @@ symbol, which is safe when used as a face attribute's value."
   "Minibuffer history of `modus-themes-select-prompt'.")
 
 (defun modus-themes--annotate-theme (theme)
-  "Return description of THEME ."
+  "Return THEME description."
   (when-let* ((symbol (intern-soft theme))
               (properties (get symbol 'theme-properties))
-              (doc-string (or (get symbol 'theme-documentation)
-                              (plist-get properties :modus-documentation))))
-    (format " %s"
-            (propertize (concat "-- " (car (split-string doc-string "\\.")))
-                        'face 'completions-annotations))))
+              (doc-string (or (get symbol 'theme-documentation) (plist-get properties :modus-documentation)))
+              (doc-no-newlines (replace-regexp-in-string "\n" " " doc-string))
+              (doc-first-line (replace-regexp-in-string "\\(.*?\\)\\.\\(.*\\)" "\\1" doc-no-newlines)))
+    (propertize (format " -- %s" doc-first-line) 'face 'completions-annotations)))
 
 (defun modus-themes--group-themes (theme transform)
   "Group THEME by its background for minibuffer completion.
