@@ -5060,6 +5060,7 @@ have lots of extensions, so the "full support" may not be 100% true…
 + prescient
 + proced
 + prodigy
++ proof-general [ Part of {{{development-version}}}. ]
 + pulsar
 + pulse
 + pyim
