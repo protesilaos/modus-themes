@@ -3947,8 +3947,8 @@ Run the `modus-themes-after-load-theme-hook' as the final step
 after loading the THEME.  If HOOK, then call that instead.
 
 Return THEME."
-  (load-theme theme :no-confirm)
   (modus-themes--disable-themes (remq theme (modus-themes--get-color-schemes)))
+  (load-theme theme :no-confirm)
   (run-hooks (or hook 'modus-themes-after-load-theme-hook))
   theme)
 

@@ -6458,10 +6458,10 @@ The Modus themes are a collective effort.  Every bit of work matters.
   CsBigDataHub1, Emacs Contrib, Eugene, Fourchaux, Fredrik, Moesasji,
   Nick, Summer Emacs, TheBlob42, TitusMu, Trey, aikrahguzar,
   amano-kenji, baconabo, bangedorrunt, bepolymathe, bit9tream,
-  case-lambda, chainedghost, derek-upham, doolio, fleimgruber,
-  gitrj95, iSeeU, jixiuf, ltmsyvag, okamsn, pedro-nonfree, pRot0ta1p,
-  realazy, shimeike, shipmints, soaringbird, tumashu, vpxyz,
-  wakamenod.
+  case-lambda, catweazle9, chainedghost, derek-upham, doolio,
+  fleimgruber, gitrj95, iSeeU, jixiuf, ltmsyvag, okamsn,
+  pedro-nonfree, pRot0ta1p, realazy, shimeike, shipmints, soaringbird,
+  tumashu, vpxyz, wakamenod.
 
 + Packaging :: Basil L.{{{space()}}} Contovounesios, Eli Zaretskii,
   Glenn Morris, Mauro Aranda, Richard Stallman, Stefan Kangas (core
