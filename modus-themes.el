@@ -5280,7 +5280,7 @@ If COLOR is unspecified, then return :box unspecified."
     `(elfeed-search-date-face ((,c :foreground ,date-common)))
     `(elfeed-search-feed-face ((,c :foreground ,accent-1)))
     `(elfeed-search-filter-face ((,c :inherit modus-themes-bold)))
-    `(elfeed-search-marked-face ((,c :background ,bg-search-lazy :foreground ,fringe :weight bold)))
+    `(elfeed-search-marked-face ((,c :inherit modus-themes-mark-select)))
     `(elfeed-search-last-update-face ((,c :inherit modus-themes-bold :foreground ,date-common)))
     `(elfeed-search-separator-face ((,c :inherit modus-themes-bold :foreground ,date-common :underline t)))
     `(elfeed-search-tag-face ((,c :foreground ,accent-0)))
