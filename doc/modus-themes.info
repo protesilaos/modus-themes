@@ -6622,11 +6622,11 @@ Author/maintainer
      Protesilaos.
 
 Contributions to code or documentation
-     Aleksei Gusev, Alex Griffin, Anders Johansson, Antonio Ruiz, Basil
-     L. Contovounesios, Behnam Khanbeigi, Benjamin Kästner, Björn
-     Lindström, Carlo Zancanaro, Christian Tietze, Daniel Colascione,
-     Daniel Mendler, David Edmondson, Eli Zaretskii, Elias Gabriel
-     Perez, Eric Ottosson, Frédéric Giquel, Fritz Grabo, Gautier
+     Aleksei Gusev, Alex Griffin, Anders Johansson, Antonio Ruiz, Ashish
+     Panigrahi, Basil L. Contovounesios, Behnam Khanbeigi, Benjamin
+     Kästner, Björn Lindström, Carlo Zancanaro, Christian Tietze, Daniel
+     Colascione, Daniel Mendler, David Edmondson, Eli Zaretskii, Elias
+     Gabriel Perez, Eric Ottosson, Frédéric Giquel, Fritz Grabo, Gautier
      Ponsinet, Heitor Augusto, Illia Ostapyshyn, Jacob S. Gordon, Jared
      Finder, JD Smith, Jimmy Yuen Ho Wong, Kevin Fleming, Kévin Le
      Gouguec, Koen van Greevenbroek, Kostadin Ninev, Leilei332, Madhavan
@@ -7533,11 +7533,11 @@ Node: Sources of the themes282027
 Node: Issues you can help with282768
 Node: Patches require copyright assignment to the FSF284090
 Node: Acknowledgements286304
-Node: GNU Free Documentation License291284
-Node: Indices316447
-Node: Function index316626
-Node: Variable index321533
-Node: Concept index326110
+Node: GNU Free Documentation License291302
+Node: Indices316465
+Node: Function index316644
+Node: Variable index321551
+Node: Concept index326128
 
 End Tag Table
 
