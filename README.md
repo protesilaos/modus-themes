@@ -116,6 +116,8 @@ aware of them.
 - `modus-alabaster` by Derek Passen <https://github.com/dpassen/modus-alabaster>
 - `modus-vague` by Ashish Panigrahi <https://github.com/paniash/modus-vague.git>
 - `peppers-theme` by Joar von Arndt <https://codeberg.org/joar/peppers-theme>
+- `foxglove-themes` by Vegas Harmon <https://gitlab.com/vegasharmon/foxglove-themes>
+- `au-themes` by Szymon Wilczek <https://github.com/szymonwilczek/au-themes>
 
 ### Other Emacs packages based on Modus
 
