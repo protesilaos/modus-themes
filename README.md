@@ -58,16 +58,16 @@ The manual has a section about building on top of Modus. My
   ;; themes have the `standard-themes-take-over-modus-themes-mode'
   ;; equivalent).
   ;;
-  ;; If you only care about the Modus themes, then (i) you do not need
-  ;; to enable the `modus-themes-include-derivatives-mode' and (ii) do
-  ;; not install and activate those other theme packages.
+  ;; If you only care about the Modus themes, then
+  ;; 1. you do not need to enable the `modus-themes-include-derivatives-mode'
+  ;; 2. do not install and activate those other theme packages.
   (modus-themes-include-derivatives-mode 1)
   :bind
   (("<f5>" . modus-themes-rotate)
    ("C-<f5>" . modus-themes-select)
    ("M-<f5>" . modus-themes-load-random))
   :config
-  ;; Your customizations here.  All customizations must evaluated
+  ;; Your customizations here.  All customizations must be evaluated
   ;; BEFORE loading the theme.
   (setq modus-themes-to-toggle '(modus-operandi modus-vivendi)
         modus-themes-to-rotate modus-themes-items
